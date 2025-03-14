@@ -1,0 +1,15 @@
+{
+  "name": "reactiac",
+  "version": "0.0.1",
+  "description": "a React DX with programable diagrams for any IaC",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r dev",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r clean"
+  },
+  "keywords": ["React","Architecture", "Diagrams", "iac","OpenTufu","Terraform","Draw.io"],
+  "author": "Guo Du",
+  "license": "BSL-1.1",
+  "packageManager": "pnpm@10.6.3"
+}

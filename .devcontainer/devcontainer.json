@@ -1,0 +1,19 @@
+{
+  "name": "reactiac",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "../"
+  },
+  "postCreateCommand": "rm -rf node_modules packages/*/node_modules && pnpm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "github.vscode-github-actions",
+        "Orta.vscode-jest",
+        "biomejs.biome",
+        "reduckted.vscode-gitweblinks"
+      ]
+    }
+  }
+}

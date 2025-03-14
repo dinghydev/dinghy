@@ -1,0 +1,15 @@
+FROM node:22.14.0-bookworm-slim
+
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+    git \
+    curl \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install pnpm
+RUN npm install -g pnpm@10.6.3
+
+
+# Set default shell to bash
+SHELL ["/bin/bash", "-c"] 

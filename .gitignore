@@ -1,0 +1,45 @@
+# Dependencies
+**/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+**/coverage
+
+# Production
+**/build
+**/dist
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Misc
+.DS_Store
+tmp*
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IDE - JetBrains
+.idea/
+*.iml
+*.iws
+
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# pnpm specific
+.pnpm-debug.log*
+.pnpm-store/

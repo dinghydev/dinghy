@@ -1,0 +1,6 @@
+packages:
+  # - 'packages/core'
+  # - 'packages/renderer-drawio'
+  # - 'packages/renderer-tf'
+  # - 'packages/renderer-json' 
+  - 'packages/cli'
