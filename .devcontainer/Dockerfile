@@ -5,6 +5,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     git \
     curl \
     vim \
+    openssh-client \
     ca-certificates \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*

@@ -5,6 +5,11 @@
     "context": "../"
   },
   "postStartCommand": "pnpm install --ignore-scripts --offline --frozen-lockfile",
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+    "source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind",
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
+  ],
   "customizations": {
     "vscode": {
       "extensions": [
