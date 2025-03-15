@@ -39,7 +39,3 @@ tmp*
 
 # Output of 'npm pack'
 *.tgz
-
-# pnpm specific
-.pnpm-debug.log*
-.pnpm-store/

@@ -6,7 +6,7 @@
     "build": "pnpm -r build",
     "dev": "pnpm -r dev",
     "test": "pnpm -r test",
-    "clean": "pnpm -r clean"
+    "clean": "rm -rf node_modules */*/node_modules  */*/dist"
   },
   "keywords": [
     "React",
@@ -19,8 +19,5 @@
   ],
   "author": "Guo Du",
   "license": "BSL-1.1",
-  "packageManager": "pnpm@10.6.3",
-  "devDependencies": {
-    "@types/mocha": "^10"
-  }
+  "packageManager": "pnpm@10.6.3"
 }

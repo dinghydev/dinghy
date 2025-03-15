@@ -10,8 +10,15 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm
-RUN npm install -g pnpm@10.6.3
+RUN npm install -g pnpm@10.6.3 \
+    && mkdir -p /pnpm-store /workspaces
 
+COPY . /workspaces
+
+RUN cd /workspaces \
+    && pnpm install --frozen-lockfile --store-dir /pnpm-store \
+    && rm -rf /workspaces
+    
 
 # Set default shell to bash
 SHELL ["/bin/bash", "-c"] 
