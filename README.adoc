@@ -1,0 +1,12 @@
+
+
+= Commands
+
+    git init --initial-branch=main
+
+    pnpm install -g oclif
+    oclif generate mynewcli
+
+    pnpm --filter reactiac-cli dev hello world
+    pnpm --filter reactiac-cli cli hello world
+

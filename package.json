@@ -8,8 +8,19 @@
     "test": "pnpm -r test",
     "clean": "pnpm -r clean"
   },
-  "keywords": ["React","Architecture", "Diagrams", "iac","OpenTufu","Terraform","Draw.io"],
+  "keywords": [
+    "React",
+    "Architecture",
+    "Diagrams",
+    "iac",
+    "OpenTufu",
+    "Terraform",
+    "Draw.io"
+  ],
   "author": "Guo Du",
   "license": "BSL-1.1",
-  "packageManager": "pnpm@10.6.3"
+  "packageManager": "pnpm@10.6.3",
+  "devDependencies": {
+    "@types/mocha": "^10"
+  }
 }
