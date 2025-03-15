@@ -11,12 +11,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 # Install pnpm
 RUN npm install -g pnpm@10.6.3 \
-    && mkdir -p /pnpm-store /workspaces
+    && mkdir -p /pnpm-store /workspaces \
+    && SHELL=bash pnpm setup \
+    && pnpm config set store-dir /pnpm-store --global
 
 COPY . /workspaces
 
 RUN cd /workspaces \
-    && pnpm install --frozen-lockfile --store-dir /pnpm-store \
+    && pnpm install --frozen-lockfile \
     && rm -rf /workspaces
     
 

@@ -6,7 +6,8 @@
     "build": "pnpm -r build",
     "dev": "pnpm -r dev",
     "test": "pnpm -r test",
-    "clean": "rm -rf node_modules */*/node_modules  */*/dist"
+    "install": "pnpm install --ignore-scripts",
+    "clean": "rm -rf node_modules */*/node_modules  */*/dist */*/tsconfig.tsbuildinfo */*/*.tgz"
   },
   "keywords": [
     "React",
