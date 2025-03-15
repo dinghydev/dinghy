@@ -1,7 +1,7 @@
 {
   "name": "@reactiac/cli",
   "description": "A new CLI generated with oclif",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Guo Du",
   "bin": {
     "reactiac": "./bin/run.js"

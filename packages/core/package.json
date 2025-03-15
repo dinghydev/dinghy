@@ -1,6 +1,6 @@
 {
   "name": "@reactiac/core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Core functionality for Reactiac",
   "type": "module",
   "main": "dist/index.js",

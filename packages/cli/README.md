@@ -20,7 +20,7 @@ $ npm install -g @reactiac/cli
 $ reactiac COMMAND
 running command...
 $ reactiac (--version)
-@reactiac/cli/0.0.0 linux-arm64 node-v22.14.0
+@reactiac/cli/0.0.1 linux-arm64 node-v22.14.0
 $ reactiac --help [COMMAND]
 USAGE
   $ reactiac COMMAND
@@ -71,7 +71,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/hello/index.ts)_
 
 ## `reactiac hello world`
 
@@ -89,7 +89,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/hello/world.ts)_
 
 ## `reactiac help [COMMAND]`
 
@@ -423,7 +423,7 @@ EXAMPLES
   $ reactiac tf apply
 ```
 
-_See code: [src/commands/tf/apply.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/apply.ts)_
+_See code: [src/commands/tf/apply.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/apply.ts)_
 
 ## `reactiac tf gen [FILE]`
 
@@ -475,7 +475,7 @@ EXAMPLES
   $ reactiac tf generate
 ```
 
-_See code: [src/commands/tf/generate.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/generate.ts)_
+_See code: [src/commands/tf/generate.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/generate.ts)_
 
 ## `reactiac tf gip [FILE]`
 
@@ -499,7 +499,7 @@ EXAMPLES
   $ reactiac tf gip
 ```
 
-_See code: [src/commands/tf/gip.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/gip.ts)_
+_See code: [src/commands/tf/gip.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/gip.ts)_
 
 ## `reactiac tf init [FILE]`
 
@@ -523,7 +523,7 @@ EXAMPLES
   $ reactiac tf init
 ```
 
-_See code: [src/commands/tf/init.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/init.ts)_
+_See code: [src/commands/tf/init.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/init.ts)_
 
 ## `reactiac tf plan [FILE]`
 
@@ -547,5 +547,5 @@ EXAMPLES
   $ reactiac tf plan
 ```
 
-_See code: [src/commands/tf/plan.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/plan.ts)_
+_See code: [src/commands/tf/plan.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/plan.ts)_
 <!-- commandsstop -->
