@@ -10,3 +10,10 @@
     pnpm --filter reactiac-cli dev hello world
     pnpm --filter reactiac-cli cli hello world
 
+
+
+= Release management Commands
+
+    pnpm aws-login
+    pnpm -r publish --no-git-checks --force
+

@@ -1,14 +1,17 @@
 {
-  "name": "reactiac",
+  "name": "@reactiac/root",
   "version": "0.0.1",
   "description": "a React DX with programable diagrams for any IaC",
   "scripts": {
     "build": "pnpm -r build",
     "dev": "pnpm -r dev",
     "test": "pnpm -r test",
-    "install": "pnpm install --ignore-scripts",
+    "aws-login": "aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner 313225491971 --region eu-west-1",
     "clean": "rm -rf node_modules */*/node_modules  */*/dist */*/tsconfig.tsbuildinfo */*/*.tgz"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "React",
     "Architecture",

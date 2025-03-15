@@ -10,6 +10,9 @@
     "source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind",
     "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
   ],
+  "containerEnv": {
+    "NODE_COMPILE_CACHE": "/pnpm-store"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
