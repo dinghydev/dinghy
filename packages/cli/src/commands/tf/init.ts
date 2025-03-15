@@ -1,5 +1,7 @@
 import {Args, Command, Flags} from '@oclif/core'
 
+import {getVersion} from '@reactiac/core'
+
 export default class TfInit extends Command {
   static override args = {
     file: Args.string({description: 'file to read'}),
@@ -19,7 +21,7 @@ export default class TfInit extends Command {
     const {args, flags} = await this.parse(TfInit)
 
     const name = flags.name ?? 'world'
-    this.log(`hello ${name} from /workspaces/reactiac/packages/cli/src/commands/tf/init.ts`)
+    this.log(`hello ${name} ${getVersion()} from /workspaces/reactiac/packages/cli/src/commands/tf/init.ts`)
     if (args.file && flags.force) {
       this.log(`you input --force and --file: ${args.file}`)
     }

@@ -1,0 +1,25 @@
+{
+  "name": "@reactiac/core",
+  "version": "0.0.0",
+  "description": "Core functionality for Reactiac",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "shx rm -rf dist",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "^5",
+    "shx": "^0.3.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "license": "BSL-1.1"
+} 

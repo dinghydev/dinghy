@@ -16,40 +16,46 @@ A new CLI generated with oclif
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g mynewcli
-$ mynewcli COMMAND
+$ npm install -g @reactiac/cli
+$ reactiac COMMAND
 running command...
-$ mynewcli (--version)
-mynewcli/0.0.0 darwin-arm64 node-v20.10.0
-$ mynewcli --help [COMMAND]
+$ reactiac (--version)
+@reactiac/cli/0.0.0 linux-arm64 node-v22.14.0
+$ reactiac --help [COMMAND]
 USAGE
-  $ mynewcli COMMAND
+  $ reactiac COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`mynewcli hello PERSON`](#mynewcli-hello-person)
-* [`mynewcli hello world`](#mynewcli-hello-world)
-* [`mynewcli help [COMMAND]`](#mynewcli-help-command)
-* [`mynewcli plugins`](#mynewcli-plugins)
-* [`mynewcli plugins add PLUGIN`](#mynewcli-plugins-add-plugin)
-* [`mynewcli plugins:inspect PLUGIN...`](#mynewcli-pluginsinspect-plugin)
-* [`mynewcli plugins install PLUGIN`](#mynewcli-plugins-install-plugin)
-* [`mynewcli plugins link PATH`](#mynewcli-plugins-link-path)
-* [`mynewcli plugins remove [PLUGIN]`](#mynewcli-plugins-remove-plugin)
-* [`mynewcli plugins reset`](#mynewcli-plugins-reset)
-* [`mynewcli plugins uninstall [PLUGIN]`](#mynewcli-plugins-uninstall-plugin)
-* [`mynewcli plugins unlink [PLUGIN]`](#mynewcli-plugins-unlink-plugin)
-* [`mynewcli plugins update`](#mynewcli-plugins-update)
+* [`reactiac hello PERSON`](#reactiac-hello-person)
+* [`reactiac hello world`](#reactiac-hello-world)
+* [`reactiac help [COMMAND]`](#reactiac-help-command)
+* [`reactiac plugins`](#reactiac-plugins)
+* [`reactiac plugins add PLUGIN`](#reactiac-plugins-add-plugin)
+* [`reactiac plugins:inspect PLUGIN...`](#reactiac-pluginsinspect-plugin)
+* [`reactiac plugins install PLUGIN`](#reactiac-plugins-install-plugin)
+* [`reactiac plugins link PATH`](#reactiac-plugins-link-path)
+* [`reactiac plugins remove [PLUGIN]`](#reactiac-plugins-remove-plugin)
+* [`reactiac plugins reset`](#reactiac-plugins-reset)
+* [`reactiac plugins uninstall [PLUGIN]`](#reactiac-plugins-uninstall-plugin)
+* [`reactiac plugins unlink [PLUGIN]`](#reactiac-plugins-unlink-plugin)
+* [`reactiac plugins update`](#reactiac-plugins-update)
+* [`reactiac tf apply [FILE]`](#reactiac-tf-apply-file)
+* [`reactiac tf gen [FILE]`](#reactiac-tf-gen-file)
+* [`reactiac tf generate [FILE]`](#reactiac-tf-generate-file)
+* [`reactiac tf gip [FILE]`](#reactiac-tf-gip-file)
+* [`reactiac tf init [FILE]`](#reactiac-tf-init-file)
+* [`reactiac tf plan [FILE]`](#reactiac-tf-plan-file)
 
-## `mynewcli hello PERSON`
+## `reactiac hello PERSON`
 
 Say hello
 
 ```
 USAGE
-  $ mynewcli hello PERSON -f <value>
+  $ reactiac hello PERSON -f <value>
 
 ARGUMENTS
   PERSON  Person to say hello to
@@ -61,37 +67,37 @@ DESCRIPTION
   Say hello
 
 EXAMPLES
-  $ mynewcli hello friend --from oclif
+  $ reactiac hello friend --from oclif
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/reactiac/mynewcli/blob/v0.0.0/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/hello/index.ts)_
 
-## `mynewcli hello world`
+## `reactiac hello world`
 
 Say hello world
 
 ```
 USAGE
-  $ mynewcli hello world
+  $ reactiac hello world
 
 DESCRIPTION
   Say hello world
 
 EXAMPLES
-  $ mynewcli hello world
+  $ reactiac hello world
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/reactiac/mynewcli/blob/v0.0.0/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/hello/world.ts)_
 
-## `mynewcli help [COMMAND]`
+## `reactiac help [COMMAND]`
 
-Display help for mynewcli.
+Display help for reactiac.
 
 ```
 USAGE
-  $ mynewcli help [COMMAND...] [-n]
+  $ reactiac help [COMMAND...] [-n]
 
 ARGUMENTS
   COMMAND...  Command to show help for.
@@ -100,18 +106,18 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for mynewcli.
+  Display help for reactiac.
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.26/src/commands/help.ts)_
 
-## `mynewcli plugins`
+## `reactiac plugins`
 
 List installed plugins.
 
 ```
 USAGE
-  $ mynewcli plugins [--json] [--core]
+  $ reactiac plugins [--json] [--core]
 
 FLAGS
   --core  Show core plugins.
@@ -123,18 +129,18 @@ DESCRIPTION
   List installed plugins.
 
 EXAMPLES
-  $ mynewcli plugins
+  $ reactiac plugins
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/index.ts)_
 
-## `mynewcli plugins add PLUGIN`
+## `reactiac plugins add PLUGIN`
 
-Installs a plugin into mynewcli.
+Installs a plugin into reactiac.
 
 ```
 USAGE
-  $ mynewcli plugins add PLUGIN... [--json] [-f] [-h] [-s | -v]
+  $ reactiac plugins add PLUGIN... [--json] [-f] [-h] [-s | -v]
 
 ARGUMENTS
   PLUGIN...  Plugin to install.
@@ -149,39 +155,39 @@ GLOBAL FLAGS
   --json  Format output as json.
 
 DESCRIPTION
-  Installs a plugin into mynewcli.
+  Installs a plugin into reactiac.
 
   Uses npm to install plugins.
 
   Installation of a user-installed plugin will override a core plugin.
 
-  Use the MYNEWCLI_NPM_LOG_LEVEL environment variable to set the npm loglevel.
-  Use the MYNEWCLI_NPM_REGISTRY environment variable to set the npm registry.
+  Use the REACTIAC_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the REACTIAC_NPM_REGISTRY environment variable to set the npm registry.
 
 ALIASES
-  $ mynewcli plugins add
+  $ reactiac plugins add
 
 EXAMPLES
   Install a plugin from npm registry.
 
-    $ mynewcli plugins add myplugin
+    $ reactiac plugins add myplugin
 
   Install a plugin from a github url.
 
-    $ mynewcli plugins add https://github.com/someuser/someplugin
+    $ reactiac plugins add https://github.com/someuser/someplugin
 
   Install a plugin from a github slug.
 
-    $ mynewcli plugins add someuser/someplugin
+    $ reactiac plugins add someuser/someplugin
 ```
 
-## `mynewcli plugins:inspect PLUGIN...`
+## `reactiac plugins:inspect PLUGIN...`
 
 Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ mynewcli plugins inspect PLUGIN...
+  $ reactiac plugins inspect PLUGIN...
 
 ARGUMENTS
   PLUGIN...  [default: .] Plugin to inspect.
@@ -197,18 +203,18 @@ DESCRIPTION
   Displays installation properties of a plugin.
 
 EXAMPLES
-  $ mynewcli plugins inspect myplugin
+  $ reactiac plugins inspect myplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/inspect.ts)_
 
-## `mynewcli plugins install PLUGIN`
+## `reactiac plugins install PLUGIN`
 
-Installs a plugin into mynewcli.
+Installs a plugin into reactiac.
 
 ```
 USAGE
-  $ mynewcli plugins install PLUGIN... [--json] [-f] [-h] [-s | -v]
+  $ reactiac plugins install PLUGIN... [--json] [-f] [-h] [-s | -v]
 
 ARGUMENTS
   PLUGIN...  Plugin to install.
@@ -223,41 +229,41 @@ GLOBAL FLAGS
   --json  Format output as json.
 
 DESCRIPTION
-  Installs a plugin into mynewcli.
+  Installs a plugin into reactiac.
 
   Uses npm to install plugins.
 
   Installation of a user-installed plugin will override a core plugin.
 
-  Use the MYNEWCLI_NPM_LOG_LEVEL environment variable to set the npm loglevel.
-  Use the MYNEWCLI_NPM_REGISTRY environment variable to set the npm registry.
+  Use the REACTIAC_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the REACTIAC_NPM_REGISTRY environment variable to set the npm registry.
 
 ALIASES
-  $ mynewcli plugins add
+  $ reactiac plugins add
 
 EXAMPLES
   Install a plugin from npm registry.
 
-    $ mynewcli plugins install myplugin
+    $ reactiac plugins install myplugin
 
   Install a plugin from a github url.
 
-    $ mynewcli plugins install https://github.com/someuser/someplugin
+    $ reactiac plugins install https://github.com/someuser/someplugin
 
   Install a plugin from a github slug.
 
-    $ mynewcli plugins install someuser/someplugin
+    $ reactiac plugins install someuser/someplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/install.ts)_
 
-## `mynewcli plugins link PATH`
+## `reactiac plugins link PATH`
 
 Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ mynewcli plugins link PATH [-h] [--install] [-v]
+  $ reactiac plugins link PATH [-h] [--install] [-v]
 
 ARGUMENTS
   PATH  [default: .] path to plugin
@@ -277,18 +283,18 @@ DESCRIPTION
 
 
 EXAMPLES
-  $ mynewcli plugins link myplugin
+  $ reactiac plugins link myplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/link.ts)_
 
-## `mynewcli plugins remove [PLUGIN]`
+## `reactiac plugins remove [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ mynewcli plugins remove [PLUGIN...] [-h] [-v]
+  $ reactiac plugins remove [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
   PLUGIN...  plugin to uninstall
@@ -301,20 +307,20 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ mynewcli plugins unlink
-  $ mynewcli plugins remove
+  $ reactiac plugins unlink
+  $ reactiac plugins remove
 
 EXAMPLES
-  $ mynewcli plugins remove myplugin
+  $ reactiac plugins remove myplugin
 ```
 
-## `mynewcli plugins reset`
+## `reactiac plugins reset`
 
 Remove all user-installed and linked plugins.
 
 ```
 USAGE
-  $ mynewcli plugins reset [--hard] [--reinstall]
+  $ reactiac plugins reset [--hard] [--reinstall]
 
 FLAGS
   --hard       Delete node_modules and package manager related files in addition to uninstalling plugins.
@@ -323,13 +329,13 @@ FLAGS
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/reset.ts)_
 
-## `mynewcli plugins uninstall [PLUGIN]`
+## `reactiac plugins uninstall [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ mynewcli plugins uninstall [PLUGIN...] [-h] [-v]
+  $ reactiac plugins uninstall [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
   PLUGIN...  plugin to uninstall
@@ -342,22 +348,22 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ mynewcli plugins unlink
-  $ mynewcli plugins remove
+  $ reactiac plugins unlink
+  $ reactiac plugins remove
 
 EXAMPLES
-  $ mynewcli plugins uninstall myplugin
+  $ reactiac plugins uninstall myplugin
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/uninstall.ts)_
 
-## `mynewcli plugins unlink [PLUGIN]`
+## `reactiac plugins unlink [PLUGIN]`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ mynewcli plugins unlink [PLUGIN...] [-h] [-v]
+  $ reactiac plugins unlink [PLUGIN...] [-h] [-v]
 
 ARGUMENTS
   PLUGIN...  plugin to uninstall
@@ -370,20 +376,20 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ mynewcli plugins unlink
-  $ mynewcli plugins remove
+  $ reactiac plugins unlink
+  $ reactiac plugins remove
 
 EXAMPLES
-  $ mynewcli plugins unlink myplugin
+  $ reactiac plugins unlink myplugin
 ```
 
-## `mynewcli plugins update`
+## `reactiac plugins update`
 
 Update installed plugins.
 
 ```
 USAGE
-  $ mynewcli plugins update [-h] [-v]
+  $ reactiac plugins update [-h] [-v]
 
 FLAGS
   -h, --help     Show CLI help.
@@ -394,4 +400,152 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.34/src/commands/plugins/update.ts)_
+
+## `reactiac tf apply [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ reactiac tf apply [FILE] [-f] [-n <value>]
+
+ARGUMENTS
+  FILE  file to read
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ reactiac tf apply
+```
+
+_See code: [src/commands/tf/apply.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/apply.ts)_
+
+## `reactiac tf gen [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ reactiac tf gen [FILE] [-f] [-n <value>]
+
+ARGUMENTS
+  FILE  file to read
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+ALIASES
+  $ reactiac tf gen
+
+EXAMPLES
+  $ reactiac tf gen
+```
+
+## `reactiac tf generate [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ reactiac tf generate [FILE] [-f] [-n <value>]
+
+ARGUMENTS
+  FILE  file to read
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+ALIASES
+  $ reactiac tf gen
+
+EXAMPLES
+  $ reactiac tf generate
+```
+
+_See code: [src/commands/tf/generate.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/generate.ts)_
+
+## `reactiac tf gip [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ reactiac tf gip [FILE] [-f] [-n <value>]
+
+ARGUMENTS
+  FILE  file to read
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ reactiac tf gip
+```
+
+_See code: [src/commands/tf/gip.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/gip.ts)_
+
+## `reactiac tf init [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ reactiac tf init [FILE] [-f] [-n <value>]
+
+ARGUMENTS
+  FILE  file to read
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ reactiac tf init
+```
+
+_See code: [src/commands/tf/init.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/init.ts)_
+
+## `reactiac tf plan [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ reactiac tf plan [FILE] [-f] [-n <value>]
+
+ARGUMENTS
+  FILE  file to read
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ reactiac tf plan
+```
+
+_See code: [src/commands/tf/plan.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/plan.ts)_
 <!-- commandsstop -->
