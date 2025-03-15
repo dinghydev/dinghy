@@ -4,7 +4,7 @@
     "dockerfile": "Dockerfile",
     "context": "../"
   },
-  "postCreateCommand": "pnpm install --store-dir /pnpm-store --offline --frozen-lockfile",
+  "postStartCommand": "pnpm install --store-dir /pnpm-store --offline --frozen-lockfile",
   "customizations": {
     "vscode": {
       "extensions": [
