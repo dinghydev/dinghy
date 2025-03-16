@@ -21,6 +21,19 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
+# Install docker
+RUN install -m 0755 -d /etc/apt/keyrings \
+    && curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc\
+    && chmod a+r /etc/apt/keyrings/docker.asc \
+    && echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        tee /etc/apt/sources.list.d/docker.list > /dev/null \
+    && apt-get update \
+    && apt-get -y install docker-ce-cli\
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install pnpm
 RUN npm install -g pnpm@10.6.3 \
     && mkdir -p /pnpm-store /workspaces \
@@ -33,4 +46,4 @@ COPY . /workspaces
 # Install the project dependencies
 RUN cd /workspaces \
     && pnpm install --frozen-lockfile \
-    && rm -rf /workspaces
+    && rm -rf /workspacesx

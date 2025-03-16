@@ -1,8 +1,8 @@
 {
   "name": "reactiac",
   "build": {
-    "dockerfile": "Dockerfile",
-    "context": "../"
+    "dockerfile": "docker/devcontainer/Dockerfile",
+    "context": "./"
   },
   "postStartCommand": "pnpm install --ignore-scripts --offline --frozen-lockfile",
   "mounts": [
@@ -18,8 +18,9 @@
       "extensions": [
         "ms-azuretools.vscode-docker",
         "github.vscode-github-actions",
-        "Orta.vscode-jest",
-        "biomejs.biome",
+        "asciidoctor.asciidoctor-vscode",
+        // "Orta.vscode-jest",
+        // "biomejs.biome",
         "reduckted.vscode-gitweblinks"
       ]
     }
