@@ -1,0 +1,23 @@
+name: verification
+on:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+      - name: validate lockfile
+        run: pnpm install --frozen-lockfile
+      - name: tsc build
+        run: pnpm -r build
+      - name: run tests
+        run: pnpm -r test
+      - run: pnpm show-info

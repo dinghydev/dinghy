@@ -1,0 +1,44 @@
+name: release
+
+on:
+  push:
+    branches: [main]
+  # workflow_run:
+  #     workflows: ['verification']
+  #     types: [completed]
+  #     branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: build version
+        id: build-version
+        run: |
+          base_version=$(node -p "require('./package.json').version.split('.').slice(0, 2).join('.')")
+          gh api graphql -f query='query CommitRevCount{
+              repository(owner:"${{ github.repository_owner }}",name:"${{ github.event.repository.name }}") {
+                name
+                object(oid: "${{ github.sha }}"){
+                  ... on Commit {
+                    message
+                    id
+                    history(first: 0) {
+                      totalCount
+                    }
+                  }
+                }
+              }
+            }' > commit_rev_count_data.json
+          rev_count="$(jq -r '.data.repository.object.history.totalCount' commit_rev_count_data.json)"
+          rev_time="$(git log -1 --format=%cd --date=format:%Y%m%d-%H%M%S)"
+          rev_short="${GITHUB_SHA::7}"
+          echo "version=$base_version.$rev_count-$rev_time-$rev_short" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: to release
+        run: |
+          echo to release as ${{ steps.build-version.outputs.version }}
