@@ -11,6 +11,7 @@
     "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
   ],
   "containerEnv": {
+    "CI": "true",
     "NODE_COMPILE_CACHE": "/tmp"
   },
   "customizations": {
