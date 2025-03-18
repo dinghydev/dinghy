@@ -11,7 +11,7 @@
     "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
   ],
   "containerEnv": {
-    "NODE_COMPILE_CACHE": "/pnpm-store"
+    "NODE_COMPILE_CACHE": "/tmp"
   },
   "customizations": {
     "vscode": {

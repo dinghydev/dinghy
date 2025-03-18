@@ -23,9 +23,9 @@ RUN apt-get update \
 
 # Install pnpm
 RUN npm install -g pnpm@10.6.3 \
-    && mkdir -p /pnpm-store /workspaces \
+    && mkdir -p /workspaces \
     && SHELL=bash pnpm setup \
-    && pnpm config set store-dir /pnpm-store --global
+    && pnpm config set store-dir /root/.local/share/pnpm/store --global
 
 # Install docker
 RUN install -m 0755 -d /etc/apt/keyrings \
