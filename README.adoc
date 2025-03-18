@@ -7,8 +7,10 @@
     pnpm install -g oclif
     oclif generate mynewcli
 
+    pnpm -r build
     pnpm --filter reactiac-cli dev hello world
     pnpm --filter reactiac-cli cli hello world
+    pnpm --filter cli dev tf init
 
 
 
