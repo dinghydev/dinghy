@@ -68,7 +68,7 @@
     "lint": "eslint",
     "xpostpack": "shx rm -f oclif.manifest.json",
     "xposttest": "pnpm run lint",
-    "prepack": "oclif manifest && oclif readme",
+    "prepack": "pnpm run build && oclif manifest && oclif readme",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },

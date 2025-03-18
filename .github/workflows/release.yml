@@ -66,7 +66,7 @@ jobs:
       # - name: Login to AWS CodeArtifact
       #   run: |
       #     aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner ${{ secrets.AWS_ACCOUNT_ID }} --namespace @reactiac --region ${{ secrets.AWS_DEPLOY_REGION }}
-      - name: publish packages
+      - name: publish npm packages
         run: |
           pnpm aws-login
           pnpm -r publish --no-git-checks --force
