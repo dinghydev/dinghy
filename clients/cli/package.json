@@ -8,7 +8,7 @@
   },
   "bugs": "https://github.com/reactiac/reactiac/issues",
   "dependencies": {
-    "@reactiac/core": "workspace:*",
+    "@reactiac/base-components": "workspace:*",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5"

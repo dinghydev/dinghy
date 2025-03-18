@@ -1,5 +1,5 @@
 {
-  "name": "@reactiac/core",
+  "name": "@reactiac/base-components",
   "version": "0.0.1",
   "description": "Core functionality for Reactiac",
   "type": "module",
