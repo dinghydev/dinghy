@@ -59,6 +59,16 @@ jobs:
       - name: Login to AWS CodeArtifact
         run: |
           aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner ${{ secrets.AWS_ACCOUNT_ID }} --namespace @reactiac --region ${{ secrets.AWS_DEPLOY_REGION }}
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+      - name: validate lockfile
+        run: pnpm install --frozen-lockfile
+      - run: pnpm -r build
+      - run: pnpm aws-login
+      - run: pnpm -r publish --no-git-checks --force
+      
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
