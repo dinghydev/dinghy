@@ -23,6 +23,7 @@ jobs:
         id: build-version
         run: |
           base_version=$(node -p "require('./package.json').version.split('.').slice(0, 2).join('.')")
+          echo "base_version=$base_version" >> $GITHUB_OUTPUT
           gh api graphql -f query='query CommitRevCount{
               repository(owner:"${{ github.repository_owner }}",name:"${{ github.event.repository.name }}") {
                 name
@@ -76,5 +77,5 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
       - name: docker build
         run: docker buildx build --secret "id=npm,src=${HOME}/.npmrc" -f docker/release/Dockerfile  -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-1.amazonaws.com/test/cli:${{ steps.build-version.outputs.version }} . 
-      - name: docker build
+      - name: docker push
         run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-1.amazonaws.com/test/cli:${{ steps.build-version.outputs.version }}

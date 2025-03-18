@@ -1,6 +1,10 @@
+= ReactIAC
+
+image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.svg[release,link=https://github.com/reactiac/reactiac/actions/workflows/release.yml] image:https://github.com/reactiac/reactiac/actions/workflows/verification.yml/badge.svg[verification,link=https://github.com/reactiac/reactiac/actions/workflows/verification.yml]
+
+== Commands
 
 
-= Commands
 
     git init --initial-branch=main
 
@@ -14,15 +18,15 @@
 
 
 
-= Release management Commands
+== Release management Commands
 
     pnpm aws-login
     pnpm -r publish --no-git-checks --force
 
 
-    aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com 
+    aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
     docker buildx build --secret "id=npm,src=${HOME}/.npmrc" -f docker/release/Dockerfile -t 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:test .
     docker push 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:test
 
     # sample test command
-    docker run 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:test tf init
+    docker run 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:0.0.20-20250318-001734-ad9c913 tf init
