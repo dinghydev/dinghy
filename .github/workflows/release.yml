@@ -61,21 +61,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: pnpm
-      - name: validate lockfile
-        run: pnpm install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
 
-
-      - run: pnpm -r build
       # - name: Login to AWS CodeArtifact
       #   run: |
       #     aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner ${{ secrets.AWS_ACCOUNT_ID }} --namespace @reactiac --region ${{ secrets.AWS_DEPLOY_REGION }}
-      - run: pnpm aws-login
-      - run: pnpm -r publish --no-git-checks --force
+      - name: publish packages
+        run: |
+          pnpm aws-login
+          pnpm -r publish --no-git-checks --force
       
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
-      - name: docker build
-        run: docker buildx build --secret "id=npm,src=${HOME}/.npmrc" -f docker/release/Dockerfile  -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-1.amazonaws.com/test/cli:${{ steps.build-version.outputs.version }} . 
-      - name: docker push
-        run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-1.amazonaws.com/test/cli:${{ steps.build-version.outputs.version }}
+      - name: publish docker image
+        run: |
+          docker buildx build --secret "id=npm,src=${HOME}/.npmrc" -f docker/release/Dockerfile  -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-1.amazonaws.com/test/cli:${{ steps.build-version.outputs.version }} . 
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-1.amazonaws.com/test/cli:${{ steps.build-version.outputs.version }}
