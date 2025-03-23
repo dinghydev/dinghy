@@ -1,5 +1,5 @@
 import { execSync } from 'child_process'
-import rootPackage from '../../../../package.json' with { type: 'json' }
+import rootPackage from '../package.json' with { type: 'json' }
 import { readdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -52,6 +52,10 @@ export function updateReleaseVersion() {
   const packageJsonFiles = findPackageJsonFiles()
 
   for (const file of findPackageJsonFilesRecursive(process.cwd())) {
+    console.log(file)
+    if (file === 'docker/release/fs-root/workspace/package.json') {
+      continue
+    }
     const packageJson = require(file)
     packageJson.version = version
     writeFileSync(file, JSON.stringify(packageJson, null, 2))

@@ -19,15 +19,15 @@ export abstract class BaseAppCommand<
     }),
     'app-file': Flags.string({
       env: 'APP_FILE',
-      default: 'App.js',
+      default: 'dist/App.js',
     }),
     'app-options': Flags.string({
       env: 'APP_OPTIONS',
-      default: 'app.yaml',
+      default: 'app/app.yaml',
     }),
     'app-output-dir': Flags.string({
       env: 'APP_OUTPUT_DIR',
-      default: 'output',
+      default: 'app/output',
     }),
     'app-stack': Flags.string({
       env: 'APP_STACK',

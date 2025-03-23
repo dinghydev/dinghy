@@ -3,11 +3,4 @@
 **
 
 # Allow files and directories
-!/package.json
-!/docker/release/entrypoint.sh
-!/*/*/package.json
-!/*/*/tsconfig.json
-!/*/*/src
-!/*/*/bin
-!/pnpm-lock.yaml
-!/pnpm-workspace.yaml
+!/docker/release/fs-root/**

@@ -68,6 +68,8 @@ jobs:
       - name: publish docker image
         run: |
           # aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
-          version=$(node -p "require('./package.json').version")
-          docker buildx build --secret "id=npm,src=${HOME}/.npmrc" -f docker/release/Dockerfile  -t 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:$version . 
-          docker push 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:$version
+          pnpm docker-publish-base
+          pnpm docker-publish-release
+          # version=$(node -p "require('./package.json').version")
+          # docker buildx build --secret "id=npm,src=${HOME}/.npmrc" -f docker/release/Dockerfile  -t 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:$version . 
+          # docker push 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:$version
