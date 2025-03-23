@@ -1,22 +1,23 @@
+import React from 'react'
+
 import {
   Dependency,
   type NodeProps,
   Shape,
   Stack,
-} from '../../../core/index.js'
+} from '@reactiac/base-components'
+
 import {
   AwsCloud,
   AwsRegion,
   DataAwsAcmCertificate,
   DataAwsRoute53Zone,
-} from '../../../generated-aws/index.js'
-import { ClientShape as Client } from '../../../generated-drawio/index.js'
-import {
   AwsBackend,
   AwsLogBucket,
   S3CloudfrontSite,
   S3CloudfrontSiteInputProps,
-} from '../../../pro-aws/index.js'
+} from '@reactiac/standard-components-tf-aws'
+import { ClientShape as Client } from '@reactiac/standard-components-diagrams'
 
 const ReactIACWebsite = (props: NodeProps) => (
   <Stack title="ReactIAC Website" {...props} />

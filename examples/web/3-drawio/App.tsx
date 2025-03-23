@@ -1,4 +1,6 @@
-import { Shape } from '../../../core/index.js'
+import React from 'react'
+
+import { Shape } from '@reactiac/base-components'
 
 import {
   Android,
@@ -8,7 +10,7 @@ import {
   GroupSecurityGroup,
   RdsPostgresqlInstance,
   Waf,
-} from '../../../generated-drawio/index.js'
+} from '@reactiac/standard-components-diagrams'
 
 const Postgres = (props: any) => <RdsPostgresqlInstance {...props} />
 

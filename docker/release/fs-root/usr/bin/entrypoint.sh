@@ -8,6 +8,11 @@ source /root/.bashrc
 
 cd /workspace
 
-# Forward all arguments to the reactiac command
-# The "$@" special parameter passes all arguments exactly as they were received
-pnpm reactiac "$@"
+# if first argument is pnpm, run it directly otherwise run it through reactiac
+if [ "$1" = "pnpm" ]; then
+  shift
+  pnpm "$@"
+else
+  pnpm build
+  pnpm reactiac "$@"
+fi

@@ -1,4 +1,6 @@
-import { Shape } from '../../../core/index.js'
+import React from 'react'
+
+import { Shape } from '@reactiac/base-components'
 
 export default function App() {
   return (

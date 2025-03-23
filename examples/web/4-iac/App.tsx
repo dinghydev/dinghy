@@ -1,5 +1,7 @@
-import { Stack } from '../../../core/index.js'
-import { ClientShape, Waf } from '../../../generated-drawio/index.js'
+import React from 'react'
+
+import { Stack } from '@reactiac/base-components'
+import { ClientShape, Waf } from '@reactiac/standard-components-diagrams'
 
 import {
   AwsCloud,
@@ -12,7 +14,7 @@ import {
   DataAwsVpc,
   useAwsSubnet,
   useAwsSubnets,
-} from '../../../generated-aws/index.js'
+} from '@reactiac/standard-components-tf-aws'
 
 const Postgres = (props: any) => <AwsPostgres {...props} />
 
@@ -24,7 +26,7 @@ const Client = (props: any) => (
 
 const Cloud = (props: any) => (
   <AwsCloud {...props}>
-    <AwsRegion _display="invisible">
+    <AwsRegion _display="invisible" region="eu-west-1">
       <DataAwsVpc _display="invisible" id="vpcid1">
         {props.children}
       </DataAwsVpc>

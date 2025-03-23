@@ -1,10 +1,12 @@
-import { Shape, Stack, useRenderOptions } from '../../../core/index.js'
+import React from 'react'
+
+import { Shape, Stack, useRenderOptions } from '@reactiac/base-components'
 import {
   ClientShape,
   GroupOnPremise,
   RdsPostgresqlInstance,
   Waf,
-} from '../../../generated-drawio/index.js'
+} from '@reactiac/standard-components-diagrams'
 
 import {
   AwsCloud,
@@ -17,7 +19,7 @@ import {
   DataAwsVpc,
   useAwsSubnet,
   useAwsSubnets,
-} from '../../../generated-aws/index.js'
+} from '@reactiac/standard-components-tf-aws'
 
 const isLocal = () => {
   const { stack } = useRenderOptions()
@@ -30,7 +32,7 @@ const Client = (props: any) => <ClientShape {...props} />
 
 const Cloud = (props: any) => (
   <AwsCloud {...props}>
-    <AwsRegion _display="invisible">
+    <AwsRegion _display="invisible" region="eu-west-1">
       <DataAwsVpc _display="invisible" id="vpcid1">
         <PublicSubnet>
           <LoadBalancer />
