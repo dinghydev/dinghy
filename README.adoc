@@ -29,4 +29,4 @@ image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.s
     docker push 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:test
 
     # sample test command
-    docker run 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:0.0.20-20250318-001734-ad9c913 tf init
+    docker run -v $(pwd)=${pwd} -w $(pwd) 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:0.0.1-20250323-075340-67f3a28 diagram gen --app-home clients/cli/test/fixtures/standard-diagrams

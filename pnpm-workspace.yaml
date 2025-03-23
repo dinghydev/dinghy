@@ -2,3 +2,4 @@ packages:
   - 'base/*'
   - 'renderers/*'
   - 'clients/*'
+  - 'standard-components/*'

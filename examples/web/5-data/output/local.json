@@ -1,0 +1,163 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "id": "local",
+    "_title": "Web App: local",
+    "_tags": [
+      "App",
+      "WebApp",
+      "Stack",
+      "Shape"
+    ],
+    "_type": "web_app",
+    "_name": "web-app-local",
+    "_id": "local"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Client",
+          "Client",
+          "Shape"
+        ],
+        "_type": "client",
+        "_title": "Client",
+        "_name": "client",
+        "_id": "client",
+        "_dependsOn": [
+          "vite_dev_vitedev"
+        ]
+      },
+      "children": []
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Local",
+          "GroupOnPremise",
+          "Shape"
+        ],
+        "_type": "local",
+        "_title": "Local",
+        "_name": "local",
+        "_id": "local_2"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "Deno",
+              "Shape"
+            ],
+            "_type": "deno",
+            "_title": "Deno",
+            "_name": "deno",
+            "_id": "deno"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_tags": [
+                  "ViteDev",
+                  "Shape"
+                ],
+                "_type": "vite_dev",
+                "_title": "Vite Dev",
+                "_name": "vite-dev",
+                "_id": "vite_dev_vitedev",
+                "_dependsOn": [
+                  "rds_postgresql_instance_postgres"
+                ],
+                "_dependsBy": [
+                  "client"
+                ]
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "vite_dev_vitedev",
+                    "_target": "rds_postgresql_instance_postgres",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency"
+                  },
+                  "children": []
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "client",
+                    "_target": "vite_dev_vitedev",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_2"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "Docker",
+              "Shape"
+            ],
+            "_type": "docker",
+            "_title": "Docker",
+            "_name": "docker",
+            "_id": "docker"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "Postgres",
+                "_tags": [
+                  "RdsPostgresqlInstance",
+                  "RdsInstance",
+                  "Shape"
+                ],
+                "_type": "rds_postgresql_instance",
+                "_title": "Postgres",
+                "_name": "postgres",
+                "_id": "rds_postgresql_instance_postgres",
+                "_dependsBy": [
+                  "vite_dev_vitedev"
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

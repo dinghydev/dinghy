@@ -1,0 +1,341 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "title": "Development Environment",
+    "_tags": [
+      "App",
+      "Stack",
+      "Shape"
+    ],
+    "_type": "stack",
+    "_title": "Development Environment",
+    "_name": "development-environment",
+    "_id": "stack_developmentenvironment"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Client",
+          "Shape"
+        ],
+        "_type": "client",
+        "_title": "Client",
+        "_name": "client",
+        "_id": "client",
+        "_dependsOn": [
+          "load_balancer_loadbalancer"
+        ]
+      },
+      "children": []
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Cloud",
+          "GroupAwsCloudAlt",
+          "Shape"
+        ],
+        "_type": "cloud",
+        "_title": "Cloud",
+        "_name": "cloud",
+        "_id": "cloud"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "Region",
+              "GroupRegion",
+              "Shape"
+            ],
+            "_type": "region",
+            "_title": "Region",
+            "_name": "region",
+            "_id": "region"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_tags": [
+                  "VPC",
+                  "GroupVpc2",
+                  "Shape"
+                ],
+                "_type": "vpc",
+                "_title": "VPC",
+                "_name": "vpc",
+                "_id": "vpc"
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_tags": [
+                      "PublicSubnet",
+                      "GroupSecurityGroup",
+                      "Shape"
+                    ],
+                    "_type": "public_subnet",
+                    "_title": "Public Subnet",
+                    "_name": "public-subnet",
+                    "_id": "public_subnet_publicsubnet"
+                  },
+                  "children": [
+                    {
+                      "type": "node",
+                      "attributes": {
+                        "_level": 6,
+                        "_tags": [
+                          "LoadBalancer",
+                          "ApplicationLoadBalancer",
+                          "Shape"
+                        ],
+                        "_type": "load_balancer",
+                        "_title": "Load Balancer",
+                        "_name": "load-balancer",
+                        "_id": "load_balancer_loadbalancer",
+                        "_dependsOn": [
+                          "application"
+                        ],
+                        "_dependsBy": [
+                          "client"
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "node",
+                          "attributes": {
+                            "_level": 7,
+                            "_source": "client",
+                            "_target": "load_balancer_loadbalancer",
+                            "_isDependency": true,
+                            "_tags": [
+                              "Dependency"
+                            ],
+                            "_type": "dependency",
+                            "_title": "Dependency",
+                            "_name": "dependency",
+                            "_id": "dependency"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_tags": [
+                      "PrivateSubnet",
+                      "GroupSecurityGroup",
+                      "Shape"
+                    ],
+                    "_type": "private_subnet",
+                    "_title": "Private Subnet",
+                    "_name": "private-subnet",
+                    "_id": "private_subnet_privatesubnet"
+                  },
+                  "children": [
+                    {
+                      "type": "node",
+                      "attributes": {
+                        "_level": 6,
+                        "_tags": [
+                          "ECSCluster",
+                          "Shape"
+                        ],
+                        "_type": "ecs_cluster",
+                        "_title": "ECS Cluster",
+                        "_name": "ecs-cluster",
+                        "_id": "ecs_cluster_ecscluster"
+                      },
+                      "children": [
+                        {
+                          "type": "node",
+                          "attributes": {
+                            "_level": 7,
+                            "_tags": [
+                              "ECSService",
+                              "GroupEc2InstanceContents",
+                              "Shape"
+                            ],
+                            "_type": "ecs_service",
+                            "_title": "ECS Service",
+                            "_name": "ecs-service",
+                            "_id": "ecs_service_ecsservice"
+                          },
+                          "children": [
+                            {
+                              "type": "node",
+                              "attributes": {
+                                "_level": 8,
+                                "_tags": [
+                                  "ECSTask",
+                                  "GroupOnPremise",
+                                  "Shape"
+                                ],
+                                "_type": "ecs_task",
+                                "_title": "ECS Task",
+                                "_name": "ecs-task",
+                                "_id": "ecs_task_ecstask"
+                              },
+                              "children": [
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_tags": [
+                                      "Application",
+                                      "Android",
+                                      "Shape"
+                                    ],
+                                    "_type": "application",
+                                    "_title": "Application",
+                                    "_name": "application",
+                                    "_id": "application",
+                                    "_dependsOn": [
+                                      "postgres",
+                                      "redis"
+                                    ],
+                                    "_dependsBy": [
+                                      "load_balancer_loadbalancer"
+                                    ]
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_source": "application",
+                                        "_target": "postgres",
+                                        "_isDependency": true,
+                                        "_tags": [
+                                          "Dependency"
+                                        ],
+                                        "_type": "dependency",
+                                        "_title": "Dependency",
+                                        "_name": "dependency",
+                                        "_id": "dependency_2"
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_source": "application",
+                                        "_target": "redis",
+                                        "_isDependency": true,
+                                        "_tags": [
+                                          "Dependency"
+                                        ],
+                                        "_type": "dependency",
+                                        "_title": "Dependency",
+                                        "_name": "dependency",
+                                        "_id": "dependency_3"
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_source": "load_balancer_loadbalancer",
+                                        "_target": "application",
+                                        "_isDependency": true,
+                                        "_tags": [
+                                          "Dependency"
+                                        ],
+                                        "_type": "dependency",
+                                        "_title": "Dependency",
+                                        "_name": "dependency",
+                                        "_id": "dependency_4"
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "node",
+                                  "attributes": {
+                                    "_level": 9,
+                                    "_tags": [
+                                      "StorageLayer",
+                                      "Shape"
+                                    ],
+                                    "_type": "storage_layer",
+                                    "_title": "Storage Layer",
+                                    "_name": "storage-layer",
+                                    "_id": "storage_layer_storagelayer"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_tags": [
+                                          "Postgres",
+                                          "RdsPostgresqlInstance",
+                                          "RdsInstance",
+                                          "Shape"
+                                        ],
+                                        "_type": "postgres",
+                                        "_title": "Postgres",
+                                        "_name": "postgres",
+                                        "_id": "postgres",
+                                        "_dependsBy": [
+                                          "application"
+                                        ]
+                                      },
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "node",
+                                      "attributes": {
+                                        "_level": 10,
+                                        "_tags": [
+                                          "Redis",
+                                          "ElasticacheForRedis",
+                                          "Shape"
+                                        ],
+                                        "_type": "redis",
+                                        "_title": "Redis",
+                                        "_name": "redis",
+                                        "_id": "redis",
+                                        "_dependsBy": [
+                                          "application"
+                                        ]
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

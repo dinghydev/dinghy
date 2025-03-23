@@ -1,0 +1,8 @@
+title: 'Step 3: Drawio diagram'
+slag: step-by-step-3-drawio
+order: 100
+options:
+  diagramOptions:
+    dimension:
+      boxWidth: 60
+      boxHeight: 60

@@ -8,11 +8,11 @@
     "test": "pnpm -r test",
     "show-info": "export;git rev-parse HEAD;git rev-list --count HEAD",
     "aws-login": "aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner 313225491971 --namespace @reactiac --region eu-west-1",
-    "clean": "rm -rf node_modules */*/node_modules  */*/dist */*/tsconfig.tsbuildinfo */*/*.tgz"
+    "update-release-version": "node --experimental-strip-types -p \"require('./clients/cli/src/utils/updateReleaseVersion.ts').updateReleaseVersion()\"",
+    "clean": "rm -rf node_modules *.tgz */*/node_modules  */*/dist */*/tsconfig.tsbuildinfo */*/*.tgz */*/oclif.manifest.json"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
+  "private": true,
   "keywords": [
     "React",
     "Architecture",
@@ -24,5 +24,9 @@
   ],
   "author": "Guo Du",
   "license": "BSL-1.1",
+  "devDependencies": {
+    "@types/node": "^20.17.24",
+    "@types/mocha": "^10"
+  },
   "packageManager": "pnpm@10.6.3"
 }

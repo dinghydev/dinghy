@@ -1,0 +1,67 @@
+{
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "5.63.1"
+      }
+    }
+  },
+  "provider": {
+    "aws": [
+      {
+        "default_tags": [
+          {
+            "tags": {
+              "iac:stack-title": "ECS App",
+              "iac:stack-name": "ecs-app"
+            }
+          }
+        ],
+        "region": "us-west-1"
+      }
+    ]
+  },
+  "data": {
+    "aws_vpc": {
+      "vpcid1": {
+        "id": "vpcid1"
+      }
+    }
+  },
+  "resource": {
+    "aws_subnet": {
+      "aws_subnet_publicsubnet": {},
+      "aws_subnet_privatesubnet": {}
+    },
+    "aws_lb": {
+      "aws_lb_loadbalancer": {}
+    },
+    "aws_waf": {
+      "aws_waf_waf": {}
+    },
+    "aws_ecs_cluster": {
+      "aws_ecs_cluster_ecscluster": {}
+    },
+    "aws_ecs_service": {
+      "aws_ecs_service_ecsservice": {},
+      "aws_ecs_service_2": {},
+      "aws_ecs_service_3": {}
+    },
+    "aws_ecs_container": {
+      "aws_ecs_container_web": {},
+      "aws_ecs_container_job": {},
+      "aws_ecs_container_migration": {}
+    },
+    "aws_db_instance": {
+      "aws_db_instance_postgres": {
+        "engine": "postgres"
+      }
+    },
+    "aws_elasticache_cluster": {
+      "aws_elasticache_cluster_redis": {
+        "engine": "redis"
+      }
+    }
+  }
+}

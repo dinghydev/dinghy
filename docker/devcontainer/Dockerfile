@@ -9,6 +9,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     git \
     curl \
     vim \
+    less \
     openssh-client \
     ca-certificates \
     && apt-get clean -y \
@@ -45,5 +46,7 @@ COPY . /workspaces
 
 # Install the project dependencies
 RUN cd /workspaces \
-    && pnpm install --frozen-lockfile \
+    && source /root/.bashrc \
+    && pnpm install --frozen-lockfile\
+    && pnpm install -g @biomejs/biome@1.9.4 \
     && rm -rf /workspacesx

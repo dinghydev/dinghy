@@ -1,5 +1,4 @@
+import { runCommand } from '@oclif/test'
 
-import {runCommand} from '@oclif/test'
-
-
-export const runCli=(cmd:string)=> runCommand(cmd, { root: "." })
+export const runCli = (cmd: string) =>
+  runCommand(cmd, { root: '.' }, { print: true, stripAnsi: true })

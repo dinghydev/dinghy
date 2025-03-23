@@ -20,7 +20,7 @@ $ npm install -g @reactiac/cli
 $ reactiac COMMAND
 running command...
 $ reactiac (--version)
-@reactiac/cli/0.0.1 linux-arm64 node-v22.14.0
+@reactiac/cli/0.0.0 linux-arm64 node-v22.14.0
 $ reactiac --help [COMMAND]
 USAGE
   $ reactiac COMMAND
@@ -29,9 +29,13 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`reactiac diagram gen`](#reactiac-diagram-gen)
+* [`reactiac diagram generate`](#reactiac-diagram-generate)
 * [`reactiac hello PERSON`](#reactiac-hello-person)
 * [`reactiac hello world`](#reactiac-hello-world)
 * [`reactiac help [COMMAND]`](#reactiac-help-command)
+* [`reactiac json gen`](#reactiac-json-gen)
+* [`reactiac json generate`](#reactiac-json-generate)
 * [`reactiac plugins`](#reactiac-plugins)
 * [`reactiac plugins add PLUGIN`](#reactiac-plugins-add-plugin)
 * [`reactiac plugins:inspect PLUGIN...`](#reactiac-pluginsinspect-plugin)
@@ -48,6 +52,56 @@ USAGE
 * [`reactiac tf gip [FILE]`](#reactiac-tf-gip-file)
 * [`reactiac tf init [FILE]`](#reactiac-tf-init-file)
 * [`reactiac tf plan [FILE]`](#reactiac-tf-plan-file)
+
+## `reactiac diagram gen`
+
+Generate drawio diagram from app
+
+```
+USAGE
+  $ reactiac diagram gen [--app-home <value>] [--app-file <value>] [--app-options <value>] [--app-output-dir
+    <value>] [--png] [--drawio-cmd <value>]
+
+FLAGS
+  --app-file=<value>        [default: App.js]
+  --app-home=<value>
+  --app-options=<value>     [default: app.yaml]
+  --app-output-dir=<value>  [default: output]
+  --drawio-cmd=<value>      drawio command full path
+  --[no-]png                generate png diagram
+
+DESCRIPTION
+  Generate drawio diagram from app
+
+ALIASES
+  $ reactiac diagram gen
+```
+
+## `reactiac diagram generate`
+
+Generate drawio diagram from app
+
+```
+USAGE
+  $ reactiac diagram generate [--app-home <value>] [--app-file <value>] [--app-options <value>] [--app-output-dir
+    <value>] [--png] [--drawio-cmd <value>]
+
+FLAGS
+  --app-file=<value>        [default: App.js]
+  --app-home=<value>
+  --app-options=<value>     [default: app.yaml]
+  --app-output-dir=<value>  [default: output]
+  --drawio-cmd=<value>      drawio command full path
+  --[no-]png                generate png diagram
+
+DESCRIPTION
+  Generate drawio diagram from app
+
+ALIASES
+  $ reactiac diagram gen
+```
+
+_See code: [src/commands/diagram/generate.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/diagram/generate.ts)_
 
 ## `reactiac hello PERSON`
 
@@ -71,7 +125,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/hello/index.ts)_
 
 ## `reactiac hello world`
 
@@ -89,7 +143,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/hello/world.ts)_
 
 ## `reactiac help [COMMAND]`
 
@@ -110,6 +164,56 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.26/src/commands/help.ts)_
+
+## `reactiac json gen`
+
+Generate json model from app
+
+```
+USAGE
+  $ reactiac json gen [--app-home <value>] [--app-file <value>] [--app-options <value>] [--app-output-dir
+    <value>] [--png] [--drawio-cmd <value>]
+
+FLAGS
+  --app-file=<value>        [default: App.js]
+  --app-home=<value>
+  --app-options=<value>     [default: app.yaml]
+  --app-output-dir=<value>  [default: output]
+  --drawio-cmd=<value>      drawio command full path
+  --[no-]png                generate png diagram
+
+DESCRIPTION
+  Generate json model from app
+
+ALIASES
+  $ reactiac json gen
+```
+
+## `reactiac json generate`
+
+Generate json model from app
+
+```
+USAGE
+  $ reactiac json generate [--app-home <value>] [--app-file <value>] [--app-options <value>] [--app-output-dir
+    <value>] [--png] [--drawio-cmd <value>]
+
+FLAGS
+  --app-file=<value>        [default: App.js]
+  --app-home=<value>
+  --app-options=<value>     [default: app.yaml]
+  --app-output-dir=<value>  [default: output]
+  --drawio-cmd=<value>      drawio command full path
+  --[no-]png                generate png diagram
+
+DESCRIPTION
+  Generate json model from app
+
+ALIASES
+  $ reactiac json gen
+```
+
+_See code: [src/commands/json/generate.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/json/generate.ts)_
 
 ## `reactiac plugins`
 
@@ -423,7 +527,7 @@ EXAMPLES
   $ reactiac tf apply
 ```
 
-_See code: [src/commands/tf/apply.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/apply.ts)_
+_See code: [src/commands/tf/apply.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/apply.ts)_
 
 ## `reactiac tf gen [FILE]`
 
@@ -475,7 +579,7 @@ EXAMPLES
   $ reactiac tf generate
 ```
 
-_See code: [src/commands/tf/generate.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/generate.ts)_
+_See code: [src/commands/tf/generate.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/generate.ts)_
 
 ## `reactiac tf gip [FILE]`
 
@@ -499,7 +603,7 @@ EXAMPLES
   $ reactiac tf gip
 ```
 
-_See code: [src/commands/tf/gip.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/gip.ts)_
+_See code: [src/commands/tf/gip.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/gip.ts)_
 
 ## `reactiac tf init [FILE]`
 
@@ -523,7 +627,7 @@ EXAMPLES
   $ reactiac tf init
 ```
 
-_See code: [src/commands/tf/init.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/init.ts)_
+_See code: [src/commands/tf/init.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/init.ts)_
 
 ## `reactiac tf plan [FILE]`
 
@@ -547,5 +651,5 @@ EXAMPLES
   $ reactiac tf plan
 ```
 
-_See code: [src/commands/tf/plan.ts](https://github.com/reactiac/reactiac/blob/v0.0.1/src/commands/tf/plan.ts)_
+_See code: [src/commands/tf/plan.ts](https://github.com/reactiac/reactiac/blob/v0.0.0/src/commands/tf/plan.ts)_
 <!-- commandsstop -->

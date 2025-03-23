@@ -1,29 +1,34 @@
-import {Args, Command, Flags} from '@oclif/core'
+import { Args, type Command, Flags } from '@oclif/core'
+import { BaseAppCommand } from '../../base/BaseAppCommand.js'
+import { renderTf } from '@reactiac/renderer-tf'
+import { mergeStackOptions, utils } from '@reactiac/base-components'
+const { deepClone } = utils
 
-export default class TfGenerate extends Command {
+export default class TfGenerate<
+  T extends typeof Command,
+> extends BaseAppCommand<T> {
   static aliases = ['tf:gen']
 
-  static override args = {
-    file: Args.string({description: 'file to read'}),
-  }
-  static override description = 'describe the command here'
-  static override examples = [
-    '<%= config.bin %> <%= command.id %>',
-  ]
+  static description = 'Generate tf from app'
+
   static override flags = {
-    // flag with no value (-f, --force)
-    force: Flags.boolean({char: 'f'}),
-    // flag with a value (-n, --name=VALUE)
-    name: Flags.string({char: 'n', description: 'name to print'}),
+    ...BaseAppCommand.flags,
+
+    'app-stage': Flags.string({
+      env: 'APP_STAGE',
+      default: 'main',
+    }),
   }
 
-  public async run(): Promise<void> {
-    const {args, flags} = await this.parse(TfGenerate)
+  protected outputFileName(output: any): string {
+    return `${output.renderOptions.stage.id}.tf`
+  }
 
-    const name = flags.name ?? 'world'
-    this.log(`hello ${name} from /workspaces/reactiac/packages/cli/src/commands/tf/generate.ts`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
-    }
+  protected renderFunction() {
+    return renderTf
+  }
+
+  protected selectedStackField() {
+    return 'stage'
   }
 }

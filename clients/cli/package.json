@@ -1,25 +1,47 @@
 {
   "name": "@reactiac/cli",
   "description": "A new CLI generated with oclif",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "author": "Guo Du",
+  "scripts": {
+    "cli": "NODE_NO_WARNINGS=1 ./bin/dev.js",
+    "build": "tsc",
+    "prepack": "pnpm run build && oclif manifest",
+    "clean": "shx rm -rf dist",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "biome": "biome ci",
+    "version": "oclif readme && git add README.md"
+  },
   "bin": {
     "reactiac": "./bin/run.js"
   },
   "bugs": "https://github.com/reactiac/reactiac/issues",
   "dependencies": {
-    "@reactiac/base-components": "workspace:*",
+    "react": "^19",
+    "tsx": "^4.19.3",
+    "js-yaml": "^4.1.0",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
-    "@oclif/plugin-plugins": "^5"
+    "@oclif/plugin-plugins": "^5",
+    "@reactiac/renderer-json": "workspace:*",
+    "@reactiac/renderer-drawio": "workspace:*",
+    "@reactiac/renderer-tf": "workspace:*",
+    "@reactiac/base-components": "workspace:*",
+    "@reactiac/standard-components-diagrams": "workspace:*",
+    "@reactiac/standard-components-tf-aws": "workspace:*"
   },
   "devDependencies": {
+    "react": "^19",
+    "@types/react": "^19",
+    "@biomejs/biome": "^1.9.4",
     "@eslint/compat": "^1",
     "@oclif/prettier-config": "^0.2.1",
     "@oclif/test": "^4",
     "@types/chai": "^4",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.17.24",
     "@types/mocha": "^10",
-    "@types/node": "^18",
     "chai": "^4",
     "eslint": "^9",
     "eslint-config-oclif": "^6",
@@ -28,20 +50,15 @@
     "oclif": "^4",
     "shx": "^0.3.3",
     "ts-node": "^10",
+    "tsx": "^4.19.3",
     "typescript": "^5"
   },
   "engines": {
     "node": ">=20.0.0"
   },
-  "files": [
-    "./bin",
-    "./dist",
-    "./oclif.manifest.json"
-  ],
+  "files": ["./bin", "./dist", "./oclif.manifest.json"],
   "homepage": "https://github.com/reactiac/reactiac",
-  "keywords": [
-    "oclif"
-  ],
+  "keywords": ["oclif"],
   "license": "MIT",
   "main": "dist/index.js",
   "type": "module",
@@ -49,10 +66,7 @@
     "bin": "reactiac",
     "dirname": "reactiac",
     "commands": "./dist/commands",
-    "plugins": [
-      "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
-    ],
+    "plugins": ["@oclif/plugin-help", "@oclif/plugin-plugins"],
     "topicSeparator": " ",
     "topics": {
       "hello": {
@@ -61,16 +75,5 @@
     }
   },
   "repository": "reactiac/reactiac",
-  "scripts": {
-    "dev": "NODE_NO_WARNINGS=1 ./bin/dev.js",
-    "cli": "./bin/run.js",
-    "build": "shx rm -rf dist && tsc -b",
-    "lint": "eslint",
-    "xpostpack": "shx rm -f oclif.manifest.json",
-    "xposttest": "pnpm run lint",
-    "prepack": "pnpm run build && oclif manifest && oclif readme",
-    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif readme && git add README.md"
-  },
   "types": "dist/index.d.ts"
 }

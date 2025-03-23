@@ -1,0 +1,755 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "_title": "Module / Package relationships",
+    "_tags": [
+      "App",
+      "Modules",
+      "Shape"
+    ],
+    "_type": "modules",
+    "_name": "module--package-relationships",
+    "_id": "modules_modulepackagerelationships"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Row",
+          "Shape"
+        ],
+        "_type": "row",
+        "_title": "Row",
+        "_name": "row",
+        "_id": "row"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "Renderers",
+              "Group",
+              "Shape"
+            ],
+            "_type": "renderers",
+            "_title": "Renderers",
+            "_name": "renderers",
+            "_id": "renderers",
+            "_dependsOn": [
+              "base_renderer_baserenderer"
+            ],
+            "_dependsBy": [
+              "clients"
+            ]
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "renderer-json",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "renderer-json",
+                "_name": "rendererjson",
+                "_id": "module_rendererjson"
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "renderer-drawio",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "renderer-drawio",
+                "_name": "rendererdrawio",
+                "_id": "module_rendererdrawio"
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "renderer-tf",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "renderer-tf",
+                "_name": "renderertf",
+                "_id": "module_renderertf"
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_source": "renderers",
+                "_target": "base_renderer_baserenderer",
+                "_isDependency": true,
+                "_tags": [
+                  "Dependency"
+                ],
+                "_type": "dependency",
+                "_title": "Dependency",
+                "_name": "dependency",
+                "_id": "dependency"
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_source": "clients",
+                "_target": "renderers",
+                "_isDependency": true,
+                "_tags": [
+                  "Dependency"
+                ],
+                "_type": "dependency",
+                "_title": "Dependency",
+                "_name": "dependency",
+                "_id": "dependency_2"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "ProjectManagers",
+              "Group",
+              "Shape"
+            ],
+            "_type": "project_managers",
+            "_title": "Project Managers",
+            "_name": "project-managers",
+            "_id": "project_managers_projectmanagers"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "runner",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "runner",
+                "_name": "runner",
+                "_id": "module_runner",
+                "_dependsOn": [
+                  "module_cli"
+                ],
+                "_dependsBy": [
+                  "module_actions"
+                ]
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "module_runner",
+                    "_target": "module_cli",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency",
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_3"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "actions",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "actions",
+                "_name": "actions",
+                "_id": "module_actions",
+                "_dependsOn": [
+                  "module_runner"
+                ]
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "module_actions",
+                    "_target": "module_runner",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_4"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Row",
+          "Shape"
+        ],
+        "_type": "row",
+        "_title": "Row",
+        "_name": "row",
+        "_id": "row_2"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "BaseRenderer",
+              "Group",
+              "Shape"
+            ],
+            "_type": "base_renderer",
+            "_title": "Base Renderer",
+            "_name": "base-renderer",
+            "_id": "base_renderer_baserenderer",
+            "_dependsOn": [
+              "base_components_basecomponents"
+            ],
+            "_dependsBy": [
+              "renderers"
+            ]
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "reconciler",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "reconciler",
+                "_name": "reconciler",
+                "_id": "module_reconciler"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Row",
+          "Shape"
+        ],
+        "_type": "row",
+        "_title": "Row",
+        "_name": "row",
+        "_id": "row_3"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "BaseComponents",
+              "Group",
+              "Shape"
+            ],
+            "_type": "base_components",
+            "_title": "Base Components",
+            "_name": "base-components",
+            "_id": "base_components_basecomponents",
+            "_dependsBy": [
+              "base_renderer_baserenderer",
+              "standard_components_standardcomponents",
+              "standard_components_standardcomponents"
+            ]
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "types",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "types",
+                "_name": "types",
+                "_id": "module_types",
+                "_dependsBy": [
+                  "module_components"
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "components",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "components",
+                "_name": "components",
+                "_id": "module_components",
+                "_dependsOn": [
+                  "module_types",
+                  "module_contexts"
+                ]
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "module_components",
+                    "_target": "module_types",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_5"
+                  },
+                  "children": []
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "module_components",
+                    "_target": "module_contexts",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_6"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "contexts",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "contexts",
+                "_name": "contexts",
+                "_id": "module_contexts",
+                "_dependsBy": [
+                  "module_components"
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_source": "base_renderer_baserenderer",
+                "_target": "base_components_basecomponents",
+                "_isDependency": true,
+                "_tags": [
+                  "Dependency"
+                ],
+                "_type": "dependency",
+                "_title": "Dependency",
+                "_name": "dependency",
+                "_id": "dependency_7"
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_source": "standard_components_standardcomponents",
+                "_target": "base_components_basecomponents",
+                "_isDependency": true,
+                "_tags": [
+                  "Dependency"
+                ],
+                "_type": "dependency",
+                "_title": "Dependency",
+                "_name": "dependency",
+                "_id": "dependency_8"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "Clients",
+              "Group",
+              "Shape"
+            ],
+            "_type": "clients",
+            "_title": "Clients",
+            "_name": "clients",
+            "_id": "clients",
+            "_dependsOn": [
+              "renderers",
+              "examples"
+            ]
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "cli",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "cli",
+                "_name": "cli",
+                "_id": "module_cli",
+                "_dependsBy": [
+                  "module_runner"
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "playground",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "playground",
+                "_name": "playground",
+                "_id": "module_playground"
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_source": "clients",
+                "_target": "examples",
+                "_isDependency": true,
+                "_tags": [
+                  "Dependency",
+                  "Dependency"
+                ],
+                "_type": "dependency",
+                "_title": "Dependency",
+                "_name": "dependency",
+                "_id": "dependency_9"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Row",
+          "Shape"
+        ],
+        "_type": "row",
+        "_title": "Row",
+        "_name": "row",
+        "_id": "row_4"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "StandardComponents",
+              "VerticalGroup",
+              "Group",
+              "Shape"
+            ],
+            "_type": "standard_components",
+            "_title": "Standard Components",
+            "_name": "standard-components",
+            "_id": "standard_components_standardcomponents",
+            "_dependsOn": [
+              "base_components_basecomponents",
+              "base_components_basecomponents"
+            ],
+            "_dependsBy": [
+              "module_web"
+            ]
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "standard-diagrams",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "standard-diagrams",
+                "_name": "standarddiagrams",
+                "_id": "module_standarddiagrams",
+                "_dependsBy": [
+                  "module_diagram"
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "standard-components-aws",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "standard-components-aws",
+                "_name": "standardcomponentsaws",
+                "_id": "module_standardcomponentsaws",
+                "_dependsBy": [
+                  "module_iac"
+                ]
+              },
+              "children": []
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_source": "standard_components_standardcomponents",
+                "_target": "base_components_basecomponents",
+                "_isDependency": true,
+                "_tags": [
+                  "Dependency"
+                ],
+                "_type": "dependency",
+                "_title": "Dependency",
+                "_name": "dependency",
+                "_id": "dependency_10"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "Examples",
+              "VerticalGroup",
+              "Group",
+              "Shape"
+            ],
+            "_type": "examples",
+            "_title": "Examples",
+            "_name": "examples",
+            "_id": "examples",
+            "_dependsBy": [
+              "clients"
+            ]
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "diagram",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "diagram",
+                "_name": "diagram",
+                "_id": "module_diagram",
+                "_dependsOn": [
+                  "module_standarddiagrams"
+                ]
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "module_diagram",
+                    "_target": "module_standarddiagrams",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_11"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "iac",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "iac",
+                "_name": "iac",
+                "_id": "module_iac",
+                "_dependsOn": [
+                  "module_standardcomponentsaws"
+                ]
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "module_iac",
+                    "_target": "module_standardcomponentsaws",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_12"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "title": "web",
+                "_tags": [
+                  "Module",
+                  "Shape"
+                ],
+                "_type": "module",
+                "_title": "web",
+                "_name": "web",
+                "_id": "module_web",
+                "_dependsOn": [
+                  "standard_components_standardcomponents"
+                ]
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "module_web",
+                    "_target": "standard_components_standardcomponents",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_13"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

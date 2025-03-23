@@ -1,0 +1,61 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "all",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/workspaces/reactiac/.vscode/run.sh",
+      "args": ["pnpm clean", "pnpm install", "pnpm build", "pnpm test"],
+      "env": {
+        "CI": "true",
+        "DEBUB": "*"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "build+test",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/workspaces/reactiac/.vscode/run.sh",
+      "args": ["pnpm build", "pnpm test"],
+      "env": {
+        "CI": "true",
+        "DEBUB": "*"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "clean",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/usr/local/bin/pnpm",
+      "args": ["clean"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "install",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/usr/local/bin/pnpm",
+      "args": ["install"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "build",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/usr/local/bin/pnpm",
+      "args": ["build"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "test",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/usr/local/bin/pnpm",
+      "args": ["test"],
+      "console": "integratedTerminal"
+    }
+  ]
+}

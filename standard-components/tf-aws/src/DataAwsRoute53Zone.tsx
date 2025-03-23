@@ -1,0 +1,39 @@
+  import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
+import z from 'zod'
+import { AwsRoute53Zone } from './AwsRoute53Zone.js'
+import { useTypedNode } from "@reactiac/base-components";
+import { AwsS3BucketOutputProps } from "./AwsS3Bucket.js";
+
+export const DataAwsRoute53ZoneInputSchema = z.object({
+  name: ResolvableStringSchema.optional(),
+  zone_id: ResolvableStringSchema.optional(),
+})
+
+export const DataAwsRoute53ZoneOutputSchema = z.object({
+  arn: ResolvableStringSchema.optional(),
+  zone_id: ResolvableStringSchema.optional(),
+})
+
+export type DataAwsRoute53ZoneInputProps =
+  & z.infer<typeof DataAwsRoute53ZoneInputSchema>
+  & IacNodeProps
+
+export type DataAwsRoute53ZoneOutputProps =
+  & z.infer<typeof DataAwsRoute53ZoneOutputSchema>
+  & DataAwsRoute53ZoneInputProps
+
+export function DataAwsRoute53Zone(
+  props: DataAwsRoute53ZoneInputProps,
+) {
+  return (
+    <AwsRoute53Zone
+      _title={((node:any) => node._props.name)as any}
+      _inputSchema={DataAwsRoute53ZoneInputSchema}
+      _outputSchema={DataAwsRoute53ZoneOutputSchema}
+      {...props}
+    />
+  )
+}
+
+export const useDataAwsRoute53Zone = (id?: string) =>
+  useTypedNode<DataAwsRoute53ZoneOutputProps>(DataAwsRoute53Zone, id)

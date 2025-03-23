@@ -1,0 +1,235 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "_tags": [
+      "App",
+      "WebApp",
+      "Shape"
+    ],
+    "_type": "web_app",
+    "_title": "Web App",
+    "_name": "web-app",
+    "_id": "web_app_webapp"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Client",
+          "Shape"
+        ],
+        "_type": "client",
+        "_title": "Client",
+        "_name": "client",
+        "_id": "client",
+        "_dependsOn": [
+          "load_balancer_loadbalancer"
+        ]
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_source": "client",
+            "_target": "load_balancer_loadbalancer",
+            "_isDependency": true,
+            "_tags": [
+              "Dependency"
+            ],
+            "_type": "dependency",
+            "_title": "Dependency",
+            "_name": "dependency",
+            "_id": "dependency"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Cloud",
+          "Shape"
+        ],
+        "_type": "cloud",
+        "_title": "Cloud",
+        "_name": "cloud",
+        "_id": "cloud"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "PublicSubnet",
+              "Subnet",
+              "Shape"
+            ],
+            "_type": "public_subnet",
+            "_title": "Public Subnet",
+            "_name": "public-subnet",
+            "_id": "public_subnet_publicsubnet"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_tags": [
+                  "LoadBalancer",
+                  "Shape"
+                ],
+                "_type": "load_balancer",
+                "_title": "Load Balancer",
+                "_name": "load-balancer",
+                "_id": "load_balancer_loadbalancer",
+                "_dependsOn": [
+                  "firewall",
+                  "application"
+                ],
+                "_dependsBy": [
+                  "client"
+                ]
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "load_balancer_loadbalancer",
+                    "_target": "firewall",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_2"
+                  },
+                  "children": []
+                },
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "load_balancer_loadbalancer",
+                    "_target": "application",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_3"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_tags": [
+                  "Firewall",
+                  "Shape"
+                ],
+                "_type": "firewall",
+                "_title": "Firewall",
+                "_name": "firewall",
+                "_id": "firewall",
+                "_dependsBy": [
+                  "load_balancer_loadbalancer"
+                ]
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "PrivateSubnet",
+              "Subnet",
+              "Shape"
+            ],
+            "_type": "private_subnet",
+            "_title": "Private Subnet",
+            "_name": "private-subnet",
+            "_id": "private_subnet_privatesubnet"
+          },
+          "children": [
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_tags": [
+                  "Application",
+                  "Shape"
+                ],
+                "_type": "application",
+                "_title": "Application",
+                "_name": "application",
+                "_id": "application",
+                "_dependsOn": [
+                  "postgres"
+                ],
+                "_dependsBy": [
+                  "load_balancer_loadbalancer"
+                ]
+              },
+              "children": [
+                {
+                  "type": "node",
+                  "attributes": {
+                    "_level": 5,
+                    "_source": "application",
+                    "_target": "postgres",
+                    "_isDependency": true,
+                    "_tags": [
+                      "Dependency"
+                    ],
+                    "_type": "dependency",
+                    "_title": "Dependency",
+                    "_name": "dependency",
+                    "_id": "dependency_4"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "attributes": {
+                "_level": 4,
+                "_tags": [
+                  "Postgres",
+                  "Shape"
+                ],
+                "_type": "postgres",
+                "_title": "Postgres",
+                "_name": "postgres",
+                "_id": "postgres",
+                "_dependsBy": [
+                  "application"
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

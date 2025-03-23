@@ -1,0 +1,8 @@
+title: 'Step 1: Shape'
+slag: step-by-step-1-shape
+order: 100
+options:
+  diagramOptions:
+    dimension:
+      boxWidth: 60
+      boxHeight: 60

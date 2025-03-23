@@ -1,0 +1,12 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const APPLICATION_LOAD_BALANCER = {
+  _color: { color: '#8C4FFF', fill: true },
+  _border: 0,
+  _shape: 'mxgraph.aws4.application_load_balancer',
+}
+
+export default function ApplicationLoadBalancer(props: DiagramNodeProps) {
+  return <Shape {...APPLICATION_LOAD_BALANCER} {...props} />
+}

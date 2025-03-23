@@ -17,6 +17,7 @@ next-env.d.ts
 # Misc
 .DS_Store
 tmp*
+*.local
 
 # IDE - VSCode
 .vscode/*
