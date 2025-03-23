@@ -8,6 +8,11 @@ source /root/.bashrc
 
 cd /workspace
 
+if [ "$1" = "bash" ]; then
+  bash
+  exit 0
+fi
+
 # if first argument is pnpm, run it directly otherwise run it through reactiac
 if [ "$1" = "pnpm" ]; then
   shift
