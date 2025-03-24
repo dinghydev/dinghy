@@ -10,6 +10,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
     git \
     curl \
+    gpg \
     vim \
     openssh-client \
     ca-certificates \
@@ -41,3 +42,19 @@ RUN install -m 0755 -d /etc/apt/keyrings \
    && apt-get -y install docker-ce-cli\
    && apt-get clean -y \
    && rm -rf /var/lib/apt/lists/*
+
+#    install terraform https://developer.hashicorp.com/terraform/install
+RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list \
+    && apt-get update \
+    # && apt list -a terraform \
+    && apt-get -y install terraform=1.11.2-1 \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+
+# install aws provider
+RUN mkdir -p /terraform \
+    && cd /terraform \
+    && printf "terraform {\nrequired_providers {\nmycloud = {\nsource  = \"aws\"\nversion = \"5.63.1\"\n}\n}\n}" > provider.tf \
+    && terraform init
+        

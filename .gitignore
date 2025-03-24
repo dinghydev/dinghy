@@ -34,6 +34,11 @@ tmp*
 
 # IaC
 **/.terraform
+**/.terraform.lock.hcl
+**/tf.plan
+**/tf.plan.json
+**/terraform.tfstate
+**/terraform.tfstate.backup
 
 
 # Optional eslint cache

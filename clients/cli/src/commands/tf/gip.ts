@@ -1,27 +1,60 @@
-import { Args, Command, Flags } from '@oclif/core'
+import { Args, type Command, Flags } from '@oclif/core'
+import { BaseAppCommand } from '../../base/BaseAppCommand.js'
+import { renderTf } from '@reactiac/renderer-tf'
+import { mergeStackOptions, utils } from '@reactiac/base-components'
+import { existsSync, symlinkSync } from 'node:fs'
+import { execSync } from 'node:child_process'
+const { deepClone } = utils
 
-export default class TfGip extends Command {
-  static override args = {
-    file: Args.string({ description: 'file to read' }),
-  }
-  static override description = 'describe the command here'
-  static override examples = ['<%= config.bin %> <%= command.id %>']
+export default class TfGenerateInitPlan<
+  T extends typeof Command,
+> extends BaseAppCommand<T> {
+  static aliases = ['tf:gip']
+
+  static description = 'Generate /init/plan from app'
+
   static override flags = {
-    // flag with no value (-f, --force)
-    force: Flags.boolean({ char: 'f' }),
-    // flag with a value (-n, --name=VALUE)
-    name: Flags.string({ char: 'n', description: 'name to print' }),
+    ...BaseAppCommand.flags,
+
+    'app-stage': Flags.string({
+      env: 'APP_STAGE',
+      default: 'main',
+    }),
   }
 
-  public async run(): Promise<void> {
-    const { args, flags } = await this.parse(TfGip)
+  protected outputFileName(output: any): string {
+    return `${output.renderOptions.stage.id}/${output.renderOptions.stage.id}.tf.json`
+  }
 
-    const name = flags.name ?? 'world'
-    this.log(
-      `hello ${name} from /workspaces/reactiac/packages/cli/src/commands/tf/gip.ts`,
+  protected renderFunction() {
+    return renderTf
+  }
+
+  protected selectedStackField() {
+    return 'stage'
+  }
+
+  protected async doWithOutput(output: any, outputFilePath: string) {
+    super.doWithOutput(output, outputFilePath)
+    const stageFolder = outputFilePath.substring(
+      0,
+      outputFilePath.lastIndexOf('/'),
     )
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
+
+    for (const source of ['.terraform', '.terraform.lock.hcl']) {
+      const target = `${stageFolder}/${source}`
+      const sourcePath = `/terraform/${source}`
+      if (!existsSync(target)) {
+        symlinkSync(sourcePath, target)
+      }
     }
+
+    // run terraform init in stageFolder
+    console.log(`Running terraform init from ${stageFolder}`)
+    execSync('terraform init', { cwd: stageFolder })
+
+    // run terraform plan in stageFolder
+    console.log(`Running terraform plan from ${stageFolder}`)
+    execSync('terraform plan -out=plan.tfplan', { cwd: stageFolder })
   }
 }

@@ -92,12 +92,15 @@ export abstract class BaseAppCommand<
     return app.default
   }
 
+  protected async doWithOutput(output: any, outputFilePath: string) {}
+
   protected async performRender(renderOptions: any) {
     const renderFunction = this.renderFunction()
     const App = await this.requireApp()
     const output = await renderFunction(App, renderOptions)
     const outputFilePath = this.outputFilePath(output)
     writeFileSync(outputFilePath, output.result)
+    await this.doWithOutput(output, outputFilePath)
     return output
   }
 
