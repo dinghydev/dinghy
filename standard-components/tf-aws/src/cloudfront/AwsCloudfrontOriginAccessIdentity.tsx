@@ -1,4 +1,7 @@
-import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
+import {
+  type IacNodeProps,
+  ResolvableStringSchema,
+} from '@reactiac/base-components'
 
 import { aws } from '../index.js'
 import z from 'zod'
@@ -13,13 +16,15 @@ export const AwsCloudfrontOriginAccessIdentityOutputSchema = z.object({
   iam_arn: ResolvableStringSchema.optional(),
 })
 
-export type AwsCloudfrontOriginAccessIdentityInputProps =
-  & z.infer<typeof AwsCloudfrontOriginAccessIdentityInputSchema>
-  & IacNodeProps
+export type AwsCloudfrontOriginAccessIdentityInputProps = z.input<
+  typeof AwsCloudfrontOriginAccessIdentityInputSchema
+> &
+  IacNodeProps
 
-export type AwsCloudfrontOriginAccessIdentityOutputProps =
-  & z.infer<typeof AwsCloudfrontOriginAccessIdentityOutputSchema>
-  & AwsCloudfrontOriginAccessIdentityInputProps
+export type AwsCloudfrontOriginAccessIdentityOutputProps = z.input<
+  typeof AwsCloudfrontOriginAccessIdentityOutputSchema
+> &
+  AwsCloudfrontOriginAccessIdentityInputProps
 
 export function AwsCloudfrontOriginAccessIdentity(
   props: AwsCloudfrontOriginAccessIdentityInputProps,

@@ -1,5 +1,5 @@
 import z from 'zod'
-import { Stack } from '../core/types.js'
+import { Stack } from '@reactiac/base-components'
 
 export const ExampleSchema = z.object({
   title: z.string().optional(),
@@ -15,7 +15,7 @@ export const ExampleSchema = z.object({
   tags: z.string().array().optional(),
 })
 
-export type ExampleType = z.infer<typeof ExampleSchema>
+export type ExampleType = z.input<typeof ExampleSchema>
 
 export type AppStackResult = {
   app: ExampleType

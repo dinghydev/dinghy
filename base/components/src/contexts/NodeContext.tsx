@@ -13,8 +13,8 @@ export const useNode = (_props: NodeProps): NodeTree => {
     _props: {
       _level: (_parent._props._level as number) + 1,
       _version: _parent._props._version,
-      _views: _parent._props._views,
-      _stages: _parent._props._stages,
+      _view: _parent._props._view,
+      _stage: _parent._props._stage,
       ..._props,
     },
   } as Props as NodeTree

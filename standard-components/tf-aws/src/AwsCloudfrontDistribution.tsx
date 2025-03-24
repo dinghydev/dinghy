@@ -1,18 +1,13 @@
 import {
-  IacNodeProps,
+  type IacNodeProps,
   ResolvableBooleanSchema,
-  ResolvableNumberSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
-import { aws, AwsRegion } from './index.js'
+import { aws } from './index.js'
 import z from 'zod'
 import { Cloudfront } from '@reactiac/standard-components-diagrams'
-import {
-  useTypedNode,
-  useTypedNodes
-} from '@reactiac/base-components'
-import { AwsRegionInputProps } from './AwsRegion.js'
+import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
 
 export const AwsCloudfrontDistributionInputSchema = z.object({
   aliases: ResolvableStringArraySchema.optional(),
@@ -20,19 +15,23 @@ export const AwsCloudfrontDistributionInputSchema = z.object({
   default_cache_behavior: z.any(),
   origin: z.any(),
   custom_error_response: z.any(),
-  enabled: ResolvableBooleanSchema,
+  enabled: ResolvableBooleanSchema.optional(),
   default_root_object: ResolvableStringSchema.optional(),
-  logging_config: z.object({
-    bucket: z.any(),
-    include_cookies: z.boolean().optional(),
-    prefix: ResolvableStringSchema.optional(),
-  }).optional(),
-  viewer_certificate: z.object({
-    acm_certificate_arn: ResolvableStringSchema.optional(),
-    cloudfront_default_certificate: ResolvableBooleanSchema.optional(),
-    ssl_support_method: ResolvableStringSchema.optional(),
-    minimum_protocol_version: ResolvableStringSchema.optional(),
-  }),
+  logging_config: z
+    .object({
+      bucket: z.any(),
+      include_cookies: z.boolean().optional(),
+      prefix: ResolvableStringSchema.optional(),
+    })
+    .optional(),
+  viewer_certificate: z
+    .object({
+      acm_certificate_arn: ResolvableStringSchema.optional(),
+      cloudfront_default_certificate: ResolvableBooleanSchema.optional(),
+      ssl_support_method: ResolvableStringSchema.optional(),
+      minimum_protocol_version: ResolvableStringSchema.optional(),
+    })
+    .optional(),
 })
 
 export const AwsCloudfrontDistributionOuputSchema = z.object({
@@ -42,9 +41,15 @@ export const AwsCloudfrontDistributionOuputSchema = z.object({
   hosted_zone_id: ResolvableStringSchema.optional(),
 })
 
-export type AwsCloudfrontDistributionInputProps =
-  & z.infer<typeof AwsCloudfrontDistributionInputSchema>
-  & IacNodeProps
+export type AwsCloudfrontDistributionInputProps = z.input<
+  typeof AwsCloudfrontDistributionInputSchema
+> &
+  IacNodeProps
+
+export type AwsCloudfrontDistributionOutputProps = z.input<
+  typeof AwsCloudfrontDistributionOuputSchema
+> &
+  AwsCloudfrontDistributionInputProps
 
 export function AwsCloudfrontDistribution(
   props: AwsCloudfrontDistributionInputProps,
@@ -61,7 +66,9 @@ export function AwsCloudfrontDistribution(
 }
 
 export const useAwsCloudfrontDistribution = () =>
-  useTypedNode<AwsCloudfrontDistributionInputProps>(AwsCloudfrontDistribution)
+  useTypedNode<AwsCloudfrontDistributionOutputProps>(AwsCloudfrontDistribution)
 
 export const useAwsCloudfrontDistributions = () =>
-  useTypedNodes<AwsCloudfrontDistributionInputProps[]>(AwsCloudfrontDistribution)
+  useTypedNodes<AwsCloudfrontDistributionOutputProps[]>(
+    AwsCloudfrontDistribution,
+  )

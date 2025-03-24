@@ -56,7 +56,7 @@
       "type": "node",
       "attributes": {
         "_level": 2,
-        "_stages": "*",
+        "_stage": "*",
         "_title": "Cloud",
         "_type": "aws_cloud",
         "_tags": [
@@ -73,7 +73,7 @@
           "type": "node",
           "attributes": {
             "_level": 3,
-            "_stages": [
+            "_stage": [
               "*"
             ],
             "_title": "Region",
@@ -91,7 +91,7 @@
               "type": "node",
               "attributes": {
                 "_level": 4,
-                "_stages": [
+                "_stage": [
                   "*"
                 ],
                 "_title": "Vpc",
@@ -111,7 +111,7 @@
                   "type": "node",
                   "attributes": {
                     "_level": 5,
-                    "_stages": [
+                    "_stage": [
                       "*"
                     ],
                     "_title": "Public Subnet",
@@ -131,7 +131,7 @@
                       "type": "node",
                       "attributes": {
                         "_level": 6,
-                        "_stages": [
+                        "_stage": [
                           "*"
                         ],
                         "_title": "Load Balancer",
@@ -157,7 +157,7 @@
                           "type": "node",
                           "attributes": {
                             "_level": 7,
-                            "_stages": [
+                            "_stage": [
                               "*"
                             ],
                             "_source": "aws_lb_loadbalancer",
@@ -177,7 +177,7 @@
                           "type": "node",
                           "attributes": {
                             "_level": 7,
-                            "_stages": [
+                            "_stage": [
                               "*"
                             ],
                             "_source": "aws_lb_loadbalancer",
@@ -199,7 +199,7 @@
                       "type": "node",
                       "attributes": {
                         "_level": 6,
-                        "_stages": [
+                        "_stage": [
                           "*"
                         ],
                         "_tags": [
@@ -223,7 +223,7 @@
                   "type": "node",
                   "attributes": {
                     "_level": 5,
-                    "_stages": [
+                    "_stage": [
                       "*"
                     ],
                     "_title": "Private Subnet",
@@ -243,7 +243,7 @@
                       "type": "node",
                       "attributes": {
                         "_level": 6,
-                        "_stages": [
+                        "_stage": [
                           "*"
                         ],
                         "_title": "Application",
@@ -268,7 +268,7 @@
                           "type": "node",
                           "attributes": {
                             "_level": 7,
-                            "_stages": [
+                            "_stage": [
                               "*"
                             ],
                             "_source": "aws_instance_application",
@@ -290,7 +290,7 @@
                       "type": "node",
                       "attributes": {
                         "_level": 6,
-                        "_stages": [
+                        "_stage": [
                           "*"
                         ],
                         "_title": "Postgres",

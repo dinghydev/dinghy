@@ -1,11 +1,15 @@
-import type { ReactNode } from 'react'
+import type { ReactElement, ReactNode } from 'react'
 import z, { type ZodType, type ZodTypeAny } from 'zod'
 
 export const resolvable = <T extends ZodTypeAny>(_schema: T): ZodType<T> =>
   z.function().args(z.any()).returns(z.any()) as unknown as ZodType<T>
 
 export const resolvableValue = <T extends z.ZodTypeAny>(schema: T) =>
-  z.union([schema, resolvable(schema)])
+  z.union([
+    schema,
+    resolvable(schema),
+    z.function().args(z.any()).returns(z.any()),
+  ])
 
 export const StringSchema = z.string()
 
@@ -22,7 +26,7 @@ export const ResolvableNumberSchema = resolvableValue(z.number())
 export const ResolvableBooleanSchema = resolvableValue(z.boolean())
 
 export const CallableSchema = resolvable(z.any())
-export type CallableType = z.infer<typeof CallableSchema>
+export type CallableType = z.input<typeof CallableSchema>
 
 export const RecordSchema = z.record(z.string(), z.unknown())
 
@@ -46,7 +50,7 @@ export type ReactNodeTree = {
 export type Renderer = (node: ReactNodeTree) => ReactNode
 
 export const DependsSchema = z.enum(['_dependsOn', '_dependsBy'])
-export type DependsType = z.infer<typeof DependsSchema>
+export type DependsType = z.input<typeof DependsSchema>
 
 export type NodeTree = {
   _parent?: NodeTree
@@ -58,22 +62,29 @@ export type NodeTree = {
 }
 
 export const NodeSchema = z.object({
+  // react props
+  key: z.any().optional(),
+  ref: z.any().optional(),
+
+  // reactiac core props
   title: ResolvableStringSchema.optional(),
   name: ResolvableStringSchema.optional(),
   id: ResolvableStringSchema.optional(),
-  _level: ResolvableNumberSchema.optional(),
-  _tags: ResolvableStringArraySchema.optional(),
-  _type: ResolvableStringSchema.optional(),
   _title: ResolvableStringSchema.optional(),
   _name: ResolvableStringSchema.optional(),
   _id: ResolvableStringSchema.optional(),
+
+  // reactiac additional props
+  _level: ResolvableNumberSchema.optional(),
+  _tags: ResolvableStringArraySchema.optional(),
+  _type: ResolvableStringSchema.optional(),
   _isDependency: ResolvableBooleanSchema.optional(),
   _version: ResolvableStringSchema.optional(),
-  _views: StringOrArraySchema.optional(),
-  _stages: StringOrArraySchema.optional(),
+  _view: StringOrArraySchema.optional(),
+  _stage: StringOrArraySchema.optional(),
 })
 
-export type NodeType = z.infer<typeof NodeSchema>
+export type NodeType = z.input<typeof NodeSchema>
 export type NodeProps = NodeType & ReactNodeTree
 
 export const DisplayStringSchema = z.enum([
@@ -82,23 +93,23 @@ export const DisplayStringSchema = z.enum([
   'inactive',
   'entity',
 ])
-export type DisplayStringType = z.infer<typeof DisplayStringSchema>
+export type DisplayStringType = z.input<typeof DisplayStringSchema>
 
 export const ArrowStringSchema = z.enum(['end', 'start', 'both', 'none'])
-export type ArrowStringType = z.infer<typeof ArrowStringSchema>
+export type ArrowStringType = z.input<typeof ArrowStringSchema>
 
 export const DistributionStringSchema = z.enum([
   'even',
   'horizontal',
   'vertical',
 ])
-export type DistributionStringType = z.infer<typeof DistributionStringSchema>
+export type DistributionStringType = z.input<typeof DistributionStringSchema>
 
 export const AlignSchema = z.enum(['left', 'center', 'right'])
-export type AlignType = z.infer<typeof AlignSchema>
+export type AlignType = z.input<typeof AlignSchema>
 
 export const VerticalAlignSchema = z.enum(['top', 'middle', 'bottom'])
-export type VerticalAlignType = z.infer<typeof VerticalAlignSchema>
+export type VerticalAlignType = z.input<typeof VerticalAlignSchema>
 
 export const DiagramNodeSchema = z.object({
   _diagram: RecordSchema.optional(),
@@ -145,7 +156,7 @@ export const DiagramNodeSchema = z.object({
   _beforeGenerate: CallableSchema.optional(),
 })
 
-export type DiagramNodeType = z.infer<typeof DiagramNodeSchema>
+export type DiagramNodeType = z.input<typeof DiagramNodeSchema>
 export type DiagramNodeProps = DiagramNodeType & NodeProps
 
 export type DependencyProps = {
@@ -172,7 +183,7 @@ export const IacNodeSchema = z.object({
   _category: z.union([IacCategorySchema, resolvable(z.string())]).optional(),
 })
 
-export type IacNodeType = z.infer<typeof IacNodeSchema>
+export type IacNodeType = z.input<typeof IacNodeSchema>
 export type IacNodeProps = IacNodeType & DiagramNodeProps
 
 export const ItemSchema = z.object({
@@ -180,7 +191,7 @@ export const ItemSchema = z.object({
   name: z.string().optional(),
   title: z.string().optional(),
 })
-export type Item = z.infer<typeof ItemSchema>
+export type Item = z.input<typeof ItemSchema>
 
 export const StackSchema = z.object({
   id: z.string(),
@@ -192,10 +203,10 @@ export const StackSchema = z.object({
   views: z.record(z.string(), ItemSchema).optional(),
 })
 
-export type Stack = z.infer<typeof StackSchema>
+export type Stack = z.input<typeof StackSchema>
 
 export const StacksSchema = z.object({
   stacks: z.record(z.string(), StackSchema),
 })
 
-export type Stacks = z.infer<typeof StacksSchema>
+export type Stacks = z.input<typeof StacksSchema>

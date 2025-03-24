@@ -14,7 +14,7 @@ import {
   AwsRegion,
   AwsWAF,
   DataAwsVpc,
-} from '../../../generated-aws/index.js'
+} from '../../../index.js'
 import { ClientShape as Client } from '../../../generated-drawio/index.js'
 
 function LoadBalancer(props: AwsLbInputProps) {

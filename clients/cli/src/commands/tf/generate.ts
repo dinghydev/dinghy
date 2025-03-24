@@ -21,7 +21,7 @@ export default class TfGenerate<
   }
 
   protected outputFileName(output: any): string {
-    return `${output.renderOptions.stage.id}.tf`
+    return `${output.renderOptions.stage.id}/${output.renderOptions.stage.id}.tf.json`
   }
 
   protected renderFunction() {

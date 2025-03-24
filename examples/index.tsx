@@ -862,7 +862,7 @@ import {
 import { ClientShape as Client } from 'reactiac-components-generated-drawio'
 import {
   AwsBackend,
-  AwsLogBucket,
+  LogBucket,
   S3CloudfrontSite,
   S3CloudfrontSiteInputProps,
 } from 'reactiac-components-pro-aws'
@@ -922,7 +922,7 @@ export default function App() {
             <DataAwsRoute53Zone name='reactiac.dev' />
             <DataAwsAcmCertificate domain='reactiac.dev' />
             <AwsBackend />
-            <AwsLogBucket surfix='logs' />
+            <LogBucket surfix='logs' />
           </Shared>
         </GlobalRegion>
       </AwsCloud>

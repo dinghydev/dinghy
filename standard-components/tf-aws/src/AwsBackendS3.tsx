@@ -1,12 +1,12 @@
 import {
-  IacNodeProps,
+  type IacNodeProps,
   IacNodeSchema,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
 import { aws } from './index.js'
-import z from 'zod'
+import type z from 'zod'
 import { Shape } from '@reactiac/base-components'
 
 export const AwsBackendS3InputSchema = IacNodeSchema.extend({
@@ -17,30 +17,30 @@ export const AwsBackendS3InputSchema = IacNodeSchema.extend({
   region: ResolvableStringSchema.optional(),
 })
 
-export type AwsBackendS3InputProps =
-  & z.infer<typeof AwsBackendS3InputSchema>
-  & IacNodeProps
+export type AwsBackendS3InputProps = z.input<typeof AwsBackendS3InputSchema> &
+  IacNodeProps
 
-export function AwsBackendS3(
-  props: AwsBackendS3InputProps,
-) {
+export function AwsBackendS3(props: AwsBackendS3InputProps) {
   return (
     <Shape
-      {...aws({
-        _terraform: {
-          backend: {
-            s3: {
-              bucket: props.bucket,
-              key: props.stateFile,
-              region: props.region,
-              ...(props.useLockTable
-                ? { dynamodb_table: props.lockTable }
-                : { use_lockfile: true }),
+      {...aws(
+        {
+          _terraform: {
+            backend: {
+              s3: {
+                bucket: props.bucket,
+                key: props.stateFile,
+                region: props.region,
+                ...(props.useLockTable
+                  ? { dynamodb_table: props.lockTable }
+                  : { use_lockfile: true }),
+              },
             },
           },
+          ...props,
         },
-        ...props,
-      }, AwsBackendS3InputSchema)}
+        AwsBackendS3InputSchema,
+      )}
     />
   )
 }

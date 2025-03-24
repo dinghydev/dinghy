@@ -12,10 +12,9 @@ import {
   AwsRegion,
   DataAwsAcmCertificate,
   DataAwsRoute53Zone,
-  AwsBackend,
-  AwsLogBucket,
+  S3Backend,
+  LogBucket,
   S3CloudfrontSite,
-  S3CloudfrontSiteInputProps,
 } from '@reactiac/standard-components-tf-aws'
 import { ClientShape as Client } from '@reactiac/standard-components-diagrams'
 
@@ -24,7 +23,7 @@ const ReactIACWebsite = (props: NodeProps) => (
 )
 
 const GlobalRegion = (props: NodeProps) => (
-  <AwsRegion _direction="vertical" {...props} />
+  <AwsRegion _direction="vertical" region="us-east-1" {...props} />
 )
 
 const Shared = (props: NodeProps) => <Shape _distribution="even" {...props} />
@@ -36,7 +35,7 @@ const Sites = (props: NodeProps) => (
   </Shape>
 )
 
-const Site = (props: S3CloudfrontSiteInputProps) => (
+const Site = (props: any) => (
   <Shape _display="invisible" _direction="vertical" _name={props.subdomain}>
     <S3CloudfrontSite
       bucketVersions={[
@@ -62,8 +61,8 @@ export default function App() {
           <Shared>
             <DataAwsRoute53Zone name="reactiac.dev" />
             <DataAwsAcmCertificate domain="reactiac.dev" />
-            <AwsBackend />
-            <AwsLogBucket surfix="logs" />
+            <S3Backend />
+            <LogBucket surfix="logs" />
           </Shared>
         </GlobalRegion>
       </AwsCloud>

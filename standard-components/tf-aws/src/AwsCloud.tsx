@@ -14,27 +14,27 @@ export const AwsCloudInputSchema = IacNodeSchema.extend({
   version: ResolvableStringSchema.optional(),
 })
 
-export type AwsCloudInputProps =
-  & z.infer<typeof AwsCloudInputSchema>
-  & IacNodeProps
+export type AwsCloudInputProps = z.infer<typeof AwsCloudInputSchema> &
+  IacNodeProps
 
-export default function AwsCloud(
-  props: AwsCloudInputProps,
-) {
+export default function AwsCloud(props: AwsCloudInputProps) {
   return (
     <GroupAwsCloudAlt
-      {...aws({
-        _terraform: {
-          required_providers: {
-            aws: {
-              source: 'aws',
-              version: props.version || '5.63.1',
+      {...aws(
+        {
+          _terraform: {
+            required_providers: {
+              aws: {
+                source: 'aws',
+                version: props.version || '5.63.1',
+              },
             },
           },
+          _stage: '*',
+          ...props,
         },
-        _stages: '*',
-        ...props,
-      }, AwsCloudInputSchema)}
+        AwsCloudInputSchema,
+      )}
     />
   )
 }

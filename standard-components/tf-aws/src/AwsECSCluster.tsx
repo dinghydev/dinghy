@@ -7,13 +7,8 @@ export const ECSClusterSchema = z.object({
   name: ResolvableStringSchema.optional(),
 })
 
-export type ECSClusterProps = z.infer<typeof ECSClusterSchema> & IacNodeProps
+export type ECSClusterProps = z.input<typeof ECSClusterSchema> & IacNodeProps
 
 export default function AwsECSCluster(props: ECSClusterProps) {
-  return (
-    <Shape
-      _dashed={false}
-      {...aws(props, ECSClusterSchema)}
-    />
-  )
+  return <Shape _dashed={false} {...aws(props, ECSClusterSchema)} />
 }

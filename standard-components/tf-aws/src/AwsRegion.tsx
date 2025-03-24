@@ -10,37 +10,37 @@ export const AwsRegionInputSchema = z.object({
   region: z.string().default('us-east-1'),
 })
 
-export type AwsRegionInputProps =
-  & z.infer<typeof AwsRegionInputSchema>
-  & IacNodeProps
+export type AwsRegionInputProps = z.infer<typeof AwsRegionInputSchema> &
+  IacNodeProps
 
-export function AwsRegion(
-  props: AwsRegionInputProps,
-) {
+export function AwsRegion(props: AwsRegionInputProps) {
   const { stack } = useStack()
   const values = AwsRegionInputSchema.parse(props)
   return (
     <GroupRegion
-      {...aws({
-        _provider: {
-          aws: [
-            {
-              default_tags: [
-                {
-                  tags: (props as any).default_tags || {
-                    'iac:stack-title': stack._title,
-                    'iac:stack-name': stack._name,
+      {...aws(
+        {
+          _provider: {
+            aws: [
+              {
+                default_tags: [
+                  {
+                    tags: (props as any).default_tags || {
+                      'iac:stack-title': stack._title,
+                      'iac:stack-name': stack._name,
+                    },
                   },
-                },
-              ],
-              region: values.region,
-            },
-          ],
+                ],
+                region: values.region,
+              },
+            ],
+          },
+          _stage: ['*'],
+          ...props,
+          ...values,
         },
-        _stages: ['*'],
-        ...props,
-        ...values,
-      }, AwsRegionInputSchema)}
+        AwsRegionInputSchema,
+      )}
     />
   )
 }

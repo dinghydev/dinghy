@@ -6,12 +6,12 @@
     "strict": true,
     "target": "es2022",
     "jsx": "react-jsx",
-//    "jsx": "react",
+    //    "jsx": "react",
     "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "outDir": "dist",
     "rootDir": "app",
-    "types": ["node", "mocha"]
+    "types": ["node"]
   },
   "include": ["./app/**/*"]
 }

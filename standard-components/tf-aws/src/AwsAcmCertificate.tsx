@@ -17,13 +17,17 @@ export const AwsAcmCertificateOuputSchema = z.object({
   id: ResolvableStringSchema.optional(),
 })
 
-export type AwsAcmCertificateInputProps =
-  & z.infer<typeof AwsAcmCertificateInputSchema>
-  & IacNodeProps
+export type AwsAcmCertificateInputProps = z.input<
+  typeof AwsAcmCertificateInputSchema
+> &
+  IacNodeProps
 
-export function AwsAcmCertificate(
-  props: AwsAcmCertificateInputProps,
-) {
+export type AwsAcmCertificateOutputProps = z.input<
+  typeof AwsAcmCertificateOuputSchema
+> &
+  AwsAcmCertificateInputProps
+
+export function AwsAcmCertificate(props: AwsAcmCertificateInputProps) {
   return (
     <CertificateManager
       {...aws(
@@ -36,4 +40,4 @@ export function AwsAcmCertificate(
 }
 
 export const useAwsAcmCertificate = () =>
-  useTypedNode<AwsAcmCertificateInputProps>(AwsAcmCertificate)
+  useTypedNode<AwsAcmCertificateOutputProps>(AwsAcmCertificate)

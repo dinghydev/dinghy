@@ -23,7 +23,6 @@
     "js-yaml": "^4.1.0",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
-    "@oclif/plugin-plugins": "^5",
     "@reactiac/renderer-json": "workspace:*",
     "@reactiac/renderer-drawio": "workspace:*",
     "@reactiac/renderer-tf": "workspace:*",
@@ -56,9 +55,15 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "files": ["./bin", "./dist", "./oclif.manifest.json"],
+  "files": [
+    "./bin",
+    "./dist",
+    "./oclif.manifest.json"
+  ],
   "homepage": "https://github.com/reactiac/reactiac",
-  "keywords": ["oclif"],
+  "keywords": [
+    "oclif"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
   "type": "module",
@@ -66,7 +71,9 @@
     "bin": "reactiac",
     "dirname": "reactiac",
     "commands": "./dist/commands",
-    "plugins": ["@oclif/plugin-help", "@oclif/plugin-plugins"],
+    "plugins": [
+      "@oclif/plugin-help"
+    ],
     "topicSeparator": " ",
     "topics": {
       "hello": {

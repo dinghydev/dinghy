@@ -1,5 +1,9 @@
 import { ZodObject, ZodRawShape } from 'zod'
-import { DiagramNodeProps, IacNodeProps, NodeTree } from '@reactiac/base-components'
+import {
+  DiagramNodeProps,
+  IacNodeProps,
+  NodeTree,
+} from '@reactiac/base-components'
 import { utils } from '@reactiac/base-components'
 const { camelCaseToWords } = utils
 
@@ -20,27 +24,25 @@ export { default as AwsECSContainer } from './AwsECSContainer.js'
 export { AwsS3Bucket, useAwsS3Bucket } from './AwsS3Bucket.js'
 export { AwsS3BucketVersioning } from './AwsS3BucketVersioning.js'
 export { AwsS3BucketPolicy } from './s3/AwsS3BucketPolicy.js'
+export { S3Backend } from './s3/S3Backend.js'
+export { S3CloudfrontSite } from './s3/S3CloudfrontSite.js'
+export { LogBucket } from './s3/LogBucket.js'
 export { AwsS3BucketLogging } from './AwsS3BucketLogging.js'
 export { AwsS3BucketAcl } from './AwsS3BucketAcl.js'
 export {
   DataAwsIamPolicyDocument,
   useDataAwsIamPolicyDocument,
 } from './iam/DataAwsIamPolicyDocument.js'
-export {
-  AwsS3BucketOwnershipControls,
-} from './AwsS3BucketOwnershipControls.js'
+export { AwsS3BucketOwnershipControls } from './AwsS3BucketOwnershipControls.js'
 export { AwsDynamodbTable } from './AwsDynamodbTable.js'
 export { AwsBackendS3 } from './AwsBackendS3.js'
 export {
   AwsCloudfrontDistribution,
   useAwsCloudfrontDistributions,
 } from './AwsCloudfrontDistribution.js'
-export {
-  AwsCloudfrontOriginAccessIdentity,
-} from './cloudfront/AwsCloudfrontOriginAccessIdentity.js'
-export {
-  AwsCloudfrontOriginAccessControl,
-} from './cloudfront/AwsCloudfrontOriginAccessControl.js'
+export { AwsCloudfrontOriginAccessIdentity } from './cloudfront/AwsCloudfrontOriginAccessIdentity.js'
+export { AwsCloudfrontOriginAccessControl } from './cloudfront/AwsCloudfrontOriginAccessControl.js'
+export { CloudfrontSite } from './cloudfront/CloudfrontSite.js'
 export { DataAwsRoute53Zone } from './DataAwsRoute53Zone.js'
 export { AwsRoute53Record } from './AwsRoute53Record.js'
 export { AwsAcmCertificate } from './AwsAcmCertificate.js'
@@ -69,14 +71,14 @@ function _type({ _props: { _tags } }: NodeTree) {
   if (!awsTypeTag) {
     awsTypeTag = reverseFindTag(_tags as any, 'DataAws')
     if (!awsTypeTag) {
-      throw new Error(`None aws resource with tags [${(_tags as any).join(', ')}]`)
+      throw new Error(
+        `None aws resource with tags [${(_tags as any).join(', ')}]`,
+      )
     }
     awsTypeTag = awsTypeTag.replace('DataAws', 'Aws')
   }
 
-  return camelCaseToWords(awsTypeTag)
-    .toLowerCase()
-    .replaceAll(' ', '_')
+  return camelCaseToWords(awsTypeTag).toLowerCase().replaceAll(' ', '_')
 }
 
 function _category({ _props: { _tags } }: NodeTree) {

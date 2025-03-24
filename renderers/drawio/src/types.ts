@@ -88,7 +88,7 @@ export type DrawioContext = {
 export type Processor = (context: DrawioContext) => void
 
 export const DependsSchema = z.enum(['_dependsOn', '_dependsBy'])
-export type DependsType = z.infer<typeof DependsSchema>
+export type DependsType = z.input<typeof DependsSchema>
 
 export type DependsPair = {
   single: DrawioNodeTree
@@ -98,12 +98,12 @@ export type DependsPair = {
 }
 
 export const DimensionSchema = z.enum(['width', 'height'])
-export type DimensionType = z.infer<typeof DimensionSchema>
+export type DimensionType = z.input<typeof DimensionSchema>
 
 export const DirectionSchema = z.enum(['horizontal', 'vertical'])
-export type DirectionType = z.infer<typeof DirectionSchema>
+export type DirectionType = z.input<typeof DirectionSchema>
 
 export const ArrowDirectionSchema = z.enum(['left', 'right', 'up', 'down'])
-export type ArrowDirectionType = z.infer<typeof ArrowDirectionSchema>
+export type ArrowDirectionType = z.input<typeof ArrowDirectionSchema>
 
 export const DependencyFieldsSchema = z.enum(['_source', '_target'])

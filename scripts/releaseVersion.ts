@@ -19,8 +19,9 @@ export const shortCommit = () =>
 export const commitDirty = () =>
   execSync('git diff --quiet HEAD || echo "-dirty"').toString().trim()
 export const commitVersion = () =>
-  process.env.COMMIT_VERSION ||
-  `${baseVersion()}.${revCount()}-${commitTime()}-${shortCommit()}${commitDirty()}`
+  process.env.COMMIT_VERSION || rootPackage.version.includes('-')
+    ? rootPackage.version
+    : `${baseVersion()}.${revCount()}-${commitTime()}-${shortCommit()}${commitDirty()}`
 
 function findPackageJsonFilesRecursive(dir: string): string[] {
   const files: string[] = []
@@ -43,22 +44,35 @@ function findPackageJsonFilesRecursive(dir: string): string[] {
   return files
 }
 
-const findPackageJsonFiles = () => {
-  return findPackageJsonFilesRecursive(process.cwd())
+const replaceDependenciesVersion = (dependencies: any, version: string) => {
+  for (const dependency in dependencies) {
+    if (dependency.startsWith('@reactiac/')) {
+      dependencies[dependency] = version
+    }
+  }
 }
 
-export function updateReleaseVersion() {
-  const version = commitVersion()
-  const packageJsonFiles = findPackageJsonFiles()
-
-  for (const file of findPackageJsonFilesRecursive(process.cwd())) {
-    console.log(file)
-    if (file === 'docker/release/fs-root/workspace/package.json') {
-      continue
-    }
+export function updatePackageVersion(root: string, noneRoot: string) {
+  const cwd = process.cwd()
+  for (const file of findPackageJsonFilesRecursive(cwd)) {
+    console.log('Updating', file)
     const packageJson = require(file)
-    packageJson.version = version
-    writeFileSync(file, JSON.stringify(packageJson, null, 2))
+    if (file.includes('fs-root')) {
+      replaceDependenciesVersion(packageJson.dependencies, noneRoot)
+      replaceDependenciesVersion(packageJson.devDependencies, noneRoot)
+    } else {
+      packageJson.version = file === join(cwd, 'package.json') ? root : noneRoot
+    }
+    writeFileSync(file, `${JSON.stringify(packageJson, null, 2)}\n`)
   }
-  return version
+  return root
+}
+
+export function updateVersion() {
+  const version = commitVersion()
+  return updatePackageVersion(version, version)
+}
+
+export function resetVersion() {
+  return updatePackageVersion(baseVersion(), '0.0.0')
 }

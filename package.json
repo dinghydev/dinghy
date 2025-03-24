@@ -1,6 +1,6 @@
 {
   "name": "@reactiac/root",
-  "version": "0.0.1",
+  "version": "0.1",
   "description": "a React DX with programable diagrams for any IaC",
   "scripts": {
     "build": "pnpm -r build",
@@ -8,12 +8,14 @@
     "test": "pnpm -r test",
     "show-info": "export;git rev-parse HEAD;git rev-list --count HEAD",
     "aws-login": "aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner 313225491971 --namespace @reactiac --region eu-west-1",
-    "update-release-version": "node --experimental-strip-types -p \"require('./scripts/updateReleaseVersion.ts').updateReleaseVersion()\"",
-    "docker-publish-base": "node --experimental-strip-types -p \"require('./scripts/dockerPublish.ts').publishBase('313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli')\"",
-    "docker-publish-release": "node --experimental-strip-types -p \"require('./scripts/dockerPublish.ts').publishRelease('313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli')\"",
+    "release-version-update": "node --experimental-strip-types -p \"require('./scripts/releaseVersion.ts').updateVersion()\"",
+    "release-version-reset": "node --experimental-strip-types -p \"require('./scripts/releaseVersion.ts').resetVersion()\"",
+    "docker-publish": "node --experimental-strip-types -p \"require('./scripts/dockerPublish.ts').publish('313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli')\"",
     "clean": "rm -rf node_modules *.tgz */*/node_modules  */*/dist */*/tsconfig.tsbuildinfo */*/*.tgz */*/oclif.manifest.json"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "private": true,
   "keywords": [
     "React",

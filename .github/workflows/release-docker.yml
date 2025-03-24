@@ -1,8 +1,9 @@
-name: release
+name: release-docker
 
 on:
-  push:
-    branches: [main]
+  # push:
+    # branches: [main]
+  workflow_dispatch:
   # workflow_run:
   #     workflows: ['verification']
   #     types: [completed]
@@ -47,26 +48,17 @@ jobs:
           aws-region: ${{ secrets.AWS_DEPLOY_REGION }}
           role-to-assume: arn:aws:iam::313225491971:role/${{ secrets.AWS_DEPLOY_ROLE }}
       - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          cache: pnpm
-          node-version: 22.14.0
-      - name: publish npm packages
+      - name: login to npm private registry
+        run: |
+          pnpm aws-login
         env:
           COMMIT_REV_COUNT: ${{ env.COMMIT_REV_COUNT }}
-        run: |
-          pnpm clean
-          pnpm install --frozen-lockfile
-          pnpm build
-          pnpm test
-          pnpm aws-login
-          pnpm update-release-version
-          pnpm -r publish --no-git-checks --force
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
       - name: publish docker image
         run: |
           # aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
-          pnpm docker-publish-base
-          pnpm docker-publish-release
+          pnpm docker-publish
+        env:
+          DOCKER_PUSH: ${{ env.COMMIT_REV_COUNT }}

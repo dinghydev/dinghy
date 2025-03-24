@@ -10,7 +10,9 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "zod": "^3.24.1",
     "react": "^19",

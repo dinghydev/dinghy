@@ -27,11 +27,11 @@ export default function Stack(props: IacNodeProps) {
 
   const stackProps = {
     ...stack,
-    _stage: stage,
+    stage: stage,
     ...props,
     ...appendEnvToTitle,
   }
-  return <Shape {...stackProps} />
+  return <Shape {...(stackProps as any)} />
 }
 
 export const useStack = () => useTypedNode<IacNodeProps>(Stack)

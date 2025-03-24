@@ -1,0 +1,74 @@
+name: release-npm
+
+on:
+  push:
+    branches: [main]
+  # workflow_run:
+  #     workflows: ['verification']
+  #     types: [completed]
+  #     branches: [main]
+
+permissions:
+    id-token: write   # This is required for requesting the JWT
+    contents: read    # This is required for actions/checkout
+        
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: commit-rev-count
+        run: |
+          gh api graphql -f query='query CommitRevCount{
+              repository(owner:"${{ github.repository_owner }}",name:"${{ github.event.repository.name }}") {
+                name
+                object(oid: "${{ github.sha }}"){
+                  ... on Commit {
+                    message
+                    id
+                    history(first: 0) {
+                      totalCount
+                    }
+                  }
+                }
+              }
+            }' > commit_rev_count_data.json
+          COMMIT_REV_COUNT="$(jq -r '.data.repository.object.history.totalCount' commit_rev_count_data.json)"
+          echo "COMMIT_REV_COUNT=$COMMIT_REV_COUNT" >> $GITHUB_ENV
+          echo "COMMIT_REV_COUNT=$COMMIT_REV_COUNT"
+          rm commit_rev_count_data.json
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ secrets.AWS_DEPLOY_REGION }}
+          role-to-assume: arn:aws:iam::313225491971:role/${{ secrets.AWS_DEPLOY_ROLE }}
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          node-version: 22.14.0
+      - name: publish npm packages
+        run: |
+          pnpm clean
+          pnpm install --frozen-lockfile
+          pnpm build
+          pnpm test
+          pnpm aws-login
+          pnpm release-version-update
+          pnpm -r publish --no-git-checks --force
+          # pnpm release-version-reset
+        env:
+          COMMIT_REV_COUNT: ${{ env.COMMIT_REV_COUNT }}
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: publish docker image
+        run: |
+          # aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
+          pnpm docker-publish
+        env:
+          DOCKER_PUSH: ${{ env.COMMIT_REV_COUNT }}

@@ -32,6 +32,10 @@ tmp*
 *.iws
 
 
+# IaC
+**/.terraform
+
+
 # Optional eslint cache
 .eslintcache
 
