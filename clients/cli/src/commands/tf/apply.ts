@@ -38,7 +38,7 @@ export default class TfGApply<
   }
 
   protected requireBuild() {
-    return false
+    return true // TODO: to skip build after move stack options outside rendering logic
   }
 
   protected async doWithOutput(output: any, outputFilePath: string) {
