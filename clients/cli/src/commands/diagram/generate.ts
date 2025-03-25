@@ -34,8 +34,8 @@ export default class DiagramGenerate<
     return 'view'
   }
 
-  protected outputFileName(output: any): string {
-    return `${output.renderOptions.view.id}.drawio`
+  protected outputFileName(renderOptions: any): string {
+    return `${renderOptions.view.id}.drawio`
   }
 
   protected renderFunction() {

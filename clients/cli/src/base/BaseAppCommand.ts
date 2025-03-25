@@ -49,18 +49,20 @@ export abstract class BaseAppCommand<
   protected abstract outputFileName(output: any): string
   protected abstract renderFunction(): Function
 
-  protected outputFilePath(output: any) {
+  protected outputDir(renderOptions: any) {
     const outputBase = this.flags['app-output-dir'].startsWith('/')
       ? this.flags['app-output-dir']
       : `${this.flags['app-home']}/${this.flags['app-output-dir']}`
-    const outputFile = `${outputBase}/${this.outputFileName(output)}`
-    // remove the string from last slash to the end of the string
-    const outputDir = outputFile.substring(0, outputFile.lastIndexOf('/') + 1)
+    return outputBase
+  }
+
+  protected outputFilePath(renderOptions: any) {
+    const outputDir = this.outputDir(renderOptions)
     if (!existsSync(outputDir)) {
       mkdirSync(outputDir, { recursive: true })
     }
 
-    return outputFile
+    return `${outputDir}/${this.outputFileName(renderOptions)}`
   }
 
   public appPath(path?: string) {
@@ -98,7 +100,7 @@ export abstract class BaseAppCommand<
     const renderFunction = this.renderFunction()
     const App = await this.requireApp()
     const output = await renderFunction(App, renderOptions)
-    const outputFilePath = this.outputFilePath(output)
+    const outputFilePath = this.outputFilePath(output.renderOptions)
     writeFileSync(outputFilePath, output.result)
     await this.doWithOutput(output, outputFilePath)
     return output

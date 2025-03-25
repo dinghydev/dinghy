@@ -25,8 +25,8 @@ export default class JsonGenerate<
     }),
   }
 
-  protected outputFileName(output: any): string {
-    return `${output.renderOptions.stack.id}.json`
+  protected outputFileName(renderOptions: any): string {
+    return `${renderOptions.stack.id}.json`
   }
 
   protected renderFunction() {

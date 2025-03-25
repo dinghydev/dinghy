@@ -4,6 +4,7 @@ import { renderTf } from '@reactiac/renderer-tf'
 import { mergeStackOptions, utils } from '@reactiac/base-components'
 import { existsSync, symlinkSync } from 'node:fs'
 import { execSync } from 'node:child_process'
+import { execa } from 'execa'
 const { deepClone } = utils
 
 export default class TfGenerateInitPlan<
@@ -22,8 +23,12 @@ export default class TfGenerateInitPlan<
     }),
   }
 
-  protected outputFileName(output: any): string {
-    return `${output.renderOptions.stage.id}/${output.renderOptions.stage.id}.tf.json`
+  protected outputDir(renderOptions: any): string {
+    return `${super.outputDir(renderOptions)}/${renderOptions.stage.id}`
+  }
+
+  protected outputFileName(renderOptions: any): string {
+    return `${renderOptions.stage.id}.tf.json`
   }
 
   protected renderFunction() {
@@ -45,16 +50,19 @@ export default class TfGenerateInitPlan<
       const target = `${stageFolder}/${source}`
       const sourcePath = `/terraform/${source}`
       if (!existsSync(target)) {
-        symlinkSync(sourcePath, target)
+        execSync(`ln -s ${sourcePath} ${target}`)
       }
     }
 
     // run terraform init in stageFolder
     console.log(`Running terraform init from ${stageFolder}`)
-    execSync('terraform init', { cwd: stageFolder })
+    await execa('terraform', ['init'], { cwd: stageFolder, stdio: 'inherit' })
 
     // run terraform plan in stageFolder
     console.log(`Running terraform plan from ${stageFolder}`)
-    execSync('terraform plan -out=plan.tfplan', { cwd: stageFolder })
+    await execa('terraform', ['plan', '-lock=false', '-out=tf.plan'], {
+      cwd: stageFolder,
+      stdio: 'inherit',
+    })
   }
 }

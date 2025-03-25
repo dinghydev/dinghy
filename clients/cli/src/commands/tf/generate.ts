@@ -20,8 +20,12 @@ export default class TfGenerate<
     }),
   }
 
-  protected outputFileName(output: any): string {
-    return `${output.renderOptions.stage.id}/${output.renderOptions.stage.id}.tf.json`
+  protected outputDir(renderOptions: any): string {
+    return `${super.outputDir(renderOptions)}/${renderOptions.stage.id}`
+  }
+
+  protected outputFileName(renderOptions: any): string {
+    return `${renderOptions.stage.id}.tf.json`
   }
 
   protected renderFunction() {

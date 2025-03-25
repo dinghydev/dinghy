@@ -19,9 +19,10 @@ export const shortCommit = () =>
 export const commitDirty = () =>
   execSync('git diff --quiet HEAD || echo "-dirty"').toString().trim()
 export const commitVersion = () =>
-  process.env.COMMIT_VERSION || rootPackage.version.includes('-')
+  process.env.COMMIT_VERSION ||
+  (rootPackage.version.includes('-')
     ? rootPackage.version
-    : `${baseVersion()}.${revCount()}-${commitTime()}-${shortCommit()}${commitDirty()}`
+    : `${baseVersion()}.${revCount()}-${commitTime()}-${shortCommit()}${commitDirty()}`)
 
 function findPackageJsonFilesRecursive(dir: string): string[] {
   const files: string[] = []

@@ -21,6 +21,7 @@
     "react": "^19",
     "tsx": "^4.19.3",
     "js-yaml": "^4.1.0",
+    "execa": "9.5.2",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@reactiac/renderer-json": "workspace:*",

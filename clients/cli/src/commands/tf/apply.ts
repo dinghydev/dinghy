@@ -1,27 +1,51 @@
-import { Args, Command, Flags } from '@oclif/core'
+import { Args, type Command, Flags } from '@oclif/core'
+import { BaseAppCommand } from '../../base/BaseAppCommand.js'
+import { renderTf } from '@reactiac/renderer-tf'
+import { mergeStackOptions, utils } from '@reactiac/base-components'
+import { existsSync, symlinkSync } from 'node:fs'
+import { execSync } from 'node:child_process'
+import { execa } from 'execa'
+const { deepClone } = utils
 
-export default class TfApply extends Command {
-  static override args = {
-    file: Args.string({ description: 'file to read' }),
-  }
-  static override description = 'describe the command here'
-  static override examples = ['<%= config.bin %> <%= command.id %>']
+export default class TfApply<
+  T extends typeof Command,
+> extends BaseAppCommand<T> {
+  static description = 'Apply tf from app'
+
   static override flags = {
-    // flag with no value (-f, --force)
-    force: Flags.boolean({ char: 'f' }),
-    // flag with a value (-n, --name=VALUE)
-    name: Flags.string({ char: 'n', description: 'name to print' }),
+    ...BaseAppCommand.flags,
+
+    'app-stage': Flags.string({
+      env: 'APP_STAGE',
+      default: 'main',
+    }),
   }
 
-  public async run(): Promise<void> {
-    const { args, flags } = await this.parse(TfApply)
+  protected outputFileName(renderOptions: any): string {
+    return `${renderOptions.stage.id}.tf.json`
+  }
 
-    const name = flags.name ?? 'world'
-    this.log(
-      `hello ${name} from /workspaces/reactiac/packages/cli/src/commands/tf/apply.ts`,
-    )
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
-    }
+  protected outputDir(renderOptions: any): string {
+    return `${super.outputDir(renderOptions)}/${renderOptions.stage.id}`
+  }
+
+  protected renderFunction() {
+    return renderTf
+  }
+
+  protected selectedStackField() {
+    return 'stage'
+  }
+
+  public async run() {
+    const defaultRenderOptions = this.defaultRenderOptions()
+    const stageFolder = this.outputDir(defaultRenderOptions)
+
+    // run terraform plan in stageFolder
+    console.log(`Running terraform plan from ${stageFolder}`)
+    await execa('terraform', ['apply', 'tf.plan'], {
+      cwd: stageFolder,
+      stdio: 'inherit',
+    })
   }
 }
