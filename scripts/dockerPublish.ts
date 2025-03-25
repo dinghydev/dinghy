@@ -130,6 +130,7 @@ export async function publishRelease(repo: string, baseImage: string) {
 }
 
 export async function publish(repo: string) {
+  console.log('Starting docker publish ...', new Date().toISOString())
   const baseTag = await publishHashedImage(repo, 'base', packageBaseVersion)
   const dependenciesTag = await publishHashedImage(
     repo,
