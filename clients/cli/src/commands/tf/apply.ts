@@ -37,6 +37,10 @@ export default class TfGApply<
     return 'stage'
   }
 
+  protected requireBuild() {
+    return false
+  }
+
   protected async doWithOutput(output: any, outputFilePath: string) {
     super.doWithOutput(output, outputFilePath)
     const stageFolder = outputFilePath.substring(
@@ -46,7 +50,7 @@ export default class TfGApply<
 
     // run terraform apply in stageFolder
     console.log(`Running terraform apply from ${stageFolder}`)
-    await execa('terraform', ['apply', '-out=tf.plan'], {
+    await execa('terraform', ['apply', 'tf.plan'], {
       cwd: stageFolder,
       stdio: 'inherit',
     })
