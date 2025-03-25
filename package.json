@@ -10,7 +10,8 @@
     "aws-login": "aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner 313225491971 --namespace @reactiac --region eu-west-1",
     "release-version-update": "node --experimental-strip-types -p \"require('./scripts/releaseVersion.ts').updateVersion()\"",
     "release-version-reset": "node --experimental-strip-types -p \"require('./scripts/releaseVersion.ts').resetVersion()\"",
-    "docker-publish": "node --experimental-strip-types -p \"require('./scripts/dockerPublish.ts').publish('313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli')\"",
+    "docker-publish-linux-amd64": "node --experimental-strip-types -p \"require('./scripts/dockerPublish.ts').publish('public.ecr.aws/f2v6q7q7/reactiac/reactiac','linux/amd64')\"",
+    "docker-publish-linux-arm64": "node --experimental-strip-types -p \"require('./scripts/dockerPublish.ts').publish('public.ecr.aws/f2v6q7q7/reactiac/reactiac','linux/arm64')\"",
     "clean": "rm -rf node_modules *.tgz */*/node_modules  */*/dist */*/tsconfig.tsbuildinfo */*/*.tgz */*/oclif.manifest.json"
   },
   "files": [

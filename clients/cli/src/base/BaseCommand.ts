@@ -67,7 +67,9 @@ export abstract class BaseCommand<T extends typeof Command> extends Command {
     for (const file of [
       `${process.env.HOME}/.reactiacrc`,
       `${appHome}/.reactiacrc`,
+      `${appHome}/app/.reactiacrc`,
       `${appHome}/.reactiacrc.local`,
+      `${appHome}/app/.reactiacrc.local`,
     ]) {
       this.loadEnvFile(file)
     }

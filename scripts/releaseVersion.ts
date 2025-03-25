@@ -59,8 +59,9 @@ export function updatePackageVersion(root: string, noneRoot: string) {
     console.log('Updating', file)
     const packageJson = require(file)
     if (file.includes('fs-root')) {
-      replaceDependenciesVersion(packageJson.dependencies, noneRoot)
-      replaceDependenciesVersion(packageJson.devDependencies, noneRoot)
+      const version = noneRoot.includes('-') ? noneRoot : 'latest'
+      replaceDependenciesVersion(packageJson.dependencies, version)
+      replaceDependenciesVersion(packageJson.devDependencies, version)
     } else {
       packageJson.version = file === join(cwd, 'package.json') ? root : noneRoot
     }

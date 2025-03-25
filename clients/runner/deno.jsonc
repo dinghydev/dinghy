@@ -1,0 +1,32 @@
+{
+  "tasks": {
+    "run": "deno run -A src/index.ts",
+    "clean": "rm -rf dist",
+    "build-x86_64-apple-darwin": "deno run -A src/buildAndRelease.ts x86_64-apple-darwin",
+    "build-aarch64-apple-darwin": "deno run -A src/buildAndRelease.ts aarch64-apple-darwin",
+    "build-aarch64-unknown-linux-gnu": "deno run -A src/buildAndRelease.ts aarch64-unknown-linux-gnu",
+    "build-x86_64-unknown-linux-gnu": "deno run -A src/buildAndRelease.ts x86_64-unknown-linux-gnu",
+    "build": {
+      "dependencies": [
+        "build-x86_64-apple-darwin",
+        "build-aarch64-unknown-linux-gnu",
+        "build-x86_64-unknown-linux-gnu",
+        "build-aarch64-apple-darwin"
+      ]
+    },
+    "s3-sync-zips": "aws s3 sync --metadata-directive REPLACE --cache-control s-maxage=3600,must-revalidate dist/zips s3://reactiac-website-play-v1/download/latest",
+    "s3-sync-bin": "aws s3 sync --metadata-directive REPLACE --cache-control s-maxage=60,must-revalidate bin s3://reactiac-website-play-v1/download",
+    "publish": "deno task clean && deno task s3-sync-bin && deno task build && deno task s3-sync-zips"
+  },
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+    // "lib": ["deno.shared_globals"]
+  }
+}
+// deno task run
+// deno task build && ./dist/runner
+// deno task build-aarch64-apple-darwin && cp dist/aarch64-apple-darwin/reactiac ~/.reactiac/bin/
+// deno task publish
+// curl -fsSL https://play.reactiac.dev/download/install.sh | sh

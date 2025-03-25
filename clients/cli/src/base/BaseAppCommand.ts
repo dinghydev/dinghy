@@ -109,6 +109,7 @@ export abstract class BaseAppCommand<
     const output = await renderFunction(App, renderOptions)
     const outputFilePath = this.outputFilePath(output.renderOptions)
     writeFileSync(outputFilePath, output.result)
+    console.log(`Generated ${outputFilePath}`)
     await this.doWithOutput(output, outputFilePath)
     return output
   }

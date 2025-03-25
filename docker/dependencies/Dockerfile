@@ -1,4 +1,4 @@
-ARG BASE_IMAGE='313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:base'
+ARG BASE_IMAGE='DEPENDENCIES_BASE_IMAGE_IS_REQUIRED'
 
 FROM ${BASE_IMAGE}
 

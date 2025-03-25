@@ -89,12 +89,14 @@ export async function publishHashedImage(
   repo: string,
   name: string,
   initValue: string,
+  platform: string,
+  platformTag: string,
 ) {
-  const lastTag = `${repo}:${name}`
-  const baseVersionTag = `${lastTag}-${packageBaseVersion}`
-  const firstTag = hashedImageTag(repo, name, initValue)
+  const lastTag = `${repo}:${name}${platformTag}`
+  const baseVersionTag = `${lastTag}-${packageBaseVersion}${platformTag}`
+  const firstTag = `${hashedImageTag(repo, name, initValue)}${platformTag}`
   try {
-    await streamExec(`docker pull --platform linux/amd64 ${firstTag}`)
+    await streamExec(`docker pull --platform ${platform} ${firstTag}`)
     console.log(`Tag ${firstTag} exist, skip publish`, new Date().toISOString())
   } catch (e) {
     console.log(
@@ -103,16 +105,21 @@ export async function publishHashedImage(
     )
     await publishImage(
       [firstTag, baseVersionTag, lastTag],
-      `docker buildx build${name === 'base' ? ' ' : ` --build-arg BASE_IMAGE=${initValue}`} --platform linux/amd64 -f docker/${name}/Dockerfile -t ${firstTag} .`,
+      `docker buildx build${name === 'base' ? ' ' : ` --build-arg BASE_IMAGE=${initValue}`} --platform ${platform} -f docker/${name}/Dockerfile -t ${firstTag} .`,
     )
   }
   return firstTag
 }
 
-export async function publishRelease(repo: string, baseImage: string) {
-  const lastTag = `${repo}:latest`
-  const baseVersionTag = `${repo}:${packageBaseVersion}`
-  const firstTag = `${repo}:${packageVersion}`
+export async function publishRelease(
+  repo: string,
+  baseImage: string,
+  platform: string,
+  platformTag: string,
+) {
+  const lastTag = `${repo}:latest${platformTag}`
+  const baseVersionTag = `${repo}:${packageBaseVersion}${platformTag}`
+  const firstTag = `${repo}:${packageVersion}${platformTag}`
   console.log(`Building ${firstTag} ...`, new Date().toISOString())
 
   await publishImage(
@@ -121,7 +128,7 @@ export async function publishRelease(repo: string, baseImage: string) {
       'docker buildx build',
       `--secret "id=npm,src=${process.env.HOME}/.npmrc"`,
       `--build-arg BASE_IMAGE=${baseImage}`,
-      '--platform linux/amd64',
+      `--platform ${platform}`,
       '-f docker/release/Dockerfile',
       `-t ${firstTag}`,
       '.',
@@ -129,15 +136,25 @@ export async function publishRelease(repo: string, baseImage: string) {
   )
 }
 
-export async function publish(repo: string) {
+export async function publish(repo: string, platform: string) {
+  const platformTag =
+    platform === 'linux/amd64' ? '' : `-${platform.replace('/', '-')}`
   console.log('Starting docker publish ...', new Date().toISOString())
-  const baseTag = await publishHashedImage(repo, 'base', packageBaseVersion)
+  const baseTag = await publishHashedImage(
+    repo,
+    'base',
+    packageBaseVersion,
+    platform,
+    platformTag,
+  )
   const dependenciesTag = await publishHashedImage(
     repo,
     'dependencies',
     baseTag,
+    platform,
+    platformTag,
   )
 
-  await publishRelease(repo, dependenciesTag)
+  await publishRelease(repo, dependenciesTag, platform, platformTag)
   return `Completed docker publish ${new Date().toISOString()}`
 }

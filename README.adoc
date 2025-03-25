@@ -18,15 +18,16 @@ image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.s
 
 
 
-== Release management Commands
+== Local Commands
 
-    pnpm aws-login
-    pnpm -r publish --no-git-checks --force
+    docker pull public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64
 
+    docker run -it -v $(pwd)/examples/web/1-shape:/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gen
 
-    aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
-    docker buildx build --secret "id=npm,src=${HOME}/.npmrc" -f docker/release/Dockerfile -t 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:test .
-    docker push 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:test
+    docker run -it -v $(pwd)/examples/web/5-data:/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gen
+    
+    docker pull public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64
+    docker run -it -v $(pwd)/examples/iac/cf-site:/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gip
 
-    # sample test command
-    docker run -v $(pwd)=${pwd} -w $(pwd) 313225491971.dkr.ecr.eu-west-1.amazonaws.com/test/cli:0.0.1-20250323-075340-67f3a28 diagram gen --app-home clients/cli/test/fixtures/standard-diagrams
+    rm -rf sample-app && reactiac create sample-app && cd sample-app && reactiac devcontainer && cd ..
+    

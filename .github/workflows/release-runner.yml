@@ -50,12 +50,3 @@ jobs:
         with:
           aws-region: ${{ secrets.AWS_DEPLOY_REGION }}
           role-to-assume: arn:aws:iam::313225491971:role/${{ secrets.AWS_DEPLOY_ROLE }}
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
-      # - name: publish docker image
-      #   run: |
-      #     # aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
-      #     pnpm docker-publish
-      #   env:
-      #     DOCKER_PUSH: ${{ env.COMMIT_REV_COUNT }}
