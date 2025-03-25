@@ -94,13 +94,13 @@ export async function publishHashedImage(
   const baseVersionTag = `${lastTag}-${packageBaseVersion}`
   const firstTag = hashedImageTag(repo, name, initValue)
   try {
-    await streamExec(`docker pull ${firstTag}`)
+    await streamExec(`docker pull --platform linux/amd64 ${firstTag}`)
     console.log(`Tag ${firstTag} exist, skip publish`)
   } catch (e) {
     console.log(`Tag ${firstTag} does not exist, building...`)
     await publishImage(
       [firstTag, baseVersionTag, lastTag],
-      `docker buildx build${name === 'base' ? ' ' : ` --build-arg BASE_IMAGE=${initValue}`} -f docker/${name}/Dockerfile -t ${firstTag} .`,
+      `docker buildx build${name === 'base' ? ' ' : ` --build-arg BASE_IMAGE=${initValue}`} --platform linux/amd64 -f docker/${name}/Dockerfile -t ${firstTag} .`,
     )
   }
   return firstTag
@@ -117,6 +117,7 @@ export async function publishRelease(repo: string, baseImage: string) {
       'docker buildx build',
       `--secret "id=npm,src=${process.env.HOME}/.npmrc"`,
       `--build-arg BASE_IMAGE=${baseImage}`,
+      '--platform linux/amd64',
       '-f docker/release/Dockerfile',
       `-t ${firstTag}`,
       '.',
