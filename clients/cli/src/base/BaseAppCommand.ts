@@ -7,6 +7,7 @@ import {
   mergeStackOptions,
   utils,
 } from '@reactiac/base-components'
+import { execa } from 'execa'
 const { deepClone } = utils
 
 export abstract class BaseAppCommand<
@@ -32,8 +33,14 @@ export abstract class BaseAppCommand<
     'app-stack': Flags.string({
       env: 'APP_STACK',
     }),
+    'app-build': Flags.boolean({
+      env: 'APP_BUILD',
+      allowNo: true,
+      default: true,
+    }),
     'app-render-stack-options': Flags.boolean({
       env: 'APP_RENDER_STACK_OPTIONS',
+      allowNo: true,
       default: false,
     }),
   }
@@ -127,7 +134,22 @@ export abstract class BaseAppCommand<
     return options
   }
 
+  protected async build() {
+    if (this.requireBuild() && this.flags['app-build']) {
+      await execa('pnpm', ['build'], {
+        cwd: this.flags['app-home'],
+        stdio: 'inherit',
+      })
+    }
+  }
+
+  protected requireBuild() {
+    return true
+  }
+
   public async run(): Promise<void> {
+    await this.build()
+
     const defaultRenderOptions = this.defaultRenderOptions()
     const field = this.selectedStackField()
     if (!field) {

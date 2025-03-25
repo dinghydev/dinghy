@@ -7,7 +7,7 @@ import { execSync } from 'node:child_process'
 import { execa } from 'execa'
 const { deepClone } = utils
 
-export default class TfApply<
+export default class TfGApply<
   T extends typeof Command,
 > extends BaseAppCommand<T> {
   static description = 'Apply tf from app'
@@ -21,12 +21,12 @@ export default class TfApply<
     }),
   }
 
-  protected outputFileName(renderOptions: any): string {
-    return `${renderOptions.stage.id}.tf.json`
-  }
-
   protected outputDir(renderOptions: any): string {
     return `${super.outputDir(renderOptions)}/${renderOptions.stage.id}`
+  }
+
+  protected outputFileName(renderOptions: any): string {
+    return `${renderOptions.stage.id}.tf.json`
   }
 
   protected renderFunction() {
@@ -37,13 +37,16 @@ export default class TfApply<
     return 'stage'
   }
 
-  public async run() {
-    const defaultRenderOptions = this.defaultRenderOptions()
-    const stageFolder = this.outputDir(defaultRenderOptions)
+  protected async doWithOutput(output: any, outputFilePath: string) {
+    super.doWithOutput(output, outputFilePath)
+    const stageFolder = outputFilePath.substring(
+      0,
+      outputFilePath.lastIndexOf('/'),
+    )
 
-    // run terraform plan in stageFolder
-    console.log(`Running terraform plan from ${stageFolder}`)
-    await execa('terraform', ['apply', 'tf.plan'], {
+    // run terraform apply in stageFolder
+    console.log(`Running terraform apply from ${stageFolder}`)
+    await execa('terraform', ['apply', '-out=tf.plan'], {
       cwd: stageFolder,
       stdio: 'inherit',
     })
