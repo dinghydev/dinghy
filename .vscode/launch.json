@@ -26,6 +26,31 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "runner -h",
+      "cwd": "/workspaces/reactiac/clients/runner",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/workspaces/reactiac/.vscode/run.sh",
+      "args": ["deno run -A src/index.ts -h"],
+      "env": {
+        "DEBUB": "*"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "runner upgrade postinstall",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/workspaces/reactiac/.vscode/run.sh",
+      "args": ["deno task run upgrade postinstall"],
+      "cwd": "/workspaces/reactiac/clients/runner",
+      "env": {
+        "CI": "true",
+        "DEBUB": "*"
+      },
+      "console": "integratedTerminal"
+    },
+    {
       "name": "clean",
       "request": "launch",
       "type": "node",

@@ -2,31 +2,49 @@
   "tasks": {
     "run": "deno run -A src/index.ts",
     "clean": "rm -rf dist",
+    "prepare-docker-build": "cp deno.lock ../../docker/deno-dependencies/fs-root/workspace/deno.lock",
+    "release-version": "deno run -A ./src/tasks/release-version.ts",
+    "docker-build": {
+      "command": "deno run -A ./src/tasks/docker-build.ts",
+      "dependencies": ["prepare-docker-build"]
+    },
     "build-x86_64-apple-darwin": "deno run -A src/buildAndRelease.ts x86_64-apple-darwin",
     "build-aarch64-apple-darwin": "deno run -A src/buildAndRelease.ts aarch64-apple-darwin",
     "build-aarch64-unknown-linux-gnu": "deno run -A src/buildAndRelease.ts aarch64-unknown-linux-gnu",
     "build-x86_64-unknown-linux-gnu": "deno run -A src/buildAndRelease.ts x86_64-unknown-linux-gnu",
+    "sync-to-s3-download": "deno run -A src/syncToS3Download.ts",
     "build": {
       "dependencies": [
-        "build-x86_64-apple-darwin",
-        "build-aarch64-unknown-linux-gnu",
-        "build-x86_64-unknown-linux-gnu",
+        // "build-x86_64-apple-darwin",
+        // "build-aarch64-unknown-linux-gnu",
+        // "build-x86_64-unknown-linux-gnu",
         "build-aarch64-apple-darwin"
       ]
     },
-    "s3-sync-zips": "aws s3 sync --metadata-directive REPLACE --cache-control s-maxage=3600,must-revalidate dist/zips s3://reactiac-website-play-v1/download/latest",
-    "s3-sync-bin": "aws s3 sync --metadata-directive REPLACE --cache-control s-maxage=60,must-revalidate bin s3://reactiac-website-play-v1/download",
-    "publish": "deno task clean && deno task s3-sync-bin && deno task build && deno task s3-sync-zips"
+    "publish": "deno task clean && deno task build && deno task sync-to-s3-download"
   },
   "compilerOptions": {
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false
     // "lib": ["deno.shared_globals"]
+  },
+  "imports": {
+    "@std/cli": "jsr:@std/cli@1.0.14",
+    "@std/fs": "jsr:@std/fs@1.0.14",
+    "zod": "npm:zod@3.24.2",
+    "debug": "npm:debug@4.4.0",
+    "chalk": "npm:chalk@5.4.1",
+    "execa": "npm:execa@9.5.2"
   }
 }
-// deno task run
+// (cd clients/runner ; deno task release-version update)
+// (cd clients/runner ; deno task release-version reset)
+// (cd clients/runner ; deno task docker-build build --arch amd64 )
+// (cd clients/runner ; deno task docker-build build --arch arm64 )
+// (cd clients/runner ; deno task docker-build publish --arch amd64)
+// (cd clients/runner ; deno task docker-build publish --arch arm64)
 // deno task build && ./dist/runner
-// deno task build-aarch64-apple-darwin && cp dist/aarch64-apple-darwin/reactiac ~/.reactiac/bin/
-// deno task publish
+// (cd clients/runner ; deno task build-aarch64-apple-darwin && cp dist/aarch64-apple-darwin/reactiac ~/.reactiac/bin/)
+// (cd clients/runner ; deno task publish)
 // curl -fsSL https://play.reactiac.dev/download/install.sh | sh

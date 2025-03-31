@@ -20,6 +20,7 @@
         "github.vscode-github-actions",
         "asciidoctor.asciidoctor-vscode",
         "biomejs.biome",
+        "denoland.vscode-deno",
         "reduckted.vscode-gitweblinks"
       ]
     }

@@ -44,10 +44,10 @@ const performCreate=async ()=>{
 **/.terraform
 **/.terraform.lock.hcl
 **/*.tf.json
-**/tf.plan
-**/tf.plan.json
-**/terraform.tfstate
-**/terraform.tfstate.backup
+**/*.plan
+**/*.plan.json
+**/*.tfstate
+**/*.backup
 
 # IDE
 .idea

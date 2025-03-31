@@ -3,6 +3,7 @@ name: release-npm
 on:
   push:
     branches: [main]
+  workflow_dispatch:
   # workflow_run:
   #     workflows: ['verification']
   #     types: [completed]
@@ -11,13 +12,24 @@ on:
 permissions:
     id-token: write   # This is required for requesting the JWT
     contents: read    # This is required for actions/checkout
-        
+
 jobs:
   release:
     runs-on: ubuntu-latest
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
+      - name: Restore cached packages
+        id: restore-js-packages
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.cache/deno
+            ~/.local/share/pnpm
+          key: ${{ runner.os }}-js-packages-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/deno.lock') }}
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.2.4
       - uses: actions/setup-node@v4
       - name: commit-rev-count
         run: |
@@ -58,11 +70,23 @@ jobs:
           pnpm build
           pnpm test
           pnpm aws-login
-          pnpm release-version-update
+          (cd clients/runner; deno task release-version update)
           pnpm -r publish --no-git-checks --force
-          # pnpm release-version-reset
+          deno info
+          du -sh /root/.cache/deno
+          du -sh /root/.local/share/pnpm
+          # (cd clients/runner; deno task release-version reset)
         env:
           COMMIT_REV_COUNT: ${{ env.COMMIT_REV_COUNT }}
+      - name: Save cached packages
+        id: save-js-packages
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ~/.deno
+            ~/.cache/deno
+            ~/.local/share/pnpm
+          key: ${{ steps.restore-js-packages.outputs.cache-primary-key }}
       - name: Configure AWS Credentials for public ECR
         uses: aws-actions/configure-aws-credentials@v4
         with:

@@ -1,11 +1,13 @@
-ARG BUILDPLATFORM='BUILDPLATFORM_IS_REQUIRED'
+ARG BASE_IMAGE='DENO_BASE_IMAGE_IS_REQUIRED'
 
-FROM  --platform=$BUILDPLATFORM node:22.14.0-bookworm-slim
+# https://hub.docker.com/layers/denoland/deno/debian-2.2.6/images/sha256-ac91d2033a2f010d621c1582b2cb749b5fa6241e0da56f4b1106433b0476c117
+# https://docs.docker.com/reference/dockerfile/#automatic-platform-args-in-the-global-scope
+FROM --platform=$BUILDPLATFORM ${BASE_IMAGE}
 
 # Set default shell to bash
 # SHELL ["/bin/bash", "-c" ,"-l"]
-ENTRYPOINT ["/usr/bin/entrypoint.sh"]
-WORKDIR /workspace
+# ENTRYPOINT ["/usr/bin/entrypoint.sh"]
+# WORKDIR /workspace
 
 # Install essential dependencies
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -29,10 +31,10 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm/deno
-RUN npm install -g pnpm@10.6.3 deno@2.2.5 \
-    && mkdir -p /workspace \
-    && SHELL=bash pnpm setup \
-    && pnpm config set store-dir /root/.local/share/pnpm/store --global
+# RUN npm install -g pnpm@10.6.3 deno@2.2.5 \
+#     && mkdir -p /workspace \
+#     && SHELL=bash pnpm setup \
+#     && pnpm config set store-dir /root/.local/share/pnpm/store --global
 
 # Install docker
 RUN install -m 0755 -d /etc/apt/keyrings \

@@ -15,7 +15,16 @@ await bashCommand(`mkdir -p ${outputFolder}`)
 await bashCommand(`mkdir -p ${zipsFolder}`)
 await execa(
   `deno`,
-  ['compile', '-A', '--target', arch, '-o', outputFile, 'src/index.ts'],
+  [
+    'compile',
+    '-A',
+    '--no-check',
+    '--target',
+    arch,
+    '-o',
+    outputFile,
+    'src/index.ts',
+  ],
   {
     stdio: 'inherit',
   },

@@ -3,4 +3,4 @@
 **
 
 # Allow files and directories
-!/clients/cli/**
+!/docker/deno-dependencies/fs-root/**

@@ -18,16 +18,16 @@ image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.s
 
 
 
-== Local Commands
+== Local Commandspnpm release-version-update
+
 
     docker pull public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64
 
     docker run -it -v $(pwd)/examples/web/1-shape:/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gen
 
     docker run -it -v $(pwd)/examples/web/5-data:/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gen
-    
+
     docker pull public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64
     docker run -it -v $(pwd)/examples/iac/cf-site:/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gip
 
     rm -rf sample-app && reactiac create sample-app && cd sample-app && reactiac devcontainer && cd ..
-    

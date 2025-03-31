@@ -1,12 +1,17 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@std/cli@*": "1.0.14",
     "jsr:@std/cli@1.0.14": "1.0.14",
+    "jsr:@std/fs@*": "1.0.14",
     "jsr:@std/fs@1.0.14": "1.0.14",
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/yaml@1.0.5": "1.0.5",
     "npm:chalk@5.4.1": "5.4.1",
-    "npm:execa@9.5.2": "9.5.2"
+    "npm:debug@4.4.0": "4.4.0",
+    "npm:execa@*": "9.5.2",
+    "npm:execa@9.5.2": "9.5.2",
+    "npm:zod@3.24.2": "3.24.2"
   },
   "jsr": {
     "@std/cli@1.0.14": {
@@ -41,6 +46,12 @@
         "path-key@3.1.1",
         "shebang-command",
         "which"
+      ]
+    },
+    "debug@4.4.0": {
+      "integrity": "sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==",
+      "dependencies": [
+        "ms"
       ]
     },
     "execa@9.5.2": {
@@ -87,6 +98,9 @@
     },
     "isexe@2.0.0": {
       "integrity": "sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw=="
+    },
+    "ms@2.1.3": {
+      "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
     },
     "npm-run-path@6.0.0": {
       "integrity": "sha512-9qny7Z9DsQU8Ou39ERsPU4OZQlSTP47ShQzuKZ6PRXpYLtIFgl/DEBYEXKlvcEa+9tHVcK8CF81Y2V72qaZhWA==",
@@ -136,6 +150,22 @@
     },
     "yoctocolors@2.1.1": {
       "integrity": "sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ=="
+    },
+    "zod@3.24.2": {
+      "integrity": "sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ=="
     }
+  },
+  "remote": {
+    "https://play.reactiac.dev/download/test2.ts?runner-version=latest": "4d303ae32dfde28a3028f2e1ed0f9d8e8dd8eb2a00fa5a509963df808c2ba18a"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/cli@1.0.14",
+      "jsr:@std/fs@1.0.14",
+      "npm:chalk@5.4.1",
+      "npm:debug@4.4.0",
+      "npm:execa@9.5.2",
+      "npm:zod@3.24.2"
+    ]
   }
 }

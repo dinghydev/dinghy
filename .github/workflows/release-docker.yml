@@ -12,13 +12,16 @@ on:
 permissions:
     id-token: write   # This is required for requesting the JWT
     contents: read    # This is required for actions/checkout
-        
+
 jobs:
   release:
     runs-on: ubuntu-latest
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.2.4
       - uses: actions/setup-node@v4
       - name: commit-rev-count
         run: |

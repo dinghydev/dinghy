@@ -1,7 +1,6 @@
 import { dirname } from 'node:path'
 
 const appPath = (name: string) => {
-  const url = new URL(import.meta.url)
   const currentFilePath = new URL(import.meta.url).pathname
   return `${dirname(currentFilePath)}/fixtures/${name}`
 }

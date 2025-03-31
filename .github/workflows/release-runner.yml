@@ -19,10 +19,17 @@ jobs:
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
+      - name: Restore cached packages
+        id: restore-js-packages
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.cache/deno
+            ~/.local/share/pnpm
+          key: ${{ runner.os }}-js-packages-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/deno.lock') }}
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.2.4
-      - uses: actions/setup-node@v4
       - name: commit-rev-count
         run: |
           gh api graphql -f query='query CommitRevCount{
@@ -50,3 +57,21 @@ jobs:
         with:
           aws-region: ${{ secrets.AWS_DEPLOY_REGION }}
           role-to-assume: arn:aws:iam::313225491971:role/${{ secrets.AWS_DEPLOY_ROLE }}
+      - name: publish runner
+        run: |
+          (cd clients/runner ; deno task release-version update)
+          (cd clients/runner ; deno task publish)
+          # (cd clients/runner; deno task release-version reset)
+        env:
+          COMMIT_REV_COUNT: ${{ env.COMMIT_REV_COUNT }}
+      - name: Save cached packages
+        id: save-js-packages
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ~/.deno
+            ~/.cache/deno
+            ~/.local/share/pnpm
+          key: ${{ steps.restore-js-packages.outputs.cache-primary-key }}
+
+          

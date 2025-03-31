@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "build",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/usr/local/bin/pnpm",
+      "args": ["build"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "diagram generate",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/usr/local/bin/pnpm",
+      "args": ["exec", "reactiac", "diagram", "generate"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf gip",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/usr/local/bin/pnpm",
+      "args": ["exec", "reactiac", "tf", "gip"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf apply",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/usr/local/bin/pnpm",
+      "args": ["exec", "reactiac", "tf", "apply"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "json generate",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "/usr/local/bin/pnpm",
+      "args": ["exec", "reactiac", "json", "generate"],
+      "console": "integratedTerminal"
+    }
+  ]
+}
