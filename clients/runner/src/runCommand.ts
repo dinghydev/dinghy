@@ -40,13 +40,24 @@ const executeCommand = async (context: CommandContext) => {
     ...optionsSpec,
     default: await loadDefaultFromEnv(context),
   })
+  if (optionsSpec.arguments) {
+    Object.entries(optionsSpec.arguments).map(([name, spec], index) => {
+      const value = options._[index]
+      if (spec.required && value === undefined) {
+        console.error(`Argument [${name.toLocaleUpperCase()}] is required`)
+        Deno.exit(1)
+      }
+      options[name] = value
+    })
+  }
+
   debug('options %O', options)
   return await context.commands[RUN_SYMBOL](context, options)
 }
 
 export async function runCommand(context: CommandContext) {
   const cmdStr = context.args[0]
-  if (cmdStr && cmdStr.charAt(0) !== '-') {
+  if (!context.options.arguments && cmdStr && cmdStr.charAt(0) !== '-') {
     let command = context.commands[cmdStr]
     let envName = cmdStr
     if (!command) {

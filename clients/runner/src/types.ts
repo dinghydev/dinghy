@@ -6,9 +6,7 @@ export type CommandOptions = {
   cmdTitle?: string
   cmdDescription?: string
   hidden?: boolean
-  // arguments?: string[]
-  // argumentDescriptions?: Record<string, string>
-  // argumentRequired?: Record<string, boolean>
+  arguments?: Record<string, { description: string; required: boolean }>
 } & ParseOptions
 
 export type CommandArgs = {

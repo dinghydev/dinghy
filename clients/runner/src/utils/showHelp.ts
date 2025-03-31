@@ -1,6 +1,7 @@
 import { type CommandContext, OPTIONS_SYMBOL, OPTIONS_TYPES } from '../types.ts'
 import chalk from 'chalk'
 import { versionDetails } from './runtimeVersion.ts'
+import { SPACE } from 'https://jsr.io/@std/yaml/1.0.5/_chars.ts'
 type Row = {
   name: string
   options?: string
@@ -10,6 +11,7 @@ type Row = {
 type Sections = {
   version: Row[]
   usage: Row[]
+  arguments: Row[]
   commands: Row[]
   options: Row[]
 }
@@ -35,6 +37,18 @@ const printHelp = (context: CommandContext, sections: Sections) => {
       }
     }
   }
+}
+
+const generateArgumentsSection = (
+  context: CommandContext,
+  sections: Sections,
+) => {
+  Object.entries(context.options.arguments || {}).map(([name, argDef]) => {
+    sections.arguments.push({
+      name: name.toLocaleUpperCase(),
+      description: argDef.description,
+    })
+  })
 }
 
 const generateCommandSection = (
@@ -77,21 +91,38 @@ const generateOptionsSection = (
     const alias = Object.entries(context.options.alias || {}).find(
       ([_key, value]) => value === option.name,
     )?.[0]
+    console.log('negatable', context.options.negatable, option.name)
+    const noFlag = (context.options.negatable || []).includes(option.name)
+      ? '[no]-'
+      : ''
+    const defaultValue = context.options.default?.[option.name]
+    const defaultValueString =
+      defaultValue === undefined ? '' : `[default: ${defaultValue}]`
     sections.options.push({
-      name: `${alias ? `-${alias}, ` : ''}--${option.name}`,
+      name: `${alias ? `-${alias}, ` : ''}--${noFlag}${option.name}`,
       description: context.options.description[option.name] || '',
+      options: defaultValueString,
     })
   }
 }
 
 const generateUsageSection = (context: CommandContext, sections: Sections) => {
+  const argumentsPlaceholder = sections.arguments.length
+    ? ` ${Object.entries(context.options.arguments || {})
+        .map(([name, spec]) =>
+          spec.required
+            ? name.toLocaleUpperCase()
+            : `[${name.toLocaleUpperCase()}]`,
+        )
+        .join(' ')}`
+    : ''
   const commandPlaceholder = sections.commands.length ? ' <command>' : ''
   const optionsPlaceholder = sections.options.length ? ' [options]' : ''
   const prefixPlaceholder = context.prefix.length
     ? ` ${context.prefix.join(' ')}`
     : ''
   sections.usage.push({
-    name: `  ${chalk.white('$')} reactiac${prefixPlaceholder}${commandPlaceholder}${optionsPlaceholder}`,
+    name: `  ${chalk.white('$')} reactiac${prefixPlaceholder}${argumentsPlaceholder}${commandPlaceholder}${optionsPlaceholder}`,
   })
 
   if (context.prefix.length === 0) {
@@ -105,10 +136,12 @@ export const showHelp = (context: CommandContext) => {
   const sections = {
     version: [],
     usage: [],
+    arguments: [],
     commands: [],
     options: [],
   }
 
+  generateArgumentsSection(context, sections)
   generateCommandSection(context, sections)
   generateOptionsSection(context, sections)
   generateUsageSection(context, sections)

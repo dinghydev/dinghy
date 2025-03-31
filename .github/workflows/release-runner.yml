@@ -64,14 +64,6 @@ jobs:
           # (cd clients/runner; deno task release-version reset)
         env:
           COMMIT_REV_COUNT: ${{ env.COMMIT_REV_COUNT }}
-      - name: Save cached packages
-        id: save-js-packages
-        uses: actions/cache/save@v4
-        with:
-          path: |
-            ~/.deno
-            ~/.cache/deno
-            ~/.local/share/pnpm
-          key: ${{ steps.restore-js-packages.outputs.cache-primary-key }}
+          
 
           

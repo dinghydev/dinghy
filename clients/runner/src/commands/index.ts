@@ -9,6 +9,7 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
 import { showHelp } from '../utils/showHelp.ts'
 import { versionDetails } from '../utils/runtimeVersion.ts'
 import postinstall from './postinstall.ts'
+import init from './init.ts'
 
 const options: CommandOptions = {
   boolean: ['debug', 'help', 'version'],
@@ -37,6 +38,7 @@ const run = (context: CommandContext, args: CommandArgs) => {
 }
 
 const commands: Commands = {
+  init,
   upgrade,
   postinstall,
   [OPTIONS_SYMBOL]: options,

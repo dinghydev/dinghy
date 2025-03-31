@@ -44,7 +44,7 @@ export const checkVersion = async (fetch = false) => {
 
   const statesDir = `${Deno.env.get('HOME')}/.reactiac/states`
   if (!existsSync(statesDir)) {
-    Deno.mkdirSync(statesDir)
+    Deno.mkdirSync(statesDir, { recursive: true })
   }
 
   for await (const dirEntry of walk(statesDir)) {

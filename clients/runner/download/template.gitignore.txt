@@ -1,0 +1,13 @@
+# ReactIAC
+.reactiacrc.local
+**/.terraform
+**/.terraform.lock.hcl
+**/*.tf.json
+**/*.plan
+**/*.plan.json
+**/*.tfstate
+**/*.backup
+
+# IDE
+.idea
+.devcontainer.json

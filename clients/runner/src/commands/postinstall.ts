@@ -6,9 +6,9 @@ import type {
   CommandContext,
 } from '../types.ts'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
-import Debug from 'debug'
 import { runtimeVersion } from '../utils/runtimeVersion.ts'
 import { checkVersion, writeLatestVersion } from '../utils/checkVersion.ts'
+import Debug from 'debug'
 const debug = Debug('postinstall')
 
 const options: CommandOptions = {
