@@ -5,27 +5,27 @@ set -e
 
 # Source bashrc to ensure environment is properly set up
 source /root/.bashrc
+echo 'running from docker-entrypoint.sh'
+# if [ -z "$APP_HOME" ]; then
+#   echo "APP_HOME is required"
+#   exit 1
+# fi
 
-if [ -z "$APP_HOME" ]; then
-  echo "APP_HOME is required"
-  exit 1
-fi
+# WORKING_DIR="$(dirname "$APP_HOME")"
+# cd "$WORKING_DIR"
+# # Loop through all files/folders in /workspace
+# for item in /workspace/* /workspace/.*; do
+#   # Get just the filename/foldername
+#   base_name=$(basename "$item")
+#   echo "base_name: $base_name"
 
-WORKING_DIR="$(dirname "$APP_HOME")"
-cd "$WORKING_DIR"
-# Loop through all files/folders in /workspace
-for item in /workspace/* /workspace/.*; do
-  # Get just the filename/foldername
-  base_name=$(basename "$item")
-  echo "base_name: $base_name"
-  
-  # Skip the 'src' symlink and skip if item already exists in WORKING_DIR
-  if [ "$base_name" != "src" ] && [ ! -e "$WORKING_DIR/$base_name" ]; then
-    ln -s "$item" "$WORKING_DIR/$base_name"
-    echo "linked $item to $WORKING_DIR/$base_name"
-  fi
-done
-  
+#   # Skip the 'src' symlink and skip if item already exists in WORKING_DIR
+#   if [ "$base_name" != "src" ] && [ ! -e "$WORKING_DIR/$base_name" ]; then
+#     ln -s "$item" "$WORKING_DIR/$base_name"
+#     echo "linked $item to $WORKING_DIR/$base_name"
+#   fi
+# done
+
 
 
 

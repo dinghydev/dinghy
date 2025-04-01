@@ -6,8 +6,11 @@ import type {
   CommandContext,
 } from '../types.ts'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
-import { runtimeVersion } from '../utils/runtimeVersion.ts'
-import { checkVersion, writeLatestVersion } from '../utils/checkVersion.ts'
+import { runtimeVersion } from '../../../cli/src/utils/runtimeVersion.ts'
+import { checkVersion, writeLatestVersion } from '../../../cli/src/utils/checkVersion.ts'
+import init from './init.ts'
+import chalk from 'chalk'
+import { runCommand } from '../../../cli/src/utils/runCommand.ts'
 import Debug from 'debug'
 const debug = Debug('postinstall')
 
@@ -71,7 +74,7 @@ const saveRuntimeVersion = () => {
   checkVersion()
 }
 
-const run = (_context: CommandContext, args: CommandArgs) => {
+const run = async (_context: CommandContext, args: CommandArgs) => {
   saveRuntimeVersion()
   addToPathIfNotAlready('bash', ['.bashrc', '.profile'])
   addToPathIfNotAlready('zsh', ['.zshrc'])
@@ -81,20 +84,44 @@ const run = (_context: CommandContext, args: CommandArgs) => {
     return
   }
 
+  const initProject = Deno.env.get('INIT_PROJECT')
+  if (initProject) {
+    await runCommand({
+      prefix: ['init'],
+      envPrefix: ['init'],
+      args: ['--quiet'],
+      commands: init,
+      options: init[OPTIONS_SYMBOL],
+    })
+  }
+
+  const startCommand = initProject
+    ? [`cd ${initProject}`, 'reactiac dev']
+    : ['reactiac --help']
+
   if (refreshCommand.length > 0) {
     debug(
       'Please run the following command to reload your shell:\n%O',
       refreshCommand,
     )
-    console.log(`To get started, run:
+    console.log(
+      `Installed ReactIAC Runner ${chalk.dim(runtimeVersion.runner.latest)} successfully.`,
+    )
+
+    console.log(`\n\nTo get started, run:
+
     ${refreshCommand.join('\n')}
-    reactiac --help
+    ${startCommand.join('\n    ')}
       `)
   } else {
-    console.log(`Upgrade to ${runtimeVersion.runner.latest} complete. 
+    if (!initProject) {
+      console.log(
+        `Upgrade to ${chalk.dim(runtimeVersion.runner.latest)} complete.`,
+      )
+    }
+    console.log(`\n\nTo get started, run:
 
-To get started, run:
-    reactiac --help
+    ${startCommand.join('\n    ')}
       `)
   }
 }

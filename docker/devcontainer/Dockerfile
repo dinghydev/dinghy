@@ -2,7 +2,7 @@
 FROM public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64
 
 # Set default shell to bash
-SHELL ["/bin/bash", "-c"] 
+SHELL ["/bin/bash", "-c"]
 
 # # Install essential dependencies
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -36,18 +36,29 @@ SHELL ["/bin/bash", "-c"]
 #     && apt-get clean -y \
 #     && rm -rf /var/lib/apt/lists/*
 
-# # Install pnpm
-# RUN npm install -g pnpm@10.6.3 \
-#     && mkdir -p /workspaces \
-#     && SHELL=bash pnpm setup \
-#     && pnpm config set store-dir /root/.local/share/pnpm/store --global
+# Install npm
+RUN echo 'Install npm' \
+    && apt-get update \
+    && curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash \
+    && . /root/.bashrc \
+    && nvm install --lts\
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install pnpm
+RUN echo 'Install pnpm' \
+    && . /root/.bashrc \
+    && npm install -g pnpm@10.6.3 \
+    && mkdir -p /workspaces \
+    && SHELL=bash pnpm setup \
+    && pnpm config set store-dir /root/.local/share/pnpm/store --global
 
 # Copy the project dependencies info to the container
 COPY . /workspaces
 
 # Install the project dependencies
 RUN cd /workspaces \
-    && source /root/.bashrc \
+    && . /root/.bashrc \
     && pnpm install --frozen-lockfile\
     && pnpm install -g @biomejs/biome@1.9.4 \
     && rm -rf /workspacesx

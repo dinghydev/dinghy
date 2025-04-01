@@ -1,4 +1,8 @@
-import { type CommandContext, OPTIONS_SYMBOL, OPTIONS_TYPES } from '../types.ts'
+import {
+  type CommandContext,
+  OPTIONS_SYMBOL,
+  OPTIONS_TYPES,
+} from '../../../runner/src/types.ts'
 import chalk from 'chalk'
 import { versionDetails } from './runtimeVersion.ts'
 import { SPACE } from 'https://jsr.io/@std/yaml/1.0.5/_chars.ts'
@@ -91,7 +95,6 @@ const generateOptionsSection = (
     const alias = Object.entries(context.options.alias || {}).find(
       ([_key, value]) => value === option.name,
     )?.[0]
-    console.log('negatable', context.options.negatable, option.name)
     const noFlag = (context.options.negatable || []).includes(option.name)
       ? '[no]-'
       : ''

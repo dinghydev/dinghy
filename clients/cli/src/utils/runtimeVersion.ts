@@ -1,4 +1,4 @@
-import latestVersion from '../../download/latest-version.json' with {
+import latestVersion from '../../../runner/download/latest-version.json' with {
   type: 'json',
 }
 

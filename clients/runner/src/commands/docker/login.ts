@@ -4,8 +4,8 @@ import type {
   CommandArgs,
   Command,
   CommandContext,
-} from '../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
+} from '../../types.ts'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
 import { execa } from 'execa'
 import chalk from 'chalk'
 import Debug from 'debug'
@@ -30,8 +30,7 @@ const options: CommandOptions = {
   default: {
     git: true,
   },
-  cmdDescription: 'Create a new ReactIAC project',
-  cmdAlias: ['create-project'],
+  cmdDescription: 'Login to the Docker registry',
 }
 
 const generateFile = async (

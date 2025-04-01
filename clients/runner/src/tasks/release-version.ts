@@ -1,5 +1,5 @@
 import * as cli from 'jsr:@std/cli'
-import { projectRoot } from '../utils/projectRoot.ts'
+import { projectRoot } from '../../../cli/src/utils/projectRoot.ts'
 import {
   commitVersion,
   baseVersion,

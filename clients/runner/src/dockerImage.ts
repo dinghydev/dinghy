@@ -1,18 +1,25 @@
 import * as cli from 'jsr:@std/cli@1.0.14'
 import * as fs from 'jsr:@std/fs@1.0.14'
 import { execa } from 'npm:execa@9.5.2'
-import { loadRc } from './loadRc.ts'
+import { loadConfig } from '../../cli/src/utils/loadConfig.ts'
 import { debug, setDebug } from './debug.ts'
 import { loadAppConfig } from './loadAppConfig.ts'
-import { showHelp, showVersion } from "./help.ts";
-import { createProject } from "./create.ts";
-import { devcontainerStart } from "./devcontainer.ts";
-const HOST_KEYS = ['_','v','version','debug', 'app-home', 'docker-repo', 'docker-version']
+import { showHelp, showVersion } from './help.ts'
+import { createProject } from './create.ts'
+import { devcontainerStart } from './devcontainer.ts'
+const HOST_KEYS = [
+  '_',
+  'v',
+  'version',
+  'debug',
+  'app-home',
+  'docker-repo',
+  'docker-version',
+]
 
 const dockerPlatform = `linux-${Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'}`
 
 export const dockerImage = () => {
-
   const args = cli.parseArgs(Deno.args, {
     string: ['app-home', 'docker-repo', 'docker-version'],
     default: {

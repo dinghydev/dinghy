@@ -6,5 +6,6 @@ FROM  --platform=$BUILDPLATFORM ${BASE_IMAGE}
 
 COPY docker/dependencies/fs-root /
 
-RUN . /root/.bashrc \
+RUN echo 'Dependencies' \
+    && . /root/.bashrc \
     && pnpm install

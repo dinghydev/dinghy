@@ -4,9 +4,11 @@ import {
   OPTIONS_SYMBOL,
   OPTIONS_TYPES,
   RUN_SYMBOL,
-} from './types.ts'
-import { showHelp } from './utils/showHelp.ts'
+} from '../../../runner/src/types.ts'
+import { showHelp } from './showHelp.ts'
 import Debug from 'debug'
+import { configGet } from './loadConfig.ts'
+import commands from '../commands/index.ts'
 const debug = Debug('runCommand')
 
 const loadDefaultFromEnv = async (context: CommandContext) => {
@@ -14,20 +16,18 @@ const loadDefaultFromEnv = async (context: CommandContext) => {
 
   for (const optionType of OPTIONS_TYPES) {
     for (const option of context.options[optionType] || []) {
-      const envVar = [...context.envPrefix, option].join('_').toUpperCase()
-      let envValue: any = Deno.env.get(envVar)
-      if (envValue) {
+      let value: any = configGet([...context.envPrefix, option])
+      if (value) {
         if (optionType === 'boolean') {
-          envValue = Boolean(envValue)
+          value = Boolean(value)
         } else if (optionType === 'number') {
-          envValue = envValue.includes('.')
-            ? Number.parseFloat(envValue)
-            : Number.parseInt(envValue)
+          value = value.includes('.')
+            ? Number.parseFloat(value)
+            : Number.parseInt(value)
         } else if (optionType === 'collect') {
-          envValue = envValue.split(',')
+          value = value.split(',')
         }
-        defaultWithEnv[option] = envValue
-        debug('use env %s=*', envVar)
+        defaultWithEnv[option] = value
       }
     }
   }
@@ -42,7 +42,7 @@ const executeCommand = async (context: CommandContext) => {
   })
   if (optionsSpec.arguments) {
     Object.entries(optionsSpec.arguments).map(([name, spec], index) => {
-      const value = options._[index]
+      const value = options._[index] || configGet([...context.envPrefix, name])
       if (spec.required && value === undefined) {
         console.error(`Argument [${name.toLocaleUpperCase()}] is required`)
         Deno.exit(1)
@@ -52,6 +52,7 @@ const executeCommand = async (context: CommandContext) => {
   }
 
   debug('options %O', options)
+  console.log('commands', commands)
   return await context.commands[RUN_SYMBOL](context, options)
 }
 

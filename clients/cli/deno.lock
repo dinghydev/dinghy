@@ -9,6 +9,7 @@
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/yaml@*": "1.0.5",
     "jsr:@std/yaml@1.0.5": "1.0.5",
+    "npm:@reactiac/renderer-json@latest": "0.1.41-20250325-221825-8659db1",
     "npm:chalk@5.4.1": "5.4.1",
     "npm:debug@4.4.0": "4.4.0",
     "npm:execa@*": "9.5.2",
@@ -33,6 +34,35 @@
     }
   },
   "npm": {
+    "@reactiac/base-components@0.1.41-20250325-221825-8659db1_react@19.1.0": {
+      "integrity": "sha512-eRcP51cItdA1Jd2rsSLQZlJeD8jkH1cq0Z2l/Rf7SlhgYqbRl3cm+bwjrN1quZZS/5sU/X4UxlC+1nJDRak6NA==",
+      "dependencies": [
+        "debug",
+        "react",
+        "react-dom",
+        "react-reconciler",
+        "zod"
+      ]
+    },
+    "@reactiac/base-renderer@0.1.41-20250325-221825-8659db1_react@19.1.0": {
+      "integrity": "sha512-Xl4u4g3jJ3GQ31jI/FmuW4OWGR7yh8nABi7Pdpwmg9c3lHQRTEqO3a/ErmDo7P4Q/e1IP+HXAAxk5rmPq4kStQ==",
+      "dependencies": [
+        "@reactiac/base-components",
+        "debug",
+        "react",
+        "react-dom",
+        "react-reconciler",
+        "zod"
+      ]
+    },
+    "@reactiac/renderer-json@0.1.41-20250325-221825-8659db1": {
+      "integrity": "sha512-2WZsYH5z8dzuLwE0We/WVv6cLjcWK9XubQQTT+YMi+C+zOEz0k7J3ZZpZufMh6/LXCT+YicdZDujJ7BcB679gw==",
+      "dependencies": [
+        "@reactiac/base-components",
+        "@reactiac/base-renderer",
+        "react"
+      ]
+    },
     "@sec-ant/readable-stream@0.4.1": {
       "integrity": "sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg=="
     },
@@ -126,6 +156,29 @@
         "parse-ms"
       ]
     },
+    "react-dom@19.1.0_react@19.1.0": {
+      "integrity": "sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==",
+      "dependencies": [
+        "react",
+        "scheduler@0.26.0"
+      ]
+    },
+    "react-reconciler@0.31.0_react@19.1.0": {
+      "integrity": "sha512-7Ob7Z+URmesIsIVRjnLoDGwBEG/tVitidU0nMsqX/eeJaLY89RISO/10ERe0MqmzuKUUB1rmY+h1itMbUHg9BQ==",
+      "dependencies": [
+        "react",
+        "scheduler@0.25.0"
+      ]
+    },
+    "react@19.1.0": {
+      "integrity": "sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg=="
+    },
+    "scheduler@0.25.0": {
+      "integrity": "sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA=="
+    },
+    "scheduler@0.26.0": {
+      "integrity": "sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA=="
+    },
     "shebang-command@2.0.0": {
       "integrity": "sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==",
       "dependencies": [
@@ -165,6 +218,7 @@
       "jsr:@std/cli@1.0.14",
       "jsr:@std/fs@1.0.14",
       "jsr:@std/path@1.0.8",
+      "npm:@reactiac/renderer-json@latest",
       "npm:chalk@5.4.1",
       "npm:debug@4.4.0",
       "npm:execa@9.5.2",

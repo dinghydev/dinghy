@@ -1,5 +1,6 @@
 {
   "name": "reactiac",
+  "runArgs": ["--name", "reactiac"],
   "build": {
     "dockerfile": "docker/devcontainer/Dockerfile",
     "context": "./"
@@ -7,6 +8,7 @@
   "postStartCommand": "pnpm install --ignore-scripts --offline --frozen-lockfile",
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+    "source=${localEnv:HOME}/.npmrc,target=/root/.npmrc,type=bind",
     "source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind",
     "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
   ],
@@ -22,7 +24,13 @@
         "biomejs.biome",
         "denoland.vscode-deno",
         "reduckted.vscode-gitweblinks"
-      ]
+      ],
+      "settings": {
+        "remote.extensionKind": {
+          "ms-azuretools.vscode-docker": ["ui"],
+          "denoland.vscode-deno": ["workspace"]
+        }
+      }
     }
   }
 }

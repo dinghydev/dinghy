@@ -1,18 +1,18 @@
 import * as cli from 'jsr:@std/cli@1.0.14'
 import * as fs from 'jsr:@std/fs@1.0.14'
 import { execa } from 'npm:execa@9.5.2'
-import { loadRc } from './loadRc.ts'
+import { loadConfig } from '../../cli/src/utils/loadConfig.ts'
 import { debug, setDebug } from './debug.ts'
-import { showHelp, showVersion } from "./help.ts";
-import { createProject } from "./create.ts";
-import { devcontainerStart } from "./devcontainer.ts";
-import { dockerImage } from "./dockerImage.ts";
+import { showHelp, showVersion } from './help.ts'
+import { createProject } from './create.ts'
+import { devcontainerStart } from './devcontainer.ts'
+import { dockerImage } from './dockerImage.ts'
 const args = cli.parseArgs(Deno.args, {
   string: ['app-home'],
-  boolean: ['debug','version',],
+  boolean: ['debug', 'version'],
   default: {
-    'debug': false,
-    'version': false,
+    debug: false,
+    version: false,
   },
   alias: {
     help: 'h',
@@ -20,9 +20,17 @@ const args = cli.parseArgs(Deno.args, {
   },
 })
 
-const HOST_KEYS = ['_','v','version','debug', 'app-home', 'docker-repo', 'docker-version']
+const HOST_KEYS = [
+  '_',
+  'v',
+  'version',
+  'debug',
+  'app-home',
+  'docker-repo',
+  'docker-version',
+]
 
-if(args.debug){
+if (args.debug) {
   setDebug('true')
 }
 debug('args: {0}', () => JSON.stringify(args))
@@ -32,38 +40,38 @@ showHelp(args)
 await createProject(args)
 await devcontainerStart(args)
 
-  const appHome = args['app-home'] || Deno.cwd()
+const appHome = args['app-home'] || Deno.cwd()
 
-  const dockerArgs = ['run', '-it']
-  const awsFolder = `${Deno.env.get('HOME')}/.aws`
-  if (fs.existsSync(awsFolder)) {
-    dockerArgs.push('-v', `${awsFolder}:/root/.aws`)
+const dockerArgs = ['run', '-it']
+const awsFolder = `${Deno.env.get('HOME')}/.aws`
+if (fs.existsSync(awsFolder)) {
+  dockerArgs.push('-v', `${awsFolder}:/root/.aws`)
+}
+dockerArgs.push('-v', `${appHome}:/workspace/app`)
+
+Object.keys(args).forEach((k) => {
+  if (!HOST_KEYS.includes(k)) {
+    dockerArgs.push(`--${k}`, args[k] as any)
   }
-  dockerArgs.push('-v', `${appHome}:/workspace/app`)
+})
 
-  Object.keys(args).forEach((k) => {
-    if (!HOST_KEYS.includes(k)) {
-      dockerArgs.push(`--${k}`, args[k] as any)
-    }
-  })
+loadConfig().forEach((rc) => {
+  dockerArgs.push('-e', `${rc[0]}=${rc[1]}`)
+})
 
-  loadRc().forEach((rc) => {
-    dockerArgs.push('-e', `${rc[0]}=${rc[1]}`)
-  })
+if (args.debug) {
+  dockerArgs.push('-e', 'DEBUG=*')
+}
+dockerArgs.push(dockerImage())
 
-  if(args.debug){
-    dockerArgs.push('-e', 'DEBUG=*')
-  }
-  dockerArgs.push(dockerImage())
+dockerArgs.push(...(args._ as string[]))
 
-  dockerArgs.push(...(args._ as string[]))
+debug('running: docker {0}', () => dockerArgs.join(' '))
 
-  debug('running: docker {0}', () => dockerArgs.join(' '))
+const result = await execa('docker', dockerArgs, {
+  stdio: 'inherit',
+})
 
-  const result = await execa('docker', dockerArgs, {
-    stdio: 'inherit',
-  })
-
-  debug('completed docker run with exit code {0}', () => result.exitCode)
+debug('completed docker run with exit code {0}', () => result.exitCode)
 
 // docker run -it -v ${HOME}/.aws:/root/.aws -e AWS_PROFILE=reactiac -v $(pwd):/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gip

@@ -4,13 +4,10 @@ import type {
   CommandOptions,
   Commands,
 } from '../types.ts'
-import upgrade from './upgrade.ts'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
-import { showHelp } from '../../../cli/src/utils/showHelp.ts'
-import { versionDetails } from '../../../cli/src/utils/runtimeVersion.ts'
-import postinstall from './postinstall.ts'
-import init from './init.ts'
-import devcontainer from './devcontainer.ts'
+import { showHelp } from '../utils/showHelp.ts'
+import { versionDetails } from '../utils/runtimeVersion.ts'
+import json from './json/index.ts'
 
 const options: CommandOptions = {
   boolean: ['debug', 'help', 'version'],
@@ -39,10 +36,7 @@ const run = (context: CommandContext, args: CommandArgs) => {
 }
 
 const commands: Commands = {
-  init,
-  upgrade,
-  postinstall,
-  devcontainer,
+  json,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 }

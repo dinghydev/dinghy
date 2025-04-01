@@ -5,6 +5,7 @@ FROM  --platform=$BUILDPLATFORM ${BASE_IMAGE}
 COPY clients/cli /workspace
 
 RUN --mount=type=secret,id=npm,target=/root/.npmrc \
-    cd /workspace \
+    echo 'ReactIAC Cli' \
+    && cd /workspace \
     # && deno install --lock=deno.lock --frozen=true
     && deno install --lock=deno.lock

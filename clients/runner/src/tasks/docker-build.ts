@@ -4,7 +4,7 @@ import {
   commitVersion,
   baseVersion,
 } from '../../../cli/src/utils/commitVersion.ts'
-import { projectRoot } from '../utils/projectRoot.ts'
+import { projectRoot } from '../../../cli/src/utils/projectRoot.ts'
 import { execaSync } from 'npm:execa'
 
 const version = await commitVersion(projectRoot)
