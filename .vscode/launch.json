@@ -9,7 +9,7 @@
       "env": {},
       "type": "node",
       "request": "launch",
-      "runtimeExecutable": "/Users/guo/.deno/bin/deno",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
       // "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
@@ -27,8 +27,7 @@
       "env": {},
       "type": "node",
       "request": "launch",
-      "runtimeExecutable": "/Users/guo/.deno/bin/deno",
-      // "runtimeExecutable": "/usr/bin/deno",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
       "runtimeArgs": [
         "run",
         "--inspect-wait",
