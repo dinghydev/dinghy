@@ -2,7 +2,7 @@ name: release-docker
 
 on:
   # push:
-    # branches: [main]
+  #   branches: [main]
   workflow_dispatch:
   # workflow_run:
   #     workflows: ['verification']
@@ -19,6 +19,13 @@ jobs:
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
+      - name: Restore cached packages
+        id: restore-cached-packages
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            /home/runner/.cache
+          key: ${{ runner.os }}-docker-build-${{ hashFiles('deno.lock') }}
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.2.4
@@ -45,11 +52,6 @@ jobs:
           rm commit_rev_count_data.json
         env:
           GH_TOKEN: ${{ github.token }}
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          cache: pnpm
-          node-version: 22.14.0
       - name: Configure AWS Credentials for public ECR
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -64,11 +66,19 @@ jobs:
         run: |
           # aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
           # aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7
-          pnpm release-version-update
-          pnpm aws-login
-          pnpm docker-publish-linux-amd64
-          pnpm docker-publish-linux-arm64
-          # pnpm release-version-reset
+          cd scripts/tasks
+          docker run --privileged --rm tonistiigi/binfmt --install linux/arm64
+          
+          deno task version-release
+          deno task docker-build-arm64
+          deno task docker-build-amd64
         env:
           DOCKER_PUSH: ${{ env.COMMIT_REV_COUNT }}
+      - name: Save cached packages
+        id: save-cached-packages
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            /home/runner/.cache
+          key: ${{ steps.restore-cached-packages.outputs.cache-primary-key }}
 

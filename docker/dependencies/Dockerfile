@@ -1,11 +1,9 @@
-ARG BASE_IMAGE='DEPENDENCIES_BASE_IMAGE_IS_REQUIRED'
+ARG BASE_IMAGE='DENO_DEPENDENCIES_BASE_IMAGE_IS_REQUIRED'
 
-ARG BUILDPLATFORM='BUILDPLATFORM_IS_REQUIRED'
-
-FROM  --platform=$BUILDPLATFORM ${BASE_IMAGE}
+FROM --platform=${TARGETPLATFORM} ${BASE_IMAGE}
 
 COPY docker/dependencies/fs-root /
 
-RUN echo 'Dependencies' \
-    && . /root/.bashrc \
-    && pnpm install
+RUN cd /reactiac && \
+    deno run -A cache-installer.ts && \
+    rm -f *.ts

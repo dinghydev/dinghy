@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Make the script exit on any error
-set -e
-
-pnpm exec reactiac $@

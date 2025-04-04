@@ -27,7 +27,7 @@
     },
 
     "aws-ecr-login": "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7",
-    "prepare-docker-build": "cp ../../deno.lock ../../docker/deno-dependencies/fs-root/reactiac/deno.lock",
+    "prepare-docker-build": "cp ../../deno.lock ../../docker/dependencies/fs-root/reactiac/deno.lock",
     "docker-build-arm64": {
       "command": "deno run -A ./src/docker-build.ts --arch arm64",
       "dependencies": ["prepare-docker-build"]

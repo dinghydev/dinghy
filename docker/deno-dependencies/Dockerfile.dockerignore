@@ -1,6 +1,0 @@
-# for .devcontainer.json use only
-# Ignore everything
-**
-
-# Allow files and directories
-!/docker/deno-dependencies/fs-root/**

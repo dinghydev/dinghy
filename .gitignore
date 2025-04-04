@@ -43,7 +43,7 @@ tmp*
 **/terraform.tfstate.backup
 
 # Docker
-docker/deno-dependencies/fs-root/workspace/deno.lock
+docker/dependencies/fs-root/workspace/deno.lock
 
 # Optional eslint cache
 .eslintcache

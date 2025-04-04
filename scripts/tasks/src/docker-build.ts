@@ -36,7 +36,12 @@ async function dockerPush(options: any, tag: string) {
     if (tag.endsWith("-dirty")) {
       throw new Error(`Cannot push dirty image: ${tag}`);
     }
-    await dockerCommand(["push", "--platform", options.platform, tag]);
+    await dockerCommand([
+      "push",
+      // "--platform",
+      // options.platform,
+      tag,
+    ]);
   } else {
     console.log(`Skipping: docker push ${tag}`);
   }
@@ -73,22 +78,28 @@ async function dockerCommand(args: string[]) {
   })`docker ${args}`;
 }
 
-async function buildHashedImage(
+async function buildImage(
   options: any,
   name: string,
   baseImage: string,
   selectedVersion: string,
 ) {
   const platformTag = options.arch === "amd64" ? "" : `-linux-${options.arch}`;
-  const lastTag = `${options.repo}:${name}${platformTag}`;
-  const baseVersionTag =
-    `${options.repo}:${name}-${selectedVersion}${platformTag}`;
-  const firstTag = `${options.repo}:${name}-${await hashDockerfiles(
-    name,
-    baseImage,
-  )}${platformTag}`;
+  const lastTag = `${options.repo}:${
+    name === "release" ? "latest" : name
+  }${platformTag}`;
+  const baseVersionTag = `${options.repo}:${
+    name === "release" ? packageBaseVersion : `${name}-${selectedVersion}`
+  }${platformTag}`;
+
+  const firstTag = `${options.repo}:${
+    name === "release" ? version : `${name}-${await hashDockerfiles(
+      name,
+      baseImage,
+    )}`
+  }${platformTag}`;
   try {
-    await dockerCommand(["pull", "--platform", options.platform, firstTag]);
+    await dockerCommand(["manifest", "inspect", firstTag]);
   } catch (e) {
     console.log(
       `Tag ${firstTag} does not exist, building...`,
@@ -101,7 +112,7 @@ async function buildHashedImage(
         "buildx",
         "build",
         "--build-arg",
-        `BUILDPLATFORM=${options.arch}`,
+        `TARGETPLATFORM=${options.platform}`,
         "--build-arg",
         `BASE_IMAGE=${baseImage}`,
         "--platform",
@@ -117,62 +128,28 @@ async function buildHashedImage(
   return firstTag;
 }
 
-async function buildReleaseImage(options: any, baseImage: string) {
-  const platformTag = options.arch === "amd64" ? "" : `-linux-${options.arch}`;
-  const lastTag = `${options.repo}:latest${platformTag}`;
-  const baseVersionTag = `${options.repo}:${packageBaseVersion}${platformTag}`;
-  const firstTag = `${options.repo}:${version}${platformTag}`;
-  console.log(`Building ${firstTag} ...`, new Date().toISOString());
-  try {
-    await dockerCommand(["pull", "--platform", options.platform, firstTag]);
-  } catch (e) {
-    console.log(
-      `Tag ${firstTag} does not exist, building...`,
-      new Date().toISOString(),
-    );
-    await publishImage(
-      options,
-      [firstTag, baseVersionTag, lastTag],
-      [
-        "buildx",
-        "build",
-        "--build-arg",
-        `BUILDPLATFORM=${options.arch}`,
-        "--build-arg",
-        `BASE_IMAGE=${baseImage}`,
-        "--platform",
-        options.platform,
-        "-f",
-        "docker/release/Dockerfile",
-        "-t",
-        firstTag,
-        ".",
-      ],
-    );
-  }
-  return firstTag;
-}
-
 async function dockerBuild(options: any) {
   console.log("Starting docker build ...", new Date().toISOString());
-  const baseImage = await buildHashedImage(
+  const baseImage = await buildImage(
     options,
-    "deno-base",
+    "base",
     options.baseImage,
     packageBaseVersion,
   );
-  const dependenciesImage = await buildHashedImage(
+  const dependenciesImage = await buildImage(
     options,
-    "deno-dependencies",
+    "dependencies",
     baseImage,
     packageBaseVersion,
   );
 
-  await buildReleaseImage(options, dependenciesImage);
-  // return `Completed docker publish ${new Date().toISOString()}`
+  await buildImage(
+    options,
+    "release",
+    dependenciesImage,
+    version,
+  );
 }
-
-// const resolveVersion = () => commitVersion(projectRoot)
 
 const defaultArgs = {
   arch: "arm64",
@@ -205,5 +182,8 @@ if (args.help) {
   console.log(`    --repo (${defaultArgs.repo})`);
   console.log(`    --baseImage (${defaultArgs.baseImage})`);
 } else {
+  if (Deno.env.get("CI")) {
+    args.push = true;
+  }
   await dockerBuild(args as any);
 }
