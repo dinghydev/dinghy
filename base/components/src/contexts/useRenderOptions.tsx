@@ -1,6 +1,6 @@
-import type { Item, Stack } from '../types.js'
-import { useNodeContext } from './NodeContext.js'
-import { getRootNode } from '../utils/nodeUtils.js'
+import type { Item, Stack } from '../types.ts'
+import { useNodeContext } from './NodeContext.tsx'
+import { getRootNode } from '../utils/nodeUtils.ts'
 
 export function useRenderOptions() {
   const rootNode = getRootNode(useNodeContext())

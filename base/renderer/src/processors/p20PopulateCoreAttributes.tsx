@@ -2,7 +2,7 @@ import type { ReactElement } from 'react'
 import type { NodeTree } from '@reactiac/base-components'
 import { utils } from '@reactiac/base-components'
 const { camelCaseToWords, toId, toName } = utils
-import type { HostContainer } from '../types.js'
+import type { HostContainer } from '../types.ts'
 
 const defaultTags = (
   node: NodeTree,

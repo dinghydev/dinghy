@@ -1,8 +1,9 @@
-import type { DrawioContext, DrawioNodeTree } from '../types.js'
+import type { DrawioContext, DrawioNodeTree } from '../types.ts'
 
 function runCallback(context: DrawioContext, node: DrawioNodeTree) {
-  const callback: (node: DrawioNodeTree, root: DrawioNodeTree) => void =
-    (node._props as any)._beforeGenerate
+  const callback: (node: DrawioNodeTree, root: DrawioNodeTree) => void = (
+    node._props as any
+  )._beforeGenerate
   if (callback) {
     callback(node, context.rootNode)
   }

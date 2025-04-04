@@ -45,20 +45,20 @@ RUN echo 'Install npm' \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-# Install pnpm
-RUN echo 'Install pnpm' \
-    && . /root/.bashrc \
-    && npm install -g pnpm@10.6.3 \
-    && mkdir -p /workspaces \
-    && SHELL=bash pnpm setup \
-    && pnpm config set store-dir /root/.local/share/pnpm/store --global
+# # Install pnpm
+# RUN echo 'Install pnpm' \
+#     && . /root/.bashrc \
+#     && npm install -g pnpm@10.6.3 \
+#     && mkdir -p /workspaces \
+#     && SHELL=bash pnpm setup \
+#     && pnpm config set store-dir /root/.local/share/pnpm/store --global
 
-# Copy the project dependencies info to the container
-COPY . /workspaces
+# # Copy the project dependencies info to the container
+# COPY . /workspaces
 
-# Install the project dependencies
-RUN cd /workspaces \
-    && . /root/.bashrc \
-    && pnpm install --frozen-lockfile\
-    && pnpm install -g @biomejs/biome@1.9.4 \
-    && rm -rf /workspacesx
+# # Install the project dependencies
+# RUN cd /workspaces \
+#     && . /root/.bashrc \
+#     && pnpm install --frozen-lockfile\
+#     && pnpm install -g @biomejs/biome@1.9.4 \
+#     && rm -rf /workspacesx

@@ -1,0 +1,9 @@
+{
+  "name": "@reactiac/workspace",
+  "tasks": {
+    "json": "deno run -A tasks/json.tsx"
+  },
+  "exports": {
+    ".": "./tasks/json.tsx"
+  }
+}

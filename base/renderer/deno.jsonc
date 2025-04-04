@@ -1,0 +1,12 @@
+{
+  "name": "@reactiac/base-renderer",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "imports": {
+    // "@reactiac/base-renderer": "workspace:*",
+    "debug": "npm:debug@4.4.0",
+    "react-reconciler": "npm:react-reconciler@0.31.0",
+    "react-dom": "npm:react-dom@19.1.0"
+  }
+}

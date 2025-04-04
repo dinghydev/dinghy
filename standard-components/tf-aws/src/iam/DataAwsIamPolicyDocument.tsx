@@ -1,6 +1,6 @@
 import { IacNodeProps } from '@reactiac/base-components'
 
-import { aws } from '../index.js'
+import { aws } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 import { useTypedNode } from '@reactiac/base-components'
@@ -13,13 +13,15 @@ export const DataAwsIamPolicyDocumentOutputSchema = z.object({
   json: z.any(),
 })
 
-export type DataAwsIamPolicyDocumentInputProps =
-  & z.infer<typeof DataAwsIamPolicyDocumentInputSchema>
-  & IacNodeProps
+export type DataAwsIamPolicyDocumentInputProps = z.infer<
+  typeof DataAwsIamPolicyDocumentInputSchema
+> &
+  IacNodeProps
 
-export type DataAwsIamPolicyDocumentOutputProps =
-  & z.infer<typeof DataAwsIamPolicyDocumentOutputSchema>
-  & DataAwsIamPolicyDocumentInputProps
+export type DataAwsIamPolicyDocumentOutputProps = z.infer<
+  typeof DataAwsIamPolicyDocumentOutputSchema
+> &
+  DataAwsIamPolicyDocumentInputProps
 
 export function DataAwsIamPolicyDocument(
   props: DataAwsIamPolicyDocumentInputProps,

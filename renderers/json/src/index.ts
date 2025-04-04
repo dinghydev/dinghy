@@ -1,2 +1,2 @@
-export { renderJson } from './renderJson.js'
-export type { JsonRenderOptions } from './types.js'
+export { renderJson } from './renderJson.tsx'
+export type { JsonRenderOptions } from './types.ts'

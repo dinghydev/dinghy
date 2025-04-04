@@ -2,7 +2,7 @@ import type {
   DrawioContext,
   DrawioNodeProps,
   DrawioNodeTree,
-} from '../types.js'
+} from '../types.ts'
 
 function resolve(_props: DrawioNodeProps) {
   if (_props._diagram.flags.isEntity) {

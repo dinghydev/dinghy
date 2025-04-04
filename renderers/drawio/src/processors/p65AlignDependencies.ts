@@ -1,4 +1,4 @@
-import type { DependsPair, DrawioContext, DrawioNodeTree } from '../types.js'
+import type { DependsPair, DrawioContext, DrawioNodeTree } from '../types.ts'
 
 function moveRightChildrenAbs(node: DrawioNodeTree, distance: number) {
   node._children.map((child: DrawioNodeTree) => {

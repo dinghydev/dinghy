@@ -1,0 +1,4 @@
+{
+  // block dependencies from parent
+  "workspace": ["./tasks"]
+}

@@ -4,7 +4,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 import { RdsInstance } from '@reactiac/standard-components-diagrams'
-import { aws } from './index.js'
+import { aws } from './index.ts'
 import z from 'zod'
 
 export const AwsDbInstanceInputSchema = z.object({
@@ -26,9 +26,8 @@ export const AwsDbInstanceOuputSchema = z.object({
   arn: ResolvableNumberSchema.optional(),
 })
 
-export type AwsDbInstanceInputProps =
-  & z.infer<typeof AwsDbInstanceInputSchema>
-  & IacNodeProps
+export type AwsDbInstanceInputProps = z.infer<typeof AwsDbInstanceInputSchema> &
+  IacNodeProps
 
 export default function AwsDbInstance(props: AwsDbInstanceInputProps) {
   return (
@@ -38,39 +37,57 @@ export default function AwsDbInstance(props: AwsDbInstanceInputProps) {
   )
 }
 
-{/*{...drawio()*/
+{
+  /*{...drawio()*/
 }
-{/*  .color('#C925D1', true)*/
+{
+  /*  .color('#C925D1', true)*/
 }
-{/*  .shape('mxgraph.aws4.rds_instance')*/
+{
+  /*  .shape('mxgraph.aws4.rds_instance')*/
 }
-{/*  .extend(*/
+{
+  /*  .extend(*/
 }
-{/*    tf({*/
+{
+  /*    tf({*/
 }
-{/*      _element: {*/
+{
+  /*      _element: {*/
 }
-{/*        db_name: (node: Props) => _props.db_name || node._name,*/
+{
+  /*        db_name: (node: Props) => _props.db_name || node._name,*/
 }
-{/*        allocated_storage: _props.allocated_storage,*/
+{
+  /*        allocated_storage: _props.allocated_storage,*/
 }
-{/*        engine: _props.engine,*/
+{
+  /*        engine: _props.engine,*/
 }
-{/*        engine_version: _props.engine_version,*/
+{
+  /*        engine_version: _props.engine_version,*/
 }
-{/*        instance_class: _props.instance_class,*/
+{
+  /*        instance_class: _props.instance_class,*/
 }
-{/*        username: _props.username,*/
+{
+  /*        username: _props.username,*/
 }
-{/*        password: _props.password,*/
+{
+  /*        password: _props.password,*/
 }
-{/*        parameter_group_name: _props.parameter_group_name,*/
+{
+  /*        parameter_group_name: _props.parameter_group_name,*/
 }
-{/*      },*/
+{
+  /*      },*/
 }
-{/*    })*/
+{
+  /*    })*/
 }
-{/*      .extend(_props),*/
+{
+  /*      .extend(_props),*/
 }
-{/*  )}*/
+{
+  /*  )}*/
 }

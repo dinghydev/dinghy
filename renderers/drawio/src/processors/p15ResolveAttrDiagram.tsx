@@ -1,10 +1,5 @@
-import type {
-  NodeTree,
-  Props,
-} from '@reactiac/base-components'
-import  {
-  DiagramNodeSchema,
-} from '@reactiac/base-components'
+import type { NodeTree, Props } from '@reactiac/base-components'
+import { DiagramNodeSchema } from '@reactiac/base-components'
 import { mergician } from 'mergician'
 import type {
   DrawioContext,
@@ -12,8 +7,8 @@ import type {
   DrawioNodeTree,
   DrawioProps,
   DrawioRenderOptions,
-} from '../types.js'
-import { handleAttributes } from '../attribute-handler/index.js'
+} from '../types.ts'
+import { handleAttributes } from '../attribute-handler/index.ts'
 
 const defaultDiagramOptions: Props = {
   flags: {

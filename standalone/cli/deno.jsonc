@@ -1,0 +1,23 @@
+{
+  "name": "@reactiac/cli",
+  "tasks": {
+    "run": "deno run -A src/index.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "imports": {
+    "@std/cli": "jsr:@std/cli@1.0.14",
+    "@std/fs": "jsr:@std/fs@1.0.14",
+    "@std/path": "jsr:@std/path@1.0.8",
+    "@std/yaml": "jsr:@std/yaml@1.0.5",
+    "debug": "npm:debug@4.4.0",
+    "chalk": "npm:chalk@5.4.1",
+    "execa": "npm:execa@9.5.2"
+  }
+}

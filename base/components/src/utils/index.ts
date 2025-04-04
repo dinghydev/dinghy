@@ -1,8 +1,8 @@
-import { createDebugger } from './debugUtils.js'
-import { deepClone } from './deepClone.js'
-import { deepResolve } from './deepResolve.js'
-import { camelCaseToWords } from './words.js'
-import { toId, toName } from './stringUtils.js'
+import { createDebugger } from './debugUtils.ts'
+import { deepClone } from './deepClone.ts'
+import { deepResolve } from './deepResolve.ts'
+import { camelCaseToWords } from './words.ts'
+import { toId, toName } from './stringUtils.ts'
 
 export const utils = {
   createDebugger,

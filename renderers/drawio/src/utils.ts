@@ -1,4 +1,4 @@
-import type { DrawioNodeTree } from './types.js'
+import type { DrawioNodeTree } from './types.ts'
 
 export const absLeft = (node: DrawioNodeTree): number => {
   if (node._parent) {
@@ -8,7 +8,7 @@ export const absLeft = (node: DrawioNodeTree): number => {
 }
 
 export const absTop = (node: DrawioNodeTree): number => {
-  if (node._props._level as number > 1) {
+  if ((node._props._level as number) > 1) {
     return absTop(node._parent) + (node._props._diagram.geometry.y as number)
   }
   return 0

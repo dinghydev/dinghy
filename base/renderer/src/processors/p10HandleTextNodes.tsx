@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import type { HostContainer } from '../types.js'
+import type { HostContainer } from '../types.ts'
 
 function setTextAsTitle(parent: ReactElement, element: ReactElement) {
   if (element.type === 'text') {

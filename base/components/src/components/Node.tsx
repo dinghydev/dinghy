@@ -1,7 +1,7 @@
-import { processDependencyAttributes } from './Dependency.js'
-import { NodeProps } from '../types.js'
-import { NodeContext, useNode } from '../contexts/NodeContext.js'
-import jsxRender from '../contexts/jsxNode.js'
+import { processDependencyAttributes } from './Dependency.tsx'
+import type { NodeProps } from '../types.ts'
+import { NodeContext, useNode } from '../contexts/NodeContext.tsx'
+import jsxRender from '../contexts/jsxNode.tsx'
 
 /**
  * The root component of all shapes or IaC nodes based from

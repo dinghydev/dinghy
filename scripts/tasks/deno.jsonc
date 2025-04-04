@@ -1,0 +1,54 @@
+{
+  "tasks": {
+    "clean": "rm -rf ../../build",
+    "version-release": "deno run -A ./src/version-release.ts",
+
+    "npm-build": "deno run -A ./src/npm-build.ts",
+    "npm-publish": "deno run -A ./src/npm-publish.ts",
+    "aws-ecr-login": "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7",
+    "aws-npm-login": "aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner 313225491971 --namespace @reactiac --region eu-west-1",
+
+    "cli-build-aarch64-apple-darwin": "deno run -A src/cli-build.ts aarch64-apple-darwin",
+    "cli-build-aarch64-unknown-linux-gnu": "deno run -A src/cli-build.ts aarch64-unknown-linux-gnu",
+    "cli-build-x86_64-unknown-linux-gnu": "deno run -A src/cli-build.ts x86_64-unknown-linux-gnu",
+    "cli-build": {
+      "dependencies": [
+        // "cli-build-x86_64-apple-darwin",
+        // "cli-build-aarch64-unknown-linux-gnu",
+        // "cli-build-x86_64-unknown-linux-gnu",
+        "cli-build-aarch64-apple-darwin"
+      ]
+    },
+    "cli-publish": {
+      "command": "deno run -A src/cli-publish.ts",
+      "dependencies": [
+        "cli-build"
+      ]
+    },
+
+    "aws-ecr-login": "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7",
+    "prepare-docker-build": "cp ../../deno.lock ../../docker/deno-dependencies/fs-root/reactiac/deno.lock",
+    "docker-build-arm64": {
+      "command": "deno run -A ./src/docker-build.ts --arch arm64",
+      "dependencies": ["prepare-docker-build"]
+    },
+    "docker-build-amd64": {
+      "command": "deno run -A ./src/docker-build.ts --arch amd64",
+      "dependencies": ["prepare-docker-build"]
+    },
+    "docker-build": {
+      "dependencies": ["docker-build-arm64", "docker-build-amd64"]
+    }
+  },
+  "name": "@reactiac/scripts-tasks",
+  "exports": {
+    ".": "./src/npm-build.ts"
+  },
+  "imports": {
+    "@deno/dnt": "jsr:@deno/dnt@0.41.3",
+    "@std/jsonc": "jsr:@std/jsonc@1.0.1",
+    "@std/cli": "jsr:@std/cli@1.0.15",
+    "@std/fs": "jsr:@std/fs@1.0.15",
+    "execa": "npm:execa@9.5.2"
+  }
+}

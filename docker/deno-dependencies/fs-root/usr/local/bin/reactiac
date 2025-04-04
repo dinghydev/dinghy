@@ -3,4 +3,4 @@
 # Make the script exit on any error
 set -e
 
-deno run --allow-all --cached-only --config /workspace/deno.jsonc --lock /workspace/deno.lock /workspace/src/index.ts $@
+deno run --allow-all --cached-only --config /reactiac/deno.jsonc --lock /reactiac/deno.lock /reactiac/src/index.ts $@

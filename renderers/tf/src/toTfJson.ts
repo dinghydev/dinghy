@@ -5,9 +5,9 @@ import type {
   NodeTree,
   Props,
 } from '@reactiac/base-components'
-import { handleCategory } from './category-handler/index.js'
+import { handleCategory } from './category-handler/index.ts'
 import type { HostContainer, Output } from '@reactiac/base-renderer'
-import type { TfRenderOptions } from './types.js'
+import type { TfRenderOptions } from './types.ts'
 
 const resolveValue = (node: NodeTree, value: ReactElement): ReactElement => {
   if (typeof value === 'function') {

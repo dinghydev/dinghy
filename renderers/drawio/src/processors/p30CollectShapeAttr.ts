@@ -1,4 +1,4 @@
-import type { DrawioContext, DrawioNodeTree, DrawioProps } from '../types.js'
+import type { DrawioContext, DrawioNodeTree, DrawioProps } from '../types.ts'
 import { mergician } from 'mergician'
 import type { Props } from '@reactiac/base-components'
 

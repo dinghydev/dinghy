@@ -5,7 +5,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.js'
+import { aws } from './index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 
@@ -19,17 +19,17 @@ export const AwsS3BucketLoggingOutputSchema = z.object({
   id: ResolvableStringSchema.optional(),
 })
 
-export type AwsS3BucketLoggingInputProps =
-  & z.infer<typeof AwsS3BucketLoggingInputSchema>
-  & IacNodeProps
+export type AwsS3BucketLoggingInputProps = z.infer<
+  typeof AwsS3BucketLoggingInputSchema
+> &
+  IacNodeProps
 
-export type AwsS3BucketLoggingOutputProps =
-  & z.infer<typeof AwsS3BucketLoggingOutputSchema>
-  & AwsS3BucketLoggingInputProps
+export type AwsS3BucketLoggingOutputProps = z.infer<
+  typeof AwsS3BucketLoggingOutputSchema
+> &
+  AwsS3BucketLoggingInputProps
 
-export function AwsS3BucketLogging(
-  props: AwsS3BucketLoggingInputProps,
-) {
+export function AwsS3BucketLogging(props: AwsS3BucketLoggingInputProps) {
   return (
     <Shape
       {...aws(

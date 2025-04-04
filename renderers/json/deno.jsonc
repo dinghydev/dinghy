@@ -1,0 +1,9 @@
+{
+  "name": "@reactiac/renderer-json",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+  // "imports": {
+  //   "@reactiac/base-renderer": "workspace:*"
+  // }
+}

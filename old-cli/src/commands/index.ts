@@ -1,0 +1,44 @@
+import type {
+  CommandArgs,
+  CommandContext,
+  CommandOptions,
+  Commands,
+} from "../types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
+import { showHelp } from "../utils/showHelp.ts";
+import { versionDetails } from "../utils/runtimeVersion.ts";
+import json from "./json/index.ts";
+
+const options: CommandOptions = {
+  boolean: ["debug", "help", "version"],
+  default: {
+    debug: Boolean(Deno.env.get("DEBUG")),
+  },
+  description: {
+    debug: "Enable debug mode",
+    help: "Show help",
+    version: "Show version",
+  },
+  alias: {
+    h: "help",
+    v: "version",
+  },
+  cmdDescription:
+    "ReactIAC Cli, a command line tool to help with ReactIAC development and operations",
+};
+
+const run = (context: CommandContext, args: CommandArgs) => {
+  if (args.version) {
+    console.log(versionDetails);
+  } else {
+    showHelp(context);
+  }
+};
+
+const commands: Commands = {
+  json,
+  [OPTIONS_SYMBOL]: options,
+  [RUN_SYMBOL]: run,
+};
+
+export default commands;

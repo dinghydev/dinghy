@@ -1,4 +1,4 @@
-import type { DependsType, DrawioContext, DrawioNodeTree } from '../types.js'
+import type { DependsType, DrawioContext, DrawioNodeTree } from '../types.ts'
 import type { NodeTree } from '@reactiac/base-components'
 
 function isParent(_node: NodeTree, lookup: NodeTree) {
@@ -24,9 +24,15 @@ function moveRelationship(
 ) {
   const relationship = dependencies.find((d) => {
     if (fromField === '_dependsOn') {
-      return (d._props as any)._source === node && (d._props as any)._target === movedFrom
+      return (
+        (d._props as any)._source === node &&
+        (d._props as any)._target === movedFrom
+      )
     }
-    return (d._props as any)._target === node && (d._props as any)._source === movedFrom
+    return (
+      (d._props as any)._target === node &&
+      (d._props as any)._source === movedFrom
+    )
   })!
 
   if (isParentChildRelationship(moveTo, movedFrom)) {
@@ -38,9 +44,9 @@ function moveRelationship(
     moveTo[fromField] ??= []
     moveTo[fromField].push(movedFrom)
     if (fromField === '_dependsOn') {
-      (relationship._props as any)._source = moveTo
+      ;(relationship._props as any)._source = moveTo
     } else {
-      (relationship._props as any)._target = moveTo
+      ;(relationship._props as any)._target = moveTo
     }
   }
 }

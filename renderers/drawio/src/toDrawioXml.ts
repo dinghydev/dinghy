@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import type { HostContainer, Output } from '@reactiac/base-renderer'
-import type { DrawioNodeTree, DrawioRenderOptions } from './types.js'
+import type { DrawioNodeTree, DrawioRenderOptions } from './types.ts'
 
 const renderValue = (value: unknown): unknown => {
   if (typeof value === 'object') {
@@ -46,6 +46,9 @@ const convertToXml = (element: ReactElement, padding: string): string => {
 export const toDrawioXml = (
   container: HostContainer<string, DrawioRenderOptions>,
 ): Output<string> => {
-  container.result = convertToXml(container.rootElement as ReactElement, '').trim()
+  container.result = convertToXml(
+    container.rootElement as ReactElement,
+    '',
+  ).trim()
   return container
 }

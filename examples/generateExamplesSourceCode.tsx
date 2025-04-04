@@ -1,6 +1,6 @@
 import { existsSync } from 'jsr:@std/fs/exists'
 import { parse } from 'jsr:@std/yaml'
-import { ExampleSchema, ExampleType } from './types.js'
+import { ExampleSchema, ExampleType } from './types.ts'
 
 function findApps(basePath: string[] = [], result: string[] = []) {
   for (const dirEntry of Deno.readDirSync(
@@ -8,7 +8,7 @@ function findApps(basePath: string[] = [], result: string[] = []) {
   )) {
     if (dirEntry.isDirectory) {
       findApps([...basePath, dirEntry.name], result)
-    } else if (dirEntry.isFile && dirEntry.name === 'App.js') {
+    } else if (dirEntry.isFile && dirEntry.name === 'App.ts') {
       result.push(basePath.join('/'))
     }
   }
@@ -32,11 +32,11 @@ function parseExampleSpec(path: string) {
   example.code = Deno.readTextFileSync(appFile)
     .replace(/from \'.*\/core\/index.ts\'/g, `from 'reactiac-core'`)
     .replace(
-      /import.*DiagramNodeProps.*types.js'/,
+      /import.*DiagramNodeProps.*types.ts'/,
       `import type { DiagramNodeProps } from 'reactiac-core'`,
     )
     .replace(
-      /import.*IacNodeProps.*types.js'/,
+      /import.*IacNodeProps.*types.ts'/,
       `import { IacNodeProps } from 'reactiac-core'`,
     )
     .replace(
@@ -97,7 +97,7 @@ ${apps
       `import { default as ${example.packagePath!.replace(
         /\W/g,
         '_',
-      )} } from './${example.packagePath!}/App.js'\n
+      )} } from './${example.packagePath!}/App.ts'\n
         //import ${example.packagePath!.replace(
           /\W/g,
           '_',

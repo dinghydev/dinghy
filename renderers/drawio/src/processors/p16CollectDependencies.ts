@@ -1,4 +1,4 @@
-import type { DrawioContext, DrawioNodeTree } from '../types.js'
+import type { DrawioContext, DrawioNodeTree } from '../types.ts'
 
 function moveDependencyNode(
   parent: DrawioNodeTree,

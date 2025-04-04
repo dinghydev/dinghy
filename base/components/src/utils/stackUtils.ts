@@ -4,7 +4,7 @@ import {
   type Stack,
   type Stacks,
   StacksSchema,
-} from '../types.js'
+} from '../types.ts'
 
 const parseStackFromId = (stackId: string): Stack => {
   const segments = stackId.split('-')

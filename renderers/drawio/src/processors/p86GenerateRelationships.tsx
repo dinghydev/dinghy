@@ -1,4 +1,4 @@
-import type { DrawioContext, DrawioNodeTree, ElementProps } from '../types.js'
+import type { DrawioContext, DrawioNodeTree, ElementProps } from '../types.ts'
 import { utils } from '@reactiac/base-components'
 const { deepResolve } = utils
 

@@ -4,14 +4,11 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.js'
+import { aws } from './index.ts'
 import z from 'zod'
 import { Dynamodb } from '@reactiac/standard-components-diagrams'
 
-export const BillingModeSchema = z.enum([
-  'PAY_PER_REQUEST',
-  'PROVISIONED',
-])
+export const BillingModeSchema = z.enum(['PAY_PER_REQUEST', 'PROVISIONED'])
 
 export const AwsDynamodbTableInputSchema = z.object({
   name: ResolvableStringSchema.optional(),
@@ -26,17 +23,17 @@ export const AwsDynamodbTableOutputSchema = z.object({
   stream_arn: ResolvableStringSchema.optional(),
 })
 
-export type AwsDynamodbTableInputProps =
-  & z.infer<typeof AwsDynamodbTableInputSchema>
-  & IacNodeProps
+export type AwsDynamodbTableInputProps = z.infer<
+  typeof AwsDynamodbTableInputSchema
+> &
+  IacNodeProps
 
-export type AwsDynamodbTableOutputProps =
-  & z.infer<typeof AwsDynamodbTableOutputSchema>
-  & AwsDynamodbTableInputProps
+export type AwsDynamodbTableOutputProps = z.infer<
+  typeof AwsDynamodbTableOutputSchema
+> &
+  AwsDynamodbTableInputProps
 
-export function AwsDynamodbTable(
-  props: AwsDynamodbTableInputProps,
-) {
+export function AwsDynamodbTable(props: AwsDynamodbTableInputProps) {
   return (
     <Dynamodb
       {...aws(props, AwsDynamodbTableInputSchema, AwsDynamodbTableOutputSchema)}

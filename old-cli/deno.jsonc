@@ -1,0 +1,61 @@
+{
+  "tasks": {
+    "run": "deno run -A src/index.ts",
+    "clean": "rm -rf dist",
+    "prepare-docker-build": "cp ../cli/deno.lock ../../docker/deno-dependencies/fs-root/workspace/deno.lock",
+    "release-version": "deno run -A ./src/tasks/release-version.ts",
+    "docker-build": {
+      "command": "deno run -A ./src/tasks/docker-build.ts",
+      "dependencies": ["prepare-docker-build"]
+    },
+    "build-x86_64-apple-darwin": "deno run -A src/buildAndRelease.ts x86_64-apple-darwin",
+    "build-aarch64-apple-darwin": "deno run -A src/buildAndRelease.ts aarch64-apple-darwin",
+    "build-aarch64-unknown-linux-gnu": "deno run -A src/buildAndRelease.ts aarch64-unknown-linux-gnu",
+    "build-x86_64-unknown-linux-gnu": "deno run -A src/buildAndRelease.ts x86_64-unknown-linux-gnu",
+    "publish-runner": "deno run -A ./src/tasks/publish-runner.ts",
+    "build": {
+      "dependencies": [
+        // "build-x86_64-apple-darwin",
+        // "build-aarch64-unknown-linux-gnu",
+        // "build-x86_64-unknown-linux-gnu",
+        "build-aarch64-apple-darwin"
+      ]
+    },
+    "publish": "deno task clean && deno task build && deno task publish-runner"
+  },
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+    // "lib": ["deno.shared_globals"]
+  },
+  "imports": {
+    "@std/cli": "jsr:@std/cli@1.0.14",
+    "@std/fs": "jsr:@std/fs@1.0.14",
+    "@std/path": "jsr:@std/path@1.0.8",
+
+    // "@reactiac/renderer-json": "npm:@reactiac/renderer-json@latest",
+    // "@reactiac/renderer-drawio": "npm:@reactiac/renderer-drawio@latest",
+    // "@reactiac/renderer-tf": "npm:@reactiac/renderer-tf@latest",
+    // "@reactiac/base-components": "npm:@reactiac/base-components@latest",
+    // "@reactiac/standard-components-diagrams": "npm:@reactiac/standard-components-diagrams@latest",
+    // "@reactiac/standard-components-tf-aws": "npm:@reactiac/standard-components-tf-aws@latest",
+
+    "zod": "npm:zod@3.24.2",
+    "debug": "npm:debug@4.4.0",
+    "chalk": "npm:chalk@5.4.1",
+    "execa": "npm:execa@9.5.2"
+  }
+}
+// (cd clients/cli ; deno install --entrypoint ./src/index.ts)
+// (cd clients/cli ; deno run -A ./src/index.ts)
+// (cd clients/cli ; deno task release-version reset)
+// (cd clients/cli ; deno task docker-build build --arch arm64 )
+// (cd clients/cli ; deno task docker-build build --arch amd64 )
+// (cd clients/cli ; deno task docker-build publish --arch amd64)
+// (cd clients/cli ; deno task docker-build publish --arch arm64)
+// deno task build && ./dist/runner
+// (cd clients/runner ; deno task build-aarch64-apple-darwin && cp dist/aarch64-apple-darwin/reactiac ~/.reactiac/bin/ && reactiac -h)
+// (cd clients/runner ; deno task run devcontainer)
+// (cd clients/runner ; deno task publish)
+// curl -fsSL https://play.reactiac.dev/download/install.sh | sh

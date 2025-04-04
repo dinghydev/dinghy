@@ -1,11 +1,8 @@
-import {
-  type NodeTree,
-  type Props,
-} from '../types.js'
-import { useNodeContext } from './NodeContext.js'
+import { type NodeTree, type Props } from '../types.ts'
+import { useNodeContext } from './NodeContext.tsx'
 import type { ZodObject, ZodRawShape } from 'zod'
-import { capitalise, renderKey } from '../utils/stringUtils.js'
-import { getRootNode } from '../utils/nodeUtils.js'
+import { capitalise, renderKey } from '../utils/stringUtils.ts'
+import { getRootNode } from '../utils/nodeUtils.ts'
 
 function proxyNodeProps({ _props }: NodeTree) {
   return new Proxy(_props, {

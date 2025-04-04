@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import type { DrawioContext, DrawioNodeTree } from '../types.js'
+import type { DrawioContext, DrawioNodeTree } from '../types.ts'
 import type { Props } from '@reactiac/base-components'
 
 const defaultMxfile = (_node: DrawioNodeTree) => ({
@@ -64,7 +64,7 @@ const defaultRoot = (_node: DrawioNodeTree) => ({
 
 export const p88BuildMxfile = (context: DrawioContext) => {
   const root = defaultRoot(context.rootNode)
-  root.props.children.push(...context.rootElements as any)
+  root.props.children.push(...(context.rootElements as any))
   const mxGraphModel = defaultMxGraphModel(context.rootNode)
   mxGraphModel.props.children.push(root)
   const diagram = defaultDiagram(context.rootNode)

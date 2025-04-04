@@ -2,8 +2,8 @@ import {
   Dependency,
   type DiagramNodeProps,
   Shape,
-} from '../../../../core/index.js'
-import { DrawioNodeTree, Point } from '../../../../provider-drawio/index.js'
+} from '../../../../core/index.ts'
+import { DrawioNodeTree, Point } from '../../../../provider-drawio/index.ts'
 
 const Mindmap = (props: DiagramNodeProps) => (
   <Shape _direction={'vertical'} {...props} />

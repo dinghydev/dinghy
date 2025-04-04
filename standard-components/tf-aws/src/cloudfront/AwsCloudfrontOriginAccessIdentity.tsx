@@ -3,7 +3,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.js'
+import { aws } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 import { useTypedNode } from '@reactiac/base-components'

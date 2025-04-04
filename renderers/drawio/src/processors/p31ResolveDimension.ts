@@ -1,4 +1,4 @@
-import type { DimensionType, DrawioContext, DrawioNodeTree } from '../types.js'
+import type { DimensionType, DrawioContext, DrawioNodeTree } from '../types.ts'
 
 const applySameDimension = (
   node: DrawioNodeTree,
@@ -39,7 +39,7 @@ const expandDimension = (
   dimension: DimensionType,
   diff: number,
 ) => {
-  (node._props as any)._diagram.geometry[dimension] += diff
+  ;(node._props as any)._diagram.geometry[dimension] += diff
   node._props._diagram.state[dimension] += diff
   const sameType = isChidrenSameType(node)
   if (!node._props._diagram.flags.isEntity) {
@@ -158,8 +158,10 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
 
   node._props._diagram.geometry.x = x
   node._props._diagram.geometry.y = y
-  ;(node._props as any)._diagram.state.width = node._props._diagram.geometry.width
-  ;(node._props as any)._diagram.state.height = node._props._diagram.geometry.height
+  ;(node._props as any)._diagram.state.width =
+    node._props._diagram.geometry.width
+  ;(node._props as any)._diagram.state.height =
+    node._props._diagram.geometry.height
   if (node._props._diagram.isTextOutside) {
     node._props._diagram.state.height =
       node._props._diagram.state.height +

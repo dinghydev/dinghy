@@ -13,7 +13,7 @@ import {
   AwsS3BucketVersioning,
   useAwsRegion,
   useAwsS3Bucket,
-} from '../index.js'
+} from '../index.ts'
 import { useRenderOptions } from '@reactiac/base-components'
 
 export const S3BackendDefaults = z.object({

@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import type { NodeTree, Props } from '../types.js'
+import type { NodeTree, Props } from '../types.ts'
 
 export const deepResolve = (
   node: NodeTree,

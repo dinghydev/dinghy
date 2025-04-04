@@ -1,4 +1,4 @@
-import { type DiagramNodeProps, Shape, Stack } from '../../../core/index.js'
+import { type DiagramNodeProps, Shape, Stack } from '../../../core/index.ts'
 import {
   AwsCloud,
   AwsECSCluster,
@@ -14,8 +14,8 @@ import {
   AwsRegion,
   AwsWAF,
   DataAwsVpc,
-} from '../../../index.js'
-import { ClientShape as Client } from '../../../generated-drawio/index.js'
+} from '../../../index.ts'
+import { ClientShape as Client } from '../../../generated-drawio/index.ts'
 
 function LoadBalancer(props: AwsLbInputProps) {
   return <AwsLb {...props} />

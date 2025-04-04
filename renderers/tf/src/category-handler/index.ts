@@ -1,11 +1,11 @@
 import type { NodeTree, Props } from '@reactiac/base-components'
-import { resource } from './resource.js'
-import { data } from './data.js'
-import { terraform } from './terraform.js'
-import { provider } from './provider.js'
+import { resource } from './resource.ts'
+import { data } from './data.ts'
+import { terraform } from './terraform.ts'
+import { provider } from './provider.ts'
 import { utils } from '@reactiac/base-components'
 const { deepResolve } = utils
-import { none } from './none.js'
+import { none } from './none.ts'
 
 export const requiredSchema = (node: NodeTree, schemaField: string) => {
   const schema = (node._props as any)[schemaField]

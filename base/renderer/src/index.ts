@@ -1,2 +1,2 @@
-export { Output, HostContainer } from './types.js'
-export { renderNode } from './renderNode.js'
+export type { HostContainer, Output } from "./types.ts";
+export { renderNode } from "./renderNode.ts";

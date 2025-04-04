@@ -12,13 +12,13 @@ import {
   AwsCloudfrontOriginAccessIdentity,
   AwsRoute53Record,
   useAwsS3Bucket,
-} from '../index.js'
-import { useAwsCloudfrontDistribution } from '../AwsCloudfrontDistribution.js'
-import { useAwsRoute53Zone } from '../AwsRoute53Zone.js'
-import { useAwsAcmCertificate } from '../AwsAcmCertificate.js'
-import { useAwsCloudfrontOriginAccessIdentity } from './AwsCloudfrontOriginAccessIdentity.js'
-import { useAwsCloudfrontOriginAccessControl } from './AwsCloudfrontOriginAccessControl.js'
-import { useLogBucket } from '../s3/LogBucket.js'
+} from '../index.ts'
+import { useAwsCloudfrontDistribution } from '../AwsCloudfrontDistribution.ts'
+import { useAwsRoute53Zone } from '../AwsRoute53Zone.ts'
+import { useAwsAcmCertificate } from '../AwsAcmCertificate.ts'
+import { useAwsCloudfrontOriginAccessIdentity } from './AwsCloudfrontOriginAccessIdentity.ts'
+import { useAwsCloudfrontOriginAccessControl } from './AwsCloudfrontOriginAccessControl.ts'
+import { useLogBucket } from '../s3/LogBucket.ts'
 
 export const AwsCloudfrontDefaults = z.object({
   default_ttl: ResolvableNumberSchema.default(86400),

@@ -5,7 +5,7 @@
     "dockerfile": "docker/devcontainer/Dockerfile",
     "context": "./"
   },
-  "postStartCommand": "pnpm install --ignore-scripts --offline --frozen-lockfile",
+  // "postStartCommand": "pnpm install --ignore-scripts --offline --frozen-lockfile",
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
     "source=${localEnv:HOME}/.npmrc,target=/root/.npmrc,type=bind",
@@ -21,7 +21,6 @@
         "ms-azuretools.vscode-docker",
         "github.vscode-github-actions",
         "asciidoctor.asciidoctor-vscode",
-        "biomejs.biome",
         "denoland.vscode-deno",
         "reduckted.vscode-gitweblinks"
       ],

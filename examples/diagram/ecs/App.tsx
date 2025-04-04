@@ -10,8 +10,8 @@ import {
   GroupVpc2,
   RdsPostgresqlInstance,
   Waf,
-} from '../../../generated-drawio/index.js'
-import { type DiagramNodeProps, Shape } from '../../../core/index.js'
+} from '../../../generated-drawio/index.ts'
+import { type DiagramNodeProps, Shape } from '../../../core/index.ts'
 
 function Stack(props: DiagramNodeProps) {
   return <Shape {...props} />

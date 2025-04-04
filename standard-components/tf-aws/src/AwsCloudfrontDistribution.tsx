@@ -4,7 +4,7 @@ import {
   ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
-import { aws } from './index.js'
+import { aws } from './index.ts'
 import z from 'zod'
 import { Cloudfront } from '@reactiac/standard-components-diagrams'
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'

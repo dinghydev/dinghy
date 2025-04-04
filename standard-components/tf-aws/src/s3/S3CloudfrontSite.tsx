@@ -15,16 +15,16 @@ import {
   DataAwsIamPolicyDocument,
   useAwsS3Bucket,
   useDataAwsIamPolicyDocument,
-} from '../index.js'
-import { useLogBucket } from './LogBucket.js'
-import { useAwsAcmCertificate } from '../AwsAcmCertificate.js'
-import { useAwsCloudfrontOriginAccessControl } from '../cloudfront/AwsCloudfrontOriginAccessControl.js'
+} from '../index.ts'
+import { useLogBucket } from './LogBucket.ts'
+import { useAwsAcmCertificate } from '../AwsAcmCertificate.ts'
+import { useAwsCloudfrontOriginAccessControl } from '../cloudfront/AwsCloudfrontOriginAccessControl.ts'
 import { useStack } from '@reactiac/base-components'
 import {
   type AwsCloudfrontDistributionInputProps,
   useAwsCloudfrontDistribution,
-} from '../AwsCloudfrontDistribution.js'
-import { useAwsRoute53Zone } from '../AwsRoute53Zone.js'
+} from '../AwsCloudfrontDistribution.ts'
+import { useAwsRoute53Zone } from '../AwsRoute53Zone.ts'
 const { toId } = utils
 
 export const S3CloudfrontSiteInputSchema = z.object({

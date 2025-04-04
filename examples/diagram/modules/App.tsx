@@ -2,7 +2,7 @@ import {
   Dependency,
   type DiagramNodeProps,
   Shape,
-} from '../../../core/index.js'
+} from '../../../core/index.ts'
 
 const Modules = (props: DiagramNodeProps) => (
   <Shape

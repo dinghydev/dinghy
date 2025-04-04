@@ -1,6 +1,6 @@
 import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
 import { Android } from '@reactiac/standard-components-diagrams'
-import { aws } from './index.js'
+import { aws } from './index.ts'
 import z from 'zod'
 
 export const AwsInstanceInputSchema = z.object({
@@ -12,14 +12,11 @@ export const AwsInstanceOutputSchema = z.object({
   ami: ResolvableStringSchema.optional(),
 })
 
-export type AwsInstanceInputProps =
-  & z.infer<typeof AwsInstanceInputSchema>
-  & IacNodeProps
+export type AwsInstanceInputProps = z.infer<typeof AwsInstanceInputSchema> &
+  IacNodeProps
 
 export default function AwsInstance(props: AwsInstanceInputProps) {
   return (
-    <Android
-      {...aws(props, AwsInstanceInputSchema, AwsInstanceOutputSchema)}
-    />
+    <Android {...aws(props, AwsInstanceInputSchema, AwsInstanceOutputSchema)} />
   )
 }

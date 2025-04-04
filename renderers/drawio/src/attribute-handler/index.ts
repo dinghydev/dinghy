@@ -1,21 +1,21 @@
 import type { Props } from '@reactiac/base-components'
-import { _background } from './_background.js'
-import { _color } from './_color.js'
-import { _dashed } from './_dahsed.js'
-import { _direction } from './_direction.js'
-import { _border } from './_border.js'
-import { _style } from './_style.js'
-import { _shape } from './_shape.js'
-import { _icon } from './_icon.js'
-import { _display } from './_display.js'
-import { _width } from './_width.js'
-import { _height } from './_height.js'
-import { _arrow } from './_arrow.js'
-import { _distribution } from './_distribution.js'
-import { eventHandler } from './eventHandler.js'
-import { _image } from './_image.js'
-import { simpleStyleAttribute } from './simpleStyleAttribute.js'
-import { DrawioRenderOptions } from '../types.js'
+import { _background } from './_background.ts'
+import { _color } from './_color.ts'
+import { _dashed } from './_dahsed.ts'
+import { _direction } from './_direction.ts'
+import { _border } from './_border.ts'
+import { _style } from './_style.ts'
+import { _shape } from './_shape.ts'
+import { _icon } from './_icon.ts'
+import { _display } from './_display.ts'
+import { _width } from './_width.ts'
+import { _height } from './_height.ts'
+import { _arrow } from './_arrow.ts'
+import { _distribution } from './_distribution.ts'
+import { eventHandler } from './eventHandler.ts'
+import { _image } from './_image.ts'
+import { simpleStyleAttribute } from './simpleStyleAttribute.ts'
+import { DrawioRenderOptions } from '../types.ts'
 
 const attributesHandlers: Props = {
   _color,
@@ -44,7 +44,7 @@ export function handleAttributes(
 ) {
   for (const key of Object.keys(drawioConfig)) {
     const attributeFunction = attributesHandlers[key] as
-      | ((args: unknown,options:unknown) => Props)
+      | ((args: unknown, options: unknown) => Props)
       | undefined
     if (attributeFunction) {
       const config = attributeFunction(drawioConfig[key], options)

@@ -1,28 +1,28 @@
-import type { IacNodeProps, NodeTree } from '../types.js'
-import Shape from './Shape.js'
-import { useTypedNode } from '../contexts/useTypedNode.js'
-import { useRenderOptions } from '../contexts/useRenderOptions.js'
-import { camelCaseToWords } from '../utils/words.js'
+import React from "react";
+import type { IacNodeProps, NodeTree } from "../types.ts";
+import { Shape } from "./Shape.tsx";
+import { useTypedNode } from "../contexts/useTypedNode.tsx";
+import { useRenderOptions } from "../contexts/useRenderOptions.tsx";
+import { camelCaseToWords } from "../utils/words.ts";
 
-export default function Stack(props: IacNodeProps) {
-  const { stack, stage } = useRenderOptions()
-  let appendEnvToTitle = {}
+export function Stack(props: IacNodeProps) {
+  const { stack, stage } = useRenderOptions();
+  let appendEnvToTitle = {};
   if (stack?.env) {
     const _title = (node: NodeTree) => {
-      let title =
-        stack?.title ||
+      let title = stack?.title ||
         props._title ||
         props.title ||
-        camelCaseToWords((node._props._tags as any)[1])
-      if (typeof title === 'function') {
-        title = (title as any)(node)
+        camelCaseToWords((node._props._tags as any)[1]);
+      if (typeof title === "function") {
+        title = (title as any)(node);
       }
-      return `${title}: ${stack.env}`
-    }
+      return `${title}: ${stack.env}`;
+    };
     appendEnvToTitle = {
       title: _title,
       _title,
-    }
+    };
   }
 
   const stackProps = {
@@ -30,8 +30,8 @@ export default function Stack(props: IacNodeProps) {
     stage: stage,
     ...props,
     ...appendEnvToTitle,
-  }
-  return <Shape {...(stackProps as any)} />
+  };
+  return <Shape {...(stackProps as any)} />;
 }
 
-export const useStack = () => useTypedNode<IacNodeProps>(Stack)
+export const useStack = () => useTypedNode<IacNodeProps>(Stack);

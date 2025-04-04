@@ -18,16 +18,28 @@ image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.s
 
 
 
-== Local Commandspnpm release-version-update
+== Local Commands
 
 
-    docker pull public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64
+    (cd scripts/tasks ; deno task clean)
+    (cd scripts/tasks ; deno task version-release)
 
-    docker run -it -v $(pwd)/examples/web/1-shape:/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gen
+    (cd scripts/tasks ; deno task npm-build)
+    (cd scripts/tasks ; deno task aws-npm-login)
+    (cd scripts/tasks ; deno task npm-publish)
 
-    docker run -it -v $(pwd)/examples/web/5-data:/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gen
+    (cd scripts/tasks ; deno task cli-build-aarch64-apple-darwin && cp ../../build/cli/aarch64-apple-darwin/reactiac ~/.reactiac/bin/ && reactiac -h)
 
-    docker pull public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64
-    docker run -it -v $(pwd)/examples/iac/cf-site:/workspace/app public.ecr.aws/f2v6q7q7/reactiac/reactiac:latest-linux-arm64 tf gip
+    (cd scripts/tasks ; deno task cli-publish)
+    curl -fsSL https://play.reactiac.dev/download/install.sh | sh
 
-    rm -rf sample-app && reactiac create sample-app && cd sample-app && reactiac devcontainer && cd ..
+
+    (cd scripts/tasks ; deno task aws-ecr-login)
+    (cd scripts/tasks ; deno task docker-build-arm64)
+    (cd scripts/tasks ; deno task docker-build)
+
+
+    (rm -rf ~/Downloads/test1 && reactiac init ~/Downloads/test1 && cd ~/Downloads/test1 && reactiac dc)
+    (cd standalone/cli ; deno task run devcontainer --debug --xworkspace /reactiac --xmounts ../../:/reactiac  --app-home ../../examples/web/1-shape)
+
+    (cd workspace ; deno task json)

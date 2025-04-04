@@ -1,5 +1,5 @@
 import type { DisplayStringType } from '@reactiac/base-components'
-import type { DrawioRenderOptions } from '../types.js'
+import type { DrawioRenderOptions } from '../types.ts'
 
 const DISPLAYS = {
   none: {

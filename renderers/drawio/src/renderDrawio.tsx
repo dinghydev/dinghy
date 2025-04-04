@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
-import { toDrawioXml } from './toDrawioXml.js'
+import { toDrawioXml } from './toDrawioXml.ts'
 import type { HostContainer } from '@reactiac/base-renderer'
-import { applyProcessors } from './processors/index.js'
-import type { DrawioRenderOptions } from './types.js'
+import { applyProcessors } from './processors/index.ts'
+import type { DrawioRenderOptions } from './types.ts'
 import { RootNode } from '@reactiac/base-components'
 import { renderNode } from '@reactiac/base-renderer'
 
@@ -18,7 +18,7 @@ export function renderDrawio(
 
   return renderNode<string, DrawioRenderOptions>(
     container,
-    <RootNode {...renderOptions as any}>
+    <RootNode {...(renderOptions as any)}>
       <App />
     </RootNode>,
   )

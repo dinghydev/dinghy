@@ -4,12 +4,12 @@ import {
   AwsS3BucketAcl,
   AwsS3BucketLogging,
   AwsS3BucketOwnershipControls,
-} from '../index.js'
+} from '../index.ts'
 import { useTypedNode } from '@reactiac/base-components'
 import type {
   AwsS3BucketInputProps,
   AwsS3BucketOutputProps,
-} from '../AwsS3Bucket.js'
+} from '../AwsS3Bucket.ts'
 import { useStack } from '@reactiac/base-components'
 import { ResolvableStringSchema } from '@reactiac/base-components'
 import z from 'zod'

@@ -1,6 +1,6 @@
-import type { DependsPair, DrawioContext, DrawioNodeTree } from '../types.js'
-import { DependencyFieldsSchema, DependsSchema } from '../types.js'
-import { absLeft, absTop } from '../utils.js'
+import type { DependsPair, DrawioContext, DrawioNodeTree } from '../types.ts'
+import { DependencyFieldsSchema, DependsSchema } from '../types.ts'
+import { absLeft, absTop } from '../utils.ts'
 
 const listContainsAllItem = (list: DependsPair[], item: DependsPair) =>
   list.some((m) => item.all.every((d) => m.all.includes(d)))
@@ -12,8 +12,10 @@ function findRelationship(
 ) {
   const relationship = context.dependencies.find((d) => {
     return (
-      (d._props as any)._source === node1 && (d._props as any)._target === node2 ||
-      (d._props as any)._target === node1 && (d._props as any)._source === node2
+      ((d._props as any)._source === node1 &&
+        (d._props as any)._target === node2) ||
+      ((d._props as any)._target === node1 &&
+        (d._props as any)._source === node2)
     )
   })
   if (!relationship) {
@@ -115,7 +117,10 @@ const populateAbs = (context: DrawioContext) => {
 
 const populateDirection = (context: DrawioContext) => {
   context.dependencies.map((d) => {
-    const commonParent = findCommonParent((d._props as any)._source, (d._props as any)._target)
+    const commonParent = findCommonParent(
+      (d._props as any)._source,
+      (d._props as any)._target,
+    )
     let direction: string
     let isArrowVertical = false
     if ((commonParent._props as any)._diagram.flags.isDirectionVertical) {
@@ -155,8 +160,10 @@ const sortArray = (context: DrawioContext) => {
         dependsPair.relationships[0]._props._diagram.flags.isArrowVertical
       dependsPair.list.sort((a, b) =>
         isVertical
-          ? (a._props as any)._diagram.state.absLeft - (b._props as any)._diagram.state.absLeft
-          : (a._props as any)._diagram.state.absTop - (b._props as any)._diagram.state.absTop,
+          ? (a._props as any)._diagram.state.absLeft -
+            (b._props as any)._diagram.state.absLeft
+          : (a._props as any)._diagram.state.absTop -
+            (b._props as any)._diagram.state.absTop,
       )
       dependsPair.relationships = []
       dependsPair.list.map((d) => {

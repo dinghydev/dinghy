@@ -1,0 +1,23 @@
+{
+  "name": "@reactiac/base-components",
+  "version": "0.0.1",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "lib": [
+      "dom",
+      "deno.ns"
+    ]
+  },
+  "imports": {
+    "debug": "npm:debug@4.4.0",
+    "react": "npm:react@19.1.0",
+    "zod": "npm:zod@3.24.2"
+  }
+}

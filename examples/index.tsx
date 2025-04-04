@@ -1,36 +1,36 @@
 // GENERATED FILE: DO NOT EDIT
-import { ExampleType } from './types.js'
-import { default as web_1_shape } from './web/1-shape/App.js'
+import { ExampleType } from './types.ts'
+import { default as web_1_shape } from './web/1-shape/App.ts'
 
 //import web_1_shape_spec from './web/1-shape/example.yaml'
-import { default as web_2_components } from './web/2-components/App.js'
+import { default as web_2_components } from './web/2-components/App.ts'
 
 //import web_2_components_spec from './web/2-components/example.yaml'
-import { default as web_3_drawio } from './web/3-drawio/App.js'
+import { default as web_3_drawio } from './web/3-drawio/App.ts'
 
 //import web_3_drawio_spec from './web/3-drawio/example.yaml'
-import { default as web_4_iac } from './web/4-iac/App.js'
+import { default as web_4_iac } from './web/4-iac/App.ts'
 
 //import web_4_iac_spec from './web/4-iac/example.yaml'
-import { default as web_5_data } from './web/5-data/App.js'
+import { default as web_5_data } from './web/5-data/App.ts'
 
 //import web_5_data_spec from './web/5-data/example.yaml'
-import { default as diagram_ecs } from './diagram/ecs/App.js'
+import { default as diagram_ecs } from './diagram/ecs/App.ts'
 
 //import diagram_ecs_spec from './diagram/ecs/example.yaml'
-import { default as diagram_ecs2 } from './diagram/ecs2/App.js'
+import { default as diagram_ecs2 } from './diagram/ecs2/App.ts'
 
 //import diagram_ecs2_spec from './diagram/ecs2/example.yaml'
-import { default as diagram_layout_mindmap } from './diagram/layout/mindmap/App.js'
+import { default as diagram_layout_mindmap } from './diagram/layout/mindmap/App.ts'
 
 //import diagram_layout_mindmap_spec from './diagram/layout/mindmap/example.yaml'
-import { default as diagram_modules } from './diagram/modules/App.js'
+import { default as diagram_modules } from './diagram/modules/App.ts'
 
 //import diagram_modules_spec from './diagram/modules/example.yaml'
-import { default as iac_cf_site } from './iac/cf-site/App.js'
+import { default as iac_cf_site } from './iac/cf-site/App.ts'
 
 //import iac_cf_site_spec from './iac/cf-site/example.yaml'
-import { default as iac_ecs } from './iac/ecs/App.js'
+import { default as iac_ecs } from './iac/ecs/App.ts'
 
 //import iac_ecs_spec from './iac/ecs/example.yaml'
 

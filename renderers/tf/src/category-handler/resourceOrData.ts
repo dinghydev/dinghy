@@ -2,7 +2,7 @@ import type { NodeTree, Props } from '@reactiac/base-components'
 import { mergician } from 'mergician'
 import { utils } from '@reactiac/base-components'
 const { deepResolve } = utils
-import { requiredSchema } from './index.js'
+import { requiredSchema } from './index.ts'
 
 export const resourceOrData = (
   category: string,

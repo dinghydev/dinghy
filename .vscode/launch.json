@@ -2,84 +2,67 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "all",
-      "request": "launch",
+      "name": "render json",
+      "program": "tasks/json.tsx",
+      "cwd": "${workspaceFolder}/workspace",
+      "args": [],
+      "env": {},
       "type": "node",
-      "runtimeExecutable": "/workspaces/reactiac/.vscode/run.sh",
-      "args": ["pnpm clean", "pnpm install", "pnpm build", "pnpm test"],
-      "env": {
-        "CI": "true",
-        "DEBUB": "*"
-      },
+      "request": "launch",
+      "runtimeExecutable": "/Users/guo/.deno/bin/deno",
+      // "runtimeExecutable": "/usr/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
       "console": "integratedTerminal"
     },
     {
-      "name": "build+test",
-      "request": "launch",
+      "name": "docker build",
+      "program": "src/docker-build.ts",
+      "cwd": "${workspaceFolder}/scripts/tasks",
+      "args": [],
+      "env": {},
       "type": "node",
-      "runtimeExecutable": "/workspaces/reactiac/.vscode/run.sh",
-      "args": ["pnpm build", "pnpm test"],
-      "env": {
-        "CI": "true",
-        "DEBUB": "*"
-      },
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "runner -h",
-      "cwd": "/workspaces/reactiac/clients/runner",
       "request": "launch",
-      "type": "node",
-      "runtimeExecutable": "/workspaces/reactiac/.vscode/run.sh",
-      "args": ["deno run -A src/index.ts -h"],
-      "env": {
-        "DEBUB": "*"
-      },
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "runner upgrade postinstall",
-      "request": "launch",
-      "type": "node",
-      "runtimeExecutable": "/workspaces/reactiac/.vscode/run.sh",
-      "args": ["deno task run upgrade postinstall"],
-      "cwd": "/workspaces/reactiac/clients/runner",
-      "env": {
-        "CI": "true",
-        "DEBUB": "*"
-      },
+      "runtimeExecutable": "/Users/guo/.deno/bin/deno",
+      // "runtimeExecutable": "/usr/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
       "console": "integratedTerminal"
     },
     {
       "name": "clean",
       "request": "launch",
       "type": "node",
-      "runtimeExecutable": "/usr/local/bin/pnpm",
-      "args": ["clean"],
+      "runtimeExecutable": "${workspaceFolder}/.vscode/run.sh",
+      "args": ["deno task clean"],
+      "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     },
     {
-      "name": "install",
+      "name": "npm build",
       "request": "launch",
       "type": "node",
-      "runtimeExecutable": "/usr/local/bin/pnpm",
-      "args": ["install"],
+      "runtimeExecutable": "${workspaceFolder}/.vscode/run.sh",
+      "args": ["deno task npm-build"],
+      "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     },
     {
-      "name": "build",
+      "name": "launch test project",
       "request": "launch",
       "type": "node",
-      "runtimeExecutable": "/usr/local/bin/pnpm",
-      "args": ["build"],
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "test",
-      "request": "launch",
-      "type": "node",
-      "runtimeExecutable": "/usr/local/bin/pnpm",
-      "args": ["test"],
+      "runtimeExecutable": "${workspaceFolder}/.vscode/run.sh",
+      "args": [
+        "(cd standalone/cli ; deno task run devcontainer --debug --xworkspace /reactiac --xmounts ../../:/reactiac  --app-home ../../examples/web/1-shape)"
+      ],
       "console": "integratedTerminal"
     }
   ]

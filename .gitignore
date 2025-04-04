@@ -7,7 +7,8 @@
 **/coverage
 
 # Production
-**/build
+.version
+build
 **/dist
 
 # TypeScript
@@ -23,6 +24,7 @@ tmp*
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
+!.vscode/run.sh
 !.vscode/launch.json
 !.vscode/extensions.json
 

@@ -5,7 +5,7 @@ import {
   type NodeTree,
   type Props,
 } from '@reactiac/base-components'
-import type { JsonRenderOptions } from './types.js'
+import type { JsonRenderOptions } from './types.ts'
 import type { HostContainer, Output } from '@reactiac/base-renderer'
 
 const NODE_PROPS_FIELDS = Object.keys(NodeSchema.shape)

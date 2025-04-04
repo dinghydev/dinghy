@@ -4,8 +4,8 @@ import type {
   TfContext,
   TfNodeTree,
   TfRenderOptions,
-} from '../types.js'
-import { p10ResolveCategory } from './p10ResolveCategory.js'
+} from '../types.ts'
+import { p10ResolveCategory } from './p10ResolveCategory.ts'
 import type { HostContainer } from '@reactiac/base-renderer'
 
 const processors: Processor[] = [p10ResolveCategory]

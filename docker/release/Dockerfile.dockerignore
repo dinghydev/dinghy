@@ -3,4 +3,14 @@
 **
 
 # Allow files and directories
-!/clients/cli/**
+!/deno.*
+!/.version
+!/*/*/deno.jsonc
+!/*/*/src/**
+!/workspace/**
+
+
+# Ignore support project files
+build/**
+standalone/**
+scripts/**

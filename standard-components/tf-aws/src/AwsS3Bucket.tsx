@@ -4,7 +4,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.js'
+import { aws } from './index.ts'
 import z from 'zod'
 import { Bucket } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
@@ -25,21 +25,15 @@ export const AwsS3BucketOutputSchema = z.object({
   region: ResolvableStringSchema.optional(),
 })
 
-export type AwsS3BucketInputProps =
-  & z.infer<typeof AwsS3BucketInputSchema>
-  & IacNodeProps
+export type AwsS3BucketInputProps = z.infer<typeof AwsS3BucketInputSchema> &
+  IacNodeProps
 
-export type AwsS3BucketOutputProps =
-  & z.infer<typeof AwsS3BucketOutputSchema>
-  & AwsS3BucketInputProps
+export type AwsS3BucketOutputProps = z.infer<typeof AwsS3BucketOutputSchema> &
+  AwsS3BucketInputProps
 
-export function AwsS3Bucket(
-  props: AwsS3BucketInputProps,
-) {
+export function AwsS3Bucket(props: AwsS3BucketInputProps) {
   return (
-    <Bucket
-      {...aws(props, AwsS3BucketInputSchema, AwsS3BucketOutputSchema)}
-    />
+    <Bucket {...aws(props, AwsS3BucketInputSchema, AwsS3BucketOutputSchema)} />
   )
 }
 export const useAwsS3Bucket = (id?: string) =>

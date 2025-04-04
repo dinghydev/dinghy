@@ -1,4 +1,4 @@
-import type { DependsPair, DrawioContext, DrawioNodeTree } from '../types.js'
+import type { DependsPair, DrawioContext, DrawioNodeTree } from '../types.ts'
 
 const addRelationshipPoint = (
   relationship: DrawioNodeTree,
@@ -55,7 +55,9 @@ const handleHorizontal = (
     list
       .map((l) => (l._props as any)._diagram.state.absCenterY)
       .reduce((a, b) => a + b, 0) / totalLength
-  const listTop = Math.min(...list.map((l) => (l._props as any)._diagram.state.absTop))
+  const listTop = Math.min(
+    ...list.map((l) => (l._props as any)._diagram.state.absTop),
+  )
   const listBottom = Math.max(
     ...list.map((l) => (l._props as any)._diagram.state.absBottom),
   )
@@ -134,7 +136,9 @@ const handleVertical = (
     list
       .map((l) => (l._props as any)._diagram.state.absCenterX)
       .reduce((a, b) => a + b, 0) / totalLength
-  const listLeft = Math.min(...list.map((l) => (l._props as any)._diagram.state.absLeft))
+  const listLeft = Math.min(
+    ...list.map((l) => (l._props as any)._diagram.state.absLeft),
+  )
   const listRight = Math.max(
     ...list.map((l) => (l._props as any)._diagram.state.absRight),
   )
