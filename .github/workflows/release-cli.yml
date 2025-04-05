@@ -1,8 +1,8 @@
-name: release-runner
+name: release-cli
 
 on:
   # push:
-    # branches: [main]
+  #   branches: [main]
   workflow_dispatch:
   # workflow_run:
   #     workflows: ['verification']
@@ -12,7 +12,7 @@ on:
 permissions:
     id-token: write   # This is required for requesting the JWT
     contents: read    # This is required for actions/checkout
-        
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -20,16 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Restore cached packages
-        id: restore-js-packages
+        id: restore-cached-packages
         uses: actions/cache/restore@v4
         with:
           path: |
-            ~/.cache/deno
-            ~/.local/share/pnpm
-          key: ${{ runner.os }}-js-packages-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/deno.lock') }}
+            /home/runner/.cache
+          key: ${{ runner.os }}-cli-build-${{ hashFiles('deno.lock') }}
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.2.4
+      - uses: actions/setup-node@v4
       - name: commit-rev-count
         run: |
           gh api graphql -f query='query CommitRevCount{
@@ -52,18 +52,26 @@ jobs:
           rm commit_rev_count_data.json
         env:
           GH_TOKEN: ${{ github.token }}
-      - name: Configure AWS Credentials
+      - name: Configure AWS Credentials for s3
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-region: ${{ secrets.AWS_DEPLOY_REGION }}
+          aws-region: us-east-1
           role-to-assume: arn:aws:iam::313225491971:role/${{ secrets.AWS_DEPLOY_ROLE }}
-      - name: publish runner
+      - name: publish cli
         run: |
-          (cd clients/runner ; deno task release-version update)
-          (cd clients/runner ; deno task publish)
-          # (cd clients/runner; deno task release-version reset)
+          # aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
+          # aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7
+          cd scripts/tasks
+        
+          deno task version-release
+          deno task cli-publish
         env:
-          COMMIT_REV_COUNT: ${{ env.COMMIT_REV_COUNT }}
-          
+          DOCKER_PUSH: ${{ env.COMMIT_REV_COUNT }}
+      - name: Save cached packages
+        id: save-cached-packages
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            /home/runner/.cache
+          key: ${{ steps.restore-cached-packages.outputs.cache-primary-key }}
 
-          
