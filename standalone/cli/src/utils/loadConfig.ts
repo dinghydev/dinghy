@@ -15,7 +15,7 @@ const resolveHome = () => {
     home = Deno.cwd();
   }
 
-  console.log("resolved reactiac home %s", home);
+  debug("resolved reactiac home %s", home);
   return home;
 };
 

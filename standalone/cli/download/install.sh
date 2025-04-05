@@ -21,7 +21,7 @@ install_reactiac() {
 		esac
 	#fi
 
-	reactiac_version="REACTIAC_VERSION"
+	reactiac_version="${REACTIAC_VERSION:-RELEASE_VERSION}"
 
 	reactiac_uri="https://play.reactiac.dev/download/versions/${reactiac_version}/reactiac-${target}.zip"
 	bin_dir="$reactiac_home/bin"

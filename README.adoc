@@ -28,8 +28,8 @@ image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.s
     (cd scripts/tasks ; deno task aws-npm-login)
     (cd scripts/tasks ; deno task npm-publish)
 
+    (cd standalone/cli ; deno task run -h)
     (cd scripts/tasks ; deno task cli-build-aarch64-apple-darwin && cp ../../build/cli/aarch64-apple-darwin/reactiac ~/.reactiac/bin/ && reactiac -h)
-
     (cd scripts/tasks ; deno task cli-publish)
     curl -fsSL https://play.reactiac.dev/download/install.sh | sh
 

@@ -1,42 +1,55 @@
 import type {
-  CommandOptions,
-  CommandArgs,
   Command,
+  CommandArgs,
   CommandContext,
-} from '../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
-import { execa } from 'execa'
+  CommandOptions,
+} from "../types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
+import { execa } from "execa";
+import { fetchLatestVersion } from "../utils/updateCheck.ts";
+import Debug from "debug";
+const debug = Debug("upgrade");
 
 const options: CommandOptions = {
-  string: ['version'],
+  string: ["version"],
   description: {
-    version: 'The version to upgrade to',
+    version: "The version to upgrade to",
   },
   alias: {
-    v: 'version',
+    v: "version",
   },
   default: {
-    version: 'latest',
+    version: "latest",
   },
-  cmdDescription: 'Upgrade ReactIAC Runner to the latest version',
-  cmdAlias: ['up'],
-}
+  cmdDescription: "Upgrade ReactIAC Runner to the latest version",
+  cmdAlias: ["up"],
+};
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
-  const version =
-    args.version === 'latest' ? 'latest' : `versions/${args.version}`
-  const url = `https://play.reactiac.dev/download/${version}/install.sh`
-  const response = await fetch(url)
-  const content = await response.text()
+  let version = args.version;
+  if (!version.includes("-")) {
+    const latestVersion = await fetchLatestVersion();
+    version = latestVersion[version];
+    if (!version) {
+      throw new Error(`Unknown version ${args.version}`);
+    }
+    debug("upgrading to version %s", version);
+  }
+  const url = "https://play.reactiac.dev/download/install.sh";
+  const response = await fetch(url);
+  const content = await response.text();
 
   await execa({
-    stderr: 'inherit',
-    stdout: 'inherit',
+    stderr: "inherit",
+    stdout: "inherit",
     input: content,
-  })`sh`
-}
+    env: {
+      REACTIAC_VERSION: version,
+    },
+  })`sh`;
+};
 
 export default {
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
-} as Command
+} as Command;

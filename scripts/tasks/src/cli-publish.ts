@@ -35,7 +35,7 @@ const syncToS3Download = async (source: string, target: string) => {
 
 const replaceVersion = async (file: string) => {
   const content = await Deno.readTextFile(file);
-  const updated = content.replace(/REACTIAC_VERSION/g, projectVersion);
+  const updated = content.replace(/RELEASE_VERSION/g, projectVersion);
   await Deno.writeTextFile(file, updated);
 };
 

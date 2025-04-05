@@ -1,13 +1,13 @@
-import { runCommand } from './utils/runCommand.ts'
-import { setupDebug } from './utils/setupDebug.ts'
-import commands from './commands/index.ts'
-import { OPTIONS_SYMBOL } from './types.ts'
-import { checkVersion } from './utils/checkVersion.ts'
-import { loadConfig } from './utils/loadConfig.ts'
+import { runCommand } from "./utils/runCommand.ts";
+import { setupDebug } from "./utils/setupDebug.ts";
+import commands from "./commands/index.ts";
+import { OPTIONS_SYMBOL } from "./types.ts";
+import { updateCheck } from "./utils/updateCheck.ts";
+import { loadConfig } from "./utils/loadConfig.ts";
 
-setupDebug()
-await loadConfig()
-await checkVersion(true)
+setupDebug();
+await loadConfig();
+await updateCheck(true);
 
 await runCommand({
   prefix: [],
@@ -15,4 +15,4 @@ await runCommand({
   args: Deno.args,
   commands,
   options: commands[OPTIONS_SYMBOL],
-})
+});

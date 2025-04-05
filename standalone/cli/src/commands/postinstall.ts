@@ -7,7 +7,6 @@ import type {
 } from "../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
 import { runtimeVersion } from ".././utils/runtimeVersion.ts";
-import { checkVersion, writeLatestVersion } from ".././utils/checkVersion.ts";
 import init from "./init.ts";
 import chalk from "chalk";
 import { runCommand } from ".././utils/runCommand.ts";
@@ -63,18 +62,7 @@ const addToPathIfNotAlready = (shell: string, paths: string[]) => {
   });
 };
 
-const saveRuntimeVersion = () => {
-  const stateDir = `${Deno.env.get("HOME")}/.reactiac/states`;
-  if (!existsSync(stateDir)) {
-    Deno.mkdirSync(stateDir);
-  }
-
-  writeLatestVersion(runtimeVersion);
-  checkVersion();
-};
-
 const run = async (_context: CommandContext, args: CommandArgs) => {
-  saveRuntimeVersion();
   addToPathIfNotAlready("bash", [".bashrc", ".profile"]);
   addToPathIfNotAlready("zsh", [".zshrc"]);
   addToPathIfNotAlready("fish", [".config/fish/config.fish"]);
