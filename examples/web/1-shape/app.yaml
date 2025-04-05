@@ -1,6 +1,7 @@
-title: 'Step 1: Shape'
-slag: step-by-step-1-shape
-order: 100
+example:
+  title: 'Step 1: Shape'
+  slag: step-by-step-1-shape
+  order: 100
 options:
   diagramOptions:
     dimension:

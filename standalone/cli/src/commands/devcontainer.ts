@@ -24,9 +24,6 @@ const options: CommandOptions = {
     mounts: "Additional mounts to the devcontainer",
     workspace: "The workspace folder to use in the devcontainer",
   },
-  default: {
-    workspace: "/reactiac/workspace/project",
-  },
   cmdDescription: "Start the project in devcontainer",
   cmdAlias: ["dc"],
 };
@@ -74,8 +71,10 @@ function prepareConfig(args: CommandArgs) {
       config.mounts.push(`source=${source},target=${target},type=bind`);
     }
   };
-  addMountIfExists(`${reactiacAppHome}/deno.jsonc`, "/reactiac/src/deno.jsonc");
-  addMountIfExists(`${reactiacAppHome}/.vscode`, "/reactiac/src/.vscode");
+  addMountIfExists(
+    `${reactiacAppHome}/deno.jsonc`,
+    "/reactiac/workspace/deno.jsonc",
+  );
   addMountIfExists(`${reactiacAppHome}/deno.lock`, "/reactiac/deno.lock");
   addMountIfExists(`${Deno.env.get("HOME")}/.ssh`, "/root/.ssh");
   addMountIfExists(`${Deno.env.get("HOME")}/.npmrc`, "/root/.npmrc");
@@ -89,7 +88,10 @@ function prepareConfig(args: CommandArgs) {
   config.containerEnv.APP_HOME ??= "/reactiac/workspace/project/app";
   config.workspaceMount ??=
     `source=${reactiacAppHome},target=/reactiac/workspace/project/app,type=bind`;
-  config.workspaceFolder ??= args.workspace;
+  config.workspaceFolder ??= args.workspace ||
+    `/reactiac/workspace/project${
+      existsSync(`${reactiacAppHome}/.vscode`) ? "/app" : ""
+    }`;
   // config.onCreateCommand ??=
   //   `ln -s /workspace/.vscode /workspace/deno.jsonc /workspace/deno.lock ${config.workspaceFolder}/`;
 

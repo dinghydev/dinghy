@@ -21,6 +21,7 @@ tmp*
 *.local
 
 # IDE - VSCode
+**/.devcontainer.json
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -50,6 +51,3 @@ docker/dependencies/fs-root/workspace/deno.lock
 
 # Optional REPL history
 .node_repl_history
-
-# Output of 'npm pack'
-*.tgz
