@@ -10,7 +10,6 @@
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      // "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
         "--inspect-wait",
@@ -52,6 +51,23 @@
       "runtimeExecutable": "${workspaceFolder}/.vscode/run.sh",
       "args": ["deno task npm-build"],
       "cwd": "${workspaceFolder}/scripts/tasks",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "reactiac -h",
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
+      "args": ["--debug", "-h"],
+      "env": {},
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
       "console": "integratedTerminal"
     },
     {
