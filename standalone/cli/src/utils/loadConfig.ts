@@ -97,6 +97,7 @@ async function loadEnvFile(path: string) {
 }
 
 export async function loadConfig() {
+  debug("reactiac home %s", reactiacHome);
   debug("app home %s", reactiacAppHome);
   for (
     const file of [
