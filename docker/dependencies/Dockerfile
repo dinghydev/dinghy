@@ -1,6 +1,6 @@
-ARG BASE_IMAGE='DENO_DEPENDENCIES_BASE_IMAGE_IS_REQUIRED'
+ARG BASE_IMAGE='denoland/deno:debian-2.2.6'
 
-FROM --platform=${TARGETPLATFORM} ${BASE_IMAGE}
+FROM ${BASE_IMAGE}
 
 COPY docker/dependencies/fs-root /
 

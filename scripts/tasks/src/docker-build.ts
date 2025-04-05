@@ -78,6 +78,19 @@ async function dockerCommand(args: string[]) {
   })`docker ${args}`;
 }
 
+function isTagExists(tag: string) {
+  const args = ["manifest", "inspect", tag];
+  try {
+    execaSync({
+      stdio: "ignore",
+      cwd: projectRoot,
+    })`docker ${args}`;
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
 async function buildImage(
   options: any,
   name: string,
@@ -98,33 +111,33 @@ async function buildImage(
       baseImage,
     )}`
   }${platformTag}`;
-  try {
-    await dockerCommand(["manifest", "inspect", firstTag]);
-  } catch (e) {
-    console.log(
-      `Tag ${firstTag} does not exist, building...`,
-      new Date().toISOString(),
-    );
-    await publishImage(
-      options,
-      [firstTag, baseVersionTag, lastTag],
-      [
-        "buildx",
-        "build",
-        "--build-arg",
-        `TARGETPLATFORM=${options.platform}`,
-        "--build-arg",
-        `BASE_IMAGE=${baseImage}`,
-        "--platform",
-        options.platform,
-        "-f",
-        `docker/${name}/Dockerfile`,
-        "-t",
-        firstTag,
-        ".",
-      ],
-    );
+  if (isTagExists(firstTag)) {
+    console.log(`Tag ${firstTag} already exists, skipping build`);
+    return firstTag;
   }
+  console.log(
+    `Tag ${firstTag} does not exist, building...`,
+    new Date().toISOString(),
+  );
+  await publishImage(
+    options,
+    [firstTag, baseVersionTag, lastTag],
+    [
+      "buildx",
+      "build",
+      "--build-arg",
+      `TARGETPLATFORM=${options.platform}`,
+      "--build-arg",
+      `BASE_IMAGE=${baseImage}`,
+      "--platform",
+      options.platform,
+      "-f",
+      `docker/${name}/Dockerfile`,
+      "-t",
+      firstTag,
+      ".",
+    ],
+  );
   return firstTag;
 }
 

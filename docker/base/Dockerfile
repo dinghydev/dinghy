@@ -1,8 +1,8 @@
-ARG BASE_IMAGE='DENO_BASE_IMAGE_IS_REQUIRED'
+ARG BASE_IMAGE='denoland/deno:debian-2.2.6'
 
 # https://hub.docker.com/layers/denoland/deno/debian-2.2.6/images/sha256-ac91d2033a2f010d621c1582b2cb749b5fa6241e0da56f4b1106433b0476c117
 # https://docs.docker.com/reference/dockerfile/#automatic-platform-args-in-the-global-scope
-FROM --platform=${TARGETPLATFORM} ${BASE_IMAGE}
+FROM ${BASE_IMAGE}
 
 # Set default shell to bash
 # SHELL ["/bin/bash", "-c" ,"-l"]
