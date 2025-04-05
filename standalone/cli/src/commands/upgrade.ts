@@ -25,16 +25,7 @@ const options: CommandOptions = {
   cmdAlias: ["up"],
 };
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
-  let version = args.version;
-  if (!version.includes("-")) {
-    const latestVersion = await fetchLatestVersion();
-    version = latestVersion[version];
-    if (!version) {
-      throw new Error(`Unknown version ${args.version}`);
-    }
-    debug("upgrading to version %s", version);
-  }
+export const upgradeToVersion = async (version: string) => {
   const url = "https://play.reactiac.dev/download/install.sh";
   const response = await fetch(url);
   const content = await response.text();
@@ -47,6 +38,20 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       REACTIAC_VERSION: version,
     },
   })`sh`;
+};
+
+const run = async (_context: CommandContext, args: CommandArgs) => {
+  let version = args.version;
+  if (!version.includes("-")) {
+    const latestVersion = await fetchLatestVersion();
+    version = latestVersion[version];
+    if (!version) {
+      throw new Error(`Unknown version ${args.version}`);
+    }
+    debug("upgrading to version %s", version);
+  }
+
+  await upgradeToVersion(version);
 };
 
 export default {

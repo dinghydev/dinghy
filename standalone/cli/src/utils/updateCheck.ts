@@ -3,6 +3,9 @@ import Debug from "debug";
 import { runtimeVersion } from "./runtimeVersion.ts";
 import chalk from "chalk";
 import { walk } from "jsr:@std/fs/walk";
+import { upgradeToVersion } from "../commands/upgrade.ts";
+import { reactiacHome } from "./loadConfig.ts";
+import { execa } from "execa";
 const debug = Debug("updateCheck");
 
 const todayYYYYMMDD = () => {
@@ -14,9 +17,7 @@ const todayYYYYMMDD = () => {
 };
 
 export const writeLatestVersion = (version: object) => {
-  const versionFile = `${
-    Deno.env.get("HOME")
-  }/.reactiac/states/latest-version.json`;
+  const versionFile = `${reactiacHome}/states/latest-version.json`;
   Deno.writeTextFileSync(versionFile, JSON.stringify(version));
   debug("wrote latest version to %s", versionFile);
 };
@@ -30,9 +31,17 @@ export const fetchLatestVersion = async () => {
   return version;
 };
 
+const runCommandWithUpgradedVersion = async () => {
+  const result = await execa({
+    stderr: "inherit",
+    stdout: "inherit",
+  })`${reactiacHome}/bin/reactiac ${Deno.args}`;
+  Deno.exit(result.exitCode);
+};
+
 export const updateCheck = async (fetch = false) => {
-  if (Deno.env.get("REACTIAC_NO_UPDATE_CHECK")) {
-    debug("skip update check by REACTIAC_NO_UPDATE_CHECK");
+  if (Deno.env.get("REACTIAC_UPDATE_CHECK_SKIP")) {
+    debug("skip update check by REACTIAC_UPDATE_CHECK_SKIP");
     return;
   }
 
@@ -44,7 +53,7 @@ export const updateCheck = async (fetch = false) => {
     return;
   }
 
-  const statesDir = `${Deno.env.get("HOME")}/.reactiac/states`;
+  const statesDir = `${reactiacHome}/states`;
   if (!existsSync(statesDir)) {
     Deno.mkdirSync(statesDir, { recursive: true });
   }
@@ -62,12 +71,18 @@ export const updateCheck = async (fetch = false) => {
       writeLatestVersion(version);
       const latestVersion = version.latest;
       if (latestVersion !== runtimeVersion) {
-        console.log(
-          `A new release of ReactIAC is available: ${
-            chalk.dim(runtimeVersion)
-          } → ${chalk.green(latestVersion)}`,
-        );
-        console.log(`Run ${chalk.yellow("reactiac upgrade")} to install it`);
+        if (Deno.env.get("REACTIAC_UPDATE_CHECK_AUTO_UPGRADE")) {
+          console.log(`Performing auto-upgrade to ${latestVersion} ...`);
+          await upgradeToVersion(latestVersion);
+          await runCommandWithUpgradedVersion();
+        } else {
+          console.log(
+            `A new release of ReactIAC is available: ${
+              chalk.dim(runtimeVersion)
+            } → ${chalk.green(latestVersion)}`,
+          );
+          console.log(`Run ${chalk.yellow("reactiac upgrade")} to install it`);
+        }
       }
 
       Deno.writeFileSync(updateCheckFile, new Uint8Array());

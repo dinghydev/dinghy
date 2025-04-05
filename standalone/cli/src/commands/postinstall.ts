@@ -10,6 +10,7 @@ import { runtimeVersion } from ".././utils/runtimeVersion.ts";
 import init from "./init.ts";
 import chalk from "chalk";
 import { runCommand } from ".././utils/runCommand.ts";
+import { reactiacHome } from ".././utils/loadConfig.ts";
 import Debug from "debug";
 const debug = Debug("postinstall");
 
@@ -29,7 +30,7 @@ const refreshCommand: string[] = [];
 
 const addToPathIfNotAlready = (shell: string, paths: string[]) => {
   const setCommand = shell === "fish"
-    ? `set --export PATH ${Deno.env.get("HOME")}/.reactiac/bin $PATH`
+    ? `set --export PATH ${reactiacHome}/bin $PATH`
     : `export PATH="$HOME/.reactiac/bin:$PATH"`;
   paths.find((path) => {
     const configFile = `${Deno.env.get("HOME")}/${path}`;

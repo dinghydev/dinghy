@@ -31,7 +31,7 @@ image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.s
     (cd standalone/cli ; deno task run -h)
     (cd scripts/tasks ; deno task cli-build-aarch64-apple-darwin && cp ../../build/cli/aarch64-apple-darwin/reactiac ~/.reactiac/bin/ && reactiac -h)
     (cd scripts/tasks ; deno task cli-publish)
-    curl -fsSL https://play.reactiac.dev/download/install.sh | sh
+    curl -fsSL https://play.reactiac.dev/download/install.sh | DEBUG=* REACTIAC_VERSION=0.1.48-20250405-111308-6e0a6c5 sh
 
 
     (cd scripts/tasks ; deno task aws-ecr-login)

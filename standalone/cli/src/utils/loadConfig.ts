@@ -21,6 +21,8 @@ const resolveHome = () => {
 
 export const reactiacRc: Record<string, string> = {};
 export const reactiacAppHome = resolveHome();
+export const reactiacHome = Deno.env.get("REACTIAC_HOME") ||
+  `${Deno.env.get("HOME")}/.reactiac`;
 
 export const reactiacAppConfig: any = {};
 function loadAppConfig() {
@@ -98,7 +100,7 @@ export async function loadConfig() {
   debug("app home %s", reactiacAppHome);
   for (
     const file of [
-      `${Deno.env.get("HOME")}/.reactiacrc`,
+      `${reactiacHome}rc`,
       `${reactiacAppHome}/.reactiacrc`,
       `${reactiacAppHome}/.reactiacrc.local`,
     ]
