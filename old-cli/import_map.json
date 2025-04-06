@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "npm:@reactiac/renderer-json@latest": "./patched/"
-  }
-}

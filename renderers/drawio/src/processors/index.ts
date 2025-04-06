@@ -5,20 +5,20 @@ import type {
   DrawioRenderOptions,
   Processor,
 } from '../types.ts'
+import { p15ResolveAttrDiagram } from './p15ResolveAttrDiagram.tsx'
 import { p16CollectDependencies } from './p16CollectDependencies.ts'
 import { p23ApplyFlagHidden } from './p23ApplyFlagHidden.ts'
 import { p88BuildMxfile } from './p88BuildMxfile.ts'
-import { p15ResolveAttrDiagram } from './p15ResolveAttrDiagram.ts'
-import { p21ResolveFlagIsEntity } from './p21ResolveFlagIsEntity.ts'
-import { p82GenerateShapes } from './p82GenerateShapes.ts'
+import { p21ResolveFlagIsEntity } from './p21ResolveFlagIsEntity.tsx'
+import { p82GenerateShapes } from './p82GenerateShapes.tsx'
 import { p31ResolveDimension } from './p31ResolveDimension.ts'
 import { p65AlignDependencies } from './p65AlignDependencies.ts'
-import { p86GenerateRelationships } from './p86GenerateRelationships.ts'
+import { p86GenerateRelationships } from './p86GenerateRelationships.tsx'
 import { p30CollectShapeAttr } from './p30CollectShapeAttr.ts'
 import { p32ApplyDistribution } from './p32ApplyDistribution.ts'
 import { p68AdjustRelationships } from './p68AdjustRelationships.ts'
 import { p61CollectDependencies } from './p61CollectDependencies.ts'
-import { p80ApplyBeforeGenerate } from './p80ApplyBeforeGenerate.ts'
+import { p80ApplyBeforeGenerate } from './p80ApplyBeforeGenerate.tsx'
 import type { HostContainer } from '@reactiac/base-renderer'
 
 const processors: Processor[] = [

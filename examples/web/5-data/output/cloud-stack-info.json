@@ -1,0 +1,23 @@
+{
+  "views": {
+    "cloud-overview": {
+      "id": "cloud-overview",
+      "name": "overview"
+    },
+    "cloud-all": {
+      "id": "cloud-all",
+      "name": "all"
+    }
+  },
+  "stages": {
+    "cloud-backend": {
+      "id": "cloud-backend",
+      "name": "backend"
+    },
+    "cloud-main": {
+      "id": "cloud-main",
+      "name": "main"
+    }
+  },
+  "tfImageVersion": "tf-b05d8d8a89b78dfd7c7454ecbfe3a8f1"
+}

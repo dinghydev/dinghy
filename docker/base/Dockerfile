@@ -20,6 +20,7 @@ RUN echo 'Essential dependencies' \
     vim \
     openssh-client \
     ca-certificates \
+    lsb-release \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 

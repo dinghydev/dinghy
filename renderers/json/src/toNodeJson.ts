@@ -39,6 +39,7 @@ export const toNodeJson = (
   hostContainer: HostContainer<string, JsonRenderOptions>,
 ): Output<string> => {
   const json = showNodeAttributes(hostContainer.rootElement as ReactElement)
+  hostContainer.model = json
   hostContainer.result = JSON.stringify(
     json,
     null,

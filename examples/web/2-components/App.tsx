@@ -4,11 +4,11 @@ import { Shape } from '@reactiac/base-components'
 
 const WebApp = (props: any) => <Shape {...props} />
 
-const Client = (props: any) => <Shape _dependsOn="Load Balancer" {...props} />
+const Client = (props: any) => <Shape _dependsOn='Load Balancer' {...props} />
 
 const Cloud = (props: any) => <Shape {...props} />
 
-const Subnet = (props: any) => <Shape _direction="vertical" {...props} />
+const Subnet = (props: any) => <Shape _direction='vertical' {...props} />
 
 const PublicSubnet = (props: any) => <Subnet {...props} />
 
@@ -18,13 +18,13 @@ const LoadBalancer = (props: any) => (
   <Shape _dependsOn={['Firewall', 'Application']} {...props} />
 )
 
-const Application = (props: any) => <Shape _dependsOn="Postgres" {...props} />
+const Application = (props: any) => <Shape _dependsOn='Postgres' {...props} />
 
 const Firewall = (props: any) => <Shape {...props} />
 
 const Postgres = (props: any) => <Shape {...props} />
 
-export default function App() {
+export function App() {
   return (
     <WebApp>
       <Client />

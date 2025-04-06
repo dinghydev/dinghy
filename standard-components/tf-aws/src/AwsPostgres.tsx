@@ -1,4 +1,4 @@
-import AwsDbInstance, { AwsDbInstanceInputSchema } from './AwsDbInstance.ts'
+import AwsDbInstance, { AwsDbInstanceInputSchema } from './AwsDbInstance.tsx'
 import { RDS_POSTGRESQL_INSTANCE } from '@reactiac/standard-components-diagrams'
 import { IacNodeProps } from '@reactiac/base-components'
 import z from 'zod'

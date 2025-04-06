@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Shape } from '@reactiac/base-components'
 
 import {
@@ -17,21 +15,21 @@ const Postgres = (props: any) => <RdsPostgresqlInstance {...props} />
 const WebApp = (props: any) => <Shape {...props} />
 
 const Client = (props: any) => (
-  <ClientShape _dependsOn="Load Balancer" {...props} />
+  <ClientShape _dependsOn='Load Balancer' {...props} />
 )
 
 const Cloud = (props: any) => <GroupAwsCloudAlt {...props} />
 
 const Subnet = (props: any) => (
-  <GroupSecurityGroup _direction="vertical" {...props} />
+  <GroupSecurityGroup _direction='vertical' {...props} />
 )
 
 const PublicSubnet = (props: any) => (
-  <Subnet _color="#7AA116" _background="#F2F6E8" {...props} />
+  <Subnet _color='#7AA116' _background='#F2F6E8' {...props} />
 )
 
 const PrivateSubnet = (props: any) => (
-  <Subnet _color="#00A4A6" _background="#E6F6F7" {...props} />
+  <Subnet _color='#00A4A6' _background='#E6F6F7' {...props} />
 )
 
 const LoadBalancer = (props: any) => (
@@ -43,9 +41,9 @@ const LoadBalancer = (props: any) => (
 
 const Firewall = (props: any) => <Waf {...props} />
 
-const Application = (props: any) => <Android _dependsOn="Postgres" {...props} />
+const Application = (props: any) => <Android _dependsOn='Postgres' {...props} />
 
-export default function App() {
+export function App() {
   return (
     <WebApp>
       <Client />

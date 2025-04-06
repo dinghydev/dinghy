@@ -1,8 +1,7 @@
 import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
 import z from 'zod'
-import { AwsAcmCertificate } from './AwsAcmCertificate.ts'
+import { AwsAcmCertificate } from './AwsAcmCertificate.tsx'
 import { useTypedNode } from '@reactiac/base-components'
-import { AwsS3BucketOutputProps } from './AwsS3Bucket.js'
 
 export const DataAwsAcmCertificateInputSchema = z.object({
   domain: ResolvableStringSchema.optional(),
@@ -14,15 +13,17 @@ export const DataAwsAcmCertificateOutputSchema = z.object({
   zone_id: ResolvableStringSchema.optional(),
 })
 
-export type DataAwsAcmCertificateInputProps = z.infer<
-  typeof DataAwsAcmCertificateInputSchema
-> &
-  IacNodeProps
+export type DataAwsAcmCertificateInputProps =
+  & z.infer<
+    typeof DataAwsAcmCertificateInputSchema
+  >
+  & IacNodeProps
 
-export type DataAwsAcmCertificateOutputProps = z.infer<
-  typeof DataAwsAcmCertificateOutputSchema
-> &
-  DataAwsAcmCertificateInputProps
+export type DataAwsAcmCertificateOutputProps =
+  & z.infer<
+    typeof DataAwsAcmCertificateOutputSchema
+  >
+  & DataAwsAcmCertificateInputProps
 
 export function DataAwsAcmCertificate(props: DataAwsAcmCertificateInputProps) {
   return (

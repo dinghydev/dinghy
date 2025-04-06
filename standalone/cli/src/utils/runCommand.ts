@@ -1,57 +1,16 @@
-import { parseArgs } from "@std/cli";
-import {
-  type CommandContext,
-  OPTIONS_SYMBOL,
-  OPTIONS_TYPES,
-  RUN_SYMBOL,
-} from "../types.ts";
+import { type CommandContext, OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
 import { showHelp } from "./showHelp.ts";
 import Debug from "debug";
-import { configGet } from "./loadConfig.ts";
-import commands from "../commands/index.ts";
+import { parseOptions } from "./parseOptions.ts";
 const debug = Debug("runCommand");
 
-const loadDefaultFromEnv = async (context: CommandContext) => {
-  const defaultWithEnv = { ...(context.options.default || {}) };
-
-  for (const optionType of OPTIONS_TYPES) {
-    for (const option of context.options[optionType] || []) {
-      let value: any = configGet([...context.envPrefix, option]);
-      if (value) {
-        if (optionType === "boolean") {
-          value = Boolean(value);
-        } else if (optionType === "number") {
-          value = value.includes(".")
-            ? Number.parseFloat(value)
-            : Number.parseInt(value);
-        } else if (optionType === "collect") {
-          value = value.split(",");
-        }
-        defaultWithEnv[option] = value;
-      }
-    }
-  }
-  return defaultWithEnv;
-};
-
 const executeCommand = async (context: CommandContext) => {
-  const optionsSpec = context.options;
-  const options: any = parseArgs(context.args, {
-    ...optionsSpec,
-    default: await loadDefaultFromEnv(context),
-  });
-  if (optionsSpec.arguments) {
-    Object.entries(optionsSpec.arguments).map(([name, spec], index) => {
-      const value = options._[index] || configGet([...context.envPrefix, name]);
-      if (spec.required && value === undefined) {
-        console.error(`Argument [${name.toLocaleUpperCase()}] is required`);
-        Deno.exit(1);
-      }
-      options[name] = value;
-    });
-  }
-
-  debug("options %O", options);
+  const options = parseOptions(
+    context.options,
+    context.args,
+    context.envPrefix,
+  );
+  debug("running [reactiac %s]", context.prefix.join(" "));
   return await context.commands[RUN_SYMBOL](context, options);
 };
 

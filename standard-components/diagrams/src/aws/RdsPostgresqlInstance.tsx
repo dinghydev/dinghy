@@ -1,5 +1,5 @@
 import type { DiagramNodeProps } from '@reactiac/base-components'
-import { RdsInstance } from './RdsInstance.ts'
+import { RdsInstance } from './RdsInstance.tsx'
 
 export const RDS_POSTGRESQL_INSTANCE = {
   _shape: 'mxgraph.aws4.rds_postgresql_instance',

@@ -1,14 +1,6 @@
-import * as z from 'zod'
 import { Shape } from '@reactiac/base-components'
 
 export function App() {
-  const schema = z.object({
-    name: z.string(),
-    age: z.number(),
-  })
-  const data = schema.parse({ name: 'John', age: 30 })
-  console.log(data)
-
   return (
     <Shape>
       Web App

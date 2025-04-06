@@ -2,10 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "render json",
-      "program": "tasks/json.tsx",
+      "name": "render",
+      "program": "tasks/render.tsx",
       "cwd": "${workspaceFolder}/workspace",
-      "args": [],
+      "args": [
+        "--app-home",
+        // "${workspaceFolder}/examples/web/1-shape",
+        // "${workspaceFolder}/examples/web/3-drawio",
+        // "${workspaceFolder}/examples/web/4-iac",
+        "${workspaceFolder}/examples/web/5-data",
+        "--debug"
+      ],
       "env": {},
       "type": "node",
       "request": "launch",
@@ -20,19 +27,11 @@
     },
     {
       "name": "docker build",
-      "program": "src/docker-build.ts",
-      "cwd": "${workspaceFolder}/scripts/tasks",
-      "args": [],
-      "env": {},
-      "type": "node",
       "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/run.sh",
+      "args": ["deno task docker-build-arm64"],
+      "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     },
     {
@@ -54,11 +53,19 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "reactiac -h",
+      "name": "reactiac",
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/standalone/cli",
-      "args": ["--debug", "-h"],
-      "env": {},
+      "args": [
+        "render",
+        // "json",
+        // "-h",
+        "--debug"
+      ],
+      "env": {
+        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
+        "APP_HOME": "${workspaceFolder}/examples/web/5-data"
+      },
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",

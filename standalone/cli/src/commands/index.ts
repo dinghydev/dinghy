@@ -11,6 +11,7 @@ import { versionDetails } from ".././utils/runtimeVersion.ts";
 import postinstall from "./postinstall.ts";
 import init from "./init.ts";
 import devcontainer from "./devcontainer.ts";
+import render from "./render/index.ts";
 
 const options: CommandOptions = {
   boolean: ["debug", "help", "version"],
@@ -43,6 +44,7 @@ const commands: Commands = {
   upgrade,
   postinstall,
   devcontainer,
+  render,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 };

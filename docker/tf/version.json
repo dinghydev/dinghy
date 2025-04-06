@@ -1,0 +1,4 @@
+{
+  "terraform": "1.11.2-1",
+  "awsProvider": "5.63.1"
+}

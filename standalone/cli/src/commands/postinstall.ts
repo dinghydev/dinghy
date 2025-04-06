@@ -10,7 +10,7 @@ import { runtimeVersion } from ".././utils/runtimeVersion.ts";
 import init from "./init.ts";
 import chalk from "chalk";
 import { runCommand } from ".././utils/runCommand.ts";
-import { reactiacHome } from ".././utils/loadConfig.ts";
+import { reactiacHome } from "../utils/loadConfig.ts";
 import Debug from "debug";
 const debug = Debug("postinstall");
 

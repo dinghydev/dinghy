@@ -21,13 +21,13 @@ const Postgres = (props: any) => <AwsPostgres {...props} />
 const WebApp = (props: any) => <Stack {...props} />
 
 const Client = (props: any) => (
-  <ClientShape _dependsOn="Load Balancer" {...props} />
+  <ClientShape _dependsOn='Load Balancer' {...props} />
 )
 
 const Cloud = (props: any) => (
   <AwsCloud {...props}>
-    <AwsRegion _display="invisible" region="eu-west-1">
-      <DataAwsVpc _display="invisible" id="vpcid1">
+    <AwsRegion _display='invisible' region='eu-west-1'>
+      <DataAwsVpc _display='invisible' id='vpcid1'>
         {props.children}
       </DataAwsVpc>
     </AwsRegion>
@@ -35,11 +35,11 @@ const Cloud = (props: any) => (
 )
 
 const PublicSubnet = (props: any) => (
-  <AwsPublicSubnet cidr_block="10.0.0.0/16" {...props} />
+  <AwsPublicSubnet cidr_block='10.0.0.0/16' {...props} />
 )
 
 const PrivateSubnet = (props: any) => (
-  <AwsPrivateSubnet cidr_block="10.10.0.0/16" {...props} />
+  <AwsPrivateSubnet cidr_block='10.10.0.0/16' {...props} />
 )
 
 const LoadBalancer = (props: any) => {
@@ -59,14 +59,14 @@ const Application = (props: any) => {
   return (
     <AwsInstance
       subnet_id={awsSubnet.id}
-      ami="ami-005e54dee72cc1d00"
-      _dependsOn="Postgres"
+      ami='ami-005e54dee72cc1d00'
+      _dependsOn='Postgres'
       {...props}
     />
   )
 }
 
-export default function App() {
+export function App() {
   return (
     <WebApp>
       <Client />

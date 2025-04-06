@@ -31,13 +31,13 @@ function VPC(props: DiagramNodeProps) {
 
 function PublicSubnet(props: DiagramNodeProps) {
   return (
-    <GroupSecurityGroup _color="#7AA116" _background="#F2F6E8" {...props} />
+    <GroupSecurityGroup _color='#7AA116' _background='#F2F6E8' {...props} />
   )
 }
 
 function PrivateSubnet(props: DiagramNodeProps) {
   return (
-    <GroupSecurityGroup _color="#00A4A6" _background="#E6F6F7" {...props} />
+    <GroupSecurityGroup _color='#00A4A6' _background='#E6F6F7' {...props} />
   )
 }
 
@@ -73,9 +73,9 @@ function StorageLayer(props: DiagramNodeProps) {
   return <Shape _display={'invisible'} {...props} />
 }
 
-export default function App() {
+export function App() {
   return (
-    <Stack title="Development Environment">
+    <Stack title='Development Environment'>
       <Client _dependsOn={'LoadBalancer'} />
       <Cloud>
         <Region>
@@ -88,7 +88,7 @@ export default function App() {
               <ECSCluster _dependsOn={['Postgres', 'Redis']}>
                 <ECSService>web</ECSService>
                 <ECSService>job</ECSService>
-                <ECSService _display="inactive">migration</ECSService>
+                <ECSService _display='inactive'>migration</ECSService>
               </ECSCluster>
               <StorageLayer>
                 <Postgres />

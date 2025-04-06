@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react'
 import type { NodeTree } from '@reactiac/base-components'
 import type { HostContainer } from '../types.ts'
 
@@ -6,6 +5,13 @@ export const p40CollectViewsAndStages = (
   container: HostContainer<unknown, unknown>,
 ) => {
   const addIfNotExist = (field: string, value: string) => {
+    if (value === '*') {
+      if (field === 'views') {
+        value = 'all'
+      } else {
+        return
+      }
+    }
     const target = (container as any)[field]
     if (value && !target.includes(value)) {
       target.push(value)
@@ -13,20 +19,14 @@ export const p40CollectViewsAndStages = (
   }
 
   const handleField = (field: string, value: string) => {
-    if (value === '*') {
-      if (field === 'views') {
-        addIfNotExist(field, 'all')
-      }
+    if (Array.isArray(value)) {
+      value.map((v: string) => {
+        addIfNotExist(field, v)
+      })
+    } else if (typeof value === 'object') {
+      addIfNotExist(field, (value as any).name)
     } else {
-      if (Array.isArray(value)) {
-        value.map((v: string) => {
-          addIfNotExist(field, v)
-        })
-      } else if (typeof value === 'object') {
-        addIfNotExist(field, (value as any).name)
-      } else {
-        addIfNotExist(field, value)
-      }
+      addIfNotExist(field, value)
     }
   }
 

@@ -8,13 +8,9 @@ import type {
 } from "../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
 import Debug from "debug";
-import {
-  configGet,
-  configGetDockerImage,
-  reactiacAppHome,
-  reactiacRc,
-} from ".././utils/loadConfig.ts";
+import { configGet, reactiacAppHome, reactiacRc } from "../utils/loadConfig.ts";
 import { streamCmd } from ".././utils/cmd.ts";
+import { configGetDockerImage } from "../utils/dockerConfig.ts";
 const debug = Debug("init");
 
 const options: CommandOptions = {
@@ -37,6 +33,9 @@ export default {
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 } as Command;
+
+export const CONTAINER_PROJECT_FOLDER = "/reactiac/workspace/project";
+export const CONTAINER_APP_HOME = `${CONTAINER_PROJECT_FOLDER}/app`;
 
 function prepareConfig(args: CommandArgs) {
   const configFolder = `${reactiacAppHome}/.devcontainer`;
@@ -85,13 +84,13 @@ function prepareConfig(args: CommandArgs) {
     }
   }
 
-  config.containerEnv.APP_HOME ??= "/reactiac/workspace/project/app";
+  config.containerEnv.APP_HOME = CONTAINER_APP_HOME;
   config.workspaceMount ??=
-    `source=${reactiacAppHome},target=/reactiac/workspace/project/app,type=bind`;
+    `source=${reactiacAppHome},target=${CONTAINER_APP_HOME},type=bind`;
   config.workspaceFolder ??= args.workspace ||
-    `/reactiac/workspace/project${
-      existsSync(`${reactiacAppHome}/.vscode`) ? "/app" : ""
-    }`;
+    (existsSync(`${reactiacAppHome}/.vscode`)
+      ? CONTAINER_APP_HOME
+      : CONTAINER_PROJECT_FOLDER);
   // config.onCreateCommand ??=
   //   `ln -s /workspace/.vscode /workspace/deno.jsonc /workspace/deno.lock ${config.workspaceFolder}/`;
 

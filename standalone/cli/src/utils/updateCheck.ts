@@ -16,8 +16,24 @@ const todayYYYYMMDD = () => {
   return `${year}${month}${day}`;
 };
 
-export const writeLatestVersion = (version: object) => {
-  const versionFile = `${reactiacHome}/states/latest-version.json`;
+const latestVersionFile = () => `${reactiacHome}/states/latest-version.json`;
+
+export const resolveLatestVersion = (base: string) => {
+  const versionFile = latestVersionFile();
+  if (!existsSync(versionFile)) {
+    throw new Error(`Latest version file ${versionFile} does not exist`);
+  }
+  const versions = JSON.parse(Deno.readTextFileSync(versionFile));
+  const version = versions[base];
+  if (!version) {
+    throw new Error(`No version found for ${base}`);
+  }
+  debug("resolved %s to %s", base, version);
+  return version;
+};
+
+const writeLatestVersion = (version: object) => {
+  const versionFile = latestVersionFile();
   Deno.writeTextFileSync(versionFile, JSON.stringify(version));
   debug("wrote latest version to %s", versionFile);
 };
@@ -40,6 +56,9 @@ const runCommandWithUpgradedVersion = async () => {
 };
 
 export const updateCheck = async (fetch = false) => {
+  debug("ReactIAC Cli version", runtimeVersion);
+  debug("Deno build %s/%s", Deno.version.deno, Deno.build.target);
+
   if (Deno.env.get("REACTIAC_UPDATE_CHECK_SKIP")) {
     debug("skip update check by REACTIAC_UPDATE_CHECK_SKIP");
     return;

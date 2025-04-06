@@ -16,26 +16,26 @@ import {
   useAwsS3Bucket,
   useDataAwsIamPolicyDocument,
 } from '../index.ts'
-import { useLogBucket } from './LogBucket.ts'
-import { useAwsAcmCertificate } from '../AwsAcmCertificate.ts'
-import { useAwsCloudfrontOriginAccessControl } from '../cloudfront/AwsCloudfrontOriginAccessControl.ts'
+import { useLogBucket } from './LogBucket.tsx'
+import { useAwsAcmCertificate } from '../AwsAcmCertificate.tsx'
+import { useAwsCloudfrontOriginAccessControl } from '../cloudfront/AwsCloudfrontOriginAccessControl.tsx'
 import { useStack } from '@reactiac/base-components'
 import {
   type AwsCloudfrontDistributionInputProps,
   useAwsCloudfrontDistribution,
-} from '../AwsCloudfrontDistribution.ts'
-import { useAwsRoute53Zone } from '../AwsRoute53Zone.ts'
-const { toId } = utils
+} from '../AwsCloudfrontDistribution.tsx'
+import { useAwsRoute53Zone } from '../AwsRoute53Zone.tsx'
 
 export const S3CloudfrontSiteInputSchema = z.object({
   subdomain: ResolvableStringSchema,
   bucketVersions: ResolvableStringArraySchema.optional(),
 })
 
-export type S3CloudfrontSiteInputProps = z.input<
-  typeof S3CloudfrontSiteInputSchema
-> &
-  AwsCloudfrontDistributionInputProps
+export type S3CloudfrontSiteInputProps =
+  & z.input<
+    typeof S3CloudfrontSiteInputSchema
+  >
+  & AwsCloudfrontDistributionInputProps
 
 export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
   const { stack } = useStack()
@@ -63,8 +63,8 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
     return (
       <AwsCloudfrontDistribution
         title={subdomain}
-        _display="entity"
-        _dependsOn="Bucket"
+        _display='entity'
+        _dependsOn='Bucket'
         logging_config={logging_config as any}
         aliases={[domain as any]}
         enabled={true}
@@ -90,7 +90,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
           ssl_support_method: 'sni-only',
           minimum_protocol_version: 'TLSv1.2_2021',
         }}
-        default_root_object="index.html"
+        default_root_object='index.html'
         custom_error_response={[
           {
             error_caching_min_ttl: 3600,
@@ -104,7 +104,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
         <AwsRoute53Record
           name={domain as any}
           _name={subdomain}
-          type="A"
+          type='A'
           zone_id={awsRoute53Zone.zone_id}
           alias={{
             name: awsCloudfrontDistribution.domain_name,
@@ -122,7 +122,8 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
 
   const Bucket = (props: NodeProps) => {
     const bucketName = () => {
-      return `${subdomain}${props._version ? `-${props._version}` : ''}`.toLowerCase()
+      return `${subdomain}${props._version ? `-${props._version}` : ''}`
+        .toLowerCase()
     }
     const bucket = () => {
       return `${(stack as any)._name()}-${bucketName()}`
@@ -160,7 +161,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
 
     return (
       <AwsS3Bucket
-        _display="entity"
+        _display='entity'
         _title={bucketName}
         bucket={bucket}
         {...props}

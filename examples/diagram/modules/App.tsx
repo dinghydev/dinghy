@@ -6,7 +6,7 @@ import {
 
 const Modules = (props: DiagramNodeProps) => (
   <Shape
-    _title="Module / Package relationships"
+    _title='Module / Package relationships'
     _direction={'vertical'}
     {...props}
   />
@@ -20,7 +20,7 @@ const Group = (props: DiagramNodeProps) => (
 )
 
 const VerticalGroup = (props: DiagramNodeProps) => (
-  <Group _direction="vertical" {...props} />
+  <Group _direction='vertical' {...props} />
 )
 
 const Renderers = (props: DiagramNodeProps) => (
@@ -44,7 +44,7 @@ const Module = (props: DiagramNodeProps) => (
 
 const Package = Module
 
-export default function App() {
+export function App() {
   return (
     <Modules>
       <Row>

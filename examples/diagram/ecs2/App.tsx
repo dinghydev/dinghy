@@ -36,12 +36,12 @@ function VPC(props: DiagramNodeProps) {
 
 function PublicSubnet(props: DiagramNodeProps) {
   return (
-    <GroupSecurityGroup _color="#7AA116" _background="#F2F6E8" {...props} />
+    <GroupSecurityGroup _color='#7AA116' _background='#F2F6E8' {...props} />
   )
 }
 
 function PrivateSubnet(props: DiagramNodeProps) {
-  return <GroupSecurityGroup _color="red" _background="#E6F6F7" {...props} />
+  return <GroupSecurityGroup _color='red' _background='#E6F6F7' {...props} />
 }
 
 function LoadBalancer(props: DiagramNodeProps) {
@@ -80,9 +80,9 @@ function StorageLayer(props: DiagramNodeProps) {
   return <Shape _border={0} _display={'invisible'} {...props} />
 }
 
-export default function App() {
+export function App() {
   return (
-    <Stack title="Development Environment">
+    <Stack title='Development Environment'>
       <Client />
       <Cloud>
         <Region>

@@ -96,6 +96,7 @@ async function buildImage(
   name: string,
   baseImage: string,
   selectedVersion: string,
+  args: string[] = [],
 ) {
   const platformTag = options.arch === "amd64" ? "" : `-linux-${options.arch}`;
   const lastTag = `${options.repo}:${
@@ -129,6 +130,7 @@ async function buildImage(
       `TARGETPLATFORM=${options.platform}`,
       "--build-arg",
       `BASE_IMAGE=${baseImage}`,
+      ...args,
       "--platform",
       options.platform,
       "-f",
@@ -149,11 +151,38 @@ async function dockerBuild(options: any) {
     options.baseImage,
     packageBaseVersion,
   );
+  const tfVersion = JSON.parse(
+    await Deno.readTextFile(
+      `${projectRoot}/docker/tf/version.json`,
+    ),
+  );
+
+  const tfImage = await buildImage(
+    options,
+    "tf",
+    baseImage,
+    packageBaseVersion,
+    [
+      "--build-arg",
+      `TERRAFORM_VERSION=${tfVersion.terraform}`,
+      "--build-arg",
+      `TERRAFORM_AWS_PROVIDER_VERSION=${tfVersion.awsProvider}`,
+    ],
+  );
+  let tfImageVersion = tfImage.split(":")[1];
+  if (options.arch !== "amd64") {
+    const stringToRemove = `-linux-${options.arch}`;
+    tfImageVersion = tfImageVersion.replace(stringToRemove, "");
+  }
   const dependenciesImage = await buildImage(
     options,
     "dependencies",
     baseImage,
     packageBaseVersion,
+    [
+      "--build-arg",
+      `TF_IMAGE_VERSION=${tfImageVersion}`,
+    ],
   );
 
   await buildImage(

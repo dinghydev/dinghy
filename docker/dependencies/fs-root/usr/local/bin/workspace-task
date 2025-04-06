@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Make the script exit on any error
+set -e
+cd /reactiac/workspace
+
+# Get the first argument as task_name
+task_name="$1"
+# Shift to remove the first argument, leaving remaining args in $@
+shift
+
+deno run \
+  --allow-all \
+  --cached-only \
+  tasks/${task_name}.tsx $@

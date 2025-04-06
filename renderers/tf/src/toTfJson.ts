@@ -43,7 +43,7 @@ const collectTfElements = (
     handleCategory(tfRoot, _props._node!)
   }
   _props._node!._children.map((c: NodeTree) =>
-    collectTfElements(stage, tfRoot, c._props),
+    collectTfElements(stage, tfRoot, c._props)
   )
 }
 
@@ -57,5 +57,6 @@ export const toTfJson = (
     (container.rootElement as any).props._node._props as any,
   )
   container.result = JSON.stringify(tfRoot, null, 2)
+  container.model = tfRoot
   return container
 }

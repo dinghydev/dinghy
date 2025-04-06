@@ -22,7 +22,7 @@ function LoadBalancer(props: AwsLbInputProps) {
 }
 
 function Redis(props: AwsElasticacheClusterProps) {
-  return <AwsElasticacheCluster engine="redis" {...props} />
+  return <AwsElasticacheCluster engine='redis' {...props} />
 }
 
 function StorageLayer(props: DiagramNodeProps) {
@@ -33,13 +33,13 @@ function ECSApp(props: DiagramNodeProps) {
   return <Stack {...props} />
 }
 
-export default function App() {
+export function App() {
   return (
     <ECSApp>
       <Client _dependsOn={'LoadBalancer'} />
       <AwsCloud>
         <AwsRegion>
-          <DataAwsVpc id="vpcid1">
+          <DataAwsVpc id='vpcid1'>
             <AwsPublicSubnet>
               <LoadBalancer _dependsOn={['AwsWAF', 'web']} />
               <AwsWAF />
@@ -52,12 +52,12 @@ export default function App() {
                 <AwsECSService>
                   <AwsECSContainer>job</AwsECSContainer>
                 </AwsECSService>
-                <AwsECSService _display="inactive">
+                <AwsECSService _display='inactive'>
                   <AwsECSContainer>migration</AwsECSContainer>
                 </AwsECSService>
               </AwsECSCluster>
               <StorageLayer>
-                <AwsPostgres _display="entity">
+                <AwsPostgres _display='entity'>
                   {/*<Shape>TODO: Hidden</Shape>*/}
                 </AwsPostgres>
                 <Redis />

@@ -3,6 +3,7 @@ import type { ReactElement } from 'react'
 export type Output<T> = {
   views: string[]
   stages: string[]
+  model: any
   result: T
 }
 

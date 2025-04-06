@@ -46,9 +46,11 @@ const convertToXml = (element: ReactElement, padding: string): string => {
 export const toDrawioXml = (
   container: HostContainer<string, DrawioRenderOptions>,
 ): Output<string> => {
+  //todo: to generate xml model first instead use string concatenation
   container.result = convertToXml(
     container.rootElement as ReactElement,
     '',
   ).trim()
+  container.model = container.rootElement
   return container
 }

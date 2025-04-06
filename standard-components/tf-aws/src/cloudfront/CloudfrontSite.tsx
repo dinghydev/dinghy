@@ -13,12 +13,12 @@ import {
   AwsRoute53Record,
   useAwsS3Bucket,
 } from '../index.ts'
-import { useAwsCloudfrontDistribution } from '../AwsCloudfrontDistribution.ts'
-import { useAwsRoute53Zone } from '../AwsRoute53Zone.ts'
-import { useAwsAcmCertificate } from '../AwsAcmCertificate.ts'
-import { useAwsCloudfrontOriginAccessIdentity } from './AwsCloudfrontOriginAccessIdentity.ts'
-import { useAwsCloudfrontOriginAccessControl } from './AwsCloudfrontOriginAccessControl.ts'
-import { useLogBucket } from '../s3/LogBucket.ts'
+import { useAwsCloudfrontDistribution } from '../AwsCloudfrontDistribution.tsx'
+import { useAwsRoute53Zone } from '../AwsRoute53Zone.tsx'
+import { useAwsAcmCertificate } from '../AwsAcmCertificate.tsx'
+import { useAwsCloudfrontOriginAccessIdentity } from './AwsCloudfrontOriginAccessIdentity.tsx'
+import { useAwsCloudfrontOriginAccessControl } from './AwsCloudfrontOriginAccessControl.tsx'
+import { useLogBucket } from '../s3/LogBucket.tsx '
 
 export const AwsCloudfrontDefaults = z.object({
   default_ttl: ResolvableNumberSchema.default(86400),
@@ -45,17 +45,18 @@ export const CloudfrontSiteOutputSchema = z.object({
   // region: ResolvableStringSchema.optional(),
 })
 
-export type CloudfrontSiteInputProps = z.input<
-  typeof CloudfrontSiteInputSchema
-> &
-  IacNodeProps
+export type CloudfrontSiteInputProps =
+  & z.input<
+    typeof CloudfrontSiteInputSchema
+  >
+  & IacNodeProps
 
 const ARecord = (props: Props) => {
   const { awsCloudfrontDistribution } = useAwsCloudfrontDistribution()
   const { awsRoute53Zone } = useAwsRoute53Zone()
   return (
     <AwsRoute53Record
-      type="A"
+      type='A'
       zone_id={awsRoute53Zone.zone_id}
       alias={{
         name: awsCloudfrontDistribution.domain_name,
@@ -86,20 +87,19 @@ export function CloudfrontSite(props: CloudfrontSiteInputProps) {
 
   const smartDefaults: Props = {}
 
-  const cache_policy =
-    default_ttl === 0
-      ? { cache_policy_id: '4135ea2d-6df8-44a3-9df3-4b5a84be39ad' } //CachingDisabled https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html} :
-      : default_ttl === 86400
-        ? { cache_policy_id: '658327ea-f89d-4fab-a63d-7e88639e58f6' } //CachingOptimized
-        : {
-            min_ttl: 0,
-            default_ttl: default_ttl,
-            max_ttl: 86400,
-            forwarded_values: {
-              query_string: false,
-              cookies: { forward: 'none' },
-            },
-          }
+  const cache_policy = default_ttl === 0
+    ? { cache_policy_id: '4135ea2d-6df8-44a3-9df3-4b5a84be39ad' } //CachingDisabled https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html} :
+    : default_ttl === 86400
+    ? { cache_policy_id: '658327ea-f89d-4fab-a63d-7e88639e58f6' } //CachingOptimized
+    : {
+      min_ttl: 0,
+      default_ttl: default_ttl,
+      max_ttl: 86400,
+      forwarded_values: {
+        query_string: false,
+        cookies: { forward: 'none' },
+      },
+    }
 
   return (
     <AwsCloudfrontDistribution
@@ -129,7 +129,7 @@ export function CloudfrontSite(props: CloudfrontSiteInputProps) {
         ssl_support_method: 'sni-only',
         minimum_protocol_version: 'TLSv1.2_2021',
       }}
-      default_root_object="index.html"
+      default_root_object='index.html'
       custom_error_response={[
         {
           error_caching_min_ttl: 3600,

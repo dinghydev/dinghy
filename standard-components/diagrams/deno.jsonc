@@ -1,0 +1,6 @@
+{
+  "name": "@reactiac/standard-components-diagrams",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

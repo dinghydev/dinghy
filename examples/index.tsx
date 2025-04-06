@@ -43,7 +43,7 @@ export const allExamples: Record<string, ExampleType> = {
     order: 100,
     code: `import { Shape } from 'reactiac-core'
 
-export default function App() {
+export function App() {
   return (
     <Shape>
       Web App
@@ -112,7 +112,7 @@ const Firewall = (props: any) => <Shape {...props} />
 
 const Postgres = (props: any) => <Shape {...props} />
 
-export default function App() {
+export function App() {
   return (
     <WebApp>
       <Client />
@@ -198,7 +198,7 @@ const Application = (props: any) =>
     {...props}
   />
 
-export default function App() {
+export function App() {
   return (
     <WebApp>
       <Client />
@@ -302,7 +302,7 @@ const Application = (props: any) => {
   )
 }
 
-export default function App() {
+export function App() {
   return (
     <WebApp>
       <Client />
@@ -446,7 +446,7 @@ const Local = (props: any) =>
     </Docker>
   </GroupOnPremise>
 
-export default function App() {
+export function App() {
   return (
     <WebApp>
       <Client />
@@ -557,7 +557,7 @@ function StorageLayer(props: DiagramNodeProps) {
   )
 }
 
-export default function App() {
+export function App() {
   return (
     <Stack title='Development Environment'>
       <Client _dependsOn={'LoadBalancer'} />
@@ -673,7 +673,7 @@ const Dependencies = (props: DiagramNodeProps) => (
   />
 )
 
-export default function App() {
+export function App() {
   return (
     <Mindmap>
       <Row>
@@ -788,7 +788,7 @@ const Module = (props: DiagramNodeProps) => (
 
 const Package = Module
 
-export default function App() {
+export function App() {
   return (
     <Modules>
       <Row>
@@ -907,7 +907,7 @@ const Site = (props: S3CloudfrontSiteInputProps) => (
   </Shape>
 )
 
-export default function App() {
+export function App() {
   return (
     <ReactIACWebsite>
       <Client />
@@ -984,7 +984,7 @@ function ECSApp(props: DiagramNodeProps) {
   return <Stack {...props} />
 }
 
-export default function App() {
+export function App() {
   return (
     <ECSApp>
       <Client _dependsOn={'LoadBalancer'} />

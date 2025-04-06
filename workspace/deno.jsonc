@@ -1,9 +1,19 @@
 {
   "name": "@reactiac/workspace",
   "tasks": {
-    "json": "deno run -A tasks/json.tsx"
+    "render": "deno run -A tasks/render.tsx"
+  },
+  "imports": {
+    "@std/cli": "jsr:@std/cli@1.0.14",
+    "@std/fs": "jsr:@std/fs@1.0.14",
+    "@std/path": "jsr:@std/path@1.0.8",
+    "@std/yaml": "jsr:@std/yaml@1.0.5",
+    "@std/collections": "jsr:@std/collections@1.0.10",
+    "debug": "npm:debug@4.4.0",
+    "chalk": "npm:chalk@5.4.1",
+    "execa": "npm:execa@9.5.2"
   },
   "exports": {
-    ".": "./tasks/json.tsx"
+    ".": "./tasks/render.tsx"
   }
 }

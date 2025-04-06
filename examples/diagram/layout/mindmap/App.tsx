@@ -77,7 +77,7 @@ const Dependencies = (props: DiagramNodeProps) => (
   />
 )
 
-export default function App() {
+export function App() {
   return (
     <Mindmap>
       <Row>
@@ -101,10 +101,10 @@ export default function App() {
         </CenterMiddle>
         <Column>
           Right
-          <Shape _align="right">R1</Shape>
-          <Shape _align="left">R2</Shape>
-          <Shape _verticalAlign="top">R3</Shape>
-          <Shape _verticalAlign="bottom">R4</Shape>
+          <Shape _align='right'>R1</Shape>
+          <Shape _align='left'>R2</Shape>
+          <Shape _verticalAlign='top'>R3</Shape>
+          <Shape _verticalAlign='bottom'>R4</Shape>
         </Column>
       </Row>
       <Row _display={'invisible'}>

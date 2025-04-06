@@ -24,6 +24,10 @@
     "./base/components",
     "./base/renderer",
     "./renderers/json",
+    "./renderers/drawio",
+    "./renderers/tf",
+    "./standard-components/diagrams",
+    "./standard-components/tf-aws",
     "./workspace"
   ],
   "fmt": {
@@ -32,6 +36,7 @@
   },
   "lint": {
     "rules": {
+      "exclude": ["no-explicit-any"]
       // "exclude": ["verbatim-module-syntax"]
     }
   }

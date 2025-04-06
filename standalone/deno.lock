@@ -2,6 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@std/cli@1.0.14": "1.0.14",
+    "jsr:@std/collections@1.0.10": "1.0.10",
     "jsr:@std/fs@*": "1.0.15",
     "jsr:@std/fs@1.0.14": "1.0.14",
     "jsr:@std/path@1.0.8": "1.0.8",
@@ -17,6 +18,9 @@
   "jsr": {
     "@std/cli@1.0.14": {
       "integrity": "b09ee9921cd476c0e08185ed2bfce682d45ecf4654f26c31b4aa244a2c5c024e"
+    },
+    "@std/collections@1.0.10": {
+      "integrity": "903af106a3d92970d74e20f7ebff77d9658af9bef4403f1dc42a7801c0575899"
     },
     "@std/fs@1.0.14": {
       "integrity": "1e84bf0b95fe08f41f1f4aea9717bbf29f45408a56ce073b0114474ce1c9fccf",
@@ -173,6 +177,7 @@
       "cli": {
         "dependencies": [
           "jsr:@std/cli@1.0.14",
+          "jsr:@std/collections@1.0.10",
           "jsr:@std/fs@1.0.14",
           "jsr:@std/path@1.0.8",
           "jsr:@std/yaml@1.0.5",

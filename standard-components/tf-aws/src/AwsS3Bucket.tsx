@@ -1,5 +1,4 @@
 import {
-  IacNodeProps,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
@@ -25,11 +24,13 @@ export const AwsS3BucketOutputSchema = z.object({
   region: ResolvableStringSchema.optional(),
 })
 
-export type AwsS3BucketInputProps = z.infer<typeof AwsS3BucketInputSchema> &
-  IacNodeProps
+export type AwsS3BucketInputProps =
+  & z.infer<typeof AwsS3BucketInputSchema>
+  & IacNodeProps
 
-export type AwsS3BucketOutputProps = z.infer<typeof AwsS3BucketOutputSchema> &
-  AwsS3BucketInputProps
+export type AwsS3BucketOutputProps =
+  & z.infer<typeof AwsS3BucketOutputSchema>
+  & AwsS3BucketInputProps
 
 export function AwsS3Bucket(props: AwsS3BucketInputProps) {
   return (

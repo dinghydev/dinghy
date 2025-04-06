@@ -5,7 +5,7 @@ import type {
   TfNodeTree,
   TfRenderOptions,
 } from '../types.ts'
-import { p10ResolveCategory } from './p10ResolveCategory.ts'
+import { p10ResolveCategory } from './p10ResolveCategory.tsx'
 import type { HostContainer } from '@reactiac/base-renderer'
 
 const processors: Processor[] = [p10ResolveCategory]

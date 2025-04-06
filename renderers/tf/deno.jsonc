@@ -1,0 +1,11 @@
+{
+  "name": "@reactiac/renderer-tf",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "imports": {
+    "@std/collections": "jsr:@std/collections@1.0.10",
+    "debug": "npm:debug@4.4.0",
+    "mergician": "npm:mergician@2.0.2"
+  }
+}
