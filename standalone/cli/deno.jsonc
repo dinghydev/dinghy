@@ -1,7 +1,8 @@
 {
   "name": "@reactiac/cli",
   "tasks": {
-    "run": "deno run -A src/index.ts"
+    "run": "deno run -A src/index.ts",
+    "check": "deno check src/index.ts"
   },
   "exports": {
     ".": "./src/index.ts"

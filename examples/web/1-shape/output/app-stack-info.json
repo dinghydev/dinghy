@@ -1,0 +1,15 @@
+{
+  "views": {
+    "app-overview": {
+      "id": "app-overview",
+      "name": "overview"
+    }
+  },
+  "stages": {
+    "app-main": {
+      "id": "app-main",
+      "name": "main"
+    }
+  },
+  "tfImageVersion": "tf-b05d8d8a89b78dfd7c7454ecbfe3a8f1"
+}

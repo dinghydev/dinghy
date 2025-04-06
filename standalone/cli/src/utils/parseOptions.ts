@@ -47,7 +47,7 @@ export const parseOptions = (
     });
   }
 
-  if (!options.output.startsWith("/")) {
+  if (options.output && !options.output.startsWith("/")) {
     options.output = `${reactiacAppHome}/${options.output}`;
   }
 

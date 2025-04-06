@@ -39,6 +39,12 @@ const replaceVersion = async (file: string) => {
   await Deno.writeTextFile(file, updated);
 };
 
+await execa({
+  stderr: "inherit",
+  stdout: "inherit",
+  cwd: cliSrcFolder,
+})`deno ${["task", "check"]}`;
+
 Deno.mkdirSync(distDownload, { recursive: true });
 Deno.mkdirSync(`${distDownload}/templates`, { recursive: true });
 await copyFilesToDistDownload(`${cliSrcFolder}/download`);

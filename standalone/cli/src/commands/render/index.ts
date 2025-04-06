@@ -3,8 +3,8 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { streamCmd } from "../../utils/cmd.ts";
 import { reactiacAppHome, reactiacRc } from "../../utils/loadConfig.ts";
 import { CONTAINER_APP_HOME } from "../devcontainer.ts";
-import { renderOptions } from "../../../../../workspace/utils/renderOptions.ts";
 import { configGetDockerImage } from "../../utils/dockerConfig.ts";
+import { renderOptions } from "../../utils/renderOptions.ts";
 
 const run = async (_context: CommandContext, _args: CommandArgs) => {
   const envs = [

@@ -43,8 +43,10 @@ tmp*
 **/terraform.tfstate
 **/terraform.tfstate.backup
 
-# Docker
-docker/dependencies/fs-root/workspace/deno.lock
+# Copied files
+docker/dependencies/fs-root/reactiac/deno.lock
+workspace/utils/*
+!workspace/utils/renderMapping.ts
 
 # Optional eslint cache
 .eslintcache

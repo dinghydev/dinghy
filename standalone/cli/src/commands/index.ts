@@ -12,7 +12,7 @@ import postinstall from "./postinstall.ts";
 import init from "./init.ts";
 import devcontainer from "./devcontainer.ts";
 import render from "./render/index.ts";
-
+import diagram from "./diagram/index.ts";
 const options: CommandOptions = {
   boolean: ["debug", "help", "version"],
   default: {
@@ -45,6 +45,7 @@ const commands: Commands = {
   postinstall,
   devcontainer,
   render,
+  diagram,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 };
