@@ -9,7 +9,7 @@ import { parseOptions } from '../utils/parseOptions.ts'
 import { rendererMapping } from '../utils/renderMapping.ts'
 import { deepMerge } from '@std/collections'
 import Debug from 'debug'
-import { parseStacks } from '@reactiac/base-components'
+import { createStack, parseStacks } from '@reactiac/base-components'
 const debug = Debug('render')
 setupDebug()
 await loadConfig()
@@ -25,11 +25,19 @@ debug('render started at %O', new Date())
 const app = await loadApp()
 const cmdOptions = parseOptions(renderOptions, Deno.args, ['render'])
 const options: any = deepMerge(reactiacAppConfig, {})
+if (cmdOptions['tf-generateImport']) {
+  options.tf ??= {}
+  options.tf.generateImport = true
+}
 options.stacks = parseStacks(options.stacks).stacks
 if (cmdOptions.stack) {
   options.stack = options.stacks[cmdOptions.stack]
   if (!options.stack) {
-    throw new Error(`Stack ${cmdOptions.stack} not found`)
+    console.warn(
+      `Stack ${cmdOptions.stack} not found, generating as ondemand stack`,
+    )
+    options.stack = createStack(cmdOptions.stack)
+    options.stacks = { [options.stack.id]: options.stack }
   }
 } else {
   options.stack = Object.values(options.stacks)[0]

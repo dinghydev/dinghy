@@ -1,0 +1,84 @@
+{
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "5.63.1"
+      }
+    },
+    "backend": {
+      "s3": {
+        "bucket": "reactiac-website-test-tf-state",
+        "key": "tfstates/test-main.tfstate",
+        "region": "us-east-1",
+        "use_lockfile": true
+      }
+    }
+  },
+  "provider": {
+    "aws": [
+      {
+        "default_tags": [
+          {
+            "tags": {
+              "iac:stack-title": "ReactIAC Website: test",
+              "iac:stack-name": "reactiac-website-test"
+            }
+          }
+        ],
+        "region": "us-east-1"
+      }
+    ]
+  },
+  "data": {
+    "aws_route53_zone": {
+      "aws_route53_zone_reactiacdev": {
+        "name": "reactiac.dev"
+      }
+    },
+    "aws_acm_certificate": {
+      "aws_acm_certificate_reactiacdev": {
+        "domain": "reactiac.dev"
+      }
+    }
+  },
+  "resource": {
+    "aws_s3_bucket": {
+      "aws_s3_bucket_tfstate": {
+        "bucket": "reactiac-website-test-tf-state"
+      },
+      "aws_s3_bucket_logs": {
+        "bucket": "reactiac-website-test-logs"
+      }
+    },
+    "aws_s3_bucket_versioning": {
+      "aws_s3_bucket_versioning_enableversioning": {
+        "bucket": "${aws_s3_bucket.aws_s3_bucket_tfstate.id}",
+        "versioning_configuration": {
+          "status": "Enabled"
+        }
+      }
+    },
+    "aws_s3_bucket_logging": {
+      "aws_s3_bucket_logging_s3bucketlogging": {
+        "bucket": "reactiac-website-test-logs",
+        "target_bucket": "reactiac-website-test-logs",
+        "target_prefix": "log-sink/s3/reactiac-website-test-logs/"
+      }
+    },
+    "aws_s3_bucket_ownership_controls": {
+      "aws_s3_bucket_ownership_controls_s3bucketownershipcontrols": {
+        "bucket": "reactiac-website-test-logs",
+        "rule": {
+          "object_ownership": "BucketOwnerPreferred"
+        }
+      }
+    },
+    "aws_s3_bucket_acl": {
+      "aws_s3_bucket_acl_s3bucketacl": {
+        "bucket": "reactiac-website-test-logs",
+        "acl": "log-delivery-write"
+      }
+    }
+  }
+}

@@ -6,14 +6,78 @@
       "program": "tasks/render.tsx",
       "cwd": "${workspaceFolder}/workspace",
       "args": [
-        "--app-home",
-        // "${workspaceFolder}/examples/web/1-shape",
-        // "${workspaceFolder}/examples/web/3-drawio",
-        // "${workspaceFolder}/examples/web/4-iac",
-        "${workspaceFolder}/examples/web/5-data",
+        // "test",
+        "--format",
+        "tf",
+        // "--tf-generateImport",
+        // "--stage",
+        // "state",
         "--debug"
       ],
-      "env": {},
+      "env": {
+        // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
+        "APP_HOME": "${workspaceFolder}/examples/iac/cf-site"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf-generate",
+      "program": "tasks/tf-generate.tsx",
+      "cwd": "${workspaceFolder}/workspace",
+      "args": [
+        "--state-json-file",
+        "${workspaceFolder}/terraform-show.json",
+        "--debug"
+      ],
+      "env": {
+        "APP_HOME": "${workspaceFolder}"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "cli",
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
+      "args": [
+        // "render",
+        // "json",
+        "tf",
+        "generate",
+        "--state-json-file",
+        "${workspaceFolder}/terraform-show.json",
+        // "init",
+        // "plan",
+        // "apply",
+        // "test",
+        // "app",
+        // "main",
+        // "-h",
+        "--debug"
+      ],
+      "env": {
+        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
+        // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
+        // "APP_HOME": "${workspaceFolder}/examples/iac/cf-site"
+        "APP_HOME": "${workspaceFolder}"
+      },
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
@@ -29,7 +93,7 @@
       "name": "docker build",
       "request": "launch",
       "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/run.sh",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "args": ["deno task docker-build-arm64"],
       "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
@@ -38,7 +102,7 @@
       "name": "clean",
       "request": "launch",
       "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/run.sh",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "args": ["deno task clean"],
       "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
@@ -47,44 +111,18 @@
       "name": "npm build",
       "request": "launch",
       "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/run.sh",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "args": ["deno task npm-build"],
       "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     },
     {
-      "name": "reactiac",
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
-      "args": [
-        "render",
-        // "json",
-        // "-h",
-        "--debug"
-      ],
-      "env": {
-        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
-        "APP_HOME": "${workspaceFolder}/examples/web/5-data"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "launch test project",
+      "name": "install locally",
       "request": "launch",
       "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/run.sh",
-      "args": [
-        "(cd standalone/cli ; deno task run devcontainer --debug --xworkspace /reactiac --xmounts ../../:/reactiac  --app-home ../../examples/web/1-shape)"
-      ],
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "args": ["deno task install-locally"],
+      "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     }
   ]

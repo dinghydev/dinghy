@@ -2,8 +2,8 @@
   "name": "@reactiac/renderer-json",
   "exports": {
     ".": "./src/index.ts"
+  },
+  "imports": {
+    // "flatted": "npm:flatted@3.3.3"
   }
-  // "imports": {
-  //   "@reactiac/base-renderer": "workspace:*"
-  // }
 }

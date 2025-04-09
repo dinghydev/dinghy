@@ -32,3 +32,10 @@ export const configGetDockerImage = () => {
   debug("resolved docker image %s", image);
   return image;
 };
+
+export const configGetTfImage = (version: string) => {
+  const arch = Deno.build.arch === "aarch64" ? "-linux-arm64" : "";
+  const image = `${configGetDockerRepo()}:${version}${arch}`;
+  debug("resolved tf image %s", image);
+  return image;
+};

@@ -1,17 +1,20 @@
 {
   "name": "@reactiac/workspace",
   "tasks": {
-    "render": "deno run -A tasks/render.tsx"
+    "render": "deno run -A tasks/render.tsx",
+    "tf-generate": "deno run -A tasks/tf-generate.tsx"
   },
   "imports": {
     "@std/cli": "jsr:@std/cli@1.0.14",
-    "@std/fs": "jsr:@std/fs@1.0.14",
+    "@std/fs": "jsr:@std/fs@1.0.15",
     "@std/path": "jsr:@std/path@1.0.8",
     "@std/yaml": "jsr:@std/yaml@1.0.5",
     "@std/collections": "jsr:@std/collections@1.0.10",
+    "@inquirer/confirm": "npm:@inquirer/confirm@5.1.9",
     "debug": "npm:debug@4.4.0",
     "chalk": "npm:chalk@5.4.1",
-    "execa": "npm:execa@9.5.2"
+    "execa": "npm:execa@9.5.2",
+    "zod": "npm:zod@3.24.2"
   },
   "exports": {
     ".": "./tasks/render.tsx"

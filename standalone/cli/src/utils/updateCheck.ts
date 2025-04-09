@@ -55,7 +55,7 @@ const runCommandWithUpgradedVersion = async () => {
   Deno.exit(result.exitCode);
 };
 
-export const updateCheck = async (fetch = false) => {
+const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
   debug("ReactIAC Cli version", runtimeVersion);
   debug("Deno build %s/%s", Deno.version.deno, Deno.build.target);
 
@@ -90,7 +90,7 @@ export const updateCheck = async (fetch = false) => {
       writeLatestVersion(version);
       const latestVersion = version.latest;
       if (latestVersion !== runtimeVersion) {
-        if (Deno.env.get("REACTIAC_UPDATE_CHECK_AUTO_UPGRADE")) {
+        if (autoUpgrade) {
           console.log(`Performing auto-upgrade to ${latestVersion} ...`);
           await upgradeToVersion(latestVersion);
           await runCommandWithUpgradedVersion();
@@ -110,6 +110,19 @@ export const updateCheck = async (fetch = false) => {
       debug("error %O", error);
       console.warn("Failed to check for new ReactIAC updates");
     }
+  }
+};
+
+export const updateCheck = async (fetch = false) => {
+  const autoUpgrade = Boolean(
+    Deno.env.get("REACTIAC_UPDATE_CHECK_AUTO_UPGRADE"),
+  );
+  if (autoUpgrade) {
+    debug("auto-upgrade is enabled, check updates syncronously");
+    await performUpdateCheck(fetch, autoUpgrade);
+  } else {
+    debug("auto-upgrade is disabled, check updates asyncronously");
+    performUpdateCheck(fetch, autoUpgrade);
   }
 };
 

@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import { toTfJson } from './toTfJson.ts'
 import { renderNode } from '@reactiac/base-renderer'
 import type { HostContainer } from '@reactiac/base-renderer'

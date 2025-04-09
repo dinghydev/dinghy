@@ -29,7 +29,8 @@ const options: CommandOptions = {
 };
 const run = async (context: CommandContext, args: CommandArgs) => {
   if (!args["drawio-bin"] && Deno.build.os !== "darwin") {
-    throw new Error(`${Deno.build.os} is not supported`);
+    console.error(`${Deno.build.os} is not supported`);
+    Deno.exit(1);
   }
 
   if (!args.output.startsWith("/")) {
@@ -39,9 +40,10 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   const drawioBin = args["drawio-bin"] ||
     "/Applications/draw.io.app/Contents/MacOS/draw.io";
   if (!existsSync(drawioBin)) {
-    throw new Error(
+    console.error(
       `${drawioBin} does not exist, you get from https://get.diagrams.net/`,
     );
+    Deno.exit(1);
   }
 
   const files: string[] = [];
@@ -55,7 +57,8 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     }
   }
   if (!files.length) {
-    throw new Error("No drawio files found");
+    console.error("No drawio files found");
+    Deno.exit(1);
   }
   await Promise.allSettled(
     files.map(async (file) => {
@@ -77,7 +80,9 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   ).then((results) => {
     results.forEach((result) => {
       if (result.status === "rejected") {
-        throw result.reason;
+        console.error(result.reason);
+        console.error("Failed to generate png");
+        Deno.exit(1);
       }
     });
   });

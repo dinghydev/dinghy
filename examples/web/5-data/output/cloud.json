@@ -4,12 +4,6 @@
     "_level": 1,
     "id": "cloud",
     "_title": "Web App: cloud",
-    "_tags": [
-      "App",
-      "WebApp",
-      "Stack",
-      "Shape"
-    ],
     "_type": "web_app",
     "_name": "web-app-cloud",
     "_id": "cloud"
@@ -19,11 +13,6 @@
       "type": "node",
       "attributes": {
         "_level": 2,
-        "_tags": [
-          "Client",
-          "Client",
-          "Shape"
-        ],
         "_type": "client",
         "_title": "Client",
         "_name": "client",
@@ -41,12 +30,6 @@
         "_stage": "*",
         "_title": "Cloud",
         "_type": "aws_cloud",
-        "_tags": [
-          "Cloud",
-          "AwsCloud",
-          "GroupAwsCloudAlt",
-          "Shape"
-        ],
         "_name": "cloud",
         "_id": "aws_cloud_cloud"
       },
@@ -55,16 +38,8 @@
           "type": "node",
           "attributes": {
             "_level": 3,
-            "_stage": [
-              "*"
-            ],
             "_title": "Region",
             "_type": "aws_region",
-            "_tags": [
-              "AwsRegion",
-              "GroupRegion",
-              "Shape"
-            ],
             "_name": "region",
             "_id": "aws_region_region"
           },
@@ -73,18 +48,9 @@
               "type": "node",
               "attributes": {
                 "_level": 4,
-                "_stage": [
-                  "*"
-                ],
                 "_title": "Vpc",
                 "_type": "aws_vpc",
                 "id": "vpcid1",
-                "_tags": [
-                  "DataAwsVpc",
-                  "AwsVpc",
-                  "GroupVpc2",
-                  "Shape"
-                ],
                 "_name": "vpc",
                 "_id": "vpcid1"
               },
@@ -93,18 +59,8 @@
                   "type": "node",
                   "attributes": {
                     "_level": 5,
-                    "_stage": [
-                      "*"
-                    ],
                     "_title": "Public Subnet",
                     "_type": "aws_subnet",
-                    "_tags": [
-                      "PublicSubnet",
-                      "AwsPublicSubnet",
-                      "AwsSubnet",
-                      "GroupSecurityGroup",
-                      "Shape"
-                    ],
                     "_name": "public-subnet",
                     "_id": "aws_subnet_publicsubnet"
                   },
@@ -113,17 +69,8 @@
                       "type": "node",
                       "attributes": {
                         "_level": 6,
-                        "_stage": [
-                          "*"
-                        ],
                         "_title": "Load Balancer",
                         "_type": "aws_lb",
-                        "_tags": [
-                          "LoadBalancer",
-                          "AwsLb",
-                          "ApplicationLoadBalancer",
-                          "Shape"
-                        ],
                         "_name": "load-balancer",
                         "_id": "aws_lb_loadbalancer",
                         "_dependsOn": [
@@ -139,15 +86,9 @@
                           "type": "node",
                           "attributes": {
                             "_level": 7,
-                            "_stage": [
-                              "*"
-                            ],
                             "_source": "aws_lb_loadbalancer",
                             "_target": "firewall",
                             "_isDependency": true,
-                            "_tags": [
-                              "Dependency"
-                            ],
                             "_type": "dependency",
                             "_title": "Dependency",
                             "_name": "dependency",
@@ -159,15 +100,9 @@
                           "type": "node",
                           "attributes": {
                             "_level": 7,
-                            "_stage": [
-                              "*"
-                            ],
                             "_source": "aws_lb_loadbalancer",
                             "_target": "aws_instance_application",
                             "_isDependency": true,
-                            "_tags": [
-                              "Dependency"
-                            ],
                             "_type": "dependency",
                             "_title": "Dependency",
                             "_name": "dependency",
@@ -179,15 +114,9 @@
                           "type": "node",
                           "attributes": {
                             "_level": 7,
-                            "_stage": [
-                              "*"
-                            ],
                             "_source": "client",
                             "_target": "aws_lb_loadbalancer",
                             "_isDependency": true,
-                            "_tags": [
-                              "Dependency"
-                            ],
                             "_type": "dependency",
                             "_title": "Dependency",
                             "_name": "dependency",
@@ -201,14 +130,6 @@
                       "type": "node",
                       "attributes": {
                         "_level": 6,
-                        "_stage": [
-                          "*"
-                        ],
-                        "_tags": [
-                          "Firewall",
-                          "Waf",
-                          "Shape"
-                        ],
                         "_type": "firewall",
                         "_title": "Firewall",
                         "_name": "firewall",
@@ -225,18 +146,8 @@
                   "type": "node",
                   "attributes": {
                     "_level": 5,
-                    "_stage": [
-                      "*"
-                    ],
                     "_title": "Private Subnet",
                     "_type": "aws_subnet",
-                    "_tags": [
-                      "PrivateSubnet",
-                      "AwsPrivateSubnet",
-                      "AwsSubnet",
-                      "GroupSecurityGroup",
-                      "Shape"
-                    ],
                     "_name": "private-subnet",
                     "_id": "aws_subnet_privatesubnet"
                   },
@@ -245,17 +156,8 @@
                       "type": "node",
                       "attributes": {
                         "_level": 6,
-                        "_stage": [
-                          "*"
-                        ],
                         "_title": "Application",
                         "_type": "aws_instance",
-                        "_tags": [
-                          "Application",
-                          "AwsInstance",
-                          "Android",
-                          "Shape"
-                        ],
                         "_name": "application",
                         "_id": "aws_instance_application",
                         "_dependsOn": [
@@ -270,15 +172,9 @@
                           "type": "node",
                           "attributes": {
                             "_level": 7,
-                            "_stage": [
-                              "*"
-                            ],
                             "_source": "aws_instance_application",
                             "_target": "aws_db_instance_postgres",
                             "_isDependency": true,
-                            "_tags": [
-                              "Dependency"
-                            ],
                             "_type": "dependency",
                             "_title": "Dependency",
                             "_name": "dependency",
@@ -292,18 +188,8 @@
                       "type": "node",
                       "attributes": {
                         "_level": 6,
-                        "_stage": [
-                          "*"
-                        ],
                         "_title": "Postgres",
                         "_type": "aws_db_instance",
-                        "_tags": [
-                          "Postgres",
-                          "AwsPostgres",
-                          "AwsDbInstance",
-                          "RdsInstance",
-                          "Shape"
-                        ],
                         "_name": "postgres",
                         "_id": "aws_db_instance_postgres",
                         "_dependsBy": [

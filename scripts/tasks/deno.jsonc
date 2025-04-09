@@ -27,18 +27,19 @@
     },
 
     "aws-ecr-login": "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7",
-    "docker-build-prepare": "deno run -A ./src/docker-build-prepare.ts",
+    "prepare-build": "deno run -A ./src/prepare-build.ts",
     "docker-build-arm64": {
       "command": "deno run -A ./src/docker-build.ts --arch arm64",
-      "dependencies": ["docker-build-prepare"]
+      "dependencies": ["prepare-build"]
     },
     "docker-build-amd64": {
       "command": "deno run -A ./src/docker-build.ts --arch amd64",
-      "dependencies": ["docker-build-prepare"]
+      "dependencies": ["prepare-build"]
     },
     "docker-build": {
       "dependencies": ["docker-build-arm64", "docker-build-amd64"]
-    }
+    },
+    "install-locally": "deno run -A ./src/install-locally.ts"
   },
   "name": "@reactiac/scripts-tasks",
   "exports": {

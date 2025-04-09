@@ -1,4 +1,4 @@
-import { projectRoot } from "./utils/projectRoot.ts";
+import { projectRoot } from "../../../standalone/cli/src/utils/projectRoot.ts";
 import { updateReleaseVersion } from "./version-release.ts";
 const copyProjectFile = (src: string, target: string) => {
   Deno.copyFileSync(`${projectRoot}/${src}`, `${projectRoot}/${target}`);
@@ -7,6 +7,10 @@ const copyProjectFile = (src: string, target: string) => {
 
 if (import.meta.main) {
   updateReleaseVersion();
+  copyProjectFile(
+    "standalone/cli/src/utils/stackUtils.ts",
+    "base/components/src/utils/stackUtils.ts",
+  );
   copyProjectFile(
     "standalone/cli/src/utils/setupDebug.ts",
     "workspace/utils/setupDebug.ts",
@@ -20,7 +24,11 @@ if (import.meta.main) {
     "workspace/utils/parseOptions.ts",
   );
   copyProjectFile(
+    "standalone/cli/src/utils/renderOptions.ts",
+    "workspace/utils/renderOptions.ts",
+  );
+  copyProjectFile(
     "deno.lock",
-    "docker/dependencies/fs-root/reactiac/deno.lock",
+    "docker/release-base/fs-root/reactiac/deno.lock",
   );
 }

@@ -1,19 +1,19 @@
-import type { NodeTree, Props } from '@reactiac/base-components'
 import { mergician } from 'mergician'
+import type { NodeTree, Props } from '../../../../base/components/src/types.ts'
+import type { TfRenderOptions } from '../types.ts'
+import { requiredSchema } from './index.ts'
 import { utils } from '@reactiac/base-components'
 const { deepResolve } = utils
-import { requiredSchema } from './index.ts'
 
 export const resourceOrData = (
+  renderOptions: TfRenderOptions,
   category: string,
   tfRoot: Props,
   node: NodeTree,
   schemaField: string,
 ) => {
   const schema = requiredSchema(node, schemaField)
-  // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
   const tfCategory = (tfRoot[category] ??= {}) as Props
-  // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
   const tfElements = (tfCategory[node._props._type as any] ??= {}) as Props
   let tfElement: any
   if ((node._props as any)[category]) {
@@ -25,4 +25,14 @@ export const resourceOrData = (
   let resolvedElement = deepResolve(node, tfElement)
   resolvedElement = schema.strict().parse(resolvedElement)
   tfElements[node._props._id as any] = resolvedElement
+  if (node._props?._importId && renderOptions.tf?.generateImport) {
+    const importId = deepResolve(node, node._props, '_importId')
+    if (importId) {
+      tfRoot.import ??= []
+      ;(tfRoot.import as any).push({
+        id: importId,
+        to: `${node._props._type}.${node._props._id}`,
+      })
+    }
+  }
 }

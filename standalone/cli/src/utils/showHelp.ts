@@ -81,8 +81,12 @@ const generateOptionsSection = (
   sections: Sections,
 ) => {
   const options: Options[] = [];
+  const flagsHidden = context.options.flagsHidden || [];
   for (const optionType of OPTIONS_TYPES) {
     for (const option of context.options[optionType] || []) {
+      if (flagsHidden.includes(option)) {
+        continue;
+      }
       options.push({
         name: option,
         type: optionType,
@@ -146,6 +150,7 @@ export const showHelp = (context: CommandContext) => {
     arguments: [],
     commands: [],
     options: [],
+    ...(context.options.additionalOptions || {}),
   };
 
   generateArgumentsSection(context, sections);

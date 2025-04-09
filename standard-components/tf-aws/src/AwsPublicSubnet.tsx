@@ -1,7 +1,7 @@
 import AwsSubnet, {
   AwsSubnetInputProps,
   AwsSubnetOutputProps,
-} from './AwsSubnet.tsx'
+} from './vpc/AwsSubnet.tsx'
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
 
 export default function AwsPublicSubnet(props: AwsSubnetInputProps) {

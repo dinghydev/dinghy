@@ -248,6 +248,9 @@
       "aws_s3_bucket_cdnv1_v1": {
         "bucket": "reactiac-website-cdn-v1"
       },
+      "aws_s3_bucket_tfstate": {
+        "bucket": "reactiac-website-tf-state"
+      },
       "aws_s3_bucket_logs": {
         "bucket": "reactiac-website-logs"
       }
@@ -286,6 +289,14 @@
       "aws_s3_bucket_policy_cdnv1_v1": {
         "bucket": "reactiac-website-cdn-v1",
         "policy": "${data.aws_iam_policy_document.aws_iam_policy_document_cdnv1_v1.json}"
+      }
+    },
+    "aws_s3_bucket_versioning": {
+      "aws_s3_bucket_versioning_enableversioning": {
+        "bucket": "${aws_s3_bucket.aws_s3_bucket_tfstate.id}",
+        "versioning_configuration": {
+          "status": "Enabled"
+        }
       }
     },
     "aws_s3_bucket_ownership_controls": {

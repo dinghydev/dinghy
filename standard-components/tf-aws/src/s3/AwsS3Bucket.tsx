@@ -1,9 +1,10 @@
 import {
+  type IacNodeProps,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.ts'
+import { aws } from '../index.ts'
 import z from 'zod'
 import { Bucket } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
@@ -33,8 +34,12 @@ export type AwsS3BucketOutputProps =
   & AwsS3BucketInputProps
 
 export function AwsS3Bucket(props: AwsS3BucketInputProps) {
+  const _importId = (node: any) => node._props.bucket
   return (
-    <Bucket {...aws(props, AwsS3BucketInputSchema, AwsS3BucketOutputSchema)} />
+    <Bucket
+      _importId={_importId}
+      {...aws(props, AwsS3BucketInputSchema, AwsS3BucketOutputSchema)}
+    />
   )
 }
 export const useAwsS3Bucket = (id?: string) =>

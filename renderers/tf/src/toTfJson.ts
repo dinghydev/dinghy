@@ -27,23 +27,31 @@ const resolveValue = (node: NodeTree, value: ReactElement): ReactElement => {
   return value
 }
 
-const isStageMatch = (stage: Item, _stage = 'main'): boolean => {
-  if (Array.isArray(_stage)) {
-    return _stage.some((s) => isStageMatch(stage, s))
+const isStageMatch = (stage: Item, currentStage?: any): boolean => {
+  const stageName = currentStage || 'main'
+  if (Array.isArray(stageName)) {
+    return stageName.some((s) => isStageMatch(stage, s))
   }
-  return stage?.name === _stage || _stage === '*'
+  if (stageName.startsWith('!')) {
+    return stage?.name === stageName.slice(1)
+  }
+  return stage?.name === stageName
 }
 
 const collectTfElements = (
-  stage: Item,
+  renderOptions: TfRenderOptions,
   tfRoot: Props,
   _props: IacNodeProps,
 ) => {
-  if (_props._inputSchema && isStageMatch(stage, (_props as any)._stage)) {
-    handleCategory(tfRoot, _props._node!)
+  if (
+    _props._inputSchema &&
+    (_props._stackResource ||
+      isStageMatch(renderOptions.stage, (_props as any)._stage))
+  ) {
+    handleCategory(renderOptions, tfRoot, _props._node!)
   }
   _props._node!._children.map((c: NodeTree) =>
-    collectTfElements(stage, tfRoot, c._props)
+    collectTfElements(renderOptions, tfRoot, c._props)
   )
 }
 
@@ -52,7 +60,7 @@ export const toTfJson = (
 ): Output<string> => {
   const tfRoot = {} as Props
   collectTfElements(
-    container.renderOptions.stage as any,
+    container.renderOptions as any,
     tfRoot,
     (container.rootElement as any).props._node._props as any,
   )

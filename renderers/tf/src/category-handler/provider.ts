@@ -1,9 +1,11 @@
 import type { Props } from '@reactiac/base-components'
 import type { ReactElement } from 'react'
 import { globalCategory } from './globalCategory.ts'
+import type { TfRenderOptions } from '../types.ts'
 
 export const provider = (
+  renderOptions: TfRenderOptions,
   category: string,
   tfRoot: Props,
   element: ReactElement,
-) => globalCategory(category, tfRoot, element as any)
+) => globalCategory(renderOptions, category, tfRoot, element as any)

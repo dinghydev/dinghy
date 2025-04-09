@@ -25,7 +25,7 @@ tmp*
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
-!.vscode/run.sh
+!.vscode/none-debug-run.sh
 !.vscode/launch.json
 !.vscode/extensions.json
 
@@ -44,7 +44,8 @@ tmp*
 **/terraform.tfstate.backup
 
 # Copied files
-docker/dependencies/fs-root/reactiac/deno.lock
+docker/release-base/fs-root/reactiac/deno.lock
+base/components/src/utils/stackUtils.ts
 workspace/utils/*
 !workspace/utils/renderMapping.ts
 

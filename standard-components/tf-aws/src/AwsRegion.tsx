@@ -10,8 +10,9 @@ export const AwsRegionInputSchema = z.object({
   region: z.string().default('us-east-1'),
 })
 
-export type AwsRegionInputProps = z.infer<typeof AwsRegionInputSchema> &
-  IacNodeProps
+export type AwsRegionInputProps =
+  & z.infer<typeof AwsRegionInputSchema>
+  & IacNodeProps
 
 export function AwsRegion(props: AwsRegionInputProps) {
   const { stack } = useStack()
@@ -35,7 +36,7 @@ export function AwsRegion(props: AwsRegionInputProps) {
               },
             ],
           },
-          _stage: ['*'],
+          _stackResource: true,
           ...props,
           ...values,
         },

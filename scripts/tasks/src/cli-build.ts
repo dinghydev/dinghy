@@ -1,6 +1,6 @@
 import { parseArgs } from "jsr:@std/cli";
 import { execa } from "npm:execa";
-import { projectRoot } from "./utils/projectRoot.ts";
+import { projectRoot } from "../../../standalone/cli/src/utils/projectRoot.ts";
 
 const args = parseArgs(Deno.args);
 const arch = args._[0];

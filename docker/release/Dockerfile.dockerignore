@@ -1,10 +1,10 @@
-# for .devcontainer.json use only
 # Ignore everything
 **
 
 # Allow files and directories
 !/deno.*
 !/.version
+!/*/deno.*
 !/*/*/deno.jsonc
 !/*/*/src/**
 !/workspace/**
@@ -12,5 +12,4 @@
 
 # Ignore support project files
 build/**
-standalone/**
 scripts/**

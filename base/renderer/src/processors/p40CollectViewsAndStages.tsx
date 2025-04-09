@@ -12,6 +12,9 @@ export const p40CollectViewsAndStages = (
         return
       }
     }
+    if (value?.startsWith('!')) {
+      value = value.slice(1)
+    }
     const target = (container as any)[field]
     if (value && !target.includes(value)) {
       target.push(value)

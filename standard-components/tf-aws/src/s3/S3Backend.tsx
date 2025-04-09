@@ -22,8 +22,9 @@ export const S3BackendDefaults = z.object({
   stateFilePrefix: ResolvableStringSchema.default('tfstates/'),
   stateFileExt: ResolvableStringSchema.default('.tfstate'),
   createBackend: ResolvableBooleanSchema.default(true),
+  createBackendInStage: ResolvableStringSchema.optional(),
   useLockTable: ResolvableBooleanSchema.default(false),
-  stage: z.string().default('state'), //.optional(), //,
+  _stage: z.string().default('!init'), //.optional(), //,
 })
 
 export const S3BackendInputSchema = S3BackendDefaults.extend({
@@ -41,11 +42,13 @@ export const S3BackendOutputSchema = z.object({
   // region: ResolvableStringSchema.optional(),
 })
 
-export type S3BackendInputProps = z.input<typeof S3BackendInputSchema> &
-  IacNodeProps
+export type S3BackendInputProps =
+  & z.input<typeof S3BackendInputSchema>
+  & IacNodeProps
 
-export type AwsS3BucketOutputProps = z.input<typeof S3BackendOutputSchema> &
-  S3BackendInputProps
+export type AwsS3BucketOutputProps =
+  & z.input<typeof S3BackendOutputSchema>
+  & S3BackendInputProps
 
 const EnableVersioning = (props: Props) => {
   const { awsS3Bucket } = useAwsS3Bucket()
@@ -63,24 +66,20 @@ export function S3Backend(props: S3BackendInputProps) {
   const { awsRegion } = useAwsRegion()
   const {
     createBackend,
+    createBackendInStage,
     bucketName,
     useLockTable,
     lockName,
     stateFileExt,
     stateFilePrefix,
-    stage: _stage,
   } = S3BackendDefaults.parse(props)
   const bucket = (props.bucket ||
     (() => `${(stack as any)._name()}-${bucketName}`)) as any
   const lockTable = (props.lockTable ||
     (() => `${(stack as any)._name()}-${lockName}`)) as any
   const { stage } = useRenderOptions()
-  const stateRemoteFile =
-    props.stateFile || (() => `${stateFilePrefix}${stage!.id}${stateFileExt}`)
-  const activeStage = [stage?.name === 'init' ? 'init' : _stage]
-  if (createBackend) {
-    activeStage.push('init')
-  }
+  const stateRemoteFile = props.stateFile ||
+    (() => `${stateFilePrefix}${stage!.id}${stateFileExt}`)
 
   return (
     <>
@@ -90,27 +89,28 @@ export function S3Backend(props: S3BackendInputProps) {
         lockTable={lockTable as any}
         stateFile={stateRemoteFile as any}
         region={awsRegion.region}
-        _display="none"
-        _stage={stage?.name === 'init' ? 'state' : stage?.name}
+        _display='none'
+        _stackResource
       />
       {createBackend && (
         <>
           <AwsS3Bucket
             bucket={bucket as any}
             _title={bucketName}
-            _display="entity"
-            _stage={activeStage}
+            _display='entity'
+            _stage={createBackendInStage}
           >
-            <EnableVersioning _stage={activeStage} />
+            <EnableVersioning _stage={createBackendInStage} />
+            {/* TODO: EnableLogging */}
           </AwsS3Bucket>
           {useLockTable && (
             <AwsDynamodbTable
               name={lockTable as any}
-              hash_key="LockID"
+              hash_key='LockID'
               attribute={[{ name: 'LockID', type: 'S' }]}
-              billing_mode="PAY_PER_REQUEST"
+              billing_mode='PAY_PER_REQUEST'
               _title={lockName}
-              _stage={activeStage}
+              _stage={createBackendInStage as any}
             />
           )}
         </>

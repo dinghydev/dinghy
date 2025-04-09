@@ -1,6 +1,6 @@
 import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
 import z from 'zod'
-import { AwsVpc } from './AwsVpc.tsx'
+import { AwsVpc } from './vpc/AwsVpc.tsx'
 
 export const DataAwsVpcInputSchema = z.object({
   id: ResolvableStringSchema.optional(),

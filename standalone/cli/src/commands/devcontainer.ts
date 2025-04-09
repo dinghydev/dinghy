@@ -1,5 +1,5 @@
 import { existsSync } from "@std/fs/exists";
-import { resolve } from "@std/path";
+import { basename, dirname, resolve } from "@std/path";
 import type {
   Command,
   CommandArgs,
@@ -11,22 +11,45 @@ import Debug from "debug";
 import { configGet, reactiacAppHome, reactiacRc } from "../utils/loadConfig.ts";
 import { streamCmd } from ".././utils/cmd.ts";
 import { configGetDockerImage } from "../utils/dockerConfig.ts";
+import { execa } from "execa";
 const debug = Debug("init");
 
 const options: CommandOptions = {
   collect: ["mounts"],
   string: ["workspace"],
+  boolean: ["no-open"],
   description: {
     mounts: "Additional mounts to the devcontainer",
     workspace: "The workspace folder to use in the devcontainer",
+    "no-open":
+      "Do not open the devcontainer.Generate .devcontainer.json only if not exist",
   },
   cmdDescription: "Start the project in devcontainer",
   cmdAlias: ["dc"],
 };
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
-  await prepareConfig(args);
-  await streamCmd(["devcontainer", "open"]);
+  const devcontainerConfig = await prepareConfig(args);
+  if (!args["no-open"]) {
+    if (devcontainerConfig) {
+      debug("remove devcontainer %s if exits", devcontainerConfig.name);
+      await execa("docker", ["rm", "-f", devcontainerConfig.name as string], {
+        stdio: "ignore",
+        reject: false,
+      });
+    }
+
+    const result = await execa("devcontainer", ["open"], {
+      stdio: "ignore",
+      reject: false,
+    });
+    if (result.exitCode !== 0) {
+      console.log(`Config generated at ${reactiacAppHome}/.devcontainer.json}`);
+      console.log(
+        `Failed to open devcontainer, make sure it has been installed correctly https://code.visualstudio.com/docs/devcontainers/devcontainer-cli#_installation`,
+      );
+    }
+  }
 };
 
 export default {
@@ -63,7 +86,6 @@ function prepareConfig(args: CommandArgs) {
   }
 
   config.mounts ??= [];
-  console.log("user mountsxxxx", args.mounts);
 
   const addMountIfExists = (source: string, target: string) => {
     if (existsSync(source)) {
@@ -74,6 +96,7 @@ function prepareConfig(args: CommandArgs) {
     `${reactiacAppHome}/deno.jsonc`,
     "/reactiac/workspace/deno.jsonc",
   );
+  addMountIfExists(reactiacAppHome, reactiacAppHome);
   addMountIfExists(`${reactiacAppHome}/deno.lock`, "/reactiac/deno.lock");
   addMountIfExists(`${Deno.env.get("HOME")}/.ssh`, "/root/.ssh");
   addMountIfExists(`${Deno.env.get("HOME")}/.npmrc`, "/root/.npmrc");
@@ -84,15 +107,16 @@ function prepareConfig(args: CommandArgs) {
     }
   }
 
+  config.containerEnv.HOST_APP_HOME = reactiacAppHome;
   config.containerEnv.APP_HOME = CONTAINER_APP_HOME;
   config.workspaceMount ??=
     `source=${reactiacAppHome},target=${CONTAINER_APP_HOME},type=bind`;
+
+  const vscodeConfigExist = existsSync(`${reactiacAppHome}/.vscode`);
   config.workspaceFolder ??= args.workspace ||
-    (existsSync(`${reactiacAppHome}/.vscode`)
-      ? CONTAINER_APP_HOME
-      : CONTAINER_PROJECT_FOLDER);
-  // config.onCreateCommand ??=
-  //   `ln -s /workspace/.vscode /workspace/deno.jsonc /workspace/deno.lock ${config.workspaceFolder}/`;
+    (vscodeConfigExist ? CONTAINER_APP_HOME : CONTAINER_PROJECT_FOLDER);
+
+  config.onCreateCommand = "on-devcontainer-create.ts";
 
   config.customizations ??= {
     vscode: {
@@ -107,4 +131,8 @@ function prepareConfig(args: CommandArgs) {
   };
   Deno.writeTextFileSync(configFile, JSON.stringify(config, null, 2));
   debug("generated %s", configFile);
+  if (args["no-open"]) {
+    console.log("generated", configFile);
+  }
+  return config;
 }

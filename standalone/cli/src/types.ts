@@ -1,6 +1,8 @@
 import type { Args, ParseOptions } from "@std/cli";
 
 export type CommandOptions = {
+  required?: string[];
+  flagsHidden?: string[];
   description: Record<string, string>;
   cmdAlias?: string[];
   cmdTitle?: string;
@@ -10,6 +12,7 @@ export type CommandOptions = {
     string,
     { description: string; required?: boolean; default?: string }
   >;
+  additionalOptions?: Record<string, any>;
 } & ParseOptions;
 
 export type CommandArgs = {

@@ -13,8 +13,11 @@ import init from "./init.ts";
 import devcontainer from "./devcontainer.ts";
 import render from "./render/index.ts";
 import diagram from "./diagram/index.ts";
+import tf from "./tf/index.ts";
+
 const options: CommandOptions = {
   boolean: ["debug", "help", "version"],
+  flagsHidden: ["debug", "help"],
   default: {
     debug: Boolean(Deno.env.get("DEBUG")),
   },
@@ -29,8 +32,28 @@ const options: CommandOptions = {
   },
   cmdDescription:
     "ReactIAC Cli, a command line tool to help with ReactIAC development and operations",
+  additionalOptions: {
+    "Global Options": [
+      {
+        name: "--app-home",
+        description: "The path to the ReactIAC app home directory",
+      },
+      {
+        name: "--debug",
+        description: "Enable debug mode",
+      },
+      {
+        name: "-h, --help",
+        description: "Show help",
+      },
+      {
+        name: "--output",
+        description: "The path to the output directory",
+        options: "[default: output]",
+      },
+    ],
+  },
 };
-
 const run = (context: CommandContext, args: CommandArgs) => {
   if (args.version) {
     console.log(versionDetails);
@@ -46,6 +69,7 @@ const commands: Commands = {
   devcontainer,
   render,
   diagram,
+  tf,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 };

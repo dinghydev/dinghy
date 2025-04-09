@@ -1,0 +1,8 @@
+{
+  "stages": {
+    "app-main": {
+      "id": "app-main",
+      "name": "main"
+    }
+  }
+}

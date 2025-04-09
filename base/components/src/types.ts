@@ -82,6 +82,7 @@ export const NodeSchema = z.object({
   _version: ResolvableStringSchema.optional(),
   _view: StringOrArraySchema.optional(),
   _stage: StringOrArraySchema.optional(),
+  _importId: ResolvableStringSchema.optional(),
 })
 
 export type NodeType = z.input<typeof NodeSchema>
@@ -176,6 +177,7 @@ export const IacCategorySchema = z.enum([
 export const IacNodeSchema = z.object({
   _inputSchema: z.instanceof(z.ZodType).optional(),
   _outputSchema: z.instanceof(z.ZodType).optional(),
+  _stackResource: ResolvableBooleanSchema.optional(),
   _resource: RecordSchema.optional(),
   _data: RecordSchema.optional(),
   _terraform: RecordSchema.optional(),
@@ -185,28 +187,3 @@ export const IacNodeSchema = z.object({
 
 export type IacNodeType = z.input<typeof IacNodeSchema>
 export type IacNodeProps = IacNodeType & DiagramNodeProps
-
-export const ItemSchema = z.object({
-  id: z.string(),
-  name: z.string().optional(),
-  title: z.string().optional(),
-})
-export type Item = z.input<typeof ItemSchema>
-
-export const StackSchema = z.object({
-  id: z.string(),
-  name: z.string().optional(),
-  env: z.string().optional(),
-  title: z.string().optional(),
-  sequence: z.number().optional(),
-  stages: z.record(z.string(), ItemSchema).optional(),
-  views: z.record(z.string(), ItemSchema).optional(),
-})
-
-export type Stack = z.input<typeof StackSchema>
-
-export const StacksSchema = z.object({
-  stacks: z.record(z.string(), StackSchema),
-})
-
-export type Stacks = z.input<typeof StacksSchema>

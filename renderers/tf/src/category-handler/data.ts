@@ -1,5 +1,9 @@
 import type { NodeTree, Props } from '@reactiac/base-components'
 import { resourceOrData } from './resourceOrData.ts'
-
-export const data = (category: string, tfRoot: Props, node: NodeTree) =>
-  resourceOrData(category, tfRoot, node, '_inputSchema')
+import { TfRenderOptions } from '../types.ts'
+export const data = (
+  renderOptions: TfRenderOptions,
+  category: string,
+  tfRoot: Props,
+  node: NodeTree,
+) => resourceOrData(renderOptions, category, tfRoot, node, '_inputSchema')

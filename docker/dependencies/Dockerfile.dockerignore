@@ -1,6 +1,2 @@
-# for .devcontainer.json use only
 # Ignore everything
 **
-
-# Allow files and directories
-!/docker/dependencies/fs-root/**

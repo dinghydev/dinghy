@@ -8,11 +8,12 @@ import type {
 } from '@reactiac/base-components'
 
 export type TfRenderOptions = {
-  iacOptions: {
+  tf: {
+    generateImport?: boolean
     provider?: 'terraform' | 'opentofu'
   }
   stack: StackType
-  stage?: Item
+  stage: Item
 }
 
 export type ElementProps = {

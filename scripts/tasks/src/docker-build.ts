@@ -1,7 +1,10 @@
 import * as cli from "@std/cli";
 import { walk } from "@std/fs";
-import { baseVersion, commitVersion } from "./utils/commitVersion.ts";
-import { projectRoot } from "./utils/projectRoot.ts";
+import {
+  baseVersion,
+  commitVersion,
+} from "../../../standalone/cli/src/utils/commitVersion.ts";
+import { projectRoot } from "../../../standalone/cli/src/utils/projectRoot.ts";
 import { execaSync } from "execa";
 
 const version = await commitVersion(projectRoot);
@@ -38,8 +41,6 @@ async function dockerPush(options: any, tag: string) {
     }
     await dockerCommand([
       "push",
-      // "--platform",
-      // options.platform,
       tag,
     ]);
   } else {
@@ -156,6 +157,12 @@ async function dockerBuild(options: any) {
       `${projectRoot}/docker/tf/version.json`,
     ),
   );
+  const releaseBaseImage = await buildImage(
+    options,
+    "release-base",
+    baseImage,
+    packageBaseVersion,
+  );
 
   const tfImage = await buildImage(
     options,
@@ -177,7 +184,7 @@ async function dockerBuild(options: any) {
   const dependenciesImage = await buildImage(
     options,
     "dependencies",
-    baseImage,
+    releaseBaseImage,
     packageBaseVersion,
     [
       "--build-arg",

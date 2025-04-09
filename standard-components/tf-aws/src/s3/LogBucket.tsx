@@ -9,7 +9,7 @@ import { useTypedNode } from '@reactiac/base-components'
 import type {
   AwsS3BucketInputProps,
   AwsS3BucketOutputProps,
-} from '../AwsS3Bucket.ts'
+} from './AwsS3Bucket.tsx'
 import { useStack } from '@reactiac/base-components'
 import { ResolvableStringSchema } from '@reactiac/base-components'
 import z from 'zod'
@@ -18,17 +18,17 @@ export const LogBucketInputSchema = z.object({
   surfix: ResolvableStringSchema.optional(),
 })
 
-export type LogBucketInputProps = z.input<typeof LogBucketInputSchema> &
-  AwsS3BucketInputProps
+export type LogBucketInputProps =
+  & z.input<typeof LogBucketInputSchema>
+  & AwsS3BucketInputProps
 
 export function LogBucket(props: LogBucketInputProps) {
   const { stack } = useStack()
   const ref = useRef(null)
   const bucket = () => {
-    let bucket =
-      props.bucket ||
+    let bucket = props.bucket ||
       (ref.current as any).bucket_prefix ||
-      (stack as any).name()
+      (stack as any)._name()
     if ((ref.current as any).surfix) {
       bucket = `${bucket}-${(ref.current as any).surfix}`
     }
@@ -43,7 +43,7 @@ export function LogBucket(props: LogBucketInputProps) {
       _title={((node: any) => node._props.surfix) as any}
       ref={ref}
       bucket={bucket as any}
-      _display="entity"
+      _display='entity'
       {...props}
     >
       {props.children}
@@ -58,7 +58,7 @@ export function LogBucket(props: LogBucketInputProps) {
           object_ownership: 'BucketOwnerPreferred',
         }}
       />
-      <AwsS3BucketAcl bucket={bucket as any} acl="log-delivery-write" />
+      <AwsS3BucketAcl bucket={bucket as any} acl='log-delivery-write' />
     </AwsS3Bucket>
   )
 }

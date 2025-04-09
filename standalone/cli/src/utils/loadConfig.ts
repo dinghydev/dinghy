@@ -3,20 +3,14 @@ import { resolve } from "@std/path";
 import * as yaml from "@std/yaml";
 import { parseArgs } from "@std/cli";
 import Debug from "debug";
-import { existsSync } from "jsr:@std/fs/exists";
 const debug = Debug("loadConfig");
 
 const resolveHome = () => {
-  const parsedHome = parseArgs(Deno.args)["app-home"];
-  if (parsedHome && existsSync(parsedHome)) {
-    return resolve(parsedHome);
+  const appHome = Deno.env.get("APP_HOME") || parseArgs(Deno.args)["app-home"];
+  if (appHome) {
+    return resolve(appHome);
   } else {
-    const envHome = Deno.env.get("APP_HOME");
-    if (envHome) {
-      return resolve(envHome);
-    } else {
-      return Deno.cwd();
-    }
+    return Deno.cwd();
   }
 };
 

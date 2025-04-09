@@ -21,3 +21,5 @@ RUN echo 'Install terraform aws provider' \
     && cd /terraform \
     && printf "terraform {\nrequired_providers {\nmycloud = {\nsource  = \"aws\"\nversion = \"${TERRAFORM_AWS_PROVIDER_VERSION}\"\n}\n}\n}" > provider.tf \
     && terraform init
+
+COPY docker/tf/fs-root /    

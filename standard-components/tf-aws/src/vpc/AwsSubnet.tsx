@@ -4,7 +4,7 @@ import {
   StringSchema,
 } from '@reactiac/base-components'
 import { GroupSecurityGroup } from '@reactiac/standard-components-diagrams'
-import { aws } from './index.ts'
+import { aws } from '../index.ts'
 import z from 'zod'
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
 
@@ -18,11 +18,13 @@ export const AwsSubnetOutputSchema = z.object({
   arn: StringSchema,
 })
 
-export type AwsSubnetInputProps = z.infer<typeof AwsSubnetInputSchema> &
-  IacNodeProps
+export type AwsSubnetInputProps =
+  & z.infer<typeof AwsSubnetInputSchema>
+  & IacNodeProps
 
-export type AwsSubnetOutputProps = z.infer<typeof AwsSubnetOutputSchema> &
-  AwsSubnetInputProps
+export type AwsSubnetOutputProps =
+  & z.infer<typeof AwsSubnetOutputSchema>
+  & AwsSubnetInputProps
 
 export default function AwsSubnet(props: AwsSubnetInputProps) {
   return (

@@ -4,14 +4,25 @@ import { renderTf } from '@reactiac/renderer-tf'
 import { dirname } from '@std/path'
 import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
+import chalk from 'chalk'
 import { deepMerge } from '@std/collections/deep-merge'
 const debug = Debug('rendererMapping')
+const hostAppHome = Deno.env.get('HOST_APP_HOME')
 
 const writeFile = async (path: string, content: string) => {
   const folder = dirname(path)
   await Deno.mkdir(folder, { recursive: true })
   await Deno.writeTextFile(path, content)
-  debug('rendered to', path)
+
+  const displayPath = hostAppHome
+    ? path.replace('/reactiac/workspace/project/app', hostAppHome)
+    : path
+  debug('rendered to', displayPath)
+  if (path.endsWith('stack-info.json')) {
+    console.log(chalk.green('saved stack info to:'), displayPath)
+  } else {
+    console.log(chalk.green('rendered:'), displayPath)
+  }
 }
 
 const json = async (app: any, options: any, args: any) => {
@@ -23,14 +34,17 @@ const json = async (app: any, options: any, args: any) => {
 const saveStackInfo = async (options: any, args: any, stackInfo: any) => {
   const outputPath = `${args.output}/${options.stack.id}-stack-info.json`
   if (existsSync(outputPath)) {
-    const existingStackInfo = JSON.parse(Deno.readTextFileSync(outputPath))
-    stackInfo = deepMerge(existingStackInfo, stackInfo)
+    const stackInfoText = await Deno.readTextFile(outputPath)
+    if (stackInfoText) {
+      const existingStackInfo = JSON.parse(stackInfoText)
+      stackInfo = deepMerge(existingStackInfo, stackInfo)
+    }
   }
   await writeFile(outputPath, JSON.stringify(stackInfo, null, 2))
 }
 
 const diagram = async (app: any, options: any, args: any) => {
-  let stackInfo: any = {
+  const stackInfo: any = {
     views: {},
   }
   const availableViews = options.stack.views
@@ -72,7 +86,7 @@ const diagram = async (app: any, options: any, args: any) => {
 const tf = async (app: any, options: any, args: any) => {
   const availableStages = options.stack.stages
   let selectedStages = args.stage
-  let stackInfo: any = {
+  const stackInfo: any = {
     tfImageVersion: Deno.env.get('TF_IMAGE_VERSION'),
     stages: {},
   }
@@ -80,7 +94,6 @@ const tf = async (app: any, options: any, args: any) => {
   if (!selectedStages) {
     selectedStages = Object.keys(availableStages)
   }
-  let collectedStages: string[] = []
   const renderStage = async (stageString: string) => {
     let stage = availableStages[stageString]
     if (!stage) {
@@ -94,18 +107,17 @@ const tf = async (app: any, options: any, args: any) => {
     const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`
     await writeFile(outputPath, result.result)
     renderedStages.push(stageString)
-    collectedStages = result.stages
     stackInfo.stages[stage.id] = stage
+    if (!args.stage) {
+      for (const stageString of result.stages) {
+        if (!renderedStages.includes(stageString)) {
+          await renderStage(stageString)
+        }
+      }
+    }
   }
   for (const stageString of selectedStages) {
     await renderStage(stageString)
-  }
-  if (!args.stage) {
-    for (const stageString of collectedStages) {
-      if (!renderedStages.includes(stageString)) {
-        await renderStage(stageString)
-      }
-    }
   }
   await saveStackInfo(options, args, stackInfo)
 }

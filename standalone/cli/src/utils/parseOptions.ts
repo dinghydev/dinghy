@@ -41,14 +41,29 @@ export const parseOptions = (
     Object.entries(spec.arguments).map(([name, argSpec], index) => {
       const value = options._[index] || configGet([...envPrefix, name]);
       if ((argSpec as any).required && value === undefined) {
-        throw new Error(`Argument [${name.toLocaleUpperCase()}] is required`);
+        console.error(`Argument [${name.toLocaleUpperCase()}] is required`);
+        Deno.exit(1);
       }
       options[name] = value;
     });
   }
 
-  if (options.output && !options.output.startsWith("/")) {
-    options.output = `${reactiacAppHome}/${options.output}`;
+  if (spec.required) {
+    for (const required of spec.required) {
+      const value = options[required];
+      if (value === undefined) {
+        console.error(`Option [${required}] is required`);
+        Deno.exit(1);
+      }
+    }
+  }
+
+  if (options.output) {
+    if (!options.output.startsWith("/")) {
+      options.output = `${reactiacAppHome}/${options.output}`;
+    }
+  } else {
+    options.output = `${reactiacAppHome}/output`;
   }
 
   debug("parsed options %O", options);

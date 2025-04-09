@@ -14,8 +14,9 @@ export const AwsCloudInputSchema = IacNodeSchema.extend({
   version: ResolvableStringSchema.optional(),
 })
 
-export type AwsCloudInputProps = z.infer<typeof AwsCloudInputSchema> &
-  IacNodeProps
+export type AwsCloudInputProps =
+  & z.infer<typeof AwsCloudInputSchema>
+  & IacNodeProps
 
 export default function AwsCloud(props: AwsCloudInputProps) {
   return (
@@ -30,7 +31,7 @@ export default function AwsCloud(props: AwsCloudInputProps) {
               },
             },
           },
-          _stage: '*',
+          _stackResource: true,
           ...props,
         },
         AwsCloudInputSchema,

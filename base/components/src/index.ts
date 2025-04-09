@@ -5,6 +5,7 @@ export { Dependency } from './components/Dependency.tsx'
 export { Stack, useStack } from './components/Stack.tsx'
 export { useRenderOptions } from './contexts/useRenderOptions.tsx'
 export {
+  createStack,
   mergeStackOptions,
   parseStacks,
 } from './utils/stackUtils.ts'
@@ -13,19 +14,19 @@ export type { DiagramNodeProps, IacNodeProps, NodeProps } from './types.ts'
 export {
   DependsSchema,
   DiagramNodeSchema,
-  NodeSchema,
-  ResolvableStringArraySchema,
-  ResolvableStringSchema,
+  type DisplayStringType,
   IacNodeSchema,
+  type Item,
+  NodeSchema,
+  type NodeTree,
+  type Props,
   ResolvableBooleanSchema,
   ResolvableNumberSchema,
   ResolvableRecordSchema,
-  StringSchema,
-  type NodeTree,
-  type Props,
-  type Item,
+  ResolvableStringArraySchema,
+  ResolvableStringSchema,
   type Stack as StackType,
-  type DisplayStringType,
+  StringSchema,
 } from './types.ts'
 
 export { RootNode } from './contexts/NodeContext.tsx'

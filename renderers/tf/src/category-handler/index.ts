@@ -6,6 +6,7 @@ import { provider } from './provider.ts'
 import { utils } from '@reactiac/base-components'
 const { deepResolve } = utils
 import { none } from './none.ts'
+import type { TfRenderOptions } from '../types.ts'
 
 export const requiredSchema = (node: NodeTree, schemaField: string) => {
   const schema = (node._props as any)[schemaField]
@@ -25,7 +26,11 @@ const categoryHandlers: Props = {
 
 const ALL_CATEGORIES = Object.keys(categoryHandlers)
 
-export function handleCategory(tfRoot: Props, node: NodeTree) {
+export function handleCategory(
+  renderOptions: TfRenderOptions,
+  tfRoot: Props,
+  node: NodeTree,
+) {
   let category = deepResolve(node, node._props, '_category')
   if (!category) {
     category = ALL_CATEGORIES.find((k) => `_${k}` in node._props) || 'resource'
@@ -33,10 +38,15 @@ export function handleCategory(tfRoot: Props, node: NodeTree) {
   }
 
   const categoryFunction = categoryHandlers[category] as
-    | ((category: string, tfRoot: Props, node: NodeTree) => Props)
+    | ((
+      renderOptions: TfRenderOptions,
+      category: string,
+      tfRoot: Props,
+      node: NodeTree,
+    ) => Props)
     | undefined
   if (categoryFunction) {
-    categoryFunction(category, tfRoot, node)
+    categoryFunction(renderOptions, category, tfRoot, node)
   } else {
     throw new Error(`Category ${category} not found`)
   }

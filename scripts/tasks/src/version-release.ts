@@ -1,5 +1,5 @@
-import { projectRoot } from "./utils/projectRoot.ts";
-import { commitVersion } from "./utils/commitVersion.ts";
+import { projectRoot } from "../../../standalone/cli/src/utils/projectRoot.ts";
+import { commitVersion } from "../../../standalone/cli/src/utils/commitVersion.ts";
 
 export const updateReleaseVersion = () => {
   const version = commitVersion(projectRoot);

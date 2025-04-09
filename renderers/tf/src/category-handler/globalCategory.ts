@@ -3,8 +3,10 @@ import { mergician } from 'mergician'
 import { utils } from '@reactiac/base-components'
 const { deepResolve } = utils
 import { requiredSchema } from './index.ts'
+import type { TfRenderOptions } from '../types.ts'
 
 export const globalCategory = (
+  _renderOptions: TfRenderOptions,
   category: string,
   tfRoot: Props,
   node: NodeTree,
