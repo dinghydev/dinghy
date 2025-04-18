@@ -55,7 +55,7 @@ const EnableVersioning = (props: Props) => {
   return (
     <AwsS3BucketVersioning
       bucket={awsS3Bucket.id}
-      versioning_configuration={{ status: 'Enabled' }}
+      versioning_configuration={[{ status: 'Enabled' }]}
       {...props}
     />
   )

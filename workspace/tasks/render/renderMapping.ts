@@ -6,22 +6,21 @@ import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
 import { deepMerge } from '@std/collections/deep-merge'
+import { hostAppHome } from '../../utils/loadConfig.ts'
+import { createStage, createView } from '../../utils/stackUtils.ts'
 const debug = Debug('rendererMapping')
-const hostAppHome = Deno.env.get('HOST_APP_HOME')
 
 const writeFile = async (path: string, content: string) => {
-  const folder = dirname(path)
+  const filePath = `${hostAppHome}/${path}`
+  const folder = dirname(filePath)
   await Deno.mkdir(folder, { recursive: true })
-  await Deno.writeTextFile(path, content)
+  await Deno.writeTextFile(filePath, content)
 
-  const displayPath = hostAppHome
-    ? path.replace('/reactiac/workspace/project/app', hostAppHome)
-    : path
-  debug('rendered to', displayPath)
+  debug('rendered to', filePath)
   if (path.endsWith('stack-info.json')) {
-    console.log(chalk.green('saved stack info to:'), displayPath)
+    console.log(chalk.green('saved stack info to:'), filePath)
   } else {
-    console.log(chalk.green('rendered:'), displayPath)
+    console.log(chalk.green('rendered:'), filePath)
   }
 }
 
@@ -33,8 +32,9 @@ const json = async (app: any, options: any, args: any) => {
 
 const saveStackInfo = async (options: any, args: any, stackInfo: any) => {
   const outputPath = `${args.output}/${options.stack.id}-stack-info.json`
-  if (existsSync(outputPath)) {
-    const stackInfoText = await Deno.readTextFile(outputPath)
+  const outputFile = `${hostAppHome}/${outputPath}`
+  if (existsSync(outputFile)) {
+    const stackInfoText = await Deno.readTextFile(outputFile)
     if (stackInfoText) {
       const existingStackInfo = JSON.parse(stackInfoText)
       stackInfo = deepMerge(existingStackInfo, stackInfo)
@@ -57,10 +57,7 @@ const diagram = async (app: any, options: any, args: any) => {
   const renderView = async (viewString: string) => {
     let view = availableViews[viewString]
     if (!view) {
-      view = {
-        id: `${options.stack.id}-${viewString}`,
-        name: viewString,
-      }
+      view = createView(options.stack, viewString)
     }
     options.view = view
     const result = await renderDrawio(app, options)
@@ -68,7 +65,9 @@ const diagram = async (app: any, options: any, args: any) => {
     await writeFile(outputPath, result.result)
     renderedViews.push(viewString)
     collectedViews = result.views
-    stackInfo.views[view.id] = view
+    if (args['diagram-saveView']) {
+      stackInfo.views[view.id] = view
+    }
   }
   for (const viewString of selectedViews) {
     await renderView(viewString)
@@ -80,7 +79,9 @@ const diagram = async (app: any, options: any, args: any) => {
       }
     }
   }
-  await saveStackInfo(options, args, stackInfo)
+  if (Object.values(stackInfo.views).length) {
+    await saveStackInfo(options, args, stackInfo)
+  }
 }
 
 const tf = async (app: any, options: any, args: any) => {
@@ -97,21 +98,20 @@ const tf = async (app: any, options: any, args: any) => {
   const renderStage = async (stageString: string) => {
     let stage = availableStages[stageString]
     if (!stage) {
-      stage = {
-        id: `${options.stack.id}-${stageString}`,
-        name: stageString,
-      }
+      stage = createStage(options.stack, stageString)
     }
     options.stage = stage
     const result = await renderTf(app, options)
-    const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`
-    await writeFile(outputPath, result.result)
-    renderedStages.push(stageString)
-    stackInfo.stages[stage.id] = stage
-    if (!args.stage) {
-      for (const stageString of result.stages) {
-        if (!renderedStages.includes(stageString)) {
-          await renderStage(stageString)
+    if (result.result !== '{}') {
+      const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`
+      await writeFile(outputPath, result.result)
+      renderedStages.push(stageString)
+      stackInfo.stages[stage.id] = stage
+      if (!args.stage) {
+        for (const stageString of result.stages) {
+          if (!renderedStages.includes(stageString)) {
+            await renderStage(stageString)
+          }
         }
       }
     }
@@ -119,12 +119,15 @@ const tf = async (app: any, options: any, args: any) => {
   for (const stageString of selectedStages) {
     await renderStage(stageString)
   }
-  await saveStackInfo(options, args, stackInfo)
+  if (Object.values(stackInfo.stages).length) {
+    await saveStackInfo(options, args, stackInfo)
+  }
 }
 
 export const rendererMapping = {
   json: [json],
   drawio: [diagram],
   tf: [tf],
+  default: [diagram, tf],
   all: [json, diagram, tf],
 }

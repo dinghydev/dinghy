@@ -6,7 +6,7 @@ import type {
   Commands,
 } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
-import { reactiacAppHome } from "../../utils/loadConfig.ts";
+import { containerAppHome } from "../../utils/loadConfig.ts";
 import { streamCmd } from "../../utils/cmd.ts";
 import Debug from "debug";
 const debug = Debug("diagram:png");
@@ -34,7 +34,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   }
 
   if (!args.output.startsWith("/")) {
-    args.output = `${reactiacAppHome}/${args.output}`;
+    args.output = `${containerAppHome}/${args.output}`;
   }
 
   const drawioBin = args["drawio-bin"] ||

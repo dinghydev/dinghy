@@ -1,6 +1,6 @@
 import { execa } from "execa";
 import Debug from "debug";
-import { reactiacAppHome } from "./loadConfig.ts";
+import { containerAppHome } from "./loadConfig.ts";
 Debug.formatters.a = (v) => {
   return `[${v.join(" ")}]`;
 };
@@ -11,8 +11,8 @@ export const streamCmd = async (
   cwd?: string,
   exitOnFailure = true,
 ) => {
-  debug("running %a from %s", args, reactiacAppHome);
-  const workingDir = cwd || reactiacAppHome;
+  debug("running %a from %s", args, containerAppHome);
+  const workingDir = cwd || containerAppHome;
   if (exitOnFailure) {
     try {
       return await execa(args[0], args.slice(1), {

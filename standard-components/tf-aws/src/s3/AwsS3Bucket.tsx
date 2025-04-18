@@ -12,7 +12,7 @@ import { useTypedNode } from '@reactiac/base-components'
 export const AwsS3BucketInputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),
   bucket_prefix: ResolvableStringSchema.optional(),
-  force_destroy: ResolvableBooleanSchema.default(false).optional(),
+  force_destroy: ResolvableBooleanSchema.optional(),
   object_lock_enabled: ResolvableBooleanSchema.optional(),
 })
 

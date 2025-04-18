@@ -1,8 +1,8 @@
 {
   "name": "@reactiac/workspace",
   "tasks": {
-    "render": "deno run -A tasks/render.tsx",
-    "tf-generate": "deno run -A tasks/tf-generate.tsx"
+    "render": "deno run -A tasks/render/index.ts",
+    "tf-generate": "deno run -A tasks/tf-generate/index.ts"
   },
   "imports": {
     "@std/cli": "jsr:@std/cli@1.0.14",
@@ -17,6 +17,6 @@
     "zod": "npm:zod@3.24.2"
   },
   "exports": {
-    ".": "./tasks/render.tsx"
+    ".": "./tasks/render/index.ts"
   }
 }

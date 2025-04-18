@@ -46,8 +46,7 @@ tmp*
 # Copied files
 docker/release-base/fs-root/reactiac/deno.lock
 base/components/src/utils/stackUtils.ts
-workspace/utils/*
-!workspace/utils/renderMapping.ts
+workspace/utils
 
 # Optional eslint cache
 .eslintcache

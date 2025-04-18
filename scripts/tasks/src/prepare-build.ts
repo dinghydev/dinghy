@@ -11,6 +11,11 @@ if (import.meta.main) {
     "standalone/cli/src/utils/stackUtils.ts",
     "base/components/src/utils/stackUtils.ts",
   );
+  Deno.mkdirSync(`${projectRoot}/workspace/utils`, { recursive: true });
+  copyProjectFile(
+    "standalone/cli/src/utils/stackUtils.ts",
+    "workspace/utils/stackUtils.ts",
+  );
   copyProjectFile(
     "standalone/cli/src/utils/setupDebug.ts",
     "workspace/utils/setupDebug.ts",

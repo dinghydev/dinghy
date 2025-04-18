@@ -1,32 +1,33 @@
 import {
-  IacNodeProps,
-  ResolvableBooleanSchema,
+  type IacNodeProps,
   ResolvableRecordSchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.ts'
+import { aws } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 
 export const AwsS3BucketVersioningInputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),
-  versioning_configuration: ResolvableRecordSchema.optional(),
+  versioning_configuration: ResolvableRecordSchema.array().optional(),
 })
 
 export const AwsS3BucketVersioningOutputSchema = z.object({
   id: ResolvableStringSchema.optional(),
 })
 
-export type AwsS3BucketVersioningInputProps = z.infer<
-  typeof AwsS3BucketVersioningInputSchema
-> &
-  IacNodeProps
+export type AwsS3BucketVersioningInputProps =
+  & z.infer<
+    typeof AwsS3BucketVersioningInputSchema
+  >
+  & IacNodeProps
 
-export type AwsS3BucketVersioningOutputProps = z.infer<
-  typeof AwsS3BucketVersioningOutputSchema
-> &
-  AwsS3BucketVersioningInputProps
+export type AwsS3BucketVersioningOutputProps =
+  & z.infer<
+    typeof AwsS3BucketVersioningOutputSchema
+  >
+  & AwsS3BucketVersioningInputProps
 
 export function AwsS3BucketVersioning(props: AwsS3BucketVersioningInputProps) {
   return (

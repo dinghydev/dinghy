@@ -1,7 +1,7 @@
 import type { CommandOptions } from "../../types.ts";
 
 import { deepMerge } from "jsr:@std/collections/deep-merge";
-import { reactiacAppConfig } from "../../utils/loadConfig.ts";
+import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
 import { parseStacks } from "../../utils/stackUtils.ts";
 export const tfOptions: CommandOptions = {
   collect: ["tf-options"],
@@ -35,13 +35,14 @@ export const createTfOptions = (options: any) => {
 };
 
 export const parseTfOptions = (options: any) => {
-  const stacks = parseStacks(reactiacAppConfig.stacks, options.stack).stacks;
+  const stacks =
+    parseStacks("Todo", reactiacAppConfig.stacks, options.stack).stacks;
   const stack = options.stack
     ? stacks[options.stack]
     : Object.values(stacks)[0];
 
   const stackInfo = JSON.parse(Deno.readTextFileSync(
-    `${options.output}/${stack.id}-stack-info.json`,
+    `${hostAppHome}/${options.output}/${stack.id}-stack-info.json`,
   ));
   let stage: any = options.stage
     ? Object.values(stack.stages).find(

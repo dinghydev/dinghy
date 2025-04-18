@@ -1,5 +1,5 @@
 import * as fs from "@std/fs";
-import { resolve } from "@std/path";
+import { basename, resolve } from "@std/path";
 import * as yaml from "@std/yaml";
 import { parseArgs } from "@std/cli";
 import Debug from "debug";
@@ -15,13 +15,20 @@ const resolveHome = () => {
 };
 
 export const reactiacRc: Record<string, string> = {};
-export const reactiacAppHome = resolveHome();
+export const isInsideContainer = Deno.env.get("HOST_APP_HOME") !== undefined;
+export const hostAppHome = Deno.env.get("HOST_APP_HOME") || resolveHome();
+export const appHomeMount = `/reactiac/workspace/project/${
+  basename(hostAppHome)
+}`;
+export const containerAppHome = isInsideContainer
+  ? appHomeMount
+  : resolveHome();
 export const reactiacHome = Deno.env.get("REACTIAC_HOME") ||
   `${Deno.env.get("HOME")}/.reactiac`;
 
 export const reactiacAppConfig: any = {};
 function loadAppConfig() {
-  const configFile = `${reactiacAppHome}/app.yaml`;
+  const configFile = `${containerAppHome}/app.yaml`;
   if (!fs.existsSync(configFile)) {
     return;
   }
@@ -64,20 +71,22 @@ async function loadEnvFile(path: string) {
       const k = line.slice(0, index).trim();
       const v = line.slice(index + 1).trim();
       reactiacRc[k] = v;
-      Deno.env.set(k, v);
-      debug("loaded %s=* from %s", k, path);
+      if (Deno.env.get(k) === undefined) {
+        Deno.env.set(k, v);
+        debug("loaded %s=* from %s", k, path);
+      }
     }
   }
 }
 
 export async function loadConfig() {
   debug("reactiac home %s", reactiacHome);
-  debug("app home %s", reactiacAppHome);
+  debug("app home %s", containerAppHome);
   for (
     const file of [
+      `${containerAppHome}/.reactiacrc.local`,
+      `${containerAppHome}/.reactiacrc`,
       `${reactiacHome}rc`,
-      `${reactiacAppHome}/.reactiacrc`,
-      `${reactiacAppHome}/.reactiacrc.local`,
     ]
   ) {
     await loadEnvFile(file);

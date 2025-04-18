@@ -3,20 +3,23 @@
   "configurations": [
     {
       "name": "render",
-      "program": "tasks/render.tsx",
+      "program": "tasks/render/index.ts",
       "cwd": "${workspaceFolder}/workspace",
       "args": [
         // "test",
         "--format",
-        "tf",
+        "all",
+        // "tf",
         // "--tf-generateImport",
+        // "--diagram-saveView",
         // "--stage",
         // "state",
         "--debug"
       ],
       "env": {
+        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
-        "APP_HOME": "${workspaceFolder}/examples/iac/cf-site"
+        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "type": "node",
       "request": "launch",
@@ -31,11 +34,12 @@
     },
     {
       "name": "tf-generate",
-      "program": "tasks/tf-generate.tsx",
+      "program": "tasks/tf-generate/index.ts",
       "cwd": "${workspaceFolder}/workspace",
       "args": [
         "--state-json-file",
-        "${workspaceFolder}/terraform-show.json",
+        // "${workspaceFolder}/tmp.terraform-show-cicd.json",
+        "${workspaceFolder}/tmp.terraform-show-ecs.json",
         "--debug"
       ],
       "env": {
@@ -59,17 +63,17 @@
       "args": [
         // "render",
         // "json",
-        "tf",
-        "generate",
+        // "tf",
+        // "generate",
         "--state-json-file",
-        "${workspaceFolder}/terraform-show.json",
+        "${workspaceFolder}/tmp.terraform-show-cicd.json",
         // "init",
         // "plan",
         // "apply",
         // "test",
         // "app",
         // "main",
-        // "-h",
+        "-h",
         "--debug"
       ],
       "env": {
@@ -114,6 +118,16 @@
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "args": ["deno task npm-build"],
       "cwd": "${workspaceFolder}/scripts/tasks",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "open dc",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "args": ["reactiac dc --debug"],
+      "cwd": "${workspaceFolder}/../reactiac-sites",
+      // "cwd": "${workspaceFolder}/examples/web/1-shape",
       "console": "integratedTerminal"
     },
     {

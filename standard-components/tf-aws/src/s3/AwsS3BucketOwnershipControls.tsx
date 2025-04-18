@@ -5,7 +5,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.ts'
+import { aws } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 
@@ -18,15 +18,17 @@ export const AwsS3BucketOwnershipControlsOutputSchema = z.object({
   id: ResolvableStringSchema.optional(),
 })
 
-export type AwsS3BucketOwnershipControlsInputProps = z.infer<
-  typeof AwsS3BucketOwnershipControlsInputSchema
-> &
-  IacNodeProps
+export type AwsS3BucketOwnershipControlsInputProps =
+  & z.infer<
+    typeof AwsS3BucketOwnershipControlsInputSchema
+  >
+  & IacNodeProps
 
-export type AwsS3BucketOwnershipControlsOutputProps = z.infer<
-  typeof AwsS3BucketOwnershipControlsOutputSchema
-> &
-  AwsS3BucketOwnershipControlsInputProps
+export type AwsS3BucketOwnershipControlsOutputProps =
+  & z.infer<
+    typeof AwsS3BucketOwnershipControlsOutputSchema
+  >
+  & AwsS3BucketOwnershipControlsInputProps
 
 export function AwsS3BucketOwnershipControls(
   props: AwsS3BucketOwnershipControlsInputProps,

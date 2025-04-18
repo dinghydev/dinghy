@@ -1,11 +1,9 @@
 import {
-  IacNodeProps,
-  ResolvableBooleanSchema,
-  ResolvableRecordSchema,
+  type IacNodeProps,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.ts'
+import { aws } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 
@@ -18,15 +16,17 @@ export const AwsS3BucketAclOutputSchema = z.object({
   id: ResolvableStringSchema.optional(),
 })
 
-export type AwsS3BucketAclInputProps = z.infer<
-  typeof AwsS3BucketAclInputSchema
-> &
-  IacNodeProps
+export type AwsS3BucketAclInputProps =
+  & z.infer<
+    typeof AwsS3BucketAclInputSchema
+  >
+  & IacNodeProps
 
-export type AwsS3BucketAclOutputProps = z.infer<
-  typeof AwsS3BucketAclOutputSchema
-> &
-  AwsS3BucketAclInputProps
+export type AwsS3BucketAclOutputProps =
+  & z.infer<
+    typeof AwsS3BucketAclOutputSchema
+  >
+  & AwsS3BucketAclInputProps
 
 export function AwsS3BucketAcl(props: AwsS3BucketAclInputProps) {
   return (

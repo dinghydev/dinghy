@@ -1,6 +1,6 @@
 import { parseArgs } from "@std/cli";
 import Debug from "debug";
-import { configGet, reactiacAppHome } from "./loadConfig.ts";
+import { configGet } from "./loadConfig.ts";
 const debug = Debug("parseOptions");
 
 export const OPTIONS_TYPES = ["boolean", "string", "number", "collect"];
@@ -58,12 +58,8 @@ export const parseOptions = (
     }
   }
 
-  if (options.output) {
-    if (!options.output.startsWith("/")) {
-      options.output = `${reactiacAppHome}/${options.output}`;
-    }
-  } else {
-    options.output = `${reactiacAppHome}/output`;
+  if (!options.output) {
+    options.output = "output";
   }
 
   debug("parsed options %O", options);

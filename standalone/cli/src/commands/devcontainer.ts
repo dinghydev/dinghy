@@ -8,10 +8,10 @@ import type {
 } from "../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
 import Debug from "debug";
-import { configGet, reactiacAppHome, reactiacRc } from "../utils/loadConfig.ts";
-import { streamCmd } from ".././utils/cmd.ts";
+import { appHomeMount, configGet, hostAppHome } from "../utils/loadConfig.ts";
 import { configGetDockerImage } from "../utils/dockerConfig.ts";
 import { execa } from "execa";
+import { getDockerEnvs, getDockerMounts } from "../utils/dockerUtils.ts";
 const debug = Debug("init");
 
 const options: CommandOptions = {
@@ -44,7 +44,9 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       reject: false,
     });
     if (result.exitCode !== 0) {
-      console.log(`Config generated at ${reactiacAppHome}/.devcontainer.json}`);
+      console.log(
+        `Config generated at ${hostAppHome}/.devcontainer.json}`,
+      );
       console.log(
         `Failed to open devcontainer, make sure it has been installed correctly https://code.visualstudio.com/docs/devcontainers/devcontainer-cli#_installation`,
       );
@@ -57,11 +59,8 @@ export default {
   [RUN_SYMBOL]: run,
 } as Command;
 
-export const CONTAINER_PROJECT_FOLDER = "/reactiac/workspace/project";
-export const CONTAINER_APP_HOME = `${CONTAINER_PROJECT_FOLDER}/app`;
-
 function prepareConfig(args: CommandArgs) {
-  const configFolder = `${reactiacAppHome}/.devcontainer`;
+  const configFolder = `${hostAppHome}/.devcontainer`;
   if (existsSync(configFolder)) {
     debug(
       "use existing .devcontainer config folder, skip generating .devcontainer.json",
@@ -69,52 +68,32 @@ function prepareConfig(args: CommandArgs) {
     return;
   }
 
-  const configFile = `${reactiacAppHome}/.devcontainer.json`;
+  const configFile = `${hostAppHome}/.devcontainer.json`;
   const config = configGet(["devcontainer", "json"]) || {};
-  config.name ??= reactiacAppHome.split("/").pop() as string;
+  config.name ??= hostAppHome.split("/").pop() as string;
   config.runArgs ??= ["--name", config.name];
   if (!config.build) {
     config.image = configGetDockerImage();
   }
 
-  config.containerEnv ??= {};
-  const envs = Object.entries(reactiacRc);
-  if (envs.length > 0) {
-    for (const [key, value] of envs) {
-      config.containerEnv[key] = value;
-    }
-  }
+  config.containerEnv = getDockerEnvs(config.containerEnv || {});
+  config.containerEnv.DOCKER_IMAGE = Deno.env.get("DOCKER_IMAGE") ||
+    config.image;
 
-  config.mounts ??= [];
+  config.mounts ??= getDockerMounts([
+    ...(args.mounts || []).map((mount) => ({
+      source: mount.split(":")[0],
+      target: mount.split(":")[1],
+    })),
+    {
+      source: "deno.jsonc",
+      target: "/reactiac/workspace/deno.jsonc",
+    },
+  ]).map((mount) => `source=${mount.source},target=${mount.target},type=bind`);
 
-  const addMountIfExists = (source: string, target: string) => {
-    if (existsSync(source)) {
-      config.mounts.push(`source=${source},target=${target},type=bind`);
-    }
-  };
-  addMountIfExists(
-    `${reactiacAppHome}/deno.jsonc`,
-    "/reactiac/workspace/deno.jsonc",
-  );
-  addMountIfExists(reactiacAppHome, reactiacAppHome);
-  addMountIfExists(`${reactiacAppHome}/deno.lock`, "/reactiac/deno.lock");
-  addMountIfExists(`${Deno.env.get("HOME")}/.ssh`, "/root/.ssh");
-  addMountIfExists(`${Deno.env.get("HOME")}/.npmrc`, "/root/.npmrc");
-  if (args.mounts) {
-    for (const mount of args.mounts) {
-      const [source, target] = mount.split(":");
-      addMountIfExists(resolve(source), target);
-    }
-  }
-
-  config.containerEnv.HOST_APP_HOME = reactiacAppHome;
-  config.containerEnv.APP_HOME = CONTAINER_APP_HOME;
-  config.workspaceMount ??=
-    `source=${reactiacAppHome},target=${CONTAINER_APP_HOME},type=bind`;
-
-  const vscodeConfigExist = existsSync(`${reactiacAppHome}/.vscode`);
+  const vscodeConfigExist = existsSync(`${hostAppHome}/.vscode`);
   config.workspaceFolder ??= args.workspace ||
-    (vscodeConfigExist ? CONTAINER_APP_HOME : CONTAINER_PROJECT_FOLDER);
+    (vscodeConfigExist ? appHomeMount : dirname(appHomeMount));
 
   config.onCreateCommand = "on-devcontainer-create.ts";
 

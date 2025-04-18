@@ -22,18 +22,18 @@ export { default as AwsECSCluster } from './AwsECSCluster.tsx'
 export { default as AwsECSService } from './AwsECSService.tsx'
 export { default as AwsECSContainer } from './AwsECSContainer.tsx'
 export { AwsS3Bucket, useAwsS3Bucket } from './s3/AwsS3Bucket.tsx'
-export { AwsS3BucketVersioning } from './AwsS3BucketVersioning.tsx'
+export { AwsS3BucketVersioning } from './s3/AwsS3BucketVersioning.tsx'
 export { AwsS3BucketPolicy } from './s3/AwsS3BucketPolicy.tsx'
 export { S3Backend } from './s3/S3Backend.tsx'
 export { S3CloudfrontSite } from './s3/S3CloudfrontSite.tsx'
 export { LogBucket } from './s3/LogBucket.tsx'
-export { AwsS3BucketLogging } from './AwsS3BucketLogging.tsx'
-export { AwsS3BucketAcl } from './AwsS3BucketAcl.tsx'
+export { AwsS3BucketLogging } from './s3/AwsS3BucketLogging.tsx'
+export { AwsS3BucketAcl } from './s3/AwsS3BucketAcl.tsx'
 export {
   DataAwsIamPolicyDocument,
   useDataAwsIamPolicyDocument,
 } from './iam/DataAwsIamPolicyDocument.tsx'
-export { AwsS3BucketOwnershipControls } from './AwsS3BucketOwnershipControls.tsx'
+export { AwsS3BucketOwnershipControls } from './s3/AwsS3BucketOwnershipControls.tsx'
 export { AwsDynamodbTable } from './AwsDynamodbTable.tsx'
 export { AwsBackendS3 } from './AwsBackendS3.tsx'
 export {

@@ -9,7 +9,7 @@ task_name="$1"
 # Shift to remove the first argument, leaving remaining args in $@
 shift
 
-deno run \
-  --allow-all \
-  --cached-only \
-  tasks/${task_name}.tsx $@
+deno task \
+  --config /reactiac/workspace/deno.jsonc \
+  --frozen=true \
+  ${task_name} $@

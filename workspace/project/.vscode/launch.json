@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "render",
-      "program": "tasks/render.tsx",
+      "program": "tasks/render/index.ts",
       "cwd": "/reactiac/workspace",
       "args": [
         // "--debug"
