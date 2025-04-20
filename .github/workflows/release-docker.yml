@@ -69,7 +69,6 @@ jobs:
           cd scripts/tasks
           docker run --privileged --rm tonistiigi/binfmt --install linux/arm64
           
-          deno task version-release
           deno task docker-build-arm64
           deno task docker-build-amd64
         env:

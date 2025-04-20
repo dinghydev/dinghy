@@ -35,8 +35,14 @@ export const getDockerHostPath = (path: string) =>
   path.startsWith("/") ? path : resolve(hostAppHome, path);
 
 export function getDockerEnvs(appEnvs: Env = {}) {
-  // TODO: get AWS_* from Deno.env.toObject
+  const awsEnvs = Object.entries(Deno.env.toObject()).filter(([key]) =>
+    key.startsWith("AWS_")
+  ).reduce((acc, [key, value]) => {
+    acc[key] = value;
+    return acc;
+  }, {});
   return {
+    ...awsEnvs,
     ...reactiacRc,
     APP_HOME: appHomeMount,
     HOST_APP_HOME: hostAppHome,

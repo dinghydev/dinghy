@@ -13,7 +13,7 @@ export { default as AwsPrivateSubnet } from './AwsPrivateSubnet.tsx'
 export { type AwsLbInputProps, default as AwsLb } from './AwsLb.tsx'
 export { useAwsSubnet, useAwsSubnets } from './vpc/AwsSubnet.tsx'
 export { AwsRegion, useAwsRegion } from './AwsRegion.tsx'
-export { default as DataAwsVpc } from './DataAwsVpc.tsx'
+export { DataAwsVpc } from './vpc/DataAwsVpc.tsx'
 export { default as AwsInstance } from './AwsInstance.tsx'
 export { default as AwsPostgres } from './AwsPostgres.tsx'
 

@@ -8,13 +8,13 @@
       "args": [
         // "test",
         "--format",
-        "all",
+        "all"
         // "tf",
         // "--tf-generateImport",
         // "--diagram-saveView",
         // "--stage",
         // "state",
-        "--debug"
+        // "--debug"
       ],
       "env": {
         // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
@@ -40,6 +40,8 @@
         "--state-json-file",
         // "${workspaceFolder}/tmp.terraform-show-cicd.json",
         "${workspaceFolder}/tmp.terraform-show-ecs.json",
+        // "--app-tsx-file",
+        // "${workspaceFolder}/test.tsx",
         "--debug"
       ],
       "env": {
@@ -63,24 +65,25 @@
       "args": [
         // "render",
         // "json",
-        // "tf",
+        "tf",
         // "generate",
-        "--state-json-file",
-        "${workspaceFolder}/tmp.terraform-show-cicd.json",
-        // "init",
+        // "--state-json-file",
+        // "${workspaceFolder}/tmp.terraform-show-cicd.json",
+        "init",
         // "plan",
         // "apply",
         // "test",
         // "app",
         // "main",
-        "-h",
+        // "-h",
         "--debug"
       ],
       "env": {
         // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/examples/iac/cf-site"
-        "APP_HOME": "${workspaceFolder}"
+        // "APP_HOME": "${workspaceFolder}"
+        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "type": "node",
       "request": "launch",

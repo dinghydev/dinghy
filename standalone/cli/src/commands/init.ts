@@ -74,7 +74,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     console.log(chalk.grey(`  created folder ${projectHome}`));
   }
 
-  await generateFile(args, projectHome, "App.tsx", "app.txt");
+  await generateFile(args, projectHome, "app.tsx", "app.txt");
   await generateFile(args, projectHome, "README.md", "readme.txt");
 
   if (args.github) {

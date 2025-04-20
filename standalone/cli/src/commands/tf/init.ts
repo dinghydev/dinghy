@@ -4,6 +4,7 @@ import { runTf } from "./runTf.ts";
 import { createTfOptions, parseTfOptions } from "./tfOptions.ts";
 import process from "node:process";
 import confirm from "@inquirer/confirm";
+import { hostAppHome } from "../../utils/loadConfig.ts";
 
 const options: any = createTfOptions({
   boolean: ["auto-create-backend"],
@@ -94,10 +95,6 @@ const createBackend = async (
     tfVersion,
     args,
   );
-  //todo:
-  // 1. run tf init
-  // 1. run tf apply to create bucket
-  // Deno.exit((await runTfInit(args)).result.exitCode);
 };
 
 const runTfInit = (
@@ -124,7 +121,9 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   if (result.exitCode !== 0) {
     if (result.stdout?.includes("StatusCode: 404")) {
       const tfModel = JSON.parse(
-        Deno.readTextFileSync(`${stagePath}/${stage.id}.tf.json`),
+        Deno.readTextFileSync(
+          `${hostAppHome}/${stagePath}/${stage.id}.tf.json`,
+        ),
       );
       const backendBucket = tfModel.terraform?.backend?.s3?.bucket;
       const backendResource = Object.entries(

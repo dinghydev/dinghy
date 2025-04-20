@@ -1,5 +1,6 @@
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
-import AwsSubnet, {
+import {
+  AwsSubnet,
   AwsSubnetInputProps,
   AwsSubnetOutputProps,
 } from './vpc/AwsSubnet.tsx'

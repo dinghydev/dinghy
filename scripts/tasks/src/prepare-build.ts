@@ -33,6 +33,10 @@ if (import.meta.main) {
     "workspace/utils/renderOptions.ts",
   );
   copyProjectFile(
+    "standalone/cli/src/utils/tfGenerateOptions.ts",
+    "workspace/utils/tfGenerateOptions.ts",
+  );
+  copyProjectFile(
     "deno.lock",
     "docker/release-base/fs-root/reactiac/deno.lock",
   );

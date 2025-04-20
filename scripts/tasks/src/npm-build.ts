@@ -1,7 +1,7 @@
 // https://github.com/denoland/dnt
 
 import { build, emptyDir } from "@deno/dnt";
-import { projectVersion } from "./utils/projectVersion.ts";
+import { projectVersion } from "../../../standalone/cli/src/utils/projectVersion.ts";
 import { forEachWorkspace } from "./utils/workspace.ts";
 
 forEachWorkspace(async (name, srcPath, targetPath, denoJsonc) => {

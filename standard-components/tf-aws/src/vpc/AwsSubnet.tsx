@@ -26,7 +26,7 @@ export type AwsSubnetOutputProps =
   & z.infer<typeof AwsSubnetOutputSchema>
   & AwsSubnetInputProps
 
-export default function AwsSubnet(props: AwsSubnetInputProps) {
+export function AwsSubnet(props: AwsSubnetInputProps) {
   return (
     <GroupSecurityGroup
       {...aws(props, AwsSubnetInputSchema, AwsSubnetOutputSchema)}

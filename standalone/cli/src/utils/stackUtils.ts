@@ -35,10 +35,11 @@ const parseStackFromId = (stackId: string): Stack => {
   return {
     id: stackId,
     name: name || undefined,
-    env: segments.slice(split).join("-"),
+    env: stackId === DEFAULT_ENV ? undefined : segments.slice(split).join("-"),
   };
 };
 
+export const DEFAULT_ENV = "app";
 export const DEFAULT_STAGE = "main";
 export const DEFAULT_VIEW = "overview";
 

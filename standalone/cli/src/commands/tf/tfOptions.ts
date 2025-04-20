@@ -36,7 +36,7 @@ export const createTfOptions = (options: any) => {
 
 export const parseTfOptions = (options: any) => {
   const stacks =
-    parseStacks("Todo", reactiacAppConfig.stacks, options.stack).stacks;
+    parseStacks("app", reactiacAppConfig.stacks, options.stack).stacks;
   const stack = options.stack
     ? stacks[options.stack]
     : Object.values(stacks)[0];
@@ -45,16 +45,16 @@ export const parseTfOptions = (options: any) => {
     `${hostAppHome}/${options.output}/${stack.id}-stack-info.json`,
   ));
   let stage: any = options.stage
-    ? Object.values(stack.stages).find(
+    ? Object.values(stack.stages || {}).find(
       (s: any) => s.name === options.stage,
     )
-    : Object.values(stack.stages)[0];
+    : Object.values(stack.stages || {})[0];
   if (!stage) {
     stage = {
       id: `${stack.id}-${options.stage}`,
       name: options.stage,
     };
-    stack.stages[options.stage] = stage;
+    (stack.stages || {})[options.stage] = stage;
   }
   const stagePath = `${options.output}/${stage.id}`;
   const tfVersion = stackInfo.tfImageVersion || "tf";

@@ -1,4 +1,5 @@
-import AwsSubnet, {
+import {
+  AwsSubnet,
   AwsSubnetInputProps,
   AwsSubnetOutputProps,
 } from './vpc/AwsSubnet.tsx'

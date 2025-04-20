@@ -1,7 +1,7 @@
 import { execa } from "execa";
 import { walk } from "jsr:@std/fs";
-import { projectVersion } from "./utils/projectVersion.ts";
-import { projectRoot } from "./utils/projectRoot.ts";
+import { projectVersion } from "../../../standalone/cli/src/utils/projectVersion.ts";
+import { projectRoot } from "../../../standalone/cli/src/utils/projectRoot.ts";
 
 const cliSrcFolder = `${projectRoot}/standalone/cli`;
 const cliOutputFolder = `${projectRoot}/build/cli`;

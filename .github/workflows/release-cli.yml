@@ -61,7 +61,6 @@ jobs:
         run: |
           cd scripts/tasks
         
-          deno task version-release
           deno task cli-publish
         env:
           DOCKER_PUSH: ${{ env.COMMIT_REV_COUNT }}

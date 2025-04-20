@@ -1,6 +1,10 @@
 {
   "name": "@reactiac/standard-components-tf-aws",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./s3": "./src/s3/index.ts",
+    "./vpc": "./src/vpc/index.ts",
+    "./iam": "./src/iam/index.ts",
+    "./cloudfront": "./src/cloudfront/index.ts"
   }
 }

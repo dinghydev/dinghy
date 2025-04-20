@@ -3,9 +3,11 @@ import { parse } from 'jsr:@std/yaml'
 import { ExampleSchema, ExampleType } from './types.ts'
 
 function findApps(basePath: string[] = [], result: string[] = []) {
-  for (const dirEntry of Deno.readDirSync(
-    `./packages/examples/${basePath.join('/')}`,
-  )) {
+  for (
+    const dirEntry of Deno.readDirSync(
+      `./packages/examples/${basePath.join('/')}`,
+    )
+  ) {
     if (dirEntry.isDirectory) {
       findApps([...basePath, dirEntry.name], result)
     } else if (dirEntry.isFile && dirEntry.name === 'App.ts') {
@@ -16,7 +18,7 @@ function findApps(basePath: string[] = [], result: string[] = []) {
 }
 
 function parseExampleSpec(path: string) {
-  const appFile = `./packages/examples/${path}/App.tsx`
+  const appFile = `./packages/examples/${path}/app.tsx`
   const specFile = `./packages/examples/${path}/example.yaml`
   let spec: ExampleType
   if (existsSync(specFile)) {
@@ -67,10 +69,10 @@ function parseExampleSpec(path: string) {
     },
     ...(path.includes('iac')
       ? {
-          iacOptions: {
-            provider: 'opentofu',
-          },
-        }
+        iacOptions: {
+          provider: 'opentofu',
+        },
+      }
       : {}),
   }
   return example
@@ -90,26 +92,33 @@ export function generateExamplesSourceCode() {
     file,
     `// GENERATED FILE: DO NOT EDIT
 import { ExampleType } from "./types.ts";
-${apps
-  .filter((app) => !app.exclude)
-  .map(
-    (example) =>
-      `import { default as ${example.packagePath!.replace(
-        /\W/g,
-        '_',
-      )} } from './${example.packagePath!}/App.ts'\n
-        //import ${example.packagePath!.replace(
-          /\W/g,
-          '_',
-        )}_spec from './${example.packagePath!}/example.yaml'`,
-  )
-  .join('\n')}
+${
+      apps
+        .filter((app) => !app.exclude)
+        .map(
+          (example) =>
+            `import { default as ${
+              example.packagePath!.replace(
+                /\W/g,
+                '_',
+              )
+            } } from './${example.packagePath!}/App.ts'\n
+        //import ${
+              example.packagePath!.replace(
+                /\W/g,
+                '_',
+              )
+            }_spec from './${example.packagePath!}/example.yaml'`,
+        )
+        .join('\n')
+    }
 
 export const allExamples: Record<string, ExampleType> = {
-${apps
-  .filter((app) => !app.private)
-  .map((example) => {
-    return `  '${example.slag}': {
+${
+      apps
+        .filter((app) => !app.private)
+        .map((example) => {
+          return `  '${example.slag}': {
           title: '${example.title}',
           slag: '${example.slag}',
           packagePath: '${example.packagePath}',
@@ -120,8 +129,9 @@ ${apps
           options: ${JSON.stringify(example.options)},
           App: ${example.packagePath!.replace(/\W/g, '_')}
           }`
-  })
-  .join(',\n')},
+        })
+        .join(',\n')
+    },
 }
 `,
   )

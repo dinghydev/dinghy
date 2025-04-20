@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Stack } from '@reactiac/base-components'
 import { ClientShape, Waf } from '@reactiac/standard-components-diagrams'
 

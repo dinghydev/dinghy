@@ -1,0 +1,32 @@
+import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
+import z from 'zod'
+import { AwsSubnet } from './AwsSubnet.tsx'
+
+export const DataAwsSubnetInputSchema = z.object({
+  filter: z.object({
+    name: z.string(),
+    values: z.string().array(),
+  }).array().optional(),
+})
+
+export const DataAwsSubnetOutputSchema = z.object({
+  arn: ResolvableStringSchema.optional(),
+})
+
+export type DataAwsSubnetInputProps =
+  & z.infer<typeof DataAwsSubnetInputSchema>
+  & IacNodeProps
+
+export type DataAwsSubnetOutputProps =
+  & z.infer<typeof DataAwsSubnetOutputSchema>
+  & DataAwsSubnetInputProps
+
+export function DataAwsSubnet(props: DataAwsSubnetInputProps) {
+  return (
+    <AwsSubnet
+      _inputSchema={DataAwsSubnetInputSchema}
+      _outputSchema={DataAwsSubnetOutputSchema}
+      {...props}
+    />
+  )
+}

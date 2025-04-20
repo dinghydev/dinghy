@@ -146,59 +146,59 @@ async function buildImage(
 
 async function dockerBuild(options: any) {
   console.log("Starting docker build ...", new Date().toISOString());
-  // const baseImage = await buildImage(
-  //   options,
-  //   "base",
-  //   options.baseImage,
-  //   packageBaseVersion,
-  // );
-  const baseImage =
-    "public.ecr.aws/f2v6q7q7/reactiac/reactiac:base-af9c52c6ef783030cd17942c6d0c40ea-linux-arm64";
-  // const releaseBaseImage = await buildImage(
-  //   options,
-  //   "release-base",
-  //   baseImage,
-  //   packageBaseVersion,
-  // );
-  const releaseBaseImage =
-    "public.ecr.aws/f2v6q7q7/reactiac/reactiac:release-base-6e726a5e8a1b6f8270fa7ea4fb806f93-linux-arm64";
+  const baseImage = await buildImage(
+    options,
+    "base",
+    options.baseImage,
+    packageBaseVersion,
+  );
+  // const baseImage =
+  //   "public.ecr.aws/f2v6q7q7/reactiac/reactiac:base-af9c52c6ef783030cd17942c6d0c40ea-linux-arm64";
+  const releaseBaseImage = await buildImage(
+    options,
+    "release-base",
+    baseImage,
+    packageBaseVersion,
+  );
+  // const releaseBaseImage =
+  //   "public.ecr.aws/f2v6q7q7/reactiac/reactiac:release-base-6e726a5e8a1b6f8270fa7ea4fb806f93-linux-arm64";
 
   const tfVersion = JSON.parse(
     await Deno.readTextFile(
       `${projectRoot}/docker/tf/version.json`,
     ),
   );
-  // const tfImage = await buildImage(
-  //   options,
-  //   "tf",
-  //   baseImage,
-  //   packageBaseVersion,
-  //   [
-  //     "--build-arg",
-  //     `TERRAFORM_VERSION=${tfVersion.terraform}`,
-  //     "--build-arg",
-  //     `TERRAFORM_AWS_PROVIDER_VERSION=${tfVersion.awsProvider}`,
-  //   ],
-  // );
-  const tfImage =
-    "public.ecr.aws/f2v6q7q7/reactiac/reactiac:tf-d910edfbc099f9d0c55c81314d92aeb8-linux-arm64";
+  const tfImage = await buildImage(
+    options,
+    "tf",
+    baseImage,
+    packageBaseVersion,
+    [
+      "--build-arg",
+      `TERRAFORM_VERSION=${tfVersion.terraform}`,
+      "--build-arg",
+      `TERRAFORM_AWS_PROVIDER_VERSION=${tfVersion.awsProvider}`,
+    ],
+  );
+  // const tfImage =
+  //   "public.ecr.aws/f2v6q7q7/reactiac/reactiac:tf-d910edfbc099f9d0c55c81314d92aeb8-linux-arm64";
   let tfImageVersion = tfImage.split(":")[1];
   if (options.arch !== "amd64") {
     const stringToRemove = `-linux-${options.arch}`;
     tfImageVersion = tfImageVersion.replace(stringToRemove, "");
   }
-  // const dependenciesImage = await buildImage(
-  //   options,
-  //   "dependencies",
-  //   releaseBaseImage,
-  //   packageBaseVersion,
-  //   [
-  //     "--build-arg",
-  //     `TF_IMAGE_VERSION=${tfImageVersion}`,
-  //   ],
-  // );
-  const dependenciesImage =
-    "public.ecr.aws/f2v6q7q7/reactiac/reactiac:dependencies-1f7b694cb4011d2419f4efeb6bcfbd99-linux-arm64";
+  const dependenciesImage = await buildImage(
+    options,
+    "dependencies",
+    releaseBaseImage,
+    packageBaseVersion,
+    [
+      "--build-arg",
+      `TF_IMAGE_VERSION=${tfImageVersion}`,
+    ],
+  );
+  // const dependenciesImage =
+  //   "public.ecr.aws/f2v6q7q7/reactiac/reactiac:dependencies-1f7b694cb4011d2419f4efeb6bcfbd99-linux-arm64";
 
   await buildImage(
     options,

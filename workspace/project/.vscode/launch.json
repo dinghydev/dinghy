@@ -6,7 +6,7 @@
       "program": "tasks/render/index.ts",
       "cwd": "/reactiac/workspace",
       "args": [
-        // "--debug"
+        "--debug"
       ],
       "env": {},
       "type": "node",
