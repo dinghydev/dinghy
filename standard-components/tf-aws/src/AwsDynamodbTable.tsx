@@ -23,15 +23,17 @@ export const AwsDynamodbTableOutputSchema = z.object({
   stream_arn: ResolvableStringSchema.optional(),
 })
 
-export type AwsDynamodbTableInputProps = z.infer<
-  typeof AwsDynamodbTableInputSchema
-> &
-  IacNodeProps
+export type AwsDynamodbTableInputProps =
+  & z.output<
+    typeof AwsDynamodbTableInputSchema
+  >
+  & IacNodeProps
 
-export type AwsDynamodbTableOutputProps = z.infer<
-  typeof AwsDynamodbTableOutputSchema
-> &
-  AwsDynamodbTableInputProps
+export type AwsDynamodbTableOutputProps =
+  & z.output<
+    typeof AwsDynamodbTableOutputSchema
+  >
+  & AwsDynamodbTableInputProps
 
 export function AwsDynamodbTable(props: AwsDynamodbTableInputProps) {
   return (

@@ -17,13 +17,13 @@ export const AwsS3BucketAclOutputSchema = z.object({
 })
 
 export type AwsS3BucketAclInputProps =
-  & z.infer<
+  & z.output<
     typeof AwsS3BucketAclInputSchema
   >
   & IacNodeProps
 
 export type AwsS3BucketAclOutputProps =
-  & z.infer<
+  & z.output<
     typeof AwsS3BucketAclOutputSchema
   >
   & AwsS3BucketAclInputProps

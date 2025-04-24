@@ -12,8 +12,9 @@ export const AwsInstanceOutputSchema = z.object({
   ami: ResolvableStringSchema.optional(),
 })
 
-export type AwsInstanceInputProps = z.infer<typeof AwsInstanceInputSchema> &
-  IacNodeProps
+export type AwsInstanceInputProps =
+  & z.output<typeof AwsInstanceInputSchema>
+  & IacNodeProps
 
 export default function AwsInstance(props: AwsInstanceInputProps) {
   return (

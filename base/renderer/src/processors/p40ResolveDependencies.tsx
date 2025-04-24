@@ -42,8 +42,7 @@ function findNodeById(node: NodeTree, id: string): NodeTree {
 }
 
 function resolveFromBase(base: NodeTree, spec: string) {
-  let resolved =
-    findNodeById(base, spec) ||
+  let resolved = findNodeById(base, spec) ||
     findNodeByTitle(base, spec) ||
     findNodeByTag(base, spec)
   if (!resolved && base._parent) {
@@ -61,8 +60,8 @@ function resolveNode(
     typeof spec === 'undefined'
       ? node._parent!._props._id
       : typeof spec === 'object'
-        ? ((spec as unknown as NodeTree)._props._id as string)
-        : (spec as string)
+      ? ((spec as unknown as NodeTree)._props._id as string)
+      : (spec as string)
   ) as string
   const resolved = resolveFromBase(node, id)
   if (!resolved) {
@@ -93,7 +92,7 @@ function resolveDependencies(rootNode: NodeTree, node: NodeTree) {
   }
 }
 
-export const p30ResolveDependencies = (
+export const p40ResolveDependencies = (
   container: HostContainer<unknown, unknown>,
 ) => {
   const rootNode = (container.rootElement as any).props._node

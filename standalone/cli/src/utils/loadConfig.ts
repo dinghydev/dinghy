@@ -70,9 +70,9 @@ async function loadEnvFile(path: string) {
     if (index > 0 && !line.startsWith("#")) {
       const k = line.slice(0, index).trim();
       const v = line.slice(index + 1).trim();
-      reactiacRc[k] = v;
       if (Deno.env.get(k) === undefined) {
         Deno.env.set(k, v);
+        reactiacRc[k] = v;
         debug("loaded %s=* from %s", k, path);
       }
     }

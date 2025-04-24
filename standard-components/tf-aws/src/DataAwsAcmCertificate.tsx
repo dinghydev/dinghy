@@ -14,13 +14,13 @@ export const DataAwsAcmCertificateOutputSchema = z.object({
 })
 
 export type DataAwsAcmCertificateInputProps =
-  & z.infer<
+  & z.output<
     typeof DataAwsAcmCertificateInputSchema
   >
   & IacNodeProps
 
 export type DataAwsAcmCertificateOutputProps =
-  & z.infer<
+  & z.output<
     typeof DataAwsAcmCertificateOutputSchema
   >
   & DataAwsAcmCertificateInputProps

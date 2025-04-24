@@ -9,24 +9,6 @@ import { handleCategory } from './category-handler/index.ts'
 import type { HostContainer, Output } from '@reactiac/base-renderer'
 import type { TfRenderOptions } from './types.ts'
 
-const resolveValue = (node: NodeTree, value: ReactElement): ReactElement => {
-  if (typeof value === 'function') {
-    return resolveValue(node, (value as any)(node))
-  }
-  if (Array.isArray(value)) {
-    const array = value as any
-    return array.map((v: any): Props => resolveValue(node, v) as any)
-  }
-  if (typeof value === 'object') {
-    const object = value as any
-    for (const key of Object.keys(object)) {
-      object[key] = resolveValue(node, object[key])
-    }
-    return object
-  }
-  return value
-}
-
 const isStageMatch = (stage: Item, currentStage?: any): boolean => {
   const stageName = currentStage || 'main'
   if (Array.isArray(stageName)) {

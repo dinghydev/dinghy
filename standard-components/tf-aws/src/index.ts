@@ -43,8 +43,8 @@ export {
 export { AwsCloudfrontOriginAccessIdentity } from './cloudfront/AwsCloudfrontOriginAccessIdentity.tsx'
 export { AwsCloudfrontOriginAccessControl } from './cloudfront/AwsCloudfrontOriginAccessControl.tsx'
 export { CloudfrontSite } from './cloudfront/CloudfrontSite.tsx'
-export { DataAwsRoute53Zone } from './DataAwsRoute53Zone.tsx'
-export { AwsRoute53Record } from './AwsRoute53Record.tsx'
+export { DataAwsRoute53Zone } from './route53/DataAwsRoute53Zone.tsx'
+export { AwsRoute53Record } from './route53/AwsRoute53Record.tsx'
 export { AwsAcmCertificate } from './AwsAcmCertificate.tsx'
 export { DataAwsAcmCertificate } from './DataAwsAcmCertificate.tsx'
 export {

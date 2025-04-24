@@ -7,11 +7,46 @@ import Debug from 'debug'
 const debug = Debug('parseResources')
 import type { Element } from './types.ts'
 
+const normalizeInputResources = (value: any): any => {
+  if (typeof value === 'string') {
+    if (value === '') {
+      return undefined
+    }
+    if (value.includes('$')) {
+      return value.replaceAll('$', '${"$"}')
+    }
+  }
+  if (value === null) {
+    return undefined
+  }
+  if (Array.isArray(value)) {
+    const arrayValue = value.map(normalizeInputResources).filter((v) =>
+      v !== undefined
+    )
+    if (arrayValue.length === 0) {
+      return undefined
+    }
+    return arrayValue
+  }
+  if (typeof value === 'object') {
+    const filteredEntries = Object.entries(value).map((
+      [key, value],
+    ) => [key === 'key' ? '__key' : key, normalizeInputResources(value)])
+      .filter(([_, value]) => value !== undefined)
+    if (filteredEntries.length === 0) {
+      return undefined
+    }
+    return Object.fromEntries(filteredEntries)
+  }
+  return value
+}
+
 export async function parseResources(_args: any, resources: any) {
   const elements: Element[] = []
   let region: string | undefined
-  for (const resource of resources) {
-    debug('parsing', resource.address)
+  const ignores: string[] = []
+  for (const resource of normalizeInputResources(resources)) {
+    debug('parsing', resource.name)
     const nameParts = resource.type.split('_')
     const isData = resource.mode === 'data'
     const dataPrefix = isData ? 'Data' : ''
@@ -21,15 +56,11 @@ export async function parseResources(_args: any, resources: any) {
       '',
     )
     const tag = dataPrefix + componentName
-    const namespace = nameParts.length > 2
-      ? nameParts[1]
-      : namespaceMapping[componentName as keyof typeof namespaceMapping]
+    const namespace =
+      namespaceMapping[componentName as keyof typeof namespaceMapping] ||
+      (nameParts.length > 2 ? nameParts[1] : undefined)
     if (!namespace) {
-      console.warn(
-        chalk.dim(
-          `Ignore resource ${resource.type} as no namespace mapping found`,
-        ),
-      )
+      ignores.push(`Ignore resource ${tag} as no namespace mapping found`)
       continue
     }
 
@@ -37,23 +68,20 @@ export async function parseResources(_args: any, resources: any) {
       `../standard-components/tf-aws/src/${namespace}/${tag}.tsx`
 
     if (!existsSync(componentDefinitionFile)) {
-      console.warn(
-        chalk.dim(
-          `Ignore resource ${resource.type} as no component definition file found`,
-        ),
+      ignores.push(
+        `Ignore resource ${tag} as no component definition file found`,
       )
       continue
     }
     const componentDefinition = await import(`../../${componentDefinitionFile}`)
     const inputSchema = componentDefinition[`${tag}InputSchema`]
     if (!inputSchema) {
-      console.warn(
-        chalk.dim(`Ignore resource ${resource.type} as no input schema found`),
-      )
+      ignores.push(`Ignore resource ${tag} as no input schema found`)
       continue
     }
-    debug('parsing %s from %O', componentName, resource.values)
-    const resourceInput = inputSchema.parse(resource.values)
+    const resourceValues = resource.instances[0].attributes
+    debug('parsing %s from %O', tag, resourceValues)
+    const resourceInput = inputSchema.parse(resourceValues)
     const attributes: any = {}
     const renderValue = (
       value: any,
@@ -62,21 +90,23 @@ export async function parseResources(_args: any, resources: any) {
       const valueType = typeof value
       switch (valueType) {
         case 'object': {
-          if (Array.isArray(value)) {
-            return value.map((subValue: any) => {
-              return renderValue(subValue, schema._def.innerType.element)
-            })
-          } else {
-            return value // TODO: render object based on schema
-            // const renderedValue: any = {}
-            // for (const [subKey, subValue] of Object.entries(value)) {
-            //   const renderedSubValue = renderValue(subValue, schema.shape[subKey])
-            //   if (renderedSubValue !== undefined || renderedSubValue !== null) {
-            //     renderedValue[subKey] = renderedSubValue
-            //   }
-            // }
-            // return renderedValue
-          }
+          // TODO: render object based on schema
+          return value
+          // if (Array.isArray(value)) {
+          //   return value.map((subValue: any) => {
+          //     return renderValue(subValue, schema._def.innerType.element)
+          //   }).filter((v: any) => v !== undefined)
+          // } else {
+          //   return removeEmptyString(value)
+          //   // const renderedValue: any = {}
+          //   // for (const [subKey, subValue] of Object.entries(value)) {
+          //   //   const renderedSubValue = renderValue(subValue, schema.shape[subKey])
+          //   //   if (renderedSubValue !== undefined || renderedSubValue !== null) {
+          //   //     renderedValue[subKey] = renderedSubValue
+          //   //   }
+          //   // }
+          //   // return renderedValue
+          // }
         }
         case 'boolean':
           if (value === false) {
@@ -87,12 +117,12 @@ export async function parseResources(_args: any, resources: any) {
           if (value === '') {
             return
           }
-          break
+        // deno-lint-ignore no-fallthrough
         case 'number':
           if (value === 0) {
             return
           }
-          break
+          /* eslint-disable no-case-declarations */
         default: {
           if (schema instanceof z.ZodDefault) {
             const defaultValue = schema._def.defaultValue()
@@ -110,25 +140,54 @@ export async function parseResources(_args: any, resources: any) {
         attributes[key] = renderedValue
       }
     }
-    debug('parsed %s as %O', componentName, resourceInput)
+    if (componentDefinition.importId) {
+      const importId = componentDefinition.importId(resourceValues)
+      if (importId) {
+        attributes['_importId'] = importId
+      }
+    }
+    if (
+      tag === 'DataAwsSecretsmanagerSecret' && attributes['name'] &&
+      attributes['arn']
+    ) {
+      delete attributes['arn']
+    }
+    if (
+      tag === 'AwsInstance' && attributes['user_data']
+    ) {
+      delete attributes['user_data']
+    }
+    debug('parsed %s as %O', tag, resourceInput)
 
     elements.push({ tag, namespace, attributes })
 
-    if (!region && !isData && resource.values.arn) {
-      const arnParts = resource.values.arn.split(':')
+    if (!region && !isData && resourceValues.arn) {
+      const arnParts = resourceValues.arn.split(':')
       if (arnParts[3]) {
-        region = resource.values.arn.split(':')[3]
-      } else if (resource.values.region) {
-        region = resource.values.region
+        region = resourceValues.arn.split(':')[3]
+      } else if (resourceValues.region) {
+        region = resourceValues.region
       }
     }
+  }
+
+  for (const ignore of ignores) {
+    console.warn(
+      chalk.dim(
+        ignore,
+      ),
+    )
   }
 
   if (!region) {
     console.error(chalk.red('No region detected from resources'))
     Deno.exit(1)
   }
-  elements.push({ tag: 'AwsRegion', attributes: { region } })
-
+  elements.push({
+    tag: 'AwsRegion',
+    attributes: {
+      region,
+    },
+  })
   return elements
 }

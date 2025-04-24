@@ -8,7 +8,7 @@ export const AwsWAFSchema = z.object({
   name: ResolvableStringSchema.optional(),
 })
 
-export type AwsWAFProps = z.infer<typeof AwsWAFSchema> & IacNodeProps
+export type AwsWAFProps = z.output<typeof AwsWAFSchema> & IacNodeProps
 
 export default function AwsWAF(props: AwsWAFProps) {
   return <Waf {...aws(props, AwsWAFSchema)} />

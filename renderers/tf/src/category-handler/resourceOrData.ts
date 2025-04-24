@@ -24,6 +24,7 @@ export const resourceOrData = (
   }
   let resolvedElement = deepResolve(node, tfElement)
   resolvedElement = schema.strict().parse(resolvedElement)
+  resolvedElement = removeDoubleUnderscorePrefix(resolvedElement)
   tfElements[node._props._id as any] = resolvedElement
   if (node._props?._importId && renderOptions.tf?.generateImport) {
     const importId = deepResolve(node, node._props, '_importId')
@@ -35,4 +36,14 @@ export const resourceOrData = (
       })
     }
   }
+}
+
+function removeDoubleUnderscorePrefix(element: any): any {
+  Object.keys(element).forEach((key) => {
+    if (key.startsWith('__')) {
+      element[key.slice(2)] = element[key]
+      delete element[key]
+    }
+  })
+  return element
 }

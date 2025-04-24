@@ -3,4 +3,5 @@ export type Element = {
   namespace?: string
   attributes: Record<string, any>
   children?: Element[]
+  import?: string
 }

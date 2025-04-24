@@ -2,7 +2,6 @@
 
 # Make the script exit on any error
 set -e
-cd /reactiac/workspace
 
 # Get the first argument as task_name
 task_name="$1"

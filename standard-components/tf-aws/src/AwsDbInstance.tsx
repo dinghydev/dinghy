@@ -26,8 +26,9 @@ export const AwsDbInstanceOuputSchema = z.object({
   arn: ResolvableNumberSchema.optional(),
 })
 
-export type AwsDbInstanceInputProps = z.infer<typeof AwsDbInstanceInputSchema> &
-  IacNodeProps
+export type AwsDbInstanceInputProps =
+  & z.output<typeof AwsDbInstanceInputSchema>
+  & IacNodeProps
 
 export default function AwsDbInstance(props: AwsDbInstanceInputProps) {
   return (

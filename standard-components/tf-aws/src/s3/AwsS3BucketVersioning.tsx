@@ -18,20 +18,26 @@ export const AwsS3BucketVersioningOutputSchema = z.object({
 })
 
 export type AwsS3BucketVersioningInputProps =
-  & z.infer<
+  & z.output<
     typeof AwsS3BucketVersioningInputSchema
   >
   & IacNodeProps
 
 export type AwsS3BucketVersioningOutputProps =
-  & z.infer<
+  & z.output<
     typeof AwsS3BucketVersioningOutputSchema
   >
   & AwsS3BucketVersioningInputProps
 
+export function importId(props: AwsS3BucketVersioningOutputProps) {
+  return `${props.bucket}`
+}
+
 export function AwsS3BucketVersioning(props: AwsS3BucketVersioningInputProps) {
+  const _importId = (node: any) => node._props.bucket
   return (
     <Shape
+      _importId={_importId}
       {...aws(
         props,
         AwsS3BucketVersioningInputSchema,

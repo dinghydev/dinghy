@@ -17,10 +17,11 @@ export const AwsLbOutputSchema = z.object({
   arn: ResolvableStringSchema.optional(),
 })
 
-export type AwsLbInputProps = z.infer<typeof AwsLbInputSchema> & IacNodeProps
+export type AwsLbInputProps = z.output<typeof AwsLbInputSchema> & IacNodeProps
 
-export type AwsLbOutputProps = z.infer<typeof AwsLbOutputSchema> &
-  AwsLbInputProps
+export type AwsLbOutputProps =
+  & z.output<typeof AwsLbOutputSchema>
+  & AwsLbInputProps
 
 export default function AwsLb(props: AwsLbInputProps) {
   return (

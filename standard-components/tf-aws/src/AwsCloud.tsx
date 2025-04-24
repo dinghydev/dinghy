@@ -15,7 +15,7 @@ export const AwsCloudInputSchema = IacNodeSchema.extend({
 })
 
 export type AwsCloudInputProps =
-  & z.infer<typeof AwsCloudInputSchema>
+  & z.input<typeof AwsCloudInputSchema>
   & IacNodeProps
 
 export default function AwsCloud(props: AwsCloudInputProps) {

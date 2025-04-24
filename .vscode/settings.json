@@ -1,4 +1,5 @@
 {
+  "terminal.integrated.scrollback": 50000,
   "deno.enable": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "denoland.vscode-deno",

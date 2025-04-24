@@ -16,15 +16,17 @@ export const AwsS3BucketPolicyInputSchema = z.object({
 
 export const AwsS3BucketPolicyOutputSchema = z.object({})
 
-export type AwsS3BucketPolicyInputProps = z.infer<
-  typeof AwsS3BucketPolicyInputSchema
-> &
-  IacNodeProps
+export type AwsS3BucketPolicyInputProps =
+  & z.output<
+    typeof AwsS3BucketPolicyInputSchema
+  >
+  & IacNodeProps
 
-export type AwsS3BucketPolicyOutputProps = z.infer<
-  typeof AwsS3BucketPolicyOutputSchema
-> &
-  AwsS3BucketPolicyInputProps
+export type AwsS3BucketPolicyOutputProps =
+  & z.output<
+    typeof AwsS3BucketPolicyOutputSchema
+  >
+  & AwsS3BucketPolicyInputProps
 
 export function AwsS3BucketPolicy(props: AwsS3BucketPolicyInputProps) {
   return (

@@ -14,13 +14,13 @@ export const DataAwsRoute53ZoneOutputSchema = z.object({
 })
 
 export type DataAwsRoute53ZoneInputProps =
-  & z.infer<
+  & z.output<
     typeof DataAwsRoute53ZoneInputSchema
   >
   & IacNodeProps
 
 export type DataAwsRoute53ZoneOutputProps =
-  & z.infer<
+  & z.output<
     typeof DataAwsRoute53ZoneOutputSchema
   >
   & DataAwsRoute53ZoneInputProps

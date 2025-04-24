@@ -8,17 +8,17 @@ import {
 import z from 'zod'
 import {
   AwsCloudfrontDistribution,
-  AwsCloudfrontOriginAccessControl,
-  AwsCloudfrontOriginAccessIdentity,
-  AwsRoute53Record,
-  useAwsS3Bucket,
-} from '../index.ts'
-import { useAwsCloudfrontDistribution } from '../AwsCloudfrontDistribution.tsx'
-import { useAwsRoute53Zone } from '../AwsRoute53Zone.tsx'
+  useAwsCloudfrontDistribution,
+} from '../AwsCloudfrontDistribution.tsx'
 import { useAwsAcmCertificate } from '../AwsAcmCertificate.tsx'
-import { useAwsCloudfrontOriginAccessIdentity } from './AwsCloudfrontOriginAccessIdentity.tsx'
-import { useAwsCloudfrontOriginAccessControl } from './AwsCloudfrontOriginAccessControl.tsx'
+import {
+  AwsCloudfrontOriginAccessControl,
+  useAwsCloudfrontOriginAccessControl,
+} from './AwsCloudfrontOriginAccessControl.tsx'
 import { useLogBucket } from '../s3/LogBucket.tsx '
+import { useAwsRoute53Zone } from '../route53/AwsRoute53Zone.tsx'
+import { AwsRoute53Record } from '../route53/index.ts'
+import { useAwsS3Bucket } from '../s3/index.ts'
 
 export const AwsCloudfrontDefaults = z.object({
   default_ttl: ResolvableNumberSchema.default(86400),

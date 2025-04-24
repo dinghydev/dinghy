@@ -8,10 +8,11 @@ import { useTypedNode } from '@reactiac/base-components'
 
 export const AwsRegionInputSchema = z.object({
   region: z.string().default('us-east-1'),
+  default_tags: z.record(z.string(), z.string()).optional(),
 })
 
 export type AwsRegionInputProps =
-  & z.infer<typeof AwsRegionInputSchema>
+  & z.input<typeof AwsRegionInputSchema>
   & IacNodeProps
 
 export function AwsRegion(props: AwsRegionInputProps) {

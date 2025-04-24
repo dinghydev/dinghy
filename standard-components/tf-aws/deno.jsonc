@@ -5,6 +5,9 @@
     "./s3": "./src/s3/index.ts",
     "./vpc": "./src/vpc/index.ts",
     "./iam": "./src/iam/index.ts",
-    "./cloudfront": "./src/cloudfront/index.ts"
+    "./cloudfront": "./src/cloudfront/index.ts",
+    "./secretsmanager": "./src/secretsmanager/index.ts",
+    "./dynamodb": "./src/dynamodb/index.ts",
+    "./ec2": "./src/ec2/index.ts"
   }
 }

@@ -13,15 +13,17 @@ export const DataAwsIamPolicyDocumentOutputSchema = z.object({
   json: z.any(),
 })
 
-export type DataAwsIamPolicyDocumentInputProps = z.infer<
-  typeof DataAwsIamPolicyDocumentInputSchema
-> &
-  IacNodeProps
+export type DataAwsIamPolicyDocumentInputProps =
+  & z.output<
+    typeof DataAwsIamPolicyDocumentInputSchema
+  >
+  & IacNodeProps
 
-export type DataAwsIamPolicyDocumentOutputProps = z.infer<
-  typeof DataAwsIamPolicyDocumentOutputSchema
-> &
-  DataAwsIamPolicyDocumentInputProps
+export type DataAwsIamPolicyDocumentOutputProps =
+  & z.output<
+    typeof DataAwsIamPolicyDocumentOutputSchema
+  >
+  & DataAwsIamPolicyDocumentInputProps
 
 export function DataAwsIamPolicyDocument(
   props: DataAwsIamPolicyDocumentInputProps,

@@ -1,7 +1,7 @@
 import type { NodeTree } from '@reactiac/base-components'
 import type { HostContainer } from '../types.ts'
 
-export const p40CollectViewsAndStages = (
+export const p50CollectViewsAndStages = (
   container: HostContainer<unknown, unknown>,
 ) => {
   const addIfNotExist = (field: string, value: string) => {

@@ -19,11 +19,11 @@ export const AwsSubnetOutputSchema = z.object({
 })
 
 export type AwsSubnetInputProps =
-  & z.infer<typeof AwsSubnetInputSchema>
+  & z.input<typeof AwsSubnetInputSchema>
   & IacNodeProps
 
 export type AwsSubnetOutputProps =
-  & z.infer<typeof AwsSubnetOutputSchema>
+  & z.output<typeof AwsSubnetOutputSchema>
   & AwsSubnetInputProps
 
 export function AwsSubnet(props: AwsSubnetInputProps) {

@@ -19,8 +19,12 @@ export function generateApp(_args: any, cloud: Element) {
     return Object.keys(imports).sort().map((namespace) =>
       `import {
   ${Array.from(imports[namespace]).join(',\n  ')}
-} from '@reactiac/standard-components-tf-aws${
-        namespace ? `/${namespace}` : ''
+} from '${
+        namespace.includes('/')
+          ? namespace
+          : `@reactiac/standard-components-tf-aws${
+            namespace ? `/${namespace}` : ''
+          }`
       }'`
     ).join('\n\n')
   }
@@ -29,7 +33,11 @@ export function generateApp(_args: any, cloud: Element) {
     return Object.entries(element.attributes || {}).map(([key, value]) => {
       if (typeof value === 'string') {
         if (value !== '') {
-          return `${key}="${value}"`
+          if (value.includes('"')) {
+            return `${key}={${JSON.stringify(value)}}`
+          } else {
+            return `${key}="${value}"`
+          }
         } else {
           return null
         }

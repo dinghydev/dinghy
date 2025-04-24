@@ -91,7 +91,9 @@ function prepareConfig(args: CommandArgs) {
     },
   ]).map((mount) => `source=${mount.source},target=${mount.target},type=bind`);
 
-  const vscodeConfigExist = existsSync(`${hostAppHome}/.vscode`);
+  const vscodeConfigCheckFile = `${hostAppHome}/.vscode/launch.json`;
+  const vscodeConfigExist = existsSync(vscodeConfigCheckFile) &&
+    Deno.readTextFileSync(vscodeConfigCheckFile).includes("reactiac");
   config.workspaceFolder ??= args.workspace ||
     (vscodeConfigExist ? appHomeMount : dirname(appHomeMount));
 

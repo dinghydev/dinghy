@@ -133,23 +133,10 @@ const parseStacksInput = (appName: string, stacksInput: Props): Stacks => {
   Object.keys(stacksOptions).map((stackId) => {
     const stackOptions = stacksOptions[stackId] as Props;
     if (stackOptions) {
-      if (stackOptions.stages) {
-        stacks[stackId] = populateStackDefaultItems({
-          ...parseStackFromId(stackId),
-          ...stackOptions,
-        });
-      } else {
-        Object.entries(stackOptions).map((entry) => {
-          const env = entry[0];
-          const id = `${stackId}-${env}`;
-          stacks[id] = populateStackDefaultItems({
-            id,
-            name: stackId,
-            env,
-            ...(entry[1] || {}),
-          });
-        });
-      }
+      stacks[stackId] = populateStackDefaultItems({
+        ...parseStackFromId(stackId),
+        ...stackOptions,
+      });
     } else {
       stacks[stackId] = populateStackDefaultItems(parseStackFromId(stackId));
     }

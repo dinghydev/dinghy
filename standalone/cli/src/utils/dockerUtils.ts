@@ -42,8 +42,8 @@ export function getDockerEnvs(appEnvs: Env = {}) {
     return acc;
   }, {});
   return {
-    ...awsEnvs,
     ...reactiacRc,
+    ...awsEnvs,
     APP_HOME: appHomeMount,
     HOST_APP_HOME: hostAppHome,
     HOST_USER_HOME,

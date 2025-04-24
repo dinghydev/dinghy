@@ -20,13 +20,13 @@ export const AwsS3BucketLoggingOutputSchema = z.object({
 })
 
 export type AwsS3BucketLoggingInputProps =
-  & z.infer<
+  & z.output<
     typeof AwsS3BucketLoggingInputSchema
   >
   & IacNodeProps
 
 export type AwsS3BucketLoggingOutputProps =
-  & z.infer<
+  & z.output<
     typeof AwsS3BucketLoggingOutputSchema
   >
   & AwsS3BucketLoggingInputProps

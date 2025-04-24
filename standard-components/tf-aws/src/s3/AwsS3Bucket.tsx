@@ -26,11 +26,11 @@ export const AwsS3BucketOutputSchema = z.object({
 })
 
 export type AwsS3BucketInputProps =
-  & z.infer<typeof AwsS3BucketInputSchema>
+  & z.input<typeof AwsS3BucketInputSchema>
   & IacNodeProps
 
 export type AwsS3BucketOutputProps =
-  & z.infer<typeof AwsS3BucketOutputSchema>
+  & z.output<typeof AwsS3BucketOutputSchema>
   & AwsS3BucketInputProps
 
 export function AwsS3Bucket(props: AwsS3BucketInputProps) {

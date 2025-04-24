@@ -14,10 +14,10 @@ export const AwsVpcOutputSchema = z.object({
   arn: ResolvableStringSchema.optional(),
 })
 
-export type AwsVpcInputProps = z.infer<typeof AwsVpcInputSchema> & IacNodeProps
+export type AwsVpcInputProps = z.output<typeof AwsVpcInputSchema> & IacNodeProps
 
 export type AwsVpcOutputProps =
-  & z.infer<typeof AwsVpcOutputSchema>
+  & z.output<typeof AwsVpcOutputSchema>
   & AwsVpcInputProps
 
 export function AwsVpc(props: AwsVpcInputProps) {

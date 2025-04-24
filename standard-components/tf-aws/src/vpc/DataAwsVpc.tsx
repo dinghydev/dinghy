@@ -11,11 +11,11 @@ export const DataAwsVpcOutputSchema = z.object({
 })
 
 export type DataAwsVpcInputProps =
-  & z.infer<typeof DataAwsVpcInputSchema>
+  & z.input<typeof DataAwsVpcInputSchema>
   & IacNodeProps
 
 export type DataAwsVpcOutputProps =
-  & z.infer<typeof DataAwsVpcOutputSchema>
+  & z.output<typeof DataAwsVpcOutputSchema>
   & DataAwsVpcInputProps
 
 export function DataAwsVpc(props: DataAwsVpcInputProps) {

@@ -20,10 +20,11 @@ export const AwsElasticacheClusterSchema = z.object({
   port: ResolvableNumberSchema.optional(),
 })
 
-export type AwsElasticacheClusterProps = z.infer<
-  typeof AwsElasticacheClusterSchema
-> &
-  IacNodeProps
+export type AwsElasticacheClusterProps =
+  & z.output<
+    typeof AwsElasticacheClusterSchema
+  >
+  & IacNodeProps
 
 export default function AwsElasticacheCluster(
   props: AwsElasticacheClusterProps,

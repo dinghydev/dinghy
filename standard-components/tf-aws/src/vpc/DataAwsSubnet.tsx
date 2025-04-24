@@ -3,6 +3,7 @@ import z from 'zod'
 import { AwsSubnet } from './AwsSubnet.tsx'
 
 export const DataAwsSubnetInputSchema = z.object({
+  vpc_id: ResolvableStringSchema.optional(),
   filter: z.object({
     name: z.string(),
     values: z.string().array(),
@@ -14,11 +15,11 @@ export const DataAwsSubnetOutputSchema = z.object({
 })
 
 export type DataAwsSubnetInputProps =
-  & z.infer<typeof DataAwsSubnetInputSchema>
+  & z.input<typeof DataAwsSubnetInputSchema>
   & IacNodeProps
 
 export type DataAwsSubnetOutputProps =
-  & z.infer<typeof DataAwsSubnetOutputSchema>
+  & z.output<typeof DataAwsSubnetOutputSchema>
   & DataAwsSubnetInputProps
 
 export function DataAwsSubnet(props: DataAwsSubnetInputProps) {

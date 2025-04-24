@@ -19,13 +19,13 @@ export const AwsS3BucketOwnershipControlsOutputSchema = z.object({
 })
 
 export type AwsS3BucketOwnershipControlsInputProps =
-  & z.infer<
+  & z.output<
     typeof AwsS3BucketOwnershipControlsInputSchema
   >
   & IacNodeProps
 
 export type AwsS3BucketOwnershipControlsOutputProps =
-  & z.infer<
+  & z.output<
     typeof AwsS3BucketOwnershipControlsOutputSchema
   >
   & AwsS3BucketOwnershipControlsInputProps

@@ -24,7 +24,7 @@ import {
   type AwsCloudfrontDistributionInputProps,
   useAwsCloudfrontDistribution,
 } from '../AwsCloudfrontDistribution.tsx'
-import { useAwsRoute53Zone } from '../AwsRoute53Zone.tsx'
+import { useAwsRoute53Zone } from '../route53/AwsRoute53Zone.tsx'
 
 export const S3CloudfrontSiteInputSchema = z.object({
   subdomain: ResolvableStringSchema,

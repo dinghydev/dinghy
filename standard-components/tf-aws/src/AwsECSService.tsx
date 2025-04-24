@@ -7,8 +7,9 @@ export const AwsECSServiceSchema = z.object({
   name: ResolvableStringSchema.optional(),
 })
 
-export type AwsECSServiceProps = z.infer<typeof AwsECSServiceSchema> &
-  IacNodeProps
+export type AwsECSServiceProps =
+  & z.output<typeof AwsECSServiceSchema>
+  & IacNodeProps
 
 export default function AwsECSService(props: AwsECSServiceProps) {
   return <GroupEc2InstanceContents {...aws(props, AwsECSServiceSchema)} />

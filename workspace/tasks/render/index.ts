@@ -11,6 +11,7 @@ import { rendererMapping } from './renderMapping.ts'
 import { deepMerge } from '@std/collections'
 import Debug from 'debug'
 import { createStack, parseStacks } from '@reactiac/base-components'
+import { loadStackSettings } from './loadStackSettings.ts'
 const debug = Debug('render')
 setupDebug()
 await loadConfig()
@@ -42,7 +43,7 @@ try {
   for (const appName of cmdOptions.app || listApps()) {
     const app = await loadApp(appName)
 
-    const options: any = deepMerge(reactiacAppConfig, {})
+    let options: any = deepMerge(reactiacAppConfig, {})
     if (cmdOptions['tf-generateImport']) {
       options.tf ??= {}
       options.tf.generateImport = true
@@ -60,6 +61,11 @@ try {
     } else {
       options.stack = Object.values(options.stacks)[0]
     }
+    const stackSettings = await loadStackSettings(options.stack.id)
+    if (stackSettings) {
+      options = deepMerge(options, stackSettings as any)
+    }
+    debug('stack settings %O', options)
     for (const formatString of cmdOptions.format || ['default']) {
       const renderers =
         rendererMapping[formatString as keyof typeof rendererMapping]

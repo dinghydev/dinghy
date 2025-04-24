@@ -13,9 +13,9 @@ function proxyNodeProps({ _props }: NodeTree) {
       const _outputSchema = (_props as any)
         ._outputSchema as ZodObject<ZodRawShape>
       if (_outputSchema && key in _outputSchema.shape) {
-        return `\${${
-          (_props as any)._category === 'data' ? 'data.' : ''
-        }${(_props as any)._type}.${(_props as any)._id}.${renderKey(key)}}`
+        return `\${${(_props as any)._category === 'data' ? 'data.' : ''}${
+          (_props as any)._type
+        }.${(_props as any)._id}.${renderKey(key)}}`
       }
       if (`_${key}` in _props) {
         return (_props as any)[`_${key}`]
@@ -28,6 +28,7 @@ function proxyNodeProps({ _props }: NodeTree) {
 function matchChildrenTag<T>(
   node: NodeTree,
   tag: string,
+  childrenOnly: boolean,
   id?: string,
   result: T[] = [],
 ) {
@@ -38,7 +39,7 @@ function matchChildrenTag<T>(
     result.push(proxyNodeProps(node) as T)
   } else {
     node._children.map((child) => {
-      matchChildrenTag<T>(child, tag, id, result)
+      matchChildrenTag<T>(child, tag, childrenOnly, id, result)
     })
   }
   return result
@@ -47,23 +48,37 @@ function matchChildrenTag<T>(
 export function lookupTypedSingleValueTag<T>(
   node: NodeTree,
   tag: string,
+  childrenOnly: boolean,
   id?: string,
 ) {
-  const matched = matchChildrenTag<T>(node, tag, id)
-  if (matched.length > 0) {
+  const matched = matchChildrenTag<T>(node, tag, childrenOnly, id)
+  if (childrenOnly || matched.length > 0) {
     return matched[0]
   }
   if (node._props._level) {
-    return lookupTypedSingleValueTag<T>(node._parent!, tag, id)
+    return lookupTypedSingleValueTag<T>(node._parent!, tag, childrenOnly, id)
   }
   throw new Error(`Tag ${tag} not found`)
 }
 
-function useTypedSingleValueTag<T>(base: NodeTree, tag: string, id?: string) {
+function useTypedSingleValueTag<T>(
+  base: NodeTree,
+  tag: string,
+  childrenOnly: boolean,
+  id?: string,
+) {
+  if (childrenOnly) {
+    return lookupTypedSingleValueTag<T>(base, tag, childrenOnly, id) as Props
+  }
   return new Proxy(base, {
     get: (_target: unknown, key: string) => {
       return () => {
-        const _props = lookupTypedSingleValueTag<T>(base, tag, id) as Props
+        const _props = lookupTypedSingleValueTag<T>(
+          base,
+          tag,
+          childrenOnly,
+          id,
+        ) as Props
         return _props[key]
       }
     },
@@ -73,17 +88,35 @@ function useTypedSingleValueTag<T>(base: NodeTree, tag: string, id?: string) {
   })
 }
 
-function useTypedArrayValueTag<T>(base: NodeTree, tag: string, id?: string) {
+function useTypedArrayValueTag<T>(
+  base: NodeTree,
+  tag: string,
+  childrenOnly: boolean,
+  id?: string,
+) {
   return new Proxy(base, {
     get: (_target: unknown, key: string) => {
       if (key === 'map') {
-        return (f: any) => () => {
-          const _propsArray = lookupTypedArrayValueTag<T>(
-            base,
-            tag,
-            id,
-          ) as NodeTree[]
-          return _propsArray.map(f)
+        if (childrenOnly) {
+          return (f: any) => {
+            const _propsArray = lookupTypedArrayValueTag<T>(
+              base,
+              tag,
+              childrenOnly,
+              id,
+            ) as NodeTree[]
+            return _propsArray.map(f)
+          }
+        } else {
+          return (f: any) => () => {
+            const _propsArray = lookupTypedArrayValueTag<T>(
+              base,
+              tag,
+              childrenOnly,
+              id,
+            ) as NodeTree[]
+            return _propsArray.map(f)
+          }
         }
       }
       throw new Error(`Unsupported array access: ${key}`)
@@ -97,37 +130,54 @@ function useTypedArrayValueTag<T>(base: NodeTree, tag: string, id?: string) {
 export function lookupTypedArrayValueTag<T>(
   node: NodeTree,
   tag: string,
+  childrenOnly: boolean,
   id?: string,
 ) {
-  const matched = matchChildrenTag<T>(node, tag, id)
-  if (matched.length > 0) {
+  const matched = matchChildrenTag<T>(node, tag, childrenOnly, id)
+  if (childrenOnly || matched.length > 0) {
     return matched
   }
   if (node._parent) {
-    return lookupTypedArrayValueTag<T>(node._parent, tag)
+    return lookupTypedArrayValueTag<T>(node._parent, tag, childrenOnly, id)
   }
   throw new Error(`Tag ${tag} not found`)
 }
 
-export function useTypedNode<T>(f: Function, id?: string) {
+export function useTypedNode<T>(
+  f: Function,
+  baseNnode?: NodeTree,
+  id?: string,
+) {
   const fName = f.name
   const fieldName = capitalise(fName)
-  const base = useNodeContext()
+  const base = baseNnode || useNodeContext()
+  const childrenOnly = Boolean(baseNnode)
   return {
-    [fieldName]: useTypedSingleValueTag<T>(base, fName, id) as T,
+    [fieldName]: useTypedSingleValueTag<T>(base, fName, childrenOnly, id) as T,
   }
 }
 
-export function useTypedNodes<T>(f: Function, id?: string) {
-  const node = useNodeContext()
+export function useTypedNodes<T>(
+  f: Function,
+  baseNnode?: NodeTree,
+  id?: string,
+) {
+  const node = baseNnode || useNodeContext()
+  const childrenOnly = Boolean(baseNnode)
   const fName = f.name
   const fieldName = capitalise(fName)
   return {
-    [`${fieldName}s`]: useTypedArrayValueTag<T>(node, fName, id) as T,
+    [`${fieldName}s`]: useTypedArrayValueTag<T>(
+      node,
+      fName,
+      childrenOnly,
+      id,
+    ) as T[],
     [`all${fieldName}s`]: useTypedArrayValueTag<T>(
       getRootNode(node),
       fName,
+      childrenOnly,
       id,
-    ) as T,
+    ) as T[],
   }
 }
