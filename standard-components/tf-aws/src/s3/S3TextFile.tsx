@@ -1,13 +1,13 @@
 import {
   type IacNodeProps,
   ResolvableStringSchema,
-  useTexts,
 } from '@reactiac/base-components'
 
 import z from 'zod'
 import { useTypedNode } from '@reactiac/base-components'
 import { AwsS3Object } from './AwsS3Object.tsx'
 import { Buffer } from 'node:buffer'
+import { useS3Texts } from './S3Text.tsx'
 
 export const S3TextFileInputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),
@@ -37,10 +37,11 @@ export function S3TextFile(props: S3TextFileInputProps) {
       return Buffer.from(props.content_base64, 'base64').toString('utf-8')
     }
 
-    const { texts } = useTexts(node)
-    return texts.map((c: any) => {
-      return c.content
-    }).join('\n')
+    const { s3Texts } = useS3Texts(node)
+    return s3Texts.map((c: any) => {
+      const text = c.content
+      return text instanceof Function ? text() : text
+    }).map((t: string) => t.trim()).join('\n')
   }
   return (
     <AwsS3Object

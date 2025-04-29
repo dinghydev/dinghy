@@ -2,12 +2,12 @@ import {
   type IacNodeProps,
   ResolvableStringSchema,
   Shape,
-  useTexts,
 } from '@reactiac/base-components'
 
 import z from 'zod'
 import { useTypedNode } from '@reactiac/base-components'
 import { Buffer } from 'node:buffer'
+import { useUserDataTexts } from './UserDataText.tsx'
 
 export const UserDataInputSchema = z.object({
   content: ResolvableStringSchema.optional(),
@@ -35,10 +35,11 @@ export function UserData(props: UserDataInputProps) {
       return Buffer.from(props.content_base64, 'base64').toString('utf-8')
     }
 
-    const { texts } = useTexts(node)
-    return texts.map((c: any) => {
-      return c.content
-    }).join('\n')
+    const { userDataTexts } = useUserDataTexts(node)
+    return userDataTexts.map((c: any) => {
+      const text = c.content
+      return text instanceof Function ? text() : text
+    }).map((t: string) => t.trim()).join('\n')
   }
   return (
     <Shape

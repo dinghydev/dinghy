@@ -20,7 +20,7 @@ import {
 } from '@reactiac/standard-components-tf-aws'
 
 const isLocal = () => {
-  const { stack } = useRenderOptions()
+  const { renderOptions: { stack } } = useRenderOptions()
   return stack?.env === 'local'
 }
 

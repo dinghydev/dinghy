@@ -1,14 +1,11 @@
 import {
   type IacNodeProps,
-  ResolvableNumberSchema,
-  ResolvableRecordSchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
 import { aws } from '../index.ts'
 import z from 'zod'
-import { Bucket } from '@reactiac/standard-components-diagrams'
-import { useTypedNode } from '@reactiac/base-components'
+import { Shape, useTypedNode } from '@reactiac/base-components'
 
 export const AwsIamRolePolicyInputSchema = z.object({
   name: ResolvableStringSchema.optional(),
@@ -36,7 +33,7 @@ export function importId(props: AwsIamRolePolicyOutputProps) {
 
 export function AwsIamRolePolicy(props: AwsIamRolePolicyInputProps) {
   return (
-    <Bucket
+    <Shape
       {...aws(
         props,
         AwsIamRolePolicyInputSchema,

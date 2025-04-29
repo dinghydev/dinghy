@@ -1,5 +1,6 @@
 import * as fs from "@std/fs";
 import { basename, resolve } from "@std/path";
+import { walkSync } from "@std/fs";
 import * as yaml from "@std/yaml";
 import { parseArgs } from "@std/cli";
 import Debug from "debug";
@@ -28,7 +29,7 @@ export const reactiacHome = Deno.env.get("REACTIAC_HOME") ||
 
 export const reactiacAppConfig: any = {};
 function loadAppConfig() {
-  const configFile = `${containerAppHome}/app.yaml`;
+  const configFile = `${hostAppHome}/app.yaml`;
   if (!fs.existsSync(configFile)) {
     return;
   }
@@ -37,6 +38,34 @@ function loadAppConfig() {
   debug("loaded app config from", configFile);
   if (config) {
     Object.assign(reactiacAppConfig, config);
+    reactiacAppConfig.files ??= {};
+    loadFiles([`${hostAppHome}/config/`]);
+  }
+}
+
+function loadFiles(basePaths: string[]) {
+  for (const basePath of basePaths) {
+    for (const dirEntry of walkSync(basePath)) {
+      if (dirEntry.isFile && !dirEntry.name.startsWith(".")) {
+        const filePath = dirEntry.path;
+        const fileText = Deno.readTextFileSync(filePath);
+        debug("loading file %s", filePath);
+        const fileConfig = filePath.endsWith(".yaml")
+          ? yaml.parse(fileText)
+          : fileText;
+        const objectPath = filePath.substring(hostAppHome.length + 1).split(
+          "/",
+        );
+        const fileName = objectPath.pop() as string;
+        objectPath.push("files");
+        let current = reactiacAppConfig.files;
+        objectPath.map((path) => {
+          current[path] ??= {};
+          current = current[path];
+        });
+        current[fileName] = fileConfig;
+      }
+    }
   }
 }
 

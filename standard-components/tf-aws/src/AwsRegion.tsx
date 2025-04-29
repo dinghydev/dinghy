@@ -17,7 +17,13 @@ export type AwsRegionInputProps =
 
 export function AwsRegion(props: AwsRegionInputProps) {
   const { stack } = useStack()
-  const values = AwsRegionInputSchema.parse(props)
+  const region = (node: any) => node._props.region
+  const _title = (node: any) => props._title || `Region: ${node._props.region}`
+  const onDataBind = (node: any) => {
+    if (!props._title) {
+      node._props._title = _title(node)
+    }
+  }
   return (
     <GroupRegion
       {...aws(
@@ -33,13 +39,14 @@ export function AwsRegion(props: AwsRegionInputProps) {
                     },
                   },
                 ],
-                region: values.region,
+                region,
               },
             ],
           },
           _stackResource: true,
+          _title,
+          onDataBind,
           ...props,
-          ...values,
         },
         AwsRegionInputSchema,
       )}

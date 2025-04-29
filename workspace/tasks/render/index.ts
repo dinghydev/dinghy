@@ -8,10 +8,9 @@ import {
 import { renderOptions } from '../../utils/renderOptions.ts'
 import { parseOptions } from '../../utils/parseOptions.ts'
 import { rendererMapping } from './renderMapping.ts'
-import { deepMerge } from '@std/collections'
+import { mergician } from 'mergician'
 import Debug from 'debug'
-import { createStack, parseStacks } from '@reactiac/base-components'
-import { loadStackSettings } from './loadStackSettings.ts'
+import { parseStack } from '@reactiac/base-components'
 const debug = Debug('render')
 setupDebug()
 await loadConfig()
@@ -43,29 +42,12 @@ try {
   for (const appName of cmdOptions.app || listApps()) {
     const app = await loadApp(appName)
 
-    let options: any = deepMerge(reactiacAppConfig, {})
+    const options: any = mergician(reactiacAppConfig, {})
     if (cmdOptions['tf-generateImport']) {
       options.tf ??= {}
       options.tf.generateImport = true
     }
-    options.stacks = parseStacks(appName, options.stacks).stacks
-    if (cmdOptions.stack) {
-      options.stack = options.stacks[cmdOptions.stack]
-      if (!options.stack) {
-        console.warn(
-          `Stack ${cmdOptions.stack} not found, generating as ondemand stack`,
-        )
-        options.stack = createStack(cmdOptions.stack)
-        options.stacks = { [options.stack.id]: options.stack }
-      }
-    } else {
-      options.stack = Object.values(options.stacks)[0]
-    }
-    const stackSettings = await loadStackSettings(options.stack.id)
-    if (stackSettings) {
-      options = deepMerge(options, stackSettings as any)
-    }
-    debug('stack settings %O', options)
+    parseStack(cmdOptions.stack || appName.toLowerCase(), options)
     for (const formatString of cmdOptions.format || ['default']) {
       const renderers =
         rendererMapping[formatString as keyof typeof rendererMapping]

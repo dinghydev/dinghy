@@ -5,7 +5,11 @@ import { useRenderOptions } from '../contexts/useRenderOptions.tsx'
 import { camelCaseToWords } from '../utils/words.ts'
 
 export function Stack(props: IacNodeProps) {
-  const { stack, stage } = useRenderOptions()
+  const { renderOptions } = useRenderOptions()
+  if ((props as any).onRender) {
+    ;(props as any).onRender(renderOptions)
+  }
+  const { stack, stage } = renderOptions
   let appendEnvToTitle = {}
   if (stack?.env) {
     const _title = (node: NodeTree) => {

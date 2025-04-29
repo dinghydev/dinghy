@@ -114,6 +114,10 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
 };
 
 export const updateCheck = async (fetch = false) => {
+  if (Deno.execPath().endsWith("deno")) {
+    debug("skip update check as running in deno");
+    return;
+  }
   const autoUpgrade = Boolean(
     Deno.env.get("REACTIAC_UPDATE_CHECK_AUTO_UPGRADE"),
   );

@@ -1,19 +1,16 @@
 import {
   type IacNodeProps,
-  ResolvableNumberSchema,
-  ResolvableRecordSchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
 import { aws } from '../index.ts'
 import z from 'zod'
-import { Bucket } from '@reactiac/standard-components-diagrams'
-import { useTypedNode } from '@reactiac/base-components'
+import { Shape, useTypedNode } from '@reactiac/base-components'
 
 export const AwsIamInstanceProfileInputSchema = z.object({
   name: ResolvableStringSchema.optional(),
   role: ResolvableStringSchema.optional(),
-  path: ResolvableStringSchema.optional().default('/'),
+  path: ResolvableStringSchema.optional(),
 })
 
 export const AwsIamInstanceProfileOutputSchema = z.object({
@@ -32,7 +29,7 @@ export type AwsIamInstanceProfileOutputProps =
 export function AwsIamInstanceProfile(props: AwsIamInstanceProfileInputProps) {
   const _importId = (node: any) => node._props.name
   return (
-    <Bucket
+    <Shape
       _importId={_importId}
       {...aws(
         props,
@@ -42,5 +39,9 @@ export function AwsIamInstanceProfile(props: AwsIamInstanceProfileInputProps) {
     />
   )
 }
-export const useAwsIamInstanceProfile = (id?: string) =>
-  useTypedNode<AwsIamInstanceProfileOutputProps>(AwsIamInstanceProfile, id)
+export const useAwsIamInstanceProfile = (node?: any, id?: string) =>
+  useTypedNode<AwsIamInstanceProfileOutputProps>(
+    AwsIamInstanceProfile,
+    node,
+    id,
+  )

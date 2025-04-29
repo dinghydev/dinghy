@@ -1,1 +1,5 @@
-export { DataAwsSecretsmanagerSecret } from './DataAwsSecretsmanagerSecret.tsx'
+export {
+  DataAwsSecretsmanagerSecret,
+  useDataAwsSecretsmanagerSecret,
+  useDataAwsSecretsmanagerSecrets,
+} from './DataAwsSecretsmanagerSecret.tsx'

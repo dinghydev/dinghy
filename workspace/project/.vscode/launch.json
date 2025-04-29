@@ -6,6 +6,73 @@
       "program": "tasks/render/index.ts",
       "cwd": "/reactiac/workspace",
       "args": [
+        "--tf-generateImport",
+        "--debug"
+      ],
+      "env": {},
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/usr/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf-init",
+      "program": "standalone/cli/src/index.ts",
+      "cwd": "/reactiac",
+      "args": [
+        "tf",
+        "init",
+        // "-h",
+        "--debug"
+      ],
+      "env": {},
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/usr/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf-plan",
+      "program": "standalone/cli/src/index.ts",
+      "cwd": "/reactiac",
+      "args": [
+        "tf",
+        "plan",
+        // "-h",
+        "--debug"
+      ],
+      "env": {},
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/usr/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf-apply",
+      "program": "standalone/cli/src/index.ts",
+      "cwd": "/reactiac",
+      "args": [
+        "tf",
+        "apply",
+        // "-h",
         "--debug"
       ],
       "env": {},

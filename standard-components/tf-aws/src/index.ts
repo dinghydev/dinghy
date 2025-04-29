@@ -34,7 +34,7 @@ export {
   useDataAwsIamPolicyDocument,
 } from './iam/DataAwsIamPolicyDocument.tsx'
 export { AwsS3BucketOwnershipControls } from './s3/AwsS3BucketOwnershipControls.tsx'
-export { AwsDynamodbTable } from './AwsDynamodbTable.tsx'
+export { AwsDynamodbTable } from './dynamodb/AwsDynamodbTable.tsx'
 export { AwsBackendS3 } from './AwsBackendS3.tsx'
 export {
   AwsCloudfrontDistribution,

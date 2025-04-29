@@ -52,8 +52,8 @@ const childrenNoDependents = (node: DrawioNodeTree) => {
 const applyDistribution = (node: DrawioNodeTree) => {
   if (node._children.length > 0) {
     const { _diagram } = node._props
-    const { isDistributionHorizontal, isDistributionVertical } =
-      _diagram.flags as any
+    const { isDistributionHorizontal, isDistributionVertical } = _diagram
+      .flags as any
     if (isDistributionHorizontal || childrenNoDependents(node)) {
       horizontalSpread(node)
     }

@@ -14,6 +14,7 @@ export const DataAwsSecurityGroupInputSchema = z.object({
 })
 
 export const DataAwsSecurityGroupOutputSchema = z.object({
+  id: ResolvableStringSchema.optional(),
   arn: ResolvableStringSchema.optional(),
 })
 

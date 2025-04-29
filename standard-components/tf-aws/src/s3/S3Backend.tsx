@@ -3,6 +3,7 @@ import {
   type Props,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
+  useTypedNode,
 } from '@reactiac/base-components'
 import { useStack } from '@reactiac/base-components'
 import z from 'zod'
@@ -77,21 +78,20 @@ export function S3Backend(props: S3BackendInputProps) {
     (() => `${(stack as any)._name()}-${bucketName}`)) as any
   const lockTable = (props.lockTable ||
     (() => `${(stack as any)._name()}-${lockName}`)) as any
-  const { stage } = useRenderOptions()
+  const { renderOptions: { stage } } = useRenderOptions()
   const stateRemoteFile = props.stateFile ||
     (() => `${stateFilePrefix}${stage!.id}${stateFileExt}`)
 
   return (
-    <>
-      <AwsBackendS3
-        bucket={bucket as any}
-        useLockTable={useLockTable}
-        lockTable={lockTable as any}
-        stateFile={stateRemoteFile as any}
-        region={awsRegion.region}
-        _display='none'
-        _stackResource
-      />
+    <AwsBackendS3
+      bucket={bucket as any}
+      useLockTable={useLockTable}
+      lockTable={lockTable as any}
+      stateFile={stateRemoteFile as any}
+      region={awsRegion.region}
+      _display='none'
+      _stackResource
+    >
       {createBackend && (
         <>
           <AwsS3Bucket
@@ -99,6 +99,7 @@ export function S3Backend(props: S3BackendInputProps) {
             _title={bucketName}
             _display='entity'
             _stage={createBackendInStage}
+            object_lock_enabled
           >
             <EnableVersioning _stage={createBackendInStage} />
             {/* TODO: EnableLogging */}
@@ -115,6 +116,9 @@ export function S3Backend(props: S3BackendInputProps) {
           )}
         </>
       )}
-    </>
+    </AwsBackendS3>
   )
 }
+
+export const useS3Backend = () =>
+  useTypedNode<AwsS3BucketOutputProps>(S3Backend)

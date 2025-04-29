@@ -1,6 +1,8 @@
 import {
   type IacNodeProps,
+  ResolvableBooleanSchema,
   ResolvableRecordSchema,
+  ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
@@ -12,10 +14,18 @@ export const AwsInstanceInputSchema = z.object({
   ami: ResolvableStringSchema.optional(),
   instance_type: ResolvableStringSchema.optional(),
   key_name: ResolvableStringSchema.optional(),
-  vpc_security_group_ids: ResolvableStringSchema.array().optional(),
+  vpc_security_group_ids: ResolvableStringArraySchema.optional(),
+  root_block_device: ResolvableRecordSchema.array().optional(),
+  metadata_options: ResolvableRecordSchema.array().optional(),
+  lifecycle: ResolvableRecordSchema.optional(),
   subnet_id: ResolvableStringSchema.optional(),
+  iam_instance_profile: ResolvableStringSchema.optional(),
   user_data: ResolvableStringSchema.optional(),
   user_data_base64: ResolvableStringSchema.optional(),
+  associate_public_ip_address: ResolvableBooleanSchema.optional(),
+  user_data_replace_on_change: ResolvableBooleanSchema.optional(),
+  monitoring: ResolvableBooleanSchema.optional(),
+  disable_api_stop: ResolvableBooleanSchema.optional(),
   tags: ResolvableRecordSchema.optional(),
 })
 

@@ -10,6 +10,7 @@ import init from "./init.ts";
 import plan from "./plan.ts";
 import apply from "./apply.ts";
 import generate from "./generate.ts";
+import normalise from "./normalise.ts";
 
 const options: CommandOptions = {
   description: {},
@@ -26,6 +27,7 @@ const commands: Commands = {
   plan,
   apply,
   generate,
+  normalise,
 };
 
 export default commands;

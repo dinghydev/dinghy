@@ -2,6 +2,7 @@ import {
   IacNodeProps,
   ResolvableStringSchema,
   Shape,
+  useTypedNodes,
 } from '@reactiac/base-components'
 
 import { aws } from '../index.ts'
@@ -35,5 +36,8 @@ export function AwsSecurityGroup(props: AwsSecurityGroupInputProps) {
   )
 }
 
-export const useAwsSecurityGroup = () =>
-  useTypedNode<AwsSecurityGroupOutputProps>(AwsSecurityGroup)
+export const useAwsSecurityGroup = (node?: any) =>
+  useTypedNode<AwsSecurityGroupOutputProps>(AwsSecurityGroup, node)
+
+export const useAwsSecurityGroups = (node?: any) =>
+  useTypedNodes<AwsSecurityGroupOutputProps>(AwsSecurityGroup, node)

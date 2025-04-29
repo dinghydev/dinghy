@@ -3,6 +3,7 @@ import z from 'zod'
 import { AwsSubnet } from './AwsSubnet.tsx'
 
 export const DataAwsSubnetInputSchema = z.object({
+  id: ResolvableStringSchema.optional(),
   vpc_id: ResolvableStringSchema.optional(),
   filter: z.object({
     name: z.string(),
@@ -11,6 +12,7 @@ export const DataAwsSubnetInputSchema = z.object({
 })
 
 export const DataAwsSubnetOutputSchema = z.object({
+  id: ResolvableStringSchema.optional(),
   arn: ResolvableStringSchema.optional(),
 })
 

@@ -1,7 +1,6 @@
 import type { NodeTree, Props } from '@reactiac/base-components'
 import { DiagramNodeSchema } from '@reactiac/base-components'
 import { mergician } from 'mergician'
-// import { deepMerge } from '@std/collections'
 import type {
   DrawioContext,
   DrawioNodeProps,
@@ -91,7 +90,6 @@ function resolve(_props: DrawioNodeProps, options: DrawioRenderOptions) {
     configs.push({})
   }
   _props._diagram = mergician(...configs) as DrawioProps
-  // _props._diagram = configs.reduce(deepMerge) as DrawioProps
 
   _props._node._children.map((c: DrawioNodeTree) => resolve(c._props, options))
 }

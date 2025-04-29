@@ -2,8 +2,6 @@
   "version": "4",
   "specifiers": {
     "jsr:@std/cli@1.0.14": "1.0.14",
-    "jsr:@std/collections@*": "1.0.10",
-    "jsr:@std/collections@1.0.10": "1.0.10",
     "jsr:@std/fs@*": "1.0.15",
     "jsr:@std/fs@1.0.15": "1.0.15",
     "jsr:@std/path@1.0.8": "1.0.8",
@@ -14,14 +12,12 @@
     "npm:debug@4.4.0": "4.4.0",
     "npm:execa@*": "9.5.2",
     "npm:execa@9.5.2": "9.5.2",
+    "npm:mergician@2.0.2": "2.0.2",
     "npm:zod@3.24.2": "3.24.2"
   },
   "jsr": {
     "@std/cli@1.0.14": {
       "integrity": "b09ee9921cd476c0e08185ed2bfce682d45ecf4654f26c31b4aa244a2c5c024e"
-    },
-    "@std/collections@1.0.10": {
-      "integrity": "903af106a3d92970d74e20f7ebff77d9658af9bef4403f1dc42a7801c0575899"
     },
     "@std/fs@1.0.15": {
       "integrity": "c083fb479889d6440d768e498195c3fc499d426fbf9a6592f98f53884d1d3f41",
@@ -164,6 +160,9 @@
     "isexe@2.0.0": {
       "integrity": "sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw=="
     },
+    "mergician@2.0.2": {
+      "integrity": "sha512-1GDF4LuMcc7UpE7XitfSm822yDtTxLoOVB+9QFnb3o/+zoMAVKxM67UjvmEXOA7FQnz9209K0ZyHAoD+5Ibe4A=="
+    },
     "ms@2.1.3": {
       "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
     },
@@ -256,7 +255,6 @@
       "cli": {
         "dependencies": [
           "jsr:@std/cli@1.0.14",
-          "jsr:@std/collections@1.0.10",
           "jsr:@std/fs@1.0.15",
           "jsr:@std/path@1.0.8",
           "jsr:@std/yaml@1.0.5",
@@ -264,6 +262,7 @@
           "npm:chalk@5.4.1",
           "npm:debug@4.4.0",
           "npm:execa@9.5.2",
+          "npm:mergician@2.0.2",
           "npm:zod@3.24.2"
         ]
       }

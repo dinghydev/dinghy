@@ -17,12 +17,12 @@
     "@std/fs": "jsr:@std/fs@1.0.15",
     "@std/path": "jsr:@std/path@1.0.8",
     "@std/yaml": "jsr:@std/yaml@1.0.5",
-    "@std/collections": "jsr:@std/collections@1.0.10",
     "@inquirer/confirm": "npm:@inquirer/confirm@5.1.9",
     "debug": "npm:debug@4.4.0",
     "chalk": "npm:chalk@5.4.1",
     "execa": "npm:execa@9.5.2",
-    "zod": "npm:zod@3.24.2"
+    "zod": "npm:zod@3.24.2",
+    "mergician": "npm:mergician@2.0.2"
   },
   "lint": {
     "rules": {

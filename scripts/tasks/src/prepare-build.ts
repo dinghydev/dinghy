@@ -37,6 +37,10 @@ if (import.meta.main) {
     "workspace/utils/tfGenerateOptions.ts",
   );
   copyProjectFile(
+    "standalone/cli/src/utils/loadTfJsonFile.ts",
+    "workspace/utils/loadTfJsonFile.ts",
+  );
+  copyProjectFile(
     "deno.lock",
     "docker/release-base/fs-root/reactiac/deno.lock",
   );

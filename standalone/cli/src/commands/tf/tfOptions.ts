@@ -1,8 +1,8 @@
 import type { CommandOptions } from "../../types.ts";
 
-import { deepMerge } from "jsr:@std/collections/deep-merge";
+import { mergician } from "mergician";
 import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
-import { parseStacks } from "../../utils/stackUtils.ts";
+import { parseStack } from "../../utils/stackUtils.ts";
 export const tfOptions: CommandOptions = {
   collect: ["tf-options"],
   description: {
@@ -31,15 +31,11 @@ export const tfOptionsPlanFile: CommandOptions = {
 };
 
 export const createTfOptions = (options: any) => {
-  return deepMerge(tfOptions as any, options) as unknown as CommandOptions;
+  return mergician(tfOptions, options) as CommandOptions;
 };
 
 export const parseTfOptions = (options: any) => {
-  const stacks =
-    parseStacks("app", reactiacAppConfig.stacks, options.stack).stacks;
-  const stack = options.stack
-    ? stacks[options.stack]
-    : Object.values(stacks)[0];
+  const stack = parseStack(options.stack || "app", reactiacAppConfig);
 
   const stackInfo = JSON.parse(Deno.readTextFileSync(
     `${hostAppHome}/${options.output}/${stack.id}-stack-info.json`,

@@ -17,6 +17,9 @@ export const p30BindData = (
         const key = targetKeys[i]
         if (keys.includes(key)) {
           Object.assign(_props, data[key])
+          if (_props.onDataBind) {
+            _props.onDataBind(_node)
+          }
         }
       }
     }

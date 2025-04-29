@@ -5,7 +5,7 @@ import { dirname } from '@std/path'
 import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
-import { deepMerge } from '@std/collections/deep-merge'
+import { mergician } from 'mergician'
 import { hostAppHome } from '../../utils/loadConfig.ts'
 import { createStage, createView } from '../../utils/stackUtils.ts'
 const debug = Debug('rendererMapping')
@@ -37,7 +37,7 @@ const saveStackInfo = async (options: any, args: any, stackInfo: any) => {
     const stackInfoText = await Deno.readTextFile(outputFile)
     if (stackInfoText) {
       const existingStackInfo = JSON.parse(stackInfoText)
-      stackInfo = deepMerge(existingStackInfo, stackInfo)
+      stackInfo = mergician(existingStackInfo, stackInfo)
     }
   }
   await writeFile(outputPath, JSON.stringify(stackInfo, null, 2))

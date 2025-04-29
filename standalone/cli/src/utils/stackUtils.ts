@@ -1,4 +1,7 @@
+import { mergician } from "mergician";
 import { z } from "zod";
+import Debug from "debug";
+const debug = Debug("stackUtils");
 
 interface Props {
   [key: string]: unknown;
@@ -159,6 +162,101 @@ export const parseStacks = (
     ) as Stack;
   }
   return { stacks };
+};
+
+export const parseStack = (
+  stackId: string,
+  options: Props,
+): Stack => {
+  const stacks = parseStacksInput(stackId, options.stacks as any).stacks;
+  let stack = stacks[stackId];
+  if (!stack) {
+    stack = stackId === "app"
+      ? Object.values(stacks)[0]
+      : populateStackDefaultItems(
+        parseStackFromId(stackId),
+      ) as Stack;
+    stacks[stack.id] = stack;
+  }
+  options.stacks = stacks;
+  options.stack = stack;
+  const settings = loadFilesData(options, "config/settings", stack.id) ||
+    loadFilesData(options, "config", stack.id);
+  if (settings) {
+    const overrides = mergician({
+      onCircular({ srcVal, targetVal }: { srcVal: any; targetVal: any }) {
+        return { ...targetVal, ...srcVal };
+      },
+    })(options, settings);
+    Object.assign(options, overrides);
+  }
+
+  return stack;
+};
+
+const collectTags = (result: string[], variants: string[], size = 1) => {
+  const loopCount = variants.length - size;
+  for (let i = 0; i <= loopCount; i++) {
+    result.push(variants.slice(i, i + size).join("-"));
+  }
+  if (loopCount > 0) {
+    collectTags(result, variants, size + 1);
+  }
+  return result;
+};
+
+const nameTags = (name: string) => {
+  return collectTags(["default"], name.split("-"));
+};
+
+export const loadFilesData = (options: any, path: string, name?: string) => {
+  const paths = path.split("/");
+  let current = options.files;
+  for (const path of paths) {
+    if (!current || typeof current !== "object") {
+      break;
+    }
+    current = current[path];
+  }
+  if (current) {
+    current = current["files"];
+  }
+  if (!current) {
+    return undefined;
+  }
+  const values: any[] = [];
+  if (name) {
+    const tags = nameTags(name);
+    tags.map((tag) => {
+      const value = current[`${tag}.yaml`];
+      if (value) {
+        debug("loadFiles %s %s/%s.yaml", name, path, tag);
+        values.push(value);
+      }
+    });
+  } else {
+    values.push(...Object.values(current.files));
+  }
+  return values.length > 1 ? mergician(...values) : values[0];
+};
+
+export const loadFile = (options: any, path: string) => {
+  const paths = path.split("/");
+  const name = paths.pop() as string;
+  let current = options.files;
+  for (const path of paths) {
+    if (!current || typeof current !== "object") {
+      break;
+    }
+    current = current[path];
+  }
+  if (current) {
+    current = current["files"];
+  }
+  if (!current) {
+    return undefined;
+  }
+  return current[name];
 };
 
 export const mergeStackOptions = (

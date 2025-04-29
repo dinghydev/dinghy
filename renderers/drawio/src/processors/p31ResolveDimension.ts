@@ -44,10 +44,17 @@ const expandDimension = (
   const sameType = isChidrenSameType(node)
   if (!node._props._diagram.flags.isEntity) {
     let expanded = 0
-    const evenDiff =
-      node._children.length > 0 ? diff / node._children.length : 0
+    const fullColumn =
+      (node._props._direction === 'vertical' && dimension === 'width') ||
+      (node._props._direction !== 'vertical' && dimension === 'height')
+    const evenDiff = fullColumn
+      ? diff
+      : (node._children.length > 0 ? diff / node._children.length : 0)
     node._children.map((child: DrawioNodeTree) => {
-      if (child._props._diagram.flags.isEntity || !sameType) {
+      if (
+        child._props._diagram.flags.isEntity
+        // || !_sameType
+      ) {
         if (dimension === 'width') {
           child._props._diagram.state.moveableRight += diff
         } else {
@@ -58,13 +65,17 @@ const expandDimension = (
           if (!child._props._diagram.flags.isFixedWidth) {
             expandDimension(child, dimension, evenDiff)
             ;(child._props as any)._diagram.geometry.x += expanded
-            expanded += evenDiff
+            if (!fullColumn) {
+              expanded += evenDiff
+            }
           }
         } else {
           if (!child._props._diagram.flags.isFixedHeight) {
             expandDimension(child, dimension, evenDiff)
             ;(child._props as any)._diagram.geometry.y += expanded
-            expanded += evenDiff
+            if (!fullColumn) {
+              expanded += evenDiff
+            }
           }
         }
       }
@@ -87,12 +98,10 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
     resolveDimensions(child, childX, childY)
 
     if (node._props._diagram.flags.isDirectionVertical) {
-      childY =
-        childY +
+      childY = childY +
         child._props._diagram.state.height +
         node._props._diagram.dimension.spaceBetweenY
-      height =
-        height +
+      height = height +
         child._props._diagram.state.height +
         (height > 0
           ? node._props._diagram.dimension.spaceBetweenY
@@ -103,12 +112,10 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
           node._props._diagram.dimension.spaceX,
       )
     } else {
-      childX =
-        childX +
+      childX = childX +
         child._props._diagram.state.width +
         node._props._diagram.dimension.spaceBetweenX
-      width =
-        width +
+      width = width +
         child._props._diagram.state.width +
         (width > 0
           ? node._props._diagram.dimension.spaceBetweenX
@@ -163,8 +170,7 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
   ;(node._props as any)._diagram.state.height =
     node._props._diagram.geometry.height
   if (node._props._diagram.isTextOutside) {
-    node._props._diagram.state.height =
-      node._props._diagram.state.height +
+    node._props._diagram.state.height = node._props._diagram.state.height +
       node._props._diagram.dimension.textHeight
   }
 }
