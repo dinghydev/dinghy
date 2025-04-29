@@ -1,45 +1,16 @@
 = ReactIAC
 
-image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.svg[release,link=https://github.com/reactiac/reactiac/actions/workflows/release.yml] image:https://github.com/reactiac/reactiac/actions/workflows/verification.yml/badge.svg[verification,link=https://github.com/reactiac/reactiac/actions/workflows/verification.yml]
+image:https://github.com/reactiac/reactiac/actions/workflows/release-cli.yml/badge.svg[release-cli,link=https://github.com/reactiac/reactiac/actions/workflows/release-cli.yml] image:https://github.com/reactiac/reactiac/actions/workflows/release-docker.yml/badge.svg[release-docker,link=https://github.com/reactiac/reactiac/actions/workflows/release-docker.yml] image:https://github.com/reactiac/reactiac/actions/workflows/verification.yml/badge.svg[verification,link=https://github.com/reactiac/reactiac/actions/workflows/verification.yml]
 
-== Commands
+== Development
 
+This project is developed with deno and VSCode.
 
+=== Install deno    
 
-    git init --initial-branch=main
+    curl -fsSL https://deno.land/install.sh | sh
 
-    pnpm install -g oclif
-    oclif generate mynewcli
-
-    pnpm -r build
-    pnpm --filter reactiac-cli dev hello world
-    pnpm --filter reactiac-cli cli hello world
-    pnpm --filter cli dev tf init
-
-
-
-== Local Commands
-
-
-    (cd scripts/tasks ; deno task clean)
-    (cd scripts/tasks ; deno task version-release)
-
-    (cd scripts/tasks ; deno task npm-build)
-    (cd scripts/tasks ; deno task aws-npm-login)
-    (cd scripts/tasks ; deno task npm-publish)
-
-    (cd standalone/cli ; deno task run -h)
-    (cd scripts/tasks ; deno task cli-build-aarch64-apple-darwin && cp ../../build/cli/aarch64-apple-darwin/reactiac ~/.reactiac/bin/ && reactiac -h)
-    (cd scripts/tasks ; deno task cli-publish)
-    curl -fsSL https://play.reactiac.dev/download/install.sh | DEBUG=* REACTIAC_VERSION=0.1.51-20250405-144338-91cd377 sh
-
-
-    (cd scripts/tasks ; deno task aws-ecr-login)
-    (cd scripts/tasks ; deno task docker-build-arm64)
-    (cd scripts/tasks ; deno task docker-build)
-
-
-    (rm -rf ~/Downloads/test1 && reactiac init ~/Downloads/test1 && cd ~/Downloads/test1 && reactiac dc)
-    (cd standalone/cli ; deno task run devcontainer --debug --xworkspace /reactiac --xmounts ../../:/reactiac  --app-home ../../examples/web/1-shape)
-
-    (cd workspace ; deno task json)
+=== Tasks
+    
+Set of debugable tasks defined in https://github.com/reactiac/reactiac/blob/main/.vscode/launch.json[.vscode/launch.json]
+    
