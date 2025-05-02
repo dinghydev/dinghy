@@ -336,6 +336,12 @@
           "npm:mergician@2.0.2"
         ]
       },
+      "standard-components/tf-aws": {
+        "dependencies": [
+          "npm:debug@4.4.0",
+          "npm:mergician@2.0.2"
+        ]
+      },
       "workspace": {
         "dependencies": [
           "jsr:@std/cli@1.0.14",

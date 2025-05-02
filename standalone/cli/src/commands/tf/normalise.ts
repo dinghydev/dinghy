@@ -171,7 +171,7 @@ function extractText(resources: any[]) {
           attributes.content.replace(
             /^/g,
             `\nIDENTIFIER_${attributes.bucket}/${attributes.key}\n`,
-          ).replace(/\n/g, `\n${attributes.key} >>> `),
+          ).replace(/\n/g, `\ncontent >>> `),
         );
         attributes.content = "EXTRACTED";
       }

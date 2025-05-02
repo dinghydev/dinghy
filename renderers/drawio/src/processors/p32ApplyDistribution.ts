@@ -4,21 +4,22 @@ const horizontalSpread = ({
   _children,
   _props: { _diagram },
 }: DrawioNodeTree) => {
-  const { moveableRight } = _children[0]._props._diagram.state
-  if (moveableRight > 0) {
-    if (_diagram.flags.isDirectionVertical) {
-      const space = moveableRight / 2
-      _children.map((child: DrawioNodeTree) => {
+  if (_diagram.flags.isDirectionVertical) {
+    _children.map((child: DrawioNodeTree) => {
+      const { moveableRight } = child._props._diagram.state
+      if (moveableRight > 0) {
+        const space = moveableRight / 2
         ;(child._props as any)._diagram.geometry.x += space
         ;(child._props as any)._diagram.state.moveableRight = 0
-      })
-    } else {
-      const space = moveableRight / _children.length / 2
-      _children.map((child: DrawioNodeTree, i: number) => {
-        ;(child._props as any)._diagram.geometry.x += space + space * i * 2
-        ;(child._props as any)._diagram.state.moveableRight = 0
-      })
-    }
+      }
+    })
+  } else {
+    const { moveableRight } = _children[0]._props._diagram.state
+    const space = moveableRight / _children.length / 2
+    _children.map((child: DrawioNodeTree, i: number) => {
+      ;(child._props as any)._diagram.geometry.x += space + space * i * 2
+      ;(child._props as any)._diagram.state.moveableRight = 0
+    })
   }
 }
 
@@ -27,18 +28,20 @@ const verticalSpread = ({
   _props: { _diagram },
 }: DrawioNodeTree) => {
   if (_diagram.flags.isDirectionVertical) {
+    const { moveableBottom } = _children[0]._props._diagram.state
+    const space = moveableBottom / _children.length / 2
     _children.map((child: DrawioNodeTree, i: number) => {
-      const { moveableBottom } = child._props._diagram.state
-      const space = moveableBottom / _children.length / 2
       ;(child._props as any)._diagram.geometry.y += space + space * i * 2
       ;(child._props as any)._diagram.state.moveableBottom = 0
     })
   } else {
     _children.map((child: DrawioNodeTree) => {
       const { moveableBottom } = child._props._diagram.state
-      const space = moveableBottom / 2
-      ;(child._props as any)._diagram.geometry.y += space
-      ;(child._props as any)._diagram.state.moveableBottom = 0
+      if (moveableBottom > 0) {
+        const space = moveableBottom / 2
+        ;(child._props as any)._diagram.geometry.y += space
+        ;(child._props as any)._diagram.state.moveableBottom = 0
+      }
     })
   }
 }

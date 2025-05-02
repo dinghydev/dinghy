@@ -1,0 +1,64 @@
+import type { DrawioContext, DrawioNodeTree } from '../types.ts'
+
+function isNodeVisible(node: DrawioNodeTree, selectedView: string) {
+  const views = node._props._view
+  if (views === undefined) {
+    return selectedView === 'overview'
+  } else {
+    return views.includes(selectedView)
+  }
+}
+
+function filterView(
+  node: DrawioNodeTree,
+  selectedView: string,
+) {
+  node._children.map((c: DrawioNodeTree) => {
+    if (isNodeVisible(c, selectedView)) {
+      filterView(c, selectedView)
+    } else {
+      c._props._diagram ??= {} as any
+      c._props._diagram.flags ??= {} as any
+      c._props._diagram.flags.isHidden = true
+    }
+  })
+}
+
+function findFirstVisibleNode(
+  node: DrawioNodeTree,
+  selectedView: string,
+): DrawioNodeTree | undefined {
+  if (isNodeVisible(node, selectedView)) {
+    return node
+  }
+
+  let visibleNode: DrawioNodeTree | undefined
+  node._children.find((c) => {
+    visibleNode = findFirstVisibleNode(c, selectedView)
+    return visibleNode
+  })
+  return visibleNode
+}
+
+export const p22FilterView = ({
+  rootNode,
+  renderOptions,
+}: DrawioContext) => {
+  const selectedView = (renderOptions as any).view?.name
+  if (selectedView !== 'all') {
+    console.log(rootNode)
+    const visibleNode = findFirstVisibleNode(
+      rootNode,
+      selectedView,
+    )
+    if (visibleNode) {
+      if (visibleNode !== rootNode) {
+        rootNode._children = [visibleNode]
+        visibleNode._parent = rootNode
+      }
+    } else {
+      rootNode._children = []
+    }
+    filterView(rootNode, selectedView)
+  }
+}

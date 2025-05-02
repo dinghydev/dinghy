@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import { toDrawioXml } from './toDrawioXml.ts'
 import type { HostContainer } from '@reactiac/base-renderer'
 import { applyProcessors } from './processors/index.ts'

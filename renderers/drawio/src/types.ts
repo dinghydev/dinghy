@@ -63,6 +63,7 @@ export type DrawioProps = {
 export type DrawioNodeProps = {
   _node: DrawioNodeTree
   _diagram: DrawioProps
+  _viewAttributes?: Record<string, any>
   _dependsOn?: DrawioNodeTree[]
   _dependsBy?: DrawioNodeTree[]
 } & DiagramNodeProps

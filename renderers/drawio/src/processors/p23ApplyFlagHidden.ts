@@ -60,7 +60,7 @@ function moveRelationships(
   const depends = node[fromField]
   if (depends) {
     depends.map((d: DrawioNodeTree) =>
-      moveRelationship(moveTo, node, dependencies, fromField, d),
+      moveRelationship(moveTo, node, dependencies, fromField, d)
     )
   }
 }
@@ -74,6 +74,9 @@ function removeNode(
   moveRelationships(moveTo, node, dependencies, '_dependsBy')
   node._children.map((c: DrawioNodeTree) => removeNode(moveTo, c, dependencies))
   node._parent!._children.splice(node._parent!._children.indexOf(node), 1)
+  if (node._parent!._children.length === 0) {
+    node._parent!._props._diagram.flags.isEntity = true
+  }
 }
 
 function processHiddenFlag(

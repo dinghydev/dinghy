@@ -39,5 +39,5 @@ export function AwsIamRole(props: AwsIamRoleInputProps) {
     />
   )
 }
-export const useAwsIamRole = (id?: string) =>
-  useTypedNode<AwsIamRoleOutputProps>(AwsIamRole, id)
+export const useAwsIamRole = (node?: any, id?: string) =>
+  useTypedNode<AwsIamRoleOutputProps>(AwsIamRole, node, id)

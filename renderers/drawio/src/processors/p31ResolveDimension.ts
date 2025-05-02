@@ -27,12 +27,10 @@ const applySameDimension = (
   })
 }
 
-const isChidrenSameType = (node: DrawioNodeTree) => {
-  const entityCount = node._children.filter(
-    (child: DrawioNodeTree) => child._props._diagram.flags.isEntity,
-  ).length
-  return entityCount === 0 || entityCount === node._children.length
-}
+const groupChildren = (node: DrawioNodeTree) =>
+  node._children.filter(
+    (child: DrawioNodeTree) => !child._props._diagram.flags.isEntity,
+  )
 
 const expandDimension = (
   node: DrawioNodeTree,
@@ -41,24 +39,25 @@ const expandDimension = (
 ) => {
   ;(node._props as any)._diagram.geometry[dimension] += diff
   node._props._diagram.state[dimension] += diff
-  const sameType = isChidrenSameType(node)
   if (!node._props._diagram.flags.isEntity) {
     let expanded = 0
     const fullColumn =
       (node._props._direction === 'vertical' && dimension === 'width') ||
       (node._props._direction !== 'vertical' && dimension === 'height')
+    const gChildren = groupChildren(node)
     const evenDiff = fullColumn
       ? diff
-      : (node._children.length > 0 ? diff / node._children.length : 0)
+      : (gChildren.length > 0 ? diff / gChildren.length : 0)
     node._children.map((child: DrawioNodeTree) => {
       if (
         child._props._diagram.flags.isEntity
-        // || !_sameType
       ) {
-        if (dimension === 'width') {
-          child._props._diagram.state.moveableRight += diff
-        } else {
-          child._props._diagram.state.moveableBottom += diff
+        if (gChildren.length === 0) {
+          if (dimension === 'width') {
+            child._props._diagram.state.moveableRight += diff
+          } else {
+            child._props._diagram.state.moveableBottom += diff
+          }
         }
       } else {
         if (dimension === 'width') {

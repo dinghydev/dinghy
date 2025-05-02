@@ -40,7 +40,7 @@ const defaultDiagramOptions: Props = {
     spaceX: 30,
     spaceY: 30,
     spaceBetweenX: 30,
-    spaceBetweenY: 60,
+    spaceBetweenY: 30,
   },
 }
 

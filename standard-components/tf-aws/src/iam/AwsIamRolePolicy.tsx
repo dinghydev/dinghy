@@ -27,13 +27,11 @@ export type AwsIamRolePolicyOutputProps =
   & z.output<typeof AwsIamRolePolicyOutputSchema>
   & AwsIamRolePolicyInputProps
 
-export function importId(props: AwsIamRolePolicyOutputProps) {
-  return `${props.role}:${props.name}`
-}
-
 export function AwsIamRolePolicy(props: AwsIamRolePolicyInputProps) {
+  const _importId = (node: any) => `${node._props.role}:${node._props.name}`
   return (
     <Shape
+      _importId={_importId}
       {...aws(
         props,
         AwsIamRolePolicyInputSchema,

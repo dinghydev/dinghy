@@ -24,14 +24,14 @@ export type AwsIamRolePolicyAttachmentOutputProps =
   & z.output<typeof AwsIamRolePolicyAttachmentOutputSchema>
   & AwsIamRolePolicyAttachmentInputProps
 
-export function importId(props: AwsIamRolePolicyAttachmentOutputProps) {
-  return `${props.role}/${props.policy_arn}`
-}
 export function AwsIamRolePolicyAttachment(
   props: AwsIamRolePolicyAttachmentInputProps,
 ) {
+  const _importId = (node: any) =>
+    `${node._props.role}/${node._props.policy_arn}`
   return (
     <Shape
+      _importId={_importId}
       {...aws(
         props,
         AwsIamRolePolicyAttachmentInputSchema,

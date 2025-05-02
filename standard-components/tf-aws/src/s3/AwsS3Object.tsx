@@ -1,4 +1,5 @@
 import {
+  deepResolve,
   type IacNodeProps,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
@@ -30,7 +31,8 @@ export type AwsS3ObjectOutputProps =
   & AwsS3ObjectInputProps
 
 export function AwsS3Object(props: AwsS3ObjectInputProps) {
-  const _importId = (node: any) => `${node._props.bucket}/${node._props.__key}`
+  const _importId = (node: any) =>
+    `${deepResolve(node, node._props, 'bucket')}/${node._props.__key}`
   return (
     <Bucket
       _importId={_importId}

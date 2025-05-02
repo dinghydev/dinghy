@@ -5,8 +5,10 @@ import type {
   DrawioRenderOptions,
   Processor,
 } from '../types.ts'
+import { p10ApplyViewAttributes } from './p10ApplyViewAttributes.tsx'
 import { p15ResolveAttrDiagram } from './p15ResolveAttrDiagram.tsx'
 import { p16CollectDependencies } from './p16CollectDependencies.ts'
+import { p22FilterView } from './p22FilterView.ts'
 import { p23ApplyFlagHidden } from './p23ApplyFlagHidden.ts'
 import { p88BuildMxfile } from './p88BuildMxfile.ts'
 import { p21ResolveFlagIsEntity } from './p21ResolveFlagIsEntity.tsx'
@@ -20,11 +22,12 @@ import { p68AdjustRelationships } from './p68AdjustRelationships.ts'
 import { p61CollectDependencies } from './p61CollectDependencies.ts'
 import { p80ApplyBeforeGenerate } from './p80ApplyBeforeGenerate.tsx'
 import type { HostContainer } from '@reactiac/base-renderer'
-
 const processors: Processor[] = [
+  p10ApplyViewAttributes,
   p15ResolveAttrDiagram,
   p16CollectDependencies,
   p21ResolveFlagIsEntity,
+  p22FilterView,
   p23ApplyFlagHidden,
   p30CollectShapeAttr,
   p31ResolveDimension,

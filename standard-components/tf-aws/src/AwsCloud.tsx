@@ -27,7 +27,7 @@ export default function AwsCloud(props: AwsCloudInputProps) {
             required_providers: {
               aws: {
                 source: 'aws',
-                version: props.version || '5.63.1',
+                version: props.version || '5.94.1',
               },
             },
           },

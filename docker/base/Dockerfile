@@ -56,12 +56,12 @@ RUN echo 'Essential dependencies' \
 #     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list \
 #     && apt-get update \
 #     # && apt list -a terraform \
-#     && apt-get -y install terraform=1.11.2-1 \
+#     && apt-get -y install terraform=1.11.3 \
 #     && apt-get clean -y \
 #     && rm -rf /var/lib/apt/lists/*
 
 # RUN echo 'Install terraform aws provider' \
 #    && mkdir -p /terraform \
 #     && cd /terraform \
-#     && printf "terraform {\nrequired_providers {\nmycloud = {\nsource  = \"aws\"\nversion = \"5.63.1\"\n}\n}\n}" > provider.tf \
+#     && printf "terraform {\nrequired_providers {\nmycloud = {\nsource  = \"aws\"\nversion = \"5.94.1\"\n}\n}\n}" > provider.tf \
 #     && terraform init

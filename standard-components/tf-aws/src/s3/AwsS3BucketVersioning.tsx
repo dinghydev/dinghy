@@ -1,4 +1,5 @@
 import {
+  deepResolve,
   type IacNodeProps,
   ResolvableRecordSchema,
   ResolvableStringSchema,
@@ -10,7 +11,7 @@ import { Shape } from '@reactiac/base-components'
 
 export const AwsS3BucketVersioningInputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),
-  versioning_configuration: ResolvableRecordSchema.array().optional(),
+  versioning_configuration: ResolvableRecordSchema.optional(),
 })
 
 export const AwsS3BucketVersioningOutputSchema = z.object({
@@ -34,7 +35,7 @@ export function importId(props: AwsS3BucketVersioningOutputProps) {
 }
 
 export function AwsS3BucketVersioning(props: AwsS3BucketVersioningInputProps) {
-  const _importId = (node: any) => node._props.bucket
+  const _importId = (node: any) => deepResolve(node, node._props, 'bucket')
   return (
     <Shape
       _importId={_importId}

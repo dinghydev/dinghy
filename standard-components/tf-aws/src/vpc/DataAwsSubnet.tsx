@@ -13,6 +13,7 @@ export const DataAwsSubnetInputSchema = z.object({
 
 export const DataAwsSubnetOutputSchema = z.object({
   id: ResolvableStringSchema.optional(),
+  vpc_id: ResolvableStringSchema.optional(),
   arn: ResolvableStringSchema.optional(),
 })
 

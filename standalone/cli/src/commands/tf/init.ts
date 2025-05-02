@@ -22,7 +22,7 @@ const createBackend = async (
   backendResource: any,
   userConfirmed: boolean,
 ) => {
-  const workingDir = `${stagePath}/.terraform/backend`;
+  const workingDir = `${hostAppHome}/${stagePath}/.terraform/backend`;
   Deno.mkdirSync(workingDir, { recursive: true });
   const { backend, ...terraform } = tfModel.terraform;
   const backendTfJson = {

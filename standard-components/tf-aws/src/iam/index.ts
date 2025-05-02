@@ -10,3 +10,4 @@ export {
   useAwsIamRolePolicyAttachment,
 } from './AwsIamRolePolicyAttachment.tsx'
 export { ASSUME_ROLE_EC2_POLICY } from './AssumeRolePolicies.tsx'
+export { IamRolePolicies } from './IamRolePolicies.tsx'
