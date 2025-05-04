@@ -19,14 +19,18 @@ export const StackSchema = z.object({
   env: z.string().optional(),
   title: z.string().optional(),
   sequence: z.number().optional(),
-  stages: z.record(z.string(), ItemSchema).optional(),
-  views: z.record(z.string(), ItemSchema).optional(),
+  stages: z.record(z.string(), ItemSchema.passthrough()).optional(),
+  views: z.record(z.string(), ItemSchema.passthrough()).optional(),
+  mrAutoDiff: z.boolean().default(true),
+  mrAutoDeploy: z.boolean().default(false),
+  mainAutoDiff: z.boolean().default(true),
+  mainAutoDeploy: z.boolean().default(false),
 });
 
 export type Stack = z.input<typeof StackSchema>;
 
 export const StacksSchema = z.object({
-  stacks: z.record(z.string(), StackSchema),
+  stacks: z.record(z.string(), StackSchema.passthrough()),
 });
 
 export type Stacks = z.input<typeof StacksSchema>;
@@ -147,6 +151,7 @@ const parseStacksInput = (appName: string, stacksInput: Props): Stacks => {
   Object.values(stacks).map((stack: any, i) => {
     stack.sequence ??= (i + 1) * 10;
   });
+
   return StacksSchema.parse({ stacks });
 };
 

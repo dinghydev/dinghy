@@ -155,6 +155,31 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "tf-diff",
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
+      "args": [
+        "tf",
+        "diff",
+        // "-h",
+        "--debug"
+      ],
+      "env": {
+        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
       "name": "tf-apply",
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/standalone/cli",
@@ -302,6 +327,22 @@
         "--allow-all"
       ],
       "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "docker tf-diff",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "args": [
+        "andopen run reactiac tf diff"
+      ],
+      "env": {
+        "DEBUG": "*",
+        "DOCKER_IMAGEVERSION": "latest",
+        "DOCKER_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac"
+      },
+      "cwd": "/Users/guo/andopen/src/devops/iac-cicd",
       "console": "integratedTerminal"
     },
     {

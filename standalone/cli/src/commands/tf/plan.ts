@@ -18,7 +18,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     stagePath,
     tfVersion,
     args,
-    ["terraform", "plan", `-out=${args["plan-file"]}`],
+    ["terraform", "plan", `-lock=${args.lock}`, `-out=${args["plan-file"]}`],
   );
 };
 

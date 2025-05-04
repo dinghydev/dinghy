@@ -22,8 +22,10 @@ export const tfOptions: CommandOptions = {
 
 export const tfOptionsPlanFile: CommandOptions = {
   string: ["plan-file"],
+  boolean: ["lock"],
   description: {
     "plan-file": "Plan file name",
+    lock: "Lock the state during plan",
   },
   default: {
     "plan-file": "tf.plan",

@@ -1,5 +1,5 @@
 import { existsSync } from "@std/fs/exists";
-import { resolve } from "@std/path";
+import { dirname, resolve } from "@std/path";
 import {
   appHomeMount,
   containerAppHome,
@@ -8,6 +8,9 @@ import {
   reactiacRc,
 } from "./loadConfig.ts";
 import { streamCmd } from "./cmd.ts";
+import { mkdirSync } from "node:fs";
+import Debug from "debug";
+const debug = Debug("dockerUtils");
 
 const HOST_USER_HOME = Deno.env.get("HOST_USER_HOME") ||
   Deno.env.get("HOME");
@@ -24,7 +27,6 @@ const HOME_MOUNTS = [
   ".aws",
   ".ssh",
   ".npmrc",
-  ".aws",
 ];
 
 const GLOBALE_MOUNTS = [
@@ -35,15 +37,15 @@ export const getDockerHostPath = (path: string) =>
   path.startsWith("/") ? path : resolve(hostAppHome, path);
 
 export function getDockerEnvs(appEnvs: Env = {}) {
-  const awsEnvs = Object.entries(Deno.env.toObject()).filter(([key]) =>
-    key.startsWith("AWS_")
+  const whiteListEnvs = Object.entries(Deno.env.toObject()).filter(([key]) =>
+    key.startsWith("AWS_") || key.startsWith("DOCKER_")
   ).reduce((acc, [key, value]) => {
     acc[key] = value;
     return acc;
   }, {});
   return {
     ...reactiacRc,
-    ...awsEnvs,
+    ...whiteListEnvs,
     APP_HOME: appHomeMount,
     HOST_APP_HOME: hostAppHome,
     HOST_USER_HOME,
@@ -92,6 +94,21 @@ export function getDockerMounts(
   return mounts.filter((mount) => existsSync(mount.check || mount.source));
 }
 
+const prepareDockerAuthConfig = () => {
+  const dockerAuthConfig = Deno.env.get("DOCKER_AUTH_CONFIG");
+  if (dockerAuthConfig) {
+    const dockerAuthConfigFile = "/root/.docker/config.json";
+    if (!existsSync(dockerAuthConfigFile)) {
+      const dockerAuthConfigFileDir = dirname(dockerAuthConfigFile);
+      if (!existsSync(dockerAuthConfigFileDir)) {
+        mkdirSync(dockerAuthConfigFileDir, { recursive: true });
+      }
+      Deno.writeTextFileSync(dockerAuthConfigFile, dockerAuthConfig);
+      debug("Docker auth config file created", dockerAuthConfigFile);
+    }
+  }
+};
+
 export const runDockerCmd = async (
   workingDir: string,
   appMounts: Mount[],
@@ -99,6 +116,7 @@ export const runDockerCmd = async (
   dockerImage: string,
   exitOnFailure = true,
 ) => {
+  prepareDockerAuthConfig();
   return await streamCmd(
     [
       "docker",
@@ -107,7 +125,7 @@ export const runDockerCmd = async (
       "-t",
       ...Object.entries(getDockerEnvs()).flatMap((
         [k, v],
-      ) => ["-e", `${k}=${v}`]),
+      ) => ["-e", `'${k}=${(v as string).replace(/'/g, "'\"'\"'")}'`]),
       ...getDockerMounts(appMounts).flatMap((
         mount,
       ) => ["--volume", `${mount.source}:${mount.target}`]),

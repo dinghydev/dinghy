@@ -11,13 +11,14 @@ export const streamCmd = async (
   cwd?: string,
   exitOnFailure = true,
 ) => {
-  debug("running %a from %s", args, containerAppHome);
   const workingDir = cwd || containerAppHome;
+  debug("running %a from %s", args, containerAppHome);
   if (exitOnFailure) {
     try {
       return await execa(args[0], args.slice(1), {
         stdio: "inherit",
         cwd: workingDir,
+        shell: true,
       });
     } catch (e) {
       console.error(

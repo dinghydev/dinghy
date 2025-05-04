@@ -19,9 +19,6 @@ export const configGetDockerImageVersion = () => {
   if (!version.includes("-")) { // for latest and base version
     version = resolveLatestVersion(version);
     if (Deno.execPath().endsWith("deno")) {
-      console.warn(
-        "running in local development mode, trying to resolve version from .version file",
-      );
       const versionFile = `${projectRoot}/.version`;
       if (existsSync(versionFile)) {
         version = Deno.readTextFileSync(versionFile).trim();

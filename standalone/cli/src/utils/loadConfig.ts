@@ -16,7 +16,7 @@ const resolveHome = () => {
 };
 
 export const reactiacRc: Record<string, string> = {};
-export const isInsideContainer = Deno.env.get("HOST_APP_HOME") !== undefined;
+export const isInsideContainer = Deno.env.get("HOST_USER_HOME") !== undefined;
 export const hostAppHome = Deno.env.get("HOST_APP_HOME") || resolveHome();
 export const appHomeMount = `/reactiac/workspace/project/${
   basename(hostAppHome)
