@@ -70,21 +70,21 @@ function loadFiles(basePaths: string[]) {
 }
 
 export const configGet = (paths: string[]) => {
-  let current = reactiacAppConfig;
-  for (const path of paths) {
-    if (!current || typeof current !== "object") {
-      break;
-    }
-    current = current[path];
-  }
-  if (current === undefined) {
-    const envVar = paths.join("_").toUpperCase();
-    current = Deno.env.get(envVar);
-    if (current !== undefined) {
-      debug("use env %s=*", envVar);
-    }
+  const envVar = paths.join("_").toUpperCase();
+  let current = Deno.env.get(envVar);
+  if (current !== undefined) {
+    debug("use env %s=*", envVar);
   } else {
-    debug("use config %s=*", paths.join("."));
+    current = reactiacAppConfig;
+    for (const path of paths) {
+      if (!current || typeof current !== "object") {
+        break;
+      }
+      current = current[path];
+    }
+    if (current !== undefined) {
+      debug("use config %s=*", paths.join("."));
+    }
   }
   return current;
 };

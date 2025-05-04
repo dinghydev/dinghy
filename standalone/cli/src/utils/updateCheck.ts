@@ -21,7 +21,8 @@ const latestVersionFile = () => `${reactiacHome}/states/latest-version.json`;
 export const resolveLatestVersion = (base: string) => {
   const versionFile = latestVersionFile();
   if (!existsSync(versionFile)) {
-    throw new Error(`Latest version file ${versionFile} does not exist`);
+    console.warn(`Latest version file ${versionFile} does not exist`);
+    return base;
   }
   const versions = JSON.parse(Deno.readTextFileSync(versionFile));
   const version = versions[base];

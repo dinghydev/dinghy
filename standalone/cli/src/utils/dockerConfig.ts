@@ -1,6 +1,8 @@
 import Debug from "debug";
 import { resolveLatestVersion } from "./updateCheck.ts";
 import { configGet } from "./loadConfig.ts";
+import { projectRoot } from "./projectRoot.ts";
+import { existsSync } from "@std/fs/exists";
 const debug = Debug("dockerConfig");
 
 export const configDockerRepoDefault =
@@ -11,15 +13,23 @@ export const configGetDockerRepo = () => {
   return configGet(["docker", "repo"]) || configDockerRepoDefault;
 };
 
-export const configGetDockerVersion = () => {
-  const version = configGet(["docker", "version"]) ||
+export const configGetDockerImageVersion = () => {
+  let version = configGet(["docker", "imageVersion"]) ||
     configDockerVersionDefault;
-  if (
-    !version.includes("-") && // for latest and base version
-    !Deno.execPath().endsWith("deno") // for uncompiled version during development
-  ) {
-    return resolveLatestVersion(version);
+  if (!version.includes("-")) { // for latest and base version
+    version = resolveLatestVersion(version);
+    if (Deno.execPath().endsWith("deno")) {
+      console.warn(
+        "running in local development mode, trying to resolve version from .version file",
+      );
+      const versionFile = `${projectRoot}/.version`;
+      if (existsSync(versionFile)) {
+        version = Deno.readTextFileSync(versionFile).trim();
+        debug("resolved docker image version from %s", versionFile);
+      }
+    }
   }
+  debug("resolved docker image version as %s", version);
   return version;
 };
 
@@ -27,7 +37,7 @@ export const configGetDockerImage = () => {
   let image = configGet(["docker", "image"]);
   if (!image) {
     const arch = Deno.build.arch === "aarch64" ? "-linux-arm64" : "";
-    image = `${configGetDockerRepo()}:${configGetDockerVersion()}${arch}`;
+    image = `${configGetDockerRepo()}:${configGetDockerImageVersion()}${arch}`;
   }
   debug("resolved docker image %s", image);
   return image;

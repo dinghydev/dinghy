@@ -25,8 +25,9 @@ const writeFile = async (path: string, content: string) => {
 }
 
 const json = async (app: any, options: any, args: any) => {
-  const result = await renderJson(app, options)
   const outputPath = `${args.output}/${options.stack.id}.json`
+  debug('rendering json to %s/%s', hostAppHome, outputPath)
+  const result = await renderJson(app, options)
   await writeFile(outputPath, result.result)
 }
 
@@ -60,8 +61,9 @@ const diagram = async (app: any, options: any, args: any) => {
       view = createView(options.stack, viewString)
     }
     options.view = view
-    const result = await renderDrawio(app, options)
     const outputPath = `${args.output}/${view.id}.drawio`
+    debug('rendering drawio to %s/%s', hostAppHome, outputPath)
+    const result = await renderDrawio(app, options)
     await writeFile(outputPath, result.result)
     renderedViews.push(viewString)
     collectedViews = result.views
@@ -101,9 +103,10 @@ const tf = async (app: any, options: any, args: any) => {
       stage = createStage(options.stack, stageString)
     }
     options.stage = stage
+    const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`
+    debug('rendering tf to %s/%s', hostAppHome, outputPath)
     const result = await renderTf(app, options)
     if (result.result !== '{}') {
-      const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`
       await writeFile(outputPath, result.result)
       renderedStages.push(stageString)
       stackInfo.stages[stage.id] = stage
