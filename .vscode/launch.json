@@ -161,6 +161,7 @@
       "args": [
         "tf",
         "diff",
+        "development",
         // "-h",
         "--debug"
       ],

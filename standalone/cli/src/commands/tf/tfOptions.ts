@@ -20,15 +20,17 @@ export const tfOptions: CommandOptions = {
   },
 };
 
-export const tfOptionsPlanFile: CommandOptions = {
-  string: ["plan-file"],
+export const tfOptionsPlan: CommandOptions = {
+  string: ["plan-file", "diff-changes-max-lines"],
   boolean: ["lock"],
   description: {
     "plan-file": "Plan file name",
+    "diff-changes-max-lines": "Max lines of diff changes",
     lock: "Lock the state during plan",
   },
   default: {
     "plan-file": "tf.plan",
+    "diff-changes-max-lines": "10",
   },
 };
 
@@ -42,25 +44,28 @@ export const parseTfOptions = (options: any) => {
   const stackInfo = JSON.parse(Deno.readTextFileSync(
     `${hostAppHome}/${options.output}/${stack.id}-stack-info.json`,
   ));
-  let stage: any = options.stage
-    ? Object.values(stack.stages || {}).find(
+  const stages: any[] = [];
+  if (options.stage) {
+    let stage: any = Object.values(stack.stages || {}).find(
       (s: any) => s.name === options.stage,
-    )
-    : Object.values(stack.stages || {})[0];
-  if (!stage) {
-    stage = {
-      id: `${stack.id}-${options.stage}`,
-      name: options.stage,
-    };
-    (stack.stages || {})[options.stage] = stage;
+    );
+    if (!stage) {
+      stage = {
+        id: `${stack.id}-${options.stage}`,
+        name: options.stage,
+      };
+      console.warn(`Stage not found, creating ondemand stage ${stage.id}`);
+    }
+    stages.push(stage);
+  } else {
+    stages.push(...Object.values(stack.stages || {}));
   }
-  const stagePath = `${options.output}/${stage.id}`;
   const tfVersion = stackInfo.tfImageVersion || "tf";
 
   return {
+    stack,
     stackInfo,
-    stage,
-    stagePath,
+    stages,
     tfVersion,
   };
 };

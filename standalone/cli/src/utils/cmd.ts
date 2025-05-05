@@ -12,7 +12,7 @@ export const streamCmd = async (
   exitOnFailure = true,
 ) => {
   const workingDir = cwd || containerAppHome;
-  debug("running %a from %s", args, containerAppHome);
+  debug("streamCmd %a from %s", args, containerAppHome);
   if (exitOnFailure) {
     try {
       return await execa(args[0], args.slice(1), {
@@ -31,8 +31,9 @@ export const streamCmd = async (
   const result = await execa(args[0], args.slice(1), {
     stdout: ["pipe", "inherit"],
     stderr: ["pipe", "inherit"],
-    cwd: workingDir,
     all: true,
+    cwd: workingDir,
+    shell: true,
     reject: false,
   });
   if (result.exitCode !== 0) {
@@ -43,4 +44,30 @@ export const streamCmd = async (
     );
   }
   return result;
+};
+
+export const execCmd = async (
+  cmd: string,
+  cwd?: string,
+): Promise<string> => {
+  const workingDir = cwd || containerAppHome;
+  const args = cmd.split(" ");
+  debug("execCmd %a from %s", args, containerAppHome);
+  const result = await execa(args[0], args.slice(1), {
+    stdout: ["pipe"],
+    stderr: ["pipe"],
+    all: true,
+    cwd: workingDir,
+    shell: true,
+    reject: false,
+  });
+  if (result.exitCode !== 0) {
+    debug(
+      "Failed command: (cd %s; %s)",
+      workingDir,
+      args.join(" "),
+    );
+  }
+  debug("execCmd result: %s", result.all);
+  return result.all.trim();
 };

@@ -9,9 +9,14 @@ import Debug from "debug";
 import { runWorkspaceTask } from "../../utils/runWorkspaceTask.ts";
 import tf from "../tf/index.ts";
 import { runCommand } from "../../utils/runCommand.ts";
-import { reactiacAppConfig } from "../../utils/loadConfig.ts";
+import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
 import { parseStacks } from "../../utils/stackUtils.ts";
-import { isMr } from "../../utils/gitUtils.ts";
+import {
+  attachChangeToMR,
+  isMr,
+  triggerAutoDeployJobs,
+} from "../../utils/gitUtils.ts";
+import { notifyChanges } from "../../utils/notificationUtils.ts";
 const debug = Debug("tf:diff");
 
 const options: CommandOptions = {
@@ -50,11 +55,15 @@ const runStackCommands = async (stack: string, args: string[]) => {
 const run = async (_context: CommandContext, args: CommandArgs) => {
   const remainArgs = Deno.args.slice(2);
   const stackIds: string[] = [];
+  const { stacks } = await parseStacks(
+    "app",
+    reactiacAppConfig.stacks,
+    args.stack,
+  );
   if (args.stack) {
     stackIds.push(args.stack);
     await runStackCommands(args.stack, remainArgs.slice(1));
   } else {
-    const { stacks } = await parseStacks("app", reactiacAppConfig.stacks);
     for (const stack of Object.values(stacks)) {
       if ((isMr() && stack.mrAutoDiff) || (!isMr() && stack.mainAutoDiff)) {
         stackIds.push(stack.id);
@@ -62,7 +71,30 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       }
     }
   }
-  console.log(`TODO: handle result`, stackIds);
+
+  const stacksChanges: any[] = [];
+  const changedStacks: any[] = [];
+  for (const stackId of stackIds) {
+    const stackInfoFile =
+      `${hostAppHome}/${args.output}/${stackId}-stack-info.json`;
+    const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoFile));
+    for (const stage of Object.values(stackInfo.stages)) {
+      if ((stage as any).plan?.changesCount) {
+        stacksChanges.push(stage);
+        const stack = stacks[stackId];
+        if (!changedStacks.includes(stack)) {
+          changedStacks.push(stack);
+        }
+      }
+    }
+  }
+  if (stacksChanges.length) {
+    const changeAction = isMr() ? attachChangeToMR : notifyChanges;
+    await changeAction(stacksChanges);
+    await triggerAutoDeployJobs(changedStacks, args);
+  } else {
+    console.log("No changes found in any stack");
+  }
 };
 
 export default {

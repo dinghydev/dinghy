@@ -112,50 +112,54 @@ const runTfInit = (
 };
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
-  const { stage, stagePath, tfVersion } = parseTfOptions(args);
-  const result = await runTfInit(
-    stagePath,
-    tfVersion,
-    args,
-  );
-  if (result.exitCode !== 0) {
-    if (result.stdout?.includes("StatusCode: 404")) {
-      const tfModel = JSON.parse(
-        Deno.readTextFileSync(
-          `${hostAppHome}/${stagePath}/${stage.id}.tf.json`,
-        ),
-      );
-      const backendBucket = tfModel.terraform?.backend?.s3?.bucket;
-      const backendResource = Object.entries(
-        tfModel.resource?.aws_s3_bucket || {},
-      ).find(([_k, v]) => (v as any).bucket === backendBucket);
-      if (backendResource) {
-        console.error(
-          `backend bucket ${backendBucket} not created yet, you may use --auto-create-backend flag or TF_INIT_AUTO_CREATE_BACKEND environment variable to create it automatically`,
+  const { stages, tfVersion } = parseTfOptions(args);
+  for (const stage of stages) {
+    const stagePath = `${args.output}/${stage.id}`;
+    const result = await runTfInit(
+      stagePath,
+      tfVersion,
+      args,
+    );
+
+    if (result.exitCode !== 0) {
+      if (result.stdout?.includes("StatusCode: 404")) {
+        const tfModel = JSON.parse(
+          Deno.readTextFileSync(
+            `${hostAppHome}/${stagePath}/${stage.id}.tf.json`,
+          ),
         );
-        let createOnDemand = args["auto-create-backend"];
-        let userConfirmed = false;
-        if (!createOnDemand && process.stdout.isTTY) {
-          createOnDemand = await confirm({
-            message: "Do you want to create it now?",
-            default: true,
-          });
-          userConfirmed = true;
-        }
-        console.log("createOnDemand", createOnDemand);
-        if (createOnDemand) {
-          return createBackend(
-            stagePath,
-            tfVersion,
-            args,
-            tfModel,
-            backendResource,
-            userConfirmed,
+        const backendBucket = tfModel.terraform?.backend?.s3?.bucket;
+        const backendResource = Object.entries(
+          tfModel.resource?.aws_s3_bucket || {},
+        ).find(([_k, v]) => (v as any).bucket === backendBucket);
+        if (backendResource) {
+          console.error(
+            `backend bucket ${backendBucket} not created yet, you may use --auto-create-backend flag or TF_INIT_AUTO_CREATE_BACKEND environment variable to create it automatically`,
           );
+          let createOnDemand = args["auto-create-backend"];
+          let userConfirmed = false;
+          if (!createOnDemand && process.stdout.isTTY) {
+            createOnDemand = await confirm({
+              message: "Do you want to create it now?",
+              default: true,
+            });
+            userConfirmed = true;
+          }
+          console.log("createOnDemand", createOnDemand);
+          if (createOnDemand) {
+            return createBackend(
+              stagePath,
+              tfVersion,
+              args,
+              tfModel,
+              backendResource,
+              userConfirmed,
+            );
+          }
         }
       }
+      Deno.exit(1);
     }
-    Deno.exit(1);
   }
 };
 

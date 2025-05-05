@@ -1,25 +1,24 @@
 import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { runTf } from "./runTf.ts";
-import {
-  createTfOptions,
-  parseTfOptions,
-  tfOptionsPlanFile,
-} from "./tfOptions.ts";
+import { createTfOptions, parseTfOptions, tfOptionsPlan } from "./tfOptions.ts";
 
 const options: any = createTfOptions({
-  ...tfOptionsPlanFile,
+  ...tfOptionsPlan,
   cmdDescription: "Apply pending planned changes",
 });
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
-  const { stagePath, tfVersion } = parseTfOptions(args);
-  await runTf(
-    stagePath,
-    tfVersion,
-    args,
-    ["terraform", "apply", args["plan-file"]],
-  );
+  const { stages, tfVersion } = parseTfOptions(args);
+  for (const stage of stages) {
+    const stagePath = `${args.output}/${stage.id}`;
+    await runTf(
+      stagePath,
+      tfVersion,
+      args,
+      ["terraform", "apply", args["plan-file"]],
+    );
+  }
 };
 
 const commands: Commands = {

@@ -14,7 +14,11 @@ const packages = allPackages
 Deno.writeTextFileSync(
   'packages-to-cache.ts',
   `
-  ${packages.map((p) => `import * as ${p[0].replaceAll(/[^a-zA-Z0-9]/g, '')} from '${p[0]}'`).join('\n')}
+  ${
+    packages.map((p) =>
+      `import * as ${p[0].replaceAll(/[^a-zA-Z0-9]/g, '')} from '${p[0]}'`
+    ).join('\n')
+  }
   `,
 )
 Deno.writeTextFileSync(
@@ -67,12 +71,13 @@ Deno.writeTextFileSync(
 }
   `,
 )
-const reuslt = Deno.run({
-  cmd: ['deno', 'install', '--entrypoint', 'packages-to-cache.ts', '--lock'],
+
+const command = new Deno.Command(Deno.execPath(), {
+  args: ['install', '--entrypoint', 'packages-to-cache.ts', '--lock'],
 })
-const status = await reuslt.status()
-if (!status.success) {
-  console.error(await reuslt.stdout())
-  console.error(await reuslt.stderr())
+const { code, stdout, stderr } = await command.output()
+if (code !== 0) {
+  console.error(new TextDecoder().decode(stdout))
+  console.error(new TextDecoder().decode(stderr))
   throw new Error(`Failed to install dependencies`)
 }
