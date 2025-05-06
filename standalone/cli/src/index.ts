@@ -16,6 +16,7 @@ await runCommand({
   prefix: [],
   envPrefix: [],
   args: Deno.args,
+  originalArgs: Deno.args,
   commands,
   options: commands[OPTIONS_SYMBOL],
 });

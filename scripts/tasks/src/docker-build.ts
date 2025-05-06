@@ -80,6 +80,9 @@ async function dockerCommand(args: string[]) {
 }
 
 function isTagExists(tag: string) {
+  if (tag.endsWith("-dirty")) {
+    return false;
+  }
   const args = ["manifest", "inspect", tag];
   try {
     execaSync({

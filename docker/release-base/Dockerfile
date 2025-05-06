@@ -14,6 +14,3 @@ RUN echo 'Install docker' \
    && apt-get -y install docker-ce-cli\
    && apt-get clean -y \
    && rm -rf /var/lib/apt/lists/*
-
-
-COPY docker/release-base/fs-root /    

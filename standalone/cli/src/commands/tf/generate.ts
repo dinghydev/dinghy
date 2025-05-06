@@ -3,8 +3,8 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { runWorkspaceTask } from "../../utils/runWorkspaceTask.ts";
 import { tfGenerateOptions } from "../../utils/tfGenerateOptions.ts";
 
-const run = async (_context: CommandContext, _args: CommandArgs) => {
-  await runWorkspaceTask(["tf-generate", ...Deno.args]);
+const run = async (context: CommandContext, _args: CommandArgs) => {
+  await runWorkspaceTask(["tf-generate", ...context.originalArgs]);
 };
 
 const commands: Commands = {

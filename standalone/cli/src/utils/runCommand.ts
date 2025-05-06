@@ -51,6 +51,7 @@ export async function runCommand(context: CommandContext) {
       prefix: [...context.prefix, cmdStr],
       envPrefix: [...context.prefix, envName],
       args: context.args.slice(1),
+      originalArgs: context.originalArgs,
       commands: command,
       options: command[OPTIONS_SYMBOL],
     });

@@ -36,6 +36,9 @@ export const s3GetFile = async (
   });
   debug("download s3://%s/%s request", Bucket, Key);
   const s3Response = await s3Client(region).send(s3Command);
+  if (!s3Response.Body) {
+    debug("no body in s3 response????");
+  }
   const body = await s3Response.Body!.transformToString("utf-8");
   debug("download response: %s", body);
   return body;
@@ -59,6 +62,7 @@ export const temporaryStorageGetFile = async (key: string) => {
     return null;
   }
   try {
+    debug("getting temporary storage file %s", key);
     return await s3GetFile(region, bucket, key);
   } catch (e) {
     debug("Failed to get temporary storage file %s", key, e);

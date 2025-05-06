@@ -195,7 +195,9 @@ export const attachChangeToMR = async (changes: any[]) => {
     mrIid,
     jobName().split(" ").join("-"),
   );
+  debug("gitlab mr note key: %s", key);
   const existingNoteId = await temporaryStorageGetFile(key);
+  debug("gitlab mr note existingNoteId: %s", existingNoteId);
   await (existingNoteId
     ? gitlabMrNoteUpdateById(
       mrIid,

@@ -263,14 +263,18 @@
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/standalone/cli",
       "args": [
+        // "--commands",
+        // "render development|render production",
+        // "--commands",
+        // "diagram png",
         // "render",
         // "json",
-        "tf",
+        // "tf",
         // "generate",
         // "--json-file",
         // "${workspaceFolder}/tmp.terraform-show-cicd.json",
         // "init",
-        "plan",
+        // "plan",
         // "apply",
         // "test",
         // "app",
@@ -336,7 +340,7 @@
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "args": [
-        "andopen run reactiac tf diff"
+        "andopen run reactiac tf diff development"
       ],
       "env": {
         "DEBUG": "*",

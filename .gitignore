@@ -44,7 +44,7 @@ tmp*
 **/terraform.tfstate.backup
 
 # Copied files
-docker/release-base/fs-root/reactiac/deno.lock
+docker/dependencies/fs-root/reactiac/locks
 base/components/src/utils/stackUtils.ts
 workspace/utils
 

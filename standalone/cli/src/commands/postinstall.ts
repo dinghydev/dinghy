@@ -78,6 +78,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       prefix: ["init"],
       envPrefix: ["init"],
       args: ["--quiet"],
+      originalArgs: ["init", "--quiet"],
       commands: init,
       options: init[OPTIONS_SYMBOL],
     });

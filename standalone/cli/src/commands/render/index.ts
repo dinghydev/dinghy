@@ -3,8 +3,8 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { renderOptions } from "../../utils/renderOptions.ts";
 import { runWorkspaceTask } from "../../utils/runWorkspaceTask.ts";
 
-const run = async (_context: CommandContext, _args: CommandArgs) => {
-  await runWorkspaceTask(Deno.args);
+const run = async (context: CommandContext, _args: CommandArgs) => {
+  await runWorkspaceTask(context.originalArgs);
 };
 
 const commands: Commands = {

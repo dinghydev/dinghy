@@ -41,6 +41,7 @@ const runStackTfCommands = async (
     prefix: ["tf"],
     envPrefix: ["tf"],
     args: [tfCommand, stack, ...args],
+    originalArgs: ["tf", tfCommand, stack, ...args],
     commands: tf,
     options: tf[OPTIONS_SYMBOL],
   });
@@ -52,8 +53,8 @@ const runStackCommands = async (stack: string, args: string[]) => {
   await runStackTfCommands(stack, "plan", args);
 };
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
-  const remainArgs = Deno.args.slice(2);
+const run = async (context: CommandContext, args: CommandArgs) => {
+  const remainArgs = context.originalArgs.slice(2);
   const stackIds: string[] = [];
   const { stacks } = await parseStacks(
     "app",

@@ -17,6 +17,7 @@ export type CommandOptions = {
 
 export type CommandArgs = {
   description: Record<string, string>;
+  originalArgs: string[];
 } & Args;
 
 export const OPTIONS_SYMBOL = Symbol("options");
@@ -39,6 +40,7 @@ export type CommandContext = {
   prefix: string[];
   envPrefix: string[];
   args: string[];
+  originalArgs: string[];
   commands: Commands;
   options: CommandOptions;
 };

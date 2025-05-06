@@ -7,11 +7,14 @@ const copyProjectFile = (src: string, target: string) => {
 
 if (import.meta.main) {
   updateReleaseVersion();
+  Deno.mkdirSync(`${projectRoot}/workspace/utils`, { recursive: true });
+  Deno.mkdirSync(`${projectRoot}/docker/dependencies/fs-root/reactiac/locks`, {
+    recursive: true,
+  });
   copyProjectFile(
     "standalone/cli/src/utils/stackUtils.ts",
     "base/components/src/utils/stackUtils.ts",
   );
-  Deno.mkdirSync(`${projectRoot}/workspace/utils`, { recursive: true });
   copyProjectFile(
     "standalone/cli/src/utils/stackUtils.ts",
     "workspace/utils/stackUtils.ts",
@@ -42,6 +45,10 @@ if (import.meta.main) {
   );
   copyProjectFile(
     "deno.lock",
-    "docker/release-base/fs-root/reactiac/deno.lock",
+    "docker/dependencies/fs-root/reactiac/locks/deno.lock",
+  );
+  copyProjectFile(
+    "standalone/deno.lock",
+    "docker/dependencies/fs-root/reactiac/locks/standalone-deno.lock",
   );
 }
