@@ -8,7 +8,8 @@ const debug = Debug("gitUtils");
 export const mrId = () => Deno.env.get("CI_MERGE_REQUEST_IID");
 
 export const isMr = () => mrId() !== undefined;
-export const jobName = () => `reactiac ${Deno.args.join(" ")}`;
+export const jobName = () =>
+  Deno.env.get("CI_JOB_NAME") || `reactiac ${Deno.args.join(" ")}`;
 const projectId = () => Deno.env.get("CI_PROJECT_ID");
 
 let _projectName: string | undefined;
@@ -218,12 +219,15 @@ export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
   const namesCandidates: string[] = [];
   if (!args.stack) {
     namesCandidates.push("reactiac tf apply");
+    namesCandidates.push("tf apply");
   }
 
   for (const stack of stacks) {
     const optionKey = `${isMr() ? "mr" : "main"}AutoDeploy`;
     if (stack[optionKey]) {
       namesCandidates.push(
+        `tf diff ${stack.id}`,
+        `tf apply ${stack.id}`,
         `reactiac tf diff ${stack.id}`,
         `reactiac tf apply ${stack.id}`,
       );

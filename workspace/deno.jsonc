@@ -14,7 +14,10 @@
     "chalk": "npm:chalk@5.4.1",
     "execa": "npm:execa@9.5.2",
     "zod": "npm:zod@3.24.2",
-    "mergician": "npm:mergician@2.0.2"
+    "mergician": "npm:mergician@2.0.2",
+    "@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@3.802.0",
+    "@aws-sdk/lib-storage": "npm:@aws-sdk/lib-storage@3.802.0",
+    "dayjs": "npm:dayjs@1.11.13"
   },
   "exports": {
     ".": "./tasks/render/index.ts"
