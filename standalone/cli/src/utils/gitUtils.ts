@@ -71,7 +71,7 @@ const gitlabMrNoteUpdateById = async (
       body,
     }),
   });
-  debug("get gitlab project mr edit note response %O", response);
+  debug("get gitlab project mr edit note response %O", debugResponse(response));
 
   if (!response.ok) {
     throw new Error(`Failed to update MR note: ${response.statusText}`);
@@ -101,7 +101,10 @@ const gitlabMrNoteCreate = async (
       body: body,
     }),
   });
-  debug("get gitlab project mr create note response %O", response);
+  debug(
+    "get gitlab project mr create note response %O",
+    debugResponse(response),
+  );
 
   if (!response.ok) {
     throw new Error(`Failed to create MR note: ${response.statusText}`);
@@ -133,7 +136,7 @@ const gitlabPipelineJobs = async (pipelineId: string) => {
   debug(
     "get gitlab project pipeline %s jobs response %O",
     pipelineId,
-    response,
+    debugResponse(response),
   );
 
   if (!response.ok) {
@@ -144,6 +147,16 @@ const gitlabPipelineJobs = async (pipelineId: string) => {
 
   const responseBody = await response.json();
   return responseBody;
+};
+
+const debugResponse = (response: any) => {
+  return {
+    ok: response.ok,
+    redirected: response.redirected,
+    status: response.status,
+    statusMessage: response.statusText,
+    url: response.url,
+  };
 };
 
 const gitlabPlayJob = async (id: number) => {
@@ -159,7 +172,7 @@ const gitlabPlayJob = async (id: number) => {
       "Content-Type": "application/json",
     },
   });
-  debug("play gitlab project job response %O", response);
+  debug("play gitlab project job response %O", debugResponse(response));
   if (!response.ok) {
     throw new Error(
       `Failed to play gitlab project job: ${response.statusText}`,

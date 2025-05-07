@@ -59,7 +59,7 @@ export default {
   [RUN_SYMBOL]: run,
 } as Command;
 
-function prepareConfig(args: CommandArgs) {
+function prepareConfig(args: CommandArgs): any {
   const configFolder = `${hostAppHome}/.devcontainer`;
   if (existsSync(configFolder)) {
     debug(
@@ -69,7 +69,7 @@ function prepareConfig(args: CommandArgs) {
   }
 
   const configFile = `${hostAppHome}/.devcontainer.json`;
-  const config = configGet(["devcontainer", "json"]) || {};
+  const config: any = configGet(["devcontainer", "json"]) || {};
   config.name ??= hostAppHome.split("/").pop() as string;
   config.runArgs ??= ["--name", config.name];
   if (!config.build) {

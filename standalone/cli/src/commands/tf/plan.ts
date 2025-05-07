@@ -1,7 +1,7 @@
 import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { hostAppHome } from "../../utils/loadConfig.ts";
-import { runTf } from "./runTf.ts";
+import { runTfImageCmd } from "./runTfImageCmd.ts";
 import { createTfOptions, parseTfOptions, tfOptionsPlan } from "./tfOptions.ts";
 import Debug from "debug";
 const debug = Debug("tf:plan");
@@ -61,7 +61,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   for (const stage of stages) {
     const stagePath = `${args.output}/${stage.id}`;
     debug("Running terraform plan from %s", stagePath);
-    await runTf(
+    await runTfImageCmd(
       stagePath,
       tfVersion,
       args,
@@ -72,7 +72,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         args["plan-file"]
       }.${format}`;
       debug("Formatting plan file to %s", planOutputFile);
-      await runTf(
+      await runTfImageCmd(
         stagePath,
         tfVersion,
         args,

@@ -8,9 +8,10 @@
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "args": [
         "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --tf-generateImport --debug",
-        "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts diagram png"
+        "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts diagram"
       ],
       "env": {
+        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
       "cwd": "${workspaceFolder}/workspace",
@@ -85,6 +86,8 @@
         // "--diagram-saveView",
         // "--stage",
         // "state",
+        // "--output",
+        // ".",
         "--debug"
       ],
       "env": {
@@ -92,6 +95,7 @@
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
       },
       "type": "node",
       "request": "launch",
@@ -167,6 +171,8 @@
       ],
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        "DOCKER_IMAGEVERSION": "latest",
+        "DOCKER_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac",
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
       "type": "node",
@@ -235,17 +241,21 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "diagram-png",
+      "name": "diagram",
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/standalone/cli",
       "args": [
         "diagram",
-        "png",
         // "-h",
+        "--output",
+        ".",
+        "-f",
+        "ecs-architecture.drawio",
         "--debug"
       ],
       "env": {
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
       },
       "type": "node",
       "request": "launch",
@@ -356,6 +366,15 @@
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "args": ["deno task clean"],
+      "cwd": "${workspaceFolder}/scripts/tasks",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "cli-publish",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "args": ["deno task cli-publish"],
       "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     },

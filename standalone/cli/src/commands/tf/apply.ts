@@ -1,7 +1,7 @@
 import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { notifyChanges } from "../../utils/notificationUtils.ts";
-import { runTf } from "./runTf.ts";
+import { runTfImageCmd } from "./runTfImageCmd.ts";
 import { createTfOptions, parseTfOptions, tfOptionsPlan } from "./tfOptions.ts";
 
 const options: any = createTfOptions({
@@ -25,7 +25,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     try {
       for (const stage of changedStages) {
         const stagePath = `${args.output}/${stage.id}`;
-        await runTf(
+        await runTfImageCmd(
           stagePath,
           tfVersion,
           args,

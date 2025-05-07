@@ -1,6 +1,6 @@
 import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
-import { runTf } from "./runTf.ts";
+import { runTfImageCmd } from "./runTfImageCmd.ts";
 import { createTfOptions, parseTfOptions } from "./tfOptions.ts";
 import process from "node:process";
 import confirm from "@inquirer/confirm";
@@ -50,7 +50,7 @@ const createBackend = async (
     Deno.exit(result.exitCode);
   }
 
-  await runTf(
+  await runTfImageCmd(
     workingDir,
     tfVersion,
     args,
@@ -66,7 +66,7 @@ const createBackend = async (
     }
   }
 
-  await runTf(
+  await runTfImageCmd(
     workingDir,
     tfVersion,
     args,
@@ -83,7 +83,7 @@ const createBackend = async (
   );
   console.log(`created ${backendTfJsonFile}`);
 
-  await runTf(
+  await runTfImageCmd(
     workingDir,
     tfVersion,
     args,
@@ -102,7 +102,7 @@ const runTfInit = (
   tfVersion: string,
   args: CommandArgs,
 ) => {
-  return runTf(
+  return runTfImageCmd(
     stagePath,
     tfVersion,
     args,

@@ -37,8 +37,7 @@ function collectPairs(context: DrawioContext, node: DrawioNodeTree) {
             d._parent!._props._id
           }-${relationship._props._diagram.flags.arrowDirection}`
           // biome-ignore lint/suspicious/noAssignInExpressions: todo
-          const groupList = (acc[key] =
-            (acc[key] as DrawioNodeTree[]) ||
+          const groupList = (acc[key] = (acc[key] as DrawioNodeTree[]) ||
             ([] as DrawioNodeTree[])) as unknown as DrawioNodeTree[][]
           groupList.push([d, relationship])
           return acc
@@ -124,18 +123,16 @@ const populateDirection = (context: DrawioContext) => {
     let direction: string
     let isArrowVertical = false
     if ((commonParent._props as any)._diagram.flags.isDirectionVertical) {
-      direction =
-        (d._props as any)._source._props._diagram.state.absTop >
-        (d._props as any)._target._props._diagram.state.absTop
-          ? 'up'
-          : 'down'
+      direction = (d._props as any)._source._props._diagram.state.absTop >
+          (d._props as any)._target._props._diagram.state.absTop
+        ? 'up'
+        : 'down'
       isArrowVertical = true
     } else {
-      direction =
-        (d._props as any)._source._props._diagram.state.absLeft >
-        (d._props as any)._target._props._diagram.state.absLeft
-          ? 'left'
-          : 'right'
+      direction = (d._props as any)._source._props._diagram.state.absLeft >
+          (d._props as any)._target._props._diagram.state.absLeft
+        ? 'left'
+        : 'right'
     }
     ;(d._props as any)._diagram.flags ??= {}
     ;(d._props as any)._diagram.flags.arrowDirection = direction
@@ -163,7 +160,7 @@ const sortArray = (context: DrawioContext) => {
           ? (a._props as any)._diagram.state.absLeft -
             (b._props as any)._diagram.state.absLeft
           : (a._props as any)._diagram.state.absTop -
-            (b._props as any)._diagram.state.absTop,
+            (b._props as any)._diagram.state.absTop
       )
       dependsPair.relationships = []
       dependsPair.list.map((d) => {
@@ -178,7 +175,10 @@ export const p61CollectDependencies = (context: DrawioContext) => {
   populateAbs(context)
   populateDirection(context)
   collectPairs(context, context.rootNode)
+
+  //TODO: sort with ordering support, don't break list by same parent
   context.dependsPairs.sort((a, b) => b.list.length - a.list.length)
+
   collectUniqePairs(context)
   sortArray(context)
 }

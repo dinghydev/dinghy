@@ -113,7 +113,7 @@ async function buildImage(
   const firstTag = `${options.repo}:${
     name === "release" ? version : `${name}-${await hashDockerfiles(
       name,
-      baseImage,
+      [baseImage, ...args].join("-"),
     )}`
   }${platformTag}`;
   if (isTagExists(firstTag)) {

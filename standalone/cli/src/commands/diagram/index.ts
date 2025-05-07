@@ -5,14 +5,22 @@ import type {
   Commands,
 } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
-import { showHelp } from "../../utils/showHelp.ts";
+import { runCommand } from "../../utils/runCommand.ts";
 import png from "./png.ts";
 const options: CommandOptions = {
   description: {},
-  cmdDescription: "Diagram related operations",
+  cmdDescription:
+    "Diagram related operations, default is convert drawio files to png",
 };
 const run = async (context: CommandContext, _args: CommandArgs) => {
-  showHelp(context);
+  await runCommand({
+    prefix: ["diagram"],
+    envPrefix: ["diagram"],
+    args: ["png", ...context.originalArgs.slice(1)],
+    originalArgs: context.originalArgs,
+    commands,
+    options: png[OPTIONS_SYMBOL],
+  });
 };
 
 const commands: Commands = {

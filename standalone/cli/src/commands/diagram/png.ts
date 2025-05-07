@@ -9,6 +9,7 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { containerAppHome } from "../../utils/loadConfig.ts";
 import { streamCmd } from "../../utils/cmd.ts";
 import Debug from "debug";
+import { resolve } from "@std/path/resolve";
 const debug = Debug("diagram:png");
 
 const options: CommandOptions = {
@@ -34,7 +35,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   }
 
   if (!args.output.startsWith("/")) {
-    args.output = `${containerAppHome}/${args.output}`;
+    args.output = resolve(`${containerAppHome}/${args.output}`);
   }
 
   const drawioBin = args["drawio-bin"] ||
@@ -48,7 +49,15 @@ const run = async (context: CommandContext, args: CommandArgs) => {
 
   const files: string[] = [];
   const file = args.file;
-  if (!file && existsSync(args.output)) {
+  if (file) {
+    for (const f of file) {
+      if (f.startsWith("/")) {
+        files.push(f);
+      } else {
+        files.push(resolve(`${args.output}/${f}`));
+      }
+    }
+  } else if (existsSync(args.output)) {
     const dir = await Deno.readDir(args.output);
     for await (const entry of dir) {
       if (entry.isFile && entry.name.endsWith(".drawio")) {
@@ -61,7 +70,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     Deno.exit(1);
   }
   await Promise.allSettled(
-    files.map(async (file) => {
+    files.map(async (file: string) => {
       const pngFile = file.replace(".drawio", ".png");
       debug(`generating from ${file}`);
       await streamCmd([
@@ -78,13 +87,17 @@ const run = async (context: CommandContext, args: CommandArgs) => {
       debug(`generated -> ${pngFile}`);
     }),
   ).then((results) => {
-    results.forEach((result) => {
+    let failed = false;
+    results.map((result, i) => {
       if (result.status === "rejected") {
-        console.error(result.reason);
-        console.error("Failed to generate png");
-        Deno.exit(1);
+        console.error(`Failed to generate png ${files[i]}: ${result.reason}`);
+        failed = true;
       }
     });
+    if (failed) {
+      console.error("Failed to generate png");
+      Deno.exit(1);
+    }
   });
 };
 

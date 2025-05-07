@@ -1,7 +1,7 @@
 import { renderJson } from '@reactiac/renderer-json'
 import { renderDrawio } from '@reactiac/renderer-drawio'
 import { renderTf } from '@reactiac/renderer-tf'
-import { dirname } from '@std/path'
+import { dirname, resolve } from '@std/path'
 import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
@@ -11,7 +11,7 @@ import { createStage, createView } from '../../utils/stackUtils.ts'
 const debug = Debug('rendererMapping')
 
 const writeFile = async (path: string, content: string) => {
-  const filePath = `${hostAppHome}/${path}`
+  const filePath = resolve(`${hostAppHome}/${path}`)
   const folder = dirname(filePath)
   await Deno.mkdir(folder, { recursive: true })
   await Deno.writeTextFile(filePath, content)

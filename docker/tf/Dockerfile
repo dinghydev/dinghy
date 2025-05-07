@@ -22,4 +22,12 @@ RUN echo 'Install terraform aws provider' \
     && printf "terraform {\nrequired_providers {\nmycloud = {\nsource  = \"aws\"\nversion = \"${TERRAFORM_AWS_PROVIDER_VERSION}\"\n}\n}\n}" > provider.tf \
     && terraform init
 
+
+RUN echo 'Install aws cli' \
+   && apt-get update \
+    # && apt list -a awscli \
+    && apt-get -y install awscli=2.9.19-1 \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY docker/tf/fs-root /    
