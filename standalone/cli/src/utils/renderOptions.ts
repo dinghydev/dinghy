@@ -11,9 +11,6 @@ export const renderOptions = {
     "tf-generateImport": "Generate import statements for tf",
     "diagram-saveView": "Save view to stack-info.json",
   },
-  default: {
-    output: "output",
-  },
   arguments: {
     stack: {
       description: "Stack name",

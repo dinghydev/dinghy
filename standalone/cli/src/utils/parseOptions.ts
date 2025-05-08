@@ -19,7 +19,9 @@ const loadDefaultFromEnv = (spec: any, envPrefix: string[]) => {
             ? Number.parseFloat(value)
             : Number.parseInt(value);
         } else if (optionType === "collect") {
-          value = value.split(",");
+          if (typeof value === "string") {
+            value = value.split(",");
+          }
         }
         defaultWithEnv[option] = value;
       }
@@ -59,7 +61,7 @@ export const parseOptions = (
   }
 
   if (!options.output) {
-    options.output = "output";
+    options.output = configGet(["output"]) || "output";
   }
 
   debug("parsed options %O", options);

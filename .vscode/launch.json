@@ -11,7 +11,7 @@
         "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts diagram"
       ],
       "env": {
-        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
+        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
       "cwd": "${workspaceFolder}/workspace",
@@ -79,8 +79,8 @@
       "cwd": "${workspaceFolder}/workspace",
       "args": [
         // "test",
-        "--format",
-        "all",
+        // "--format",
+        // "all",
         // "tf",
         "--tf-generateImport",
         // "--diagram-saveView",
@@ -88,6 +88,7 @@
         // "state",
         // "--output",
         // ".",
+        "production",
         "--debug"
       ],
       "env": {
@@ -95,7 +96,7 @@
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
+        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
       },
       "type": "node",
       "request": "launch",
@@ -309,6 +310,18 @@
         "--allow-all"
       ],
       "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "docker login",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "args": ["deno task aws-ecr-login"],
+      "cwd": "${workspaceFolder}/scripts/tasks",
+      "env": {
+        "AWS_PROFILE": "reactiac"
+      },
       "console": "integratedTerminal"
     },
     {

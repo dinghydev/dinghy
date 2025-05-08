@@ -10,7 +10,7 @@ import { parseOptions } from '../../utils/parseOptions.ts'
 import { rendererMapping } from './renderMapping.ts'
 import { mergician } from 'mergician'
 import Debug from 'debug'
-import { parseStack } from '@reactiac/base-components'
+import { loadStackConfig, parseStacks } from '@reactiac/base-components'
 const debug = Debug('render')
 setupDebug()
 await loadConfig()
@@ -47,12 +47,25 @@ try {
       options.tf ??= {}
       options.tf.generateImport = true
     }
-    parseStack(cmdOptions.stack || appName.toLowerCase(), options)
-    for (const formatString of cmdOptions.format || ['default']) {
-      const renderers =
-        rendererMapping[formatString as keyof typeof rendererMapping]
-      for (const renderer of renderers) {
-        await renderer(app, options, cmdOptions)
+    const { stacks } = await parseStacks(
+      cmdOptions.stack || appName.toLowerCase(),
+      reactiacAppConfig.stacks,
+      cmdOptions.stack,
+    )
+    options.stacks = stacks
+    for (const stack of Object.values(stacks)) {
+      if (cmdOptions.stack && stack.id !== cmdOptions.stack) {
+        continue
+      }
+      options.stack = stack
+      const stackOptions = mergician(options, {})
+      loadStackConfig(stackOptions)
+      for (const formatString of cmdOptions.format || ['default']) {
+        const renderers =
+          rendererMapping[formatString as keyof typeof rendererMapping]
+        for (const renderer of renderers) {
+          await renderer(app, stackOptions, cmdOptions)
+        }
       }
     }
   }

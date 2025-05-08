@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react'
 import type { HostContainer, Output } from '@reactiac/base-renderer'
 import type { DrawioNodeTree, DrawioRenderOptions } from './types.ts'
+import { encode } from 'html-entities'
 
 const renderValue = (value: unknown): unknown => {
   if (typeof value === 'object') {
@@ -21,7 +22,13 @@ const renderProps = (
   padding: string,
 ): string => {
   const propsStr = Object.keys(props)
-    .map((key) => `${key}="${renderValue(props[key])}"`)
+    .map((key) => {
+      let value = renderValue(props[key])
+      if (key === 'value' && typeof value === 'string') {
+        value = encode(value)
+      }
+      return `${key}="${value}"`
+    })
     .join(` \n${padding}  `)
   return propsStr.length > 0 ? `\n${padding}  ${propsStr}\n${padding}  ` : ''
 }

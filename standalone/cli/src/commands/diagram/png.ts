@@ -20,9 +20,6 @@ const options: CommandOptions = {
     "drawio-bin": "Path to the drawio binary",
     output: "Path to the lookup drawio files if file not provided",
   },
-  default: {
-    output: "output",
-  },
   alias: {
     f: "file",
   },

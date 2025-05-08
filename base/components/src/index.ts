@@ -11,8 +11,10 @@ export {
   createStack,
   loadFile,
   loadFilesData,
+  loadStackConfig,
   mergeStackOptions,
   parseStack,
+  parseStacks,
 } from './utils/stackUtils.ts'
 export { getRootNode } from './utils/nodeUtils.ts'
 export { createDebugger } from './utils/debugUtils.ts'
@@ -22,7 +24,6 @@ export {
   DiagramNodeSchema,
   type DisplayStringType,
   IacNodeSchema,
-  type Item,
   NodeSchema,
   type NodeTree,
   type Props,
@@ -31,7 +32,6 @@ export {
   ResolvableRecordSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
-  type Stack as StackType,
   StringSchema,
 } from './types.ts'
 

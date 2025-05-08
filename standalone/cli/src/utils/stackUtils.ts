@@ -185,18 +185,24 @@ export const parseStack = (
   }
   options.stacks = stacks;
   options.stack = stack;
-  const settings = loadFilesData(options, "config/settings", stack.id) ||
-    loadFilesData(options, "config", stack.id);
+  loadStackConfig(options);
+  return stack;
+};
+
+export const loadStackConfig = (
+  configs: any,
+) => {
+  const settings =
+    loadFilesData(configs, "config/settings", configs.stack.id) ||
+    loadFilesData(configs, "config", configs.stack.id);
   if (settings) {
     const overrides = mergician({
       onCircular({ srcVal, targetVal }: { srcVal: any; targetVal: any }) {
         return { ...targetVal, ...srcVal };
       },
-    })(options, settings);
-    Object.assign(options, overrides);
+    })(configs, settings);
+    Object.assign(configs, overrides);
   }
-
-  return stack;
 };
 
 const collectTags = (result: string[], variants: string[], size = 1) => {

@@ -45,6 +45,9 @@ function loadAppConfig() {
 
 function loadFiles(basePaths: string[]) {
   for (const basePath of basePaths) {
+    if (!fs.existsSync(basePath)) {
+      continue;
+    }
     for (const dirEntry of walkSync(basePath)) {
       if (dirEntry.isFile && !dirEntry.name.startsWith(".")) {
         const filePath = dirEntry.path;
