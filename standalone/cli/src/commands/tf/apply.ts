@@ -1,5 +1,7 @@
+import chalk from "chalk";
 import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
+import { isCi } from "../../utils/gitUtils.ts";
 import { notifyChanges } from "../../utils/notificationUtils.ts";
 import { runTfImageCmd } from "./runTfImageCmd.ts";
 import { createTfOptions, parseTfOptions, tfOptionsPlan } from "./tfOptions.ts";
@@ -32,7 +34,16 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
           ["terraform", "apply", args["plan-file"]],
         );
       }
-      await notifyChanges(changedStages);
+      if (isCi()) {
+        await notifyChanges(changedStages);
+      } else {
+        console.log("Ignore notification in non-CI environment");
+        changedStages.map((change) => {
+          console.log(
+            chalk.red(`${change.id} changes: ${change.plan.summary}`),
+          );
+        });
+      }
     } catch (error) {
       await notifyChanges(changedStages, error as string);
     }

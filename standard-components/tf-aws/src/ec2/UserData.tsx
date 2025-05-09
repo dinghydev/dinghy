@@ -1,13 +1,13 @@
 import {
   type IacNodeProps,
   ResolvableStringSchema,
-  Shape,
 } from '@reactiac/base-components'
 
 import z from 'zod'
 import { useTypedNode } from '@reactiac/base-components'
 import { Buffer } from 'node:buffer'
 import { useUserDataTexts } from './UserDataText.tsx'
+import { azure } from '@reactiac/standard-components-diagrams'
 
 export const UserDataInputSchema = z.object({
   content: ResolvableStringSchema.optional(),
@@ -42,7 +42,7 @@ export function UserData(props: UserDataInputProps) {
     }).map((t: string) => t.trim()).join('\n')
   }
   return (
-    <Shape
+    <azure.CloudServicesConfigurationFile
       {...{ ...props, content }}
     />
   )

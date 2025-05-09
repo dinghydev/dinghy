@@ -5,6 +5,6 @@ export const USER = {
   _shape: 'mxgraph.aws4.user',
 }
 
-export default function User(props: DiagramNodeProps) {
+export function User(props: DiagramNodeProps) {
   return <Shape {...USER} {...props} />
 }

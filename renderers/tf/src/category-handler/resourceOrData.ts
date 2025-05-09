@@ -20,7 +20,13 @@ export const resourceOrData = (
     tfElement = schema.partial().parse(node._props) as Props
     tfElement = mergician(tfElement, (node._props as any)[category]) as Props
   } else {
-    tfElement = schema.parse(node._props) as Props
+    try {
+      tfElement = schema.parse(node._props) as Props
+    } catch (e) {
+      console.error('input props', node._props)
+      console.error('Error parsing schema', e)
+      throw new Error('Error parsing schema')
+    }
   }
   let resolvedElement = deepResolve(node, tfElement)
   resolvedElement = schema.strict().parse(resolvedElement)

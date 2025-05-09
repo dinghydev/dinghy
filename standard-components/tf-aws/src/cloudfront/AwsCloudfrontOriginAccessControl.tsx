@@ -3,15 +3,16 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 import { useTypedNode } from '@reactiac/base-components'
 
 export const AwsCloudfrontOriginAccessControlInputSchema = z.object({
   name: ResolvableStringSchema,
-  origin_access_control_origin_type:
-    ResolvableStringSchema.optional().default('s3'),
+  origin_access_control_origin_type: ResolvableStringSchema.optional().default(
+    's3',
+  ),
   signing_behavior: ResolvableStringSchema.optional().default('always'),
   signing_protocol: ResolvableStringSchema.optional().default('sigv4'),
 })
@@ -21,22 +22,24 @@ export const AwsCloudfrontOriginAccessControlOutputSchema = z.object({
   id: ResolvableStringSchema.optional(),
 })
 
-export type AwsCloudfrontOriginAccessControlInputProps = z.input<
-  typeof AwsCloudfrontOriginAccessControlInputSchema
-> &
-  IacNodeProps
+export type AwsCloudfrontOriginAccessControlInputProps =
+  & z.input<
+    typeof AwsCloudfrontOriginAccessControlInputSchema
+  >
+  & IacNodeProps
 
-export type AwsCloudfrontOriginAccessControlOutputProps = z.input<
-  typeof AwsCloudfrontOriginAccessControlOutputSchema
-> &
-  AwsCloudfrontOriginAccessControlInputProps
+export type AwsCloudfrontOriginAccessControlOutputProps =
+  & z.input<
+    typeof AwsCloudfrontOriginAccessControlOutputSchema
+  >
+  & AwsCloudfrontOriginAccessControlInputProps
 
 export function AwsCloudfrontOriginAccessControl(
   props: AwsCloudfrontOriginAccessControlInputProps,
 ) {
   return (
     <Shape
-      {...aws(
+      {...awsProps(
         props,
         AwsCloudfrontOriginAccessControlInputSchema,
         AwsCloudfrontOriginAccessControlOutputSchema,

@@ -5,10 +5,10 @@ import {
   useTypedNodes,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { useTypedNode } from '@reactiac/base-components'
-
+import { aws } from '@reactiac/standard-components-diagrams'
 export const AwsSecurityGroupInputSchema = z.object({
   name: ResolvableStringSchema.optional(),
   description: ResolvableStringSchema.optional(),
@@ -30,8 +30,12 @@ export type AwsSecurityGroupOutputProps =
 
 export function AwsSecurityGroup(props: AwsSecurityGroupInputProps) {
   return (
-    <Shape
-      {...aws(props, AwsSecurityGroupInputSchema, AwsSecurityGroupOutputSchema)}
+    <aws.NetworkFirewallEndpoints
+      {...awsProps(
+        props,
+        AwsSecurityGroupInputSchema,
+        AwsSecurityGroupOutputSchema,
+      )}
     />
   )
 }

@@ -129,7 +129,7 @@ const tf = async (app: any, options: any, args: any) => {
 
 export const rendererMapping = {
   json: [json],
-  drawio: [diagram],
+  diagram: [diagram],
   tf: [tf],
   default: [diagram, tf],
   all: [json, diagram, tf],

@@ -241,8 +241,8 @@ export const loadFilesData = (options: any, path: string, name?: string) => {
     tags.map((tag) => {
       const value = current[`${tag}.yaml`];
       if (value) {
-        debug("loadFiles %s %s/%s.yaml", name, path, tag);
         values.push(value);
+        debug("loaded file data %s %s/%s.yaml", name, path, tag);
       }
     });
   } else {

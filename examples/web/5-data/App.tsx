@@ -1,6 +1,6 @@
 import { Shape, Stack, useRenderOptions } from '@reactiac/base-components'
 import {
-  ClientShape,
+  Client,
   GroupOnPremise,
   RdsPostgresqlInstance,
   Waf,
@@ -26,7 +26,7 @@ const isLocal = () => {
 
 const WebApp = (props: any) => <Stack {...props} />
 
-const Client = (props: any) => <ClientShape {...props} />
+const Client = (props: any) => <Client {...props} />
 
 const Cloud = (props: any) => (
   <AwsCloud {...props}>

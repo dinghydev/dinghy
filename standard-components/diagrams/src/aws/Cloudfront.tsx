@@ -16,6 +16,6 @@ export const CLOUDFRONT = {
   },
 }
 
-export default function Cloudfront(props: DiagramNodeProps) {
+export function Cloudfront(props: DiagramNodeProps) {
   return <Shape {...CLOUDFRONT} {...props} />
 }

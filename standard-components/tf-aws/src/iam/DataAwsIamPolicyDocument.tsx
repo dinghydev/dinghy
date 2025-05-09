@@ -1,6 +1,6 @@
 import { IacNodeProps } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 import { useTypedNode } from '@reactiac/base-components'
@@ -30,7 +30,7 @@ export function DataAwsIamPolicyDocument(
 ) {
   return (
     <Shape
-      {...aws(
+      {...awsProps(
         props,
         DataAwsIamPolicyDocumentInputSchema,
         DataAwsIamPolicyDocumentOutputSchema,

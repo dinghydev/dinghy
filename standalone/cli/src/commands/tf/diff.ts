@@ -13,10 +13,12 @@ import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
 import { parseStacks } from "../../utils/stackUtils.ts";
 import {
   attachChangeToMR,
+  isCi,
   isMr,
   triggerAutoDeployJobs,
 } from "../../utils/gitUtils.ts";
 import { notifyChanges } from "../../utils/notificationUtils.ts";
+import chalk from "chalk";
 const debug = Debug("tf:diff");
 
 const options: CommandOptions = {
@@ -48,7 +50,7 @@ const runStackTfCommands = async (
 };
 
 const runStackCommands = async (stack: string, args: string[]) => {
-  await runWorkspaceTask(["render", stack, ...args]);
+  await runWorkspaceTask(["render", stack, "--format", "tf", ...args]);
   await runStackTfCommands(stack, "init", args);
   await runStackTfCommands(stack, "plan", args);
 };
@@ -62,11 +64,17 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     args.stack,
   );
   if (args.stack) {
+    debug("Run diff for selected stack: %s", args.stack);
     stackIds.push(args.stack);
     await runStackCommands(args.stack, remainArgs.slice(1));
   } else {
+    debug("Run diff for all stacks");
     for (const stack of Object.values(stacks)) {
-      if ((isMr() && stack.mrAutoDiff) || (!isMr() && stack.mainAutoDiff)) {
+      if (
+        !isCi() ||
+        (isMr() && stack.mrAutoDiff) ||
+        (!isMr() && stack.mainAutoDiff)
+      ) {
         stackIds.push(stack.id);
         await runStackCommands(stack.id, remainArgs);
       }
@@ -90,9 +98,16 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     }
   }
   if (stacksChanges.length) {
-    const changeAction = isMr() ? attachChangeToMR : notifyChanges;
-    await changeAction(stacksChanges);
-    await triggerAutoDeployJobs(changedStacks, args);
+    if (isCi()) {
+      const changeAction = isMr() ? attachChangeToMR : notifyChanges;
+      await changeAction(stacksChanges);
+      await triggerAutoDeployJobs(changedStacks, args);
+    } else {
+      console.log("Ignore notification and auto deploy in non-CI environment");
+      stacksChanges.map((change) => {
+        console.log(chalk.red(`${change.id} changes: ${change.plan.summary}`));
+      });
+    }
   } else {
     console.log("No changes found in any stack");
   }

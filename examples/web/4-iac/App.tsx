@@ -1,5 +1,5 @@
 import { Stack } from '@reactiac/base-components'
-import { ClientShape, Waf } from '@reactiac/standard-components-diagrams'
+import { Client, Waf } from '@reactiac/standard-components-diagrams'
 
 import {
   AwsCloud,
@@ -18,9 +18,7 @@ const Postgres = (props: any) => <AwsPostgres {...props} />
 
 const WebApp = (props: any) => <Stack {...props} />
 
-const Client = (props: any) => (
-  <ClientShape _dependsOn='Load Balancer' {...props} />
-)
+const Client = (props: any) => <Client _dependsOn='Load Balancer' {...props} />
 
 const Cloud = (props: any) => (
   <AwsCloud {...props}>

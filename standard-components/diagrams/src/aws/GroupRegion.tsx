@@ -6,6 +6,6 @@ export const GROUP_REGION = {
   _icon: 'mxgraph.aws4.group_region',
 }
 
-export default function GroupRegion(props: DiagramNodeProps) {
+export function GroupRegion(props: DiagramNodeProps) {
   return <Shape {...GROUP_REGION} {...props} />
 }

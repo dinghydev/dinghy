@@ -104,12 +104,21 @@ function prepareConfig(args: CommandArgs): any {
       extensions: ["ms-azuretools.vscode-docker", "denoland.vscode-deno"],
       settings: {
         "remote.extensionKind": {
-          "ms-azuretools.vscode-docker": ["ui"],
           "denoland.vscode-deno": ["workspace"],
         },
       },
     },
   };
+
+  let extensions: any = configGet(["devcontainer", "extensions"]);
+  if (extensions) {
+    if (typeof extensions === "string") {
+      extensions = extensions.split(",");
+    }
+    config.customizations.vscode.extensions.push(...extensions);
+    debug("extensions added: %O", extensions);
+  }
+
   Deno.writeTextFileSync(configFile, JSON.stringify(config, null, 2));
   debug("generated %s", configFile);
   if (args["no-open"]) {

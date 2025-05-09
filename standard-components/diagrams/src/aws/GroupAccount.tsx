@@ -8,6 +8,6 @@ export const GROUP_ACCOUNT = {
   _icon: 'mxgraph.aws4.group_account',
 }
 
-export default function GroupAccount(props: DiagramNodeProps) {
+export function GroupAccount(props: DiagramNodeProps) {
   return <Shape {...GROUP_ACCOUNT} {...props} />
 }

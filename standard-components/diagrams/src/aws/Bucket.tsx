@@ -20,6 +20,6 @@ export const BUCKET = {
   },
 }
 
-export default function Bucket(props: DiagramNodeProps) {
+export function Bucket(props: DiagramNodeProps) {
   return <Shape {...BUCKET} {...props} />
 }

@@ -1,6 +1,6 @@
 import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { useTypedNode } from '@reactiac/base-components'
 import { Route53 } from '@reactiac/standard-components-diagrams'
@@ -30,7 +30,11 @@ export type AwsRoute53ZoneOutputProps =
 export function AwsRoute53Zone(props: AwsRoute53ZoneInputProps) {
   return (
     <Route53
-      {...aws(props, AwsRoute53ZoneInputSchema, AwsRoute53ZoneOutputSchema)}
+      {...awsProps(
+        props,
+        AwsRoute53ZoneInputSchema,
+        AwsRoute53ZoneOutputSchema,
+      )}
     />
   )
 }

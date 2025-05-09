@@ -5,6 +5,6 @@ export const CLIENT = {
   _shape: 'mxgraph.aws4.client',
 }
 
-export default function Client(props: DiagramNodeProps) {
+export function Client(props: DiagramNodeProps) {
   return <Shape {...CLIENT} {...props} />
 }

@@ -3,7 +3,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 
@@ -31,7 +31,11 @@ export type AwsS3BucketAclOutputProps =
 export function AwsS3BucketAcl(props: AwsS3BucketAclInputProps) {
   return (
     <Shape
-      {...aws(props, AwsS3BucketAclInputSchema, AwsS3BucketAclOutputSchema)}
+      {...awsProps(
+        props,
+        AwsS3BucketAclInputSchema,
+        AwsS3BucketAclOutputSchema,
+      )}
     />
   )
 }

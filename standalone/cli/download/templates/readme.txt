@@ -8,12 +8,6 @@ Need only once if not already done:
 
 ## Development
 
-### Run dev server
-
-At http://localhost:3000 :
-  
-    reactiac dev
-
 ### To develop with devcontainer
 
     reactiac devcontainer
@@ -22,12 +16,12 @@ At http://localhost:3000 :
 
     reactiac render
 
-### To generate diagram as png
-
-    reactiac diagram png
-
 ### To perform tf actions
 
     reactiac tf init
     reactiac tf plan
     reactiac tf apply
+
+### To generate diagram as png from host only
+
+    reactiac diagram

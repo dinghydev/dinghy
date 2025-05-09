@@ -7,6 +7,6 @@ export const APPLICATION_LOAD_BALANCER = {
   _shape: 'mxgraph.aws4.application_load_balancer',
 }
 
-export default function ApplicationLoadBalancer(props: DiagramNodeProps) {
+export function ApplicationLoadBalancer(props: DiagramNodeProps) {
   return <Shape {...APPLICATION_LOAD_BALANCER} {...props} />
 }

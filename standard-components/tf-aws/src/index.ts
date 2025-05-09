@@ -87,7 +87,7 @@ function _category({ _props: { _tags } }: NodeTree) {
   }
 }
 
-export function aws(
+export function awsProps(
   props: IacNodeProps,
   _inputSchema: ZodObject<ZodRawShape>,
   _outputSchema?: ZodObject<ZodRawShape>,

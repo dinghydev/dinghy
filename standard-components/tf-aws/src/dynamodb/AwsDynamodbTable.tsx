@@ -5,7 +5,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { Bucket } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
@@ -38,7 +38,11 @@ export function AwsDynamodbTable(props: AwsDynamodbTableInputProps) {
   return (
     <Bucket
       _importId={_importId}
-      {...aws(props, AwsDynamodbTableInputSchema, AwsDynamodbTableOutputSchema)}
+      {...awsProps(
+        props,
+        AwsDynamodbTableInputSchema,
+        AwsDynamodbTableOutputSchema,
+      )}
     />
   )
 }

@@ -14,6 +14,7 @@ export const S3TextFileInputSchema = z.object({
   filePath: ResolvableStringSchema.optional(),
   content: ResolvableStringSchema.optional(),
   content_base64: ResolvableStringSchema.optional(),
+  content_type: ResolvableStringSchema.optional(),
 })
 
 export const S3TextFileOutputSchema = z.object({
@@ -27,6 +28,17 @@ export type S3TextFileInputProps =
 export type S3TextFileOutputProps =
   & z.output<typeof S3TextFileOutputSchema>
   & S3TextFileInputProps
+
+const CONTENT_TYPE_MAP = {
+  'html': 'text/html',
+  'js': 'text/javascript',
+  'css': 'text/css',
+  'txt': 'text/plain',
+  'json': 'application/json',
+  'xml': 'application/xml',
+  'yaml': 'text/yaml',
+  'yml': 'text/yaml',
+}
 
 export function S3TextFile(props: S3TextFileInputProps) {
   const content = (node: any) => {
@@ -43,11 +55,16 @@ export function S3TextFile(props: S3TextFileInputProps) {
       return text instanceof Function ? text() : text
     }).map((t: string) => t.trim()).join('\n')
   }
+  const fileExtension = (props.filePath as string).split('.').pop()
+
+  const content_type = props.content_type ||
+    CONTENT_TYPE_MAP[fileExtension as keyof typeof CONTENT_TYPE_MAP] ||
+    'text/plain'
   return (
     <AwsS3Object
-      {...{ ...props, content, __key: props.filePath }}
+      {...{ ...props, content, __key: props.filePath, content_type }}
     />
   )
 }
-export const useS3TextFile = (id?: string) =>
-  useTypedNode<S3TextFileOutputProps>(S3TextFile, id)
+export const useS3TextFile = (node?: any, id?: string) =>
+  useTypedNode<S3TextFileOutputProps>(S3TextFile, node, id)

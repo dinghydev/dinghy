@@ -6,6 +6,6 @@ export const WAF = {
   _shape: 'mxgraph.aws4.waf',
 }
 
-export default function Waf(props: DiagramNodeProps) {
+export function Waf(props: DiagramNodeProps) {
   return <Shape {...WAF} {...props} />
 }

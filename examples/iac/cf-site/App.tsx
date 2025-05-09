@@ -14,7 +14,7 @@ import {
   S3Backend,
   S3CloudfrontSite,
 } from '@reactiac/standard-components-tf-aws'
-import { ClientShape as Client } from '@reactiac/standard-components-diagrams'
+import { Client as Client } from '@reactiac/standard-components-diagrams'
 
 const ReactIACWebsite = (props: NodeProps) => (
   <Stack title='ReactIAC Website' {...props} />

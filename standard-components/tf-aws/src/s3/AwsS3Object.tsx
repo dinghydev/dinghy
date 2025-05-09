@@ -4,7 +4,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { Bucket } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
@@ -14,6 +14,8 @@ export const AwsS3ObjectInputSchema = z.object({
   __key: ResolvableStringSchema.optional(),
   content: ResolvableStringSchema.optional(),
   content_base64: ResolvableStringSchema.optional(),
+  content_type: ResolvableStringSchema.optional(),
+  cache_control: ResolvableStringSchema.optional(),
 })
 
 export const AwsS3ObjectOutputSchema = z.object({
@@ -36,7 +38,7 @@ export function AwsS3Object(props: AwsS3ObjectInputProps) {
   return (
     <Bucket
       _importId={_importId}
-      {...aws(props, AwsS3ObjectInputSchema, AwsS3ObjectOutputSchema)}
+      {...awsProps(props, AwsS3ObjectInputSchema, AwsS3ObjectOutputSchema)}
     />
   )
 }

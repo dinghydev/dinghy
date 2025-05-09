@@ -24,7 +24,7 @@ export function renderNode<T, P>(
       '',
       (e: Error) => {
         if (e instanceof ZodError) {
-          console.log('ZodError', e.toString())
+          console.error('ZodError', e.toString())
         }
         reject(e)
       },

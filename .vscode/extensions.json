@@ -4,6 +4,7 @@
     "github.vscode-github-actions",
     "asciidoctor.asciidoctor-vscode",
     "denoland.vscode-deno",
+    "eamodio.gitlens",
     "reduckted.vscode-gitweblinks"
   ]
 }

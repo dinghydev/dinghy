@@ -1,8 +1,9 @@
 import {
+  deepResolve,
   type NodeProps,
+  ResolvableRecordSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
-  utils,
 } from '@reactiac/base-components'
 import z from 'zod'
 import {
@@ -25,9 +26,11 @@ import {
   useAwsCloudfrontDistribution,
 } from '../AwsCloudfrontDistribution.tsx'
 import { useAwsRoute53Zone } from '../route53/AwsRoute53Zone.tsx'
+import { S3TextFile } from './S3TextFile.tsx'
 
 export const S3CloudfrontSiteInputSchema = z.object({
   subdomain: ResolvableStringSchema,
+  files: ResolvableRecordSchema.array().optional(),
   bucketVersions: ResolvableStringArraySchema.optional(),
 })
 
@@ -41,7 +44,8 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
   const { stack } = useStack()
   const { awsAcmCertificate } = useAwsAcmCertificate()
   const { awsCloudfrontDistribution } = useAwsCloudfrontDistribution()
-  const { subdomain, bucketVersions } = S3CloudfrontSiteInputSchema.parse(props)
+  const { subdomain, bucketVersions, files } = S3CloudfrontSiteInputSchema
+    .parse(props)
   const { logBucket } = useLogBucket()
   const domain = () => {
     return `${subdomain}.${(awsAcmCertificate as any).domain()}`.replace(
@@ -159,9 +163,25 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
       )
     }
 
+    const Files = () => {
+      if (!files) {
+        return null
+      }
+      return (files.map((file: any) => (
+        <S3TextFile
+          _title={() => file.filePath}
+          bucket={bucket}
+          _name={() => bucket() + file.filePath}
+          key={file.filePath}
+          {...file}
+        />
+      )))
+    }
+
     return (
       <AwsS3Bucket
         _display='entity'
+        _direction='vertical'
         _title={bucketName}
         bucket={bucket}
         {...props}
@@ -173,6 +193,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
           target_prefix={target_prefix}
         />
         <S3BucketPolicy />
+        <Files />
       </AwsS3Bucket>
     )
   }

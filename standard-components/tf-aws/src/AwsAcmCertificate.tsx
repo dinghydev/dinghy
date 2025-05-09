@@ -3,7 +3,7 @@ import {
   ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
-import { aws } from './index.ts'
+import { awsProps } from './index.ts'
 import z from 'zod'
 import { useTypedNode } from '@reactiac/base-components'
 import { CertificateManager } from '@reactiac/standard-components-diagrams'
@@ -17,20 +17,22 @@ export const AwsAcmCertificateOuputSchema = z.object({
   id: ResolvableStringSchema.optional(),
 })
 
-export type AwsAcmCertificateInputProps = z.input<
-  typeof AwsAcmCertificateInputSchema
-> &
-  IacNodeProps
+export type AwsAcmCertificateInputProps =
+  & z.input<
+    typeof AwsAcmCertificateInputSchema
+  >
+  & IacNodeProps
 
-export type AwsAcmCertificateOutputProps = z.input<
-  typeof AwsAcmCertificateOuputSchema
-> &
-  AwsAcmCertificateInputProps
+export type AwsAcmCertificateOutputProps =
+  & z.input<
+    typeof AwsAcmCertificateOuputSchema
+  >
+  & AwsAcmCertificateInputProps
 
 export function AwsAcmCertificate(props: AwsAcmCertificateInputProps) {
   return (
     <CertificateManager
-      {...aws(
+      {...awsProps(
         props,
         AwsAcmCertificateInputSchema,
         AwsAcmCertificateOuputSchema,

@@ -5,7 +5,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 
@@ -21,7 +21,6 @@ export const AwsRoute53RecordInputSchema = z.object({
       zone_id: ResolvableStringSchema.optional(),
       evaluate_target_health: z.boolean().optional(),
     })
-    .array()
     .optional(),
 })
 
@@ -44,7 +43,11 @@ export type AwsRoute53RecordOutputProps =
 export function AwsRoute53Record(props: AwsRoute53RecordInputProps) {
   return (
     <Shape
-      {...aws(props, AwsRoute53RecordInputSchema, AwsRoute53RecordOutputSchema)}
+      {...awsProps(
+        props,
+        AwsRoute53RecordInputSchema,
+        AwsRoute53RecordOutputSchema,
+      )}
     />
   )
 }

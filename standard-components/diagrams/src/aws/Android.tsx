@@ -6,6 +6,6 @@ export const ANDROID = {
   _shape: 'mxgraph.aws3.android',
 }
 
-export default function Android(props: DiagramNodeProps) {
+export function Android(props: DiagramNodeProps) {
   return <Shape {...ANDROID} {...props} />
 }

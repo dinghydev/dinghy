@@ -6,6 +6,6 @@ export const GROUP_EC2_INSTANCE_GROUPS = {
   _icon: 'mxgraph.aws4.group_ec2_instance_contents',
 }
 
-export default function GroupEc2InstanceContents(props: DiagramNodeProps) {
+export function GroupEc2InstanceContents(props: DiagramNodeProps) {
   return <Shape {...GROUP_EC2_INSTANCE_GROUPS} {...props} />
 }

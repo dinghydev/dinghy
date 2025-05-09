@@ -5,7 +5,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.ts'
+import { awsProps } from './index.ts'
 import type z from 'zod'
 import { Shape } from '@reactiac/base-components'
 
@@ -17,13 +17,14 @@ export const AwsBackendS3InputSchema = IacNodeSchema.extend({
   region: ResolvableStringSchema.optional(),
 })
 
-export type AwsBackendS3InputProps = z.input<typeof AwsBackendS3InputSchema> &
-  IacNodeProps
+export type AwsBackendS3InputProps =
+  & z.input<typeof AwsBackendS3InputSchema>
+  & IacNodeProps
 
 export function AwsBackendS3(props: AwsBackendS3InputProps) {
   return (
     <Shape
-      {...aws(
+      {...awsProps(
         {
           _terraform: {
             backend: {

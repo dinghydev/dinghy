@@ -3,7 +3,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { Shape, useTypedNode } from '@reactiac/base-components'
 
@@ -31,7 +31,7 @@ export function AwsIamInstanceProfile(props: AwsIamInstanceProfileInputProps) {
   return (
     <Shape
       _importId={_importId}
-      {...aws(
+      {...awsProps(
         props,
         AwsIamInstanceProfileInputSchema,
         AwsIamInstanceProfileOutputSchema,

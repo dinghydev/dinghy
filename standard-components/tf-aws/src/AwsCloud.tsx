@@ -4,7 +4,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.ts'
+import { awsProps } from './index.ts'
 import z from 'zod'
 import { GroupAwsCloudAlt } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
@@ -21,7 +21,7 @@ export type AwsCloudInputProps =
 export default function AwsCloud(props: AwsCloudInputProps) {
   return (
     <GroupAwsCloudAlt
-      {...aws(
+      {...awsProps(
         {
           _terraform: {
             required_providers: {

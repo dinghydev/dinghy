@@ -145,7 +145,7 @@ export function App() {
 import {
   Android,
   ApplicationLoadBalancer,
-  ClientShape,
+  Client,
   GroupAwsCloudAlt,
   GroupSecurityGroup,
   RdsPostgresqlInstance,
@@ -157,7 +157,7 @@ const Postgres = (props: any) => <RdsPostgresqlInstance {...props} />
 const WebApp = (props: any) => <Shape {...props} />
 
 const Client = (props: any) =>
-  <ClientShape
+  <Client
     _dependsOn='Load Balancer'
     {...props}
   />
@@ -227,7 +227,7 @@ export function App() {
     outputPath: './packages/examples/web/4-iac/output',
     order: 100,
     code: `import { Stack } from 'reactiac-core'
-import { ClientShape, Waf } from 'reactiac-components-generated-drawio'
+import { Client, Waf } from 'reactiac-components-generated-drawio'
 
 import {
   AwsCloud,
@@ -247,7 +247,7 @@ const Postgres = (props: any) => <AwsPostgres {...props} />
 const WebApp = (props: any) => <Stack {...props} />
 
 const Client = (props: any) =>
-  <ClientShape
+  <Client
     _dependsOn='Load Balancer'
     {...props}
   />
@@ -335,7 +335,7 @@ export function App() {
     order: 100,
     code: `import { Shape, Stack, useRenderOptions, } from 'reactiac-core'
 import {
-  ClientShape,
+  Client,
   GroupOnPremise,
   RdsPostgresqlInstance,
   Waf,
@@ -361,7 +361,7 @@ const isLocal = () => {
 
 const WebApp = (props: any) => <Stack {...props} />
 
-const Client = (props: any) => <ClientShape  {...props} />
+const Client = (props: any) => <Client  {...props} />
 
 const Cloud = (props: any) =>
   <AwsCloud {...props}>
@@ -472,7 +472,7 @@ export function App() {
     code: `import {
   Android,
   ApplicationLoadBalancer,
-  ClientShape as Client,
+  Client as Client,
   ElasticacheForRedis,
   GroupAwsCloudAlt,
   GroupEc2InstanceContents,
@@ -859,7 +859,7 @@ import {
   DataAwsAcmCertificate,
   DataAwsRoute53Zone,
 } from 'reactiac-components-generated-aws'
-import { ClientShape as Client } from 'reactiac-components-generated-drawio'
+import { Client as Client } from 'reactiac-components-generated-drawio'
 import {
   AwsBackend,
   LogBucket,
@@ -960,7 +960,7 @@ import {
   AwsWAF,
   DataAwsVpc,
 } from 'reactiac-components-generated-aws'
-import { ClientShape as Client } from 'reactiac-components-generated-drawio'
+import { Client as Client } from 'reactiac-components-generated-drawio'
 
 function LoadBalancer(props: AwsLbInputProps) {
   return <AwsLb {...props} />

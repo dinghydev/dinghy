@@ -3,12 +3,13 @@
   "configurations": [
     {
       "name": "render",
-      "program": "tasks/render/index.ts",
-      "cwd": "/reactiac/workspace",
       "args": [
-        "--tf-generateImport",
+        // "--tf-generateImport",
+        // "-h",
         "--debug"
       ],
+      "program": "tasks/render/index.ts",
+      "cwd": "/reactiac/workspace",
       "env": {},
       "type": "node",
       "request": "launch",
@@ -22,15 +23,17 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "tf-init",
-      "program": "standalone/cli/src/index.ts",
-      "cwd": "/reactiac",
+      "name": "tf init",
       "args": [
         "tf",
         "init",
+        // "development",
+        // "production",
         // "-h",
         "--debug"
       ],
+      "program": "standalone/cli/src/index.ts",
+      "cwd": "/reactiac",
       "env": {},
       "type": "node",
       "request": "launch",
@@ -44,15 +47,17 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "tf-plan",
-      "program": "standalone/cli/src/index.ts",
-      "cwd": "/reactiac",
+      "name": "tf plan",
       "args": [
         "tf",
         "plan",
+        // "development",
+        // "production",
         // "-h",
         "--debug"
       ],
+      "program": "standalone/cli/src/index.ts",
+      "cwd": "/reactiac",
       "env": {},
       "type": "node",
       "request": "launch",
@@ -66,15 +71,41 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "tf-apply",
-      "program": "standalone/cli/src/index.ts",
-      "cwd": "/reactiac",
+      "name": "tf diff",
       "args": [
         "tf",
-        "apply",
+        "diff",
+        // "development",
+        // "production",
         // "-h",
         "--debug"
       ],
+      "program": "standalone/cli/src/index.ts",
+      "cwd": "/reactiac",
+      "env": {},
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/usr/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf apply",
+      "args": [
+        "tf",
+        "apply",
+        // "development",
+        // "production",
+        // "-h",
+        "--debug"
+      ],
+      "program": "standalone/cli/src/index.ts",
+      "cwd": "/reactiac",
       "env": {},
       "type": "node",
       "request": "launch",

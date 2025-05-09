@@ -46,7 +46,6 @@ export const p22FilterView = ({
 }: DrawioContext) => {
   const selectedView = (renderOptions as any).view?.name
   if (selectedView !== 'all') {
-    console.log(rootNode)
     const visibleNode = findFirstVisibleNode(
       rootNode,
       selectedView,

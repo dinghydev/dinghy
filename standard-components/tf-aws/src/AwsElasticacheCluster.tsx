@@ -5,7 +5,7 @@ import {
 } from '@reactiac/base-components'
 import { ElasticacheForRedis } from '@reactiac/standard-components-diagrams'
 
-import { aws } from './index.ts'
+import { awsProps } from './index.ts'
 import z from 'zod'
 
 // https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster
@@ -29,5 +29,7 @@ export type AwsElasticacheClusterProps =
 export default function AwsElasticacheCluster(
   props: AwsElasticacheClusterProps,
 ) {
-  return <ElasticacheForRedis {...aws(props, AwsElasticacheClusterSchema)} />
+  return (
+    <ElasticacheForRedis {...awsProps(props, AwsElasticacheClusterSchema)} />
+  )
 }

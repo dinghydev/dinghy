@@ -6,6 +6,6 @@ export const GROUP_VPC2 = {
   _icon: 'mxgraph.aws4.group_vpc2',
 }
 
-export default function GroupVpc2(props: DiagramNodeProps) {
+export function GroupVpc2(props: DiagramNodeProps) {
   return <Shape {...GROUP_VPC2} {...props} />
 }

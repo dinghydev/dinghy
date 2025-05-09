@@ -3,7 +3,7 @@ import { Shape } from '@reactiac/base-components'
 import {
   Android,
   ApplicationLoadBalancer,
-  ClientShape,
+  Client,
   GroupAwsCloudAlt,
   GroupSecurityGroup,
   RdsPostgresqlInstance,
@@ -14,9 +14,7 @@ const Postgres = (props: any) => <RdsPostgresqlInstance {...props} />
 
 const WebApp = (props: any) => <Shape {...props} />
 
-const Client = (props: any) => (
-  <ClientShape _dependsOn='Load Balancer' {...props} />
-)
+const Client = (props: any) => <Client _dependsOn='Load Balancer' {...props} />
 
 const Cloud = (props: any) => <GroupAwsCloudAlt {...props} />
 

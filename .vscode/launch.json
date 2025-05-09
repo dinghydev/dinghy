@@ -2,57 +2,231 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "render-png",
-      "request": "launch",
-      "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "name": "render",
       "args": [
-        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --tf-generateImport --debug",
+        // "test",
+        // "--format",
+        // "all",
+        // "tf",
+        // "--tf-generateImport",
+        // "--diagram-saveView",
+        // "--view",
+        // "overview",
+        // "--format",
+        // "diagram",
+        // "--stage",
+        // "state",
+        // "--output",
+        // ".",
+        // "development",
+        "--debug"
+      ],
+      "program": "tasks/render/index.ts",
+      "cwd": "${workspaceFolder}/workspace",
+      "env": {
+        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
+        // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
+        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "png",
+      "args": [
+        "diagram",
+        // "-h",
+        // "--output",
+        // ".",
+        // "-f",
+        // "ecs-architecture.drawio",
+        "--debug"
+      ],
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
+      "env": {
+        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "render-png",
+      "args": [
+        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --format diagram --debug", // development --view overview --tf-generateImport
         "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts diagram"
       ],
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "env": {
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "cwd": "${workspaceFolder}/workspace",
       "console": "integratedTerminal"
     },
     {
-      "name": "render-normalise",
-      "request": "launch",
-      "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "name": "tf init",
       "args": [
-        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --tf-generateImport --debug",
-        "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts tf normalise --exclude-identifier --json-file /Users/guo/andopen/src/devops/iac-cicd/output/development/development.tf.json"
+        "tf",
+        "init",
+        // "-h",
+        "--debug"
       ],
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
       "env": {
+        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
-      "cwd": "${workspaceFolder}/workspace",
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "render-init-plan",
-      "request": "launch",
       "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "args": [
-        // "deno run -A ${workspaceFolder}/workspace/tasks/tf-generate/index.ts --json-file /Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/cdktf-cicd-development.tfstate.json",
-        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --tf-generateImport --app app",
-        "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts tf init",
-        "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts tf plan"
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
       ],
-      "env": {
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-      },
-      "cwd": "${workspaceFolder}/workspace",
+      "attachSimplePort": 9229,
       "console": "integratedTerminal"
     },
     {
-      "name": "tf-generate",
-      "program": "tasks/tf-generate/index.ts",
-      "cwd": "${workspaceFolder}/workspace",
+      "name": "tf plan",
+      "args": [
+        "tf",
+        "plan",
+        // "-h",
+        "--debug"
+      ],
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
+      "env": {
+        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf diff",
+      "args": [
+        "tf",
+        "diff",
+        // "production",
+        // "-h",
+        "--debug"
+      ],
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
+      "env": {
+        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "DOCKER_IMAGEVERSION": "latest",
+        // "DOCKER_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac",
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf apply",
+      "args": [
+        "tf",
+        "apply",
+        // "production",
+        // "-h",
+        "--debug"
+      ],
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
+      "env": {
+        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf normalise",
+      "args": [
+        "tf",
+        "normalise",
+        "--exclude-identifier",
+        "--json-file",
+        "/Users/guo/andopen/src/devops/iac-cicd/output/production/andopen-devops-cdktf-cicd-production.state.json",
+        // "/Users/guo/andopen/src/devops/iac-cicd/output/production/production.state.json",
+        // "/Users/guo/andopen/src/devops/iac-cicd/output/production/production.tf.json",
+        // "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/stacks/production/cdk.tf.json",
+        // "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/cdktf-cicd-development.tfstate.json",
+        // "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/stacks/development/cdk.tf.json",
+        // "/Users/guo/andopen/src/devops/iac-cicd/output/development/development.tf.json",
+        // "/Users/guo/andopen/src/devops/iac-cicd/output/development/state-old.json",
+        "--output-folder",
+        "/Users/guo/andopen/src/devops/iac-cicd/output/production",
+        // "-h",
+        "--debug"
+      ],
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "tf generate",
       "args": [
         "--json-file",
         "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/cdktf-cicd-development.tfstate.json",
@@ -62,202 +236,8 @@
       "env": {
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "render",
-      "program": "tasks/render/index.ts",
+      "program": "tasks/tf-generate/index.ts",
       "cwd": "${workspaceFolder}/workspace",
-      "args": [
-        // "test",
-        // "--format",
-        // "all",
-        // "tf",
-        "--tf-generateImport",
-        // "--diagram-saveView",
-        // "--stage",
-        // "state",
-        // "--output",
-        // ".",
-        "production",
-        "--debug"
-      ],
-      "env": {
-        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
-        // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "tf-init",
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
-      "args": [
-        "tf",
-        "init",
-        // "-h",
-        "--debug"
-      ],
-      "env": {
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "tf-plan",
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
-      "args": [
-        "tf",
-        "plan",
-        // "-h",
-        "--debug"
-      ],
-      "env": {
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "tf-diff",
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
-      "args": [
-        "tf",
-        "diff",
-        "development",
-        // "-h",
-        "--debug"
-      ],
-      "env": {
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "DOCKER_IMAGEVERSION": "latest",
-        "DOCKER_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac",
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "tf-apply",
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
-      "args": [
-        "tf",
-        "apply",
-        // "-h",
-        "--debug"
-      ],
-      "env": {
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "tf-normalise",
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
-      "args": [
-        "tf",
-        "normalise",
-        "--exclude-identifier",
-        "--json-file",
-        // "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/cdktf-cicd-development.tfstate.json",
-        "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/stacks/development/cdk.tf.json",
-        // "/Users/guo/andopen/src/devops/iac-cicd/output/development/development.tf.json",
-        // "/Users/guo/andopen/src/devops/iac-cicd/output/development/state-old.json",
-        "--output-folder",
-        "/Users/guo/andopen/src/devops/iac-cicd/output/development",
-        // "-h",
-        "--debug"
-      ],
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "diagram",
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
-      "args": [
-        "diagram",
-        // "-h",
-        "--output",
-        ".",
-        "-f",
-        "ecs-architecture.drawio",
-        "--debug"
-      ],
-      "env": {
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
-      },
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
@@ -271,8 +251,6 @@
     },
     {
       "name": "cli",
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
       "args": [
         // "--commands",
         // "render development|render production",
@@ -301,6 +279,8 @@
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
@@ -314,10 +294,10 @@
     },
     {
       "name": "docker login",
+      "args": ["deno task aws-ecr-login"],
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "args": ["deno task aws-ecr-login"],
       "cwd": "${workspaceFolder}/scripts/tasks",
       "env": {
         "AWS_PROFILE": "reactiac"
@@ -326,17 +306,15 @@
     },
     {
       "name": "docker build",
+      "args": ["deno task docker-build-arm64"],
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "args": ["deno task docker-build-arm64"],
       "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     },
     {
       "name": "docker reactiac",
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
       "args": [
         "render",
         // "-h",
@@ -346,6 +324,8 @@
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/standalone/cli",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
@@ -358,13 +338,13 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "docker tf-diff",
-      "request": "launch",
-      "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "name": "docker tf diff",
       "args": [
         "andopen run reactiac tf diff development"
       ],
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "env": {
         "DEBUG": "*",
         "DOCKER_IMAGEVERSION": "latest",
@@ -375,49 +355,58 @@
     },
     {
       "name": "clean",
+      "args": ["deno task clean"],
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "args": ["deno task clean"],
       "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     },
     {
-      "name": "cli-publish",
+      "name": "cli publish",
+      "args": ["deno task cli-publish"],
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "args": ["deno task cli-publish"],
       "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     },
     {
       "name": "npm build",
+      "args": ["deno task npm-build"],
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "args": ["deno task npm-build"],
       "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     },
     {
       "name": "open dc",
+      "args": ["reactiac dc --debug"],
+      // "cwd": "${workspaceFolder}/../reactiac-sites",
+      // "cwd": "${workspaceFolder}/examples/web/1-shape",
+      "cwd": "/Users/guo/andopen/src/devops/iac-cicd",
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "args": ["reactiac dc --debug"],
-      // "cwd": "${workspaceFolder}/../reactiac-sites",
-      "cwd": "/Users/guo/andopen/src/devops/iac-cicd",
-      // "cwd": "${workspaceFolder}/examples/web/1-shape",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "prepare build",
+      "args": ["deno task prepare-build"],
+      "cwd": "${workspaceFolder}/scripts/tasks",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "console": "integratedTerminal"
     },
     {
       "name": "install locally",
+      "args": ["deno task install-locally"],
+      "cwd": "${workspaceFolder}/scripts/tasks",
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "args": ["deno task install-locally"],
-      "cwd": "${workspaceFolder}/scripts/tasks",
       "console": "integratedTerminal"
     }
   ]

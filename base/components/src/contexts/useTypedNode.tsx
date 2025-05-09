@@ -33,6 +33,7 @@ function matchChildrenTag<T>(
   result: T[] = [],
 ) {
   if (
+    node._props._tags &&
     (node._props._tags as string[]).includes(tag) &&
     (!id || (node._props._id as string).includes(id))
   ) {

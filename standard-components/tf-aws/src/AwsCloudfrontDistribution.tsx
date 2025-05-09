@@ -4,7 +4,7 @@ import {
   ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
-import { aws } from './index.ts'
+import { awsProps } from './index.ts'
 import z from 'zod'
 import { Cloudfront } from '@reactiac/standard-components-diagrams'
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
@@ -41,22 +41,24 @@ export const AwsCloudfrontDistributionOuputSchema = z.object({
   hosted_zone_id: ResolvableStringSchema.optional(),
 })
 
-export type AwsCloudfrontDistributionInputProps = z.input<
-  typeof AwsCloudfrontDistributionInputSchema
-> &
-  IacNodeProps
+export type AwsCloudfrontDistributionInputProps =
+  & z.input<
+    typeof AwsCloudfrontDistributionInputSchema
+  >
+  & IacNodeProps
 
-export type AwsCloudfrontDistributionOutputProps = z.input<
-  typeof AwsCloudfrontDistributionOuputSchema
-> &
-  AwsCloudfrontDistributionInputProps
+export type AwsCloudfrontDistributionOutputProps =
+  & z.input<
+    typeof AwsCloudfrontDistributionOuputSchema
+  >
+  & AwsCloudfrontDistributionInputProps
 
 export function AwsCloudfrontDistribution(
   props: AwsCloudfrontDistributionInputProps,
 ) {
   return (
     <Cloudfront
-      {...aws(
+      {...awsProps(
         props,
         AwsCloudfrontDistributionInputSchema,
         AwsCloudfrontDistributionOuputSchema,

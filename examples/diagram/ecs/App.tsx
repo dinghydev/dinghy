@@ -1,7 +1,7 @@
 import {
   Android,
   ApplicationLoadBalancer,
-  ClientShape as Client,
+  Client as Client,
   ElasticacheForRedis,
   GroupAwsCloudAlt,
   GroupEc2InstanceContents,

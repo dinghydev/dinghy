@@ -3,7 +3,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
 import { Shape } from '@reactiac/base-components'
 import { useTypedNode } from '@reactiac/base-components'
@@ -16,22 +16,24 @@ export const AwsCloudfrontOriginAccessIdentityOutputSchema = z.object({
   iam_arn: ResolvableStringSchema.optional(),
 })
 
-export type AwsCloudfrontOriginAccessIdentityInputProps = z.input<
-  typeof AwsCloudfrontOriginAccessIdentityInputSchema
-> &
-  IacNodeProps
+export type AwsCloudfrontOriginAccessIdentityInputProps =
+  & z.input<
+    typeof AwsCloudfrontOriginAccessIdentityInputSchema
+  >
+  & IacNodeProps
 
-export type AwsCloudfrontOriginAccessIdentityOutputProps = z.input<
-  typeof AwsCloudfrontOriginAccessIdentityOutputSchema
-> &
-  AwsCloudfrontOriginAccessIdentityInputProps
+export type AwsCloudfrontOriginAccessIdentityOutputProps =
+  & z.input<
+    typeof AwsCloudfrontOriginAccessIdentityOutputSchema
+  >
+  & AwsCloudfrontOriginAccessIdentityInputProps
 
 export function AwsCloudfrontOriginAccessIdentity(
   props: AwsCloudfrontOriginAccessIdentityInputProps,
 ) {
   return (
     <Shape
-      {...aws(
+      {...awsProps(
         props,
         AwsCloudfrontOriginAccessIdentityInputSchema,
         AwsCloudfrontOriginAccessIdentityOutputSchema,

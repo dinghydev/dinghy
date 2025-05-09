@@ -4,7 +4,7 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from './index.ts'
+import { awsProps } from './index.ts'
 import z from 'zod'
 import { ApplicationLoadBalancer } from '@reactiac/standard-components-diagrams'
 
@@ -26,7 +26,7 @@ export type AwsLbOutputProps =
 export default function AwsLb(props: AwsLbInputProps) {
   return (
     <ApplicationLoadBalancer
-      {...aws(props, AwsLbInputSchema, AwsLbOutputSchema)}
+      {...awsProps(props, AwsLbInputSchema, AwsLbOutputSchema)}
     />
   )
 }

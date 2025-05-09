@@ -30,7 +30,7 @@ export function IamRolePolicies(
 
   const NamedPolicies = () => {
     return (
-      <Shape _direction='vertical'>
+      <Shape _direction='vertical' _name={`${name}-named-policies`}>
         {namedPolicies.map((policy) => (
           <AwsIamRolePolicyAttachment
             role={name}
@@ -49,7 +49,7 @@ export function IamRolePolicies(
 
   const InlinePolicies = () => {
     return (
-      <Shape _direction='vertical'>
+      <Shape _direction='vertical' _name={`${name}-inline-policies`}>
         {inlinePolicies.map((policy: any) => (
           <AwsIamRolePolicy
             _title={policy.name}
@@ -61,13 +61,14 @@ export function IamRolePolicies(
               Version: '2012-10-17',
               Statement: policy.statements,
             })}
+            key={policy.name}
           />
         ))}
       </Shape>
     )
   }
   return (
-    <Shape _direction='vertical' {...props}>
+    <Shape _direction='vertical' {...props} _name={name}>
       {namedPolicies.length > 0 && <NamedPolicies />}
       {inlinePolicies.length > 0 && <InlinePolicies />}
     </Shape>

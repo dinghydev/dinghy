@@ -15,7 +15,7 @@ import {
   AwsWAF,
   DataAwsVpc,
 } from '../../../index.ts'
-import { ClientShape as Client } from '../../../generated-drawio/index.ts'
+import { Client as Client } from '../../../generated-drawio/index.ts'
 
 function LoadBalancer(props: AwsLbInputProps) {
   return <AwsLb {...props} />

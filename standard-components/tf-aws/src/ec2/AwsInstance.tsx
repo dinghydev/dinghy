@@ -6,9 +6,10 @@ import {
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
-import { aws } from '../index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
-import { Shape, useTypedNode } from '@reactiac/base-components'
+import { useTypedNode } from '@reactiac/base-components'
+import { GroupEc2InstanceContents } from '@reactiac/standard-components-diagrams'
 
 export const AwsInstanceInputSchema = z.object({
   ami: ResolvableStringSchema.optional(),
@@ -48,8 +49,8 @@ export function importId(props: AwsInstanceOutputProps) {
 
 export function AwsInstance(props: AwsInstanceInputProps) {
   return (
-    <Shape
-      {...aws(
+    <GroupEc2InstanceContents
+      {...awsProps(
         props,
         AwsInstanceInputSchema,
         AwsInstanceOutputSchema,
