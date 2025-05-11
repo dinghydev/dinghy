@@ -1,6 +1,6 @@
-import { mergician } from "mergician";
 import { z } from "zod";
 import Debug from "debug";
+import { deepMerge } from "./deepMerge.ts";
 const debug = Debug("stackUtils");
 
 interface Props {
@@ -21,6 +21,7 @@ export const StackSchema = z.object({
   sequence: z.number().optional(),
   stages: z.record(z.string(), ItemSchema.passthrough()).optional(),
   views: z.record(z.string(), ItemSchema.passthrough()).optional(),
+  override: z.record(z.string(), z.any()).optional(),
   mrAutoDiff: z.boolean().default(true),
   mrAutoDeploy: z.boolean().default(false),
   mainAutoDiff: z.boolean().default(true),
@@ -192,16 +193,14 @@ export const parseStack = (
 export const loadStackConfig = (
   configs: any,
 ) => {
+  if (configs.stack.override) {
+    deepMerge(configs, configs.stack.override);
+  }
   const settings =
     loadFilesData(configs, "config/settings", configs.stack.id) ||
     loadFilesData(configs, "config", configs.stack.id);
   if (settings) {
-    const overrides = mergician({
-      onCircular({ srcVal, targetVal }: { srcVal: any; targetVal: any }) {
-        return { ...targetVal, ...srcVal };
-      },
-    })(configs, settings);
-    Object.assign(configs, overrides);
+    deepMerge(configs, settings);
   }
 };
 
@@ -235,20 +234,22 @@ export const loadFilesData = (options: any, path: string, name?: string) => {
   if (!current) {
     return undefined;
   }
-  const values: any[] = [];
+  const data: any = {};
   if (name) {
     const tags = nameTags(name);
     tags.map((tag) => {
       const value = current[`${tag}.yaml`];
       if (value) {
-        values.push(value);
+        deepMerge(data, value);
         debug("loaded file data %s %s/%s.yaml", name, path, tag);
       }
     });
   } else {
-    values.push(...Object.values(current.files));
+    Object.values(current.files).map((value) => {
+      deepMerge(data, value);
+    });
   }
-  return values.length > 1 ? mergician(...values) : values[0];
+  return data;
 };
 
 export const loadFile = (options: any, path: string) => {

@@ -12,6 +12,14 @@ if (import.meta.main) {
     recursive: true,
   });
   copyProjectFile(
+    "standalone/cli/src/utils/deepMerge.ts",
+    "base/components/src/utils/deepMerge.ts",
+  );
+  copyProjectFile(
+    "standalone/cli/src/utils/deepMerge.ts",
+    "workspace/utils/deepMerge.ts",
+  );
+  copyProjectFile(
     "standalone/cli/src/utils/stackUtils.ts",
     "base/components/src/utils/stackUtils.ts",
   );

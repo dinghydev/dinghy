@@ -1,4 +1,5 @@
 import {
+  deepMerge,
   type IacNodeProps,
   loadFilesData,
   ResolvableRecordSchema,
@@ -7,7 +8,6 @@ import {
   useRenderOptions,
 } from '@reactiac/base-components'
 import z from 'zod'
-import { mergician } from 'mergician'
 import { AwsIamRolePolicyAttachment } from './AwsIamRolePolicyAttachment.tsx'
 import { AwsIamRolePolicy } from './AwsIamRolePolicy.tsx'
 import { parsePolicies } from './parsePolicies.ts'
@@ -25,7 +25,13 @@ export function IamRolePolicies(
 ) {
   const { renderOptions } = useRenderOptions()
   const data = loadFilesData(renderOptions, 'config/iam-policy', name as string)
-  const policies = mergician(initialPolicies || {}, data || {})
+  const policies = {}
+  if (initialPolicies) {
+    deepMerge(policies, initialPolicies)
+  }
+  if (data) {
+    deepMerge(policies, data)
+  }
   const { namedPolicies, inlinePolicies } = parsePolicies(policies)
 
   const NamedPolicies = () => {

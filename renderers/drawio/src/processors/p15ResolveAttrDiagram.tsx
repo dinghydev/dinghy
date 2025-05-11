@@ -1,6 +1,4 @@
-import type { NodeTree, Props } from '@reactiac/base-components'
-import { DiagramNodeSchema } from '@reactiac/base-components'
-import { mergician } from 'mergician'
+import * as base from '@reactiac/base-components'
 import type {
   DrawioContext,
   DrawioNodeProps,
@@ -10,14 +8,14 @@ import type {
 } from '../types.ts'
 import { handleAttributes } from '../attribute-handler/index.ts'
 
-const defaultDiagramOptions: Props = {
+const defaultDiagramOptions: base.Props = {
   flags: {
     isDirectionVertical: false,
   },
   element: {
-    id: (node: NodeTree) => node._props._id,
-    parent: (node: NodeTree) => node._parent!._props._id,
-    value: (node: NodeTree) => node._props._title,
+    id: (node: base.NodeTree) => node._props._id,
+    parent: (node: base.NodeTree) => node._parent!._props._id,
+    value: (node: base.NodeTree) => node._props._title,
     vertex: 1,
     style: {},
   },
@@ -44,9 +42,9 @@ const defaultDiagramOptions: Props = {
   },
 }
 
-const defaultDependencyProps: Props = {
+const defaultDependencyProps: base.Props = {
   dependency: {
-    id: (node: NodeTree) => node._props._id,
+    id: (node: base.NodeTree) => node._props._id,
     source: (node: DrawioNodeTree) => (node._props! as any)._source._props._id,
     target: (node: DrawioNodeTree) => (node._props! as any)._target._props._id,
     parent: 'root',
@@ -69,9 +67,9 @@ const defaultDependencyProps: Props = {
 }
 
 function resolve(_props: DrawioNodeProps, options: DrawioRenderOptions) {
-  const drawioConfig = DiagramNodeSchema.parse(_props)
+  const drawioConfig = base.DiagramNodeSchema.parse(_props)
 
-  const configs: Props[] = []
+  const configs: base.Props[] = []
   if (_props._isDependency) {
     configs.push(defaultDependencyProps)
   } else {
@@ -85,11 +83,8 @@ function resolve(_props: DrawioNodeProps, options: DrawioRenderOptions) {
   if (drawioConfig._diagram) {
     configs.push(drawioConfig._diagram)
   }
-
-  if (configs.length === 1) {
-    configs.push({})
-  }
-  _props._diagram = mergician(...configs) as DrawioProps
+  _props._diagram = {} as DrawioProps
+  configs.map((c) => base.deepMerge(_props._diagram, c))
 
   _props._node._children.map((c: DrawioNodeTree) => resolve(c._props, options))
 }

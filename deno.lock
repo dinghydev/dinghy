@@ -8,14 +8,12 @@
     "jsr:@std/yaml@1.0.5": "1.0.5",
     "npm:@aws-sdk/client-s3@3.802.0": "3.802.0",
     "npm:@inquirer/confirm@5.1.9": "5.1.9_@types+node@22.14.0",
-    "npm:@types/node@*": "22.14.0",
     "npm:@types/node@22.14.0": "22.14.0",
     "npm:@types/react@19.1.0": "19.1.0",
     "npm:chalk@5.4.1": "5.4.1",
     "npm:debug@4.4.0": "4.4.0",
     "npm:execa@9.5.2": "9.5.2",
     "npm:html-entities@2.6.0": "2.6.0",
-    "npm:mergician@2.0.2": "2.0.2",
     "npm:react-dom@19.1.0": "19.1.0_react@19.1.0",
     "npm:react-reconciler@0.31.0": "0.31.0_react@19.1.0",
     "npm:react@19.1.0": "19.1.0",
@@ -1153,9 +1151,6 @@
     "isexe@2.0.0": {
       "integrity": "sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw=="
     },
-    "mergician@2.0.2": {
-      "integrity": "sha512-1GDF4LuMcc7UpE7XitfSm822yDtTxLoOVB+9QFnb3o/+zoMAVKxM67UjvmEXOA7FQnz9209K0ZyHAoD+5Ibe4A=="
-    },
     "ms@2.1.3": {
       "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
     },
@@ -1290,7 +1285,6 @@
       "base/components": {
         "dependencies": [
           "npm:debug@4.4.0",
-          "npm:mergician@2.0.2",
           "npm:react@19.1.0",
           "npm:zod@3.24.2"
         ]
@@ -1305,20 +1299,17 @@
       "renderers/drawio": {
         "dependencies": [
           "npm:debug@4.4.0",
-          "npm:html-entities@2.6.0",
-          "npm:mergician@2.0.2"
+          "npm:html-entities@2.6.0"
         ]
       },
       "renderers/tf": {
         "dependencies": [
-          "npm:debug@4.4.0",
-          "npm:mergician@2.0.2"
+          "npm:debug@4.4.0"
         ]
       },
       "standard-components/tf-aws": {
         "dependencies": [
-          "npm:debug@4.4.0",
-          "npm:mergician@2.0.2"
+          "npm:debug@4.4.0"
         ]
       },
       "workspace": {
@@ -1331,7 +1322,6 @@
           "npm:chalk@5.4.1",
           "npm:debug@4.4.0",
           "npm:execa@9.5.2",
-          "npm:mergician@2.0.2",
           "npm:zod@3.24.2"
         ]
       }

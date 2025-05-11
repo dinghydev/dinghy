@@ -13,8 +13,7 @@
     "debug": "npm:debug@4.4.0",
     "chalk": "npm:chalk@5.4.1",
     "execa": "npm:execa@9.5.2",
-    "zod": "npm:zod@3.24.2",
-    "mergician": "npm:mergician@2.0.2"
+    "zod": "npm:zod@3.24.2"
   },
   "exports": {
     ".": "./tasks/render/index.ts"

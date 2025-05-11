@@ -1,26 +1,25 @@
-import type { DrawioContext, DrawioNodeTree, DrawioProps } from '../types.ts'
-import { mergician } from 'mergician'
-import type { Props } from '@reactiac/base-components'
+import type { DrawioContext, DrawioNodeTree } from '../types.ts'
+import * as base from '@reactiac/base-components'
 
-const defaultGroupRootStyle: Props = {
+const defaultGroupRootStyle: base.Props = {
   align: 'center',
   strokeColor: 'none',
 }
 
-const defaultGroupIconStyle: Props = {
+const defaultGroupIconStyle: base.Props = {
   shape: 'mxgraph.aws4.group',
   align: 'left',
   spacingLeft: 30,
 }
 
-const defaultGroupTextStyle: Props = {
+const defaultGroupTextStyle: base.Props = {
   align: 'center',
   spacingLeft: 5,
   spacingRight: 5,
   spacingBottom: 5,
 }
 
-const defaultElementIconStyle: Props = {
+const defaultElementIconStyle: base.Props = {
   shape: 'mxgraph.aws4.resourceIcon',
   fillColor: '#000000',
   verticalLabelPosition: 'bottom',
@@ -29,7 +28,7 @@ const defaultElementIconStyle: Props = {
   aspect: 'fixed',
 }
 
-const defaultElementBoxStyle: Props = {
+const defaultElementBoxStyle: base.Props = {
   rounded: 1,
   whiteSpace: 'wrap',
   verticalAlign: 'middle',
@@ -43,23 +42,16 @@ function mergeElement({ _props }: DrawioNodeTree) {
     : _diagram.group
   if (shapeAttributes) {
     const { geometry, ...element } = shapeAttributes
-    const configs = []
     if (geometry) {
-      configs.push({ geometry })
+      _diagram = base.deepMerge({ geometry }, _diagram)
     }
     if (element) {
-      configs.push({ element: element })
+      _diagram = base.deepMerge({ element }, _diagram)
     }
-    configs.push(_diagram)
-    _diagram = mergician({
-      onCircular({ srcVal, targetVal }: { srcVal: any; targetVal: any }) {
-        return { ...targetVal, ...srcVal }
-      },
-    })(...configs) as DrawioProps
   }
 
   const style = _diagram.element.style
-  let defaultStyle: Props
+  let defaultStyle: base.Props
   if (_diagram.flags.isEntity) {
     if (style.resIcon || style.shape) {
       defaultStyle = defaultElementIconStyle

@@ -1,8 +1,8 @@
 import type { CommandOptions } from "../../types.ts";
 
-import { mergician } from "mergician";
 import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
 import { parseStack } from "../../utils/stackUtils.ts";
+import { deepMerge } from "../../utils/deepMerge.ts";
 export const tfOptions: CommandOptions = {
   collect: ["tf-options"],
   description: {
@@ -35,7 +35,7 @@ export const tfOptionsPlan: CommandOptions = {
 };
 
 export const createTfOptions = (options: any) => {
-  return mergician(tfOptions, options) as CommandOptions;
+  return deepMerge(deepMerge({}, tfOptions), options) as CommandOptions;
 };
 
 export const parseTfOptions = (options: any) => {

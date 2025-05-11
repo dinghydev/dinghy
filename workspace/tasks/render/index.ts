@@ -8,9 +8,9 @@ import {
 import { renderOptions } from '../../utils/renderOptions.ts'
 import { parseOptions } from '../../utils/parseOptions.ts'
 import { rendererMapping } from './renderMapping.ts'
-import { mergician } from 'mergician'
 import Debug from 'debug'
 import { loadStackConfig, parseStacks } from '@reactiac/base-components'
+import { deepMerge } from '../../utils/deepMerge.ts'
 const debug = Debug('render')
 setupDebug()
 await loadConfig()
@@ -42,7 +42,7 @@ try {
   for (const appName of cmdOptions.app || listApps()) {
     const app = await loadApp(appName)
 
-    const options: any = mergician(reactiacAppConfig, {})
+    const options: any = deepMerge({}, reactiacAppConfig)
     if (cmdOptions['tf-generateImport']) {
       options.tf ??= {}
       options.tf.generateImport = true
@@ -58,7 +58,7 @@ try {
         continue
       }
       options.stack = stack
-      const stackOptions = mergician(options, {})
+      const stackOptions = deepMerge({}, options)
       loadStackConfig(stackOptions)
       for (const formatString of cmdOptions.format || ['default']) {
         const renderers =

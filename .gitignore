@@ -46,6 +46,7 @@ tmp*
 # Copied files
 docker/dependencies/fs-root/reactiac/locks
 base/components/src/utils/stackUtils.ts
+base/components/src/utils/deepMerge.ts
 workspace/utils
 
 # Optional eslint cache

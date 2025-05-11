@@ -1,9 +1,7 @@
-import { mergician } from 'mergician'
 import type { NodeTree, Props } from '../../../../base/components/src/types.ts'
 import type { TfRenderOptions } from '../types.ts'
 import { requiredSchema } from './index.ts'
-import { utils } from '@reactiac/base-components'
-const { deepResolve } = utils
+import { deepMerge, deepResolve } from '@reactiac/base-components'
 
 export const resourceOrData = (
   renderOptions: TfRenderOptions,
@@ -18,7 +16,7 @@ export const resourceOrData = (
   let tfElement: any
   if ((node._props as any)[category]) {
     tfElement = schema.partial().parse(node._props) as Props
-    tfElement = mergician(tfElement, (node._props as any)[category]) as Props
+    deepMerge(tfElement, (node._props as any)[category]) as Props
   } else {
     try {
       tfElement = schema.parse(node._props) as Props

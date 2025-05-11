@@ -4,7 +4,6 @@
     ".": "./src/index.ts"
   },
   "imports": {
-    "debug": "npm:debug@4.4.0",
-    "mergician": "npm:mergician@2.0.2"
+    "debug": "npm:debug@4.4.0"
   }
 }

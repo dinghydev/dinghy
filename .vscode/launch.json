@@ -10,15 +10,16 @@
         // "tf",
         // "--tf-generateImport",
         // "--diagram-saveView",
-        // "--view",
-        // "overview",
-        // "--format",
-        // "diagram",
+        "--view",
+        "overview",
+        "--format",
+        "diagram",
         // "--stage",
         // "state",
         // "--output",
         // ".",
         // "development",
+        "production",
         "--debug"
       ],
       "program": "tasks/render/index.ts",
@@ -26,8 +27,8 @@
       "env": {
         // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
-        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
       },
       "type": "node",
@@ -73,7 +74,7 @@
     {
       "name": "render-png",
       "args": [
-        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --format diagram --debug", // development --view overview --tf-generateImport
+        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts production --format diagram --debug", // development --view overview --tf-generateImport
         "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts diagram"
       ],
       "request": "launch",
@@ -81,8 +82,8 @@
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "env": {
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "cwd": "${workspaceFolder}/workspace",
       "console": "integratedTerminal"
@@ -152,8 +153,8 @@
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "DOCKER_IMAGEVERSION": "latest",
         // "DOCKER_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac",
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "type": "node",
       "request": "launch",

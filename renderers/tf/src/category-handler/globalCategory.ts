@@ -1,25 +1,22 @@
-import type { NodeTree, Props } from '@reactiac/base-components'
-import { mergician } from 'mergician'
-import { utils } from '@reactiac/base-components'
-const { deepResolve } = utils
+import * as base from '@reactiac/base-components'
 import { requiredSchema } from './index.ts'
 import type { TfRenderOptions } from '../types.ts'
 
 export const globalCategory = (
   _renderOptions: TfRenderOptions,
   category: string,
-  tfRoot: Props,
-  node: NodeTree,
+  tfRoot: base.Props,
+  node: base.NodeTree,
 ) => {
   const key = `_${category}`
   let tfElement = (node._props as any)[key]
   if (tfElement) {
-    deepResolve(node, node._props, key)
+    base.deepResolve(node, node._props, key)
   } else {
     tfElement = requiredSchema(node, '_inputSchema')
       .partial()
-      .parse(node._props) as Props
-    const resolvedElement = deepResolve(node, tfElement)
+      .parse(node._props) as base.Props
+    const resolvedElement = base.deepResolve(node, tfElement)
 
     const { _inputSchema } = node._props as any
     if (_inputSchema) {
@@ -28,5 +25,5 @@ export const globalCategory = (
   }
 
   tfRoot[category] ??= {}
-  tfRoot[category] = mergician(tfRoot[category] as Props, tfElement)
+  base.deepMerge(tfRoot[category], tfElement)
 }

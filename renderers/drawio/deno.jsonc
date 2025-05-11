@@ -5,7 +5,6 @@
   },
   "imports": {
     "debug": "npm:debug@4.4.0",
-    "html-entities": "npm:html-entities@2.6.0",
-    "mergician": "npm:mergician@2.0.2"
+    "html-entities": "npm:html-entities@2.6.0"
   }
 }
