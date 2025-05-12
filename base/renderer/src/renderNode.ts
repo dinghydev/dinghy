@@ -3,9 +3,9 @@ import { ConcurrentRoot } from 'react-reconciler/constants.js'
 import type { HostContainer, Output } from './types.ts'
 import { ZodError } from 'zod'
 import { nodeReconciler } from './nodeReconciler.ts'
-import { utils } from '@reactiac/base-components'
+import { createDebugger } from '@reactiac/base-components'
 
-const debug = utils.createDebugger('core')
+const debug = createDebugger('core')
 
 export function renderNode<T, P>(
   container: HostContainer<T, P>,

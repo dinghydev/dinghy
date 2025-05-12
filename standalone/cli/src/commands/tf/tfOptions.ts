@@ -1,8 +1,10 @@
-import type { CommandOptions } from "../../types.ts";
+import type { CommandArgs, CommandOptions } from "../../types.ts";
 
-import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
-import { parseStack } from "../../utils/stackUtils.ts";
+import { hostAppHome } from "../../utils/loadConfig.ts";
 import { deepMerge } from "../../utils/deepMerge.ts";
+import { existsSync } from "@std/fs/exists";
+import Debug from "debug";
+const debug = Debug("tfOptions");
 export const tfOptions: CommandOptions = {
   collect: ["tf-options"],
   description: {
@@ -38,21 +40,25 @@ export const createTfOptions = (options: any) => {
   return deepMerge(deepMerge({}, tfOptions), options) as CommandOptions;
 };
 
-export const parseTfOptions = (options: any) => {
-  const stack = parseStack(options.stack || "app", reactiacAppConfig);
+export const parseTfOptions = (args: CommandArgs, stackOptions: any) => {
+  const stack = stackOptions.stack;
 
-  const stackInfo = JSON.parse(Deno.readTextFileSync(
-    `${hostAppHome}/${options.output}/${stack.id}-stack-info.json`,
-  ));
+  const stackInfoPath =
+    `${hostAppHome}/${args.output}/${stack.id}-stack-info.json`;
+  if (!existsSync(stackInfoPath)) {
+    debug(`Stack info file not found: ${stackInfoPath}`);
+    return null;
+  }
+  const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoPath));
   const stages: any[] = [];
-  if (options.stage) {
+  if (args.stage) {
     let stage: any = Object.values(stack.stages || {}).find(
-      (s: any) => s.name === options.stage,
+      (s: any) => s.name === args.stage,
     );
     if (!stage) {
       stage = {
-        id: `${stack.id}-${options.stage}`,
-        name: options.stage,
+        id: `${stack.id}-${args.stage}`,
+        name: args.stage,
       };
       console.warn(`Stage not found, creating ondemand stage ${stage.id}`);
     }

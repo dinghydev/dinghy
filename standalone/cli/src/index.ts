@@ -6,19 +6,24 @@ import { setupDebug } from "./utils/setupDebug.ts";
 import { loadConfig } from "./utils/loadConfig.ts";
 import Debug from "debug";
 const debug = Debug("reactiac");
-setupDebug();
-debug("started at %O", new Date());
+try {
+  setupDebug();
+  debug("started at %O", new Date());
 
-await loadConfig();
-await updateCheck(true);
+  await loadConfig();
+  await updateCheck(true);
 
-await runCommand({
-  prefix: [],
-  envPrefix: [],
-  args: Deno.args,
-  originalArgs: Deno.args,
-  commands,
-  options: commands[OPTIONS_SYMBOL],
-});
+  await runCommand({
+    prefix: [],
+    envPrefix: [],
+    args: Deno.args,
+    originalArgs: Deno.args,
+    commands,
+    options: commands[OPTIONS_SYMBOL],
+  });
 
-debug("finished at %O", new Date());
+  debug("finished at %O", new Date());
+} catch (e) {
+  console.error(e);
+  throw e;
+}

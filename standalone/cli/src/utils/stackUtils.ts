@@ -18,6 +18,7 @@ export const StackSchema = z.object({
   name: z.string().optional(),
   env: z.string().optional(),
   title: z.string().optional(),
+  app: z.string().default("app.tsx"),
   sequence: z.number().optional(),
   stages: z.record(z.string(), ItemSchema.passthrough()).optional(),
   views: z.record(z.string(), ItemSchema.passthrough()).optional(),
@@ -30,9 +31,7 @@ export const StackSchema = z.object({
 
 export type Stack = z.input<typeof StackSchema>;
 
-export const StacksSchema = z.object({
-  stacks: z.record(z.string(), StackSchema.passthrough()),
-});
+export const StacksSchema = z.record(z.string(), StackSchema.passthrough());
 
 export type Stacks = z.input<typeof StacksSchema>;
 
@@ -127,81 +126,79 @@ const createDefaultItem = (
   };
 };
 
-const parseStacksInput = (appName: string, stacksInput: Props): Stacks => {
-  if (!stacksInput) {
-    const stack = parseStackFromId(appName.toLowerCase());
-    stack.sequence = 10;
-    return {
-      stacks: { [stack.id]: populateStackDefaultItems(stack) },
-    } as Stacks;
-  }
-
-  const stacksOptions = stacksInput;
-  const stacks: Props = {};
-  Object.keys(stacksOptions).map((stackId) => {
-    const stackOptions = stacksOptions[stackId] as Props;
-    if (stackOptions) {
-      stacks[stackId] = populateStackDefaultItems({
-        ...parseStackFromId(stackId),
-        ...stackOptions,
-      });
-    } else {
-      stacks[stackId] = populateStackDefaultItems(parseStackFromId(stackId));
+export const doWithStacks = async (
+  options: any,
+  stackSpec: string | undefined,
+  fn: (stackOptions: any) => Promise<void>,
+) => {
+  const stacks = parseStacks(options, stackSpec);
+  for (const [spec, stack] of Object.entries(stacks)) {
+    if (stackSpec && spec !== stackSpec) {
+      continue;
     }
+    const stackOptions = deepMerge({}, options);
+    stackOptions.stacks = stacks;
+    stackOptions.stack = stack;
+    loadStackConfig(stackOptions);
+    await fn(stackOptions);
+  }
+};
+
+export const parseStacks = (
+  renderOptions: any,
+  stackSpec?: string,
+): Stacks => {
+  const stacks: any = {};
+  if (renderOptions.stacks) {
+    Object.entries(renderOptions.stacks).map(([stackId, stackOptions]) => {
+      if (stackOptions) {
+        stacks[stackId] = populateStackDefaultItems({
+          ...parseStackFromId(stackId),
+          ...stackOptions,
+        });
+      } else {
+        stacks[stackId] = populateStackDefaultItems(parseStackFromId(stackId));
+      }
+    });
+  }
+  Object.entries(renderOptions.apps).map(([appId, appFile]) => {
+    if (!stacks[appId]) {
+      if (appId === "app" && renderOptions.stacks) {
+        return;
+      }
+      if (
+        Object.values(stacks).find((stack) => (stack as any).app === appFile)
+      ) {
+        return;
+      }
+      stacks[appId] = populateStackDefaultItems(parseStackFromId(appId));
+    }
+    stacks[appId].app ??= appFile;
   });
+  if (stackSpec && !stacks[stackSpec]) {
+    throw new Error(`Stack ${stackSpec} not found`);
+  }
   Object.values(stacks).map((stack: any, i) => {
     stack.sequence ??= (i + 1) * 10;
   });
 
-  return StacksSchema.parse({ stacks });
-};
-
-export const parseStacks = (
-  appName: string,
-  stacksInput: Props,
-  stackSpec?: string,
-): Stacks => {
-  const stacks = parseStacksInput(appName, stacksInput).stacks;
-  if (stackSpec && !stacks[stackSpec]) {
-    stacks[stackSpec] = populateStackDefaultItems(
-      parseStackFromId(stackSpec),
-    ) as Stack;
-  }
-  return { stacks };
-};
-
-export const parseStack = (
-  stackId: string,
-  options: Props,
-): Stack => {
-  const stacks = parseStacksInput(stackId, options.stacks as any).stacks;
-  let stack = stacks[stackId];
-  if (!stack) {
-    stack = stackId === "app"
-      ? Object.values(stacks)[0]
-      : populateStackDefaultItems(
-        parseStackFromId(stackId),
-      ) as Stack;
-    stacks[stack.id] = stack;
-  }
-  options.stacks = stacks;
-  options.stack = stack;
-  loadStackConfig(options);
-  return stack;
+  return StacksSchema.parse(stacks);
 };
 
 export const loadStackConfig = (
-  configs: any,
+  stackOptions: any,
 ) => {
-  if (configs.stack.override) {
-    deepMerge(configs, configs.stack.override);
+  if (stackOptions.stack.override) {
+    deepMerge(stackOptions, stackOptions.stack.override);
+    debug("loaded stack override %O", stackOptions.stack.override);
   }
   const settings =
-    loadFilesData(configs, "config/settings", configs.stack.id) ||
-    loadFilesData(configs, "config", configs.stack.id);
+    loadFilesData(stackOptions, "config/settings", stackOptions.stack.id) ||
+    loadFilesData(stackOptions, "config", stackOptions.stack.id);
   if (settings) {
-    deepMerge(configs, settings);
+    deepMerge(stackOptions, settings);
   }
+  return stackOptions.stack as Stack;
 };
 
 const collectTags = (result: string[], variants: string[], size = 1) => {

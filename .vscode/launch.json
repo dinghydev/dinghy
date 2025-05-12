@@ -10,16 +10,16 @@
         // "tf",
         // "--tf-generateImport",
         // "--diagram-saveView",
-        "--view",
-        "overview",
-        "--format",
-        "diagram",
+        // "--view",
+        // "overview",
+        // "--format",
+        // "diagram",
         // "--stage",
         // "state",
         // "--output",
         // ".",
         // "development",
-        "production",
+        // "production",
         "--debug"
       ],
       "program": "tasks/render/index.ts",
@@ -74,7 +74,7 @@
     {
       "name": "render-png",
       "args": [
-        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts production --format diagram --debug", // development --view overview --tf-generateImport
+        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts architecture --format diagram --debug", // production development --view overview --tf-generateImport
         "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts diagram"
       ],
       "request": "launch",
@@ -124,8 +124,8 @@
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/standalone/cli",
       "env": {
-        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
       "type": "node",
       "request": "launch",

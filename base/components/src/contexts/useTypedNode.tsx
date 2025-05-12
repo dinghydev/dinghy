@@ -1,8 +1,9 @@
 import { type NodeTree, type Props } from '../types.ts'
 import { useNodeContext } from './NodeContext.tsx'
 import type { ZodObject, ZodRawShape } from 'zod'
-import { capitalise, renderKey } from '../utils/stringUtils.ts'
+import { renderKey } from '../utils/stringUtils.ts'
 import { getRootNode } from '../utils/nodeUtils.ts'
+import { decapitalise } from '../utils/words.ts'
 
 function proxyNodeProps({ _props }: NodeTree) {
   return new Proxy(_props, {
@@ -150,7 +151,7 @@ export function useTypedNode<T>(
   id?: string,
 ) {
   const fName = f.name
-  const fieldName = capitalise(fName)
+  const fieldName = decapitalise(fName)
   const base = baseNnode || useNodeContext()
   const childrenOnly = Boolean(baseNnode)
   return {
@@ -166,7 +167,7 @@ export function useTypedNodes<T>(
   const node = baseNnode || useNodeContext()
   const childrenOnly = Boolean(baseNnode)
   const fName = f.name
-  const fieldName = capitalise(fName)
+  const fieldName = decapitalise(fName)
   return {
     [`${fieldName}s`]: useTypedArrayValueTag<T>(
       node,

@@ -1,6 +1,5 @@
 import type { TfContext, TfNodeTree } from '../types.ts'
-import { utils } from '@reactiac/base-components'
-const { deepResolve } = utils
+import { deepResolve } from '@reactiac/base-components'
 
 function resolve(node: TfNodeTree) {
   const { _props } = node

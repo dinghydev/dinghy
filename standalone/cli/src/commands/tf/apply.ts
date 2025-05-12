@@ -5,6 +5,7 @@ import { isCi } from "../../utils/gitUtils.ts";
 import { notifyChanges } from "../../utils/notificationUtils.ts";
 import { runTfImageCmd } from "./runTfImageCmd.ts";
 import { createTfOptions, parseTfOptions, tfOptionsPlan } from "./tfOptions.ts";
+import { doWithTfStacks } from "./doWithTfStacks.ts";
 
 const options: any = createTfOptions({
   ...tfOptionsPlan,
@@ -12,17 +13,17 @@ const options: any = createTfOptions({
 });
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
-  const { stack, stackInfo, tfVersion } = parseTfOptions(args);
   const changedStages: any[] = [];
-  const changedStacks: any[] = [];
-  for (const stage of Object.values(stackInfo.stages)) {
-    if ((stage as any).plan?.changesCount) {
-      changedStages.push(stage);
-      if (!changedStacks.includes(stack)) {
-        changedStacks.push(stack);
+  let tfVersion!: string;
+  await doWithTfStacks(args, async (tfOptions) => {
+    const { stackInfo } = tfOptions;
+    tfVersion = tfOptions.tfVersion;
+    for (const stage of Object.values(stackInfo.stages)) {
+      if ((stage as any).plan?.changesCount) {
+        changedStages.push(stage);
       }
     }
-  }
+  });
   if (changedStages.length) {
     try {
       for (const stage of changedStages) {
@@ -43,12 +44,15 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
             chalk.red(`${change.id} changes: ${change.plan.summary}`),
           );
         });
+        console.log(
+          chalk.green(`Changes applied in ${changedStages.length} stages`),
+        );
       }
     } catch (error) {
       await notifyChanges(changedStages, error as string);
     }
   } else {
-    console.log("No changes found");
+    console.log(chalk.green("No changes found"));
   }
 };
 

@@ -1,11 +1,10 @@
 import { ZodObject, ZodRawShape } from 'zod'
 import {
+  camelCaseToWords,
   DiagramNodeProps,
   IacNodeProps,
   NodeTree,
 } from '@reactiac/base-components'
-import { utils } from '@reactiac/base-components'
-const { camelCaseToWords } = utils
 
 export { default as AwsCloud } from './AwsCloud.tsx'
 export { default as AwsPublicSubnet } from './AwsPublicSubnet.tsx'

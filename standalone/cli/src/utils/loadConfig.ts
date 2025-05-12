@@ -35,15 +35,16 @@ function loadAppConfig() {
   }
 
   const config = yaml.parse(Deno.readTextFileSync(configFile));
-  debug("loaded app config from", configFile);
   if (config) {
     Object.assign(reactiacAppConfig, config);
-    reactiacAppConfig.files ??= {};
-    loadFiles([`${hostAppHome}/config/`]);
   }
+  debug("loaded app config from", configFile);
+  loadApps();
+  loadFiles([`${hostAppHome}/config/`]);
 }
 
 function loadFiles(basePaths: string[]) {
+  reactiacAppConfig.files ??= {};
   for (const basePath of basePaths) {
     if (!fs.existsSync(basePath)) {
       continue;
@@ -69,6 +70,19 @@ function loadFiles(basePaths: string[]) {
         current[fileName] = fileConfig;
       }
     }
+  }
+}
+
+function loadApps() {
+  reactiacAppConfig.apps ??= {};
+  for (const dirEntry of Deno.readDirSync(hostAppHome)) {
+    if (dirEntry.name.endsWith(".tsx")) {
+      reactiacAppConfig.apps[dirEntry.name.replace(".tsx", "")] = dirEntry.name;
+      debug("discovered app: %s", dirEntry.name);
+    }
+  }
+  if (!Object.keys(reactiacAppConfig.apps).length) {
+    throw new Error(`No tsx files found in ${hostAppHome}`);
   }
 }
 

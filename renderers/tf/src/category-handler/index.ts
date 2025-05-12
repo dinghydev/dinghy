@@ -3,8 +3,7 @@ import { resource } from './resource.ts'
 import { data } from './data.ts'
 import { terraform } from './terraform.ts'
 import { provider } from './provider.ts'
-import { utils } from '@reactiac/base-components'
-const { deepResolve } = utils
+import { deepResolve } from '@reactiac/base-components'
 import { none } from './none.ts'
 import type { TfRenderOptions } from '../types.ts'
 

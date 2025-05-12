@@ -10,7 +10,7 @@ import { runWorkspaceTask } from "../../utils/runWorkspaceTask.ts";
 import tf from "../tf/index.ts";
 import { runCommand } from "../../utils/runCommand.ts";
 import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
-import { parseStacks } from "../../utils/stackUtils.ts";
+import { doWithStacks, parseStacks } from "../../utils/stackUtils.ts";
 import {
   attachChangeToMR,
   isCi,
@@ -19,6 +19,7 @@ import {
 } from "../../utils/gitUtils.ts";
 import { notifyChanges } from "../../utils/notificationUtils.ts";
 import chalk from "chalk";
+import { parseTfOptions } from "./tfOptions.ts";
 const debug = Debug("tf:diff");
 
 const options: CommandOptions = {
@@ -50,66 +51,79 @@ const runStackTfCommands = async (
 };
 
 const runStackCommands = async (stack: string, args: string[]) => {
-  await runWorkspaceTask(["render", stack, "--format", "tf", ...args]);
   await runStackTfCommands(stack, "init", args);
   await runStackTfCommands(stack, "plan", args);
 };
 
 const run = async (context: CommandContext, args: CommandArgs) => {
   const remainArgs = context.originalArgs.slice(2);
-  const stackIds: string[] = [];
-  const { stacks } = await parseStacks(
-    "app",
-    reactiacAppConfig.stacks,
+  const noneStackArgs = args.stack ? remainArgs.slice(1) : remainArgs;
+  const activedStackIds: string[] = [];
+
+  const stacksOptions: any = {};
+  await doWithStacks(
+    reactiacAppConfig,
     args.stack,
+    async (stackOptions: any) => {
+      await runWorkspaceTask([
+        "render",
+        stackOptions.stack.id,
+        "--format",
+        "tf",
+        ...noneStackArgs,
+      ]);
+      stacksOptions[stackOptions.stack.id] = stackOptions;
+    },
   );
-  if (args.stack) {
-    debug("Run diff for selected stack: %s", args.stack);
-    stackIds.push(args.stack);
-    await runStackCommands(args.stack, remainArgs.slice(1));
-  } else {
-    debug("Run diff for all stacks");
-    for (const stack of Object.values(stacks)) {
+
+  for (const stackOptions of Object.values(stacksOptions)) {
+    const tfOptions = parseTfOptions(args, stackOptions);
+    if (tfOptions) {
+      const { stack } = tfOptions;
       if (
+        args.stack ||
         !isCi() ||
         (isMr() && stack.mrAutoDiff) ||
         (!isMr() && stack.mainAutoDiff)
       ) {
-        stackIds.push(stack.id);
+        activedStackIds.push(stack.id);
         await runStackCommands(stack.id, remainArgs);
       }
     }
   }
 
-  const stacksChanges: any[] = [];
   const changedStacks: any[] = [];
-  for (const stackId of stackIds) {
+  const changedStages: any[] = [];
+  for (const stackId of activedStackIds) {
     const stackInfoFile =
       `${hostAppHome}/${args.output}/${stackId}-stack-info.json`;
     const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoFile));
     for (const stage of Object.values(stackInfo.stages)) {
       if ((stage as any).plan?.changesCount) {
-        stacksChanges.push(stage);
-        const stack = stacks[stackId];
+        changedStages.push(stage);
+        const stack = stacksOptions[stackId];
         if (!changedStacks.includes(stack)) {
           changedStacks.push(stack);
         }
       }
     }
   }
-  if (stacksChanges.length) {
+  if (changedStacks.length) {
     if (isCi()) {
       const changeAction = isMr() ? attachChangeToMR : notifyChanges;
-      await changeAction(stacksChanges);
+      await changeAction(changedStacks);
       await triggerAutoDeployJobs(changedStacks, args);
     } else {
       console.log("Ignore notification and auto deploy in non-CI environment");
-      stacksChanges.map((change) => {
+      changedStages.map((change) => {
         console.log(chalk.red(`${change.id} changes: ${change.plan.summary}`));
       });
+      console.log(
+        chalk.red(`Changes found in ${changedStages.length} stages`),
+      );
     }
   } else {
-    console.log("No changes found in any stack");
+    console.log(chalk.green("No changes found in any stack"));
   }
 };
 
