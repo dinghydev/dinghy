@@ -5,9 +5,8 @@ import { dirname, resolve } from '@std/path'
 import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
-import { hostAppHome } from '../../utils/loadConfig.ts'
-import { createStage, createView } from '../../utils/stackUtils.ts'
-import { deepMerge } from '../../utils/deepMerge.ts'
+import { hostAppHome } from '@reactiac/cli/utils'
+import { createStage, createView, deepMerge } from '@reactiac/base-components'
 const debug = Debug('rendererMapping')
 
 const writeFile = async (path: string, content: string) => {
@@ -60,12 +59,16 @@ const diagram = async (app: any, options: any, args: any) => {
     if (!view) {
       view = createView(options.stack, viewString)
     }
+    renderedViews.push(viewString)
+    if (view.disabled) {
+      debug('skip diabled view %s', viewString)
+      return
+    }
     options.view = view
     const outputPath = `${args.output}/${view.id}.drawio`
     debug('rendering drawio to %s/%s', hostAppHome, outputPath)
     const result = await renderDrawio(app, options)
     await writeFile(outputPath, result.result)
-    renderedViews.push(viewString)
     collectedViews = result.views
     if (args['diagram-saveView']) {
       stackInfo.views[view.id] = view
@@ -101,6 +104,10 @@ const tf = async (app: any, options: any, args: any) => {
     let stage = availableStages[stageString]
     if (!stage) {
       stage = createStage(options.stack, stageString)
+    }
+    if (stage.disabled) {
+      debug('skip diabled stage %s', stageString)
+      return
     }
     options.stage = stage
     const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`

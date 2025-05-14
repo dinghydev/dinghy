@@ -2,7 +2,7 @@ import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { GroupVpc2 } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
 
 export const AwsVpcInputSchema = z.object({
@@ -22,7 +22,9 @@ export type AwsVpcOutputProps =
 
 export function AwsVpc(props: AwsVpcInputProps) {
   return (
-    <GroupVpc2 {...awsProps(props, AwsVpcInputSchema, AwsVpcOutputSchema)} />
+    <aws4.GroupVpc2
+      {...awsProps(props, AwsVpcInputSchema, AwsVpcOutputSchema)}
+    />
   )
 }
 

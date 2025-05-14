@@ -29,7 +29,7 @@ export const reactiacHome = Deno.env.get("REACTIAC_HOME") ||
 
 export const reactiacAppConfig: any = {};
 function loadAppConfig() {
-  const configFile = `${hostAppHome}/app.yaml`;
+  const configFile = `${hostAppHome}/iac.yaml`;
   if (!fs.existsSync(configFile)) {
     return;
   }

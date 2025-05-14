@@ -18,7 +18,7 @@ function findApps(basePath: string[] = [], result: string[] = []) {
 }
 
 function parseExampleSpec(path: string) {
-  const appFile = `./packages/examples/${path}/app.tsx`
+  const appFile = `./packages/examples/${path}/iac.tsx`
   const specFile = `./packages/examples/${path}/example.yaml`
   let spec: ExampleType
   if (existsSync(specFile)) {

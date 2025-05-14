@@ -3,7 +3,7 @@ export const tfGenerateOptions = {
   required: ["json-file"],
   description: {
     "json-file": "Path to the terraform state json file",
-    "app-file": "Path to the generated app.tsx file",
+    "app-file": "Path to the generated iac.tsx file",
   },
   default: {
     "app-file": "generated.tsx",

@@ -1,5 +1,5 @@
 import AwsDbInstance, { AwsDbInstanceInputSchema } from './AwsDbInstance.tsx'
-import { RDS_POSTGRESQL_INSTANCE } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 import { IacNodeProps } from '@reactiac/base-components'
 import z from 'zod'
 
@@ -10,7 +10,7 @@ export default function AwsPostgres(props: AwsPostgresProps) {
   return (
     <AwsDbInstance
       engine={'postgres'}
-      {...RDS_POSTGRESQL_INSTANCE}
+      {...aws4.RDS_POSTGRESQL_INSTANCE}
       {...props}
     />
   )

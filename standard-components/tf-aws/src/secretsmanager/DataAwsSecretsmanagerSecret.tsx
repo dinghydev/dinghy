@@ -3,7 +3,7 @@ import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
 import { awsProps } from '../index.ts'
 import z from 'zod'
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
-import { aws } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 
 export const DataAwsSecretsmanagerSecretInputSchema = z.object({
   name: ResolvableStringSchema.optional(),
@@ -31,7 +31,7 @@ export function DataAwsSecretsmanagerSecret(
   props: DataAwsSecretsmanagerSecretInputProps,
 ) {
   return (
-    <aws.SecretsManager
+    <aws4.SecretsManager
       {...awsProps(
         props,
         DataAwsSecretsmanagerSecretInputSchema,

@@ -21,7 +21,7 @@ export const projectName = async (): Promise<string> => {
   let project = Deno.env.get("CI_PROJECT_PATH");
   try {
     if (!project) {
-      const originUrl = await execCmd("git remote get-url origin");
+      const originUrl = (await execCmd("git remote get-url origin")).trim();
       const splitIndex = originUrl.startsWith("git")
         ? originUrl.indexOf(":")
         : originUrl.indexOf("/", 10);

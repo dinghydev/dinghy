@@ -1,15 +1,18 @@
-import { setupDebug } from '../../utils/setupDebug.ts'
-import {
-  containerAppHome,
-  loadConfig,
-  reactiacAppConfig,
-} from '../../utils/loadConfig.ts'
-import { renderOptions } from '../../utils/renderOptions.ts'
-import { parseOptions } from '../../utils/parseOptions.ts'
 import { rendererMapping } from './renderMapping.ts'
 import Debug from 'debug'
-import { deepMerge } from '../../utils/deepMerge.ts'
-import { doWithStacks } from '../../utils/stackUtils.ts'
+
+import {
+  containerAppHome,
+  execCmd,
+  isCi,
+  loadConfig,
+  parseOptions,
+  reactiacAppConfig,
+  renderOptions,
+  setupDebug,
+} from '@reactiac/cli/utils'
+import { deepMerge, doWithStacks } from '@reactiac/base-components'
+import chalk from 'chalk'
 const debug = Debug('render')
 try {
   setupDebug()
@@ -46,6 +49,15 @@ try {
   )
 
   debug('render finished at %O', new Date())
+
+  if (isCi()) {
+    const changes = await execCmd(`git status --porcelain ${cmdOptions.output}`)
+    if (changes) {
+      console.log(`Detected changes in ${cmdOptions.output} folder`)
+      console.log(chalk.red(changes))
+      throw new Error('Unexpected changes detected in output folder')
+    }
+  }
 } catch (e) {
   console.error(e)
   throw e

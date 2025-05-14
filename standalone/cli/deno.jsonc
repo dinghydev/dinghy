@@ -5,7 +5,8 @@
     "check": "deno check src/index.ts"
   },
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./utils": "./src/utils/index.ts"
   },
   "compilerOptions": {
     "noImplicitAny": false,

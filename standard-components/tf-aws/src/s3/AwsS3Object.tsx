@@ -6,7 +6,7 @@ import {
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { Bucket } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
 
 export const AwsS3ObjectInputSchema = z.object({
@@ -36,7 +36,7 @@ export function AwsS3Object(props: AwsS3ObjectInputProps) {
   const _importId = (node: any) =>
     `${deepResolve(node, node._props, 'bucket')}/${node._props.__key}`
   return (
-    <Bucket
+    <aws4.Bucket
       _importId={_importId}
       {...awsProps(props, AwsS3ObjectInputSchema, AwsS3ObjectOutputSchema)}
     />

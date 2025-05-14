@@ -10,7 +10,7 @@ import { runWorkspaceTask } from "../../utils/runWorkspaceTask.ts";
 import tf from "../tf/index.ts";
 import { runCommand } from "../../utils/runCommand.ts";
 import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
-import { doWithStacks, parseStacks } from "../../utils/stackUtils.ts";
+import { doWithStacks, parseStacks } from "../../utils/index.ts";
 import {
   attachChangeToMR,
   isCi,

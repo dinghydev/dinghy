@@ -3,7 +3,7 @@ import {
   ResolvableStringSchema,
   StringSchema,
 } from '@reactiac/base-components'
-import { GroupSecurityGroup } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 import { awsProps } from '../index.ts'
 import z from 'zod'
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
@@ -28,7 +28,7 @@ export type AwsSubnetOutputProps =
 
 export function AwsSubnet(props: AwsSubnetInputProps) {
   return (
-    <GroupSecurityGroup
+    <aws4.GroupSecurityGroup
       {...awsProps(props, AwsSubnetInputSchema, AwsSubnetOutputSchema)}
     />
   )

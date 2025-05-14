@@ -1,9 +1,8 @@
 export const renderOptions = {
-  collect: ["app", "format", "view", "stage"],
+  collect: ["format", "view", "stage"],
   boolean: ["tf-generateImport", "diagram-saveView"],
   string: ["output"],
   description: {
-    app: "Name of the app",
     output: "Output folder",
     format: "Formats to render",
     view: "Views to render",

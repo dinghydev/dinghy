@@ -1,1 +1,1 @@
-export { CloudServicesConfigurationFile } from './CloudServicesConfigurationFile.tsx'
+export * from './CloudServicesConfigurationFile.tsx'

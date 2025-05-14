@@ -6,7 +6,7 @@ import {
 import { awsProps } from './index.ts'
 import z from 'zod'
 import { useTypedNode } from '@reactiac/base-components'
-import { CertificateManager } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 
 export const AwsAcmCertificateInputSchema = z.object({
   domain: ResolvableStringArraySchema.optional(),
@@ -31,7 +31,7 @@ export type AwsAcmCertificateOutputProps =
 
 export function AwsAcmCertificate(props: AwsAcmCertificateInputProps) {
   return (
-    <CertificateManager
+    <aws4.CertificateManager
       {...awsProps(
         props,
         AwsAcmCertificateInputSchema,

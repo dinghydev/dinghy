@@ -6,7 +6,7 @@ import {
 } from '@reactiac/base-components'
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { Cloudfront } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
 
 export const AwsCloudfrontDistributionInputSchema = z.object({
@@ -57,7 +57,7 @@ export function AwsCloudfrontDistribution(
   props: AwsCloudfrontDistributionInputProps,
 ) {
   return (
-    <Cloudfront
+    <aws4.Cloudfront
       {...awsProps(
         props,
         AwsCloudfrontDistributionInputSchema,

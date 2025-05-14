@@ -7,7 +7,7 @@ import {
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { Bucket } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
 
 export const AwsDynamodbTableInputSchema = z.object({
@@ -36,7 +36,7 @@ export type AwsDynamodbTableOutputProps =
 export function AwsDynamodbTable(props: AwsDynamodbTableInputProps) {
   const _importId = (node: any) => node._props.name
   return (
-    <Bucket
+    <aws4.Bucket
       _importId={_importId}
       {...awsProps(
         props,

@@ -6,7 +6,7 @@ import {
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { Bucket } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
 
 export const AwsS3BucketInputSchema = z.object({
@@ -36,7 +36,7 @@ export type AwsS3BucketOutputProps =
 export function AwsS3Bucket(props: AwsS3BucketInputProps) {
   const _importId = (node: any) => node._props.bucket
   return (
-    <Bucket
+    <aws4.Bucket
       _importId={_importId}
       {...awsProps(props, AwsS3BucketInputSchema, AwsS3BucketOutputSchema)}
     />

@@ -9,7 +9,7 @@ import {
 import { awsProps } from '../index.ts'
 import z from 'zod'
 import { useTypedNode } from '@reactiac/base-components'
-import { GroupEc2InstanceContents } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 
 export const AwsInstanceInputSchema = z.object({
   ami: ResolvableStringSchema.optional(),
@@ -49,7 +49,7 @@ export function importId(props: AwsInstanceOutputProps) {
 
 export function AwsInstance(props: AwsInstanceInputProps) {
   return (
-    <GroupEc2InstanceContents
+    <aws4.GroupEc2InstanceContents
       {...awsProps(
         props,
         AwsInstanceInputSchema,

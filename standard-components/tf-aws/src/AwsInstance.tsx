@@ -1,5 +1,5 @@
 import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
-import { Android } from '@reactiac/standard-components-diagrams'
+import { aws3 } from '@reactiac/standard-components-diagrams'
 import { awsProps } from './index.ts'
 import z from 'zod'
 
@@ -18,7 +18,7 @@ export type AwsInstanceInputProps =
 
 export default function AwsInstance(props: AwsInstanceInputProps) {
   return (
-    <Android
+    <aws3.Android
       {...awsProps(props, AwsInstanceInputSchema, AwsInstanceOutputSchema)}
     />
   )

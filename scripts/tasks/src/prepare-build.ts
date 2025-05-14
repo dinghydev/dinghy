@@ -7,50 +7,9 @@ const copyProjectFile = (src: string, target: string) => {
 
 if (import.meta.main) {
   updateReleaseVersion();
-  Deno.mkdirSync(`${projectRoot}/workspace/utils`, { recursive: true });
   Deno.mkdirSync(`${projectRoot}/docker/dependencies/fs-root/reactiac/locks`, {
     recursive: true,
   });
-  copyProjectFile(
-    "standalone/cli/src/utils/deepMerge.ts",
-    "base/components/src/utils/deepMerge.ts",
-  );
-  copyProjectFile(
-    "standalone/cli/src/utils/deepMerge.ts",
-    "workspace/utils/deepMerge.ts",
-  );
-  copyProjectFile(
-    "standalone/cli/src/utils/stackUtils.ts",
-    "base/components/src/utils/stackUtils.ts",
-  );
-  copyProjectFile(
-    "standalone/cli/src/utils/stackUtils.ts",
-    "workspace/utils/stackUtils.ts",
-  );
-  copyProjectFile(
-    "standalone/cli/src/utils/setupDebug.ts",
-    "workspace/utils/setupDebug.ts",
-  );
-  copyProjectFile(
-    "standalone/cli/src/utils/loadConfig.ts",
-    "workspace/utils/loadConfig.ts",
-  );
-  copyProjectFile(
-    "standalone/cli/src/utils/parseOptions.ts",
-    "workspace/utils/parseOptions.ts",
-  );
-  copyProjectFile(
-    "standalone/cli/src/utils/renderOptions.ts",
-    "workspace/utils/renderOptions.ts",
-  );
-  copyProjectFile(
-    "standalone/cli/src/utils/tfGenerateOptions.ts",
-    "workspace/utils/tfGenerateOptions.ts",
-  );
-  copyProjectFile(
-    "standalone/cli/src/utils/loadTfJsonFile.ts",
-    "workspace/utils/loadTfJsonFile.ts",
-  );
   copyProjectFile(
     "deno.lock",
     "docker/dependencies/fs-root/reactiac/locks/deno.lock",

@@ -30,6 +30,9 @@
     "./standard-components/tf-aws",
     "./workspace"
   ],
+  "patch": [
+    "standalone/cli"
+  ],
   "fmt": {
     "semiColons": false,
     "singleQuote": true

@@ -1,8 +1,8 @@
-import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
+import { IacNodeProps } from '@reactiac/base-components'
 
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { GroupRegion } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 import { useStack } from '@reactiac/base-components'
 import { useTypedNode } from '@reactiac/base-components'
 
@@ -25,7 +25,7 @@ export function AwsRegion(props: AwsRegionInputProps) {
     }
   }
   return (
-    <GroupRegion
+    <aws4.GroupRegion
       {...awsProps(
         {
           _provider: {

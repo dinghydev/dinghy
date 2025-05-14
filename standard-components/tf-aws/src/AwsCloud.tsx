@@ -6,7 +6,7 @@ import {
 
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { GroupAwsCloudAlt } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 import { useTypedNode } from '@reactiac/base-components'
 
 export const AwsCloudInputSchema = IacNodeSchema.extend({
@@ -20,7 +20,7 @@ export type AwsCloudInputProps =
 
 export default function AwsCloud(props: AwsCloudInputProps) {
   return (
-    <GroupAwsCloudAlt
+    <aws4.GroupAwsCloudAlt
       {...awsProps(
         {
           _terraform: {

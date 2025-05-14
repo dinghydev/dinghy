@@ -69,5 +69,5 @@ export const execCmd = async (
     );
   }
   debug("execCmd result: %s", result.all);
-  return result.all.trim();
+  return result.all;
 };

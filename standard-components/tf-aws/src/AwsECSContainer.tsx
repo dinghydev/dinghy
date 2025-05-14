@@ -1,5 +1,5 @@
 import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
-import { Android } from '@reactiac/standard-components-diagrams'
+import { aws3 } from '@reactiac/standard-components-diagrams'
 import { awsProps } from './index.ts'
 import z from 'zod'
 
@@ -12,5 +12,5 @@ export type AwsECSContainerProps =
   & IacNodeProps
 
 export default function AwsECSContainer(props: AwsECSContainerProps) {
-  return <Android {...awsProps(props, AwsECSContainerSchema)} />
+  return <aws3.Android {...awsProps(props, AwsECSContainerSchema)} />
 }

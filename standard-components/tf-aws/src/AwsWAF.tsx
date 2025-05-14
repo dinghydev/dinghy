@@ -2,7 +2,7 @@ import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
 
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { Waf } from '@reactiac/standard-components-diagrams'
+import { aws4 } from '@reactiac/standard-components-diagrams'
 
 export const AwsWAFSchema = z.object({
   name: ResolvableStringSchema.optional(),
@@ -11,5 +11,5 @@ export const AwsWAFSchema = z.object({
 export type AwsWAFProps = z.output<typeof AwsWAFSchema> & IacNodeProps
 
 export default function AwsWAF(props: AwsWAFProps) {
-  return <Waf {...awsProps(props, AwsWAFSchema)} />
+  return <aws4.Waf {...awsProps(props, AwsWAFSchema)} />
 }
