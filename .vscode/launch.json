@@ -20,7 +20,7 @@
         // ".",
         // "development",
         // "production",
-        // "architecture",
+        "architecture",
         "--debug"
       ],
       "program": "tasks/render/index.ts",
@@ -57,10 +57,10 @@
         "--debug"
       ],
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
+      "cwd": "${workspaceFolder}/cli",
       "env": {
-        "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
       },
       "type": "node",
@@ -78,7 +78,7 @@
       "name": "render-png",
       "args": [
         "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts architecture --format diagram --debug", // production development --view overview --tf-generateImport
-        "deno run -A ${workspaceFolder}/standalone/cli/src/index.ts diagram"
+        "deno run -A ${workspaceFolder}/cli/src/index.ts diagram"
       ],
       "request": "launch",
       "type": "node",
@@ -100,7 +100,7 @@
         "--debug"
       ],
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
+      "cwd": "${workspaceFolder}/cli",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
@@ -125,7 +125,7 @@
         "--debug"
       ],
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
+      "cwd": "${workspaceFolder}/cli",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
@@ -147,11 +147,12 @@
         "tf",
         "diff",
         // "production",
+        "development",
         // "-h",
         "--debug"
       ],
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
+      "cwd": "${workspaceFolder}/cli",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "DOCKER_IMAGEVERSION": "latest",
@@ -180,7 +181,7 @@
         "--debug"
       ],
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
+      "cwd": "${workspaceFolder}/cli",
       "env": {
         "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
@@ -217,7 +218,7 @@
         "--debug"
       ],
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
+      "cwd": "${workspaceFolder}/cli",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
@@ -283,7 +284,7 @@
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
+      "cwd": "${workspaceFolder}/cli",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
@@ -301,7 +302,7 @@
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "cwd": "${workspaceFolder}/scripts/tasks",
+      "cwd": "${workspaceFolder}/tasks",
       "env": {
         "AWS_PROFILE": "reactiac"
       },
@@ -313,7 +314,7 @@
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "cwd": "${workspaceFolder}/scripts/tasks",
+      "cwd": "${workspaceFolder}/tasks",
       "console": "integratedTerminal"
     },
     {
@@ -328,7 +329,7 @@
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
       },
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/standalone/cli",
+      "cwd": "${workspaceFolder}/cli",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
@@ -362,7 +363,7 @@
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "cwd": "${workspaceFolder}/scripts/tasks",
+      "cwd": "${workspaceFolder}/tasks",
       "console": "integratedTerminal"
     },
     {
@@ -371,7 +372,7 @@
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "cwd": "${workspaceFolder}/scripts/tasks",
+      "cwd": "${workspaceFolder}/tasks",
       "console": "integratedTerminal"
     },
     {
@@ -380,7 +381,7 @@
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "cwd": "${workspaceFolder}/scripts/tasks",
+      "cwd": "${workspaceFolder}/tasks",
       "console": "integratedTerminal"
     },
     {
@@ -397,7 +398,7 @@
     {
       "name": "prepare build",
       "args": ["deno task prepare-build"],
-      "cwd": "${workspaceFolder}/scripts/tasks",
+      "cwd": "${workspaceFolder}/tasks",
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
@@ -406,7 +407,7 @@
     {
       "name": "install locally",
       "args": ["deno task install-locally"],
-      "cwd": "${workspaceFolder}/scripts/tasks",
+      "cwd": "${workspaceFolder}/tasks",
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",

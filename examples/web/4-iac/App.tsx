@@ -1,5 +1,8 @@
-import { Stack } from '@reactiac/base-components'
-import { Client, Waf } from '@reactiac/standard-components-diagrams'
+import { Stack } from "@reactiac/base-components";
+import {
+  Client,
+  Waf,
+} from "../../../core/standard-components/standard-components-diagrams/src/index.ts";
 
 import {
   AwsCloud,
@@ -12,55 +15,55 @@ import {
   DataAwsVpc,
   useAwsSubnet,
   useAwsSubnets,
-} from '@reactiac/standard-components-tf-aws'
+} from "../../../core/standard-components/standard-components-tf-aws/src/index.ts";
 
-const Postgres = (props: any) => <AwsPostgres {...props} />
+const Postgres = (props: any) => <AwsPostgres {...props} />;
 
-const WebApp = (props: any) => <Stack {...props} />
+const WebApp = (props: any) => <Stack {...props} />;
 
-const Client = (props: any) => <Client _dependsOn='Load Balancer' {...props} />
+const Client = (props: any) => <Client _dependsOn="Load Balancer" {...props} />;
 
 const Cloud = (props: any) => (
   <AwsCloud {...props}>
-    <AwsRegion _display='invisible' region='eu-west-1'>
-      <DataAwsVpc _display='invisible' id='vpcid1'>
+    <AwsRegion _display="invisible" region="eu-west-1">
+      <DataAwsVpc _display="invisible" id="vpcid1">
         {props.children}
       </DataAwsVpc>
     </AwsRegion>
   </AwsCloud>
-)
+);
 
 const PublicSubnet = (props: any) => (
-  <AwsPublicSubnet cidr_block='10.0.0.0/16' {...props} />
-)
+  <AwsPublicSubnet cidr_block="10.0.0.0/16" {...props} />
+);
 
 const PrivateSubnet = (props: any) => (
-  <AwsPrivateSubnet cidr_block='10.10.0.0/16' {...props} />
-)
+  <AwsPrivateSubnet cidr_block="10.10.0.0/16" {...props} />
+);
 
 const LoadBalancer = (props: any) => {
-  const { awsSubnets } = useAwsSubnets()
+  const { awsSubnets } = useAwsSubnets();
   return (
     <AwsLb
       subnets={awsSubnets.map((s) => s.id)}
-      _dependsOn={['Firewall', 'Application']}
+      _dependsOn={["Firewall", "Application"]}
       {...props}
     />
-  )
-}
-const Firewall = (props: any) => <Waf {...props} />
+  );
+};
+const Firewall = (props: any) => <Waf {...props} />;
 
 const Application = (props: any) => {
-  const { awsSubnet } = useAwsSubnet()
+  const { awsSubnet } = useAwsSubnet();
   return (
     <AwsInstance
       subnet_id={awsSubnet.id}
-      ami='ami-005e54dee72cc1d00'
-      _dependsOn='Postgres'
+      ami="ami-005e54dee72cc1d00"
+      _dependsOn="Postgres"
       {...props}
     />
-  )
-}
+  );
+};
 
 export function App() {
   return (
@@ -77,5 +80,5 @@ export function App() {
         </PrivateSubnet>
       </Cloud>
     </WebApp>
-  )
+  );
 }

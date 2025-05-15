@@ -10,4 +10,4 @@ RUN cd /reactiac && \
     echo "TF_IMAGE_VERSION=${TF_IMAGE_VERSION}" >> /root/.reactiacrc && \
     . /root/.bashrc && \
     deno run -A cache-installer.ts && \
-    rm -rf *.ts deno.* locks
+    rm -rf deno.* cache-installer.ts core cli workspace

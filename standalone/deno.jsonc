@@ -1,4 +1,0 @@
-{
-  // block dependencies from parent
-     "workspace": ["./cli"]
-}

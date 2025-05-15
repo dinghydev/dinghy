@@ -43,8 +43,8 @@ tmp*
 **/terraform.tfstate
 **/terraform.tfstate.backup
 
-# Copied files
-docker/dependencies/fs-root/reactiac/locks
+# Copied locks
+docker/dependencies/fs-root/reactiac/*/deno.lock
 
 # Optional eslint cache
 .eslintcache

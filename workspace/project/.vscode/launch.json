@@ -32,7 +32,7 @@
         // "-h",
         "--debug"
       ],
-      "program": "standalone/cli/src/index.ts",
+      "program": "cli/src/index.ts",
       "cwd": "/reactiac",
       "env": {},
       "type": "node",
@@ -56,7 +56,7 @@
         // "-h",
         "--debug"
       ],
-      "program": "standalone/cli/src/index.ts",
+      "program": "cli/src/index.ts",
       "cwd": "/reactiac",
       "env": {},
       "type": "node",
@@ -80,7 +80,7 @@
         // "-h",
         "--debug"
       ],
-      "program": "standalone/cli/src/index.ts",
+      "program": "cli/src/index.ts",
       "cwd": "/reactiac",
       "env": {},
       "type": "node",
@@ -104,7 +104,7 @@
         // "-h",
         "--debug"
       ],
-      "program": "standalone/cli/src/index.ts",
+      "program": "cli/src/index.ts",
       "cwd": "/reactiac",
       "env": {},
       "type": "node",

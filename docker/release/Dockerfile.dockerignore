@@ -2,14 +2,10 @@
 **
 
 # Allow files and directories
-!/deno.*
 !/.version
-!/*/deno.*
-!/*/*/deno.jsonc
-!/*/*/src/**
+!/cli/**
+!/core/**
 !/workspace/**
 
-
-# Ignore support project files
-build/**
-scripts/**
+# The lock already built by dependencies/cache-installer.ts
+# /workspace/deno.lock

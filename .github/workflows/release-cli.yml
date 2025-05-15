@@ -59,7 +59,7 @@ jobs:
           role-to-assume: arn:aws:iam::313225491971:role/${{ secrets.AWS_DEPLOY_ROLE }}
       - name: publish cli binaries
         run: |
-          cd scripts/tasks
+          cd tasks
         
           deno task cli-publish
         env:

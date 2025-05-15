@@ -1,8 +1,20 @@
 {
-  "name": "@reactiac/workspace",
   "tasks": {
     "render": "deno run -A tasks/render/index.ts",
     "tf-generate": "deno run -A tasks/tf-generate/index.ts"
+  },
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // "jsx": "react",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "lib": [
+      // to remove when HTMLElement not in use
+      "dom",
+      "deno.ns"
+    ]
   },
   "imports": {
     "@std/cli": "jsr:@std/cli@1.0.14",
@@ -13,9 +25,14 @@
     "debug": "npm:debug@4.4.0",
     "chalk": "npm:chalk@5.4.1",
     "execa": "npm:execa@9.5.2",
+    "@types/react": "npm:@types/react@19.1.0",
+    "@types/node": "npm:@types/node@22.14.0",
+    "react": "npm:react@19.1.0",
+    "react-dom": "npm:react-dom@19.1.0",
     "zod": "npm:zod@3.24.2"
   },
-  "exports": {
-    ".": "./tasks/render/index.ts"
-  }
+  "patch": [
+    "../cli",
+    "../core"
+  ]
 }

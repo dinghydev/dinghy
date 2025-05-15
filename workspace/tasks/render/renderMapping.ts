@@ -1,138 +1,138 @@
-import { renderJson } from '@reactiac/renderer-json'
-import { renderDrawio } from '@reactiac/renderer-drawio'
-import { renderTf } from '@reactiac/renderer-tf'
-import { dirname, resolve } from '@std/path'
-import Debug from 'debug'
-import { existsSync } from '@std/fs/exists'
-import chalk from 'chalk'
-import { hostAppHome } from '@reactiac/cli/utils'
-import { createStage, createView, deepMerge } from '@reactiac/base-components'
-const debug = Debug('rendererMapping')
+import { renderJson } from "../../../core/renderer-json/src/index.ts";
+import { renderDrawio } from "../../../core/renderer-drawio/src/index.ts";
+import { renderTf } from "../../../core/renderer-tf/src/index.ts";
+import { dirname, resolve } from "@std/path";
+import Debug from "debug";
+import { existsSync } from "@std/fs/exists";
+import chalk from "chalk";
+import { hostAppHome } from "@reactiac/cli/utils";
+import { createStage, createView, deepMerge } from "@reactiac/base-components";
+const debug = Debug("rendererMapping");
 
 const writeFile = async (path: string, content: string) => {
-  const filePath = resolve(`${hostAppHome}/${path}`)
-  const folder = dirname(filePath)
-  await Deno.mkdir(folder, { recursive: true })
-  await Deno.writeTextFile(filePath, content)
+  const filePath = resolve(`${hostAppHome}/${path}`);
+  const folder = dirname(filePath);
+  await Deno.mkdir(folder, { recursive: true });
+  await Deno.writeTextFile(filePath, content);
 
-  debug('rendered to', filePath)
-  if (path.endsWith('stack-info.json')) {
-    console.log(chalk.green('saved stack info to:'), filePath)
+  debug("rendered to", filePath);
+  if (path.endsWith("stack-info.json")) {
+    console.log(chalk.green("saved stack info to:"), filePath);
   } else {
-    console.log(chalk.green('rendered:'), filePath)
+    console.log(chalk.green("rendered:"), filePath);
   }
-}
+};
 
 const json = async (app: any, options: any, args: any) => {
-  const outputPath = `${args.output}/${options.stack.id}.json`
-  debug('rendering json to %s/%s', hostAppHome, outputPath)
-  const result = await renderJson(app, options)
-  await writeFile(outputPath, result.result)
-}
+  const outputPath = `${args.output}/${options.stack.id}.json`;
+  debug("rendering json to %s/%s", hostAppHome, outputPath);
+  const result = await renderJson(app, options);
+  await writeFile(outputPath, result.result);
+};
 
 const saveStackInfo = async (options: any, args: any, stackInfo: any) => {
-  const outputPath = `${args.output}/${options.stack.id}-stack-info.json`
-  const outputFile = `${hostAppHome}/${outputPath}`
+  const outputPath = `${args.output}/${options.stack.id}-stack-info.json`;
+  const outputFile = `${hostAppHome}/${outputPath}`;
   if (existsSync(outputFile)) {
-    const stackInfoText = await Deno.readTextFile(outputFile)
+    const stackInfoText = await Deno.readTextFile(outputFile);
     if (stackInfoText) {
-      const existingStackInfo = JSON.parse(stackInfoText)
-      stackInfo = deepMerge(existingStackInfo, stackInfo)
+      const existingStackInfo = JSON.parse(stackInfoText);
+      stackInfo = deepMerge(existingStackInfo, stackInfo);
     }
   }
-  await writeFile(outputPath, JSON.stringify(stackInfo, null, 2))
-}
+  await writeFile(outputPath, JSON.stringify(stackInfo, null, 2));
+};
 
 const diagram = async (app: any, options: any, args: any) => {
   const stackInfo: any = {
     views: {},
-  }
-  const availableViews = options.stack.views
-  let selectedViews = args.view
-  const renderedViews: string[] = []
+  };
+  const availableViews = options.stack.views;
+  let selectedViews = args.view;
+  const renderedViews: string[] = [];
   if (!selectedViews) {
-    selectedViews = Object.keys(availableViews)
+    selectedViews = Object.keys(availableViews);
   }
-  let collectedViews: string[] = []
+  let collectedViews: string[] = [];
   const renderView = async (viewString: string) => {
-    let view = availableViews[viewString]
+    let view = availableViews[viewString];
     if (!view) {
-      view = createView(options.stack, viewString)
+      view = createView(options.stack, viewString);
     }
-    renderedViews.push(viewString)
+    renderedViews.push(viewString);
     if (view.disabled) {
-      debug('skip diabled view %s', viewString)
-      return
+      debug("skip diabled view %s", viewString);
+      return;
     }
-    options.view = view
-    const outputPath = `${args.output}/${view.id}.drawio`
-    debug('rendering drawio to %s/%s', hostAppHome, outputPath)
-    const result = await renderDrawio(app, options)
-    await writeFile(outputPath, result.result)
-    collectedViews = result.views
-    if (args['diagram-saveView']) {
-      stackInfo.views[view.id] = view
+    options.view = view;
+    const outputPath = `${args.output}/${view.id}.drawio`;
+    debug("rendering drawio to %s/%s", hostAppHome, outputPath);
+    const result = await renderDrawio(app, options);
+    await writeFile(outputPath, result.result);
+    collectedViews = result.views;
+    if (args["diagram-saveView"]) {
+      stackInfo.views[view.id] = view;
     }
-  }
+  };
   for (const viewString of selectedViews) {
-    await renderView(viewString)
+    await renderView(viewString);
   }
   if (!args.view) {
     for (const viewString of collectedViews) {
       if (!renderedViews.includes(viewString)) {
-        await renderView(viewString)
+        await renderView(viewString);
       }
     }
   }
   if (Object.values(stackInfo.views).length) {
-    await saveStackInfo(options, args, stackInfo)
+    await saveStackInfo(options, args, stackInfo);
   }
-}
+};
 
 const tf = async (app: any, options: any, args: any) => {
-  const availableStages = options.stack.stages
-  let selectedStages = args.stage
+  const availableStages = options.stack.stages;
+  let selectedStages = args.stage;
   const stackInfo: any = {
-    tfImageVersion: Deno.env.get('TF_IMAGE_VERSION'),
+    tfImageVersion: Deno.env.get("TF_IMAGE_VERSION"),
     stages: {},
-  }
-  const renderedStages: string[] = []
+  };
+  const renderedStages: string[] = [];
   if (!selectedStages) {
-    selectedStages = Object.keys(availableStages)
+    selectedStages = Object.keys(availableStages);
   }
   const renderStage = async (stageString: string) => {
-    let stage = availableStages[stageString]
+    let stage = availableStages[stageString];
     if (!stage) {
-      stage = createStage(options.stack, stageString)
+      stage = createStage(options.stack, stageString);
     }
     if (stage.disabled) {
-      debug('skip diabled stage %s', stageString)
-      return
+      debug("skip diabled stage %s", stageString);
+      return;
     }
-    options.stage = stage
-    const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`
-    debug('rendering tf to %s/%s', hostAppHome, outputPath)
-    const result = await renderTf(app, options)
-    if (result.result !== '{}') {
-      await writeFile(outputPath, result.result)
-      renderedStages.push(stageString)
-      stackInfo.stages[stage.id] = stage
+    options.stage = stage;
+    const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`;
+    debug("rendering tf to %s/%s", hostAppHome, outputPath);
+    const result = await renderTf(app, options);
+    if (result.result !== "{}") {
+      await writeFile(outputPath, result.result);
+      renderedStages.push(stageString);
+      stackInfo.stages[stage.id] = stage;
       if (!args.stage) {
         for (const stageString of result.stages) {
           if (!renderedStages.includes(stageString)) {
-            await renderStage(stageString)
+            await renderStage(stageString);
           }
         }
       }
     }
-  }
+  };
   for (const stageString of selectedStages) {
-    await renderStage(stageString)
+    await renderStage(stageString);
   }
   if (Object.values(stackInfo.stages).length) {
-    await saveStackInfo(options, args, stackInfo)
+    await saveStackInfo(options, args, stackInfo);
   }
-}
+};
 
 export const rendererMapping = {
   json: [json],
@@ -140,4 +140,4 @@ export const rendererMapping = {
   tf: [tf],
   default: [diagram, tf],
   all: [json, diagram, tf],
-}
+};

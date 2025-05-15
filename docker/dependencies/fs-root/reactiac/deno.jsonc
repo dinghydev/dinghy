@@ -1,0 +1,60 @@
+
+  {
+  "tasks": {
+    "reactiac": "deno run -A src/index.ts",
+    "lint": "deno lint"
+    "check": "deno fmt --check"
+  },
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "npm:react@^19.0",
+    "lib": [
+      // to remove when HTMLElement not in use
+      "dom",
+      "deno.ns"
+    ]
+  },
+  "imports": {
+  "@std/cli": "jsr:@std/cli@1.0.14",
+"@std/fs": "jsr:@std/fs@1.0.15",
+"@std/path": "jsr:@std/path@1.0.8",
+"@std/path": "jsr:@std/path@^1.0.8",
+"@std/yaml": "jsr:@std/yaml@1.0.5",
+"@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@3.802.0",
+"chalk": "npm:chalk@5.4.1",
+"dayjs": "npm:dayjs@1.11.13",
+"debug": "npm:debug@4.4.0",
+"execa": "npm:execa@9.5.2",
+"html-entities": "npm:html-entities@2.6.0",
+"react-reconciler": "npm:react-reconciler@0.31.0",
+"react": "npm:react@19.1.0",
+"zod": "npm:zod@3.24.2"
+  },
+  "lint": {
+    "include": [
+      "app/"
+    ],
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "include": [
+        "ban-untagged-todo"
+      ],
+      "exclude": [
+        "no-unused-vars"
+      ]
+    }
+  },
+  "fmt": {
+    "semiColons": false,
+    "singleQuote": true,
+    "include": [
+      "app/"
+    ]
+  }
+}
+  
