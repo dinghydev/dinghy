@@ -20,19 +20,20 @@
         // ".",
         // "development",
         // "production",
-        "architecture",
+        // "architecture",
         "--debug"
       ],
       "program": "tasks/render/index.ts",
       "cwd": "${workspaceFolder}/workspace",
       "env": {
         // "DEBUG_DEPTH": "10",
-        // "CI": "true",
+        "CI": "true",
         // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
+        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/observability/files"
       },
       "type": "node",
       "request": "launch",
@@ -77,15 +78,16 @@
     {
       "name": "render-png",
       "args": [
-        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts architecture --format diagram --debug", // production development --view overview --tf-generateImport
-        "deno run -A ${workspaceFolder}/cli/src/index.ts diagram"
+        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --debug  --format diagram --view overview --output .", // architecture production development --tf-generateImport
+        "deno run -A ${workspaceFolder}/cli/src/index.ts diagram --output ."
       ],
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "env": {
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/observability/files"
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "cwd": "${workspaceFolder}/workspace",

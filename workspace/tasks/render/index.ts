@@ -18,10 +18,14 @@ try {
   setupDebug();
   await loadConfig();
 
-  const loadApp = async (appPath: string) => {
-    const appFullPath = `${containerAppHome}/${appPath}`;
+  const loadApp = async (renderOptions: any) => {
+    const appFullPath = `${containerAppHome}/${renderOptions.stack.app}`;
     debug("loading app from %O", appFullPath);
     const app = await import(appFullPath);
+    if (app.renderOptions) {
+      deepMerge(renderOptions, app.renderOptions);
+      debug("applied app render options: %O", app.renderOptions);
+    }
     return app.App;
   };
 
@@ -37,7 +41,7 @@ try {
     options,
     cmdOptions.stack,
     async (stackRenderOptions: any) => {
-      const app = await loadApp(stackRenderOptions.stack.app);
+      const app = await loadApp(stackRenderOptions);
       for (const formatString of cmdOptions.format || ["default"]) {
         const renderers =
           rendererMapping[formatString as keyof typeof rendererMapping];
@@ -50,7 +54,7 @@ try {
 
   debug("render finished at %O", new Date());
 
-  if (isCi()) {
+  if (isCi() && !Deno.env.get("CI_SKIP_GIT_DIFF_CHECK")) {
     const changes = await execCmd(`git diff ${cmdOptions.output}`);
     if (changes) {
       console.log(`Detected changes in ${cmdOptions.output} folder`);

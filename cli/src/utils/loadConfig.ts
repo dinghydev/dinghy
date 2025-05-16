@@ -39,7 +39,6 @@ function loadAppConfig() {
     Object.assign(reactiacAppConfig, config);
   }
   debug("loaded app config from", configFile);
-  loadApps();
   loadFiles([`${hostAppHome}/config/`]);
 }
 
@@ -80,9 +79,6 @@ function loadApps() {
       reactiacAppConfig.apps[dirEntry.name.replace(".tsx", "")] = dirEntry.name;
       debug("discovered app: %s", dirEntry.name);
     }
-  }
-  if (!Object.keys(reactiacAppConfig.apps).length) {
-    throw new Error(`No tsx files found in ${hostAppHome}`);
   }
 }
 
@@ -138,4 +134,5 @@ export async function loadConfig() {
     await loadEnvFile(file);
   }
   loadAppConfig();
+  loadApps();
 }

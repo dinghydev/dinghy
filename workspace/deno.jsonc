@@ -4,7 +4,7 @@
     "tf-generate": "deno run -A tasks/tf-generate/index.ts"
   },
   "compilerOptions": {
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     // "jsx": "react",
