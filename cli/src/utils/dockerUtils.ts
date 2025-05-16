@@ -29,6 +29,14 @@ const HOME_MOUNTS = [
   ".npmrc",
 ];
 
+const DOCKER_EXCLUDED_ENVS = [
+  "PATH",
+  "HOME",
+  "TMPDIR",
+  "SHELL",
+  "SSH_AUTH_SOCK",
+];
+
 const GLOBALE_MOUNTS = [
   "/var/run/docker.sock",
 ];
@@ -38,7 +46,7 @@ export const getDockerHostPath = (path: string) =>
 
 export function getDockerEnvs(appEnvs: Env = {}) {
   const whiteListEnvs = Object.entries(Deno.env.toObject()).filter(([key]) =>
-    key.startsWith("AWS_") || key.startsWith("DOCKER_")
+    !DOCKER_EXCLUDED_ENVS.includes(key)
   ).reduce((acc, [key, value]) => {
     acc[key] = value;
     return acc;

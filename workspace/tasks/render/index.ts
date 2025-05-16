@@ -1,5 +1,5 @@
-import { rendererMapping } from './renderMapping.ts'
-import Debug from 'debug'
+import { rendererMapping } from "./renderMapping.ts";
+import Debug from "debug";
 
 import {
   containerAppHome,
@@ -10,55 +10,55 @@ import {
   reactiacAppConfig,
   renderOptions,
   setupDebug,
-} from '@reactiac/cli/utils'
-import { deepMerge, doWithStacks } from '@reactiac/base-components'
-import chalk from 'chalk'
-const debug = Debug('render')
+} from "@reactiac/cli/utils";
+import { deepMerge, doWithStacks } from "@reactiac/base-components";
+import chalk from "chalk";
+const debug = Debug("render");
 try {
-  setupDebug()
-  await loadConfig()
+  setupDebug();
+  await loadConfig();
 
   const loadApp = async (appPath: string) => {
-    const appFullPath = `${containerAppHome}/${appPath}`
-    debug('loading app from %O', appFullPath)
-    const app = await import(appFullPath)
-    return app.App
-  }
+    const appFullPath = `${containerAppHome}/${appPath}`;
+    debug("loading app from %O", appFullPath);
+    const app = await import(appFullPath);
+    return app.App;
+  };
 
-  debug('render started at %O', new Date())
-  const cmdOptions = parseOptions(renderOptions, Deno.args, ['render'])
+  debug("render started at %O", new Date());
+  const cmdOptions = parseOptions(renderOptions, Deno.args, ["render"]);
 
-  const options: any = deepMerge({}, reactiacAppConfig)
-  if (cmdOptions['tf-generateImport']) {
-    options.tf ??= {}
-    options.tf.generateImport = true
+  const options: any = deepMerge({}, reactiacAppConfig);
+  if (cmdOptions["tf-generateImport"]) {
+    options.tf ??= {};
+    options.tf.generateImport = true;
   }
   await doWithStacks(
     options,
     cmdOptions.stack,
     async (stackRenderOptions: any) => {
-      const app = await loadApp(stackRenderOptions.stack.app)
-      for (const formatString of cmdOptions.format || ['default']) {
+      const app = await loadApp(stackRenderOptions.stack.app);
+      for (const formatString of cmdOptions.format || ["default"]) {
         const renderers =
-          rendererMapping[formatString as keyof typeof rendererMapping]
+          rendererMapping[formatString as keyof typeof rendererMapping];
         for (const renderer of renderers) {
-          await renderer(app, stackRenderOptions, cmdOptions)
+          await renderer(app, stackRenderOptions, cmdOptions);
         }
       }
     },
-  )
+  );
 
-  debug('render finished at %O', new Date())
+  debug("render finished at %O", new Date());
 
   if (isCi()) {
-    const changes = await execCmd(`git status --porcelain ${cmdOptions.output}`)
+    const changes = await execCmd(`git diff ${cmdOptions.output}`);
     if (changes) {
-      console.log(`Detected changes in ${cmdOptions.output} folder`)
-      console.log(chalk.red(changes))
-      throw new Error('Unexpected changes detected in output folder')
+      console.log(`Detected changes in ${cmdOptions.output} folder`);
+      console.log(chalk.red(changes));
+      throw new Error("Unexpected changes detected in output folder");
     }
   }
 } catch (e) {
-  console.error(e)
-  throw e
+  console.error(e);
+  throw e;
 }
