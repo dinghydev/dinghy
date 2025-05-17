@@ -32,7 +32,8 @@
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
+        "APP_HOME": "/Users/guo/andopen/src/devops/iac-ecs"
+        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/observability/files"
       },
       "type": "node",
@@ -78,16 +79,17 @@
     {
       "name": "render-png",
       "args": [
-        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --debug  --format diagram --view overview --output .", // architecture production development --tf-generateImport
-        "deno run -A ${workspaceFolder}/cli/src/index.ts diagram --output ."
+        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --debug  --format diagram", // architecture production development  --view overview --output . --tf-generateImport
+        "deno run -A ${workspaceFolder}/cli/src/index.ts diagram" //  --output .
       ],
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "env": {
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
-        "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/observability/files"
+        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/observability/files"
         // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "/Users/guo/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "cwd": "${workspaceFolder}/workspace",

@@ -19,7 +19,7 @@ import { p86GenerateRelationships } from './p86GenerateRelationships.tsx'
 import { p30CollectShapeAttr } from './p30CollectShapeAttr.ts'
 import { p32ApplyDistribution } from './p32ApplyDistribution.ts'
 import { p68AdjustRelationships } from './p68AdjustRelationships.ts'
-import { p61CollectDependencies } from './p61CollectDependencies.ts'
+import { p61ConsolidateDependencies } from './p61ConsolidateDependencies.ts'
 import { p80ApplyBeforeGenerate } from './p80ApplyBeforeGenerate.tsx'
 import type { HostContainer } from '@reactiac/base-renderer'
 const processors: Processor[] = [
@@ -32,7 +32,7 @@ const processors: Processor[] = [
   p30CollectShapeAttr,
   p31ResolveDimension,
   p32ApplyDistribution,
-  p61CollectDependencies,
+  p61ConsolidateDependencies,
   p65AlignDependencies,
   p68AdjustRelationships,
   p80ApplyBeforeGenerate,

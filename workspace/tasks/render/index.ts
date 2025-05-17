@@ -1,5 +1,4 @@
 import { rendererMapping } from "./renderMapping.ts";
-import Debug from "debug";
 
 import {
   containerAppHome,
@@ -13,6 +12,7 @@ import {
 } from "@reactiac/cli/utils";
 import { deepMerge, doWithStacks } from "@reactiac/base-components";
 import chalk from "chalk";
+import Debug from "debug";
 const debug = Debug("render");
 try {
   setupDebug();

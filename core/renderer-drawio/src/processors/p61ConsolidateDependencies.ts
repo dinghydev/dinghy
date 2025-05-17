@@ -1,6 +1,8 @@
 import type { DependsPair, DrawioContext, DrawioNodeTree } from '../types.ts'
 import { DependencyFieldsSchema, DependsSchema } from '../types.ts'
 import { absLeft, absTop } from '../utils.ts'
+import Debug from 'debug'
+const debug = Debug('p61CollectDependencies')
 
 const listContainsAllItem = (list: DependsPair[], item: DependsPair) =>
   list.some((m) => item.all.every((d) => m.all.includes(d)))
@@ -19,8 +21,10 @@ function findRelationship(
     )
   })
   if (!relationship) {
-    throw new Error(
-      `Relationship not found between ${node1._props._title} and ${node2._props._title}`,
+    debug(
+      'Relationship not found between %s and %s',
+      node1._props._title,
+      node2._props._title,
     )
   }
   return relationship
@@ -33,6 +37,9 @@ function collectPairs(context: DrawioContext, node: DrawioNodeTree) {
       const groups = (depends as any).reduce(
         (acc: { [key: string]: DrawioNodeTree[] }, d: DrawioNodeTree) => {
           const relationship = findRelationship(context, node, d)
+          if (!relationship) {
+            return acc
+          }
           const key: string = `${
             d._parent!._props._id
           }-${relationship._props._diagram.flags.arrowDirection}`
@@ -89,10 +96,15 @@ const findCommonParent = (node1: DrawioNodeTree, node2: DrawioNodeTree) => {
   return commonAncestor[0]
 }
 
-const populateAbs = (context: DrawioContext) => {
-  context.dependencies.map((d) => {
+const populateAbs = ({ dependencies }: DrawioContext) => {
+  const toBeRemoved: any[] = []
+  dependencies.map((d) => {
     DependencyFieldsSchema.options.map((key: string) => {
       const selected = (d._props as any)[key]
+      if (!selected._props._diagram.state) {
+        toBeRemoved.push(d)
+        return
+      }
       if (!selected._props._diagram.state.absBottom) {
         selected._props._diagram.state.absLeft = absLeft(selected)
         selected._props._diagram.state.absRight =
@@ -111,6 +123,13 @@ const populateAbs = (context: DrawioContext) => {
           selected._props._diagram.state.height / 2
       }
     })
+  })
+
+  toBeRemoved.map((d) => {
+    const dIndex = dependencies.indexOf(d)
+    if (dIndex >= 0) {
+      dependencies.splice(dIndex, 1)
+    }
   })
 }
 
@@ -171,7 +190,7 @@ const sortArray = (context: DrawioContext) => {
   })
 }
 
-export const p61CollectDependencies = (context: DrawioContext) => {
+export const p61ConsolidateDependencies = (context: DrawioContext) => {
   populateAbs(context)
   populateDirection(context)
   collectPairs(context, context.rootNode)

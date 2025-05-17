@@ -1,11 +1,23 @@
 import type { DrawioContext, DrawioNodeTree } from '../types.ts'
 
+function isViewMatch(view: string, selectedView: string) {
+  if (view[0] === '!') {
+    return view.slice(1) !== selectedView
+  } else {
+    return view === selectedView
+  }
+}
+
 function isNodeVisible(node: DrawioNodeTree, selectedView: string) {
   const views = node._props._view
   if (views === undefined) {
     return selectedView === 'overview'
   } else {
-    return views.includes(selectedView)
+    if (Array.isArray(views)) {
+      return views.some((v) => isViewMatch(v, selectedView))
+    } else {
+      return isViewMatch(views, selectedView)
+    }
   }
 }
 
