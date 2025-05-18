@@ -1,7 +1,7 @@
 // https://github.com/denoland/dnt
 
 import { build, emptyDir } from "@deno/dnt";
-import { projectVersion } from "../../cli/src/utils/projectVersion.ts";
+import { projectVersionRelease } from "../../cli/src/utils/projectVersions.ts";
 import { forEachWorkspace } from "./utils/workspace.ts";
 
 forEachWorkspace(async (name, srcPath, targetPath, denoJsonc) => {
@@ -40,15 +40,15 @@ forEachWorkspace(async (name, srcPath, targetPath, denoJsonc) => {
     },
     package: {
       name: name,
-      version: projectVersion,
+      version: projectVersionRelease(),
       dependencies,
     },
     postBuild() {
       if (name === "@reactiac/base-renderer") {
-        dependencies["@reactiac/base-components"] = projectVersion;
+        dependencies["@reactiac/base-components"] = projectVersionRelease();
       } else if (name === "@reactiac/renderer-json") {
-        dependencies["@reactiac/base-components"] = projectVersion;
-        dependencies["@reactiac/base-renderer"] = projectVersion;
+        dependencies["@reactiac/base-components"] = projectVersionRelease();
+        dependencies["@reactiac/base-renderer"] = projectVersionRelease();
       }
       const packageJson = JSON.parse(
         Deno.readTextFileSync(`${targetPath}/package.json`),

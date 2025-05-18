@@ -6,10 +6,13 @@ import type {
   Commands,
 } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
-import { containerAppHome } from "../../utils/loadConfig.ts";
+import { containerAppHome, hostAppHome } from "../../utils/loadConfig.ts";
 import { streamCmd } from "../../utils/cmd.ts";
 import Debug from "debug";
 import { resolve } from "@std/path/resolve";
+import { runDockerCmd } from "../../utils/dockerUtils.ts";
+import { configGetDrawioImage } from "../../utils/dockerConfig.ts";
+import chalk from "chalk";
 const debug = Debug("diagram:png");
 
 const options: CommandOptions = {
@@ -17,7 +20,8 @@ const options: CommandOptions = {
   string: ["drawio-bin", "output"],
   description: {
     file: "Path to the drawio file",
-    "drawio-bin": "Path to the drawio binary",
+    "drawio-bin":
+      "Path to local drawio binary, e.g. --drawio-bin /Applications/draw.io.app/Contents/MacOS/draw.io",
     output: "Path to the lookup drawio files if file not provided",
   },
   alias: {
@@ -25,23 +29,31 @@ const options: CommandOptions = {
   },
   cmdDescription: "Generate png from drawio file",
 };
-const run = async (context: CommandContext, args: CommandArgs) => {
-  if (!args["drawio-bin"] && Deno.build.os !== "darwin") {
-    console.error(`${Deno.build.os} is not supported`);
-    Deno.exit(1);
-  }
 
-  if (!args.output.startsWith("/")) {
-    args.output = resolve(`${containerAppHome}/${args.output}`);
-  }
-
-  const drawioBin = args["drawio-bin"] ||
-    "/Applications/draw.io.app/Contents/MacOS/draw.io";
-  if (!existsSync(drawioBin)) {
-    console.error(
-      `${drawioBin} does not exist, you get from https://get.diagrams.net/`,
+const runDrawioCmd = async (args: CommandArgs, drawioArgs: string[]) => {
+  if (args["drawio-bin"]) {
+    return await streamCmd(
+      [
+        args["drawio-bin"],
+        ...drawioArgs,
+      ],
+      undefined,
+      false,
     );
-    Deno.exit(1);
+  } else {
+    return await runDockerCmd(
+      containerAppHome,
+      [],
+      drawioArgs,
+      configGetDrawioImage(),
+      false,
+    );
+  }
+};
+
+const run = async (context: CommandContext, args: CommandArgs) => {
+  if (!args.output.startsWith("/")) {
+    args.output = resolve(`${hostAppHome}/${args.output}`);
   }
 
   const files: string[] = [];
@@ -66,36 +78,70 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     console.error("No drawio files found");
     Deno.exit(1);
   }
-  await Promise.allSettled(
-    files.map(async (file: string) => {
-      const pngFile = file.replace(".drawio", ".png");
-      debug(`generating from ${file}`);
-      await streamCmd([
-        drawioBin,
-        "-x",
-        "-f",
-        "png",
-        "--scale",
-        "2.5",
-        "-o",
-        pngFile,
-        file,
-      ]);
+  // await Promise.allSettled(
+  //   files.map(async (file: string) => {
+  const results = {};
+  let failed = false;
+  let success = false;
+  for (const file of files) {
+    const pngFile = file.replace(".drawio", ".png");
+    if (existsSync(pngFile)) {
+      await Deno.remove(pngFile);
+      debug(`removed existing png file ${pngFile}`);
+    }
+    debug(`generating from ${file}`);
+    const pngResult = await runDrawioCmd(args, [
+      "-x",
+      "-f",
+      "png",
+      "--scale",
+      "2.5",
+      "-o",
+      pngFile,
+      file,
+    ]);
+    if (pngResult.all?.includes("Export failed")) {
+      results[file] = "FAILED";
+      failed = true;
+    } else {
+      success = true;
       debug(`generated -> ${pngFile}`);
-    }),
-  ).then((results) => {
-    let failed = false;
-    results.map((result, i) => {
-      if (result.status === "rejected") {
-        console.error(`Failed to generate png ${files[i]}: ${result.reason}`);
-        failed = true;
+      results[file] = pngFile;
+    }
+  }
+  console.log("Generated png files:");
+  Object.entries(results)
+    .map(([file, pngFile]) => {
+      if (pngFile === "FAILED") {
+        console.log(chalk.red(`${file} -> ${pngFile}`));
+      } else {
+        console.log(chalk.green(`${file} -> ${pngFile}`));
       }
     });
-    if (failed) {
-      console.error("Failed to generate png");
-      Deno.exit(1);
+  if (failed) {
+    if (success && !args["drawio-bin"]) {
+      console.log(
+        chalk.yellow(
+          "Likely due to large diagram: https://issues.chromium.org/issues/383356871 . \n\n Use local install of draw.io to generate png as workaround.",
+        ),
+      );
     }
-  });
+    throw new Error("Failed to generate png");
+  }
+  // console.log(results);
+  // ).then((results) => {
+  //   let failed = false;
+  //   results.map((result, i) => {
+  //     if (result.status === "rejected") {
+  //       console.error(`Failed to generate png ${files[i]}: ${result.reason}`);
+  //       failed = true;
+  //     }
+  //   });
+  //   if (failed) {
+  //     console.error("Failed to generate png");
+  //     Deno.exit(1);
+  //   }
+  // });
 };
 
 const commands: Commands = {

@@ -1,6 +1,7 @@
 import { parseArgs } from "jsr:@std/cli";
 import { execa } from "npm:execa";
 import { projectRoot } from "../../cli/src/utils/projectRoot.ts";
+import { commitVersion } from "../../cli/src/utils/commitVersion.ts";
 
 const args = parseArgs(Deno.args);
 const arch = args._[0];
@@ -15,6 +16,8 @@ const zipFile = `${zipsFolder}/reactiac-${arch}.zip`;
 await Deno.mkdir(outputFolder, { recursive: true });
 await Deno.mkdir(zipsFolder, { recursive: true });
 
+const versionFile = `${projectRoot}/.versions.json`;
+
 await execa(
   `deno`,
   [
@@ -22,7 +25,7 @@ await execa(
     "-A",
     "--no-check",
     "--include",
-    "../.version",
+    versionFile,
     "--target",
     arch,
     "-o",

@@ -6,9 +6,10 @@
 # Testing
 **/coverage
 
-# Production
-.version
+# Build
+.versions.json
 build
+**/Dockerfile
 **/dist
 
 # TypeScript

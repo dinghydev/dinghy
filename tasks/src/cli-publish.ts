@@ -1,6 +1,6 @@
 import { execa } from "execa";
 import { walk } from "jsr:@std/fs";
-import { projectVersion } from "../../cli/src/utils/projectVersion.ts";
+import { projectVersionRelease } from "../../cli/src/utils/projectVersions.ts";
 import { projectRoot } from "../../cli/src/utils/projectRoot.ts";
 
 const cliSrcFolder = `${projectRoot}/cli`;
@@ -35,7 +35,7 @@ const syncToS3Download = async (source: string, target: string) => {
 
 const replaceVersion = async (file: string) => {
   const content = await Deno.readTextFile(file);
-  const updated = content.replace(/RELEASE_VERSION/g, projectVersion);
+  const updated = content.replace(/RELEASE_VERSION/g, projectVersionRelease());
   await Deno.writeTextFile(file, updated);
 };
 
@@ -53,6 +53,6 @@ await replaceVersion(`${distDownload}/latest-version.json`);
 
 await syncToS3Download(
   `${cliOutputFolder}/zips`,
-  `/versions/${projectVersion}`,
+  `/versions/${projectVersionRelease()}`,
 );
 await syncToS3Download(distDownload, "");

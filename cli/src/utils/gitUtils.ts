@@ -1,9 +1,9 @@
 import { execCmd } from "./cmd.ts";
 import { hostAppHome } from "./loadConfig.ts";
 import Debug from "debug";
-import { projectVersion } from "./projectVersion.ts";
 import { dublinTimeNow } from "./timeUtils.ts";
 import { temporaryStorageGetFile, temporaryStorageSaveFile } from "./s3.ts";
+import { commitVersion } from "./commitVersion.ts";
 const debug = Debug("gitUtils");
 export const mrId = () => Deno.env.get("CI_MERGE_REQUEST_IID");
 
@@ -42,7 +42,7 @@ export const projectName = async (): Promise<string> => {
 export const projectDeployThread = async (): Promise<string> => {
   return `projects/${await projectName()}/slack_threads/deploy/${
     Deno.args[2] || "auto"
-  }/${projectVersion}`;
+  }/${commitVersion(hostAppHome)}`;
 };
 
 const gitlabMrNoteKey = (name: string, iid: string, type: string) => {

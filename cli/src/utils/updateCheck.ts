@@ -39,6 +39,18 @@ const writeLatestVersion = (version: object) => {
   debug("wrote latest version to %s", versionFile);
 };
 
+export const cleanUpdateCheck = async () => {
+  const statesDir = `${reactiacHome}/states`;
+  if (existsSync(statesDir)) {
+    for await (const dirEntry of walk(statesDir)) {
+      if (dirEntry.name.startsWith("update-check-")) {
+        debug("clean up existing update check file %s exists", dirEntry.path);
+        Deno.removeSync(dirEntry.path);
+      }
+    }
+  }
+};
+
 export const fetchLatestVersion = async () => {
   const url = Deno.env.get("REACTIAC_UPDATE_CHECK_URL") ||
     "https://play.reactiac.dev/download/latest-version.json";
@@ -78,12 +90,7 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
     Deno.mkdirSync(statesDir, { recursive: true });
   }
 
-  for await (const dirEntry of walk(statesDir)) {
-    if (dirEntry.name.startsWith("update-check-")) {
-      debug("clean up existing update check file %s exists", dirEntry.path);
-      Deno.removeSync(dirEntry.path);
-    }
-  }
+  await cleanUpdateCheck();
 
   if (fetch) {
     try {

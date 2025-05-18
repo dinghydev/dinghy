@@ -1,8 +1,10 @@
 import Debug from "debug";
 import { resolveLatestVersion } from "./updateCheck.ts";
 import { configGet } from "./loadConfig.ts";
-import { projectRoot } from "./projectRoot.ts";
-import { existsSync } from "@std/fs/exists";
+import {
+  projectVersionDrawio,
+  projectVersionRelease,
+} from "./projectVersions.ts";
 const debug = Debug("dockerConfig");
 
 export const configDockerRepoDefault =
@@ -17,13 +19,12 @@ export const configGetDockerImageVersion = () => {
   let version = configGet(["docker", "imageVersion"]) ||
     configDockerVersionDefault;
   if (!version.includes("-")) { // for latest and base version
-    version = resolveLatestVersion(version);
     if (Deno.execPath().endsWith("deno")) {
-      const versionFile = `${projectRoot}/.version`;
-      if (existsSync(versionFile)) {
-        version = Deno.readTextFileSync(versionFile).trim();
-        debug("resolved docker image version from %s", versionFile);
-      }
+      version = projectVersionRelease();
+      debug("resolved docker image version %s for direct run", version);
+    } else {
+      version = resolveLatestVersion(version);
+      debug("resolved docker image version %s for standalone cli", version);
     }
   }
   debug("resolved docker image version as %s", version);
@@ -44,5 +45,12 @@ export const configGetTfImage = (version: string) => {
   const arch = Deno.build.arch === "aarch64" ? "-linux-arm64" : "";
   const image = `${configGetDockerRepo()}:${version}${arch}`;
   debug("resolved tf image %s", image);
+  return image;
+};
+
+export const configGetDrawioImage = () => {
+  const arch = Deno.build.arch === "aarch64" ? "-linux-arm64" : "";
+  const image = `${configGetDockerRepo()}:${projectVersionDrawio()}${arch}`;
+  debug("resolved drawio image %s", image);
   return image;
 };

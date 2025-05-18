@@ -23,6 +23,27 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "diagram",
+      "args": [
+        "diagram",
+        // "-h",
+        "--debug"
+      ],
+      "program": "cli/src/index.ts",
+      "cwd": "/reactiac",
+      "env": {},
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/usr/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
       "name": "tf init",
       "args": [
         "tf",

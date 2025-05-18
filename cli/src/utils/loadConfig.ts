@@ -83,7 +83,7 @@ function loadApps() {
 }
 
 export const configGet = (paths: string[]) => {
-  const envVar = paths.join("_").toUpperCase();
+  const envVar = paths.join("_").toUpperCase().replace(/-/g, "_");
   let current = Deno.env.get(envVar);
   if (current !== undefined) {
     debug("use env %s=*", envVar);

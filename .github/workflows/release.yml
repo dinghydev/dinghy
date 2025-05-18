@@ -1,0 +1,85 @@
+name: release
+
+on:
+  # push:
+  #   branches: [main]
+  workflow_dispatch:
+  # workflow_run:
+  #     workflows: ['verification']
+  #     types: [completed]
+  #     branches: [main]
+
+permissions:
+    id-token: write   # This is required for requesting the JWT
+    contents: read    # This is required for actions/checkout
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore cached packages
+        id: restore-cached-packages
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            /home/runner/.cache
+          key: ${{ runner.os }}-docker-build-${{ hashFiles('deno.lock') }}
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.2.4
+      - uses: actions/setup-node@v4
+      - name: commit-rev-count
+        run: |
+          gh api graphql -f query='query CommitRevCount{
+              repository(owner:"${{ github.repository_owner }}",name:"${{ github.event.repository.name }}") {
+                name
+                object(oid: "${{ github.sha }}"){
+                  ... on Commit {
+                    message
+                    id
+                    history(first: 0) {
+                      totalCount
+                    }
+                  }
+                }
+              }
+            }' > commit_rev_count_data.json
+          COMMIT_REV_COUNT="$(jq -r '.data.repository.object.history.totalCount' commit_rev_count_data.json)"
+          echo "COMMIT_REV_COUNT=$COMMIT_REV_COUNT" >> $GITHUB_ENV
+          echo "COMMIT_REV_COUNT=$COMMIT_REV_COUNT"
+          rm commit_rev_count_data.json
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Configure AWS Credentials for public ECR
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::313225491971:role/${{ secrets.AWS_DEPLOY_ROLE }}
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+        with:
+          registry-type: public
+      - name: publish docker images
+        run: |
+          # aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
+          # aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7
+          cd tasks
+          docker run --privileged --rm tonistiigi/binfmt --install linux/arm64
+          
+          deno task docker-build-arm64
+          deno task docker-build-amd64
+        
+          deno task cli-publish
+        env:
+          DOCKER_PUSH: ${{ env.COMMIT_REV_COUNT }}
+      - name: Save cached packages
+        id: save-cached-packages
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            /home/runner/.cache
+          key: ${{ steps.restore-cached-packages.outputs.cache-primary-key }}
+

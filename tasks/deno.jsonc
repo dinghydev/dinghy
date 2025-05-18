@@ -8,20 +8,16 @@
     "aws-npm-login": "aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner 313225491971 --namespace @reactiac --region eu-west-1",
 
     "cli-build-x86_64-unknown-linux-gnu": {
-      "command": "deno run -A src/cli-build.ts x86_64-unknown-linux-gnu",
-      "dependencies": ["prepare-build"]
+      "command": "deno run -A src/cli-build.ts x86_64-unknown-linux-gnu"
     },
     "cli-build-aarch64-unknown-linux-gnu": {
-      "command": "deno run -A src/cli-build.ts aarch64-unknown-linux-gnu",
-      "dependencies": ["prepare-build"]
+      "command": "deno run -A src/cli-build.ts aarch64-unknown-linux-gnu"
     },
     "cli-build-x86_64-apple-darwin": {
-      "command": "deno run -A src/cli-build.ts x86_64-apple-darwin",
-      "dependencies": ["prepare-build"]
+      "command": "deno run -A src/cli-build.ts x86_64-apple-darwin"
     },
     "cli-build-aarch64-apple-darwin": {
-      "command": "deno run -A src/cli-build.ts aarch64-apple-darwin",
-      "dependencies": ["prepare-build"]
+      "command": "deno run -A src/cli-build.ts aarch64-apple-darwin"
     },
     "cli-build": {
       "dependencies": [
@@ -39,14 +35,11 @@
     },
 
     "aws-ecr-login": "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7",
-    "prepare-build": "deno run -A ./src/prepare-build.ts",
     "docker-build-arm64": {
-      "command": "deno run -A ./src/docker-build.ts --arch arm64",
-      "dependencies": ["prepare-build"]
+      "command": "deno run -A ../cli/src/index.ts docker build --arch arm64 --app-home ../"
     },
     "docker-build-amd64": {
-      "command": "deno run -A ./src/docker-build.ts --arch amd64",
-      "dependencies": ["prepare-build"]
+      "command": "deno run -A ../cli/src/index.ts docker build --arch amd64 --app-home ../"
     },
     "docker-build": {
       "dependencies": ["docker-build-arm64", "docker-build-amd64"]

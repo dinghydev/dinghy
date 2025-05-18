@@ -1,5 +1,5 @@
-import { projectVersion } from "./projectVersion.ts";
+import { projectVersionRelease } from "./projectVersions.ts";
 
-export const runtimeVersion = projectVersion;
+export const runtimeVersion = projectVersionRelease();
 export const versionDetails =
-  `@reactiac/cli/${projectVersion} deno/${Deno.version.deno}-${Deno.build.os}-${Deno.build.arch}`;
+  `@reactiac/cli/${runtimeVersion} deno/${Deno.version.deno}-${Deno.build.os}-${Deno.build.arch}`;

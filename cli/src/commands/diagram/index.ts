@@ -7,6 +7,7 @@ import type {
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { runCommand } from "../../utils/runCommand.ts";
 import png from "./png.ts";
+import generate from "./generate.ts";
 const options: CommandOptions = {
   description: {},
   cmdDescription:
@@ -16,7 +17,7 @@ const run = async (context: CommandContext, _args: CommandArgs) => {
   await runCommand({
     prefix: ["diagram"],
     envPrefix: ["diagram"],
-    args: ["png", ...context.originalArgs.slice(1)],
+    args: ["generate", ...context.originalArgs.slice(1)],
     originalArgs: context.originalArgs,
     commands,
     options: png[OPTIONS_SYMBOL],
@@ -26,7 +27,8 @@ const run = async (context: CommandContext, _args: CommandArgs) => {
 const commands: Commands = {
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
-  png: png,
+  png,
+  generate,
 };
 
 export default commands;

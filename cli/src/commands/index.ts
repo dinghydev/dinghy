@@ -14,6 +14,7 @@ import devcontainer from "./devcontainer.ts";
 import render from "./render/index.ts";
 import diagram from "./diagram/index.ts";
 import tf from "./tf/index.ts";
+import docker from "./docker/index.ts";
 import { runCommand } from "../utils/runCommand.ts";
 import Debug from "debug";
 const debug = Debug("reactiac:main");
@@ -107,6 +108,7 @@ const commands: Commands = {
   devcontainer,
   render,
   diagram,
+  docker,
   tf,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,

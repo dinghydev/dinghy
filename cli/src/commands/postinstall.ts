@@ -12,6 +12,7 @@ import chalk from "chalk";
 import { runCommand } from "../utils/runCommand.ts";
 import { reactiacHome } from "../utils/loadConfig.ts";
 import Debug from "debug";
+import { cleanUpdateCheck } from "../utils/updateCheck.ts";
 const debug = Debug("postinstall");
 
 const options: CommandOptions = {
@@ -67,6 +68,8 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   addToPathIfNotAlready("bash", [".bashrc", ".profile"]);
   addToPathIfNotAlready("zsh", [".zshrc"]);
   addToPathIfNotAlready("fish", [".config/fish/config.fish"]);
+
+  await cleanUpdateCheck();
 
   if (args.quiet) {
     return;

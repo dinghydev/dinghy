@@ -1,0 +1,5 @@
+# Ignore everything
+**
+
+# Allow files and directories
+!/docker/images/61-release-base/fs-root/**

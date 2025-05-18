@@ -1,0 +1,5 @@
+{
+  "terraform": "1.11.3-1",
+  "awsProvider": "5.94.1",
+  "awscli": "2.9.19-1"
+}

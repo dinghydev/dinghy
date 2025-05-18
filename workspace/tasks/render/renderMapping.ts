@@ -93,7 +93,6 @@ const tf = async (app: any, options: any, args: any) => {
   const availableStages = options.stack.stages;
   let selectedStages = args.stage;
   const stackInfo: any = {
-    tfImageVersion: Deno.env.get("TF_IMAGE_VERSION"),
     stages: {},
   };
   const renderedStages: string[] = [];

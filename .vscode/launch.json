@@ -48,9 +48,11 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "png",
+      "name": "diagram",
       "args": [
         "diagram",
+        // "--drawio-bin",
+        // "/Applications/draw.io.app/Contents/MacOS/draw.io",
         // "-h",
         // "--output",
         // ".",
@@ -62,6 +64,7 @@
       "cwd": "${workspaceFolder}/cli",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "DIAGRAM_PNG_DRAWIO_BIN": "/Applications/draw.io.app/Contents/MacOS/draw.io",
         "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
       },
@@ -77,22 +80,40 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "render-png",
+      "name": "diagram png",
       "args": [
-        "deno run -A ${workspaceFolder}/workspace/tasks/render/index.ts --debug  --format diagram", // architecture production development  --view overview --output . --tf-generateImport
-        "deno run -A ${workspaceFolder}/cli/src/index.ts diagram" //  --output .
+        "diagram",
+        "png",
+        // "/Applications/draw.io.app/Contents/MacOS/draw.io",
+        // "-h",
+        // "--output",
+        // ".",
+        // "-f",
+        // "ecs-architecture.drawio",
+        "--debug"
       ],
-      "request": "launch",
-      "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/cli",
       "env": {
+        // "SCRIPT_DEBUG_MODE": "true",
+        // "XVFB_OPTIONS": "-nolisten unix -screen 0 4000x16000x16",
+        // "ELECTRON_ENABLE_LOGGING": "true",
+        "DIAGRAM_PNG_DRAWIO_BIN": "/Applications/draw.io.app/Contents/MacOS/draw.io",
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
         // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/observability/files"
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-ecs"
+        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
-      "cwd": "${workspaceFolder}/workspace",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
       "console": "integratedTerminal"
     },
     {
@@ -314,11 +335,29 @@
     },
     {
       "name": "docker build",
-      "args": ["deno task docker-build-arm64"],
-      "request": "launch",
+      "args": [
+        "docker",
+        "build",
+        // "--arch",
+        // "amd64",
+        // "arm64",
+        // "-h",
+        "--debug"
+      ],
+      "env": {
+        "APP_HOME": "${workspaceFolder}"
+      },
+      "program": "src/index.ts",
+      "cwd": "${workspaceFolder}/cli",
       "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "cwd": "${workspaceFolder}/tasks",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229,
       "console": "integratedTerminal"
     },
     {
@@ -394,15 +433,6 @@
       // "cwd": "${workspaceFolder}/../reactiac-sites",
       // "cwd": "${workspaceFolder}/examples/web/1-shape",
       "cwd": "/Users/guo/andopen/src/devops/iac-cicd",
-      "request": "launch",
-      "type": "node",
-      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "prepare build",
-      "args": ["deno task prepare-build"],
-      "cwd": "${workspaceFolder}/tasks",
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",

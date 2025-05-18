@@ -1,0 +1,51 @@
+# based on:
+# https://github.com/rlespinasse/docker-drawio-desktop-headless/blob/c0f0ced4426b20d4b21411b556d9d4598826f3d6/Dockerfile
+FROM <%= DOCKER_IMAGE_BASE_TAG %>
+
+ENTRYPOINT [ "/opt/drawio-desktop/entrypoint.sh" ]
+CMD [ "--help" ]
+
+ENV ELECTRON_DISABLE_SECURITY_WARNINGS="true" \
+   DRAWIO_DISABLE_UPDATE="true" \
+   DRAWIO_DESKTOP_COMMAND_TIMEOUT="20s" \
+   DRAWIO_DESKTOP_EXECUTABLE_PATH="/opt/drawio/drawio" \
+   DRAWIO_DESKTOP_SOURCE_FOLDER="/opt/drawio-desktop" \
+   DRAWIO_DESKTOP_RUNNER_COMMAND_LINE="/opt/drawio-desktop/runner.sh" \
+   XVFB_DISPLAY=":42" \
+   XVFB_OPTIONS="-nolisten unix" \
+   ELECTRON_ENABLE_LOGGING="false" \
+   SCRIPT_DEBUG_MODE="false"
+
+RUN echo 'Fonts' \
+   && apt-get update \
+   && apt-get install -y fonts-liberation \
+     fonts-arphic-ukai fonts-arphic-uming \
+     fonts-noto fonts-noto-cjk \
+     fonts-ipafont-mincho fonts-ipafont-gothic \
+     fonts-unfonts-core \
+     && apt-get clean \
+     && rm -rf /var/lib/apt/lists/*
+
+RUN echo 'Dependencies' \
+# fix for libc issue
+   && rm /var/lib/dpkg/info/libc-bin.* \
+    && apt-get clean \
+    && apt-get update \
+    && apt-get install -y xvfb wget libgbm1 libasound2\
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY docker/images/30-drawio/fs-root /
+
+RUN echo 'Drawio' \
+   && mkdir -p /opt/drawio-desktop \
+   && cd /opt/drawio-desktop \
+   && apt-get update \
+   # Drawio Desktop
+   && wget -q https://github.com/jgraph/drawio-desktop/releases/download/v<%= VERSION_DRAWIO %>/drawio-<%= TARGETARCH %>-<%= VERSION_DRAWIO %>.deb \
+   && apt-get install -y /opt/drawio-desktop/drawio-<%= TARGETARCH %>-<%= VERSION_DRAWIO %>.deb \
+   && rm -rf /opt/drawio-desktop/drawio-<%= TARGETARCH %>-<%= VERSION_DRAWIO %>.deb \
+   # Cleanup layer
+   && apt-get remove -y wget \
+   && apt-get clean \
+   && rm -rf /var/lib/apt/lists/*

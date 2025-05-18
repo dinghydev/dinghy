@@ -10,6 +10,7 @@ import {
 import { streamCmd } from "./cmd.ts";
 import { mkdirSync } from "node:fs";
 import Debug from "debug";
+import { deepMerge } from "./index.ts";
 const debug = Debug("dockerUtils");
 
 const HOST_USER_HOME = Deno.env.get("HOST_USER_HOME") ||
@@ -34,6 +35,8 @@ const DOCKER_EXCLUDED_ENVS = [
   "HOME",
   "TMPDIR",
   "SHELL",
+  "NODE_OPTIONS",
+  "DIAGRAM_PNG_DRAWIO_BIN",
   "SSH_AUTH_SOCK",
 ];
 
@@ -45,14 +48,15 @@ export const getDockerHostPath = (path: string) =>
   path.startsWith("/") ? path : resolve(hostAppHome, path);
 
 export function getDockerEnvs(appEnvs: Env = {}) {
-  const whiteListEnvs = Object.entries(Deno.env.toObject()).filter(([key]) =>
+  const envs = deepMerge({}, Deno.env.toObject());
+  deepMerge(envs, reactiacRc);
+  const whiteListEnvs = Object.entries(envs).filter(([key]) =>
     !DOCKER_EXCLUDED_ENVS.includes(key)
   ).reduce((acc, [key, value]) => {
     acc[key] = value;
     return acc;
   }, {});
   return {
-    ...reactiacRc,
     ...whiteListEnvs,
     APP_HOME: appHomeMount,
     HOST_APP_HOME: hostAppHome,

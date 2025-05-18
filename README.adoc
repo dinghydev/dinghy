@@ -14,3 +14,8 @@ This project is developed with deno and VSCode.
     
 Set of debugable tasks defined in https://github.com/reactiac/reactiac/blob/main/.vscode/launch.json[.vscode/launch.json]
     
+
+== Known issues:
+
+. `diagram png` fails on large diagrams https://issues.chromium.org/issues/383356871
+ERROR:validation_errors.cc(117)] Invalid message: VALIDATION_ERROR_DESERIALIZATION_FAILED

@@ -7,6 +7,7 @@ import type {
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { showHelp } from "../../utils/showHelp.ts";
 import login from "./login.ts";
+import build from "./build.ts";
 
 const options: CommandOptions = {
   description: {},
@@ -19,6 +20,7 @@ const run = (context: CommandContext, _args: CommandArgs) => {
 
 const commands: Commands = {
   login,
+  build,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 };

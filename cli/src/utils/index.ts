@@ -4,7 +4,7 @@ export * from "../../../core/base-components/src/utils/stackUtils.ts";
 export * from "./gitUtils.ts";
 export * from "./loadConfig.ts";
 export * from "./parseOptions.ts";
-export * from "./projectVersion.ts";
+export * from "./projectVersions.ts";
 export * from "./renderOptions.ts";
 export * from "./s3.ts";
 export * from "./setupDebug.ts";
