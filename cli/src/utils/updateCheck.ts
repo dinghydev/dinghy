@@ -39,6 +39,15 @@ const writeLatestVersion = (version: object) => {
   debug("wrote latest version to %s", versionFile);
 };
 
+const updateCheckFile = () =>
+  `${reactiacHome}/states/update-check-${todayYYYYMMDD()}`;
+
+export const createUpdateCheckFile = () => {
+  const file = updateCheckFile();
+  Deno.writeFileSync(file, new Uint8Array());
+  debug("created update check file %s", file);
+};
+
 export const cleanUpdateCheck = async () => {
   const statesDir = `${reactiacHome}/states`;
   if (existsSync(statesDir)) {
@@ -111,9 +120,7 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
           console.log(`Run ${chalk.yellow("reactiac upgrade")} to install it`);
         }
       }
-
-      Deno.writeFileSync(updateCheckFile, new Uint8Array());
-      debug("created update check file %s", updateCheckFile);
+      createUpdateCheckFile();
     } catch (error) {
       debug("error %O", error);
       console.warn("Failed to check for new ReactIAC updates");
@@ -122,7 +129,7 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
 };
 
 export const updateCheck = async (fetch = false) => {
-  if (Deno.execPath().endsWith("deno")) {
+  if (!Deno.build.standalone) {
     debug("skip update check as running in deno");
     return;
   }

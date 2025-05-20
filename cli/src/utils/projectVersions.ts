@@ -1,6 +1,7 @@
 import { existsSync } from "jsr:@std/fs";
 import { projectRoot } from "./projectRoot.ts";
 import { commitVersion } from "./commitVersion.ts";
+import { isInsideContainer } from "./loadConfig.ts";
 
 const versions = {};
 
@@ -21,6 +22,13 @@ function lazyLoad(): Record<string, string> {
   return versions;
 }
 
-export const projectVersionTf = () => lazyLoad().tf || "tf";
-export const projectVersionDrawio = () => lazyLoad().drawio || "drawio";
+const containerisedVersion = (field: string) => {
+  if (!isInsideContainer) {
+    throw new Error(`Version ${field} only available in containerised mode`);
+  }
+  return lazyLoad()[field];
+};
+
+export const projectVersionTf = () => containerisedVersion("tf");
+export const projectVersionDrawio = () => containerisedVersion("drawio");
 export const projectVersionRelease = () => lazyLoad().release;

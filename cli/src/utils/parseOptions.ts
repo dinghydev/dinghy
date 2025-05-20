@@ -41,10 +41,12 @@ export const parseOptions = (
   });
   if (spec.arguments) {
     Object.entries(spec.arguments).map(([name, argSpec], index) => {
-      const value = options._[index] || configGet([...envPrefix, name]);
+      let value = options._[index] || configGet([...envPrefix, name]);
       if ((argSpec as any).required && value === undefined) {
-        console.error(`Argument [${name.toLocaleUpperCase()}] is required`);
-        Deno.exit(1);
+        throw new Error(`Argument [${name.toLocaleUpperCase()}] is required`);
+      }
+      if (name === "stack" && value?.includes(".tsx")) {
+        value = value.split("/").pop().replace(".tsx", "");
       }
       options[name] = value;
     });
@@ -54,8 +56,7 @@ export const parseOptions = (
     for (const required of spec.required) {
       const value = options[required];
       if (value === undefined) {
-        console.error(`Option [${required}] is required`);
-        Deno.exit(1);
+        throw new Error(`Option [${required}] is required`);
       }
     }
   }

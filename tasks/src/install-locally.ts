@@ -1,17 +1,18 @@
 import { projectRoot } from "../../cli/src/utils/projectRoot.ts";
 import { commitVersion } from "../../cli/src/utils/commitVersion.ts";
+import { createUpdateCheckFile } from "../../cli/src/utils/updateCheck.ts";
 
 import { execa } from "execa";
+import { reactiacHome } from "../../cli/src/utils/loadConfig.ts";
 
 const updateLocalLatestVersion = () => {
   const version = commitVersion(projectRoot);
-  const versionFile = `${
-    Deno.env.get("HOME")
-  }/.reactiac/states/latest-version.json`;
+  const versionFile = `${reactiacHome}/states/latest-version.json`;
   const latestVersions = JSON.parse(Deno.readTextFileSync(versionFile));
   latestVersions.latest = version;
   Deno.writeTextFileSync(versionFile, JSON.stringify(latestVersions, null, 2));
   console.log(`Updated ${version} to ${versionFile}`);
+  createUpdateCheckFile();
 };
 
 if (import.meta.main) {

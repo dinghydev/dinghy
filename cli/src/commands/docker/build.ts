@@ -6,7 +6,7 @@ import type {
   CommandOptions,
 } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
-import { execa, execaSync } from "execa";
+import { execaSync } from "execa";
 import chalk from "chalk";
 import Debug from "debug";
 import { hostAppHome } from "../../utils/loadConfig.ts";

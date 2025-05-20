@@ -1,8 +1,4 @@
 {
-  "tasks": {
-    "render": "deno run -A tasks/render/index.ts",
-    "tf-generate": "deno run -A tasks/tf-generate/index.ts"
-  },
   "compilerOptions": {
     "noImplicitAny": false,
     "noUnusedLocals": true,

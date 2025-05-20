@@ -6,16 +6,18 @@ import type {
   Commands,
 } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
-import { containerAppHome, hostAppHome } from "../../utils/loadConfig.ts";
+import { hostAppHome, isInsideContainer } from "../../utils/loadConfig.ts";
 import { streamCmd } from "../../utils/cmd.ts";
 import Debug from "debug";
 import { resolve } from "@std/path/resolve";
 import { runDockerCmd } from "../../utils/dockerUtils.ts";
 import { configGetDrawioImage } from "../../utils/dockerConfig.ts";
 import chalk from "chalk";
+import { runContainerCli } from "../../utils/runContainerCli.ts";
 const debug = Debug("diagram:png");
 
 const options: CommandOptions = {
+  boolean: ["debug"],
   collect: ["file"],
   string: ["drawio-bin", "output"],
   description: {
@@ -27,10 +29,25 @@ const options: CommandOptions = {
   alias: {
     f: "file",
   },
+  arguments: {
+    stack: {
+      description: "Stack name or tsx file name",
+      required: false,
+    },
+  },
   cmdDescription: "Generate png from drawio file",
 };
 
 const runDrawioCmd = async (args: CommandArgs, drawioArgs: string[]) => {
+  if (isInsideContainer) {
+    return await runDockerCmd(
+      hostAppHome,
+      [],
+      drawioArgs,
+      configGetDrawioImage(),
+      false,
+    );
+  }
   if (args["drawio-bin"]) {
     return await streamCmd(
       [
@@ -40,18 +57,22 @@ const runDrawioCmd = async (args: CommandArgs, drawioArgs: string[]) => {
       undefined,
       false,
     );
-  } else {
-    return await runDockerCmd(
-      containerAppHome,
-      [],
-      drawioArgs,
-      configGetDrawioImage(),
-      false,
-    );
   }
 };
 
 const run = async (context: CommandContext, args: CommandArgs) => {
+  if (!isInsideContainer && !args["drawio-bin"]) {
+    const result = await runContainerCli(
+      context.originalArgs,
+      hostAppHome,
+      false,
+    );
+    if (result.failed) {
+      throw new Error("Failed to run container cli, see error above");
+    }
+    return;
+  }
+
   if (!args.output.startsWith("/")) {
     args.output = resolve(`${hostAppHome}/${args.output}`);
   }
@@ -70,13 +91,14 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     const dir = await Deno.readDir(args.output);
     for await (const entry of dir) {
       if (entry.isFile && entry.name.endsWith(".drawio")) {
-        files.push(`${args.output}/${entry.name}`);
+        if (!args.stack || entry.name.includes(args.stack)) {
+          files.push(`${args.output}/${entry.name}`);
+        }
       }
     }
   }
   if (!files.length) {
-    console.error("No drawio files found");
-    Deno.exit(1);
+    throw new Error("No drawio files found");
   }
   // await Promise.allSettled(
   //   files.map(async (file: string) => {
@@ -85,10 +107,6 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   let success = false;
   for (const file of files) {
     const pngFile = file.replace(".drawio", ".png");
-    if (existsSync(pngFile)) {
-      await Deno.remove(pngFile);
-      debug(`removed existing png file ${pngFile}`);
-    }
     debug(`generating from ${file}`);
     const pngResult = await runDrawioCmd(args, [
       "-x",
@@ -100,7 +118,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
       pngFile,
       file,
     ]);
-    if (pngResult.all?.includes("Export failed")) {
+    if (pngResult!.all?.includes("Export failed")) {
       results[file] = "FAILED";
       failed = true;
     } else {

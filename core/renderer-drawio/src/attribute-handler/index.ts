@@ -14,6 +14,7 @@ import { _arrow } from './_arrow.ts'
 import { _distribution } from './_distribution.ts'
 import { eventHandler } from './eventHandler.ts'
 import { _image } from './_image.ts'
+import { _mxGraphModel } from './_mxGraphModel.ts'
 import { simpleStyleAttribute } from './simpleStyleAttribute.ts'
 import { DrawioRenderOptions } from '../types.ts'
 
@@ -32,6 +33,7 @@ const attributesHandlers: Props = {
   _arrow,
   _distribution,
   _image,
+  _mxGraphModel,
   _align: simpleStyleAttribute('align'),
   _verticalAlign: simpleStyleAttribute('verticalAlign'),
   _beforeGenerate: eventHandler,

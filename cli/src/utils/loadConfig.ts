@@ -107,6 +107,12 @@ async function loadEnvFile(path: string) {
     return;
   }
 
+  // console.log("util");
+  // console.log(util);
+  // const env = util.parseEnv(Deno.readTextFileSync(path));
+  // console.log("env");
+  // console.log(env);
+
   for (const line of Deno.readTextFileSync(path).split(/\r?\n/)) {
     const index = line.indexOf("=");
     if (index > 0 && !line.startsWith("#")) {
@@ -124,6 +130,7 @@ async function loadEnvFile(path: string) {
 export async function loadConfig() {
   debug("reactiac home %s", reactiacHome);
   debug("app home %s", containerAppHome);
+  debug("exec path %s", Deno.execPath());
   for (
     const file of [
       `${containerAppHome}/.reactiacrc.local`,

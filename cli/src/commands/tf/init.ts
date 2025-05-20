@@ -1,7 +1,7 @@
 import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { runTfImageCmd } from "./runTfImageCmd.ts";
-import { createTfOptions, parseTfOptions } from "./tfOptions.ts";
+import { createTfOptions } from "./tfOptions.ts";
 import process from "node:process";
 import confirm from "@inquirer/confirm";
 import { hostAppHome } from "../../utils/loadConfig.ts";
@@ -47,8 +47,7 @@ const createBackend = async (
     args,
   );
   if (result.exitCode !== 0) {
-    console.error("failed to init backend");
-    Deno.exit(result.exitCode);
+    throw new Error("failed to init backend");
   }
 
   await runTfImageCmd(
@@ -160,7 +159,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
             }
           }
         }
-        Deno.exit(1);
+        throw new Error("failed to init");
       }
     }
   });

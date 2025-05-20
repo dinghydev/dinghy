@@ -11,6 +11,7 @@ import { streamCmd } from "./cmd.ts";
 import { mkdirSync } from "node:fs";
 import Debug from "debug";
 import { deepMerge } from "./index.ts";
+import { isCi } from "./gitUtils.ts";
 const debug = Debug("dockerUtils");
 
 const HOST_USER_HOME = Deno.env.get("HOST_USER_HOME") ||
@@ -36,7 +37,6 @@ const DOCKER_EXCLUDED_ENVS = [
   "TMPDIR",
   "SHELL",
   "NODE_OPTIONS",
-  "DIAGRAM_PNG_DRAWIO_BIN",
   "SSH_AUTH_SOCK",
 ];
 
@@ -103,7 +103,9 @@ export function getDockerMounts(
     target: file,
   })));
 
-  return mounts.filter((mount) => existsSync(mount.check || mount.source));
+  return mounts.filter((mount) =>
+    existsSync(mount.check || mount.source) || existsSync(mount.source)
+  );
 }
 
 const prepareDockerAuthConfig = () => {
@@ -146,7 +148,7 @@ export const runDockerCmd = async (
       dockerImage,
       ...args,
     ],
-    undefined,
+    workingDir,
     exitOnFailure,
   );
 };

@@ -15,16 +15,28 @@ export const configGetDockerRepo = () => {
   return configGet(["docker", "repo"]) || configDockerRepoDefault;
 };
 
+const cliArgsVersion = () => {
+  const args = Deno.args;
+  const versionIndex = args.findIndex((arg) => arg === "--version");
+  if (versionIndex !== -1 && versionIndex + 1 < args.length) {
+    const version = args[versionIndex + 1];
+    debug("using version %s from cli args", version);
+    return version;
+  }
+  return null;
+};
+
 export const configGetDockerImageVersion = () => {
-  let version = configGet(["docker", "imageVersion"]) ||
+  let version = cliArgsVersion() ||
+    configGet(["docker", "imageVersion"]) ||
     configDockerVersionDefault;
   if (!version.includes("-")) { // for latest and base version
-    if (Deno.execPath().endsWith("deno")) {
-      version = projectVersionRelease();
-      debug("resolved docker image version %s for direct run", version);
-    } else {
+    if (Deno.build.standalone) {
       version = resolveLatestVersion(version);
       debug("resolved docker image version %s for standalone cli", version);
+    } else {
+      version = projectVersionRelease();
+      debug("resolved docker image version %s for direct run", version);
     }
   }
   debug("resolved docker image version as %s", version);

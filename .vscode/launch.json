@@ -27,14 +27,14 @@
       "cwd": "${workspaceFolder}/workspace",
       "env": {
         // "DEBUG_DEPTH": "10",
-        "CI": "true",
+        // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-ecs"
-        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
-        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/observability/files"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
+        // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
+        "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
       },
       "type": "node",
       "request": "launch",
@@ -50,59 +50,47 @@
     {
       "name": "diagram",
       "args": [
-        "diagram",
-        // "--drawio-bin",
-        // "/Applications/draw.io.app/Contents/MacOS/draw.io",
-        // "-h",
-        // "--output",
-        // ".",
-        // "-f",
-        // "ecs-architecture.drawio",
-        "--debug"
+        "cd workspace; deno run -A tasks/render/index.ts --debug",
+        "cd ../cli; deno run -A src/index.ts diagram png --debug"
       ],
-      "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/cli",
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "cwd": "${workspaceFolder}",
       "env": {
+        // "HOST_USER_HOME": "${env:HOME}",
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "DIAGRAM_PNG_DRAWIO_BIN": "/Applications/draw.io.app/Contents/MacOS/draw.io",
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/files"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
       },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all"
-      ],
-      "attachSimplePort": 9229,
       "console": "integratedTerminal"
     },
     {
       "name": "diagram png",
       "args": [
         "diagram",
-        "png",
+        "png"
         // "/Applications/draw.io.app/Contents/MacOS/draw.io",
         // "-h",
         // "--output",
         // ".",
         // "-f",
         // "ecs-architecture.drawio",
-        "--debug"
+        // "--debug"
       ],
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/cli",
       "env": {
+        // "HOST_USER_HOME": "${env:HOME}",
         // "SCRIPT_DEBUG_MODE": "true",
         // "XVFB_OPTIONS": "-nolisten unix -screen 0 4000x16000x16",
         // "ELECTRON_ENABLE_LOGGING": "true",
-        "DIAGRAM_PNG_DRAWIO_BIN": "/Applications/draw.io.app/Contents/MacOS/draw.io",
-        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/runtime/architecture"
-        // "APP_HOME": "/Users/guo/andopen/src/engineering-guides/devops/observability/files"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-ecs"
+        // "DIAGRAM_PNG_DRAWIO_BIN": "/Applications/draw.io.app/Contents/MacOS/draw.io",
+        // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
+        "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "type": "node",
@@ -127,8 +115,9 @@
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/cli",
       "env": {
+        // "HOST_USER_HOME": "${env:HOME}",
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
       },
       "type": "node",
       "request": "launch",
@@ -153,7 +142,7 @@
       "cwd": "${workspaceFolder}/cli",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
       },
       "type": "node",
       "request": "launch",
@@ -182,7 +171,7 @@
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "DOCKER_IMAGEVERSION": "latest",
         // "DOCKER_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac",
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "type": "node",
@@ -209,7 +198,7 @@
       "cwd": "${workspaceFolder}/cli",
       "env": {
         "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        // "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
       },
       "type": "node",
       "request": "launch",
@@ -229,16 +218,16 @@
         "normalise",
         "--exclude-identifier",
         "--json-file",
-        "/Users/guo/andopen/src/devops/iac-cicd/output/production/andopen-devops-cdktf-cicd-production.state.json",
-        // "/Users/guo/andopen/src/devops/iac-cicd/output/production/production.state.json",
-        // "/Users/guo/andopen/src/devops/iac-cicd/output/production/production.tf.json",
-        // "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/stacks/production/cdk.tf.json",
-        // "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/cdktf-cicd-development.tfstate.json",
-        // "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/stacks/development/cdk.tf.json",
-        // "/Users/guo/andopen/src/devops/iac-cicd/output/development/development.tf.json",
-        // "/Users/guo/andopen/src/devops/iac-cicd/output/development/state-old.json",
+        "${env:HOME}/andopen/src/devops/iac-cicd/output/production/andopen-devops-cdktf-cicd-production.state.json",
+        // "${env:HOME}/andopen/src/devops/iac-cicd/output/production/production.state.json",
+        // "${env:HOME}/andopen/src/devops/iac-cicd/output/production/production.tf.json",
+        // "${env:HOME}/andopen/src/devops/cdktf-cicd/cdktf.out/stacks/production/cdk.tf.json",
+        // "${env:HOME}/andopen/src/devops/cdktf-cicd/cdktf.out/cdktf-cicd-development.tfstate.json",
+        // "${env:HOME}/andopen/src/devops/cdktf-cicd/cdktf.out/stacks/development/cdk.tf.json",
+        // "${env:HOME}/andopen/src/devops/iac-cicd/output/development/development.tf.json",
+        // "${env:HOME}/andopen/src/devops/iac-cicd/output/development/state-old.json",
         "--output-folder",
-        "/Users/guo/andopen/src/devops/iac-cicd/output/production",
+        "${env:HOME}/andopen/src/devops/iac-cicd/output/production",
         // "-h",
         "--debug"
       ],
@@ -259,12 +248,12 @@
       "name": "tf generate",
       "args": [
         "--json-file",
-        "/Users/guo/andopen/src/devops/cdktf-cicd/cdktf.out/cdktf-cicd-development.tfstate.json",
+        "${env:HOME}/andopen/src/devops/cdktf-cicd/cdktf.out/cdktf-cicd-development.tfstate.json",
         // "${workspaceFolder}/test.tsx",
         "--debug"
       ],
       "env": {
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
       },
       "program": "tasks/tf-generate/index.ts",
       "cwd": "${workspaceFolder}/workspace",
@@ -306,7 +295,7 @@
         // "APP_HOME": "${workspaceFolder}/examples/iac/cf-site"
         // "APP_HOME": "${workspaceFolder}"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
       },
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/cli",
@@ -369,7 +358,7 @@
       ],
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "APP_HOME": "/Users/guo/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
       },
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/cli",
@@ -397,7 +386,7 @@
         "DOCKER_IMAGEVERSION": "latest",
         "DOCKER_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac"
       },
-      "cwd": "/Users/guo/andopen/src/devops/iac-cicd",
+      "cwd": "${env:HOME}/andopen/src/devops/iac-cicd",
       "console": "integratedTerminal"
     },
     {
@@ -432,7 +421,8 @@
       "args": ["reactiac dc --debug"],
       // "cwd": "${workspaceFolder}/../reactiac-sites",
       // "cwd": "${workspaceFolder}/examples/web/1-shape",
-      "cwd": "/Users/guo/andopen/src/devops/iac-cicd",
+      // "cwd": "${env:HOME}/andopen/src/devops/iac-ecs",
+      "cwd": "${env:HOME}/andopen/src/devops/iac-cicd",
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",

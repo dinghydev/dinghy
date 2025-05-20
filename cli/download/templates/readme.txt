@@ -1,6 +1,5 @@
 # PROJECT_NAME_PLACE_HOLDER - A ReactIAC Project
 
-
 ## Local Development
 
 ### Install ReactIAC Cli
@@ -13,11 +12,11 @@ Need only once if not already done:
 
     reactiac devcontainer
 
-### To render all output
+### To render all output fomrats
 
     reactiac render
 
-### To generate diagram as png
+### To render drawio diagram and generate png
 
     reactiac diagram
 
@@ -26,3 +25,13 @@ Need only once if not already done:
     reactiac tf init
     reactiac tf plan
     reactiac tf apply
+
+### Combined tf action
+
+    reactiac tf diff
+
+Which does following:
+1. render --format tf 
+2. tf init
+3. tf plan
+4. Additional CICD notification and manual job triggering

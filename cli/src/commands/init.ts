@@ -12,7 +12,7 @@ import Debug from "debug";
 const debug = Debug("init");
 
 const options: CommandOptions = {
-  boolean: ["git", "gitlab", "github", "quiet"],
+  boolean: ["git", "gitlab", "github", "quiet", "debug"],
   description: {
     git: "Init git repository",
     gitlab: "Generate GitLab .gitlab-ci.yml",
@@ -65,8 +65,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   }
   const projectHome = args.project as string;
   if (existsSync(projectHome)) {
-    console.log(chalk.red(`Error: project ${projectHome} already exists`));
-    Deno.exit(1);
+    throw new Error(`Error: project ${projectHome} already exists`);
   }
 
   Deno.mkdirSync(projectHome, { recursive: true });

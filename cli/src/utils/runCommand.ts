@@ -16,7 +16,10 @@ const executeCommand = async (context: CommandContext) => {
 
 export async function runCommand(context: CommandContext) {
   const cmdStr = context.args[0];
-  if (!context.options.arguments && cmdStr && cmdStr.charAt(0) !== "-") {
+  if (
+    context.commands[cmdStr] ||
+    (!context.options.arguments && cmdStr && cmdStr.charAt(0) !== "-")
+  ) {
     let command = context.commands[cmdStr];
     let envName = cmdStr;
     if (!command) {
@@ -32,7 +35,6 @@ export async function runCommand(context: CommandContext) {
     }
     const currentCommand = [...context.prefix, cmdStr];
     if (!command) {
-      console.error(`Command [${currentCommand.join(" ")}] not found`);
       const cmds = Object.keys(context.commands);
       Object.values(context.commands).map((cmd) => {
         for (const alias of cmd[OPTIONS_SYMBOL].cmdAlias ?? []) {
@@ -45,7 +47,7 @@ export async function runCommand(context: CommandContext) {
           context.prefix.length ? ` ${context.prefix.join(" ")}` : ""
         } [${cmds.join(", ")}]`,
       );
-      Deno.exit(1);
+      throw new Error(`Command [${currentCommand.join(" ")}] not found`);
     }
     return await runCommand({
       prefix: [...context.prefix, cmdStr],

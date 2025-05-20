@@ -1,14 +1,14 @@
-#!/bin/bash
-
-# Make the script exit on any error
-set -e
+#!/bin/bash -e
 
 # Get the first argument as task_name
 task_name="$1"
 # Shift to remove the first argument, leaving remaining args in $@
 shift
 
-deno task \
+deno run \
   --config /reactiac/workspace/deno.jsonc \
-  --frozen=true \
-  ${task_name} $@
+  --lock /reactiac/workspace/deno.lock \
+  --allow-all \
+   --cached-only \
+  /reactiac/workspace/tasks/${task_name}/index.ts \
+  "$@"

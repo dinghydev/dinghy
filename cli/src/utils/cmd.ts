@@ -24,7 +24,7 @@ export const streamCmd = async (
       console.error(
         `Failed command: (cd ${workingDir}; ${args.join(" ")})`,
       );
-      Deno.exit(1);
+      throw e;
     }
   }
 

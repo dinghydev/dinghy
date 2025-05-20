@@ -10,7 +10,7 @@ import { runWorkspaceTask } from "../../utils/runWorkspaceTask.ts";
 import tf from "./index.ts";
 import { runCommand } from "../../utils/runCommand.ts";
 import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
-import { doWithStacks, parseStacks } from "../../utils/index.ts";
+import { doWithStacks } from "../../utils/index.ts";
 import {
   attachChangeToMR,
   isCi,
@@ -23,6 +23,7 @@ import { parseTfOptions } from "./tfOptions.ts";
 const debug = Debug("tf:diff");
 
 const options: CommandOptions = {
+  boolean: ["debug"],
   collect: ["stage"],
   description: {
     stage: "Stages to work with",

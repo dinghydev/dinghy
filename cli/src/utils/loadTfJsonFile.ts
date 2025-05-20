@@ -8,8 +8,7 @@ export function loadTfJsonFile(args: any) {
     ? jsonFile
     : `${hostAppHome}/${jsonFile}`;
   if (!existsSync(filePath)) {
-    console.error(chalk.red(`Tf json file ${filePath} not found`));
-    Deno.exit(1);
+    throw new Error(`Tf json file ${filePath} not found`);
   }
 
   const json = JSON.parse(Deno.readTextFileSync(filePath));

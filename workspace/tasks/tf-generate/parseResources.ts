@@ -182,8 +182,7 @@ export async function parseResources(_args: any, resources: any) {
   }
 
   if (!region) {
-    console.error(chalk.red("No region detected from resources"));
-    Deno.exit(1);
+    throw new Error("No region detected from resources");
   }
   elements.push({
     tag: "AwsRegion",

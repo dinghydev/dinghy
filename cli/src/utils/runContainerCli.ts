@@ -1,12 +1,16 @@
 import { configGetDockerImage } from "./dockerConfig.ts";
 import { runDockerCmd } from "./dockerUtils.ts";
-import { hostAppHome } from "./loadConfig.ts";
 
-export const runWorkspaceTask = async (args: string[]) => {
+export const runContainerCli = async (
+  args: string[],
+  workingDir: string,
+  exitOnFailure = true,
+) => {
   return await runDockerCmd(
-    hostAppHome,
+    workingDir,
     [],
-    ["workspace-task", ...args],
+    ["reactiac", ...args],
     configGetDockerImage(),
+    exitOnFailure,
   );
 };

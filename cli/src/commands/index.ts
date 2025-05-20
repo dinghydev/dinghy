@@ -46,6 +46,10 @@ const options: CommandOptions = {
         description: "The path to the ReactIAC app home directory",
       },
       {
+        name: "--version",
+        description: "The docker image version of the ReactIAC app to use",
+      },
+      {
         name: "--debug",
         description: "Enable debug mode",
       },

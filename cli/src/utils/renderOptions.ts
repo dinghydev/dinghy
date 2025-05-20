@@ -1,6 +1,6 @@
 export const renderOptions = {
   collect: ["format", "view", "stage"],
-  boolean: ["tf-generateImport", "diagram-saveView"],
+  boolean: ["tf-generateImport", "diagram-saveView", "debug"],
   string: ["output"],
   description: {
     output: "Output folder",
@@ -12,7 +12,7 @@ export const renderOptions = {
   },
   arguments: {
     stack: {
-      description: "Stack name",
+      description: "Stack name or tsx file name",
       required: false,
     },
   },

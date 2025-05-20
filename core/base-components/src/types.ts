@@ -154,6 +154,7 @@ export const DiagramNodeSchema = z.object({
     .union([VerticalAlignSchema, resolvable(z.string())])
     .optional(),
   _image: ResolvableStringSchema.optional(),
+  _mxGraphModel: ResolvableStringSchema.optional(),
   _beforeGenerate: CallableSchema.optional(),
 })
 
