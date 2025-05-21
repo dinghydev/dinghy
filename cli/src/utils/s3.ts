@@ -31,7 +31,6 @@ export const s3GetFile = async (
   const s3GetFileName = `${hostAppHome}/s3GetFile`;
   const result = await runTfImageCmd(
     hostAppHome,
-    null,
     {} as any,
     [
       "aws",
@@ -77,7 +76,6 @@ export const s3WriteString = async (
   Deno.writeTextFileSync(s3WriteStringName, Body);
   const result = await runTfImageCmd(
     hostAppHome,
-    null,
     {} as any,
     [
       "aws",

@@ -4,4 +4,4 @@
 # Allow files and directories
 !/cli/deno.lock
 !/core/deno.lock
-!/workspace/deno.lock
+!/workspace/deno.jsonc

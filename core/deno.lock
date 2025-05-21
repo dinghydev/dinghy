@@ -1,5 +1,5 @@
 {
-  "version": "4",
+  "version": "5",
   "specifiers": {
     "npm:@types/node@22.14.0": "22.14.0",
     "npm:@types/react@19.1.0": "19.1.0",

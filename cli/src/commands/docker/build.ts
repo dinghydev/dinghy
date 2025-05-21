@@ -70,9 +70,6 @@ async function parseVersionIntoContext(path: string, buildContext: any) {
 }
 
 function isTagExists(tag: string) {
-  if (tag.endsWith("-dirty")) {
-    return false;
-  }
   const args = ["manifest", "inspect", tag];
   try {
     execaSync({
@@ -97,7 +94,7 @@ async function dockerCommand(args: string[]) {
 async function dockerPush(args: CommandArgs, tag: string) {
   args.imageTags.push(tag);
   if (args.push || isCi()) {
-    if (tag.endsWith("-dirty")) {
+    if (tag.includes("-dirty")) {
       throw new Error(`Cannot push dirty image: ${tag}`);
     }
     await dockerCommand([

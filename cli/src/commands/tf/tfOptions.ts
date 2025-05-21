@@ -74,12 +74,10 @@ export const parseTfOptions = (args: CommandArgs, stackOptions: any) => {
       stages.push(stage);
     });
   }
-  const tfVersion = projectVersionTf();
 
   return {
     stack,
     stackInfo,
     stages,
-    tfVersion,
   };
 };

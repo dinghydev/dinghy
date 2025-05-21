@@ -88,7 +88,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   }
 
   const startCommand = initProject
-    ? [`cd ${initProject}`, "reactiac dev"]
+    ? [`cd ${initProject}`, "reactiac devcontainer"]
     : ["reactiac --help"];
 
   if (refreshCommand.length > 0) {

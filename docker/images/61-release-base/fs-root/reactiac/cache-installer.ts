@@ -1,5 +1,20 @@
-// (cd docker/dependencies/fs-root/reactiac/; deno run -A cache-installer.ts)
-for (const folder of ["core", "cli", "workspace"]) {
+// deno run -A docker/images/61-release-base/fs-root/reactiac/cache-installer.ts
+async function runCwdCommand(cwd: string, args: string[]) {
+  const command = new Deno.Command(Deno.execPath(), {
+    args,
+    cwd,
+  });
+
+  const { code, stdout, stderr } = await command.output();
+  if (code !== 0) {
+    console.error(new TextDecoder().decode(stdout));
+    console.error(new TextDecoder().decode(stderr));
+    throw new Error(`Failed to install dependencies from ${cwd}`);
+  }
+}
+
+const workspacePackages: Record<string, string> = {};
+for (const folder of ["core", "cli"]) {
   const allPackages = Object.keys(
     JSON.parse(Deno.readTextFileSync(`${folder}/deno.lock`)).specifiers,
   );
@@ -12,6 +27,17 @@ for (const folder of ["core", "cli", "workspace"]) {
   const packages = allPackages
     .filter((p) => !p.includes("@*"))
     .map((p) => [p.substring(p.indexOf(":") + 1, p.lastIndexOf("@")), p]);
+  packages.map(([name, spec]) => {
+    const specifier = spec.replaceAll("\^", "");
+    if (workspacePackages[name] && workspacePackages[name] !== specifier) {
+      throw new Error(
+        `Package ${name} has conflicting specifier ${
+          workspacePackages[name]
+        } and ${folder}:${specifier}`,
+      );
+    }
+    workspacePackages[name] = specifier;
+  });
 
   Deno.writeTextFileSync(
     `${folder}/packages-to-cache.ts`,
@@ -25,13 +51,7 @@ for (const folder of ["core", "cli", "workspace"]) {
   );
   Deno.writeTextFileSync(
     "deno.jsonc",
-    `
-  {
-  "tasks": {
-    "reactiac": "deno run -A src/index.ts",
-    "lint": "deno lint"
-    "check": "deno fmt --check"
-  },
+    `{
   "compilerOptions": {
     "noImplicitAny": true,
     "noUnusedLocals": true,
@@ -46,43 +66,49 @@ for (const folder of ["core", "cli", "workspace"]) {
   },
   "imports": {
   ${packages.map((p) => `"${p[0]}": "${p[1]}"`).join(",\n")}
-  },
-  "lint": {
-    "include": [
-      "app/"
-    ],
-    "rules": {
-      "tags": [
-        "recommended"
-      ],
-      "include": [
-        "ban-untagged-todo"
-      ],
-      "exclude": [
-        "no-unused-vars"
-      ]
-    }
-  },
-  "fmt": {
-    "semiColons": false,
-    "singleQuote": true,
-    "include": [
-      "app/"
-    ]
   }
 }
   `,
   );
 
-  const command = new Deno.Command(Deno.execPath(), {
-    args: ["install", "--entrypoint", "packages-to-cache.ts", "--lock"],
-    cwd: folder,
-  });
+  await runCwdCommand(folder, [
+    "install",
+    "--entrypoint",
+    "packages-to-cache.ts",
+    "--lock",
+  ]);
+}
 
-  const { code, stdout, stderr } = await command.output();
-  if (code !== 0) {
-    console.error(new TextDecoder().decode(stdout));
-    console.error(new TextDecoder().decode(stderr));
-    throw new Error(`Failed to install dependencies`);
+let workspaceJsonc = Deno.readTextFileSync("workspace/deno.jsonc").trim();
+const workspacePackageOnlyJsonc = `{
+  "imports": {
+    ${
+  Object.entries(workspacePackages).map(([name, spec]) =>
+    `"${name}": "${spec}"`
+  )
+    .join(",\n")
+}
   }
 }
+`;
+Deno.writeTextFileSync("workspace/deno.jsonc", workspacePackageOnlyJsonc);
+await runCwdCommand("workspace", [
+  "install",
+]);
+
+workspaceJsonc = workspaceJsonc.substring(
+  0,
+  workspaceJsonc.lastIndexOf('"imports"'),
+);
+workspaceJsonc += `
+  "imports": {
+    ${
+  Object.entries(workspacePackages).map(([name, spec]) =>
+    `"${name}": "${spec}"`
+  )
+    .join(",\n")
+}
+  }
+}
+`;
+Deno.writeTextFileSync("workspace/deno.jsonc", workspaceJsonc);

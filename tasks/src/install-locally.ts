@@ -9,7 +9,9 @@ const updateLocalLatestVersion = () => {
   const version = commitVersion(projectRoot);
   const versionFile = `${reactiacHome}/states/latest-version.json`;
   const latestVersions = JSON.parse(Deno.readTextFileSync(versionFile));
+  const baseVersion = latestVersions.latest.split(".").slice(0, 2).join(".");
   latestVersions.latest = version;
+  latestVersions[baseVersion] = version;
   Deno.writeTextFileSync(versionFile, JSON.stringify(latestVersions, null, 2));
   console.log(`Updated ${version} to ${versionFile}`);
   createUpdateCheckFile();
@@ -21,6 +23,7 @@ if (import.meta.main) {
     stdout: "inherit",
     input: `
       set -e
+      rm -rf .versions.json
       deno task docker-build-arm64
       deno task cli-build-aarch64-apple-darwin
       cp ../build/cli/aarch64-apple-darwin/reactiac ~/.reactiac/bin/

@@ -1,8 +1,8 @@
-# ReactIAC
+ReactIAC
 .reactiacrc.local
 **/.terraform
 **/.terraform.lock.hcl
-**/*.tf.json
+#**/*.tf.json
 **/*.plan
 **/*.plan.json
 **/*.tfstate

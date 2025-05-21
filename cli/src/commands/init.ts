@@ -21,8 +21,7 @@ const options: CommandOptions = {
   },
   arguments: {
     project: {
-      description:
-        "The folder name of the project, must be a none exist folder",
+      description: "The target folder of the project",
       required: true,
     },
   },
@@ -64,9 +63,6 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     console.log("Creating new ReactIAC project ...");
   }
   const projectHome = args.project as string;
-  if (existsSync(projectHome)) {
-    throw new Error(`Error: project ${projectHome} already exists`);
-  }
 
   Deno.mkdirSync(projectHome, { recursive: true });
   if (!args.quiet) {
@@ -96,7 +92,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     );
   }
 
-  if (args.git) {
+  if (args.git && !existsSync(`${projectHome}/.git`)) {
     await generateFile(
       args,
       projectHome,
@@ -111,7 +107,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   if (!args.quiet) {
     console.log("\nYou may now run the following commands to get started:");
     console.log(chalk.gray(`\n  cd ${projectHome}`));
-    console.log(chalk.gray("  reactiac dev"));
+    console.log(chalk.gray("  reactiac devcontainer"));
   }
 };
 

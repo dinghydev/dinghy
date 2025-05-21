@@ -4,7 +4,7 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
 import { isCi } from "../../utils/gitUtils.ts";
 import { notifyChanges } from "../../utils/notificationUtils.ts";
 import { runTfImageCmd } from "./runTfImageCmd.ts";
-import { createTfOptions, parseTfOptions, tfOptionsPlan } from "./tfOptions.ts";
+import { createTfOptions, tfOptionsPlan } from "./tfOptions.ts";
 import { doWithTfStacks } from "./doWithTfStacks.ts";
 
 const options: any = createTfOptions({
@@ -12,12 +12,17 @@ const options: any = createTfOptions({
   cmdDescription: "Apply pending planned changes",
 });
 
+const changeSummaryWording = (summary: any) => {
+  return summary.replaceAll("to add", "added").replaceAll(
+    "to change",
+    "changed",
+  ).replaceAll("to destroy", "destroyed");
+};
+
 const run = async (_context: CommandContext, args: CommandArgs) => {
   const changedStages: any[] = [];
-  let tfVersion!: string;
   await doWithTfStacks(args, async (tfOptions) => {
     const { stackInfo } = tfOptions;
-    tfVersion = tfOptions.tfVersion;
     for (const stage of Object.values(stackInfo.stages)) {
       if ((stage as any).plan?.changesCount) {
         changedStages.push(stage);
@@ -30,7 +35,6 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         const stagePath = `${args.output}/${stage.id}`;
         await runTfImageCmd(
           stagePath,
-          tfVersion,
           args,
           ["terraform", "apply", args["plan-file"]],
         );
@@ -41,7 +45,13 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         console.log("Ignore notification in non-CI environment");
         changedStages.map((change) => {
           console.log(
-            chalk.red(`${change.id} changes: ${change.plan.summary}`),
+            chalk.red(
+              `${change.id} changes: ${
+                changeSummaryWording(
+                  change.plan.summary,
+                )
+              }`,
+            ),
           );
         });
         console.log(

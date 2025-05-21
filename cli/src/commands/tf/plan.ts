@@ -60,14 +60,13 @@ function collectStageChange(outputFile: string, maxLines: number) {
 const run = async (_context: CommandContext, args: CommandArgs) => {
   const changedStages: any[] = [];
   await doWithTfStacks(args, async (tfOptions) => {
-    const { stack, stackInfo, stages, tfVersion } = tfOptions;
+    const { stack, stackInfo, stages } = tfOptions;
     const maxLines = Number.parseInt(args["diff-changes-max-lines"]);
     for (const stage of stages) {
       const stagePath = `${args.output}/${stage.id}`;
       debug("Running terraform plan from %s", stagePath);
       await runTfImageCmd(
         stagePath,
-        tfVersion,
         args,
         [
           "terraform",
@@ -83,7 +82,6 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         debug("Formatting plan file to %s", planOutputFile);
         await runTfImageCmd(
           stagePath,
-          tfVersion,
           args,
           [
             "terraform",

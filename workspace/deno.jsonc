@@ -12,23 +12,29 @@
       "deno.ns"
     ]
   },
+  "patch": [
+    "../cli",
+    "../core"
+  ],
   "imports": {
+    "@types/node": "npm:@types/node@22.14.0",
+    "@types/react": "npm:@types/react@19.1.0",
+    "debug": "npm:debug@4.4.0",
+    "html-entities": "npm:html-entities@2.6.0",
+    "react-dom": "npm:react-dom@19.1.0",
+    "react-reconciler": "npm:react-reconciler@0.31.0",
+    "react": "npm:react@19.1.0",
+    "zod": "npm:zod@3.24.2",
     "@std/cli": "jsr:@std/cli@1.0.14",
     "@std/fs": "jsr:@std/fs@1.0.15",
     "@std/path": "jsr:@std/path@1.0.8",
     "@std/yaml": "jsr:@std/yaml@1.0.5",
+    "@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@3.802.0",
+    "@aws-sdk/lib-storage": "npm:@aws-sdk/lib-storage@3.802.0",
     "@inquirer/confirm": "npm:@inquirer/confirm@5.1.9",
-    "debug": "npm:debug@4.4.0",
     "chalk": "npm:chalk@5.4.1",
-    "execa": "npm:execa@9.5.2",
-    "@types/react": "npm:@types/react@19.1.0",
-    "@types/node": "npm:@types/node@22.14.0",
-    "react": "npm:react@19.1.0",
-    "react-dom": "npm:react-dom@19.1.0",
-    "zod": "npm:zod@3.24.2"
-  },
-  "patch": [
-    "../cli",
-    "../core"
-  ]
+    "dayjs": "npm:dayjs@1.11.13",
+    "ejs": "npm:ejs@3.1.10",
+    "execa": "npm:execa@9.5.2"
+  }
 }

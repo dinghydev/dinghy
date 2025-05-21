@@ -7,4 +7,4 @@ RUN cd /reactiac && \
     echo "DOCKER_IMAGE_DRAWIO_VERSION=<%= DOCKER_IMAGE_DRAWIO_VERSION %>" >> /root/.reactiacrc && \
     . /root/.bashrc && \
     deno run -A cache-installer.ts && \
-    rm -rf deno.* cache-installer.ts core cli workspace
+    rm -rf deno.* cache-installer.ts core cli

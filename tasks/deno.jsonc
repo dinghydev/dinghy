@@ -53,6 +53,7 @@
     "@std/fs": "jsr:@std/fs@1.0.15",
     "@std/path": "jsr:@std/path@1.0.8",
     "@std/yaml": "jsr:@std/yaml@1.0.5",
+    "@types/node": "npm:@types/node@22.14.0",
     "debug": "npm:debug@4.4.0",
     "chalk": "npm:chalk@5.4.1",
     "execa": "npm:execa@9.5.2"

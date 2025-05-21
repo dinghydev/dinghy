@@ -4,12 +4,13 @@ import { configGet } from "./loadConfig.ts";
 import {
   projectVersionDrawio,
   projectVersionRelease,
+  projectVersionReleaseBase,
+  projectVersionTf,
 } from "./projectVersions.ts";
 const debug = Debug("dockerConfig");
 
 export const configDockerRepoDefault =
   "public.ecr.aws/f2v6q7q7/reactiac/reactiac";
-export const configDockerVersionDefault = "latest";
 
 export const configGetDockerRepo = () => {
   return configGet(["docker", "repo"]) || configDockerRepoDefault;
@@ -29,7 +30,7 @@ const cliArgsVersion = () => {
 export const configGetDockerImageVersion = () => {
   let version = cliArgsVersion() ||
     configGet(["docker", "imageVersion"]) ||
-    configDockerVersionDefault;
+    projectVersionReleaseBase();
   if (!version.includes("-")) { // for latest and base version
     if (Deno.build.standalone) {
       version = resolveLatestVersion(version);
@@ -53,9 +54,9 @@ export const configGetDockerImage = () => {
   return image;
 };
 
-export const configGetTfImage = (version: string) => {
+export const configGetTfImage = () => {
   const arch = Deno.build.arch === "aarch64" ? "-linux-arm64" : "";
-  const image = `${configGetDockerRepo()}:${version}${arch}`;
+  const image = `${configGetDockerRepo()}:${projectVersionTf()}${arch}`;
   debug("resolved tf image %s", image);
   return image;
 };

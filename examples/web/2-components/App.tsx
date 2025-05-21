@@ -1,6 +1,4 @@
-import React from 'react'
-
-import { Shape } from '@reactiac/base-components'
+mport { Shape } from '@reactiac/base-components'
 
 const WebApp = (props: any) => <Shape {...props} />
 

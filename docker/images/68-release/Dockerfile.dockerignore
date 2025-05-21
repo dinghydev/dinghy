@@ -6,3 +6,6 @@
 !/cli/**
 !/core/**
 !/workspace/**
+
+# Those files were updated by the build process already
+/workspace/deno.*

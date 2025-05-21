@@ -1,5 +1,3 @@
-// biome-ignore lint/style/useImportType: <explanation>
-import React from 'react'
 import { toNodeJson } from './toNodeJson.ts'
 import { type HostContainer, renderNode } from '@reactiac/base-renderer'
 import type { JsonRenderOptions } from './types.ts'

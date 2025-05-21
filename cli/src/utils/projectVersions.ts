@@ -32,3 +32,5 @@ const containerisedVersion = (field: string) => {
 export const projectVersionTf = () => containerisedVersion("tf");
 export const projectVersionDrawio = () => containerisedVersion("drawio");
 export const projectVersionRelease = () => lazyLoad().release;
+export const projectVersionReleaseBase = () =>
+  projectVersionRelease().split(".").slice(0, 2).join(".");

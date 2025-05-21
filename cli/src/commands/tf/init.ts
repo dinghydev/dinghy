@@ -17,7 +17,6 @@ const options: any = createTfOptions({
 
 const createBackend = async (
   stagePath: string,
-  tfVersion: string,
   args: CommandArgs,
   tfModel: any,
   backendResource: any,
@@ -43,7 +42,6 @@ const createBackend = async (
   console.log(`created ${backendTfJsonFile}`);
   const result = await runTfInit(
     workingDir,
-    tfVersion,
     args,
   );
   if (result.exitCode !== 0) {
@@ -52,7 +50,6 @@ const createBackend = async (
 
   await runTfImageCmd(
     workingDir,
-    tfVersion,
     args,
     ["terraform", "plan", "-out=tf.plan"],
   );
@@ -68,7 +65,6 @@ const createBackend = async (
 
   await runTfImageCmd(
     workingDir,
-    tfVersion,
     args,
     ["terraform", "apply", "tf.plan"],
   );
@@ -85,26 +81,22 @@ const createBackend = async (
 
   await runTfImageCmd(
     workingDir,
-    tfVersion,
     args,
     ["terraform", "init", "-force-copy", "-migrate-state"],
   );
 
   await runTfInit(
     stagePath,
-    tfVersion,
     args,
   );
 };
 
 const runTfInit = (
   stagePath: string,
-  tfVersion: string,
   args: CommandArgs,
 ) => {
   return runTfImageCmd(
     stagePath,
-    tfVersion,
     args,
     ["tf-init"],
     false,
@@ -113,12 +105,11 @@ const runTfInit = (
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
   await doWithTfStacks(args, async (tfOptions) => {
-    const { stages, tfVersion } = tfOptions;
+    const { stages } = tfOptions;
     for (const stage of stages) {
       const stagePath = `${args.output}/${stage.id}`;
       const result = await runTfInit(
         stagePath,
-        tfVersion,
         args,
       );
 
@@ -150,7 +141,6 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
             if (createOnDemand) {
               return createBackend(
                 stagePath,
-                tfVersion,
                 args,
                 tfModel,
                 backendResource,
