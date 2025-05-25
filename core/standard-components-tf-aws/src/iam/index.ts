@@ -1,4 +1,7 @@
-export { DataAwsIamPolicyDocument } from './DataAwsIamPolicyDocument.tsx'
+export {
+  DataAwsIamPolicyDocument,
+  useDataAwsIamPolicyDocument,
+} from './DataAwsIamPolicyDocument.tsx'
 export {
   AwsIamInstanceProfile,
   useAwsIamInstanceProfile,

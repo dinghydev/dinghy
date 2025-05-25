@@ -8,7 +8,8 @@
     "./cloudfront": "./src/cloudfront/index.ts",
     "./secretsmanager": "./src/secretsmanager/index.ts",
     "./dynamodb": "./src/dynamodb/index.ts",
-    "./ec2": "./src/ec2/index.ts"
+    "./ec2": "./src/ec2/index.ts",
+    "./ssoadmin": "./src/ssoadmin/index.ts"
   },
   "imports": {
     "debug": "npm:debug@4.4.0"

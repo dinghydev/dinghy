@@ -224,6 +224,21 @@ export const loadFilesData = (options: any, path: string, name?: string) => {
     current = current['files']
   }
   if (!current) {
+    if (!name) {
+      const filePaths = path.split('/')
+      const fileName = `${filePaths.pop()}.yaml`
+      let current = options.files
+      for (const path of filePaths) {
+        if (!current || typeof current !== 'object') {
+          break
+        }
+        current = current[path]
+      }
+      if (current) {
+        current = current['files']
+        return current[fileName]
+      }
+    }
     return undefined
   }
   const data: any = {}
@@ -237,7 +252,7 @@ export const loadFilesData = (options: any, path: string, name?: string) => {
       }
     })
   } else {
-    Object.values(current.files).map((value) => {
+    Object.values(current).map((value) => {
       deepMerge(data, value)
     })
   }

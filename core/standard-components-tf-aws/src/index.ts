@@ -6,6 +6,8 @@ import {
   NodeTree,
 } from '@reactiac/base-components'
 
+export * as ssoadmin from './ssoadmin/index.ts'
+
 export { default as AwsCloud } from './AwsCloud.tsx'
 export { default as AwsPublicSubnet } from './AwsPublicSubnet.tsx'
 export { default as AwsPrivateSubnet } from './AwsPrivateSubnet.tsx'

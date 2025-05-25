@@ -117,7 +117,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     } else {
       console.log("Ignore notification and auto deploy in non-CI environment");
     }
-  } else {
+  } else if (Object.values(stacksOptions).length > 1) {
     console.log(chalk.green("No changes found in any stack"));
   }
 };

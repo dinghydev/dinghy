@@ -58,6 +58,9 @@ const diagram = async (app: any, options: any, args: any) => {
     let view = availableViews[viewString];
     if (!view) {
       view = createView(options.stack, viewString);
+      if (viewString === "all") {
+        view.disabled = true;
+      }
     }
     renderedViews.push(viewString);
     if (view.disabled) {

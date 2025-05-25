@@ -6,7 +6,7 @@
       "args": [
         // "--tf-generateImport",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "tasks/render/index.ts",
       "cwd": "/reactiac/workspace",
@@ -27,9 +27,9 @@
     {
       "name": "diagram",
       "args": [
-        "diagram",
+        "diagram"
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "cli/src/index.ts",
       "cwd": "/reactiac",
@@ -51,11 +51,11 @@
       "name": "tf init",
       "args": [
         "tf",
-        "init",
+        "init"
         // "development",
         // "production",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "cli/src/index.ts",
       "cwd": "/reactiac",
@@ -77,11 +77,11 @@
       "name": "tf plan",
       "args": [
         "tf",
-        "plan",
+        "plan"
         // "development",
         // "production",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "cli/src/index.ts",
       "cwd": "/reactiac",
@@ -103,11 +103,11 @@
       "name": "tf diff",
       "args": [
         "tf",
-        "diff",
+        "diff"
         // "development",
         // "production",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "cli/src/index.ts",
       "cwd": "/reactiac",
@@ -129,11 +129,11 @@
       "name": "tf apply",
       "args": [
         "tf",
-        "apply",
+        "apply"
         // "development",
         // "production",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "cli/src/index.ts",
       "cwd": "/reactiac",
@@ -150,6 +150,31 @@
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
+      // },
+      // {
+      //   "name": "tf diff+apply",
+      //   "args": [
+      //     "-c",
+      //     "tf diff",
+      //     "-c",
+      //     "tf apply"
+      //     // "--debug"
+      //   ],
+      //   "program": "cli/src/index.ts",
+      //   "cwd": "/reactiac",
+      //   "env": {
+      //     // "CI": "true",
+      //   },
+      //   "type": "node",
+      //   "request": "launch",
+      //   "runtimeExecutable": "/usr/bin/deno",
+      //   "runtimeArgs": [
+      //     "run",
+      //     "--inspect-wait",
+      //     "--allow-all"
+      //   ],
+      //   "attachSimplePort": 9229,
+      //   "console": "integratedTerminal"
     }
   ]
 }

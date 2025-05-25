@@ -21,6 +21,12 @@ const applySameDimension = (
           (dimension === 'height' && !child._props._diagram.flags.isFixedHeight)
         ) {
           expandDimension(child, dimension, diff)
+        } else {
+          if (dimension === 'width') {
+            child._props._diagram.state.moveableRight += diff
+          } else {
+            child._props._diagram.state.moveableBottom += diff
+          }
         }
       }
     }
@@ -71,6 +77,8 @@ const expandDimension = (
             if (!fullColumn) {
               expanded += evenDiff
             }
+          } else {
+            child._props._diagram.state.moveableRight += diff
           }
         } else {
           if (!child._props._diagram.flags.isFixedHeight) {
@@ -79,6 +87,8 @@ const expandDimension = (
             if (!fullColumn) {
               expanded += evenDiff
             }
+          } else {
+            child._props._diagram.state.moveableBottom += diff
           }
         }
       }

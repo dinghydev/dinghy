@@ -13,7 +13,8 @@ function proxyNodeProps({ _props }: NodeTree) {
       }
       const _outputSchema = (_props as any)
         ._outputSchema as ZodObject<ZodRawShape>
-      if (_outputSchema && key in _outputSchema.shape) {
+      const noneArrayKey = key.includes('[') ? key.split('[')[0] : key
+      if (_outputSchema && noneArrayKey in _outputSchema.shape) {
         return `\${${(_props as any)._category === 'data' ? 'data.' : ''}${
           (_props as any)._type
         }.${(_props as any)._id}.${renderKey(key)}}`

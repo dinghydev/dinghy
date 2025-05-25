@@ -2,7 +2,6 @@ import type { CommandArgs, CommandOptions } from "../../types.ts";
 
 import { hostAppHome } from "../../utils/loadConfig.ts";
 import { deepMerge } from "../../utils/index.ts";
-import { projectVersionTf } from "../../utils/projectVersions.ts";
 import { existsSync } from "@std/fs/exists";
 import Debug from "debug";
 const debug = Debug("tfOptions");

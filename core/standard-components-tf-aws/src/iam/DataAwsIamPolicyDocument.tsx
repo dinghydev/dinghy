@@ -39,8 +39,9 @@ export function DataAwsIamPolicyDocument(
   )
 }
 
-export const useDataAwsIamPolicyDocument = (id?: string) =>
+export const useDataAwsIamPolicyDocument = (node?: any, id?: string) =>
   useTypedNode<DataAwsIamPolicyDocumentOutputProps>(
     DataAwsIamPolicyDocument,
+    node,
     id,
   )
