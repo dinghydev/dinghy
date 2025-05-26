@@ -77,7 +77,7 @@ const expandDimension = (
             if (!fullColumn) {
               expanded += evenDiff
             }
-          } else {
+          } else if (gChildren.length == 0) {
             child._props._diagram.state.moveableRight += diff
           }
         } else {
@@ -87,7 +87,7 @@ const expandDimension = (
             if (!fullColumn) {
               expanded += evenDiff
             }
-          } else {
+          } else if (gChildren.length == 0) {
             child._props._diagram.state.moveableBottom += diff
           }
         }

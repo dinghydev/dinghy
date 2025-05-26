@@ -155,6 +155,11 @@ export const DiagramNodeSchema = z.object({
     .optional(),
   _image: ResolvableStringSchema.optional(),
   _mxGraphModel: ResolvableStringSchema.optional(),
+  _wayPoint: z.union([
+    z.enum(['straight', 'curved', 'elbow', 'elbow-vertical', 'relation']),
+    resolvable(z.string()),
+  ])
+    .optional(),
   _beforeGenerate: CallableSchema.optional(),
 })
 

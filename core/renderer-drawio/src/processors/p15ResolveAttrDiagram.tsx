@@ -50,7 +50,6 @@ const defaultDependencyProps: base.Props = {
     parent: 'root',
     edge: 1,
     style: {
-      edgeStyle: 'orthogonalEdgeStyle',
       rounded: 1,
       orthogonalLoop: 1,
       jettySize: 'auto',

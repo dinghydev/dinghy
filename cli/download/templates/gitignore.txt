@@ -5,6 +5,7 @@ ReactIAC
 #**/*.tf.json
 **/*.plan
 **/*.plan.json
+**/*.plan.txt
 **/*.tfstate
 **/*.backup
 

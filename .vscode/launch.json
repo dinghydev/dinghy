@@ -62,9 +62,9 @@
         // "HOST_USER_HOME": "${env:HOME}",
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         "DIAGRAM_PNG_DRAWIO_BIN": "/Applications/draw.io.app/Contents/MacOS/draw.io",
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
       },
       "console": "integratedTerminal"
     },
@@ -425,8 +425,12 @@
       // "cwd": "${workspaceFolder}/../reactiac-sites",
       // "cwd": "${workspaceFolder}/examples/web/1-shape",
       // "cwd": "${env:HOME}/andopen/src/devops/iac-ecs",
-      "cwd": "${env:HOME}/andopen/src/devops/iac-global-infra",
-      // "cwd": "${env:HOME}/andopen/src/devops/iac-cicd",
+      // "cwd": "${env:HOME}/andopen/src/devops/iac-global-infra",
+      "env": {
+        "DEBUG": "*",
+        "DOCKER_IMAGEVERSION": "latest"
+      },
+      "cwd": "${env:HOME}/andopen/src/devops/iac-cicd",
       "request": "launch",
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",

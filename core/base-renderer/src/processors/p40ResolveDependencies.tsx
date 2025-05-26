@@ -16,7 +16,7 @@ function findNodeByTitle(node: NodeTree, title: string) {
 }
 
 function findNodeByTag(node: NodeTree, tag: string) {
-  if ((node._props._tags as string[]).includes(tag)) {
+  if ((node._props._tags as string[])?.includes(tag)) {
     return node
   }
   let resolved: NodeTree | null = null

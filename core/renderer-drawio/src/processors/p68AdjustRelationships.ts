@@ -18,6 +18,8 @@ const addRelationshipPoint = (
       y: y2,
     },
   )
+  ;(relationship._props._diagram.dependency.style as any).edgeStyle =
+    'orthogonalEdgeStyle'
 }
 
 const correctToDirectLine = (
@@ -51,10 +53,9 @@ const handleHorizontal = (
   const totalLength = list.length
   const isListMultiple = list.length > 1
   const middleNumber = totalLength / 2
-  const listCenterY =
-    list
-      .map((l) => (l._props as any)._diagram.state.absCenterY)
-      .reduce((a, b) => a + b, 0) / totalLength
+  const listCenterY = list
+    .map((l) => (l._props as any)._diagram.state.absCenterY)
+    .reduce((a, b) => a + b, 0) / totalLength
   const listTop = Math.min(
     ...list.map((l) => (l._props as any)._diagram.state.absTop),
   )
@@ -67,8 +68,7 @@ const handleHorizontal = (
     let y2: number
     let distanceX: number
     if (isSingleSource) {
-      y1 =
-        listCenterY +
+      y1 = listCenterY +
         (i - middleNumber + 0.5) *
           (relationship._props as any)._diagram.dimension.arrowSpace
       y2 = (relationship._props as any)._target._props._diagram.state.absCenterY
@@ -84,8 +84,7 @@ const handleHorizontal = (
       )
     } else {
       y1 = (relationship._props as any)._source._props._diagram.state.absCenterY
-      y2 =
-        listCenterY +
+      y2 = listCenterY +
         (i - middleNumber + 0.5) *
           (relationship._props as any)._diagram.dimension.arrowSpace
       ;[y1, y2] = correctToDirectLine(
@@ -106,16 +105,14 @@ const handleHorizontal = (
       distanceX =
         (relationship._props as any)._target._props._diagram.state.absLeft -
         (relationship._props as any)._source._props._diagram.state.absRight
-      x1 =
-        (relationship._props as any)._source._props._diagram.state.absRight +
+      x1 = (relationship._props as any)._source._props._diagram.state.absRight +
         distanceX / 2 +
         sequencePadding
     } else {
       distanceX =
         (relationship._props as any)._source._props._diagram.state.absLeft -
         (relationship._props as any)._target._props._diagram.state.absRight
-      x1 =
-        (relationship._props as any)._source._props._diagram.state.absLeft -
+      x1 = (relationship._props as any)._source._props._diagram.state.absLeft -
         distanceX / 2 -
         sequencePadding
     }
@@ -132,10 +129,9 @@ const handleVertical = (
   const totalLength = list.length
   const isListMultiple = list.length > 1
   const middleNumber = totalLength / 2
-  const listCenterX =
-    list
-      .map((l) => (l._props as any)._diagram.state.absCenterX)
-      .reduce((a, b) => a + b, 0) / totalLength
+  const listCenterX = list
+    .map((l) => (l._props as any)._diagram.state.absCenterX)
+    .reduce((a, b) => a + b, 0) / totalLength
   const listLeft = Math.min(
     ...list.map((l) => (l._props as any)._diagram.state.absLeft),
   )
@@ -148,8 +144,7 @@ const handleVertical = (
     let y1: number
     let distanceY: number
     if (isSingleSource) {
-      x1 =
-        listCenterX +
+      x1 = listCenterX +
         (i - middleNumber + 0.5) *
           (relationship._props as any)._diagram.dimension.arrowSpace
       x2 = (relationship._props as any)._target._props._diagram.state.absCenterX
@@ -165,8 +160,7 @@ const handleVertical = (
       )
     } else {
       x1 = (relationship._props as any)._source._props._diagram.state.absCenterX
-      x2 =
-        listCenterX +
+      x2 = listCenterX +
         (i - middleNumber + 0.5) *
           (relationship._props as any)._diagram.dimension.arrowSpace
       ;[x1, x2] = correctToDirectLine(
@@ -195,8 +189,7 @@ const handleVertical = (
       distanceY =
         (relationship._props as any)._source._props._diagram.state.absTop -
         (relationship._props as any)._target._props._diagram.state.absBottom
-      y1 =
-        (relationship._props as any)._source._props._diagram.state.absTop -
+      y1 = (relationship._props as any)._source._props._diagram.state.absTop -
         distanceY / 2 -
         sequencePadding
     }
@@ -206,6 +199,11 @@ const handleVertical = (
 
 function alignRelationship(dependsPair: DependsPair) {
   const { arrowDirection } = dependsPair.relationships[0]._props._diagram.flags
+  const { edgeStyle } = dependsPair.relationships[0]._props._diagram.dependency
+    .style as any
+  if (edgeStyle) {
+    return
+  }
   const isSingleSource =
     dependsPair.single === (dependsPair.relationships[0]._props as any)._source
   switch (arrowDirection) {

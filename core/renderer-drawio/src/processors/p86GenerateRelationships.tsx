@@ -36,6 +36,10 @@ function generate(context: DrawioContext, _node: DrawioNodeTree) {
     mxGeometry.props.children = [createPoints(points)]
   }
   const mxCell = { type: 'mxCell', props: resolveElementProps(_node) }
+  deepResolve(_node, _node._props, 'title')
+  if (_node._props.title && _node._props.title !== 'Dependency') {
+    mxCell.props.value = _node._props.title
+  }
   mxCell.props.children = [mxGeometry]
   context.rootElements.push(mxCell as any)
 }

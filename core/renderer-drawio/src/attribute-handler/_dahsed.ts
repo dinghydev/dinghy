@@ -1,6 +1,6 @@
 export const _dashed = (fill: boolean) => {
   return {
-    group: {
+    element: {
       style: {
         dashed: 1,
         ...(fill ? {} : { fillColor: 'none' }),

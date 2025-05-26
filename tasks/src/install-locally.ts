@@ -23,7 +23,7 @@ if (import.meta.main) {
     stdout: "inherit",
     input: `
       set -e
-      rm -rf .versions.json
+      rm -rf ../.versions.json
       deno task docker-build-arm64
       deno task cli-build-aarch64-apple-darwin
       cp ../build/cli/aarch64-apple-darwin/reactiac ~/.reactiac/bin/
