@@ -1,5 +1,9 @@
 import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
+import {
+  OPTIONS_SYMBOL,
+  REQUIRE_CONTAINER_SYMBOL,
+  RUN_SYMBOL,
+} from "../../types.ts";
 import { runTfImageCmd } from "./runTfImageCmd.ts";
 import { createTfOptions } from "./tfOptions.ts";
 import process from "node:process";
@@ -158,6 +162,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
 const commands: Commands = {
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
+  [REQUIRE_CONTAINER_SYMBOL]: false,
 };
 
 export default commands;

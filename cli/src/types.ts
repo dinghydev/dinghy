@@ -22,10 +22,12 @@ export type CommandArgs = {
 
 export const OPTIONS_SYMBOL = Symbol("options");
 export const RUN_SYMBOL = Symbol("run");
+export const REQUIRE_CONTAINER_SYMBOL = Symbol("requireContainer");
 
 export type Command = {
   [OPTIONS_SYMBOL]: CommandOptions;
   [RUN_SYMBOL]: (context: CommandContext, args: CommandArgs) => any;
+  [REQUIRE_CONTAINER_SYMBOL]?: boolean;
 };
 
 export type Commands = Command & Record<string, Command>;

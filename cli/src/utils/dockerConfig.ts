@@ -28,16 +28,15 @@ const cliArgsVersion = () => {
 };
 
 export const configGetDockerImageVersion = () => {
-  let version = cliArgsVersion() ||
-    configGet(["docker", "imageVersion"]) ||
-    projectVersionReleaseBase();
-  if (!version.includes("-")) { // for latest and base version
-    if (Deno.build.standalone) {
+  let version = cliArgsVersion() || configGet(["docker", "imageVersion"]);
+  if (!version || !version.includes("-")) {
+    debug("none locked version detected, resolving", version);
+    if (version && Deno.build.standalone) {
       version = resolveLatestVersion(version);
       debug("resolved docker image version %s for standalone cli", version);
     } else {
       version = projectVersionRelease();
-      debug("resolved docker image version %s for direct run", version);
+      debug("resolved docker image version %s from .versions.json", version);
     }
   }
   debug("resolved docker image version as %s", version);

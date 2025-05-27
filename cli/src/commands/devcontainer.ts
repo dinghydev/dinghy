@@ -1,5 +1,5 @@
 import { existsSync } from "@std/fs/exists";
-import { basename, dirname, resolve } from "@std/path";
+import { dirname } from "@std/path";
 import type {
   Command,
   CommandArgs,

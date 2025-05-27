@@ -112,7 +112,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   if (changedStacks.length) {
     if (isCi()) {
       const changeAction = isMr() ? attachChangeToMR : notifyChanges;
-      await changeAction(changedStacks);
+      await changeAction(changedStages);
       await triggerAutoDeployJobs(changedStacks, args);
     } else {
       console.log("Ignore notification and auto deploy in non-CI environment");

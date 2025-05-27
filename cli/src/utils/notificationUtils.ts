@@ -20,15 +20,15 @@ export const notifyChanges = async (changes: any[], error?: string) => {
   const options: any = {};
   options.username = `${await projectName()} ${jobName()}`;
   let text: string;
-  const stacks = changes.map((s) => s.id).join("|");
+  const changedStages = changes.map((s) => s.id).join("|");
   if (error) {
-    text = `Failed to apply changes [${stacks}] with error \`${error}\``;
+    text = `Failed to apply changes [${changedStages}] with error \`${error}\``;
     options.icon_emoji = ":fire:";
   } else if (jobName().includes("apply")) {
-    text = `Changes [${stacks}] applied`;
+    text = `Changes [${changedStages}] applied`;
     options.icon_emoji = ":rocket:";
   } else {
-    text = `Pending changes [${stacks}] detected`;
+    text = `Pending changes [${changedStages}] detected`;
     options.icon_emoji = ":hourglass:";
   }
 
@@ -38,11 +38,11 @@ export const notifyChanges = async (changes: any[], error?: string) => {
   text += "\nActions Below";
 
   const lines: string[] = [];
-  for (const stack of changes) {
+  for (const stageChange of changes) {
     lines.push(
-      `${(stack as any).id}: ${(stack as any).plan.summary}`,
+      `${(stageChange as any).id}: ${(stageChange as any).plan.summary}`,
       "```",
-      ...(stack as any).plan.changes,
+      ...(stageChange as any).plan.changes,
       "```",
     );
   }

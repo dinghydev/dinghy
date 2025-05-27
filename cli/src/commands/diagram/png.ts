@@ -100,8 +100,6 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   if (!files.length) {
     throw new Error("No drawio files found");
   }
-  // await Promise.allSettled(
-  //   files.map(async (file: string) => {
   const results = {};
   let failed = false;
   let success = false;
@@ -140,26 +138,16 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     if (success && !args["drawio-bin"]) {
       console.log(
         chalk.yellow(
-          "Likely due to large diagram: https://issues.chromium.org/issues/383356871 . \n\n Use local install of draw.io to generate png as workaround.",
+          `Likely due to large diagram: https://issues.chromium.org/issues/383356871 .
+
+Use locally installed draw.io to generate png as workaround e.g.:
+DIAGRAM_PNG_DRAWIO_BIN=/Applications/draw.io.app/Contents/MacOS/draw.io
+          `,
         ),
       );
     }
     throw new Error("Failed to generate png");
   }
-  // console.log(results);
-  // ).then((results) => {
-  //   let failed = false;
-  //   results.map((result, i) => {
-  //     if (result.status === "rejected") {
-  //       console.error(`Failed to generate png ${files[i]}: ${result.reason}`);
-  //       failed = true;
-  //     }
-  //   });
-  //   if (failed) {
-  //     console.error("Failed to generate png");
-  //     Deno.exit(1);
-  //   }
-  // });
 };
 
 const commands: Commands = {
