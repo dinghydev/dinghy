@@ -38,7 +38,7 @@ const options: CommandOptions = {
     c: "commands",
   },
   cmdDescription:
-    "ReactIAC Cli, a command line tool to help with ReactIAC development and operations",
+    "ReactIAC CLI is a command-line tool for running ReactIAC in both development and production environments.",
   additionalOptions: {
     "Global Options": [
       {

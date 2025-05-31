@@ -27,7 +27,7 @@ tmp*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/none-debug-run.sh
-!.vscode/launch.json
+# !.vscode/launch.json
 !.vscode/extensions.json
 
 # IDE - JetBrains
