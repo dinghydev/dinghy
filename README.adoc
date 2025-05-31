@@ -1,6 +1,6 @@
 = ReactIAC
 
-image:https://github.com/reactiac/reactiac/actions/workflows/release-cli.yml/badge.svg[release-cli,link=https://github.com/reactiac/reactiac/actions/workflows/release-cli.yml] image:https://github.com/reactiac/reactiac/actions/workflows/release-docker.yml/badge.svg[release-docker,link=https://github.com/reactiac/reactiac/actions/workflows/release-docker.yml] image:https://github.com/reactiac/reactiac/actions/workflows/verification.yml/badge.svg[verification,link=https://github.com/reactiac/reactiac/actions/workflows/verification.yml]
+image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.svg[release,link=https://github.com/reactiac/reactiac/actions/workflows/release.yml] image:https://github.com/reactiac/reactiac/actions/workflows/verification.yml/badge.svg[verification,link=https://github.com/reactiac/reactiac/actions/workflows/verification.yml]
 
 == Development
 
