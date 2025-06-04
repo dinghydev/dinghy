@@ -1,6 +1,6 @@
 import { parseArgs } from "@std/cli";
 import Debug from "debug";
-import { configGet } from "./loadConfig.ts";
+import { configGet } from "../../../cli/src/utils/loadConfig.ts";
 const debug = Debug("parseOptions");
 
 export const OPTIONS_TYPES = ["boolean", "string", "number", "collect"];

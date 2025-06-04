@@ -3,11 +3,14 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from "../../types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
-import { runCommand } from "../../utils/runCommand.ts";
+} from "../../../../cli/src/types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
+import Debug from "debug";
 import png from "./png.ts";
-import generate from "./generate.ts";
+import render from "../render/index.ts";
+import { runCommand } from "../../../../cli/src/utils/runCommand.ts";
+const debug = Debug("diagram");
+
 const options: CommandOptions = {
   boolean: ["debug"],
   description: {},
@@ -17,18 +20,21 @@ const options: CommandOptions = {
       required: false,
     },
   },
-  cmdDescription:
-    "Diagram related operations, default is convert drawio files to png",
+  cmdDescription: "Render drawio files and generate png outputs",
 };
+
 const run = async (context: CommandContext, _args: CommandArgs) => {
-  const generateArgs = ["generate", ...context.originalArgs.slice(1)];
+  const remainArgs = context.originalArgs.slice(2);
+
+  debug("running render command");
   await runCommand({
-    prefix: ["diagram"],
-    envPrefix: ["diagram"],
-    args: generateArgs,
-    originalArgs: ["diagram", ...generateArgs],
-    commands,
-    options: png[OPTIONS_SYMBOL],
+    ...context,
+    prefix: [],
+    envPrefix: [],
+    args: ["render", ...remainArgs],
+    originalArgs: ["render", ...remainArgs],
+    commands: { render } as any,
+    options: render[OPTIONS_SYMBOL],
   });
 };
 
@@ -36,7 +42,6 @@ const commands: Commands = {
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
   png,
-  generate,
 };
 
 export default commands;

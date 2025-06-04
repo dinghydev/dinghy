@@ -3,13 +3,16 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from "../../types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
+} from "../../../../cli/src/types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
 import Debug from "debug";
-import { runWorkspaceTask } from "../../utils/runWorkspaceTask.ts";
 import tf from "./index.ts";
-import { runCommand } from "../../utils/runCommand.ts";
-import { hostAppHome, reactiacAppConfig } from "../../utils/loadConfig.ts";
+import { runCommand } from "../../../../cli/src/utils/runCommand.ts";
+import {
+  hostAppHome,
+  reactiacAppConfig,
+  requireStacksConfig,
+} from "../../../../cli/src/utils/loadConfig.ts";
 import { doWithStacks } from "../../utils/index.ts";
 import {
   attachChangeToMR,
@@ -20,6 +23,7 @@ import {
 import { notifyChanges } from "../../utils/notificationUtils.ts";
 import chalk from "chalk";
 import { parseTfOptions } from "./tfOptions.ts";
+import render from "../render/index.ts";
 const debug = Debug("tf:diff");
 
 const options: CommandOptions = {
@@ -42,6 +46,7 @@ const runStackTfCommands = async (
   args: string[],
 ) => {
   await runCommand({
+    isEngine: true,
     prefix: ["tf"],
     envPrefix: ["tf"],
     args: [tfCommand, stack, ...args],
@@ -57,6 +62,7 @@ const runStackCommands = async (stack: string, args: string[]) => {
 };
 
 const run = async (context: CommandContext, args: CommandArgs) => {
+  await requireStacksConfig();
   const remainArgs = context.originalArgs.slice(2);
   const noneStackArgs = args.stack ? remainArgs.slice(1) : remainArgs;
   const activedStackIds: string[] = [];
@@ -66,13 +72,22 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     reactiacAppConfig,
     args.stack,
     async (stackOptions: any) => {
-      await runWorkspaceTask([
+      const renderArgs = [
         "render",
         stackOptions.stack.id,
         "--format",
         "tf",
         ...noneStackArgs,
-      ]);
+      ];
+      await runCommand({
+        ...context,
+        prefix: [],
+        envPrefix: [],
+        args: renderArgs,
+        originalArgs: renderArgs,
+        commands: { render } as any,
+        options: render[OPTIONS_SYMBOL],
+      });
       stacksOptions[stackOptions.stack.id] = stackOptions;
     },
   );

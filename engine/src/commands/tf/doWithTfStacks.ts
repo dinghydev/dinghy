@@ -1,7 +1,7 @@
-import type { CommandArgs } from "../../types.ts";
+import type { CommandArgs } from "../../../../cli/src/types.ts";
 import { parseTfOptions } from "./tfOptions.ts";
-import { reactiacAppConfig } from "../../utils/loadConfig.ts";
-import { doWithStacks } from "../../utils/index.ts";
+import { reactiacAppConfig } from "../../../../cli/src/utils/loadConfig.ts";
+import { doWithStacks } from "../../../../cli/src/utils/index.ts";
 
 export const doWithTfStacks = async (
   args: CommandArgs,

@@ -6,7 +6,6 @@ export * from "./loadConfig.ts";
 export * from "./parseOptions.ts";
 export * from "./projectVersions.ts";
 export * from "./renderOptions.ts";
-export * from "./s3.ts";
 export * from "./setupDebug.ts";
 export * from "./timeUtils.ts";
 export * from "./updateCheck.ts";

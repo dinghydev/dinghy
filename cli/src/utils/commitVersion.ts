@@ -11,10 +11,6 @@ export const baseVersion = (projectRoot?: string) => {
 };
 
 export const commitVersion = (projectRoot?: string) => {
-  const envVersion = Deno.env.get("COMMIT_VERSION");
-  if (envVersion) {
-    return envVersion;
-  }
   const versionFile = `${projectRoot}/.versions.json`;
   if (existsSync(versionFile)) {
     const versions = JSON.parse(Deno.readTextFileSync(versionFile));

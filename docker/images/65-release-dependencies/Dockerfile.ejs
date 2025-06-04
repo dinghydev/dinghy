@@ -3,8 +3,6 @@ FROM <%= DOCKER_IMAGE_RELEASE_BASE_TAG %>
 COPY . /reactiac
 
 RUN cd /reactiac && \
-    echo "DOCKER_IMAGE_TF_VERSION=<%= DOCKER_IMAGE_TF_VERSION %>" >> /root/.reactiacrc && \
-    echo "DOCKER_IMAGE_DRAWIO_VERSION=<%= DOCKER_IMAGE_DRAWIO_VERSION %>" >> /root/.reactiacrc && \
     . /root/.bashrc && \
     deno run -A cache-installer.ts && \
-    rm -rf deno.* cache-installer.ts core cli
+    rm -rf deno.* cache-installer.ts engine/packages-to-cache.ts engine/deno.jsonc

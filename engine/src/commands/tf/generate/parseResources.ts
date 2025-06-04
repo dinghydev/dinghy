@@ -5,7 +5,7 @@ import { existsSync } from "@std/fs/exists";
 import chalk from "chalk";
 import Debug from "debug";
 const debug = Debug("parseResources");
-import type { Element } from "./types.ts";
+import type { Element } from "./../../cli/src/types.ts";
 
 const normalizeInputResources = (value: any): any => {
   if (typeof value === "string") {

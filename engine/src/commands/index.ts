@@ -3,20 +3,20 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from "../types.ts";
-import upgrade from "./upgrade.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
-import { showHelp } from "../utils/showHelp.ts";
-import { versionDetails } from "../utils/runtimeVersion.ts";
-import postinstall from "./postinstall.ts";
-import init from "./init.ts";
-import devcontainer from "./devcontainer.ts";
+} from "../../../cli/src/types.ts";
+import {
+  OPTIONS_SYMBOL,
+  RUN_SYMBOL,
+  throwReactiacError,
+} from "../../../cli/src/types.ts";
+import { showHelp } from "../../../cli/src/utils/showHelp.ts";
 import render from "./render/index.ts";
 import diagram from "./diagram/index.ts";
 import tf from "./tf/index.ts";
-import docker from "./docker/index.ts";
-import { runCommand } from "../utils/runCommand.ts";
+// import docker from "./docker/index.ts";
+import { runCommand } from "../../../cli/src/utils/runCommand.ts";
 import Debug from "debug";
+import { versionDetails } from "../../../cli/src/utils/projectVersions.ts";
 const debug = Debug("reactiac:main");
 
 const options: CommandOptions = {
@@ -37,8 +37,7 @@ const options: CommandOptions = {
     v: "version",
     c: "commands",
   },
-  cmdDescription:
-    "ReactIAC CLI is a command-line tool for running ReactIAC in both development and production environments.",
+  cmdDescription: "ReactIAC Engine",
   additionalOptions: {
     "Global Options": [
       {
@@ -77,6 +76,7 @@ const runCommandInParallel = async (cmds: string[]) => {
       originalArgs: args,
       commands,
       options: commands[OPTIONS_SYMBOL],
+      isEngine: true,
     });
   });
   await Promise.allSettled(promises).then((results) => {
@@ -88,7 +88,7 @@ const runCommandInParallel = async (cmds: string[]) => {
       }
     });
     if (failed) {
-      Deno.exit(1);
+      throwReactiacError("Failed to run commands. See above for details.");
     }
   });
 };
@@ -99,20 +99,16 @@ const run = async (context: CommandContext, args: CommandArgs) => {
       await runCommandInParallel(command.split("|"));
     }
   } else if (args.version) {
-    console.log(versionDetails);
+    console.log(versionDetails());
   } else {
     showHelp(context);
   }
 };
 
 const commands: Commands = {
-  init,
-  upgrade,
-  postinstall,
-  devcontainer,
   render,
   diagram,
-  docker,
+  // docker,
   tf,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,

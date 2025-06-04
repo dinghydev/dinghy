@@ -1,6 +1,6 @@
-import { renderJson } from "../../../core/renderer-json/src/index.ts";
-import { renderDrawio } from "../../../core/renderer-drawio/src/index.ts";
-import { renderTf } from "../../../core/renderer-tf/src/index.ts";
+import { renderJson } from "../../../../core/renderer-json/src/index.ts";
+import { renderDrawio } from "../../../../core/renderer-drawio/src/index.ts";
+import { renderTf } from "../../../../core/renderer-tf/src/index.ts";
 import { dirname, resolve } from "@std/path";
 import Debug from "debug";
 import { existsSync } from "@std/fs/exists";
@@ -12,6 +12,9 @@ import {
   deepMerge,
   toTitle,
 } from "@reactiac/base-components";
+import { runCommand } from "../../../../cli/src/utils/runCommand.ts";
+import png from "../diagram/png.ts";
+import { OPTIONS_SYMBOL } from "../../../../cli/src/types.ts";
 const debug = Debug("rendererMapping");
 
 const writeFile = async (path: string, content: string) => {
@@ -73,7 +76,29 @@ const saveStackMd = async (options: any, args: any, views: any) => {
   await writeFile(outputPath, md.join("\n"));
 };
 
-const diagram = async (app: any, options: any, args: any) => {
+const generatePng = async (
+  _options: any,
+  _args: any,
+  views: any,
+  context: any,
+) => {
+  const pngArgs = ["png", ...context.originalArgs.slice(1)];
+  for (const view of Object.values(views)) {
+    pngArgs.push("-f");
+    pngArgs.push(`${(view as any).id}.drawio`);
+  }
+  await runCommand({
+    isEngine: true,
+    prefix: ["diagram"],
+    envPrefix: ["diagram"],
+    args: pngArgs,
+    originalArgs: ["diagram", ...pngArgs],
+    commands: { png } as any,
+    options: png[OPTIONS_SYMBOL],
+  });
+};
+
+const diagram = async (app: any, options: any, args: any, context: any) => {
   const views = {};
   const availableViews = options.stack.views;
   let selectedViews = args.view;
@@ -121,6 +146,9 @@ const diagram = async (app: any, options: any, args: any) => {
     }
     if (args["diagram-createMd"]) {
       await saveStackMd(options, args, views);
+    }
+    if (args["diagram-png"]) {
+      await generatePng(options, args, views, context);
     }
   }
 };

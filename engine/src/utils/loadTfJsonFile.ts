@@ -1,6 +1,5 @@
 import { existsSync } from "@std/fs/exists";
-import chalk from "chalk";
-import { hostAppHome } from "./loadConfig.ts";
+import { hostAppHome } from "../../../cli/src/utils/loadConfig.ts";
 
 export function loadTfJsonFile(args: any) {
   const jsonFile = args["json-file"];

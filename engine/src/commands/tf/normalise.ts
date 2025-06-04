@@ -3,8 +3,8 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from "../../types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
+} from "../../../../cli/src/types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
 import Debug from "debug";
 import { loadTfJsonFile } from "../../utils/loadTfJsonFile.ts";
 const debug = Debug("init");

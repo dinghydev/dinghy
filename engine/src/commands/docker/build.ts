@@ -4,8 +4,8 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from "../../types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
+} from "../../../../cli/src/types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
 import { execaSync } from "execa";
 import chalk from "chalk";
 import Debug from "debug";

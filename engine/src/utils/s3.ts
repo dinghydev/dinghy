@@ -6,7 +6,7 @@ import {
 
 import Debug from "debug";
 import { sleep } from "./timeUtils.ts";
-import { hostAppHome } from "./loadConfig.ts";
+import { hostAppHome } from "../../../cli/src/utils/loadConfig.ts";
 import { runTfImageCmd } from "../commands/tf/runTfImageCmd.ts";
 const debug = Debug("aws:s3");
 

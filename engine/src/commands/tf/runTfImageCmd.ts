@@ -1,7 +1,7 @@
-import type { CommandArgs } from "../../types.ts";
-import { hostAppHome } from "../../utils/loadConfig.ts";
-import { configGetTfImage } from "../../utils/dockerConfig.ts";
-import { runDockerCmd } from "../../utils/dockerUtils.ts";
+import type { CommandArgs } from "../../../../cli/src/types.ts";
+import { runDockerCmd } from "../../../../cli/src/utils/dockerUtils.ts";
+import { configGetTfImage } from "../../../../cli/src/utils/dockerConfig.ts";
+import { hostAppHome } from "../../../../cli/src/utils/loadConfig.ts";
 
 export const runTfImageCmd = async (
   workingDir: string,
@@ -15,6 +15,7 @@ export const runTfImageCmd = async (
 
   return await runDockerCmd(
     containerWorkingDir,
+    {},
     [{
       source: containerWorkingDir,
       target: containerWorkingDir,

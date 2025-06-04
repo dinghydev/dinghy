@@ -6,13 +6,13 @@ import type {
   CommandOptions,
 } from "../types.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
-import { runtimeVersion } from "../utils/runtimeVersion.ts";
 import init from "./init.ts";
 import chalk from "chalk";
 import { runCommand } from "../utils/runCommand.ts";
 import { reactiacHome } from "../utils/loadConfig.ts";
 import Debug from "debug";
 import { cleanUpdateCheck } from "../utils/updateCheck.ts";
+import { projectVersionRelease } from "../utils/projectVersions.ts";
 const debug = Debug("postinstall");
 
 const options: CommandOptions = {
@@ -78,6 +78,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   const initProject = Deno.env.get("INIT_PROJECT");
   if (initProject) {
     await runCommand({
+      isEngine: false,
       prefix: ["init"],
       envPrefix: ["init"],
       args: ["--quiet"],
@@ -97,7 +98,9 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       refreshCommand,
     );
     console.log(
-      `Installed ReactIAC Runner ${chalk.dim(runtimeVersion)} successfully.`,
+      `Installed ReactIAC Runner ${
+        chalk.dim(projectVersionRelease())
+      } successfully.`,
     );
 
     console.log(`\n\nTo get started, run:
@@ -108,7 +111,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   } else {
     if (!initProject) {
       console.log(
-        `Upgrade to ${chalk.dim(runtimeVersion)} complete.`,
+        `Upgrade to ${chalk.dim(projectVersionRelease())} complete.`,
       );
     }
     console.log(`\n\nTo get started, run:

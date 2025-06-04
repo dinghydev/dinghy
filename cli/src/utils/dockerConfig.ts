@@ -17,10 +17,10 @@ export const configGetDockerRepo = () => {
 
 const cliArgsVersion = () => {
   const args = Deno.args;
-  const versionIndex = args.findIndex((arg) => arg === "--version");
+  const versionIndex = args.indexOf("--engine-version");
   if (versionIndex !== -1 && versionIndex + 1 < args.length) {
     const version = args[versionIndex + 1];
-    debug("using version %s from cli args", version);
+    debug("using engine version %s from cli args", version);
     return version;
   }
   return null;

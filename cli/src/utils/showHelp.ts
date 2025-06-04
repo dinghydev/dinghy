@@ -1,7 +1,11 @@
-import { type CommandContext, OPTIONS_SYMBOL } from "../types.ts";
+import {
+  type CommandContext,
+  OPTIONS_SYMBOL,
+  REQUIRE_ENGINE_SYMBOL,
+} from "../types.ts";
 import chalk from "chalk";
-import { versionDetails } from "./runtimeVersion.ts";
 import { OPTIONS_TYPES } from "./parseOptions.ts";
+import { projectVersionRelease, versionDetails } from "./projectVersions.ts";
 type Row = {
   name: string;
   options?: string;
@@ -13,6 +17,8 @@ type Sections = {
   usage: Row[];
   arguments: Row[];
   commands: Row[];
+  "cli commands": Row[];
+  "engine commands": Row[];
   options: Row[];
 };
 
@@ -58,6 +64,8 @@ const generateCommandSection = (
   context: CommandContext,
   sections: Sections,
 ) => {
+  const cliCommands: Row[] = [];
+  const engineCommands: Row[] = [];
   Object.entries(context.commands)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([name, commandDef]) => {
@@ -68,12 +76,18 @@ const generateCommandSection = (
       const options = commandOptions.cmdAlias
         ? `[alias:${commandOptions.cmdAlias.join(", ")}]`
         : "";
-      sections.commands.push({
+      (commandDef[REQUIRE_ENGINE_SYMBOL] ? engineCommands : cliCommands).push({
         name,
         options,
         description: commandOptions.cmdDescription,
       });
     });
+  if (cliCommands.length && engineCommands.length) {
+    sections["cli commands"] = cliCommands;
+    sections["engine commands"] = engineCommands;
+  } else {
+    sections.commands.push(...cliCommands, ...engineCommands);
+  }
 };
 
 const generateOptionsSection = (
@@ -138,7 +152,7 @@ const generateUsageSection = (context: CommandContext, sections: Sections) => {
 
   if (context.prefix.length === 0) {
     sections.version.push({
-      name: versionDetails,
+      name: versionDetails(),
     });
   }
 };
@@ -149,8 +163,10 @@ export const showHelp = (context: CommandContext) => {
     usage: [],
     arguments: [],
     commands: [],
+    "cli commands": [],
+    "engine commands": [],
     options: [],
-    ...(context.options.additionalOptions || {}),
+    ...(context.options?.additionalOptions || {}),
   };
 
   generateArgumentsSection(context, sections);

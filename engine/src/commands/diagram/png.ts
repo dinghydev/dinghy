@@ -4,16 +4,14 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from "../../types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
-import { hostAppHome, isInsideContainer } from "../../utils/loadConfig.ts";
-import { streamCmd } from "../../utils/cmd.ts";
+} from "../../../../cli/src/types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
 import Debug from "debug";
 import { resolve } from "@std/path/resolve";
-import { runDockerCmd } from "../../utils/dockerUtils.ts";
-import { configGetDrawioImage } from "../../utils/dockerConfig.ts";
 import chalk from "chalk";
-import { runContainerCli } from "../../utils/runContainerCli.ts";
+import { runDockerCmd } from "../../../../cli/src/utils/dockerUtils.ts";
+import { configGetDrawioImage } from "../../../../cli/src/utils/dockerConfig.ts";
+import { hostAppHome } from "../../../../cli/src/utils/loadConfig.ts";
 const debug = Debug("diagram:png");
 
 const options: CommandOptions = {
@@ -38,41 +36,22 @@ const options: CommandOptions = {
   cmdDescription: "Generate png from drawio file",
 };
 
-const runDrawioCmd = async (args: CommandArgs, drawioArgs: string[]) => {
-  if (isInsideContainer) {
-    return await runDockerCmd(
-      hostAppHome,
-      [],
-      drawioArgs,
-      configGetDrawioImage(),
-      false,
-    );
-  }
-  if (args["drawio-bin"]) {
-    return await streamCmd(
-      [
-        args["drawio-bin"],
-        ...drawioArgs,
-      ],
-      undefined,
-      false,
-    );
-  }
+const runDrawioCmd = async (
+  _args: CommandArgs,
+  drawioImage: string,
+  drawioArgs: string[],
+) => {
+  return await runDockerCmd(
+    hostAppHome,
+    {},
+    [],
+    drawioArgs,
+    drawioImage,
+    false,
+  );
 };
 
-const run = async (context: CommandContext, args: CommandArgs) => {
-  if (!isInsideContainer && !args["drawio-bin"]) {
-    const result = await runContainerCli(
-      context.originalArgs,
-      hostAppHome,
-      false,
-    );
-    if (result.failed) {
-      throw new Error("Failed to run container cli, see error above");
-    }
-    return;
-  }
-
+const run = async (_context: CommandContext, args: CommandArgs) => {
   if (!args.output.startsWith("/")) {
     args.output = resolve(`${hostAppHome}/${args.output}`);
   }
@@ -102,11 +81,12 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   }
   const results = {};
   let failed = false;
-  let success = false;
+  let hasSuccess = false;
+  const drawioImage = configGetDrawioImage();
   for (const file of files) {
     const pngFile = file.replace(".drawio", ".png");
     debug(`generating from ${file}`);
-    const pngResult = await runDrawioCmd(args, [
+    const pngResult = await runDrawioCmd(args, drawioImage, [
       "-x",
       "-f",
       "png",
@@ -120,7 +100,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
       results[file] = "FAILED";
       failed = true;
     } else {
-      success = true;
+      hasSuccess = true;
       debug(`generated -> ${pngFile}`);
       results[file] = pngFile;
     }
@@ -135,14 +115,13 @@ const run = async (context: CommandContext, args: CommandArgs) => {
       }
     });
   if (failed) {
-    if (success && !args["drawio-bin"]) {
+    if (hasSuccess) {
       console.log(
         chalk.yellow(
-          `Likely due to large diagram: https://issues.chromium.org/issues/383356871 .
-
-Use locally installed draw.io to generate png as workaround e.g.:
-DIAGRAM_PNG_DRAWIO_BIN=/Applications/draw.io.app/Contents/MacOS/draw.io
-          `,
+          `Likely due to large diagram: https://issues.chromium.org/issues/383356871 .`,
+          // Use locally installed draw.io to generate png as workaround e.g.:
+          // DIAGRAM_PNG_DRAWIO_BIN=/Applications/draw.io.app/Contents/MacOS/draw.io
+          // `,
         ),
       );
     }

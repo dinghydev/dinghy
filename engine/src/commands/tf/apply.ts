@@ -1,11 +1,16 @@
 import chalk from "chalk";
-import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
+import type {
+  CommandArgs,
+  CommandContext,
+  Commands,
+} from "../../../../cli/src/types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
 import { isCi } from "../../utils/gitUtils.ts";
 import { notifyChanges } from "../../utils/notificationUtils.ts";
 import { runTfImageCmd } from "./runTfImageCmd.ts";
 import { createTfOptions, tfOptionsPlan } from "./tfOptions.ts";
 import { doWithTfStacks } from "./doWithTfStacks.ts";
+import { requireStacksConfig } from "../../../../cli/src/utils/loadConfig.ts";
 
 const options: any = createTfOptions({
   ...tfOptionsPlan,
@@ -20,6 +25,7 @@ const changeSummaryWording = (summary: any) => {
 };
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
+  await requireStacksConfig();
   const changedStages: any[] = [];
   await doWithTfStacks(args, async (tfOptions) => {
     const { stackInfo } = tfOptions;

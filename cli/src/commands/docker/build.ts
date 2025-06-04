@@ -16,6 +16,7 @@ import ejs from "ejs";
 import { createHash } from "node:crypto";
 import { configGetDockerRepo } from "../../utils/dockerConfig.ts";
 import { isCi } from "../../utils/index.ts";
+import { projectRoot } from "../../utils/projectRoot.ts";
 const debug = Debug("init");
 
 const options: CommandOptions = {
@@ -30,6 +31,11 @@ const options: CommandOptions = {
 };
 
 async function init(args: CommandArgs) {
+  const versionsFile = `${projectRoot}/.versions.json`;
+  if (existsSync(versionsFile)) {
+    Deno.removeSync(versionsFile);
+  }
+
   args.sourceFolder = args.source.startsWith("/")
     ? args.source
     : `${hostAppHome}/${args.source}`;

@@ -1,10 +1,17 @@
 import chalk from "chalk";
-import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../types.ts";
-import { hostAppHome } from "../../utils/loadConfig.ts";
+import type {
+  CommandArgs,
+  CommandContext,
+  Commands,
+} from "../../../../cli/src/types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
+import {
+  hostAppHome,
+  requireStacksConfig,
+} from "../../../../cli/src/utils/loadConfig.ts";
 import { doWithTfStacks } from "./doWithTfStacks.ts";
 import { runTfImageCmd } from "./runTfImageCmd.ts";
-import { createTfOptions, parseTfOptions, tfOptionsPlan } from "./tfOptions.ts";
+import { createTfOptions, tfOptionsPlan } from "./tfOptions.ts";
 import Debug from "debug";
 const debug = Debug("tf:plan");
 const options: any = createTfOptions({
@@ -58,6 +65,7 @@ function collectStageChange(outputFile: string, maxLines: number) {
 }
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
+  await requireStacksConfig();
   const changedStages: any[] = [];
   await doWithTfStacks(args, async (tfOptions) => {
     const { stack, stackInfo, stages } = tfOptions;

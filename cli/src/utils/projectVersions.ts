@@ -1,7 +1,8 @@
 import { existsSync } from "jsr:@std/fs";
 import { projectRoot } from "./projectRoot.ts";
+import Debug from "debug";
 import { commitVersion } from "./commitVersion.ts";
-import { isInsideContainer } from "./loadConfig.ts";
+const debug = Debug("runCommand");
 
 const versions = {};
 
@@ -16,21 +17,30 @@ function lazyLoad(): Record<string, string> {
         versions[key] = value;
       });
     } else {
-      versions["release"] = commitVersion(projectRoot);
+      debug("Version file %s not found, using commit version", versionFile);
+      return { release: commitVersion(projectRoot) };
     }
   }
   return versions;
 }
 
-const containerisedVersion = (field: string) => {
-  if (!isInsideContainer) {
-    throw new Error(`Version ${field} only available in containerised mode`);
-  }
-  return lazyLoad()[field];
-};
-
-export const projectVersionTf = () => containerisedVersion("tf");
-export const projectVersionDrawio = () => containerisedVersion("drawio");
+export const projectVersionTf = () => lazyLoad().tf;
+export const projectVersionDrawio = () => lazyLoad().drawio;
 export const projectVersionRelease = () => lazyLoad().release;
 export const projectVersionReleaseBase = () =>
   projectVersionRelease().split(".").slice(0, 2).join(".");
+
+export const versionDetails = () => {
+  const versionInfo: string[] = [];
+  const cliVersion = Deno.env.get("REACTIAC_CLI_VERSION");
+  if (cliVersion) {
+    versionInfo.push(`@reactiac/engine/${projectVersionRelease()}`);
+    versionInfo.push(`@reactiac/cli/${cliVersion}`);
+  } else {
+    versionInfo.push(`@reactiac/cli/${projectVersionRelease()}`);
+  }
+  versionInfo.push(
+    `deno/${Deno.version.deno}-${Deno.build.os}-${Deno.build.arch}`,
+  );
+  return versionInfo.join(" ");
+};

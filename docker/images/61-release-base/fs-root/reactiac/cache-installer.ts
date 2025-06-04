@@ -14,7 +14,8 @@ async function runCwdCommand(cwd: string, args: string[]) {
 }
 
 const workspacePackages: Record<string, string> = {};
-for (const folder of ["core", "cli"]) {
+// for (const folder of ["core", "cli"]) {
+for (const folder of ["engine"]) {
   const allPackages = Object.keys(
     JSON.parse(Deno.readTextFileSync(`${folder}/deno.lock`)).specifiers,
   );
@@ -79,36 +80,19 @@ for (const folder of ["core", "cli"]) {
   ]);
 }
 
-let workspaceJsonc = Deno.readTextFileSync("workspace/deno.jsonc").trim();
-const workspacePackageOnlyJsonc = `{
-  "imports": {
-    ${
-  Object.entries(workspacePackages).map(([name, spec]) =>
-    `"${name}": "${spec}"`
-  )
-    .join(",\n")
-}
-  }
-}
-`;
-Deno.writeTextFileSync("workspace/deno.jsonc", workspacePackageOnlyJsonc);
-await runCwdCommand("workspace", [
-  "install",
-]);
-
-workspaceJsonc = workspaceJsonc.substring(
-  0,
-  workspaceJsonc.lastIndexOf('"imports"'),
-);
-workspaceJsonc += `
-  "imports": {
-    ${
-  Object.entries(workspacePackages).map(([name, spec]) =>
-    `"${name}": "${spec}"`
-  )
-    .join(",\n")
-}
-  }
-}
-`;
-Deno.writeTextFileSync("workspace/deno.jsonc", workspaceJsonc);
+// let workspaceJsonc = Deno.readTextFileSync("workspace/deno.jsonc").trim();
+// const workspacePackageOnlyJsonc = `{
+//   "imports": {
+//     ${
+//   Object.entries(workspacePackages).map(([name, spec]) =>
+//     `"${name}": "${spec}"`
+//   )
+//     .join(",\n")
+// }
+//   }
+// }
+// `;
+// Deno.writeTextFileSync("workspace/deno.jsonc", workspacePackageOnlyJsonc);
+// await runCwdCommand("engine", [
+//   "install",
+// ]);

@@ -6,18 +6,15 @@ import type {
 } from "../types.ts";
 import upgrade from "./upgrade.ts";
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
-import { showHelp } from "../utils/showHelp.ts";
-import { versionDetails } from "../utils/runtimeVersion.ts";
 import postinstall from "./postinstall.ts";
 import init from "./init.ts";
 import devcontainer from "./devcontainer.ts";
-import render from "./render/index.ts";
-import diagram from "./diagram/index.ts";
-import tf from "./tf/index.ts";
+import render from "./render.ts";
+import diagram from "./diagram.ts";
+import tf from "./tf.ts";
 import docker from "./docker/index.ts";
-import { runCommand } from "../utils/runCommand.ts";
-import Debug from "debug";
-const debug = Debug("reactiac:main");
+import { runEngineCommand } from "../utils/runEngineCommand.ts";
+import { versionDetails } from "../utils/projectVersions.ts";
 
 const options: CommandOptions = {
   boolean: ["debug", "help", "version"],
@@ -38,7 +35,7 @@ const options: CommandOptions = {
     c: "commands",
   },
   cmdDescription:
-    "ReactIAC CLI is a command-line tool for running ReactIAC in both development and production environments.",
+    "ReactIAC CLI is a command-line tool for running ReactIAC in local development to interact with ReactIAC engine.",
   additionalOptions: {
     "Global Options": [
       {
@@ -47,7 +44,7 @@ const options: CommandOptions = {
       },
       {
         name: "--version",
-        description: "The docker image version of the ReactIAC app to use",
+        description: "The ReactIAC engine version to use",
       },
       {
         name: "--debug",
@@ -66,42 +63,11 @@ const options: CommandOptions = {
   },
 };
 
-const runCommandInParallel = async (cmds: string[]) => {
-  debug("Running commands in parallel %O", cmds);
-  const promises = cmds.map(async (cmd) => {
-    const args = cmd.split(" ");
-    await runCommand({
-      prefix: [],
-      envPrefix: [],
-      args,
-      originalArgs: args,
-      commands,
-      options: commands[OPTIONS_SYMBOL],
-    });
-  });
-  await Promise.allSettled(promises).then((results) => {
-    let failed = false;
-    results.map((result, i) => {
-      if (result.status === "rejected") {
-        console.error(`Failed to run ${cmds[i]}: ${result.reason}`);
-        failed = true;
-      }
-    });
-    if (failed) {
-      Deno.exit(1);
-    }
-  });
-};
-
 const run = async (context: CommandContext, args: CommandArgs) => {
-  if (args.commands) {
-    for (const command of args.commands) {
-      await runCommandInParallel(command.split("|"));
-    }
-  } else if (args.version) {
-    console.log(versionDetails);
+  if (args.version) {
+    console.log(versionDetails());
   } else {
-    showHelp(context);
+    await runEngineCommand(context);
   }
 };
 

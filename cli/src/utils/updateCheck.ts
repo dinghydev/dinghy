@@ -1,11 +1,11 @@
 import { existsSync } from "@std/fs";
 import Debug from "debug";
-import { runtimeVersion } from "./runtimeVersion.ts";
 import chalk from "chalk";
 import { walk } from "jsr:@std/fs/walk";
 import { upgradeToVersion } from "../commands/upgrade.ts";
 import { reactiacHome } from "./loadConfig.ts";
 import { execa } from "execa";
+import { projectVersionRelease } from "./projectVersions.ts";
 const debug = Debug("updateCheck");
 
 const todayYYYYMMDD = () => {
@@ -63,7 +63,9 @@ export const cleanUpdateCheck = async () => {
 export const fetchLatestVersion = async () => {
   const url = Deno.env.get("REACTIAC_UPDATE_CHECK_URL") ||
     "https://play.reactiac.dev/download/latest-version.json";
-  const response = await fetch(`${url}?runner-version=${runtimeVersion}`);
+  const response = await fetch(
+    `${url}?runner-version=${projectVersionRelease()}`,
+  );
   const version = await response.json();
   debug("fetched latest version %O", version);
   return version;
@@ -78,7 +80,7 @@ const runCommandWithUpgradedVersion = async () => {
 };
 
 const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
-  debug("ReactIAC Cli version", runtimeVersion);
+  debug("ReactIAC Cli version", projectVersionRelease());
   debug("Deno build %s/%s", Deno.version.deno, Deno.build.target);
 
   if (Deno.env.get("REACTIAC_UPDATE_CHECK_SKIP")) {
@@ -106,7 +108,7 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
       const version = await fetchLatestVersion();
       writeLatestVersion(version);
       const latestVersion = version.latest;
-      if (latestVersion !== runtimeVersion) {
+      if (latestVersion !== projectVersionRelease()) {
         if (autoUpgrade) {
           console.log(`Performing auto-upgrade to ${latestVersion} ...`);
           await upgradeToVersion(latestVersion);
@@ -114,7 +116,7 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
         } else {
           console.log(
             `A new release of ReactIAC is available: ${
-              chalk.dim(runtimeVersion)
+              chalk.dim(projectVersionRelease())
             } → ${chalk.green(latestVersion)}`,
           );
           console.log(`Run ${chalk.yellow("reactiac upgrade")} to install it`);

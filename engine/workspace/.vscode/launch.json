@@ -4,24 +4,21 @@
     {
       "name": "render",
       "args": [
+        "render"
         // "--tf-generateImport",
         // "-h",
         // "--debug"
       ],
-      "program": "tasks/render/index.ts",
-      "cwd": "/reactiac/workspace",
-      "env": {
-        // "CI": "true",
-      },
+      "program": "src/index.ts",
+      "cwd": "/reactiac/engine",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait",
-        "--allow-all"
+        "--inspect-wait"
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -31,20 +28,16 @@
         // "-h",
         // "--debug"
       ],
-      "program": "cli/src/index.ts",
-      "cwd": "/reactiac",
-      "env": {
-        // "CI": "true",
-      },
+      "program": "src/index.ts",
+      "cwd": "/reactiac/engine",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait",
-        "--allow-all"
+        "--inspect-wait"
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -57,8 +50,8 @@
         // "-h",
         // "--debug"
       ],
-      "program": "cli/src/index.ts",
-      "cwd": "/reactiac",
+      "program": "src/index.ts",
+      "cwd": "/reactiac/engine",
       "env": {
         // "CI": "true",
       },
@@ -67,10 +60,9 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait",
-        "--allow-all"
+        "--inspect-wait"
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -83,8 +75,8 @@
         // "-h",
         // "--debug"
       ],
-      "program": "cli/src/index.ts",
-      "cwd": "/reactiac",
+      "program": "src/index.ts",
+      "cwd": "/reactiac/engine",
       "env": {
         // "CI": "true",
       },
@@ -93,10 +85,9 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait",
-        "--allow-all"
+        "--inspect-wait"
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -109,8 +100,8 @@
         // "-h",
         // "--debug"
       ],
-      "program": "cli/src/index.ts",
-      "cwd": "/reactiac",
+      "program": "src/index.ts",
+      "cwd": "/reactiac/engine",
       "env": {
         // "CI": "true",
       },
@@ -119,10 +110,9 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait",
-        "--allow-all"
+        "--inspect-wait"
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -135,8 +125,8 @@
         // "-h",
         // "--debug"
       ],
-      "program": "cli/src/index.ts",
-      "cwd": "/reactiac",
+      "program": "src/index.ts",
+      "cwd": "/reactiac/engine",
       "env": {
         // "CI": "true",
       },
@@ -145,10 +135,9 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait",
-        "--allow-all"
+        "--inspect-wait"
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
       // },
       // {
@@ -160,8 +149,8 @@
       //     "tf apply"
       //     // "--debug"
       //   ],
-      //   "program": "cli/src/index.ts",
-      //   "cwd": "/reactiac",
+      //   "program": "src/index.ts",
+      //   "cwd": "/reactiac/engine",
       //   "env": {
       //     // "CI": "true",
       //   },
@@ -170,10 +159,9 @@
       //   "runtimeExecutable": "/usr/bin/deno",
       //   "runtimeArgs": [
       //     "run",
-      //     "--inspect-wait",
-      //     "--allow-all"
+      //     "--inspect-wait"
       //   ],
-      //   "attachSimplePort": 9229,
+      //   "attachSimplePort": 0,
       //   "console": "integratedTerminal"
     }
   ]

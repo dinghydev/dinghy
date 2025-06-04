@@ -18,7 +18,7 @@ const resolveHome = () => {
 export const reactiacRc: Record<string, string> = {};
 export const isInsideContainer = Deno.env.get("HOST_USER_HOME") !== undefined;
 export const hostAppHome = Deno.env.get("HOST_APP_HOME") || resolveHome();
-export const appHomeMount = `/reactiac/workspace/project/${
+export const appHomeMount = `/reactiac/engine/workspace/${
   basename(hostAppHome)
 }`;
 export const containerAppHome = isInsideContainer
@@ -28,7 +28,20 @@ export const reactiacHome = Deno.env.get("REACTIAC_HOME") ||
   `${Deno.env.get("HOME")}/.reactiac`;
 
 export const reactiacAppConfig: any = {};
-function loadAppConfig() {
+export async function loadAppConfig() {
+  debug("reactiac home %s", reactiacHome);
+  debug("app home %s", containerAppHome);
+  debug("exec path %s", Deno.execPath());
+  for (
+    const file of [
+      `${containerAppHome}/.reactiacrc.local`,
+      `${containerAppHome}/.reactiacrc`,
+      `${reactiacHome}rc`,
+    ]
+  ) {
+    await loadEnvFile(file);
+  }
+
   const configFile = `${hostAppHome}/iac.yaml`;
   if (!fs.existsSync(configFile)) {
     return;
@@ -38,8 +51,6 @@ function loadAppConfig() {
   if (config) {
     Object.assign(reactiacAppConfig, config);
   }
-  debug("loaded app config from", configFile);
-  loadFiles([`${hostAppHome}/config/`]);
 }
 
 function loadFiles(basePaths: string[]) {
@@ -127,19 +138,15 @@ async function loadEnvFile(path: string) {
   }
 }
 
-export async function loadConfig() {
-  debug("reactiac home %s", reactiacHome);
-  debug("app home %s", containerAppHome);
-  debug("exec path %s", Deno.execPath());
-  for (
-    const file of [
-      `${containerAppHome}/.reactiacrc.local`,
-      `${containerAppHome}/.reactiacrc`,
-      `${reactiacHome}rc`,
-    ]
-  ) {
-    await loadEnvFile(file);
+let loadedStacksConfig = false;
+export function requireStacksConfig() {
+  if (loadedStacksConfig) {
+    return;
   }
-  loadAppConfig();
+
+  debug("loading stacks config");
+  loadFiles([`${hostAppHome}/config/`]);
   loadApps();
+  debug("loaded stacks config");
+  loadedStacksConfig = true;
 }

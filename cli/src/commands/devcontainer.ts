@@ -12,6 +12,8 @@ import { appHomeMount, configGet, hostAppHome } from "../utils/loadConfig.ts";
 import { configGetDockerImage } from "../utils/dockerConfig.ts";
 import { execa } from "execa";
 import { getDockerEnvs, getDockerMounts } from "../utils/dockerUtils.ts";
+import { projectVersionRelease } from "../utils/projectVersions.ts";
+import { cwd } from "node:process";
 const debug = Debug("init");
 
 const options: CommandOptions = {
@@ -40,6 +42,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     }
 
     const result = await execa("devcontainer", ["open"], {
+      cwd: hostAppHome,
       stdio: "ignore",
       reject: false,
     });
@@ -77,6 +80,7 @@ function prepareConfig(args: CommandArgs): any {
   }
 
   config.containerEnv = getDockerEnvs(config.containerEnv || {});
+  config.containerEnv.REACTIAC_CLI_VERSION = projectVersionRelease();
   config.containerEnv.DOCKER_IMAGE = Deno.env.get("DOCKER_IMAGE") ||
     config.image;
 
@@ -87,7 +91,7 @@ function prepareConfig(args: CommandArgs): any {
     })),
     {
       source: "deno.jsonc",
-      target: "/reactiac/workspace/deno.jsonc",
+      target: "/reactiac/engine/deno.jsonc",
     },
   ]).map((mount) => `source=${mount.source},target=${mount.target},type=bind`);
 
@@ -97,7 +101,7 @@ function prepareConfig(args: CommandArgs): any {
   config.workspaceFolder ??= args.workspace ||
     (vscodeConfigExist ? appHomeMount : dirname(appHomeMount));
 
-  config.onCreateCommand = "on-devcontainer-create.ts";
+  // config.onCreateCommand ??= "on-devcontainer-create.ts";
 
   config.customizations ??= {
     vscode: {

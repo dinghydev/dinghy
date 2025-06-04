@@ -1,15 +1,19 @@
-import type { CommandArgs, CommandContext, Commands } from "../../types.ts";
-import {
-  OPTIONS_SYMBOL,
-  REQUIRE_CONTAINER_SYMBOL,
-  RUN_SYMBOL,
-} from "../../types.ts";
+import type {
+  CommandArgs,
+  CommandContext,
+  Commands,
+} from "../../../../cli/src/types.ts";
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
 import { runTfImageCmd } from "./runTfImageCmd.ts";
 import { createTfOptions } from "./tfOptions.ts";
 import process from "node:process";
 import confirm from "@inquirer/confirm";
-import { hostAppHome } from "../../utils/loadConfig.ts";
+import {
+  hostAppHome,
+  requireStacksConfig,
+} from "../../../../cli/src/utils/loadConfig.ts";
 import { doWithTfStacks } from "./doWithTfStacks.ts";
+import chalk from "chalk";
 
 const options: any = createTfOptions({
   boolean: ["auto-create-backend"],
@@ -108,10 +112,16 @@ const runTfInit = (
 };
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
+  await requireStacksConfig();
   await doWithTfStacks(args, async (tfOptions) => {
     const { stages } = tfOptions;
     for (const stage of stages) {
       const stagePath = `${args.output}/${stage.id}`;
+      console.log(
+        `Initializing ${
+          chalk.green(`${hostAppHome}/${stagePath}/${stage.id}.tf.json`)
+        } ...`,
+      );
       const result = await runTfInit(
         stagePath,
         args,
@@ -162,7 +172,6 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
 const commands: Commands = {
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
-  [REQUIRE_CONTAINER_SYMBOL]: false,
 };
 
 export default commands;

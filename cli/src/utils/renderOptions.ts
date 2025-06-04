@@ -25,4 +25,6 @@ export const renderOptions = {
       required: false,
     },
   },
+  cmdDescription:
+    "Render from .tsx files to target formats e.g. .drawio or .tf",
 };

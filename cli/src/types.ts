@@ -22,12 +22,12 @@ export type CommandArgs = {
 
 export const OPTIONS_SYMBOL = Symbol("options");
 export const RUN_SYMBOL = Symbol("run");
-export const REQUIRE_CONTAINER_SYMBOL = Symbol("requireContainer");
+export const REQUIRE_ENGINE_SYMBOL = Symbol("requireEngine");
 
 export type Command = {
   [OPTIONS_SYMBOL]: CommandOptions;
   [RUN_SYMBOL]: (context: CommandContext, args: CommandArgs) => any;
-  [REQUIRE_CONTAINER_SYMBOL]?: boolean;
+  [REQUIRE_ENGINE_SYMBOL]?: boolean;
 };
 
 export type Commands = Command & Record<string, Command>;
@@ -44,5 +44,18 @@ export type CommandContext = {
   args: string[];
   originalArgs: string[];
   commands: Commands;
+  isEngine: boolean;
   options: CommandOptions;
+};
+
+export class ReactiacError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "ReactiacError";
+    Object.setPrototypeOf(this, ReactiacError.prototype);
+  }
+}
+
+export const throwReactiacError = (message: string) => {
+  throw new ReactiacError(message);
 };

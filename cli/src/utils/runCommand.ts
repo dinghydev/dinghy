@@ -1,7 +1,15 @@
-import { type CommandContext, OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
+import {
+  type CommandContext,
+  OPTIONS_SYMBOL,
+  ReactiacError,
+  REQUIRE_ENGINE_SYMBOL,
+  RUN_SYMBOL,
+  throwReactiacError,
+} from "../types.ts";
 import { showHelp } from "./showHelp.ts";
 import Debug from "debug";
 import { parseOptions } from "./parseOptions.ts";
+import { runEngineCommand } from "./runEngineCommand.ts";
 const debug = Debug("runCommand");
 
 const executeCommand = async (context: CommandContext) => {
@@ -12,20 +20,20 @@ const executeCommand = async (context: CommandContext) => {
   );
   // todo: use REQUIRE_CONTAINER_SYMBOL to fix iac-cicd $ DOCKER_IMAGEVERSION=latest reactiac tf init production --debug
   debug("running [reactiac %s]", context.prefix.join(" "));
-  return await context.commands[RUN_SYMBOL](context, options);
+  return await context.commands[RUN_SYMBOL]!(context, options);
 };
 
 export async function runCommand(context: CommandContext) {
   const cmdStr = context.args[0];
   if (
     context.commands[cmdStr] ||
-    (!context.options.arguments && cmdStr && cmdStr.charAt(0) !== "-")
+    (!context.options?.arguments && cmdStr && cmdStr.charAt(0) !== "-")
   ) {
     let command = context.commands[cmdStr];
     let envName = cmdStr;
     if (!command) {
       Object.entries(context.commands).find(([name, cmdDef]) => {
-        const alias = cmdDef[OPTIONS_SYMBOL].cmdAlias ?? [];
+        const alias = cmdDef[OPTIONS_SYMBOL]?.cmdAlias ?? [];
         if (alias.includes(cmdStr)) {
           command = cmdDef;
           envName = name;
@@ -36,9 +44,12 @@ export async function runCommand(context: CommandContext) {
     }
     const currentCommand = [...context.prefix, cmdStr];
     if (!command) {
+      if (!context.isEngine) {
+        return await runEngineCommand(context);
+      }
       const cmds = Object.keys(context.commands);
       Object.values(context.commands).map((cmd) => {
-        for (const alias of cmd[OPTIONS_SYMBOL].cmdAlias ?? []) {
+        for (const alias of cmd[OPTIONS_SYMBOL]?.cmdAlias ?? []) {
           cmds.push(alias);
         }
       });
@@ -48,20 +59,24 @@ export async function runCommand(context: CommandContext) {
           context.prefix.length ? ` ${context.prefix.join(" ")}` : ""
         } [${cmds.join(", ")}]`,
       );
-      throw new Error(`Command [${currentCommand.join(" ")}] not found`);
+      throwReactiacError(`Command [${currentCommand.join(" ")}] not found`);
     }
     return await runCommand({
+      ...context,
       prefix: [...context.prefix, cmdStr],
       envPrefix: [...context.prefix, envName],
       args: context.args.slice(1),
-      originalArgs: context.originalArgs,
       commands: command,
       options: command[OPTIONS_SYMBOL],
     });
   }
 
   if (context.args.includes("--help") || context.args.includes("-h")) {
-    showHelp(context);
+    if (context.commands[REQUIRE_ENGINE_SYMBOL] && !context.isEngine) {
+      await runEngineCommand(context);
+    } else {
+      showHelp(context);
+    }
     return;
   }
 

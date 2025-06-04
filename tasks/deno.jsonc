@@ -1,6 +1,7 @@
 {
   "tasks": {
     "clean": "rm -rf ../../build",
+    "refresh-engine-lock": "deno run -A ./src/refresh-engine-lock.ts",
     "version-release": "deno run -A ./src/version-release.ts",
 
     "npm-build": "deno run -A ./src/npm-build.ts",

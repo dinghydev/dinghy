@@ -1,4 +1,4 @@
-import { rendererMapping } from "./renderMapping.ts";
+import { rendererMapping } from "../../commands/render/renderMapping.ts";
 
 import {
   containerAppHome,

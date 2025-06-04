@@ -11,7 +11,6 @@ import { streamCmd } from "./cmd.ts";
 import { mkdirSync } from "node:fs";
 import Debug from "debug";
 import { deepMerge } from "./index.ts";
-import { isCi } from "./gitUtils.ts";
 const debug = Debug("dockerUtils");
 
 const HOST_USER_HOME = Deno.env.get("HOST_USER_HOME") ||
@@ -125,6 +124,7 @@ const prepareDockerAuthConfig = () => {
 
 export const runDockerCmd = async (
   workingDir: string,
+  envs: Env,
   appMounts: Mount[],
   args: string[],
   dockerImage: string,
@@ -137,7 +137,7 @@ export const runDockerCmd = async (
       "run",
       "--rm",
       "-t",
-      ...Object.entries(getDockerEnvs()).flatMap((
+      ...Object.entries(getDockerEnvs(envs)).flatMap((
         [k, v],
       ) => ["-e", `'${k}=${(v as string).replace(/'/g, "'\"'\"'")}'`]),
       ...getDockerMounts(appMounts).flatMap((
