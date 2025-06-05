@@ -67,12 +67,22 @@ jobs:
           # aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 313225491971.dkr.ecr.eu-west-1.amazonaws.com
           # aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7
           cd tasks
+
+          echo "::group::Install multiarch support"
           docker run --privileged --rm tonistiigi/binfmt --install linux/arm64
-          
+          echo "::endgroup::"
+
+          echo "::group::Build arm64 image"
           deno task docker-build-arm64
+          echo "::endgroup::"
+
+          echo "::group::Build amd64 image"
           deno task docker-build-amd64
-        
+          echo "::endgroup::"
+          
+          echo "::group::Publish cli"
           deno task cli-publish
+          echo "::endgroup::"
 
           RELEASE_VERSION="$(jq -r '.release' ../.versions.json)"
           echo "## RELEASE_VERSION" >> $GITHUB_STEP_SUMMARY
