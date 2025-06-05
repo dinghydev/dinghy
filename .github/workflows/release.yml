@@ -19,16 +19,17 @@ jobs:
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
-      - name: Restore cached packages
-        id: restore-cached-packages
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            /home/runner/.cache
-          key: ${{ runner.os }}-docker-build-${{ hashFiles('*/deno.lock') }}
+      # - name: Restore cached packages
+      #   id: restore-cached-packages
+      #   uses: actions/cache/restore@v4
+      #   with:
+      #     path: |
+      #       /home/runner/.cache
+      #     key: ${{ runner.os }}-docker-build-${{ hashFiles('*/deno.lock') }}
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.3.3
+          cache: true
       - uses: actions/setup-node@v4
       - name: commit-rev-count
         run: |
@@ -87,11 +88,11 @@ jobs:
           RELEASE_VERSION="$(jq -r '.release' ../.versions.json)"
           echo "## RELEASE_VERSION" >> $GITHUB_STEP_SUMMARY
           echo "$RELEASE_VERSION" >> $GITHUB_STEP_SUMMARY
-      - name: Save cached packages
-        id: save-cached-packages
-        uses: actions/cache/save@v4
-        with:
-          path: |
-            /home/runner/.cache
-          key: ${{ steps.restore-cached-packages.outputs.cache-primary-key }}
+      # - name: Save cached packages
+      #   id: save-cached-packages
+      #   uses: actions/cache/save@v4
+      #   with:
+      #     path: |
+      #       /home/runner/.cache
+      #     key: ${{ steps.restore-cached-packages.outputs.cache-primary-key }}
 
