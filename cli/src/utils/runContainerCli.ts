@@ -1,4 +1,4 @@
-import { configGetDockerImage } from "./dockerConfig.ts";
+import { configGetEngineImage } from "./dockerConfig.ts";
 import { runDockerCmd } from "./dockerUtils.ts";
 
 export const runContainerCli = async (
@@ -10,7 +10,7 @@ export const runContainerCli = async (
     workingDir,
     [],
     ["reactiac", ...args],
-    configGetDockerImage(),
+    configGetEngineImage(),
     exitOnFailure,
   );
 };

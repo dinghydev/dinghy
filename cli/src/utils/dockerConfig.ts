@@ -8,11 +8,11 @@ import {
 } from "./projectVersions.ts";
 const debug = Debug("dockerConfig");
 
-export const configDockerRepoDefault =
+export const configEngineRepoDefault =
   "public.ecr.aws/f2v6q7q7/reactiac/reactiac";
 
-export const configGetDockerRepo = () => {
-  return configGet(["docker", "repo"]) || configDockerRepoDefault;
+export const configGetEngineRepo = () => {
+  return configGet(["reactiac", "engine", "repo"]) || configEngineRepoDefault;
 };
 
 const cliArgsVersion = () => {
@@ -26,42 +26,43 @@ const cliArgsVersion = () => {
   return null;
 };
 
-export const configGetDockerImageVersion = () => {
-  let version = cliArgsVersion() || configGet(["docker", "imageVersion"]);
+export const configGetEngineVersion = () => {
+  let version = cliArgsVersion() ||
+    configGet(["reactiac", "engine", "version"]);
   if (!version || !version.includes("-")) {
-    debug("none locked version detected, resolving", version);
+    debug("none locked engine version detected, resolving", version);
     if (version && Deno.build.standalone) {
       version = resolveLatestVersion(version);
-      debug("resolved docker image version %s for standalone cli", version);
+      debug("resolved engine version %s for standalone cli", version);
     } else {
       version = projectVersionRelease();
-      debug("resolved docker image version %s from .versions.json", version);
+      debug("resolved engine version %s from .versions.json", version);
     }
   }
-  debug("resolved docker image version as %s", version);
+  debug("resolved engine version as %s", version);
   return version;
 };
 
-export const configGetDockerImage = () => {
-  let image = configGet(["docker", "image"]);
+export const configGetEngineImage = () => {
+  let image = configGet(["reactiac", "engine", "image"]);
   if (!image) {
     const arch = Deno.build.arch === "aarch64" ? "-linux-arm64" : "";
-    image = `${configGetDockerRepo()}:${configGetDockerImageVersion()}${arch}`;
+    image = `${configGetEngineRepo()}:${configGetEngineVersion()}${arch}`;
   }
-  debug("resolved docker image %s", image);
+  debug("resolved engine image %s", image);
   return image;
 };
 
 export const configGetTfImage = () => {
   const arch = Deno.build.arch === "aarch64" ? "-linux-arm64" : "";
-  const image = `${configGetDockerRepo()}:${projectVersionTf()}${arch}`;
+  const image = `${configGetEngineRepo()}:${projectVersionTf()}${arch}`;
   debug("resolved tf image %s", image);
   return image;
 };
 
 export const configGetDrawioImage = () => {
   const arch = Deno.build.arch === "aarch64" ? "-linux-arm64" : "";
-  const image = `${configGetDockerRepo()}:${projectVersionDrawio()}${arch}`;
+  const image = `${configGetEngineRepo()}:${projectVersionDrawio()}${arch}`;
   debug("resolved drawio image %s", image);
   return image;
 };

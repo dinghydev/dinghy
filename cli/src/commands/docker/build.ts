@@ -14,7 +14,7 @@ import { baseVersion, commitVersion } from "../../utils/commitVersion.ts";
 import { walk } from "@std/fs/walk";
 import ejs from "ejs";
 import { createHash } from "node:crypto";
-import { configGetDockerRepo } from "../../utils/dockerConfig.ts";
+import { configGetEngineRepo } from "../../utils/dockerConfig.ts";
 import { isCi } from "../../utils/index.ts";
 import { projectRoot } from "../../utils/projectRoot.ts";
 const debug = Debug("init");
@@ -53,7 +53,7 @@ async function init(args: CommandArgs) {
     (Deno.build.arch === "aarch64" ? "arm64" : "amd64");
   args.buildContext.VERSION_RELEASE = await commitVersion(hostAppHome);
   args.buildContext.VERSION_BASE = baseVersion(hostAppHome);
-  args.buildContext.DOCKER_REPO = configGetDockerRepo();
+  args.buildContext.DOCKER_REPO = configGetEngineRepo();
 
   // console.log("buildContext", args.buildContext);
   args.images = Deno.readDirSync(args.sourceFolder).filter((f) => f.isDirectory)

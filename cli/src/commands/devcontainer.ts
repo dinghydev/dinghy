@@ -9,7 +9,7 @@ import type {
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../types.ts";
 import Debug from "debug";
 import { appHomeMount, configGet, hostAppHome } from "../utils/loadConfig.ts";
-import { configGetDockerImage } from "../utils/dockerConfig.ts";
+import { configGetEngineImage } from "../utils/dockerConfig.ts";
 import { execa } from "execa";
 import { getDockerEnvs, getDockerMounts } from "../utils/dockerUtils.ts";
 import { projectVersionRelease } from "../utils/projectVersions.ts";
@@ -76,7 +76,7 @@ function prepareConfig(args: CommandArgs): any {
   config.name ??= hostAppHome.split("/").pop() as string;
   config.runArgs ??= ["--name", config.name];
   if (!config.build) {
-    config.image = configGetDockerImage();
+    config.image = configGetEngineImage();
   }
 
   config.containerEnv = getDockerEnvs(config.containerEnv || {});

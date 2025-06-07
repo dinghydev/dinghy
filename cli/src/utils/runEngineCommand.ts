@@ -2,7 +2,7 @@ import type { CommandContext } from "../types.ts";
 import Debug from "debug";
 import { hostAppHome } from "./loadConfig.ts";
 import { runDockerCmd } from "./dockerUtils.ts";
-import { configGetDockerImage } from "./dockerConfig.ts";
+import { configGetEngineImage } from "./dockerConfig.ts";
 import { projectVersionRelease } from "./projectVersions.ts";
 const debug = Debug("runEngineCommand");
 function collectEngineArgs(originalArgs: string[]) {
@@ -25,6 +25,6 @@ export async function runEngineCommand(context: CommandContext) {
       "reactiac",
       ...collectEngineArgs(context.originalArgs),
     ],
-    configGetDockerImage(),
+    configGetEngineImage(),
   );
 }

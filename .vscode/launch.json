@@ -186,8 +186,8 @@
       "cwd": "${workspaceFolder}/cli",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        // "DOCKER_IMAGEVERSION": "latest",
-        // "DOCKER_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac",
+        // "REACTIAC_ENGINE_VERSION": "latest",
+        // "REACTIAC_ENGINE_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac",
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
@@ -373,8 +373,8 @@
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "env": {
         "DEBUG": "*",
-        "DOCKER_IMAGEVERSION": "latest",
-        "DOCKER_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac"
+        "REACTIAC_ENGINE_VERSION": "latest",
+        "REACTIAC_ENGINE_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac"
       },
       "cwd": "${env:HOME}/andopen/src/devops/iac-cicd",
       "console": "integratedTerminal"
@@ -430,7 +430,7 @@
       "cwd": "${workspaceFolder}/cli",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "DOCKER_IMAGEVERSION": "latest",
+        "REACTIAC_ENGINE_VERSION": "latest",
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
