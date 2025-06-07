@@ -183,15 +183,17 @@ export const parseStacks = (
 export const loadStackConfig = (
   stackOptions: any,
 ) => {
-  if (stackOptions.stack.override) {
-    deepMerge(stackOptions, stackOptions.stack.override)
-    debug('loaded stack override %O', stackOptions.stack.override)
-  }
   const settings =
+    loadFilesData(stackOptions, 'data/stacks', stackOptions.stack.id) ||
+    loadFilesData(stackOptions, 'data', stackOptions.stack.id) ||
     loadFilesData(stackOptions, 'config/settings', stackOptions.stack.id) ||
     loadFilesData(stackOptions, 'config', stackOptions.stack.id)
   if (settings) {
     deepMerge(stackOptions, settings)
+  }
+  if (stackOptions.stack.override) {
+    deepMerge(stackOptions, stackOptions.stack.override)
+    debug('loaded stack override %O', stackOptions.stack.override)
   }
   return stackOptions.stack as Stack
 }
