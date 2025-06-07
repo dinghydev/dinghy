@@ -15,7 +15,7 @@ import { hostAppHome } from "../../../../cli/src/utils/loadConfig.ts";
 const debug = Debug("diagram:png");
 
 const options: CommandOptions = {
-  boolean: ["debug"],
+  boolean: ["debug", "delete-after-success"],
   collect: ["file"],
   string: ["drawio-bin", "output"],
   description: {
@@ -23,6 +23,8 @@ const options: CommandOptions = {
     "drawio-bin":
       "Path to local drawio binary, e.g. --drawio-bin /Applications/draw.io.app/Contents/MacOS/draw.io",
     output: "Path to the lookup drawio files if file not provided",
+    "delete-after-success":
+      "Delete the drawio file after successful generation",
   },
   alias: {
     f: "file",
@@ -103,6 +105,10 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       hasSuccess = true;
       debug(`generated -> ${pngFile}`);
       results[file] = pngFile;
+      if (args["delete-after-success"]) {
+        await Deno.remove(file);
+        debug(`deleted ${file}`);
+      }
     }
   }
   console.log("Generated png files:");
