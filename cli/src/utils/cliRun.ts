@@ -2,7 +2,7 @@ import { runCommand } from "./runCommand.ts";
 import { Commands, OPTIONS_SYMBOL, ReactiacError } from "../types.ts";
 import { updateCheck } from "./updateCheck.ts";
 import { setupDebug } from "./setupDebug.ts";
-import { loadAppConfig } from "./loadConfig.ts";
+import { loadGlobalConfig } from "./loadConfig.ts";
 import Debug from "debug";
 import { projectVersionRelease } from "./projectVersions.ts";
 import chalk from "chalk";
@@ -16,7 +16,7 @@ export const cliRun = async (
     setupDebug();
     debug("started at %O with version %s", new Date(), projectVersionRelease());
 
-    await loadAppConfig();
+    await loadGlobalConfig();
     await updateCheck(true);
 
     await runCommand({

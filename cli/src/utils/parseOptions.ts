@@ -62,7 +62,7 @@ export const parseOptions = (
   }
 
   if (!options.output) {
-    options.output = configGet(["output"]) || "output";
+    options.output = configGet(["reactiac", "output"]) || "output";
   }
 
   debug("parsed options %O", options);

@@ -1,17 +1,24 @@
-import { setupDebug } from "../../utils/setupDebug.ts";
-import { hostAppHome, loadConfig } from "../../utils/loadConfig.ts";
-import { parseOptions } from "../../utils/parseOptions.ts";
+import { setupDebug } from "../../../../../cli/src/utils/setupDebug.ts";
+import { hostAppHome } from "../../../../../cli/src/utils/loadConfig.ts";
+import { parseOptions } from "../../../../../cli/src/utils/parseOptions.ts";
 import Debug from "debug";
-import { loadTfJsonFile } from "../../utils/loadTfJsonFile.ts";
+import { loadTfJsonFile } from "../../../../../cli/src/utils/loadTfJsonFile.ts";
 import { parseResources } from "./parseResources.ts";
 import { generateApp } from "./generateApp.ts";
 import { createModel } from "./createModel.ts";
-import { tfGenerateOptions } from "../../utils/tfGenerateOptions.ts";
+import { tfGenerateOptions } from "../../../../../cli/src/utils/tfGenerateOptions.ts";
 import { existsSync } from "@std/fs/exists";
+import {
+  CommandArgs,
+  CommandContext,
+  Commands,
+  OPTIONS_SYMBOL,
+  RUN_SYMBOL,
+} from "../../../../../cli/src/types.ts";
 const debug = Debug("tf-generate");
 try {
   setupDebug();
-  await loadConfig();
+  // await loadGlobalConfig();
 
   debug("tf generate started at %O", new Date());
   const args = parseOptions(tfGenerateOptions, Deno.args, ["tf", "generate"]);
@@ -41,16 +48,9 @@ try {
   throw e;
 }
 
-import type {
-  CommandArgs,
-  CommandContext,
-  Commands,
-} from "../../../../cli/src/types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
-import { tfGenerateOptions } from "../../utils/tfGenerateOptions.ts";
-
-const run = async (context: CommandContext, _args: CommandArgs) => {
-  await runWorkspaceTask(["tf-generate", ...context.originalArgs]);
+const run = async (_context: CommandContext, _args: CommandArgs) => {
+  // await runWorkspaceTask(["tf-generate", ...context.originalArgs]);
+  throw new Error("Not implemented");
 };
 
 const commands: Commands = {

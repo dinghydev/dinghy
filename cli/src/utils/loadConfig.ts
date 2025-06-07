@@ -28,7 +28,7 @@ export const reactiacHome = Deno.env.get("REACTIAC_HOME") ||
   `${Deno.env.get("HOME")}/.reactiac`;
 
 export const reactiacAppConfig: any = {};
-export async function loadAppConfig() {
+export async function loadGlobalConfig() {
   debug("reactiac home %s", reactiacHome);
   debug("app home %s", containerAppHome);
   debug("exec path %s", Deno.execPath());
