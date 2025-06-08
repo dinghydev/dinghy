@@ -13,6 +13,7 @@ export const DataAwsSecretsmanagerSecretInputSchema = z.object({
 export const DataAwsSecretsmanagerSecretOutputSchema = z.object({
   id: ResolvableStringSchema.optional(),
   last_changed_date: ResolvableStringSchema.optional(),
+  arn: ResolvableStringSchema.optional(),
 })
 
 export type DataAwsSecretsmanagerSecretInputProps =

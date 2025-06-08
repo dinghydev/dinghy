@@ -6,5 +6,6 @@
   "deno.lint": true,
   "[jsonc]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
-  }
+  },
+  "debug.terminal.clearBeforeReusing": true
 }

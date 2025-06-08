@@ -52,10 +52,10 @@ export type AwsS3BucketOutputProps =
   & S3BackendInputProps
 
 const EnableVersioning = (props: Props) => {
-  const { awsS3Bucket } = useAwsS3Bucket()
+  const { bucket } = useAwsS3Bucket()
   return (
     <AwsS3BucketVersioning
-      bucket={awsS3Bucket.bucket}
+      bucket={bucket.bucket}
       versioning_configuration={{ status: 'Enabled' }}
       {...props}
     />
@@ -64,7 +64,7 @@ const EnableVersioning = (props: Props) => {
 
 export function S3Backend(props: S3BackendInputProps) {
   const { stack } = useStack()
-  const { awsRegion } = useAwsRegion()
+  const { region } = useAwsRegion()
   const {
     createBackend,
     createBackendInStage,
@@ -88,7 +88,7 @@ export function S3Backend(props: S3BackendInputProps) {
       useLockTable={useLockTable}
       lockTable={lockTable as any}
       stateFile={stateRemoteFile as any}
-      region={awsRegion.region}
+      region={region.region}
       _display='none'
       _stackResource
     >

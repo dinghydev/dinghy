@@ -12,8 +12,8 @@ export type Ec2InstanceInputProps =
 
 export function Ec2Instance(props: AwsInstanceInputProps) {
   const user_data = (node: any) => {
-    const { userData } = useUserData(node)
-    return userData?.content
+    const { data } = useUserData(node)
+    return data?.content
   }
   return (
     <AwsInstance

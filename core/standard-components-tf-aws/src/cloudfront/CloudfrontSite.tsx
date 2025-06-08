@@ -52,15 +52,15 @@ export type CloudfrontSiteInputProps =
   & IacNodeProps
 
 const ARecord = (props: Props) => {
-  const { awsCloudfrontDistribution } = useAwsCloudfrontDistribution()
-  const { awsRoute53Zone } = useAwsRoute53Zone()
+  const { distribution } = useAwsCloudfrontDistribution()
+  const { zone } = useAwsRoute53Zone()
   return (
     <AwsRoute53Record
       type='A'
-      zone_id={awsRoute53Zone.zone_id}
+      zone_id={zone.zone_id}
       alias={{
-        name: awsCloudfrontDistribution.domain_name,
-        zone_id: awsCloudfrontDistribution.hosted_zone_id,
+        name: distribution.domain_name,
+        zone_id: distribution.hosted_zone_id,
         evaluate_target_health: false,
       }}
       {...props}
@@ -69,10 +69,10 @@ const ARecord = (props: Props) => {
 }
 
 export function CloudfrontSite(props: CloudfrontSiteInputProps) {
-  const { logBucket } = useLogBucket()
-  const { awsS3Bucket } = useAwsS3Bucket('aws_s3_bucket_sites')
-  const { awsAcmCertificate } = useAwsAcmCertificate()
-  const { awsCloudfrontOriginAccessControl } =
+  const { bucket: logBucket } = useLogBucket()
+  const { bucket: awsS3Bucket } = useAwsS3Bucket('aws_s3_bucket_sites')
+  const { certificate } = useAwsAcmCertificate()
+  const { control: awsCloudfrontOriginAccessControl } =
     useAwsCloudfrontOriginAccessControl((props as any).title)
   const { default_ttl, s3OriginPrefix } = CloudfrontSiteInputSchema.parse(props)
   const logging_config = {
@@ -125,7 +125,7 @@ export function CloudfrontSite(props: CloudfrontSiteInputProps) {
         origin_access_control_id: awsCloudfrontOriginAccessControl.id,
       }}
       viewer_certificate={{
-        acm_certificate_arn: awsAcmCertificate.arn,
+        acm_certificate_arn: certificate.arn,
         ssl_support_method: 'sni-only',
         minimum_protocol_version: 'TLSv1.2_2021',
       }}

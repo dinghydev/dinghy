@@ -177,18 +177,20 @@
       "args": [
         "tf",
         "diff",
+        "platform-dev2",
         // "production",
-        "development",
+        // "development",
+        "--tf-generateImport",
+        "true",
         // "-h",
         "--debug"
       ],
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}/cli",
+      "cwd": "${workspaceFolder}/engine",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        // "REACTIAC_ENGINE_VERSION": "latest",
-        // "REACTIAC_ENGINE_REPO": "public.ecr.aws/f2v6q7q7/reactiac/reactiac",
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "type": "node",
@@ -431,14 +433,15 @@
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         "REACTIAC_ENGINE_VERSION": "latest",
+        "AWS_PROFILE": "default",
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
       },

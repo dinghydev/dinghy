@@ -42,10 +42,10 @@ const PrivateSubnet = (props: any) => (
 );
 
 const LoadBalancer = (props: any) => {
-  const { awsSubnets } = useAwsSubnets();
+  const { subnets } = useAwsSubnets();
   return (
     <AwsLb
-      subnets={awsSubnets.map((s) => s.id)}
+      subnets={subnets.map((s) => s.id)}
       _dependsOn={["Firewall", "Application"]}
       {...props}
     />
@@ -54,10 +54,10 @@ const LoadBalancer = (props: any) => {
 const Firewall = (props: any) => <Waf {...props} />;
 
 const Application = (props: any) => {
-  const { awsSubnet } = useAwsSubnet();
+  const { subnet } = useAwsSubnet();
   return (
     <AwsInstance
-      subnet_id={awsSubnet.id}
+      subnet_id={subnet.id}
       ami="ami-005e54dee72cc1d00"
       _dependsOn="Postgres"
       {...props}

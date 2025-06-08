@@ -42,22 +42,22 @@ export type S3CloudfrontSiteInputProps =
 
 export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
   const { stack } = useStack()
-  const { awsAcmCertificate } = useAwsAcmCertificate()
-  const { awsCloudfrontDistribution } = useAwsCloudfrontDistribution()
+  const { certificate } = useAwsAcmCertificate()
+  const { distribution } = useAwsCloudfrontDistribution()
   const { subdomain, bucketVersions, files } = S3CloudfrontSiteInputSchema
     .parse(props)
-  const { logBucket } = useLogBucket()
+  const { bucket: logBucket } = useLogBucket()
   const domain = () => {
-    return `${subdomain}.${(awsAcmCertificate as any).domain()}`.replace(
+    return `${subdomain}.${(certificate as any).domain()}`.replace(
       /^(WWW\.)/,
       '',
     )
   }
 
   const Cloudfront = () => {
-    const { awsS3Bucket } = useAwsS3Bucket()
-    const { awsRoute53Zone } = useAwsRoute53Zone()
-    const { awsCloudfrontOriginAccessControl } =
+    const { bucket: originBucket } = useAwsS3Bucket()
+    const { zone } = useAwsRoute53Zone()
+    const { control: awsCloudfrontOriginAccessControl } =
       useAwsCloudfrontOriginAccessControl()
     const logging_config = {
       bucket: logBucket.bucket_regional_domain_name,
@@ -85,12 +85,12 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
           cache_policy_id: '658327ea-f89d-4fab-a63d-7e88639e58f6', //CachingOptimized https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html} :
         }}
         origin={{
-          domain_name: awsS3Bucket.bucket_regional_domain_name,
+          domain_name: originBucket.bucket_regional_domain_name,
           origin_id: 'defaultOrigin',
           origin_access_control_id: awsCloudfrontOriginAccessControl.id,
         }}
         viewer_certificate={{
-          acm_certificate_arn: awsAcmCertificate.arn,
+          acm_certificate_arn: certificate.arn,
           ssl_support_method: 'sni-only',
           minimum_protocol_version: 'TLSv1.2_2021',
         }}
@@ -109,10 +109,10 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
           name={domain as any}
           _name={subdomain}
           type='A'
-          zone_id={awsRoute53Zone.zone_id}
+          zone_id={zone.zone_id}
           alias={{
-            name: awsCloudfrontDistribution.domain_name,
-            zone_id: awsCloudfrontDistribution.hosted_zone_id,
+            name: distribution.domain_name,
+            zone_id: distribution.hosted_zone_id,
             evaluate_target_health: false,
           }}
         />
@@ -155,7 +155,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
               condition: {
                 test: 'StringEquals',
                 variable: 'AWS:SourceArn',
-                values: [awsCloudfrontDistribution.arn],
+                values: [distribution.arn],
               },
             }}
           />

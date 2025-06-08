@@ -1,5 +1,6 @@
 import {
   deepMerge,
+  deepResolve,
   type IacNodeProps,
   loadFilesData,
   ResolvableRecordSchema,
@@ -13,6 +14,7 @@ import { AwsIamRolePolicy } from './AwsIamRolePolicy.tsx'
 import { parsePolicies } from './parsePolicies.ts'
 export const InputSchema = z.object({
   name: ResolvableStringSchema,
+  path: ResolvableStringSchema.optional(),
   initialPolicies: ResolvableRecordSchema.optional(),
 })
 
@@ -21,10 +23,13 @@ export type InputProps =
   & IacNodeProps
 
 export function IamRolePolicies(
-  { name, initialPolicies, ...props }: InputProps,
+  { name, path, initialPolicies, ...props }: InputProps,
 ) {
   const { renderOptions } = useRenderOptions()
-  const data = loadFilesData(renderOptions, 'config/iam-policy', name as string)
+  const data = path
+    ? loadFilesData(renderOptions, path as string, name as string)
+    : (loadFilesData(renderOptions, 'data/iam-policy', name as string) ||
+      loadFilesData(renderOptions, 'config/iam-policy', name as string))
   const policies = {}
   if (initialPolicies) {
     deepMerge(policies, initialPolicies)
@@ -63,10 +68,13 @@ export function IamRolePolicies(
             _id={`aws_iam_role_policy_${name}_${policy.name}`}
             role={name}
             _height={30}
-            policy={JSON.stringify({
-              Version: '2012-10-17',
-              Statement: policy.statements,
-            })}
+            policy={(node: any) => {
+              const Statement = deepResolve(node, policy, 'statements')
+              return JSON.stringify({
+                Version: '2012-10-17',
+                Statement,
+              })
+            }}
             key={policy.name}
           />
         ))}

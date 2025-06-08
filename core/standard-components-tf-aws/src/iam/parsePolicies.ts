@@ -74,7 +74,8 @@ export const parsePolicies = (policies: any) => {
 
   const handleS3BucketPolicy = (policy: any) => {
     const buckets = policy.buckets || [policy.bucket]
-    const actions = S3_ACTIONS[policy.permission as keyof typeof S3_ACTIONS]
+    const actions =
+      S3_ACTIONS[policy.permission as keyof typeof S3_ACTIONS || 'readwrite']
 
     if (policy.key) {
       addPolicy(

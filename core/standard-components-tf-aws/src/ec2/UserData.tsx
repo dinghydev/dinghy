@@ -35,8 +35,8 @@ export function UserData(props: UserDataInputProps) {
       return Buffer.from(props.content_base64, 'base64').toString('utf-8')
     }
 
-    const { userDataTexts } = useUserDataTexts(node)
-    return userDataTexts.map((c: any) => {
+    const { texts } = useUserDataTexts(node)
+    return texts.map((c: any) => {
       const text = c.content
       return text instanceof Function ? text() : text
     }).map((t: string) => t.trim()).join('\n')
