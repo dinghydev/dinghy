@@ -86,7 +86,7 @@ jobs:
           echo "::endgroup::"
 
           RELEASE_VERSION="$(jq -r '.release' ../.versions.json)"
-          echo "## RELEASE_VERSION" >> $GITHUB_STEP_SUMMARY
+          echo "### Release Version" >> $GITHUB_STEP_SUMMARY
           echo "$RELEASE_VERSION" >> $GITHUB_STEP_SUMMARY
       # - name: Save cached packages
       #   id: save-cached-packages

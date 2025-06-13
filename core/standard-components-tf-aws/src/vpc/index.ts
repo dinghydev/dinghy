@@ -8,3 +8,13 @@ export {
   useAwsSecurityGroups,
 } from './AwsSecurityGroup.tsx'
 export { DataAwsSecurityGroup } from './DataAwsSecurityGroup.tsx'
+export {
+  AwsPrivateSubnet,
+  useAwsPrivateSubnet,
+  useAwsPrivateSubnets,
+} from './AwsPrivateSubnet.tsx'
+export {
+  AwsPublicSubnet,
+  useAwsPublicSubnet,
+  useAwsPublicSubnets,
+} from './AwsPublicSubnet.tsx'

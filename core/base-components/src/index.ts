@@ -26,4 +26,8 @@ export {
 
 export { RootNode } from './contexts/NodeContext.tsx'
 export * from './utils/index.ts'
-export { useTypedNode, useTypedNodes } from './contexts/useTypedNode.tsx'
+export {
+  useParentsProp,
+  useTypedNode,
+  useTypedNodes,
+} from './contexts/useTypedNode.tsx'

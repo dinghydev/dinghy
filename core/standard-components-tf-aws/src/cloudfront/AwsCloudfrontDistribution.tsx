@@ -4,9 +4,9 @@ import {
   ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
-import { awsProps } from './index.ts'
+import { awsProps } from '../index.ts'
 import z from 'zod'
-import { aws4 } from '../../standard-components-diagrams/src/index.ts'
+import { aws4 } from '../../../standard-components-diagrams/src/index.ts'
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
 
 export const AwsCloudfrontDistributionInputSchema = z.object({

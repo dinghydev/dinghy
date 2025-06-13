@@ -24,15 +24,15 @@ const options: CommandOptions = {
 };
 
 const run = async (context: CommandContext, _args: CommandArgs) => {
-  const remainArgs = context.originalArgs.slice(2);
+  const remainArgs = context.originalArgs.slice(1);
 
   debug("running render command");
   await runCommand({
     ...context,
     prefix: [],
     envPrefix: [],
-    args: ["render", ...remainArgs],
-    originalArgs: ["render", ...remainArgs],
+    args: ["render", ...remainArgs, "--format", "diagram"],
+    originalArgs: ["render", ...remainArgs, "--format", "diagram"],
     commands: { render } as any,
     options: render[OPTIONS_SYMBOL],
   });

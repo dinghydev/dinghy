@@ -1,32 +1,32 @@
 import {
-  deepResolve,
   type NodeProps,
   ResolvableRecordSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 import z from 'zod'
-import {
-  AwsCloudfrontDistribution,
-  AwsCloudfrontOriginAccessControl,
-  AwsRoute53Record,
-  AwsS3Bucket,
-  AwsS3BucketLogging,
-  AwsS3BucketPolicy,
-  DataAwsIamPolicyDocument,
-  useAwsS3Bucket,
-  useDataAwsIamPolicyDocument,
-} from '../index.ts'
 import { useLogBucket } from './LogBucket.tsx'
 import { useAwsAcmCertificate } from '../AwsAcmCertificate.tsx'
-import { useAwsCloudfrontOriginAccessControl } from '../cloudfront/AwsCloudfrontOriginAccessControl.tsx'
+import {
+  AwsCloudfrontOriginAccessControl,
+  useAwsCloudfrontOriginAccessControl,
+} from '../cloudfront/AwsCloudfrontOriginAccessControl.tsx'
 import { useStack } from '@reactiac/base-components'
 import {
+  AwsCloudfrontDistribution,
   type AwsCloudfrontDistributionInputProps,
   useAwsCloudfrontDistribution,
-} from '../AwsCloudfrontDistribution.tsx'
+} from '../cloudfront/AwsCloudfrontDistribution.tsx'
 import { useAwsRoute53Zone } from '../route53/AwsRoute53Zone.tsx'
 import { S3TextFile } from './S3TextFile.tsx'
+import { AwsS3Bucket, useAwsS3Bucket } from './AwsS3Bucket.tsx'
+import { AwsRoute53Record } from '../route53/AwsRoute53Record.tsx'
+import {
+  DataAwsIamPolicyDocument,
+  useDataAwsIamPolicyDocument,
+} from '../iam/DataAwsIamPolicyDocument.tsx'
+import { AwsS3BucketPolicy } from './AwsS3BucketPolicy.tsx'
+import { AwsS3BucketLogging } from './AwsS3BucketLogging.tsx'
 
 export const S3CloudfrontSiteInputSchema = z.object({
   subdomain: ResolvableStringSchema,

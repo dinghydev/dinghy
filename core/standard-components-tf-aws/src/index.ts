@@ -7,10 +7,19 @@ import {
 } from '@reactiac/base-components'
 
 export * as ssoadmin from './ssoadmin/index.ts'
+export * as cloudwatch from './cloudwatch/index.ts'
+export * as cloudfront from './cloudfront/index.ts'
+export * as s3 from './s3/index.ts'
+export * as vpc from './vpc/index.ts'
+export * as iam from './iam/index.ts'
+export * as dynamodb from './dynamodb/index.ts'
+export * as ec2 from './ec2/index.ts'
+export * as route53 from './route53/index.ts'
+export * as secretsmanager from './secretsmanager/index.ts'
+export * as wafv2 from './wafv2/index.ts'
+export * as quicksight from './quicksight/index.ts'
 
 export { default as AwsCloud } from './AwsCloud.tsx'
-export { default as AwsPublicSubnet } from './AwsPublicSubnet.tsx'
-export { default as AwsPrivateSubnet } from './AwsPrivateSubnet.tsx'
 export { type AwsLbInputProps, default as AwsLb } from './AwsLb.tsx'
 export { useAwsSubnet, useAwsSubnets } from './vpc/AwsSubnet.tsx'
 export { AwsRegion, useAwsRegion } from './AwsRegion.tsx'
@@ -18,7 +27,6 @@ export { DataAwsVpc } from './vpc/DataAwsVpc.tsx'
 export { default as AwsInstance } from './AwsInstance.tsx'
 export { default as AwsPostgres } from './AwsPostgres.tsx'
 
-export { default as AwsWAF } from './AwsWAF.tsx'
 export { default as AwsECSCluster } from './AwsECSCluster.tsx'
 export { default as AwsECSService } from './AwsECSService.tsx'
 export { default as AwsECSContainer } from './AwsECSContainer.tsx'
@@ -37,15 +45,6 @@ export {
 export { AwsS3BucketOwnershipControls } from './s3/AwsS3BucketOwnershipControls.tsx'
 export { AwsDynamodbTable } from './dynamodb/AwsDynamodbTable.tsx'
 export { AwsBackendS3 } from './AwsBackendS3.tsx'
-export {
-  AwsCloudfrontDistribution,
-  useAwsCloudfrontDistributions,
-} from './AwsCloudfrontDistribution.tsx'
-export { AwsCloudfrontOriginAccessIdentity } from './cloudfront/AwsCloudfrontOriginAccessIdentity.tsx'
-export { AwsCloudfrontOriginAccessControl } from './cloudfront/AwsCloudfrontOriginAccessControl.tsx'
-export { CloudfrontSite } from './cloudfront/CloudfrontSite.tsx'
-export { DataAwsRoute53Zone } from './route53/DataAwsRoute53Zone.tsx'
-export { AwsRoute53Record } from './route53/AwsRoute53Record.tsx'
 export { AwsAcmCertificate } from './AwsAcmCertificate.tsx'
 export { DataAwsAcmCertificate } from './DataAwsAcmCertificate.tsx'
 export {

@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const WAF = {
   _color: { color: '#8C4FFF', fill: true },
-  _shape: 'mxgraph.aws4.waf',
+  _shape: { entity: 'mxgraph.aws4.waf' },
 }
 
 export function Waf(props: DiagramNodeProps) {

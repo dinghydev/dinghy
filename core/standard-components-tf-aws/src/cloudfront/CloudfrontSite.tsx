@@ -9,7 +9,7 @@ import z from 'zod'
 import {
   AwsCloudfrontDistribution,
   useAwsCloudfrontDistribution,
-} from '../AwsCloudfrontDistribution.tsx'
+} from './AwsCloudfrontDistribution.tsx'
 import { useAwsAcmCertificate } from '../AwsAcmCertificate.tsx'
 import {
   AwsCloudfrontOriginAccessControl,

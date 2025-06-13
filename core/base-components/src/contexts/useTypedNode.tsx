@@ -150,6 +150,35 @@ export function lookupTypedArrayValueTag<T>(
   throw new Error(`Tag ${tag} not found`)
 }
 
+function matchParentsNode(
+  node: NodeTree,
+  fName: string,
+) {
+  if (node._props._tags && (node._props._tags as string[]).includes(fName)) {
+    return node
+  }
+  if (node._parent) {
+    return matchParentsNode(node._parent, fName)
+  }
+  return null
+}
+
+export function useParentsProp(name: string, node?: NodeTree): any {
+  if (!node) {
+    node = useNodeContext()
+  }
+  const value = (node._props as any)[name]
+  if (value !== undefined) {
+    return value
+  }
+
+  const parent = node._parent
+  if (!parent) {
+    throw new Error(`Attribute ${name} not found in any parents`)
+  }
+  return useParentsProp(name, parent)
+}
+
 export function useTypedNode<T>(
   f: Function,
   baseNnode?: NodeTree,

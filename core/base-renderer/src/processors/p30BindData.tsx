@@ -5,9 +5,9 @@ import type { HostContainer } from '../types.ts'
 export const p30BindData = (
   container: HostContainer<unknown, unknown>,
 ) => {
-  const { data } = container.renderOptions as { data: any }
-  if (data) {
-    const keys = Object.keys(data)
+  const { bindings } = container.renderOptions as { bindings: any }
+  if (bindings) {
+    const keys = Object.keys(bindings)
 
     const bindAttributes = (element: ReactElement) => {
       const _node = (element as any).props._node as NodeTree
@@ -16,7 +16,7 @@ export const p30BindData = (
       for (let i = targetKeys.length - 1; i >= 0; i--) {
         const key = targetKeys[i]
         if (keys.includes(key)) {
-          Object.assign(_props, data[key])
+          Object.assign(_props, bindings[key])
           if (_props.onDataBind) {
             _props.onDataBind(_node)
           }

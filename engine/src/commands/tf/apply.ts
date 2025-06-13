@@ -65,7 +65,12 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
         );
       }
     } catch (error) {
-      await notifyChanges(changedStages, error as string);
+      if (isCi()) {
+        await notifyChanges(changedStages, error as string);
+      } else {
+        console.log(chalk.red("Failed to applying changes"));
+      }
+      throw error;
     }
   } else {
     console.log(chalk.green("No changes found"));
