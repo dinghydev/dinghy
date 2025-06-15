@@ -1,5 +1,6 @@
 import {
   type IacNodeProps,
+  ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
 
@@ -10,7 +11,7 @@ import { Shape } from '@reactiac/base-components'
 
 export const InputSchema = z.object({
   resource_arn: ResolvableStringSchema,
-  logDestination_configs: ResolvableStringSchema.array(),
+  log_destination_configs: ResolvableStringArraySchema,
 })
 
 export const OutputSchema = z.object({

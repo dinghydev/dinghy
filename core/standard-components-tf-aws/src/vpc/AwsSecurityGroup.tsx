@@ -40,8 +40,8 @@ export function AwsSecurityGroup(props: AwsSecurityGroupInputProps) {
   )
 }
 
-export const useAwsSecurityGroup = (node?: any) =>
-  useTypedNode<AwsSecurityGroupOutputProps>(AwsSecurityGroup, node)
+export const useAwsSecurityGroup = (node?: any, id?: string) =>
+  useTypedNode<AwsSecurityGroupOutputProps>(AwsSecurityGroup, node, id)
 
-export const useAwsSecurityGroups = (node?: any) =>
-  useTypedNodes<AwsSecurityGroupOutputProps>(AwsSecurityGroup, node)
+export const useAwsSecurityGroups = (node?: any, id?: string) =>
+  useTypedNodes<AwsSecurityGroupOutputProps>(AwsSecurityGroup, node, id)

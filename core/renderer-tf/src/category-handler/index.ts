@@ -30,7 +30,7 @@ export function handleCategory(
   tfRoot: Props,
   node: NodeTree,
 ) {
-  let category = deepResolve(node, node._props, '_category')
+  let category = (node._props as any)._category
   if (!category) {
     category = ALL_CATEGORIES.find((k) => `_${k}` in node._props) || 'resource'
     ;(node._props as any)._category = category

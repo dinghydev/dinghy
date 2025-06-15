@@ -1,5 +1,5 @@
 export { useWafConfig, type WafAction } from './useWafConfig.ts'
-export { AwsWafv2WebAcl } from './AwsWafv2WebAcl.tsx'
+export { AwsWafv2WebAcl, useAwsWafv2WebAcl } from './AwsWafv2WebAcl.tsx'
 export { AwsWafv2IpSet, useAwsWafv2IpSet } from './AwsWafv2IpSet.tsx'
 export { AwsWafv2WebAclAssociation } from './AwsWafv2WebAclAssociation.tsx'
 export { AwsWafv2WebAclLoggingConfiguration } from './AwsWafv2WebAclLoggingConfiguration.tsx'

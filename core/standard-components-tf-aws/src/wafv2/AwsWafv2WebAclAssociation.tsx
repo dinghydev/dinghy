@@ -1,4 +1,5 @@
 import {
+  deepResolve,
   type IacNodeProps,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
@@ -29,7 +30,9 @@ export type OutputProps =
 
 export function AwsWafv2WebAclAssociation(props: InputProps) {
   const _importId = (node: any) =>
-    `${node._props.web_acl_arn},${node._props.resource_arn}`
+    `${deepResolve(node, node._props, 'web_acl_arn')},${
+      deepResolve(node, node._props, 'resource_arn')
+    }`
   return (
     <Shape
       _importId={_importId}

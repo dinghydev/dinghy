@@ -34,7 +34,7 @@ export function AwsSubnet(props: AwsSubnetInputProps) {
   )
 }
 
-export const useAwsSubnet = (node?: any) =>
-  useTypedNode<AwsSubnetOutputProps>(AwsSubnet, node)
-export const useAwsSubnets = (node?: any) =>
-  useTypedNodes<AwsSubnetOutputProps[]>(AwsSubnet, node)
+export const useAwsSubnet = (node?: any, id?: string) =>
+  useTypedNode<AwsSubnetOutputProps>(AwsSubnet, node, id)
+export const useAwsSubnets = (node?: any, id?: string) =>
+  useTypedNodes<AwsSubnetOutputProps[]>(AwsSubnet, node, id)

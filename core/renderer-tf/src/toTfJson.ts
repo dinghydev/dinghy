@@ -1,9 +1,10 @@
 import type { ReactElement } from 'react'
-import type {
-  IacNodeProps,
-  Item,
-  NodeTree,
-  Props,
+import {
+  deepResolve,
+  type IacNodeProps,
+  type Item,
+  type NodeTree,
+  type Props,
 } from '@reactiac/base-components'
 import { handleCategory } from './category-handler/index.ts'
 import type { HostContainer, Output } from '@reactiac/base-renderer'
