@@ -4,7 +4,8 @@
     {
       "name": "render",
       "args": [
-        "render"
+        "render",
+        "platform-dev2"
         // "--format",
         // "all",
         // "tf",
@@ -32,8 +33,8 @@
         // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
       },
@@ -177,20 +178,20 @@
       "args": [
         "tf",
         "diff",
-        "platform-dev2",
+        // "platform-dev2",
         // "production",
         // "development",
-        "--tf-generateImport",
-        "true",
+        // "--tf-generateImport",
+        // "true",
         // "-h",
         "--debug"
       ],
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/engine",
       "env": {
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
+        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
       },
       "type": "node",

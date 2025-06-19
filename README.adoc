@@ -1,4 +1,5 @@
 = ReactIAC
+:toc:
 
 image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.svg[release,link=https://github.com/reactiac/reactiac/actions/workflows/release.yml] image:https://github.com/reactiac/reactiac/actions/workflows/verification.yml/badge.svg[verification,link=https://github.com/reactiac/reactiac/actions/workflows/verification.yml]
 
@@ -15,7 +16,16 @@ This project is developed with deno and VSCode.
 Set of debugable tasks defined in https://github.com/reactiac/reactiac/blob/main/.vscode/launch.json[.vscode/launch.json]
     
 
-== Known issues:
+== Architecture
 
-. `diagram png` fails on large diagrams https://issues.chromium.org/issues/383356871
-ERROR:validation_errors.cc(117)] Invalid message: VALIDATION_ERROR_DESERIALIZATION_FAILED
+=== Folder Structure
+
+Relationship of top level folders:
+
+image::examples/diagram/reactiac-architecutre/output/folder-structure.png[alt=Folder Structure,width=300]
+
+=== Mono Repo
+
+This is a mono repo with multiple relatively independent projects:
+
+image::examples/diagram/reactiac-architecutre/output/mono-repo.png[Mono Repo]
