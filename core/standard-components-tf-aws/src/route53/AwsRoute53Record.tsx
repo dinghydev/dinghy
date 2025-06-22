@@ -1,4 +1,5 @@
 import {
+  deepResolve,
   IacNodeProps,
   ResolvableNumberSchema,
   ResolvableStringArraySchema,
@@ -41,8 +42,14 @@ export type AwsRoute53RecordOutputProps =
   & AwsRoute53RecordInputProps
 
 export function AwsRoute53Record(props: AwsRoute53RecordInputProps) {
+  const _importId = (node: any) => {
+    const zone_id = deepResolve(node, node._props, 'zone_id')
+    return `${zone_id}_${node._props.name}_${node._props.type}`
+  }
+
   return (
     <Shape
+      _importId={_importId}
       {...awsProps(
         props,
         AwsRoute53RecordInputSchema,

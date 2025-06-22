@@ -5,7 +5,7 @@
       "name": "render",
       "args": [
         "render",
-        "platform-staging",
+        // "platform-staging",
         // "--tf-generateImport",
         // "true",
         // "-h",
@@ -27,7 +27,7 @@
       "name": "diagram",
       "args": [
         "diagram",
-        "platform-staging",
+        // "platform-staging",
         // "-h",
         "--debug"
       ],
@@ -48,7 +48,7 @@
       "args": [
         "tf",
         "init",
-        "platform-staging",
+        // "platform-staging",
         // "development",
         // "production",
         // "-h",
@@ -74,7 +74,7 @@
       "args": [
         "tf",
         "plan",
-        "platform-staging",
+        // "platform-staging",
         // "development",
         // "production",
         // "-h",
@@ -100,9 +100,9 @@
       "args": [
         "tf",
         "diff",
-        "platform-staging",
-        "--tf-generateImport",
-        "true",
+        // "platform-staging",
+        // "--tf-generateImport",
+        // "true",
         // "development",
         // "production",
         // "-h",
@@ -128,7 +128,7 @@
       "args": [
         "tf",
         "apply",
-        "platform-staging",
+        // "platform-staging",
         // "development",
         // "production",
         // "-h",
