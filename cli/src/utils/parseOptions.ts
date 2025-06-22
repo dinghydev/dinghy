@@ -10,8 +10,8 @@ const loadDefaultFromEnv = (spec: any, envPrefix: string[]) => {
 
   for (const optionType of OPTIONS_TYPES) {
     for (const option of spec[optionType] || []) {
-      let value: any = configGet([...envPrefix, option]);
-      if (value) {
+      let value: any = configGet(["reactiac", ...envPrefix, option]);
+      if (value !== undefined) {
         if (optionType === "boolean") {
           value = Boolean(value);
         } else if (optionType === "number") {
@@ -41,7 +41,8 @@ export const parseOptions = (
   });
   if (spec.arguments) {
     Object.entries(spec.arguments).map(([name, argSpec], index) => {
-      let value = options._[index] || configGet([...envPrefix, name]);
+      let value = options._[index] ||
+        configGet(["reactiac", ...envPrefix, name]);
       if ((argSpec as any).required && value === undefined) {
         throw new Error(`Argument [${name.toLocaleUpperCase()}] is required`);
       }

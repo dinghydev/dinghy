@@ -126,7 +126,10 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
     const result = await renderDrawio(app, options);
     await writeFile(outputPath, result.result);
     collectedViews = result.views;
-    if (args["diagram-saveView"] || args["diagram-createMd"]) {
+    if (
+      args["diagram-saveView"] || args["diagram-createMd"] ||
+      args["diagram-png"]
+    ) {
       views[view.id] = view;
     }
   };
