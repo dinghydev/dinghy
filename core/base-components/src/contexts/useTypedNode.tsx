@@ -131,7 +131,11 @@ function useTypedArrayValueTag<T>(
 }
 
 function resolveFieldName(fName: string) {
-  return decapitalise(fName.match(/[A-Z][a-z0-9_]*/g)?.pop()!)
+  const words = fName.match(/[A-Z][a-z0-9_]*/g)
+  const name = (words && words.length >= 2)
+    ? words.slice(-2).map((s) => capitalise(s)).join('')
+    : fName
+  return decapitalise(name)
 }
 
 export function lookupTypedArrayValueTag<T>(
