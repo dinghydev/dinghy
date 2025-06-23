@@ -24,7 +24,7 @@ export const notifyChanges = async (changes: any[], error?: string) => {
   if (error) {
     text = `Failed to apply changes [${changedStages}] with error \`${error}\``;
     options.icon_emoji = ":fire:";
-  } else if (jobName().includes("apply")) {
+  } else if (jobName().includes("apply") || jobName().includes("up")) {
     text = `Changes [${changedStages}] applied`;
     options.icon_emoji = ":rocket:";
   } else {

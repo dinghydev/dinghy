@@ -4,12 +4,14 @@
     {
       "name": "render",
       "args": [
-        "render",
+        "render"
         // "platform-staging",
+        // "development",
+        // "production",
         // "--tf-generateImport",
         // "true",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -26,10 +28,12 @@
     {
       "name": "diagram",
       "args": [
-        "diagram",
+        "diagram"
         // "platform-staging",
+        // "development",
+        // "production",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -47,12 +51,11 @@
       "name": "tf init",
       "args": [
         "tf",
-        "init",
-        // "platform-staging",
+        "init"
         // "development",
         // "production",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -73,12 +76,11 @@
       "name": "tf plan",
       "args": [
         "tf",
-        "plan",
-        // "platform-staging",
+        "plan"
         // "development",
         // "production",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -99,14 +101,15 @@
       "name": "tf diff",
       "args": [
         "tf",
-        "diff",
-        // "platform-staging",
+        "diff"
+        // "development",
+        // "production",
         // "--tf-generateImport",
         // "true",
         // "development",
         // "production",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -127,12 +130,11 @@
       "name": "tf apply",
       "args": [
         "tf",
-        "apply",
-        // "platform-staging",
+        "apply"
         // "development",
         // "production",
         // "-h",
-        "--debug"
+        // "--debug"
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -150,12 +152,13 @@
       "console": "integratedTerminal"
       // },
       // {
-      //   "name": "tf diff+apply",
+      //   "name": "tf up",
       //   "args": [
-      //     "-c",
-      //     "tf diff",
-      //     "-c",
-      //     "tf apply"
+      //     "tf",
+      //     "up"
+      //     // "development",
+      //     // "production",
+      //     // "-h",
       //     // "--debug"
       //   ],
       //   "program": "src/index.ts",

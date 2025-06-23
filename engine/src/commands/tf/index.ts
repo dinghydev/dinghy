@@ -12,6 +12,7 @@ import apply from "./apply.ts";
 import normalise from "./normalise.ts";
 import diff from "./diff.ts";
 import { showHelp } from "../../../../cli/src/utils/showHelp.ts";
+import up from "./up.ts";
 const options: CommandOptions = {
   description: {},
   cmdDescription: "Terraform/OpenTofu related operations",
@@ -29,6 +30,7 @@ const commands: Commands = {
   // generate,
   normalise,
   diff,
+  up,
 };
 
 export default commands;

@@ -235,7 +235,9 @@ export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
   const namesCandidates: string[] = [];
   if (!args.stack) {
     namesCandidates.push("reactiac tf apply");
+    namesCandidates.push("reactiac tf up");
     namesCandidates.push("tf apply");
+    namesCandidates.push("tf up");
   }
 
   for (const stack of stacks) {

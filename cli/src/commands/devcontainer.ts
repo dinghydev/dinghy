@@ -13,7 +13,6 @@ import { configGetEngineImage } from "../utils/dockerConfig.ts";
 import { execa } from "execa";
 import { getDockerEnvs, getDockerMounts } from "../utils/dockerUtils.ts";
 import { projectVersionRelease } from "../utils/projectVersions.ts";
-import { cwd } from "node:process";
 const debug = Debug("init");
 
 const options: CommandOptions = {
@@ -98,8 +97,14 @@ function prepareConfig(args: CommandArgs): any {
   const vscodeConfigCheckFile = `${hostAppHome}/.vscode/launch.json`;
   const vscodeConfigExist = existsSync(vscodeConfigCheckFile) &&
     Deno.readTextFileSync(vscodeConfigCheckFile).includes("reactiac");
-  config.workspaceFolder ??= args.workspace ||
-    (vscodeConfigExist ? appHomeMount : dirname(appHomeMount));
+  if (vscodeConfigExist) {
+    config.mounts.push(
+      `source=${vscodeConfigCheckFile},target=/reactiac/engine/workspace/.vscode/launch.json,type=bind`,
+    );
+  }
+  // config.workspaceFolder ??= args.workspace ||
+  //   (vscodeConfigExist ? appHomeMount : dirname(appHomeMount));
+  config.workspaceFolder ??= args.workspace || dirname(appHomeMount);
 
   // config.onCreateCommand ??= "on-devcontainer-create.ts";
 

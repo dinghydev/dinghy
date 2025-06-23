@@ -49,8 +49,8 @@ export function S3TextFile(props: S3TextFileInputProps) {
       return Buffer.from(props.content_base64, 'base64').toString('utf-8')
     }
 
-    const { texts } = useS3Texts(node)
-    return texts.map((c: any) => {
+    const { s3Texts } = useS3Texts(node)
+    return s3Texts.map((c: any) => {
       const text = c.content
       return text instanceof Function ? text() : text
     }).map((t: string) => t.trim()).join('\n')
