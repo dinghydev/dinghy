@@ -3,11 +3,9 @@
     "clean": "rm -rf ../../build",
     "refresh-engine-lock": "deno run -A ./src/refresh-engine-lock.ts",
     "version-release": "deno run -A ./src/version-release.ts",
-
     "npm-build": "deno run -A ./src/npm-build.ts",
     "npm-publish": "deno run -A ./src/npm-publish.ts",
     "aws-npm-login": "aws codeartifact login --tool npm --repository test-repo --domain reactiac-test-repo --domain-owner 313225491971 --namespace @reactiac --region eu-west-1",
-
     "cli-build-x86_64-unknown-linux-gnu": {
       "command": "deno run -A src/cli-build.ts x86_64-unknown-linux-gnu"
     },
@@ -34,7 +32,6 @@
         "cli-build"
       ]
     },
-
     "aws-ecr-login": "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f2v6q7q7",
     "docker-build-arm64": {
       "command": "deno run -A ../cli/src/index.ts docker build --arch arm64 --app-home ../"
@@ -43,7 +40,10 @@
       "command": "deno run -A ../cli/src/index.ts docker build --arch amd64 --app-home ../"
     },
     "docker-build": {
-      "dependencies": ["docker-build-arm64", "docker-build-amd64"]
+      "dependencies": [
+        "docker-build-arm64",
+        "docker-build-amd64"
+      ]
     },
     "install-locally": "deno run -A ./src/install-locally.ts"
   },
@@ -58,5 +58,12 @@
     "debug": "npm:debug@4.4.0",
     "chalk": "npm:chalk@5.4.1",
     "execa": "npm:execa@9.5.2"
+  },
+  "fmt": {
+    "semiColons": false,
+    "singleQuote": true,
+    "exclude": [
+      ".vscode/launch.json"
+    ]
   }
 }

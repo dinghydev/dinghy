@@ -3,26 +3,26 @@ import type { Props } from '@reactiac/base-components'
 export const _icon = (icon: string | Props) =>
   typeof icon === 'string'
     ? {
-        entity: {
-          style: {
-            resIcon: icon,
-          },
+      entity: {
+        style: {
+          resIcon: icon,
         },
-        group: {
-          style: {
-            grIcon: icon,
-          },
+      },
+      group: {
+        style: {
+          grIcon: icon,
         },
-      }
+      },
+    }
     : {
-        entity: {
-          style: {
-            resIcon: icon.entity,
-          },
+      entity: {
+        style: {
+          resIcon: icon.entity,
         },
-        group: {
-          style: {
-            grIcon: icon.group,
-          },
+      },
+      group: {
+        style: {
+          grIcon: icon.group,
         },
-      }
+      },
+    }

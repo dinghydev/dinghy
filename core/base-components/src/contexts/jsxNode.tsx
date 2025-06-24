@@ -1,20 +1,20 @@
-import React from "react";
-import type { ReactNode } from "react";
-import type { NodeTree, ReactNodeTree } from "../types.ts";
+import React from 'react'
+import type { ReactNode } from 'react'
+import type { NodeTree, ReactNodeTree } from '../types.ts'
 
 type Attributes = {
-  children?: ReactNode;
-  _node?: NodeTree;
-};
+  children?: ReactNode
+  _node?: NodeTree
+}
 
-declare module "react/jsx-runtime" {
+declare module 'react/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {
-      node: Attributes;
+      node: Attributes
     }
   }
 }
 
 export default function jsxRender({ _node, children }: ReactNodeTree) {
-  return <node _node={_node}>{children}</node>;
+  return <node _node={_node}>{children}</node>
 }

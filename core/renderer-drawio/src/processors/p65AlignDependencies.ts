@@ -71,10 +71,9 @@ function moveDownNodeY(node: DrawioNodeTree, distance: number) {
 }
 
 const moveRight = ({ single, list }: DependsPair) => {
-  const listCenterX =
-    list
-      .map((dep) => (dep._props as any)._diagram.state.absCenterX)
-      .reduce((a, b) => a + b, 0) / list.length
+  const listCenterX = list
+    .map((dep) => (dep._props as any)._diagram.state.absCenterX)
+    .reduce((a, b) => a + b, 0) / list.length
   const diff = (single._props as any)._diagram.state.absCenterX - listCenterX
   if (diff > 0) {
     // move list right
@@ -97,10 +96,9 @@ const moveRight = ({ single, list }: DependsPair) => {
 }
 
 const moveDown = ({ single, list }: DependsPair) => {
-  const listCenterY =
-    list
-      .map((dep) => (dep._props as any)._diagram.state.absCenterY)
-      .reduce((a, b) => a + b, 0) / list.length
+  const listCenterY = list
+    .map((dep) => (dep._props as any)._diagram.state.absCenterY)
+    .reduce((a, b) => a + b, 0) / list.length
   const diff = (single._props as any)._diagram.state.absCenterY - listCenterY
   if (diff > 0) {
     // move list down

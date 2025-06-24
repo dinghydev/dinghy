@@ -1,99 +1,99 @@
-import { z } from "zod";
+import { z } from 'zod'
 
-import { namespaceMapping } from "../../../core/standard-components/standard-components-tf-aws/src/namespaceMapping.ts";
-import { existsSync } from "@std/fs/exists";
-import chalk from "chalk";
-import Debug from "debug";
-const debug = Debug("parseResources");
-import type { Element } from "./../../cli/src/types.ts";
+import { namespaceMapping } from '../../../core/standard-components/standard-components-tf-aws/src/namespaceMapping.ts'
+import { existsSync } from '@std/fs/exists'
+import chalk from 'chalk'
+import Debug from 'debug'
+const debug = Debug('parseResources')
+import type { Element } from './../../cli/src/types.ts'
 
 const normalizeInputResources = (value: any): any => {
-  if (typeof value === "string") {
-    if (value === "") {
-      return undefined;
+  if (typeof value === 'string') {
+    if (value === '') {
+      return undefined
     }
-    if (value.includes("$")) {
-      return value.replaceAll("$", '${"$"}');
+    if (value.includes('$')) {
+      return value.replaceAll('$', '${"$"}')
     }
   }
   if (value === null) {
-    return undefined;
+    return undefined
   }
   if (Array.isArray(value)) {
     const arrayValue = value.map(normalizeInputResources).filter((v) =>
       v !== undefined
-    );
+    )
     if (arrayValue.length === 0) {
-      return undefined;
+      return undefined
     }
-    return arrayValue;
+    return arrayValue
   }
-  if (typeof value === "object") {
+  if (typeof value === 'object') {
     const filteredEntries = Object.entries(value).map((
       [key, value],
-    ) => [key === "key" ? "__key" : key, normalizeInputResources(value)])
-      .filter(([_, value]) => value !== undefined);
+    ) => [key === 'key' ? '__key' : key, normalizeInputResources(value)])
+      .filter(([_, value]) => value !== undefined)
     if (filteredEntries.length === 0) {
-      return undefined;
+      return undefined
     }
-    return Object.fromEntries(filteredEntries);
+    return Object.fromEntries(filteredEntries)
   }
-  return value;
-};
+  return value
+}
 
 export async function parseResources(_args: any, resources: any) {
-  const elements: Element[] = [];
-  let region: string | undefined;
-  const ignores: string[] = [];
+  const elements: Element[] = []
+  let region: string | undefined
+  const ignores: string[] = []
   for (const resource of normalizeInputResources(resources)) {
-    debug("parsing", resource.name);
-    const nameParts = resource.type.split("_");
-    const isData = resource.mode === "data";
-    const dataPrefix = isData ? "Data" : "";
+    debug('parsing', resource.name)
+    const nameParts = resource.type.split('_')
+    const isData = resource.mode === 'data'
+    const dataPrefix = isData ? 'Data' : ''
     const componentName = nameParts.map((part: string) =>
       part.charAt(0).toUpperCase() + part.slice(1)
     ).join(
-      "",
-    );
-    const tag = dataPrefix + componentName;
+      '',
+    )
+    const tag = dataPrefix + componentName
     const namespace =
       namespaceMapping[componentName as keyof typeof namespaceMapping] ||
-      (nameParts.length > 2 ? nameParts[1] : undefined);
+      (nameParts.length > 2 ? nameParts[1] : undefined)
     if (!namespace) {
-      ignores.push(`Ignore resource ${tag} as no namespace mapping found`);
-      continue;
+      ignores.push(`Ignore resource ${tag} as no namespace mapping found`)
+      continue
     }
 
     const componentDefinitionFile =
-      `../standard-components/tf-aws/src/${namespace}/${tag}.tsx`;
+      `../standard-components/tf-aws/src/${namespace}/${tag}.tsx`
 
     if (!existsSync(componentDefinitionFile)) {
       ignores.push(
         `Ignore resource ${tag} as no component definition file found`,
-      );
-      continue;
+      )
+      continue
     }
     const componentDefinition = await import(
       `../../${componentDefinitionFile}`
-    );
-    const inputSchema = componentDefinition[`${tag}InputSchema`];
+    )
+    const inputSchema = componentDefinition[`${tag}InputSchema`]
     if (!inputSchema) {
-      ignores.push(`Ignore resource ${tag} as no input schema found`);
-      continue;
+      ignores.push(`Ignore resource ${tag} as no input schema found`)
+      continue
     }
-    const resourceValues = resource.instances[0].attributes;
-    debug("parsing %s from %O", tag, resourceValues);
-    const resourceInput = inputSchema.parse(resourceValues);
-    const attributes: any = {};
+    const resourceValues = resource.instances[0].attributes
+    debug('parsing %s from %O', tag, resourceValues)
+    const resourceInput = inputSchema.parse(resourceValues)
+    const attributes: any = {}
     const renderValue = (
       value: any,
       schema: z.ZodSchema,
     ) => {
-      const valueType = typeof value;
+      const valueType = typeof value
       switch (valueType) {
-        case "object": {
+        case 'object': {
           // TODO: render object based on schema
-          return value;
+          return value
           // if (Array.isArray(value)) {
           //   return value.map((subValue: any) => {
           //     return renderValue(subValue, schema._def.innerType.element)
@@ -110,65 +110,65 @@ export async function parseResources(_args: any, resources: any) {
           //   // return renderedValue
           // }
         }
-        case "boolean":
+        case 'boolean':
           if (value === false) {
-            return;
+            return
           }
-          break;
-        case "string":
-          if (value === "") {
-            return;
+          break
+        case 'string':
+          if (value === '') {
+            return
           }
         // deno-lint-ignore no-fallthrough
-        case "number":
+        case 'number':
           if (value === 0) {
-            return;
+            return
           }
           /* eslint-disable no-case-declarations */
         default: {
           if (schema instanceof z.ZodDefault) {
-            const defaultValue = schema._def.defaultValue();
+            const defaultValue = schema._def.defaultValue()
             if (defaultValue === value) {
-              return;
+              return
             }
           }
         }
       }
-      return value;
-    };
+      return value
+    }
     for (const [key, value] of Object.entries(resourceInput)) {
-      const renderedValue = renderValue(value, inputSchema.shape[key]);
+      const renderedValue = renderValue(value, inputSchema.shape[key])
       if (renderedValue !== undefined && renderedValue !== null) {
-        attributes[key] = renderedValue;
+        attributes[key] = renderedValue
       }
     }
     if (componentDefinition.importId) {
-      const importId = componentDefinition.importId(resourceValues);
+      const importId = componentDefinition.importId(resourceValues)
       if (importId) {
-        attributes["_importId"] = importId;
+        attributes['_importId'] = importId
       }
     }
     if (
-      tag === "DataAwsSecretsmanagerSecret" && attributes["name"] &&
-      attributes["arn"]
+      tag === 'DataAwsSecretsmanagerSecret' && attributes['name'] &&
+      attributes['arn']
     ) {
-      delete attributes["arn"];
+      delete attributes['arn']
     }
     if (
-      tag === "AwsInstance" && attributes["user_data"]
+      tag === 'AwsInstance' && attributes['user_data']
     ) {
-      delete attributes["user_data"];
+      delete attributes['user_data']
     }
-    debug("parsed %s as %O", tag, resourceInput);
+    debug('parsed %s as %O', tag, resourceInput)
 
-    elements.push({ tag, namespace, attributes });
+    elements.push({ tag, namespace, attributes })
 
     if (!region && !isData && resourceValues.arn) {
-      const arnParts = resourceValues.arn.split(":");
+      const arnParts = resourceValues.arn.split(':')
       if (arnParts[3]) {
-        region = resourceValues.arn.split(":")[3];
+        region = resourceValues.arn.split(':')[3]
       } else if (resourceValues.region) {
-        region = resourceValues.region;
+        region = resourceValues.region
       }
     }
   }
@@ -178,17 +178,17 @@ export async function parseResources(_args: any, resources: any) {
       chalk.dim(
         ignore,
       ),
-    );
+    )
   }
 
   if (!region) {
-    throw new Error("No region detected from resources");
+    throw new Error('No region detected from resources')
   }
   elements.push({
-    tag: "AwsRegion",
+    tag: 'AwsRegion',
     attributes: {
       region,
     },
-  });
-  return elements;
+  })
+  return elements
 }

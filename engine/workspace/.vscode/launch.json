@@ -4,14 +4,14 @@
     {
       "name": "render",
       "args": [
-        "render"
+        "render",
         // "platform-staging",
         // "development",
         // "production",
         // "--tf-generateImport",
         // "true",
         // "-h",
-        // "--debug"
+        // "--debug",
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -20,7 +20,7 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait"
+        "--inspect-wait",
       ],
       "attachSimplePort": 0,
       "console": "integratedTerminal"
@@ -28,12 +28,12 @@
     {
       "name": "diagram",
       "args": [
-        "diagram"
+        "diagram",
         // "platform-staging",
         // "development",
         // "production",
         // "-h",
-        // "--debug"
+        // "--debug",
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -42,7 +42,7 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait"
+        "--inspect-wait",
       ],
       "attachSimplePort": 0,
       "console": "integratedTerminal"
@@ -51,11 +51,11 @@
       "name": "tf init",
       "args": [
         "tf",
-        "init"
+        "init",
         // "development",
         // "production",
         // "-h",
-        // "--debug"
+        // "--debug",
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -67,7 +67,7 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait"
+        "--inspect-wait",
       ],
       "attachSimplePort": 0,
       "console": "integratedTerminal"
@@ -76,11 +76,11 @@
       "name": "tf plan",
       "args": [
         "tf",
-        "plan"
+        "plan",
         // "development",
         // "production",
         // "-h",
-        // "--debug"
+        // "--debug",
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -92,7 +92,7 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait"
+        "--inspect-wait",
       ],
       "attachSimplePort": 0,
       "console": "integratedTerminal"
@@ -101,7 +101,7 @@
       "name": "tf diff",
       "args": [
         "tf",
-        "diff"
+        "diff",
         // "development",
         // "production",
         // "--tf-generateImport",
@@ -109,7 +109,7 @@
         // "development",
         // "production",
         // "-h",
-        // "--debug"
+        // "--debug",
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -121,7 +121,7 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait"
+        "--inspect-wait",
       ],
       "attachSimplePort": 0,
       "console": "integratedTerminal"
@@ -130,11 +130,11 @@
       "name": "tf apply",
       "args": [
         "tf",
-        "apply"
+        "apply",
         // "development",
         // "production",
         // "-h",
-        // "--debug"
+        // "--debug",
       ],
       "program": "src/index.ts",
       "cwd": "/reactiac/engine",
@@ -146,7 +146,7 @@
       "runtimeExecutable": "/usr/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait"
+        "--inspect-wait",
       ],
       "attachSimplePort": 0,
       "console": "integratedTerminal"
@@ -155,11 +155,11 @@
       //   "name": "tf up",
       //   "args": [
       //     "tf",
-      //     "up"
+      //     "up",
       //     // "development",
       //     // "production",
       //     // "-h",
-      //     // "--debug"
+      //     // "--debug",
       //   ],
       //   "program": "src/index.ts",
       //   "cwd": "/reactiac/engine",
@@ -171,7 +171,7 @@
       //   "runtimeExecutable": "/usr/bin/deno",
       //   "runtimeArgs": [
       //     "run",
-      //     "--inspect-wait"
+      //     "--inspect-wait",
       //   ],
       //   "attachSimplePort": 0,
       //   "console": "integratedTerminal"

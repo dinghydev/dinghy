@@ -47,7 +47,7 @@ export const toTfJson = (
     tfRoot,
     (container.rootElement as any).props._node._props as any,
   )
-  container.result = JSON.stringify(tfRoot, null, 2)
+  container.result = JSON.stringify(tfRoot, null, 2) + '\n'
   container.model = tfRoot
   return container
 }

@@ -13,14 +13,11 @@ export function App() {
         <Folder _dependsOn="engine">cli</Folder>
         <Folder
           _dependsOn={["cli", "docker"]}
-          _dependsBy={[".github", ".vscode"]}
+          _dependsBy={[".github"]}
         >
           tasks
         </Folder>
-      </Row>
-      <Row _id="fourth">
         <Folder>.github</Folder>
-        <Folder>.vscode</Folder>
       </Row>
     </ReactIAC>
   );

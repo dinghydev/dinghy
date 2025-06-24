@@ -1,30 +1,30 @@
 export const renderOptions = {
-  collect: ["format", "view", "stage"],
+  collect: ['format', 'view', 'stage'],
   boolean: [
-    "tf-generateImport",
-    "diagram-createMd",
-    "diagram-saveView",
-    "debug",
+    'tf-generateImport',
+    'diagram-createMd',
+    'diagram-saveView',
+    'debug',
   ],
-  string: ["output"],
+  string: ['output'],
   description: {
-    output: "Output folder",
-    format: "Formats to render",
-    view: "Views to render",
-    stage: "Stages to render",
-    "tf-generateImport": "Generate import statements for tf",
-    "diagram-createMd": "Create markdown file for diagram",
-    "diagram-saveView": "Save view to stack-info.json",
+    output: 'Output folder',
+    format: 'Formats to render',
+    view: 'Views to render',
+    stage: 'Stages to render',
+    'tf-generateImport': 'Generate import statements for tf',
+    'diagram-createMd': 'Create markdown file for diagram',
+    'diagram-saveView': 'Save view to stack-info.json',
   },
   default: {
-    "diagram-createMd": true,
+    'diagram-createMd': true,
   },
   arguments: {
     stack: {
-      description: "Stack name or tsx file name",
+      description: 'Stack name or tsx file name',
       required: false,
     },
   },
   cmdDescription:
-    "Render from .tsx files to target formats e.g. .drawio or .tf",
-};
+    'Render from .tsx files to target formats e.g. .drawio or .tf',
+}

@@ -5,61 +5,61 @@ import {
   REQUIRE_ENGINE_SYMBOL,
   RUN_SYMBOL,
   throwReactiacError,
-} from "../types.ts";
-import { showHelp } from "./showHelp.ts";
-import Debug from "debug";
-import { parseOptions } from "./parseOptions.ts";
-import { runEngineCommand } from "./runEngineCommand.ts";
-const debug = Debug("runCommand");
+} from '../types.ts'
+import { showHelp } from './showHelp.ts'
+import Debug from 'debug'
+import { parseOptions } from './parseOptions.ts'
+import { runEngineCommand } from './runEngineCommand.ts'
+const debug = Debug('runCommand')
 
 const executeCommand = async (context: CommandContext) => {
   const options = parseOptions(
     context.options,
     context.args,
     context.envPrefix,
-  );
+  )
   // todo: use REQUIRE_CONTAINER_SYMBOL to fix iac-cicd $ DOCKER_IMAGEVERSION=latest reactiac tf init production --debug
-  debug("running [reactiac %s]", context.prefix.join(" "));
-  return await context.commands[RUN_SYMBOL]!(context, options);
-};
+  debug('running [reactiac %s]', context.prefix.join(' '))
+  return await context.commands[RUN_SYMBOL]!(context, options)
+}
 
 export async function runCommand(context: CommandContext) {
-  const cmdStr = context.args[0];
+  const cmdStr = context.args[0]
   if (
     context.commands[cmdStr] ||
-    (!context.options?.arguments && cmdStr && cmdStr.charAt(0) !== "-")
+    (!context.options?.arguments && cmdStr && cmdStr.charAt(0) !== '-')
   ) {
-    let command = context.commands[cmdStr];
-    let envName = cmdStr;
+    let command = context.commands[cmdStr]
+    let envName = cmdStr
     if (!command) {
       Object.entries(context.commands).find(([name, cmdDef]) => {
-        const alias = cmdDef[OPTIONS_SYMBOL]?.cmdAlias ?? [];
+        const alias = cmdDef[OPTIONS_SYMBOL]?.cmdAlias ?? []
         if (alias.includes(cmdStr)) {
-          command = cmdDef;
-          envName = name;
-          return true;
+          command = cmdDef
+          envName = name
+          return true
         }
-        return false;
-      });
+        return false
+      })
     }
-    const currentCommand = [...context.prefix, cmdStr];
+    const currentCommand = [...context.prefix, cmdStr]
     if (!command) {
       if (!context.isEngine) {
-        return await runEngineCommand(context);
+        return await runEngineCommand(context)
       }
-      const cmds = Object.keys(context.commands);
+      const cmds = Object.keys(context.commands)
       Object.values(context.commands).map((cmd) => {
         for (const alias of cmd[OPTIONS_SYMBOL]?.cmdAlias ?? []) {
-          cmds.push(alias);
+          cmds.push(alias)
         }
-      });
+      })
 
       console.log(
         `Available commands:${
-          context.prefix.length ? ` ${context.prefix.join(" ")}` : ""
-        } [${cmds.join(", ")}]`,
-      );
-      throwReactiacError(`Command [${currentCommand.join(" ")}] not found`);
+          context.prefix.length ? ` ${context.prefix.join(' ')}` : ''
+        } [${cmds.join(', ')}]`,
+      )
+      throwReactiacError(`Command [${currentCommand.join(' ')}] not found`)
     }
     return await runCommand({
       ...context,
@@ -68,17 +68,17 @@ export async function runCommand(context: CommandContext) {
       args: context.args.slice(1),
       commands: command,
       options: command[OPTIONS_SYMBOL],
-    });
+    })
   }
 
-  if (context.args.includes("--help") || context.args.includes("-h")) {
+  if (context.args.includes('--help') || context.args.includes('-h')) {
     if (context.commands[REQUIRE_ENGINE_SYMBOL] && !context.isEngine) {
-      await runEngineCommand(context);
+      await runEngineCommand(context)
     } else {
-      showHelp(context);
+      showHelp(context)
     }
-    return;
+    return
   }
 
-  return await executeCommand(context);
+  return await executeCommand(context)
 }

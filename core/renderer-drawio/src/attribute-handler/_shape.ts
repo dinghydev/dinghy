@@ -3,26 +3,26 @@ import type { Props } from '@reactiac/base-components'
 export const _shape = (shape: string | Props) =>
   typeof shape === 'string'
     ? {
-        entity: {
-          style: {
-            shape,
-          },
+      entity: {
+        style: {
+          shape,
         },
-        group: {
-          style: {
-            shape,
-          },
+      },
+      group: {
+        style: {
+          shape,
         },
-      }
+      },
+    }
     : {
-        entity: {
-          style: {
-            shape: shape.entity,
-          },
+      entity: {
+        style: {
+          shape: shape.entity,
         },
-        group: {
-          style: {
-            shape: shape.group,
-          },
+      },
+      group: {
+        style: {
+          shape: shape.group,
         },
-      }
+      },
+    }

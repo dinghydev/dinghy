@@ -1,34 +1,34 @@
-import { parseArgs } from "@std/cli";
-import Debug from "debug";
-import { configGet } from "../../../cli/src/utils/loadConfig.ts";
-const debug = Debug("parseOptions");
+import { parseArgs } from '@std/cli'
+import Debug from 'debug'
+import { configGet } from '../../../cli/src/utils/loadConfig.ts'
+const debug = Debug('parseOptions')
 
-export const OPTIONS_TYPES = ["boolean", "string", "number", "collect"];
+export const OPTIONS_TYPES = ['boolean', 'string', 'number', 'collect']
 
 const loadDefaultFromEnv = (spec: any, envPrefix: string[]) => {
-  const defaultWithEnv = { ...(spec.default || {}) };
+  const defaultWithEnv = { ...(spec.default || {}) }
 
   for (const optionType of OPTIONS_TYPES) {
     for (const option of spec[optionType] || []) {
-      let value: any = configGet([...envPrefix, option]);
+      let value: any = configGet([...envPrefix, option])
       if (value) {
-        if (optionType === "boolean") {
-          value = Boolean(value);
-        } else if (optionType === "number") {
-          value = value.includes(".")
+        if (optionType === 'boolean') {
+          value = Boolean(value)
+        } else if (optionType === 'number') {
+          value = value.includes('.')
             ? Number.parseFloat(value)
-            : Number.parseInt(value);
-        } else if (optionType === "collect") {
-          if (typeof value === "string") {
-            value = value.split(",");
+            : Number.parseInt(value)
+        } else if (optionType === 'collect') {
+          if (typeof value === 'string') {
+            value = value.split(',')
           }
         }
-        defaultWithEnv[option] = value;
+        defaultWithEnv[option] = value
       }
     }
   }
-  return defaultWithEnv;
-};
+  return defaultWithEnv
+}
 
 export const parseOptions = (
   spec: any,
@@ -38,33 +38,33 @@ export const parseOptions = (
   const options: any = parseArgs(args, {
     ...spec,
     default: loadDefaultFromEnv(spec, envPrefix),
-  });
+  })
   if (spec.arguments) {
     Object.entries(spec.arguments).map(([name, argSpec], index) => {
-      let value = options._[index] || configGet([...envPrefix, name]);
+      let value = options._[index] || configGet([...envPrefix, name])
       if ((argSpec as any).required && value === undefined) {
-        throw new Error(`Argument [${name.toLocaleUpperCase()}] is required`);
+        throw new Error(`Argument [${name.toLocaleUpperCase()}] is required`)
       }
-      if (name === "stack" && value?.includes(".tsx")) {
-        value = value.split("/").pop().replace(".tsx", "");
+      if (name === 'stack' && value?.includes('.tsx')) {
+        value = value.split('/').pop().replace('.tsx', '')
       }
-      options[name] = value;
-    });
+      options[name] = value
+    })
   }
 
   if (spec.required) {
     for (const required of spec.required) {
-      const value = options[required];
+      const value = options[required]
       if (value === undefined) {
-        throw new Error(`Option [${required}] is required`);
+        throw new Error(`Option [${required}] is required`)
       }
     }
   }
 
   if (!options.output) {
-    options.output = configGet(["output"]) || "output";
+    options.output = configGet(['output']) || 'output'
   }
 
-  debug("parsed options %O", options);
-  return options;
-};
+  debug('parsed options %O', options)
+  return options
+}

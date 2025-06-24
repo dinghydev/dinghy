@@ -1,54 +1,54 @@
-import chalk from "chalk";
+import chalk from 'chalk'
 import type {
   CommandArgs,
   CommandContext,
   Commands,
-} from "../../../../cli/src/types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
-import { isCi } from "../../utils/gitUtils.ts";
-import { notifyChanges } from "../../utils/notificationUtils.ts";
-import { runTfImageCmd } from "./runTfImageCmd.ts";
-import { createTfOptions, tfOptionsPlan } from "./tfOptions.ts";
-import { doWithTfStacks } from "./doWithTfStacks.ts";
-import { requireStacksConfig } from "../../../../cli/src/utils/loadConfig.ts";
+} from '../../../../cli/src/types.ts'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+import { isCi } from '../../utils/gitUtils.ts'
+import { notifyChanges } from '../../utils/notificationUtils.ts'
+import { runTfImageCmd } from './runTfImageCmd.ts'
+import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
+import { doWithTfStacks } from './doWithTfStacks.ts'
+import { requireStacksConfig } from '../../../../cli/src/utils/loadConfig.ts'
 
 const options: any = createTfOptions({
   ...tfOptionsPlan,
-  cmdDescription: "Apply pending planned changes",
-});
+  cmdDescription: 'Apply pending planned changes',
+})
 
 const changeSummaryWording = (summary: any) => {
-  return summary.replaceAll("to add", "added").replaceAll(
-    "to change",
-    "changed",
-  ).replaceAll("to destroy", "destroyed");
-};
+  return summary.replaceAll('to add', 'added').replaceAll(
+    'to change',
+    'changed',
+  ).replaceAll('to destroy', 'destroyed')
+}
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
-  await requireStacksConfig();
-  const changedStages: any[] = [];
+  await requireStacksConfig()
+  const changedStages: any[] = []
   await doWithTfStacks(args, async (tfOptions) => {
-    const { stackInfo } = tfOptions;
+    const { stackInfo } = tfOptions
     for (const stage of Object.values(stackInfo.stages)) {
       if ((stage as any).plan?.changesCount) {
-        changedStages.push(stage);
+        changedStages.push(stage)
       }
     }
-  });
+  })
   if (changedStages.length) {
     try {
       for (const stage of changedStages) {
-        const stagePath = `${args.output}/${stage.id}`;
+        const stagePath = `${args.output}/${stage.id}`
         await runTfImageCmd(
           stagePath,
           args,
-          ["terraform", "apply", args["plan-file"]],
-        );
+          ['terraform', 'apply', args['plan-file']],
+        )
       }
       if (isCi()) {
-        await notifyChanges(changedStages);
+        await notifyChanges(changedStages)
       } else {
-        console.log("Ignore notification in non-CI environment");
+        console.log('Ignore notification in non-CI environment')
         changedStages.map((change) => {
           console.log(
             chalk.red(
@@ -58,28 +58,28 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
                 )
               }`,
             ),
-          );
-        });
+          )
+        })
         console.log(
           chalk.green(`Changes applied in ${changedStages.length} stages`),
-        );
+        )
       }
     } catch (error) {
       if (isCi()) {
-        await notifyChanges(changedStages, error as string);
+        await notifyChanges(changedStages, error as string)
       } else {
-        console.log(chalk.red("Failed to applying changes"));
+        console.log(chalk.red('Failed to applying changes'))
       }
-      throw error;
+      throw error
     }
   } else {
-    console.log(chalk.green("No changes found"));
+    console.log(chalk.green('No changes found'))
   }
-};
+}
 
 const commands: Commands = {
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
-};
+}
 
-export default commands;
+export default commands

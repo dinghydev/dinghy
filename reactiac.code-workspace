@@ -1,0 +1,46 @@
+{
+    "folders": [
+        {
+            "path": "core"
+        },
+        {
+            "path": "engine"
+        },
+        {
+            "path": "cli"
+        },
+        {
+            "path": "tasks"
+        },
+        {
+            "path": "examples"
+        },
+        {
+            "path": "docker"
+        },
+        {
+            "path": ".github"
+        }
+    ],
+    "settings": {
+        "terminal.integrated.scrollback": 50000,
+        "debug.terminal.clearBeforeReusing": true,
+        "editor.formatOnSave": true,
+        "deno.enable": true,
+        "editor.defaultFormatter": "denoland.vscode-deno",
+        "deno.lint": true,
+        "[jsonc]": {
+            "editor.defaultFormatter": "vscode.json-language-features"
+        },
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-azuretools.vscode-containers",
+            "github.vscode-github-actions",
+            "asciidoctor.asciidoctor-vscode",
+            "denoland.vscode-deno",
+            "eamodio.gitlens",
+            "reduckted.vscode-gitweblinks"
+        ]
+    }
+}

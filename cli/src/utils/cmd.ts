@@ -1,73 +1,73 @@
-import { execa } from "execa";
-import Debug from "debug";
-import { containerAppHome } from "./loadConfig.ts";
+import { execa } from 'execa'
+import Debug from 'debug'
+import { containerAppHome } from './loadConfig.ts'
 Debug.formatters.a = (v) => {
-  return `[${v.join(" ")}]`;
-};
-const debug = Debug("cmd");
+  return `[${v.join(' ')}]`
+}
+const debug = Debug('cmd')
 
 export const streamCmd = async (
   args: string[],
   cwd?: string,
   errorOnFailure = true,
 ) => {
-  const workingDir = cwd || containerAppHome;
-  debug("streamCmd %a from %s", args, containerAppHome);
+  const workingDir = cwd || containerAppHome
+  debug('streamCmd %a from %s', args, containerAppHome)
   if (errorOnFailure) {
     try {
       return await execa(args[0], args.slice(1), {
-        stdio: "inherit",
+        stdio: 'inherit',
         cwd: workingDir,
         shell: true,
-      });
+      })
     } catch (e) {
       console.error(
-        `Failed command: (cd ${workingDir}; ${args.join(" ")})`,
-      );
-      throw e;
+        `Failed command: (cd ${workingDir}; ${args.join(' ')})`,
+      )
+      throw e
     }
   }
 
   const result = await execa(args[0], args.slice(1), {
-    stdout: ["pipe", "inherit"],
-    stderr: ["pipe", "inherit"],
+    stdout: ['pipe', 'inherit'],
+    stderr: ['pipe', 'inherit'],
     all: true,
     cwd: workingDir,
     shell: true,
     reject: false,
-  });
+  })
   if (result.exitCode !== 0) {
     debug(
-      "Failed command: (cd %s; %s)",
+      'Failed command: (cd %s; %s)',
       workingDir,
-      args.join(" "),
-    );
+      args.join(' '),
+    )
   }
-  return result;
-};
+  return result
+}
 
 export const execCmd = async (
   cmd: string,
   cwd?: string,
 ): Promise<string> => {
-  const workingDir = cwd || containerAppHome;
-  const args = cmd.split(" ");
-  debug("execCmd %a from %s", args, containerAppHome);
+  const workingDir = cwd || containerAppHome
+  const args = cmd.split(' ')
+  debug('execCmd %a from %s', args, containerAppHome)
   const result = await execa(args[0], args.slice(1), {
-    stdout: ["pipe"],
-    stderr: ["pipe"],
+    stdout: ['pipe'],
+    stderr: ['pipe'],
     all: true,
     cwd: workingDir,
     shell: true,
     reject: false,
-  });
+  })
   if (result.exitCode !== 0) {
     debug(
-      "Failed command: (cd %s; %s)",
+      'Failed command: (cd %s; %s)',
       workingDir,
-      args.join(" "),
-    );
+      args.join(' '),
+    )
   }
-  debug("execCmd result: %s", result.all);
-  return result.all;
-};
+  debug('execCmd result: %s', result.all)
+  return result.all
+}

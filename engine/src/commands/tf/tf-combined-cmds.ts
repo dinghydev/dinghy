@@ -3,40 +3,40 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from "../../../../cli/src/types.ts";
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from "../../../../cli/src/types.ts";
-import tf from "./index.ts";
-import { runCommand } from "../../../../cli/src/utils/runCommand.ts";
+} from '../../../../cli/src/types.ts'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+import tf from './index.ts'
+import { runCommand } from '../../../../cli/src/utils/runCommand.ts'
 import {
   hostAppHome,
   reactiacAppConfig,
   requireStacksConfig,
-} from "../../../../cli/src/utils/loadConfig.ts";
-import { doWithStacks } from "../../utils/index.ts";
+} from '../../../../cli/src/utils/loadConfig.ts'
+import { doWithStacks } from '../../utils/index.ts'
 import {
   attachChangeToMR,
   isCi,
   isMr,
   triggerAutoDeployJobs,
-} from "../../utils/gitUtils.ts";
-import { notifyChanges } from "../../utils/notificationUtils.ts";
-import chalk from "chalk";
-import { parseTfOptions } from "./tfOptions.ts";
-import render from "../render/index.ts";
+} from '../../utils/gitUtils.ts'
+import { notifyChanges } from '../../utils/notificationUtils.ts'
+import chalk from 'chalk'
+import { parseTfOptions } from './tfOptions.ts'
+import render from '../render/index.ts'
 
 const options: CommandOptions = {
-  boolean: ["debug"],
-  collect: ["stage"],
+  boolean: ['debug'],
+  collect: ['stage'],
   description: {
-    stage: "Stages to work with",
+    stage: 'Stages to work with',
   },
   arguments: {
     stack: {
-      description: "Stack name",
+      description: 'Stack name',
       required: false,
     },
   },
-};
+}
 
 const runStackTfCommands = async (
   stack: string,
@@ -45,14 +45,14 @@ const runStackTfCommands = async (
 ) => {
   await runCommand({
     isEngine: true,
-    prefix: ["tf"],
-    envPrefix: ["tf"],
+    prefix: ['tf'],
+    envPrefix: ['tf'],
     args: [tfCommand, stack, ...args],
-    originalArgs: ["tf", tfCommand, stack, ...args],
+    originalArgs: ['tf', tfCommand, stack, ...args],
     commands: tf,
     options: tf[OPTIONS_SYMBOL],
-  });
-};
+  })
+}
 
 export const createCombinedTfCmds = (
   cmdDescription: string,
@@ -60,28 +60,28 @@ export const createCombinedTfCmds = (
 ) => {
   const runStackCommands = async (stack: string, args: string[]) => {
     for (const cmd of cmds) {
-      await runStackTfCommands(stack, cmd, args);
+      await runStackTfCommands(stack, cmd, args)
     }
-  };
+  }
 
   const run = async (context: CommandContext, args: CommandArgs) => {
-    await requireStacksConfig();
-    const remainArgs = context.originalArgs.slice(2);
-    const noneStackArgs = args.stack ? remainArgs.slice(1) : remainArgs;
-    const activedStackIds: string[] = [];
+    await requireStacksConfig()
+    const remainArgs = context.originalArgs.slice(2)
+    const noneStackArgs = args.stack ? remainArgs.slice(1) : remainArgs
+    const activedStackIds: string[] = []
 
-    const stacksOptions: any = {};
+    const stacksOptions: any = {}
     await doWithStacks(
       reactiacAppConfig,
       args.stack,
       async (stackOptions: any) => {
         const renderArgs = [
-          "render",
+          'render',
           stackOptions.stack.id,
-          "--format",
-          "tf",
+          '--format',
+          'tf',
           ...noneStackArgs,
-        ];
+        ]
         await runCommand({
           ...context,
           prefix: [],
@@ -90,62 +90,62 @@ export const createCombinedTfCmds = (
           originalArgs: renderArgs,
           commands: { render } as any,
           options: render[OPTIONS_SYMBOL],
-        });
-        stacksOptions[stackOptions.stack.id] = stackOptions;
+        })
+        stacksOptions[stackOptions.stack.id] = stackOptions
       },
-    );
+    )
 
     for (const stackOptions of Object.values(stacksOptions)) {
-      const tfOptions = parseTfOptions(args, stackOptions);
+      const tfOptions = parseTfOptions(args, stackOptions)
       if (tfOptions) {
-        const { stack } = tfOptions;
+        const { stack } = tfOptions
         if (
           args.stack ||
           !isCi() ||
           (isMr() && stack.mrAutoDiff) ||
           (!isMr() && stack.mainAutoDiff)
         ) {
-          activedStackIds.push(stack.id);
-          await runStackCommands(stack.id, noneStackArgs);
+          activedStackIds.push(stack.id)
+          await runStackCommands(stack.id, noneStackArgs)
         }
       }
     }
 
-    const changedStacks: any[] = [];
-    const changedStages: any[] = [];
+    const changedStacks: any[] = []
+    const changedStages: any[] = []
     for (const stackId of activedStackIds) {
       const stackInfoFile =
-        `${hostAppHome}/${args.output}/${stackId}-stack-info.json`;
-      const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoFile));
+        `${hostAppHome}/${args.output}/${stackId}-stack-info.json`
+      const stackInfo = JSON.parse(Deno.readTextFileSync(stackInfoFile))
       for (const stage of Object.values(stackInfo.stages)) {
         if ((stage as any).plan?.changesCount) {
-          changedStages.push(stage);
-          const stack = stacksOptions[stackId];
+          changedStages.push(stage)
+          const stack = stacksOptions[stackId]
           if (!changedStacks.includes(stack)) {
-            changedStacks.push(stack);
+            changedStacks.push(stack)
           }
         }
       }
     }
     if (changedStacks.length) {
-      const isApply = cmds.includes("apply");
+      const isApply = cmds.includes('apply')
       if (isCi()) {
-        const changeAction = isMr() ? attachChangeToMR : notifyChanges;
-        await changeAction(changedStages);
+        const changeAction = isMr() ? attachChangeToMR : notifyChanges
+        await changeAction(changedStages)
         if (!isApply) {
-          await triggerAutoDeployJobs(changedStacks, args);
+          await triggerAutoDeployJobs(changedStacks, args)
         }
       } else {
         console.log(
           `Ignore notification ${
-            isApply ? "and auto deploy " : ""
+            isApply ? 'and auto deploy ' : ''
           }in non-CI environment`,
-        );
+        )
       }
     } else if (Object.values(stacksOptions).length > 1) {
-      console.log(chalk.green("No changes found in any stack"));
+      console.log(chalk.green('No changes found in any stack'))
     }
-  };
+  }
 
   return {
     [OPTIONS_SYMBOL]: {
@@ -153,5 +153,5 @@ export const createCombinedTfCmds = (
       cmdDescription,
     },
     [RUN_SYMBOL]: run,
-  } as Command;
-};
+  } as Command
+}

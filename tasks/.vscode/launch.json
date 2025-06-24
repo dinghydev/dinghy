@@ -1,0 +1,54 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "docker login",
+      "args": [
+        "deno task aws-ecr-login"
+      ],
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "env": {
+        "AWS_PROFILE": "reactiac"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "clean",
+      "args": [
+        "deno task clean"
+      ],
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "refresh-engine-lock",
+      "program": "src/refresh-engine-lock.ts",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "attachSimplePort": 9229,
+      "runtimeArgs": [
+        "--inspect-wait",
+        "--allow-all",
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "install locally",
+      "program": "src/install-locally.ts",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "attachSimplePort": 9229,
+      "runtimeArgs": [
+        "--inspect-wait",
+        "--allow-all",
+      ],
+      "console": "integratedTerminal"
+    }
+  ]
+}

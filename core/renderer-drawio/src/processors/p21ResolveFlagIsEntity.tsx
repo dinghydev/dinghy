@@ -11,10 +11,9 @@ function resolve(_props: DrawioNodeProps) {
     })
   } else {
     _props._node._children.map((c: DrawioNodeTree) => resolve(c._props))
-    _props._diagram.flags.isEntity =
-      _props._node._children.filter(
-        (c: DrawioNodeTree) => !c._props._diagram.flags.isHidden,
-      ).length === 0
+    _props._diagram.flags.isEntity = _props._node._children.filter(
+      (c: DrawioNodeTree) => !c._props._diagram.flags.isHidden,
+    ).length === 0
   }
 }
 

@@ -39,7 +39,7 @@
           <mxGeometry
             as="geometry" 
             width="300" 
-            height="390" 
+            height="300" 
             x="0" 
             y="0"
             />
@@ -165,24 +165,9 @@
             />
           </mxCell>
         <mxCell
-          style="align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;verticalAlign=top;aspect=fixed;noLabel=1;opacity=0" 
-          id="fourth" 
-          parent="react_iac_reactiactoplevelfolderstructure" 
-          value="Row" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="240" 
-            height="60" 
-            x="30" 
-            y="300"
-            />
-          </mxCell>
-        <mxCell
           style="shape=mxgraph.aws4.folder;fillColor=#232F3D;verticalLabelPosition=middle;verticalAlign=middle;align=center;aspect=fixed;sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;dashed=0;fontSize=12;fontStyle=0;pointerEvents=1;html=1;labelPosition=center" 
           id="folder_github" 
-          parent="fourth" 
+          parent="third" 
           value=".github" 
           vertex="1"
           >
@@ -190,22 +175,7 @@
             as="geometry" 
             width="60" 
             height="60" 
-            x="45" 
-            y="0"
-            />
-          </mxCell>
-        <mxCell
-          style="shape=mxgraph.aws4.folder;fillColor=#232F3D;verticalLabelPosition=middle;verticalAlign=middle;align=center;aspect=fixed;sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;dashed=0;fontSize=12;fontStyle=0;pointerEvents=1;html=1;labelPosition=center" 
-          id="folder_vscode" 
-          parent="fourth" 
-          value=".vscode" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="60" 
-            height="60" 
-            x="135" 
+            x="180" 
             y="0"
             />
           </mxCell>
@@ -355,38 +325,12 @@
               as="points"
               >
               <mxPoint
-                x="105" 
-                y="285"
+                x="195" 
+                y="240"
                 />
-              <mxPoint
-                x="145" 
-                y="285"
-                />
-              </Array>
-            </mxGeometry>
-          </mxCell>
-        <mxCell
-          id="dependency_7" 
-          source="folder_vscode" 
-          target="folder_tasks" 
-          parent="root" 
-          edge="1" 
-          style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle"
-          >
-          <mxGeometry
-            relative="1" 
-            as="geometry"
-            >
-            <Array
-              as="points"
-              >
               <mxPoint
                 x="195" 
-                y="285"
-                />
-              <mxPoint
-                x="155" 
-                y="285"
+                y="240"
                 />
               </Array>
             </mxGeometry>

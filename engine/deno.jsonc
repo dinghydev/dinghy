@@ -10,10 +10,17 @@
       "deno.ns"
     ]
   },
+  "fmt": {
+    "semiColons": false,
+    "singleQuote": true,
+    "exclude": [
+      "deno.jsonc",
+      "**/.vscode/launch.json"
+    ]
+  },
   "imports": {
     // ENGINE ONLY DEPENDENCIES
     "@inquirer/confirm": "npm:@inquirer/confirm@5.1.9",
-
     // CLI AND CORE DEPENDENCIES
     "@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@3.802.0",
     "@aws-sdk/lib-storage": "npm:@aws-sdk/lib-storage@3.802.0",
@@ -32,7 +39,7 @@
     "react-dom": "npm:react-dom@19.1.0",
     "zod": "npm:zod@3.24.2",
   },
-  "patch": [
+  "patch": [ // TODO: use links after upgrade to deno 2.3.6
     "../cli",
     "../core"
   ]
