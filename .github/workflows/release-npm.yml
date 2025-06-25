@@ -28,7 +28,7 @@ jobs:
           key: ${{ runner.os }}-npm-build-${{ hashFiles('deno.lock') }}
       - uses: denoland/setup-deno@v2
         with:
-          deno-version: v2.3.3
+          deno-version: v2.3.6
       - uses: actions/setup-node@v4
       - name: commit-rev-count
         run: |
