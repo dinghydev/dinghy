@@ -5,8 +5,7 @@
     "check": "deno check src/index.ts"
   },
   "exports": {
-    ".": "./src/index.ts",
-    "./utils": "./src/utils/index.ts"
+    ".": "./src/index.ts"
   },
   "compilerOptions": {
     "noImplicitAny": false,
@@ -38,10 +37,12 @@
   },
   "lint": {
     "rules": {
+      "tags": [
+        "recommended"
+      ],
       "exclude": [
         "no-explicit-any"
       ]
-      // "exclude": ["verbatim-module-syntax"]
     }
   }
 }

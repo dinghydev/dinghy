@@ -18,6 +18,16 @@
       "**/.vscode/launch.json"
     ]
   },
+  "lint": {
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "exclude": [
+        "no-explicit-any"
+      ]
+    }
+  },
   "imports": {
     // ENGINE ONLY DEPENDENCIES
     "@inquirer/confirm": "npm:@inquirer/confirm@5.1.9",
@@ -39,7 +49,7 @@
     "react-dom": "npm:react-dom@19.1.0",
     "zod": "npm:zod@3.24.2",
   },
-  "patch": [ // TODO: use links after upgrade to deno 2.3.6
+  "links": [
     "../cli",
     "../core"
   ]

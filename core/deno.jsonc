@@ -35,10 +35,12 @@
   },
   "lint": {
     "rules": {
+      "tags": [
+        "recommended"
+      ],
       "exclude": [
         "no-explicit-any"
       ]
-      // "exclude": ["verbatim-module-syntax"]
     }
   }
 }
