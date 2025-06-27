@@ -42,5 +42,5 @@ export function AwsS3Bucket(props: AwsS3BucketInputProps) {
     />
   )
 }
-export const useAwsS3Bucket = (id?: string) =>
-  useTypedNode<AwsS3BucketOutputProps>(AwsS3Bucket, id)
+export const useAwsS3Bucket = (node?: any, id?: string) =>
+  useTypedNode<AwsS3BucketOutputProps>(AwsS3Bucket, node, id)

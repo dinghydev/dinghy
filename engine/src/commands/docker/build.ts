@@ -4,8 +4,8 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+} from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
 import { execaSync } from 'execa'
 import chalk from 'chalk'
 import Debug from 'debug'
@@ -76,13 +76,13 @@ function isTagExists(tag: string) {
       stdio: 'ignore',
       cwd: hostAppHome,
     })`docker ${args}`
-  } catch (e) {
+  } catch {
     return false
   }
   return true
 }
 
-async function dockerCommand(args: string[]) {
+function dockerCommand(args: string[]) {
   console.log(`Executing: docker ${args.join(' ')}`)
   execaSync({
     stderr: 'inherit',

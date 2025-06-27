@@ -21,9 +21,7 @@ export const streamCmd = async (
         shell: true,
       })
     } catch (e) {
-      console.error(
-        `Failed command: (cd ${workingDir}; ${args.join(' ')})`,
-      )
+      debug(`Failed command: (cd ${workingDir}; ${args.join(' ')})`)
       throw e
     }
   }

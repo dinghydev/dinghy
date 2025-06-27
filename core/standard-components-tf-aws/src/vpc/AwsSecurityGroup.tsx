@@ -1,7 +1,6 @@
 import {
   IacNodeProps,
   ResolvableStringSchema,
-  Shape,
   useTypedNodes,
 } from '@reactiac/base-components'
 

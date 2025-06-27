@@ -5,7 +5,7 @@ import {
 } from '../types.ts'
 import chalk from 'chalk'
 import { OPTIONS_TYPES } from './parseOptions.ts'
-import { projectVersionRelease, versionDetails } from './projectVersions.ts'
+import { versionDetails } from './projectVersions.ts'
 type Row = {
   name: string
   options?: string

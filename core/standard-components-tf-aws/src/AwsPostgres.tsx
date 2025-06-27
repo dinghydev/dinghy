@@ -9,7 +9,7 @@ export type AwsPostgresProps = z.input<typeof AwsPostgresSchema> & IacNodeProps
 export default function AwsPostgres(props: AwsPostgresProps) {
   return (
     <AwsDbInstance
-      engine={'postgres'}
+      engine='postgres'
       {...aws4.RDS_POSTGRESQL_INSTANCE}
       {...props}
     />

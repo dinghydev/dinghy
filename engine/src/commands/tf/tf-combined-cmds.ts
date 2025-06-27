@@ -3,15 +3,15 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+} from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
 import tf from './index.ts'
 import { runCommand } from '../../../../cli/src/utils/runCommand.ts'
 import {
   hostAppHome,
   reactiacAppConfig,
   requireStacksConfig,
-} from '../../../../cli/src/utils/loadConfig.ts'
+} from '@reactiac/cli'
 import { doWithStacks } from '../../utils/index.ts'
 import {
   attachChangeToMR,

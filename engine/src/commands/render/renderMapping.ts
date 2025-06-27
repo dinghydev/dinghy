@@ -5,7 +5,7 @@ import { dirname, resolve } from '@std/path'
 import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
-import { hostAppHome } from '@reactiac/cli/utils'
+import { hostAppHome } from '@reactiac/cli'
 import {
   createStage,
   createView,
@@ -14,7 +14,7 @@ import {
 } from '@reactiac/base-components'
 import { runCommand } from '../../../../cli/src/utils/runCommand.ts'
 import png from '../diagram/png.ts'
-import { OPTIONS_SYMBOL } from '../../../../cli/src/types.ts'
+import { OPTIONS_SYMBOL } from '@reactiac/cli'
 const debug = Debug('rendererMapping')
 
 const writeFile = async (path: string, content: string) => {

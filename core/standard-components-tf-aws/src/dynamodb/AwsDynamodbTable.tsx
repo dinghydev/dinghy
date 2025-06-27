@@ -46,5 +46,5 @@ export function AwsDynamodbTable(props: AwsDynamodbTableInputProps) {
     />
   )
 }
-export const useAwsDynamodbTable = (id?: string) =>
-  useTypedNode<AwsDynamodbTableOutputProps>(AwsDynamodbTable, id)
+export const useAwsDynamodbTable = (node?: any, id?: string) =>
+  useTypedNode<AwsDynamodbTableOutputProps>(AwsDynamodbTable, node, id)

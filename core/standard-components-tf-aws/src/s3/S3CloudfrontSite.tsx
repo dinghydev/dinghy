@@ -71,7 +71,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
         _dependsOn='Bucket'
         logging_config={logging_config as any}
         aliases={[domain as any]}
-        enabled={true}
+        enabled
         restrictions={{
           geo_restriction: { restriction_type: 'none', locations: [] },
         }}

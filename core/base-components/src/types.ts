@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import z, { type ZodType, type ZodTypeAny } from 'zod'
 
 export const resolvable = <T extends ZodTypeAny>(_schema: T): ZodType<T> =>
@@ -25,7 +25,7 @@ export const ResolvableNumberSchema = resolvableValue(z.number())
 
 export const ResolvableBooleanSchema = resolvableValue(z.boolean())
 
-export const CallableSchema = resolvable(z.any())
+export const CallableSchema = z.function().args(z.any()).returns(z.any())
 export type CallableType = z.input<typeof CallableSchema>
 
 export const RecordSchema = z.record(z.string(), z.unknown())
@@ -83,6 +83,7 @@ export const NodeSchema = z.object({
   _view: StringOrArraySchema.optional(),
   _stage: StringOrArraySchema.optional(),
   _importId: ResolvableStringSchema.optional(),
+  onDataBind: CallableSchema.optional(),
 })
 
 export type NodeType = z.input<typeof NodeSchema>

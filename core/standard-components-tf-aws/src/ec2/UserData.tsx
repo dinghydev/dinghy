@@ -32,7 +32,9 @@ export function UserData(props: UserDataInputProps) {
       return props.content
     }
     if (props.content_base64) {
-      return Buffer.from(props.content_base64, 'base64').toString('utf-8')
+      return Buffer.from(props.content_base64 as string, 'base64').toString(
+        'utf-8',
+      )
     }
 
     const { dataTexts } = useUserDataTexts(node)

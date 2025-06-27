@@ -82,13 +82,13 @@ function isTagExists(tag: string) {
       stdio: 'ignore',
       cwd: hostAppHome,
     })`docker ${args}`
-  } catch (e) {
+  } catch {
     return false
   }
   return true
 }
 
-async function dockerCommand(args: string[]) {
+function dockerCommand(args: string[]) {
   console.log(`Executing: docker ${args.join(' ')}`)
   execaSync({
     stderr: 'inherit',

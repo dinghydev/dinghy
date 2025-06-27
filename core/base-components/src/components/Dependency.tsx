@@ -69,5 +69,5 @@ export function Dependency(props: Partial<DependencyProps>) {
     processDependencyAttributes(propsHolder, parent, depProps)
     return propsHolder.children
   }
-  return <Node {...props} _isDependency={true} />
+  return <Node {...props} _isDependency />
 }

@@ -30,13 +30,13 @@ export const StackSchema = z.object({
   mainAutoDeploy: z.boolean().default(false),
 })
 
-export type Stack = z.input<typeof StackSchema>
+export type StackType = z.input<typeof StackSchema>
 
 export const StacksSchema = z.record(z.string(), StackSchema.passthrough())
 
 export type Stacks = z.input<typeof StacksSchema>
 
-const parseStackFromId = (stackId: string): Stack => {
+const parseStackFromId = (stackId: string): StackType => {
   const segments = stackId.split('-')
   const split = Math.floor(segments.length / 2)
   const name = segments.slice(0, split).join('-')
@@ -91,21 +91,21 @@ const populateStackDefaultItems = (stack: Props, renderOptions: any) => {
 }
 
 export const createStage = (
-  stack: Stack,
+  stack: StackType,
   name: string,
 ) => {
   return createDefaultItem(stack, name, DEFAULT_STAGE)
 }
 
 export const createView = (
-  stack: Stack,
+  stack: StackType,
   name: string,
 ) => {
   return createDefaultItem(stack, name, DEFAULT_VIEW)
 }
 
 const createDefaultItem = (
-  stack: Stack,
+  stack: StackType,
   name: string,
   defaultValue: string,
 ) => {
@@ -195,7 +195,7 @@ export const loadStackConfig = (
     deepMerge(stackOptions, stackOptions.stack.override)
     debug('loaded stack override %O', stackOptions.stack.override)
   }
-  return stackOptions.stack as Stack
+  return stackOptions.stack as StackType
 }
 
 const collectTags = (result: string[], variants: string[], size = 1) => {
@@ -281,14 +281,14 @@ export const loadFile = (options: any, path: string) => {
 }
 
 export const mergeStackOptions = (
-  stack: Stack,
+  stack: StackType,
   input: string[],
   field: string,
 ) => {
   return Object.values(
     mergeStackItemList(
       stack,
-      stack[`${field}s` as keyof Stack],
+      stack[`${field}s` as keyof StackType],
       input,
       field === 'stage' ? DEFAULT_STAGE : DEFAULT_VIEW,
     ),
@@ -296,7 +296,7 @@ export const mergeStackOptions = (
 }
 
 const mergeStackItemList = (
-  stack: Stack,
+  stack: StackType,
   items: any,
   input: string[],
   defaultValue: string,

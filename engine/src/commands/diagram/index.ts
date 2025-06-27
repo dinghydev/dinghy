@@ -3,12 +3,11 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+} from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL, runCommand } from '@reactiac/cli'
 import Debug from 'debug'
 import png from './png.ts'
 import render from '../render/index.ts'
-import { runCommand } from '../../../../cli/src/utils/runCommand.ts'
 const debug = Debug('diagram')
 
 const options: CommandOptions = {

@@ -4,7 +4,7 @@ import Debug from 'debug'
 import { commitVersion } from './commitVersion.ts'
 const debug = Debug('runCommand')
 
-const versions = {}
+const versions: any = {}
 
 function lazyLoad(): Record<string, string> {
   if (!versions['release']) {

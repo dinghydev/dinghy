@@ -3,20 +3,25 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '../../../cli/src/types.ts'
+} from '@reactiac/cli'
 import {
+  devcontainer,
+  info,
   OPTIONS_SYMBOL,
   RUN_SYMBOL,
+  runCommand,
+  showHelp,
   throwReactiacError,
-} from '../../../cli/src/types.ts'
-import { showHelp } from '../../../cli/src/utils/showHelp.ts'
+  versionDetails,
+} from '@reactiac/cli'
 import render from './render/index.ts'
 import diagram from './diagram/index.ts'
 import tf from './tf/index.ts'
-// import docker from "./docker/index.ts";
-import { runCommand } from '../../../cli/src/utils/runCommand.ts'
 import Debug from 'debug'
-import { versionDetails } from '../../../cli/src/utils/projectVersions.ts'
+import upgrade from './upgrade.ts'
+import check from './check.ts'
+import deno from './deno.ts'
+import bash from './bash.ts'
 const debug = Debug('reactiac:main')
 
 const options: CommandOptions = {
@@ -110,6 +115,12 @@ const commands: Commands = {
   diagram,
   // docker,
   tf,
+  info,
+  devcontainer,
+  upgrade,
+  check,
+  deno,
+  bash,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 }

@@ -15,7 +15,10 @@ import tf from './tf.ts'
 import docker from './docker/index.ts'
 import { runEngineCommand } from '../utils/runEngineCommand.ts'
 import { versionDetails } from '../utils/projectVersions.ts'
-
+import info from './info.ts'
+import deno from './deno.ts'
+import check from './check.ts'
+import bash from './bash.ts'
 const options: CommandOptions = {
   boolean: ['debug', 'help', 'version'],
   collect: ['commands'],
@@ -80,6 +83,10 @@ const commands: Commands = {
   diagram,
   docker,
   tf,
+  info,
+  deno,
+  check,
+  bash,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 }

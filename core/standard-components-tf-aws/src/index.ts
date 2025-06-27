@@ -21,6 +21,7 @@ export * as quicksight from './quicksight/index.ts'
 export * as appautoscaling from './appautoscaling/index.ts'
 export * as lb from './lb/index.ts'
 export * as ecs from './ecs/index.ts'
+export { namespaceMapping } from './namespaceMapping.ts'
 
 export { default as AwsCloud } from './AwsCloud.tsx'
 export { type AwsLbInputProps, default as AwsLb } from './AwsLb.tsx'

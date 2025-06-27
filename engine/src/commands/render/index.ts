@@ -1,9 +1,5 @@
-import type {
-  CommandArgs,
-  CommandContext,
-  Commands,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+import type { CommandArgs, CommandContext, Commands } from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
 import { rendererMapping } from './renderMapping.ts'
 
 import {
@@ -11,11 +7,11 @@ import {
   execCmd,
   isCi,
   reactiacAppConfig,
-} from '@reactiac/cli/utils'
+} from '@reactiac/cli'
 import { deepMerge, doWithStacks } from '@reactiac/base-components'
 import chalk from 'chalk'
 import Debug from 'debug'
-import { requireStacksConfig } from '../../../../cli/src/utils/loadConfig.ts'
+import { requireStacksConfig } from '@reactiac/cli'
 import { renderOptions } from '../../utils/renderOptions.ts'
 const debug = Debug('render')
 

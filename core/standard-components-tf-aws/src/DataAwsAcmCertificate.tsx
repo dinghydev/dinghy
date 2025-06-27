@@ -36,5 +36,9 @@ export function DataAwsAcmCertificate(props: DataAwsAcmCertificateInputProps) {
   )
 }
 
-export const useDataAwsAcmCertificate = (id?: string) =>
-  useTypedNode<DataAwsAcmCertificateOutputProps>(DataAwsAcmCertificate, id)
+export const useDataAwsAcmCertificate = (node?: any, id?: string) =>
+  useTypedNode<DataAwsAcmCertificateOutputProps>(
+    DataAwsAcmCertificate,
+    node,
+    id,
+  )

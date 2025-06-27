@@ -1,6 +1,4 @@
-import type { ReactElement } from 'react'
 import {
-  deepResolve,
   type IacNodeProps,
   type Item,
   type NodeTree,

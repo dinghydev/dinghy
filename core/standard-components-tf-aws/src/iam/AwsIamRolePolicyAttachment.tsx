@@ -40,8 +40,9 @@ export function AwsIamRolePolicyAttachment(
     />
   )
 }
-export const useAwsIamRolePolicyAttachment = (id?: string) =>
+export const useAwsIamRolePolicyAttachment = (node?: any, id?: string) =>
   useTypedNode<AwsIamRolePolicyAttachmentOutputProps>(
     AwsIamRolePolicyAttachment,
+    node,
     id,
   )

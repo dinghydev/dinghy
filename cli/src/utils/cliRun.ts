@@ -1,5 +1,10 @@
 import { runCommand } from './runCommand.ts'
-import { type Commands, OPTIONS_SYMBOL, ReactiacError } from '../types.ts'
+import {
+  type Commands,
+  HANDLED_ERROR_EXIT_CODE,
+  OPTIONS_SYMBOL,
+  ReactiacError,
+} from '../types.ts'
 import { updateCheck } from './updateCheck.ts'
 import { setupDebug } from './setupDebug.ts'
 import { loadGlobalConfig } from './loadConfig.ts'
@@ -44,9 +49,14 @@ export const cliRun = async (
 
     if (error) {
       if (error instanceof ReactiacError) {
-        console.error(chalk.red(error.message))
-        Deno.exit(1)
+        console.error(
+          `${error.code ? `${chalk.bold(error.code)} ` : ''}${
+            chalk.red(error.message)
+          }`,
+        )
+        Deno.exit(HANDLED_ERROR_EXIT_CODE)
       } else {
+        // deno-lint-ignore no-unsafe-finally
         throw error
       }
     }

@@ -49,13 +49,17 @@ export type CommandContext = {
 }
 
 export class ReactiacError extends Error {
-  constructor(message: string) {
+  code?: string
+  constructor(message: string, code?: string) {
     super(message)
     this.name = 'ReactiacError'
+    this.code = code
     Object.setPrototypeOf(this, ReactiacError.prototype)
   }
 }
 
-export const throwReactiacError = (message: string) => {
-  throw new ReactiacError(message)
+export const throwReactiacError = (message: string, code?: string) => {
+  throw new ReactiacError(message, code)
 }
+
+export const HANDLED_ERROR_EXIT_CODE = 66

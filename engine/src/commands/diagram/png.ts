@@ -4,14 +4,14 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+} from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
 import Debug from 'debug'
 import { resolve } from '@std/path/resolve'
 import chalk from 'chalk'
-import { runDockerCmd } from '../../../../cli/src/utils/dockerUtils.ts'
-import { configGetDrawioImage } from '../../../../cli/src/utils/dockerConfig.ts'
-import { hostAppHome } from '../../../../cli/src/utils/loadConfig.ts'
+import { runDockerCmd } from '@reactiac/cli'
+import { configGetDrawioImage } from '@reactiac/cli'
+import { hostAppHome } from '@reactiac/cli'
 const debug = Debug('diagram:png')
 
 const options: CommandOptions = {

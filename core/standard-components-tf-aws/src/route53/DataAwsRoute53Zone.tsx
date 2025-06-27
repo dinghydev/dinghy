@@ -36,5 +36,5 @@ export function DataAwsRoute53Zone(props: DataAwsRoute53ZoneInputProps) {
   )
 }
 
-export const useDataAwsRoute53Zone = (id?: string) =>
-  useTypedNode<DataAwsRoute53ZoneOutputProps>(DataAwsRoute53Zone, id)
+export const useDataAwsRoute53Zone = (node?: any, id?: string) =>
+  useTypedNode<DataAwsRoute53ZoneOutputProps>(DataAwsRoute53Zone, node, id)

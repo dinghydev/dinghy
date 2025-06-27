@@ -66,7 +66,7 @@ const addToPathIfNotAlready = (shell: string, paths: string[]) => {
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
   addToPathIfNotAlready('bash', ['.bashrc', '.profile'])
-  addToPathIfNotAlready('zsh', ['.zshrc'])
+  addToPathIfNotAlready('zsh', ['.zshrc', '.zprofile'])
   addToPathIfNotAlready('fish', ['.config/fish/config.fish'])
 
   await cleanUpdateCheck()

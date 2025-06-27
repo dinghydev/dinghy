@@ -1,9 +1,7 @@
-import type { Element } from './../../cli/src/types.ts'
-
-export function generateApp(_args: any, cloud: Element) {
+export function generateApp(_args: any, cloud: any) {
   const imports: Record<string, Set<string>> = {}
 
-  const collectImports = (element: Element) => {
+  const collectImports = (element: any) => {
     const namespace = element.namespace || ''
     imports[namespace] ??= new Set()
     imports[namespace].add(element.tag)
@@ -33,7 +31,7 @@ export function generateApp(_args: any, cloud: Element) {
     return Object.entries(element.attributes || {}).map(([key, value]) => {
       if (typeof value === 'string') {
         if (value !== '') {
-          if (value.includes('"')) {
+          if ((value as string).includes('"')) {
             return `${key}={${JSON.stringify(value)}}`
           } else {
             return `${key}="${value}"`
@@ -52,7 +50,7 @@ export function generateApp(_args: any, cloud: Element) {
     }).filter(Boolean).join(`\n${' '.repeat(indent + 4)}`)
   }
 
-  const generateTag = (element: Element, indent: number): string => {
+  const generateTag = (element: any, indent: number): string => {
     if (element.children) {
       return `${' '.repeat(indent)}<${element.tag} ${
         generateAttributes(element, indent)

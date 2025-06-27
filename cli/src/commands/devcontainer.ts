@@ -34,6 +34,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   if (!args['no-open']) {
     if (devcontainerConfig) {
       debug('remove devcontainer %s if exits', devcontainerConfig.name)
+      debug('running command from %s: devcontainer open', hostAppHome)
       await execa('docker', ['rm', '-f', devcontainerConfig.name as string], {
         stdio: 'ignore',
         reject: false,
@@ -91,6 +92,10 @@ function prepareConfig(args: CommandArgs): any {
     {
       source: 'deno.jsonc',
       target: '/reactiac/engine/deno.jsonc',
+    },
+    {
+      source: 'deno.lock',
+      target: '/reactiac/engine/deno.lock',
     },
   ]).map((mount) => `source=${mount.source},target=${mount.target},type=bind`)
 

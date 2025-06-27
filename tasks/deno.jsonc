@@ -45,7 +45,8 @@
         "docker-build-amd64"
       ]
     },
-    "install-locally": "deno run -A ./src/install-locally.ts"
+    "install-locally": "deno run -A ./src/install-locally.ts",
+    "check-projects": "deno run -A ./src/check-projects.ts"
   },
   "imports": {
     "@deno/dnt": "jsr:@deno/dnt@0.41.3",

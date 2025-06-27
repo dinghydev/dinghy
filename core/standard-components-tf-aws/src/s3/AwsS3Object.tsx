@@ -42,5 +42,5 @@ export function AwsS3Object(props: AwsS3ObjectInputProps) {
     />
   )
 }
-export const useAwsS3Object = (id?: string) =>
-  useTypedNode<AwsS3ObjectOutputProps>(AwsS3Object, id)
+export const useAwsS3Object = (node?: any, id?: string) =>
+  useTypedNode<AwsS3ObjectOutputProps>(AwsS3Object, node, id)

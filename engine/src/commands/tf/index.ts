@@ -3,8 +3,8 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+} from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
 import init from './init.ts'
 import plan from './plan.ts'
 import apply from './apply.ts'
@@ -13,11 +13,12 @@ import normalise from './normalise.ts'
 import diff from './diff.ts'
 import { showHelp } from '../../../../cli/src/utils/showHelp.ts'
 import up from './up.ts'
+import bash from './bash.ts'
 const options: CommandOptions = {
   description: {},
   cmdDescription: 'Terraform/OpenTofu related operations',
 }
-const run = async (context: CommandContext, _args: CommandArgs) => {
+const run = (context: CommandContext, _args: CommandArgs) => {
   showHelp(context)
 }
 
@@ -31,6 +32,7 @@ const commands: Commands = {
   normalise,
   diff,
   up,
+  bash,
 }
 
 export default commands

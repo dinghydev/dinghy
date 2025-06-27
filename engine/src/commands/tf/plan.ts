@@ -1,14 +1,7 @@
 import chalk from 'chalk'
-import type {
-  CommandArgs,
-  CommandContext,
-  Commands,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
-import {
-  hostAppHome,
-  requireStacksConfig,
-} from '../../../../cli/src/utils/loadConfig.ts'
+import type { CommandArgs, CommandContext, Commands } from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
+import { hostAppHome, requireStacksConfig } from '@reactiac/cli'
 import { doWithTfStacks } from './doWithTfStacks.ts'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'

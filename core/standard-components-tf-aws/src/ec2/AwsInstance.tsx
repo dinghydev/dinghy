@@ -58,5 +58,5 @@ export function AwsInstance(props: AwsInstanceInputProps) {
     />
   )
 }
-export const useAwsInstance = (id?: string) =>
-  useTypedNode<AwsInstanceOutputProps>(AwsInstance, id)
+export const useAwsInstance = (node?: any, id?: string) =>
+  useTypedNode<AwsInstanceOutputProps>(AwsInstance, node, id)

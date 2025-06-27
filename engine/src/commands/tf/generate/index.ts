@@ -48,7 +48,7 @@ try {
   throw e
 }
 
-const run = async (_context: CommandContext, _args: CommandArgs) => {
+const run = (_context: CommandContext, _args: CommandArgs) => {
   // await runWorkspaceTask(["tf-generate", ...context.originalArgs]);
   throw new Error('Not implemented')
 }

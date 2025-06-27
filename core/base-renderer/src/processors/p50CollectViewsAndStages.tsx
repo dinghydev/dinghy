@@ -40,7 +40,6 @@ export const p50CollectViewsAndStages = (
   }
 
   const collectModelsFromElement = (node: NodeTree) => {
-    const { _props } = node
     handleField('views', (node._props as any)._view || 'overview')
     handleField('stages', (node._props as any)._stage || 'main')
     addAllView(node)

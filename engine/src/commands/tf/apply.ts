@@ -1,16 +1,12 @@
 import chalk from 'chalk'
-import type {
-  CommandArgs,
-  CommandContext,
-  Commands,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+import type { CommandArgs, CommandContext, Commands } from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
 import { isCi } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
-import { requireStacksConfig } from '../../../../cli/src/utils/loadConfig.ts'
+import { requireStacksConfig } from '@reactiac/cli'
 
 const options: any = createTfOptions({
   ...tfOptionsPlan,
@@ -27,6 +23,7 @@ const changeSummaryWording = (summary: any) => {
 const run = async (_context: CommandContext, args: CommandArgs) => {
   await requireStacksConfig()
   const changedStages: any[] = []
+  // deno-lint-ignore require-await
   await doWithTfStacks(args, async (tfOptions) => {
     const { stackInfo } = tfOptions
     for (const stage of Object.values(stackInfo.stages)) {

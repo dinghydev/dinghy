@@ -98,7 +98,7 @@ export function S3Backend(props: S3BackendInputProps) {
             bucket={bucket as any}
             _title={bucketName}
             _display='entity'
-            _stage={createBackendInStage}
+            _stage={createBackendInStage as any}
             object_lock_enabled
           >
             <EnableVersioning _stage={createBackendInStage} />

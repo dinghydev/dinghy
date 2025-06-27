@@ -44,7 +44,7 @@ const loadIpList = (
   const ipList = inputData[key] ?? (inputData[key] = [])
 
   const listFile = `${type}-ip-list.yaml`
-  const listData = renderOptions.files?.config?.waf?.files[listFile]
+  const listData = renderOptions.files?.data?.waf?.files[listFile]
   if (listData) {
     ipList.push(...listData)
     debug('loaded %s', listFile)
@@ -55,7 +55,7 @@ export function useWafConfig(name: string) {
   const { renderOptions } = useRenderOptions()
   const inputData = loadFilesData(
     renderOptions,
-    'config/waf',
+    'data/waf',
     name,
   )
 

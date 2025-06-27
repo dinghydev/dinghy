@@ -21,7 +21,7 @@ const options: CommandOptions = {
   default: {
     version: 'latest',
   },
-  cmdDescription: 'Upgrade ReactIAC Runner to the latest version',
+  cmdDescription: 'Upgrade ReactIAC Cli to the latest version',
   cmdAlias: ['up'],
 }
 

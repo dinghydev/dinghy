@@ -8,7 +8,7 @@ forEachWorkspace(async (name, srcPath, targetPath, denoJsonc) => {
   console.log('building', name, srcPath)
   await emptyDir(targetPath)
 
-  const dependencies = {}
+  const dependencies: any = {}
   if (name === '@reactiac/workspace') {
     return
   }
@@ -21,7 +21,7 @@ forEachWorkspace(async (name, srcPath, targetPath, denoJsonc) => {
         : spec.substring(spec.indexOf(':') + 1, spec.lastIndexOf('@'))
       const cVersion = isWorkspaceDependency
         ? 'latest'
-        : v.substring(v.lastIndexOf('@') + 1)
+        : spec.substring(spec.lastIndexOf('@') + 1)
       dependencies[cName] = cVersion
     })
   }
@@ -30,10 +30,10 @@ forEachWorkspace(async (name, srcPath, targetPath, denoJsonc) => {
     // packageManager: "pnpm",
     typeCheck: false,
     test: false,
-    declaration: true,
+    // declaration: true,
     scriptModule: false,
     entryPoints: [`${srcPath}/src/index.ts`],
-    types: false,
+    // types: false,
     outDir: targetPath,
     shims: {
       deno: false,

@@ -1,7 +1,6 @@
 import {
   type CommandContext,
   OPTIONS_SYMBOL,
-  ReactiacError,
   REQUIRE_ENGINE_SYMBOL,
   RUN_SYMBOL,
   throwReactiacError,

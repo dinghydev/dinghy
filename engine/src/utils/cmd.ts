@@ -21,21 +21,27 @@ export const streamCmd = async (
         shell: true,
       })
     } catch (e) {
-      console.error(
-        `Failed command: (cd ${workingDir}; ${args.join(' ')})`,
-      )
+      debug(`Failed command: (cd ${workingDir}; ${args.join(' ')})`)
       throw e
     }
   }
-
-  const result = await execa(args[0], args.slice(1), {
+  const options: any = {
     stdout: ['pipe', 'inherit'],
     stderr: ['pipe', 'inherit'],
     all: true,
     cwd: workingDir,
     shell: true,
     reject: false,
-  })
+  }
+  if (args[0] === 'bash') {
+    options.stdout = 'inherit'
+    options.stderr = 'inherit'
+    options.stdin = 'inherit'
+    options.all = false
+    options.shell = true
+  }
+
+  const result = await execa(args[0], args.slice(1), options)
   if (result.exitCode !== 0) {
     debug(
       'Failed command: (cd %s; %s)',

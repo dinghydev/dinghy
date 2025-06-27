@@ -131,12 +131,18 @@ export const runDockerCmd = async (
   exitOnFailure = true,
 ) => {
   prepareDockerAuthConfig()
+  const dockerArgs = [
+    'docker',
+    'run',
+    '--rm',
+    '-t',
+  ]
+  if (args.includes('bash')) {
+    dockerArgs.push('-i')
+  }
   return await streamCmd(
     [
-      'docker',
-      'run',
-      '--rm',
-      '-t',
+      ...dockerArgs,
       ...Object.entries(getDockerEnvs(envs)).flatMap((
         [k, v],
       ) => ['-e', `'${k}=${(v as string).replace(/'/g, "'\"'\"'")}'`]),

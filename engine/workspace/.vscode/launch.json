@@ -26,6 +26,25 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "check",
+      "args": [
+        "check",
+        // "-h",
+        // "--debug",
+      ],
+      "program": "src/index.ts",
+      "cwd": "/reactiac/engine",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/usr/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+      ],
+      "attachSimplePort": 0,
+      "console": "integratedTerminal"
+    },
+    {
       "name": "diagram",
       "args": [
         "diagram",

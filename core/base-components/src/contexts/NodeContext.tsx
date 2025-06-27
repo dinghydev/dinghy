@@ -1,4 +1,3 @@
-import React from 'react'
 import { createContext, type ReactElement, useContext } from 'react'
 import type { NodeProps, NodeTree, Props } from '../types.ts'
 

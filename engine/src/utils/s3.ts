@@ -1,8 +1,8 @@
-import {
-  GetObjectCommand,
-  PutObjectCommand,
-  S3Client,
-} from '@aws-sdk/client-s3'
+// import {
+//   GetObjectCommand,
+//   PutObjectCommand,
+//   // S3Client,
+// } from '@aws-sdk/client-s3'
 
 import Debug from 'debug'
 import { sleep } from './timeUtils.ts'
@@ -15,10 +15,10 @@ export const s3GetFile = async (
   Bucket: string,
   Key: string,
 ) => {
-  const s3Command = new GetObjectCommand({
-    Bucket,
-    Key,
-  })
+  // const s3Command = new GetObjectCommand({
+  //   Bucket,
+  //   Key,
+  // })
   debug('download s3://%s/%s request1', Bucket, Key)
   // debug("waiting for 50 minutes");
   // await sleep(50 * 60 * 1000);
@@ -58,14 +58,14 @@ export const s3WriteString = async (
   Bucket: string,
   Key: string,
   Body: string,
-  options = {},
+  _options = {},
 ) => {
-  const s3Command = new PutObjectCommand({
-    ...options,
-    Bucket,
-    Key,
-    Body,
-  })
+  // const s3Command = new PutObjectCommand({
+  //   ...options,
+  //   Bucket,
+  //   Key,
+  //   Body,
+  // })
   debug('upload s3://%s/%s request1', Bucket, Key)
   await sleep(1000)
   debug('upload s3://%s/%s request2', Bucket, Key)
@@ -128,6 +128,6 @@ export const temporaryStorageSaveFile = async (key: string, body: string) => {
   return await s3WriteString(region, bucket, key, body)
 }
 
-const s3Client = (region: string) => {
-  return new S3Client({ region })
-}
+// const s3Client = (region: string) => {
+//   return new S3Client({ region })
+// }

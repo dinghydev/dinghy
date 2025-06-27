@@ -3,8 +3,8 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+} from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
 import { showHelp } from '../../utils/showHelp.ts'
 import login from './login.ts'
 import build from './build.ts'

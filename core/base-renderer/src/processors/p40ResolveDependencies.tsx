@@ -52,7 +52,6 @@ function resolveFromBase(base: NodeTree, spec: string) {
 }
 
 function resolveNode(
-  root: NodeTree,
   node: NodeTree,
   spec: ReactElement,
 ): NodeTree {
@@ -70,9 +69,9 @@ function resolveNode(
   return resolved
 }
 
-function resolveDependency(rootNode: NodeTree, node: NodeTree) {
-  const _source = resolveNode(rootNode, node, (node._props as any)._source)
-  const _target = resolveNode(rootNode, node, (node._props as any)._target)
+function resolveDependency(node: NodeTree) {
+  const _source = resolveNode(node, (node._props as any)._source)
+  const _target = resolveNode(node, (node._props as any)._target)
 
   _source._dependsOn ??= []
   _target._dependsBy ??= []
@@ -82,12 +81,12 @@ function resolveDependency(rootNode: NodeTree, node: NodeTree) {
   ;(node._props as any)._target = _target
 }
 
-function resolveDependencies(rootNode: NodeTree, node: NodeTree) {
+function resolveDependencies(node: NodeTree) {
   if (node._props._isDependency) {
-    resolveDependency(rootNode, node)
+    resolveDependency(node)
   } else {
     node._children.map((c) => {
-      resolveDependencies(rootNode, c)
+      resolveDependencies(c)
     })
   }
 }
@@ -96,5 +95,5 @@ export const p40ResolveDependencies = (
   container: HostContainer<unknown, unknown>,
 ) => {
   const rootNode = (container.rootElement as any).props._node
-  resolveDependencies(rootNode, rootNode)
+  resolveDependencies(rootNode)
 }

@@ -38,6 +38,16 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "check projects",
+      "args": [
+        "deno task check-projects"
+      ],
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "console": "integratedTerminal"
+    },
+    {
       "name": "install locally",
       "program": "src/install-locally.ts",
       "type": "node",

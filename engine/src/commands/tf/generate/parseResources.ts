@@ -1,11 +1,10 @@
 import { z } from 'zod'
 
-import { namespaceMapping } from '../../../core/standard-components/standard-components-tf-aws/src/namespaceMapping.ts'
+import { namespaceMapping } from '@reactiac/standard-components-tf-aws'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
 import Debug from 'debug'
 const debug = Debug('parseResources')
-import type { Element } from './../../cli/src/types.ts'
 
 const normalizeInputResources = (value: any): any => {
   if (typeof value === 'string') {
@@ -161,7 +160,7 @@ export async function parseResources(_args: any, resources: any) {
     }
     debug('parsed %s as %O', tag, resourceInput)
 
-    elements.push({ tag, namespace, attributes })
+    elements.push({ tag, namespace, attributes } as any)
 
     if (!region && !isData && resourceValues.arn) {
       const arnParts = resourceValues.arn.split(':')
@@ -188,7 +187,7 @@ export async function parseResources(_args: any, resources: any) {
     tag: 'AwsRegion',
     attributes: {
       region,
-    },
-  })
+    } as any,
+  } as any)
   return elements
 }

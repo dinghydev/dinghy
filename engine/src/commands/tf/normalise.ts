@@ -3,8 +3,8 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+} from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
 import Debug from 'debug'
 import { loadTfJsonFile } from '../../utils/loadTfJsonFile.ts'
 const debug = Debug('init')
@@ -180,7 +180,7 @@ function extractText(resources: any[]) {
   return text.join('\n')
 }
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+const run = (_context: CommandContext, args: CommandArgs) => {
   const { json, filePath } = loadTfJsonFile(args)
   debug('loaded tf json file from', filePath)
 

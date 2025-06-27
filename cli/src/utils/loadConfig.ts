@@ -26,26 +26,26 @@ export const reactiacHome = Deno.env.get('REACTIAC_HOME') ||
   `${Deno.env.get('HOME')}/.reactiac`
 
 export const reactiacAppConfig: any = {}
+export const reactiacRcFiles: string[] = [
+  `${containerAppHome}/.reactiacrc.local`,
+  `${containerAppHome}/.reactiacrc`,
+  `${reactiacHome}rc`,
+]
+export const reactiacConfigFile = `${hostAppHome}/iac.yaml`
+
 export async function loadGlobalConfig() {
   debug('reactiac home %s', reactiacHome)
   debug('app home %s', containerAppHome)
   debug('exec path %s', Deno.execPath())
-  for (
-    const file of [
-      `${containerAppHome}/.reactiacrc.local`,
-      `${containerAppHome}/.reactiacrc`,
-      `${reactiacHome}rc`,
-    ]
-  ) {
+  for (const file of reactiacRcFiles) {
     await loadEnvFile(file)
   }
 
-  const configFile = `${hostAppHome}/iac.yaml`
-  if (!fs.existsSync(configFile)) {
+  if (!fs.existsSync(reactiacConfigFile)) {
     return
   }
 
-  const config = yaml.parse(Deno.readTextFileSync(configFile))
+  const config = yaml.parse(Deno.readTextFileSync(reactiacConfigFile))
   if (config) {
     Object.assign(reactiacAppConfig, config)
     loadEnvFromConfig()

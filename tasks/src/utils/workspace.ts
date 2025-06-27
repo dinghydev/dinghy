@@ -10,12 +10,12 @@ export async function forEachWorkspace(
   ) => Promise<void>,
 ) {
   const npmDir = `${projectRoot}/build/npm`
-  const denoJson = parse(
+  const denoJson: any = parse(
     Deno.readTextFileSync(`${projectRoot}/core/deno.jsonc`),
   )
   for (const workspace of denoJson.workspace) {
     const srcPath = `${projectRoot}/core/${workspace}`
-    const denoJsonc = parse(
+    const denoJsonc: any = parse(
       Deno.readTextFileSync(`${srcPath}/deno.jsonc`),
     )
     const name = denoJsonc.name

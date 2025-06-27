@@ -50,7 +50,8 @@ export async function sendReport(msTaken: number, error?: any) {
     }
     const urlWithParams = `${url}?${params.toString()}`.substring(0, 1024)
     await fetch(urlWithParams)
-  } catch (_ignoreEvenItFails) {
+  } catch {
+    // ignore even it fails
   }
 }
 

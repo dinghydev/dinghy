@@ -1,17 +1,10 @@
-import type {
-  CommandArgs,
-  CommandContext,
-  Commands,
-} from '../../../../cli/src/types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../../../cli/src/types.ts'
+import type { CommandArgs, CommandContext, Commands } from '@reactiac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions } from './tfOptions.ts'
 import process from 'node:process'
 import confirm from '@inquirer/confirm'
-import {
-  hostAppHome,
-  requireStacksConfig,
-} from '../../../../cli/src/utils/loadConfig.ts'
+import { hostAppHome, requireStacksConfig } from '@reactiac/cli'
 import { doWithTfStacks } from './doWithTfStacks.ts'
 import chalk from 'chalk'
 

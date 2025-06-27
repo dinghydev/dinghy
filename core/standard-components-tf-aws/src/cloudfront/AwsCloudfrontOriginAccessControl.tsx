@@ -48,8 +48,9 @@ export function AwsCloudfrontOriginAccessControl(
   )
 }
 
-export const useAwsCloudfrontOriginAccessControl = (id?: string) =>
+export const useAwsCloudfrontOriginAccessControl = (node?: any, id?: string) =>
   useTypedNode<AwsCloudfrontOriginAccessControlOutputProps>(
     AwsCloudfrontOriginAccessControl,
+    node,
     id,
   )

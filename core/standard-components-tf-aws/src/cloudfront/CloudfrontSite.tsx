@@ -105,7 +105,7 @@ export function CloudfrontSite(props: CloudfrontSiteInputProps) {
     <AwsCloudfrontDistribution
       logging_config={logging_config as any}
       aliases={[domainName]}
-      enabled={true}
+      enabled
       restrictions={{
         geo_restriction: { restriction_type: 'none', locations: [] },
       }}
