@@ -234,25 +234,31 @@ export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
 
   const namesCandidates: string[] = []
   if (!args.stack) {
-    namesCandidates.push('reactiac tf apply')
-    namesCandidates.push('reactiac tf up')
     namesCandidates.push('tf apply')
     namesCandidates.push('tf up')
+    namesCandidates.push('reactiac tf apply')
+    namesCandidates.push('reactiac tf up')
   }
 
   for (const stack of stacks) {
     const optionKey = `${isMr() ? 'mr' : 'main'}AutoDeploy`
+    debug('stack %O', stack.id, stack)
     if (stack[optionKey]) {
       namesCandidates.push(
         `tf diff ${stack.id}`,
         `tf apply ${stack.id}`,
+        `tf up ${stack.id}`,
         `reactiac tf diff ${stack.id}`,
         `reactiac tf apply ${stack.id}`,
+        `reactiac tf up ${stack.id}`,
       )
     }
   }
 
+  debug('namesCandidates %O', namesCandidates)
+
   for (const job of pipelineJobs) {
+    debug('job %s %s', job.name, job.status)
     if (namesCandidates.includes(job.name) && job.status === 'manual') {
       console.log(`Triggering manual job ${job.name}`)
       await gitlabPlayJob(job.id)

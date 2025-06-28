@@ -120,7 +120,7 @@ export const createCombinedTfCmds = (
       for (const stage of Object.values(stackInfo.stages)) {
         if ((stage as any).plan?.changesCount) {
           changedStages.push(stage)
-          const stack = stacksOptions[stackId]
+          const { stack } = stacksOptions[stackId]
           if (!changedStacks.includes(stack)) {
             changedStacks.push(stack)
           }
