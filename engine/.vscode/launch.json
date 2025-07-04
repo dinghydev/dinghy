@@ -11,11 +11,12 @@
         "tf"
         // "--tf-generateImport",
         // "--diagram-saveView",
+        // "--stage",
+        // "main",
         // "--view",
         // "overview",
         // "--format",
-        // "--stage",
-        // "state",
+        // "tf",
         // "--output",
         // ".",
         // "--debug",
@@ -40,7 +41,7 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all"
+        "--allow-all",
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
@@ -74,7 +75,7 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all"
+        "--allow-all",
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
@@ -104,7 +105,7 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all"
+        "--allow-all",
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
@@ -132,7 +133,7 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all"
+        "--allow-all",
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
@@ -160,7 +161,7 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all"
+        "--allow-all",
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
@@ -191,7 +192,7 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all"
+        "--allow-all",
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
@@ -222,7 +223,7 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all"
+        "--allow-all",
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
@@ -256,7 +257,7 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all"
+        "--allow-all",
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
