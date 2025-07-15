@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const PLUTO = {
+  _style:
+    'shape=mxgraph.signs.nature.pluto;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  _width: 63,
+  _height: 98,
+}
+
+export function Pluto(props: DiagramNodeProps) {
+  return <Shape {...PLUTO} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const CISCO_WAVE_7571 = {
+  _style:
+    'shape=mxgraph.rack.cisco.cisco_wave_7571;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  _width: 161,
+  _height: 30,
+}
+
+export function CiscoWave7571(props: DiagramNodeProps) {
+  return <Shape {...CISCO_WAVE_7571} {...props} />
+}

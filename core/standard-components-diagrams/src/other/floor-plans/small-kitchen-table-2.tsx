@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SMALL_KITCHEN_TABLE_2 = {
+  _style:
+    'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.chair;shadow=0;rotation=180;',
+  _width: 1,
+  _height: 120,
+}
+
+export function SmallKitchenTable2(props: DiagramNodeProps) {
+  return <Shape {...SMALL_KITCHEN_TABLE_2} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const MULTI_SELECT_3 = {
+  _style:
+    'html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=12;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=2;verticalAlign=top;fontStyle=0;spacingLeft=20;spacingTop=15;',
+  _width: 2,
+  _height: 390,
+}
+
+export function MultiSelect3(props: DiagramNodeProps) {
+  return <Shape {...MULTI_SELECT_3} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const FISH_HATCHERY = {
+  _style:
+    'shape=mxgraph.signs.animals.fish_hatchery;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  _width: 97,
+  _height: 85,
+}
+
+export function FishHatchery(props: DiagramNodeProps) {
+  return <Shape {...FISH_HATCHERY} {...props} />
+}

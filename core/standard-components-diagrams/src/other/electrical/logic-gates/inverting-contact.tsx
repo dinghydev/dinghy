@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const INVERTING_CONTACT = {
+  _style:
+    'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.inverting_contact;',
+  _width: 10,
+  _height: 10,
+}
+
+export function InvertingContact(props: DiagramNodeProps) {
+  return <Shape {...INVERTING_CONTACT} {...props} />
+}

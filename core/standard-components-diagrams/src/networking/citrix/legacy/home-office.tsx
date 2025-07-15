@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const HOME_OFFICE = {
+  _style:
+    'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.home_office;',
+  _width: 80,
+  _height: 55.5,
+}
+
+export function HomeOffice(props: DiagramNodeProps) {
+  return <Shape {...HOME_OFFICE} {...props} />
+}

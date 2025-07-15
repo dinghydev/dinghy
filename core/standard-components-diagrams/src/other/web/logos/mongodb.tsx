@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const MONGODB = {
+  _style:
+    'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.mongodb',
+  _width: 41.2,
+  _height: 86.2,
+}
+
+export function Mongodb(props: DiagramNodeProps) {
+  return <Shape {...MONGODB} {...props} />
+}

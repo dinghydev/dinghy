@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const COMPONENT_3RD_PARTY_SERVICE = {
+  _style:
+    'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.services.3rd_party_service;',
+  _width: 53,
+  _height: 54,
+}
+
+export function Component3rdPartyService(props: DiagramNodeProps) {
+  return <Shape {...COMPONENT_3RD_PARTY_SERVICE} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const AVATAR_SMALL = {
+  _style:
+    'shape=ellipse;fillColor=#FFAB00;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=12;fontStyle=1;html=1;sketch=0;',
+  _width: 24,
+  _height: 24,
+}
+
+export function AvatarSmall(props: DiagramNodeProps) {
+  return <Shape {...AVATAR_SMALL} {...props} />
+}

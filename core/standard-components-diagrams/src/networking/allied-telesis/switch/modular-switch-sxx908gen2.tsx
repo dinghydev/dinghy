@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const MODULAR_SWITCH_SXX908GEN2 = {
+  _style:
+    'image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/switch/Modular_Switch_SXx908GEN2.svg;',
+  _width: 78,
+  _height: 66.60000000000001,
+}
+
+export function ModularSwitchSxx908gen2(props: DiagramNodeProps) {
+  return <Shape {...MODULAR_SWITCH_SXX908GEN2} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const TRIANGULAR_DIAGRAM_3 = {
+  _style:
+    'triangle;whiteSpace=wrap;html=1;shadow=0;strokeColor=#FFFFFF;strokeWidth=6;fillColor=#AE4132;fontSize=16;fontColor=#FFFFFF;align=center;direction=south;fontStyle=1',
+  _width: 2,
+  _height: 360,
+}
+
+export function TriangularDiagram3(props: DiagramNodeProps) {
+  return <Shape {...TRIANGULAR_DIAGRAM_3} {...props} />
+}

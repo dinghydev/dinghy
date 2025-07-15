@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const REQUESTER = {
+  _style:
+    'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.requester;fillColor=#ACACAC;gradientColor=none;',
+  _width: 55.5,
+  _height: 64.5,
+}
+
+export function Requester(props: DiagramNodeProps) {
+  return <Shape {...REQUESTER} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const CORRELATION_IDENTIFIER_2 = {
+  _style:
+    'strokeWidth=2;dashed=0;align=center;fontSize=8;shape=rect;fillColor=#FF9238;strokeColor=#000000;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;html=1;',
+  _width: 4,
+  _height: 30,
+}
+
+export function CorrelationIdentifier2(props: DiagramNodeProps) {
+  return <Shape {...CORRELATION_IDENTIFIER_2} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const FILTER = {
+  _style:
+    'strokeWidth=2;dashed=0;align=center;fontSize=8;shape=rect;fillColor=#c0f5a9;verticalLabelPosition=bottom;verticalAlign=top;html=1;',
+  _width: 150,
+  _height: 90,
+}
+
+export function Filter(props: DiagramNodeProps) {
+  return <Shape {...FILTER} {...props} />
+}

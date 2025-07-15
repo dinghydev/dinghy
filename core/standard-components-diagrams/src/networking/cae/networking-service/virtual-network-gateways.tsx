@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const VIRTUAL_NETWORK_GATEWAYS = {
+  _style:
+    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VPN_Gateway.svg;',
+  _width: 45,
+  _height: 50,
+}
+
+export function VirtualNetworkGateways(props: DiagramNodeProps) {
+  return <Shape {...VIRTUAL_NETWORK_GATEWAYS} {...props} />
+}

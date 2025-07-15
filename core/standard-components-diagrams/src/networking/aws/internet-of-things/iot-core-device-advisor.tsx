@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const IOT_CORE_DEVICE_ADVISOR = {
+  _style:
+    'sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.iot_core_device_advisor;',
+  _width: 77,
+  _height: 78,
+}
+
+export function IotCoreDeviceAdvisor(props: DiagramNodeProps) {
+  return <Shape {...IOT_CORE_DEVICE_ADVISOR} {...props} />
+}

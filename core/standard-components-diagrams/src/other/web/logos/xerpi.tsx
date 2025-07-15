@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const XERPI = {
+  _style:
+    'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.xerpi;fillColor=#7F719B;gradientColor=#32264B;strokeColor=none',
+  _width: 70.2,
+  _height: 65.60000000000001,
+}
+
+export function Xerpi(props: DiagramNodeProps) {
+  return <Shape {...XERPI} {...props} />
+}

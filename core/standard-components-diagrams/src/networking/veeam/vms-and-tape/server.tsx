@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SERVER = {
+  _style:
+    'pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.server;',
+  _width: 71.6,
+  _height: 18.8,
+}
+
+export function Server(props: DiagramNodeProps) {
+  return <Shape {...SERVER} {...props} />
+}

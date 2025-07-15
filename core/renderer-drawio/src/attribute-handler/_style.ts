@@ -29,9 +29,7 @@ export const _style = (style: string | Props) => {
       style: parseStyle(style.entity as Props),
     },
     group: {
-      style: {
-        shape: parseStyle(style.group as Props),
-      },
+      style: parseStyle(style.group as Props),
     },
   })
 }

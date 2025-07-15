@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const FIXED_STRAIGHT_TUBES_HEAT_EXCHANGER = {
+  _style:
+    'shape=mxgraph.pid.heat_exchangers.fixed_straight_tubes_heat_exchanger;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  _width: 100,
+  _height: 40,
+}
+
+export function FixedStraightTubesHeatExchanger(props: DiagramNodeProps) {
+  return <Shape {...FIXED_STRAIGHT_TUBES_HEAT_EXCHANGER} {...props} />
+}

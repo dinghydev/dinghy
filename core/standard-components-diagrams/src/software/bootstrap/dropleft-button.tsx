@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const DROPLEFT_BUTTON = {
+  _style:
+    'html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#6C767D;fontColor=#ffffff;whiteSpace=wrap;align=right;verticalAlign=middle;fontStyle=0;fontSize=14;spacingRight=10;',
+  _width: 0,
+  _height: 40,
+}
+
+export function DropleftButton(props: DiagramNodeProps) {
+  return <Shape {...DROPLEFT_BUTTON} {...props} />
+}

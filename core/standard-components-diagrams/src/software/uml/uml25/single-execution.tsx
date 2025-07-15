@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SINGLE_EXECUTION = {
+  _style:
+    'html=1;align=right;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=50;dashed=0;spacingTop=10;spacingRight=30;whiteSpace=wrap;',
+  _width: 300,
+  _height: 160,
+}
+
+export function SingleExecution(props: DiagramNodeProps) {
+  return <Shape {...SINGLE_EXECUTION} {...props} />
+}

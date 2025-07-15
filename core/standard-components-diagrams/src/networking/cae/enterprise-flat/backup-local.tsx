@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const BACKUP_LOCAL = {
+  _style:
+    'sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.backup_local',
+  _width: 49,
+  _height: 50,
+}
+
+export function BackupLocal(props: DiagramNodeProps) {
+  return <Shape {...BACKUP_LOCAL} {...props} />
+}

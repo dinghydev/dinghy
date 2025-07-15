@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const DIALOG_WITH_SCROLLABLE_LIST = {
+  _style:
+    'shape=rect;fontSize=18;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;',
+  _width: 280,
+  _height: 270,
+}
+
+export function DialogWithScrollableList(props: DiagramNodeProps) {
+  return <Shape {...DIALOG_WITH_SCROLLABLE_LIST} {...props} />
+}

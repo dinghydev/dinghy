@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const BLOCK_NAMESPACE_CONTAINMENT = {
+  _style:
+    'edgeStyle=elbowEdgeStyle;html=1;endSize=12;endArrow=sysMLPackCont;elbow=horizontal;rounded=0;align=left;verticalAlign=middle',
+  _width: 1,
+  _height: 70,
+}
+
+export function BlockNamespaceContainment(props: DiagramNodeProps) {
+  return <Shape {...BLOCK_NAMESPACE_CONTAINMENT} {...props} />
+}

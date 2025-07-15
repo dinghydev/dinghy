@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const COMMAND_MESSAGE_2 = {
+  _style:
+    'strokeWidth=2;dashed=0;align=center;fontSize=8;shape=ellipse;fillColor=#808080;strokeColor=none;',
+  _width: 1,
+  _height: 30,
+}
+
+export function CommandMessage2(props: DiagramNodeProps) {
+  return <Shape {...COMMAND_MESSAGE_2} {...props} />
+}

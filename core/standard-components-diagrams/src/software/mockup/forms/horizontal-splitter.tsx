@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const HORIZONTAL_SPLITTER = {
+  _style:
+    'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.forms.splitter;strokeColor=#999999;',
+  _width: 350,
+  _height: 10,
+}
+
+export function HorizontalSplitter(props: DiagramNodeProps) {
+  return <Shape {...HORIZONTAL_SPLITTER} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const HALF_CIRCLE = {
+  _style:
+    'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.half_circle',
+  _width: 100,
+  _height: 50,
+}
+
+export function HalfCircle(props: DiagramNodeProps) {
+  return <Shape {...HALF_CIRCLE} {...props} />
+}

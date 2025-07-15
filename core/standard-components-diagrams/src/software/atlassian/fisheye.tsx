@@ -1,0 +1,12 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const FISHEYE = {
+  _style: 'image;html=1;image=img/lib/atlassian/Fisheye_Logo.svg;',
+  _width: 71,
+  _height: 59,
+}
+
+export function Fisheye(props: DiagramNodeProps) {
+  return <Shape {...FISHEYE} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const BUS_3 = {
+  _style:
+    'shape=mxgraph.signs.transportation.bus_3;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  _width: 99,
+  _height: 33,
+}
+
+export function Bus3(props: DiagramNodeProps) {
+  return <Shape {...BUS_3} {...props} />
+}

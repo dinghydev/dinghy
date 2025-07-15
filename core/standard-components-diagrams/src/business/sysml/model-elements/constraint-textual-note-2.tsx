@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const CONSTRAINT_TEXTUAL_NOTE_2 = {
+  _style:
+    'verticalAlign=bottom;html=1;endArrow=none;edgeStyle=none;labelBackgroundColor=none;fontSize=10;strokeWidth=2;',
+  _width: 160,
+  _height: 0,
+}
+
+export function ConstraintTextualNote2(props: DiagramNodeProps) {
+  return <Shape {...CONSTRAINT_TEXTUAL_NOTE_2} {...props} />
+}

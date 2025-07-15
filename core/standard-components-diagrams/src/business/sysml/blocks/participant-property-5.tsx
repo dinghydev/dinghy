@@ -1,0 +1,12 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const PARTICIPANT_PROPERTY_5 = {
+  _style: 'edgeStyle=none;endArrow=none;html=1;rounded=0;',
+  _width: 3,
+  _height: 80,
+}
+
+export function ParticipantProperty5(props: DiagramNodeProps) {
+  return <Shape {...PARTICIPANT_PROPERTY_5} {...props} />
+}

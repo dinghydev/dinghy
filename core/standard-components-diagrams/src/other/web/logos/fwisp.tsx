@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const FWISP = {
+  _style:
+    'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.fwisp;fillColor=#66676A;strokeColor=none',
+  _width: 65.4,
+  _height: 66,
+}
+
+export function Fwisp(props: DiagramNodeProps) {
+  return <Shape {...FWISP} {...props} />
+}

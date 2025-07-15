@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SURVEILLANCE_CAMERA_CEILING = {
+  _style:
+    'image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/security/Surveillance_Camera_Ceiling.svg;',
+  _width: 37.2,
+  _height: 35.4,
+}
+
+export function SurveillanceCameraCeiling(props: DiagramNodeProps) {
+  return <Shape {...SURVEILLANCE_CAMERA_CEILING} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const PROPORTIONAL_FEEDER_METERING = {
+  _style:
+    'shape=mxgraph.pid.feeders.proportional_feeder_(metering);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  _width: 300,
+  _height: 50,
+}
+
+export function ProportionalFeederMetering(props: DiagramNodeProps) {
+  return <Shape {...PROPORTIONAL_FEEDER_METERING} {...props} />
+}

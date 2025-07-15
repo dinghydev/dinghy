@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const MYSPACE = {
+  _style:
+    'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.webicons.myspace;fillColor=#3C69E2;gradientColor=#101B54',
+  _width: 102.4,
+  _height: 102.4,
+}
+
+export function Myspace(props: DiagramNodeProps) {
+  return <Shape {...MYSPACE} {...props} />
+}

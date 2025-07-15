@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const STEPPER_WITH_ALTERNATIVE_LABEL_PLACING = {
+  _style:
+    'shape=ellipse;fontSize=12;strokeColor=none;fillColor=#4285F4;fontColor=#ffffff;align=center;verticalAlign=middle;html=1;',
+  _width: 404,
+  _height: 50,
+}
+
+export function StepperWithAlternativeLabelPlacing(props: DiagramNodeProps) {
+  return <Shape {...STEPPER_WITH_ALTERNATIVE_LABEL_PLACING} {...props} />
+}

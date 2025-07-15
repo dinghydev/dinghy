@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SPINNER_NORMAL = {
+  _style:
+    'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.spinner2;align=center;fillColor=#999999;strokeColor=#999999;verticalAlign=bottom',
+  _width: 110,
+  _height: 10,
+}
+
+export function SpinnerNormal(props: DiagramNodeProps) {
+  return <Shape {...SPINNER_NORMAL} {...props} />
+}

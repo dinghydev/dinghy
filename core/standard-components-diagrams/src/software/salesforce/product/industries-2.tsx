@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const INDUSTRIES_2 = {
+  _style:
+    'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.industries2;',
+  _width: 60,
+  _height: 60,
+}
+
+export function Industries2(props: DiagramNodeProps) {
+  return <Shape {...INDUSTRIES_2} {...props} />
+}

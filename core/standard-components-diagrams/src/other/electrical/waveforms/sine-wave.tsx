@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SINE_WAVE = {
+  _style:
+    'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.waveforms.sine_wave;',
+  _width: 90,
+  _height: 66.18,
+}
+
+export function SineWave(props: DiagramNodeProps) {
+  return <Shape {...SINE_WAVE} {...props} />
+}

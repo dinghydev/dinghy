@@ -3,9 +3,9 @@ import {
   ResolvableNumberSchema,
   ResolvableStringSchema,
 } from '@reactiac/base-components'
-import { aws4 } from '../../standard-components-diagrams/src/index.ts'
 import { awsProps } from './index.ts'
 import z from 'zod'
+import { RdsInstance } from '@reactiac/standard-components-diagrams/awsDatabase'
 
 export const AwsDbInstanceInputSchema = z.object({
   allocated_storage: ResolvableNumberSchema.optional(),
@@ -32,7 +32,7 @@ export type AwsDbInstanceInputProps =
 
 export default function AwsDbInstance(props: AwsDbInstanceInputProps) {
   return (
-    <aws4.RdsInstance
+    <RdsInstance
       {...awsProps(
         props,
         AwsDbInstanceInputSchema,

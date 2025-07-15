@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const TARGETS_MANAGEMENT = {
+  _style:
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Targets_Management.svg;',
+  _width: 68,
+  _height: 68,
+}
+
+export function TargetsManagement(props: DiagramNodeProps) {
+  return <Shape {...TARGETS_MANAGEMENT} {...props} />
+}

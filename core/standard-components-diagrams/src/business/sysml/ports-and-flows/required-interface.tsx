@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const REQUIRED_INTERFACE = {
+  _style:
+    'html=1;shape=mxgraph.sysml.port4;fontStyle=1;whiteSpace=wrap;align=center;',
+  _width: 0,
+  _height: 60,
+}
+
+export function RequiredInterface(props: DiagramNodeProps) {
+  return <Shape {...REQUIRED_INTERFACE} {...props} />
+}

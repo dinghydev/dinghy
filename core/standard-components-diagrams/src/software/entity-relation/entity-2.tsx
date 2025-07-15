@@ -1,0 +1,12 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const ENTITY_2 = {
+  _style: 'whiteSpace=wrap;html=1;align=center;',
+  _width: 100,
+  _height: 40,
+}
+
+export function Entity2(props: DiagramNodeProps) {
+  return <Shape {...ENTITY_2} {...props} />
+}

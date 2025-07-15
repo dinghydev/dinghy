@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const DDOS_SERVER = {
+  _style:
+    'image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;fontSize=12;verticalAlign=top;fontColor=#364149;shadow=0;dashed=0;image=img/lib/cumulus/ddos_server.svg;',
+  _width: 96,
+  _height: 20,
+}
+
+export function DdosServer(props: DiagramNodeProps) {
+  return <Shape {...DDOS_SERVER} {...props} />
+}

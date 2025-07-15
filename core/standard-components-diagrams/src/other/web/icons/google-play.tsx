@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const GOOGLE_PLAY = {
+  _style:
+    'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.webicons.google_play;fillColor=#000000',
+  _width: 69.4,
+  _height: 20.6,
+}
+
+export function GooglePlay(props: DiagramNodeProps) {
+  return <Shape {...GOOGLE_PLAY} {...props} />
+}

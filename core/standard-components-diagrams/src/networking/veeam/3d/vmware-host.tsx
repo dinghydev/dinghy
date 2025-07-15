@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const VMWARE_HOST = {
+  _style:
+    'shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.vmware_host;',
+  _width: 110,
+  _height: 98,
+}
+
+export function VmwareHost(props: DiagramNodeProps) {
+  return <Shape {...VMWARE_HOST} {...props} />
+}

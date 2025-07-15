@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const TRIGGER = {
+  _style:
+    'html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;flipH=1;fillColor=#FFFFFF;whiteSpace=wrap;',
+  _width: 160,
+  _height: 40,
+}
+
+export function Trigger(props: DiagramNodeProps) {
+  return <Shape {...TRIGGER} {...props} />
+}

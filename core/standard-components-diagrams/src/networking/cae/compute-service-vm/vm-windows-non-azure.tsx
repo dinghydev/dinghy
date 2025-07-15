@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const VM_WINDOWS_NON_AZURE = {
+  _style:
+    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VM_Windows_Non_Azure.svg;',
+  _width: 50,
+  _height: 46,
+}
+
+export function VmWindowsNonAzure(props: DiagramNodeProps) {
+  return <Shape {...VM_WINDOWS_NON_AZURE} {...props} />
+}

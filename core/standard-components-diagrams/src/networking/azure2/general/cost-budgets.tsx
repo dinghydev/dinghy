@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const COST_BUDGETS = {
+  _style:
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Cost_Budgets.svg;',
+  _width: 67,
+  _height: 68,
+}
+
+export function CostBudgets(props: DiagramNodeProps) {
+  return <Shape {...COST_BUDGETS} {...props} />
+}

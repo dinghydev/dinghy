@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const XENCLIENT_SYNCHRONIZER = {
+  _style:
+    'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.xenclient_synchronizer;fillColor=#CCCCCC;gradientColor=#000000;gradientDirection=south;',
+  _width: 76,
+  _height: 91,
+}
+
+export function XenclientSynchronizer(props: DiagramNodeProps) {
+  return <Shape {...XENCLIENT_SYNCHRONIZER} {...props} />
+}

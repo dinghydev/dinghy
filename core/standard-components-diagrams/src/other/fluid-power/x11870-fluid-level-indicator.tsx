@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const X11870_FLUID_LEVEL_INDICATOR = {
+  _style:
+    'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11870;points=[[0.5,1,0]]',
+  _width: 37.44,
+  _height: 56.18,
+}
+
+export function X11870FluidLevelIndicator(props: DiagramNodeProps) {
+  return <Shape {...X11870_FLUID_LEVEL_INDICATOR} {...props} />
+}

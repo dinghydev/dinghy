@@ -8,7 +8,7 @@ import {
 import { awsProps } from '../index.ts'
 
 import z from 'zod'
-import { aws4 } from '../../../standard-components-diagrams/src/index.ts'
+import { Waf } from '@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 export const InputSchema = z.object({
   name: ResolvableStringSchema.optional(),
@@ -40,7 +40,7 @@ export function AwsWafv2WebAcl(props: InputProps) {
   const _importId = (node: any) =>
     `${node._props.id}/${node._props.name}/${node._props.scope}`
   return (
-    <aws4.Waf
+    <Waf
       _importId={_importId}
       {...awsProps(
         props,

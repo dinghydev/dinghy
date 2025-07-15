@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const WI_FI_TAG = {
+  _style:
+    'shape=mxgraph.cisco.wireless.wi-fi_tag;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
+  _width: 74,
+  _height: 64,
+}
+
+export function WiFiTag(props: DiagramNodeProps) {
+  return <Shape {...WI_FI_TAG} {...props} />
+}

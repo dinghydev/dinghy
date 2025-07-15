@@ -1,8 +1,6 @@
 {
   "name": "@reactiac/standard-components-diagrams",
   "exports": {
-    ".": "./src/index.ts",
-
     // Category: Standard
     "./advanced": "./src/standard/advanced/index.ts",
     "./basic": "./src/standard/basic/index.ts",
@@ -526,6 +524,8 @@
     "./signsTravel": "./src/other/signs/travel/index.ts",
     // Sub Category: Web
     "./webIcons": "./src/other/web/icons/index.ts",
-    "./webLogos": "./src/other/web/logos/index.ts"
+    "./webLogos": "./src/other/web/logos/index.ts",
+
+    ".": "./src/index.ts"
   }
 }

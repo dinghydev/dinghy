@@ -3,10 +3,10 @@ import {
   ResolvableStringSchema,
   StringSchema,
 } from '@reactiac/base-components'
-import { aws4 } from '../../../standard-components-diagrams/src/index.ts'
 import { awsProps } from '../index.ts'
 import z from 'zod'
 import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
+import { NeutronSubnet } from '@reactiac/standard-components-diagrams/openstackBlue'
 
 export const AwsSubnetInputSchema = z.object({
   vpc_id: ResolvableStringSchema.optional(),
@@ -28,7 +28,7 @@ export type AwsSubnetOutputProps =
 
 export function AwsSubnet(props: AwsSubnetInputProps) {
   return (
-    <aws4.GroupSecurityGroup
+    <NeutronSubnet
       {...awsProps(props, AwsSubnetInputSchema, AwsSubnetOutputSchema)}
     />
   )

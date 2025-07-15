@@ -45,7 +45,7 @@
             />
           </mxCell>
         <mxCell
-          style="shape=mxgraph.aws3.android;fillColor=#96BF3D;verticalLabelPosition=bottom;verticalAlign=top;align=center;aspect=fixed;foo;outlineConnect=0;dashed=0;html=1;gradientColor=none;" 
+          style="shape=mxgraph.aws3.android;fillColor=#96BF3D;verticalLabelPosition=bottom;verticalAlign=top;align=center;aspect=fixed;outlineConnect=0;dashed=0;html=1;gradientColor=none;" 
           id="application" 
           parent="web_app_webapp" 
           value="Application" 

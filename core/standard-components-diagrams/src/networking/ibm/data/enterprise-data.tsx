@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const ENTERPRISE_DATA = {
+  _style:
+    'image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;fontColor=#4277BB;labelBackgroundColor=default;fontSize=12;spacingTop=3;image=img/lib/ibm/data/enterprise_data.svg;',
+  _width: 60,
+  _height: 60,
+}
+
+export function EnterpriseData(props: DiagramNodeProps) {
+  return <Shape {...ENTERPRISE_DATA} {...props} />
+}

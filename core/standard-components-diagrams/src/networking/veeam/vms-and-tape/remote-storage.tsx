@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const REMOTE_STORAGE = {
+  _style:
+    'shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.remote_storage;',
+  _width: 46.4,
+  _height: 46.4,
+}
+
+export function RemoteStorage(props: DiagramNodeProps) {
+  return <Shape {...REMOTE_STORAGE} {...props} />
+}

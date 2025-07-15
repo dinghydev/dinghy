@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const DUAL_GATE_MOSFET_P = {
+  _style:
+    'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.mosfets1.dual_gate_mosfet_p;',
+  _width: 95,
+  _height: 100,
+}
+
+export function DualGateMosfetP(props: DiagramNodeProps) {
+  return <Shape {...DUAL_GATE_MOSFET_P} {...props} />
+}

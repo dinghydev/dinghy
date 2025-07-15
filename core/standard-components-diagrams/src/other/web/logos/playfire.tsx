@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const PLAYFIRE = {
+  _style:
+    'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.playfire;fillColor=#FDA21A;gradientColor=#FEE635;strokeColor=none',
+  _width: 62,
+  _height: 61.6,
+}
+
+export function Playfire(props: DiagramNodeProps) {
+  return <Shape {...PLAYFIRE} {...props} />
+}

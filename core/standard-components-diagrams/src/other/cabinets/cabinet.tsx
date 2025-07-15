@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const CABINET = {
+  _style:
+    'verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.cabinet;hasStand=1',
+  _width: 250,
+  _height: 500,
+}
+
+export function Cabinet(props: DiagramNodeProps) {
+  return <Shape {...CABINET} {...props} />
+}

@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const X11290_SEMI_ROTARY_ACTUATOR_SWIVEL = {
+  _style:
+    'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11290;points=[[0.053,0.25,0]]',
+  _width: 78.82,
+  _height: 55.74,
+}
+
+export function X11290SemiRotaryActuatorSwivel(props: DiagramNodeProps) {
+  return <Shape {...X11290_SEMI_ROTARY_ACTUATOR_SWIVEL} {...props} />
+}

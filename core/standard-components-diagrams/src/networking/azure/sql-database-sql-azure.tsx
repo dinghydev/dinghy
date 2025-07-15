@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SQL_DATABASE_SQL_AZURE = {
+  _style:
+    'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.sql_database_sql_azure;',
+  _width: 47.5,
+  _height: 50,
+}
+
+export function SqlDatabaseSqlAzure(props: DiagramNodeProps) {
+  return <Shape {...SQL_DATABASE_SQL_AZURE} {...props} />
+}

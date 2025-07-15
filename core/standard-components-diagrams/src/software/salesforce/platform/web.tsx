@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const WEB = {
+  _style:
+    'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.web;',
+  _width: 60,
+  _height: 47.400000000000006,
+}
+
+export function Web(props: DiagramNodeProps) {
+  return <Shape {...WEB} {...props} />
+}

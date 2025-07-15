@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const AFS_FRAUD_SERVICE = {
+  _style:
+    'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.afs_fraud_service;',
+  _width: 44.1,
+  _height: 49.8,
+}
+
+export function AfsFraudService(props: DiagramNodeProps) {
+  return <Shape {...AFS_FRAUD_SERVICE} {...props} />
+}

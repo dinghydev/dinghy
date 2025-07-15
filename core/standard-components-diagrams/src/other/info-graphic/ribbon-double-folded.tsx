@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const RIBBON_DOUBLE_FOLDED = {
+  _style:
+    'html=1;shape=mxgraph.infographic.ribbonDoubleFolded;dx=25;dy=15;fillColor=#10739E;strokeColor=none;align=center;verticalAlign=middle;fontColor=#ffffff;fontSize=14;fontStyle=1;',
+  _width: 200,
+  _height: 70,
+}
+
+export function RibbonDoubleFolded(props: DiagramNodeProps) {
+  return <Shape {...RIBBON_DOUBLE_FOLDED} {...props} />
+}

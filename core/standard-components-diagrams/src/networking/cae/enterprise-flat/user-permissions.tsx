@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const USER_PERMISSIONS = {
+  _style:
+    'sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.mscae.enterprise.user_permissions;fillColor=#0078D7;',
+  _width: 47,
+  _height: 50,
+}
+
+export function UserPermissions(props: DiagramNodeProps) {
+  return <Shape {...USER_PERMISSIONS} {...props} />
+}

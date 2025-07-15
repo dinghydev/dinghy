@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const NETWORK_SECURITY = {
+  _style:
+    'shape=mxgraph.cisco.security.network_security;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
+  _width: 45,
+  _height: 58,
+}
+
+export function NetworkSecurity(props: DiagramNodeProps) {
+  return <Shape {...NETWORK_SECURITY} {...props} />
+}

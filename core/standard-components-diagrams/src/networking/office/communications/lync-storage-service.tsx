@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const LYNC_STORAGE_SERVICE = {
+  _style:
+    'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.communications.lync_storage_service;',
+  _width: 66,
+  _height: 59,
+}
+
+export function LyncStorageService(props: DiagramNodeProps) {
+  return <Shape {...LYNC_STORAGE_SERVICE} {...props} />
+}

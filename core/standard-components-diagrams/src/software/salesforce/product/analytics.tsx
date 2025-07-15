@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const ANALYTICS = {
+  _style:
+    'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.analytics;',
+  _width: 60,
+  _height: 58.8,
+}
+
+export function Analytics(props: DiagramNodeProps) {
+  return <Shape {...ANALYTICS} {...props} />
+}

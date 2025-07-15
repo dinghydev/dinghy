@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const EXPANSION_JOINT = {
+  _style:
+    'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.expansion_joint;',
+  _width: 50,
+  _height: 20,
+}
+
+export function ExpansionJoint(props: DiagramNodeProps) {
+  return <Shape {...EXPANSION_JOINT} {...props} />
+}

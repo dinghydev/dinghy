@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SCRATCH_OUT = {
+  _style:
+    'shape=mxgraph.mockup.markup.scratchOut;shadow=0;dashed=0;html=1;whiteSpace=wrap;strokeColor=#999999;strokeWidth=4;',
+  _width: 200,
+  _height: 100,
+}
+
+export function ScratchOut(props: DiagramNodeProps) {
+  return <Shape {...SCRATCH_OUT} {...props} />
+}

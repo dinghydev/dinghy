@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const DEFENDER_ENGINEERING_STATION = {
+  _style:
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Defender_Engineering_Station.svg;',
+  _width: 68,
+  _height: 62.839999999999996,
+}
+
+export function DefenderEngineeringStation(props: DiagramNodeProps) {
+  return <Shape {...DEFENDER_ENGINEERING_STATION} {...props} />
+}

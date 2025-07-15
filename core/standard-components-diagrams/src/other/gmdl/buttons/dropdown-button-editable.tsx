@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const DROPDOWN_BUTTON_EDITABLE = {
+  _style:
+    'dashed=0;align=center;fontSize=12;shape=rect;fillColor=#ffffff;strokeColor=#cccccc;',
+  _width: 100,
+  _height: 40,
+}
+
+export function DropdownButtonEditable(props: DiagramNodeProps) {
+  return <Shape {...DROPDOWN_BUTTON_EDITABLE} {...props} />
+}

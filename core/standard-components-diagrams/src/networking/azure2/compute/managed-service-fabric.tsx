@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const MANAGED_SERVICE_FABRIC = {
+  _style:
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Managed_Service_Fabric.svg;',
+  _width: 68,
+  _height: 66,
+}
+
+export function ManagedServiceFabric(props: DiagramNodeProps) {
+  return <Shape {...MANAGED_SERVICE_FABRIC} {...props} />
+}

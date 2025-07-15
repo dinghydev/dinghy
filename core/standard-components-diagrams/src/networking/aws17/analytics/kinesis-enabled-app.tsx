@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const KINESIS_ENABLED_APP = {
+  _style:
+    'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.kinesis_enabled_app;fillColor=#F58534;gradientColor=none;',
+  _width: 64.5,
+  _height: 67.5,
+}
+
+export function KinesisEnabledApp(props: DiagramNodeProps) {
+  return <Shape {...KINESIS_ENABLED_APP} {...props} />
+}

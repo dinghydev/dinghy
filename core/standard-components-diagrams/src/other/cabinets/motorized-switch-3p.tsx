@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const MOTORIZED_SWITCH_3P = {
+  _style:
+    'verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.motorized_switch_3p;',
+  _width: 85,
+  _height: 70,
+}
+
+export function MotorizedSwitch3p(props: DiagramNodeProps) {
+  return <Shape {...MOTORIZED_SWITCH_3P} {...props} />
+}

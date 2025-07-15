@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const BUTTON_LINK = {
+  _style:
+    'fillColor=none;strokeColor=none;html=1;fontColor=#0057D8;align=left;fontSize=12;sketch=0;',
+  _width: 0,
+  _height: 33,
+}
+
+export function ButtonLink(props: DiagramNodeProps) {
+  return <Shape {...BUTTON_LINK} {...props} />
+}

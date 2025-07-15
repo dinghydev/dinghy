@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const CISCO_BLADE_SWITCH_3030 = {
+  _style:
+    'shape=mxgraph.rack.cisco.cisco_blade_switch_3030;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  _width: 19,
+  _height: 72,
+}
+
+export function CiscoBladeSwitch3030(props: DiagramNodeProps) {
+  return <Shape {...CISCO_BLADE_SWITCH_3030} {...props} />
+}

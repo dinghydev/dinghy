@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const LIGHTHOUSE_2 = {
+  _style:
+    'shape=mxgraph.signs.transportation.lighthouse_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  _width: 55,
+  _height: 98,
+}
+
+export function Lighthouse2(props: DiagramNodeProps) {
+  return <Shape {...LIGHTHOUSE_2} {...props} />
+}

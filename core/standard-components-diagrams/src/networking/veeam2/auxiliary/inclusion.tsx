@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const INCLUSION = {
+  _style:
+    'triangle;whiteSpace=wrap;html=1;gradientColor=#D3D3D3;strokeColor=none;gradientDirection=east;',
+  _width: 40,
+  _height: 160,
+}
+
+export function Inclusion(props: DiagramNodeProps) {
+  return <Shape {...INCLUSION} {...props} />
+}

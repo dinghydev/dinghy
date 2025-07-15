@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SCALE_OUT_REPOSITORY = {
+  _style:
+    'shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.scale_out_repository;',
+  _width: 64.8,
+  _height: 57.2,
+}
+
+export function ScaleOutRepository(props: DiagramNodeProps) {
+  return <Shape {...SCALE_OUT_REPOSITORY} {...props} />
+}

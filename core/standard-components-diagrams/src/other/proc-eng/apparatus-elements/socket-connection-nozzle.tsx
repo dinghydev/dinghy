@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const SOCKET_CONNECTION_NOZZLE = {
+  _style:
+    'shape=mxgraph.pid.apparatus_elements.socket,_connection_nozzle;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  _width: 30,
+  _height: 40,
+}
+
+export function SocketConnectionNozzle(props: DiagramNodeProps) {
+  return <Shape {...SOCKET_CONNECTION_NOZZLE} {...props} />
+}

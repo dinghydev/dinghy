@@ -1,0 +1,15 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM = {
+  _style:
+    'shape=mxgraph.rack.cisco.cisco_ons_15310-ma_sdh_multiservice_platform;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  _width: 86,
+  _height: 89,
+}
+
+export function CiscoOns15310MaSdhMultiservicePlatform(
+  props: DiagramNodeProps,
+) {
+  return <Shape {...CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM} {...props} />
+}

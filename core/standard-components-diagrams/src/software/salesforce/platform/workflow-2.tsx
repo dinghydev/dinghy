@@ -1,0 +1,13 @@
+import { Shape } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@reactiac/base-components'
+
+export const WORKFLOW_2 = {
+  _style:
+    'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.workflow2;',
+  _width: 60,
+  _height: 60,
+}
+
+export function Workflow2(props: DiagramNodeProps) {
+  return <Shape {...WORKFLOW_2} {...props} />
+}
