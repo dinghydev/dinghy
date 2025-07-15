@@ -2,13 +2,13 @@ import { Shape } from "@reactiac/base-components";
 
 import {
   Android,
-  ApplicationLoadBalancer,
-  Client,
-  GroupAwsCloudAlt,
-  GroupSecurityGroup,
-  RdsPostgresqlInstance,
-  Waf,
-} from "../../../core/standard-components/standard-components-diagrams/src/index.ts";
+  // ApplicationLoadBalancer,
+  // Client,
+  // GroupAwsCloudAlt,
+  // GroupSecurityGroup,
+  // RdsPostgresqlInstance,
+  // Waf,
+} from "@reactiac/standard-components-diagrams/aws17Sdk";
 
 const Postgres = (props: any) => <RdsPostgresqlInstance {...props} />;
 
@@ -39,25 +39,16 @@ const LoadBalancer = (props: any) => (
 
 const Firewall = (props: any) => <Waf {...props} />;
 
-const Application = (props: any) => <Android
-  _dependsOn="Postgres"
-  {...props}
-/>;
+const Application = (props: any) => (
+  <Android
+    {...props}
+  />
+);
 
 export function App() {
   return (
     <WebApp>
-      <Client />
-      <Cloud>
-        <PublicSubnet>
-          <LoadBalancer />
-          <Firewall />
-        </PublicSubnet>
-        <PrivateSubnet>
-          <Application />
-          <Postgres />
-        </PrivateSubnet>
-      </Cloud>
+      <Application />
     </WebApp>
   );
 }

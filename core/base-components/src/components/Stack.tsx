@@ -2,7 +2,7 @@ import type { IacNodeProps, NodeTree } from '../types.ts'
 import { Shape } from './Shape.tsx'
 import { useTypedNode } from '../contexts/useTypedNode.tsx'
 import { useRenderOptions } from '../contexts/useRenderOptions.tsx'
-import { camelCaseToWords } from '../utils/words.ts'
+import { camelCaseToWords } from '../utils/stringUtils.ts'
 
 export function Stack(props: IacNodeProps) {
   const { renderOptions } = useRenderOptions()

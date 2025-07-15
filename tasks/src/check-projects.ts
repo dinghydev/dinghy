@@ -38,6 +38,9 @@ if (import.meta.main) {
           .filter((entry) => entry.isDirectory)
           .map((entry) => entry.name)
         for (const folder of folders) {
+          // if (['standard-components-diagrams'].includes(folder)) {
+          //   continue
+          // }
           await runDenoCmd(`${project}/${folder}`, cmd)
         }
         continue

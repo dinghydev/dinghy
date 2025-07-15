@@ -3,7 +3,7 @@ import { useNodeContext } from './NodeContext.tsx'
 import type { ZodObject, ZodRawShape } from 'zod'
 import { renderKey } from '../utils/stringUtils.ts'
 import { getRootNode } from '../utils/nodeUtils.ts'
-import { capitalise, decapitalise } from '../utils/words.ts'
+import { capitalise, decapitalise } from '../utils/stringUtils.ts'
 
 function proxyNodeProps({ _props }: NodeTree) {
   return new Proxy(_props, {

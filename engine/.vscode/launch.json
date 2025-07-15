@@ -26,8 +26,8 @@
       "env": {
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
-        // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
@@ -51,8 +51,8 @@
       "args": [
         "diagram",
         "--version",
-        "latest",
-        "./sits.tsx",
+        // "latest",
+        // "./sits.tsx",
         "--debug"
         // "-h"
       ],
@@ -60,14 +60,16 @@
       "env": {
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
-        // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
+        // "APP_HOME": "${workspaceFolder}/../examples/diagram/reactiac-architecutre"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
+        "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
-        "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
+        // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
       },
       "type": "node",
       "request": "launch",
@@ -90,8 +92,8 @@
       ],
       "program": "src/index.ts",
       "env": {
-        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
-        // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"

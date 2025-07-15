@@ -115,7 +115,23 @@ export type VerticalAlignType = z.input<typeof VerticalAlignSchema>
 
 export const DiagramNodeSchema = z.object({
   _diagram: RecordSchema.optional(),
-  _style: ResolvableRecordSchema.optional(),
+  _style: z.union([
+    ResolvableStringSchema.optional(),
+    z.object({
+      element: z.union([
+        ResolvableStringSchema.optional(),
+        z.record(z.string(), z.any()),
+      ]),
+      entity: z.union([
+        ResolvableStringSchema.optional(),
+        z.record(z.string(), z.any()),
+      ]),
+      group: z.union([
+        ResolvableStringSchema.optional(),
+        z.record(z.string(), z.any()),
+      ]),
+    }),
+  ]),
   _shape: z.union([
     ResolvableStringSchema.optional(),
     z.object({

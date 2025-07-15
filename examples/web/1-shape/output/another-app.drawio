@@ -39,7 +39,7 @@
           <mxGeometry
             as="geometry" 
             width="480" 
-            height="360" 
+            height="330" 
             x="0" 
             y="0"
             />
@@ -69,7 +69,7 @@
           <mxGeometry
             as="geometry" 
             width="330" 
-            height="300" 
+            height="270" 
             x="120" 
             y="30"
             />
@@ -84,7 +84,7 @@
           <mxGeometry
             as="geometry" 
             width="120" 
-            height="240" 
+            height="210" 
             x="30" 
             y="30"
             />
@@ -116,7 +116,7 @@
             width="60" 
             height="60" 
             x="30" 
-            y="150"
+            y="120"
             />
           </mxCell>
         <mxCell
@@ -129,7 +129,7 @@
           <mxGeometry
             as="geometry" 
             width="120" 
-            height="240" 
+            height="210" 
             x="180" 
             y="30"
             />
@@ -161,7 +161,7 @@
             width="60" 
             height="60" 
             x="30" 
-            y="150"
+            y="120"
             />
           </mxCell>
         <mxCell
@@ -170,7 +170,7 @@
           target="shape_loadbalancer" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1"
+          style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle"
           >
           <mxGeometry
             relative="1" 
@@ -196,7 +196,7 @@
           target="shape_application" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1"
+          style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle"
           >
           <mxGeometry
             relative="1" 
@@ -222,7 +222,7 @@
           target="shape_firewall" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1"
+          style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle"
           >
           <mxGeometry
             relative="1" 
@@ -233,11 +233,11 @@
               >
               <mxPoint
                 x="210" 
-                y="180"
+                y="165"
                 />
               <mxPoint
                 x="210" 
-                y="180"
+                y="165"
                 />
               </Array>
             </mxGeometry>
@@ -248,7 +248,7 @@
           target="shape_postgres" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1"
+          style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle"
           >
           <mxGeometry
             relative="1" 
@@ -259,11 +259,11 @@
               >
               <mxPoint
                 x="360" 
-                y="180"
+                y="165"
                 />
               <mxPoint
                 x="360" 
-                y="180"
+                y="165"
                 />
               </Array>
             </mxGeometry>

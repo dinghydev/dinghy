@@ -9,10 +9,16 @@ const renderValue = (value: unknown): unknown => {
     return Object.keys(obj)
       .map((key) => {
         const val = obj[key]
-        return typeof val !== 'undefined' ? `${key}=${val}` : null
+        if (typeof val === 'undefined') {
+          return key
+        } else if (val === 'DELETED') {
+          return null
+        } else {
+          return `${key}=${val}`
+        }
       })
       .filter(Boolean)
-      .join(';')
+      .join(';') + ';'
   }
   return value
 }
