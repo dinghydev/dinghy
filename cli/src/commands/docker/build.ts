@@ -107,6 +107,18 @@ async function dockerPush(args: CommandArgs, tag: string) {
       'push',
       tag,
     ])
+    if (tag.includes('reactiac/reactiac')) {
+      const dockerHubTag = `reactiac/reactiac:${tag.split(':')[1]}`
+      await dockerCommand([
+        'tag',
+        tag,
+        dockerHubTag,
+      ])
+      await dockerCommand([
+        'push',
+        dockerHubTag,
+      ])
+    }
   } else {
     console.log(`Skipping: docker push ${tag}`)
   }

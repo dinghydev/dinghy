@@ -36,6 +36,7 @@
     "extensions": {
         "recommendations": [
             "ms-azuretools.vscode-containers",
+            "ms-azuretools.vscode-docker",
             "github.vscode-github-actions",
             "asciidoctor.asciidoctor-vscode",
             "denoland.vscode-deno",

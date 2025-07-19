@@ -10,6 +10,7 @@ FROM denoland/deno:debian-<%= VERSION_DENO %>
 RUN echo 'Essential dependencies' \
     && apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
+    procps \
     git \
     curl \
     gpg \
