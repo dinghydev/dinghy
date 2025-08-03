@@ -1,0 +1,23 @@
+# U Turn Arrow
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.arrows.u_turn_arrow;html=1;verticalLabelPosition=bottom;verticalAlign=top;strokeWidth=2;strokeColor=#000000;',
+  _width: 97,
+  _height: 98,
+}
+```
+
+## Usage
+
+```
+import { UTurnArrow } from '@reactiac/standard-components-diagrams/arrows'
+
+<UTurnArrow/>
+```
+
+## Preview
+
+<img src="./u-turn-arrow.png" width="200"/>

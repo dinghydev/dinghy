@@ -1,0 +1,23 @@
+# Control Object
+
+## Definition
+
+```
+{
+  _style: 'ellipse;shape=umlControl;whiteSpace=wrap;html=1;',
+  _width: 70,
+  _height: 80,
+}
+```
+
+## Usage
+
+```
+import { ControlObject } from '@reactiac/standard-components-diagrams/uml'
+
+<ControlObject/>
+```
+
+## Preview
+
+<img src="./control-object.png" width="200"/>

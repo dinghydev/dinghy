@@ -1,0 +1,23 @@
+# Stock Up
+
+## Definition
+
+```
+{
+  _style: 'image;html=1;image=img/lib/clip_art/finance/Stock_Up_128x128.pngstrokeColor=none;',
+  _width: 80,
+  _height: 80,
+}
+```
+
+## Usage
+
+```
+import { StockUp } from '@reactiac/standard-components-diagrams/clipartFinance'
+
+<StockUp/>
+```
+
+## Preview
+
+<img src="./stock-up.png" width="200"/>

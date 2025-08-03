@@ -1,0 +1,23 @@
+# Cross-Functional Flowchart
+
+## Definition
+
+```
+{
+  _style: 'shape=table;childLayout=tableLayout;startSize=40;collapsible=0;recursiveResize=0;expand=0;fontSize=16;',
+  _width: 400,
+  _height: 400,
+}
+```
+
+## Usage
+
+```
+import { CrossFunctionalFlowchart } from '@reactiac/standard-components-diagrams/misc'
+
+<CrossFunctionalFlowchart/>
+```
+
+## Preview
+
+<img src="./cross-functional-flowchart.png" width="200"/>
