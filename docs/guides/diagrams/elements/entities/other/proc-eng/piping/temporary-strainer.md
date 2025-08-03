@@ -1,0 +1,23 @@
+# Temporary Strainer
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.temporary_strainer;',
+  _width: 30,
+  _height: 30,
+}
+```
+
+## Usage
+
+```
+import { TemporaryStrainer } from '@reactiac/standard-components-diagrams/procEngPiping'
+
+<TemporaryStrainer/>
+```
+
+## Preview
+
+<img src="./temporary-strainer.png" width="200"/>

@@ -1,0 +1,23 @@
+# NIGBT
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transistors.nigbt;',
+  _width: 64,
+  _height: 100,
+}
+```
+
+## Usage
+
+```
+import { Nigbt } from '@reactiac/standard-components-diagrams/electricalTransistors'
+
+<Nigbt/>
+```
+
+## Preview
+
+<img src="./nigbt.png" width="200"/>

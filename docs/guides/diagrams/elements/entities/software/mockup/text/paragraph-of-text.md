@@ -1,0 +1,23 @@
+# Paragraph of Text
+
+## Definition
+
+```
+{
+  _style: 'text;spacingTop=-5;whiteSpace=wrap;html=1;align=left;fontSize=12;fontFamily=Helvetica;fillColor=none;strokeColor=none;',
+  _width: 250,
+  _height: 470,
+}
+```
+
+## Usage
+
+```
+import { ParagraphOfText } from '@reactiac/standard-components-diagrams/mockupText'
+
+<ParagraphOfText/>
+```
+
+## Preview
+
+<img src="./paragraph-of-text.png" width="200"/>

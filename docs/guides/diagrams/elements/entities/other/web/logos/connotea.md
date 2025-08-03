@@ -1,0 +1,23 @@
+# Connotea
+
+## Definition
+
+```
+{
+  _style: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.connotea',
+  _width: 81,
+  _height: 82.60000000000001,
+}
+```
+
+## Usage
+
+```
+import { Connotea } from '@reactiac/standard-components-diagrams/webLogos'
+
+<Connotea/>
+```
+
+## Preview
+
+<img src="./connotea.png" width="200"/>

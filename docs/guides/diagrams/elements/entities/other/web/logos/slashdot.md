@@ -1,0 +1,23 @@
+# Slashdot
+
+## Definition
+
+```
+{
+  _style: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.slashdot;fillColor=#026664;strokeColor=none',
+  _width: 52.400000000000006,
+  _height: 62,
+}
+```
+
+## Usage
+
+```
+import { Slashdot } from '@reactiac/standard-components-diagrams/webLogos'
+
+<Slashdot/>
+```
+
+## Preview
+
+<img src="./slashdot.png" width="200"/>

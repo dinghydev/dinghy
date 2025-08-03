@@ -1,0 +1,23 @@
+# Spray Drier
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.pid.driers.spray_drier;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  _width: 100,
+  _height: 140,
+}
+```
+
+## Usage
+
+```
+import { SprayDrier } from '@reactiac/standard-components-diagrams/procEngDriers'
+
+<SprayDrier/>
+```
+
+## Preview
+
+<img src="./spray-drier.png" width="200"/>

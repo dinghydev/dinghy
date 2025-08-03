@@ -1,0 +1,23 @@
+# Marketing 2
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.marketing2;',
+  _width: 60,
+  _height: 60,
+}
+```
+
+## Usage
+
+```
+import { Marketing2 } from '@reactiac/standard-components-diagrams/salesforceProduct'
+
+<Marketing2/>
+```
+
+## Preview
+
+<img src="./marketing-2.png" width="200"/>

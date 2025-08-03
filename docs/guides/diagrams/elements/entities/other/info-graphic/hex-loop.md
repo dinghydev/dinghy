@@ -1,0 +1,23 @@
+# Hex Loop
+
+## Definition
+
+```
+{
+  _style: 'shape=hexagon;strokeWidth=4;html=1;fillColor=#F5AB50;strokeColor=#ffffff;shadow=0;fontSize=10;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;spacing=10;rounded=0;',
+  _width: 0,
+  _height: 312,
+}
+```
+
+## Usage
+
+```
+import { HexLoop } from '@reactiac/standard-components-diagrams/infoGraphic'
+
+<HexLoop/>
+```
+
+## Preview
+
+<img src="./hex-loop.png" width="200"/>

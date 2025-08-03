@@ -1,0 +1,23 @@
+# Spring Return Off
+
+## Definition
+
+```
+{
+  _style: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.springReturn3;elSwitchState=off;',
+  _width: 75,
+  _height: 26,
+}
+```
+
+## Usage
+
+```
+import { SpringReturnOff } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+
+<SpringReturnOff/>
+```
+
+## Preview
+
+<img src="./spring-return-off.png" width="200"/>

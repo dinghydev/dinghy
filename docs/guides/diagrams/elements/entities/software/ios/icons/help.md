@@ -1,0 +1,23 @@
+# Help
+
+## Definition
+
+```
+{
+  _style: 'html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.help;',
+  _width: 30,
+  _height: 30,
+}
+```
+
+## Usage
+
+```
+import { Help } from '@reactiac/standard-components-diagrams/ios7Icons'
+
+<Help/>
+```
+
+## Preview
+
+<img src="./help.png" width="200"/>

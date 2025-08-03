@@ -1,0 +1,23 @@
+# Parking 2
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.signs.travel.parking_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  _width: 98,
+  _height: 98,
+}
+```
+
+## Usage
+
+```
+import { Parking2 } from '@reactiac/standard-components-diagrams/signsTravel'
+
+<Parking2/>
+```
+
+## Preview
+
+<img src="./parking-2.png" width="200"/>

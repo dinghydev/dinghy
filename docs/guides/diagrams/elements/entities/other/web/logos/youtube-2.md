@@ -1,0 +1,23 @@
+# Youtube 2
+
+## Definition
+
+```
+{
+  _style: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.youtube_2;fillColor=#FF2626;gradientColor=#B5171F',
+  _width: 46.400000000000006,
+  _height: 32.6,
+}
+```
+
+## Usage
+
+```
+import { Youtube2 } from '@reactiac/standard-components-diagrams/webLogos'
+
+<Youtube2/>
+```
+
+## Preview
+
+<img src="./youtube-2.png" width="200"/>

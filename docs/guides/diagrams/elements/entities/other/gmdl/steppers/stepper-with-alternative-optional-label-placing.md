@@ -1,0 +1,23 @@
+# Stepper with alternative optional label placing
+
+## Definition
+
+```
+{
+  _style: 'shape=ellipse;strokeColor=none;fillColor=#4285F4;fontColor=#ffffff;fontSize=12;align=center;verticalAlign=middle;html=1;',
+  _width: 404,
+  _height: 50,
+}
+```
+
+## Usage
+
+```
+import { StepperWithAlternativeOptionalLabelPlacing } from '@reactiac/standard-components-diagrams/gmdlSteppers'
+
+<StepperWithAlternativeOptionalLabelPlacing/>
+```
+
+## Preview
+
+<img src="./stepper-with-alternative-optional-label-placing.png" width="200"/>

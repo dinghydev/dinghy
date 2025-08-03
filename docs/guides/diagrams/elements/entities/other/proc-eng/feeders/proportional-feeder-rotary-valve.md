@@ -1,0 +1,23 @@
+# Proportional Feeder (Rotary Valve)
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.pid.feeders.proportional_feeder_(rotary_valve);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  _width: 100,
+  _height: 100,
+}
+```
+
+## Usage
+
+```
+import { ProportionalFeederRotaryValve } from '@reactiac/standard-components-diagrams/procEngFeeders'
+
+<ProportionalFeederRotaryValve/>
+```
+
+## Preview
+
+<img src="./proportional-feeder-rotary-valve.png" width="200"/>

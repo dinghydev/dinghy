@@ -1,0 +1,23 @@
+# NMOS
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.mosfets1.mosfet_ic_n;',
+  _width: 95,
+  _height: 100,
+}
+```
+
+## Usage
+
+```
+import { Nmos } from '@reactiac/standard-components-diagrams/electricalTransistors'
+
+<Nmos/>
+```
+
+## Preview
+
+<img src="./nmos.png" width="200"/>

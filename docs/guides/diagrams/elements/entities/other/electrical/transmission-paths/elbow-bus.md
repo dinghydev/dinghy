@@ -1,0 +1,23 @@
+# Elbow Bus
+
+## Definition
+
+```
+{
+  _style: 'html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.bendArrow;dy=15;dx=38;notch=0;arrowHead=55;rounded=0;strokeWidth=1',
+  _width: 130,
+  _height: 130,
+}
+```
+
+## Usage
+
+```
+import { ElbowBus } from '@reactiac/standard-components-diagrams/electricalTransmissionPaths'
+
+<ElbowBus/>
+```
+
+## Preview
+
+<img src="./elbow-bus.png" width="200"/>

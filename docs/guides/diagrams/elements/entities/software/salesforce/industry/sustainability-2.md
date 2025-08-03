@@ -1,0 +1,23 @@
+# Sustainability 2
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.sustainability2;',
+  _width: 60,
+  _height: 60,
+}
+```
+
+## Usage
+
+```
+import { Sustainability2 } from '@reactiac/standard-components-diagrams/salesforceIndustry'
+
+<Sustainability2/>
+```
+
+## Preview
+
+<img src="./sustainability-2.png" width="200"/>

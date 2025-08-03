@@ -1,0 +1,23 @@
+# List 3
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=middle;verticalAlign=top;html=1;shape=mxgraph.infographic.numberedEntryVert;dy=25;strokeColor=none;fontSize=17;fontColor=#FFFFFF;align=center;labelPosition=center;spacingTop=32;fontStyle=1;whiteSpace=wrap;fillColor=#AE4132;',
+  _width: 2,
+  _height: 160,
+}
+```
+
+## Usage
+
+```
+import { List3 } from '@reactiac/standard-components-diagrams/infoGraphic'
+
+<List3/>
+```
+
+## Preview
+
+<img src="./list-3.png" width="200"/>

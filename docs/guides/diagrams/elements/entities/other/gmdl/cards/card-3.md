@@ -1,0 +1,23 @@
+# Card 3
+
+## Definition
+
+```
+{
+  _style: 'shape=rect;fillColor=#BDBDBD;strokeColor=#eeeeee;shadow=1;html=1;',
+  _width: 342,
+  _height: 378,
+}
+```
+
+## Usage
+
+```
+import { Card3 } from '@reactiac/standard-components-diagrams/gmdlCards'
+
+<Card3/>
+```
+
+## Preview
+
+<img src="./card-3.png" width="200"/>

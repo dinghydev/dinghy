@@ -1,0 +1,23 @@
+# Air Filter
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.air_filter;',
+  _width: 40,
+  _height: 65,
+}
+```
+
+## Usage
+
+```
+import { AirFilter } from '@reactiac/standard-components-diagrams/procEngMisc'
+
+<AirFilter/>
+```
+
+## Preview
+
+<img src="./air-filter.png" width="200"/>

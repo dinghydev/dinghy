@@ -1,0 +1,23 @@
+# Loading Arm
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.loading_arm;pointerEvents=1;',
+  _width: 120,
+  _height: 80,
+}
+```
+
+## Usage
+
+```
+import { LoadingArm } from '@reactiac/standard-components-diagrams/procEngMisc'
+
+<LoadingArm/>
+```
+
+## Preview
+
+<img src="./loading-arm.png" width="200"/>

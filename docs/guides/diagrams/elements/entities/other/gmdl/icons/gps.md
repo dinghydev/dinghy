@@ -1,0 +1,23 @@
+# GPS
+
+## Definition
+
+```
+{
+  _style: 'html=1;dashed=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.gmdl.gps;strokeColor=#737373;fillColor=#737373;shadow=0;strokeWidth=2;sketch=0;',
+  _width: 20,
+  _height: 20,
+}
+```
+
+## Usage
+
+```
+import { Gps } from '@reactiac/standard-components-diagrams/gmdlIcons'
+
+<Gps/>
+```
+
+## Preview
+
+<img src="./gps.png" width="200"/>

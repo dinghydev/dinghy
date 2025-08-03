@@ -1,0 +1,23 @@
+# Hose Connection
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.hose_connection;pointerEvents=1;',
+  _width: 20,
+  _height: 20,
+}
+```
+
+## Usage
+
+```
+import { HoseConnection } from '@reactiac/standard-components-diagrams/procEngPiping'
+
+<HoseConnection/>
+```
+
+## Preview
+
+<img src="./hose-connection.png" width="200"/>

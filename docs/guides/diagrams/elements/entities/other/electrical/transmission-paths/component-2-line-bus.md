@@ -1,0 +1,23 @@
+# 2-Line Bus
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.2_line_bus;',
+  _width: 130,
+  _height: 25,
+}
+```
+
+## Usage
+
+```
+import { Component2LineBus } from '@reactiac/standard-components-diagrams/electricalTransmissionPaths'
+
+<Component2LineBus/>
+```
+
+## Preview
+
+<img src="./component-2-line-bus.png" width="200"/>

@@ -1,0 +1,23 @@
+# X10770 Proportional directional
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10770;points=[[0.258,0,0],[0.258,1,0],[0.405,0,0],[0.405,1,0],[1,0.5,0],[1,0.625,0],[1,0.75,0]]',
+  _width: 125.44,
+  _height: 74.44,
+}
+```
+
+## Usage
+
+```
+import { X10770ProportionalDirectional } from '@reactiac/standard-components-diagrams/fluidPower'
+
+<X10770ProportionalDirectional/>
+```
+
+## Preview
+
+<img src="./x10770-proportional-directional.png" width="200"/>

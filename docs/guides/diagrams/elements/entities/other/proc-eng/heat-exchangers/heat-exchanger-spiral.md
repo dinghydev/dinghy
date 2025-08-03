@@ -1,0 +1,23 @@
+# Heat Exchanger (Spiral)
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.pid.heat_exchangers.heat_exchanger_(spiral);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  _width: 100,
+  _height: 100,
+}
+```
+
+## Usage
+
+```
+import { HeatExchangerSpiral } from '@reactiac/standard-components-diagrams/procEngHeatExchangers'
+
+<HeatExchangerSpiral/>
+```
+
+## Preview
+
+<img src="./heat-exchanger-spiral.png" width="200"/>

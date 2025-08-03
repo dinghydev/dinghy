@@ -1,0 +1,23 @@
+# Heart 1
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.signs.healthcare.heart_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  _width: 103,
+  _height: 94,
+}
+```
+
+## Usage
+
+```
+import { Heart1 } from '@reactiac/standard-components-diagrams/signsHealthcare'
+
+<Heart1/>
+```
+
+## Preview
+
+<img src="./heart-1.png" width="200"/>

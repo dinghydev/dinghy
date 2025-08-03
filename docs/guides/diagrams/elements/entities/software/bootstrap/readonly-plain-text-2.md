@@ -1,0 +1,23 @@
+# Readonly plain text 2
+
+## Definition
+
+```
+{
+  _style: 'strokeColor=none;fillColor=none;fontColor=#777777;whiteSpace=wrap;align=left;verticalAlign=middle;fontStyle=0;fontSize=14;',
+  _width: 1,
+  _height: 90,
+}
+```
+
+## Usage
+
+```
+import { ReadonlyPlainText2 } from '@reactiac/standard-components-diagrams/bootstrap'
+
+<ReadonlyPlainText2/>
+```
+
+## Preview
+
+<img src="./readonly-plain-text-2.png" width="200"/>

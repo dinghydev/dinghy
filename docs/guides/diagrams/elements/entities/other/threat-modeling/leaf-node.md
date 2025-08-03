@@ -1,0 +1,23 @@
+# Leaf Node
+
+## Definition
+
+```
+{
+  _style: 'rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;',
+  _width: 120,
+  _height: 80,
+}
+```
+
+## Usage
+
+```
+import { LeafNode } from '@reactiac/standard-components-diagrams/threatModeling'
+
+<LeafNode/>
+```
+
+## Preview
+
+<img src="./leaf-node.png" width="200"/>

@@ -1,0 +1,23 @@
+# Cross Country Skiing 1
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.signs.sports.cross_country_skiing_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  _width: 98,
+  _height: 94,
+}
+```
+
+## Usage
+
+```
+import { CrossCountrySkiing1 } from '@reactiac/standard-components-diagrams/signsSports'
+
+<CrossCountrySkiing1/>
+```
+
+## Preview
+
+<img src="./cross-country-skiing-1.png" width="200"/>

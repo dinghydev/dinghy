@@ -1,0 +1,23 @@
+# Stack, Chimney
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.stack,_chimney;',
+  _width: 60,
+  _height: 100,
+}
+```
+
+## Usage
+
+```
+import { StackChimney } from '@reactiac/standard-components-diagrams/procEngMisc'
+
+<StackChimney/>
+```
+
+## Preview
+
+<img src="./stack-chimney.png" width="200"/>
