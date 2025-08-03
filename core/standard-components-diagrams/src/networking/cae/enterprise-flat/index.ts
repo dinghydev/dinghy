@@ -1,13 +1,3 @@
-export {
-  FEDERATION_SERVICES_PROXY,
-  FederationServicesProxy,
-} from './federation-services-proxy.tsx'
-
-export {
-  FEDERATION_SERVICES,
-  FederationServices,
-} from './federation-services.tsx'
-
 export { ANDROID_PHONE, AndroidPhone } from './android-phone.tsx'
 
 export { APPLICATION, Application } from './application.tsx'
@@ -25,8 +15,6 @@ export {
   APPLICATION_SERVER_2,
   ApplicationServer2,
 } from './application-server-2.tsx'
-
-export { PACK, Pack } from './pack.tsx'
 
 export { BACKUP_LOCAL, BackupLocal } from './backup-local.tsx'
 
@@ -64,9 +52,9 @@ export {
   DirectAccessFeature,
 } from './direct-access-feature.tsx'
 
-export { DOCUMENT_DB_FILE, DocumentDbFile } from './document-db-file.tsx'
-
 export { DOCUMENT, Document } from './document.tsx'
+
+export { DOCUMENT_DB_FILE, DocumentDbFile } from './document-db-file.tsx'
 
 export { DOMAIN_CONTROLLER, DomainController } from './domain-controller.tsx'
 
@@ -74,6 +62,16 @@ export {
   ENTERPRISE_BUILDING,
   EnterpriseBuilding,
 } from './enterprise-building.tsx'
+
+export {
+  FEDERATION_SERVICES,
+  FederationServices,
+} from './federation-services.tsx'
+
+export {
+  FEDERATION_SERVICES_PROXY,
+  FederationServicesProxy,
+} from './federation-services-proxy.tsx'
 
 export { FILE_GENERAL, FileGeneral } from './file-general.tsx'
 
@@ -118,12 +116,14 @@ export { MANAGEMENT_CONSOLE, ManagementConsole } from './management-console.tsx'
 
 export { MESSAGE, Message } from './message.tsx'
 
+export { MOBILE, Mobile } from './mobile.tsx'
+
+export { MONITOR, Monitor } from './monitor.tsx'
+
 export {
   MONITOR_RUNNING_APPS,
   MonitorRunningApps,
 } from './monitor-running-apps.tsx'
-
-export { MONITOR, Monitor } from './monitor.tsx'
 
 export { MOUSE, Mouse } from './mouse.tsx'
 
@@ -131,14 +131,14 @@ export { NETWORK_CARD, NetworkCard } from './network-card.tsx'
 
 export { NOT_ALLOWED, NotAllowed } from './not-allowed.tsx'
 
+export { PACK, Pack } from './pack.tsx'
+
+export { PERFORMANCE, Performance } from './performance.tsx'
+
 export {
   PERFORMANCE_MONITOR,
   PerformanceMonitor,
 } from './performance-monitor.tsx'
-
-export { PERFORMANCE, Performance } from './performance.tsx'
-
-export { MOBILE, Mobile } from './mobile.tsx'
 
 export { PLUG_AND_PLAY, PlugAndPlay } from './plug-and-play.tsx'
 

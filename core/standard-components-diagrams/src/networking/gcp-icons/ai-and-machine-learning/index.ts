@@ -3,9 +3,9 @@ export {
   AdvancedSolutionsLab,
 } from './advanced-solutions-lab.tsx'
 
-export { AI_PLATFORM, AiPlatform } from './ai-platform.tsx'
-
 export { AI_HUB, AiHub } from './ai-hub.tsx'
+
+export { AI_PLATFORM, AiPlatform } from './ai-platform.tsx'
 
 export { AUTOML, Automl } from './automl.tsx'
 

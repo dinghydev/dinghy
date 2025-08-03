@@ -22,14 +22,14 @@ export { KEEP_DRY, KeepDry } from './keep-dry.tsx'
 
 export { NO, No } from './no.tsx'
 
+export { NO_ENTRY, NoEntry } from './no-entry.tsx'
+
+export { NO_SMOKING, NoSmoking } from './no-smoking.tsx'
+
 export {
   NON_IONIZING_RADIATION,
   NonIonizingRadiation,
 } from './non-ionizing-radiation.tsx'
-
-export { NO_ENTRY, NoEntry } from './no-entry.tsx'
-
-export { NO_SMOKING, NoSmoking } from './no-smoking.tsx'
 
 export {
   PEDESTRIAN_CROSSING,

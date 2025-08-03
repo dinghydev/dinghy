@@ -1,0 +1,23 @@
+# Virtual Network Gateways
+
+## Definition
+
+```
+{
+  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Virtual_Network_Gateways.svg;strokeColor=none;',
+  _width: 52,
+  _height: 69,
+}
+```
+
+## Usage
+
+```
+import { VirtualNetworkGateways } from '@reactiac/standard-components-diagrams/azure2Networking'
+
+<VirtualNetworkGateways/>
+```
+
+## Preview
+
+<img src="./virtual-network-gateways.png" width="200"/>

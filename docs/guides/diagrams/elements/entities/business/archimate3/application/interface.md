@@ -1,0 +1,23 @@
+# Interface
+
+## Definition
+
+```
+{
+  _style: 'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.interface;',
+  _width: 70,
+  _height: 35,
+}
+```
+
+## Usage
+
+```
+import { Interface } from '@reactiac/standard-components-diagrams/archimate3Application'
+
+<Interface/>
+```
+
+## Preview
+
+<img src="./interface.png" width="200"/>

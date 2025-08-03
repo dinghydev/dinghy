@@ -2,9 +2,10 @@ import { Dependency } from '@reactiac/base-components'
 import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const REALIZATION = {
-  _style: 'edgeStyle=none;html=1;endSize=12;endArrow=block;endFill=0;dashed=1;',
-  _width: 160,
-  _height: 0,
+  _style: {
+    dependency:
+      'edgeStyle=none;html=1;endSize=12;endArrow=block;endFill=0;dashed=1;',
+  },
 }
 
 export function Realization(props: DiagramNodeProps) {

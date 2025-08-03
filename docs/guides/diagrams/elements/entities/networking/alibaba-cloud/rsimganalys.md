@@ -1,0 +1,23 @@
+# RSImgAnalys
+
+## Definition
+
+```
+{
+  _style: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.rsimganalys;',
+  _width: 50.099999999999994,
+  _height: 44.4,
+}
+```
+
+## Usage
+
+```
+import { Rsimganalys } from '@reactiac/standard-components-diagrams/alibabaCloud'
+
+<Rsimganalys/>
+```
+
+## Preview
+
+<img src="./rsimganalys.png" width="200"/>

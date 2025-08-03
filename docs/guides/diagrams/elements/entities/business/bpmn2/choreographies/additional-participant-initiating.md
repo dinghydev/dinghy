@@ -1,0 +1,23 @@
+# Additional Participant, Initiating
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.bpmn.task2;part=1;taskMarker=abstract;rectStyle=square;whiteSpace=wrap;html=1;',
+  _width: 120,
+  _height: 20,
+}
+```
+
+## Usage
+
+```
+import { AdditionalParticipantInitiating } from '@reactiac/standard-components-diagrams/bpmn2Choreographies'
+
+<AdditionalParticipantInitiating/>
+```
+
+## Preview
+
+<img src="./additional-participant-initiating.png" width="200"/>

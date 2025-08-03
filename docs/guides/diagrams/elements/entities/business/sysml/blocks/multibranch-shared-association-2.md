@@ -1,0 +1,23 @@
+# Multibranch Shared Association 2
+
+## Definition
+
+```
+{
+  _style: 'edgeStyle=elbowEdgeStyle;html=1;elbow=horizontal;align=right;verticalAlign=bottom;endArrow=none;rounded=0;labelBackgroundColor=none;',
+  _width: 1,
+  _height: 50,
+}
+```
+
+## Usage
+
+```
+import { MultibranchSharedAssociation2 } from '@reactiac/standard-components-diagrams/sysmlBlocks'
+
+<MultibranchSharedAssociation2/>
+```
+
+## Preview
+
+<img src="./multibranch-shared-association-2.png" width="200"/>

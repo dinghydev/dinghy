@@ -1,9 +1,4 @@
 export {
-  CENTRIFUGE_DECANTER_SCREW_SOLID_SHELL,
-  CentrifugeDecanterScrewSolidShell,
-} from './centrifuge-decanter-screw-solid-shell.tsx'
-
-export {
   CENTRIFUGE_HIGH_SPEED,
   CentrifugeHighSpeed,
 } from './centrifuge-high-speed.tsx'
@@ -31,3 +26,8 @@ export {
   CENTRIFUGE_SOLID_SHELL,
   CentrifugeSolidShell,
 } from './centrifuge-solid-shell.tsx'
+
+export {
+  CENTRIFUGE_DECANTER_SCREW_SOLID_SHELL,
+  CentrifugeDecanterScrewSolidShell,
+} from './centrifuge-decanter-screw-solid-shell.tsx'

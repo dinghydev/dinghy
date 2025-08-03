@@ -33,11 +33,11 @@ export { SUBSITE, Subsite } from './subsite.tsx'
 
 export { SUBSITE_BLUE, SubsiteBlue } from './subsite-blue.tsx'
 
-export { SUBSITE_ORANGE, SubsiteOrange } from './subsite-orange.tsx'
+export { SUBSITE_GHOSTED, SubsiteGhosted } from './subsite-ghosted.tsx'
 
 export { SUBSITE_GREEN, SubsiteGreen } from './subsite-green.tsx'
 
-export { SUBSITE_GHOSTED, SubsiteGhosted } from './subsite-ghosted.tsx'
+export { SUBSITE_ORANGE, SubsiteOrange } from './subsite-orange.tsx'
 
 export { UPGRADE_SITE, UpgradeSite } from './upgrade-site.tsx'
 

@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const CHANGE_ANALYSIS = {
   _style:
-    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/devops/Change_Analysis.svg;',
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/devops/Change_Analysis.svg;strokeColor=none;',
   _width: 68,
   _height: 67.67999999999999,
 }

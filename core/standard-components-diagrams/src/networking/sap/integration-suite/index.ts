@@ -3,6 +3,11 @@ export {
   AdvancedEventMesh,
 } from './advanced-event-mesh.tsx'
 
+export {
+  API_BUSINESS_HUB_ENTERPRISE,
+  ApiBusinessHubEnterprise,
+} from './api-business-hub-enterprise.tsx'
+
 export { API_MANAGMENT, ApiManagment } from './api-managment.tsx'
 
 export { CLOUD_INTEGRATION, CloudIntegration } from './cloud-integration.tsx'
@@ -11,6 +16,11 @@ export {
   DATA_SPACE_INTEGRATION,
   DataSpaceIntegration,
 } from './data-space-integration.tsx'
+
+export {
+  EDGE_INTEGRATION_CELL,
+  EdgeIntegrationCell,
+} from './edge-integration-cell.tsx'
 
 export { EVENT_MESH, EventMesh } from './event-mesh.tsx'
 
@@ -31,17 +41,7 @@ export {
 
 export { OPEN_CONNECTORS, OpenConnectors } from './open-connectors.tsx'
 
-export {
-  EDGE_INTEGRATION_CELL,
-  EdgeIntegrationCell,
-} from './edge-integration-cell.tsx'
-
 export { SAP_GRAPH, SapGraph } from './sap-graph.tsx'
-
-export {
-  TRADING_PARTNER_MANAGEMENT,
-  TradingPartnerManagement,
-} from './trading-partner-management.tsx'
 
 export {
   SAP_INTEGRATION_SUITE,
@@ -54,6 +54,6 @@ export {
 } from './sap-business-accelerator-hub.tsx'
 
 export {
-  API_BUSINESS_HUB_ENTERPRISE,
-  ApiBusinessHubEnterprise,
-} from './api-business-hub-enterprise.tsx'
+  TRADING_PARTNER_MANAGEMENT,
+  TradingPartnerManagement,
+} from './trading-partner-management.tsx'

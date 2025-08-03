@@ -1,0 +1,23 @@
+# Instance Pools
+
+## Definition
+
+```
+{
+  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Instance_Pools.svg;strokeColor=none;',
+  _width: 65,
+  _height: 64,
+}
+```
+
+## Usage
+
+```
+import { InstancePools } from '@reactiac/standard-components-diagrams/azure2Databases'
+
+<InstancePools/>
+```
+
+## Preview
+
+<img src="./instance-pools.png" width="200"/>

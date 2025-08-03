@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const AKS_ISTIO = {
   _style:
-    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/AKS_Istio.svg;',
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/AKS_Istio.svg;strokeColor=none;',
   _width: 68,
   _height: 68,
 }

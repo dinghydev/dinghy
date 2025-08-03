@@ -1,0 +1,23 @@
+# Image Portability Service
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;fillColor=#000000;align=center;outlineConnect=0;pointerEvents=1;shape=mxgraph.citrix2.image_portability_service;',
+  _width: 49.964999999999996,
+  _height: 50,
+}
+```
+
+## Usage
+
+```
+import { ImagePortabilityService } from '@reactiac/standard-components-diagrams/citrixComponents'
+
+<ImagePortabilityService/>
+```
+
+## Preview
+
+<img src="./image-portability-service.png" width="200"/>

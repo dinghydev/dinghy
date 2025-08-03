@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const CLOUDSIMPLE_VIRTUAL_MACHINES = {
   _style:
-    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/CloudSimple_Virtual_Machines.svg;',
+    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/CloudSimple_Virtual_Machines.svg;strokeColor=none;',
   _width: 50,
   _height: 32,
 }

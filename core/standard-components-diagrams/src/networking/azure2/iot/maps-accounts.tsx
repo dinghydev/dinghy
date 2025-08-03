@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const MAPS_ACCOUNTS = {
   _style:
-    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/iot/Azure_Maps_Accounts.svg;',
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/iot/Azure_Maps_Accounts.svg;strokeColor=none;',
   _width: 68,
   _height: 68,
 }

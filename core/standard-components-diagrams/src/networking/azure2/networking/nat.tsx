@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const NAT = {
   _style:
-    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/NAT.svg;',
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/NAT.svg;strokeColor=none;',
   _width: 68,
   _height: 68,
 }

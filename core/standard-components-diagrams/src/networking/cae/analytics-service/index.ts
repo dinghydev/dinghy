@@ -5,8 +5,6 @@ export {
   AzureDataExplorerClusters,
 } from './azure-data-explorer-clusters.tsx'
 
-export { DATABRICKS, Databricks } from './databricks.tsx'
-
 export { DATA_FACTORIES, DataFactories } from './data-factories.tsx'
 
 export {
@@ -15,6 +13,8 @@ export {
 } from './data-lake-analytics.tsx'
 
 export { DATA_LAKE_STORE, DataLakeStore } from './data-lake-store.tsx'
+
+export { DATABRICKS, Databricks } from './databricks.tsx'
 
 export { EVENT_HUB_CLUSTERS, EventHubClusters } from './event-hub-clusters.tsx'
 

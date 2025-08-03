@@ -2,10 +2,10 @@ import { Dependency } from '@reactiac/base-components'
 import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const FOUND_MESSAGE = {
-  _style:
-    'edgeStyle=none;html=1;endArrow=open;endSize=12;verticalAlign=bottom;startArrow=sysMLFound;startSize=12;',
-  _width: 160,
-  _height: 0,
+  _style: {
+    dependency:
+      'edgeStyle=none;html=1;endArrow=open;endSize=12;verticalAlign=bottom;startArrow=sysMLFound;startSize=12;',
+  },
 }
 
 export function FoundMessage(props: DiagramNodeProps) {

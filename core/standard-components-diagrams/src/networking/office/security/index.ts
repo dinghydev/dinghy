@@ -33,9 +33,9 @@ export {
 } from './key-permissions-blue.tsx'
 
 export {
-  KEY_PERMISSIONS_ORANGE,
-  KeyPermissionsOrange,
-} from './key-permissions-orange.tsx'
+  KEY_PERMISSIONS_GHOSTED,
+  KeyPermissionsGhosted,
+} from './key-permissions-ghosted.tsx'
 
 export {
   KEY_PERMISSIONS_GREEN,
@@ -43,53 +43,9 @@ export {
 } from './key-permissions-green.tsx'
 
 export {
-  KEY_PERMISSIONS_GHOSTED,
-  KeyPermissionsGhosted,
-} from './key-permissions-ghosted.tsx'
-
-export { LOCK_PROTECTED, LockProtected } from './lock-protected.tsx'
-
-export {
-  LOCK_PROTECTED_BLUE,
-  LockProtectedBlue,
-} from './lock-protected-blue.tsx'
-
-export {
-  LOCK_PROTECTED_ORANGE,
-  LockProtectedOrange,
-} from './lock-protected-orange.tsx'
-
-export {
-  LOCK_PROTECTED_GREEN,
-  LockProtectedGreen,
-} from './lock-protected-green.tsx'
-
-export {
-  LOCK_PROTECTED_GHOSTED,
-  LockProtectedGhosted,
-} from './lock-protected-ghosted.tsx'
-
-export { LOCK_UNPROTECTED, LockUnprotected } from './lock-unprotected.tsx'
-
-export {
-  LOCK_UNPROTECTED_BLUE,
-  LockUnprotectedBlue,
-} from './lock-unprotected-blue.tsx'
-
-export {
-  LOCK_UNPROTECTED_ORANGE,
-  LockUnprotectedOrange,
-} from './lock-unprotected-orange.tsx'
-
-export {
-  LOCK_UNPROTECTED_GREEN,
-  LockUnprotectedGreen,
-} from './lock-unprotected-green.tsx'
-
-export {
-  LOCK_UNPROTECTED_GHOSTED,
-  LockUnprotectedGhosted,
-} from './lock-unprotected-ghosted.tsx'
+  KEY_PERMISSIONS_ORANGE,
+  KeyPermissionsOrange,
+} from './key-permissions-orange.tsx'
 
 export {
   LOCK_WITH_KEY_SECURITY,
@@ -102,9 +58,9 @@ export {
 } from './lock-with-key-security-blue.tsx'
 
 export {
-  LOCK_WITH_KEY_SECURITY_ORANGE,
-  LockWithKeySecurityOrange,
-} from './lock-with-key-security-orange.tsx'
+  LOCK_WITH_KEY_SECURITY_GHOSTED,
+  LockWithKeySecurityGhosted,
+} from './lock-with-key-security-ghosted.tsx'
 
 export {
   LOCK_WITH_KEY_SECURITY_GREEN,
@@ -112,9 +68,53 @@ export {
 } from './lock-with-key-security-green.tsx'
 
 export {
-  LOCK_WITH_KEY_SECURITY_GHOSTED,
-  LockWithKeySecurityGhosted,
-} from './lock-with-key-security-ghosted.tsx'
+  LOCK_WITH_KEY_SECURITY_ORANGE,
+  LockWithKeySecurityOrange,
+} from './lock-with-key-security-orange.tsx'
+
+export { LOCK_PROTECTED, LockProtected } from './lock-protected.tsx'
+
+export {
+  LOCK_PROTECTED_BLUE,
+  LockProtectedBlue,
+} from './lock-protected-blue.tsx'
+
+export {
+  LOCK_PROTECTED_GHOSTED,
+  LockProtectedGhosted,
+} from './lock-protected-ghosted.tsx'
+
+export {
+  LOCK_PROTECTED_GREEN,
+  LockProtectedGreen,
+} from './lock-protected-green.tsx'
+
+export {
+  LOCK_PROTECTED_ORANGE,
+  LockProtectedOrange,
+} from './lock-protected-orange.tsx'
+
+export { LOCK_UNPROTECTED, LockUnprotected } from './lock-unprotected.tsx'
+
+export {
+  LOCK_UNPROTECTED_BLUE,
+  LockUnprotectedBlue,
+} from './lock-unprotected-blue.tsx'
+
+export {
+  LOCK_UNPROTECTED_GHOSTED,
+  LockUnprotectedGhosted,
+} from './lock-unprotected-ghosted.tsx'
+
+export {
+  LOCK_UNPROTECTED_GREEN,
+  LockUnprotectedGreen,
+} from './lock-unprotected-green.tsx'
+
+export {
+  LOCK_UNPROTECTED_ORANGE,
+  LockUnprotectedOrange,
+} from './lock-unprotected-orange.tsx'
 
 export { MANAGEMENT_ROLE, ManagementRole } from './management-role.tsx'
 

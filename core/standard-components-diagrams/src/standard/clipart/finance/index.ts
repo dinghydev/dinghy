@@ -1,6 +1,6 @@
-export { ARROW_DOWN, ArrowDown } from './arrow-down.tsx'
-
 export { ARROW_UP, ArrowUp } from './arrow-up.tsx'
+
+export { ARROW_DOWN, ArrowDown } from './arrow-down.tsx'
 
 export { COINS, Coins } from './coins.tsx'
 

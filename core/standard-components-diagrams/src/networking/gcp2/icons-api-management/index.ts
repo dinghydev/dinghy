@@ -1,6 +1,6 @@
-export { API_ANALYTICS, ApiAnalytics } from './api-analytics.tsx'
-
 export { API_MONETIZATION, ApiMonetization } from './api-monetization.tsx'
+
+export { API_ANALYTICS, ApiAnalytics } from './api-analytics.tsx'
 
 export { APIGEE_SENSE, ApigeeSense } from './apigee-sense.tsx'
 

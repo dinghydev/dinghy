@@ -1,4 +1,7 @@
-export { AWS_CODESTAR, AwsCodestar } from './aws-codestar.tsx'
+export {
+  AWS_COMMAND_LINE_INTERFACE,
+  AwsCommandLineInterface,
+} from './aws-command-line-interface.tsx'
 
 export { AWS_CLOUD9, AwsCloud9 } from './aws-cloud9.tsx'
 
@@ -10,10 +13,7 @@ export { AWS_CODEDEPLOY, AwsCodedeploy } from './aws-codedeploy.tsx'
 
 export { AWS_CODEPIPELINE, AwsCodepipeline } from './aws-codepipeline.tsx'
 
-export {
-  AWS_COMMAND_LINE_INTERFACE,
-  AwsCommandLineInterface,
-} from './aws-command-line-interface.tsx'
+export { AWS_CODESTAR, AwsCodestar } from './aws-codestar.tsx'
 
 export { AWS_TOOLS_AND_SDKS, AwsToolsAndSdks } from './aws-tools-and-sdks.tsx'
 

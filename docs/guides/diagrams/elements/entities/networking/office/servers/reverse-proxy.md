@@ -1,0 +1,23 @@
+# Reverse Proxy
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.reverse_proxy;',
+  _width: 41,
+  _height: 53,
+}
+```
+
+## Usage
+
+```
+import { ReverseProxy } from '@reactiac/standard-components-diagrams/officeServers'
+
+<ReverseProxy/>
+```
+
+## Preview
+
+<img src="./reverse-proxy.png" width="200"/>

@@ -1,0 +1,23 @@
+# Users (green)
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.users.users;fillColor=#7FBA42;',
+  _width: 46,
+  _height: 50,
+}
+```
+
+## Usage
+
+```
+import { UsersGreen } from '@reactiac/standard-components-diagrams/officeUsers'
+
+<UsersGreen/>
+```
+
+## Preview
+
+<img src="./users-green.png" width="200"/>

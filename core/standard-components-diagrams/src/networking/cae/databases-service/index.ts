@@ -3,12 +3,6 @@ export {
   AzureCacheForRedis,
 } from './azure-cache-for-redis.tsx'
 
-export { CACHE_PLUS_REDIS, CachePlusRedis } from './cache-plus-redis.tsx'
-
-export { COSMOSDB, Cosmosdb } from './cosmosdb.tsx'
-
-export { DATABASE_GENERIC, DatabaseGeneric } from './database-generic.tsx'
-
 export {
   AZURE_DATABASE_FOR_MARIADB_SERVERS,
   AzureDatabaseForMariadbServers,
@@ -31,7 +25,13 @@ export {
 
 export { BLOB_STORAGE, BlobStorage } from './blob-storage.tsx'
 
+export { CACHE_PLUS_REDIS, CachePlusRedis } from './cache-plus-redis.tsx'
+
+export { COSMOSDB, Cosmosdb } from './cosmosdb.tsx'
+
 export { DATA_LAKE, DataLake } from './data-lake.tsx'
+
+export { DATABASE_GENERIC, DatabaseGeneric } from './database-generic.tsx'
 
 export {
   ELASTIC_DATABASE_POOLS,

@@ -1,0 +1,23 @@
+# PIM
+
+## Definition
+
+```
+{
+  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/PIM.svg;strokeColor=none;',
+  _width: 60,
+  _height: 68,
+}
+```
+
+## Usage
+
+```
+import { Pim } from '@reactiac/standard-components-diagrams/azure2Identity'
+
+<Pim/>
+```
+
+## Preview
+
+<img src="./pim.png" width="200"/>

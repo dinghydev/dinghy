@@ -159,8 +159,6 @@ export { VEEAM_ONE_SERVER, VeeamOneServer } from './veeam-one-server.tsx'
 
 export { VIRTUAL_MACHINE, VirtualMachine } from './virtual-machine.tsx'
 
-export { VMWARE_HOST, VmwareHost } from './vmware-host.tsx'
-
 export { VM_FAILED, VmFailed } from './vm-failed.tsx'
 
 export { VM_LINUX, VmLinux } from './vm-linux.tsx'
@@ -174,6 +172,8 @@ export { VM_RUNNING, VmRunning } from './vm-running.tsx'
 export { VM_SAVED_STATE, VmSavedState } from './vm-saved-state.tsx'
 
 export { VM_WINDOWS, VmWindows } from './vm-windows.tsx'
+
+export { VMWARE_HOST, VmwareHost } from './vmware-host.tsx'
 
 export { VNIC, Vnic } from './vnic.tsx'
 

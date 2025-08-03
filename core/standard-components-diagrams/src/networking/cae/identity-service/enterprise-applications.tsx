@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const ENTERPRISE_APPLICATIONS = {
   _style:
-    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Enterprise_Applications.svg;',
+    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Enterprise_Applications.svg;strokeColor=none;',
   _width: 49,
   _height: 50,
 }

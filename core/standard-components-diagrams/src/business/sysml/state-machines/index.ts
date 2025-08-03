@@ -1,3 +1,5 @@
+export { ACTION, Action } from './action.tsx'
+
 export {
   CHOICE_PSEUDO_STATE,
   ChoicePseudoState,
@@ -43,11 +45,9 @@ export {
   ReceiveSignalAction,
 } from './receive-signal-action.tsx'
 
-export { SEND_SIGNAL_ACTION, SendSignalAction } from './send-signal-action.tsx'
-
-export { ACTION, Action } from './action.tsx'
-
 export { REGION, Region } from './region.tsx'
+
+export { SEND_SIGNAL_ACTION, SendSignalAction } from './send-signal-action.tsx'
 
 export { SIMPLE_STATE, SimpleState } from './simple-state.tsx'
 
@@ -55,8 +55,8 @@ export { SIMPLE_STATE_2, SimpleState2 } from './simple-state-2.tsx'
 
 export { STATE_MACHINE, StateMachine } from './state-machine.tsx'
 
-export { TERMINATE_NODE, TerminateNode } from './terminate-node.tsx'
-
 export { SUBMACHINE_STATE, SubmachineState } from './submachine-state.tsx'
+
+export { TERMINATE_NODE, TerminateNode } from './terminate-node.tsx'
 
 export { TRANSITION, Transition } from './transition.tsx'

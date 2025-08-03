@@ -1,0 +1,23 @@
+# Online Hosted Services
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.services.online_hosted_services;',
+  _width: 56,
+  _height: 52,
+}
+```
+
+## Usage
+
+```
+import { OnlineHostedServices } from '@reactiac/standard-components-diagrams/officeServices'
+
+<OnlineHostedServices/>
+```
+
+## Preview
+
+<img src="./online-hosted-services.png" width="200"/>

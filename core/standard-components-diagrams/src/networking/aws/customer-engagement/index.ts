@@ -1,9 +1,9 @@
+export { CONNECT, Connect } from './connect.tsx'
+
 export {
   CUSTOMER_ENGAGEMENT,
   CustomerEngagement,
 } from './customer-engagement.tsx'
-
-export { CONNECT, Connect } from './connect.tsx'
 
 export { PINPOINT, Pinpoint } from './pinpoint.tsx'
 

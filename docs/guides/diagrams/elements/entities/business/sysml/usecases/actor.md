@@ -1,0 +1,23 @@
+# Actor
+
+## Definition
+
+```
+{
+  _style: 'shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;',
+  _width: 30,
+  _height: 60,
+}
+```
+
+## Usage
+
+```
+import { Actor } from '@reactiac/standard-components-diagrams/sysmlUsecases'
+
+<Actor/>
+```
+
+## Preview
+
+<img src="./actor.png" width="200"/>

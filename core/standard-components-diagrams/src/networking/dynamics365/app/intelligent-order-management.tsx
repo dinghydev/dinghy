@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const INTELLIGENT_ORDER_MANAGEMENT = {
   _style:
-    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/IntelligentOrderManagement.svg;',
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/IntelligentOrderManagement.svg;strokeColor=none;',
   _width: 68,
   _height: 68,
 }

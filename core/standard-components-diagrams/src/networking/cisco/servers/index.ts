@@ -10,9 +10,9 @@ export {
 
 export { DIRECTORY_SERVER, DirectoryServer } from './directory-server.tsx'
 
-export { FILESERVER, Fileserver } from './fileserver.tsx'
-
 export { FILE_SERVER, FileServer } from './file-server.tsx'
+
+export { FILESERVER, Fileserver } from './fileserver.tsx'
 
 export { HOST, Host } from './host.tsx'
 

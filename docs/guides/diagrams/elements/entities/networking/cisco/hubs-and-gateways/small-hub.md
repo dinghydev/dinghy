@@ -1,0 +1,23 @@
+# Small Hub
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.cisco.hubs_and_gateways.small_hub;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
+  _width: 90,
+  _height: 45,
+}
+```
+
+## Usage
+
+```
+import { SmallHub } from '@reactiac/standard-components-diagrams/ciscoHubsAndGateways'
+
+<SmallHub/>
+```
+
+## Preview
+
+<img src="./small-hub.png" width="200"/>

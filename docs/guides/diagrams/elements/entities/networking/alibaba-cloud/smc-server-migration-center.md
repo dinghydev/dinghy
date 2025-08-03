@@ -1,0 +1,23 @@
+# SMC Server Migration Center
+
+## Definition
+
+```
+{
+  _style: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.smc_server_migration_center;',
+  _width: 54.900000000000006,
+  _height: 54.900000000000006,
+}
+```
+
+## Usage
+
+```
+import { SmcServerMigrationCenter } from '@reactiac/standard-components-diagrams/alibabaCloud'
+
+<SmcServerMigrationCenter/>
+```
+
+## Preview
+
+<img src="./smc-server-migration-center.png" width="200"/>

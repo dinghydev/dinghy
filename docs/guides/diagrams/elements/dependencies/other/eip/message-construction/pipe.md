@@ -1,0 +1,23 @@
+# Pipe
+
+## Definition
+
+```
+{
+  _style: { 
+    dependency: 'edgeStyle=none;html=1;strokeColor=#808080;endArrow=block;endSize=10;dashed=0;verticalAlign=bottom;strokeWidth=2;',
+  },
+}
+```
+
+## Usage
+
+```
+import { Pipe } from '@reactiac/standard-components-diagrams/eipMessageConstruction'
+
+<Pipe/>
+```
+
+## Preview
+
+<img src="./pipe.png" width="200"/>

@@ -1,0 +1,23 @@
+# Notification Hub Namespaces
+
+## Definition
+
+```
+{
+  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/web/Notification_Hub_Namespaces.svg;strokeColor=none;',
+  _width: 67,
+  _height: 56.00000000000001,
+}
+```
+
+## Usage
+
+```
+import { NotificationHubNamespaces } from '@reactiac/standard-components-diagrams/azure2Web'
+
+<NotificationHubNamespaces/>
+```
+
+## Preview
+
+<img src="./notification-hub-namespaces.png" width="200"/>

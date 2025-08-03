@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const SPATIAL_ANCHOR = {
   _style:
-    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Spatial_Anchor.svg;',
+    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Spatial_Anchor.svg;strokeColor=none;',
   _width: 48,
   _height: 50,
 }

@@ -104,11 +104,11 @@ export { GENERAL_APPLIANCE, GeneralAppliance } from './general-appliance.tsx'
 
 export { GENERIC_PROCESSOR, GenericProcessor } from './generic-processor.tsx'
 
+export { H323, H_323 } from './h-323.tsx'
+
 export { HANDHELD, Handheld } from './handheld.tsx'
 
 export { HP_MINI, HpMini } from './hp-mini.tsx'
-
-export { H323, H_323 } from './h-323.tsx'
 
 export { ICM, Icm } from './icm.tsx'
 
@@ -120,16 +120,16 @@ export { IOS_SLB, IosSlb } from './ios-slb.tsx'
 
 export { IP, Ip } from './ip.tsx'
 
+export { IP_COMMUNICATOR, IpCommunicator } from './ip-communicator.tsx'
+
+export { IP_DSL, IpDsl } from './ip-dsl.tsx'
+
 export { IPTC, Iptc } from './iptc.tsx'
 
 export {
   IPTV_CONTENT_MANAGER,
   IptvContentManager,
 } from './iptv-content-manager.tsx'
-
-export { IP_COMMUNICATOR, IpCommunicator } from './ip-communicator.tsx'
-
-export { IP_DSL, IpDsl } from './ip-dsl.tsx'
 
 export { ITP, Itp } from './itp.tsx'
 
@@ -232,9 +232,9 @@ export {
 
 export { RPSRPS, Rpsrps } from './rpsrps.tsx'
 
-export { SERVICES, Services } from './services.tsx'
-
 export { SERVICE_CONTROL, ServiceControl } from './service-control.tsx'
+
+export { SERVICES, Services } from './services.tsx'
 
 export { SET_TOP_BOX, SetTopBox } from './set-top-box.tsx'
 

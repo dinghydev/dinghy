@@ -1,0 +1,23 @@
+# Storage Queue
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.storage_queue;',
+  _width: 50,
+  _height: 45,
+}
+```
+
+## Usage
+
+```
+import { StorageQueue } from '@reactiac/standard-components-diagrams/azure'
+
+<StorageQueue/>
+```
+
+## Preview
+
+<img src="./storage-queue.png" width="200"/>

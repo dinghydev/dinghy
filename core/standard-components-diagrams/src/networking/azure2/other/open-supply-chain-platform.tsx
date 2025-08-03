@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const OPEN_SUPPLY_CHAIN_PLATFORM = {
   _style:
-    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Open_Supply_Chain_Platform.svg;',
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Open_Supply_Chain_Platform.svg;strokeColor=none;',
   _width: 68,
   _height: 68,
 }

@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const VM_WINDOWS_NON_AZURE = {
   _style:
-    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VM_Windows_Non_Azure.svg;',
+    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VM_Windows_Non_Azure.svg;strokeColor=none;',
   _width: 50,
   _height: 46,
 }

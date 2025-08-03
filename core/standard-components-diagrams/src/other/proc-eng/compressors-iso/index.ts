@@ -1,11 +1,6 @@
 export { BLOWER_FAN, BlowerFan } from './blower-fan.tsx'
 
 export {
-  COMPRESSOR_VACUUM_PUMP,
-  CompressorVacuumPump,
-} from './compressor-vacuum-pump.tsx'
-
-export {
   COMPRESSOR_CENTRIFUGAL,
   CompressorCentrifugal,
 } from './compressor-centrifugal.tsx'
@@ -31,3 +26,8 @@ export { COMPRESSOR_ROTARY, CompressorRotary } from './compressor-rotary.tsx'
 export { COMPRESSOR_SCREW, CompressorScrew } from './compressor-screw.tsx'
 
 export { COMPRESSOR_TURBO, CompressorTurbo } from './compressor-turbo.tsx'
+
+export {
+  COMPRESSOR_VACUUM_PUMP,
+  CompressorVacuumPump,
+} from './compressor-vacuum-pump.tsx'

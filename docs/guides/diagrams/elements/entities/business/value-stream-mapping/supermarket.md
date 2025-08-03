@@ -1,0 +1,23 @@
+# Supermarket
+
+## Definition
+
+```
+{
+  _style: 'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.supermarket;',
+  _width: 60,
+  _height: 100,
+}
+```
+
+## Usage
+
+```
+import { Supermarket } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+
+<Supermarket/>
+```
+
+## Preview
+
+<img src="./supermarket.png" width="200"/>

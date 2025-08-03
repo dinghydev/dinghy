@@ -17,9 +17,9 @@ export {
   KubernetesServices,
 } from './kubernetes-services.tsx'
 
+export { RED_HAT_OPENSHIFT, RedHatOpenshift } from './red-hat-openshift.tsx'
+
 export {
   SERVICE_FABRIC_CLUSTERS,
   ServiceFabricClusters,
 } from './service-fabric-clusters.tsx'
-
-export { RED_HAT_OPENSHIFT, RedHatOpenshift } from './red-hat-openshift.tsx'

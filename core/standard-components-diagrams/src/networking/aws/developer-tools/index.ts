@@ -1,9 +1,3 @@
-export { DEVELOPER_TOOLS, DeveloperTools } from './developer-tools.tsx'
-
-export { CODECATALYST, Codecatalyst } from './codecatalyst.tsx'
-
-export { CLOUD9, Cloud9 } from './cloud9.tsx'
-
 export { CLOUD_CONTROL_API, CloudControlApi } from './cloud-control-api.tsx'
 
 export {
@@ -11,11 +5,17 @@ export {
   CloudDevelopmentKit,
 } from './cloud-development-kit.tsx'
 
+export { CLOUD9, Cloud9 } from './cloud9.tsx'
+
+export { Cloud92, CLOUD9_2 } from './cloud9-2.tsx'
+
 export { CLOUDSHELL, Cloudshell } from './cloudshell.tsx'
 
 export { CODEARTIFACT, Codeartifact } from './codeartifact.tsx'
 
 export { CODEBUILD, Codebuild } from './codebuild.tsx'
+
+export { CODECATALYST, Codecatalyst } from './codecatalyst.tsx'
 
 export { CODECOMMIT, Codecommit } from './codecommit.tsx'
 
@@ -30,12 +30,14 @@ export {
   CommandLineInterface,
 } from './command-line-interface.tsx'
 
+export { CORRETTO, Corretto } from './corretto.tsx'
+
+export { DEVELOPER_TOOLS, DeveloperTools } from './developer-tools.tsx'
+
 export {
   FAULT_INJECTION_SERVICE,
   FaultInjectionService,
 } from './fault-injection-service.tsx'
-
-export { CORRETTO, Corretto } from './corretto.tsx'
 
 export {
   INFRASTRUCTURE_COMPOSER,
@@ -45,5 +47,3 @@ export {
 export { TOOLS_AND_SDKS, ToolsAndSdks } from './tools-and-sdks.tsx'
 
 export { X_RAY, XRay } from './x-ray.tsx'
-
-export { Cloud92, CLOUD9_2 } from './cloud9-2.tsx'

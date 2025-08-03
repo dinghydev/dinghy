@@ -1,0 +1,23 @@
+# Input Output Filter
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.input_output_filter;',
+  _width: 46,
+  _height: 46,
+}
+```
+
+## Usage
+
+```
+import { InputOutputFilter } from '@reactiac/standard-components-diagrams/officeConcepts'
+
+<InputOutputFilter/>
+```
+
+## Preview
+
+<img src="./input-output-filter.png" width="200"/>

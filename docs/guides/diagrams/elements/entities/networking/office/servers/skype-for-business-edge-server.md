@@ -1,0 +1,23 @@
+# Skype for Business Edge Server
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.skype_for_business_edge_server;',
+  _width: 54,
+  _height: 55,
+}
+```
+
+## Usage
+
+```
+import { SkypeForBusinessEdgeServer } from '@reactiac/standard-components-diagrams/officeServers'
+
+<SkypeForBusinessEdgeServer/>
+```
+
+## Preview
+
+<img src="./skype-for-business-edge-server.png" width="200"/>

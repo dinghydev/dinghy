@@ -1,6 +1,6 @@
-export { MOBILE, Mobile } from './mobile.tsx'
-
 export { AMPLIFY, Amplify } from './amplify.tsx'
+
+export { AMPLIFY_STUDIO, AmplifyStudio } from './amplify-studio.tsx'
 
 export { DEVICE_FARM, DeviceFarm } from './device-farm.tsx'
 
@@ -31,4 +31,4 @@ export {
   LocationServiceTrack,
 } from './location-service-track.tsx'
 
-export { AMPLIFY_STUDIO, AmplifyStudio } from './amplify-studio.tsx'
+export { MOBILE, Mobile } from './mobile.tsx'

@@ -1,0 +1,24 @@
+# Cloud
+Shell
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;spacingTop=-6;fontSize=11;fontStyle=1;fontColor=#999999;shape=image;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjM3NS44NTAyODQ2NDQwODg3MyIgaGVpZ2h0PSIzNTMuODA1Nzc3NDY3NzY5NyIgdmlld0JveD0iMC4yNTU5OTk1NjUxMjQ1MTE3IDAuNDI2MDAwMDI4ODQ4NjQ4MDcgOTkuNDQzNjU2OTIxMzg2NzIgOTMuNjExMDAwMDYxMDM1MTYiPiYjeGE7PHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGw6I2FlY2JmYTt9JiN4YTsJLnN0MXtmaWxsOiNmZmY7fSYjeGE7CS5zdDJ7ZmlsbDojNDI4NWY0O30mI3hhOwkuc3Qze2ZpbGw6IzY2OWRmNjt9JiN4YTs8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04LjU0NCA3MS45MjhjLTQuODE1IDAtOC4yODgtMy44ODktOC4yODgtOC4zMjdWNy45ODNDLjI1NyA0LjY1IDQuMDcyLjQyNiA3LjQ5NS40MjZoODMuOTUyYzQuNzA1IDAgOC4yNTIgMy4zNzkgOC4yNTIgOC4xNzR2NTEuNDk1Yy4wNDcgNy41OTUtMi40NyAxMS44MzQtOS4wMTIgMTEuODM0eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yOC4wNDYgNTcuMTV2LTkuOTIybDMxLjg4Mi0xMy44OTEtMzEuODgyLTEzLjY5MlY5LjI2MWw0NS44MDYgMTguOTg0djkuNzl6bTI1LjIzNSAzLjY3MXYtMTAuNTVoMjAuMDc1djEwLjU1eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik00MC4wMyA4My41MjRWNzEuOTI4aDIwLjI5NXYxMS41OTZ6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MyIgZD0iTTY5Ljg3MyA4My41MjR2MTAuNTEzSDMwLjFWODMuNTI0eiIvPiYjeGE7PC9zdmc+;strokeColor=none;',
+  _width: 42,
+  _height: 40,
+}
+```
+
+## Usage
+
+```
+import { CloudShell } from '@reactiac/standard-components-diagrams/gcp2IconsOperations'
+
+<CloudShell/>
+```
+
+## Preview
+
+<img src="./cloud-shell.png" width="200"/>

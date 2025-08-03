@@ -1,0 +1,23 @@
+# AD Domain Services
+
+## Definition
+
+```
+{
+  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Azure_AD_Domain_Services.svg;strokeColor=none;',
+  _width: 70,
+  _height: 64,
+}
+```
+
+## Usage
+
+```
+import { AdDomainServices } from '@reactiac/standard-components-diagrams/azure2Identity'
+
+<AdDomainServices/>
+```
+
+## Preview
+
+<img src="./ad-domain-services.png" width="200"/>

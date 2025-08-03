@@ -1,0 +1,23 @@
+# Dense Compute Node
+
+## Definition
+
+```
+{
+  _style: 'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.dense_compute_node;fillColor=#2E73B8;gradientColor=none;',
+  _width: 55.5,
+  _height: 63,
+}
+```
+
+## Usage
+
+```
+import { DenseComputeNode } from '@reactiac/standard-components-diagrams/aws17Database'
+
+<DenseComputeNode/>
+```
+
+## Preview
+
+<img src="./dense-compute-node.png" width="200"/>

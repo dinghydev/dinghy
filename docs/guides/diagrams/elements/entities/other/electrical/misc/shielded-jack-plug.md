@@ -1,0 +1,23 @@
+# Shielded Jack/Plug
+
+## Definition
+
+```
+{
+  _style: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.shielded_jack_plug',
+  _width: 50,
+  _height: 100,
+}
+```
+
+## Usage
+
+```
+import { ShieldedJackPlug } from '@reactiac/standard-components-diagrams/electricalMisc'
+
+<ShieldedJackPlug/>
+```
+
+## Preview
+
+<img src="./shielded-jack-plug.png" width="200"/>

@@ -23,7 +23,7 @@ export {
   EnterpriseApplications,
 } from './enterprise-applications.tsx'
 
-export { INDEX, Index } from './index.tsx'
+export { INDEX_APP, IndexApp } from './index-app.tsx'
 
 export { IOT_APPLICATION, IotApplication } from './iot-application.tsx'
 

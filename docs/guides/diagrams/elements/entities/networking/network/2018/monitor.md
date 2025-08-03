@@ -1,0 +1,23 @@
+# Monitor
+
+## Definition
+
+```
+{
+  _style: 'fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.monitor;',
+  _width: 80,
+  _height: 65,
+}
+```
+
+## Usage
+
+```
+import { Monitor } from '@reactiac/standard-components-diagrams/network'
+
+<Monitor/>
+```
+
+## Preview
+
+<img src="./monitor.png" width="200"/>

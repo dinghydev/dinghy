@@ -5,8 +5,6 @@ export {
 
 export { IMPACT_SEPARATOR, ImpactSeparator } from './impact-separator.tsx'
 
-export { SEPARATOR_SIFTER, SeparatorSifter } from './separator-sifter.tsx'
-
 export { SEPARATOR_CYCLONE, SeparatorCyclone } from './separator-cyclone.tsx'
 
 export {
@@ -15,14 +13,14 @@ export {
 } from './separator-electromagnetic.tsx'
 
 export {
-  SEPARATOR_ELECTROSTATIC_PRECIPITATOR,
-  SeparatorElectrostaticPrecipitator,
-} from './separator-electrostatic-precipitator.tsx'
-
-export {
   SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET,
   SeparatorElectrostaticPrecipitatorWet,
 } from './separator-electrostatic-precipitator-wet.tsx'
+
+export {
+  SEPARATOR_ELECTROSTATIC_PRECIPITATOR,
+  SeparatorElectrostaticPrecipitator,
+} from './separator-electrostatic-precipitator.tsx'
 
 export {
   SEPARATOR_PERMANENT_MAGNET,
@@ -38,6 +36,8 @@ export {
   SEPARATOR_WET_SCRUBBER,
   SeparatorWetScrubber,
 } from './separator-wet-scrubber.tsx'
+
+export { SEPARATOR_SIFTER, SeparatorSifter } from './separator-sifter.tsx'
 
 export { SOLIDIFIER_CLOSED, SolidifierClosed } from './solidifier-closed.tsx'
 

@@ -1,0 +1,23 @@
+# Sharing Policy
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.security.sharing_policy;',
+  _width: 56,
+  _height: 53,
+}
+```
+
+## Usage
+
+```
+import { SharingPolicy } from '@reactiac/standard-components-diagrams/officeSecurity'
+
+<SharingPolicy/>
+```
+
+## Preview
+
+<img src="./sharing-policy.png" width="200"/>

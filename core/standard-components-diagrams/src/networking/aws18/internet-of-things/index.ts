@@ -1,6 +1,6 @@
-export { AMAZON_IOT_CORE, AmazonIotCore } from './amazon-iot-core.tsx'
-
 export { AMAZON_FREERTOS, AmazonFreertos } from './amazon-freertos.tsx'
+
+export { AMAZON_IOT_CORE, AmazonIotCore } from './amazon-iot-core.tsx'
 
 export { AWS_GREENGRASS, AwsGreengrass } from './aws-greengrass.tsx'
 

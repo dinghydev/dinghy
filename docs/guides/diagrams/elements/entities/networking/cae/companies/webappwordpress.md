@@ -1,0 +1,23 @@
+# WebAppWordPress
+
+## Definition
+
+```
+{
+  _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/WebAppWordPress.svg;strokeColor=none;',
+  _width: 49,
+  _height: 50,
+}
+```
+
+## Usage
+
+```
+import { Webappwordpress } from '@reactiac/standard-components-diagrams/caeCompanies'
+
+<Webappwordpress/>
+```
+
+## Preview
+
+<img src="./webappwordpress.png" width="200"/>

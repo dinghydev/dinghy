@@ -1,11 +1,11 @@
-export { STEPPER, Stepper } from './stepper.tsx'
-
 export { MOBILE_STEP_TEXT, MobileStepText } from './mobile-step-text.tsx'
 
 export {
   MOBILE_VERTICAL_STEPPER,
   MobileVerticalStepper,
 } from './mobile-vertical-stepper.tsx'
+
+export { STEPPER, Stepper } from './stepper.tsx'
 
 export {
   STEPPER_WITH_ALTERNATIVE_LABEL_PLACING,

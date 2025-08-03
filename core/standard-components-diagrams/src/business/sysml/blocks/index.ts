@@ -1,24 +1,44 @@
+export { ACTOR, Actor } from './actor.tsx'
+
+export { Actor2, ACTOR_2 } from './actor-2.tsx'
+
+export { BLOCK, Block } from './block.tsx'
+
 export {
   BLOCK_DEFINITION_DIAGRAM,
   BlockDefinitionDiagram,
 } from './block-definition-diagram.tsx'
 
-export { RELATION, Relation } from './relation.tsx'
-
-export { BLOCK, Block } from './block.tsx'
-
-export { ACTOR, Actor } from './actor.tsx'
-
-export { Actor2, ACTOR_2 } from './actor-2.tsx'
+export {
+  BLOCK_NAMESPACE_CONTAINMENT,
+  BlockNamespaceContainment,
+} from './block-namespace-containment.tsx'
 
 export {
-  NAMESPACE_COMPARTMENT,
-  NamespaceCompartment,
-} from './namespace-compartment.tsx'
+  BLOCK_NAMESPACE_CONTAINMENT_2,
+  BlockNamespaceContainment2,
+} from './block-namespace-containment-2.tsx'
 
-export { Relation2, RELATION_2 } from './relation-2.tsx'
+export { CONNECTOR_PROPERTY, ConnectorProperty } from './connector-property.tsx'
 
-export { UNIT, Unit } from './unit.tsx'
+export {
+  DEPENDENCY_RELATIONSHIP,
+  DependencyRelationship,
+} from './dependency-relationship.tsx'
+
+export { GENERALIZATION, Generalization } from './generalization.tsx'
+
+export { GENERALIZATION_SET, GeneralizationSet } from './generalization-set.tsx'
+
+export {
+  GENERALIZATION_SET_2,
+  GeneralizationSet2,
+} from './generalization-set-2.tsx'
+
+export {
+  GENERALIZATION_SET_3,
+  GeneralizationSet3,
+} from './generalization-set-3.tsx'
 
 export {
   INSTANCE_SPECIFICATION,
@@ -35,23 +55,20 @@ export {
   InstanceSpecification3,
 } from './instance-specification-3.tsx'
 
-export { DEPENDENCY, Dependency } from './dependency.tsx'
+export {
+  INTERNAL_BLOCK_DIAGRAM,
+  InternalBlockDiagram,
+} from './internal-block-diagram.tsx'
 
 export {
-  REFERENCE_ASSOCIATION,
-  ReferenceAssociation,
-} from './reference-association.tsx'
-
-export { PART_ASSOCIATION, PartAssociation } from './part-association.tsx'
-
-export { PART_ASSOCIATION_2, PartAssociation2 } from './part-association-2.tsx'
-
-export { SHARED_ASSOCIATION, SharedAssociation } from './shared-association.tsx'
+  MULTIBRANCH_GENERALIZATION,
+  MultibranchGeneralization,
+} from './multibranch-generalization.tsx'
 
 export {
-  SHARED_ASSOCIATION_2,
-  SharedAssociation2,
-} from './shared-association-2.tsx'
+  MULTIBRANCH_GENERALIZATION_2,
+  MultibranchGeneralization2,
+} from './multibranch-generalization-2.tsx'
 
 export {
   MULTIBRANCH_PART_ASSOCIATION,
@@ -93,39 +110,18 @@ export {
   MultibranchSharedAssociation4,
 } from './multibranch-shared-association-4.tsx'
 
-export { GENERALIZATION, Generalization } from './generalization.tsx'
-
 export {
-  MULTIBRANCH_GENERALIZATION,
-  MultibranchGeneralization,
-} from './multibranch-generalization.tsx'
+  NAMESPACE_COMPARTMENT,
+  NamespaceCompartment,
+} from './namespace-compartment.tsx'
 
-export {
-  MULTIBRANCH_GENERALIZATION_2,
-  MultibranchGeneralization2,
-} from './multibranch-generalization-2.tsx'
+export { PACKAGE, Package } from './package.tsx'
 
-export { GENERALIZATION_SET, GeneralizationSet } from './generalization-set.tsx'
+export { PART_ASSOCIATION, PartAssociation } from './part-association.tsx'
 
-export {
-  GENERALIZATION_SET_2,
-  GeneralizationSet2,
-} from './generalization-set-2.tsx'
+export { PART_ASSOCIATION_2, PartAssociation2 } from './part-association-2.tsx'
 
-export {
-  GENERALIZATION_SET_3,
-  GeneralizationSet3,
-} from './generalization-set-3.tsx'
-
-export {
-  BLOCK_NAMESPACE_CONTAINMENT,
-  BlockNamespaceContainment,
-} from './block-namespace-containment.tsx'
-
-export {
-  BLOCK_NAMESPACE_CONTAINMENT_2,
-  BlockNamespaceContainment2,
-} from './block-namespace-containment-2.tsx'
+export { PARTICIPANT, Participant } from './participant.tsx'
 
 export {
   PARTICIPANT_PROPERTY,
@@ -157,17 +153,24 @@ export {
   ParticipantProperty6,
 } from './participant-property-6.tsx'
 
-export { PARTICIPANT, Participant } from './participant.tsx'
-
-export { CONNECTOR_PROPERTY, ConnectorProperty } from './connector-property.tsx'
-
-export {
-  INTERNAL_BLOCK_DIAGRAM,
-  InternalBlockDiagram,
-} from './internal-block-diagram.tsx'
-
 export { PROPERTY, Property } from './property.tsx'
 
-export { PACKAGE, Package } from './package.tsx'
-
 export { Property2, PROPERTY_2 } from './property-2.tsx'
+
+export {
+  REFERENCE_ASSOCIATION,
+  ReferenceAssociation,
+} from './reference-association.tsx'
+
+export { RELATION, Relation } from './relation.tsx'
+
+export { Relation2, RELATION_2 } from './relation-2.tsx'
+
+export { SHARED_ASSOCIATION, SharedAssociation } from './shared-association.tsx'
+
+export {
+  SHARED_ASSOCIATION_2,
+  SharedAssociation2,
+} from './shared-association-2.tsx'
+
+export { UNIT, Unit } from './unit.tsx'

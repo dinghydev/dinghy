@@ -1,0 +1,23 @@
+# Database
+
+## Definition
+
+```
+{
+  _style: 'shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.database;',
+  _width: 58,
+  _height: 62,
+}
+```
+
+## Usage
+
+```
+import { Database } from '@reactiac/standard-components-diagrams/veeam3d'
+
+<Database/>
+```
+
+## Preview
+
+<img src="./database.png" width="200"/>

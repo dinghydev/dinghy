@@ -1,0 +1,23 @@
+# BIG-IP 4x00
+
+## Definition
+
+```
+{
+  _style: 'strokeColor=#666666;html=1;labelPosition=right;align=left;spacingLeft=15;shadow=0;dashed=0;outlineConnect=0;shape=mxgraph.rack.f5.big_ip_4x00;',
+  _width: 168,
+  _height: 20,
+}
+```
+
+## Usage
+
+```
+import { BigIp4x00 } from '@reactiac/standard-components-diagrams/rackF5'
+
+<BigIp4x00/>
+```
+
+## Preview
+
+<img src="./big-ip-4x00.png" width="200"/>

@@ -1,5 +1,3 @@
-export { AGITATOR_STIRRER, AgitatorStirrer } from './agitator-stirrer.tsx'
-
 export { AGITATOR_ANCHOR, AgitatorAnchor } from './agitator-anchor.tsx'
 
 export {
@@ -26,3 +24,5 @@ export { AGITATOR_IMPELLER, AgitatorImpeller } from './agitator-impeller.tsx'
 export { AGITATOR_PROPELLER, AgitatorPropeller } from './agitator-propeller.tsx'
 
 export { AGITATOR_TURBINE, AgitatorTurbine } from './agitator-turbine.tsx'
+
+export { AGITATOR_STIRRER, AgitatorStirrer } from './agitator-stirrer.tsx'

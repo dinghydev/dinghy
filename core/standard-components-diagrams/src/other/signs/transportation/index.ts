@@ -29,8 +29,6 @@ export { Anchor3, ANCHOR_3 } from './anchor-3.tsx'
 
 export { Anchor4, ANCHOR_4 } from './anchor-4.tsx'
 
-export { BICYCLER, Bicycler } from './bicycler.tsx'
-
 export { Bicycle1, BICYCLE_1 } from './bicycle-1.tsx'
 
 export { Bicycle2, BICYCLE_2 } from './bicycle-2.tsx'
@@ -40,6 +38,8 @@ export { Bicycle3, BICYCLE_3 } from './bicycle-3.tsx'
 export { Bicycle4, BICYCLE_4 } from './bicycle-4.tsx'
 
 export { Bicycle5, BICYCLE_5 } from './bicycle-5.tsx'
+
+export { BICYCLER, Bicycler } from './bicycler.tsx'
 
 export { Bus1, BUS_1 } from './bus-1.tsx'
 
@@ -109,9 +109,9 @@ export { RADIATOR_WATER, RadiatorWater } from './radiator-water.tsx'
 
 export { SCOOTER, Scooter } from './scooter.tsx'
 
-export { SEAT_BELT, SeatBelt } from './seat-belt.tsx'
-
 export { SEA_PLANE, SeaPlane } from './sea-plane.tsx'
+
+export { SEAT_BELT, SeatBelt } from './seat-belt.tsx'
 
 export { Ship1, SHIP_1 } from './ship-1.tsx'
 

@@ -3,6 +3,28 @@ export {
   AllocatedStereotype,
 } from './allocated-stereotype.tsx'
 
+export { ALLOCATION_GENERAL, AllocationGeneral } from './allocation-general.tsx'
+
+export {
+  ALLOCATION_GENERAL_2,
+  AllocationGeneral2,
+} from './allocation-general-2.tsx'
+
+export {
+  ALLOCATION_ACTIVITY_PARTITION,
+  AllocationActivityPartition,
+} from './allocation-activity-partition.tsx'
+
+export {
+  ALLOCATION_ACTIVITY_PARTITION_2,
+  AllocationActivityPartition2,
+} from './allocation-activity-partition-2.tsx'
+
+export {
+  ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM,
+  AllocationDerivedPropertiesActivityDiagram,
+} from './allocation-derived-properties-activity-diagram.tsx'
+
 export {
   ALLOCATION_DERIVED_PROPERTIES_BLOCK,
   AllocationDerivedPropertiesBlock,
@@ -27,25 +49,3 @@ export {
   ALLOCATION_DERIVED_PROPERTIES_INTERNAL_BLOCK_DIAGRAM,
   AllocationDerivedPropertiesInternalBlockDiagram,
 } from './allocation-derived-properties-internal-block-diagram.tsx'
-
-export {
-  ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM,
-  AllocationDerivedPropertiesActivityDiagram,
-} from './allocation-derived-properties-activity-diagram.tsx'
-
-export {
-  ALLOCATION_ACTIVITY_PARTITION,
-  AllocationActivityPartition,
-} from './allocation-activity-partition.tsx'
-
-export {
-  ALLOCATION_ACTIVITY_PARTITION_2,
-  AllocationActivityPartition2,
-} from './allocation-activity-partition-2.tsx'
-
-export { ALLOCATION_GENERAL, AllocationGeneral } from './allocation-general.tsx'
-
-export {
-  ALLOCATION_GENERAL_2,
-  AllocationGeneral2,
-} from './allocation-general-2.tsx'

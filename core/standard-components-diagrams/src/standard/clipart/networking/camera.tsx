@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const CAMERA = {
   _style:
-    'image;html=1;image=img/lib/clip_art/networking/Ip_Camera_128x128.png',
+    'image;html=1;image=img/lib/clip_art/networking/Ip_Camera_128x128.pngstrokeColor=none;',
   _width: 80,
   _height: 80,
 }

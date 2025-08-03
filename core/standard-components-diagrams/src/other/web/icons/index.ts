@@ -140,11 +140,11 @@ export { GOOGLE_DRIVE, GoogleDrive } from './google-drive.tsx'
 
 export { GOOGLE_HANGOUT, GoogleHangout } from './google-hangout.tsx'
 
+export { GOOGLE_PHOTOS, GooglePhotos } from './google-photos.tsx'
+
 export { GOOGLE_PLAY, GooglePlay } from './google-play.tsx'
 
 export { GOOGLE_PLAY_LIGHT, GooglePlayLight } from './google-play-light.tsx'
-
-export { GOOGLE_PHOTOS, GooglePhotos } from './google-photos.tsx'
 
 export { GOOGLE_PLUS, GooglePlus } from './google-plus.tsx'
 

@@ -1,63 +1,13 @@
-export { NGIPS, Ngips } from './ngips.tsx'
-
-export { NGFW, Ngfw } from './ngfw.tsx'
-
-export { ISE, Ise } from './ise.tsx'
-
-export { IDS, Ids } from './ids.tsx'
-
-export { NBA, Nba } from './nba.tsx'
-
-export { NAC, Nac } from './nac.tsx'
-
-export { IAM, Iam } from './iam.tsx'
-
 export { AMP, Amp } from './amp.tsx'
 
-export { UTM, Utm } from './utm.tsx'
+export { ANTIVIRUS, Antivirus } from './antivirus.tsx'
 
-export { FIREWALL, Firewall } from './firewall.tsx'
-
-export {
-  VULNERABILITY_MANAGEMENT,
-  VulnerabilityManagement,
-} from './vulnerability-management.tsx'
-
-export { LOG_MANAGEMENT, LogManagement } from './log-management.tsx'
+export { APIC, Apic } from './apic.tsx'
 
 export {
   APPLICATION_CONTROL,
   ApplicationControl,
 } from './application-control.tsx'
-
-export { VIRTUAL, Virtual } from './virtual.tsx'
-
-export { SIEM, Siem } from './siem.tsx'
-
-export { ANTIVIRUS, Antivirus } from './antivirus.tsx'
-
-export { PATCH_MANAGEMENT, PatchManagement } from './patch-management.tsx'
-
-export {
-  INSPECTION_FORENSICS,
-  InspectionForensics,
-} from './inspection-forensics.tsx'
-
-export { MALWARE_SANDBOX, MalwareSandbox } from './malware-sandbox.tsx'
-
-export { DDOS, Ddos } from './ddos.tsx'
-
-export { TALOS, Talos } from './talos.tsx'
-
-export { SERVICES, Services } from './services.tsx'
-
-export { VPN, Vpn } from './vpn.tsx'
-
-export { EMAIL, Email } from './email.tsx'
-
-export { WEB, Web } from './web.tsx'
-
-export { VIRTUAL_DEPLOYMENT, VirtualDeployment } from './virtual-deployment.tsx'
 
 export { CLOUD_BASED, CloudBased } from './cloud-based.tsx'
 
@@ -66,34 +16,15 @@ export {
   CloudBasedManagement,
 } from './cloud-based-management.tsx'
 
-export { TRUSTSEC, Trustsec } from './trustsec.tsx'
+export { DDOS, Ddos } from './ddos.tsx'
 
-export {
-  RETROSPECTIVE_SECURITY,
-  RetrospectiveSecurity,
-} from './retrospective-security.tsx'
+export { EMAIL, Email } from './email.tsx'
 
-export { APIC, Apic } from './apic.tsx'
+export { FIREWALL, Firewall } from './firewall.tsx'
 
-export { WAF, Waf } from './waf.tsx'
+export { IAM, Iam } from './iam.tsx'
 
 export { ICON1, Icon1 } from './icon1.tsx'
-
-export { ICON2, Icon2 } from './icon2.tsx'
-
-export { ICON3, Icon3 } from './icon3.tsx'
-
-export { ICON4, Icon4 } from './icon4.tsx'
-
-export { ICON5, Icon5 } from './icon5.tsx'
-
-export { ICON6, Icon6 } from './icon6.tsx'
-
-export { ICON7, Icon7 } from './icon7.tsx'
-
-export { ICON8, Icon8 } from './icon8.tsx'
-
-export { ICON9, Icon9 } from './icon9.tsx'
 
 export { ICON10, Icon10 } from './icon10.tsx'
 
@@ -115,6 +46,8 @@ export { ICON18, Icon18 } from './icon18.tsx'
 
 export { ICON19, Icon19 } from './icon19.tsx'
 
+export { ICON2, Icon2 } from './icon2.tsx'
+
 export { ICON20, Icon20 } from './icon20.tsx'
 
 export { ICON21, Icon21 } from './icon21.tsx'
@@ -134,6 +67,8 @@ export { ICON27, Icon27 } from './icon27.tsx'
 export { ICON28, Icon28 } from './icon28.tsx'
 
 export { ICON29, Icon29 } from './icon29.tsx'
+
+export { ICON3, Icon3 } from './icon3.tsx'
 
 export { ICON30, Icon30 } from './icon30.tsx'
 
@@ -155,4 +90,69 @@ export { ICON38, Icon38 } from './icon38.tsx'
 
 export { ICON39, Icon39 } from './icon39.tsx'
 
+export { ICON4, Icon4 } from './icon4.tsx'
+
 export { ICON40, Icon40 } from './icon40.tsx'
+
+export { ICON5, Icon5 } from './icon5.tsx'
+
+export { ICON6, Icon6 } from './icon6.tsx'
+
+export { ICON7, Icon7 } from './icon7.tsx'
+
+export { ICON8, Icon8 } from './icon8.tsx'
+
+export { ICON9, Icon9 } from './icon9.tsx'
+
+export { IDS, Ids } from './ids.tsx'
+
+export {
+  INSPECTION_FORENSICS,
+  InspectionForensics,
+} from './inspection-forensics.tsx'
+
+export { ISE, Ise } from './ise.tsx'
+
+export { LOG_MANAGEMENT, LogManagement } from './log-management.tsx'
+
+export { MALWARE_SANDBOX, MalwareSandbox } from './malware-sandbox.tsx'
+
+export { NAC, Nac } from './nac.tsx'
+
+export { NBA, Nba } from './nba.tsx'
+
+export { NGFW, Ngfw } from './ngfw.tsx'
+
+export { NGIPS, Ngips } from './ngips.tsx'
+
+export { PATCH_MANAGEMENT, PatchManagement } from './patch-management.tsx'
+
+export {
+  RETROSPECTIVE_SECURITY,
+  RetrospectiveSecurity,
+} from './retrospective-security.tsx'
+
+export { SERVICES, Services } from './services.tsx'
+
+export { SIEM, Siem } from './siem.tsx'
+
+export { TALOS, Talos } from './talos.tsx'
+
+export { TRUSTSEC, Trustsec } from './trustsec.tsx'
+
+export { UTM, Utm } from './utm.tsx'
+
+export { VIRTUAL, Virtual } from './virtual.tsx'
+
+export { VIRTUAL_DEPLOYMENT, VirtualDeployment } from './virtual-deployment.tsx'
+
+export { VPN, Vpn } from './vpn.tsx'
+
+export {
+  VULNERABILITY_MANAGEMENT,
+  VulnerabilityManagement,
+} from './vulnerability-management.tsx'
+
+export { WAF, Waf } from './waf.tsx'
+
+export { WEB, Web } from './web.tsx'

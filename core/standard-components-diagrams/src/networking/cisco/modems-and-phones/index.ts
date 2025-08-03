@@ -15,9 +15,9 @@ export {
 
 export { MODEM, Modem } from './modem.tsx'
 
-export { PHONE_FAX, PhoneFax } from './phone-fax.tsx'
-
 export { PHONE, Phone } from './phone.tsx'
+
+export { PHONE_FAX, PhoneFax } from './phone-fax.tsx'
 
 export { RF_MODEM, RfModem } from './rf-modem.tsx'
 

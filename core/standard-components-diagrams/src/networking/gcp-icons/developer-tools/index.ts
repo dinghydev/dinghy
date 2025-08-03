@@ -9,6 +9,11 @@ export {
   CloudCodeForIntellij,
 } from './cloud-code-for-intellij.tsx'
 
+export {
+  CLOUD_DEPLOYMENT_MANAGER,
+  CloudDeploymentManager,
+} from './cloud-deployment-manager.tsx'
+
 export { CLOUD_SCHEDULER, CloudScheduler } from './cloud-scheduler.tsx'
 
 export { CLOUD_TASKS, CloudTasks } from './cloud-tasks.tsx'
@@ -18,8 +23,3 @@ export { CLOUD_TEST_LAB, CloudTestLab } from './cloud-test-lab.tsx'
 export { CONTAINER_REGISTRY, ContainerRegistry } from './container-registry.tsx'
 
 export { IDE_PLUGINS, IdePlugins } from './ide-plugins.tsx'
-
-export {
-  CLOUD_DEPLOYMENT_MANAGER,
-  CloudDeploymentManager,
-} from './cloud-deployment-manager.tsx'

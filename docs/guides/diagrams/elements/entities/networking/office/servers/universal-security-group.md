@@ -1,0 +1,23 @@
+# Universal Security Group
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.universal_security_group;',
+  _width: 58,
+  _height: 58,
+}
+```
+
+## Usage
+
+```
+import { UniversalSecurityGroup } from '@reactiac/standard-components-diagrams/officeServers'
+
+<UniversalSecurityGroup/>
+```
+
+## Preview
+
+<img src="./universal-security-group.png" width="200"/>

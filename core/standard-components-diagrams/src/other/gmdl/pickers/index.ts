@@ -1,7 +1,7 @@
 export {
-  DATE_PICKER_PORTRAIT,
-  DatePickerPortrait,
-} from './date-picker-portrait.tsx'
+  DATE_PICKER_LANDSCAPE_DARK,
+  DatePickerLandscapeDark,
+} from './date-picker-landscape-dark.tsx'
 
 export {
   DATE_PICKER_PORTRAIT_DARK,
@@ -9,9 +9,9 @@ export {
 } from './date-picker-portrait-dark.tsx'
 
 export {
-  DATE_PICKER_LANDSCAPE_DARK,
-  DatePickerLandscapeDark,
-} from './date-picker-landscape-dark.tsx'
+  DATE_PICKER_PORTRAIT,
+  DatePickerPortrait,
+} from './date-picker-portrait.tsx'
 
 export { TIME_PICKER, TimePicker } from './time-picker.tsx'
 

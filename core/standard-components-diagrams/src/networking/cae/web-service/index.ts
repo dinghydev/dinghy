@@ -1,5 +1,3 @@
-export { CONNECTION, Connection } from './connection.tsx'
-
 export {
   APP_SERVICE_CERTIFICATES,
   AppServiceCertificates,
@@ -25,6 +23,8 @@ export {
 } from './azure-media-services.tsx'
 
 export { AZURE_SEARCH, AzureSearch } from './azure-search.tsx'
+
+export { CONNECTION, Connection } from './connection.tsx'
 
 export {
   NOTIFICATION_HUB_NAMESPACES,

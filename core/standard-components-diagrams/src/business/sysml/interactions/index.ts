@@ -1,27 +1,4 @@
-export { SEQUENCE_DIAGRAM, SequenceDiagram } from './sequence-diagram.tsx'
-
-export { LIFELINE, Lifeline } from './lifeline.tsx'
-
-export { Lifeline2, LIFELINE_2 } from './lifeline-2.tsx'
-
-export {
-  EXECUTION_SPECIFICATION,
-  ExecutionSpecification,
-} from './execution-specification.tsx'
-
-export {
-  EXECUTION_SPECIFICATION_2,
-  ExecutionSpecification2,
-} from './execution-specification-2.tsx'
-
-export { INTERACTION_USE, InteractionUse } from './interaction-use.tsx'
-
 export { COMBINED_FRAGMENT, CombinedFragment } from './combined-fragment.tsx'
-
-export {
-  STATE_INVARIANT_CONTINUATIONS,
-  StateInvariantContinuations,
-} from './state-invariant-continuations.tsx'
 
 export { COREGION, Coregion } from './coregion.tsx'
 
@@ -86,9 +63,27 @@ export {
   DurationConstraint5,
 } from './duration-constraint-5.tsx'
 
-export { TIME_CONSTRAINT, TimeConstraint } from './time-constraint.tsx'
+export {
+  EXECUTION_SPECIFICATION,
+  ExecutionSpecification,
+} from './execution-specification.tsx'
 
-export { TIME_CONSTRAINT_2, TimeConstraint2 } from './time-constraint-2.tsx'
+export {
+  EXECUTION_SPECIFICATION_2,
+  ExecutionSpecification2,
+} from './execution-specification-2.tsx'
+
+export { FOUND_MESSAGE, FoundMessage } from './found-message.tsx'
+
+export { GENERAL_ORDERING, GeneralOrdering } from './general-ordering.tsx'
+
+export { INTERACTION_USE, InteractionUse } from './interaction-use.tsx'
+
+export { LIFELINE, Lifeline } from './lifeline.tsx'
+
+export { Lifeline2, LIFELINE_2 } from './lifeline-2.tsx'
+
+export { LOST_MESSAGE, LostMessage } from './lost-message.tsx'
 
 export { MESSAGE, Message } from './message.tsx'
 
@@ -96,8 +91,13 @@ export { Message2, MESSAGE_2 } from './message-2.tsx'
 
 export { Message3, MESSAGE_3 } from './message-3.tsx'
 
-export { LOST_MESSAGE, LostMessage } from './lost-message.tsx'
+export { SEQUENCE_DIAGRAM, SequenceDiagram } from './sequence-diagram.tsx'
 
-export { FOUND_MESSAGE, FoundMessage } from './found-message.tsx'
+export {
+  STATE_INVARIANT_CONTINUATIONS,
+  StateInvariantContinuations,
+} from './state-invariant-continuations.tsx'
 
-export { GENERAL_ORDERING, GeneralOrdering } from './general-ordering.tsx'
+export { TIME_CONSTRAINT, TimeConstraint } from './time-constraint.tsx'
+
+export { TIME_CONSTRAINT_2, TimeConstraint2 } from './time-constraint-2.tsx'

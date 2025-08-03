@@ -1,0 +1,23 @@
+# 2-Conductor Plug
+
+## Definition
+
+```
+{
+  _style: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.2_conductor_plug',
+  _width: 53,
+  _height: 24,
+}
+```
+
+## Usage
+
+```
+import { Component2ConductorPlug } from '@reactiac/standard-components-diagrams/electricalMisc'
+
+<Component2ConductorPlug/>
+```
+
+## Preview
+
+<img src="./component-2-conductor-plug.png" width="200"/>

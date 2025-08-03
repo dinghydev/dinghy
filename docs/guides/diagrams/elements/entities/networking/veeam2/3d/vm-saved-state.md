@@ -1,0 +1,23 @@
+# VM Saved State
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.vm_saved_state;',
+  _width: 58,
+  _height: 48,
+}
+```
+
+## Usage
+
+```
+import { VmSavedState } from '@reactiac/standard-components-diagrams/veeam23d'
+
+<VmSavedState/>
+```
+
+## Preview
+
+<img src="./vm-saved-state.png" width="200"/>

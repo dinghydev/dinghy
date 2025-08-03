@@ -1,0 +1,23 @@
+# ABAP Business Application Platform
+
+## Definition
+
+```
+{
+  _style: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.abap_business_application_platform;',
+  _width: 54.6,
+  _height: 49.5,
+}
+```
+
+## Usage
+
+```
+import { AbapBusinessApplicationPlatform } from '@reactiac/standard-components-diagrams/alibabaCloud'
+
+<AbapBusinessApplicationPlatform/>
+```
+
+## Preview
+
+<img src="./abap-business-application-platform.png" width="200"/>

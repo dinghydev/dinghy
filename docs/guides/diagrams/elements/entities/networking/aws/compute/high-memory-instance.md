@@ -1,0 +1,23 @@
+# High Memory Instance
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.high_memory_instance;',
+  _width: 48,
+  _height: 48,
+}
+```
+
+## Usage
+
+```
+import { HighMemoryInstance } from '@reactiac/standard-components-diagrams/awsCompute'
+
+<HighMemoryInstance/>
+```
+
+## Preview
+
+<img src="./high-memory-instance.png" width="200"/>

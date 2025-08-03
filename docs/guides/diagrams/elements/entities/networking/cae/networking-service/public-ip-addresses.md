@@ -1,0 +1,23 @@
+# Public IP Addresses
+
+## Definition
+
+```
+{
+  _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/App_Service_IPAddress.svg;strokeColor=none;',
+  _width: 50,
+  _height: 42,
+}
+```
+
+## Usage
+
+```
+import { PublicIpAddresses } from '@reactiac/standard-components-diagrams/caeNetworkingService'
+
+<PublicIpAddresses/>
+```
+
+## Preview
+
+<img src="./public-ip-addresses.png" width="200"/>

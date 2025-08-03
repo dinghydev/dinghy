@@ -31,12 +31,12 @@ export { OPTO_COUPLER, OptoCoupler } from './opto-coupler.tsx'
 
 export { OPTO_TRANSISTOR, OptoTransistor } from './opto-transistor.tsx'
 
-export { PHOTODIODE, Photodiode } from './photodiode.tsx'
-
 export { PHOTO_RESISTOR, PhotoResistor } from './photo-resistor.tsx'
 
 export { PHOTO_RESISTOR_2, PhotoResistor2 } from './photo-resistor-2.tsx'
 
 export { PHOTO_RESISTOR_3, PhotoResistor3 } from './photo-resistor-3.tsx'
+
+export { PHOTODIODE, Photodiode } from './photodiode.tsx'
 
 export { SOLAR_CELL, SolarCell } from './solar-cell.tsx'

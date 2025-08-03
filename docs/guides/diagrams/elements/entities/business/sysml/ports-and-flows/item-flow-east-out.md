@@ -1,0 +1,23 @@
+# Item Flow East Out
+
+## Definition
+
+```
+{
+  _style: 'html=1;shape=mxgraph.sysml.itemFlow;fontStyle=1;flowDir=e;flowType=out;whiteSpace=wrap;align=center;',
+  _width: 200,
+  _height: 80,
+}
+```
+
+## Usage
+
+```
+import { ItemFlowEastOut } from '@reactiac/standard-components-diagrams/sysmlPortsAndFlows'
+
+<ItemFlowEastOut/>
+```
+
+## Preview
+
+<img src="./item-flow-east-out.png" width="200"/>

@@ -135,12 +135,12 @@ export {
 
 export { TLS_APPLIANCE, TlsAppliance } from './tls-appliance.tsx'
 
+export { UDP_DIRECTOR, UdpDirector } from './udp-director.tsx'
+
 export {
   UNIFIED_ACCESS_SWITCH,
   UnifiedAccessSwitch,
 } from './unified-access-switch.tsx'
-
-export { UDP_DIRECTOR, UdpDirector } from './udp-director.tsx'
 
 export { VIDEO_ENDPOINT, VideoEndpoint } from './video-endpoint.tsx'
 

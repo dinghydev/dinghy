@@ -1,5 +1,7 @@
 export { BRIDGE, Bridge } from './bridge.tsx'
 
+export { CAMERA, Camera } from './camera.tsx'
+
 export { CERTIFICATE, Certificate } from './certificate.tsx'
 
 export { CERTIFICATE_OFF, CertificateOff } from './certificate-off.tsx'
@@ -30,13 +32,11 @@ export { CONCENTRATOR, Concentrator } from './concentrator.tsx'
 
 export { EMAIL, Email } from './email.tsx'
 
+export { FIREWALL, Firewall } from './firewall.tsx'
+
 export { Firewall1, FIREWALL_1 } from './firewall-1.tsx'
 
 export { Firewall2, FIREWALL_2 } from './firewall-2.tsx'
-
-export { FIREWALL, Firewall } from './firewall.tsx'
-
-export { CAMERA, Camera } from './camera.tsx'
 
 export { MODEM, Modem } from './modem.tsx'
 

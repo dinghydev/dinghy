@@ -1,0 +1,23 @@
+# Join Node 3
+
+## Definition
+
+```
+{
+  _style: 'edgeStyle=elbowEdgeStyle;html=1;elbow=vertical;startArrow=open;endArrow=none;rounded=0;strokeWidth=3;startSize=12;',
+  _width: 2,
+  _height: 80,
+}
+```
+
+## Usage
+
+```
+import { JoinNode3 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+
+<JoinNode3/>
+```
+
+## Preview
+
+<img src="./join-node-3.png" width="200"/>

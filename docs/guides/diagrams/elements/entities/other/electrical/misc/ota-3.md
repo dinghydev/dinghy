@@ -1,0 +1,23 @@
+# OTA 3
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.abstract.ota_3;',
+  _width: 100,
+  _height: 90,
+}
+```
+
+## Usage
+
+```
+import { Ota3 } from '@reactiac/standard-components-diagrams/electricalMisc'
+
+<Ota3/>
+```
+
+## Preview
+
+<img src="./ota-3.png" width="200"/>

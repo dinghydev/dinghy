@@ -28,15 +28,15 @@ export { DESIRED_STATE, DesiredState } from './desired-state.tsx'
 
 export { ECHO, Echo } from './echo.tsx'
 
-export { FIRETV_STICK, FiretvStick } from './firetv-stick.tsx'
-
 export { FIRETV, Firetv } from './firetv.tsx'
+
+export { FIRETV_STICK, FiretvStick } from './firetv-stick.tsx'
 
 export { HARDWARE_BOARD, HardwareBoard } from './hardware-board.tsx'
 
-export { Http2Protocol, HTTP_2_PROTOCOL } from './http-2-protocol.tsx'
-
 export { HTTP_PROTOCOL, HttpProtocol } from './http-protocol.tsx'
+
+export { Http2Protocol, HTTP_2_PROTOCOL } from './http-2-protocol.tsx'
 
 export { LAMBDA_FUNCTION, LambdaFunction } from './lambda-function.tsx'
 

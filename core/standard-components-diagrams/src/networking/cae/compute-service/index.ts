@@ -5,12 +5,12 @@ export {
   CitrixVirtualDesktopsEssentials,
 } from './citrix-virtual-desktops-essentials.tsx'
 
+export { CLOUD_SERVICES, CloudServices } from './cloud-services.tsx'
+
 export {
   CLOUD_SERVICES_CLASSIC,
   CloudServicesClassic,
 } from './cloud-services-classic.tsx'
-
-export { CLOUD_SERVICES, CloudServices } from './cloud-services.tsx'
 
 export {
   CLOUDSIMPLE_VIRTUAL_MACHINES,

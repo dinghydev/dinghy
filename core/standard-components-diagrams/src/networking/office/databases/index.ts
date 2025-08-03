@@ -6,11 +6,11 @@ export { DATABASE, Database } from './database.tsx'
 
 export { DATABASE_BLUE, DatabaseBlue } from './database-blue.tsx'
 
-export { DATABASE_ORANGE, DatabaseOrange } from './database-orange.tsx'
+export { DATABASE_GHOSTED, DatabaseGhosted } from './database-ghosted.tsx'
 
 export { DATABASE_GREEN, DatabaseGreen } from './database-green.tsx'
 
-export { DATABASE_GHOSTED, DatabaseGhosted } from './database-ghosted.tsx'
+export { DATABASE_ORANGE, DatabaseOrange } from './database-orange.tsx'
 
 export {
   DATABASE_AVAILABILITY_GROUP,
@@ -22,9 +22,9 @@ export { DATABASE_CUBE, DatabaseCube } from './database-cube.tsx'
 export { DATABASE_CUBE_BLUE, DatabaseCubeBlue } from './database-cube-blue.tsx'
 
 export {
-  DATABASE_CUBE_ORANGE,
-  DatabaseCubeOrange,
-} from './database-cube-orange.tsx'
+  DATABASE_CUBE_GHOSTED,
+  DatabaseCubeGhosted,
+} from './database-cube-ghosted.tsx'
 
 export {
   DATABASE_CUBE_GREEN,
@@ -32,72 +32,9 @@ export {
 } from './database-cube-green.tsx'
 
 export {
-  DATABASE_CUBE_GHOSTED,
-  DatabaseCubeGhosted,
-} from './database-cube-ghosted.tsx'
-
-export { DATABASE_MINI, DatabaseMini } from './database-mini.tsx'
-
-export { DATABASE_MINI_BLUE, DatabaseMiniBlue } from './database-mini-blue.tsx'
-
-export {
-  DATABASE_MINI_ORANGE,
-  DatabaseMiniOrange,
-} from './database-mini-orange.tsx'
-
-export {
-  DATABASE_MINI_GREEN,
-  DatabaseMiniGreen,
-} from './database-mini-green.tsx'
-
-export {
-  DATABASE_MINI_GHOSTED,
-  DatabaseMiniGhosted,
-} from './database-mini-ghosted.tsx'
-
-export { DATABASE_MINI_2, DatabaseMini2 } from './database-mini-2.tsx'
-
-export {
-  DATABASE_MINI_BLUE_2,
-  DatabaseMiniBlue2,
-} from './database-mini-blue-2.tsx'
-
-export {
-  DATABASE_MINI_ORANGE_2,
-  DatabaseMiniOrange2,
-} from './database-mini-orange-2.tsx'
-
-export {
-  DATABASE_MINI_GREEN_2,
-  DatabaseMiniGreen2,
-} from './database-mini-green-2.tsx'
-
-export {
-  DATABASE_MINI_GHOSTED_2,
-  DatabaseMiniGhosted2,
-} from './database-mini-ghosted-2.tsx'
-
-export { DATABASE_MINI_3, DatabaseMini3 } from './database-mini-3.tsx'
-
-export {
-  DATABASE_MINI_BLUE_3,
-  DatabaseMiniBlue3,
-} from './database-mini-blue-3.tsx'
-
-export {
-  DATABASE_MINI_ORANGE_3,
-  DatabaseMiniOrange3,
-} from './database-mini-orange-3.tsx'
-
-export {
-  DATABASE_MINI_GREEN_3,
-  DatabaseMiniGreen3,
-} from './database-mini-green-3.tsx'
-
-export {
-  DATABASE_MINI_GHOSTED_3,
-  DatabaseMiniGhosted3,
-} from './database-mini-ghosted-3.tsx'
+  DATABASE_CUBE_ORANGE,
+  DatabaseCubeOrange,
+} from './database-cube-orange.tsx'
 
 export { DATABASE_MIRROR, DatabaseMirror } from './database-mirror.tsx'
 
@@ -136,9 +73,9 @@ export {
 } from './database-server-blue.tsx'
 
 export {
-  DATABASE_SERVER_ORANGE,
-  DatabaseServerOrange,
-} from './database-server-orange.tsx'
+  DATABASE_SERVER_GHOSTED,
+  DatabaseServerGhosted,
+} from './database-server-ghosted.tsx'
 
 export {
   DATABASE_SERVER_GREEN,
@@ -146,9 +83,72 @@ export {
 } from './database-server-green.tsx'
 
 export {
-  DATABASE_SERVER_GHOSTED,
-  DatabaseServerGhosted,
-} from './database-server-ghosted.tsx'
+  DATABASE_SERVER_ORANGE,
+  DatabaseServerOrange,
+} from './database-server-orange.tsx'
+
+export { DATABASE_MINI, DatabaseMini } from './database-mini.tsx'
+
+export { DATABASE_MINI_BLUE, DatabaseMiniBlue } from './database-mini-blue.tsx'
+
+export {
+  DATABASE_MINI_BLUE_2,
+  DatabaseMiniBlue2,
+} from './database-mini-blue-2.tsx'
+
+export {
+  DATABASE_MINI_BLUE_3,
+  DatabaseMiniBlue3,
+} from './database-mini-blue-3.tsx'
+
+export {
+  DATABASE_MINI_GHOSTED,
+  DatabaseMiniGhosted,
+} from './database-mini-ghosted.tsx'
+
+export {
+  DATABASE_MINI_GHOSTED_2,
+  DatabaseMiniGhosted2,
+} from './database-mini-ghosted-2.tsx'
+
+export {
+  DATABASE_MINI_GHOSTED_3,
+  DatabaseMiniGhosted3,
+} from './database-mini-ghosted-3.tsx'
+
+export {
+  DATABASE_MINI_GREEN,
+  DatabaseMiniGreen,
+} from './database-mini-green.tsx'
+
+export {
+  DATABASE_MINI_GREEN_2,
+  DatabaseMiniGreen2,
+} from './database-mini-green-2.tsx'
+
+export {
+  DATABASE_MINI_GREEN_3,
+  DatabaseMiniGreen3,
+} from './database-mini-green-3.tsx'
+
+export {
+  DATABASE_MINI_ORANGE,
+  DatabaseMiniOrange,
+} from './database-mini-orange.tsx'
+
+export {
+  DATABASE_MINI_ORANGE_2,
+  DatabaseMiniOrange2,
+} from './database-mini-orange-2.tsx'
+
+export {
+  DATABASE_MINI_ORANGE_3,
+  DatabaseMiniOrange3,
+} from './database-mini-orange-3.tsx'
+
+export { DATABASE_MINI_2, DatabaseMini2 } from './database-mini-2.tsx'
+
+export { DATABASE_MINI_3, DatabaseMini3 } from './database-mini-3.tsx'
 
 export { MAILBOX_DATABASE, MailboxDatabase } from './mailbox-database.tsx'
 

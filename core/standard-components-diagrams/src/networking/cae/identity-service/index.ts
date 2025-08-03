@@ -1,11 +1,11 @@
 export { ACCESS_REVIEW, AccessReview } from './access-review.tsx'
 
+export { ACTIVE_DIRECTORY, ActiveDirectory } from './active-directory.tsx'
+
 export {
   ACTIVE_DIRECTORY_CONNECT_HEALTH,
   ActiveDirectoryConnectHealth,
 } from './active-directory-connect-health.tsx'
-
-export { ACTIVE_DIRECTORY, ActiveDirectory } from './active-directory.tsx'
 
 export { APP_REGISTRATIONS, AppRegistrations } from './app-registrations.tsx'
 

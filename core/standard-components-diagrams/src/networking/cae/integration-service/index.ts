@@ -9,12 +9,12 @@ export { AZURE_API_FOR_FHIR, AzureApiForFhir } from './azure-api-for-fhir.tsx'
 
 export { AZURE_DATA_CATALOG, AzureDataCatalog } from './azure-data-catalog.tsx'
 
+export { AZURE_SERVICE_BUS, AzureServiceBus } from './azure-service-bus.tsx'
+
 export {
   AZURE_SERVICE_BUS_RELAYS,
   AzureServiceBusRelays,
 } from './azure-service-bus-relays.tsx'
-
-export { AZURE_SERVICE_BUS, AzureServiceBus } from './azure-service-bus.tsx'
 
 export {
   AZURE_STORSIMPLE_DEVICE_MANAGERS,
@@ -38,12 +38,12 @@ export {
   IntegrationServiceEnvironments,
 } from './integration-service-environments.tsx'
 
+export { LOGIC_APPS, LogicApps } from './logic-apps.tsx'
+
 export {
   LOGIC_APPS_CUSTOM_CONNECTOR,
   LogicAppsCustomConnector,
 } from './logic-apps-custom-connector.tsx'
-
-export { LOGIC_APPS, LogicApps } from './logic-apps.tsx'
 
 export { SENDGRID_ACCOUNTS, SendgridAccounts } from './sendgrid-accounts.tsx'
 

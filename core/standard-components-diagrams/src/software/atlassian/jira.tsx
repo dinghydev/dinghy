@@ -2,7 +2,8 @@ import { Shape } from '@reactiac/base-components'
 import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const JIRA = {
-  _style: 'image;html=1;image=img/lib/atlassian/Jira_Logo.svg;',
+  _style:
+    'image;html=1;image=img/lib/atlassian/Jira_Logo.svg;strokeColor=none;',
   _width: 72,
   _height: 72,
 }

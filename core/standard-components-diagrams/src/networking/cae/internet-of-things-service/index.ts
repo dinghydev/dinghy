@@ -3,12 +3,12 @@ export {
   AzureDigitalTwins,
 } from './azure-digital-twins.tsx'
 
+export { AZURE_IOT_HUB, AzureIotHub } from './azure-iot-hub.tsx'
+
 export {
   AZURE_IOT_HUB_SECURITY,
   AzureIotHubSecurity,
 } from './azure-iot-hub-security.tsx'
-
-export { AZURE_IOT_HUB, AzureIotHub } from './azure-iot-hub.tsx'
 
 export { AZURE_MAPS, AzureMaps } from './azure-maps.tsx'
 

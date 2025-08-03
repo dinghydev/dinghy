@@ -1,0 +1,23 @@
+# Arc Machines
+
+## Definition
+
+```
+{
+  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/management_governance/Arc_Machines.svg;strokeColor=none;',
+  _width: 64.75999999999999,
+  _height: 68,
+}
+```
+
+## Usage
+
+```
+import { ArcMachines } from '@reactiac/standard-components-diagrams/azure2ManagementAndGovernance'
+
+<ArcMachines/>
+```
+
+## Preview
+
+<img src="./arc-machines.png" width="200"/>

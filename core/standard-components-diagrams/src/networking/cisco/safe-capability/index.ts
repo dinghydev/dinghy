@@ -19,9 +19,21 @@ export { ANTI_VIRUS, AntiVirus } from './anti-virus.tsx'
 export { APPLICATION, Application } from './application.tsx'
 
 export {
+  APPLICATION_OPTIMIZATION,
+  ApplicationOptimization,
+} from './application-optimization.tsx'
+
+export {
   APPLICATION_VISIBILITY_CONTROL,
   ApplicationVisibilityControl,
 } from './application-visibility-control.tsx'
+
+export { BLOCK, Block } from './block.tsx'
+
+export {
+  BUSINESS_APPLICATION,
+  BusinessApplication,
+} from './business-application.tsx'
 
 export { CASB, Casb } from './casb.tsx'
 
@@ -30,18 +42,18 @@ export {
   ClientBasedSecurity,
 } from './client-based-security.tsx'
 
-export { BLOCK, Block } from './block.tsx'
-
 export { CLOUD_WEB_SECURITY, CloudWebSecurity } from './cloud-web-security.tsx'
 
 export { CONFERENCE_BRIDGE, ConferenceBridge } from './conference-bridge.tsx'
-
-export { DATABASE, Database } from './database.tsx'
 
 export {
   DATA_LOSS_PREVENTION,
   DataLossPrevention,
 } from './data-loss-prevention.tsx'
+
+export { DATABASE, Database } from './database.tsx'
+
+export { Database2, DATABASE_2 } from './database-2.tsx'
 
 export { DEVICE_PROFILING, DeviceProfiling } from './device-profiling.tsx'
 
@@ -62,13 +74,17 @@ export { EMAIL_ENCRYPTION, EmailEncryption } from './email-encryption.tsx'
 
 export { EMAIL_SECURITY, EmailSecurity } from './email-security.tsx'
 
-export { FILE_TRAJECTORY, FileTrajectory } from './file-trajectory.tsx'
-
 export { FABRIC_SWITCHING, FabricSwitching } from './fabric-switching.tsx'
+
+export { FABRIC_SWITCHING_2, FabricSwitching2 } from './fabric-switching-2.tsx'
+
+export { FILE_TRAJECTORY, FileTrajectory } from './file-trajectory.tsx'
 
 export { FIREWALL, Firewall } from './firewall.tsx'
 
 export { FLOW_ANALYTICS, FlowAnalytics } from './flow-analytics.tsx'
+
+export { HOST_CONTEXT, HostContext } from './host-context.tsx'
 
 export {
   IDENTITY_AUTHORIZATION,
@@ -79,6 +95,11 @@ export {
   IDENTITY_AUTHORIZATION_ALTERNATIVE,
   IdentityAuthorizationAlternative,
 } from './identity-authorization-alternative.tsx'
+
+export {
+  INFRASTRUCTURE_REDUNDANCY,
+  InfrastructureRedundancy,
+} from './infrastructure-redundancy.tsx'
 
 export {
   INTRUSION_DETECTION,
@@ -97,11 +118,19 @@ export {
   L2L3NetworkVirtual,
 } from './l2-l3-network-virtual.tsx'
 
+export { L2_L3_NETWORK_2, L2L3Network2 } from './l2-l3-network-2.tsx'
+
 export { L2_SWITCHING, L2Switching } from './l2-switching.tsx'
+
+export { L2_SWITCHING_2, L2Switching2 } from './l2-switching-2.tsx'
 
 export { L3_SWITCHING, L3Switching } from './l3-switching.tsx'
 
+export { L3_SWITCHING_2, L3Switching2 } from './l3-switching-2.tsx'
+
 export { LOAD_BALANCER, LoadBalancer } from './load-balancer.tsx'
+
+export { LOAD_BALANCER_2, LoadBalancer2 } from './load-balancer-2.tsx'
 
 export { LOGGING_REPORTING, LoggingReporting } from './logging-reporting.tsx'
 
@@ -114,12 +143,14 @@ export {
   MobileDeviceManager,
 } from './mobile-device-manager.tsx'
 
+export { MONITORING, Monitoring } from './monitoring.tsx'
+
 export {
   MULTI_FACTOR_IDENTIFICATION,
   MultiFactorIdentification,
 } from './multi-factor-identification.tsx'
 
-export { MONITORING, Monitoring } from './monitoring.tsx'
+export { PATH_CONTROL, PathControl } from './path-control.tsx'
 
 export {
   POLICY_CONFIGURATION,
@@ -128,22 +159,35 @@ export {
 
 export { POSTURE_ASSESSMENT, PostureAssessment } from './posture-assessment.tsx'
 
+export { QUALITY_OF_SERVICE, QualityOfService } from './quality-of-service.tsx'
+
 export { QUARANTINE, Quarantine } from './quarantine.tsx'
 
 export { REMEDIATE, Remediate } from './remediate.tsx'
 
 export { ROUTING, Routing } from './routing.tsx'
 
+export { Routing2, ROUTING_2 } from './routing-2.tsx'
+
+export { SECURE_SERVER, SecureServer } from './secure-server.tsx'
+
 export {
   SERVER_BASED_SECURITY,
   ServerBasedSecurity,
 } from './server-based-security.tsx'
 
-export { TAGGING, Tagging } from './tagging.tsx'
-
 export { SSL_TLS_OFFLOAD, SslTlsOffload } from './ssl-tls-offload.tsx'
 
+export {
+  STANDARDIZED_SYSTEM_IMAGES,
+  StandardizedSystemImages,
+} from './standardized-system-images.tsx'
+
 export { STORAGE, Storage } from './storage.tsx'
+
+export { Storage2, STORAGE_2 } from './storage-2.tsx'
+
+export { TAGGING, Tagging } from './tagging.tsx'
 
 export {
   THREAT_INTELLIGENCE,
@@ -159,10 +203,7 @@ export { USER, User } from './user.tsx'
 
 export { VIDEO, Video } from './video.tsx'
 
-export {
-  VIRTUALIZED_CAPABILITY,
-  VirtualizedCapability,
-} from './virtualized-capability.tsx'
+export { Video2, VIDEO_2 } from './video-2.tsx'
 
 export { VIRTUAL_FIREWALL, VirtualFirewall } from './virtual-firewall.tsx'
 
@@ -176,7 +217,14 @@ export {
   VirtualPrivateNetwork,
 } from './virtual-private-network.tsx'
 
+export {
+  VIRTUALIZED_CAPABILITY,
+  VirtualizedCapability,
+} from './virtualized-capability.tsx'
+
 export { VOICE, Voice } from './voice.tsx'
+
+export { Voice2, VOICE_2 } from './voice-2.tsx'
 
 export { VPN_CONCENTRATOR, VpnConcentrator } from './vpn-concentrator.tsx'
 
@@ -203,6 +251,11 @@ export {
 } from './wireless-connection.tsx'
 
 export {
+  WIRELESS_CONNECTION_2,
+  WirelessConnection2,
+} from './wireless-connection-2.tsx'
+
+export {
   WIRELESS_INTRUSION_DETECTION_SYSTEM,
   WirelessIntrusionDetectionSystem,
 } from './wireless-intrusion-detection-system.tsx'
@@ -216,56 +269,3 @@ export {
   WIRELESS_ROGUE_DETECTION,
   WirelessRogueDetection,
 } from './wireless-rogue-detection.tsx'
-
-export { Routing2, ROUTING_2 } from './routing-2.tsx'
-
-export { L2_SWITCHING_2, L2Switching2 } from './l2-switching-2.tsx'
-
-export { L3_SWITCHING_2, L3Switching2 } from './l3-switching-2.tsx'
-
-export { FABRIC_SWITCHING_2, FabricSwitching2 } from './fabric-switching-2.tsx'
-
-export { L2_L3_NETWORK_2, L2L3Network2 } from './l2-l3-network-2.tsx'
-
-export {
-  WIRELESS_CONNECTION_2,
-  WirelessConnection2,
-} from './wireless-connection-2.tsx'
-
-export {
-  APPLICATION_OPTIMIZATION,
-  ApplicationOptimization,
-} from './application-optimization.tsx'
-
-export { QUALITY_OF_SERVICE, QualityOfService } from './quality-of-service.tsx'
-
-export { PATH_CONTROL, PathControl } from './path-control.tsx'
-
-export { Database2, DATABASE_2 } from './database-2.tsx'
-
-export { Storage2, STORAGE_2 } from './storage-2.tsx'
-
-export { SECURE_SERVER, SecureServer } from './secure-server.tsx'
-
-export { Voice2, VOICE_2 } from './voice-2.tsx'
-
-export { Video2, VIDEO_2 } from './video-2.tsx'
-
-export { LOAD_BALANCER_2, LoadBalancer2 } from './load-balancer-2.tsx'
-
-export { HOST_CONTEXT, HostContext } from './host-context.tsx'
-
-export {
-  BUSINESS_APPLICATION,
-  BusinessApplication,
-} from './business-application.tsx'
-
-export {
-  INFRASTRUCTURE_REDUNDANCY,
-  InfrastructureRedundancy,
-} from './infrastructure-redundancy.tsx'
-
-export {
-  STANDARDIZED_SYSTEM_IMAGES,
-  StandardizedSystemImages,
-} from './standardized-system-images.tsx'

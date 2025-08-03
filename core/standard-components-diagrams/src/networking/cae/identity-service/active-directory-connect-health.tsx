@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const ACTIVE_DIRECTORY_CONNECT_HEALTH = {
   _style:
-    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Active_Directory_Health_Monitoring.svg;',
+    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Active_Directory_Health_Monitoring.svg;strokeColor=none;',
   _width: 50,
   _height: 50,
 }

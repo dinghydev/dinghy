@@ -19,9 +19,9 @@ export {
 } from './active-directory-federation-services-server-blue.tsx'
 
 export {
-  ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_ORANGE,
-  ActiveDirectoryFederationServicesServerOrange,
-} from './active-directory-federation-services-server-orange.tsx'
+  ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GHOSTED,
+  ActiveDirectoryFederationServicesServerGhosted,
+} from './active-directory-federation-services-server-ghosted.tsx'
 
 export {
   ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GREEN,
@@ -29,9 +29,9 @@ export {
 } from './active-directory-federation-services-server-green.tsx'
 
 export {
-  ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GHOSTED,
-  ActiveDirectoryFederationServicesServerGhosted,
-} from './active-directory-federation-services-server-ghosted.tsx'
+  ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_ORANGE,
+  ActiveDirectoryFederationServicesServerOrange,
+} from './active-directory-federation-services-server-orange.tsx'
 
 export { APPLICATION_SERVER, ApplicationServer } from './application-server.tsx'
 
@@ -41,9 +41,9 @@ export {
 } from './application-server-blue.tsx'
 
 export {
-  APPLICATION_SERVER_ORANGE,
-  ApplicationServerOrange,
-} from './application-server-orange.tsx'
+  APPLICATION_SERVER_GHOSTED,
+  ApplicationServerGhosted,
+} from './application-server-ghosted.tsx'
 
 export {
   APPLICATION_SERVER_GREEN,
@@ -51,9 +51,9 @@ export {
 } from './application-server-green.tsx'
 
 export {
-  APPLICATION_SERVER_GHOSTED,
-  ApplicationServerGhosted,
-} from './application-server-ghosted.tsx'
+  APPLICATION_SERVER_ORANGE,
+  ApplicationServerOrange,
+} from './application-server-orange.tsx'
 
 export {
   CALL_ADMISSION_CONTROL_SERVICE,
@@ -75,9 +75,9 @@ export {
 } from './database-server-blue.tsx'
 
 export {
-  DATABASE_SERVER_ORANGE,
-  DatabaseServerOrange,
-} from './database-server-orange.tsx'
+  DATABASE_SERVER_GHOSTED,
+  DatabaseServerGhosted,
+} from './database-server-ghosted.tsx'
 
 export {
   DATABASE_SERVER_GREEN,
@@ -85,9 +85,9 @@ export {
 } from './database-server-green.tsx'
 
 export {
-  DATABASE_SERVER_GHOSTED,
-  DatabaseServerGhosted,
-} from './database-server-ghosted.tsx'
+  DATABASE_SERVER_ORANGE,
+  DatabaseServerOrange,
+} from './database-server-orange.tsx'
 
 export { DATACENTER, Datacenter } from './datacenter.tsx'
 
@@ -96,9 +96,19 @@ export { DIRSYNC_SERVER, DirsyncServer } from './dirsync-server.tsx'
 export { DOMAIN_CONTROLLER, DomainController } from './domain-controller.tsx'
 
 export {
+  EXCHANGE_CLIENT_ACCESS_SERVER,
+  ExchangeClientAccessServer,
+} from './exchange-client-access-server.tsx'
+
+export {
   EXCHANGE_CLIENT_ACCESS_SERVER_ROLE,
   ExchangeClientAccessServerRole,
 } from './exchange-client-access-server-role.tsx'
+
+export {
+  EXCHANGE_EDGE_TRANSPORT_SERVER,
+  ExchangeEdgeTransportServer,
+} from './exchange-edge-transport-server.tsx'
 
 export {
   EXCHANGE_EDGE_TRANSPORT_SERVER_ROLE,
@@ -111,31 +121,21 @@ export {
 } from './exchange-hub-transport-server-role.tsx'
 
 export {
+  EXCHANGE_MAILBOX_SERVER,
+  ExchangeMailboxServer,
+} from './exchange-mailbox-server.tsx'
+
+export {
   EXCHANGE_MAILBOX_SERVER_ROLE,
   ExchangeMailboxServerRole,
 } from './exchange-mailbox-server-role.tsx'
+
+export { EXCHANGE_SERVER, ExchangeServer } from './exchange-server.tsx'
 
 export {
   EXCHANGE_UM_SERVER_ROLE,
   ExchangeUmServerRole,
 } from './exchange-um-server-role.tsx'
-
-export {
-  EXCHANGE_CLIENT_ACCESS_SERVER,
-  ExchangeClientAccessServer,
-} from './exchange-client-access-server.tsx'
-
-export {
-  EXCHANGE_EDGE_TRANSPORT_SERVER,
-  ExchangeEdgeTransportServer,
-} from './exchange-edge-transport-server.tsx'
-
-export {
-  EXCHANGE_MAILBOX_SERVER,
-  ExchangeMailboxServer,
-} from './exchange-mailbox-server.tsx'
-
-export { EXCHANGE_SERVER, ExchangeServer } from './exchange-server.tsx'
 
 export { FILE_SERVER, FileServer } from './file-server.tsx'
 
@@ -173,14 +173,16 @@ export { SERVER_FARM, ServerFarm } from './server-farm.tsx'
 
 export { SERVER_FARM_BLUE, ServerFarmBlue } from './server-farm-blue.tsx'
 
-export { SERVER_FARM_ORANGE, ServerFarmOrange } from './server-farm-orange.tsx'
-
-export { SERVER_FARM_GREEN, ServerFarmGreen } from './server-farm-green.tsx'
-
 export {
   SERVER_FARM_GHOSTED,
   ServerFarmGhosted,
 } from './server-farm-ghosted.tsx'
+
+export { SERVER_FARM_GREEN, ServerFarmGreen } from './server-farm-green.tsx'
+
+export { SERVER_FARM_ORANGE, ServerFarmOrange } from './server-farm-orange.tsx'
+
+export { SERVER_SIDE_CODE, ServerSideCode } from './server-side-code.tsx'
 
 export { SERVER_GENERIC, ServerGeneric } from './server-generic.tsx'
 
@@ -190,9 +192,9 @@ export {
 } from './server-generic-blue.tsx'
 
 export {
-  SERVER_GENERIC_ORANGE,
-  ServerGenericOrange,
-} from './server-generic-orange.tsx'
+  SERVER_GENERIC_GHOSTED,
+  ServerGenericGhosted,
+} from './server-generic-ghosted.tsx'
 
 export {
   SERVER_GENERIC_GREEN,
@@ -200,11 +202,9 @@ export {
 } from './server-generic-green.tsx'
 
 export {
-  SERVER_GENERIC_GHOSTED,
-  ServerGenericGhosted,
-} from './server-generic-ghosted.tsx'
-
-export { SERVER_SIDE_CODE, ServerSideCode } from './server-side-code.tsx'
+  SERVER_GENERIC_ORANGE,
+  ServerGenericOrange,
+} from './server-generic-orange.tsx'
 
 export { SHAREPOINT_SERVER, SharepointServer } from './sharepoint-server.tsx'
 
@@ -349,11 +349,11 @@ export { WEB_SERVER, WebServer } from './web-server.tsx'
 
 export { WEB_SERVER_BLUE, WebServerBlue } from './web-server-blue.tsx'
 
-export { WEB_SERVER_ORANGE, WebServerOrange } from './web-server-orange.tsx'
+export { WEB_SERVER_GHOSTED, WebServerGhosted } from './web-server-ghosted.tsx'
 
 export { WEB_SERVER_GREEN, WebServerGreen } from './web-server-green.tsx'
 
-export { WEB_SERVER_GHOSTED, WebServerGhosted } from './web-server-ghosted.tsx'
+export { WEB_SERVER_ORANGE, WebServerOrange } from './web-server-orange.tsx'
 
 export { WINDOWS_ROUTER, WindowsRouter } from './windows-router.tsx'
 

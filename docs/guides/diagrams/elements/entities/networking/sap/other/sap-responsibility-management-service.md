@@ -1,0 +1,23 @@
+# SAP Responsibility Management Service
+
+## Definition
+
+```
+{
+  _style: 'shape=mxgraph.sap.icon;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeWidth=1;strokeColor=#D5DADD;fillColor=#EDEFF0;gradientColor=#FCFCFC;gradientDirection=west;aspect=fixed;SAPIcon=SAP_Responsibility_Management_Service',
+  _width: 50,
+  _height: 50,
+}
+```
+
+## Usage
+
+```
+import { SapResponsibilityManagementService } from '@reactiac/standard-components-diagrams/sapOther'
+
+<SapResponsibilityManagementService/>
+```
+
+## Preview
+
+<img src="./sap-responsibility-management-service.png" width="200"/>

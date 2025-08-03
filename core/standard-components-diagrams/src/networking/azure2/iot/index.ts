@@ -58,9 +58,9 @@ export { NOTIFICATION_HUBS, NotificationHubs } from './notification-hubs.tsx'
 
 export { STACK, Stack } from './stack.tsx'
 
-export { STACK_HCI_SIZER, StackHciSizer } from './stack-hci-sizer.tsx'
-
 export { STACK_HCI_PREMIUM, StackHciPremium } from './stack-hci-premium.tsx'
+
+export { STACK_HCI_SIZER, StackHciSizer } from './stack-hci-sizer.tsx'
 
 export {
   STREAM_ANALYTICS_JOBS,

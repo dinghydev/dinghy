@@ -1,5 +1,3 @@
-export { HEADER, Header } from './header.tsx'
-
 export { CARD, Card } from './card.tsx'
 
 export { Card2, CARD_2 } from './card-2.tsx'
@@ -23,3 +21,5 @@ export {
   DEFAULT_RELATIONSHIP_CONNECTOR_4,
   DefaultRelationshipConnector4,
 } from './default-relationship-connector-4.tsx'
+
+export { HEADER, Header } from './header.tsx'

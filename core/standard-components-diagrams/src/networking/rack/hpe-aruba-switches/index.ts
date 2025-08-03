@@ -1,99 +1,4 @@
 export {
-  Hp6125gEthernetBladeSwitch,
-  HP_6125G_ETHERNET_BLADE_SWITCH,
-} from './hp-6125g-ethernet-blade-switch.tsx'
-
-export {
-  HP_BLADESYSTEM_C3000_ENCLOSURE,
-  HpBladesystemC3000Enclosure,
-} from './hp-bladesystem-c3000-enclosure.tsx'
-
-export {
-  HP_BLADESYSTEM_C7000_ENCLOSURE,
-  HpBladesystemC7000Enclosure,
-} from './hp-bladesystem-c7000-enclosure.tsx'
-
-export {
-  HP_BLADESYSTEM_S6500_ENCLOSURE,
-  HpBladesystemS6500Enclosure,
-} from './hp-bladesystem-s6500-enclosure.tsx'
-
-export {
-  HP_INFINIBAND_FDR_SWITCH,
-  HpInfinibandFdrSwitch,
-} from './hp-infiniband-fdr-switch.tsx'
-
-export {
-  HP_PROLIANT_BL620C_SERVER_BLADE,
-  HpProliantBl620cServerBlade,
-} from './hp-proliant-bl620c-server-blade.tsx'
-
-export {
-  HP_PROLIANT_BL660C_SERVER_BLADE,
-  HpProliantBl660cServerBlade,
-} from './hp-proliant-bl660c-server-blade.tsx'
-
-export {
-  HP_PROLIANT_BL685C_SERVER_BLADE,
-  HpProliantBl685cServerBlade,
-} from './hp-proliant-bl685c-server-blade.tsx'
-
-export {
-  HP_PROLIANT_DL160_G8,
-  HpProliantDl160G8,
-} from './hp-proliant-dl160-g8.tsx'
-
-export {
-  HP_PROLIANT_DL320E_G8,
-  HpProliantDl320eG8,
-} from './hp-proliant-dl320e-g8.tsx'
-
-export {
-  HP_PROLIANT_DL360E_G8,
-  HpProliantDl360eG8,
-} from './hp-proliant-dl360e-g8.tsx'
-
-export {
-  HP_PROLIANT_DL360P_G8,
-  HpProliantDl360pG8,
-} from './hp-proliant-dl360p-g8.tsx'
-
-export {
-  HP_PROLIANT_DL380E_G8,
-  HpProliantDl380eG8,
-} from './hp-proliant-dl380e-g8.tsx'
-
-export {
-  HP_PROLIANT_DL380P_G8,
-  HpProliantDl380pG8,
-} from './hp-proliant-dl380p-g8.tsx'
-
-export {
-  HP_PROLIANT_DL385P_G8,
-  HpProliantDl385pG8,
-} from './hp-proliant-dl385p-g8.tsx'
-
-export {
-  HP_PROLIANT_DL560_G8,
-  HpProliantDl560G8,
-} from './hp-proliant-dl560-g8.tsx'
-
-export {
-  HP_PROLIANT_SL230S_G8,
-  HpProliantSl230sG8,
-} from './hp-proliant-sl230s-g8.tsx'
-
-export {
-  HP_PROLIANT_SL250S_G8,
-  HpProliantSl250sG8,
-} from './hp-proliant-sl250s-g8.tsx'
-
-export {
-  HP_VIRTUAL_CONNECT_FLEX_10_10D,
-  HpVirtualConnectFlex1010d,
-} from './hp-virtual-connect-flex-10-10d.tsx'
-
-export {
   Aruba7010MobilityControllerFront,
   ARUBA_7010_MOBILITY_CONTROLLER_FRONT,
 } from './aruba-7010-mobility-controller-front.tsx'
@@ -189,49 +94,19 @@ export {
 } from './aruba-9004-dual-rackmount.tsx'
 
 export {
-  Aruba901210PortGbeGatewayFront,
-  ARUBA_9012_10_PORT_GBE_GATEWAY_FRONT,
-} from './aruba-9012-10-port-gbe-gateway-front.tsx'
-
-export {
   Aruba901210PortGbeGatewayBack,
   ARUBA_9012_10_PORT_GBE_GATEWAY_BACK,
 } from './aruba-9012-10-port-gbe-gateway-back.tsx'
 
 export {
+  Aruba901210PortGbeGatewayFront,
+  ARUBA_9012_10_PORT_GBE_GATEWAY_FRONT,
+} from './aruba-9012-10-port-gbe-gateway-front.tsx'
+
+export {
   ARUBA_CLEARPASS_C1000_FRONT,
   ArubaClearpassC1000Front,
 } from './aruba-clearpass-c1000-front.tsx'
-
-export {
-  ARUBA_MOBILITY_MASTER_10K_FRONT,
-  ArubaMobilityMaster10kFront,
-} from './aruba-mobility-master-10k-front.tsx'
-
-export {
-  ARUBA_MOBILITY_MASTER_10K_REAR,
-  ArubaMobilityMaster10kRear,
-} from './aruba-mobility-master-10k-rear.tsx'
-
-export {
-  ARUBA_MOBILITY_MASTER_1K_FRONT,
-  ArubaMobilityMaster1kFront,
-} from './aruba-mobility-master-1k-front.tsx'
-
-export {
-  ARUBA_MOBILITY_MASTER_1K_REAR,
-  ArubaMobilityMaster1kRear,
-} from './aruba-mobility-master-1k-rear.tsx'
-
-export {
-  ARUBA_MOBILITY_MASTER_5K_FRONT,
-  ArubaMobilityMaster5kFront,
-} from './aruba-mobility-master-5k-front.tsx'
-
-export {
-  ARUBA_MOBILITY_MASTER_5K_REAR,
-  ArubaMobilityMaster5kRear,
-} from './aruba-mobility-master-5k-rear.tsx'
 
 export {
   ARUBA_CLEARPASS_C1000_FRONT_2,
@@ -263,6 +138,36 @@ export {
   ArubaClearpassC3000Rear,
 } from './aruba-clearpass-c3000-rear.tsx'
 
+export {
+  ARUBA_MOBILITY_MASTER_10K_FRONT,
+  ArubaMobilityMaster10kFront,
+} from './aruba-mobility-master-10k-front.tsx'
+
+export {
+  ARUBA_MOBILITY_MASTER_10K_REAR,
+  ArubaMobilityMaster10kRear,
+} from './aruba-mobility-master-10k-rear.tsx'
+
+export {
+  ARUBA_MOBILITY_MASTER_1K_FRONT,
+  ArubaMobilityMaster1kFront,
+} from './aruba-mobility-master-1k-front.tsx'
+
+export {
+  ARUBA_MOBILITY_MASTER_1K_REAR,
+  ArubaMobilityMaster1kRear,
+} from './aruba-mobility-master-1k-rear.tsx'
+
+export {
+  ARUBA_MOBILITY_MASTER_5K_FRONT,
+  ArubaMobilityMaster5kFront,
+} from './aruba-mobility-master-5k-front.tsx'
+
+export {
+  ARUBA_MOBILITY_MASTER_5K_REAR,
+  ArubaMobilityMaster5kRear,
+} from './aruba-mobility-master-5k-rear.tsx'
+
 export { DIRECT_QSFP, DirectQsfp } from './direct-qsfp.tsx'
 
 export { DIRECT_QSFP_2, DirectQsfp2 } from './direct-qsfp-2.tsx'
@@ -270,6 +175,101 @@ export { DIRECT_QSFP_2, DirectQsfp2 } from './direct-qsfp-2.tsx'
 export { DIRECT_SFP, DirectSfp } from './direct-sfp.tsx'
 
 export { FIBRE_QSFP, FibreQsfp } from './fibre-qsfp.tsx'
+
+export {
+  Hp6125gEthernetBladeSwitch,
+  HP_6125G_ETHERNET_BLADE_SWITCH,
+} from './hp-6125g-ethernet-blade-switch.tsx'
+
+export {
+  HP_BLADESYSTEM_C3000_ENCLOSURE,
+  HpBladesystemC3000Enclosure,
+} from './hp-bladesystem-c3000-enclosure.tsx'
+
+export {
+  HP_BLADESYSTEM_C7000_ENCLOSURE,
+  HpBladesystemC7000Enclosure,
+} from './hp-bladesystem-c7000-enclosure.tsx'
+
+export {
+  HP_BLADESYSTEM_S6500_ENCLOSURE,
+  HpBladesystemS6500Enclosure,
+} from './hp-bladesystem-s6500-enclosure.tsx'
+
+export {
+  HP_INFINIBAND_FDR_SWITCH,
+  HpInfinibandFdrSwitch,
+} from './hp-infiniband-fdr-switch.tsx'
+
+export {
+  HP_PROLIANT_BL620C_SERVER_BLADE,
+  HpProliantBl620cServerBlade,
+} from './hp-proliant-bl620c-server-blade.tsx'
+
+export {
+  HP_PROLIANT_BL660C_SERVER_BLADE,
+  HpProliantBl660cServerBlade,
+} from './hp-proliant-bl660c-server-blade.tsx'
+
+export {
+  HP_PROLIANT_BL685C_SERVER_BLADE,
+  HpProliantBl685cServerBlade,
+} from './hp-proliant-bl685c-server-blade.tsx'
+
+export {
+  HP_PROLIANT_DL160_G8,
+  HpProliantDl160G8,
+} from './hp-proliant-dl160-g8.tsx'
+
+export {
+  HP_PROLIANT_DL320E_G8,
+  HpProliantDl320eG8,
+} from './hp-proliant-dl320e-g8.tsx'
+
+export {
+  HP_PROLIANT_DL360E_G8,
+  HpProliantDl360eG8,
+} from './hp-proliant-dl360e-g8.tsx'
+
+export {
+  HP_PROLIANT_DL360P_G8,
+  HpProliantDl360pG8,
+} from './hp-proliant-dl360p-g8.tsx'
+
+export {
+  HP_PROLIANT_DL380E_G8,
+  HpProliantDl380eG8,
+} from './hp-proliant-dl380e-g8.tsx'
+
+export {
+  HP_PROLIANT_DL380P_G8,
+  HpProliantDl380pG8,
+} from './hp-proliant-dl380p-g8.tsx'
+
+export {
+  HP_PROLIANT_DL385P_G8,
+  HpProliantDl385pG8,
+} from './hp-proliant-dl385p-g8.tsx'
+
+export {
+  HP_PROLIANT_DL560_G8,
+  HpProliantDl560G8,
+} from './hp-proliant-dl560-g8.tsx'
+
+export {
+  HP_PROLIANT_SL230S_G8,
+  HpProliantSl230sG8,
+} from './hp-proliant-sl230s-g8.tsx'
+
+export {
+  HP_PROLIANT_SL250S_G8,
+  HpProliantSl250sG8,
+} from './hp-proliant-sl250s-g8.tsx'
+
+export {
+  HP_VIRTUAL_CONNECT_FLEX_10_10D,
+  HpVirtualConnectFlex1010d,
+} from './hp-virtual-connect-flex-10-10d.tsx'
 
 export {
   J9772a253048gPoeSwitch,
@@ -512,14 +512,14 @@ export {
 } from './jl072a-hpe-aruba-3810m-48-port-gt-1-slot-switch-rear.tsx'
 
 export {
-  JL073A_HPE_ARUBA_3810M_24_PORT_GT_POEPLUS_1_SLOT_SWITCH,
-  Jl073aHpeAruba3810m24PortGtPoeplus1SlotSwitch,
-} from './jl073a-hpe-aruba-3810m-24-port-gt-poeplus-1-slot-switch.tsx'
-
-export {
   JL073A_HPE_ARUBA_3810M_24_PORT_GT_POE_1_SLOT_SWITCH_REAR,
   Jl073aHpeAruba3810m24PortGtPoe1SlotSwitchRear,
 } from './jl073a-hpe-aruba-3810m-24-port-gt-poe-1-slot-switch-rear.tsx'
+
+export {
+  JL073A_HPE_ARUBA_3810M_24_PORT_GT_POEPLUS_1_SLOT_SWITCH,
+  Jl073aHpeAruba3810m24PortGtPoeplus1SlotSwitch,
+} from './jl073a-hpe-aruba-3810m-24-port-gt-poeplus-1-slot-switch.tsx'
 
 export {
   JL074A_HPE_ARUBA_3810M_48_PORT_GT_POE_1_SLOT_SWITCH,
@@ -761,14 +761,14 @@ export {
 } from './jl375a-aruba-8400-front.tsx'
 
 export {
-  JL375A_ARUBA_8400_REAR,
-  Jl375aAruba8400Rear,
-} from './jl375a-aruba-8400-rear.tsx'
-
-export {
   JL375A_ARUBA_8400_REAR_EMPTY,
   Jl375aAruba8400RearEmpty,
 } from './jl375a-aruba-8400-rear-empty.tsx'
+
+export {
+  JL375A_ARUBA_8400_REAR,
+  Jl375aAruba8400Rear,
+} from './jl375a-aruba-8400-rear.tsx'
 
 export {
   JL376A_ARUBA_8400_FRONT,
@@ -776,24 +776,24 @@ export {
 } from './jl376a-aruba-8400-front.tsx'
 
 export {
-  JL376A_ARUBA_8400_REAR,
-  Jl376aAruba8400Rear,
-} from './jl376a-aruba-8400-rear.tsx'
-
-export {
   JL376A_ARUBA_8400_REAR_EMPTY,
   Jl376aAruba8400RearEmpty,
 } from './jl376a-aruba-8400-rear-empty.tsx'
 
 export {
-  JL479A_ARUBA_8320_48P_10G_SFP_SFP_AND_6P_40G_QSFP_5_FAN_2_PS_SWITCH_BUNDLE,
-  Jl479aAruba832048p10gSfpSfpAnd6p40gQsfp5Fan2PsSwitchBundle,
-} from './jl479a-aruba-8320-48p-10g-sfp-sfp-and-6p-40g-qsfp-5-fan-2-ps-switch-bundle.tsx'
+  JL376A_ARUBA_8400_REAR,
+  Jl376aAruba8400Rear,
+} from './jl376a-aruba-8400-rear.tsx'
 
 export {
   JL479A_ARUBA_8320_48P_10G_SFP_SFP_AND_6P_40G_QSFP_5_FAN_2_PS_SWITCH_BUNDLE_REAR,
   Jl479aAruba832048p10gSfpSfpAnd6p40gQsfp5Fan2PsSwitchBundleRear,
 } from './jl479a-aruba-8320-48p-10g-sfp-sfp-and-6p-40g-qsfp-5-fan-2-ps-switch-bundle-rear.tsx'
+
+export {
+  JL479A_ARUBA_8320_48P_10G_SFP_SFP_AND_6P_40G_QSFP_5_FAN_2_PS_SWITCH_BUNDLE,
+  Jl479aAruba832048p10gSfpSfpAnd6p40gQsfp5Fan2PsSwitchBundle,
+} from './jl479a-aruba-8320-48p-10g-sfp-sfp-and-6p-40g-qsfp-5-fan-2-ps-switch-bundle.tsx'
 
 export {
   JL557A_ARUBA_2930F_48G_POE_4SFP_740W_SWITCH,
@@ -1157,14 +1157,14 @@ export { RJ45_SFP, Rj45Sfp } from './rj45-sfp.tsx'
 export { RJ45_SFP_ALT, Rj45SfpAlt } from './rj45-sfp-alt.tsx'
 
 export {
-  ROM67A_ARUBA_2930M_48P_POE_CLASS_6_SWITCH,
-  Rom67aAruba2930m48pPoeClass6Switch,
-} from './rom67a-aruba-2930m-48p-poe-class-6-switch.tsx'
-
-export {
   ROM67A_ARUBA_2930M_POE_CLASS_6_SWITCH_REAR,
   Rom67aAruba2930mPoeClass6SwitchRear,
 } from './rom67a-aruba-2930m-poe-class-6-switch-rear.tsx'
+
+export {
+  ROM67A_ARUBA_2930M_48P_POE_CLASS_6_SWITCH,
+  Rom67aAruba2930m48pPoeClass6Switch,
+} from './rom67a-aruba-2930m-48p-poe-class-6-switch.tsx'
 
 export {
   ROM68A_ARUBA_2930M_24P_POE_CLASS_6_SWITCH,

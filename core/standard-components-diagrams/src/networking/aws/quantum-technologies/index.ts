@@ -1,8 +1,3 @@
-export {
-  QUANTUM_TECHNOLOGIES,
-  QuantumTechnologies,
-} from './quantum-technologies.tsx'
-
 export { BRAKET, Braket } from './braket.tsx'
 
 export { BRAKET_CHANDELIER, BraketChandelier } from './braket-chandelier.tsx'
@@ -45,3 +40,8 @@ export {
   BRAKET_TENSOR_NETWORK,
   BraketTensorNetwork,
 } from './braket-tensor-network.tsx'
+
+export {
+  QUANTUM_TECHNOLOGIES,
+  QuantumTechnologies,
+} from './quantum-technologies.tsx'

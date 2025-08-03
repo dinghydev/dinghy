@@ -14,6 +14,11 @@ export {
 export { CONCRETE_TANK, ConcreteTank } from './concrete-tank.tsx'
 
 export {
+  CONTAINER_SOLIDS_LIQUIDS_GASES,
+  ContainerSolidsLiquidsGases,
+} from './container-solids-liquids-gases.tsx'
+
+export {
   CONTAINER_TANK_CISTERN,
   ContainerTankCistern,
 } from './container-tank-cistern.tsx'
@@ -32,11 +37,6 @@ export {
   CONTAINER_TANK_CISTERN_LEGS,
   ContainerTankCisternLegs,
 } from './container-tank-cistern-legs.tsx'
-
-export {
-  CONTAINER_SOLIDS_LIQUIDS_GASES,
-  ContainerSolidsLiquidsGases,
-} from './container-solids-liquids-gases.tsx'
 
 export {
   DOUBLE_CONCRETE_TANK,
@@ -93,8 +93,6 @@ export { SPRAY_DRIER, SprayDrier } from './spray-drier.tsx'
 
 export { STORAGE_SPHERE, StorageSphere } from './storage-sphere.tsx'
 
-export { TANK_VESSEL, TankVessel } from './tank-vessel.tsx'
-
 export { TANK, Tank } from './tank.tsx'
 
 export { TANK_BOOT, TankBoot } from './tank-boot.tsx'
@@ -106,32 +104,34 @@ export {
   TankConicalBottom,
 } from './tank-conical-bottom.tsx'
 
-export { TANK_CONICAL_ROOF, TankConicalRoof } from './tank-conical-roof.tsx'
-
 export {
   TANK_CONICAL_ROOF_AND_BOTTOM,
   TankConicalRoofAndBottom,
 } from './tank-conical-roof-and-bottom.tsx'
 
-export { TANK_COVERED, TankCovered } from './tank-covered.tsx'
+export { TANK_CONICAL_ROOF, TankConicalRoof } from './tank-conical-roof.tsx'
 
 export { TANK_COVERED_BOOT, TankCoveredBoot } from './tank-covered-boot.tsx'
 
-export { TANK_DISHED_ROOF, TankDishedRoof } from './tank-dished-roof.tsx'
+export { TANK_COVERED, TankCovered } from './tank-covered.tsx'
 
 export {
   TANK_DISHED_ROOF_CONICAL_BOTTOM,
   TankDishedRoofConicalBottom,
 } from './tank-dished-roof-conical-bottom.tsx'
 
-export { TANK_FALSE_BOTTOM, TankFalseBottom } from './tank-false-bottom.tsx'
+export { TANK_DISHED_ROOF, TankDishedRoof } from './tank-dished-roof.tsx'
 
-export { TANK_FLOATING_ROOF, TankFloatingRoof } from './tank-floating-roof.tsx'
+export { TANK_FALSE_BOTTOM, TankFalseBottom } from './tank-false-bottom.tsx'
 
 export {
   TANK_FLOATING_ROOF_BOOT,
   TankFloatingRoofBoot,
 } from './tank-floating-roof-boot.tsx'
+
+export { TANK_FLOATING_ROOF, TankFloatingRoof } from './tank-floating-roof.tsx'
+
+export { TANK_VESSEL, TankVessel } from './tank-vessel.tsx'
 
 export { TOWER, Tower } from './tower.tsx'
 

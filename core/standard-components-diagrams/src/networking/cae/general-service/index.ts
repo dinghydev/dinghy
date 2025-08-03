@@ -36,9 +36,9 @@ export { TEMPLATES, Templates } from './templates.tsx'
 
 export { TWO_USER_ICON, TwoUserIcon } from './two-user-icon.tsx'
 
-export { USER_HEALTH_ICON, UserHealthIcon } from './user-health-icon.tsx'
-
 export { USER, User } from './user.tsx'
+
+export { USER_HEALTH_ICON, UserHealthIcon } from './user-health-icon.tsx'
 
 export { USER_PRIVACY, UserPrivacy } from './user-privacy.tsx'
 

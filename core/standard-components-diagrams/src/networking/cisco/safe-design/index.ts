@@ -120,6 +120,8 @@ export { FLOW_SENSOR, FlowSensor } from './flow-sensor.tsx'
 
 export { FLOW_SENSOR_2, FlowSensor2 } from './flow-sensor-2.tsx'
 
+export { IDENTITY_DIRECTORY, IdentityDirectory } from './identity-directory.tsx'
+
 export {
   INTRUSION_PREVENTION,
   IntrusionPrevention,
@@ -129,8 +131,6 @@ export {
   INTRUSION_PREVENTION_2,
   IntrusionPrevention2,
 } from './intrusion-prevention-2.tsx'
-
-export { IDENTITY_DIRECTORY, IdentityDirectory } from './identity-directory.tsx'
 
 export { L2_SWITCH, L2Switch } from './l2-switch.tsx'
 
@@ -304,9 +304,9 @@ export {
   WirelessCorporateDevice,
 } from './wireless-corporate-device.tsx'
 
-export { WIRELESS_SWITCH, WirelessSwitch } from './wireless-switch.tsx'
-
 export {
   WIRELESS_LAN_CONTROLLER,
   WirelessLanController,
 } from './wireless-lan-controller.tsx'
+
+export { WIRELESS_SWITCH, WirelessSwitch } from './wireless-switch.tsx'

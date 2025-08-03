@@ -1,0 +1,23 @@
+# Firewall (ghosted)
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.firewall;fillColor=#CCCBCB;',
+  _width: 47,
+  _height: 43,
+}
+```
+
+## Usage
+
+```
+import { FirewallGhosted } from '@reactiac/standard-components-diagrams/officeConcepts'
+
+<FirewallGhosted/>
+```
+
+## Preview
+
+<img src="./firewall-ghosted.png" width="200"/>

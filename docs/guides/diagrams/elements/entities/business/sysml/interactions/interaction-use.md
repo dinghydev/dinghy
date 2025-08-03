@@ -1,0 +1,23 @@
+# Interaction Use
+
+## Definition
+
+```
+{
+  _style: 'html=1;shape=mxgraph.sysml.package;labelX=40;whiteSpace=wrap;align=center;',
+  _width: 0,
+  _height: 60,
+}
+```
+
+## Usage
+
+```
+import { InteractionUse } from '@reactiac/standard-components-diagrams/sysmlInteractions'
+
+<InteractionUse/>
+```
+
+## Preview
+
+<img src="./interaction-use.png" width="200"/>

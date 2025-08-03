@@ -7,9 +7,9 @@ export {
   HorizontalButtonBar,
 } from './horizontal-button-bar.tsx'
 
+export { ON_OFF_BUTTON, OnOffButton } from './on-off-button.tsx'
+
 export {
   VERTICAL_BUTTON_BAR,
   VerticalButtonBar,
 } from './vertical-button-bar.tsx'
-
-export { ON_OFF_BUTTON, OnOffButton } from './on-off-button.tsx'

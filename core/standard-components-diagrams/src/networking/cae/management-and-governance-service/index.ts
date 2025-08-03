@@ -9,9 +9,9 @@ export {
   AutomationAccounts,
 } from './automation-accounts.tsx'
 
-export { BLUEPRINTS, Blueprints } from './blueprints.tsx'
-
 export { BILLINGHUB, Billinghub } from './billinghub.tsx'
+
+export { BLUEPRINTS, Blueprints } from './blueprints.tsx'
 
 export {
   DIAGNOSTIC_SETTINGS,

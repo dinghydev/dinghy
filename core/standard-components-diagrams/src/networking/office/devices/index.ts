@@ -47,11 +47,11 @@ export { HARD_DISK, HardDisk } from './hard-disk.tsx'
 
 export { HEADSET, Headset } from './headset.tsx'
 
-export { IPAD_MINI, IpadMini } from './ipad-mini.tsx'
-
 export { IP_GATEWAY, IpGateway } from './ip-gateway.tsx'
 
 export { IP_PBX, IpPbx } from './ip-pbx.tsx'
+
+export { IPAD_MINI, IpadMini } from './ipad-mini.tsx'
 
 export { LAPTOP, Laptop } from './laptop.tsx'
 
@@ -98,12 +98,12 @@ export { TABLET_ANDROID, TabletAndroid } from './tablet-android.tsx'
 
 export { TABLET_IPAD, TabletIpad } from './tablet-ipad.tsx'
 
+export { TABLET_WINDOWS_8, TabletWindows8 } from './tablet-windows-8.tsx'
+
 export {
   TABLET_WINDOWS_7INCH,
   TabletWindows7inch,
 } from './tablet-windows-7inch.tsx'
-
-export { TABLET_WINDOWS_8, TabletWindows8 } from './tablet-windows-8.tsx'
 
 export { TV, Tv } from './tv.tsx'
 

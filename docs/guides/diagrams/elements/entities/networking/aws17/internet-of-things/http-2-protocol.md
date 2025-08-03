@@ -1,0 +1,23 @@
+# HTTP/2 Protocol
+
+## Definition
+
+```
+{
+  _style: 'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.http_2_protocol;fillColor=#5294CF;gradientColor=none;',
+  _width: 63,
+  _height: 66,
+}
+```
+
+## Usage
+
+```
+import { Http2Protocol } from '@reactiac/standard-components-diagrams/aws17InternetOfThings'
+
+<Http2Protocol/>
+```
+
+## Preview
+
+<img src="./http-2-protocol.png" width="200"/>

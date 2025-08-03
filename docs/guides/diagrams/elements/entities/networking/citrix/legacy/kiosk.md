@@ -1,0 +1,23 @@
+# Kiosk
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.kiosk;',
+  _width: 65,
+  _height: 85,
+}
+```
+
+## Usage
+
+```
+import { Kiosk } from '@reactiac/standard-components-diagrams/citrixLegacy'
+
+<Kiosk/>
+```
+
+## Preview
+
+<img src="./kiosk.png" width="200"/>

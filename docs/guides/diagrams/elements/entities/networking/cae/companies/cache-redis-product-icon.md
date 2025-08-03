@@ -1,0 +1,23 @@
+# Cache Redis Product Icon
+
+## Definition
+
+```
+{
+  _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Cache_Redis_Product.svg;strokeColor=none;',
+  _width: 50,
+  _height: 42,
+}
+```
+
+## Usage
+
+```
+import { CacheRedisProductIcon } from '@reactiac/standard-components-diagrams/caeCompanies'
+
+<CacheRedisProductIcon/>
+```
+
+## Preview
+
+<img src="./cache-redis-product-icon.png" width="200"/>

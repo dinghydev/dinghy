@@ -1,0 +1,23 @@
+# Cloud Storage
+
+## Definition
+
+```
+{
+  _style: 'fillColor=#ffffff;strokeColor=#dddddd;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;',
+  _width: 0,
+  _height: 60,
+}
+```
+
+## Usage
+
+```
+import { CloudStorage } from '@reactiac/standard-components-diagrams/gcp2Storage'
+
+<CloudStorage/>
+```
+
+## Preview
+
+<img src="./cloud-storage.png" width="200"/>

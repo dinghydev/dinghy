@@ -15,6 +15,10 @@ export {
   CrushingGrindingMachine,
 } from './crushing-grinding-machine.tsx'
 
+export { MILL_ROLLER, MillRoller } from './mill-roller.tsx'
+
+export { MILL_VIBRATION, MillVibration } from './mill-vibration.tsx'
+
 export { MILL_PULVERIZER, MillPulverizer } from './mill-pulverizer.tsx'
 
 export {
@@ -26,7 +30,3 @@ export {
   MILL_PULVERIZER_IMPACT,
   MillPulverizerImpact,
 } from './mill-pulverizer-impact.tsx'
-
-export { MILL_ROLLER, MillRoller } from './mill-roller.tsx'
-
-export { MILL_VIBRATION, MillVibration } from './mill-vibration.tsx'

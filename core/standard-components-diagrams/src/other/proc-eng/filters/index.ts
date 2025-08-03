@@ -47,14 +47,14 @@ export {
 } from './liquid-filter-ion-exchanger.tsx'
 
 export {
-  LIQUID_FILTER_ROTARY_DRUM_OR_DISC,
-  LiquidFilterRotaryDrumOrDisc,
-} from './liquid-filter-rotary-drum-or-disc.tsx'
-
-export {
   LIQUID_FILTER_ROTARY_DRUM_OR_DISC_SCRAPER,
   LiquidFilterRotaryDrumOrDiscScraper,
 } from './liquid-filter-rotary-drum-or-disc-scraper.tsx'
+
+export {
+  LIQUID_FILTER_ROTARY_DRUM_OR_DISC,
+  LiquidFilterRotaryDrumOrDisc,
+} from './liquid-filter-rotary-drum-or-disc.tsx'
 
 export { PRESS_FILTER, PressFilter } from './press-filter.tsx'
 

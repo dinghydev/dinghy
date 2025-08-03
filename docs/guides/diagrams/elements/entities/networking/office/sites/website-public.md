@@ -1,0 +1,23 @@
+# Website, Public
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.sites.website_public;',
+  _width: 58,
+  _height: 48,
+}
+```
+
+## Usage
+
+```
+import { WebsitePublic } from '@reactiac/standard-components-diagrams/officeSites'
+
+<WebsitePublic/>
+```
+
+## Preview
+
+<img src="./website-public.png" width="200"/>

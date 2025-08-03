@@ -1,0 +1,23 @@
+# Stakeholder 2
+
+## Definition
+
+```
+{
+  _style: 'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#CCCCFF;shape=mxgraph.archimate3.role;',
+  _width: 60,
+  _height: 35,
+}
+```
+
+## Usage
+
+```
+import { Stakeholder2 } from '@reactiac/standard-components-diagrams/archimate3Motivation'
+
+<Stakeholder2/>
+```
+
+## Preview
+
+<img src="./stakeholder-2.png" width="200"/>

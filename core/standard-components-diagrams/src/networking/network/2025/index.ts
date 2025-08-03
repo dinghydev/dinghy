@@ -80,9 +80,9 @@ export { RACK_CABINET, RackCabinet } from './rack-cabinet.tsx'
 
 export { ROUTER, Router } from './router.tsx'
 
-export { SATELLITE_DISH, SatelliteDish } from './satellite-dish.tsx'
-
 export { SATELLITE, Satellite } from './satellite.tsx'
+
+export { SATELLITE_DISH, SatelliteDish } from './satellite-dish.tsx'
 
 export { SCANNER, Scanner } from './scanner.tsx'
 

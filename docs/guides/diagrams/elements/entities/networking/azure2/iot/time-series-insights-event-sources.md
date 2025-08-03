@@ -1,0 +1,23 @@
+# Time Series Insights Event Sources
+
+## Definition
+
+```
+{
+  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/iot/Time_Series_Insights_Event_Sources.svg;strokeColor=none;',
+  _width: 67,
+  _height: 68,
+}
+```
+
+## Usage
+
+```
+import { TimeSeriesInsightsEventSources } from '@reactiac/standard-components-diagrams/azure2Iot'
+
+<TimeSeriesInsightsEventSources/>
+```
+
+## Preview
+
+<img src="./time-series-insights-event-sources.png" width="200"/>

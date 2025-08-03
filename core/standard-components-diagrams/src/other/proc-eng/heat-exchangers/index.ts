@@ -14,22 +14,20 @@ export {
 
 export { HAIRPIN_EXCHANGER, HairpinExchanger } from './hairpin-exchanger.tsx'
 
-export { HEATER, Heater } from './heater.tsx'
-
 export {
   HEAT_EXCHANGER_COIL_TUBES,
   HeatExchangerCoilTubes,
 } from './heat-exchanger-coil-tubes.tsx'
 
 export {
-  HEAT_EXCHANGER_FINNED_TUBES,
-  HeatExchangerFinnedTubes,
-} from './heat-exchanger-finned-tubes.tsx'
-
-export {
   HEAT_EXCHANGER_FINNED_TUBES_FAN,
   HeatExchangerFinnedTubesFan,
 } from './heat-exchanger-finned-tubes-fan.tsx'
+
+export {
+  HEAT_EXCHANGER_FINNED_TUBES,
+  HeatExchangerFinnedTubes,
+} from './heat-exchanger-finned-tubes.tsx'
 
 export {
   HEAT_EXCHANGER_FLOATING_HEAD,
@@ -50,6 +48,8 @@ export {
   HEAT_EXCHANGER_STRAIGHT_TUBES,
   HeatExchangerStraightTubes,
 } from './heat-exchanger-straight-tubes.tsx'
+
+export { HEATER, Heater } from './heater.tsx'
 
 export {
   PLATE_AND_FRAME_HEAT_EXCHANGER,
@@ -89,11 +89,11 @@ export {
 } from './thin-film-evaporator.tsx'
 
 export {
-  U_TUBE_HEAT_EXCHANGER,
-  UTubeHeatExchanger,
-} from './u-tube-heat-exchanger.tsx'
-
-export {
   U_SHAPED_TUBES_HEAT_EXCHANGER,
   UShapedTubesHeatExchanger,
 } from './u-shaped-tubes-heat-exchanger.tsx'
+
+export {
+  U_TUBE_HEAT_EXCHANGER,
+  UTubeHeatExchanger,
+} from './u-tube-heat-exchanger.tsx'

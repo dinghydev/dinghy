@@ -20,41 +20,46 @@ export { AMAZON_RDS, AmazonRds } from './amazon-rds.tsx'
 
 export { AMAZON_REDSHIFT, AmazonRedshift } from './amazon-redshift.tsx'
 
+export { ATTRIBUTE, Attribute } from './attribute.tsx'
+
+export { ATTRIBUTES, Attributes } from './attributes.tsx'
+
 export {
   AWS_DATABASE_MIGRATION_SERVICE,
   AwsDatabaseMigrationService,
 } from './aws-database-migration-service.tsx'
 
-export { ATTRIBUTE, Attribute } from './attribute.tsx'
-
-export { ATTRIBUTES, Attributes } from './attributes.tsx'
-
-export { ITEM, Item } from './item.tsx'
-
-export { ITEMS, Items } from './items.tsx'
-
-export {
-  GLOBAL_SECONDARY_INDEX,
-  GlobalSecondaryIndex,
-} from './global-secondary-index.tsx'
-
-export { TABLE, Table } from './table.tsx'
-
 export { CACHE_NODE, CacheNode } from './cache-node.tsx'
 
-export { DB_INSTANCE, DbInstance } from './db-instance.tsx'
-
 export {
-  DB_INSTANCE_STANDBY,
-  DbInstanceStandby,
-} from './db-instance-standby.tsx'
+  DATABASE_MIGRATION_WORKFLOW_JOB,
+  DatabaseMigrationWorkflowJob,
+} from './database-migration-workflow-job.tsx'
+
+export { DB_INSTANCE, DbInstance } from './db-instance.tsx'
 
 export {
   DB_INSTANCE_READ_REPLICA,
   DbInstanceReadReplica,
 } from './db-instance-read-replica.tsx'
 
-export { PIOP, Piop } from './piop.tsx'
+export {
+  DB_INSTANCE_STANDBY,
+  DbInstanceStandby,
+} from './db-instance-standby.tsx'
+
+export { DENSE_COMPUTE_NODE, DenseComputeNode } from './dense-compute-node.tsx'
+
+export { DENSE_STORAGE_NODE, DenseStorageNode } from './dense-storage-node.tsx'
+
+export {
+  GLOBAL_SECONDARY_INDEX,
+  GlobalSecondaryIndex,
+} from './global-secondary-index.tsx'
+
+export { ITEM, Item } from './item.tsx'
+
+export { ITEMS, Items } from './items.tsx'
 
 export { MS_SQL_INSTANCE, MsSqlInstance } from './ms-sql-instance.tsx'
 
@@ -77,20 +82,15 @@ export {
   OracleDbInstanceAlternate,
 } from './oracle-db-instance-alternate.tsx'
 
-export { SQL_PRIMARY, SqlPrimary } from './sql-primary.tsx'
-
-export { SQL_REPLICA, SqlReplica } from './sql-replica.tsx'
+export { PIOP, Piop } from './piop.tsx'
 
 export {
   POSTGRESQL_INSTANCE,
   PostgresqlInstance,
 } from './postgresql-instance.tsx'
 
-export { DENSE_COMPUTE_NODE, DenseComputeNode } from './dense-compute-node.tsx'
+export { SQL_PRIMARY, SqlPrimary } from './sql-primary.tsx'
 
-export { DENSE_STORAGE_NODE, DenseStorageNode } from './dense-storage-node.tsx'
+export { SQL_REPLICA, SqlReplica } from './sql-replica.tsx'
 
-export {
-  DATABASE_MIGRATION_WORKFLOW_JOB,
-  DatabaseMigrationWorkflowJob,
-} from './database-migration-workflow-job.tsx'
+export { TABLE, Table } from './table.tsx'

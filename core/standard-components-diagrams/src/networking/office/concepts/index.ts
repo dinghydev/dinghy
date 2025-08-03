@@ -2,6 +2,12 @@ export { ADDRESS_BOOK, AddressBook } from './address-book.tsx'
 
 export { ANTI_SPAM, AntiSpam } from './anti-spam.tsx'
 
+export { APP_FOR_OFFICE, AppForOffice } from './app-for-office.tsx'
+
+export { APP_FOR_SHAREPOINT, AppForSharepoint } from './app-for-sharepoint.tsx'
+
+export { APP_PART, AppPart } from './app-part.tsx'
+
 export {
   APPLICATION_ANDROID,
   ApplicationAndroid,
@@ -22,12 +28,6 @@ export {
   APPLICATION_WINDOWS,
   ApplicationWindows,
 } from './application-windows.tsx'
-
-export { APP_FOR_OFFICE, AppForOffice } from './app-for-office.tsx'
-
-export { APP_FOR_SHAREPOINT, AppForSharepoint } from './app-for-sharepoint.tsx'
-
-export { APP_PART, AppPart } from './app-part.tsx'
 
 export { ARCHIVE, Archive } from './archive.tsx'
 
@@ -68,13 +68,13 @@ export { CREDIT_CARD, CreditCard } from './credit-card.tsx'
 
 export { DOCUMENT, Document } from './document.tsx'
 
-export { DOCUMENTS, Documents } from './documents.tsx'
-
-export { DOCUMENTS_SHARED, DocumentsShared } from './documents-shared.tsx'
-
 export { DOCUMENT_BLANK, DocumentBlank } from './document-blank.tsx'
 
 export { DOCUMENT_SHARED, DocumentShared } from './document-shared.tsx'
+
+export { DOCUMENTS, Documents } from './documents.tsx'
+
+export { DOCUMENTS_SHARED, DocumentsShared } from './documents-shared.tsx'
 
 export { DOWNLOAD, Download } from './download.tsx'
 
@@ -92,29 +92,29 @@ export { FIREWALL, Firewall } from './firewall.tsx'
 
 export { FIREWALL_BLUE, FirewallBlue } from './firewall-blue.tsx'
 
-export { FIREWALL_ORANGE, FirewallOrange } from './firewall-orange.tsx'
+export { FIREWALL_GHOSTED, FirewallGhosted } from './firewall-ghosted.tsx'
 
 export { FIREWALL_GREEN, FirewallGreen } from './firewall-green.tsx'
 
-export { FIREWALL_GHOSTED, FirewallGhosted } from './firewall-ghosted.tsx'
+export { FIREWALL_ORANGE, FirewallOrange } from './firewall-orange.tsx'
 
 export { FOLDER, Folder } from './folder.tsx'
 
 export { FOLDER_BLUE, FolderBlue } from './folder-blue.tsx'
 
-export { FOLDER_ORANGE, FolderOrange } from './folder-orange.tsx'
+export { FOLDER_GHOSTED, FolderGhosted } from './folder-ghosted.tsx'
 
 export { FOLDER_GREEN, FolderGreen } from './folder-green.tsx'
 
-export { FOLDER_GHOSTED, FolderGhosted } from './folder-ghosted.tsx'
-
-export { FOLDERS, Folders } from './folders.tsx'
+export { FOLDER_ORANGE, FolderOrange } from './folder-orange.tsx'
 
 export { FOLDER_OPEN, FolderOpen } from './folder-open.tsx'
 
 export { FOLDER_PUBLIC, FolderPublic } from './folder-public.tsx'
 
 export { FOLDER_SHARED, FolderShared } from './folder-shared.tsx'
+
+export { FOLDERS, Folders } from './folders.tsx'
 
 export { FORM, Form } from './form.tsx'
 
@@ -128,21 +128,21 @@ export { HOME, Home } from './home.tsx'
 
 export { HOME_BLUE, HomeBlue } from './home-blue.tsx'
 
-export { HOME_ORANGE, HomeOrange } from './home-orange.tsx'
+export { HOME_GHOSTED, HomeGhosted } from './home-ghosted.tsx'
 
 export { HOME_GREEN, HomeGreen } from './home-green.tsx'
 
-export { HOME_GHOSTED, HomeGhosted } from './home-ghosted.tsx'
+export { HOME_ORANGE, HomeOrange } from './home-orange.tsx'
 
 export { HOME_PAGE, HomePage } from './home-page.tsx'
 
 export { HOME_PAGE_BLUE, HomePageBlue } from './home-page-blue.tsx'
 
-export { HOME_PAGE_ORANGE, HomePageOrange } from './home-page-orange.tsx'
+export { HOME_PAGE_GHOSTED, HomePageGhosted } from './home-page-ghosted.tsx'
 
 export { HOME_PAGE_GREEN, HomePageGreen } from './home-page-green.tsx'
 
-export { HOME_PAGE_GHOSTED, HomePageGhosted } from './home-page-ghosted.tsx'
+export { HOME_PAGE_ORANGE, HomePageOrange } from './home-page-orange.tsx'
 
 export { HYBRID, Hybrid } from './hybrid.tsx'
 
@@ -189,16 +189,16 @@ export { NODE_GENERIC, NodeGeneric } from './node-generic.tsx'
 export { NODE_GENERIC_BLUE, NodeGenericBlue } from './node-generic-blue.tsx'
 
 export {
-  NODE_GENERIC_ORANGE,
-  NodeGenericOrange,
-} from './node-generic-orange.tsx'
+  NODE_GENERIC_GHOSTED,
+  NodeGenericGhosted,
+} from './node-generic-ghosted.tsx'
 
 export { NODE_GENERIC_GREEN, NodeGenericGreen } from './node-generic-green.tsx'
 
 export {
-  NODE_GENERIC_GHOSTED,
-  NodeGenericGhosted,
-} from './node-generic-ghosted.tsx'
+  NODE_GENERIC_ORANGE,
+  NodeGenericOrange,
+} from './node-generic-orange.tsx'
 
 export { OFFICE_INSTALLED, OfficeInstalled } from './office-installed.tsx'
 
@@ -268,8 +268,6 @@ export { VOICEMAIL_PREVIEW, VoicemailPreview } from './voicemail-preview.tsx'
 
 export { WALKTHROUGH, Walkthrough } from './walkthrough.tsx'
 
-export { WEBSITE, Website } from './website.tsx'
-
 export { WEB_CONFERENCING, WebConferencing } from './web-conferencing.tsx'
 
 export { WEB_PAGE, WebPage } from './web-page.tsx'
@@ -277,6 +275,8 @@ export { WEB_PAGE, WebPage } from './web-page.tsx'
 export { WEB_PART, WebPart } from './web-part.tsx'
 
 export { WEB_SERVICES, WebServices } from './web-services.tsx'
+
+export { WEBSITE, Website } from './website.tsx'
 
 export { WHATS_NEW, WhatsNew } from './whats-new.tsx'
 

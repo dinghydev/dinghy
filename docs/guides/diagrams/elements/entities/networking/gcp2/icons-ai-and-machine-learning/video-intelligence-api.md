@@ -1,0 +1,24 @@
+# Video
+Intelligence API
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;spacingTop=-6;fontSize=11;fontStyle=1;fontColor=#999999;shape=image;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjE5Ljk4OTk5OTc3MTExODE2NCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE5Ljk4OTk5OTc3MTExODE2NCAxNCI+JiN4YTsJPHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGw6IzY2OWRmNjt9JiN4YTsJLnN0MXtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CTwvc3R5bGU+JiN4YTsJPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwLjI3IDIuMzNoMi4wNXYxLjMzSDkuNEw3LjA3IDBIMHY0LjMzaDEuOTlMMy4yNSAyaDIuNTdsLjg2IDEuMzNINC4xMUwyLjg1IDUuNjZIMHYyLjU5aDIuODVsMS4yNiAyLjQxaDIuNTdMNS44MiAxMkgzLjI1TDEuOTkgOS42NkgwVjE0aDcuMDdsMi4zMy0zLjY3aDIuOTJ2MS4zM2gtMi4wNUw4LjggMTRoNS41MlY3LjY2SDcuOTFMNy4wOCA5SDUuMjRMNi41IDcgNS4yNCA1aDEuODRsLjggMS4zM2g2LjQ0VjBIOC44eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNS45OSAxMC4xMWw0IDIuOTVWMS4xbC00IDIuOTF6Ii8+JiN4YTs8L3N2Zz4=;strokeColor=none;',
+  _width: 42,
+  _height: 29,
+}
+```
+
+## Usage
+
+```
+import { VideoIntelligenceApi } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+
+<VideoIntelligenceApi/>
+```
+
+## Preview
+
+<img src="./video-intelligence-api.png" width="200"/>

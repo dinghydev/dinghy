@@ -1,0 +1,23 @@
+# Allocation derived properties (Comment) 2
+
+## Definition
+
+```
+{
+  _style: 'shape=rect;fontStyle=1;whiteSpace=wrap;align=center;',
+  _width: 1,
+  _height: 140,
+}
+```
+
+## Usage
+
+```
+import { AllocationDerivedPropertiesComment2 } from '@reactiac/standard-components-diagrams/sysmlAllocations'
+
+<AllocationDerivedPropertiesComment2/>
+```
+
+## Preview
+
+<img src="./allocation-derived-properties-comment-2.png" width="200"/>

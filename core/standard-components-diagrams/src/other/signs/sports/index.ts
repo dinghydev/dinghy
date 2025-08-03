@@ -50,13 +50,13 @@ export { EXERCISE, Exercise } from './exercise.tsx'
 
 export { FIREWOOD, Firewood } from './firewood.tsx'
 
+export { FISH_CLEANING, FishCleaning } from './fish-cleaning.tsx'
+
 export { Fishing1, FISHING_1 } from './fishing-1.tsx'
 
 export { Fishing2, FISHING_2 } from './fishing-2.tsx'
 
 export { FISHING_PIER, FishingPier } from './fishing-pier.tsx'
-
-export { FISH_CLEANING, FishCleaning } from './fish-cleaning.tsx'
 
 export { GOLF, Golf } from './golf.tsx'
 
@@ -137,11 +137,11 @@ export { SLEEPING_SHELTER, SleepingShelter } from './sleeping-shelter.tsx'
 
 export { SMALL_BOAT_LAUNCH, SmallBoatLaunch } from './small-boat-launch.tsx'
 
+export { SNOW_SHOEING, SnowShoeing } from './snow-shoeing.tsx'
+
 export { SNOWBOARDER, Snowboarder } from './snowboarder.tsx'
 
 export { SNOWMOBILE, Snowmobile } from './snowmobile.tsx'
-
-export { SNOW_SHOEING, SnowShoeing } from './snow-shoeing.tsx'
 
 export { SURFING, Surfing } from './surfing.tsx'
 

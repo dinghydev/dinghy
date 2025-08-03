@@ -1,0 +1,23 @@
+# Quicksight Paginated Reports
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.quicksight_paginated_reports;',
+  _width: 62,
+  _height: 78,
+}
+```
+
+## Usage
+
+```
+import { QuicksightPaginatedReports } from '@reactiac/standard-components-diagrams/awsAnalytics'
+
+<QuicksightPaginatedReports/>
+```
+
+## Preview
+
+<img src="./quicksight-paginated-reports.png" width="200"/>

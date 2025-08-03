@@ -1,0 +1,23 @@
+# SIEM
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;sketch=0;html=1;fillColor=#282828;strokeColor=none;verticalAlign=top;pointerEvents=1;align=center;shape=mxgraph.cisco_safe.security_icons.siem;',
+  _width: 50,
+  _height: 40.5,
+}
+```
+
+## Usage
+
+```
+import { Siem } from '@reactiac/standard-components-diagrams/ciscoSafeSecurityIcons'
+
+<Siem/>
+```
+
+## Preview
+
+<img src="./siem.png" width="200"/>

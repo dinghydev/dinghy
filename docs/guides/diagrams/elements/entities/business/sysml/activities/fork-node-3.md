@@ -1,0 +1,23 @@
+# Fork Node 3
+
+## Definition
+
+```
+{
+  _style: 'edgeStyle=elbowEdgeStyle;html=1;elbow=vertical;endArrow=open;rounded=0;strokeWidth=3;endSize=12;',
+  _width: 2,
+  _height: 80,
+}
+```
+
+## Usage
+
+```
+import { ForkNode3 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+
+<ForkNode3/>
+```
+
+## Preview
+
+<img src="./fork-node-3.png" width="200"/>

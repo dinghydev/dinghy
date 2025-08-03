@@ -1,29 +1,3 @@
-export { SUIT_MAN, SuitMan } from './suit-man.tsx'
-
-export { SUIT_MAN_BLACK, SuitManBlack } from './suit-man-black.tsx'
-
-export { SUIT_MAN_BLUE, SuitManBlue } from './suit-man-blue.tsx'
-
-export { SUIT_MAN_GREEN, SuitManGreen } from './suit-man-green.tsx'
-
-export {
-  SUIT_MAN_GREEN_BLACK,
-  SuitManGreenBlack,
-} from './suit-man-green-black.tsx'
-
-export { SUIT_WOMAN, SuitWoman } from './suit-woman.tsx'
-
-export { SUIT_WOMAN_BLACK, SuitWomanBlack } from './suit-woman-black.tsx'
-
-export { SUIT_WOMAN_BLUE, SuitWomanBlue } from './suit-woman-blue.tsx'
-
-export { SUIT_WOMAN_GREEN, SuitWomanGreen } from './suit-woman-green.tsx'
-
-export {
-  SUIT_WOMAN_GREEN_BLACK,
-  SuitWomanGreenBlack,
-} from './suit-woman-green-black.tsx'
-
 export {
   CONSTRUCTION_WORKER_MAN,
   ConstructionWorkerMan,
@@ -60,14 +34,6 @@ export { FARMER_WOMAN, FarmerWoman } from './farmer-woman.tsx'
 
 export { FARMER_WOMAN_BLACK, FarmerWomanBlack } from './farmer-woman-black.tsx'
 
-export { NURSE_MAN, NurseMan } from './nurse-man.tsx'
-
-export { NURSE_MAN_BLACK, NurseManBlack } from './nurse-man-black.tsx'
-
-export { NURSE_WOMAN, NurseWoman } from './nurse-woman.tsx'
-
-export { NURSE_WOMAN_BLACK, NurseWomanBlack } from './nurse-woman-black.tsx'
-
 export { MILITARY_OFFICER, MilitaryOfficer } from './military-officer.tsx'
 
 export {
@@ -84,6 +50,14 @@ export {
   MILITARY_OFFICER_WOMAN_BLACK,
   MilitaryOfficerWomanBlack,
 } from './military-officer-woman-black.tsx'
+
+export { NURSE_MAN, NurseMan } from './nurse-man.tsx'
+
+export { NURSE_MAN_BLACK, NurseManBlack } from './nurse-man-black.tsx'
+
+export { NURSE_WOMAN, NurseWoman } from './nurse-woman.tsx'
+
+export { NURSE_WOMAN_BLACK, NurseWomanBlack } from './nurse-woman-black.tsx'
 
 export { PILOT_MAN, PilotMan } from './pilot-man.tsx'
 
@@ -117,6 +91,32 @@ export {
   SECURITY_WOMAN_BLACK,
   SecurityWomanBlack,
 } from './security-woman-black.tsx'
+
+export { SUIT_MAN, SuitMan } from './suit-man.tsx'
+
+export { SUIT_MAN_BLACK, SuitManBlack } from './suit-man-black.tsx'
+
+export { SUIT_MAN_BLUE, SuitManBlue } from './suit-man-blue.tsx'
+
+export { SUIT_MAN_GREEN, SuitManGreen } from './suit-man-green.tsx'
+
+export {
+  SUIT_MAN_GREEN_BLACK,
+  SuitManGreenBlack,
+} from './suit-man-green-black.tsx'
+
+export { SUIT_WOMAN, SuitWoman } from './suit-woman.tsx'
+
+export { SUIT_WOMAN_BLACK, SuitWomanBlack } from './suit-woman-black.tsx'
+
+export { SUIT_WOMAN_BLUE, SuitWomanBlue } from './suit-woman-blue.tsx'
+
+export { SUIT_WOMAN_GREEN, SuitWomanGreen } from './suit-woman-green.tsx'
+
+export {
+  SUIT_WOMAN_GREEN_BLACK,
+  SuitWomanGreenBlack,
+} from './suit-woman-green-black.tsx'
 
 export { TECH_MAN, TechMan } from './tech-man.tsx'
 

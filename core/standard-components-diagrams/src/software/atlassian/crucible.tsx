@@ -2,7 +2,8 @@ import { Shape } from '@reactiac/base-components'
 import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const CRUCIBLE = {
-  _style: 'image;html=1;image=img/lib/atlassian/Crucible_Logo.svg;',
+  _style:
+    'image;html=1;image=img/lib/atlassian/Crucible_Logo.svg;strokeColor=none;',
   _width: 61,
   _height: 61,
 }

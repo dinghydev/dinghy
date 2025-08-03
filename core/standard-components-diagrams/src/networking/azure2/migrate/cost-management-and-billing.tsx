@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const COST_MANAGEMENT_AND_BILLING = {
   _style:
-    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/migrate/Cost_Management_and_Billing.svg;',
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/migrate/Cost_Management_and_Billing.svg;strokeColor=none;',
   _width: 68,
   _height: 68,
 }

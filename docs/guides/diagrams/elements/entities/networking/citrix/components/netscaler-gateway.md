@@ -1,0 +1,23 @@
+# NetScaler Gateway
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;fillColor=#000000;align=center;outlineConnect=0;pointerEvents=1;shape=mxgraph.citrix2.netscaler_gateway;',
+  _width: 50,
+  _height: 44.714999999999996,
+}
+```
+
+## Usage
+
+```
+import { NetscalerGateway } from '@reactiac/standard-components-diagrams/citrixComponents'
+
+<NetscalerGateway/>
+```
+
+## Preview
+
+<img src="./netscaler-gateway.png" width="200"/>

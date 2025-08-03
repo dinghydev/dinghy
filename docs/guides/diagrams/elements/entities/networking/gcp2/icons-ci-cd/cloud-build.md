@@ -1,0 +1,24 @@
+# Cloud
+Build
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;spacingTop=-6;fontSize=11;fontStyle=1;fontColor=#999999;shape=image;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjE3LjMyOTk5OTkyMzcwNjA1NSIgaGVpZ2h0PSIxOS42MTAwMDA2MTAzNTE1NjIiIHZpZXdCb3g9IjAgMCAxNy4zMjk5OTk5MjM3MDYwNTUgMTkuNjEwMDAwNjEwMzUxNTYyIj4mI3hhOwk8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNDI4NWY0O30mI3hhOwkuc3Qxe2ZpbGw6IzY2OWRmNjt9JiN4YTsJLnN0MntmaWxsOiNhZWNiZmE7fSYjeGE7CTwvc3R5bGU+JiN4YTsJPHBhdGggY2xhc3M9InN0MCIgZD0iTTEyLjE4IDcuOThMMTEgNy4yOWwtMy41MiA2LjEgMS4xOC42OCAzLjUyLTIuMDN6IiBmaWxsPSIjNDI4NWY0Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTYuMzIgMTIuNzJsMy41My02LjA5LTEuMTktLjY5LTMuNTIgMi4wNHY0LjA2eiIgZmlsbD0iIzY2OWRmNiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0zLjc1IDcuOThMMCA1LjgxdjkuMmw3Ljk3IDQuNnYtNC4zM2wtNC4yMi0yLjQ0em05LjEzLTEuMmwzLjc2LTIuMTdMOC42NiAwIC42OCA0LjYxbDMuNzYgMi4xNyA0LjIyLTIuNDR6TTkuMzUgMTkuNjFsNy45OC00LjZ2LTkuMmwtMy43NiAyLjE3djQuODZsLTQuMjIgMi40NHoiIGZpbGw9IiNhZWNiZmEiLz4mI3hhOzwvc3ZnPg==;strokeColor=none;',
+  _width: 36,
+  _height: 42,
+}
+```
+
+## Usage
+
+```
+import { CloudBuild } from '@reactiac/standard-components-diagrams/gcp2IconsCiCd'
+
+<CloudBuild/>
+```
+
+## Preview
+
+<img src="./cloud-build.png" width="200"/>

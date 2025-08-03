@@ -1,5 +1,3 @@
-export { VEEAM_LOGO, VeeamLogo } from './veeam-logo.tsx'
-
 export {
   BACKUP_FROM_STORAGE_SNAPSHOTS,
   BackupFromStorageSnapshots,
@@ -38,6 +36,11 @@ export { SUREBACKUP, Surebackup } from './surebackup.tsx'
 
 export { SUREREPLICA, Surereplica } from './surereplica.tsx'
 
+export {
+  UNIVERSAL_STORAGE_API,
+  UniversalStorageApi,
+} from './universal-storage-api.tsx'
+
 export { VBR_CONSOLE, VbrConsole } from './vbr-console.tsx'
 
 export {
@@ -50,11 +53,8 @@ export {
   VeeamCloudMobility,
 } from './veeam-cloud-mobility.tsx'
 
-export { VEEAMZIP, Veeamzip } from './veeamzip.tsx'
-
 export { VEEAM_EXPLORERS, VeeamExplorers } from './veeam-explorers.tsx'
 
-export {
-  UNIVERSAL_STORAGE_API,
-  UniversalStorageApi,
-} from './universal-storage-api.tsx'
+export { VEEAM_LOGO, VeeamLogo } from './veeam-logo.tsx'
+
+export { VEEAMZIP, Veeamzip } from './veeamzip.tsx'

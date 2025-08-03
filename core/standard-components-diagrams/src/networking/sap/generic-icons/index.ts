@@ -175,9 +175,9 @@ export { LOCKED_NON_SAP, LockedNonSap } from './locked-non-sap.tsx'
 
 export { LOCKED_SAP, LockedSap } from './locked-sap.tsx'
 
-export { MACHINE_SAP, MachineSap } from './machine-sap.tsx'
-
 export { MACHINE_NON_SAP, MachineNonSap } from './machine-non-sap.tsx'
+
+export { MACHINE_SAP, MachineSap } from './machine-sap.tsx'
 
 export { MACHINE_SAP_2, MachineSap2 } from './machine-sap-2.tsx'
 
@@ -238,18 +238,6 @@ export { RESTART_NON_SAP, RestartNonSap } from './restart-non-sap.tsx'
 
 export { RESTART_SAP, RestartSap } from './restart-sap.tsx'
 
-export {
-  SYNCHRONIZE_HIGHLIGHT,
-  SynchronizeHighlight,
-} from './synchronize-highlight.tsx'
-
-export {
-  SYNCHRONIZE_NON_SAP,
-  SynchronizeNonSap,
-} from './synchronize-non-sap.tsx'
-
-export { SYNCHRONIZE_SAP, SynchronizeSap } from './synchronize-sap.tsx'
-
 export { SETTINGS_HIGHLIGHT, SettingsHighlight } from './settings-highlight.tsx'
 
 export { SETTINGS_NON_SAP, SettingsNonSap } from './settings-non-sap.tsx'
@@ -261,6 +249,18 @@ export { SUCCESS_HIGHLIGHT, SuccessHighlight } from './success-highlight.tsx'
 export { SUCCESS_NON_SAP, SuccessNonSap } from './success-non-sap.tsx'
 
 export { SUCCESS_SAP, SuccessSap } from './success-sap.tsx'
+
+export {
+  SYNCHRONIZE_HIGHLIGHT,
+  SynchronizeHighlight,
+} from './synchronize-highlight.tsx'
+
+export {
+  SYNCHRONIZE_NON_SAP,
+  SynchronizeNonSap,
+} from './synchronize-non-sap.tsx'
+
+export { SYNCHRONIZE_SAP, SynchronizeSap } from './synchronize-sap.tsx'
 
 export {
   THIRD_PARTY_HIGHLIGHT,

@@ -1,9 +1,9 @@
+export { ACTIVATE, Activate } from './activate.tsx'
+
 export {
   CUSTOMER_ENABLEMENT,
   CustomerEnablement,
 } from './customer-enablement.tsx'
-
-export { ACTIVATE, Activate } from './activate.tsx'
 
 export { IQ, Iq } from './iq.tsx'
 

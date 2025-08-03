@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const SHOPPING_BASKET = {
   _style:
-    'image;html=1;image=img/lib/clip_art/finance/Shopping_Cart_128x128.png',
+    'image;html=1;image=img/lib/clip_art/finance/Shopping_Cart_128x128.pngstrokeColor=none;',
   _width: 80,
   _height: 80,
 }

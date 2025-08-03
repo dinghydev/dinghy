@@ -1,0 +1,23 @@
+# Bank
+
+## Definition
+
+```
+{
+  _style: 'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.bank;fillColor=#5294CF;gradientColor=none;',
+  _width: 79.5,
+  _height: 79.5,
+}
+```
+
+## Usage
+
+```
+import { Bank } from '@reactiac/standard-components-diagrams/aws17InternetOfThings'
+
+<Bank/>
+```
+
+## Preview
+
+<img src="./bank.png" width="200"/>

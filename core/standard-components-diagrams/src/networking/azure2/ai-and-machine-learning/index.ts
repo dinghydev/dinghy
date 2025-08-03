@@ -10,13 +10,20 @@ export { BONSAI, Bonsai } from './bonsai.tsx'
 
 export { BOT_SERVICES, BotServices } from './bot-services.tsx'
 
-export { COMPUTER_VISION, ComputerVision } from './computer-vision.tsx'
-
 export { COGNITIVE_SEARCH, CognitiveSearch } from './cognitive-search.tsx'
 
 export { COGNITIVE_SERVICES, CognitiveServices } from './cognitive-services.tsx'
 
+export {
+  COGNITIVE_SERVICES_DECISIONS,
+  CognitiveServicesDecisions,
+} from './cognitive-services-decisions.tsx'
+
+export { COMPUTER_VISION, ComputerVision } from './computer-vision.tsx'
+
 export { CONTENT_MODERATORS, ContentModerators } from './content-moderators.tsx'
+
+export { CONTENT_SAFETY, ContentSafety } from './content-safety.tsx'
 
 export { CUSTOM_VISION, CustomVision } from './custom-vision.tsx'
 
@@ -34,13 +41,6 @@ export { GENOMICS, Genomics } from './genomics.tsx'
 export { IMMERSIVE_READERS, ImmersiveReaders } from './immersive-readers.tsx'
 
 export { LANGUAGE, Language } from './language.tsx'
-
-export {
-  COGNITIVE_SERVICES_DECISIONS,
-  CognitiveServicesDecisions,
-} from './cognitive-services-decisions.tsx'
-
-export { CONTENT_SAFETY, ContentSafety } from './content-safety.tsx'
 
 export {
   LANGUAGE_UNDERSTANDING,

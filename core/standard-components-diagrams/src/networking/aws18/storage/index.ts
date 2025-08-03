@@ -1,5 +1,3 @@
-export { AMAZON_S3, AmazonS3 } from './amazon-s3.tsx'
-
 export {
   AMAZON_ELASTIC_BLOCK_STORE,
   AmazonElasticBlockStore,
@@ -11,6 +9,10 @@ export {
 } from './amazon-elastic-file-system.tsx'
 
 export { AMAZON_GLACIER, AmazonGlacier } from './amazon-glacier.tsx'
+
+export { AMAZON_S3, AmazonS3 } from './amazon-s3.tsx'
+
+export { ARCHIVE, Archive } from './archive.tsx'
 
 export { AWS_SNOWBALL, AwsSnowball } from './aws-snowball.tsx'
 
@@ -25,28 +27,26 @@ export {
 
 export { BUCKET, Bucket } from './bucket.tsx'
 
-export { SNAPSHOT, Snapshot } from './snapshot.tsx'
-
 export {
   BUCKET_WITH_OBJECTS,
   BucketWithObjects,
 } from './bucket-with-objects.tsx'
 
-export { VOLUME, Volume } from './volume.tsx'
-
-export { OBJECT, Object } from './object.tsx'
-
-export { ARCHIVE, Archive } from './archive.tsx'
-
-export { VAULT, Vault } from './vault.tsx'
+export { CACHED_VOLUME, CachedVolume } from './cached-volume.tsx'
 
 export { IMPORT_EXPORT, ImportExport } from './import-export.tsx'
 
-export { CACHED_VOLUME, CachedVolume } from './cached-volume.tsx'
-
 export { NON_CACHED_VOLUME, NonCachedVolume } from './non-cached-volume.tsx'
+
+export { OBJECT, Object } from './object.tsx'
+
+export { SNAPSHOT, Snapshot } from './snapshot.tsx'
+
+export { VAULT, Vault } from './vault.tsx'
 
 export {
   VIRTUAL_TAPE_LIBRARY,
   VirtualTapeLibrary,
 } from './virtual-tape-library.tsx'
+
+export { VOLUME, Volume } from './volume.tsx'

@@ -12,13 +12,13 @@ export { ANDROID, Android } from './android.tsx'
 
 export { APACHE, Apache } from './apache.tsx'
 
-export { APPLE, Apple } from './apple.tsx'
-
-export { APPLE_CLASSIC, AppleClassic } from './apple-classic.tsx'
-
 export { APP_STORE, AppStore } from './app-store.tsx'
 
 export { APP_STORE_IPHONE, AppStoreIphone } from './app-store-iphone.tsx'
+
+export { APPLE, Apple } from './apple.tsx'
+
+export { APPLE_CLASSIC, AppleClassic } from './apple-classic.tsx'
 
 export { ARDUINO, Arduino } from './arduino.tsx'
 
@@ -80,6 +80,10 @@ export { DESIGNFLOAT, Designfloat } from './designfloat.tsx'
 
 export { DEVIANTART, Deviantart } from './deviantart.tsx'
 
+export { DIAGRAMS_NET, DiagramsNet } from './diagrams-net.tsx'
+
+export { DIAGRAMS_NET_2, DiagramsNet2 } from './diagrams-net-2.tsx'
+
 export { DIGG, Digg } from './digg.tsx'
 
 export { DIIGO, Diigo } from './diigo.tsx'
@@ -87,10 +91,6 @@ export { DIIGO, Diigo } from './diigo.tsx'
 export { DOPPLR, Dopplr } from './dopplr.tsx'
 
 export { DRAW_IO, DrawIo } from './draw-io.tsx'
-
-export { DIAGRAMS_NET, DiagramsNet } from './diagrams-net.tsx'
-
-export { DIAGRAMS_NET_2, DiagramsNet2 } from './diagrams-net-2.tsx'
 
 export { DRIBBBLE, Dribbble } from './dribbble.tsx'
 
@@ -150,11 +150,11 @@ export { GOOGLE_DRIVE, GoogleDrive } from './google-drive.tsx'
 
 export { GOOGLE_HANGOUT, GoogleHangout } from './google-hangout.tsx'
 
+export { GOOGLE_PHOTOS, GooglePhotos } from './google-photos.tsx'
+
 export { GOOGLE_PLAY, GooglePlay } from './google-play.tsx'
 
 export { GOOGLE_PLAY_LIGHT, GooglePlayLight } from './google-play-light.tsx'
-
-export { GOOGLE_PHOTOS, GooglePhotos } from './google-photos.tsx'
 
 export { Google2, GOOGLE_2 } from './google-2.tsx'
 

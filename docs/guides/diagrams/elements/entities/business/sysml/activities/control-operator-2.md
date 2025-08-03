@@ -1,0 +1,23 @@
+# Control Operator 2
+
+## Definition
+
+```
+{
+  _style: 'html=1;shape=mxgraph.sysml.package;align=left;spacingLeft=5;verticalAlign=top;spacingTop=-3;labelX=135;html=1;overflow=fill;',
+  _width: 250,
+  _height: 120,
+}
+```
+
+## Usage
+
+```
+import { ControlOperator2 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+
+<ControlOperator2/>
+```
+
+## Preview
+
+<img src="./control-operator-2.png" width="200"/>

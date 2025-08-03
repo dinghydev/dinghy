@@ -1,0 +1,23 @@
+# Azure Media Services
+
+## Definition
+
+```
+{
+  _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Media_Services.svg;strokeColor=none;',
+  _width: 44,
+  _height: 50,
+}
+```
+
+## Usage
+
+```
+import { AzureMediaServices } from '@reactiac/standard-components-diagrams/caeWebService'
+
+<AzureMediaServices/>
+```
+
+## Preview
+
+<img src="./azure-media-services.png" width="200"/>

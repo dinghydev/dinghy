@@ -1,0 +1,23 @@
+# Web Service
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.web_service;',
+  _width: 63,
+  _height: 60,
+}
+```
+
+## Usage
+
+```
+import { WebService } from '@reactiac/standard-components-diagrams/citrixLegacy'
+
+<WebService/>
+```
+
+## Preview
+
+<img src="./web-service.png" width="200"/>

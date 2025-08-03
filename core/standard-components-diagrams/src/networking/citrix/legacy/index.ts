@@ -185,9 +185,9 @@ export { THIN_CLIENT, ThinClient } from './thin-client.tsx'
 
 export { TOWER_SERVER, TowerServer } from './tower-server.tsx'
 
-export { USERS, Users } from './users.tsx'
-
 export { USER_CONTROL, UserControl } from './user-control.tsx'
+
+export { USERS, Users } from './users.tsx'
 
 export { WEB_SERVER, WebServer } from './web-server.tsx'
 

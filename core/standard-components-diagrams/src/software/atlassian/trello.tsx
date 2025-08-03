@@ -2,7 +2,8 @@ import { Shape } from '@reactiac/base-components'
 import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const TRELLO = {
-  _style: 'image;html=1;image=img/lib/atlassian/Trello_Logo.svg;',
+  _style:
+    'image;html=1;image=img/lib/atlassian/Trello_Logo.svg;strokeColor=none;',
   _width: 70,
   _height: 70,
 }

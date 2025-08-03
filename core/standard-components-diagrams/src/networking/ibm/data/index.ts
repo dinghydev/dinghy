@@ -1,11 +1,11 @@
 export { CACHES, Caches } from './caches.tsx'
 
+export { CLOUD, Cloud } from './cloud.tsx'
+
 export {
   CONVERSATION_TRAINED_DEPLOYED,
   ConversationTrainedDeployed,
 } from './conversation-trained-deployed.tsx'
-
-export { CLOUD, Cloud } from './cloud.tsx'
 
 export { DATA_SERVICES, DataServices } from './data-services.tsx'
 

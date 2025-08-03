@@ -94,17 +94,17 @@ export {
   ConfidentialLedger,
 } from './confidential-ledger.tsx'
 
-export {
-  CONTAINER_APP_ENVIRONMENTS,
-  ContainerAppEnvironments,
-} from './container-app-environments.tsx'
-
 export { CONNECTED_CACHE, ConnectedCache } from './connected-cache.tsx'
 
 export {
   CONNECTED_VEHICLE_PLATFORM,
   ConnectedVehiclePlatform,
 } from './connected-vehicle-platform.tsx'
+
+export {
+  CONTAINER_APP_ENVIRONMENTS,
+  ContainerAppEnvironments,
+} from './container-app-environments.tsx'
 
 export { COST_EXPORT, CostExport } from './cost-export.tsx'
 
@@ -169,14 +169,14 @@ export {
 } from './defender-industrial-printer.tsx'
 
 export {
-  DEFENDER_INDUSTRIAL_SCALE_SYSTEM,
-  DefenderIndustrialScaleSystem,
-} from './defender-industrial-scale-system.tsx'
-
-export {
   DEFENDER_INDUSTRIAL_ROBOT,
   DefenderIndustrialRobot,
 } from './defender-industrial-robot.tsx'
+
+export {
+  DEFENDER_INDUSTRIAL_SCALE_SYSTEM,
+  DefenderIndustrialScaleSystem,
+} from './defender-industrial-scale-system.tsx'
 
 export { DEFENDER_MARQUEE, DefenderMarquee } from './defender-marquee.tsx'
 
@@ -219,12 +219,12 @@ export {
 
 export { DETONATION, Detonation } from './detonation.tsx'
 
+export { DEV_TUNNELS, DevTunnels } from './dev-tunnels.tsx'
+
 export {
   DEVICE_UPDATE_IOT_HUB,
   DeviceUpdateIotHub,
 } from './device-update-iot-hub.tsx'
-
-export { DEV_TUNNELS, DevTunnels } from './dev-tunnels.tsx'
 
 export { DISK_POOL, DiskPool } from './disk-pool.tsx'
 

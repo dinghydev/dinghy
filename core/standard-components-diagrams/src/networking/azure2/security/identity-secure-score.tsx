@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const IDENTITY_SECURE_SCORE = {
   _style:
-    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/security/Identity_Secure_Score.svg;',
+    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/security/Identity_Secure_Score.svg;strokeColor=none;',
   _width: 61.919999999999995,
   _height: 68,
 }

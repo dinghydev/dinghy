@@ -1,0 +1,23 @@
+# Private Link Services
+
+## Definition
+
+```
+{
+  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Private_Link_Hub.svg;strokeColor=none;',
+  _width: 58.8,
+  _height: 68,
+}
+```
+
+## Usage
+
+```
+import { PrivateLinkServices } from '@reactiac/standard-components-diagrams/azure2Analytics'
+
+<PrivateLinkServices/>
+```
+
+## Preview
+
+<img src="./private-link-services.png" width="200"/>

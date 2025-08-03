@@ -97,9 +97,9 @@ export {
   LicenseInstallation,
 } from './license-installation.tsx'
 
-export { MS_INTUNE, MsIntune } from './ms-intune.tsx'
-
 export { MOBILE_INVENTORY, MobileInventory } from './mobile-inventory.tsx'
+
+export { MS_INTUNE, MsIntune } from './ms-intune.tsx'
 
 export { NONCOMPLIANT_APPS, NoncompliantApps } from './noncompliant-apps.tsx'
 

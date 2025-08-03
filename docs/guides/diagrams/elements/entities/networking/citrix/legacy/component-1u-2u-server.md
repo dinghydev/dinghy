@@ -1,0 +1,23 @@
+# 1U 2U Server
+
+## Definition
+
+```
+{
+  _style: 'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.1u_2u_server;',
+  _width: 100,
+  _height: 39.1,
+}
+```
+
+## Usage
+
+```
+import { Component1u2uServer } from '@reactiac/standard-components-diagrams/citrixLegacy'
+
+<Component1u2uServer/>
+```
+
+## Preview
+
+<img src="./component-1u-2u-server.png" width="200"/>

@@ -1,0 +1,23 @@
+# Video Play
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.video_play;',
+  _width: 50,
+  _height: 40,
+}
+```
+
+## Usage
+
+```
+import { VideoPlay } from '@reactiac/standard-components-diagrams/officeConcepts'
+
+<VideoPlay/>
+```
+
+## Preview
+
+<img src="./video-play.png" width="200"/>

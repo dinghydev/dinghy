@@ -1,0 +1,23 @@
+# Virtual WAN Hub
+
+## Definition
+
+```
+{
+  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Virtual_WAN_Hub.svg;strokeColor=none;',
+  _width: 65,
+  _height: 64,
+}
+```
+
+## Usage
+
+```
+import { VirtualWanHub } from '@reactiac/standard-components-diagrams/azure2Networking'
+
+<VirtualWanHub/>
+```
+
+## Preview
+
+<img src="./virtual-wan-hub.png" width="200"/>

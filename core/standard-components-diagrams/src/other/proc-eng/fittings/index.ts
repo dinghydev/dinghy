@@ -24,14 +24,14 @@ export {
 } from './flame-arrestor-explosion-proof.tsx'
 
 export {
-  FLAME_ARRESTOR_FIRE_RESISTANT,
-  FlameArrestorFireResistant,
-} from './flame-arrestor-fire-resistant.tsx'
-
-export {
   FLAME_ARRESTOR_FIRE_RESISTANT_DETONATION_PROOF,
   FlameArrestorFireResistantDetonationProof,
 } from './flame-arrestor-fire-resistant-detonation-proof.tsx'
+
+export {
+  FLAME_ARRESTOR_FIRE_RESISTANT,
+  FlameArrestorFireResistant,
+} from './flame-arrestor-fire-resistant.tsx'
 
 export { FLANGED_CONNECTION, FlangedConnection } from './flanged-connection.tsx'
 

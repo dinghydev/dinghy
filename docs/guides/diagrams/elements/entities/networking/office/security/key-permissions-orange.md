@@ -1,0 +1,23 @@
+# Key, Permissions (orange)
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.security.key_permissions;fillColor=#DA4026;',
+  _width: 25,
+  _height: 53,
+}
+```
+
+## Usage
+
+```
+import { KeyPermissionsOrange } from '@reactiac/standard-components-diagrams/officeSecurity'
+
+<KeyPermissionsOrange/>
+```
+
+## Preview
+
+<img src="./key-permissions-orange.png" width="200"/>

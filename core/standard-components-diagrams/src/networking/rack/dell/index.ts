@@ -1,10 +1,10 @@
+export { POWER_STRIP, PowerStrip } from './power-strip.tsx'
+
 export { Poweredge1u, POWEREDGE_1U } from './poweredge-1u.tsx'
 
 export { Poweredge2u, POWEREDGE_2U } from './poweredge-2u.tsx'
 
 export { Poweredge4u, POWEREDGE_4U } from './poweredge-4u.tsx'
-
-export { POWER_STRIP, PowerStrip } from './power-strip.tsx'
 
 export { Poweredge630, POWEREDGE_630 } from './poweredge-630.tsx'
 

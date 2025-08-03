@@ -1,20 +1,18 @@
-export { MEDIA_SERVICES, MediaServices } from './media-services.tsx'
-
-export { ELASTIC_TRANSCODER, ElasticTranscoder } from './elastic-transcoder.tsx'
-
 export {
-  KINESIS_VIDEO_STREAMS,
-  KinesisVideoStreams,
-} from './kinesis-video-streams.tsx'
-
-export { NIMBLE_STUDIO, NimbleStudio } from './nimble-studio.tsx'
+  CLOUD_DIGITAL_INTERFACE,
+  CloudDigitalInterface,
+} from './cloud-digital-interface.tsx'
 
 export { DEADLINE_CLOUD, DeadlineCloud } from './deadline-cloud.tsx'
+
+export { ELASTIC_TRANSCODER, ElasticTranscoder } from './elastic-transcoder.tsx'
 
 export {
   ELEMENTAL_APPLIANCES_SOFTWARE,
   ElementalAppliancesSoftware,
 } from './elemental-appliances-software.tsx'
+
+export { ELEMENTAL_LINK, ElementalLink } from './elemental-link.tsx'
 
 export {
   ELEMENTAL_MEDIACONNECT,
@@ -46,6 +44,25 @@ export {
   ElementalMediatailor,
 } from './elemental-mediatailor.tsx'
 
+export {
+  INTERACTIVE_VIDEO_SERVICE,
+  InteractiveVideoService,
+} from './interactive-video-service.tsx'
+
+export {
+  KINESIS_VIDEO_STREAMS,
+  KinesisVideoStreams,
+} from './kinesis-video-streams.tsx'
+
+export { MEDIA_SERVICES, MediaServices } from './media-services.tsx'
+
+export {
+  MEDIACONNECT_GATEWAY,
+  MediaconnectGateway,
+} from './mediaconnect-gateway.tsx'
+
+export { NIMBLE_STUDIO, NimbleStudio } from './nimble-studio.tsx'
+
 export { THINKBOX_DEADLINE, ThinkboxDeadline } from './thinkbox-deadline.tsx'
 
 export { THINKBOX_DRAFT, ThinkboxDraft } from './thinkbox-draft.tsx'
@@ -59,20 +76,3 @@ export { THINKBOX_SEQUOIA, ThinkboxSequoia } from './thinkbox-sequoia.tsx'
 export { THINKBOX_STOKE, ThinkboxStoke } from './thinkbox-stoke.tsx'
 
 export { THINKBOX_XMESH, ThinkboxXmesh } from './thinkbox-xmesh.tsx'
-
-export {
-  INTERACTIVE_VIDEO_SERVICE,
-  InteractiveVideoService,
-} from './interactive-video-service.tsx'
-
-export { ELEMENTAL_LINK, ElementalLink } from './elemental-link.tsx'
-
-export {
-  CLOUD_DIGITAL_INTERFACE,
-  CloudDigitalInterface,
-} from './cloud-digital-interface.tsx'
-
-export {
-  MEDIACONNECT_GATEWAY,
-  MediaconnectGateway,
-} from './mediaconnect-gateway.tsx'

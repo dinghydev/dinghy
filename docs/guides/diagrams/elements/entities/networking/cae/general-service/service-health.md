@@ -1,0 +1,23 @@
+# Service Health
+
+## Definition
+
+```
+{
+  _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/ServiceHealth.svg;strokeColor=none;',
+  _width: 50,
+  _height: 44,
+}
+```
+
+## Usage
+
+```
+import { ServiceHealth } from '@reactiac/standard-components-diagrams/caeGeneralService'
+
+<ServiceHealth/>
+```
+
+## Preview
+
+<img src="./service-health.png" width="200"/>

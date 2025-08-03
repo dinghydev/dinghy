@@ -2,7 +2,8 @@ import { Shape } from '@reactiac/base-components'
 import type { DiagramNodeProps } from '@reactiac/base-components'
 
 export const BAMBOO = {
-  _style: 'image;image=img/lib/atlassian/Bamboo_Logo.svg;html=1;',
+  _style:
+    'image;image=img/lib/atlassian/Bamboo_Logo.svg;html=1;strokeColor=none;',
   _width: 64,
   _height: 74,
 }

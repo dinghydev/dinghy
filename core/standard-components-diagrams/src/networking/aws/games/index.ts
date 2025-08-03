@@ -1,10 +1,10 @@
 export { GAME_TECH, GameTech } from './game-tech.tsx'
 
+export { GAMEKIT, Gamekit } from './gamekit.tsx'
+
 export { GAMELIFT, Gamelift } from './gamelift.tsx'
 
 export { GAMESPARKS, Gamesparks } from './gamesparks.tsx'
-
-export { GAMEKIT, Gamekit } from './gamekit.tsx'
 
 export { LUMBERYARD, Lumberyard } from './lumberyard.tsx'
 

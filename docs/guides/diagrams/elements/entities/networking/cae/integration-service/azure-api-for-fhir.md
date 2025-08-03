@@ -1,0 +1,23 @@
+# Azure API for FHIR
+
+## Definition
+
+```
+{
+  _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_API_for_FHIR.svg;strokeColor=none;',
+  _width: 50,
+  _height: 50,
+}
+```
+
+## Usage
+
+```
+import { AzureApiForFhir } from '@reactiac/standard-components-diagrams/caeIntegrationService'
+
+<AzureApiForFhir/>
+```
+
+## Preview
+
+<img src="./azure-api-for-fhir.png" width="200"/>

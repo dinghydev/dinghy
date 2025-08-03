@@ -1,0 +1,23 @@
+# Anthos
+
+## Definition
+
+```
+{
+  _style: 'sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;spacingTop=-6;fontSize=11;fontStyle=1;fontColor=#999999;shape=image;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJzdmc1MzkzNyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMTUxLjQ4MDY3IDEzMS4zMDQ2NCIgaGVpZ2h0PSIxMzEuMzA0NjRtbSIgd2lkdGg9IjE1MS40ODA2N21tIj4mI3hhOyAgPHBhdGggZD0iTSA3Ni4wOTc2NzksMCA2LjE4NjcwMjMsMTIwLjYyOTMzIDYuMTgxNTM1LDEyMC42MzE5OCAwLDEzMS4zMDQ2NCBsIDExLjY4ODY5MiwtMC4wMzEgMC4wMDgzLC0wLjAwNCAxMzkuNzgzNzA4LC0wLjQyNjMzIC02LjEwMTk1LC0xMC41OTM2NyAtMC4wMDIsLTAuMDAxIHogTSA3Ni4wNjY2NzMsMjMuOTg0NTgyIDExMi44NTcxOSw4Ny44NDMyMTYgNzYuMDg5OTI3LDUwLjc0OTg3NCAzOC44NjI3NDMsODguMTc3NTYyIFogbSAwLjAwNzgsNDMuNzk2ODA5IEwgMTE0LjIwNDkxLDEwNi4yNDg4MSA3Ni4wNzgwNDIsODkuMTI0NzkyIDM3LjU4ODkyLDEwNi40NzQ2NCBaIG0gMC4wMTM0NCwzNC40OTk2OTkgMzcuMTc2NTQ3LDE2LjY3OTA5IC03NC43MzAzMjcsMC4yMjc4OSB6IiBzdHlsZT0iY29sb3I6IzAwMDAwMDtmaWxsOiMzYzg0Zjg7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlLXdpZHRoOjE7LWlua3NjYXBlLXN0cm9rZTpub25lIiBpZD0icGF0aDU0MDc4Ii8+JiN4YTs8L3N2Zz4=;strokeColor=none;',
+  _width: 42,
+  _height: 36,
+}
+```
+
+## Usage
+
+```
+import { Anthos } from '@reactiac/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
+
+<Anthos/>
+```
+
+## Preview
+
+<img src="./anthos.png" width="200"/>

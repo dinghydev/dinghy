@@ -1,6 +1,22 @@
+export { NET, Net } from './net.tsx'
+
 export { ANDROID, Android } from './android.tsx'
 
 export { CLI, Cli } from './cli.tsx'
+
+export { IOS, Ios } from './ios.tsx'
+
+export { JAVA, Java } from './java.tsx'
+
+export { JAVASCRIPT, Javascript } from './javascript.tsx'
+
+export { NODE_JS, NodeJs } from './node-js.tsx'
+
+export { PHP, Php } from './php.tsx'
+
+export { PYTHON_BOTO, PythonBoto } from './python-boto.tsx'
+
+export { RUBY, Ruby } from './ruby.tsx'
 
 export {
   TOOLKIT_FOR_ECLIPSE,
@@ -17,20 +33,4 @@ export {
   ToolkitForWindowsPowershell,
 } from './toolkit-for-windows-powershell.tsx'
 
-export { IOS, Ios } from './ios.tsx'
-
-export { RUBY, Ruby } from './ruby.tsx'
-
-export { PYTHON_BOTO, PythonBoto } from './python-boto.tsx'
-
-export { PHP, Php } from './php.tsx'
-
-export { NET, Net } from './net.tsx'
-
-export { JAVASCRIPT, Javascript } from './javascript.tsx'
-
-export { JAVA, Java } from './java.tsx'
-
 export { XAMARIN, Xamarin } from './xamarin.tsx'
-
-export { NODE_JS, NodeJs } from './node-js.tsx'

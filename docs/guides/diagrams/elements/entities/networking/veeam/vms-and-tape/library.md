@@ -1,0 +1,23 @@
+# Library
+
+## Definition
+
+```
+{
+  _style: 'shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.library;',
+  _width: 48,
+  _height: 36.8,
+}
+```
+
+## Usage
+
+```
+import { Library } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+
+<Library/>
+```
+
+## Preview
+
+<img src="./library.png" width="200"/>

@@ -2,9 +2,17 @@ export { AUTO_SCALING_GROUP, AutoScalingGroup } from './auto-scaling-group.tsx'
 
 export { AVAILABILITY_ZONE, AvailabilityZone } from './availability-zone.tsx'
 
-export { REGION, Region } from './region.tsx'
+export { AWS_CLOUD, AwsCloud } from './aws-cloud.tsx'
 
-export { SECURITY_GROUP, SecurityGroup } from './security-group.tsx'
+export {
+  CORPORATE_DATA_CENTER,
+  CorporateDataCenter,
+} from './corporate-data-center.tsx'
+
+export {
+  EC2_INSTANCE_CONTAINER,
+  Ec2InstanceContainer,
+} from './ec2-instance-container.tsx'
 
 export {
   ELASTIC_BEANSTALK_CONTAINER,
@@ -16,12 +24,9 @@ export {
   ElasticBeanstalkContainer2,
 } from './elastic-beanstalk-container-2.tsx'
 
-export {
-  EC2_INSTANCE_CONTAINER,
-  Ec2InstanceContainer,
-} from './ec2-instance-container.tsx'
+export { REGION, Region } from './region.tsx'
 
-export { VPC_SUBNET, VpcSubnet } from './vpc-subnet.tsx'
+export { SECURITY_GROUP, SecurityGroup } from './security-group.tsx'
 
 export { SERVER_CONTENTS, ServerContents } from './server-contents.tsx'
 
@@ -30,9 +35,4 @@ export {
   VirtualPrivateCloud,
 } from './virtual-private-cloud.tsx'
 
-export { AWS_CLOUD, AwsCloud } from './aws-cloud.tsx'
-
-export {
-  CORPORATE_DATA_CENTER,
-  CorporateDataCenter,
-} from './corporate-data-center.tsx'
+export { VPC_SUBNET, VpcSubnet } from './vpc-subnet.tsx'
