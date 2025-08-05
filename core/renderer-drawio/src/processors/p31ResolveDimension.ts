@@ -1,3 +1,4 @@
+import { deepResolve } from '@reactiac/base-components'
 import type { DimensionType, DrawioContext, DrawioNodeTree } from '../types.ts'
 
 const applySameDimension = (
@@ -6,6 +7,9 @@ const applySameDimension = (
   maxDimension: number,
 ) => {
   node._children.map((child) => {
+    if (child._props._diagram.flags.isFixedPosition) {
+      return
+    }
     const diff = maxDimension - child._props._diagram.state[dimension]
     if (diff > 0) {
       if (child._props._diagram.flags.isEntity) {
@@ -36,6 +40,7 @@ const applySameDimension = (
 const expandableChildren = (node: DrawioNodeTree, dimension: DimensionType) =>
   node._children.filter(
     (child: DrawioNodeTree) =>
+      !child._props._diagram.flags.isFixedPosition &&
       !child._props._diagram.flags.isEntity &&
       ((dimension === 'width' &&
         !child._props._width) ||
@@ -59,6 +64,9 @@ const expandDimension = (
       ? diff
       : (gChildren.length > 0 ? diff / gChildren.length : 0)
     node._children.map((child: DrawioNodeTree) => {
+      if (child._props._diagram.flags.isFixedPosition) {
+        return
+      }
       if (
         child._props._diagram.flags.isEntity
       ) {
@@ -97,47 +105,41 @@ const expandDimension = (
 }
 
 const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
-  ;(node._props as any)._diagram.state = {
+  node._props._diagram.state = {
     moveableRight: 0,
     moveableBottom: 0,
-  }
+  } as any
 
   let width = 0
   let height = 0
 
-  let childX = (node._props as any)._diagram.dimension.spaceX
-  let childY = (node._props as any)._diagram.dimension.spaceY
+  let childX = node._props._diagram.dimension.padding.left
+  let childY = node._props._diagram.dimension.padding.top
+
   for (const child of node._children) {
     resolveDimensions(child, childX, childY)
+    if (child._props._diagram.flags.isFixedPosition) {
+      continue
+    }
 
     if (node._props._diagram.flags.isDirectionVertical) {
-      childY = childY +
-        child._props._diagram.state.height +
-        node._props._diagram.dimension.spaceBetweenY
-      height = height +
-        child._props._diagram.state.height +
-        (height > 0
-          ? node._props._diagram.dimension.spaceBetweenY
-          : node._props._diagram.dimension.spaceY)
-      width = Math.max(
-        width,
-        child._props._diagram.state.width +
-          node._props._diagram.dimension.spaceX,
-      )
+      if (child._props._diagram.state.height > 0) {
+        childY = childY + child._props._diagram.state.height
+        height = height + child._props._diagram.state.height
+        width = Math.max(
+          width,
+          child._props._diagram.state.width,
+        )
+      }
     } else {
-      childX = childX +
-        child._props._diagram.state.width +
-        node._props._diagram.dimension.spaceBetweenX
-      width = width +
-        child._props._diagram.state.width +
-        (width > 0
-          ? node._props._diagram.dimension.spaceBetweenX
-          : node._props._diagram.dimension.spaceX)
-      height = Math.max(
-        height,
-        child._props._diagram.state.height +
-          node._props._diagram.dimension.spaceX,
-      )
+      if (child._props._diagram.state.width > 0) {
+        childX = childX + child._props._diagram.state.width
+        width = width + child._props._diagram.state.width
+        height = Math.max(
+          height,
+          child._props._diagram.state.height,
+        )
+      }
     }
   }
   if (node._children.length > 0) {
@@ -146,7 +148,10 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
       : 'height'
     const maxDimension = Math.max(
       ...node._children.map(
-        (child: any) => child._props._diagram.state[dimension],
+        (child: any) =>
+          child._props._diagram.flags.isFixedPosition
+            ? 0
+            : child._props._diagram.state[dimension],
       ),
     )
     applySameDimension(node, dimension, maxDimension)
@@ -156,35 +161,50 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
     width = node._props._diagram.dimension.boxWidth
     height = node._props._diagram.dimension.boxHeight
   } else {
-    width = width + node._props._diagram.dimension.spaceX
-    height = height + node._props._diagram.dimension.spaceY
+    width = width +
+      node._props._diagram.dimension.padding.left +
+      node._props._diagram.dimension.padding.right
+    height = height +
+      node._props._diagram.dimension.padding.top +
+      node._props._diagram.dimension.padding.bottom
   }
 
-  if (node._props._diagram.geometry.width) {
+  if (node._props._diagram.geometry.width === undefined) {
+    node._props._diagram.geometry.width = width
+    node._props._diagram.state.moveableRight = 0
+  } else {
+    deepResolve(node, (node._props as any)._diagram.geometry, 'width')
     const diff = (node._props as any)._diagram.geometry.width - width
     node._props._diagram.geometry.width = width
     expandDimension(node, 'width', diff)
-  } else {
-    node._props._diagram.geometry.width = width
   }
 
-  if (node._props._diagram.geometry.height) {
+  if (node._props._diagram.geometry.height === undefined) {
+    node._props._diagram.geometry.height = height
+    node._props._diagram.state.moveableBottom = 0
+  } else {
+    deepResolve(node, (node._props as any)._diagram.geometry, 'height')
     const diff = (node._props as any)._diagram.geometry.height - height
     node._props._diagram.geometry.height = height
     expandDimension(node, 'height', diff)
-  } else {
-    node._props._diagram.geometry.height = height
   }
 
-  node._props._diagram.geometry.x = x
-  node._props._diagram.geometry.y = y
-  ;(node._props as any)._diagram.state.width =
-    node._props._diagram.geometry.width
-  ;(node._props as any)._diagram.state.height =
-    node._props._diagram.geometry.height
+  node._props._diagram.state.width = node._props._diagram.geometry.width +
+    node._props._diagram.dimension.margin.left +
+    node._props._diagram.dimension.margin.right
+  node._props._diagram.state.height = node._props._diagram.geometry.height +
+    node._props._diagram.dimension.margin.top +
+    node._props._diagram.dimension.margin.bottom
   if (node._props._diagram.isTextOutside) {
     node._props._diagram.state.height = node._props._diagram.state.height +
       node._props._diagram.dimension.textHeight
+  }
+
+  if (!node._props._diagram.flags.isFixedPosition) {
+    node._props._diagram.geometry.x = x +
+      node._props._diagram.dimension.margin.left
+    node._props._diagram.geometry.y = y +
+      node._props._diagram.dimension.margin.top
   }
 }
 

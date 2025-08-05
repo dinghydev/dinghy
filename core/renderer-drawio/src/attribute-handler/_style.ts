@@ -31,5 +31,8 @@ export const _style = (style: string | Props) => {
     group: {
       style: parseStyle(style.group as Props),
     },
+    dependency: {
+      style: parseStyle(style.dependency as Props),
+    },
   })
 }

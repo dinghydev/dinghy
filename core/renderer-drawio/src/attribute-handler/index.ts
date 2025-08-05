@@ -10,6 +10,8 @@ import { _icon } from './_icon.ts'
 import { _display } from './_display.ts'
 import { _width } from './_width.ts'
 import { _height } from './_height.ts'
+import { _x } from './_x.ts'
+import { _y } from './_y.ts'
 import { _arrow } from './_arrow.ts'
 import { _distribution } from './_distribution.ts'
 import { eventHandler } from './eventHandler.ts'
@@ -39,6 +41,8 @@ const attributesHandlers: Props = {
   _verticalAlign: simpleStyleAttribute('verticalAlign'),
   _beforeGenerate: eventHandler,
   _wayPoint,
+  _x,
+  _y,
 }
 
 export function handleAttributes(

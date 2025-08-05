@@ -124,6 +124,11 @@ const moveDown = ({ single, list }: DependsPair) => {
 }
 
 const alignDependency = (dependsPair: DependsPair) => {
+  if (
+    dependsPair.all.some((node) => node._props._diagram.flags.isFixedPosition)
+  ) {
+    return false
+  }
   const { isArrowVertical } = dependsPair.relationships[0]._props._diagram.flags
   if (isArrowVertical) {
     return moveRight(dependsPair)

@@ -1,6 +1,6 @@
 import type { DependsPair, DrawioContext, DrawioNodeTree } from '../types.ts'
 import { DependencyFieldsSchema, DependsSchema } from '../types.ts'
-import { absLeft, absTop } from '../utils.ts'
+import { absLeft, absTop, findCommonParent } from '../utils.ts'
 import Debug from 'debug'
 const debug = Debug('p61CollectDependencies')
 
@@ -77,30 +77,14 @@ function collectPairs(context: DrawioContext, node: DrawioNodeTree) {
   })
   node._children.map((c: DrawioNodeTree) => collectPairs(context, c))
 }
-
-const collectParents = (
-  { _parent }: DrawioNodeTree,
-  result: DrawioNodeTree[] = [],
-) => {
-  if (_parent) {
-    result.push(_parent)
-    collectParents(_parent, result)
-  }
-  return result
-}
-
-const findCommonParent = (node1: DrawioNodeTree, node2: DrawioNodeTree) => {
-  const ancestor1 = collectParents(node1)
-  const ancestor2 = collectParents(node2)
-  const commonAncestor = ancestor1.filter((value) => ancestor2.includes(value))
-  return commonAncestor[0]
-}
-
 const populateAbs = ({ dependencies }: DrawioContext) => {
   const toBeRemoved: any[] = []
   dependencies.map((d) => {
     DependencyFieldsSchema.options.map((key: string) => {
       const selected = (d._props as any)[key]
+      if (!selected) {
+        return
+      }
       if (!selected._props._diagram.state) {
         toBeRemoved.push(d)
         return
@@ -109,18 +93,22 @@ const populateAbs = ({ dependencies }: DrawioContext) => {
         selected._props._diagram.state.absLeft = absLeft(selected)
         selected._props._diagram.state.absRight =
           selected._props._diagram.state.absLeft +
-          selected._props._diagram.state.width
+          selected._props._diagram.state.width -
+          selected._props._diagram.dimension.margin.left -
+          selected._props._diagram.dimension.margin.right
         selected._props._diagram.state.absCenterX =
-          selected._props._diagram.state.absLeft +
-          selected._props._diagram.state.width / 2
+          (selected._props._diagram.state.absLeft +
+            selected._props._diagram.state.absRight) / 2
 
         selected._props._diagram.state.absTop = absTop(selected)
         selected._props._diagram.state.absBottom =
           selected._props._diagram.state.absTop +
-          selected._props._diagram.state.height
+          selected._props._diagram.state.height -
+          selected._props._diagram.dimension.margin.top -
+          selected._props._diagram.dimension.margin.bottom
         selected._props._diagram.state.absCenterY =
-          selected._props._diagram.state.absTop +
-          selected._props._diagram.state.height / 2
+          (selected._props._diagram.state.absTop +
+            selected._props._diagram.state.absBottom) / 2
       }
     })
   })
@@ -135,6 +123,9 @@ const populateAbs = ({ dependencies }: DrawioContext) => {
 
 const populateDirection = (context: DrawioContext) => {
   context.dependencies.map((d) => {
+    if (!(d._props as any)._source) {
+      return
+    }
     const commonParent = findCommonParent(
       (d._props as any)._source,
       (d._props as any)._target,

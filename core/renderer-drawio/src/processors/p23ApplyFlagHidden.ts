@@ -96,9 +96,6 @@ export const p23ApplyFlagHidden = ({
   dependencies,
   renderOptions,
 }: DrawioContext) => {
-  if (rootNode._children.length === 0) {
-    throw new Error('No visibile element found!')
-  }
   if ((renderOptions as any).view?.name !== 'all') {
     processHiddenFlag(rootNode, dependencies)
   }

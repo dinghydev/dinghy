@@ -6,7 +6,7 @@ import { encode } from 'html-entities'
 const renderValue = (value: unknown): unknown => {
   if (typeof value === 'object') {
     const obj = value as Record<string, unknown>
-    return Object.keys(obj)
+    const stringValue = Object.keys(obj)
       .map((key) => {
         const val = obj[key]
         if (typeof val === 'undefined') {
@@ -18,7 +18,11 @@ const renderValue = (value: unknown): unknown => {
         }
       })
       .filter(Boolean)
-      .join(';') + ';'
+      .join(';')
+    if (stringValue.length > 0) {
+      return stringValue + ';'
+    }
+    return undefined
   }
   return value
 }
@@ -30,11 +34,15 @@ const renderProps = (
   const propsStr = Object.keys(props)
     .map((key) => {
       let value = renderValue(props[key])
+      if (value === undefined) {
+        return null
+      }
       if (key === 'value' && typeof value === 'string') {
         value = encode(value)
       }
       return `${key}="${value}"`
     })
+    .filter(Boolean)
     .join(` \n${padding}  `)
   return propsStr.length > 0 ? `\n${padding}  ${propsStr}\n${padding}  ` : ''
 }

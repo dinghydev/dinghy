@@ -70,6 +70,9 @@ function resolveNode(
 }
 
 function resolveDependency(node: NodeTree) {
+  if (!(node._props as any)._source && !(node._props as any)._target) {
+    return
+  }
   const _source = resolveNode(node, (node._props as any)._source)
   const _target = resolveNode(node, (node._props as any)._target)
 

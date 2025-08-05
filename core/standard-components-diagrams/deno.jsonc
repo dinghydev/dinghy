@@ -17,7 +17,6 @@
     "./clipartPeople": "./src/standard/clipart/people/index.ts",
     "./clipartTelecommunication": "./src/standard/clipart/telecommunication/index.ts",
     "./clipartVarious": "./src/standard/clipart/various/index.ts",
-
     // Category: Software
     "./activeDirectory": "./src/software/active-directory/index.ts",
     "./android": "./src/software/android/index.ts",
@@ -27,7 +26,7 @@
     "./dataFlowDiagram": "./src/software/data-flow-diagram/index.ts",
     "./entityRelation": "./src/software/entity-relation/index.ts",
     "./sitemap": "./src/software/sitemap/index.ts",
-    // Sub Category: Ios
+    // Sub Category: iOS
     "./ios6": "./src/software/ios/6/index.ts",
     "./ios7Icons": "./src/software/ios/icons/index.ts",
     "./ios7Ui": "./src/software/ios/ui/index.ts",
@@ -48,7 +47,6 @@
     // Sub Category: Uml
     "./uml": "./src/software/uml/uml/index.ts",
     "./uml25": "./src/software/uml/uml25/index.ts",
-
     // Category: Networking
     "./alibabaCloud": "./src/networking/alibaba-cloud/index.ts",
     "./azure": "./src/networking/azure/index.ts",
@@ -371,23 +369,18 @@
     "./sapAi": "./src/networking/sap/ai/index.ts",
     "./sapAnnotationsAndInterfaces": "./src/networking/sap/annotations-and-interfaces/index.ts",
     "./sapAppDevAutomation": "./src/networking/sap/app-dev-automation/index.ts",
-    "./sapAreaShapes": "./src/networking/sap/area-shapes/index.ts",
     "./sapBrandNames": "./src/networking/sap/brand-names/index.ts",
     "./sapBtpSaas": "./src/networking/sap/btp-saas/index.ts",
-    "./sapBuildWorkzone": "./src/networking/sap/build-workzone/index.ts",
     "./sapComponents": "./src/networking/sap/components/index.ts",
     "./sapConnectors": "./src/networking/sap/connectors/index.ts",
     "./sapDataAnalytics": "./src/networking/sap/data-analytics/index.ts",
     "./sapDefaultConnectors": "./src/networking/sap/default-connectors/index.ts",
-    "./sapDefaultShapes": "./src/networking/sap/default-shapes/index.ts",
     "./sapEssentials": "./src/networking/sap/essentials/index.ts",
     "./sapFoundational": "./src/networking/sap/foundational/index.ts",
     "./sapGenericIcons": "./src/networking/sap/generic-icons/index.ts",
     "./sapIntegrationSuite": "./src/networking/sap/integration-suite/index.ts",
     "./sapNumbers": "./src/networking/sap/numbers/index.ts",
     "./sapOther": "./src/networking/sap/other/index.ts",
-    "./sapSemanticAccent": "./src/networking/sap/semantic-accent/index.ts",
-    "./sapTextElements": "./src/networking/sap/text-elements/index.ts",
     // Sub Category: Veeam
     "./veeam3d": "./src/networking/veeam/3d/index.ts",
     "./veeamVmsAndTape": "./src/networking/veeam/vms-and-tape/index.ts",
@@ -401,7 +394,6 @@
     "./veeam2Software": "./src/networking/veeam2/software/index.ts",
     "./veeam2States": "./src/networking/veeam2/states/index.ts",
     "./veeam2Storage": "./src/networking/veeam2/storage/index.ts",
-
     // Category: Business
     "./archimate2": "./src/business/archimate2/index.ts",
     "./valueStreamMapping": "./src/business/value-stream-mapping/index.ts",
@@ -414,7 +406,7 @@
     "./archimate3Relationships": "./src/business/archimate3/relationships/index.ts",
     "./archimate3Strategy": "./src/business/archimate3/strategy/index.ts",
     "./archimate3Technology": "./src/business/archimate3/technology/index.ts",
-    // Sub Category: Bpmn2
+    // Sub Category: BPMN 2.0
     "./bpmn2Choreographies": "./src/business/bpmn2/choreographies/index.ts",
     "./bpmn2Events": "./src/business/bpmn2/events/index.ts",
     "./bpmn2Gateways": "./src/business/bpmn2/gateways/index.ts",
@@ -433,7 +425,6 @@
     "./sysmlStateMachines": "./src/business/sysml/state-machines/index.ts",
     "./sysmlStereotypes": "./src/business/sysml/stereotypes/index.ts",
     "./sysmlUsecases": "./src/business/sysml/usecases/index.ts",
-
     // Category: Other
     "./cabinets": "./src/other/cabinets/index.ts",
     "./floorPlans": "./src/other/floor-plans/index.ts",
@@ -525,7 +516,7 @@
     // Sub Category: Web
     "./webIcons": "./src/other/web/icons/index.ts",
     "./webLogos": "./src/other/web/logos/index.ts",
-
+    "./sequenceDiagram": "./src/composites/sequence-diagram/index.ts",
     ".": "./src/index.ts"
   }
 }

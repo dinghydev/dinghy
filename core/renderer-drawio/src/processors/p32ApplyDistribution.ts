@@ -6,6 +6,9 @@ const horizontalSpread = ({
 }: DrawioNodeTree) => {
   if (_diagram.flags.isDirectionVertical) {
     _children.map((child: DrawioNodeTree) => {
+      if (child._props._diagram.flags.isFixedPosition) {
+        return
+      }
       const { moveableRight } = child._props._diagram.state
       if (moveableRight > 0) {
         const space = moveableRight / 2
@@ -17,6 +20,9 @@ const horizontalSpread = ({
     const { moveableRight } = _children[0]._props._diagram.state
     const space = moveableRight / _children.length / 2
     _children.map((child: DrawioNodeTree, i: number) => {
+      if (child._props._diagram.flags.isFixedPosition) {
+        return
+      }
       ;(child._props as any)._diagram.geometry.x += space + space * i * 2
       ;(child._props as any)._diagram.state.moveableRight = 0
     })
@@ -31,11 +37,17 @@ const verticalSpread = ({
     const { moveableBottom } = _children[0]._props._diagram.state
     const space = moveableBottom / _children.length / 2
     _children.map((child: DrawioNodeTree, i: number) => {
+      if (child._props._diagram.flags.isFixedPosition) {
+        return
+      }
       ;(child._props as any)._diagram.geometry.y += space + space * i * 2
       ;(child._props as any)._diagram.state.moveableBottom = 0
     })
   } else {
     _children.map((child: DrawioNodeTree) => {
+      if (child._props._diagram.flags.isFixedPosition) {
+        return
+      }
       const { moveableBottom } = child._props._diagram.state
       if (moveableBottom > 0) {
         const space = moveableBottom / 2

@@ -20,6 +20,8 @@ next-env.d.ts
 .DS_Store
 tmp*
 *.local
+*.drawio.bkp
+*.drawio.dtmp
 
 # IDE - VSCode
 **/.devcontainer.json

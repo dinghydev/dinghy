@@ -20,13 +20,29 @@ export type DimensionDefaultProps = {
   boxWidth: number
   boxHeight: number
   textHeight: number
-  spaceX: number
-  spaceY: number
-  spaceBetweenX: number
-  spaceBetweenY: number
+  padding: {
+    top: number
+    bottom: number
+    left: number
+    right: number
+  }
+  margin: {
+    top: number
+    bottom: number
+    left: number
+    right: number
+  }
 }
 
 export type Point = {
+  x: number
+  y: number
+  as?: string
+}
+
+export type GeometryProps = {
+  width: number
+  height: number
   x: number
   y: number
 }
@@ -36,7 +52,7 @@ export type DrawioProps = {
   entity: Props
   group: Props
   dependency: Props
-  geometry: Props
+  geometry: GeometryProps
   points: Point[]
   dimension: DimensionDefaultProps
 
@@ -51,12 +67,15 @@ export type DrawioProps = {
     isArrowVertical: boolean
     isFixedWidth: boolean
     isFixedHeight: boolean
+    isFixedPosition: boolean
   }
   state: {
     width: number
     height: number
     moveableRight: number
     moveableBottom: number
+    absLeft: number
+    absTop: number
   }
 } & Props
 

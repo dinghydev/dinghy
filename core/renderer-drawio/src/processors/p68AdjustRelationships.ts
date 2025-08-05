@@ -1,4 +1,5 @@
 import type { DependsPair, DrawioContext, DrawioNodeTree } from '../types.ts'
+import { absLeft, absTop, findCommonParent } from '../utils.ts'
 
 const addRelationshipPoint = (
   relationship: DrawioNodeTree,
@@ -7,15 +8,17 @@ const addRelationshipPoint = (
   x2: number,
   y2: number,
 ) => {
-  relationship._props._diagram.points ??= []
+  const parentX = absLeft(relationship._parent)
+  const parentY = absTop(relationship._parent)
+  relationship._props._diagram.points = []
   relationship._props._diagram.points.push(
     {
-      x: x1,
-      y: y1,
+      x: x1 - parentX,
+      y: y1 - parentY,
     },
     {
-      x: x2,
-      y: y2,
+      x: x2 - parentX,
+      y: y2 - parentY,
     },
   )
   ;(relationship._props._diagram.dependency.style as any).edgeStyle =
@@ -116,6 +119,23 @@ const handleHorizontal = (
         distanceX / 2 -
         sequencePadding
     }
+    if (relationship._props._diagram.flags.isFixedPosition) {
+      const commonParent = findCommonParent(
+        (relationship._props as any)._source,
+        (relationship._props as any)._target,
+      )
+
+      if (relationship._props._y) {
+        y1 = absTop(commonParent) +
+          (relationship._props._y as number)
+        y2 = y1
+      }
+
+      if (relationship._props._x) {
+        x1 = absLeft(commonParent) +
+          (relationship._props._x as number)
+      }
+    }
 
     addRelationshipPoint(relationship, x1, y1, x1, y2)
   })
@@ -193,17 +213,38 @@ const handleVertical = (
         distanceY / 2 -
         sequencePadding
     }
+    if (relationship._props._diagram.flags.isFixedPosition) {
+      const commonParent = findCommonParent(
+        (relationship._props as any)._source,
+        (relationship._props as any)._target,
+      )
+
+      if (relationship._props._y) {
+        y1 = absTop(commonParent) +
+          (relationship._props._y as number)
+      }
+
+      if (relationship._props._x) {
+        x1 = absLeft(commonParent) +
+          (relationship._props._x as number)
+        x2 = x1
+      }
+    }
     addRelationshipPoint(relationship, x1, y1, x2, y1)
   })
 }
 
 function alignRelationship(dependsPair: DependsPair) {
   const { arrowDirection } = dependsPair.relationships[0]._props._diagram.flags
-  const { edgeStyle } = dependsPair.relationships[0]._props._diagram.dependency
+  const dependencyStyle = dependsPair.relationships[0]._props._diagram
+    .dependency
     .style as any
-  if (edgeStyle) {
+  if (
+    dependencyStyle.elbow || dependsPair.relationships[0]._props._diagram.points
+  ) {
     return
   }
+
   const isSingleSource =
     dependsPair.single === (dependsPair.relationships[0]._props as any)._source
   switch (arrowDirection) {

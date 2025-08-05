@@ -1,0 +1,72 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.4 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.4">
+  <diagram name="-" id="MBLwC2cTPHLxPywBNDQM">
+    <mxGraphModel dx="794" dy="598" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1" pageHeight="1" math="0" shadow="0">
+      <root>
+        <mxCell id="page" />
+        <mxCell id="root" parent="page" />
+        <mxCell id="shape_" value=" " style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" parent="root" vertex="1">
+          <mxGeometry width="360" height="610" as="geometry" />
+        </mxCell>
+        <mxCell id="sequence_diagram_sequencediagram" value="Sequence Diagram" style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" parent="shape_" vertex="1">
+          <mxGeometry x="30" y="30" width="300" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="columns" value="Columns" style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" parent="sequence_diagram_sequencediagram" vertex="1">
+          <mxGeometry x="15" y="15" width="90" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="participant" value="Participant" style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" parent="columns" vertex="1">
+          <mxGeometry width="90" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="user" value="User" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" parent="participant" vertex="1">
+          <mxGeometry x="15" y="15" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="shape_2" value=" " style="line;strokeWidth=1;direction=south;html=1;dashed=1;" parent="participant" vertex="1">
+          <mxGeometry x="15" y="105" width="60" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="activation_a1" value="A1" style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" parent="columns" vertex="1">
+          <mxGeometry x="40" y="150" width="10" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="activation_a2" value="A2" style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" parent="columns" vertex="1">
+          <mxGeometry x="40" y="300" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="columns_t2" value="T2" style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" parent="sequence_diagram_sequencediagram" vertex="1">
+          <mxGeometry x="105" y="15" width="90" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="participant_2" value="Participant" style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" parent="columns_t2" vertex="1">
+          <mxGeometry width="90" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="shape" value="Shape" style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" parent="participant_2" vertex="1">
+          <mxGeometry x="15" y="15" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="shape_3" value=" " style="line;strokeWidth=1;direction=south;html=1;dashed=1;" parent="participant_2" vertex="1">
+          <mxGeometry x="15" y="75" width="60" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="activation_a3" value="A3" style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" parent="columns_t2" vertex="1">
+          <mxGeometry x="40" y="180" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="columns_t3" value="T3" style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" parent="sequence_diagram_sequencediagram" vertex="1">
+          <mxGeometry x="195" y="15" width="90" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="participant_3" value="Participant" style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;noLabel=1;opacity=0;" parent="columns_t3" vertex="1">
+          <mxGeometry width="90" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="shape_servers" value="Servers" style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" parent="participant_3" vertex="1">
+          <mxGeometry x="15" y="15" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="shape_4" value=" " style="line;strokeWidth=1;direction=south;html=1;dashed=1;" parent="participant_3" vertex="1">
+          <mxGeometry x="15" y="75" width="60" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="activation_a4" value="A4" style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" parent="columns_t3" vertex="1">
+          <mxGeometry x="40" y="150" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="message_m1" value="M1" style="edgeStyle=orthogonalEdgeStyle;" parent="root" source="activation_a1" target="activation_a3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="135" y="240" />
+              <mxPoint x="135" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

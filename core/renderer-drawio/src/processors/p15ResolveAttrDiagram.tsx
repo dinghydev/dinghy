@@ -20,12 +20,21 @@ const defaultDiagramOptions: base.Props = {
     style: {},
   },
   entity: {
-    style: {},
+    style: {
+      rounded: 1,
+      whiteSpace: 'wrap',
+      verticalAlign: 'middle',
+      align: 'center',
+    },
   },
   group: {
     style: {
       verticalAlign: 'top',
       aspect: 'fixed',
+      align: 'center',
+      spacingLeft: 5,
+      spacingRight: 5,
+      spacingBottom: 5,
     },
   },
   geometry: {
@@ -35,26 +44,31 @@ const defaultDiagramOptions: base.Props = {
     boxWidth: 60,
     boxHeight: 60,
     textHeight: 10,
-    spaceX: 30,
-    spaceY: 30,
-    spaceBetweenX: 30,
-    spaceBetweenY: 30,
+    padding: {
+      top: 15,
+      bottom: 15,
+      left: 15,
+      right: 15,
+    },
+    margin: {
+      top: 15,
+      bottom: 15,
+      left: 15,
+      right: 15,
+    },
   },
 }
 
 const defaultDependencyProps: base.Props = {
   dependency: {
     id: (node: base.NodeTree) => node._props._id,
-    source: (node: DrawioNodeTree) => (node._props! as any)._source._props._id,
-    target: (node: DrawioNodeTree) => (node._props! as any)._target._props._id,
+    source: (node: DrawioNodeTree) =>
+      (node._props! as any)._source?._props?._id,
+    target: (node: DrawioNodeTree) =>
+      (node._props! as any)._target?._props?._id,
     parent: 'root',
     edge: 1,
-    style: {
-      rounded: 1,
-      orthogonalLoop: 1,
-      jettySize: 'auto',
-      html: 1,
-    },
+    style: {},
   },
   geometry: {
     relative: 1,

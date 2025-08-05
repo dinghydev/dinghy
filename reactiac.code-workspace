@@ -16,6 +16,9 @@
             "path": "examples"
         },
         {
+            "path": "docs"
+        },
+	{
             "path": "docker"
         },
         {

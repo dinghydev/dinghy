@@ -130,6 +130,10 @@ export const DiagramNodeSchema = z.object({
         ResolvableStringSchema.optional(),
         z.record(z.string(), z.any()),
       ]),
+      dependency: z.union([
+        ResolvableStringSchema.optional(),
+        z.record(z.string(), z.any()),
+      ]),
     }),
   ]),
   _shape: z.union([
@@ -157,6 +161,8 @@ export const DiagramNodeSchema = z.object({
   _border: ResolvableNumberSchema.optional(),
   _width: ResolvableNumberSchema.optional(),
   _height: ResolvableNumberSchema.optional(),
+  _x: ResolvableNumberSchema.optional(),
+  _y: ResolvableNumberSchema.optional(),
   _dashed: ResolvableBooleanSchema.optional(),
   _display: z.union([DisplayStringSchema, resolvable(z.string())]).optional(),
   _arrow: z.union([ArrowStringSchema, resolvable(z.string())]).optional(),

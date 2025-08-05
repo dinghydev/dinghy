@@ -18,8 +18,18 @@ const DISPLAYS = {
       boxWidth: 0,
       boxHeight: 0,
       textHeight: 0,
-      spaceX: 0,
-      spaceY: 0,
+      padding: {
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      },
+      margin: {
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      },
     },
   },
   inactive: {
