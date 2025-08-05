@@ -8,8 +8,10 @@ import {
 } from './projectVersions.ts'
 const debug = Debug('dockerConfig')
 
-export const configEngineRepoDefault =
+export const configEngineRepoPublicEcr =
   'public.ecr.aws/f2v6q7q7/reactiac/reactiac'
+
+export const configEngineRepoDefault = 'reactiac/reactiac'
 
 export const configGetEngineRepo = () => {
   return configGet(['reactiac', 'engine', 'repo']) || configEngineRepoDefault

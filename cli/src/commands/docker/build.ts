@@ -14,7 +14,10 @@ import { baseVersion, commitVersion } from '../../utils/commitVersion.ts'
 import { walk } from '@std/fs/walk'
 import ejs from 'ejs'
 import { createHash } from 'node:crypto'
-import { configGetEngineRepo } from '../../utils/dockerConfig.ts'
+import {
+  configEngineRepoPublicEcr,
+  configGetEngineRepo,
+} from '../../utils/dockerConfig.ts'
 import { isCi } from '../../utils/index.ts'
 import { projectRoot } from '../../utils/projectRoot.ts'
 const debug = Debug('init')
@@ -108,15 +111,15 @@ async function dockerPush(args: CommandArgs, tag: string) {
       tag,
     ])
     if (tag.includes('reactiac/reactiac')) {
-      const dockerHubTag = `reactiac/reactiac:${tag.split(':')[1]}`
+      const publicEcrTag = `${configEngineRepoPublicEcr}:${tag.split(':')[1]}`
       await dockerCommand([
         'tag',
         tag,
-        dockerHubTag,
+        publicEcrTag,
       ])
       await dockerCommand([
         'push',
-        dockerHubTag,
+        publicEcrTag,
       ])
     }
   } else {
