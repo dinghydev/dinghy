@@ -1,4 +1,5 @@
-FROM <%= DOCKER_IMAGE_BASE_TAG %>
+ARG BUILD_ARCH=arm64
+FROM <%= DOCKER_IMAGE_BASE_TAG %>-linux-$BUILD_ARCH
 
 # # https://developer.hashicorp.com/terraform/install
 RUN echo 'Install terraform' \

@@ -50,7 +50,7 @@
       "name": "diagram",
       "args": [
         "diagram",
-        "--version",
+        // "--version",
         // "latest",
         // "./sits.tsx",
         "--debug"
@@ -62,7 +62,11 @@
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/reactiac-architecutre"
         // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
-        "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/code-gen"
+        // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/elements"
+        "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/data"
+        // "APP_HOME": "${workspaceFolder}/../examples/diagram/ecs"
         // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
@@ -76,10 +80,9 @@
       "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
       "runtimeArgs": [
         "run",
-        "--inspect-wait",
-        "--allow-all",
+        "--inspect-wait"
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {

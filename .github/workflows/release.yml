@@ -79,12 +79,8 @@ jobs:
           docker run --privileged --rm tonistiigi/binfmt --install linux/arm64
           echo "::endgroup::"
 
-          echo "::group::Build arm64 image"
-          deno task docker-build-arm64
-          echo "::endgroup::"
-
-          echo "::group::Build amd64 image"
-          deno task docker-build-amd64
+          echo "::group::Build docker images"
+          deno task docker-build
           echo "::endgroup::"
           
           echo "::group::Publish cli"

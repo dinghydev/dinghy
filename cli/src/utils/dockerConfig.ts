@@ -48,23 +48,20 @@ export const configGetEngineVersion = () => {
 export const configGetEngineImage = () => {
   let image = configGet(['reactiac', 'engine', 'image'])
   if (!image) {
-    const arch = Deno.build.arch === 'aarch64' ? '-linux-arm64' : ''
-    image = `${configGetEngineRepo()}:${configGetEngineVersion()}${arch}`
+    image = `${configGetEngineRepo()}:${configGetEngineVersion()}`
   }
   debug('resolved engine image %s', image)
   return image
 }
 
 export const configGetTfImage = () => {
-  const arch = Deno.build.arch === 'aarch64' ? '-linux-arm64' : ''
-  const image = `${configGetEngineRepo()}:${projectVersionTf()}${arch}`
+  const image = `${configGetEngineRepo()}:${projectVersionTf()}`
   debug('resolved tf image %s', image)
   return image
 }
 
 export const configGetDrawioImage = () => {
-  const arch = Deno.build.arch === 'aarch64' ? '-linux-arm64' : ''
-  const image = `${configGetEngineRepo()}:${projectVersionDrawio()}${arch}`
+  const image = `${configGetEngineRepo()}:${projectVersionDrawio()}`
   debug('resolved drawio image %s', image)
   return image
 }

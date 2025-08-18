@@ -10,7 +10,7 @@
       "program": "src/index.ts",
       "env": {
         // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        "REACTIAC_ENGINE_VERSION": "latest",
+        // "REACTIAC_ENGINE_VERSION": "latest",
         "AWS_PROFILE": "default",
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
@@ -22,6 +22,32 @@
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+        "--allow-all",
+      ],
+      "attachSimplePort": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "docker build",
+      "args": [
+        "docker",
+        "build",
+        "--source",
+        "docker/images",
+        "--debug",
+      ],
+      "program": "src/index.ts",
+      "env": {
+        // "DEBUG_DEPTH": "10",
+        // "CI": "true",
+        "APP_HOME": "../",
       },
       "type": "node",
       "request": "launch",

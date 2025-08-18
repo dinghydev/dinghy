@@ -113,7 +113,6 @@ const run = async (context: CommandContext, args: CommandArgs) => {
 const commands: Commands = {
   render,
   diagram,
-  // docker,
   tf,
   info,
   devcontainer,

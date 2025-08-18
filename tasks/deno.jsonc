@@ -36,14 +36,8 @@
     "docker-build-arm64": {
       "command": "deno run -A ../cli/src/index.ts docker build --arch arm64 --app-home ../"
     },
-    "docker-build-amd64": {
-      "command": "deno run -A ../cli/src/index.ts docker build --arch amd64 --app-home ../"
-    },
     "docker-build": {
-      "dependencies": [
-        "docker-build-arm64",
-        "docker-build-amd64"
-      ]
+      "command": "deno run -A ../cli/src/index.ts docker build --app-home ../"
     },
     "install-locally": "deno run -A ./src/install-locally.ts",
     "check-projects": "deno run -A ./src/check-projects.ts"

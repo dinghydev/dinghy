@@ -20,17 +20,28 @@ import {
 } from '../../utils/dockerConfig.ts'
 import { isCi } from '../../utils/index.ts'
 import { projectRoot } from '../../utils/projectRoot.ts'
+import { readFileSync } from 'node:fs'
+import { ostring } from 'zod'
 const debug = Debug('init')
 
 const options: CommandOptions = {
-  boolean: ['push'],
-  string: ['source', 'arch', 'default-arch'],
+  boolean: ['push', 'multi-arch'],
+  collect: ['arch', 'repo'],
+  string: ['source'],
   default: {
     source: 'docker/images',
-    'default-arch': 'amd64',
+    arch: ['arm64', 'amd64'],
+    repo: ['reactiac/reactiac', 'public.ecr.aws/f2v6q7q7/reactiac/reactiac'],
+    'multi-arch': true,
   },
   description: {},
   cmdDescription: 'Build docker images',
+}
+
+type DockerImage = {
+  name: string
+  folder: string
+  tag: string
 }
 
 async function init(args: CommandArgs) {
@@ -52,8 +63,8 @@ async function init(args: CommandArgs) {
     },
     {},
   )
-  args.buildContext.TARGETARCH = args.arch ||
-    (Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64')
+  // args.buildContext.TARGETARCH = args.arch ||
+  //   (Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64')
   args.buildContext.VERSION_RELEASE = await commitVersion(hostAppHome)
   args.buildContext.VERSION_BASE = baseVersion(hostAppHome)
   args.buildContext.DOCKER_REPO = configGetEngineRepo()
@@ -64,8 +75,8 @@ async function init(args: CommandArgs) {
       (f) => f.name,
     ).toArray().sort().map((folder) => {
       const name = folder.substring(folder.indexOf('-') + 1)
-      return { name, folder }
-    })
+      return { name, folder: `${args.sourceFolder}/${folder}` }
+    }) as DockerImage[]
   args.imageTags = []
   args.versions = {}
 }
@@ -92,7 +103,7 @@ function isTagExists(tag: string) {
 }
 
 function dockerCommand(args: string[]) {
-  console.log(`Executing: docker ${args.join(' ')}`)
+  console.log(`Executing: cd ${hostAppHome}; docker ${args.join(' ')}`)
   execaSync({
     stderr: 'inherit',
     stdout: 'inherit',
@@ -100,9 +111,13 @@ function dockerCommand(args: string[]) {
   })`docker ${args}`
 }
 
+function dockerPushEnabled(args: CommandArgs) {
+  return args.push || isCi()
+}
+
 async function dockerPush(args: CommandArgs, tag: string) {
   args.imageTags.push(tag)
-  if (args.push || isCi()) {
+  if (dockerPushEnabled(args)) {
     if (tag.includes('-dirty')) {
       throw new Error(`Cannot push dirty image: ${tag}`)
     }
@@ -110,16 +125,16 @@ async function dockerPush(args: CommandArgs, tag: string) {
       'push',
       tag,
     ])
-    if (tag.includes('reactiac/reactiac')) {
-      const publicEcrTag = `${configEngineRepoPublicEcr}:${tag.split(':')[1]}`
+    for (let i = 1; i < args.repo.length; i++) {
+      const repoTag = `${args.repo[i]}:${tag.split(':')[1]}`
       await dockerCommand([
         'tag',
         tag,
-        publicEcrTag,
+        repoTag,
       ])
       await dockerCommand([
         'push',
-        publicEcrTag,
+        repoTag,
       ])
     }
   } else {
@@ -127,11 +142,10 @@ async function dockerPush(args: CommandArgs, tag: string) {
   }
 }
 
-async function buildImage(image: any, args: CommandArgs) {
-  const imageFolder = `${args.sourceFolder}/${image.folder}`
+async function populateImageTag(image: DockerImage, args: CommandArgs) {
   const files: string[] = []
 
-  for await (const dirEntry of walk(imageFolder)) {
+  for await (const dirEntry of walk(image.folder)) {
     if (dirEntry.isFile) {
       debug('discovered build file %s %s', image.name, dirEntry.path)
       files.push(dirEntry.path)
@@ -156,8 +170,11 @@ async function buildImage(image: any, args: CommandArgs) {
   }
 
   const imageHash = () => {
-    let content = args.buildContext.VERSION_BASE
+    let content = args.buildContext.VERSION_BASE || ''
     for (const file of files.sort()) {
+      if (files.includes(`${file}.ejs`)) {
+        continue
+      }
       const fileContent = Deno.readTextFileSync(file).trim()
       content += fileContent
       if (file.endsWith('Dockerfile.dockerignore')) {
@@ -177,9 +194,9 @@ async function buildImage(image: any, args: CommandArgs) {
   }
 
   const imageKey = image.name.toUpperCase().split('-').join('_')
-  const imageArch = args.buildContext.TARGETARCH === args['default-arch']
-    ? ''
-    : `-linux-${args.buildContext.TARGETARCH}`
+  // const imageArch = args.buildContext.TARGETARCH === args['default-arch']
+  //   ? ''
+  //   : `-linux-${args.buildContext.TARGETARCH}`
   let imageVersion
   const isReleaseImage = image.name === 'release'
   if (isReleaseImage) {
@@ -187,49 +204,119 @@ async function buildImage(image: any, args: CommandArgs) {
   } else {
     imageVersion = `${image.name}-${imageHash()}`
   }
-  const tag = `${args.buildContext.DOCKER_REPO}:${imageVersion}${imageArch}`
-  args.buildContext[`DOCKER_IMAGE_${imageKey}_TAG`] = tag
+  image.tag = `${args.repo[0]}:${imageVersion}`
+
+  args.buildContext[`DOCKER_IMAGE_${imageKey}_TAG`] = image.tag
   args.buildContext[`DOCKER_IMAGE_${imageKey}_VERSION`] = imageVersion
   args.versions[image.name] = imageVersion
   await Deno.writeTextFile(
     `${hostAppHome}/.versions.json`,
     JSON.stringify(args.versions, null, 2),
   )
-  if (isTagExists(tag)) {
-    console.log(`Tag ${tag} already exists, skipping build`)
-    args.imageTags.push(tag)
+  debug('Docker image tag %s generated', image.tag)
+}
+
+async function buildImage(image: DockerImage, args: CommandArgs) {
+  await populateImageTag(image, args)
+
+  if (isTagExists(image.tag)) {
+    console.log(`Tag ${image.tag} already exists, skipping build`)
+    args.imageTags.push(image.tag)
     return
   }
   console.log(
-    `Tag ${tag} does not exist, building...`,
     new Date().toISOString(),
+    `Image ${image.tag} does not exist, building...`,
   )
-  await dockerCommand([
-    'buildx',
-    'build',
-    '--platform',
-    `linux/${args.buildContext.TARGETARCH}`,
-    '-t',
-    tag,
-    '-f',
-    `${imageFolder}/Dockerfile`,
-    '.',
-  ])
-  console.log(`Tag ${tag} built at`, new Date().toISOString())
 
-  const baseVersionTag = `${args.buildContext.DOCKER_REPO}:${
-    isReleaseImage ? '' : `${image.name}-`
-  }${args.buildContext.VERSION_BASE}${imageArch}`
-  await dockerCommand(['tag', tag, baseVersionTag])
-  await dockerPush(args, baseVersionTag)
+  const isReleaseImage = image.name === 'release'
+  const releaseTags = [args.buildContext.VERSION_BASE, 'latest']
+  if (args['multi-arch']) {
+    for (const arch of args.arch) {
+      await buildImageWithArch(image, args, arch)
+    }
+    if (dockerPushEnabled(args)) {
+      await createManifest(image, args, image.tag.split(':')[1])
+      if (isReleaseImage) {
+        for (const tag of releaseTags) {
+          await createManifest(image, args, tag)
+        }
+      }
+    } else {
+      await dockerCommand([
+        'tag',
+        `${image.tag}-linux-${
+          Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
+        }`,
+        image.tag,
+      ])
+    }
+  } else {
+    await buildImageWithArch(image, args)
+    if (isReleaseImage && dockerPushEnabled(args)) {
+      for (const tag of releaseTags) {
+        for (const repo of args.repo) {
+          const targetTag = `${repo}:${tag}`
+          await dockerCommand(['tag', image.tag, targetTag])
+          await dockerPush(args, targetTag)
+        }
+      }
+    }
+  }
+}
 
-  const latestVersionTag = `${args.buildContext.DOCKER_REPO}:${
-    isReleaseImage ? 'latest' : image.name
-  }${imageArch}`
-  await dockerCommand(['tag', tag, latestVersionTag])
-  await dockerPush(args, latestVersionTag)
+async function buildImageWithArch(
+  image: DockerImage,
+  args: CommandArgs,
+  arch?: string,
+) {
+  const tag = arch ? `${image.tag}-linux-${arch}` : image.tag
+  const buildArgs = ['buildx', 'build']
+  if (arch) {
+    buildArgs.push('--platform', `linux/${arch}`)
+    if (
+      readFileSync(`${image.folder}/Dockerfile`, 'utf-8').includes(
+        'ARG BUILD_ARCH',
+      )
+    ) {
+      buildArgs.push('--build-arg', `BUILD_ARCH=${arch}`)
+    }
+  }
+  buildArgs.push('-t', tag, '-f', `${image.folder}/Dockerfile`, '.')
+  await dockerCommand(buildArgs)
+  console.log(`Tag ${image.tag} built at`, new Date().toISOString())
+
+  // const baseVersionTag = `${args.buildContext.DOCKER_REPO}:${
+  //   isReleaseImage ? '' : `${image.name}-`
+  // }${args.buildContext.VERSION_BASE}${imageArch}`
+  // await dockerCommand(['tag', tag, baseVersionTag])
+  // await dockerPush(args, baseVersionTag)
+
+  // const latestVersionTag = `${args.buildContext.DOCKER_REPO}:${
+  //   isReleaseImage ? 'latest' : image.name
+  // }${imageArch}`
+  // await dockerCommand(['tag', tag, latestVersionTag])
+  // await dockerPush(args, latestVersionTag)
 
   await dockerPush(args, tag)
+}
+
+async function createManifest(
+  image: DockerImage,
+  args: CommandArgs,
+  tag: string,
+) {
+  for (const repo of args.repo) {
+    const targetTag = `${repo}:${tag}`
+    const sourceTag = `${repo}:${image.tag.split(':')[1]}`
+    await dockerCommand([
+      'manifest',
+      'create',
+      targetTag,
+      ...args.arch.map((arch) => `${sourceTag}-linux-${arch}`),
+    ])
+    await dockerCommand(['manifest', 'push', targetTag])
+  }
 }
 
 async function run(_context: CommandContext, args: CommandArgs) {

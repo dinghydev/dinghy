@@ -1,6 +1,8 @@
 # based on:
 # https://github.com/rlespinasse/docker-drawio-desktop-headless/blob/c0f0ced4426b20d4b21411b556d9d4598826f3d6/Dockerfile
-FROM <%= DOCKER_IMAGE_BASE_TAG %>
+ARG BUILD_ARCH=arm64
+FROM <%= DOCKER_IMAGE_BASE_TAG %>-linux-$BUILD_ARCH
+ARG BUILD_ARCH
 
 ENTRYPOINT [ "/opt/drawio-desktop/entrypoint.sh" ]
 CMD [ "--help" ]
@@ -42,9 +44,9 @@ RUN echo 'Drawio' \
    && cd /opt/drawio-desktop \
    && apt-get update \
    # Drawio Desktop
-   && wget -q https://github.com/jgraph/drawio-desktop/releases/download/v<%= VERSION_DRAWIO %>/drawio-<%= TARGETARCH %>-<%= VERSION_DRAWIO %>.deb \
-   && apt-get install -y /opt/drawio-desktop/drawio-<%= TARGETARCH %>-<%= VERSION_DRAWIO %>.deb \
-   && rm -rf /opt/drawio-desktop/drawio-<%= TARGETARCH %>-<%= VERSION_DRAWIO %>.deb \
+   && wget -q https://github.com/jgraph/drawio-desktop/releases/download/v<%= VERSION_DRAWIO %>/drawio-$BUILD_ARCH-<%= VERSION_DRAWIO %>.deb \
+   && apt-get install -y /opt/drawio-desktop/drawio-$BUILD_ARCH-<%= VERSION_DRAWIO %>.deb \
+   && rm -rf /opt/drawio-desktop/drawio-$BUILD_ARCH-<%= VERSION_DRAWIO %>.deb \
    # Cleanup layer
    && apt-get remove -y wget \
    && apt-get clean \
