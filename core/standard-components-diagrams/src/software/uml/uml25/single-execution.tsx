@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SINGLE_EXECUTION = {
-  _style:
-    'html=1;align=right;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=50;dashed=0;spacingTop=10;spacingRight=30;whiteSpace=wrap;',
+  _style: {
+    entity:
+      'html=1;align=right;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=50;dashed=0;spacingTop=10;spacingRight=30;whiteSpace=wrap;',
+  },
   _width: 300,
   _height: 160,
 }

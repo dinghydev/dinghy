@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KAIZEN_LIGHTENING_BURST = {
-  _style:
-    'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.kaizen_lightening_burst;',
+  _style: {
+    entity:
+      'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.kaizen_lightening_burst;',
+  },
   _width: 0,
   _height: 40,
 }

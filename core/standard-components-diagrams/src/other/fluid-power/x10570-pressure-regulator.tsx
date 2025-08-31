@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10570_PRESSURE_REGULATOR = {
-  _style:
-    'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10570;points=[[0.335,0,0],[0.335,1,0],[1,1,0]]',
+  _style: {
+    entity:
+      'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10570;points=[[0.335,0,0],[0.335,1,0],[1,1,0]]',
+  },
   _width: 83.52,
   _height: 75.44,
 }

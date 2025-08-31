@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NUMBERED_LIST_9 = {
-  _style:
-    'shape=ellipse;perimeter=ellipsePerimeter;fontSize=22;fontStyle=1;shadow=0;strokeColor=#ffffff;fillColor=#12AAB5;strokeWidth=4;fontColor=#ffffff;align=center;whiteSpace=wrap;html=1;',
+  _style: {
+    entity:
+      'shape=ellipse;perimeter=ellipsePerimeter;fontSize=22;fontStyle=1;shadow=0;strokeColor=#ffffff;fillColor=#12AAB5;strokeWidth=4;fontColor=#ffffff;align=center;whiteSpace=wrap;html=1;',
+  },
   _width: 9,
   _height: 320,
 }

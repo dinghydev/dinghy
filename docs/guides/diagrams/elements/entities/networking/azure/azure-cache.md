@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_cache;',
+  _style: { 
+    entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_cache;',
+  },
   _width: 45,
   _height: 50,
 }

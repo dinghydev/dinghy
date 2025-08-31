@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25',
+  _style: { 
+    entity: 'shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25',
+  },
   _width: 100,
   _height: 50,
 }

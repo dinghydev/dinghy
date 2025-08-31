@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERNAL_BLOCK_DIAGRAM = {
-  _style:
-    'html=1;shape=mxgraph.sysml.package;labelX=100;align=left;spacingLeft=10;html=1;overflow=fill;whiteSpace=wrap;recursiveResize=0;',
+  _style: {
+    entity:
+      'html=1;shape=mxgraph.sysml.package;labelX=100;align=left;spacingLeft=10;html=1;overflow=fill;whiteSpace=wrap;recursiveResize=0;',
+  },
   _width: 0,
   _height: 100,
 }

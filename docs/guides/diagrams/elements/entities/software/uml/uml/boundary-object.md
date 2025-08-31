@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=umlBoundary;whiteSpace=wrap;html=1;',
+  _style: { 
+    entity: 'shape=umlBoundary;whiteSpace=wrap;html=1;',
+  },
   _width: 100,
   _height: 80,
 }

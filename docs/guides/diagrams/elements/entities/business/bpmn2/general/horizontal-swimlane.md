@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'swimlane;startSize=20;horizontal=0;html=1;whiteSpace=wrap;',
+  _style: { 
+    entity: 'swimlane;startSize=20;horizontal=0;html=1;whiteSpace=wrap;',
+  },
   _width: 320,
   _height: 120,
 }

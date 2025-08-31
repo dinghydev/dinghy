@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLOW_DIRECTION = {
-  _style: 'shape=triangle;fillColor=strokeColor;',
+  _style: {
+    entity: 'shape=triangle;fillColor=strokeColor;',
+  },
   _width: 10,
   _height: 10,
 }

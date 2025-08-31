@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOUD_CALLOUT = {
-  _style: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.loud_callout',
+  _style: {
+    entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.loud_callout',
+  },
   _width: 100,
   _height: 60,
 }

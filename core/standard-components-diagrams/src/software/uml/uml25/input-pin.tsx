@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INPUT_PIN = {
-  _style: 'shape=mxgraph.uml25.inputPin;html=1;points=[[0,0.5],[1,0.5]];',
+  _style: {
+    entity: 'shape=mxgraph.uml25.inputPin;html=1;points=[[0,0.5],[1,0.5]];',
+  },
   _width: 30,
   _height: 30,
 }

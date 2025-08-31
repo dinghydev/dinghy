@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHALLOW_HISTORY = {
-  _style: 'ellipse;html=1;',
+  _style: {
+    entity: 'ellipse;html=1;',
+  },
   _width: 30,
   _height: 30,
 }

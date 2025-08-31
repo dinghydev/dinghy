@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;shape=mxgraph.infographic.pyramidStep;fillColor=#23445D;strokeColor=none;shadow=0;',
+  _style: { 
+    entity: 'html=1;shape=mxgraph.infographic.pyramidStep;fillColor=#23445D;strokeColor=none;shadow=0;',
+  },
   _width: 6,
   _height: 95,
 }

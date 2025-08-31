@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.energy;',
+  _style: { 
+    entity: 'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.energy;',
+  },
   _width: 45,
   _height: 60,
 }

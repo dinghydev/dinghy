@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=tapeData;whiteSpace=wrap;html=1;perimeter=ellipsePerimeter;',
+  _style: { 
+    entity: 'shape=tapeData;whiteSpace=wrap;html=1;perimeter=ellipsePerimeter;',
+  },
   _width: 60,
   _height: 60,
 }

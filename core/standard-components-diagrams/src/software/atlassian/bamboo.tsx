@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BAMBOO = {
-  _style:
-    'image;html=1;image=img/lib/atlassian/Bamboo_Logo.svg;strokeColor=none;',
+  _style: {
+    entity:
+      'image;html=1;image=img/lib/atlassian/Bamboo_Logo.svg;strokeColor=none;',
+  },
   _width: 64,
   _height: 74,
 }

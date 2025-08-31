@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OBSERVATORY = {
-  _style: 'fillColor=#009271;strokeColor=none;whiteSpace=wrap;html=1;',
+  _style: {
+    entity: 'fillColor=#009271;strokeColor=none;whiteSpace=wrap;html=1;',
+  },
   _width: 60,
   _height: 60,
 }

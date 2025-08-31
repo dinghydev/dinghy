@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASSOCIATION = {
-  _style: 'fontStyle=1;whiteSpace=wrap;html=1;',
+  _style: {
+    entity: 'fontStyle=1;whiteSpace=wrap;html=1;',
+  },
   _width: 140,
   _height: 30,
 }

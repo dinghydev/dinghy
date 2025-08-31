@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.adam_advanced_database_and_application_migration;',
+  _style: { 
+    entity: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.adam_advanced_database_and_application_migration;',
+  },
   _width: 42.9,
   _height: 51.3,
 }

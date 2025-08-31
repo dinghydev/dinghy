@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.stackoverflow',
+  _style: { 
+    entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.stackoverflow',
+  },
   _width: 54.400000000000006,
   _height: 64,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOBILE_STEP_TEXT = {
-  _style: 'dashed=0;shape=rect;fillColor=#BDBDBD;strokeColor=none;',
+  _style: {
+    entity: 'dashed=0;shape=rect;fillColor=#BDBDBD;strokeColor=none;',
+  },
   _width: 358,
   _height: 642,
 }

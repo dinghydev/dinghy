@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHOICE_PSEUDO_STATE = {
-  _style:
-    'shape=rhombus;html=1;labelPosition=right;align=left;verticalAlign=middle',
+  _style: {
+    entity:
+      'shape=rhombus;html=1;labelPosition=right;align=left;verticalAlign=middle',
+  },
   _width: 150,
   _height: 100,
 }

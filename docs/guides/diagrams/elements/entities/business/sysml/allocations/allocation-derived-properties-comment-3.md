@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'rounded=0;html=1;labelBackgroundColor=none;endArrow=none;dashed=1;',
+  _style: { 
+    entity: 'rounded=0;html=1;labelBackgroundColor=none;endArrow=none;dashed=1;',
+  },
   _width: 2,
   _height: 140,
 }

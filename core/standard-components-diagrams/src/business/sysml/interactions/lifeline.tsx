@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIFELINE = {
-  _style: 'shape=rect;html=1;whiteSpace=wrap;align=center;',
+  _style: {
+    entity: 'shape=rect;html=1;whiteSpace=wrap;align=center;',
+  },
   _width: 0,
   _height: 150,
 }

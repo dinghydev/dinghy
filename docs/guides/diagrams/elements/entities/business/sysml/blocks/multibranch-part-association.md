@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;fontFamily=Helvetica;fontSize=11;fontColor=default;',
+  _style: { 
+    entity: 'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;fontFamily=Helvetica;fontSize=11;fontColor=default;',
+  },
   _width: 250,
   _height: 50,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ICON = {
-  _style: 'ellipse;html=1;whiteSpace=wrap;',
+  _style: {
+    entity: 'ellipse;html=1;whiteSpace=wrap;',
+  },
   _width: 50,
   _height: 25,
 }

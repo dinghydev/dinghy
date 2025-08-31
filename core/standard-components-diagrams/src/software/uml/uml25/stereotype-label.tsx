@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEREOTYPE_LABEL = {
-  _style: 'text;html=1;align=center;',
+  _style: {
+    entity: 'text;html=1;align=center;',
+  },
   _width: 200,
   _height: 25,
 }

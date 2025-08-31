@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const USER = {
-  _style: 'shape=actor;whiteSpace=wrap;html=1;',
+  _style: {
+    entity: 'shape=actor;whiteSpace=wrap;html=1;',
+  },
   _width: 40,
   _height: 60,
 }

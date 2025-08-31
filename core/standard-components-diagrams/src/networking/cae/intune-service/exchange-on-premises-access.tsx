@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXCHANGE_ON_PREMISES_ACCESS = {
-  _style:
-    'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Exchange_On_premises_Access.svg;strokeColor=none;',
+  _style: {
+    entity:
+      'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Exchange_On_premises_Access.svg;strokeColor=none;',
+  },
   _width: 28.999999999999996,
   _height: 50,
 }

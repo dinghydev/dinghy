@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'triangle;whiteSpace=wrap;html=1;dashed=0;direction=south;',
+  _style: { 
+    entity: 'triangle;whiteSpace=wrap;html=1;dashed=0;direction=south;',
+  },
   _width: 60,
   _height: 60,
 }

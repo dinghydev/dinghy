@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRIVACY = {
-  _style:
-    'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.privacy;',
+  _style: {
+    entity:
+      'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.privacy;',
+  },
   _width: 46.2,
   _height: 60,
 }

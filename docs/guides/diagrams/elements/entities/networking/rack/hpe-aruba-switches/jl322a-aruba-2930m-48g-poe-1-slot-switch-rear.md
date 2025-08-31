@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl322a_aruba_2930m_48g_poeplus_1_slot_switch_rear;',
+  _style: { 
+    entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl322a_aruba_2930m_48g_poeplus_1_slot_switch_rear;',
+  },
   _width: 142,
   _height: 15,
 }

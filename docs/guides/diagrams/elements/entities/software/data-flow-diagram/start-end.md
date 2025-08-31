@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.start',
+  _style: { 
+    entity: 'html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.start',
+  },
   _width: 80,
   _height: 30,
 }

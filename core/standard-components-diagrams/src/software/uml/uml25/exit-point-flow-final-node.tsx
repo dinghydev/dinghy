@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXIT_POINT_FLOW_FINAL_NODE = {
-  _style:
-    'shape=sumEllipse;perimeter=ellipsePerimeter;html=1;backgroundOutline=1;',
+  _style: {
+    entity:
+      'shape=sumEllipse;perimeter=ellipsePerimeter;html=1;backgroundOutline=1;',
+  },
   _width: 30,
   _height: 30,
 }

@@ -124,8 +124,12 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
 
     if (node._props._diagram.flags.isDirectionVertical) {
       if (child._props._diagram.state.height > 0) {
-        childY = childY + child._props._diagram.state.height
-        height = height + child._props._diagram.state.height
+        childY = childY + child._props._diagram.dimension.margin.top +
+          child._props._diagram.state.height +
+          child._props._diagram.dimension.margin.bottom
+        height = height + child._props._diagram.dimension.margin.top +
+          child._props._diagram.state.height +
+          child._props._diagram.dimension.margin.bottom
         width = Math.max(
           width,
           child._props._diagram.state.width,
@@ -133,8 +137,12 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
       }
     } else {
       if (child._props._diagram.state.width > 0) {
-        childX = childX + child._props._diagram.state.width
-        width = width + child._props._diagram.state.width
+        childX = childX + child._props._diagram.dimension.margin.left +
+          child._props._diagram.state.width +
+          child._props._diagram.dimension.margin.right
+        width = width + child._props._diagram.dimension.margin.left +
+          child._props._diagram.state.width +
+          child._props._diagram.dimension.margin.right
         height = Math.max(
           height,
           child._props._diagram.state.height,

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'triangle;aspect=fixed;fillColor=strokeColor;',
+  _style: { 
+    entity: 'triangle;aspect=fixed;fillColor=strokeColor;',
+  },
   _width: 0,
   _height: 22,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Azure_AD_B2C.svg;strokeColor=none;',
+  _style: { 
+    entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Azure_AD_B2C.svg;strokeColor=none;',
+  },
   _width: 69,
   _height: 64,
 }

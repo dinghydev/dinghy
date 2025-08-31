@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.rack.oracle.netra_ct900_atca_blade_server;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  _style: { 
+    entity: 'shape=mxgraph.rack.oracle.netra_ct900_atca_blade_server;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  },
   _width: 161,
   _height: 178,
 }

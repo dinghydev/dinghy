@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HEART = {
-  _style:
-    'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.heart',
+  _style: {
+    entity:
+      'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.heart',
+  },
   _width: 60,
   _height: 60,
 }

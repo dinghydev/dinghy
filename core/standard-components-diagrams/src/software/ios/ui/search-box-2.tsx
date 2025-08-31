@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEARCH_BOX_2 = {
-  _style: 'shape=rect;fillColor=#F6F6F6;strokeColor=none;',
+  _style: {
+    entity: 'shape=rect;fillColor=#F6F6F6;strokeColor=none;',
+  },
   _width: 0,
   _height: 20,
 }

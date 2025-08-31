@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'ellipse;shape=doubleEllipse;margin=3;whiteSpace=wrap;html=1;align=center;',
+  _style: { 
+    entity: 'ellipse;shape=doubleEllipse;margin=3;whiteSpace=wrap;html=1;align=center;',
+  },
   _width: 100,
   _height: 40,
 }

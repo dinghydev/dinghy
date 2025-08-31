@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TAPE_DATA = {
-  _style: 'shape=tapeData;whiteSpace=wrap;html=1;perimeter=ellipsePerimeter;',
+  _style: {
+    entity: 'shape=tapeData;whiteSpace=wrap;html=1;perimeter=ellipsePerimeter;',
+  },
   _width: 60,
   _height: 60,
 }

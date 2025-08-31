@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'rhombus;',
+  _style: { 
+    entity: 'rhombus;',
+  },
   _width: 30,
   _height: 30,
 }

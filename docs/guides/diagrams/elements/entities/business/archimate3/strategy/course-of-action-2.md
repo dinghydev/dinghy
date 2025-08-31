@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#F5DEAA;shape=mxgraph.archimate3.course;',
+  _style: { 
+    entity: 'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#F5DEAA;shape=mxgraph.archimate3.course;',
+  },
   _width: 40,
   _height: 40,
 }

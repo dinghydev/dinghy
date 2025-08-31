@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMMENT_3 = {
-  _style: 'edgeStyle=none;endArrow=none;exitX=0.8;exitY=0;dashed=1;html=1;',
+  _style: {
+    entity: 'edgeStyle=none;endArrow=none;exitX=0.8;exitY=0;dashed=1;html=1;',
+  },
   _width: 2,
   _height: 80,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;',
+  _style: { 
+    entity: 'swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;',
+  },
   _width: 360,
   _height: 480,
 }

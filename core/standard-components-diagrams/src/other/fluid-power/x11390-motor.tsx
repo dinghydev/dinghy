@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11390_MOTOR = {
-  _style:
-    'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11390;points=[[0.334,0,0],[0.334,1,0]]',
+  _style: {
+    entity:
+      'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11390;points=[[0.334,0,0],[0.334,1,0]]',
+  },
   _width: 83.38,
   _height: 92.9,
 }

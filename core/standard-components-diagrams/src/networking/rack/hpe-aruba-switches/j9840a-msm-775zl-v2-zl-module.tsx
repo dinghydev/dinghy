@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9840A_MSM_775ZL_V2_ZL_MODULE = {
-  _style:
-    'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.j9840a_msm_775zl_v2_zl_module;',
+  _style: {
+    entity:
+      'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.j9840a_msm_775zl_v2_zl_module;',
+  },
   _width: 75,
   _height: 15,
 }

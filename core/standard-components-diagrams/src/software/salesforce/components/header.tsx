@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HEADER = {
-  _style: 'strokeColor=none;fillColor=#d9d9d9;',
+  _style: {
+    entity: 'strokeColor=none;fillColor=#d9d9d9;',
+  },
   _width: 0,
   _height: 160,
 }

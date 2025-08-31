@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.piping.desuper_heater;',
+  _style: { 
+    entity: 'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.piping.desuper_heater;',
+  },
   _width: 60,
   _height: 60,
 }

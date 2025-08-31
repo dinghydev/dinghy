@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROBABILITY_7 = {
-  _style: 'shape=rect;whiteSpace=wrap;align=center;html=1;',
+  _style: {
+    entity: 'shape=rect;whiteSpace=wrap;align=center;html=1;',
+  },
   _width: 250,
   _height: 60,
 }

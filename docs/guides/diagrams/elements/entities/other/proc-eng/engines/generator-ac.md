@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'dashed=0;outlineConnect=0;align=center;html=1;shape=mxgraph.pid.engines.generator_(ac);fontSize=45;',
+  _style: { 
+    entity: 'dashed=0;outlineConnect=0;align=center;html=1;shape=mxgraph.pid.engines.generator_(ac);fontSize=45;',
+  },
   _width: 60,
   _height: 60,
 }

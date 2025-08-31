@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;shape=mxgraph.sysml.port;sysMLPortType=flowN;',
+  _style: { 
+    entity: 'html=1;shape=mxgraph.sysml.port;sysMLPortType=flowN;',
+  },
   _width: 20,
   _height: 20,
 }

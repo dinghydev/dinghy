@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROCESS = {
-  _style: 'shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;',
+  _style: {
+    entity: 'shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;',
+  },
   _width: 120,
   _height: 60,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TABLE_WITH_ACTION_3 = {
-  _style: 'shape=line;strokeWidth=2;html=1;strokeColor=#DFE1E5;resizeWidth=1',
+  _style: {
+    entity: 'shape=line;strokeWidth=2;html=1;strokeColor=#DFE1E5;resizeWidth=1',
+  },
   _width: 4,
   _height: 30,
 }

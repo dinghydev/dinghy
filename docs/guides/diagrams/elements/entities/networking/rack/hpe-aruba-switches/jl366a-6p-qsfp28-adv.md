@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl366a_6p_qsfp28_adv;',
+  _style: { 
+    entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl366a_6p_qsfp28_adv;',
+  },
   _width: 14,
   _height: 107,
 }

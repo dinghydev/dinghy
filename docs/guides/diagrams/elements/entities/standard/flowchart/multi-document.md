@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'strokeWidth=2;html=1;shape=mxgraph.flowchart.multi-document;whiteSpace=wrap;',
+  _style: { 
+    entity: 'strokeWidth=2;html=1;shape=mxgraph.flowchart.multi-document;whiteSpace=wrap;',
+  },
   _width: 88,
   _height: 60,
 }

@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POWER_DISTRIBUTION_UNIT = {
-  _style:
-    'image;html=1;image=img/lib/clip_art/networking/power_distribution_unit_128x128.pngstrokeColor=none;',
+  _style: {
+    entity:
+      'image;html=1;image=img/lib/clip_art/networking/power_distribution_unit_128x128.pngstrokeColor=none;',
+  },
   _width: 60,
   _height: 60,
 }

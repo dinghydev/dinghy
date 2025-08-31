@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_FORM_LABEL_SIZING_3 = {
-  _style:
-    'fillColor=none;strokeColor=none;align=left;fontSize=16;fontColor=#212529;',
+  _style: {
+    entity:
+      'fillColor=none;strokeColor=none;align=left;fontSize=16;fontColor=#212529;',
+  },
   _width: 4,
   _height: 110,
 }

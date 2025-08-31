@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=rhombus;html=1;verticalLabelPosition=bottom;verticalAlignment=top;',
+  _style: { 
+    entity: 'shape=rhombus;html=1;verticalLabelPosition=bottom;verticalAlignment=top;',
+  },
   _width: 200,
   _height: 80,
 }

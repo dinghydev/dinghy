@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT = {
-  _style:
-    'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.onsmqtt_micro_message_queuing_telemetry_transport;',
+  _style: {
+    entity:
+      'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.onsmqtt_micro_message_queuing_telemetry_transport;',
+  },
   _width: 54.900000000000006,
   _height: 39.300000000000004,
 }

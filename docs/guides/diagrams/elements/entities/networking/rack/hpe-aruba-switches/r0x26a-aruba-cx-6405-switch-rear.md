@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.r0x26a_aruba_cx_6405_switch_rear;',
+  _style: { 
+    entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.r0x26a_aruba_cx_6405_switch_rear;',
+  },
   _width: 142,
   _height: 98,
 }

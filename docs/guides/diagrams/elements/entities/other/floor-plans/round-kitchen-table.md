@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=ellipse;shadow=0;html=1;',
+  _style: { 
+    entity: 'shape=ellipse;shadow=0;html=1;',
+  },
   _width: 4,
   _height: 140,
 }

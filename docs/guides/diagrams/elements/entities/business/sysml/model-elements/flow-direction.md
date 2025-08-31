@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=triangle;fillColor=strokeColor;',
+  _style: { 
+    entity: 'shape=triangle;fillColor=strokeColor;',
+  },
   _width: 10,
   _height: 10,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'swimlane;',
+  _style: { 
+    entity: 'swimlane;',
+  },
   _width: 200,
   _height: 200,
 }

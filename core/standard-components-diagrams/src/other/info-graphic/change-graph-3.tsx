@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHANGE_GRAPH_3 = {
-  _style: 'fillColor=#AE4132;strokeColor=none;',
+  _style: {
+    entity: 'fillColor=#AE4132;strokeColor=none;',
+  },
   _width: 2,
   _height: 130,
 }

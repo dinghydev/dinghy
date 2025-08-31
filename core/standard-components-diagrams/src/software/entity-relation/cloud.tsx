@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD = {
-  _style: 'ellipse;shape=cloud;whiteSpace=wrap;html=1;align=center;',
+  _style: {
+    entity: 'ellipse;shape=cloud;whiteSpace=wrap;html=1;align=center;',
+  },
   _width: 100,
   _height: 60,
 }

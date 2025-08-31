@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COREGION_2 = {
-  _style: 'shape=ellipse;html=1;fillColor=strokeColor;',
+  _style: {
+    entity: 'shape=ellipse;html=1;fillColor=strokeColor;',
+  },
   _width: 2,
   _height: 220,
 }

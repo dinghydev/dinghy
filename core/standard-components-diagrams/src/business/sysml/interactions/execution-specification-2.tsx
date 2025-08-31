@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXECUTION_SPECIFICATION_2 = {
-  _style: 'edgeStyle=none;html=1;dashed=1;endArrow=none;',
+  _style: {
+    entity: 'edgeStyle=none;html=1;dashed=1;endArrow=none;',
+  },
   _width: 2,
   _height: 220,
 }

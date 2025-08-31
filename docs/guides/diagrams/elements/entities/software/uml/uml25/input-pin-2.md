@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.uml25.inputPin;html=1;points=[[0,0.5],[1,0.5]];strokeColor=#ffffff;fillColor=#000000;',
+  _style: { 
+    entity: 'shape=mxgraph.uml25.inputPin;html=1;points=[[0,0.5],[1,0.5]];strokeColor=#ffffff;fillColor=#000000;',
+  },
   _width: 30,
   _height: 30,
 }

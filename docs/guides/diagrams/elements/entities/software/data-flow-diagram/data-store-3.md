@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;',
+  _style: { 
+    entity: 'shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;',
+  },
   _width: 60,
   _height: 80,
 }

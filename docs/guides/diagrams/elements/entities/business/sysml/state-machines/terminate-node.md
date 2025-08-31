@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.sysml.x;',
+  _style: { 
+    entity: 'shape=mxgraph.sysml.x;',
+  },
   _width: 40,
   _height: 40,
 }

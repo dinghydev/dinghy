@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOUBLE_ARROW = {
-  _style: 'shape=doubleArrow;whiteSpace=wrap;html=1;',
+  _style: {
+    entity: 'shape=doubleArrow;whiteSpace=wrap;html=1;',
+  },
   _width: 100,
   _height: 60,
 }

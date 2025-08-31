@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIXED_TAB_BAR_2 = {
-  _style:
-    'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=none;fontFamily=Helvetica;fontSize=12;fontColor=default;',
+  _style: {
+    entity:
+      'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=none;fontFamily=Helvetica;fontSize=12;fontColor=default;',
+  },
   _width: 358,
   _height: 642,
 }

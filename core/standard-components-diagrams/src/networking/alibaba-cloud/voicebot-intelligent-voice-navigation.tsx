@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOICEBOT_INTELLIGENT_VOICE_NAVIGATION = {
-  _style:
-    'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.voicebot_intelligent_voice_navigation;',
+  _style: {
+    entity:
+      'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.voicebot_intelligent_voice_navigation;',
+  },
   _width: 58.8,
   _height: 57,
 }

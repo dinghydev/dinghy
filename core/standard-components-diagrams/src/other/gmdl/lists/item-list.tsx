@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ITEM_LIST = {
-  _style: 'shape=rect;strokeColor=#eeeeee;fillColor=#ffffff;shadow=1;',
+  _style: {
+    entity: 'shape=rect;strokeColor=#eeeeee;fillColor=#ffffff;shadow=1;',
+  },
   _width: 152,
   _height: 631,
 }

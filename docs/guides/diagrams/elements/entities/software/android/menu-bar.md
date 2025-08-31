@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.rrect;rSize=0;strokeColor=#888888;fillColor=#444444;',
+  _style: { 
+    entity: 'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.rrect;rSize=0;strokeColor=#888888;fillColor=#444444;',
+  },
   _width: 0,
   _height: 50,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10720;points=[[0.395,0,0],[0.395,1,0],[0.795,1,0]]',
+  _style: { 
+    entity: 'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10720;points=[[0.395,0,0],[0.395,1,0],[0.795,1,0]]',
+  },
   _width: 46.4,
   _height: 93.58,
 }

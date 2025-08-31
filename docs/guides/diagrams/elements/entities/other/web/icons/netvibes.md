@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.webicons.netvibes;fillColor=#99DB00;gradientColor=#638E00',
+  _style: { 
+    entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.webicons.netvibes;fillColor=#99DB00;gradientColor=#638E00',
+  },
   _width: 102.4,
   _height: 102.4,
 }

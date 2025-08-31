@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;points=[];perimeter=orthogonalPerimeter;fillColor=strokeColor;',
+  _style: { 
+    entity: 'html=1;points=[];perimeter=orthogonalPerimeter;fillColor=strokeColor;',
+  },
   _width: 5,
   _height: 80,
 }

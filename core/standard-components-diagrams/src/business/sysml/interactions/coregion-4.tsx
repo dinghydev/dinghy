@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COREGION_4 = {
-  _style:
-    'edgeStyle=none;html=1;dashed=1;endArrow=none;startArrow=open;verticalAlign=bottom;startSize=12;rounded=0;',
+  _style: {
+    entity:
+      'edgeStyle=none;html=1;dashed=1;endArrow=none;startArrow=open;verticalAlign=bottom;startSize=12;rounded=0;',
+  },
   _width: 7,
   _height: 220,
 }

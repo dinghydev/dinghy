@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;shape=mxgraph.sysml.coregion;strokeWidth=3;',
+  _style: { 
+    entity: 'html=1;shape=mxgraph.sysml.coregion;strokeWidth=3;',
+  },
   _width: 1,
   _height: 220,
 }

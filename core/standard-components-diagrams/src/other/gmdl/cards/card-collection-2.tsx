@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CARD_COLLECTION_2 = {
-  _style: 'dashed=0;shape=rect;fillColor=#ECECEC;strokeColor=none;',
+  _style: {
+    entity: 'dashed=0;shape=rect;fillColor=#ECECEC;strokeColor=none;',
+  },
   _width: 358,
   _height: 642,
 }

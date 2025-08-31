@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MIGRATION_HUB = {
-  _style:
-    'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.migration_hub_2;fillColor=#ABABAB;gradientColor=none;pointerEvents=1',
+  _style: {
+    entity:
+      'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.migration_hub_2;fillColor=#ABABAB;gradientColor=none;pointerEvents=1',
+  },
   _width: 114,
   _height: 121.5,
 }

@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEPPER_WITH_ALTERNATIVE_OPTIONAL_LABEL_PLACING_4 = {
-  _style:
-    'shape=ellipse;strokeColor=none;fillColor=#9e9e9e;fontSize=12;fontColor=#ffffff;html=1;',
+  _style: {
+    entity:
+      'shape=ellipse;strokeColor=none;fillColor=#9e9e9e;fontSize=12;fontColor=#ffffff;html=1;',
+  },
   _width: 6,
   _height: 50,
 }

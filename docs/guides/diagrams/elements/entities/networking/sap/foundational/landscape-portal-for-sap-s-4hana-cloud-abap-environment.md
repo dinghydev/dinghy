@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.sap.icon;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeWidth=1;strokeColor=#D5DADD;fillColor=#EDEFF0;gradientColor=#FCFCFC;gradientDirection=west;aspect=fixed;SAPIcon=Landscape_Portal_for_SAP_S4HANA_Cloud_ABAP_Environment',
+  _style: { 
+    entity: 'shape=mxgraph.sap.icon;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeWidth=1;strokeColor=#D5DADD;fillColor=#EDEFF0;gradientColor=#FCFCFC;gradientDirection=west;aspect=fixed;SAPIcon=Landscape_Portal_for_SAP_S4HANA_Cloud_ABAP_Environment',
+  },
   _width: 60,
   _height: 60,
 }

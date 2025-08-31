@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COPY_DEPENDENCY = {
-  _style: 'endArrow=open;edgeStyle=none;endSize=12;dashed=1;html=1;',
+  _style: {
+    entity: 'endArrow=open;edgeStyle=none;endSize=12;dashed=1;html=1;',
+  },
   _width: 2,
   _height: 60,
 }

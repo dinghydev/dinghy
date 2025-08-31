@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DURATION_CONSTRAINT_2 = {
-  _style: 'edgeStyle=none;dashed=1;endArrow=none;html=1;',
+  _style: {
+    entity: 'edgeStyle=none;dashed=1;endArrow=none;html=1;',
+  },
   _width: 2,
   _height: 250,
 }

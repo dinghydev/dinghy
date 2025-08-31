@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPAQUE_ACTION = {
-  _style: 'text;align=center;verticalAlign=middle;dashed=0;whiteSpace=wrap;',
+  _style: {
+    entity: 'text;align=center;verticalAlign=middle;dashed=0;whiteSpace=wrap;',
+  },
   _width: 140,
   _height: 40,
 }

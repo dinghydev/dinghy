@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM = {
-  _style:
-    'shape=mxgraph.rack.cisco.cisco_ons_15600_multiservice_switching_platform;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  _style: {
+    entity:
+      'shape=mxgraph.rack.cisco.cisco_ons_15600_multiservice_switching_platform;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  },
   _width: 201,
   _height: 212,
 }

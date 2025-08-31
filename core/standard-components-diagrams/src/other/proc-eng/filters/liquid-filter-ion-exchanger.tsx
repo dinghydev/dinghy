@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIQUID_FILTER_ION_EXCHANGER = {
-  _style:
-    'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.filters.liquid_filter_(ion_exchanger);',
+  _style: {
+    entity:
+      'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.filters.liquid_filter_(ion_exchanger);',
+  },
   _width: 50,
   _height: 100,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENTRY_POINT = {
-  _style: 'ellipse;',
+  _style: {
+    entity: 'ellipse;',
+  },
   _width: 30,
   _height: 30,
 }

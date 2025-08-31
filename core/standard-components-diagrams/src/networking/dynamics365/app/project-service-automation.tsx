@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROJECT_SERVICE_AUTOMATION = {
-  _style:
-    'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/ProjectServiceAutomation.svg;strokeColor=none;',
+  _style: {
+    entity:
+      'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/ProjectServiceAutomation.svg;strokeColor=none;',
+  },
   _width: 68,
   _height: 63.480000000000004,
 }

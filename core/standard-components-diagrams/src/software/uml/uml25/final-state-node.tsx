@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FINAL_STATE_NODE = {
-  _style: 'ellipse;html=1;shape=endState;fillColor=strokeColor;',
+  _style: {
+    entity: 'ellipse;html=1;shape=endState;fillColor=strokeColor;',
+  },
   _width: 30,
   _height: 30,
 }

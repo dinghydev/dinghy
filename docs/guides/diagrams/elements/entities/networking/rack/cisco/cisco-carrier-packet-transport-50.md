@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.rack.cisco.cisco_carrier_packet_transport_50;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  _style: { 
+    entity: 'shape=mxgraph.rack.cisco.cisco_carrier_packet_transport_50;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  },
   _width: 161,
   _height: 15,
 }

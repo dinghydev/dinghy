@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HEROKU = {
-  _style:
-    'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.heroku;',
+  _style: {
+    entity:
+      'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.heroku;',
+  },
   _width: 60,
   _height: 60,
 }

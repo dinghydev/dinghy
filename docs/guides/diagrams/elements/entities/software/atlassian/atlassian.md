@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'image;html=1;image=img/lib/atlassian/Atlassian_Logo.svg;strokeColor=none;',
+  _style: { 
+    entity: 'image;html=1;image=img/lib/atlassian/Atlassian_Logo.svg;strokeColor=none;',
+  },
   _width: 60,
   _height: 60,
 }

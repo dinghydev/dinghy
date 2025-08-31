@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERACTION_USE = {
-  _style:
-    'html=1;shape=mxgraph.sysml.package;labelX=40;whiteSpace=wrap;align=center;',
+  _style: {
+    entity:
+      'html=1;shape=mxgraph.sysml.package;labelX=40;whiteSpace=wrap;align=center;',
+  },
   _width: 0,
   _height: 60,
 }

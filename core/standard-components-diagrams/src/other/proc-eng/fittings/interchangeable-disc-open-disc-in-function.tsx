@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION = {
-  _style:
-    'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.interchangeable_disc_(open_disc_in_function)2;',
+  _style: {
+    entity:
+      'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.interchangeable_disc_(open_disc_in_function)2;',
+  },
   _width: 40,
   _height: 140,
 }

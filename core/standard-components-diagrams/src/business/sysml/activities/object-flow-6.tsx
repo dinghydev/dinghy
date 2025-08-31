@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OBJECT_FLOW_6 = {
-  _style: 'html=1;shape=mxgraph.sysml.objFlowR;whiteSpace=wrap;',
+  _style: {
+    entity: 'html=1;shape=mxgraph.sysml.objFlowR;whiteSpace=wrap;',
+  },
   _width: 120,
   _height: 60,
 }

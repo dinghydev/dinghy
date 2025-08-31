@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.pid.flow_sensors.magnetic;dashed=0;align=center;html=1;fontSize=25;',
+  _style: { 
+    entity: 'shape=mxgraph.pid.flow_sensors.magnetic;dashed=0;align=center;html=1;fontSize=25;',
+  },
   _width: 60,
   _height: 60,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUND_KITCHEN_TABLE = {
-  _style: 'shape=ellipse;shadow=0;html=1;',
+  _style: {
+    entity: 'shape=ellipse;shadow=0;html=1;',
+  },
   _width: 4,
   _height: 140,
 }

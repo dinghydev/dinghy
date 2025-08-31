@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEREOTYPE_NOTE = {
-  _style:
-    'shape=note;size=15;spacingLeft=5;html=1;overflow=fill;whiteSpace=wrap;',
+  _style: {
+    entity:
+      'shape=note;size=15;spacingLeft=5;html=1;overflow=fill;whiteSpace=wrap;',
+  },
   _width: 320,
   _height: 150,
 }

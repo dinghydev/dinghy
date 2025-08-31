@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'dashed=0;shape=rect;fillColor=#BDBDBD;strokeColor=none;',
+  _style: { 
+    entity: 'dashed=0;shape=rect;fillColor=#BDBDBD;strokeColor=none;',
+  },
   _width: 358,
   _height: 642,
 }

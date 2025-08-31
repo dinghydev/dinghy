@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JIRA_SERVICE_DESK = {
-  _style:
-    'image;image=img/lib/atlassian/Jira_Service_Desk_Logo.svg;html=1;strokeColor=none;',
+  _style: {
+    entity:
+      'image;image=img/lib/atlassian/Jira_Service_Desk_Logo.svg;html=1;strokeColor=none;',
+  },
   _width: 59,
   _height: 76,
 }

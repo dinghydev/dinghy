@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;',
+  _style: { 
+    entity: 'html=1;',
+  },
   _width: 0,
   _height: 40,
 }

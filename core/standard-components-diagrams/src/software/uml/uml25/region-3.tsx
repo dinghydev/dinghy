@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REGION_3 = {
-  _style: 'text;align=left;',
+  _style: {
+    entity: 'text;align=left;',
+  },
   _width: 2,
   _height: 100,
 }

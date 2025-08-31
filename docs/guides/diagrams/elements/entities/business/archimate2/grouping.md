@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'swimlane;html=1;fillColor=#ffffff;whiteSpace=wrap',
+  _style: { 
+    entity: 'swimlane;html=1;fillColor=#ffffff;whiteSpace=wrap',
+  },
   _width: 100,
   _height: 75,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.mockup.forms.rrect;rSize=5;strokeColor=#DFE1E5;fillColor=#ffffff;shadow=1',
+  _style: { 
+    entity: 'shape=mxgraph.mockup.forms.rrect;rSize=5;strokeColor=#DFE1E5;fillColor=#ffffff;shadow=1',
+  },
   _width: 2,
   _height: 415,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARTICIPANT_NON_INITIATING_TOP_WITH_DECORATOR = {
-  _style: 'shape=message;fillColor=#C0C0C0;html=1;',
+  _style: {
+    entity: 'shape=message;fillColor=#C0C0C0;html=1;',
+  },
   _width: 1,
   _height: 80,
 }

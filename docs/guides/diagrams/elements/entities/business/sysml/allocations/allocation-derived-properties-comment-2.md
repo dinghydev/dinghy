@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=rect;fontStyle=1;whiteSpace=wrap;align=center;',
+  _style: { 
+    entity: 'shape=rect;fontStyle=1;whiteSpace=wrap;align=center;',
+  },
   _width: 1,
   _height: 140,
 }

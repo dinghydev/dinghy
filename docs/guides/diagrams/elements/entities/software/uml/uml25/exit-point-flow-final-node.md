@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=sumEllipse;perimeter=ellipsePerimeter;html=1;backgroundOutline=1;',
+  _style: { 
+    entity: 'shape=sumEllipse;perimeter=ellipsePerimeter;html=1;backgroundOutline=1;',
+  },
   _width: 30,
   _height: 30,
 }

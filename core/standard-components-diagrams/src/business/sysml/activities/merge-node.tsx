@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MERGE_NODE = {
-  _style:
-    'shape=rhombus;html=1;verticalLabelPosition=top;verticalAlignment=bottom;',
+  _style: {
+    entity:
+      'shape=rhombus;html=1;verticalLabelPosition=top;verticalAlignment=bottom;',
+  },
   _width: 200,
   _height: 80,
 }

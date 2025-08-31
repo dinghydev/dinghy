@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FORM_3 = {
-  _style:
-    'fillColor=none;strokeColor=none;align=left;spacing=2;fontSize=12;fontColor=#999999;',
+  _style: {
+    entity:
+      'fillColor=none;strokeColor=none;align=left;spacing=2;fontSize=12;fontColor=#999999;',
+  },
   _width: 2,
   _height: 500,
 }

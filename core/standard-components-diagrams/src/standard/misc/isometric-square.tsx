@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ISOMETRIC_SQUARE = {
-  _style: 'html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;',
+  _style: {
+    entity: 'html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;',
+  },
   _width: 150,
   _height: 90,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;',
+  _style: { 
+    entity: 'shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;',
+  },
   _width: 30,
   _height: 60,
 }

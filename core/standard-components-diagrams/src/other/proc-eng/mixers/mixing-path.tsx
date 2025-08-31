@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MIXING_PATH = {
-  _style:
-    'shape=mxgraph.pid.mixers.mixing_path;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  _style: {
+    entity:
+      'shape=mxgraph.pid.mixers.mixing_path;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  },
   _width: 260,
   _height: 100,
 }

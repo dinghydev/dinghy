@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIFELINE_CONTINUATION = {
-  _style: 'rounded=1;dashed=0;whiteSpace=wrap;html=1;',
+  _style: {
+    entity: 'rounded=1;dashed=0;whiteSpace=wrap;html=1;',
+  },
   _width: 0,
   _height: 200,
 }

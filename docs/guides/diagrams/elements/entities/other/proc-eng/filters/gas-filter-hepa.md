@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.filters.gas_filter_(hepa);',
+  _style: { 
+    entity: 'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.filters.gas_filter_(hepa);',
+  },
   _width: 50,
   _height: 100,
 }

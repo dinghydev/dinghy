@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.sysml.submState;whiteSpace=wrap;align=center;',
+  _style: { 
+    entity: 'shape=mxgraph.sysml.submState;whiteSpace=wrap;align=center;',
+  },
   _width: 0,
   _height: 120,
 }

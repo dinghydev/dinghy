@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATE_PICKER_PORTRAIT = {
-  _style: 'shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;',
+  _style: {
+    entity: 'shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;',
+  },
   _width: 328,
   _height: 484,
 }

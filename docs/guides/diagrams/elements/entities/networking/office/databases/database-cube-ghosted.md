@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'sketch=0;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.databases.database_cube;fillColor=#CCCBCB;',
+  _style: { 
+    entity: 'sketch=0;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.databases.database_cube;fillColor=#CCCBCB;',
+  },
   _width: 47,
   _height: 52,
 }

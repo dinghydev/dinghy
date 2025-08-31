@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/integration/Integration_Environments.svg;strokeColor=none;',
+  _style: { 
+    entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/integration/Integration_Environments.svg;strokeColor=none;',
+  },
   _width: 64.24,
   _height: 68,
 }

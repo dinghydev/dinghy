@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHOICE_MERGE_NODE_DECISION_NODE = {
-  _style: 'rhombus;',
+  _style: {
+    entity: 'rhombus;',
+  },
   _width: 30,
   _height: 30,
 }

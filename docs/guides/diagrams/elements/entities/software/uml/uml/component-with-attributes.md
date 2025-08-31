@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;',
+  _style: { 
+    entity: 'align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;',
+  },
   _width: 0,
   _height: 90,
 }

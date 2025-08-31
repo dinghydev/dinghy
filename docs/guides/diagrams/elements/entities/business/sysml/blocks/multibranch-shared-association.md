@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;',
+  _style: { 
+    entity: 'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;',
+  },
   _width: 250,
   _height: 50,
 }

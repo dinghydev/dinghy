@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;direction=south;fillColor=#12AAB5;strokeColor=none;rounded=0;',
+  _style: { 
+    entity: 'shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;direction=south;fillColor=#12AAB5;strokeColor=none;rounded=0;',
+  },
   _width: 4,
   _height: 400,
 }

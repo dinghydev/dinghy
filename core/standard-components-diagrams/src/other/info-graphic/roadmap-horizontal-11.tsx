@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROADMAP_HORIZONTAL_11 = {
-  _style: 'fillColor=#dddddd;rounded=0;strokeColor=none;',
+  _style: {
+    entity: 'fillColor=#dddddd;rounded=0;strokeColor=none;',
+  },
   _width: 0,
   _height: 210,
 }

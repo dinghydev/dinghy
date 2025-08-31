@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OR = {
-  _style: 'shape=xor;whiteSpace=wrap;html=1;',
+  _style: {
+    entity: 'shape=xor;whiteSpace=wrap;html=1;',
+  },
   _width: 60,
   _height: 80,
 }

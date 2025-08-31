@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.orders;overflow=fill;',
+  _style: { 
+    entity: 'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.orders;overflow=fill;',
+  },
   _width: 100,
   _height: 60,
 }

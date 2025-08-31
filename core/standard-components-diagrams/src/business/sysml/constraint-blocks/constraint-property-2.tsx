@@ -2,7 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONSTRAINT_PROPERTY_2 = {
-  _style: 'html=1;shape=mxgraph.sysml.consProp;overflow=fill;whiteSpace=wrap;',
+  _style: {
+    entity:
+      'html=1;shape=mxgraph.sysml.consProp;overflow=fill;whiteSpace=wrap;',
+  },
   _width: 150,
   _height: 120,
 }

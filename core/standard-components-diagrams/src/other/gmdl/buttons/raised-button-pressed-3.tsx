@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RAISED_BUTTON_PRESSED_3 = {
-  _style:
-    'whiteSpace=wrap;html=1;dashed=0;align=center;fontSize=12;shape=rect;fillColor=#999999;opacity=40;strokeColor=none;fontStyle=1;',
+  _style: {
+    entity:
+      'whiteSpace=wrap;html=1;dashed=0;align=center;fontSize=12;shape=rect;fillColor=#999999;opacity=40;strokeColor=none;fontStyle=1;',
+  },
   _width: 100,
   _height: 36,
 }

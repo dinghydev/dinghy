@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TWO_LINE_GRID_LIST = {
-  _style: 'dashed=0;shape=rect;fillColor=#000000;strokeColor=none;',
+  _style: {
+    entity: 'dashed=0;shape=rect;fillColor=#000000;strokeColor=none;',
+  },
   _width: 358,
   _height: 642,
 }

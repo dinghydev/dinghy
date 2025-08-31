@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;shape=mxgraph.sysml.consProp;overflow=fill;whiteSpace=wrap;',
+  _style: { 
+    entity: 'html=1;shape=mxgraph.sysml.consProp;overflow=fill;whiteSpace=wrap;',
+  },
   _width: 150,
   _height: 120,
 }

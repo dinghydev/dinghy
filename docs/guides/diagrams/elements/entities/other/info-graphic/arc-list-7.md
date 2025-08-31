@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'ellipse;fillColor=none;strokeColor=#444444;',
+  _style: { 
+    entity: 'ellipse;fillColor=none;strokeColor=#444444;',
+  },
   _width: 0,
   _height: 200,
 }

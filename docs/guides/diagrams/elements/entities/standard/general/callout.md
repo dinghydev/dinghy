@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;',
+  _style: { 
+    entity: 'shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;',
+  },
   _width: 120,
   _height: 80,
 }

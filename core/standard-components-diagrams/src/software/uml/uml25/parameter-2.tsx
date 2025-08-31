@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARAMETER_2 = {
-  _style: 'text;verticalAlign=middle;align=center;html=1;',
+  _style: {
+    entity: 'text;verticalAlign=middle;align=center;html=1;',
+  },
   _width: 1,
   _height: 40,
 }

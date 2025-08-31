@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;shadow=0;dashed=0;shape=mxgraph.ios.iTopBarLocked;strokeWidth=1;sketch=0;',
+  _style: { 
+    entity: 'html=1;shadow=0;dashed=0;shape=mxgraph.ios.iTopBarLocked;strokeWidth=1;sketch=0;',
+  },
   _width: 0,
   _height: 15,
 }

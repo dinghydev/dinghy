@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARAMETER_3 = {
-  _style: 'triangle;html=1;direction=north;',
+  _style: {
+    entity: 'triangle;html=1;direction=north;',
+  },
   _width: 2,
   _height: 40,
 }

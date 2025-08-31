@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_CALLOUT = {
-  _style: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout',
+  _style: {
+    entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout',
+  },
   _width: 90,
   _height: 60,
 }

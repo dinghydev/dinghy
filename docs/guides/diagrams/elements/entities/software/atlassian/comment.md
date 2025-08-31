@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.ios7.icons.user;fillColor=#ffffff;strokeColor=#253858',
+  _style: { 
+    entity: 'shape=mxgraph.ios7.icons.user;fillColor=#ffffff;strokeColor=#253858',
+  },
   _width: 470,
   _height: 125,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'text;align=right;',
+  _style: { 
+    entity: 'text;align=right;',
+  },
   _width: 1,
   _height: 100,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTIBRANCH_SHARED_ASSOCIATION = {
-  _style: 'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;',
+  _style: {
+    entity: 'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;',
+  },
   _width: 250,
   _height: 50,
 }

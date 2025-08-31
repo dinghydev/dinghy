@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTIVITY_PROCESS_ENTITY_EXTERNAL_INTERACTOR = {
-  _style: 'html=1;dashed=0;whiteSpace=wrap;',
+  _style: {
+    entity: 'html=1;dashed=0;whiteSpace=wrap;',
+  },
   _width: 100,
   _height: 50,
 }

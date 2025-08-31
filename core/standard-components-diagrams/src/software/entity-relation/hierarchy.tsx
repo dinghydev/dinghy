@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HIERARCHY = {
-  _style: 'rounded=1;absoluteArcSize=1;html=1;arcSize=10;',
+  _style: {
+    entity: 'rounded=1;absoluteArcSize=1;html=1;arcSize=10;',
+  },
   _width: 0,
   _height: 100,
 }

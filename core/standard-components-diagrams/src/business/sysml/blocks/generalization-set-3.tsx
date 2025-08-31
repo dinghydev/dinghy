@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GENERALIZATION_SET_3 = {
-  _style:
-    'edgeStyle=none;html=1;endArrow=none;dashed=1;labelPosition=right;align=left;',
+  _style: {
+    entity:
+      'edgeStyle=none;html=1;endArrow=none;dashed=1;labelPosition=right;align=left;',
+  },
   _width: 3,
   _height: 80,
 }

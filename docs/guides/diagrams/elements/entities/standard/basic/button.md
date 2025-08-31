@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;whiteSpace=wrap;',
+  _style: { 
+    entity: 'labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;whiteSpace=wrap;',
+  },
   _width: 100,
   _height: 60,
 }

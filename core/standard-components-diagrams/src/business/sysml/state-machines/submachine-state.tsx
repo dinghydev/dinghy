@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUBMACHINE_STATE = {
-  _style: 'shape=mxgraph.sysml.submState;whiteSpace=wrap;align=center;',
+  _style: {
+    entity: 'shape=mxgraph.sysml.submState;whiteSpace=wrap;align=center;',
+  },
   _width: 0,
   _height: 120,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTAINER = {
-  _style: 'swimlane;',
+  _style: {
+    entity: 'swimlane;',
+  },
   _width: 200,
   _height: 200,
 }

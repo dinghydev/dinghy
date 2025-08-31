@@ -2,7 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OBJECT_2 = {
-  _style: 'verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;',
+  _style: {
+    entity:
+      'verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;',
+  },
   _width: 160,
   _height: 90,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.electrical.abstract.function;html=1;shadow=0;dashed=0;align=center;strokeWidth=1;fontSize=24',
+  _style: { 
+    entity: 'shape=mxgraph.electrical.abstract.function;html=1;shadow=0;dashed=0;align=center;strokeWidth=1;fontSize=24',
+  },
   _width: 60,
   _height: 60,
 }

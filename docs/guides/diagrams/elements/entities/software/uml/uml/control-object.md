@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'ellipse;shape=umlControl;whiteSpace=wrap;html=1;',
+  _style: { 
+    entity: 'ellipse;shape=umlControl;whiteSpace=wrap;html=1;',
+  },
   _width: 70,
   _height: 80,
 }

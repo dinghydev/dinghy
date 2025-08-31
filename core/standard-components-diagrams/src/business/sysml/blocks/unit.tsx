@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNIT = {
-  _style: 'shape=rect;html=1;overflow=fill;whiteSpace=wrap;',
+  _style: {
+    entity: 'shape=rect;html=1;overflow=fill;whiteSpace=wrap;',
+  },
   _width: 200,
   _height: 60,
 }

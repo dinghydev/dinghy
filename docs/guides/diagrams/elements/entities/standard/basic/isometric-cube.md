@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;shape=mxgraph.basic.isocube;isoAngle=15;',
+  _style: { 
+    entity: 'html=1;shape=mxgraph.basic.isocube;isoAngle=15;',
+  },
   _width: 60,
   _height: 60,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=table;childLayout=tableLayout;startSize=40;collapsible=0;recursiveResize=0;expand=0;fontSize=16;fontStyle=1',
+  _style: { 
+    entity: 'shape=table;childLayout=tableLayout;startSize=40;collapsible=0;recursiveResize=0;expand=0;fontSize=16;fontStyle=1',
+  },
   _width: 400,
   _height: 400,
 }

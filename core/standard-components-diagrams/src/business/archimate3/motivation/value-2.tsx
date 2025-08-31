@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VALUE_2 = {
-  _style: 'shape=ellipse;html=1;whiteSpace=wrap;fillColor=#CCCCFF;',
+  _style: {
+    entity: 'shape=ellipse;html=1;whiteSpace=wrap;fillColor=#CCCCFF;',
+  },
   _width: 70,
   _height: 35,
 }

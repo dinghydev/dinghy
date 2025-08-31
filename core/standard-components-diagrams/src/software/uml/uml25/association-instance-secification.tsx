@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASSOCIATION_INSTANCE_SECIFICATION = {
-  _style: 'triangle;aspect=fixed;fillColor=strokeColor;',
+  _style: {
+    entity: 'triangle;aspect=fixed;fillColor=strokeColor;',
+  },
   _width: 0,
   _height: 22,
 }

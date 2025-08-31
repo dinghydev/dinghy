@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;dashed=0;',
+  _style: { 
+    entity: 'shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;dashed=0;',
+  },
   _width: 100,
   _height: 50,
 }

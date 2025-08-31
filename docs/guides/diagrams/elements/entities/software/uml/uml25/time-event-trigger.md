@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=collate;html=1;',
+  _style: { 
+    entity: 'shape=collate;html=1;',
+  },
   _width: 40,
   _height: 40,
 }

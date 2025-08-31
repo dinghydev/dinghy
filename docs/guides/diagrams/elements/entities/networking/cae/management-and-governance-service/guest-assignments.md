@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Guest_Assignments.svg;strokeColor=none;',
+  _style: { 
+    entity: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Guest_Assignments.svg;strokeColor=none;',
+  },
   _width: 44,
   _height: 50,
 }

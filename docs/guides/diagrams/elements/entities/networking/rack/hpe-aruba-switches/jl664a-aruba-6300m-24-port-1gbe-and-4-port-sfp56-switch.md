@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl664a_aruba_6300m_24_port_1gbe_and_4_port_sfp56_switch;',
+  _style: { 
+    entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl664a_aruba_6300m_24_port_1gbe_and_4_port_sfp56_switch;',
+  },
   _width: 142,
   _height: 15,
 }

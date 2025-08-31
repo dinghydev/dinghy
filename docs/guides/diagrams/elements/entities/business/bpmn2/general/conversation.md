@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.bpmn.conversation2;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;aspect=fixed;bpmnConversationType=conv;',
+  _style: { 
+    entity: 'shape=mxgraph.bpmn.conversation2;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;aspect=fixed;bpmnConversationType=conv;',
+  },
   _width: 70,
   _height: 60,
 }

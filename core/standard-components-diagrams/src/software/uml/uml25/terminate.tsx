@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TERMINATE = {
-  _style: 'shape=umlDestroy;html=1;',
+  _style: {
+    entity: 'shape=umlDestroy;html=1;',
+  },
   _width: 30,
   _height: 30,
 }

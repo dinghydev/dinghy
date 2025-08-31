@@ -2,7 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMMENT = {
-  _style: 'shape=mxgraph.ios7.icons.user;fillColor=#ffffff;strokeColor=#253858',
+  _style: {
+    entity:
+      'shape=mxgraph.ios7.icons.user;fillColor=#ffffff;strokeColor=#253858',
+  },
   _width: 470,
   _height: 125,
 }

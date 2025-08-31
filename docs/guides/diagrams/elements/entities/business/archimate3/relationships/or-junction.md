@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'ellipse;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;fillColor=#ffffff',
+  _style: { 
+    entity: 'ellipse;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;fillColor=#ffffff',
+  },
   _width: 10,
   _height: 10,
 }

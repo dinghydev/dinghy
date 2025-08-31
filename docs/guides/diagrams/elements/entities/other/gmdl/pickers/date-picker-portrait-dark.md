@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=rect;fillColor=#424242;strokeColor=#eeeeee;shadow=1;',
+  _style: { 
+    entity: 'shape=rect;fillColor=#424242;strokeColor=#eeeeee;shadow=1;',
+  },
   _width: 328,
   _height: 484,
 }

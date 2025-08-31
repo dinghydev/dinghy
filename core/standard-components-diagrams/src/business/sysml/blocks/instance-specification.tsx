@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INSTANCE_SPECIFICATION = {
-  _style: 'shape=rect;html=1;overflow=fill;fontSize=15;whiteSpace=wrap;',
+  _style: {
+    entity: 'shape=rect;html=1;overflow=fill;fontSize=15;whiteSpace=wrap;',
+  },
   _width: 70,
   _height: 30,
 }

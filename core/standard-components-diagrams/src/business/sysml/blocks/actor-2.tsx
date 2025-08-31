@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTOR_2 = {
-  _style: 'shape=rect;html=1;overflow=fill;whiteSpace=wrap;align=center;',
+  _style: {
+    entity: 'shape=rect;html=1;overflow=fill;whiteSpace=wrap;align=center;',
+  },
   _width: 160,
   _height: 80,
 }

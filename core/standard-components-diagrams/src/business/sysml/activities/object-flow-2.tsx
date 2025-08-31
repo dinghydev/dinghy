@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OBJECT_FLOW_2 = {
-  _style: 'shape=rect;html=1;strokeWidth=2;whiteSpace=wrap;',
+  _style: {
+    entity: 'shape=rect;html=1;strokeWidth=2;whiteSpace=wrap;',
+  },
   _width: 1,
   _height: 60,
 }

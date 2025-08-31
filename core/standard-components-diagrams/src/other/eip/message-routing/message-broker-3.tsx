@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MESSAGE_BROKER_3 = {
-  _style: 'edgeStyle=none;endArrow=none;dashed=0;html=1;strokeWidth=2;',
+  _style: {
+    entity: 'edgeStyle=none;endArrow=none;dashed=0;html=1;strokeWidth=2;',
+  },
   _width: 7,
   _height: 90,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'shape=mxgraph.signs.travel.arrow_south;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  _style: { 
+    entity: 'shape=mxgraph.signs.travel.arrow_south;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  },
   _width: 83,
   _height: 98,
 }

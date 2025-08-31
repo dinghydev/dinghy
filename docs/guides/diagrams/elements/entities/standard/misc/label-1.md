@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'label;whiteSpace=wrap;html=1;image=img/clipart/Gear_128x128.png',
+  _style: { 
+    entity: 'label;whiteSpace=wrap;html=1;image=img/clipart/Gear_128x128.png',
+  },
   _width: 140,
   _height: 60,
 }

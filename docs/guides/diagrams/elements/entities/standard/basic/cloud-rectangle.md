@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_rect',
+  _style: { 
+    entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_rect',
+  },
   _width: 120,
   _height: 90,
 }

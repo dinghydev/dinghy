@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TABS_4 = {
-  _style: 'shape=line;strokeColor=#dddddd;',
+  _style: {
+    entity: 'shape=line;strokeColor=#dddddd;',
+  },
   _width: 4,
   _height: 45,
 }

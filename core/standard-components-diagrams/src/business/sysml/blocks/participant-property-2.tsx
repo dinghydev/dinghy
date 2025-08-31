@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARTICIPANT_PROPERTY_2 = {
-  _style: 'edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;',
+  _style: {
+    entity: 'edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;',
+  },
   _width: 3,
   _height: 140,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'fillColor=#ffff99;whiteSpace=wrap;shape=cloud;html=1;',
+  _style: { 
+    entity: 'fillColor=#ffff99;whiteSpace=wrap;shape=cloud;html=1;',
+  },
   _width: 100,
   _height: 75,
 }

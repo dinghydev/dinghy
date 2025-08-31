@@ -2,7 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTI_SELECT_WITH_AVATARS = {
-  _style: 'rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;arcSize=1',
+  _style: {
+    entity:
+      'rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;arcSize=1',
+  },
   _width: 2,
   _height: 320,
 }

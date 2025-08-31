@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.podio;fillColor=#72B8DE;gradientColor=#186BA2;gradientDirection=south;',
+  _style: { 
+    entity: 'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.podio;fillColor=#72B8DE;gradientColor=#186BA2;gradientDirection=south;',
+  },
   _width: 37,
   _height: 37,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_RECTANGLE = {
-  _style: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_rect',
+  _style: {
+    entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_rect',
+  },
   _width: 120,
   _height: 90,
 }

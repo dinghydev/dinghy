@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENTITY_2 = {
-  _style: 'whiteSpace=wrap;html=1;align=center;',
+  _style: {
+    entity: 'whiteSpace=wrap;html=1;align=center;',
+  },
   _width: 100,
   _height: 40,
 }

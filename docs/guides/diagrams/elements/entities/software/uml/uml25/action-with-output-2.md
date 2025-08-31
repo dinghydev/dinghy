@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'text;verticalAlign=middle;align=left;html=1;',
+  _style: { 
+    entity: 'text;verticalAlign=middle;align=left;html=1;',
+  },
   _width: 1,
   _height: 60,
 }

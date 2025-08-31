@@ -2,7 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIALOG_WITH_PERSISTENT_FOOTER_BUTTON = {
-  _style: 'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;',
+  _style: {
+    entity:
+      'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;',
+  },
   _width: 280,
   _height: 472,
 }

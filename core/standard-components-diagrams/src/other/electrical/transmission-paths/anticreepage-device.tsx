@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANTICREEPAGE_DEVICE = {
-  _style:
-    'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.anticreepage_device;pointerEvents=1;',
+  _style: {
+    entity:
+      'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.anticreepage_device;pointerEvents=1;',
+  },
   _width: 130,
   _height: 88,
 }

@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DERIVE_CALLOUT = {
-  _style: 'endArrow=none;edgeStyle=none;dashed=1;html=1;',
+  _style: {
+    entity: 'endArrow=none;edgeStyle=none;dashed=1;html=1;',
+  },
   _width: 2,
   _height: 60,
 }

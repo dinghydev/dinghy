@@ -2,7 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEND_SIGNAL_ACTION = {
-  _style: 'shape=mxgraph.sysml.sendSigAct;whiteSpace=wrap;align=center;html=1;',
+  _style: {
+    entity:
+      'shape=mxgraph.sysml.sendSigAct;whiteSpace=wrap;align=center;html=1;',
+  },
   _width: 140,
   _height: 40,
 }

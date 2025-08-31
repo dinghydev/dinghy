@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_WITH_ATTRIBUTES = {
-  _style: 'align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;',
+  _style: {
+    entity: 'align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;',
+  },
   _width: 0,
   _height: 90,
 }

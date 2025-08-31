@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VESSEL_DISHED_ENDS_THERMAL_INSULATION = {
-  _style:
-    'shape=mxgraph.pid.vessels.vessel_(dished_ends,_thermal_insulation);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  _style: {
+    entity:
+      'shape=mxgraph.pid.vessels.vessel_(dished_ends,_thermal_insulation);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
+  },
   _width: 52,
   _height: 95,
 }

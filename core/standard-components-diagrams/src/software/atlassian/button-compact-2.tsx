@@ -2,7 +2,9 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUTTON_COMPACT_2 = {
-  _style: 'shape=ellipse;fillColor=#596780;strokeColor=none;html=1;sketch=0;',
+  _style: {
+    entity: 'shape=ellipse;fillColor=#596780;strokeColor=none;html=1;sketch=0;',
+  },
   _width: 1,
   _height: 33,
 }

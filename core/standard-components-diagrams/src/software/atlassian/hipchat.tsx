@@ -2,8 +2,10 @@ import { extendStyle, Shape } from '@diac/base-components'
 import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HIPCHAT = {
-  _style:
-    'image;html=1;image=img/lib/atlassian/Hipchat_Logo.svg;strokeColor=none;',
+  _style: {
+    entity:
+      'image;html=1;image=img/lib/atlassian/Hipchat_Logo.svg;strokeColor=none;',
+  },
   _width: 66,
   _height: 62,
 }

@@ -4,7 +4,9 @@
 
 ```
 {
-  _style: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.startlap;fillColor=#B9E6F0;gradientColor=#3062A2',
+  _style: { 
+    entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.startlap;fillColor=#B9E6F0;gradientColor=#3062A2',
+  },
   _width: 82,
   _height: 84.2,
 }
