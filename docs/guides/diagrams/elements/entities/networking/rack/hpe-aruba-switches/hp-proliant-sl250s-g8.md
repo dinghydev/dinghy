@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HpProliantSl250sG8 } from '@reactiac/standard-components-diagrams/rackHpeArubaSwitches'
+import { HpProliantSl250sG8 } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
 
 <HpProliantSl250sG8/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SingleLineTextFieldHover } from '@reactiac/standard-components-diagrams/gmdlTextFields'
+import { SingleLineTextFieldHover } from '@diac/standard-components-diagrams/gmdlTextFields'
 
 <SingleLineTextFieldHover/>
 ```

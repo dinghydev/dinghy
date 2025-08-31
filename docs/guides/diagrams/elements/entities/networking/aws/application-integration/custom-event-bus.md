@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CustomEventBus } from '@reactiac/standard-components-diagrams/awsApplicationIntegration'
+import { CustomEventBus } from '@diac/standard-components-diagrams/awsApplicationIntegration'
 
 <CustomEventBus/>
 ```

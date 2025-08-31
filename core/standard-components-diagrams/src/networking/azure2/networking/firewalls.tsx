@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIREWALLS = {
   _style:
@@ -9,5 +9,7 @@ export const FIREWALLS = {
 }
 
 export function Firewalls(props: DiagramNodeProps) {
-  return <Shape {...FIREWALLS} {...props} />
+  return (
+    <Shape {...FIREWALLS} {...props} _style={extendStyle(FIREWALLS, props)} />
+  )
 }

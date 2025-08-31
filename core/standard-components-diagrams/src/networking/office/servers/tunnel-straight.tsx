@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TUNNEL_STRAIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const TUNNEL_STRAIGHT = {
 }
 
 export function TunnelStraight(props: DiagramNodeProps) {
-  return <Shape {...TUNNEL_STRAIGHT} {...props} />
+  return (
+    <Shape
+      {...TUNNEL_STRAIGHT}
+      {...props}
+      _style={extendStyle(TUNNEL_STRAIGHT, props)}
+    />
+  )
 }

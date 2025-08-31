@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PrivateCloud } from '@reactiac/standard-components-diagrams/citrixLocations'
+import { PrivateCloud } from '@diac/standard-components-diagrams/citrixLocations'
 
 <PrivateCloud/>
 ```

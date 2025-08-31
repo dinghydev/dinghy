@@ -1,13 +1,15 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MFA_TOKEN = {
   _style:
     'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.mfa_token;fillColor=#7D7C7C;gradientColor=none;',
-  _width: 61.5,
-  _height: 61.5,
+  _width: 60,
+  _height: 60,
 }
 
 export function MfaToken(props: DiagramNodeProps) {
-  return <Shape {...MFA_TOKEN} {...props} />
+  return (
+    <Shape {...MFA_TOKEN} {...props} _style={extendStyle(MFA_TOKEN, props)} />
+  )
 }

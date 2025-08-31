@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VEEAM_SERVICE_PROVIDER_CONSOLE = {
   _style:
@@ -9,5 +9,11 @@ export const VEEAM_SERVICE_PROVIDER_CONSOLE = {
 }
 
 export function VeeamServiceProviderConsole(props: DiagramNodeProps) {
-  return <Shape {...VEEAM_SERVICE_PROVIDER_CONSOLE} {...props} />
+  return (
+    <Shape
+      {...VEEAM_SERVICE_PROVIDER_CONSOLE}
+      {...props}
+      _style={extendStyle(VEEAM_SERVICE_PROVIDER_CONSOLE, props)}
+    />
+  )
 }

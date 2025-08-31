@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_NEXUS_7000_9_SLOT_SWITCH_CHASSIS = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_NEXUS_7000_9_SLOT_SWITCH_CHASSIS = {
 }
 
 export function CiscoNexus70009SlotSwitchChassis(props: DiagramNodeProps) {
-  return <Shape {...CISCO_NEXUS_7000_9_SLOT_SWITCH_CHASSIS} {...props} />
+  return (
+    <Shape
+      {...CISCO_NEXUS_7000_9_SLOT_SWITCH_CHASSIS}
+      {...props}
+      _style={extendStyle(CISCO_NEXUS_7000_9_SLOT_SWITCH_CHASSIS, props)}
+    />
+  )
 }

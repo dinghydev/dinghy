@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DELETE = {
   _style:
@@ -9,5 +9,5 @@ export const DELETE = {
 }
 
 export function Delete(props: DiagramNodeProps) {
-  return <Shape {...DELETE} {...props} />
+  return <Shape {...DELETE} {...props} _style={extendStyle(DELETE, props)} />
 }

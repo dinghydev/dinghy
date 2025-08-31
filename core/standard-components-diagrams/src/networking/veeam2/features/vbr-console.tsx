@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VBR_CONSOLE = {
   _style:
@@ -9,5 +9,11 @@ export const VBR_CONSOLE = {
 }
 
 export function VbrConsole(props: DiagramNodeProps) {
-  return <Shape {...VBR_CONSOLE} {...props} />
+  return (
+    <Shape
+      {...VBR_CONSOLE}
+      {...props}
+      _style={extendStyle(VBR_CONSOLE, props)}
+    />
+  )
 }

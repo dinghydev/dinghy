@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUCKET_SCALE = {
   _style:
@@ -9,5 +9,11 @@ export const BUCKET_SCALE = {
 }
 
 export function BucketScale(props: DiagramNodeProps) {
-  return <Shape {...BUCKET_SCALE} {...props} />
+  return (
+    <Shape
+      {...BUCKET_SCALE}
+      {...props}
+      _style={extendStyle(BUCKET_SCALE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExtruderScrew } from '@reactiac/standard-components-diagrams/procEngShapingMachines'
+import { ExtruderScrew } from '@diac/standard-components-diagrams/procEngShapingMachines'
 
 <ExtruderScrew/>
 ```

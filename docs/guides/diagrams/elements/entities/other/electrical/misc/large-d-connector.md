@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LargeDConnector } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { LargeDConnector } from '@diac/standard-components-diagrams/electricalMisc'
 
 <LargeDConnector/>
 ```

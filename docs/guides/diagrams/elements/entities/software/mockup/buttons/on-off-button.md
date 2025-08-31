@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OnOffButton } from '@reactiac/standard-components-diagrams/mockupButtons'
+import { OnOffButton } from '@diac/standard-components-diagrams/mockupButtons'
 
 <OnOffButton/>
 ```

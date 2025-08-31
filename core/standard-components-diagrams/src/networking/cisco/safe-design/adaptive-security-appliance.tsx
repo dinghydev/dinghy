@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADAPTIVE_SECURITY_APPLIANCE = {
   _style:
@@ -9,5 +9,11 @@ export const ADAPTIVE_SECURITY_APPLIANCE = {
 }
 
 export function AdaptiveSecurityAppliance(props: DiagramNodeProps) {
-  return <Shape {...ADAPTIVE_SECURITY_APPLIANCE} {...props} />
+  return (
+    <Shape
+      {...ADAPTIVE_SECURITY_APPLIANCE}
+      {...props}
+      _style={extendStyle(ADAPTIVE_SECURITY_APPLIANCE, props)}
+    />
+  )
 }

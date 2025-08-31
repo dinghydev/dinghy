@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RETURN_TO_WORK = {
   _style:
@@ -9,5 +9,11 @@ export const RETURN_TO_WORK = {
 }
 
 export function ReturnToWork(props: DiagramNodeProps) {
-  return <Shape {...RETURN_TO_WORK} {...props} />
+  return (
+    <Shape
+      {...RETURN_TO_WORK}
+      {...props}
+      _style={extendStyle(RETURN_TO_WORK, props)}
+    />
+  )
 }

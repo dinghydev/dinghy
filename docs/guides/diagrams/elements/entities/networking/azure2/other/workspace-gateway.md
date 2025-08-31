@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WorkspaceGateway } from '@reactiac/standard-components-diagrams/azure2Other'
+import { WorkspaceGateway } from '@diac/standard-components-diagrams/azure2Other'
 
 <WorkspaceGateway/>
 ```

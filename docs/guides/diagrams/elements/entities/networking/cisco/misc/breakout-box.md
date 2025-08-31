@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BreakoutBox } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { BreakoutBox } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <BreakoutBox/>
 ```

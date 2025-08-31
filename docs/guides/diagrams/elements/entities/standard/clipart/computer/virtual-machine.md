@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/computers/Virtual_Machine_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { VirtualMachine } from '@reactiac/standard-components-diagrams/clipartComputer'
+import { VirtualMachine } from '@diac/standard-components-diagrams/clipartComputer'
 
 <VirtualMachine/>
 ```

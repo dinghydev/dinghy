@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InternalBehaviorElement } from '@reactiac/standard-components-diagrams/archimate3Generic'
+import { InternalBehaviorElement } from '@diac/standard-components-diagrams/archimate3Generic'
 
 <InternalBehaviorElement/>
 ```

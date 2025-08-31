@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEXT_SELECTION_HANDLES = {
   _style:
@@ -9,5 +9,11 @@ export const TEXT_SELECTION_HANDLES = {
 }
 
 export function TextSelectionHandles(props: DiagramNodeProps) {
-  return <Shape {...TEXT_SELECTION_HANDLES} {...props} />
+  return (
+    <Shape
+      {...TEXT_SELECTION_HANDLES}
+      {...props}
+      _style={extendStyle(TEXT_SELECTION_HANDLES, props)}
+    />
+  )
 }

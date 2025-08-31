@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SqlReplica } from '@reactiac/standard-components-diagrams/aws18Database'
+import { SqlReplica } from '@diac/standard-components-diagrams/aws18Database'
 
 <SqlReplica/>
 ```

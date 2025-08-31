@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPEN_BULK_STORAGE = {
   _style:
@@ -9,5 +9,11 @@ export const OPEN_BULK_STORAGE = {
 }
 
 export function OpenBulkStorage(props: DiagramNodeProps) {
-  return <Shape {...OPEN_BULK_STORAGE} {...props} />
+  return (
+    <Shape
+      {...OPEN_BULK_STORAGE}
+      {...props}
+      _style={extendStyle(OPEN_BULK_STORAGE, props)}
+    />
+  )
 }

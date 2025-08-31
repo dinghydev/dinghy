@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CMP_CLOUD_MOBILE_PUSH = {
   _style:
@@ -9,5 +9,11 @@ export const CMP_CLOUD_MOBILE_PUSH = {
 }
 
 export function CmpCloudMobilePush(props: DiagramNodeProps) {
-  return <Shape {...CMP_CLOUD_MOBILE_PUSH} {...props} />
+  return (
+    <Shape
+      {...CMP_CLOUD_MOBILE_PUSH}
+      {...props}
+      _style={extendStyle(CMP_CLOUD_MOBILE_PUSH, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SELECT_BAR_2 = {
   _style:
@@ -9,5 +9,11 @@ export const SELECT_BAR_2 = {
 }
 
 export function SelectBar2(props: DiagramNodeProps) {
-  return <Shape {...SELECT_BAR_2} {...props} />
+  return (
+    <Shape
+      {...SELECT_BAR_2}
+      {...props}
+      _style={extendStyle(SELECT_BAR_2, props)}
+    />
+  )
 }

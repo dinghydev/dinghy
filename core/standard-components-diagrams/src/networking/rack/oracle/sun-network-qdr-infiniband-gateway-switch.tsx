@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH = {
 }
 
 export function SunNetworkQdrInfinibandGatewaySwitch(props: DiagramNodeProps) {
-  return <Shape {...SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH} {...props} />
+  return (
+    <Shape
+      {...SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH}
+      {...props}
+      _style={extendStyle(SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH, props)}
+    />
+  )
 }

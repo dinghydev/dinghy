@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HBASE = {
   _style:
@@ -9,5 +9,5 @@ export const HBASE = {
 }
 
 export function Hbase(props: DiagramNodeProps) {
-  return <Shape {...HBASE} {...props} />
+  return <Shape {...HBASE} {...props} _style={extendStyle(HBASE, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { JournalingRule } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { JournalingRule } from '@diac/standard-components-diagrams/officeCommunications'
 
 <JournalingRule/>
 ```

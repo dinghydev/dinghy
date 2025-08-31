@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Antivirus } from '@reactiac/standard-components-diagrams/veeam2Software'
+import { Antivirus } from '@diac/standard-components-diagrams/veeam2Software'
 
 <Antivirus/>
 ```

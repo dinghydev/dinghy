@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Printer } from '@reactiac/standard-components-diagrams/network2'
+import { Printer } from '@diac/standard-components-diagrams/network2'
 
 <Printer/>
 ```

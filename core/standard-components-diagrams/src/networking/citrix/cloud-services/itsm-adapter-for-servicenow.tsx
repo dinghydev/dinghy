@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ITSM_ADAPTER_FOR_SERVICENOW = {
   _style:
@@ -9,5 +9,11 @@ export const ITSM_ADAPTER_FOR_SERVICENOW = {
 }
 
 export function ItsmAdapterForServicenow(props: DiagramNodeProps) {
-  return <Shape {...ITSM_ADAPTER_FOR_SERVICENOW} {...props} />
+  return (
+    <Shape
+      {...ITSM_ADAPTER_FOR_SERVICENOW}
+      {...props}
+      _style={extendStyle(ITSM_ADAPTER_FOR_SERVICENOW, props)}
+    />
+  )
 }

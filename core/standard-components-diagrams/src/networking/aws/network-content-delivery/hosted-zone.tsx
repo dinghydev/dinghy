@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HOSTED_ZONE = {
   _style:
@@ -9,5 +9,11 @@ export const HOSTED_ZONE = {
 }
 
 export function HostedZone(props: DiagramNodeProps) {
-  return <Shape {...HOSTED_ZONE} {...props} />
+  return (
+    <Shape
+      {...HOSTED_ZONE}
+      {...props}
+      _style={extendStyle(HOSTED_ZONE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalButtonBar } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { HorizontalButtonBar } from '@diac/standard-components-diagrams/ios7Ui'
 
 <HorizontalButtonBar/>
 ```

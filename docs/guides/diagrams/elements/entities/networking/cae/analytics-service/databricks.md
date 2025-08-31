@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Databricks } from '@reactiac/standard-components-diagrams/caeAnalyticsService'
+import { Databricks } from '@diac/standard-components-diagrams/caeAnalyticsService'
 
 <Databricks/>
 ```

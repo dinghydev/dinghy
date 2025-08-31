@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Anthos } from '@reactiac/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
+import { Anthos } from '@diac/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
 
 <Anthos/>
 ```

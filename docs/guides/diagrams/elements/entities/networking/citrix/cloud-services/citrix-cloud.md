@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CitrixCloud } from '@reactiac/standard-components-diagrams/citrixCloudServices'
+import { CitrixCloud } from '@diac/standard-components-diagrams/citrixCloudServices'
 
 <CitrixCloud/>
 ```

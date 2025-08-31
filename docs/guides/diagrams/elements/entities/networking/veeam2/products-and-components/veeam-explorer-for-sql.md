@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VeeamExplorerForSql } from '@reactiac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamExplorerForSql } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamExplorerForSql/>
 ```

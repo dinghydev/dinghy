@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SearchGrid } from '@reactiac/standard-components-diagrams/azure2General'
+import { SearchGrid } from '@diac/standard-components-diagrams/azure2General'
 
 <SearchGrid/>
 ```

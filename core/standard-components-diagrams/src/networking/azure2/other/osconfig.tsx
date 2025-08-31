@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OSCONFIG = {
   _style:
@@ -9,5 +9,7 @@ export const OSCONFIG = {
 }
 
 export function Osconfig(props: DiagramNodeProps) {
-  return <Shape {...OSCONFIG} {...props} />
+  return (
+    <Shape {...OSCONFIG} {...props} _style={extendStyle(OSCONFIG, props)} />
+  )
 }

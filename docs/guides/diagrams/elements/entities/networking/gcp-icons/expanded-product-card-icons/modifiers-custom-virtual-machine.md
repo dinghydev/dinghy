@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ModifiersCustomVirtualMachine } from '@reactiac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { ModifiersCustomVirtualMachine } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <ModifiersCustomVirtualMachine/>
 ```

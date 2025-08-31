@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIELD_EFFECT_DIODE = {
   _style:
@@ -9,5 +9,11 @@ export const FIELD_EFFECT_DIODE = {
 }
 
 export function FieldEffectDiode(props: DiagramNodeProps) {
-  return <Shape {...FIELD_EFFECT_DIODE} {...props} />
+  return (
+    <Shape
+      {...FIELD_EFFECT_DIODE}
+      {...props}
+      _style={extendStyle(FIELD_EFFECT_DIODE, props)}
+    />
+  )
 }

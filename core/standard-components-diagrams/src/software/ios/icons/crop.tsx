@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CROP = {
   _style:
@@ -9,5 +9,5 @@ export const CROP = {
 }
 
 export function Crop(props: DiagramNodeProps) {
-  return <Shape {...CROP} {...props} />
+  return <Shape {...CROP} {...props} _style={extendStyle(CROP, props)} />
 }

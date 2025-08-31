@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BOUNDARY_LIFELINE = {
   _style: {
@@ -9,5 +9,11 @@ export const BOUNDARY_LIFELINE = {
 }
 
 export function BoundaryLifeline(props: DiagramNodeProps) {
-  return <Shape {...BOUNDARY_LIFELINE} {...props} />
+  return (
+    <Shape
+      {...BOUNDARY_LIFELINE}
+      {...props}
+      _style={extendStyle(BOUNDARY_LIFELINE, props)}
+    />
+  )
 }

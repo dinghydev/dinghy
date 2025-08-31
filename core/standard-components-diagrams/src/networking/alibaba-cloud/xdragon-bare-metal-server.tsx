@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XDRAGON_BARE_METAL_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const XDRAGON_BARE_METAL_SERVER = {
 }
 
 export function XdragonBareMetalServer(props: DiagramNodeProps) {
-  return <Shape {...XDRAGON_BARE_METAL_SERVER} {...props} />
+  return (
+    <Shape
+      {...XDRAGON_BARE_METAL_SERVER}
+      {...props}
+      _style={extendStyle(XDRAGON_BARE_METAL_SERVER, props)}
+    />
+  )
 }

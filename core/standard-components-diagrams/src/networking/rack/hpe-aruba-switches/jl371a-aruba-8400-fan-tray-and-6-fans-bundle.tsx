@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL371A_ARUBA_8400_FAN_TRAY_AND_6_FANS_BUNDLE = {
   _style:
@@ -9,5 +9,11 @@ export const JL371A_ARUBA_8400_FAN_TRAY_AND_6_FANS_BUNDLE = {
 }
 
 export function Jl371aAruba8400FanTrayAnd6FansBundle(props: DiagramNodeProps) {
-  return <Shape {...JL371A_ARUBA_8400_FAN_TRAY_AND_6_FANS_BUNDLE} {...props} />
+  return (
+    <Shape
+      {...JL371A_ARUBA_8400_FAN_TRAY_AND_6_FANS_BUNDLE}
+      {...props}
+      _style={extendStyle(JL371A_ARUBA_8400_FAN_TRAY_AND_6_FANS_BUNDLE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_SDK = {
   _style:
@@ -9,5 +9,7 @@ export const AZURE_SDK = {
 }
 
 export function AzureSdk(props: DiagramNodeProps) {
-  return <Shape {...AZURE_SDK} {...props} />
+  return (
+    <Shape {...AZURE_SDK} {...props} _style={extendStyle(AZURE_SDK, props)} />
+  )
 }

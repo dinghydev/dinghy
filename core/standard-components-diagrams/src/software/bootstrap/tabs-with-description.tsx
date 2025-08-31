@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TABS_WITH_DESCRIPTION = {
   _style:
@@ -9,5 +9,11 @@ export const TABS_WITH_DESCRIPTION = {
 }
 
 export function TabsWithDescription(props: DiagramNodeProps) {
-  return <Shape {...TABS_WITH_DESCRIPTION} {...props} />
+  return (
+    <Shape
+      {...TABS_WITH_DESCRIPTION}
+      {...props}
+      _style={extendStyle(TABS_WITH_DESCRIPTION, props)}
+    />
+  )
 }

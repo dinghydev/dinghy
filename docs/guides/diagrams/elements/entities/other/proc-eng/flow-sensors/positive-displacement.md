@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PositiveDisplacement } from '@reactiac/standard-components-diagrams/procEngFlowSensors'
+import { PositiveDisplacement } from '@diac/standard-components-diagrams/procEngFlowSensors'
 
 <PositiveDisplacement/>
 ```

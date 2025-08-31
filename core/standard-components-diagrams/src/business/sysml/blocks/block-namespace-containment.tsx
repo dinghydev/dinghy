@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLOCK_NAMESPACE_CONTAINMENT = {
   _style:
@@ -9,5 +9,11 @@ export const BLOCK_NAMESPACE_CONTAINMENT = {
 }
 
 export function BlockNamespaceContainment(props: DiagramNodeProps) {
-  return <Shape {...BLOCK_NAMESPACE_CONTAINMENT} {...props} />
+  return (
+    <Shape
+      {...BLOCK_NAMESPACE_CONTAINMENT}
+      {...props}
+      _style={extendStyle(BLOCK_NAMESPACE_CONTAINMENT, props)}
+    />
+  )
 }

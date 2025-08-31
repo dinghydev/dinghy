@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES = {
   _style:
@@ -11,5 +11,11 @@ export const EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES = {
 export function EaisElasticAcceleratedComputingInstances(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES} {...props} />
+  return (
+    <Shape
+      {...EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES}
+      {...props}
+      _style={extendStyle(EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES, props)}
+    />
+  )
 }

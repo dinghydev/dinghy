@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExpressRoute } from '@reactiac/standard-components-diagrams/azure'
+import { ExpressRoute } from '@diac/standard-components-diagrams/azure'
 
 <ExpressRoute/>
 ```

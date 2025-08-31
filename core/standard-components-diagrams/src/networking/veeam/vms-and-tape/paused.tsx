@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PAUSED = {
   _style:
@@ -9,5 +9,5 @@ export const PAUSED = {
 }
 
 export function Paused(props: DiagramNodeProps) {
-  return <Shape {...PAUSED} {...props} />
+  return <Shape {...PAUSED} {...props} _style={extendStyle(PAUSED, props)} />
 }

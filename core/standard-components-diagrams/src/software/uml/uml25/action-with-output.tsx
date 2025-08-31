@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTION_WITH_OUTPUT = {
   _style:
@@ -9,5 +9,11 @@ export const ACTION_WITH_OUTPUT = {
 }
 
 export function ActionWithOutput(props: DiagramNodeProps) {
-  return <Shape {...ACTION_WITH_OUTPUT} {...props} />
+  return (
+    <Shape
+      {...ACTION_WITH_OUTPUT}
+      {...props}
+      _style={extendStyle(ACTION_WITH_OUTPUT, props)}
+    />
+  )
 }

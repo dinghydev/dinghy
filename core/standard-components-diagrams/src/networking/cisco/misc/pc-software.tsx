@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PC_SOFTWARE = {
   _style:
@@ -9,5 +9,11 @@ export const PC_SOFTWARE = {
 }
 
 export function PcSoftware(props: DiagramNodeProps) {
-  return <Shape {...PC_SOFTWARE} {...props} />
+  return (
+    <Shape
+      {...PC_SOFTWARE}
+      {...props}
+      _style={extendStyle(PC_SOFTWARE, props)}
+    />
+  )
 }

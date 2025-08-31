@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_CONTAINER = {
   _style: 'swimlane;horizontal=0;whiteSpace=wrap;html=1;',
@@ -8,5 +8,11 @@ export const HORIZONTAL_CONTAINER = {
 }
 
 export function HorizontalContainer(props: DiagramNodeProps) {
-  return <Shape {...HORIZONTAL_CONTAINER} {...props} />
+  return (
+    <Shape
+      {...HORIZONTAL_CONTAINER}
+      {...props}
+      _style={extendStyle(HORIZONTAL_CONTAINER, props)}
+    />
+  )
 }

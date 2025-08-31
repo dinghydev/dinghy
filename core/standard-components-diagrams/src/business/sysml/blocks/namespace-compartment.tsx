@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAMESPACE_COMPARTMENT = {
   _style:
@@ -9,5 +9,11 @@ export const NAMESPACE_COMPARTMENT = {
 }
 
 export function NamespaceCompartment(props: DiagramNodeProps) {
-  return <Shape {...NAMESPACE_COMPARTMENT} {...props} />
+  return (
+    <Shape
+      {...NAMESPACE_COMPARTMENT}
+      {...props}
+      _style={extendStyle(NAMESPACE_COMPARTMENT, props)}
+    />
+  )
 }

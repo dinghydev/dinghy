@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TimeClocks } from '@reactiac/standard-components-diagrams/veeam2General'
+import { TimeClocks } from '@diac/standard-components-diagrams/veeam2General'
 
 <TimeClocks/>
 ```

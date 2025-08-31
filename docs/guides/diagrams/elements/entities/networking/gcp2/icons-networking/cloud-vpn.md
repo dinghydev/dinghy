@@ -14,7 +14,7 @@ VPN
 ## Usage
 
 ```
-import { CloudVpn } from '@reactiac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudVpn } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudVpn/>
 ```

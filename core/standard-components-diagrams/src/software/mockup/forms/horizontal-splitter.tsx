@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_SPLITTER = {
   _style:
@@ -9,5 +9,11 @@ export const HORIZONTAL_SPLITTER = {
 }
 
 export function HorizontalSplitter(props: DiagramNodeProps) {
-  return <Shape {...HORIZONTAL_SPLITTER} {...props} />
+  return (
+    <Shape
+      {...HORIZONTAL_SPLITTER}
+      {...props}
+      _style={extendStyle(HORIZONTAL_SPLITTER, props)}
+    />
+  )
 }

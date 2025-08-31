@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FORSETI_SECURITY = {
   _style:
@@ -9,5 +9,11 @@ export const FORSETI_SECURITY = {
 }
 
 export function ForsetiSecurity(props: DiagramNodeProps) {
-  return <Shape {...FORSETI_SECURITY} {...props} />
+  return (
+    <Shape
+      {...FORSETI_SECURITY}
+      {...props}
+      _style={extendStyle(FORSETI_SECURITY, props)}
+    />
+  )
 }

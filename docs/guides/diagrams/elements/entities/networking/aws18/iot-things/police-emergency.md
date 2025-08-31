@@ -14,7 +14,7 @@ Emergency
 ## Usage
 
 ```
-import { PoliceEmergency } from '@reactiac/standard-components-diagrams/aws18IotThings'
+import { PoliceEmergency } from '@diac/standard-components-diagrams/aws18IotThings'
 
 <PoliceEmergency/>
 ```

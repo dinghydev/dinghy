@@ -5,11 +5,11 @@ import {
   Shape,
   useTypedNode,
   useTypedNodes,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 import z from 'zod'
 
 import { awsProps } from '../index.ts'
-// import { awsProps } from "@reactiac/standard-components-tf-aws";
+// import { awsProps } from "@diac/standard-components-tf-aws";
 
 // Schema based on documentation:
 // https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster

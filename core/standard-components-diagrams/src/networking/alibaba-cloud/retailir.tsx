@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RETAILIR = {
   _style:
@@ -9,5 +9,7 @@ export const RETAILIR = {
 }
 
 export function Retailir(props: DiagramNodeProps) {
-  return <Shape {...RETAILIR} {...props} />
+  return (
+    <Shape {...RETAILIR} {...props} _style={extendStyle(RETAILIR, props)} />
+  )
 }

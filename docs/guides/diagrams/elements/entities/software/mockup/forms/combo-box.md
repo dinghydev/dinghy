@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ComboBox } from '@reactiac/standard-components-diagrams/mockupForms'
+import { ComboBox } from '@diac/standard-components-diagrams/mockupForms'
 
 <ComboBox/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Lightsail } from '@reactiac/standard-components-diagrams/aws17Compute'
+import { Lightsail } from '@diac/standard-components-diagrams/aws17Compute'
 
 <Lightsail/>
 ```

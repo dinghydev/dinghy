@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARTICIPANT_PROPERTY = {
   _style: 'shape=rect;html=1;fontStyle=1;whiteSpace=wrap;align=center;',
@@ -8,5 +8,11 @@ export const PARTICIPANT_PROPERTY = {
 }
 
 export function ParticipantProperty(props: DiagramNodeProps) {
-  return <Shape {...PARTICIPANT_PROPERTY} {...props} />
+  return (
+    <Shape
+      {...PARTICIPANT_PROPERTY}
+      {...props}
+      _style={extendStyle(PARTICIPANT_PROPERTY, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SeparatorPermanentMagnet } from '@reactiac/standard-components-diagrams/procEngSeparators'
+import { SeparatorPermanentMagnet } from '@diac/standard-components-diagrams/procEngSeparators'
 
 <SeparatorPermanentMagnet/>
 ```

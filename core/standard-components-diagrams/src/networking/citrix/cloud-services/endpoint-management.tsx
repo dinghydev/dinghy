@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENDPOINT_MANAGEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const ENDPOINT_MANAGEMENT = {
 }
 
 export function EndpointManagement(props: DiagramNodeProps) {
-  return <Shape {...ENDPOINT_MANAGEMENT} {...props} />
+  return (
+    <Shape
+      {...ENDPOINT_MANAGEMENT}
+      {...props}
+      _style={extendStyle(ENDPOINT_MANAGEMENT, props)}
+    />
+  )
 }

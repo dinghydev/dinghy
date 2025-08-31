@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIALOG_BOX = {
   _style:
@@ -9,5 +9,7 @@ export const DIALOG_BOX = {
 }
 
 export function DialogBox(props: DiagramNodeProps) {
-  return <Shape {...DIALOG_BOX} {...props} />
+  return (
+    <Shape {...DIALOG_BOX} {...props} _style={extendStyle(DIALOG_BOX, props)} />
+  )
 }

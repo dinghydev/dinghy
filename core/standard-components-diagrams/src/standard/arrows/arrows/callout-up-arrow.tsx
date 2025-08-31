@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CALLOUT_UP_ARROW = {
   _style:
@@ -9,5 +9,11 @@ export const CALLOUT_UP_ARROW = {
 }
 
 export function CalloutUpArrow(props: DiagramNodeProps) {
-  return <Shape {...CALLOUT_UP_ARROW} {...props} />
+  return (
+    <Shape
+      {...CALLOUT_UP_ARROW}
+      {...props}
+      _style={extendStyle(CALLOUT_UP_ARROW, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NamespaceCompartment } from '@reactiac/standard-components-diagrams/sysmlBlocks'
+import { NamespaceCompartment } from '@diac/standard-components-diagrams/sysmlBlocks'
 
 <NamespaceCompartment/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHECKBOX_OFF_FOCUSED_OR_PRESSED_LIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const CHECKBOX_OFF_FOCUSED_OR_PRESSED_LIGHT = {
 }
 
 export function CheckboxOffFocusedOrPressedLight(props: DiagramNodeProps) {
-  return <Shape {...CHECKBOX_OFF_FOCUSED_OR_PRESSED_LIGHT} {...props} />
+  return (
+    <Shape
+      {...CHECKBOX_OFF_FOCUSED_OR_PRESSED_LIGHT}
+      {...props}
+      _style={extendStyle(CHECKBOX_OFF_FOCUSED_OR_PRESSED_LIGHT, props)}
+    />
+  )
 }

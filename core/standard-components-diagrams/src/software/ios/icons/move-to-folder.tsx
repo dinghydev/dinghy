@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOVE_TO_FOLDER = {
   _style:
@@ -9,5 +9,11 @@ export const MOVE_TO_FOLDER = {
 }
 
 export function MoveToFolder(props: DiagramNodeProps) {
-  return <Shape {...MOVE_TO_FOLDER} {...props} />
+  return (
+    <Shape
+      {...MOVE_TO_FOLDER}
+      {...props}
+      _style={extendStyle(MOVE_TO_FOLDER, props)}
+    />
+  )
 }

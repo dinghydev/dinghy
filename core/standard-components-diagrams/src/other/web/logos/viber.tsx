@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIBER = {
   _style:
@@ -9,5 +9,5 @@ export const VIBER = {
 }
 
 export function Viber(props: DiagramNodeProps) {
-  return <Shape {...VIBER} {...props} />
+  return <Shape {...VIBER} {...props} _style={extendStyle(VIBER, props)} />
 }

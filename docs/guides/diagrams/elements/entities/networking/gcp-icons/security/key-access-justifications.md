@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KeyAccessJustifications } from '@reactiac/standard-components-diagrams/gcpIconsSecurity'
+import { KeyAccessJustifications } from '@diac/standard-components-diagrams/gcpIconsSecurity'
 
 <KeyAccessJustifications/>
 ```

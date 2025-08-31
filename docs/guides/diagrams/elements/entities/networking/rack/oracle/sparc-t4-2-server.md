@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SparcT42Server } from '@reactiac/standard-components-diagrams/rackOracle'
+import { SparcT42Server } from '@diac/standard-components-diagrams/rackOracle'
 
 <SparcT42Server/>
 ```

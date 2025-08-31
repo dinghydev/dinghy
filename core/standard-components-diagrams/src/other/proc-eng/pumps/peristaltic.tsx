@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PERISTALTIC = {
   _style:
@@ -9,5 +9,11 @@ export const PERISTALTIC = {
 }
 
 export function Peristaltic(props: DiagramNodeProps) {
-  return <Shape {...PERISTALTIC} {...props} />
+  return (
+    <Shape
+      {...PERISTALTIC}
+      {...props}
+      _style={extendStyle(PERISTALTIC, props)}
+    />
+  )
 }

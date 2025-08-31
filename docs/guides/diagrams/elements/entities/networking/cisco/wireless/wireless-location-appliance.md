@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WirelessLocationAppliance } from '@reactiac/standard-components-diagrams/ciscoWireless'
+import { WirelessLocationAppliance } from '@diac/standard-components-diagrams/ciscoWireless'
 
 <WirelessLocationAppliance/>
 ```

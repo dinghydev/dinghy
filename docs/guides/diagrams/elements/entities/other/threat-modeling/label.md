@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Label } from '@reactiac/standard-components-diagrams/threatModeling'
+import { Label } from '@diac/standard-components-diagrams/threatModeling'
 
 <Label/>
 ```

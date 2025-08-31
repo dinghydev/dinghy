@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WindowsRouter } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { WindowsRouter } from '@diac/standard-components-diagrams/activeDirectory'
 
 <WindowsRouter/>
 ```

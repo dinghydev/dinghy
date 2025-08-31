@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Router } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { Router } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <Router/>
 ```

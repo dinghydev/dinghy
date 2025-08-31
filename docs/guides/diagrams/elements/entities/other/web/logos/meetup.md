@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Meetup } from '@reactiac/standard-components-diagrams/webLogos'
+import { Meetup } from '@diac/standard-components-diagrams/webLogos'
 
 <Meetup/>
 ```

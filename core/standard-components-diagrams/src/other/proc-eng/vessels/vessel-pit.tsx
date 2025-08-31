@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VESSEL_PIT = {
   _style:
@@ -9,5 +9,7 @@ export const VESSEL_PIT = {
 }
 
 export function VesselPit(props: DiagramNodeProps) {
-  return <Shape {...VESSEL_PIT} {...props} />
+  return (
+    <Shape {...VESSEL_PIT} {...props} _style={extendStyle(VESSEL_PIT, props)} />
+  )
 }

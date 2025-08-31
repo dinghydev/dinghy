@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TTypeStrainer } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { TTypeStrainer } from '@diac/standard-components-diagrams/procEngPiping'
 
 <TTypeStrainer/>
 ```

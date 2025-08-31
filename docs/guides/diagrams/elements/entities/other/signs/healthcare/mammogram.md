@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.signs.healthcare.mammogram;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
-  _width: 98,
-  _height: 98,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Mammogram } from '@reactiac/standard-components-diagrams/signsHealthcare'
+import { Mammogram } from '@diac/standard-components-diagrams/signsHealthcare'
 
 <Mammogram/>
 ```

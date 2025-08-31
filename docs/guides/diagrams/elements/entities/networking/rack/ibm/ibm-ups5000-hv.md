@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IbmUps5000Hv } from '@reactiac/standard-components-diagrams/rackIbm'
+import { IbmUps5000Hv } from '@diac/standard-components-diagrams/rackIbm'
 
 <IbmUps5000Hv/>
 ```

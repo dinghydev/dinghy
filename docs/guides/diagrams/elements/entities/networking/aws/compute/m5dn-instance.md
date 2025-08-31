@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { M5dnInstance } from '@reactiac/standard-components-diagrams/awsCompute'
+import { M5dnInstance } from '@diac/standard-components-diagrams/awsCompute'
 
 <M5dnInstance/>
 ```

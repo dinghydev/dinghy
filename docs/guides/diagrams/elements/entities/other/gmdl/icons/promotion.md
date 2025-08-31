@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Promotion } from '@reactiac/standard-components-diagrams/gmdlIcons'
+import { Promotion } from '@diac/standard-components-diagrams/gmdlIcons'
 
 <Promotion/>
 ```

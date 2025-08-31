@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10780_PROPORTIONAL_DIRECTIONAL = {
   _style:
@@ -9,5 +9,11 @@ export const X10780_PROPORTIONAL_DIRECTIONAL = {
 }
 
 export function X10780ProportionalDirectional(props: DiagramNodeProps) {
-  return <Shape {...X10780_PROPORTIONAL_DIRECTIONAL} {...props} />
+  return (
+    <Shape
+      {...X10780_PROPORTIONAL_DIRECTIONAL}
+      {...props}
+      _style={extendStyle(X10780_PROPORTIONAL_DIRECTIONAL, props)}
+    />
+  )
 }

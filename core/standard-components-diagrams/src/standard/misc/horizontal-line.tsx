@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_LINE = {
   _style: 'line;strokeWidth=2;html=1;',
@@ -8,5 +8,11 @@ export const HORIZONTAL_LINE = {
 }
 
 export function HorizontalLine(props: DiagramNodeProps) {
-  return <Shape {...HORIZONTAL_LINE} {...props} />
+  return (
+    <Shape
+      {...HORIZONTAL_LINE}
+      {...props}
+      _style={extendStyle(HORIZONTAL_LINE, props)}
+    />
+  )
 }

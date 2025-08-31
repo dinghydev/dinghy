@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MESSAGE_SYNCHRONOUS_CALL = {
   _style: {
@@ -9,5 +9,11 @@ export const MESSAGE_SYNCHRONOUS_CALL = {
 }
 
 export function MessageSynchronousCall(props: DiagramNodeProps) {
-  return <Dependency {...MESSAGE_SYNCHRONOUS_CALL} {...props} />
+  return (
+    <Dependency
+      {...MESSAGE_SYNCHRONOUS_CALL}
+      {...props}
+      _style={extendStyle(MESSAGE_SYNCHRONOUS_CALL, props)}
+    />
+  )
 }

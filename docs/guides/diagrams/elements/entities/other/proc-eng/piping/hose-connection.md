@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HoseConnection } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { HoseConnection } from '@diac/standard-components-diagrams/procEngPiping'
 
 <HoseConnection/>
 ```

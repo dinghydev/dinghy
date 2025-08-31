@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SdCard } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { SdCard } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <SdCard/>
 ```

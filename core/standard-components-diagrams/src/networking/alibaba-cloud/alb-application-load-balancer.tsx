@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALB_APPLICATION_LOAD_BALANCER = {
   _style:
@@ -9,5 +9,11 @@ export const ALB_APPLICATION_LOAD_BALANCER = {
 }
 
 export function AlbApplicationLoadBalancer(props: DiagramNodeProps) {
-  return <Shape {...ALB_APPLICATION_LOAD_BALANCER} {...props} />
+  return (
+    <Shape
+      {...ALB_APPLICATION_LOAD_BALANCER}
+      {...props}
+      _style={extendStyle(ALB_APPLICATION_LOAD_BALANCER, props)}
+    />
+  )
 }

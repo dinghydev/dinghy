@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SamlOidc2 } from '@reactiac/standard-components-diagrams/sapEssentials'
+import { SamlOidc2 } from '@diac/standard-components-diagrams/sapEssentials'
 
 <SamlOidc2/>
 ```

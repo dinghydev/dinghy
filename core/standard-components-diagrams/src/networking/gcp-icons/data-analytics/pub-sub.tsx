@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PUB_SUB = {
   _style:
@@ -9,5 +9,5 @@ export const PUB_SUB = {
 }
 
 export function PubSub(props: DiagramNodeProps) {
-  return <Shape {...PUB_SUB} {...props} />
+  return <Shape {...PUB_SUB} {...props} _style={extendStyle(PUB_SUB, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BranchRepeater } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { BranchRepeater } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <BranchRepeater/>
 ```

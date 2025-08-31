@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BARREL_DRUM_ISO = {
   _style:
@@ -9,5 +9,11 @@ export const BARREL_DRUM_ISO = {
 }
 
 export function BarrelDrumIso(props: DiagramNodeProps) {
-  return <Shape {...BARREL_DRUM_ISO} {...props} />
+  return (
+    <Shape
+      {...BARREL_DRUM_ISO}
+      {...props}
+      _style={extendStyle(BARREL_DRUM_ISO, props)}
+    />
+  )
 }

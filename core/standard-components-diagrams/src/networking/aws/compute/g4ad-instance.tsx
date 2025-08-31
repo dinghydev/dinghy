@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const G4AD_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const G4AD_INSTANCE = {
 }
 
 export function G4adInstance(props: DiagramNodeProps) {
-  return <Shape {...G4AD_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...G4AD_INSTANCE}
+      {...props}
+      _style={extendStyle(G4AD_INSTANCE, props)}
+    />
+  )
 }

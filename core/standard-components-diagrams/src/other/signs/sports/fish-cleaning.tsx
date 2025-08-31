@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FISH_CLEANING = {
   _style:
@@ -9,5 +9,11 @@ export const FISH_CLEANING = {
 }
 
 export function FishCleaning(props: DiagramNodeProps) {
-  return <Shape {...FISH_CLEANING} {...props} />
+  return (
+    <Shape
+      {...FISH_CLEANING}
+      {...props}
+      _style={extendStyle(FISH_CLEANING, props)}
+    />
+  )
 }

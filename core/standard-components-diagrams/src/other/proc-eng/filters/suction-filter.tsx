@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUCTION_FILTER = {
   _style:
@@ -9,5 +9,11 @@ export const SUCTION_FILTER = {
 }
 
 export function SuctionFilter(props: DiagramNodeProps) {
-  return <Shape {...SUCTION_FILTER} {...props} />
+  return (
+    <Shape
+      {...SUCTION_FILTER}
+      {...props}
+      _style={extendStyle(SUCTION_FILTER, props)}
+    />
+  )
 }

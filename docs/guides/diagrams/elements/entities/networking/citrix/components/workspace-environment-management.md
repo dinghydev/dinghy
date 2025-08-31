@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WorkspaceEnvironmentManagement } from '@reactiac/standard-components-diagrams/citrixComponents'
+import { WorkspaceEnvironmentManagement } from '@diac/standard-components-diagrams/citrixComponents'
 
 <WorkspaceEnvironmentManagement/>
 ```

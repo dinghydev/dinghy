@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const R0X41A_ARUBA_6400_48P_SMART_RATE_CSL6_POE_4SFP56_MODULE = {
   _style:
@@ -15,6 +15,10 @@ export function R0x41aAruba640048pSmartRateCsl6Poe4sfp56Module(
     <Shape
       {...R0X41A_ARUBA_6400_48P_SMART_RATE_CSL6_POE_4SFP56_MODULE}
       {...props}
+      _style={extendStyle(
+        R0X41A_ARUBA_6400_48P_SMART_RATE_CSL6_POE_4SFP56_MODULE,
+        props,
+      )}
     />
   )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ActivityProcessEntityExternalInteractor } from '@reactiac/standard-components-diagrams/dataFlowDiagram'
+import { ActivityProcessEntityExternalInteractor } from '@diac/standard-components-diagrams/dataFlowDiagram'
 
 <ActivityProcessEntityExternalInteractor/>
 ```

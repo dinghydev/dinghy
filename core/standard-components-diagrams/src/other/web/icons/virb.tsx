@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIRB = {
   _style:
@@ -9,5 +9,5 @@ export const VIRB = {
 }
 
 export function Virb(props: DiagramNodeProps) {
-  return <Shape {...VIRB} {...props} />
+  return <Shape {...VIRB} {...props} _style={extendStyle(VIRB, props)} />
 }

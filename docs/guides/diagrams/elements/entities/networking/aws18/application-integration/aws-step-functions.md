@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsStepFunctions } from '@reactiac/standard-components-diagrams/aws18ApplicationIntegration'
+import { AwsStepFunctions } from '@diac/standard-components-diagrams/aws18ApplicationIntegration'
 
 <AwsStepFunctions/>
 ```

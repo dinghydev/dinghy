@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDARMOR = {
   _style:
@@ -9,5 +9,7 @@ export const CLOUDARMOR = {
 }
 
 export function Cloudarmor(props: DiagramNodeProps) {
-  return <Shape {...CLOUDARMOR} {...props} />
+  return (
+    <Shape {...CLOUDARMOR} {...props} _style={extendStyle(CLOUDARMOR, props)} />
+  )
 }

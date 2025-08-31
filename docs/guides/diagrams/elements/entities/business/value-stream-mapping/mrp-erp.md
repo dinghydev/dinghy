@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MrpErp } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { MrpErp } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <MrpErp/>
 ```

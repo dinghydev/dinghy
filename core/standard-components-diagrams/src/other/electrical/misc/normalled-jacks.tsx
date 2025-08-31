@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NORMALLED_JACKS = {
   _style:
@@ -9,5 +9,11 @@ export const NORMALLED_JACKS = {
 }
 
 export function NormalledJacks(props: DiagramNodeProps) {
-  return <Shape {...NORMALLED_JACKS} {...props} />
+  return (
+    <Shape
+      {...NORMALLED_JACKS}
+      {...props}
+      _style={extendStyle(NORMALLED_JACKS, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ImageFixedAspect } from '@reactiac/standard-components-diagrams/misc'
+import { ImageFixedAspect } from '@diac/standard-components-diagrams/misc'
 
 <ImageFixedAspect/>
 ```

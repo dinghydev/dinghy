@@ -32,28 +32,28 @@ function parseExampleSpec(path: string) {
   example.packagePath = path
   example.outputPath = `./packages/examples/${path}/output`
   example.code = Deno.readTextFileSync(appFile)
-    .replace(/from \'.*\/core\/index.ts\'/g, `from 'reactiac-core'`)
+    .replace(/from \'.*\/core\/index.ts\'/g, `from 'diac-core'`)
     .replace(
       /import.*DiagramNodeProps.*types.ts'/,
-      `import type { DiagramNodeProps } from 'reactiac-core'`,
+      `import type { DiagramNodeProps } from 'diac-core'`,
     )
     .replace(
       /import.*IacNodeProps.*types.ts'/,
-      `import { IacNodeProps } from 'reactiac-core'`,
+      `import { IacNodeProps } from 'diac-core'`,
     )
     .replace(
       /..\/..\/..\/generated-drawio\/index.ts/g,
-      `reactiac-components-generated-drawio`,
+      `diac-components-generated-drawio`,
     )
     .replace(
       /..\/..\/..\/..\/provider-drawio\/index.ts/g,
-      `reactiac-provider-drawio`,
+      `diac-provider-drawio`,
     )
     .replace(
       /..\/..\/..\/generated-aws\/index.ts/g,
-      `reactiac-components-generated-aws`,
+      `diac-components-generated-aws`,
     )
-    .replace(/..\/..\/..\/pro-aws\/index.ts/g, `reactiac-components-pro-aws`)
+    .replace(/..\/..\/..\/pro-aws\/index.ts/g, `diac-components-pro-aws`)
     .replace(/\$/g, '\\$')
     .replace(/`/g, '\\`')
 

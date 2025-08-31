@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTICSEARCH_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const ELASTICSEARCH_SERVICE = {
 }
 
 export function ElasticsearchService(props: DiagramNodeProps) {
-  return <Shape {...ELASTICSEARCH_SERVICE} {...props} />
+  return (
+    <Shape
+      {...ELASTICSEARCH_SERVICE}
+      {...props}
+      _style={extendStyle(ELASTICSEARCH_SERVICE, props)}
+    />
+  )
 }

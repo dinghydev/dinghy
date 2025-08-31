@@ -14,7 +14,7 @@ Endpoints
 ## Usage
 
 ```
-import { CloudEndpoints } from '@reactiac/standard-components-diagrams/gcp2IconsApiManagement'
+import { CloudEndpoints } from '@diac/standard-components-diagrams/gcp2IconsApiManagement'
 
 <CloudEndpoints/>
 ```

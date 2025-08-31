@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GWS_GRAPHIC_WORKSTATION = {
   _style:
@@ -9,5 +9,11 @@ export const GWS_GRAPHIC_WORKSTATION = {
 }
 
 export function GwsGraphicWorkstation(props: DiagramNodeProps) {
-  return <Shape {...GWS_GRAPHIC_WORKSTATION} {...props} />
+  return (
+    <Shape
+      {...GWS_GRAPHIC_WORKSTATION}
+      {...props}
+      _style={extendStyle(GWS_GRAPHIC_WORKSTATION, props)}
+    />
+  )
 }

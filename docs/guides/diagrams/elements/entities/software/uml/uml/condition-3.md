@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Condition3 } from '@reactiac/standard-components-diagrams/uml'
+import { Condition3 } from '@diac/standard-components-diagrams/uml'
 
 <Condition3/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AdConnector } from '@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { AdConnector } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <AdConnector/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const API_MONETIZATION = {
   _style:
@@ -9,5 +9,11 @@ export const API_MONETIZATION = {
 }
 
 export function ApiMonetization(props: DiagramNodeProps) {
-  return <Shape {...API_MONETIZATION} {...props} />
+  return (
+    <Shape
+      {...API_MONETIZATION}
+      {...props}
+      _style={extendStyle(API_MONETIZATION, props)}
+    />
+  )
 }

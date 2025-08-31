@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SwitchOff } from '@reactiac/standard-components-diagrams/android'
+import { SwitchOff } from '@diac/standard-components-diagrams/android'
 
 <SwitchOff/>
 ```

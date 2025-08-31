@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KINESIS_FIREHOSE = {
   _style:
@@ -9,5 +9,11 @@ export const KINESIS_FIREHOSE = {
 }
 
 export function KinesisFirehose(props: DiagramNodeProps) {
-  return <Shape {...KINESIS_FIREHOSE} {...props} />
+  return (
+    <Shape
+      {...KINESIS_FIREHOSE}
+      {...props}
+      _style={extendStyle(KINESIS_FIREHOSE, props)}
+    />
+  )
 }

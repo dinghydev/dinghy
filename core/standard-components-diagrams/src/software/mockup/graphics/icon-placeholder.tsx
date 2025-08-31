@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ICON_PLACEHOLDER = {
   _style:
     'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.graphics.simpleIcon;strokeColor=#999999;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function IconPlaceholder(props: DiagramNodeProps) {
-  return <Shape {...ICON_PLACEHOLDER} {...props} />
+  return (
+    <Shape
+      {...ICON_PLACEHOLDER}
+      {...props}
+      _style={extendStyle(ICON_PLACEHOLDER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMBOBOX = {
   _style:
@@ -9,5 +9,7 @@ export const COMBOBOX = {
 }
 
 export function Combobox(props: DiagramNodeProps) {
-  return <Shape {...COMBOBOX} {...props} />
+  return (
+    <Shape {...COMBOBOX} {...props} _style={extendStyle(COMBOBOX, props)} />
+  )
 }

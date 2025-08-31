@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RECORDING = {
   _style:
@@ -9,5 +9,7 @@ export const RECORDING = {
 }
 
 export function Recording(props: DiagramNodeProps) {
-  return <Shape {...RECORDING} {...props} />
+  return (
+    <Shape {...RECORDING} {...props} _style={extendStyle(RECORDING, props)} />
+  )
 }

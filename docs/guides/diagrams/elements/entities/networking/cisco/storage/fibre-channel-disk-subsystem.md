@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FibreChannelDiskSubsystem } from '@reactiac/standard-components-diagrams/ciscoStorage'
+import { FibreChannelDiskSubsystem } from '@diac/standard-components-diagrams/ciscoStorage'
 
 <FibreChannelDiskSubsystem/>
 ```

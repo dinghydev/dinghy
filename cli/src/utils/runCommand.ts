@@ -3,7 +3,7 @@ import {
   OPTIONS_SYMBOL,
   REQUIRE_ENGINE_SYMBOL,
   RUN_SYMBOL,
-  throwReactiacError,
+  throwDiacError,
 } from '../types.ts'
 import { showHelp } from './showHelp.ts'
 import Debug from 'debug'
@@ -17,8 +17,8 @@ const executeCommand = async (context: CommandContext) => {
     context.args,
     context.envPrefix,
   )
-  // todo: use REQUIRE_CONTAINER_SYMBOL to fix iac-cicd $ DOCKER_IMAGEVERSION=latest reactiac tf init production --debug
-  debug('running [reactiac %s]', context.prefix.join(' '))
+  // todo: use REQUIRE_CONTAINER_SYMBOL to fix iac-cicd $ DOCKER_IMAGEVERSION=latest diac tf init production --debug
+  debug('running [diac %s]', context.prefix.join(' '))
   return await context.commands[RUN_SYMBOL]!(context, options)
 }
 
@@ -58,7 +58,7 @@ export async function runCommand(context: CommandContext) {
           context.prefix.length ? ` ${context.prefix.join(' ')}` : ''
         } [${cmds.join(', ')}]`,
       )
-      throwReactiacError(`Command [${currentCommand.join(' ')}] not found`)
+      throwDiacError(`Command [${currentCommand.join(' ')}] not found`)
     }
     return await runCommand({
       ...context,

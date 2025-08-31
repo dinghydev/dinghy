@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARROWLESS_NE = {
   _style:
@@ -9,5 +9,11 @@ export const ARROWLESS_NE = {
 }
 
 export function ArrowlessNe(props: DiagramNodeProps) {
-  return <Shape {...ARROWLESS_NE} {...props} />
+  return (
+    <Shape
+      {...ARROWLESS_NE}
+      {...props}
+      _style={extendStyle(ARROWLESS_NE, props)}
+    />
+  )
 }

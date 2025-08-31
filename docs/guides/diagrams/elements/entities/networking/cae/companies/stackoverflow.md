@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stackoverflow } from '@reactiac/standard-components-diagrams/caeCompanies'
+import { Stackoverflow } from '@diac/standard-components-diagrams/caeCompanies'
 
 <Stackoverflow/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManMobileAnalytics } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { ManMobileAnalytics } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <ManMobileAnalytics/>
 ```

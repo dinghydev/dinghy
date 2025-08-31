@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const APP_WITH_CHANGES = {
   _style:
@@ -9,5 +9,11 @@ export const APP_WITH_CHANGES = {
 }
 
 export function AppWithChanges(props: DiagramNodeProps) {
-  return <Shape {...APP_WITH_CHANGES} {...props} />
+  return (
+    <Shape
+      {...APP_WITH_CHANGES}
+      {...props}
+      _style={extendStyle(APP_WITH_CHANGES, props)}
+    />
+  )
 }

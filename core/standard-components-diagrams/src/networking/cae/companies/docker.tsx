@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOCKER = {
   _style:
@@ -9,5 +9,5 @@ export const DOCKER = {
 }
 
 export function Docker(props: DiagramNodeProps) {
-  return <Shape {...DOCKER} {...props} />
+  return <Shape {...DOCKER} {...props} _style={extendStyle(DOCKER, props)} />
 }

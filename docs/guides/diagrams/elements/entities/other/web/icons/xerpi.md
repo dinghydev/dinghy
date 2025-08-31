@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Xerpi } from '@reactiac/standard-components-diagrams/webIcons'
+import { Xerpi } from '@diac/standard-components-diagrams/webIcons'
 
 <Xerpi/>
 ```

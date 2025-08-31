@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Plaxo } from '@reactiac/standard-components-diagrams/webIcons'
+import { Plaxo } from '@diac/standard-components-diagrams/webIcons'
 
 <Plaxo/>
 ```

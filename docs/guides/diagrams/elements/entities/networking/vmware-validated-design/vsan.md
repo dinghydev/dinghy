@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Vsan } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { Vsan } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <Vsan/>
 ```

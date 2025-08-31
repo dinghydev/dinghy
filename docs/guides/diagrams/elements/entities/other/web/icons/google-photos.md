@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GooglePhotos } from '@reactiac/standard-components-diagrams/webIcons'
+import { GooglePhotos } from '@diac/standard-components-diagrams/webIcons'
 
 <GooglePhotos/>
 ```

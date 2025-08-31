@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DefaultSequenceFlow } from '@reactiac/standard-components-diagrams/bpmn2General'
+import { DefaultSequenceFlow } from '@diac/standard-components-diagrams/bpmn2General'
 
 <DefaultSequenceFlow/>
 ```

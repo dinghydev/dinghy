@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProfessionalGraphicsDesktop } from '@reactiac/standard-components-diagrams/citrixResources'
+import { ProfessionalGraphicsDesktop } from '@diac/standard-components-diagrams/citrixResources'
 
 <ProfessionalGraphicsDesktop/>
 ```

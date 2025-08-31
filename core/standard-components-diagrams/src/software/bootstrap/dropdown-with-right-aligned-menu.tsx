@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DROPDOWN_WITH_RIGHT_ALIGNED_MENU = {
   _style:
@@ -9,5 +9,11 @@ export const DROPDOWN_WITH_RIGHT_ALIGNED_MENU = {
 }
 
 export function DropdownWithRightAlignedMenu(props: DiagramNodeProps) {
-  return <Shape {...DROPDOWN_WITH_RIGHT_ALIGNED_MENU} {...props} />
+  return (
+    <Shape
+      {...DROPDOWN_WITH_RIGHT_ALIGNED_MENU}
+      {...props}
+      _style={extendStyle(DROPDOWN_WITH_RIGHT_ALIGNED_MENU, props)}
+    />
+  )
 }

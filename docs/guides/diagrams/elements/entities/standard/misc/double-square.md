@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { DoubleSquare } from '@reactiac/standard-components-diagrams/misc'
+import { DoubleSquare } from '@diac/standard-components-diagrams/misc'
 
 <DoubleSquare/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RectangularCallout } from '@reactiac/standard-components-diagrams/basic'
+import { RectangularCallout } from '@diac/standard-components-diagrams/basic'
 
 <RectangularCallout/>
 ```

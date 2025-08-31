@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EDGE_SUBSCRIPTION = {
   _style:
@@ -9,5 +9,11 @@ export const EDGE_SUBSCRIPTION = {
 }
 
 export function EdgeSubscription(props: DiagramNodeProps) {
-  return <Shape {...EDGE_SUBSCRIPTION} {...props} />
+  return (
+    <Shape
+      {...EDGE_SUBSCRIPTION}
+      {...props}
+      _style={extendStyle(EDGE_SUBSCRIPTION, props)}
+    />
+  )
 }

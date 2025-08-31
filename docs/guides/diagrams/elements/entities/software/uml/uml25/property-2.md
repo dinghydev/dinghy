@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Property2 } from '@reactiac/standard-components-diagrams/uml25'
+import { Property2 } from '@diac/standard-components-diagrams/uml25'
 
 <Property2/>
 ```

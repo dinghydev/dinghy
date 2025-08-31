@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHIPMENTS = {
   _style: {
@@ -8,5 +8,11 @@ export const SHIPMENTS = {
 }
 
 export function Shipments(props: DiagramNodeProps) {
-  return <Dependency {...SHIPMENTS} {...props} />
+  return (
+    <Dependency
+      {...SHIPMENTS}
+      {...props}
+      _style={extendStyle(SHIPMENTS, props)}
+    />
+  )
 }

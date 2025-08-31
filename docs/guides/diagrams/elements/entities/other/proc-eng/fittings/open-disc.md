@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OpenDisc } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { OpenDisc } from '@diac/standard-components-diagrams/procEngFittings'
 
 <OpenDisc/>
 ```

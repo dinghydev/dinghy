@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FAILURE_STATUS = {
   _style: {
@@ -9,5 +9,11 @@ export const FAILURE_STATUS = {
 }
 
 export function FailureStatus(props: DiagramNodeProps) {
-  return <Dependency {...FAILURE_STATUS} {...props} />
+  return (
+    <Dependency
+      {...FAILURE_STATUS}
+      {...props}
+      _style={extendStyle(FAILURE_STATUS, props)}
+    />
+  )
 }

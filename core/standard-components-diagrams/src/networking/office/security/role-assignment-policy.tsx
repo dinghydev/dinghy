@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROLE_ASSIGNMENT_POLICY = {
   _style:
@@ -9,5 +9,11 @@ export const ROLE_ASSIGNMENT_POLICY = {
 }
 
 export function RoleAssignmentPolicy(props: DiagramNodeProps) {
-  return <Shape {...ROLE_ASSIGNMENT_POLICY} {...props} />
+  return (
+    <Shape
+      {...ROLE_ASSIGNMENT_POLICY}
+      {...props}
+      _style={extendStyle(ROLE_ASSIGNMENT_POLICY, props)}
+    />
+  )
 }

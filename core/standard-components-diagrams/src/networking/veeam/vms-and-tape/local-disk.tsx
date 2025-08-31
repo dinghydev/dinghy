@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOCAL_DISK = {
   _style:
@@ -9,5 +9,7 @@ export const LOCAL_DISK = {
 }
 
 export function LocalDisk(props: DiagramNodeProps) {
-  return <Shape {...LOCAL_DISK} {...props} />
+  return (
+    <Shape {...LOCAL_DISK} {...props} _style={extendStyle(LOCAL_DISK, props)} />
+  )
 }

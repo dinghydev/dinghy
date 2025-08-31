@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SwitchOff } from '@reactiac/standard-components-diagrams/gmdlSelectionControls'
+import { SwitchOff } from '@diac/standard-components-diagrams/gmdlSelectionControls'
 
 <SwitchOff/>
 ```

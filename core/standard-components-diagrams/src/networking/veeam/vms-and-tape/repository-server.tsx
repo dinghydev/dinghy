@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REPOSITORY_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const REPOSITORY_SERVER = {
 }
 
 export function RepositoryServer(props: DiagramNodeProps) {
-  return <Shape {...REPOSITORY_SERVER} {...props} />
+  return (
+    <Shape
+      {...REPOSITORY_SERVER}
+      {...props}
+      _style={extendStyle(REPOSITORY_SERVER, props)}
+    />
+  )
 }

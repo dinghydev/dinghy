@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TIME_SERIES_INSIGHTS_ACCESS_POLICIES = {
   _style:
@@ -9,5 +9,11 @@ export const TIME_SERIES_INSIGHTS_ACCESS_POLICIES = {
 }
 
 export function TimeSeriesInsightsAccessPolicies(props: DiagramNodeProps) {
-  return <Shape {...TIME_SERIES_INSIGHTS_ACCESS_POLICIES} {...props} />
+  return (
+    <Shape
+      {...TIME_SERIES_INSIGHTS_ACCESS_POLICIES}
+      {...props}
+      _style={extendStyle(TIME_SERIES_INSIGHTS_ACCESS_POLICIES, props)}
+    />
+  )
 }

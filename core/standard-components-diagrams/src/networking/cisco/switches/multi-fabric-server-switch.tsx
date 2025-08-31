@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTI_FABRIC_SERVER_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const MULTI_FABRIC_SERVER_SWITCH = {
 }
 
 export function MultiFabricServerSwitch(props: DiagramNodeProps) {
-  return <Shape {...MULTI_FABRIC_SERVER_SWITCH} {...props} />
+  return (
+    <Shape
+      {...MULTI_FABRIC_SERVER_SWITCH}
+      {...props}
+      _style={extendStyle(MULTI_FABRIC_SERVER_SWITCH, props)}
+    />
+  )
 }

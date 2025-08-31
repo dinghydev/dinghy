@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SpotFleet } from '@reactiac/standard-components-diagrams/aws17Compute'
+import { SpotFleet } from '@diac/standard-components-diagrams/aws17Compute'
 
 <SpotFleet/>
 ```

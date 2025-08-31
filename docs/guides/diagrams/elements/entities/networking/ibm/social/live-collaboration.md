@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LiveCollaboration } from '@reactiac/standard-components-diagrams/ibmSocial'
+import { LiveCollaboration } from '@diac/standard-components-diagrams/ibmSocial'
 
 <LiveCollaboration/>
 ```

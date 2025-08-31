@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VBEM_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const VBEM_SERVER = {
 }
 
 export function VbemServer(props: DiagramNodeProps) {
-  return <Shape {...VBEM_SERVER} {...props} />
+  return (
+    <Shape
+      {...VBEM_SERVER}
+      {...props}
+      _style={extendStyle(VBEM_SERVER, props)}
+    />
+  )
 }

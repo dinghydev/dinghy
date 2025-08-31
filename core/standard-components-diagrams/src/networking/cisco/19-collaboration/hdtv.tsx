@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HDTV = {
   _style:
@@ -9,5 +9,5 @@ export const HDTV = {
 }
 
 export function Hdtv(props: DiagramNodeProps) {
-  return <Shape {...HDTV} {...props} />
+  return <Shape {...HDTV} {...props} _style={extendStyle(HDTV, props)} />
 }

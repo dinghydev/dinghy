@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ModifiersStorage } from '@reactiac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { ModifiersStorage } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <ModifiersStorage/>
 ```

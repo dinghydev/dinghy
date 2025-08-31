@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHECKED = {
   _style:
@@ -9,5 +9,5 @@ export const CHECKED = {
 }
 
 export function Checked(props: DiagramNodeProps) {
-  return <Shape {...CHECKED} {...props} />
+  return <Shape {...CHECKED} {...props} _style={extendStyle(CHECKED, props)} />
 }

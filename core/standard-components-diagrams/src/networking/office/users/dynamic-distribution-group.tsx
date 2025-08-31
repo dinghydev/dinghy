@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DYNAMIC_DISTRIBUTION_GROUP = {
   _style:
@@ -9,5 +9,11 @@ export const DYNAMIC_DISTRIBUTION_GROUP = {
 }
 
 export function DynamicDistributionGroup(props: DiagramNodeProps) {
-  return <Shape {...DYNAMIC_DISTRIBUTION_GROUP} {...props} />
+  return (
+    <Shape
+      {...DYNAMIC_DISTRIBUTION_GROUP}
+      {...props}
+      _style={extendStyle(DYNAMIC_DISTRIBUTION_GROUP, props)}
+    />
+  )
 }

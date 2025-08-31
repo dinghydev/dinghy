@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SpotVmss } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { SpotVmss } from '@diac/standard-components-diagrams/azure2Networking'
 
 <SpotVmss/>
 ```

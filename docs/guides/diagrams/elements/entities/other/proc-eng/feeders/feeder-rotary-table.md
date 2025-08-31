@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FeederRotaryTable } from '@reactiac/standard-components-diagrams/procEngFeeders'
+import { FeederRotaryTable } from '@diac/standard-components-diagrams/procEngFeeders'
 
 <FeederRotaryTable/>
 ```

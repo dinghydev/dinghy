@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ECS_COPILOT_CLI = {
   _style:
@@ -9,5 +9,11 @@ export const ECS_COPILOT_CLI = {
 }
 
 export function EcsCopilotCli(props: DiagramNodeProps) {
-  return <Shape {...ECS_COPILOT_CLI} {...props} />
+  return (
+    <Shape
+      {...ECS_COPILOT_CLI}
+      {...props}
+      _style={extendStyle(ECS_COPILOT_CLI, props)}
+    />
+  )
 }

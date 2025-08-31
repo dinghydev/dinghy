@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SecureVirtualMachine } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { SecureVirtualMachine } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <SecureVirtualMachine/>
 ```

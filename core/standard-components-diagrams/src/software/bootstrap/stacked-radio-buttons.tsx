@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STACKED_RADIO_BUTTONS = {
   _style:
@@ -9,5 +9,11 @@ export const STACKED_RADIO_BUTTONS = {
 }
 
 export function StackedRadioButtons(props: DiagramNodeProps) {
-  return <Shape {...STACKED_RADIO_BUTTONS} {...props} />
+  return (
+    <Shape
+      {...STACKED_RADIO_BUTTONS}
+      {...props}
+      _style={extendStyle(STACKED_RADIO_BUTTONS, props)}
+    />
+  )
 }

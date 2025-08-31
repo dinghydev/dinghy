@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HYPER_V_HOST = {
   _style:
@@ -9,5 +9,11 @@ export const HYPER_V_HOST = {
 }
 
 export function HyperVHost(props: DiagramNodeProps) {
-  return <Shape {...HYPER_V_HOST} {...props} />
+  return (
+    <Shape
+      {...HYPER_V_HOST}
+      {...props}
+      _style={extendStyle(HYPER_V_HOST, props)}
+    />
+  )
 }

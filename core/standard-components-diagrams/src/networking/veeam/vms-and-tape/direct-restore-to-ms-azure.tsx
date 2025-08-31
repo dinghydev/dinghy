@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIRECT_RESTORE_TO_MS_AZURE = {
   _style:
@@ -9,5 +9,11 @@ export const DIRECT_RESTORE_TO_MS_AZURE = {
 }
 
 export function DirectRestoreToMsAzure(props: DiagramNodeProps) {
-  return <Shape {...DIRECT_RESTORE_TO_MS_AZURE} {...props} />
+  return (
+    <Shape
+      {...DIRECT_RESTORE_TO_MS_AZURE}
+      {...props}
+      _style={extendStyle(DIRECT_RESTORE_TO_MS_AZURE, props)}
+    />
+  )
 }

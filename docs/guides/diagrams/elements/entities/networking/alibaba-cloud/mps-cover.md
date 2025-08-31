@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MpsCover } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { MpsCover } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <MpsCover/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component3rdPartyIdpAndProtocols2 } from '@reactiac/standard-components-diagrams/sapEssentials'
+import { Component3rdPartyIdpAndProtocols2 } from '@diac/standard-components-diagrams/sapEssentials'
 
 <Component3rdPartyIdpAndProtocols2/>
 ```

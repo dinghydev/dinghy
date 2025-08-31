@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIRTUAL_INSTANCE_FOR_SAP = {
   _style:
@@ -9,5 +9,11 @@ export const VIRTUAL_INSTANCE_FOR_SAP = {
 }
 
 export function VirtualInstanceForSap(props: DiagramNodeProps) {
-  return <Shape {...VIRTUAL_INSTANCE_FOR_SAP} {...props} />
+  return (
+    <Shape
+      {...VIRTUAL_INSTANCE_FOR_SAP}
+      {...props}
+      _style={extendStyle(VIRTUAL_INSTANCE_FOR_SAP, props)}
+    />
+  )
 }

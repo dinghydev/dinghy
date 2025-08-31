@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OCR_OPTICAL_CHARACTER_RECOGNITION = {
   _style:
@@ -9,5 +9,11 @@ export const OCR_OPTICAL_CHARACTER_RECOGNITION = {
 }
 
 export function OcrOpticalCharacterRecognition(props: DiagramNodeProps) {
-  return <Shape {...OCR_OPTICAL_CHARACTER_RECOGNITION} {...props} />
+  return (
+    <Shape
+      {...OCR_OPTICAL_CHARACTER_RECOGNITION}
+      {...props}
+      _style={extendStyle(OCR_OPTICAL_CHARACTER_RECOGNITION, props)}
+    />
+  )
 }

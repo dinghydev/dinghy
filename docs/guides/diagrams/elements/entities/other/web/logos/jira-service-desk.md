@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { JiraServiceDesk } from '@reactiac/standard-components-diagrams/webLogos'
+import { JiraServiceDesk } from '@diac/standard-components-diagrams/webLogos'
 
 <JiraServiceDesk/>
 ```

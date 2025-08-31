@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONFERENCING_ATTENDANT = {
   _style:
@@ -9,5 +9,11 @@ export const CONFERENCING_ATTENDANT = {
 }
 
 export function ConferencingAttendant(props: DiagramNodeProps) {
-  return <Shape {...CONFERENCING_ATTENDANT} {...props} />
+  return (
+    <Shape
+      {...CONFERENCING_ATTENDANT}
+      {...props}
+      _style={extendStyle(CONFERENCING_ATTENDANT, props)}
+    />
+  )
 }

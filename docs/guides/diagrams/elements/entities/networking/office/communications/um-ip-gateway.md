@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UmIpGateway } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { UmIpGateway } from '@diac/standard-components-diagrams/officeCommunications'
 
 <UmIpGateway/>
 ```

@@ -2,11 +2,11 @@ import {
   IacNodeProps,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { useTypedNode } from '@reactiac/base-components'
-import { CertificateManager } from '@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { useTypedNode } from '@diac/base-components'
+import { CertificateManager } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 export const AwsAcmCertificateInputSchema = z.object({
   domain: ResolvableStringArraySchema.optional(),

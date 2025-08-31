@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHANNEL_PURGER = {
   _style:
@@ -9,5 +9,11 @@ export const CHANNEL_PURGER = {
 }
 
 export function ChannelPurger(props: DiagramNodeProps) {
-  return <Shape {...CHANNEL_PURGER} {...props} />
+  return (
+    <Shape
+      {...CHANNEL_PURGER}
+      {...props}
+      _style={extendStyle(CHANNEL_PURGER, props)}
+    />
+  )
 }

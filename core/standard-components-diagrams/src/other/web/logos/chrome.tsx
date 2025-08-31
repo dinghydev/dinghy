@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHROME = {
   _style:
@@ -9,5 +9,5 @@ export const CHROME = {
 }
 
 export function Chrome(props: DiagramNodeProps) {
-  return <Shape {...CHROME} {...props} />
+  return <Shape {...CHROME} {...props} _style={extendStyle(CHROME, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RectangleSketch } from '@reactiac/standard-components-diagrams/misc'
+import { RectangleSketch } from '@diac/standard-components-diagrams/misc'
 
 <RectangleSketch/>
 ```

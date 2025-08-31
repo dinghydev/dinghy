@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REQUIREMENT = {
   _style:
@@ -9,5 +9,11 @@ export const REQUIREMENT = {
 }
 
 export function Requirement(props: DiagramNodeProps) {
-  return <Shape {...REQUIREMENT} {...props} />
+  return (
+    <Shape
+      {...REQUIREMENT}
+      {...props}
+      _style={extendStyle(REQUIREMENT, props)}
+    />
+  )
 }

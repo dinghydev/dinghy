@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudNat } from '@reactiac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudNat } from '@diac/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudNat/>
 ```

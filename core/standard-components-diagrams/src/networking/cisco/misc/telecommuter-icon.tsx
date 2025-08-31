@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TELECOMMUTER_ICON = {
   _style:
@@ -9,5 +9,11 @@ export const TELECOMMUTER_ICON = {
 }
 
 export function TelecommuterIcon(props: DiagramNodeProps) {
-  return <Shape {...TELECOMMUTER_ICON} {...props} />
+  return (
+    <Shape
+      {...TELECOMMUTER_ICON}
+      {...props}
+      _style={extendStyle(TELECOMMUTER_ICON, props)}
+    />
+  )
 }

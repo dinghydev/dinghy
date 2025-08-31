@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MESSAGE_EXPIRATION = {
   _style:
@@ -9,5 +9,11 @@ export const MESSAGE_EXPIRATION = {
 }
 
 export function MessageExpiration(props: DiagramNodeProps) {
-  return <Shape {...MESSAGE_EXPIRATION} {...props} />
+  return (
+    <Shape
+      {...MESSAGE_EXPIRATION}
+      {...props}
+      _style={extendStyle(MESSAGE_EXPIRATION, props)}
+    />
+  )
 }

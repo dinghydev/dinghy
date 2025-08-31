@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ColorPicker } from '@reactiac/standard-components-diagrams/mockupForms'
+import { ColorPicker } from '@diac/standard-components-diagrams/mockupForms'
 
 <ColorPicker/>
 ```

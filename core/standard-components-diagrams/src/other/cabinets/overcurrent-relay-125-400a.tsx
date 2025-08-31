@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OVERCURRENT_RELAY_125_400A = {
   _style:
@@ -9,5 +9,11 @@ export const OVERCURRENT_RELAY_125_400A = {
 }
 
 export function OvercurrentRelay125400a(props: DiagramNodeProps) {
-  return <Shape {...OVERCURRENT_RELAY_125_400A} {...props} />
+  return (
+    <Shape
+      {...OVERCURRENT_RELAY_125_400A}
+      {...props}
+      _style={extendStyle(OVERCURRENT_RELAY_125_400A, props)}
+    />
+  )
 }

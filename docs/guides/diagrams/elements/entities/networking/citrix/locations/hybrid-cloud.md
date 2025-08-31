@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HybridCloud } from '@reactiac/standard-components-diagrams/citrixLocations'
+import { HybridCloud } from '@diac/standard-components-diagrams/citrixLocations'
 
 <HybridCloud/>
 ```

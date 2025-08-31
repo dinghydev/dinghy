@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Delete } from '@reactiac/standard-components-diagrams/ios6'
+import { Delete } from '@diac/standard-components-diagrams/ios6'
 
 <Delete/>
 ```

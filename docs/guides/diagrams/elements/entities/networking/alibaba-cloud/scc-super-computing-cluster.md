@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SccSuperComputingCluster } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { SccSuperComputingCluster } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <SccSuperComputingCluster/>
 ```

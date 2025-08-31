@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DB_ACCELERATOR = {
   _style:
@@ -9,5 +9,11 @@ export const DB_ACCELERATOR = {
 }
 
 export function DbAccelerator(props: DiagramNodeProps) {
-  return <Shape {...DB_ACCELERATOR} {...props} />
+  return (
+    <Shape
+      {...DB_ACCELERATOR}
+      {...props}
+      _style={extendStyle(DB_ACCELERATOR, props)}
+    />
+  )
 }

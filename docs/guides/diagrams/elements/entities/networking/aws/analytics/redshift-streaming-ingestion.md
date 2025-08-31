@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RedshiftStreamingIngestion } from '@reactiac/standard-components-diagrams/awsAnalytics'
+import { RedshiftStreamingIngestion } from '@diac/standard-components-diagrams/awsAnalytics'
 
 <RedshiftStreamingIngestion/>
 ```

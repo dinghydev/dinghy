@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ON_PREMISE_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const ON_PREMISE_HIGHLIGHT = {
 }
 
 export function OnPremiseHighlight(props: DiagramNodeProps) {
-  return <Shape {...ON_PREMISE_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...ON_PREMISE_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(ON_PREMISE_HIGHLIGHT, props)}
+    />
+  )
 }

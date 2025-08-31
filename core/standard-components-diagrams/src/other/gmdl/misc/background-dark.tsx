@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BACKGROUND_DARK = {
   _style: 'shape=rect;fillColor=#333333;strokeColor=none;',
@@ -8,5 +8,11 @@ export const BACKGROUND_DARK = {
 }
 
 export function BackgroundDark(props: DiagramNodeProps) {
-  return <Shape {...BACKGROUND_DARK} {...props} />
+  return (
+    <Shape
+      {...BACKGROUND_DARK}
+      {...props}
+      _style={extendStyle(BACKGROUND_DARK, props)}
+    />
+  )
 }

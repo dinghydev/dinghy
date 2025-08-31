@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContextualActionBarLandscape } from '@reactiac/standard-components-diagrams/android'
+import { ContextualActionBarLandscape } from '@diac/standard-components-diagrams/android'
 
 <ContextualActionBarLandscape/>
 ```

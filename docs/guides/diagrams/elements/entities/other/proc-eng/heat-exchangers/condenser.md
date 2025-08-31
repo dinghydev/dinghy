@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.pid.heat_exchangers.condenser;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Condenser } from '@reactiac/standard-components-diagrams/procEngHeatExchangers'
+import { Condenser } from '@diac/standard-components-diagrams/procEngHeatExchangers'
 
 <Condenser/>
 ```

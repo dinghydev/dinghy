@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Octel } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Octel } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Octel/>
 ```

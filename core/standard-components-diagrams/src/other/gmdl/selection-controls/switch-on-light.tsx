@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SWITCH_ON_LIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const SWITCH_ON_LIGHT = {
 }
 
 export function SwitchOnLight(props: DiagramNodeProps) {
-  return <Shape {...SWITCH_ON_LIGHT} {...props} />
+  return (
+    <Shape
+      {...SWITCH_ON_LIGHT}
+      {...props}
+      _style={extendStyle(SWITCH_ON_LIGHT, props)}
+    />
+  )
 }

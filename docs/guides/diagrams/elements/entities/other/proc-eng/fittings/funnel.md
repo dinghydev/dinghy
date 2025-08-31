@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Funnel } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { Funnel } from '@diac/standard-components-diagrams/procEngFittings'
 
 <Funnel/>
 ```

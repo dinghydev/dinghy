@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CacheRedisProductIcon } from '@reactiac/standard-components-diagrams/caeCompanies'
+import { CacheRedisProductIcon } from '@diac/standard-components-diagrams/caeCompanies'
 
 <CacheRedisProductIcon/>
 ```

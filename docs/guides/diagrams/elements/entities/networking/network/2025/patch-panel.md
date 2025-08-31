@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PatchPanel } from '@reactiac/standard-components-diagrams/network2'
+import { PatchPanel } from '@diac/standard-components-diagrams/network2'
 
 <PatchPanel/>
 ```

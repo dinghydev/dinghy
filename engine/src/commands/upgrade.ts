@@ -3,13 +3,13 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@reactiac/cli'
+} from '@diac/cli'
 import {
   fetchLatestVersion,
   OPTIONS_SYMBOL,
-  reactiacConfigFile,
+  diacConfigFile,
   RUN_SYMBOL,
-} from '@reactiac/cli'
+} from '@diac/cli'
 import chalk from 'chalk'
 import * as yaml from '@std/yaml'
 import { existsSync } from '@std/fs/exists'
@@ -26,7 +26,7 @@ const options: CommandOptions = {
     version: 'latest',
   },
   cmdDescription:
-    'Upgrade/lock project ReactIAC version, to the latest version by default',
+    'Upgrade/lock project DIaC version, to the latest version by default',
   cmdAlias: ['up'],
 }
 
@@ -40,15 +40,15 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     }
   }
 
-  const config: any = existsSync(reactiacConfigFile)
-    ? yaml.parse(Deno.readTextFileSync(reactiacConfigFile))
+  const config: any = existsSync(diacConfigFile)
+    ? yaml.parse(Deno.readTextFileSync(diacConfigFile))
     : {}
-  const currentVersion = config.reactiac?.engine?.version
+  const currentVersion = config.diac?.engine?.version
   if (currentVersion !== version) {
-    config.reactiac ??= {}
-    config.reactiac.engine ??= {}
-    config.reactiac.engine.version = version
-    Deno.writeTextFileSync(reactiacConfigFile, yaml.stringify(config))
+    config.diac ??= {}
+    config.diac.engine ??= {}
+    config.diac.engine.version = version
+    Deno.writeTextFileSync(diacConfigFile, yaml.stringify(config))
     console.log(
       `Upgraded from ${chalk.red(currentVersion)} to version ${
         chalk.green(version)

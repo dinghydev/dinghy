@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROBABILITY_9 = {
   _style:
@@ -9,5 +9,11 @@ export const PROBABILITY_9 = {
 }
 
 export function Probability9(props: DiagramNodeProps) {
-  return <Shape {...PROBABILITY_9} {...props} />
+  return (
+    <Shape
+      {...PROBABILITY_9}
+      {...props}
+      _style={extendStyle(PROBABILITY_9, props)}
+    />
+  )
 }

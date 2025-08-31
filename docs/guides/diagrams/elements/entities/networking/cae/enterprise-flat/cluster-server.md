@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ClusterServer } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { ClusterServer } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <ClusterServer/>
 ```

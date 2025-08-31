@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Thermostat } from '@reactiac/standard-components-diagrams/aws18IotThings'
+import { Thermostat } from '@diac/standard-components-diagrams/aws18IotThings'
 
 <Thermostat/>
 ```

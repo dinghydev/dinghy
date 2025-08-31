@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BlockNamespaceContainment2 } from '@reactiac/standard-components-diagrams/sysmlBlocks'
+import { BlockNamespaceContainment2 } from '@diac/standard-components-diagrams/sysmlBlocks'
 
 <BlockNamespaceContainment2/>
 ```

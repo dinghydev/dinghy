@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DialogBox } from '@reactiac/standard-components-diagrams/mockupContainers'
+import { DialogBox } from '@diac/standard-components-diagrams/mockupContainers'
 
 <DialogBox/>
 ```

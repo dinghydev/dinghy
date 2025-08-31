@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PATCH_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const PATCH_MANAGER = {
 }
 
 export function PatchManager(props: DiagramNodeProps) {
-  return <Shape {...PATCH_MANAGER} {...props} />
+  return (
+    <Shape
+      {...PATCH_MANAGER}
+      {...props}
+      _style={extendStyle(PATCH_MANAGER, props)}
+    />
+  )
 }

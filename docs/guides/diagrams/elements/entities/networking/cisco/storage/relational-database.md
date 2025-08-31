@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RelationalDatabase } from '@reactiac/standard-components-diagrams/ciscoStorage'
+import { RelationalDatabase } from '@diac/standard-components-diagrams/ciscoStorage'
 
 <RelationalDatabase/>
 ```

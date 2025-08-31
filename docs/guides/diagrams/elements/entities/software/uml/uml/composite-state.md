@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CompositeState } from '@reactiac/standard-components-diagrams/uml'
+import { CompositeState } from '@diac/standard-components-diagrams/uml'
 
 <CompositeState/>
 ```

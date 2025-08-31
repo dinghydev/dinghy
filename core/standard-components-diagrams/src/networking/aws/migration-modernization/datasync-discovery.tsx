@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATASYNC_DISCOVERY = {
   _style:
@@ -9,5 +9,11 @@ export const DATASYNC_DISCOVERY = {
 }
 
 export function DatasyncDiscovery(props: DiagramNodeProps) {
-  return <Shape {...DATASYNC_DISCOVERY} {...props} />
+  return (
+    <Shape
+      {...DATASYNC_DISCOVERY}
+      {...props}
+      _style={extendStyle(DATASYNC_DISCOVERY, props)}
+    />
+  )
 }

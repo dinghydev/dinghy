@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HairpinExchanger } from '@reactiac/standard-components-diagrams/procEngHeatExchangers'
+import { HairpinExchanger } from '@diac/standard-components-diagrams/procEngHeatExchangers'
 
 <HairpinExchanger/>
 ```

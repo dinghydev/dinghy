@@ -14,7 +14,7 @@ Enterprise Edition
 ## Usage
 
 ```
-import { DialogflowEnterpriseEdition } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { DialogflowEnterpriseEdition } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <DialogflowEnterpriseEdition/>
 ```

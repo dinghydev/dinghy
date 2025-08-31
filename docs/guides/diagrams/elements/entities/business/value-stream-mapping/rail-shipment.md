@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RailShipment } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { RailShipment } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <RailShipment/>
 ```

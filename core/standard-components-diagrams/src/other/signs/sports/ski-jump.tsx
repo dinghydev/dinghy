@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SKI_JUMP = {
   _style:
@@ -9,5 +9,7 @@ export const SKI_JUMP = {
 }
 
 export function SkiJump(props: DiagramNodeProps) {
-  return <Shape {...SKI_JUMP} {...props} />
+  return (
+    <Shape {...SKI_JUMP} {...props} _style={extendStyle(SKI_JUMP, props)} />
+  )
 }

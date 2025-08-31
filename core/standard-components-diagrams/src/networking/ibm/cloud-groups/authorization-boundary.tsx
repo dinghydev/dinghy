@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AUTHORIZATION_BOUNDARY = {
   _style: {
@@ -12,5 +12,11 @@ export const AUTHORIZATION_BOUNDARY = {
 }
 
 export function AuthorizationBoundary(props: DiagramNodeProps) {
-  return <Shape {...AUTHORIZATION_BOUNDARY} {...props} />
+  return (
+    <Shape
+      {...AUTHORIZATION_BOUNDARY}
+      {...props}
+      _style={extendStyle(AUTHORIZATION_BOUNDARY, props)}
+    />
+  )
 }

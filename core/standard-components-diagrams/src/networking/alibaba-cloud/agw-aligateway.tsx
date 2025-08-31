@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AGW_ALIGATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const AGW_ALIGATEWAY = {
 }
 
 export function AgwAligateway(props: DiagramNodeProps) {
-  return <Shape {...AGW_ALIGATEWAY} {...props} />
+  return (
+    <Shape
+      {...AGW_ALIGATEWAY}
+      {...props}
+      _style={extendStyle(AGW_ALIGATEWAY, props)}
+    />
+  )
 }

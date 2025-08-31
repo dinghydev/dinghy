@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_NEXUS_2232PP_10GE_FABRIC_EXTENDER = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_NEXUS_2232PP_10GE_FABRIC_EXTENDER = {
 }
 
 export function CiscoNexus2232pp10geFabricExtender(props: DiagramNodeProps) {
-  return <Shape {...CISCO_NEXUS_2232PP_10GE_FABRIC_EXTENDER} {...props} />
+  return (
+    <Shape
+      {...CISCO_NEXUS_2232PP_10GE_FABRIC_EXTENDER}
+      {...props}
+      _style={extendStyle(CISCO_NEXUS_2232PP_10GE_FABRIC_EXTENDER, props)}
+    />
+  )
 }

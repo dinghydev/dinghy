@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATAZONE_BUSINESS_DATA_CATALOG = {
   _style:
@@ -9,5 +9,11 @@ export const DATAZONE_BUSINESS_DATA_CATALOG = {
 }
 
 export function DatazoneBusinessDataCatalog(props: DiagramNodeProps) {
-  return <Shape {...DATAZONE_BUSINESS_DATA_CATALOG} {...props} />
+  return (
+    <Shape
+      {...DATAZONE_BUSINESS_DATA_CATALOG}
+      {...props}
+      _style={extendStyle(DATAZONE_BUSINESS_DATA_CATALOG, props)}
+    />
+  )
 }

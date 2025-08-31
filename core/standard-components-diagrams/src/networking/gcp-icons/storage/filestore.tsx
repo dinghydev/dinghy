@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FILESTORE = {
   _style:
@@ -9,5 +9,7 @@ export const FILESTORE = {
 }
 
 export function Filestore(props: DiagramNodeProps) {
-  return <Shape {...FILESTORE} {...props} />
+  return (
+    <Shape {...FILESTORE} {...props} _style={extendStyle(FILESTORE, props)} />
+  )
 }

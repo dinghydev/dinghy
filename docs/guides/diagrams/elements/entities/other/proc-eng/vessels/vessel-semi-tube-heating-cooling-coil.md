@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VesselSemiTubeHeatingCoolingCoil } from '@reactiac/standard-components-diagrams/procEngVessels'
+import { VesselSemiTubeHeatingCoolingCoil } from '@diac/standard-components-diagrams/procEngVessels'
 
 <VesselSemiTubeHeatingCoolingCoil/>
 ```

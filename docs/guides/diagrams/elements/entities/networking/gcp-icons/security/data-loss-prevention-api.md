@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataLossPreventionApi } from '@reactiac/standard-components-diagrams/gcpIconsSecurity'
+import { DataLossPreventionApi } from '@diac/standard-components-diagrams/gcpIconsSecurity'
 
 <DataLossPreventionApi/>
 ```

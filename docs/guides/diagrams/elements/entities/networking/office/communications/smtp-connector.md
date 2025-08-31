@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SmtpConnector } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { SmtpConnector } from '@diac/standard-components-diagrams/officeCommunications'
 
 <SmtpConnector/>
 ```

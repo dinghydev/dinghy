@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AssistedFailoverAndFailback } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { AssistedFailoverAndFailback } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <AssistedFailoverAndFailback/>
 ```

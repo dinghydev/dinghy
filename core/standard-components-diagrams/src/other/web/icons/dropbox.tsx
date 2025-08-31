@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DROPBOX = {
   _style:
@@ -9,5 +9,5 @@ export const DROPBOX = {
 }
 
 export function Dropbox(props: DiagramNodeProps) {
-  return <Shape {...DROPBOX} {...props} />
+  return <Shape {...DROPBOX} {...props} _style={extendStyle(DROPBOX, props)} />
 }

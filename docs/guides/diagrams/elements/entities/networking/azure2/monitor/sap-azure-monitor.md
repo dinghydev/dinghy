@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SapAzureMonitor } from '@reactiac/standard-components-diagrams/azure2Monitor'
+import { SapAzureMonitor } from '@diac/standard-components-diagrams/azure2Monitor'
 
 <SapAzureMonitor/>
 ```

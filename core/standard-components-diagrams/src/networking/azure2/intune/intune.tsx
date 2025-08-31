@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTUNE = {
   _style:
@@ -9,5 +9,5 @@ export const INTUNE = {
 }
 
 export function Intune(props: DiagramNodeProps) {
-  return <Shape {...INTUNE} {...props} />
+  return <Shape {...INTUNE} {...props} _style={extendStyle(INTUNE, props)} />
 }

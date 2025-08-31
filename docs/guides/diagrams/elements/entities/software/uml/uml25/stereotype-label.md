@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StereotypeLabel } from '@reactiac/standard-components-diagrams/uml25'
+import { StereotypeLabel } from '@diac/standard-components-diagrams/uml25'
 
 <StereotypeLabel/>
 ```

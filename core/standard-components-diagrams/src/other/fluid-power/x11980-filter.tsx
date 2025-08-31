@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11980_FILTER = {
   _style:
@@ -9,5 +9,11 @@ export const X11980_FILTER = {
 }
 
 export function X11980Filter(props: DiagramNodeProps) {
-  return <Shape {...X11980_FILTER} {...props} />
+  return (
+    <Shape
+      {...X11980_FILTER}
+      {...props}
+      _style={extendStyle(X11980_FILTER, props)}
+    />
+  )
 }

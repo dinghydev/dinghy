@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EC2_INSTANCE_CONTENTS = {
   _style: {
@@ -13,5 +13,11 @@ export const EC2_INSTANCE_CONTENTS = {
 }
 
 export function Ec2InstanceContents(props: DiagramNodeProps) {
-  return <Shape {...EC2_INSTANCE_CONTENTS} {...props} />
+  return (
+    <Shape
+      {...EC2_INSTANCE_CONTENTS}
+      {...props}
+      _style={extendStyle(EC2_INSTANCE_CONTENTS, props)}
+    />
+  )
 }

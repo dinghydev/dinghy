@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELEVATOR_BUCKET_Z_FORM = {
   _style:
@@ -9,5 +9,11 @@ export const ELEVATOR_BUCKET_Z_FORM = {
 }
 
 export function ElevatorBucketZForm(props: DiagramNodeProps) {
-  return <Shape {...ELEVATOR_BUCKET_Z_FORM} {...props} />
+  return (
+    <Shape
+      {...ELEVATOR_BUCKET_Z_FORM}
+      {...props}
+      _style={extendStyle(ELEVATOR_BUCKET_Z_FORM, props)}
+    />
+  )
 }

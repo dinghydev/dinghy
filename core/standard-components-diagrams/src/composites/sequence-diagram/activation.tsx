@@ -1,4 +1,4 @@
-import { type DiagramNodeProps, Shape } from '@reactiac/base-components'
+import { type DiagramNodeProps, Shape } from '@diac/base-components'
 
 export type ActivationProps = {
   _x: number

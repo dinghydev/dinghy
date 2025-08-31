@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEB_BROWSER = {
   _style:
@@ -9,5 +9,11 @@ export const WEB_BROWSER = {
 }
 
 export function WebBrowser(props: DiagramNodeProps) {
-  return <Shape {...WEB_BROWSER} {...props} />
+  return (
+    <Shape
+      {...WEB_BROWSER}
+      {...props}
+      _style={extendStyle(WEB_BROWSER, props)}
+    />
+  )
 }

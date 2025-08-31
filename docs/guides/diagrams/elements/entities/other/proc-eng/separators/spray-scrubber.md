@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SprayScrubber } from '@reactiac/standard-components-diagrams/procEngSeparators'
+import { SprayScrubber } from '@diac/standard-components-diagrams/procEngSeparators'
 
 <SprayScrubber/>
 ```

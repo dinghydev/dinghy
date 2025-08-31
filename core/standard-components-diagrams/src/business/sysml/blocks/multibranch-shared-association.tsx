@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTIBRANCH_SHARED_ASSOCIATION = {
   _style: 'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;',
@@ -8,5 +8,11 @@ export const MULTIBRANCH_SHARED_ASSOCIATION = {
 }
 
 export function MultibranchSharedAssociation(props: DiagramNodeProps) {
-  return <Shape {...MULTIBRANCH_SHARED_ASSOCIATION} {...props} />
+  return (
+    <Shape
+      {...MULTIBRANCH_SHARED_ASSOCIATION}
+      {...props}
+      _style={extendStyle(MULTIBRANCH_SHARED_ASSOCIATION, props)}
+    />
+  )
 }

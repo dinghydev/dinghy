@@ -2,19 +2,34 @@ import { parse } from '@std/jsonc'
 import { execa } from 'execa'
 import { projectRoot } from '../../cli/src/utils/projectRoot.ts'
 
-function readProjectsImport() {
-  const readProjectJsonc = (projectName: string): any => {
-    const denoJsonc = parse(
-      Deno.readTextFileSync(`${projectRoot}/${projectName}/deno.jsonc`),
-    )
-    return denoJsonc
-  }
+function readProjectJsonc(projectName: string): any {
+  const denoJsonc = parse(
+    Deno.readTextFileSync(`${projectRoot}/${projectName}/deno.jsonc`),
+  )
+  return denoJsonc
+}
 
-  const projectImports = {} as any
-  for (const project of ['core', 'cli']) {
-    const projectJsonc = readProjectJsonc(project)
+function readProjectImport(project: string, projectImports: any) {
+  const projectJsonc = readProjectJsonc(project)
+  if (projectJsonc.imports) {
     for (const [key, value] of Object.entries(projectJsonc.imports as any)) {
       projectImports[key] = value
+    }
+  }
+  return projectJsonc
+}
+
+function readProjectsImport() {
+  const projectImports = {} as any
+  for (const project of ['core', 'cli']) {
+    const projectJsonc = readProjectImport(project, projectImports)
+    if (projectJsonc.workspace) {
+      for (const workspace of projectJsonc.workspace) {
+        readProjectImport(
+          `${project}/${workspace.substring(2)}`,
+          projectImports,
+        )
+      }
     }
   }
   const sortedImports = Object.fromEntries(
@@ -79,7 +94,7 @@ for (const line of engineJsoncSrc) {
 console.log('engine only dependencies', engineDependencies)
 
 Deno.writeTextFileSync(engineJsoncFile, engineJsoncTarget.join('\n'))
-console.log(`Refreshed engine lock ${engineJsoncFile}`)
+console.log(`Refreshed engine jsonc ${engineJsoncFile}`)
 
 console.log('Refreshing engine lock...')
 await execa('deno', ['install'], {

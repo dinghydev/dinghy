@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATACENTER_SERVER_RACK_TOR = {
   _style:
@@ -9,5 +9,11 @@ export const DATACENTER_SERVER_RACK_TOR = {
 }
 
 export function DatacenterServerRackTor(props: DiagramNodeProps) {
-  return <Shape {...DATACENTER_SERVER_RACK_TOR} {...props} />
+  return (
+    <Shape
+      {...DATACENTER_SERVER_RACK_TOR}
+      {...props}
+      _style={extendStyle(DATACENTER_SERVER_RACK_TOR, props)}
+    />
+  )
 }

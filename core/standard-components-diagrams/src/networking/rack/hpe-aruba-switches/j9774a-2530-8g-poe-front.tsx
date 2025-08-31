@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9774A_2530_8G_POE_FRONT = {
   _style:
@@ -9,5 +9,11 @@ export const J9774A_2530_8G_POE_FRONT = {
 }
 
 export function J9774a25308gPoeFront(props: DiagramNodeProps) {
-  return <Shape {...J9774A_2530_8G_POE_FRONT} {...props} />
+  return (
+    <Shape
+      {...J9774A_2530_8G_POE_FRONT}
+      {...props}
+      _style={extendStyle(J9774A_2530_8G_POE_FRONT, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VACUUM_PUMP = {
   _style:
@@ -9,5 +9,11 @@ export const VACUUM_PUMP = {
 }
 
 export function VacuumPump(props: DiagramNodeProps) {
-  return <Shape {...VACUUM_PUMP} {...props} />
+  return (
+    <Shape
+      {...VACUUM_PUMP}
+      {...props}
+      _style={extendStyle(VACUUM_PUMP, props)}
+    />
+  )
 }

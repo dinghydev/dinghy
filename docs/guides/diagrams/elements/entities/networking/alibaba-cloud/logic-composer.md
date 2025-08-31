@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LogicComposer } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { LogicComposer } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <LogicComposer/>
 ```

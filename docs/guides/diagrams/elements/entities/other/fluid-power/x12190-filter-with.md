@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X12190FilterWith } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X12190FilterWith } from '@diac/standard-components-diagrams/fluidPower'
 
 <X12190FilterWith/>
 ```

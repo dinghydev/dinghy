@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PrimaryStorageIntegration } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { PrimaryStorageIntegration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <PrimaryStorageIntegration/>
 ```

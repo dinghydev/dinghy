@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BOILER_DOME = {
   _style:
@@ -9,5 +9,11 @@ export const BOILER_DOME = {
 }
 
 export function BoilerDome(props: DiagramNodeProps) {
-  return <Shape {...BOILER_DOME} {...props} />
+  return (
+    <Shape
+      {...BOILER_DOME}
+      {...props}
+      _style={extendStyle(BOILER_DOME, props)}
+    />
+  )
 }

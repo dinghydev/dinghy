@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AUTO_SCALING_GROUP = {
   _style: {
@@ -9,5 +9,11 @@ export const AUTO_SCALING_GROUP = {
 }
 
 export function AutoScalingGroup(props: DiagramNodeProps) {
-  return <Shape {...AUTO_SCALING_GROUP} {...props} />
+  return (
+    <Shape
+      {...AUTO_SCALING_GROUP}
+      {...props}
+      _style={extendStyle(AUTO_SCALING_GROUP, props)}
+    />
+  )
 }

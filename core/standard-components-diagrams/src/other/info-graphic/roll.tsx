@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROLL = {
   _style:
@@ -9,5 +9,5 @@ export const ROLL = {
 }
 
 export function Roll(props: DiagramNodeProps) {
-  return <Shape {...ROLL} {...props} />
+  return <Shape {...ROLL} {...props} _style={extendStyle(ROLL, props)} />
 }

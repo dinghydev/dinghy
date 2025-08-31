@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X10920AdjustableOrificeFlowControl } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X10920AdjustableOrificeFlowControl } from '@diac/standard-components-diagrams/fluidPower'
 
 <X10920AdjustableOrificeFlowControl/>
 ```

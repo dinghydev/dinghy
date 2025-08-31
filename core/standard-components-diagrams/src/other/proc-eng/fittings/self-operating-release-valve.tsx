@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SELF_OPERATING_RELEASE_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const SELF_OPERATING_RELEASE_VALVE = {
 }
 
 export function SelfOperatingReleaseValve(props: DiagramNodeProps) {
-  return <Shape {...SELF_OPERATING_RELEASE_VALVE} {...props} />
+  return (
+    <Shape
+      {...SELF_OPERATING_RELEASE_VALVE}
+      {...props}
+      _style={extendStyle(SELF_OPERATING_RELEASE_VALVE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LongreachCpe } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { LongreachCpe } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <LongreachCpe/>
 ```

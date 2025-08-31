@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Grooveshark } from '@reactiac/standard-components-diagrams/webIcons'
+import { Grooveshark } from '@diac/standard-components-diagrams/webIcons'
 
 <Grooveshark/>
 ```

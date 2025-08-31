@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Github } from '@reactiac/standard-components-diagrams/webIcons'
+import { Github } from '@diac/standard-components-diagrams/webIcons'
 
 <Github/>
 ```

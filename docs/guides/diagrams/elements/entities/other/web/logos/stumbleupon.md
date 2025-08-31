@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stumbleupon } from '@reactiac/standard-components-diagrams/webLogos'
+import { Stumbleupon } from '@diac/standard-components-diagrams/webLogos'
 
 <Stumbleupon/>
 ```

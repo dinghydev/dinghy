@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIP = {
   _style:
@@ -9,5 +9,5 @@ export const VIP = {
 }
 
 export function Vip(props: DiagramNodeProps) {
-  return <Shape {...VIP} {...props} />
+  return <Shape {...VIP} {...props} _style={extendStyle(VIP, props)} />
 }

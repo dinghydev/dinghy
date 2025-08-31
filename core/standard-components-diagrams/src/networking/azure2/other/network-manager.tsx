@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETWORK_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const NETWORK_MANAGER = {
 }
 
 export function NetworkManager(props: DiagramNodeProps) {
-  return <Shape {...NETWORK_MANAGER} {...props} />
+  return (
+    <Shape
+      {...NETWORK_MANAGER}
+      {...props}
+      _style={extendStyle(NETWORK_MANAGER, props)}
+    />
+  )
 }

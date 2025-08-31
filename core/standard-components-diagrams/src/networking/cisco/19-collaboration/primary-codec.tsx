@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRIMARY_CODEC = {
   _style:
@@ -9,5 +9,11 @@ export const PRIMARY_CODEC = {
 }
 
 export function PrimaryCodec(props: DiagramNodeProps) {
-  return <Shape {...PRIMARY_CODEC} {...props} />
+  return (
+    <Shape
+      {...PRIMARY_CODEC}
+      {...props}
+      _style={extendStyle(PRIMARY_CODEC, props)}
+    />
+  )
 }

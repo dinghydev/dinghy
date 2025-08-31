@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR = {
 }
 
 export function DirectorClassFibreChannelDirector(props: DiagramNodeProps) {
-  return <Shape {...DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR} {...props} />
+  return (
+    <Shape
+      {...DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR}
+      {...props}
+      _style={extendStyle(DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR, props)}
+    />
+  )
 }

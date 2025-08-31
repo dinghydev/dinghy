@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10400_5_2_DIRECTIONAL = {
   _style:
@@ -9,5 +9,11 @@ export const X10400_5_2_DIRECTIONAL = {
 }
 
 export function X1040052Directional(props: DiagramNodeProps) {
-  return <Shape {...X10400_5_2_DIRECTIONAL} {...props} />
+  return (
+    <Shape
+      {...X10400_5_2_DIRECTIONAL}
+      {...props}
+      _style={extendStyle(X10400_5_2_DIRECTIONAL, props)}
+    />
+  )
 }

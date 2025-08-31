@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEQUENCE_DIAGRAM = {
   _style:
@@ -9,5 +9,11 @@ export const SEQUENCE_DIAGRAM = {
 }
 
 export function SequenceDiagram(props: DiagramNodeProps) {
-  return <Shape {...SEQUENCE_DIAGRAM} {...props} />
+  return (
+    <Shape
+      {...SEQUENCE_DIAGRAM}
+      {...props}
+      _style={extendStyle(SEQUENCE_DIAGRAM, props)}
+    />
+  )
 }

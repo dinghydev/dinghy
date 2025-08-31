@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FolderOpen } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { FolderOpen } from '@diac/standard-components-diagrams/activeDirectory'
 
 <FolderOpen/>
 ```

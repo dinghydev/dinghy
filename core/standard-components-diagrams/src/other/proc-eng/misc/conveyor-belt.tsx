@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONVEYOR_BELT = {
   _style:
@@ -9,5 +9,11 @@ export const CONVEYOR_BELT = {
 }
 
 export function ConveyorBelt(props: DiagramNodeProps) {
-  return <Shape {...CONVEYOR_BELT} {...props} />
+  return (
+    <Shape
+      {...CONVEYOR_BELT}
+      {...props}
+      _style={extendStyle(CONVEYOR_BELT, props)}
+    />
+  )
 }

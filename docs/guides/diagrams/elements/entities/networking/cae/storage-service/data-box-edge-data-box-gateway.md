@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataBoxEdgeDataBoxGateway } from '@reactiac/standard-components-diagrams/caeStorageService'
+import { DataBoxEdgeDataBoxGateway } from '@diac/standard-components-diagrams/caeStorageService'
 
 <DataBoxEdgeDataBoxGateway/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CiscoFileEngine } from '@reactiac/standard-components-diagrams/ciscoStorage'
+import { CiscoFileEngine } from '@diac/standard-components-diagrams/ciscoStorage'
 
 <CiscoFileEngine/>
 ```

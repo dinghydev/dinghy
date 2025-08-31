@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InternetServices } from '@reactiac/standard-components-diagrams/ibmVpc'
+import { InternetServices } from '@diac/standard-components-diagrams/ibmVpc'
 
 <InternetServices/>
 ```

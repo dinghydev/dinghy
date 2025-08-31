@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VbrRepository } from '@reactiac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VbrRepository } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VbrRepository/>
 ```

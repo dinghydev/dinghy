@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XENCLIENT_SYNCHRONIZER = {
   _style:
@@ -9,5 +9,11 @@ export const XENCLIENT_SYNCHRONIZER = {
 }
 
 export function XenclientSynchronizer(props: DiagramNodeProps) {
-  return <Shape {...XENCLIENT_SYNCHRONIZER} {...props} />
+  return (
+    <Shape
+      {...XENCLIENT_SYNCHRONIZER}
+      {...props}
+      _style={extendStyle(XENCLIENT_SYNCHRONIZER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIFI_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const WIFI_ROUTER = {
 }
 
 export function WifiRouter(props: DiagramNodeProps) {
-  return <Shape {...WIFI_ROUTER} {...props} />
+  return (
+    <Shape
+      {...WIFI_ROUTER}
+      {...props}
+      _style={extendStyle(WIFI_ROUTER, props)}
+    />
+  )
 }

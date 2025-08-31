@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VEEAM_AGENT_FOR_IBM_AIX = {
   _style:
@@ -9,5 +9,11 @@ export const VEEAM_AGENT_FOR_IBM_AIX = {
 }
 
 export function VeeamAgentForIbmAix(props: DiagramNodeProps) {
-  return <Shape {...VEEAM_AGENT_FOR_IBM_AIX} {...props} />
+  return (
+    <Shape
+      {...VEEAM_AGENT_FOR_IBM_AIX}
+      {...props}
+      _style={extendStyle(VEEAM_AGENT_FOR_IBM_AIX, props)}
+    />
+  )
 }

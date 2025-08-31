@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TIME_PICKER = {
   _style:
@@ -9,5 +9,11 @@ export const TIME_PICKER = {
 }
 
 export function TimePicker(props: DiagramNodeProps) {
-  return <Shape {...TIME_PICKER} {...props} />
+  return (
+    <Shape
+      {...TIME_PICKER}
+      {...props}
+      _style={extendStyle(TIME_PICKER, props)}
+    />
+  )
 }

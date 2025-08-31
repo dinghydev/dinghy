@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RoleDesktops } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { RoleDesktops } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <RoleDesktops/>
 ```

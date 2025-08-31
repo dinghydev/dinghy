@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11540DoubleActingMagneticType } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11540DoubleActingMagneticType } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11540DoubleActingMagneticType/>
 ```

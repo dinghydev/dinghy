@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DRIER = {
   _style:
@@ -9,5 +9,5 @@ export const DRIER = {
 }
 
 export function Drier(props: DiagramNodeProps) {
-  return <Shape {...DRIER} {...props} />
+  return <Shape {...DRIER} {...props} _style={extendStyle(DRIER, props)} />
 }

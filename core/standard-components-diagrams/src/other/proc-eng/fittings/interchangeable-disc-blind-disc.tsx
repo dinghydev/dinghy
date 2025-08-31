@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERCHANGEABLE_DISC_BLIND_DISC = {
   _style:
@@ -9,5 +9,11 @@ export const INTERCHANGEABLE_DISC_BLIND_DISC = {
 }
 
 export function InterchangeableDiscBlindDisc(props: DiagramNodeProps) {
-  return <Shape {...INTERCHANGEABLE_DISC_BLIND_DISC} {...props} />
+  return (
+    <Shape
+      {...INTERCHANGEABLE_DISC_BLIND_DISC}
+      {...props}
+      _style={extendStyle(INTERCHANGEABLE_DISC_BLIND_DISC, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProjectServiceAutomation } from '@reactiac/standard-components-diagrams/dynamics365App'
+import { ProjectServiceAutomation } from '@diac/standard-components-diagrams/dynamics365App'
 
 <ProjectServiceAutomation/>
 ```

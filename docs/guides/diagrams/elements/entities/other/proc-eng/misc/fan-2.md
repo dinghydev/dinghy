@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Fan2 } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { Fan2 } from '@diac/standard-components-diagrams/procEngMisc'
 
 <Fan2/>
 ```

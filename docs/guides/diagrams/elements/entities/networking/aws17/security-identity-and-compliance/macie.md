@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Macie } from '@reactiac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { Macie } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <Macie/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SunDatacenterInfinibandSwitch36 } from '@reactiac/standard-components-diagrams/rackOracle'
+import { SunDatacenterInfinibandSwitch36 } from '@diac/standard-components-diagrams/rackOracle'
 
 <SunDatacenterInfinibandSwitch36/>
 ```

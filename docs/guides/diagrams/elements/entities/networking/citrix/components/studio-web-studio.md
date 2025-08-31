@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StudioWebStudio } from '@reactiac/standard-components-diagrams/citrixComponents'
+import { StudioWebStudio } from '@diac/standard-components-diagrams/citrixComponents'
 
 <StudioWebStudio/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUTTON_GROUPED_4 = {
   _style:
@@ -9,5 +9,11 @@ export const BUTTON_GROUPED_4 = {
 }
 
 export function ButtonGrouped4(props: DiagramNodeProps) {
-  return <Shape {...BUTTON_GROUPED_4} {...props} />
+  return (
+    <Shape
+      {...BUTTON_GROUPED_4}
+      {...props}
+      _style={extendStyle(BUTTON_GROUPED_4, props)}
+    />
+  )
 }

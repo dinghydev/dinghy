@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACCESS_3 = {
   _style: {
@@ -9,5 +9,11 @@ export const ACCESS_3 = {
 }
 
 export function Access3(props: DiagramNodeProps) {
-  return <Dependency {...ACCESS_3} {...props} />
+  return (
+    <Dependency
+      {...ACCESS_3}
+      {...props}
+      _style={extendStyle(ACCESS_3, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OnDemandSelfService } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { OnDemandSelfService } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <OnDemandSelfService/>
 ```

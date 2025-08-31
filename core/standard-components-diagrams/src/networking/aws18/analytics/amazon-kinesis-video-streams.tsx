@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_KINESIS_VIDEO_STREAMS = {
   _style:
@@ -9,5 +9,11 @@ export const AMAZON_KINESIS_VIDEO_STREAMS = {
 }
 
 export function AmazonKinesisVideoStreams(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_KINESIS_VIDEO_STREAMS} {...props} />
+  return (
+    <Shape
+      {...AMAZON_KINESIS_VIDEO_STREAMS}
+      {...props}
+      _style={extendStyle(AMAZON_KINESIS_VIDEO_STREAMS, props)}
+    />
+  )
 }

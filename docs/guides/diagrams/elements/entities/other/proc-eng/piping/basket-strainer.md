@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BasketStrainer } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { BasketStrainer } from '@diac/standard-components-diagrams/procEngPiping'
 
 <BasketStrainer/>
 ```

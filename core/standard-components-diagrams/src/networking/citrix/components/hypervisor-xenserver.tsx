@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HYPERVISOR_XENSERVER = {
   _style:
@@ -9,5 +9,11 @@ export const HYPERVISOR_XENSERVER = {
 }
 
 export function HypervisorXenserver(props: DiagramNodeProps) {
-  return <Shape {...HYPERVISOR_XENSERVER} {...props} />
+  return (
+    <Shape
+      {...HYPERVISOR_XENSERVER}
+      {...props}
+      _style={extendStyle(HYPERVISOR_XENSERVER, props)}
+    />
+  )
 }

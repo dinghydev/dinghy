@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12140_ELECTROSTATIC_SEPARATOR = {
   _style:
@@ -9,5 +9,11 @@ export const X12140_ELECTROSTATIC_SEPARATOR = {
 }
 
 export function X12140ElectrostaticSeparator(props: DiagramNodeProps) {
-  return <Shape {...X12140_ELECTROSTATIC_SEPARATOR} {...props} />
+  return (
+    <Shape
+      {...X12140_ELECTROSTATIC_SEPARATOR}
+      {...props}
+      _style={extendStyle(X12140_ELECTROSTATIC_SEPARATOR, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Vdd } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { Vdd } from '@diac/standard-components-diagrams/electricalMisc'
 
 <Vdd/>
 ```

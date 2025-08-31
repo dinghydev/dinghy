@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOCKER = {
   _style:
@@ -9,5 +9,5 @@ export const LOCKER = {
 }
 
 export function Locker(props: DiagramNodeProps) {
-  return <Shape {...LOCKER} {...props} />
+  return <Shape {...LOCKER} {...props} _style={extendStyle(LOCKER, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REMOTE_RENDERING = {
   _style:
@@ -9,5 +9,11 @@ export const REMOTE_RENDERING = {
 }
 
 export function RemoteRendering(props: DiagramNodeProps) {
-  return <Shape {...REMOTE_RENDERING} {...props} />
+  return (
+    <Shape
+      {...REMOTE_RENDERING}
+      {...props}
+      _style={extendStyle(REMOTE_RENDERING, props)}
+    />
+  )
 }

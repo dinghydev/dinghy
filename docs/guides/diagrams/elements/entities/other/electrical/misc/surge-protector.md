@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SurgeProtector } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { SurgeProtector } from '@diac/standard-components-diagrams/electricalMisc'
 
 <SurgeProtector/>
 ```

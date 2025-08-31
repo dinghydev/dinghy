@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IOV_IOT_VEHICLE_CLOUD = {
   _style:
@@ -9,5 +9,11 @@ export const IOV_IOT_VEHICLE_CLOUD = {
 }
 
 export function IovIotVehicleCloud(props: DiagramNodeProps) {
-  return <Shape {...IOV_IOT_VEHICLE_CLOUD} {...props} />
+  return (
+    <Shape
+      {...IOV_IOT_VEHICLE_CLOUD}
+      {...props}
+      _style={extendStyle(IOV_IOT_VEHICLE_CLOUD, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OutputPin } from '@reactiac/standard-components-diagrams/uml25'
+import { OutputPin } from '@diac/standard-components-diagrams/uml25'
 
 <OutputPin/>
 ```

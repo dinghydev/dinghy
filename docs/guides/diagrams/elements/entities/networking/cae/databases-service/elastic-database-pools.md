@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Elastic_Database_Pools.svg;strokeColor=none;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { ElasticDatabasePools } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { ElasticDatabasePools } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <ElasticDatabasePools/>
 ```

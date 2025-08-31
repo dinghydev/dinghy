@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SWITCH_24_PORT_L3_ALTERNATIVE = {
   _style:
@@ -9,5 +9,11 @@ export const SWITCH_24_PORT_L3_ALTERNATIVE = {
 }
 
 export function Switch24PortL3Alternative(props: DiagramNodeProps) {
-  return <Shape {...SWITCH_24_PORT_L3_ALTERNATIVE} {...props} />
+  return (
+    <Shape
+      {...SWITCH_24_PORT_L3_ALTERNATIVE}
+      {...props}
+      _style={extendStyle(SWITCH_24_PORT_L3_ALTERNATIVE, props)}
+    />
+  )
 }

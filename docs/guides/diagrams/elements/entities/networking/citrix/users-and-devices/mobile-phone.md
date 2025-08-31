@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MobilePhone } from '@reactiac/standard-components-diagrams/citrixUsersAndDevices'
+import { MobilePhone } from '@diac/standard-components-diagrams/citrixUsersAndDevices'
 
 <MobilePhone/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TabletWindows8 } from '@reactiac/standard-components-diagrams/officeDevices'
+import { TabletWindows8 } from '@diac/standard-components-diagrams/officeDevices'
 
 <TabletWindows8/>
 ```

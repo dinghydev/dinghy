@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLP_SA_SENTIMENT_ANALYSIS = {
   _style:
@@ -9,5 +9,11 @@ export const NLP_SA_SENTIMENT_ANALYSIS = {
 }
 
 export function NlpSaSentimentAnalysis(props: DiagramNodeProps) {
-  return <Shape {...NLP_SA_SENTIMENT_ANALYSIS} {...props} />
+  return (
+    <Shape
+      {...NLP_SA_SENTIMENT_ANALYSIS}
+      {...props}
+      _style={extendStyle(NLP_SA_SENTIMENT_ANALYSIS, props)}
+    />
+  )
 }

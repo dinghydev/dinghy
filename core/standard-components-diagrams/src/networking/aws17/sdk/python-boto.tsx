@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PYTHON_BOTO = {
   _style:
@@ -9,5 +9,11 @@ export const PYTHON_BOTO = {
 }
 
 export function PythonBoto(props: DiagramNodeProps) {
-  return <Shape {...PYTHON_BOTO} {...props} />
+  return (
+    <Shape
+      {...PYTHON_BOTO}
+      {...props}
+      _style={extendStyle(PYTHON_BOTO, props)}
+    />
+  )
 }

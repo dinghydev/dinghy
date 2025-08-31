@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualServer } from '@reactiac/standard-components-diagrams/ibmCloudCompute'
+import { VirtualServer } from '@diac/standard-components-diagrams/ibmCloudCompute'
 
 <VirtualServer/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTEGRATION = {
   _style:
@@ -9,5 +9,11 @@ export const INTEGRATION = {
 }
 
 export function Integration(props: DiagramNodeProps) {
-  return <Shape {...INTEGRATION} {...props} />
+  return (
+    <Shape
+      {...INTEGRATION}
+      {...props}
+      _style={extendStyle(INTEGRATION, props)}
+    />
+  )
 }

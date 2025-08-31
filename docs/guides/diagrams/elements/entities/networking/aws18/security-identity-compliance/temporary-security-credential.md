@@ -15,7 +15,7 @@ credential
 ## Usage
 
 ```
-import { TemporarySecurityCredential } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { TemporarySecurityCredential } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <TemporarySecurityCredential/>
 ```

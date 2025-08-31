@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EVERNOTE = {
   _style:
@@ -9,5 +9,7 @@ export const EVERNOTE = {
 }
 
 export function Evernote(props: DiagramNodeProps) {
-  return <Shape {...EVERNOTE} {...props} />
+  return (
+    <Shape {...EVERNOTE} {...props} _style={extendStyle(EVERNOTE, props)} />
+  )
 }

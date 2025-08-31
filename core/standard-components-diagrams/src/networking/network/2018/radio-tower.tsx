@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RADIO_TOWER = {
   _style:
@@ -9,5 +9,11 @@ export const RADIO_TOWER = {
 }
 
 export function RadioTower(props: DiagramNodeProps) {
-  return <Shape {...RADIO_TOWER} {...props} />
+  return (
+    <Shape
+      {...RADIO_TOWER}
+      {...props}
+      _style={extendStyle(RADIO_TOWER, props)}
+    />
+  )
 }

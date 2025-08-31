@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SslTlsOffload } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { SslTlsOffload } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <SslTlsOffload/>
 ```

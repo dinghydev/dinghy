@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACCENT_2_DOTTED = {
   _style:
@@ -9,5 +9,11 @@ export const ACCENT_2_DOTTED = {
 }
 
 export function Accent2Dotted(props: DiagramNodeProps) {
-  return <Shape {...ACCENT_2_DOTTED} {...props} />
+  return (
+    <Shape
+      {...ACCENT_2_DOTTED}
+      {...props}
+      _style={extendStyle(ACCENT_2_DOTTED, props)}
+    />
+  )
 }

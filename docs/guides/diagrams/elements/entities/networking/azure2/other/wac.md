@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Wac } from '@reactiac/standard-components-diagrams/azure2Other'
+import { Wac } from '@diac/standard-components-diagrams/azure2Other'
 
 <Wac/>
 ```

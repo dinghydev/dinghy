@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STORAGE_EXPLORER = {
   _style:
@@ -9,5 +9,11 @@ export const STORAGE_EXPLORER = {
 }
 
 export function StorageExplorer(props: DiagramNodeProps) {
-  return <Shape {...STORAGE_EXPLORER} {...props} />
+  return (
+    <Shape
+      {...STORAGE_EXPLORER}
+      {...props}
+      _style={extendStyle(STORAGE_EXPLORER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WebBrowser } from '@reactiac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { WebBrowser } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <WebBrowser/>
 ```

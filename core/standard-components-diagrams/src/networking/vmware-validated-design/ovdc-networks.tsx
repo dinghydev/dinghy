@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OVDC_NETWORKS = {
   _style:
@@ -9,5 +9,11 @@ export const OVDC_NETWORKS = {
 }
 
 export function OvdcNetworks(props: DiagramNodeProps) {
-  return <Shape {...OVDC_NETWORKS} {...props} />
+  return (
+    <Shape
+      {...OVDC_NETWORKS}
+      {...props}
+      _style={extendStyle(OVDC_NETWORKS, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMBUSTION_CHAMBER = {
   _style:
@@ -9,5 +9,11 @@ export const COMBUSTION_CHAMBER = {
 }
 
 export function CombustionChamber(props: DiagramNodeProps) {
-  return <Shape {...COMBUSTION_CHAMBER} {...props} />
+  return (
+    <Shape
+      {...COMBUSTION_CHAMBER}
+      {...props}
+      _style={extendStyle(COMBUSTION_CHAMBER, props)}
+    />
+  )
 }

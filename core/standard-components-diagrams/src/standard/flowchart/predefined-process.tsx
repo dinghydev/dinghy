@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PREDEFINED_PROCESS = {
   _style:
@@ -9,5 +9,11 @@ export const PREDEFINED_PROCESS = {
 }
 
 export function PredefinedProcess(props: DiagramNodeProps) {
-  return <Shape {...PREDEFINED_PROCESS} {...props} />
+  return (
+    <Shape
+      {...PREDEFINED_PROCESS}
+      {...props}
+      _style={extendStyle(PREDEFINED_PROCESS, props)}
+    />
+  )
 }

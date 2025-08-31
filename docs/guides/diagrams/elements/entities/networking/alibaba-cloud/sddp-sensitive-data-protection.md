@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SddpSensitiveDataProtection } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { SddpSensitiveDataProtection } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <SddpSensitiveDataProtection/>
 ```

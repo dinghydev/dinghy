@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Site } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { Site } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <Site/>
 ```

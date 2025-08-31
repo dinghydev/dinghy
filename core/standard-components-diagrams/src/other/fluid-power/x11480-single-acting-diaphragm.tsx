@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11480_SINGLE_ACTING_DIAPHRAGM = {
   _style:
@@ -9,5 +9,11 @@ export const X11480_SINGLE_ACTING_DIAPHRAGM = {
 }
 
 export function X11480SingleActingDiaphragm(props: DiagramNodeProps) {
-  return <Shape {...X11480_SINGLE_ACTING_DIAPHRAGM} {...props} />
+  return (
+    <Shape
+      {...X11480_SINGLE_ACTING_DIAPHRAGM}
+      {...props}
+      _style={extendStyle(X11480_SINGLE_ACTING_DIAPHRAGM, props)}
+    />
+  )
 }

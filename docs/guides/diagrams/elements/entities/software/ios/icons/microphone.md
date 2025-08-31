@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Microphone } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { Microphone } from '@diac/standard-components-diagrams/ios7Icons'
 
 <Microphone/>
 ```

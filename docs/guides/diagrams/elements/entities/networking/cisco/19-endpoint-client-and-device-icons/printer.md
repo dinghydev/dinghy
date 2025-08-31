@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Printer } from '@reactiac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
+import { Printer } from '@diac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
 
 <Printer/>
 ```

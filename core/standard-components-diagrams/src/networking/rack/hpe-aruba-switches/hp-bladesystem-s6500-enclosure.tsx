@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HP_BLADESYSTEM_S6500_ENCLOSURE = {
   _style:
@@ -9,5 +9,11 @@ export const HP_BLADESYSTEM_S6500_ENCLOSURE = {
 }
 
 export function HpBladesystemS6500Enclosure(props: DiagramNodeProps) {
-  return <Shape {...HP_BLADESYSTEM_S6500_ENCLOSURE} {...props} />
+  return (
+    <Shape
+      {...HP_BLADESYSTEM_S6500_ENCLOSURE}
+      {...props}
+      _style={extendStyle(HP_BLADESYSTEM_S6500_ENCLOSURE, props)}
+    />
+  )
 }

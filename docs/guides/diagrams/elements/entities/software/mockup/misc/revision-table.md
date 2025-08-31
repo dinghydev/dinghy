@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RevisionTable } from '@reactiac/standard-components-diagrams/mockupMisc'
+import { RevisionTable } from '@diac/standard-components-diagrams/mockupMisc'
 
 <RevisionTable/>
 ```

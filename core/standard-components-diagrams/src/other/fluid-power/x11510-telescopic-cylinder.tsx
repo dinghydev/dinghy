@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11510_TELESCOPIC_CYLINDER = {
   _style:
@@ -9,5 +9,11 @@ export const X11510_TELESCOPIC_CYLINDER = {
 }
 
 export function X11510TelescopicCylinder(props: DiagramNodeProps) {
-  return <Shape {...X11510_TELESCOPIC_CYLINDER} {...props} />
+  return (
+    <Shape
+      {...X11510_TELESCOPIC_CYLINDER}
+      {...props}
+      _style={extendStyle(X11510_TELESCOPIC_CYLINDER, props)}
+    />
+  )
 }

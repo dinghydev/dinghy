@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/iot/Azure_Maps_Accounts.svg;strokeColor=none;',
-  _width: 68,
-  _height: 68,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { MapsAccounts } from '@reactiac/standard-components-diagrams/azure2Iot'
+import { MapsAccounts } from '@diac/standard-components-diagrams/azure2Iot'
 
 <MapsAccounts/>
 ```

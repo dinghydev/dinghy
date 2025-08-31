@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualWans } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { VirtualWans } from '@diac/standard-components-diagrams/azure2Networking'
 
 <VirtualWans/>
 ```

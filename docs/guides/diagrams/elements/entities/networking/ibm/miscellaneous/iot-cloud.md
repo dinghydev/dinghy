@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IotCloud } from '@reactiac/standard-components-diagrams/ibmMiscellaneous'
+import { IotCloud } from '@diac/standard-components-diagrams/ibmMiscellaneous'
 
 <IotCloud/>
 ```

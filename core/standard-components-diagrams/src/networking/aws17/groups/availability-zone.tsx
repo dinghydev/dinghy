@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AVAILABILITY_ZONE = {
   _style: {
@@ -12,5 +12,11 @@ export const AVAILABILITY_ZONE = {
 }
 
 export function AvailabilityZone(props: DiagramNodeProps) {
-  return <Shape {...AVAILABILITY_ZONE} {...props} />
+  return (
+    <Shape
+      {...AVAILABILITY_ZONE}
+      {...props}
+      _style={extendStyle(AVAILABILITY_ZONE, props)}
+    />
+  )
 }

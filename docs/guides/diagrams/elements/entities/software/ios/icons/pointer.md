@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pointer } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { Pointer } from '@diac/standard-components-diagrams/ios7Icons'
 
 <Pointer/>
 ```

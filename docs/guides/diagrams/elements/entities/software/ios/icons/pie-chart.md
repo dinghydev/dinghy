@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PieChart } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { PieChart } from '@diac/standard-components-diagrams/ios7Icons'
 
 <PieChart/>
 ```

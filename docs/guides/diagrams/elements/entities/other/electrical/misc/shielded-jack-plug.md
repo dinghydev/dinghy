@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ShieldedJackPlug } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { ShieldedJackPlug } from '@diac/standard-components-diagrams/electricalMisc'
 
 <ShieldedJackPlug/>
 ```

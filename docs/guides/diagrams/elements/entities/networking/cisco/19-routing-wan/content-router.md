@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentRouter } from '@reactiac/standard-components-diagrams/cisco19RoutingWan'
+import { ContentRouter } from '@diac/standard-components-diagrams/cisco19RoutingWan'
 
 <ContentRouter/>
 ```

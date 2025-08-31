@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IntelligentTiering } from '@reactiac/standard-components-diagrams/awsStorage'
+import { IntelligentTiering } from '@diac/standard-components-diagrams/awsStorage'
 
 <IntelligentTiering/>
 ```

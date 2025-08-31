@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApiDeveloperPortal } from '@reactiac/standard-components-diagrams/ibmApplications'
+import { ApiDeveloperPortal } from '@diac/standard-components-diagrams/ibmApplications'
 
 <ApiDeveloperPortal/>
 ```

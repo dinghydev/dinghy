@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_AUTO_SCALING = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_AUTO_SCALING = {
 }
 
 export function AwsAutoScaling(props: DiagramNodeProps) {
-  return <Shape {...AWS_AUTO_SCALING} {...props} />
+  return (
+    <Shape
+      {...AWS_AUTO_SCALING}
+      {...props}
+      _style={extendStyle(AWS_AUTO_SCALING, props)}
+    />
+  )
 }

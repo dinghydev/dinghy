@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AIR_SEPARATOR = {
   _style:
@@ -9,5 +9,11 @@ export const AIR_SEPARATOR = {
 }
 
 export function AirSeparator(props: DiagramNodeProps) {
-  return <Shape {...AIR_SEPARATOR} {...props} />
+  return (
+    <Shape
+      {...AIR_SEPARATOR}
+      {...props}
+      _style={extendStyle(AIR_SEPARATOR, props)}
+    />
+  )
 }

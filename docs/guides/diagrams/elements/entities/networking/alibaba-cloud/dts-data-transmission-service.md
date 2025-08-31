@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DtsDataTransmissionService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { DtsDataTransmissionService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <DtsDataTransmissionService/>
 ```

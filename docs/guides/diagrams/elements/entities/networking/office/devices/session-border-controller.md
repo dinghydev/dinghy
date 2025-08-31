@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SessionBorderController } from '@reactiac/standard-components-diagrams/officeDevices'
+import { SessionBorderController } from '@diac/standard-components-diagrams/officeDevices'
 
 <SessionBorderController/>
 ```

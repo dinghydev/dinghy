@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS = {
   _style:
@@ -12,6 +12,13 @@ export function ElasticFileSystemStandardInfrequentAccess(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS} {...props} />
+    <Shape
+      {...ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS}
+      {...props}
+      _style={extendStyle(
+        ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS,
+        props,
+      )}
+    />
   )
 }

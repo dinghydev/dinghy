@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VdaUpgradeService } from '@reactiac/standard-components-diagrams/citrixCloudServices'
+import { VdaUpgradeService } from '@diac/standard-components-diagrams/citrixCloudServices'
 
 <VdaUpgradeService/>
 ```

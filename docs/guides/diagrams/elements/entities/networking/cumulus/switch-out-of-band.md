@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SwitchOutOfBand } from '@reactiac/standard-components-diagrams/cumulus'
+import { SwitchOutOfBand } from '@diac/standard-components-diagrams/cumulus'
 
 <SwitchOutOfBand/>
 ```

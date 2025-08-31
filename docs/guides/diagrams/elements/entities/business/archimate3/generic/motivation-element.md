@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MotivationElement } from '@reactiac/standard-components-diagrams/archimate3Generic'
+import { MotivationElement } from '@diac/standard-components-diagrams/archimate3Generic'
 
 <MotivationElement/>
 ```

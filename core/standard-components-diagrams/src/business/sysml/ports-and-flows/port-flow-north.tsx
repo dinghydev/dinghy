@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PORT_FLOW_NORTH = {
   _style: 'html=1;shape=mxgraph.sysml.port;sysMLPortType=flowN;',
@@ -8,5 +8,11 @@ export const PORT_FLOW_NORTH = {
 }
 
 export function PortFlowNorth(props: DiagramNodeProps) {
-  return <Shape {...PORT_FLOW_NORTH} {...props} />
+  return (
+    <Shape
+      {...PORT_FLOW_NORTH}
+      {...props}
+      _style={extendStyle(PORT_FLOW_NORTH, props)}
+    />
+  )
 }

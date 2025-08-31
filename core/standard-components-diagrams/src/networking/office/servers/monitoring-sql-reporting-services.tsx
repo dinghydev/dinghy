@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MONITORING_SQL_REPORTING_SERVICES = {
   _style:
@@ -9,5 +9,11 @@ export const MONITORING_SQL_REPORTING_SERVICES = {
 }
 
 export function MonitoringSqlReportingServices(props: DiagramNodeProps) {
-  return <Shape {...MONITORING_SQL_REPORTING_SERVICES} {...props} />
+  return (
+    <Shape
+      {...MONITORING_SQL_REPORTING_SERVICES}
+      {...props}
+      _style={extendStyle(MONITORING_SQL_REPORTING_SERVICES, props)}
+    />
+  )
 }

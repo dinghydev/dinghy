@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GAS_FILTER_BELT_ROLL = {
   _style:
@@ -9,5 +9,11 @@ export const GAS_FILTER_BELT_ROLL = {
 }
 
 export function GasFilterBeltRoll(props: DiagramNodeProps) {
-  return <Shape {...GAS_FILTER_BELT_ROLL} {...props} />
+  return (
+    <Shape
+      {...GAS_FILTER_BELT_ROLL}
+      {...props}
+      _style={extendStyle(GAS_FILTER_BELT_ROLL, props)}
+    />
+  )
 }

@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { InstanceGroup } from '@reactiac/standard-components-diagrams/ibmBoxes'
+import { InstanceGroup } from '@diac/standard-components-diagrams/ibmBoxes'
 
 <InstanceGroup/>
 ```

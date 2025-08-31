@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ServiceFabricClusters } from '@reactiac/standard-components-diagrams/azure2Compute'
+import { ServiceFabricClusters } from '@diac/standard-components-diagrams/azure2Compute'
 
 <ServiceFabricClusters/>
 ```

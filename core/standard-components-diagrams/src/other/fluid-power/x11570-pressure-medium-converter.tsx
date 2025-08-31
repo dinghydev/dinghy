@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11570_PRESSURE_MEDIUM_CONVERTER = {
   _style:
@@ -9,5 +9,11 @@ export const X11570_PRESSURE_MEDIUM_CONVERTER = {
 }
 
 export function X11570PressureMediumConverter(props: DiagramNodeProps) {
-  return <Shape {...X11570_PRESSURE_MEDIUM_CONVERTER} {...props} />
+  return (
+    <Shape
+      {...X11570_PRESSURE_MEDIUM_CONVERTER}
+      {...props}
+      _style={extendStyle(X11570_PRESSURE_MEDIUM_CONVERTER, props)}
+    />
+  )
 }

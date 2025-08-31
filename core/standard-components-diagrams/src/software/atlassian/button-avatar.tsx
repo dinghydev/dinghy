@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUTTON_AVATAR = {
   _style:
@@ -9,5 +9,11 @@ export const BUTTON_AVATAR = {
 }
 
 export function ButtonAvatar(props: DiagramNodeProps) {
-  return <Shape {...BUTTON_AVATAR} {...props} />
+  return (
+    <Shape
+      {...BUTTON_AVATAR}
+      {...props}
+      _style={extendStyle(BUTTON_AVATAR, props)}
+    />
+  )
 }

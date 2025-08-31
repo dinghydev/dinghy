@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BASIC_INPUT_GROUP = {
   _style:
@@ -9,5 +9,11 @@ export const BASIC_INPUT_GROUP = {
 }
 
 export function BasicInputGroup(props: DiagramNodeProps) {
-  return <Shape {...BASIC_INPUT_GROUP} {...props} />
+  return (
+    <Shape
+      {...BASIC_INPUT_GROUP}
+      {...props}
+      _style={extendStyle(BASIC_INPUT_GROUP, props)}
+    />
+  )
 }

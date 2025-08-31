@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LoadBalancer } from '@reactiac/standard-components-diagrams/network2'
+import { LoadBalancer } from '@diac/standard-components-diagrams/network2'
 
 <LoadBalancer/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VerticalFlowLayout } from '@reactiac/standard-components-diagrams/advanced'
+import { VerticalFlowLayout } from '@diac/standard-components-diagrams/advanced'
 
 <VerticalFlowLayout/>
 ```

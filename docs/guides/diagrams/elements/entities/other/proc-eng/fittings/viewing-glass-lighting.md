@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.viewing_glass_(lighting);',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { ViewingGlassLighting } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { ViewingGlassLighting } from '@diac/standard-components-diagrams/procEngFittings'
 
 <ViewingGlassLighting/>
 ```

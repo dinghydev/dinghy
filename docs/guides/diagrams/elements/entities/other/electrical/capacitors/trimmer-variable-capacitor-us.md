@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TrimmerVariableCapacitorUs } from '@reactiac/standard-components-diagrams/electricalCapacitors'
+import { TrimmerVariableCapacitorUs } from '@diac/standard-components-diagrams/electricalCapacitors'
 
 <TrimmerVariableCapacitorUs/>
 ```

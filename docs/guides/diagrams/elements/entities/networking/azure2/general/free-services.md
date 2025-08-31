@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FreeServices } from '@reactiac/standard-components-diagrams/azure2General'
+import { FreeServices } from '@diac/standard-components-diagrams/azure2General'
 
 <FreeServices/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_SNOWBALL_EDGE = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_SNOWBALL_EDGE = {
 }
 
 export function AwsSnowballEdge(props: DiagramNodeProps) {
-  return <Shape {...AWS_SNOWBALL_EDGE} {...props} />
+  return (
+    <Shape
+      {...AWS_SNOWBALL_EDGE}
+      {...props}
+      _style={extendStyle(AWS_SNOWBALL_EDGE, props)}
+    />
+  )
 }

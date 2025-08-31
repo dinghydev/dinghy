@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IDENTITY_ACCESS_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const IDENTITY_ACCESS_MANAGER = {
 }
 
 export function IdentityAccessManager(props: DiagramNodeProps) {
-  return <Shape {...IDENTITY_ACCESS_MANAGER} {...props} />
+  return (
+    <Shape
+      {...IDENTITY_ACCESS_MANAGER}
+      {...props}
+      _style={extendStyle(IDENTITY_ACCESS_MANAGER, props)}
+    />
+  )
 }

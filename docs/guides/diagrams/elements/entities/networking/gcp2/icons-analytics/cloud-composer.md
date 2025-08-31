@@ -14,7 +14,7 @@ Composer
 ## Usage
 
 ```
-import { CloudComposer } from '@reactiac/standard-components-diagrams/gcp2IconsAnalytics'
+import { CloudComposer } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
 
 <CloudComposer/>
 ```

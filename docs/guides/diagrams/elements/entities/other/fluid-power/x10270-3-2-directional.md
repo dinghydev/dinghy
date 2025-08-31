@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X1027032Directional } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X1027032Directional } from '@diac/standard-components-diagrams/fluidPower'
 
 <X1027032Directional/>
 ```

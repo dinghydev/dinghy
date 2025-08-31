@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StandardIa } from '@reactiac/standard-components-diagrams/awsStorage'
+import { StandardIa } from '@diac/standard-components-diagrams/awsStorage'
 
 <StandardIa/>
 ```

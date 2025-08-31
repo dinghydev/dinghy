@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TowerServer } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { TowerServer } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <TowerServer/>
 ```

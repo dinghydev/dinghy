@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROTAMETER = {
   _style:
@@ -9,5 +9,7 @@ export const ROTAMETER = {
 }
 
 export function Rotameter(props: DiagramNodeProps) {
-  return <Shape {...ROTAMETER} {...props} />
+  return (
+    <Shape {...ROTAMETER} {...props} _style={extendStyle(ROTAMETER, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VpnConcentrator } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { VpnConcentrator } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <VpnConcentrator/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { S3DirectoryBucket } from '@reactiac/standard-components-diagrams/awsStorage'
+import { S3DirectoryBucket } from '@diac/standard-components-diagrams/awsStorage'
 
 <S3DirectoryBucket/>
 ```

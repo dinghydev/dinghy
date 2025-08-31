@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const USER_FEEDBACK = {
   _style:
@@ -9,5 +9,11 @@ export const USER_FEEDBACK = {
 }
 
 export function UserFeedback(props: DiagramNodeProps) {
-  return <Shape {...USER_FEEDBACK} {...props} />
+  return (
+    <Shape
+      {...USER_FEEDBACK}
+      {...props}
+      _style={extendStyle(USER_FEEDBACK, props)}
+    />
+  )
 }

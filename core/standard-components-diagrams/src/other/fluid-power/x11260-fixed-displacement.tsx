@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11260_FIXED_DISPLACEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const X11260_FIXED_DISPLACEMENT = {
 }
 
 export function X11260FixedDisplacement(props: DiagramNodeProps) {
-  return <Shape {...X11260_FIXED_DISPLACEMENT} {...props} />
+  return (
+    <Shape
+      {...X11260_FIXED_DISPLACEMENT}
+      {...props}
+      _style={extendStyle(X11260_FIXED_DISPLACEMENT, props)}
+    />
+  )
 }

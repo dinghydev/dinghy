@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUILDING_CLUSTER = {
   _style:
@@ -9,5 +9,11 @@ export const BUILDING_CLUSTER = {
 }
 
 export function BuildingCluster(props: DiagramNodeProps) {
-  return <Shape {...BUILDING_CLUSTER} {...props} />
+  return (
+    <Shape
+      {...BUILDING_CLUSTER}
+      {...props}
+      _style={extendStyle(BUILDING_CLUSTER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const READONLY_PLAIN_TEXT_4 = {
   _style:
@@ -9,5 +9,11 @@ export const READONLY_PLAIN_TEXT_4 = {
 }
 
 export function ReadonlyPlainText4(props: DiagramNodeProps) {
-  return <Shape {...READONLY_PLAIN_TEXT_4} {...props} />
+  return (
+    <Shape
+      {...READONLY_PLAIN_TEXT_4}
+      {...props}
+      _style={extendStyle(READONLY_PLAIN_TEXT_4, props)}
+    />
+  )
 }

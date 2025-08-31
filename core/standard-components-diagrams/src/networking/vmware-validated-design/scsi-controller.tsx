@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCSI_CONTROLLER = {
   _style:
@@ -9,5 +9,11 @@ export const SCSI_CONTROLLER = {
 }
 
 export function ScsiController(props: DiagramNodeProps) {
-  return <Shape {...SCSI_CONTROLLER} {...props} />
+  return (
+    <Shape
+      {...SCSI_CONTROLLER}
+      {...props}
+      _style={extendStyle(SCSI_CONTROLLER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Messenger } from '@reactiac/standard-components-diagrams/webIcons'
+import { Messenger } from '@diac/standard-components-diagrams/webIcons'
 
 <Messenger/>
 ```

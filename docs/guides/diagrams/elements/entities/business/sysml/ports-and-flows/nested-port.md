@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NestedPort } from '@reactiac/standard-components-diagrams/sysmlPortsAndFlows'
+import { NestedPort } from '@diac/standard-components-diagrams/sysmlPortsAndFlows'
 
 <NestedPort/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIRELESS = {
   _style:
@@ -9,5 +9,7 @@ export const WIRELESS = {
 }
 
 export function Wireless(props: DiagramNodeProps) {
-  return <Shape {...WIRELESS} {...props} />
+  return (
+    <Shape {...WIRELESS} {...props} _style={extendStyle(WIRELESS, props)} />
+  )
 }

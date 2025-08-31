@@ -5,15 +5,15 @@
 ```
 {
   _style: 'fillColor=#83389B;strokeColor=none;whiteSpace=wrap;html=1;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Rarity } from '@reactiac/standard-components-diagrams/cumulus'
+import { Rarity } from '@diac/standard-components-diagrams/cumulus'
 
 <Rarity/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RadioButtonGroup2 } from '@reactiac/standard-components-diagrams/atlassian'
+import { RadioButtonGroup2 } from '@diac/standard-components-diagrams/atlassian'
 
 <RadioButtonGroup2/>
 ```

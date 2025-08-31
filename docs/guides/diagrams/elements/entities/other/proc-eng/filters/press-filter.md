@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PressFilter } from '@reactiac/standard-components-diagrams/procEngFilters'
+import { PressFilter } from '@diac/standard-components-diagrams/procEngFilters'
 
 <PressFilter/>
 ```

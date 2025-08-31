@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPRAYING_DEVICE = {
   _style:
@@ -9,5 +9,11 @@ export const SPRAYING_DEVICE = {
 }
 
 export function SprayingDevice(props: DiagramNodeProps) {
-  return <Shape {...SPRAYING_DEVICE} {...props} />
+  return (
+    <Shape
+      {...SPRAYING_DEVICE}
+      {...props}
+      _style={extendStyle(SPRAYING_DEVICE, props)}
+    />
+  )
 }

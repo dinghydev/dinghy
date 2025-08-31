@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EllipseSketch } from '@reactiac/standard-components-diagrams/misc'
+import { EllipseSketch } from '@diac/standard-components-diagrams/misc'
 
 <EllipseSketch/>
 ```

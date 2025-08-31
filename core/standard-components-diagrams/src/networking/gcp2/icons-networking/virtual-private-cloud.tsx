@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIRTUAL_PRIVATE_CLOUD = {
   _style:
@@ -9,5 +9,11 @@ export const VIRTUAL_PRIVATE_CLOUD = {
 }
 
 export function VirtualPrivateCloud(props: DiagramNodeProps) {
-  return <Shape {...VIRTUAL_PRIVATE_CLOUD} {...props} />
+  return (
+    <Shape
+      {...VIRTUAL_PRIVATE_CLOUD}
+      {...props}
+      _style={extendStyle(VIRTUAL_PRIVATE_CLOUD, props)}
+    />
+  )
 }

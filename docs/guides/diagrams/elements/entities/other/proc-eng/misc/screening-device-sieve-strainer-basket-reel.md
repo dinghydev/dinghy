@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScreeningDeviceSieveStrainerBasketReel } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { ScreeningDeviceSieveStrainerBasketReel } from '@diac/standard-components-diagrams/procEngMisc'
 
 <ScreeningDeviceSieveStrainerBasketReel/>
 ```

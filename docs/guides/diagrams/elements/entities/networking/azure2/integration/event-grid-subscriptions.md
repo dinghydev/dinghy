@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EventGridSubscriptions } from '@reactiac/standard-components-diagrams/azure2Integration'
+import { EventGridSubscriptions } from '@diac/standard-components-diagrams/azure2Integration'
 
 <EventGridSubscriptions/>
 ```

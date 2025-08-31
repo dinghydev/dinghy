@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OrderCommand } from '@reactiac/standard-components-diagrams/dataFlowDiagram'
+import { OrderCommand } from '@diac/standard-components-diagrams/dataFlowDiagram'
 
 <OrderCommand/>
 ```

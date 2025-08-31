@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER = {
   _style:
@@ -11,5 +11,11 @@ export const ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER = {
 export function ActiveDirectoryFederationServicesServer(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER} {...props} />
+  return (
+    <Shape
+      {...ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER}
+      {...props}
+      _style={extendStyle(ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER, props)}
+    />
+  )
 }

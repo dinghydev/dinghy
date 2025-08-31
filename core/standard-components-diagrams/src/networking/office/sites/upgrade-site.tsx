@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UPGRADE_SITE = {
   _style:
@@ -9,5 +9,11 @@ export const UPGRADE_SITE = {
 }
 
 export function UpgradeSite(props: DiagramNodeProps) {
-  return <Shape {...UPGRADE_SITE} {...props} />
+  return (
+    <Shape
+      {...UPGRADE_SITE}
+      {...props}
+      _style={extendStyle(UPGRADE_SITE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DRAAS_ENHANCEMENTS = {
   _style:
@@ -9,5 +9,11 @@ export const DRAAS_ENHANCEMENTS = {
 }
 
 export function DraasEnhancements(props: DiagramNodeProps) {
-  return <Shape {...DRAAS_ENHANCEMENTS} {...props} />
+  return (
+    <Shape
+      {...DRAAS_ENHANCEMENTS}
+      {...props}
+      _style={extendStyle(DRAAS_ENHANCEMENTS, props)}
+    />
+  )
 }

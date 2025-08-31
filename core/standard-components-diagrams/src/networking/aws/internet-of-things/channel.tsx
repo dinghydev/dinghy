@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHANNEL = {
   _style:
@@ -9,5 +9,5 @@ export const CHANNEL = {
 }
 
 export function Channel(props: DiagramNodeProps) {
-  return <Shape {...CHANNEL} {...props} />
+  return <Shape {...CHANNEL} {...props} _style={extendStyle(CHANNEL, props)} />
 }

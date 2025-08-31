@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SWITCH_BARE_METAL_EMPTY = {
   _style:
@@ -9,5 +9,11 @@ export const SWITCH_BARE_METAL_EMPTY = {
 }
 
 export function SwitchBareMetalEmpty(props: DiagramNodeProps) {
-  return <Shape {...SWITCH_BARE_METAL_EMPTY} {...props} />
+  return (
+    <Shape
+      {...SWITCH_BARE_METAL_EMPTY}
+      {...props}
+      _style={extendStyle(SWITCH_BARE_METAL_EMPTY, props)}
+    />
+  )
 }

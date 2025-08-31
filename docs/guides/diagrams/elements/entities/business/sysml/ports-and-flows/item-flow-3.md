@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ItemFlow3 } from '@reactiac/standard-components-diagrams/sysmlPortsAndFlows'
+import { ItemFlow3 } from '@diac/standard-components-diagrams/sysmlPortsAndFlows'
 
 <ItemFlow3/>
 ```

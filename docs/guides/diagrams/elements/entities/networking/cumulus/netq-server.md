@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetqServer } from '@reactiac/standard-components-diagrams/cumulus'
+import { NetqServer } from '@diac/standard-components-diagrams/cumulus'
 
 <NetqServer/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ComputerInventory } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { ComputerInventory } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <ComputerInventory/>
 ```

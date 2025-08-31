@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MPS_CENSOR = {
   _style:
@@ -9,5 +9,7 @@ export const MPS_CENSOR = {
 }
 
 export function MpsCensor(props: DiagramNodeProps) {
-  return <Shape {...MPS_CENSOR} {...props} />
+  return (
+    <Shape {...MPS_CENSOR} {...props} _style={extendStyle(MPS_CENSOR, props)} />
+  )
 }

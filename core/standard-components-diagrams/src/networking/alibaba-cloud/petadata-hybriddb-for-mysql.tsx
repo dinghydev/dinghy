@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PETADATA_HYBRIDDB_FOR_MYSQL = {
   _style:
@@ -9,5 +9,11 @@ export const PETADATA_HYBRIDDB_FOR_MYSQL = {
 }
 
 export function PetadataHybriddbForMysql(props: DiagramNodeProps) {
-  return <Shape {...PETADATA_HYBRIDDB_FOR_MYSQL} {...props} />
+  return (
+    <Shape
+      {...PETADATA_HYBRIDDB_FOR_MYSQL}
+      {...props}
+      _style={extendStyle(PETADATA_HYBRIDDB_FOR_MYSQL, props)}
+    />
+  )
 }

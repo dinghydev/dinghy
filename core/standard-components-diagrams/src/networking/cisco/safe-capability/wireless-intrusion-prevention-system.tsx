@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIRELESS_INTRUSION_PREVENTION_SYSTEM = {
   _style:
@@ -9,5 +9,11 @@ export const WIRELESS_INTRUSION_PREVENTION_SYSTEM = {
 }
 
 export function WirelessIntrusionPreventionSystem(props: DiagramNodeProps) {
-  return <Shape {...WIRELESS_INTRUSION_PREVENTION_SYSTEM} {...props} />
+  return (
+    <Shape
+      {...WIRELESS_INTRUSION_PREVENTION_SYSTEM}
+      {...props}
+      _style={extendStyle(WIRELESS_INTRUSION_PREVENTION_SYSTEM, props)}
+    />
+  )
 }

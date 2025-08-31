@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Instance } from '@reactiac/standard-components-diagrams/ibmVpc'
+import { Instance } from '@diac/standard-components-diagrams/ibmVpc'
 
 <Instance/>
 ```

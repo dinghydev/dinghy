@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NATIVE_TAPE_SUPPORT = {
   _style:
@@ -9,5 +9,11 @@ export const NATIVE_TAPE_SUPPORT = {
 }
 
 export function NativeTapeSupport(props: DiagramNodeProps) {
-  return <Shape {...NATIVE_TAPE_SUPPORT} {...props} />
+  return (
+    <Shape
+      {...NATIVE_TAPE_SUPPORT}
+      {...props}
+      _style={extendStyle(NATIVE_TAPE_SUPPORT, props)}
+    />
+  )
 }

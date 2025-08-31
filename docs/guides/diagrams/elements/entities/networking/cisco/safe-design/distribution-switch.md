@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DistributionSwitch } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { DistributionSwitch } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <DistributionSwitch/>
 ```

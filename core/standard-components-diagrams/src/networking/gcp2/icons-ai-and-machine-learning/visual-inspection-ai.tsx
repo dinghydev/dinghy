@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VISUAL_INSPECTION_AI = {
   _style:
@@ -9,5 +9,11 @@ export const VISUAL_INSPECTION_AI = {
 }
 
 export function VisualInspectionAi(props: DiagramNodeProps) {
-  return <Shape {...VISUAL_INSPECTION_AI} {...props} />
+  return (
+    <Shape
+      {...VISUAL_INSPECTION_AI}
+      {...props}
+      _style={extendStyle(VISUAL_INSPECTION_AI, props)}
+    />
+  )
 }

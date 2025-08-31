@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AirSeparator } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { AirSeparator } from '@diac/standard-components-diagrams/procEngMisc'
 
 <AirSeparator/>
 ```

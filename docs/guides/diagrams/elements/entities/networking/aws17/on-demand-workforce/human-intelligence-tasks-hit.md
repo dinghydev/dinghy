@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HumanIntelligenceTasksHit } from '@reactiac/standard-components-diagrams/aws17OnDemandWorkforce'
+import { HumanIntelligenceTasksHit } from '@diac/standard-components-diagrams/aws17OnDemandWorkforce'
 
 <HumanIntelligenceTasksHit/>
 ```

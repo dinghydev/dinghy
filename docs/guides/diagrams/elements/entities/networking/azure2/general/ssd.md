@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ssd } from '@reactiac/standard-components-diagrams/azure2General'
+import { Ssd } from '@diac/standard-components-diagrams/azure2General'
 
 <Ssd/>
 ```

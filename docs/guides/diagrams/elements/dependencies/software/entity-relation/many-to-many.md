@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManyToMany } from '@reactiac/standard-components-diagrams/entityRelation'
+import { ManyToMany } from '@diac/standard-components-diagrams/entityRelation'
 
 <ManyToMany/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RangeInput } from '@reactiac/standard-components-diagrams/bootstrap'
+import { RangeInput } from '@diac/standard-components-diagrams/bootstrap'
 
 <RangeInput/>
 ```

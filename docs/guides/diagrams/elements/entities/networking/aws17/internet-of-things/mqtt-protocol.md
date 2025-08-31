@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MqttProtocol } from '@reactiac/standard-components-diagrams/aws17InternetOfThings'
+import { MqttProtocol } from '@diac/standard-components-diagrams/aws17InternetOfThings'
 
 <MqttProtocol/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Viber } from '@reactiac/standard-components-diagrams/webLogos'
+import { Viber } from '@diac/standard-components-diagrams/webLogos'
 
 <Viber/>
 ```

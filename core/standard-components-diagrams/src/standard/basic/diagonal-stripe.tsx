@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIAGONAL_STRIPE = {
   _style:
@@ -9,5 +9,11 @@ export const DIAGONAL_STRIPE = {
 }
 
 export function DiagonalStripe(props: DiagramNodeProps) {
-  return <Shape {...DIAGONAL_STRIPE} {...props} />
+  return (
+    <Shape
+      {...DIAGONAL_STRIPE}
+      {...props}
+      _style={extendStyle(DIAGONAL_STRIPE, props)}
+    />
+  )
 }

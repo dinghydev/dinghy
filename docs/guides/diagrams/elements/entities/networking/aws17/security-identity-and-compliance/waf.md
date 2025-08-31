@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Waf } from '@reactiac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { Waf } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <Waf/>
 ```

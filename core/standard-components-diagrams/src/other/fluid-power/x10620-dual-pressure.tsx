@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10620_DUAL_PRESSURE = {
   _style:
@@ -9,5 +9,11 @@ export const X10620_DUAL_PRESSURE = {
 }
 
 export function X10620DualPressure(props: DiagramNodeProps) {
-  return <Shape {...X10620_DUAL_PRESSURE} {...props} />
+  return (
+    <Shape
+      {...X10620_DUAL_PRESSURE}
+      {...props}
+      _style={extendStyle(X10620_DUAL_PRESSURE, props)}
+    />
+  )
 }

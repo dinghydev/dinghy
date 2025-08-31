@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cloudfront } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { Cloudfront } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <Cloudfront/>
 ```

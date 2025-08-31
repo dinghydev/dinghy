@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EKS_ON_OUTPOSTS = {
   _style:
@@ -9,5 +9,11 @@ export const EKS_ON_OUTPOSTS = {
 }
 
 export function EksOnOutposts(props: DiagramNodeProps) {
-  return <Shape {...EKS_ON_OUTPOSTS} {...props} />
+  return (
+    <Shape
+      {...EKS_ON_OUTPOSTS}
+      {...props}
+      _style={extendStyle(EKS_ON_OUTPOSTS, props)}
+    />
+  )
 }

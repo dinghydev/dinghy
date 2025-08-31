@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UisUltimateInternetService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { UisUltimateInternetService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <UisUltimateInternetService/>
 ```

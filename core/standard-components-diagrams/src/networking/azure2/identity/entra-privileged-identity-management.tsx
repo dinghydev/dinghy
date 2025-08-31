@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT = {
   _style:
     'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Entra_Privileged_Identity_Management.svg;strokeColor=none;',
-  _width: 68,
-  _height: 68,
+  _width: 60,
+  _height: 60,
 }
 
 export function EntraPrivilegedIdentityManagement(props: DiagramNodeProps) {
-  return <Shape {...ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT} {...props} />
+  return (
+    <Shape
+      {...ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT}
+      {...props}
+      _style={extendStyle(ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT, props)}
+    />
+  )
 }

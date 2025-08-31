@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const APPROVER = {
   _style:
@@ -9,5 +9,7 @@ export const APPROVER = {
 }
 
 export function Approver(props: DiagramNodeProps) {
-  return <Shape {...APPROVER} {...props} />
+  return (
+    <Shape {...APPROVER} {...props} _style={extendStyle(APPROVER, props)} />
+  )
 }

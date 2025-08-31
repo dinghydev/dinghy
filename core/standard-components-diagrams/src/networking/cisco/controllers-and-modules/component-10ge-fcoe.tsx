@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_10GE_FCOE = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_10GE_FCOE = {
 }
 
 export function Component10geFcoe(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_10GE_FCOE} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_10GE_FCOE}
+      {...props}
+      _style={extendStyle(COMPONENT_10GE_FCOE, props)}
+    />
+  )
 }

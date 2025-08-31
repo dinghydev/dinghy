@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DoubleDiode } from '@reactiac/standard-components-diagrams/electricalVacuumTubes'
+import { DoubleDiode } from '@diac/standard-components-diagrams/electricalVacuumTubes'
 
 <DoubleDiode/>
 ```

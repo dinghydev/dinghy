@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Machinesazurearc } from '@reactiac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { Machinesazurearc } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <Machinesazurearc/>
 ```

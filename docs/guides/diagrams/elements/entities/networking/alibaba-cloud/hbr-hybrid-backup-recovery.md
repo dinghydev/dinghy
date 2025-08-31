@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HbrHybridBackupRecovery } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { HbrHybridBackupRecovery } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <HbrHybridBackupRecovery/>
 ```

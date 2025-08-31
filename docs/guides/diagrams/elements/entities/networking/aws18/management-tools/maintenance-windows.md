@@ -14,7 +14,7 @@ windows
 ## Usage
 
 ```
-import { MaintenanceWindows } from '@reactiac/standard-components-diagrams/aws18ManagementTools'
+import { MaintenanceWindows } from '@diac/standard-components-diagrams/aws18ManagementTools'
 
 <MaintenanceWindows/>
 ```

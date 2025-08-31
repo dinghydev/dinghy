@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BulletedList } from '@reactiac/standard-components-diagrams/mockupText'
+import { BulletedList } from '@diac/standard-components-diagrams/mockupText'
 
 <BulletedList/>
 ```

@@ -9,7 +9,7 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
 import init from './init.ts'
 import chalk from 'chalk'
 import { runCommand } from '../utils/runCommand.ts'
-import { reactiacHome } from '../utils/loadConfig.ts'
+import { diacHome } from '../utils/loadConfig.ts'
 import Debug from 'debug'
 import { cleanUpdateCheck } from '../utils/updateCheck.ts'
 import { projectVersionRelease } from '../utils/projectVersions.ts'
@@ -31,19 +31,19 @@ const refreshCommand: string[] = []
 
 const addToPathIfNotAlready = (shell: string, paths: string[]) => {
   const setCommand = shell === 'fish'
-    ? `set --export PATH ${reactiacHome}/bin $PATH`
-    : `export PATH="$HOME/.reactiac/bin:$PATH"`
+    ? `set --export PATH ${diacHome}/bin $PATH`
+    : `export PATH="$HOME/.diac/bin:$PATH"`
   paths.find((path) => {
     const configFile = `${Deno.env.get('HOME')}/${path}`
     if (existsSync(configFile)) {
       const text = Deno.readTextFileSync(configFile)
-      if (text.includes('# ReactIAC Runner')) {
+      if (text.includes('# DIaC Runner')) {
         debug('%s is up to date', configFile)
       } else {
         debug('%s is not up to date', configFile)
         Deno.writeTextFileSync(
           configFile,
-          `${text}\n# ReactIAC Runner\n${setCommand}\n`,
+          `${text}\n# DIaC Runner\n${setCommand}\n`,
         )
         debug('added %s to %s', configFile)
         const activeShell = Deno.env.get('SHELL') || '/bin/sh'
@@ -89,8 +89,8 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   }
 
   const startCommand = initProject
-    ? [`cd ${initProject}`, 'reactiac devcontainer']
-    : ['reactiac --help']
+    ? [`cd ${initProject}`, 'diac devcontainer']
+    : ['diac --help']
 
   if (refreshCommand.length > 0) {
     debug(
@@ -98,7 +98,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       refreshCommand,
     )
     console.log(
-      `Installed ReactIAC Runner ${
+      `Installed DIaC Runner ${
         chalk.dim(projectVersionRelease())
       } successfully.`,
     )

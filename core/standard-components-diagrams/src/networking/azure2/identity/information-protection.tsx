@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INFORMATION_PROTECTION = {
   _style:
@@ -9,5 +9,11 @@ export const INFORMATION_PROTECTION = {
 }
 
 export function InformationProtection(props: DiagramNodeProps) {
-  return <Shape {...INFORMATION_PROTECTION} {...props} />
+  return (
+    <Shape
+      {...INFORMATION_PROTECTION}
+      {...props}
+      _style={extendStyle(INFORMATION_PROTECTION, props)}
+    />
+  )
 }

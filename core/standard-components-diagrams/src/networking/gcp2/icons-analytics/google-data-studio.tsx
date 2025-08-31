@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GOOGLE_DATA_STUDIO = {
   _style:
@@ -9,5 +9,11 @@ export const GOOGLE_DATA_STUDIO = {
 }
 
 export function GoogleDataStudio(props: DiagramNodeProps) {
-  return <Shape {...GOOGLE_DATA_STUDIO} {...props} />
+  return (
+    <Shape
+      {...GOOGLE_DATA_STUDIO}
+      {...props}
+      _style={extendStyle(GOOGLE_DATA_STUDIO, props)}
+    />
+  )
 }

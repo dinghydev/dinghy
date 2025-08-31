@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FaxPartner } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { FaxPartner } from '@diac/standard-components-diagrams/officeCommunications'
 
 <FaxPartner/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LINEAR_DISCUSSION = {
   _style:
@@ -9,5 +9,11 @@ export const LINEAR_DISCUSSION = {
 }
 
 export function LinearDiscussion(props: DiagramNodeProps) {
-  return <Shape {...LINEAR_DISCUSSION} {...props} />
+  return (
+    <Shape
+      {...LINEAR_DISCUSSION}
+      {...props}
+      _style={extendStyle(LINEAR_DISCUSSION, props)}
+    />
+  )
 }

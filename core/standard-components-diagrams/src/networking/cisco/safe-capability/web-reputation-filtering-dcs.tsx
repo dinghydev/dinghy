@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEB_REPUTATION_FILTERING_DCS = {
   _style:
@@ -9,5 +9,11 @@ export const WEB_REPUTATION_FILTERING_DCS = {
 }
 
 export function WebReputationFilteringDcs(props: DiagramNodeProps) {
-  return <Shape {...WEB_REPUTATION_FILTERING_DCS} {...props} />
+  return (
+    <Shape
+      {...WEB_REPUTATION_FILTERING_DCS}
+      {...props}
+      _style={extendStyle(WEB_REPUTATION_FILTERING_DCS, props)}
+    />
+  )
 }

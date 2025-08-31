@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSCODER = {
   _style:
@@ -9,5 +9,7 @@ export const TRANSCODER = {
 }
 
 export function Transcoder(props: DiagramNodeProps) {
-  return <Shape {...TRANSCODER} {...props} />
+  return (
+    <Shape {...TRANSCODER} {...props} _style={extendStyle(TRANSCODER, props)} />
+  )
 }

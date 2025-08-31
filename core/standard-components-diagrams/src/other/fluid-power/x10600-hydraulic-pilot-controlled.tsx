@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10600_HYDRAULIC_PILOT_CONTROLLED = {
   _style:
@@ -9,5 +9,11 @@ export const X10600_HYDRAULIC_PILOT_CONTROLLED = {
 }
 
 export function X10600HydraulicPilotControlled(props: DiagramNodeProps) {
-  return <Shape {...X10600_HYDRAULIC_PILOT_CONTROLLED} {...props} />
+  return (
+    <Shape
+      {...X10600_HYDRAULIC_PILOT_CONTROLLED}
+      {...props}
+      _style={extendStyle(X10600_HYDRAULIC_PILOT_CONTROLLED, props)}
+    />
+  )
 }

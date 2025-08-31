@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CALL_PAD = {
   _style:
@@ -9,5 +9,7 @@ export const CALL_PAD = {
 }
 
 export function CallPad(props: DiagramNodeProps) {
-  return <Shape {...CALL_PAD} {...props} />
+  return (
+    <Shape {...CALL_PAD} {...props} _style={extendStyle(CALL_PAD, props)} />
+  )
 }

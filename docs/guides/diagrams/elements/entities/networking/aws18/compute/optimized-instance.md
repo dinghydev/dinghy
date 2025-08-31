@@ -14,7 +14,7 @@ Instance
 ## Usage
 
 ```
-import { OptimizedInstance } from '@reactiac/standard-components-diagrams/aws18Compute'
+import { OptimizedInstance } from '@diac/standard-components-diagrams/aws18Compute'
 
 <OptimizedInstance/>
 ```

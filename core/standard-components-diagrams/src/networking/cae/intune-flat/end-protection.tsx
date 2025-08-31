@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const END_PROTECTION = {
   _style:
@@ -9,5 +9,11 @@ export const END_PROTECTION = {
 }
 
 export function EndProtection(props: DiagramNodeProps) {
-  return <Shape {...END_PROTECTION} {...props} />
+  return (
+    <Shape
+      {...END_PROTECTION}
+      {...props}
+      _style={extendStyle(END_PROTECTION, props)}
+    />
+  )
 }

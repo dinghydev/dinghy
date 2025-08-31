@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cli } from '@reactiac/standard-components-diagrams/aws17Sdk'
+import { Cli } from '@diac/standard-components-diagrams/aws17Sdk'
 
 <Cli/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DB_INSTANCE_STANDBY = {
   _style:
@@ -9,5 +9,11 @@ export const DB_INSTANCE_STANDBY = {
 }
 
 export function DbInstanceStandby(props: DiagramNodeProps) {
-  return <Shape {...DB_INSTANCE_STANDBY} {...props} />
+  return (
+    <Shape
+      {...DB_INSTANCE_STANDBY}
+      {...props}
+      _style={extendStyle(DB_INSTANCE_STANDBY, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExplorerForActiveDirectory } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { ExplorerForActiveDirectory } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <ExplorerForActiveDirectory/>
 ```

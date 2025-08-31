@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cloudwatch } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { Cloudwatch } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <Cloudwatch/>
 ```

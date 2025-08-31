@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChecklistCost } from '@reactiac/standard-components-diagrams/aws18ManagementTools'
+import { ChecklistCost } from '@diac/standard-components-diagrams/aws18ManagementTools'
 
 <ChecklistCost/>
 ```

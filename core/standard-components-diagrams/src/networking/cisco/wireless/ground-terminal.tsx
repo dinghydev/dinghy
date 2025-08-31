@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GROUND_TERMINAL = {
   _style:
@@ -9,5 +9,11 @@ export const GROUND_TERMINAL = {
 }
 
 export function GroundTerminal(props: DiagramNodeProps) {
-  return <Shape {...GROUND_TERMINAL} {...props} />
+  return (
+    <Shape
+      {...GROUND_TERMINAL}
+      {...props}
+      _style={extendStyle(GROUND_TERMINAL, props)}
+    />
+  )
 }

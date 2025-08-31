@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PublicIpAddresses } from '@reactiac/standard-components-diagrams/caeNetworkingService'
+import { PublicIpAddresses } from '@diac/standard-components-diagrams/caeNetworkingService'
 
 <PublicIpAddresses/>
 ```

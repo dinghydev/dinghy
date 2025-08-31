@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CAT5E_ENHANCED_PATCH_PANEL_48_PORTS = {
   _style:
@@ -9,5 +9,11 @@ export const CAT5E_ENHANCED_PATCH_PANEL_48_PORTS = {
 }
 
 export function Cat5eEnhancedPatchPanel48Ports(props: DiagramNodeProps) {
-  return <Shape {...CAT5E_ENHANCED_PATCH_PANEL_48_PORTS} {...props} />
+  return (
+    <Shape
+      {...CAT5E_ENHANCED_PATCH_PANEL_48_PORTS}
+      {...props}
+      _style={extendStyle(CAT5E_ENHANCED_PATCH_PANEL_48_PORTS, props)}
+    />
+  )
 }

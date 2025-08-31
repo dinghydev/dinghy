@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CITRIX_TERRAFORM_PROVIDER = {
   _style:
@@ -9,5 +9,11 @@ export const CITRIX_TERRAFORM_PROVIDER = {
 }
 
 export function CitrixTerraformProvider(props: DiagramNodeProps) {
-  return <Shape {...CITRIX_TERRAFORM_PROVIDER} {...props} />
+  return (
+    <Shape
+      {...CITRIX_TERRAFORM_PROVIDER}
+      {...props}
+      _style={extendStyle(CITRIX_TERRAFORM_PROVIDER, props)}
+    />
+  )
 }

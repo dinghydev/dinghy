@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRAFFIC_DIRECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const TRAFFIC_DIRECTOR = {
 }
 
 export function TrafficDirector(props: DiagramNodeProps) {
-  return <Shape {...TRAFFIC_DIRECTOR} {...props} />
+  return (
+    <Shape
+      {...TRAFFIC_DIRECTOR}
+      {...props}
+      _style={extendStyle(TRAFFIC_DIRECTOR, props)}
+    />
+  )
 }

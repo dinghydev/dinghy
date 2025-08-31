@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VKONTAKTE = {
   _style:
@@ -9,5 +9,7 @@ export const VKONTAKTE = {
 }
 
 export function Vkontakte(props: DiagramNodeProps) {
-  return <Shape {...VKONTAKTE} {...props} />
+  return (
+    <Shape {...VKONTAKTE} {...props} _style={extendStyle(VKONTAKTE, props)} />
+  )
 }

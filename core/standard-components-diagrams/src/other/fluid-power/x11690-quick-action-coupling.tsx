@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11690_QUICK_ACTION_COUPLING = {
   _style:
@@ -9,5 +9,11 @@ export const X11690_QUICK_ACTION_COUPLING = {
 }
 
 export function X11690QuickActionCoupling(props: DiagramNodeProps) {
-  return <Shape {...X11690_QUICK_ACTION_COUPLING} {...props} />
+  return (
+    <Shape
+      {...X11690_QUICK_ACTION_COUPLING}
+      {...props}
+      _style={extendStyle(X11690_QUICK_ACTION_COUPLING, props)}
+    />
+  )
 }

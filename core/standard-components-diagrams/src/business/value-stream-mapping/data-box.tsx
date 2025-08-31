@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATA_BOX = {
   _style: 'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.data_box;html=1;',
@@ -8,5 +8,7 @@ export const DATA_BOX = {
 }
 
 export function DataBox(props: DiagramNodeProps) {
-  return <Shape {...DATA_BOX} {...props} />
+  return (
+    <Shape {...DATA_BOX} {...props} _style={extendStyle(DATA_BOX, props)} />
+  )
 }

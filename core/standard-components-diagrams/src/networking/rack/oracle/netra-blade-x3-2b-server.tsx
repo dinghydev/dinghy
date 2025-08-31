@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETRA_BLADE_X3_2B_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const NETRA_BLADE_X3_2B_SERVER = {
 }
 
 export function NetraBladeX32bServer(props: DiagramNodeProps) {
-  return <Shape {...NETRA_BLADE_X3_2B_SERVER} {...props} />
+  return (
+    <Shape
+      {...NETRA_BLADE_X3_2B_SERVER}
+      {...props}
+      _style={extendStyle(NETRA_BLADE_X3_2B_SERVER, props)}
+    />
+  )
 }

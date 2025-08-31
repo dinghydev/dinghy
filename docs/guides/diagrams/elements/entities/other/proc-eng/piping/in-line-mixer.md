@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InLineMixer } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { InLineMixer } from '@diac/standard-components-diagrams/procEngPiping'
 
 <InLineMixer/>
 ```

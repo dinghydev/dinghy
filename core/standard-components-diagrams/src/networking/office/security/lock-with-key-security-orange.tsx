@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOCK_WITH_KEY_SECURITY_ORANGE = {
   _style:
@@ -9,5 +9,11 @@ export const LOCK_WITH_KEY_SECURITY_ORANGE = {
 }
 
 export function LockWithKeySecurityOrange(props: DiagramNodeProps) {
-  return <Shape {...LOCK_WITH_KEY_SECURITY_ORANGE} {...props} />
+  return (
+    <Shape
+      {...LOCK_WITH_KEY_SECURITY_ORANGE}
+      {...props}
+      _style={extendStyle(LOCK_WITH_KEY_SECURITY_ORANGE, props)}
+    />
+  )
 }

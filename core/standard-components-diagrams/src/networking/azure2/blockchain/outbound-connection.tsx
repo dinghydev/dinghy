@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OUTBOUND_CONNECTION = {
   _style:
@@ -9,5 +9,11 @@ export const OUTBOUND_CONNECTION = {
 }
 
 export function OutboundConnection(props: DiagramNodeProps) {
-  return <Shape {...OUTBOUND_CONNECTION} {...props} />
+  return (
+    <Shape
+      {...OUTBOUND_CONNECTION}
+      {...props}
+      _style={extendStyle(OUTBOUND_CONNECTION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MODAL_DIALOG = {
   _style:
@@ -9,5 +9,11 @@ export const MODAL_DIALOG = {
 }
 
 export function ModalDialog(props: DiagramNodeProps) {
-  return <Shape {...MODAL_DIALOG} {...props} />
+  return (
+    <Shape
+      {...MODAL_DIALOG}
+      {...props}
+      _style={extendStyle(MODAL_DIALOG, props)}
+    />
+  )
 }

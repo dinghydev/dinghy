@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AUXILIARY_CONTACT_CIRCUIT_BREAKER = {
   _style:
@@ -9,5 +9,11 @@ export const AUXILIARY_CONTACT_CIRCUIT_BREAKER = {
 }
 
 export function AuxiliaryContactCircuitBreaker(props: DiagramNodeProps) {
-  return <Shape {...AUXILIARY_CONTACT_CIRCUIT_BREAKER} {...props} />
+  return (
+    <Shape
+      {...AUXILIARY_CONTACT_CIRCUIT_BREAKER}
+      {...props}
+      _style={extendStyle(AUXILIARY_CONTACT_CIRCUIT_BREAKER, props)}
+    />
+  )
 }

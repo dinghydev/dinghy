@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pause } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { Pause } from '@diac/standard-components-diagrams/ios7Ui'
 
 <Pause/>
 ```

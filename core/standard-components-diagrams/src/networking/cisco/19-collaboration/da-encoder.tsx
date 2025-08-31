@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DA_ENCODER = {
   _style:
@@ -9,5 +9,7 @@ export const DA_ENCODER = {
 }
 
 export function DaEncoder(props: DiagramNodeProps) {
-  return <Shape {...DA_ENCODER} {...props} />
+  return (
+    <Shape {...DA_ENCODER} {...props} _style={extendStyle(DA_ENCODER, props)} />
+  )
 }

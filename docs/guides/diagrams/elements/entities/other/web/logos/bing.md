@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bing } from '@reactiac/standard-components-diagrams/webLogos'
+import { Bing } from '@diac/standard-components-diagrams/webLogos'
 
 <Bing/>
 ```

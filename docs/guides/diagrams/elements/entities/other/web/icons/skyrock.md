@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Skyrock } from '@reactiac/standard-components-diagrams/webIcons'
+import { Skyrock } from '@diac/standard-components-diagrams/webIcons'
 
 <Skyrock/>
 ```

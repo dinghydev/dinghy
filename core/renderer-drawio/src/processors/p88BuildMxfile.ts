@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import type { DrawioContext, DrawioNodeTree } from '../types.ts'
-import type { Props } from '@reactiac/base-components'
+import type { Props } from '@diac/base-components'
 
 const defaultMxfile = (_node: DrawioNodeTree) => ({
   type: 'mxfile',

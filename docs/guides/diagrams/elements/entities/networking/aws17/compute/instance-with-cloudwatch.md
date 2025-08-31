@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InstanceWithCloudwatch } from '@reactiac/standard-components-diagrams/aws17Compute'
+import { InstanceWithCloudwatch } from '@diac/standard-components-diagrams/aws17Compute'
 
 <InstanceWithCloudwatch/>
 ```

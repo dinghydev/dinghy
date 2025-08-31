@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JOURNEY_HUB = {
   _style:
@@ -9,5 +9,11 @@ export const JOURNEY_HUB = {
 }
 
 export function JourneyHub(props: DiagramNodeProps) {
-  return <Shape {...JOURNEY_HUB} {...props} />
+  return (
+    <Shape
+      {...JOURNEY_HUB}
+      {...props}
+      _style={extendStyle(JOURNEY_HUB, props)}
+    />
+  )
 }

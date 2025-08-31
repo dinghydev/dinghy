@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEP_PYRAMID_7 = {
   _style:
@@ -9,5 +9,11 @@ export const STEP_PYRAMID_7 = {
 }
 
 export function StepPyramid7(props: DiagramNodeProps) {
-  return <Shape {...STEP_PYRAMID_7} {...props} />
+  return (
+    <Shape
+      {...STEP_PYRAMID_7}
+      {...props}
+      _style={extendStyle(STEP_PYRAMID_7, props)}
+    />
+  )
 }

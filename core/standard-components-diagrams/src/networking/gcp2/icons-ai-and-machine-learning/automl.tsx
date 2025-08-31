@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AUTOML = {
   _style:
@@ -9,5 +9,5 @@ export const AUTOML = {
 }
 
 export function Automl(props: DiagramNodeProps) {
-  return <Shape {...AUTOML} {...props} />
+  return <Shape {...AUTOML} {...props} _style={extendStyle(AUTOML, props)} />
 }

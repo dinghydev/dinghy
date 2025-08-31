@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BACKGROUND_LIGHT = {
   _style: 'shape=rect;fillColor=#eeeeee;strokeColor=none;',
@@ -8,5 +8,11 @@ export const BACKGROUND_LIGHT = {
 }
 
 export function BackgroundLight(props: DiagramNodeProps) {
-  return <Shape {...BACKGROUND_LIGHT} {...props} />
+  return (
+    <Shape
+      {...BACKGROUND_LIGHT}
+      {...props}
+      _style={extendStyle(BACKGROUND_LIGHT, props)}
+    />
+  )
 }

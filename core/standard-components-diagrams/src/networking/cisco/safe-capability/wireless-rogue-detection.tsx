@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIRELESS_ROGUE_DETECTION = {
   _style:
@@ -9,5 +9,11 @@ export const WIRELESS_ROGUE_DETECTION = {
 }
 
 export function WirelessRogueDetection(props: DiagramNodeProps) {
-  return <Shape {...WIRELESS_ROGUE_DETECTION} {...props} />
+  return (
+    <Shape
+      {...WIRELESS_ROGUE_DETECTION}
+      {...props}
+      _style={extendStyle(WIRELESS_ROGUE_DETECTION, props)}
+    />
+  )
 }

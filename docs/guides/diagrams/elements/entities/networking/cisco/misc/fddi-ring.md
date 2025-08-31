@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FddiRing } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { FddiRing } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <FddiRing/>
 ```

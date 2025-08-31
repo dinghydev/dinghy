@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Keyboard } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { Keyboard } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <Keyboard/>
 ```

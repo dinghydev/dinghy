@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MICROSOFT_TEAMS = {
   _style:
@@ -9,5 +9,11 @@ export const MICROSOFT_TEAMS = {
 }
 
 export function MicrosoftTeams(props: DiagramNodeProps) {
-  return <Shape {...MICROSOFT_TEAMS} {...props} />
+  return (
+    <Shape
+      {...MICROSOFT_TEAMS}
+      {...props}
+      _style={extendStyle(MICROSOFT_TEAMS, props)}
+    />
+  )
 }

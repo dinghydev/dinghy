@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Extension } from '@reactiac/standard-components-diagrams/sysmlProfiles'
+import { Extension } from '@diac/standard-components-diagrams/sysmlProfiles'
 
 <Extension/>
 ```

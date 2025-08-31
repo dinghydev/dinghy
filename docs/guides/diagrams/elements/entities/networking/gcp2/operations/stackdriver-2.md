@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stackdriver2 } from '@reactiac/standard-components-diagrams/gcp2Operations'
+import { Stackdriver2 } from '@diac/standard-components-diagrams/gcp2Operations'
 
 <Stackdriver2/>
 ```

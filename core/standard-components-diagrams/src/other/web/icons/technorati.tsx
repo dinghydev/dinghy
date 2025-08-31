@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TECHNORATI = {
   _style:
@@ -9,5 +9,7 @@ export const TECHNORATI = {
 }
 
 export function Technorati(props: DiagramNodeProps) {
-  return <Shape {...TECHNORATI} {...props} />
+  return (
+    <Shape {...TECHNORATI} {...props} _style={extendStyle(TECHNORATI, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SecurityControlLabel } from '@reactiac/standard-components-diagrams/threatModeling'
+import { SecurityControlLabel } from '@diac/standard-components-diagrams/threatModeling'
 
 <SecurityControlLabel/>
 ```

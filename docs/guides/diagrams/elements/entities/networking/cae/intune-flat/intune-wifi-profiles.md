@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IntuneWifiProfiles } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { IntuneWifiProfiles } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <IntuneWifiProfiles/>
 ```

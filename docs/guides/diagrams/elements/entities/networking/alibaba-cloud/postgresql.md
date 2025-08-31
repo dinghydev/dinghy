@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Postgresql } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Postgresql } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Postgresql/>
 ```

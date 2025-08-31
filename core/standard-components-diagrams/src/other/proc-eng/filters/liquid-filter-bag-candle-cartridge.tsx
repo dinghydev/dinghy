@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIQUID_FILTER_BAG_CANDLE_CARTRIDGE = {
   _style:
@@ -9,5 +9,11 @@ export const LIQUID_FILTER_BAG_CANDLE_CARTRIDGE = {
 }
 
 export function LiquidFilterBagCandleCartridge(props: DiagramNodeProps) {
-  return <Shape {...LIQUID_FILTER_BAG_CANDLE_CARTRIDGE} {...props} />
+  return (
+    <Shape
+      {...LIQUID_FILTER_BAG_CANDLE_CARTRIDGE}
+      {...props}
+      _style={extendStyle(LIQUID_FILTER_BAG_CANDLE_CARTRIDGE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Keypad } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { Keypad } from '@diac/standard-components-diagrams/ios7Icons'
 
 <Keypad/>
 ```

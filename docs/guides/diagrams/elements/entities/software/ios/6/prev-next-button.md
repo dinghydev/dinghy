@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PrevNextButton } from '@reactiac/standard-components-diagrams/ios6'
+import { PrevNextButton } from '@diac/standard-components-diagrams/ios6'
 
 <PrevNextButton/>
 ```

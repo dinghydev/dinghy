@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUN_STORAGE_2500_M2_ARRAY = {
   _style:
@@ -9,5 +9,11 @@ export const SUN_STORAGE_2500_M2_ARRAY = {
 }
 
 export function SunStorage2500M2Array(props: DiagramNodeProps) {
-  return <Shape {...SUN_STORAGE_2500_M2_ARRAY} {...props} />
+  return (
+    <Shape
+      {...SUN_STORAGE_2500_M2_ARRAY}
+      {...props}
+      _style={extendStyle(SUN_STORAGE_2500_M2_ARRAY, props)}
+    />
+  )
 }

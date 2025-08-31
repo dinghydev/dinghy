@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PhysicalNetworkAdapter } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { PhysicalNetworkAdapter } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <PhysicalNetworkAdapter/>
 ```

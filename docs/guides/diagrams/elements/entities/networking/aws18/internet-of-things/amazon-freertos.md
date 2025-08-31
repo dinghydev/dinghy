@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonFreertos } from '@reactiac/standard-components-diagrams/aws18InternetOfThings'
+import { AmazonFreertos } from '@diac/standard-components-diagrams/aws18InternetOfThings'
 
 <AmazonFreertos/>
 ```

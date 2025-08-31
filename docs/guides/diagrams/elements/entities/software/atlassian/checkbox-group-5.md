@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CheckboxGroup5 } from '@reactiac/standard-components-diagrams/atlassian'
+import { CheckboxGroup5 } from '@diac/standard-components-diagrams/atlassian'
 
 <CheckboxGroup5/>
 ```

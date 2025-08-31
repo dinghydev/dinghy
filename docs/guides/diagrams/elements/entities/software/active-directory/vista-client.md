@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VistaClient } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { VistaClient } from '@diac/standard-components-diagrams/activeDirectory'
 
 <VistaClient/>
 ```

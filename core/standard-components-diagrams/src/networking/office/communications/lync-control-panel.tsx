@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LYNC_CONTROL_PANEL = {
   _style:
@@ -9,5 +9,11 @@ export const LYNC_CONTROL_PANEL = {
 }
 
 export function LyncControlPanel(props: DiagramNodeProps) {
-  return <Shape {...LYNC_CONTROL_PANEL} {...props} />
+  return (
+    <Shape
+      {...LYNC_CONTROL_PANEL}
+      {...props}
+      _style={extendStyle(LYNC_CONTROL_PANEL, props)}
+    />
+  )
 }

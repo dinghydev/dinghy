@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TopBarLocked } from '@reactiac/standard-components-diagrams/ios6'
+import { TopBarLocked } from '@diac/standard-components-diagrams/ios6'
 
 <TopBarLocked/>
 ```

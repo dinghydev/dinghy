@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PbxServer } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { PbxServer } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <PbxServer/>
 ```

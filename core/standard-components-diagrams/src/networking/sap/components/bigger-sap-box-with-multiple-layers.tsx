@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS = {
   _style:
@@ -9,5 +9,11 @@ export const BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS = {
 }
 
 export function BiggerSapBoxWithMultipleLayers(props: DiagramNodeProps) {
-  return <Shape {...BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS} {...props} />
+  return (
+    <Shape
+      {...BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS}
+      {...props}
+      _style={extendStyle(BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS, props)}
+    />
+  )
 }

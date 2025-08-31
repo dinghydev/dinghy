@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetworkAccessControllist } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { NetworkAccessControllist } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <NetworkAccessControllist/>
 ```

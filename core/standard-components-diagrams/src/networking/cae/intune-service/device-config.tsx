@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEVICE_CONFIG = {
   _style:
@@ -9,5 +9,11 @@ export const DEVICE_CONFIG = {
 }
 
 export function DeviceConfig(props: DiagramNodeProps) {
-  return <Shape {...DEVICE_CONFIG} {...props} />
+  return (
+    <Shape
+      {...DEVICE_CONFIG}
+      {...props}
+      _style={extendStyle(DEVICE_CONFIG, props)}
+    />
+  )
 }

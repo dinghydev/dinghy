@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUMP_PUMP = {
   _style:
@@ -9,5 +9,7 @@ export const SUMP_PUMP = {
 }
 
 export function SumpPump(props: DiagramNodeProps) {
-  return <Shape {...SUMP_PUMP} {...props} />
+  return (
+    <Shape {...SUMP_PUMP} {...props} _style={extendStyle(SUMP_PUMP, props)} />
+  )
 }

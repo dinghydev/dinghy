@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GwsGraphicWorkstation } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { GwsGraphicWorkstation } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <GwsGraphicWorkstation/>
 ```

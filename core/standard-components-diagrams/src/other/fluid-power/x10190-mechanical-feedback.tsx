@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10190_MECHANICAL_FEEDBACK = {
   _style:
@@ -9,5 +9,11 @@ export const X10190_MECHANICAL_FEEDBACK = {
 }
 
 export function X10190MechanicalFeedback(props: DiagramNodeProps) {
-  return <Shape {...X10190_MECHANICAL_FEEDBACK} {...props} />
+  return (
+    <Shape
+      {...X10190_MECHANICAL_FEEDBACK}
+      {...props}
+      _style={extendStyle(X10190_MECHANICAL_FEEDBACK, props)}
+    />
+  )
 }

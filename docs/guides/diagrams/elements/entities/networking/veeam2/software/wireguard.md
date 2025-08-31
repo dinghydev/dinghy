@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Wireguard } from '@reactiac/standard-components-diagrams/veeam2Software'
+import { Wireguard } from '@diac/standard-components-diagrams/veeam2Software'
 
 <Wireguard/>
 ```

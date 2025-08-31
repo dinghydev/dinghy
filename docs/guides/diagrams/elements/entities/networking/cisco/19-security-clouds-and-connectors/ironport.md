@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ironport } from '@reactiac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { Ironport } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <Ironport/>
 ```

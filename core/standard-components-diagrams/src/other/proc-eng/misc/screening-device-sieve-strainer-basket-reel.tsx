@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCREENING_DEVICE_SIEVE_STRAINER_BASKET_REEL = {
   _style:
@@ -11,5 +11,11 @@ export const SCREENING_DEVICE_SIEVE_STRAINER_BASKET_REEL = {
 export function ScreeningDeviceSieveStrainerBasketReel(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...SCREENING_DEVICE_SIEVE_STRAINER_BASKET_REEL} {...props} />
+  return (
+    <Shape
+      {...SCREENING_DEVICE_SIEVE_STRAINER_BASKET_REEL}
+      {...props}
+      _style={extendStyle(SCREENING_DEVICE_SIEVE_STRAINER_BASKET_REEL, props)}
+    />
+  )
 }

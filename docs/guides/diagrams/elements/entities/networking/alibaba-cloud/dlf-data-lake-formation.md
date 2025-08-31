@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DlfDataLakeFormation } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { DlfDataLakeFormation } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <DlfDataLakeFormation/>
 ```

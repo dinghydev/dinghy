@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CENTRIFUGE_HIGH_SPEED = {
   _style:
@@ -9,5 +9,11 @@ export const CENTRIFUGE_HIGH_SPEED = {
 }
 
 export function CentrifugeHighSpeed(props: DiagramNodeProps) {
-  return <Shape {...CENTRIFUGE_HIGH_SPEED} {...props} />
+  return (
+    <Shape
+      {...CENTRIFUGE_HIGH_SPEED}
+      {...props}
+      _style={extendStyle(CENTRIFUGE_HIGH_SPEED, props)}
+    />
+  )
 }

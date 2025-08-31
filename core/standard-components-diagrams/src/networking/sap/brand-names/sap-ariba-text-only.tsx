@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAP_ARIBA_TEXT_ONLY = {
   _style:
@@ -9,5 +9,11 @@ export const SAP_ARIBA_TEXT_ONLY = {
 }
 
 export function SapAribaTextOnly(props: DiagramNodeProps) {
-  return <Shape {...SAP_ARIBA_TEXT_ONLY} {...props} />
+  return (
+    <Shape
+      {...SAP_ARIBA_TEXT_ONLY}
+      {...props}
+      _style={extendStyle(SAP_ARIBA_TEXT_ONLY, props)}
+    />
+  )
 }

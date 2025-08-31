@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARTNER_NAMESPACE = {
   _style:
@@ -9,5 +9,11 @@ export const PARTNER_NAMESPACE = {
 }
 
 export function PartnerNamespace(props: DiagramNodeProps) {
-  return <Shape {...PARTNER_NAMESPACE} {...props} />
+  return (
+    <Shape
+      {...PARTNER_NAMESPACE}
+      {...props}
+      _style={extendStyle(PARTNER_NAMESPACE, props)}
+    />
+  )
 }

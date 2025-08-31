@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS = {
   _style:
@@ -9,5 +9,11 @@ export const DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS = {
 }
 
 export function DistributionBlock4p125a11Connections(props: DiagramNodeProps) {
-  return <Shape {...DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS} {...props} />
+  return (
+    <Shape
+      {...DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS}
+      {...props}
+      _style={extendStyle(DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS, props)}
+    />
+  )
 }

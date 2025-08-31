@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EmrEngine } from '@reactiac/standard-components-diagrams/awsAnalytics'
+import { EmrEngine } from '@diac/standard-components-diagrams/awsAnalytics'
 
 <EmrEngine/>
 ```

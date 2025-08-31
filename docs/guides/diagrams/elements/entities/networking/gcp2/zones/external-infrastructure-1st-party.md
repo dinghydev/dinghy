@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExternalInfrastructure1stParty } from '@reactiac/standard-components-diagrams/gcp2Zones'
+import { ExternalInfrastructure1stParty } from '@diac/standard-components-diagrams/gcp2Zones'
 
 <ExternalInfrastructure1stParty/>
 ```

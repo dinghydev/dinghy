@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CD_DVD = {
   _style:
@@ -9,5 +9,5 @@ export const CD_DVD = {
 }
 
 export function CdDvd(props: DiagramNodeProps) {
-  return <Shape {...CD_DVD} {...props} />
+  return <Shape {...CD_DVD} {...props} _style={extendStyle(CD_DVD, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X10020PlungerWith } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X10020PlungerWith } from '@diac/standard-components-diagrams/fluidPower'
 
 <X10020PlungerWith/>
 ```

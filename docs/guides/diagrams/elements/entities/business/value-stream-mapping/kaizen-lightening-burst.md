@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KaizenLighteningBurst } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { KaizenLighteningBurst } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <KaizenLighteningBurst/>
 ```

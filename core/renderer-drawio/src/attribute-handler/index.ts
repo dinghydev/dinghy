@@ -1,4 +1,4 @@
-import type { Props } from '@reactiac/base-components'
+import type { Props } from '@diac/base-components'
 import { _background } from './_background.ts'
 import { _color } from './_color.ts'
 import { _dashed } from './_dahsed.ts'

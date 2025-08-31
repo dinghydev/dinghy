@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PORTS_WITH_FLOW_PROPERTIES = {
   _style:
@@ -9,5 +9,11 @@ export const PORTS_WITH_FLOW_PROPERTIES = {
 }
 
 export function PortsWithFlowProperties(props: DiagramNodeProps) {
-  return <Shape {...PORTS_WITH_FLOW_PROPERTIES} {...props} />
+  return (
+    <Shape
+      {...PORTS_WITH_FLOW_PROPERTIES}
+      {...props}
+      _style={extendStyle(PORTS_WITH_FLOW_PROPERTIES, props)}
+    />
+  )
 }

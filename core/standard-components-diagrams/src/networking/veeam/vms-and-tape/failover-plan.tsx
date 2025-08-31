@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FAILOVER_PLAN = {
   _style:
@@ -9,5 +9,11 @@ export const FAILOVER_PLAN = {
 }
 
 export function FailoverPlan(props: DiagramNodeProps) {
-  return <Shape {...FAILOVER_PLAN} {...props} />
+  return (
+    <Shape
+      {...FAILOVER_PLAN}
+      {...props}
+      _style={extendStyle(FAILOVER_PLAN, props)}
+    />
+  )
 }

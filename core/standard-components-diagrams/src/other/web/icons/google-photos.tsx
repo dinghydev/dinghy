@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GOOGLE_PHOTOS = {
   _style:
@@ -9,5 +9,11 @@ export const GOOGLE_PHOTOS = {
 }
 
 export function GooglePhotos(props: DiagramNodeProps) {
-  return <Shape {...GOOGLE_PHOTOS} {...props} />
+  return (
+    <Shape
+      {...GOOGLE_PHOTOS}
+      {...props}
+      _style={extendStyle(GOOGLE_PHOTOS, props)}
+    />
+  )
 }

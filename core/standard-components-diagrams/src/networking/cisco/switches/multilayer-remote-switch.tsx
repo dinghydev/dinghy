@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTILAYER_REMOTE_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const MULTILAYER_REMOTE_SWITCH = {
 }
 
 export function MultilayerRemoteSwitch(props: DiagramNodeProps) {
-  return <Shape {...MULTILAYER_REMOTE_SWITCH} {...props} />
+  return (
+    <Shape
+      {...MULTILAYER_REMOTE_SWITCH}
+      {...props}
+      _style={extendStyle(MULTILAYER_REMOTE_SWITCH, props)}
+    />
+  )
 }

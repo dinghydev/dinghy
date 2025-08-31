@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExchangeConnector } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { ExchangeConnector } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <ExchangeConnector/>
 ```

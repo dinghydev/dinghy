@@ -1,13 +1,15 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SECURITY = {
   _style:
     'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.oms.security',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function Security(props: DiagramNodeProps) {
-  return <Shape {...SECURITY} {...props} />
+  return (
+    <Shape {...SECURITY} {...props} _style={extendStyle(SECURITY, props)} />
+  )
 }

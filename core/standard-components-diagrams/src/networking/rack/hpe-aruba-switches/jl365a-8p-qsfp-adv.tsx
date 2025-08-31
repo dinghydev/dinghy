@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL365A_8P_QSFP_ADV = {
   _style:
@@ -9,5 +9,11 @@ export const JL365A_8P_QSFP_ADV = {
 }
 
 export function Jl365a8pQsfpAdv(props: DiagramNodeProps) {
-  return <Shape {...JL365A_8P_QSFP_ADV} {...props} />
+  return (
+    <Shape
+      {...JL365A_8P_QSFP_ADV}
+      {...props}
+      _style={extendStyle(JL365A_8P_QSFP_ADV, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FailoverProtection } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { FailoverProtection } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <FailoverProtection/>
 ```

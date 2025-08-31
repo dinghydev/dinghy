@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GAMELIFT = {
   _style:
@@ -9,5 +9,7 @@ export const GAMELIFT = {
 }
 
 export function Gamelift(props: DiagramNodeProps) {
-  return <Shape {...GAMELIFT} {...props} />
+  return (
+    <Shape {...GAMELIFT} {...props} _style={extendStyle(GAMELIFT, props)} />
+  )
 }

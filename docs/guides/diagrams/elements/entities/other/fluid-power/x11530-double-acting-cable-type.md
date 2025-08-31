@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11530DoubleActingCableType } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11530DoubleActingCableType } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11530DoubleActingCableType/>
 ```

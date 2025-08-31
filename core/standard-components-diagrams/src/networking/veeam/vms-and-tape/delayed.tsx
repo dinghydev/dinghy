@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DELAYED = {
   _style:
@@ -9,5 +9,5 @@ export const DELAYED = {
 }
 
 export function Delayed(props: DiagramNodeProps) {
-  return <Shape {...DELAYED} {...props} />
+  return <Shape {...DELAYED} {...props} _style={extendStyle(DELAYED, props)} />
 }

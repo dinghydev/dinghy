@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TextInput } from '@reactiac/standard-components-diagrams/ios6'
+import { TextInput } from '@diac/standard-components-diagrams/ios6'
 
 <TextInput/>
 ```

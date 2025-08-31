@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESISTOR_VARIABLE = {
   _style:
@@ -9,5 +9,11 @@ export const RESISTOR_VARIABLE = {
 }
 
 export function ResistorVariable(props: DiagramNodeProps) {
-  return <Shape {...RESISTOR_VARIABLE} {...props} />
+  return (
+    <Shape
+      {...RESISTOR_VARIABLE}
+      {...props}
+      _style={extendStyle(RESISTOR_VARIABLE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Opensearch } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Opensearch } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Opensearch/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VpcGateway } from '@reactiac/standard-components-diagrams/aws3d'
+import { VpcGateway } from '@diac/standard-components-diagrams/aws3d'
 
 <VpcGateway/>
 ```

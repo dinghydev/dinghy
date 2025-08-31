@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TENANT_ADMIN = {
   _style:
@@ -9,5 +9,11 @@ export const TENANT_ADMIN = {
 }
 
 export function TenantAdmin(props: DiagramNodeProps) {
-  return <Shape {...TENANT_ADMIN} {...props} />
+  return (
+    <Shape
+      {...TENANT_ADMIN}
+      {...props}
+      _style={extendStyle(TENANT_ADMIN, props)}
+    />
+  )
 }

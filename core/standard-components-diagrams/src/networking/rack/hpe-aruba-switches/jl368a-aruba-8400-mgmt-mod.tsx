@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL368A_ARUBA_8400_MGMT_MOD = {
   _style:
@@ -9,5 +9,11 @@ export const JL368A_ARUBA_8400_MGMT_MOD = {
 }
 
 export function Jl368aAruba8400MgmtMod(props: DiagramNodeProps) {
-  return <Shape {...JL368A_ARUBA_8400_MGMT_MOD} {...props} />
+  return (
+    <Shape
+      {...JL368A_ARUBA_8400_MGMT_MOD}
+      {...props}
+      _style={extendStyle(JL368A_ARUBA_8400_MGMT_MOD, props)}
+    />
+  )
 }

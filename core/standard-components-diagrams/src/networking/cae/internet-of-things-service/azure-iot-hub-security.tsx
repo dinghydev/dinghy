@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_IOT_HUB_SECURITY = {
   _style:
@@ -9,5 +9,11 @@ export const AZURE_IOT_HUB_SECURITY = {
 }
 
 export function AzureIotHubSecurity(props: DiagramNodeProps) {
-  return <Shape {...AZURE_IOT_HUB_SECURITY} {...props} />
+  return (
+    <Shape
+      {...AZURE_IOT_HUB_SECURITY}
+      {...props}
+      _style={extendStyle(AZURE_IOT_HUB_SECURITY, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BACKUP_FOR_AWS_CLOUDFORMATION = {
   _style:
@@ -9,5 +9,11 @@ export const BACKUP_FOR_AWS_CLOUDFORMATION = {
 }
 
 export function BackupForAwsCloudformation(props: DiagramNodeProps) {
-  return <Shape {...BACKUP_FOR_AWS_CLOUDFORMATION} {...props} />
+  return (
+    <Shape
+      {...BACKUP_FOR_AWS_CLOUDFORMATION}
+      {...props}
+      _style={extendStyle(BACKUP_FOR_AWS_CLOUDFORMATION, props)}
+    />
+  )
 }

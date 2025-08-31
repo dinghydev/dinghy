@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHARED_MAILBOX = {
   _style:
@@ -9,5 +9,11 @@ export const SHARED_MAILBOX = {
 }
 
 export function SharedMailbox(props: DiagramNodeProps) {
-  return <Shape {...SHARED_MAILBOX} {...props} />
+  return (
+    <Shape
+      {...SHARED_MAILBOX}
+      {...props}
+      _style={extendStyle(SHARED_MAILBOX, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER = {
   _style:
@@ -9,5 +9,11 @@ export const CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER = {
 }
 
 export function CddcCloudDatabaseDedicatedCluster(props: DiagramNodeProps) {
-  return <Shape {...CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER} {...props} />
+  return (
+    <Shape
+      {...CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER}
+      {...props}
+      _style={extendStyle(CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER, props)}
+    />
+  )
 }

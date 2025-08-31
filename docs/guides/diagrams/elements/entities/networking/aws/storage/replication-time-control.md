@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ReplicationTimeControl } from '@reactiac/standard-components-diagrams/awsStorage'
+import { ReplicationTimeControl } from '@diac/standard-components-diagrams/awsStorage'
 
 <ReplicationTimeControl/>
 ```

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/people/Farmer_Man_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { FarmerMan } from '@reactiac/standard-components-diagrams/clipartPeople'
+import { FarmerMan } from '@diac/standard-components-diagrams/clipartPeople'
 
 <FarmerMan/>
 ```

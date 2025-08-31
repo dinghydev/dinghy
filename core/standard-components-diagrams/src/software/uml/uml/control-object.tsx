@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTROL_OBJECT = {
   _style: 'ellipse;shape=umlControl;whiteSpace=wrap;html=1;',
@@ -8,5 +8,11 @@ export const CONTROL_OBJECT = {
 }
 
 export function ControlObject(props: DiagramNodeProps) {
-  return <Shape {...CONTROL_OBJECT} {...props} />
+  return (
+    <Shape
+      {...CONTROL_OBJECT}
+      {...props}
+      _style={extendStyle(CONTROL_OBJECT, props)}
+    />
+  )
 }

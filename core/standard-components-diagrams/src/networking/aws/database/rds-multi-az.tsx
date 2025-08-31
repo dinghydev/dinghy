@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RDS_MULTI_AZ = {
   _style:
@@ -9,5 +9,11 @@ export const RDS_MULTI_AZ = {
 }
 
 export function RdsMultiAz(props: DiagramNodeProps) {
-  return <Shape {...RDS_MULTI_AZ} {...props} />
+  return (
+    <Shape
+      {...RDS_MULTI_AZ}
+      {...props}
+      _style={extendStyle(RDS_MULTI_AZ, props)}
+    />
+  )
 }

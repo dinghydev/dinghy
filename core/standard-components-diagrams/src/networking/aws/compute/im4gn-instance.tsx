@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IM4GN_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const IM4GN_INSTANCE = {
 }
 
 export function Im4gnInstance(props: DiagramNodeProps) {
-  return <Shape {...IM4GN_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...IM4GN_INSTANCE}
+      {...props}
+      _style={extendStyle(IM4GN_INSTANCE, props)}
+    />
+  )
 }

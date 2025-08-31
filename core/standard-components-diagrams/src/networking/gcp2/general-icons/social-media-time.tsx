@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOCIAL_MEDIA_TIME = {
   _style:
@@ -9,5 +9,11 @@ export const SOCIAL_MEDIA_TIME = {
 }
 
 export function SocialMediaTime(props: DiagramNodeProps) {
-  return <Shape {...SOCIAL_MEDIA_TIME} {...props} />
+  return (
+    <Shape
+      {...SOCIAL_MEDIA_TIME}
+      {...props}
+      _style={extendStyle(SOCIAL_MEDIA_TIME, props)}
+    />
+  )
 }

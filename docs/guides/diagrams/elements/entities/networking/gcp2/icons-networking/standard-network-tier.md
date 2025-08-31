@@ -14,7 +14,7 @@ Network Tier
 ## Usage
 
 ```
-import { StandardNetworkTier } from '@reactiac/standard-components-diagrams/gcp2IconsNetworking'
+import { StandardNetworkTier } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
 
 <StandardNetworkTier/>
 ```

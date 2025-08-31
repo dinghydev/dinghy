@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudCallout } from '@reactiac/standard-components-diagrams/basic'
+import { CloudCallout } from '@diac/standard-components-diagrams/basic'
 
 <CloudCallout/>
 ```

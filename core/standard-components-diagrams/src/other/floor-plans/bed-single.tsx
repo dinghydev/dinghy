@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BED_SINGLE = {
   _style:
@@ -9,5 +9,7 @@ export const BED_SINGLE = {
 }
 
 export function BedSingle(props: DiagramNodeProps) {
-  return <Shape {...BED_SINGLE} {...props} />
+  return (
+    <Shape {...BED_SINGLE} {...props} _style={extendStyle(BED_SINGLE, props)} />
+  )
 }

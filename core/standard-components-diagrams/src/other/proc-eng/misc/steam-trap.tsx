@@ -1,13 +1,15 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEAM_TRAP = {
   _style:
     'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.steam_trap2;',
-  _width: 53,
-  _height: 53,
+  _width: 60,
+  _height: 60,
 }
 
 export function SteamTrap(props: DiagramNodeProps) {
-  return <Shape {...STEAM_TRAP} {...props} />
+  return (
+    <Shape {...STEAM_TRAP} {...props} _style={extendStyle(STEAM_TRAP, props)} />
+  )
 }

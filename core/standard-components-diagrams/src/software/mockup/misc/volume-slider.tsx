@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOLUME_SLIDER = {
   _style:
@@ -9,5 +9,11 @@ export const VOLUME_SLIDER = {
 }
 
 export function VolumeSlider(props: DiagramNodeProps) {
-  return <Shape {...VOLUME_SLIDER} {...props} />
+  return (
+    <Shape
+      {...VOLUME_SLIDER}
+      {...props}
+      _style={extendStyle(VOLUME_SLIDER, props)}
+    />
+  )
 }

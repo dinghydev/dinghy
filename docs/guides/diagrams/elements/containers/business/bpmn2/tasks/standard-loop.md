@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { StandardLoop } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { StandardLoop } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <StandardLoop/>
 ```

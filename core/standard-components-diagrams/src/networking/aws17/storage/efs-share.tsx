@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EFS_SHARE = {
   _style:
@@ -9,5 +9,7 @@ export const EFS_SHARE = {
 }
 
 export function EfsShare(props: DiagramNodeProps) {
-  return <Shape {...EFS_SHARE} {...props} />
+  return (
+    <Shape {...EFS_SHARE} {...props} _style={extendStyle(EFS_SHARE, props)} />
+  )
 }

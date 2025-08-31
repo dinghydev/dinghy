@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AirFilter } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { AirFilter } from '@diac/standard-components-diagrams/procEngMisc'
 
 <AirFilter/>
 ```

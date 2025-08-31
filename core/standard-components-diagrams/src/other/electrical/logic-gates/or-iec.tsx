@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OR_IEC = {
   _style:
@@ -9,5 +9,5 @@ export const OR_IEC = {
 }
 
 export function OrIec(props: DiagramNodeProps) {
-  return <Shape {...OR_IEC} {...props} />
+  return <Shape {...OR_IEC} {...props} _style={extendStyle(OR_IEC, props)} />
 }

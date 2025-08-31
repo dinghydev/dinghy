@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHOREOGRAPHY_TASK = {
   _style: {
@@ -9,5 +9,11 @@ export const CHOREOGRAPHY_TASK = {
 }
 
 export function ChoreographyTask(props: DiagramNodeProps) {
-  return <Shape {...CHOREOGRAPHY_TASK} {...props} />
+  return (
+    <Shape
+      {...CHOREOGRAPHY_TASK}
+      {...props}
+      _style={extendStyle(CHOREOGRAPHY_TASK, props)}
+    />
+  )
 }

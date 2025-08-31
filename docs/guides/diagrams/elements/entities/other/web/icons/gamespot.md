@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Gamespot } from '@reactiac/standard-components-diagrams/webIcons'
+import { Gamespot } from '@diac/standard-components-diagrams/webIcons'
 
 <Gamespot/>
 ```

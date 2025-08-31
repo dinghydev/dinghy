@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOSFET_N = {
   _style:
@@ -9,5 +9,7 @@ export const MOSFET_N = {
 }
 
 export function MosfetN(props: DiagramNodeProps) {
-  return <Shape {...MOSFET_N} {...props} />
+  return (
+    <Shape {...MOSFET_N} {...props} _style={extendStyle(MOSFET_N, props)} />
+  )
 }

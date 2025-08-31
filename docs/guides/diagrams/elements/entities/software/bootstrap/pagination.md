@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pagination } from '@reactiac/standard-components-diagrams/bootstrap'
+import { Pagination } from '@diac/standard-components-diagrams/bootstrap'
 
 <Pagination/>
 ```

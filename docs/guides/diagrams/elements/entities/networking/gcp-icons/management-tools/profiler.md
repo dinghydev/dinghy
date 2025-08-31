@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Profiler } from '@reactiac/standard-components-diagrams/gcpIconsManagementTools'
+import { Profiler } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
 
 <Profiler/>
 ```

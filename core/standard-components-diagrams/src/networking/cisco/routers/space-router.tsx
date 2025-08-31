@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPACE_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const SPACE_ROUTER = {
 }
 
 export function SpaceRouter(props: DiagramNodeProps) {
-  return <Shape {...SPACE_ROUTER} {...props} />
+  return (
+    <Shape
+      {...SPACE_ROUTER}
+      {...props}
+      _style={extendStyle(SPACE_ROUTER, props)}
+    />
+  )
 }

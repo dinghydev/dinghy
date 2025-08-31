@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SapAribaTextOnly } from '@reactiac/standard-components-diagrams/sapBrandNames'
+import { SapAribaTextOnly } from '@diac/standard-components-diagrams/sapBrandNames'
 
 <SapAribaTextOnly/>
 ```

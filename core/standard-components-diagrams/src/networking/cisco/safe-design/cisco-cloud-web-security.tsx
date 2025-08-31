@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_CLOUD_WEB_SECURITY = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_CLOUD_WEB_SECURITY = {
 }
 
 export function CiscoCloudWebSecurity(props: DiagramNodeProps) {
-  return <Shape {...CISCO_CLOUD_WEB_SECURITY} {...props} />
+  return (
+    <Shape
+      {...CISCO_CLOUD_WEB_SECURITY}
+      {...props}
+      _style={extendStyle(CISCO_CLOUD_WEB_SECURITY, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HEADER = {
   _style: 'strokeColor=none;fillColor=#d9d9d9;',
@@ -8,5 +8,5 @@ export const HEADER = {
 }
 
 export function Header(props: DiagramNodeProps) {
-  return <Shape {...HEADER} {...props} />
+  return <Shape {...HEADER} {...props} _style={extendStyle(HEADER, props)} />
 }

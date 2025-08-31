@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALLOYDB = {
   _style:
@@ -9,5 +9,5 @@ export const ALLOYDB = {
 }
 
 export function Alloydb(props: DiagramNodeProps) {
-  return <Shape {...ALLOYDB} {...props} />
+  return <Shape {...ALLOYDB} {...props} _style={extendStyle(ALLOYDB, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManagedServices } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { ManagedServices } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <ManagedServices/>
 ```

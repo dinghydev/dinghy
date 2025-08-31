@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentEnricher } from '@reactiac/standard-components-diagrams/eipMessageTransformation'
+import { ContentEnricher } from '@diac/standard-components-diagrams/eipMessageTransformation'
 
 <ContentEnricher/>
 ```

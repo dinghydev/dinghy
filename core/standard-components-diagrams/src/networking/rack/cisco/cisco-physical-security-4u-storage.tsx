@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_PHYSICAL_SECURITY_4U_STORAGE = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_PHYSICAL_SECURITY_4U_STORAGE = {
 }
 
 export function CiscoPhysicalSecurity4uStorage(props: DiagramNodeProps) {
-  return <Shape {...CISCO_PHYSICAL_SECURITY_4U_STORAGE} {...props} />
+  return (
+    <Shape
+      {...CISCO_PHYSICAL_SECURITY_4U_STORAGE}
+      {...props}
+      _style={extendStyle(CISCO_PHYSICAL_SECURITY_4U_STORAGE, props)}
+    />
+  )
 }

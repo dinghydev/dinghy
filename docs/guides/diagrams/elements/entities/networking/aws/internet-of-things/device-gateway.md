@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeviceGateway } from '@reactiac/standard-components-diagrams/awsInternetOfThings'
+import { DeviceGateway } from '@diac/standard-components-diagrams/awsInternetOfThings'
 
 <DeviceGateway/>
 ```

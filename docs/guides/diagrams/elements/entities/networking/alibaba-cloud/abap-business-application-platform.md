@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AbapBusinessApplicationPlatform } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { AbapBusinessApplicationPlatform } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <AbapBusinessApplicationPlatform/>
 ```

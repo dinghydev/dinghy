@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INCLUSION = {
   _style:
@@ -9,5 +9,7 @@ export const INCLUSION = {
 }
 
 export function Inclusion(props: DiagramNodeProps) {
-  return <Shape {...INCLUSION} {...props} />
+  return (
+    <Shape {...INCLUSION} {...props} _style={extendStyle(INCLUSION, props)} />
+  )
 }

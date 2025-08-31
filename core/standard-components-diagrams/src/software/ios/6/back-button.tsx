@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BACK_BUTTON = {
   _style:
@@ -9,5 +9,11 @@ export const BACK_BUTTON = {
 }
 
 export function BackButton(props: DiagramNodeProps) {
-  return <Shape {...BACK_BUTTON} {...props} />
+  return (
+    <Shape
+      {...BACK_BUTTON}
+      {...props}
+      _style={extendStyle(BACK_BUTTON, props)}
+    />
+  )
 }

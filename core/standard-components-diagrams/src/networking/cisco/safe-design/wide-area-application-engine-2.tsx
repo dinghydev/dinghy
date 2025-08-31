@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIDE_AREA_APPLICATION_ENGINE_2 = {
   _style:
@@ -9,5 +9,11 @@ export const WIDE_AREA_APPLICATION_ENGINE_2 = {
 }
 
 export function WideAreaApplicationEngine2(props: DiagramNodeProps) {
-  return <Shape {...WIDE_AREA_APPLICATION_ENGINE_2} {...props} />
+  return (
+    <Shape
+      {...WIDE_AREA_APPLICATION_ENGINE_2}
+      {...props}
+      _style={extendStyle(WIDE_AREA_APPLICATION_ENGINE_2, props)}
+    />
+  )
 }

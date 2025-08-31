@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UserControl } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { UserControl } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <UserControl/>
 ```

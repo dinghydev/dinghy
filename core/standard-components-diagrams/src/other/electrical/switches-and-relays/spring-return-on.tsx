@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPRING_RETURN_ON = {
   _style:
@@ -9,5 +9,11 @@ export const SPRING_RETURN_ON = {
 }
 
 export function SpringReturnOn(props: DiagramNodeProps) {
-  return <Shape {...SPRING_RETURN_ON} {...props} />
+  return (
+    <Shape
+      {...SPRING_RETURN_ON}
+      {...props}
+      _style={extendStyle(SPRING_RETURN_ON, props)}
+    />
+  )
 }

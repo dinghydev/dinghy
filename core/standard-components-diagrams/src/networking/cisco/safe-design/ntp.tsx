@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NTP = {
   _style:
@@ -9,5 +9,5 @@ export const NTP = {
 }
 
 export function Ntp(props: DiagramNodeProps) {
-  return <Shape {...NTP} {...props} />
+  return <Shape {...NTP} {...props} _style={extendStyle(NTP, props)} />
 }

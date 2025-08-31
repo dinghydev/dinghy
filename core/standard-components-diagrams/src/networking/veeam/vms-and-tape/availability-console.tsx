@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AVAILABILITY_CONSOLE = {
   _style:
@@ -9,5 +9,11 @@ export const AVAILABILITY_CONSOLE = {
 }
 
 export function AvailabilityConsole(props: DiagramNodeProps) {
-  return <Shape {...AVAILABILITY_CONSOLE} {...props} />
+  return (
+    <Shape
+      {...AVAILABILITY_CONSOLE}
+      {...props}
+      _style={extendStyle(AVAILABILITY_CONSOLE, props)}
+    />
+  )
 }

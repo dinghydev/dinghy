@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_SERVICE_CATALOG = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_SERVICE_CATALOG = {
 }
 
 export function AwsServiceCatalog(props: DiagramNodeProps) {
-  return <Shape {...AWS_SERVICE_CATALOG} {...props} />
+  return (
+    <Shape
+      {...AWS_SERVICE_CATALOG}
+      {...props}
+      _style={extendStyle(AWS_SERVICE_CATALOG, props)}
+    />
+  )
 }

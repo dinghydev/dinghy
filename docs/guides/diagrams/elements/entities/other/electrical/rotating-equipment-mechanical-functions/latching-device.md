@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LatchingDevice } from '@reactiac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { LatchingDevice } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <LatchingDevice/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11710QuickActionCoupling } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11710QuickActionCoupling } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11710QuickActionCoupling/>
 ```

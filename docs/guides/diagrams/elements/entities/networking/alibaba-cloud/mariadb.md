@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mariadb } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Mariadb } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Mariadb/>
 ```

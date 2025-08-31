@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MillVibration } from '@reactiac/standard-components-diagrams/procEngCrushersGrinding'
+import { MillVibration } from '@diac/standard-components-diagrams/procEngCrushersGrinding'
 
 <MillVibration/>
 ```

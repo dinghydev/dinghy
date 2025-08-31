@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StorsimpleDeviceManagers } from '@reactiac/standard-components-diagrams/caeStorageService'
+import { StorsimpleDeviceManagers } from '@diac/standard-components-diagrams/caeStorageService'
 
 <StorsimpleDeviceManagers/>
 ```

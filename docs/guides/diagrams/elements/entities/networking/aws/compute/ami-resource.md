@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmiResource } from '@reactiac/standard-components-diagrams/awsCompute'
+import { AmiResource } from '@diac/standard-components-diagrams/awsCompute'
 
 <AmiResource/>
 ```

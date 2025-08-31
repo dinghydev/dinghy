@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIVEJOURNAL = {
   _style:
@@ -9,5 +9,11 @@ export const LIVEJOURNAL = {
 }
 
 export function Livejournal(props: DiagramNodeProps) {
-  return <Shape {...LIVEJOURNAL} {...props} />
+  return (
+    <Shape
+      {...LIVEJOURNAL}
+      {...props}
+      _style={extendStyle(LIVEJOURNAL, props)}
+    />
+  )
 }

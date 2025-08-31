@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCHMITT_TRIGGER = {
   _style:
@@ -9,5 +9,11 @@ export const SCHMITT_TRIGGER = {
 }
 
 export function SchmittTrigger(props: DiagramNodeProps) {
-  return <Shape {...SCHMITT_TRIGGER} {...props} />
+  return (
+    <Shape
+      {...SCHMITT_TRIGGER}
+      {...props}
+      _style={extendStyle(SCHMITT_TRIGGER, props)}
+    />
+  )
 }

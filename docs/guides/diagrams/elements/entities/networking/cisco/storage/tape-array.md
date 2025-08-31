@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TapeArray } from '@reactiac/standard-components-diagrams/ciscoStorage'
+import { TapeArray } from '@diac/standard-components-diagrams/ciscoStorage'
 
 <TapeArray/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const C5_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const C5_INSTANCE = {
 }
 
 export function C5Instance(props: DiagramNodeProps) {
-  return <Shape {...C5_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...C5_INSTANCE}
+      {...props}
+      _style={extendStyle(C5_INSTANCE, props)}
+    />
+  )
 }

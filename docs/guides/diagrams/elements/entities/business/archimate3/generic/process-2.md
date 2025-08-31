@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Process2 } from '@reactiac/standard-components-diagrams/archimate3Generic'
+import { Process2 } from '@diac/standard-components-diagrams/archimate3Generic'
 
 <Process2/>
 ```

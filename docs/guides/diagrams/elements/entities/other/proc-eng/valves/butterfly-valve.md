@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButterflyValve } from '@reactiac/standard-components-diagrams/procEngValves'
+import { ButterflyValve } from '@diac/standard-components-diagrams/procEngValves'
 
 <ButterflyValve/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { QuickContact } from '@reactiac/standard-components-diagrams/android'
+import { QuickContact } from '@diac/standard-components-diagrams/android'
 
 <QuickContact/>
 ```

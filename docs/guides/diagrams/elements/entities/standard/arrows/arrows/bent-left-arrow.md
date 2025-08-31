@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.arrows.bent_left_arrow;html=1;verticalLabelPosition=bottom;verticalAlign=top;strokeWidth=2;strokeColor=#000000;',
-  _width: 97,
-  _height: 97,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { BentLeftArrow } from '@reactiac/standard-components-diagrams/arrows'
+import { BentLeftArrow } from '@diac/standard-components-diagrams/arrows'
 
 <BentLeftArrow/>
 ```

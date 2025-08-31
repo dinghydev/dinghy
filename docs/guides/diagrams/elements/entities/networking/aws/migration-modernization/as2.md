@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { As2 } from '@reactiac/standard-components-diagrams/awsMigrationModernization'
+import { As2 } from '@diac/standard-components-diagrams/awsMigrationModernization'
 
 <As2/>
 ```

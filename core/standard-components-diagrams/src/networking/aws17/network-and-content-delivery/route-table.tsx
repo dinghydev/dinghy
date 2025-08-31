@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUTE_TABLE = {
   _style:
@@ -9,5 +9,11 @@ export const ROUTE_TABLE = {
 }
 
 export function RouteTable(props: DiagramNodeProps) {
-  return <Shape {...ROUTE_TABLE} {...props} />
+  return (
+    <Shape
+      {...ROUTE_TABLE}
+      {...props}
+      _style={extendStyle(ROUTE_TABLE, props)}
+    />
+  )
 }

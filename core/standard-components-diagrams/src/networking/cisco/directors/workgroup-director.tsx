@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORKGROUP_DIRECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const WORKGROUP_DIRECTOR = {
 }
 
 export function WorkgroupDirector(props: DiagramNodeProps) {
-  return <Shape {...WORKGROUP_DIRECTOR} {...props} />
+  return (
+    <Shape
+      {...WORKGROUP_DIRECTOR}
+      {...props}
+      _style={extendStyle(WORKGROUP_DIRECTOR, props)}
+    />
+  )
 }

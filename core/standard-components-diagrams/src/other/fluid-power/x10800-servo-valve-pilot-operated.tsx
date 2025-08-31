@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10800_SERVO_VALVE_PILOT_OPERATED = {
   _style:
@@ -9,5 +9,11 @@ export const X10800_SERVO_VALVE_PILOT_OPERATED = {
 }
 
 export function X10800ServoValvePilotOperated(props: DiagramNodeProps) {
-  return <Shape {...X10800_SERVO_VALVE_PILOT_OPERATED} {...props} />
+  return (
+    <Shape
+      {...X10800_SERVO_VALVE_PILOT_OPERATED}
+      {...props}
+      _style={extendStyle(X10800_SERVO_VALVE_PILOT_OPERATED, props)}
+    />
+  )
 }

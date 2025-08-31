@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ObjectStorageSupport } from '@reactiac/standard-components-diagrams/veeam2Features'
+import { ObjectStorageSupport } from '@diac/standard-components-diagrams/veeam2Features'
 
 <ObjectStorageSupport/>
 ```

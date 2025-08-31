@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PALETTE_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const PALETTE_HIGHLIGHT = {
 }
 
 export function PaletteHighlight(props: DiagramNodeProps) {
-  return <Shape {...PALETTE_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...PALETTE_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(PALETTE_HIGHLIGHT, props)}
+    />
+  )
 }

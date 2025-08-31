@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Icon45 } from '@reactiac/standard-components-diagrams/ciscoSafeIotThingsIcons'
+import { Icon45 } from '@diac/standard-components-diagrams/ciscoSafeIotThingsIcons'
 
 <Icon45/>
 ```

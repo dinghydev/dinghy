@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ECR_REGISTRY = {
   _style:
@@ -9,5 +9,11 @@ export const ECR_REGISTRY = {
 }
 
 export function EcrRegistry(props: DiagramNodeProps) {
-  return <Shape {...ECR_REGISTRY} {...props} />
+  return (
+    <Shape
+      {...ECR_REGISTRY}
+      {...props}
+      _style={extendStyle(ECR_REGISTRY, props)}
+    />
+  )
 }

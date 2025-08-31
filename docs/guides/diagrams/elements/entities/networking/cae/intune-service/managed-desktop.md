@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManagedDesktop } from '@reactiac/standard-components-diagrams/caeIntuneService'
+import { ManagedDesktop } from '@diac/standard-components-diagrams/caeIntuneService'
 
 <ManagedDesktop/>
 ```

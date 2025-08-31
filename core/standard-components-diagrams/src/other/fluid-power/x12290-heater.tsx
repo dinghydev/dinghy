@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12290_HEATER = {
   _style:
@@ -9,5 +9,11 @@ export const X12290_HEATER = {
 }
 
 export function X12290Heater(props: DiagramNodeProps) {
-  return <Shape {...X12290_HEATER} {...props} />
+  return (
+    <Shape
+      {...X12290_HEATER}
+      {...props}
+      _style={extendStyle(X12290_HEATER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RAISED_BUTTON_PRESSED = {
   _style:
@@ -9,5 +9,11 @@ export const RAISED_BUTTON_PRESSED = {
 }
 
 export function RaisedButtonPressed(props: DiagramNodeProps) {
-  return <Shape {...RAISED_BUTTON_PRESSED} {...props} />
+  return (
+    <Shape
+      {...RAISED_BUTTON_PRESSED}
+      {...props}
+      _style={extendStyle(RAISED_BUTTON_PRESSED, props)}
+    />
+  )
 }

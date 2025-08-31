@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HpMini } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { HpMini } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <HpMini/>
 ```

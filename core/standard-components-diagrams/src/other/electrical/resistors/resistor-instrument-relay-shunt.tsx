@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESISTOR_INSTRUMENT_RELAY_SHUNT = {
   _style:
@@ -9,5 +9,11 @@ export const RESISTOR_INSTRUMENT_RELAY_SHUNT = {
 }
 
 export function ResistorInstrumentRelayShunt(props: DiagramNodeProps) {
-  return <Shape {...RESISTOR_INSTRUMENT_RELAY_SHUNT} {...props} />
+  return (
+    <Shape
+      {...RESISTOR_INSTRUMENT_RELAY_SHUNT}
+      {...props}
+      _style={extendStyle(RESISTOR_INSTRUMENT_RELAY_SHUNT, props)}
+    />
+  )
 }

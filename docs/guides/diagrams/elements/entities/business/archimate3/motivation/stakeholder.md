@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stakeholder } from '@reactiac/standard-components-diagrams/archimate3Motivation'
+import { Stakeholder } from '@diac/standard-components-diagrams/archimate3Motivation'
 
 <Stakeholder/>
 ```

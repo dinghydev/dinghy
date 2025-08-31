@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INJECTOR = {
   _style:
@@ -9,5 +9,7 @@ export const INJECTOR = {
 }
 
 export function Injector(props: DiagramNodeProps) {
-  return <Shape {...INJECTOR} {...props} />
+  return (
+    <Shape {...INJECTOR} {...props} _style={extendStyle(INJECTOR, props)} />
+  )
 }

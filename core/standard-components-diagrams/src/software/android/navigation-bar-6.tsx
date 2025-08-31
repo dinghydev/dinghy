@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAVIGATION_BAR_6 = {
   _style:
@@ -9,5 +9,11 @@ export const NAVIGATION_BAR_6 = {
 }
 
 export function NavigationBar6(props: DiagramNodeProps) {
-  return <Shape {...NAVIGATION_BAR_6} {...props} />
+  return (
+    <Shape
+      {...NAVIGATION_BAR_6}
+      {...props}
+      _style={extendStyle(NAVIGATION_BAR_6, props)}
+    />
+  )
 }

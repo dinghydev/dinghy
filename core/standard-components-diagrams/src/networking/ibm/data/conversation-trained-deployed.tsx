@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONVERSATION_TRAINED_DEPLOYED = {
   _style:
@@ -9,5 +9,11 @@ export const CONVERSATION_TRAINED_DEPLOYED = {
 }
 
 export function ConversationTrainedDeployed(props: DiagramNodeProps) {
-  return <Shape {...CONVERSATION_TRAINED_DEPLOYED} {...props} />
+  return (
+    <Shape
+      {...CONVERSATION_TRAINED_DEPLOYED}
+      {...props}
+      _style={extendStyle(CONVERSATION_TRAINED_DEPLOYED, props)}
+    />
+  )
 }

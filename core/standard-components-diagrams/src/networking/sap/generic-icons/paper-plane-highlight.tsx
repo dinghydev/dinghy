@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PAPER_PLANE_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const PAPER_PLANE_HIGHLIGHT = {
 }
 
 export function PaperPlaneHighlight(props: DiagramNodeProps) {
-  return <Shape {...PAPER_PLANE_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...PAPER_PLANE_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(PAPER_PLANE_HIGHLIGHT, props)}
+    />
+  )
 }

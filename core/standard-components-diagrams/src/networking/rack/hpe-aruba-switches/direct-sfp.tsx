@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIRECT_SFP = {
   _style:
@@ -9,5 +9,7 @@ export const DIRECT_SFP = {
 }
 
 export function DirectSfp(props: DiagramNodeProps) {
-  return <Shape {...DIRECT_SFP} {...props} />
+  return (
+    <Shape {...DIRECT_SFP} {...props} _style={extendStyle(DIRECT_SFP, props)} />
+  )
 }

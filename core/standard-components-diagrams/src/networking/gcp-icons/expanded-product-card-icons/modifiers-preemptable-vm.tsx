@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MODIFIERS_PREEMPTABLE_VM = {
   _style:
@@ -9,5 +9,11 @@ export const MODIFIERS_PREEMPTABLE_VM = {
 }
 
 export function ModifiersPreemptableVm(props: DiagramNodeProps) {
-  return <Shape {...MODIFIERS_PREEMPTABLE_VM} {...props} />
+  return (
+    <Shape
+      {...MODIFIERS_PREEMPTABLE_VM}
+      {...props}
+      _style={extendStyle(MODIFIERS_PREEMPTABLE_VM, props)}
+    />
+  )
 }

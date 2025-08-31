@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH = {
 }
 
 export function Jl693aAruba12gPoe2g2sfpSwitch(props: DiagramNodeProps) {
-  return <Shape {...JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH} {...props} />
+  return (
+    <Shape
+      {...JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH}
+      {...props}
+      _style={extendStyle(JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH, props)}
+    />
+  )
 }

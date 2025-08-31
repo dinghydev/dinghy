@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AppSpaceCompoment } from '@reactiac/standard-components-diagrams/azure2Other'
+import { AppSpaceCompoment } from '@diac/standard-components-diagrams/azure2Other'
 
 <AppSpaceCompoment/>
 ```

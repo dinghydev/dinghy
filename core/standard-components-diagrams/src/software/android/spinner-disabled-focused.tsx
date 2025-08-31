@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPINNER_DISABLED_FOCUSED = {
   _style:
@@ -9,5 +9,11 @@ export const SPINNER_DISABLED_FOCUSED = {
 }
 
 export function SpinnerDisabledFocused(props: DiagramNodeProps) {
-  return <Shape {...SPINNER_DISABLED_FOCUSED} {...props} />
+  return (
+    <Shape
+      {...SPINNER_DISABLED_FOCUSED}
+      {...props}
+      _style={extendStyle(SPINNER_DISABLED_FOCUSED, props)}
+    />
+  )
 }

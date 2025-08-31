@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RADIUS_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const RADIUS_SERVER = {
 }
 
 export function RadiusServer(props: DiagramNodeProps) {
-  return <Shape {...RADIUS_SERVER} {...props} />
+  return (
+    <Shape
+      {...RADIUS_SERVER}
+      {...props}
+      _style={extendStyle(RADIUS_SERVER, props)}
+    />
+  )
 }

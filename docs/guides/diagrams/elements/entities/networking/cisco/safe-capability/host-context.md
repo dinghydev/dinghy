@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HostContext } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { HostContext } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <HostContext/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_ELEMENTAL_MEDIACONVERT = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_ELEMENTAL_MEDIACONVERT = {
 }
 
 export function AwsElementalMediaconvert(props: DiagramNodeProps) {
-  return <Shape {...AWS_ELEMENTAL_MEDIACONVERT} {...props} />
+  return (
+    <Shape
+      {...AWS_ELEMENTAL_MEDIACONVERT}
+      {...props}
+      _style={extendStyle(AWS_ELEMENTAL_MEDIACONVERT, props)}
+    />
+  )
 }

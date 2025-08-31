@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMMENT_7 = {
   _style:
@@ -9,5 +9,7 @@ export const COMMENT_7 = {
 }
 
 export function Comment7(props: DiagramNodeProps) {
-  return <Shape {...COMMENT_7} {...props} />
+  return (
+    <Shape {...COMMENT_7} {...props} _style={extendStyle(COMMENT_7, props)} />
+  )
 }

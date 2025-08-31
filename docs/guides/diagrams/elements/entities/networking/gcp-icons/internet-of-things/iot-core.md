@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IotCore } from '@reactiac/standard-components-diagrams/gcpIconsInternetOfThings'
+import { IotCore } from '@diac/standard-components-diagrams/gcpIconsInternetOfThings'
 
 <IotCore/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AlertNotification } from '@reactiac/standard-components-diagrams/ibmManagement'
+import { AlertNotification } from '@diac/standard-components-diagrams/ibmManagement'
 
 <AlertNotification/>
 ```

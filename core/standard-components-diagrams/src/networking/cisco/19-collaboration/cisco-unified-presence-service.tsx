@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_UNIFIED_PRESENCE_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_UNIFIED_PRESENCE_SERVICE = {
 }
 
 export function CiscoUnifiedPresenceService(props: DiagramNodeProps) {
-  return <Shape {...CISCO_UNIFIED_PRESENCE_SERVICE} {...props} />
+  return (
+    <Shape
+      {...CISCO_UNIFIED_PRESENCE_SERVICE}
+      {...props}
+      _style={extendStyle(CISCO_UNIFIED_PRESENCE_SERVICE, props)}
+    />
+  )
 }

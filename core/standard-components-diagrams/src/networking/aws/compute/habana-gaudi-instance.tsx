@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HABANA_GAUDI_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const HABANA_GAUDI_INSTANCE = {
 }
 
 export function HabanaGaudiInstance(props: DiagramNodeProps) {
-  return <Shape {...HABANA_GAUDI_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...HABANA_GAUDI_INSTANCE}
+      {...props}
+      _style={extendStyle(HABANA_GAUDI_INSTANCE, props)}
+    />
+  )
 }

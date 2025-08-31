@@ -5,15 +5,15 @@
 ```
 {
   _style: 'html=1;fillColor=#CCCCCC;strokeColor=#6881B3;shape=ellipse;perimeter=ellipsePerimeter;gradientColor=none;gradientDirection=north;fontColor=#ffffff;strokeWidth=2;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { RingBus } from '@reactiac/standard-components-diagrams/network'
+import { RingBus } from '@diac/standard-components-diagrams/network'
 
 <RingBus/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PHYSICAL_SECURITY = {
   _style:
@@ -9,5 +9,11 @@ export const PHYSICAL_SECURITY = {
 }
 
 export function PhysicalSecurity(props: DiagramNodeProps) {
-  return <Shape {...PHYSICAL_SECURITY} {...props} />
+  return (
+    <Shape
+      {...PHYSICAL_SECURITY}
+      {...props}
+      _style={extendStyle(PHYSICAL_SECURITY, props)}
+    />
+  )
 }

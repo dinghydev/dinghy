@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudsearchSearchDocuments } from '@reactiac/standard-components-diagrams/awsAnalytics'
+import { CloudsearchSearchDocuments } from '@diac/standard-components-diagrams/awsAnalytics'
 
 <CloudsearchSearchDocuments/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureAlert } from '@reactiac/standard-components-diagrams/azure'
+import { AzureAlert } from '@diac/standard-components-diagrams/azure'
 
 <AzureAlert/>
 ```

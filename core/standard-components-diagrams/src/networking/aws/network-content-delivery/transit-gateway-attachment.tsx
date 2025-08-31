@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSIT_GATEWAY_ATTACHMENT = {
   _style:
     'sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.transit_gateway_attachment;',
-  _width: 78,
-  _height: 78,
+  _width: 60,
+  _height: 60,
 }
 
 export function TransitGatewayAttachment(props: DiagramNodeProps) {
-  return <Shape {...TRANSIT_GATEWAY_ATTACHMENT} {...props} />
+  return (
+    <Shape
+      {...TRANSIT_GATEWAY_ATTACHMENT}
+      {...props}
+      _style={extendStyle(TRANSIT_GATEWAY_ATTACHMENT, props)}
+    />
+  )
 }

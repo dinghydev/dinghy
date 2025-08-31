@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAS_FILER = {
   _style:
@@ -9,5 +9,7 @@ export const NAS_FILER = {
 }
 
 export function NasFiler(props: DiagramNodeProps) {
-  return <Shape {...NAS_FILER} {...props} />
+  return (
+    <Shape {...NAS_FILER} {...props} _style={extendStyle(NAS_FILER, props)} />
+  )
 }

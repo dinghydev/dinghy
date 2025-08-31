@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmqpAdvancedMessageQueuingProtocol } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { AmqpAdvancedMessageQueuingProtocol } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <AmqpAdvancedMessageQueuingProtocol/>
 ```

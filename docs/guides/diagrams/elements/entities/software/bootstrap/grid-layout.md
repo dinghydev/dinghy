@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GridLayout } from '@reactiac/standard-components-diagrams/bootstrap'
+import { GridLayout } from '@diac/standard-components-diagrams/bootstrap'
 
 <GridLayout/>
 ```

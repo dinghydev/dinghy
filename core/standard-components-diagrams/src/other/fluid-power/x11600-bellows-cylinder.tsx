@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11600_BELLOWS_CYLINDER = {
   _style:
@@ -9,5 +9,11 @@ export const X11600_BELLOWS_CYLINDER = {
 }
 
 export function X11600BellowsCylinder(props: DiagramNodeProps) {
-  return <Shape {...X11600_BELLOWS_CYLINDER} {...props} />
+  return (
+    <Shape
+      {...X11600_BELLOWS_CYLINDER}
+      {...props}
+      _style={extendStyle(X11600_BELLOWS_CYLINDER, props)}
+    />
+  )
 }

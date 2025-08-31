@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ThinClient } from '@reactiac/standard-components-diagrams/citrixUsersAndDevices'
+import { ThinClient } from '@diac/standard-components-diagrams/citrixUsersAndDevices'
 
 <ThinClient/>
 ```

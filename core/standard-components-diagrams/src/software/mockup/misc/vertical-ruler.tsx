@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VERTICAL_RULER = {
   _style:
@@ -9,5 +9,11 @@ export const VERTICAL_RULER = {
 }
 
 export function VerticalRuler(props: DiagramNodeProps) {
-  return <Shape {...VERTICAL_RULER} {...props} />
+  return (
+    <Shape
+      {...VERTICAL_RULER}
+      {...props}
+      _style={extendStyle(VERTICAL_RULER, props)}
+    />
+  )
 }

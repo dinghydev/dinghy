@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INERTIA_SWITCH_OFF = {
   _style:
@@ -9,5 +9,11 @@ export const INERTIA_SWITCH_OFF = {
 }
 
 export function InertiaSwitchOff(props: DiagramNodeProps) {
-  return <Shape {...INERTIA_SWITCH_OFF} {...props} />
+  return (
+    <Shape
+      {...INERTIA_SWITCH_OFF}
+      {...props}
+      _style={extendStyle(INERTIA_SWITCH_OFF, props)}
+    />
+  )
 }

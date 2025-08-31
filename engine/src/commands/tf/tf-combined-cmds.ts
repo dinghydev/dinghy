@@ -3,15 +3,11 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@reactiac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
+} from '@diac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
 import tf from './index.ts'
 import { runCommand } from '../../../../cli/src/utils/runCommand.ts'
-import {
-  hostAppHome,
-  reactiacAppConfig,
-  requireStacksConfig,
-} from '@reactiac/cli'
+import { hostAppHome, diacAppConfig, requireStacksConfig } from '@diac/cli'
 import { doWithStacks } from '../../utils/index.ts'
 import {
   attachChangeToMR,
@@ -72,7 +68,7 @@ export const createCombinedTfCmds = (
 
     const stacksOptions: any = {}
     await doWithStacks(
-      reactiacAppConfig,
+      diacAppConfig,
       args.stack,
       async (stackOptions: any) => {
         const renderArgs = [

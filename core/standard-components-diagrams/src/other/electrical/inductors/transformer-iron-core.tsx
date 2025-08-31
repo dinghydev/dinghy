@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSFORMER_IRON_CORE = {
   _style:
@@ -9,5 +9,11 @@ export const TRANSFORMER_IRON_CORE = {
 }
 
 export function TransformerIronCore(props: DiagramNodeProps) {
-  return <Shape {...TRANSFORMER_IRON_CORE} {...props} />
+  return (
+    <Shape
+      {...TRANSFORMER_IRON_CORE}
+      {...props}
+      _style={extendStyle(TRANSFORMER_IRON_CORE, props)}
+    />
+  )
 }

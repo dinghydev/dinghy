@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MICROSERVICE_CONTAINER = {
   _style:
@@ -9,5 +9,11 @@ export const MICROSERVICE_CONTAINER = {
 }
 
 export function MicroserviceContainer(props: DiagramNodeProps) {
-  return <Shape {...MICROSERVICE_CONTAINER} {...props} />
+  return (
+    <Shape
+      {...MICROSERVICE_CONTAINER}
+      {...props}
+      _style={extendStyle(MICROSERVICE_CONTAINER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Button } from '@reactiac/standard-components-diagrams/mockupButtons'
+import { Button } from '@diac/standard-components-diagrams/mockupButtons'
 
 <Button/>
 ```

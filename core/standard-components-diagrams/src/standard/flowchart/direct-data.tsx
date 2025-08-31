@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIRECT_DATA = {
   _style:
@@ -9,5 +9,11 @@ export const DIRECT_DATA = {
 }
 
 export function DirectData(props: DiagramNodeProps) {
-  return <Shape {...DIRECT_DATA} {...props} />
+  return (
+    <Shape
+      {...DIRECT_DATA}
+      {...props}
+      _style={extendStyle(DIRECT_DATA, props)}
+    />
+  )
 }

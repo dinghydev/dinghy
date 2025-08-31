@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InternetGateway } from '@reactiac/standard-components-diagrams/aws3d'
+import { InternetGateway } from '@diac/standard-components-diagrams/aws3d'
 
 <InternetGateway/>
 ```

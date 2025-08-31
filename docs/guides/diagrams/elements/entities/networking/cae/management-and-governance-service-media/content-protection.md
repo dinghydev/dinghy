@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentProtection } from '@reactiac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
+import { ContentProtection } from '@diac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
 
 <ContentProtection/>
 ```

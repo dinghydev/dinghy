@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticBlockStoreVolumeGp3 } from '@reactiac/standard-components-diagrams/awsStorage'
+import { ElasticBlockStoreVolumeGp3 } from '@diac/standard-components-diagrams/awsStorage'
 
 <ElasticBlockStoreVolumeGp3/>
 ```

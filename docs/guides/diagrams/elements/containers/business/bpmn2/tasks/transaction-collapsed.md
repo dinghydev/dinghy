@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { TransactionCollapsed } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { TransactionCollapsed } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <TransactionCollapsed/>
 ```

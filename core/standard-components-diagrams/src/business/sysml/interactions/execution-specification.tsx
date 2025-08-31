@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXECUTION_SPECIFICATION = {
   _style: 'shape=rect;html=1;fillColor=#eeeeee;',
@@ -8,5 +8,11 @@ export const EXECUTION_SPECIFICATION = {
 }
 
 export function ExecutionSpecification(props: DiagramNodeProps) {
-  return <Shape {...EXECUTION_SPECIFICATION} {...props} />
+  return (
+    <Shape
+      {...EXECUTION_SPECIFICATION}
+      {...props}
+      _style={extendStyle(EXECUTION_SPECIFICATION, props)}
+    />
+  )
 }

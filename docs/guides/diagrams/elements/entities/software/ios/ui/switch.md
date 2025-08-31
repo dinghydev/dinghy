@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Switch } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { Switch } from '@diac/standard-components-diagrams/ios7Ui'
 
 <Switch/>
 ```

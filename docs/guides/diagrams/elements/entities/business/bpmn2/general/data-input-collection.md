@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataInputCollection } from '@reactiac/standard-components-diagrams/bpmn2General'
+import { DataInputCollection } from '@diac/standard-components-diagrams/bpmn2General'
 
 <DataInputCollection/>
 ```

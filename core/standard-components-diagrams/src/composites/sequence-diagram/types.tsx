@@ -1,5 +1,5 @@
 import z from 'zod'
-import { DiagramNodeProps } from '@reactiac/base-components'
+import { DiagramNodeProps } from '@diac/base-components'
 import { ActivationProps } from './activation.tsx'
 import { MessageProps } from './message.tsx'
 import { FrameProps } from './frame.tsx'

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Generalization } from '@reactiac/standard-components-diagrams/sysmlProfiles'
+import { Generalization } from '@diac/standard-components-diagrams/sysmlProfiles'
 
 <Generalization/>
 ```

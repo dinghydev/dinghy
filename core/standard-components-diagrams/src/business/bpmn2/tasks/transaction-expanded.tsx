@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSACTION_EXPANDED = {
   _style: {
@@ -9,5 +9,11 @@ export const TRANSACTION_EXPANDED = {
 }
 
 export function TransactionExpanded(props: DiagramNodeProps) {
-  return <Shape {...TRANSACTION_EXPANDED} {...props} />
+  return (
+    <Shape
+      {...TRANSACTION_EXPANDED}
+      {...props}
+      _style={extendStyle(TRANSACTION_EXPANDED, props)}
+    />
+  )
 }

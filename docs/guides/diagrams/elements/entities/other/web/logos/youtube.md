@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Youtube } from '@reactiac/standard-components-diagrams/webLogos'
+import { Youtube } from '@diac/standard-components-diagrams/webLogos'
 
 <Youtube/>
 ```

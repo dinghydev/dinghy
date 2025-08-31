@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIKI_SITE = {
   _style:
@@ -9,5 +9,7 @@ export const WIKI_SITE = {
 }
 
 export function WikiSite(props: DiagramNodeProps) {
-  return <Shape {...WIKI_SITE} {...props} />
+  return (
+    <Shape {...WIKI_SITE} {...props} _style={extendStyle(WIKI_SITE, props)} />
+  )
 }

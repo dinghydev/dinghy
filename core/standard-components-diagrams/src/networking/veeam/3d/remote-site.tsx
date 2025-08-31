@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REMOTE_SITE = {
   _style:
@@ -9,5 +9,11 @@ export const REMOTE_SITE = {
 }
 
 export function RemoteSite(props: DiagramNodeProps) {
-  return <Shape {...REMOTE_SITE} {...props} />
+  return (
+    <Shape
+      {...REMOTE_SITE}
+      {...props}
+      _style={extendStyle(REMOTE_SITE, props)}
+    />
+  )
 }

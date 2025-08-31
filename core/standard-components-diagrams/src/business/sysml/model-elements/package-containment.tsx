@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PACKAGE_CONTAINMENT = {
   _style: {
@@ -9,5 +9,11 @@ export const PACKAGE_CONTAINMENT = {
 }
 
 export function PackageContainment(props: DiagramNodeProps) {
-  return <Dependency {...PACKAGE_CONTAINMENT} {...props} />
+  return (
+    <Dependency
+      {...PACKAGE_CONTAINMENT}
+      {...props}
+      _style={extendStyle(PACKAGE_CONTAINMENT, props)}
+    />
+  )
 }

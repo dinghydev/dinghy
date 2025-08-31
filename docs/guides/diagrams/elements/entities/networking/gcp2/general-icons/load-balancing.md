@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LoadBalancing } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { LoadBalancing } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <LoadBalancing/>
 ```

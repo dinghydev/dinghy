@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const USER_1_DEFAULT = {
   _style:
@@ -9,5 +9,11 @@ export const USER_1_DEFAULT = {
 }
 
 export function User1Default(props: DiagramNodeProps) {
-  return <Shape {...USER_1_DEFAULT} {...props} />
+  return (
+    <Shape
+      {...USER_1_DEFAULT}
+      {...props}
+      _style={extendStyle(USER_1_DEFAULT, props)}
+    />
+  )
 }

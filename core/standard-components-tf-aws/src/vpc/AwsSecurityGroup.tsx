@@ -2,12 +2,12 @@ import {
   IacNodeProps,
   ResolvableStringSchema,
   useTypedNodes,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { useTypedNode } from '@reactiac/base-components'
-import { NetworkFirewallEndpoints } from '@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { useTypedNode } from '@diac/base-components'
+import { NetworkFirewallEndpoints } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
 export const AwsSecurityGroupInputSchema = z.object({
   name: ResolvableStringSchema.optional(),
   description: ResolvableStringSchema.optional(),

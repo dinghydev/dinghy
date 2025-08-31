@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GridTitles } from '@reactiac/standard-components-diagrams/gmdlGridLists'
+import { GridTitles } from '@diac/standard-components-diagrams/gmdlGridLists'
 
 <GridTitles/>
 ```

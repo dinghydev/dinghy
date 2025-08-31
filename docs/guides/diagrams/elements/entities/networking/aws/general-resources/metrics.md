@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Metrics } from '@reactiac/standard-components-diagrams/awsGeneralResources'
+import { Metrics } from '@diac/standard-components-diagrams/awsGeneralResources'
 
 <Metrics/>
 ```

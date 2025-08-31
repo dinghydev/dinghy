@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mediator } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Mediator } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Mediator/>
 ```

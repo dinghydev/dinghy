@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Aquila } from '@reactiac/standard-components-diagrams/azure2Other'
+import { Aquila } from '@diac/standard-components-diagrams/azure2Other'
 
 <Aquila/>
 ```

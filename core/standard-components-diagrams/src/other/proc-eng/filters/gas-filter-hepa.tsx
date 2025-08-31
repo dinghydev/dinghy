@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GAS_FILTER_HEPA = {
   _style:
@@ -9,5 +9,11 @@ export const GAS_FILTER_HEPA = {
 }
 
 export function GasFilterHepa(props: DiagramNodeProps) {
-  return <Shape {...GAS_FILTER_HEPA} {...props} />
+  return (
+    <Shape
+      {...GAS_FILTER_HEPA}
+      {...props}
+      _style={extendStyle(GAS_FILTER_HEPA, props)}
+    />
+  )
 }

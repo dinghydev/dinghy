@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VerticalElbow } from '@reactiac/standard-components-diagrams/misc'
+import { VerticalElbow } from '@diac/standard-components-diagrams/misc'
 
 <VerticalElbow/>
 ```

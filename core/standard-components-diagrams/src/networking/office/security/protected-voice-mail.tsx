@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROTECTED_VOICE_MAIL = {
   _style:
@@ -9,5 +9,11 @@ export const PROTECTED_VOICE_MAIL = {
 }
 
 export function ProtectedVoiceMail(props: DiagramNodeProps) {
-  return <Shape {...PROTECTED_VOICE_MAIL} {...props} />
+  return (
+    <Shape
+      {...PROTECTED_VOICE_MAIL}
+      {...props}
+      _style={extendStyle(PROTECTED_VOICE_MAIL, props)}
+    />
+  )
 }

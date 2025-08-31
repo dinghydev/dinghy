@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bridge } from '@reactiac/standard-components-diagrams/ibmVpc'
+import { Bridge } from '@diac/standard-components-diagrams/ibmVpc'
 
 <Bridge/>
 ```

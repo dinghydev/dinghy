@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sa2 } from '@reactiac/standard-components-diagrams/kubernetes'
+import { Sa2 } from '@diac/standard-components-diagrams/kubernetes'
 
 <Sa2/>
 ```

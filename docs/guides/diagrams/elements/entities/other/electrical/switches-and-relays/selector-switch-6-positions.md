@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SelectorSwitch6Positions } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { SelectorSwitch6Positions } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <SelectorSwitch6Positions/>
 ```

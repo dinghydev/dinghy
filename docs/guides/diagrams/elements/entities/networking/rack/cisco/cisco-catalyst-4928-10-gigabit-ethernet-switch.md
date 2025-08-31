@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CiscoCatalyst492810GigabitEthernetSwitch } from '@reactiac/standard-components-diagrams/rackCisco'
+import { CiscoCatalyst492810GigabitEthernetSwitch } from '@diac/standard-components-diagrams/rackCisco'
 
 <CiscoCatalyst492810GigabitEthernetSwitch/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CavityPump } from '@reactiac/standard-components-diagrams/procEngPumps'
+import { CavityPump } from '@diac/standard-components-diagrams/procEngPumps'
 
 <CavityPump/>
 ```

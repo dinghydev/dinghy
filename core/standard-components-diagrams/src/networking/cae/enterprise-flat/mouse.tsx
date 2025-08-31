@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOUSE = {
   _style:
@@ -9,5 +9,5 @@ export const MOUSE = {
 }
 
 export function Mouse(props: DiagramNodeProps) {
-  return <Shape {...MOUSE} {...props} />
+  return <Shape {...MOUSE} {...props} _style={extendStyle(MOUSE, props)} />
 }

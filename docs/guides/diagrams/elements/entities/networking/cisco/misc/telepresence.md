@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Telepresence } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Telepresence } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Telepresence/>
 ```

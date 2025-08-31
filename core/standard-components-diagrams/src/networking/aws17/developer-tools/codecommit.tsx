@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CODECOMMIT = {
   _style:
@@ -9,5 +9,7 @@ export const CODECOMMIT = {
 }
 
 export function Codecommit(props: DiagramNodeProps) {
-  return <Shape {...CODECOMMIT} {...props} />
+  return (
+    <Shape {...CODECOMMIT} {...props} _style={extendStyle(CODECOMMIT, props)} />
+  )
 }

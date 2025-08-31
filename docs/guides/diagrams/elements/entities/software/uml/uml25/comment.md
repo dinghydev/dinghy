@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Comment } from '@reactiac/standard-components-diagrams/uml25'
+import { Comment } from '@diac/standard-components-diagrams/uml25'
 
 <Comment/>
 ```

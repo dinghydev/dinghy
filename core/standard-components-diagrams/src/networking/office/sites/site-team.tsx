@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SITE_TEAM = {
   _style:
@@ -9,5 +9,7 @@ export const SITE_TEAM = {
 }
 
 export function SiteTeam(props: DiagramNodeProps) {
-  return <Shape {...SITE_TEAM} {...props} />
+  return (
+    <Shape {...SITE_TEAM} {...props} _style={extendStyle(SITE_TEAM, props)} />
+  )
 }

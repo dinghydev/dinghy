@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLOBE_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const GLOBE_VALVE = {
 }
 
 export function GlobeValve(props: DiagramNodeProps) {
-  return <Shape {...GLOBE_VALVE} {...props} />
+  return (
+    <Shape
+      {...GLOBE_VALVE}
+      {...props}
+      _style={extendStyle(GLOBE_VALVE, props)}
+    />
+  )
 }

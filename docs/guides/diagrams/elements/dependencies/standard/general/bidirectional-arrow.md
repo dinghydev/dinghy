@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BidirectionalArrow } from '@reactiac/standard-components-diagrams/general'
+import { BidirectionalArrow } from '@diac/standard-components-diagrams/general'
 
 <BidirectionalArrow/>
 ```

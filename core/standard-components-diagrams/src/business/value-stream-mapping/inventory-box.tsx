@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INVENTORY_BOX = {
   _style:
@@ -9,5 +9,11 @@ export const INVENTORY_BOX = {
 }
 
 export function InventoryBox(props: DiagramNodeProps) {
-  return <Shape {...INVENTORY_BOX} {...props} />
+  return (
+    <Shape
+      {...INVENTORY_BOX}
+      {...props}
+      _style={extendStyle(INVENTORY_BOX, props)}
+    />
+  )
 }

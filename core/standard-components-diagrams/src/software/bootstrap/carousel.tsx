@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CAROUSEL = {
   _style:
@@ -9,5 +9,7 @@ export const CAROUSEL = {
 }
 
 export function Carousel(props: DiagramNodeProps) {
-  return <Shape {...CAROUSEL} {...props} />
+  return (
+    <Shape {...CAROUSEL} {...props} _style={extendStyle(CAROUSEL, props)} />
+  )
 }

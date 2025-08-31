@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AFS_FRAUD_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const AFS_FRAUD_SERVICE = {
 }
 
 export function AfsFraudService(props: DiagramNodeProps) {
-  return <Shape {...AFS_FRAUD_SERVICE} {...props} />
+  return (
+    <Shape
+      {...AFS_FRAUD_SERVICE}
+      {...props}
+      _style={extendStyle(AFS_FRAUD_SERVICE, props)}
+    />
+  )
 }

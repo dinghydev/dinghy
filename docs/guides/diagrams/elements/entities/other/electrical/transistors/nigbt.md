@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Nigbt } from '@reactiac/standard-components-diagrams/electricalTransistors'
+import { Nigbt } from '@diac/standard-components-diagrams/electricalTransistors'
 
 <Nigbt/>
 ```

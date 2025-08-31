@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PeerCloud } from '@reactiac/standard-components-diagrams/ibmMiscellaneous'
+import { PeerCloud } from '@diac/standard-components-diagrams/ibmMiscellaneous'
 
 <PeerCloud/>
 ```

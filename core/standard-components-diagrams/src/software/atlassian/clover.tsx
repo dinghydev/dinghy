@@ -1,13 +1,13 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOVER = {
   _style:
     'image;html=1;image=img/lib/atlassian/Clover_Logo.svg;strokeColor=none;',
-  _width: 71,
-  _height: 71,
+  _width: 60,
+  _height: 60,
 }
 
 export function Clover(props: DiagramNodeProps) {
-  return <Shape {...CLOVER} {...props} />
+  return <Shape {...CLOVER} {...props} _style={extendStyle(CLOVER, props)} />
 }

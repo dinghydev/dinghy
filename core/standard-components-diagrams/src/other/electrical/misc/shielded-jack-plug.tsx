@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHIELDED_JACK_PLUG = {
   _style:
@@ -9,5 +9,11 @@ export const SHIELDED_JACK_PLUG = {
 }
 
 export function ShieldedJackPlug(props: DiagramNodeProps) {
-  return <Shape {...SHIELDED_JACK_PLUG} {...props} />
+  return (
+    <Shape
+      {...SHIELDED_JACK_PLUG}
+      {...props}
+      _style={extendStyle(SHIELDED_JACK_PLUG, props)}
+    />
+  )
 }

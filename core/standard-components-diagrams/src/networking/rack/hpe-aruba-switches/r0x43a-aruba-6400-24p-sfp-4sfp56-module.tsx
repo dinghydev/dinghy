@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const R0X43A_ARUBA_6400_24P_SFP_4SFP56_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const R0X43A_ARUBA_6400_24P_SFP_4SFP56_MODULE = {
 }
 
 export function R0x43aAruba640024pSfp4sfp56Module(props: DiagramNodeProps) {
-  return <Shape {...R0X43A_ARUBA_6400_24P_SFP_4SFP56_MODULE} {...props} />
+  return (
+    <Shape
+      {...R0X43A_ARUBA_6400_24P_SFP_4SFP56_MODULE}
+      {...props}
+      _style={extendStyle(R0X43A_ARUBA_6400_24P_SFP_4SFP56_MODULE, props)}
+    />
+  )
 }

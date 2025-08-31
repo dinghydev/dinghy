@@ -14,7 +14,7 @@ distribution
 ## Usage
 
 ```
-import { DownloadDistribution } from '@reactiac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { DownloadDistribution } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <DownloadDistribution/>
 ```

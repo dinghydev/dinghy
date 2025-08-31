@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONFLUENCE = {
   _style:
@@ -9,5 +9,7 @@ export const CONFLUENCE = {
 }
 
 export function Confluence(props: DiagramNodeProps) {
-  return <Shape {...CONFLUENCE} {...props} />
+  return (
+    <Shape {...CONFLUENCE} {...props} _style={extendStyle(CONFLUENCE, props)} />
+  )
 }

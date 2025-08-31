@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Fwisp } from '@reactiac/standard-components-diagrams/webIcons'
+import { Fwisp } from '@diac/standard-components-diagrams/webIcons'
 
 <Fwisp/>
 ```

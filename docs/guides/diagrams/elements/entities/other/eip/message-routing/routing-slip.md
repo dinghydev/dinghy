@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RoutingSlip } from '@reactiac/standard-components-diagrams/eipMessageRouting'
+import { RoutingSlip } from '@diac/standard-components-diagrams/eipMessageRouting'
 
 <RoutingSlip/>
 ```

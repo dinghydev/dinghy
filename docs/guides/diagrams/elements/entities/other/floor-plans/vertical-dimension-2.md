@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VerticalDimension2 } from '@reactiac/standard-components-diagrams/floorPlans'
+import { VerticalDimension2 } from '@diac/standard-components-diagrams/floorPlans'
 
 <VerticalDimension2/>
 ```

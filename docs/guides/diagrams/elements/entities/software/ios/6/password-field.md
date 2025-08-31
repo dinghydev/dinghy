@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PasswordField } from '@reactiac/standard-components-diagrams/ios6'
+import { PasswordField } from '@diac/standard-components-diagrams/ios6'
 
 <PasswordField/>
 ```

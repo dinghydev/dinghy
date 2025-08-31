@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TETRODE = {
   _style:
@@ -9,5 +9,5 @@ export const TETRODE = {
 }
 
 export function Tetrode(props: DiagramNodeProps) {
-  return <Shape {...TETRODE} {...props} />
+  return <Shape {...TETRODE} {...props} _style={extendStyle(TETRODE, props)} />
 }

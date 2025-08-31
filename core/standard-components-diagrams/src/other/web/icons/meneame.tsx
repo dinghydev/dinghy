@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MENEAME = {
   _style:
@@ -9,5 +9,5 @@ export const MENEAME = {
 }
 
 export function Meneame(props: DiagramNodeProps) {
-  return <Shape {...MENEAME} {...props} />
+  return <Shape {...MENEAME} {...props} _style={extendStyle(MENEAME, props)} />
 }

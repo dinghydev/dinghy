@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Triggers } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { Triggers } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <Triggers/>
 ```

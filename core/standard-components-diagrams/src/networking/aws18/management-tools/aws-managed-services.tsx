@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_MANAGED_SERVICES = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_MANAGED_SERVICES = {
 }
 
 export function AwsManagedServices(props: DiagramNodeProps) {
-  return <Shape {...AWS_MANAGED_SERVICES} {...props} />
+  return (
+    <Shape
+      {...AWS_MANAGED_SERVICES}
+      {...props}
+      _style={extendStyle(AWS_MANAGED_SERVICES, props)}
+    />
+  )
 }

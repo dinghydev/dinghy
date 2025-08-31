@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TokenService } from '@reactiac/standard-components-diagrams/azure2Blockchain'
+import { TokenService } from '@diac/standard-components-diagrams/azure2Blockchain'
 
 <TokenService/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESOURCE_EXPLORER = {
   _style:
@@ -9,5 +9,11 @@ export const RESOURCE_EXPLORER = {
 }
 
 export function ResourceExplorer(props: DiagramNodeProps) {
-  return <Shape {...RESOURCE_EXPLORER} {...props} />
+  return (
+    <Shape
+      {...RESOURCE_EXPLORER}
+      {...props}
+      _style={extendStyle(RESOURCE_EXPLORER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ON_OFF_BUTTON_OFF = {
   _style:
@@ -9,5 +9,11 @@ export const ON_OFF_BUTTON_OFF = {
 }
 
 export function OnOffButtonOff(props: DiagramNodeProps) {
-  return <Shape {...ON_OFF_BUTTON_OFF} {...props} />
+  return (
+    <Shape
+      {...ON_OFF_BUTTON_OFF}
+      {...props}
+      _style={extendStyle(ON_OFF_BUTTON_OFF, props)}
+    />
+  )
 }

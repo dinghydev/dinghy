@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASIC_PROCESSOR = {
   _style:
@@ -9,5 +9,11 @@ export const ASIC_PROCESSOR = {
 }
 
 export function AsicProcessor(props: DiagramNodeProps) {
-  return <Shape {...ASIC_PROCESSOR} {...props} />
+  return (
+    <Shape
+      {...ASIC_PROCESSOR}
+      {...props}
+      _style={extendStyle(ASIC_PROCESSOR, props)}
+    />
+  )
 }

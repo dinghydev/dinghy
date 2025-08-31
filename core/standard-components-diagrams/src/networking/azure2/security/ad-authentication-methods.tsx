@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AD_AUTHENTICATION_METHODS = {
   _style:
@@ -9,5 +9,11 @@ export const AD_AUTHENTICATION_METHODS = {
 }
 
 export function AdAuthenticationMethods(props: DiagramNodeProps) {
-  return <Shape {...AD_AUTHENTICATION_METHODS} {...props} />
+  return (
+    <Shape
+      {...AD_AUTHENTICATION_METHODS}
+      {...props}
+      _style={extendStyle(AD_AUTHENTICATION_METHODS, props)}
+    />
+  )
 }

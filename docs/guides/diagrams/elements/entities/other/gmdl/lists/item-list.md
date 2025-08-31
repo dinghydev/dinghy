@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ItemList } from '@reactiac/standard-components-diagrams/gmdlLists'
+import { ItemList } from '@diac/standard-components-diagrams/gmdlLists'
 
 <ItemList/>
 ```

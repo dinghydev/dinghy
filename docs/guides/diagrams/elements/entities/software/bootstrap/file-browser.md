@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FileBrowser } from '@reactiac/standard-components-diagrams/bootstrap'
+import { FileBrowser } from '@diac/standard-components-diagrams/bootstrap'
 
 <FileBrowser/>
 ```

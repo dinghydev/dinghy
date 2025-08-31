@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VALUE_STREAM = {
   _style:
@@ -9,5 +9,11 @@ export const VALUE_STREAM = {
 }
 
 export function ValueStream(props: DiagramNodeProps) {
-  return <Shape {...VALUE_STREAM} {...props} />
+  return (
+    <Shape
+      {...VALUE_STREAM}
+      {...props}
+      _style={extendStyle(VALUE_STREAM, props)}
+    />
+  )
 }

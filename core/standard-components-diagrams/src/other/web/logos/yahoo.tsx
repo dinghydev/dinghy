@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const YAHOO = {
   _style:
@@ -9,5 +9,5 @@ export const YAHOO = {
 }
 
 export function Yahoo(props: DiagramNodeProps) {
-  return <Shape {...YAHOO} {...props} />
+  return <Shape {...YAHOO} {...props} _style={extendStyle(YAHOO, props)} />
 }

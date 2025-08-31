@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OfflineAddressBook } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { OfflineAddressBook } from '@diac/standard-components-diagrams/officeCommunications'
 
 <OfflineAddressBook/>
 ```

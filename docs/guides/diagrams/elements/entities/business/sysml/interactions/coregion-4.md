@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Coregion4 } from '@reactiac/standard-components-diagrams/sysmlInteractions'
+import { Coregion4 } from '@diac/standard-components-diagrams/sysmlInteractions'
 
 <Coregion4/>
 ```

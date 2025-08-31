@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FULLSCREEN_DIALOG = {
   _style: 'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=none;',
@@ -8,5 +8,11 @@ export const FULLSCREEN_DIALOG = {
 }
 
 export function FullscreenDialog(props: DiagramNodeProps) {
-  return <Shape {...FULLSCREEN_DIALOG} {...props} />
+  return (
+    <Shape
+      {...FULLSCREEN_DIALOG}
+      {...props}
+      _style={extendStyle(FULLSCREEN_DIALOG, props)}
+    />
+  )
 }

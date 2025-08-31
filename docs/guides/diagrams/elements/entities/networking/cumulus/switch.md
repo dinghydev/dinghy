@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Switch } from '@reactiac/standard-components-diagrams/cumulus'
+import { Switch } from '@diac/standard-components-diagrams/cumulus'
 
 <Switch/>
 ```

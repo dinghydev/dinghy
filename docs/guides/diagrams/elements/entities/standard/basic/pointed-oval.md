@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PointedOval } from '@reactiac/standard-components-diagrams/basic'
+import { PointedOval } from '@diac/standard-components-diagrams/basic'
 
 <PointedOval/>
 ```

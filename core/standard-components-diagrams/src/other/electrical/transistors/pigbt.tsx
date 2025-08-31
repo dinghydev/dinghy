@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PIGBT = {
   _style:
@@ -9,5 +9,5 @@ export const PIGBT = {
 }
 
 export function Pigbt(props: DiagramNodeProps) {
-  return <Shape {...PIGBT} {...props} />
+  return <Shape {...PIGBT} {...props} _style={extendStyle(PIGBT, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component1Mandatory } from '@reactiac/standard-components-diagrams/entityRelation'
+import { Component1Mandatory } from '@diac/standard-components-diagrams/entityRelation'
 
 <Component1Mandatory/>
 ```

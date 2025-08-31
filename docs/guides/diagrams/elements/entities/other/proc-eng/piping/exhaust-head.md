@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExhaustHead } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { ExhaustHead } from '@diac/standard-components-diagrams/procEngPiping'
 
 <ExhaustHead/>
 ```

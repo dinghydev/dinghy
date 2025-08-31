@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JIRA_CORE = {
   _style:
@@ -9,5 +9,7 @@ export const JIRA_CORE = {
 }
 
 export function JiraCore(props: DiagramNodeProps) {
-  return <Shape {...JIRA_CORE} {...props} />
+  return (
+    <Shape {...JIRA_CORE} {...props} _style={extendStyle(JIRA_CORE, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAP_AZURE_MONITOR = {
   _style:
@@ -9,5 +9,11 @@ export const SAP_AZURE_MONITOR = {
 }
 
 export function SapAzureMonitor(props: DiagramNodeProps) {
-  return <Shape {...SAP_AZURE_MONITOR} {...props} />
+  return (
+    <Shape
+      {...SAP_AZURE_MONITOR}
+      {...props}
+      _style={extendStyle(SAP_AZURE_MONITOR, props)}
+    />
+  )
 }

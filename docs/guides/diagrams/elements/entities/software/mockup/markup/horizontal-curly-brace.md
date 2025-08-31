@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalCurlyBrace } from '@reactiac/standard-components-diagrams/mockupMarkup'
+import { HorizontalCurlyBrace } from '@diac/standard-components-diagrams/mockupMarkup'
 
 <HorizontalCurlyBrace/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OSS_OBJECT_STORAGE_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const OSS_OBJECT_STORAGE_SERVICE = {
 }
 
 export function OssObjectStorageService(props: DiagramNodeProps) {
-  return <Shape {...OSS_OBJECT_STORAGE_SERVICE} {...props} />
+  return (
+    <Shape
+      {...OSS_OBJECT_STORAGE_SERVICE}
+      {...props}
+      _style={extendStyle(OSS_OBJECT_STORAGE_SERVICE, props)}
+    />
+  )
 }

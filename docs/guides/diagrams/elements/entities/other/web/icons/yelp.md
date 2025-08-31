@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Yelp } from '@reactiac/standard-components-diagrams/webIcons'
+import { Yelp } from '@diac/standard-components-diagrams/webIcons'
 
 <Yelp/>
 ```

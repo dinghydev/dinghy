@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Feed } from '@reactiac/standard-components-diagrams/webLogos'
+import { Feed } from '@diac/standard-components-diagrams/webLogos'
 
 <Feed/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChassisBareMetalEmpty } from '@reactiac/standard-components-diagrams/cumulus'
+import { ChassisBareMetalEmpty } from '@diac/standard-components-diagrams/cumulus'
 
 <ChassisBareMetalEmpty/>
 ```

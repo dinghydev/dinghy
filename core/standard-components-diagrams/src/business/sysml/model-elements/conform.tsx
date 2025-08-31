@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONFORM = {
   _style: {
@@ -9,5 +9,7 @@ export const CONFORM = {
 }
 
 export function Conform(props: DiagramNodeProps) {
-  return <Dependency {...CONFORM} {...props} />
+  return (
+    <Dependency {...CONFORM} {...props} _style={extendStyle(CONFORM, props)} />
+  )
 }

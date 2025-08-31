@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_OPERATOR_5G_CORE = {
   _style:
@@ -9,5 +9,11 @@ export const AZURE_OPERATOR_5G_CORE = {
 }
 
 export function AzureOperator5gCore(props: DiagramNodeProps) {
-  return <Shape {...AZURE_OPERATOR_5G_CORE} {...props} />
+  return (
+    <Shape
+      {...AZURE_OPERATOR_5G_CORE}
+      {...props}
+      _style={extendStyle(AZURE_OPERATOR_5G_CORE, props)}
+    />
+  )
 }

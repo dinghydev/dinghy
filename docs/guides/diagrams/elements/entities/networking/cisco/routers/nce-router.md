@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NceRouter } from '@reactiac/standard-components-diagrams/ciscoRouters'
+import { NceRouter } from '@diac/standard-components-diagrams/ciscoRouters'
 
 <NceRouter/>
 ```

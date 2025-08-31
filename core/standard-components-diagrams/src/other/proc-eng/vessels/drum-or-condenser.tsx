@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DRUM_OR_CONDENSER = {
   _style:
@@ -9,5 +9,11 @@ export const DRUM_OR_CONDENSER = {
 }
 
 export function DrumOrCondenser(props: DiagramNodeProps) {
-  return <Shape {...DRUM_OR_CONDENSER} {...props} />
+  return (
+    <Shape
+      {...DRUM_OR_CONDENSER}
+      {...props}
+      _style={extendStyle(DRUM_OR_CONDENSER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XMPP_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const XMPP_SERVICE = {
 }
 
 export function XmppService(props: DiagramNodeProps) {
-  return <Shape {...XMPP_SERVICE} {...props} />
+  return (
+    <Shape
+      {...XMPP_SERVICE}
+      {...props}
+      _style={extendStyle(XMPP_SERVICE, props)}
+    />
+  )
 }

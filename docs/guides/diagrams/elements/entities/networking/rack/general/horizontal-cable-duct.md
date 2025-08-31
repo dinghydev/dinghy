@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalCableDuct } from '@reactiac/standard-components-diagrams/rackGeneral'
+import { HorizontalCableDuct } from '@diac/standard-components-diagrams/rackGeneral'
 
 <HorizontalCableDuct/>
 ```

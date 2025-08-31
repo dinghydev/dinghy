@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.partConcEllipse;startAngle=0.25;endAngle=0.1;arcWidth=0.5;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { PartialConcentricEllipse } from '@reactiac/standard-components-diagrams/basic'
+import { PartialConcentricEllipse } from '@diac/standard-components-diagrams/basic'
 
 <PartialConcentricEllipse/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IOT_CLOUD = {
   _style:
@@ -9,5 +9,7 @@ export const IOT_CLOUD = {
 }
 
 export function IotCloud(props: DiagramNodeProps) {
-  return <Shape {...IOT_CLOUD} {...props} />
+  return (
+    <Shape {...IOT_CLOUD} {...props} _style={extendStyle(IOT_CLOUD, props)} />
+  )
 }

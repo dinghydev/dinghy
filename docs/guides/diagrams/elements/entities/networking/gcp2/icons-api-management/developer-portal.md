@@ -14,7 +14,7 @@ Portal
 ## Usage
 
 ```
-import { DeveloperPortal } from '@reactiac/standard-components-diagrams/gcp2IconsApiManagement'
+import { DeveloperPortal } from '@diac/standard-components-diagrams/gcp2IconsApiManagement'
 
 <DeveloperPortal/>
 ```

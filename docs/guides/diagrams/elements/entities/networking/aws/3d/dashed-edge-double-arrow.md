@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DashedEdgeDoubleArrow } from '@reactiac/standard-components-diagrams/aws3d'
+import { DashedEdgeDoubleArrow } from '@diac/standard-components-diagrams/aws3d'
 
 <DashedEdgeDoubleArrow/>
 ```

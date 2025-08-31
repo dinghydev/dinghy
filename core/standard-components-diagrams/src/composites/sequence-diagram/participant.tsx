@@ -1,4 +1,4 @@
-import { type DiagramNodeProps, Rows, Shape } from '@reactiac/base-components'
+import { type DiagramNodeProps, Rows, Shape } from '@diac/base-components'
 
 type ParticipantProps = {
   _width: number

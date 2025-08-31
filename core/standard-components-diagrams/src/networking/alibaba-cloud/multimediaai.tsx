@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTIMEDIAAI = {
   _style:
@@ -9,5 +9,11 @@ export const MULTIMEDIAAI = {
 }
 
 export function Multimediaai(props: DiagramNodeProps) {
-  return <Shape {...MULTIMEDIAAI} {...props} />
+  return (
+    <Shape
+      {...MULTIMEDIAAI}
+      {...props}
+      _style={extendStyle(MULTIMEDIAAI, props)}
+    />
+  )
 }

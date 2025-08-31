@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManagementPoint } from '@reactiac/standard-components-diagrams/caeSystemCenterFlat'
+import { ManagementPoint } from '@diac/standard-components-diagrams/caeSystemCenterFlat'
 
 <ManagementPoint/>
 ```

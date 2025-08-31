@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PIN_3 = {
   _style:
@@ -9,5 +9,5 @@ export const PIN_3 = {
 }
 
 export function Pin3(props: DiagramNodeProps) {
-  return <Shape {...PIN_3} {...props} />
+  return <Shape {...PIN_3} {...props} _style={extendStyle(PIN_3, props)} />
 }

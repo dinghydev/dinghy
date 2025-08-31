@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL = {
   _style:
@@ -9,5 +9,11 @@ export const PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL = {
 }
 
 export function PhotoconductiveTransducerSymmetrical(props: DiagramNodeProps) {
-  return <Shape {...PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL} {...props} />
+  return (
+    <Shape
+      {...PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL}
+      {...props}
+      _style={extendStyle(PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL, props)}
+    />
+  )
 }

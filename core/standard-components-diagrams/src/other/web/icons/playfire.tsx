@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLAYFIRE = {
   _style:
@@ -9,5 +9,7 @@ export const PLAYFIRE = {
 }
 
 export function Playfire(props: DiagramNodeProps) {
-  return <Shape {...PLAYFIRE} {...props} />
+  return (
+    <Shape {...PLAYFIRE} {...props} _style={extendStyle(PLAYFIRE, props)} />
+  )
 }

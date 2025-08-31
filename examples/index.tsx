@@ -41,7 +41,7 @@ export const allExamples: Record<string, ExampleType> = {
     packagePath: 'web/1-shape',
     outputPath: './packages/examples/web/1-shape/output',
     order: 100,
-    code: `import { Shape } from 'reactiac-core'
+    code: `import { Shape } from 'diac-core'
 
 export function App() {
   return (
@@ -75,7 +75,7 @@ export function App() {
     packagePath: 'web/2-components',
     outputPath: './packages/examples/web/2-components/output',
     order: 100,
-    code: `import { Shape } from 'reactiac-core'
+    code: `import { Shape } from 'diac-core'
 
 const WebApp = (props: any) => <Shape {...props} />
 
@@ -140,7 +140,7 @@ export function App() {
     packagePath: 'web/3-drawio',
     outputPath: './packages/examples/web/3-drawio/output',
     order: 100,
-    code: `import { Shape } from 'reactiac-core'
+    code: `import { Shape } from 'diac-core'
 
 import {
   Android,
@@ -150,7 +150,7 @@ import {
   GroupSecurityGroup,
   RdsPostgresqlInstance,
   Waf,
-} from 'reactiac-components-generated-drawio'
+} from 'diac-components-generated-drawio'
 
 const Postgres = (props: any) => <RdsPostgresqlInstance {...props} />
 
@@ -226,8 +226,8 @@ export function App() {
     packagePath: 'web/4-iac',
     outputPath: './packages/examples/web/4-iac/output',
     order: 100,
-    code: `import { Stack } from 'reactiac-core'
-import { Client, Waf } from 'reactiac-components-generated-drawio'
+    code: `import { Stack } from 'diac-core'
+import { Client, Waf } from 'diac-components-generated-drawio'
 
 import {
   AwsCloud,
@@ -240,7 +240,7 @@ import {
   DataAwsVpc,
   useAwsSubnet,
   useAwsSubnets,
-} from 'reactiac-components-generated-aws'
+} from 'diac-components-generated-aws'
 
 const Postgres = (props: any) => <AwsPostgres {...props} />
 
@@ -333,13 +333,13 @@ export function App() {
     packagePath: 'web/5-data',
     outputPath: './packages/examples/web/5-data/output',
     order: 100,
-    code: `import { Shape, Stack, useRenderOptions, } from 'reactiac-core'
+    code: `import { Shape, Stack, useRenderOptions, } from 'diac-core'
 import {
   Client,
   GroupOnPremise,
   RdsPostgresqlInstance,
   Waf,
-} from 'reactiac-components-generated-drawio'
+} from 'diac-components-generated-drawio'
 
 import {
   AwsCloud,
@@ -352,7 +352,7 @@ import {
   DataAwsVpc,
   useAwsSubnet,
   useAwsSubnets,
-} from 'reactiac-components-generated-aws'
+} from 'diac-components-generated-aws'
 
 const isLocal = () => {
   const {stack} = useRenderOptions()
@@ -481,8 +481,8 @@ export function App() {
   GroupVpc2,
   RdsPostgresqlInstance,
   Waf,
-} from 'reactiac-components-generated-drawio'
-import { type DiagramNodeProps, Shape } from 'reactiac-core'
+} from 'diac-components-generated-drawio'
+import { type DiagramNodeProps, Shape } from 'diac-core'
 
 function Stack(props: DiagramNodeProps) {
   return <Shape {...props} />
@@ -600,8 +600,8 @@ export function App() {
   Dependency,
   type DiagramNodeProps,
   Shape,
-} from 'reactiac-core'
-import { DrawioNodeTree, Point } from 'reactiac-provider-drawio'
+} from 'diac-core'
+import { DrawioNodeTree, Point } from 'diac-provider-drawio'
 
 const Mindmap = (props: DiagramNodeProps) => (
   <Shape _direction={'vertical'} {...props} />
@@ -728,7 +728,7 @@ export function App() {
   Dependency,
   type DiagramNodeProps,
   Shape,
-} from 'reactiac-core'
+} from 'diac-core'
 
 const Modules = (props: DiagramNodeProps) => (
   <Shape
@@ -852,23 +852,23 @@ export function App() {
   type NodeProps,
   Shape,
   Stack,
-} from 'reactiac-core'
+} from 'diac-core'
 import {
   AwsCloud,
   AwsRegion,
   DataAwsAcmCertificate,
   DataAwsRoute53Zone,
-} from 'reactiac-components-generated-aws'
-import { Client as Client } from 'reactiac-components-generated-drawio'
+} from 'diac-components-generated-aws'
+import { Client as Client } from 'diac-components-generated-drawio'
 import {
   AwsBackend,
   LogBucket,
   S3CloudfrontSite,
   S3CloudfrontSiteInputProps,
-} from 'reactiac-components-pro-aws'
+} from 'diac-components-pro-aws'
 
-const ReactIACWebsite = (props: NodeProps) => (
-  <Stack title='ReactIAC Website' {...props} />
+const DIaCWebsite = (props: NodeProps) => (
+  <Stack title='DIaC Website' {...props} />
 )
 
 const GlobalRegion = (props: NodeProps) => (
@@ -909,7 +909,7 @@ const Site = (props: S3CloudfrontSiteInputProps) => (
 
 export function App() {
   return (
-    <ReactIACWebsite>
+    <DIaCWebsite>
       <Client />
       <AwsCloud>
         <GlobalRegion>
@@ -919,14 +919,14 @@ export function App() {
             <Site subdomain='cdn' />
           </Sites>
           <Shared>
-            <DataAwsRoute53Zone name='reactiac.dev' />
-            <DataAwsAcmCertificate domain='reactiac.dev' />
+            <DataAwsRoute53Zone name='diac.dev' />
+            <DataAwsAcmCertificate domain='diac.dev' />
             <AwsBackend />
             <LogBucket surfix='logs' />
           </Shared>
         </GlobalRegion>
       </AwsCloud>
-    </ReactIACWebsite>
+    </DIaCWebsite>
   )
 }
 `,
@@ -943,7 +943,7 @@ export function App() {
     packagePath: 'iac/ecs',
     outputPath: './packages/examples/iac/ecs/output',
     order: 1000,
-    code: `import { type DiagramNodeProps, Shape, Stack } from 'reactiac-core'
+    code: `import { type DiagramNodeProps, Shape, Stack } from 'diac-core'
 import {
   AwsCloud,
   AwsECSCluster,
@@ -959,8 +959,8 @@ import {
   AwsRegion,
   AwsWAF,
   DataAwsVpc,
-} from 'reactiac-components-generated-aws'
-import { Client as Client } from 'reactiac-components-generated-drawio'
+} from 'diac-components-generated-aws'
+import { Client as Client } from 'diac-components-generated-drawio'
 
 function LoadBalancer(props: AwsLbInputProps) {
   return <AwsLb {...props} />

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_ASR_9010 = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_ASR_9010 = {
 }
 
 export function CiscoAsr9010(props: DiagramNodeProps) {
-  return <Shape {...CISCO_ASR_9010} {...props} />
+  return (
+    <Shape
+      {...CISCO_ASR_9010}
+      {...props}
+      _style={extendStyle(CISCO_ASR_9010, props)}
+    />
+  )
 }

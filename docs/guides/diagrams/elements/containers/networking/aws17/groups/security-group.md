@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { SecurityGroup } from '@reactiac/standard-components-diagrams/aws17Groups'
+import { SecurityGroup } from '@diac/standard-components-diagrams/aws17Groups'
 
 <SecurityGroup/>
 ```

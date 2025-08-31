@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PICKUP_HEAD = {
   _style:
@@ -9,5 +9,11 @@ export const PICKUP_HEAD = {
 }
 
 export function PickupHead(props: DiagramNodeProps) {
-  return <Shape {...PICKUP_HEAD} {...props} />
+  return (
+    <Shape
+      {...PICKUP_HEAD}
+      {...props}
+      _style={extendStyle(PICKUP_HEAD, props)}
+    />
+  )
 }

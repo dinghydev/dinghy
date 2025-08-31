@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Battery } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { Battery } from '@diac/standard-components-diagrams/ios7Icons'
 
 <Battery/>
 ```

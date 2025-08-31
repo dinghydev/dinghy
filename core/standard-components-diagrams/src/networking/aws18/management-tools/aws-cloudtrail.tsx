@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_CLOUDTRAIL = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_CLOUDTRAIL = {
 }
 
 export function AwsCloudtrail(props: DiagramNodeProps) {
-  return <Shape {...AWS_CLOUDTRAIL} {...props} />
+  return (
+    <Shape
+      {...AWS_CLOUDTRAIL}
+      {...props}
+      _style={extendStyle(AWS_CLOUDTRAIL, props)}
+    />
+  )
 }

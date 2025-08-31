@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Iot } from '@reactiac/standard-components-diagrams/salesforceProduct'
+import { Iot } from '@diac/standard-components-diagrams/salesforceProduct'
 
 <Iot/>
 ```

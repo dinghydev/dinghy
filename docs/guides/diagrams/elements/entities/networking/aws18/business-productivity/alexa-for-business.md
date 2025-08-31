@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AlexaForBusiness } from '@reactiac/standard-components-diagrams/aws18BusinessProductivity'
+import { AlexaForBusiness } from '@diac/standard-components-diagrams/aws18BusinessProductivity'
 
 <AlexaForBusiness/>
 ```

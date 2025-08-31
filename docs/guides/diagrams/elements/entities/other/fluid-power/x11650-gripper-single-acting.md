@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11650GripperSingleActing } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11650GripperSingleActing } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11650GripperSingleActing/>
 ```

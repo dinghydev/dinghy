@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLINKLIST = {
   _style:
@@ -9,5 +9,7 @@ export const BLINKLIST = {
 }
 
 export function Blinklist(props: DiagramNodeProps) {
-  return <Shape {...BLINKLIST} {...props} />
+  return (
+    <Shape {...BLINKLIST} {...props} _style={extendStyle(BLINKLIST, props)} />
+  )
 }

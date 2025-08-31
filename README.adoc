@@ -1,20 +1,20 @@
-= ReactIAC
+= DIaC
 :toc:
 
-image:https://github.com/reactiac/reactiac/actions/workflows/release.yml/badge.svg[release,link=https://github.com/reactiac/reactiac/actions/workflows/release.yml] image:https://github.com/reactiac/reactiac/actions/workflows/verification.yml/badge.svg[verification,link=https://github.com/reactiac/reactiac/actions/workflows/verification.yml]
+image:https://github.com/diac/diac/actions/workflows/release.yml/badge.svg[release,link=https://github.com/diac/diac/actions/workflows/release.yml] image:https://github.com/diac/diac/actions/workflows/verification.yml/badge.svg[verification,link=https://github.com/diac/diac/actions/workflows/verification.yml]
 
 == Development
 
 This project is developed with deno and VSCode.
 
-=== Install deno    
+=== Install deno
 
     curl -fsSL https://deno.land/install.sh | sh
 
 === Tasks
-    
-Set of debugable tasks defined in https://github.com/reactiac/reactiac/blob/main/.vscode/launch.json[.vscode/launch.json]
-    
+
+Set of debugable tasks defined in https://github.com/diac/diac/blob/main/.vscode/launch.json[.vscode/launch.json]
+
 
 == Architecture
 
@@ -22,10 +22,10 @@ Set of debugable tasks defined in https://github.com/reactiac/reactiac/blob/main
 
 Relationship of top level folders:
 
-image::examples/diagram/reactiac-architecutre/output/folder-structure.png[alt=Folder Structure,width=300]
+image::examples/diagram/diac-architecutre/output/folder-structure.png[alt=Folder Structure,width=300]
 
 === Mono Repo
 
 This is a mono repo with multiple relatively independent projects:
 
-image::examples/diagram/reactiac-architecutre/output/mono-repo.png[Mono Repo]
+image::examples/diagram/diac-architecutre/output/mono-repo.png[Mono Repo]

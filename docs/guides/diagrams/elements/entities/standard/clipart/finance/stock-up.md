@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/finance/Stock_Up_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { StockUp } from '@reactiac/standard-components-diagrams/clipartFinance'
+import { StockUp } from '@diac/standard-components-diagrams/clipartFinance'
 
 <StockUp/>
 ```

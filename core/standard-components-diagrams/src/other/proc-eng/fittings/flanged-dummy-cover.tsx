@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLANGED_DUMMY_COVER = {
   _style:
@@ -9,5 +9,11 @@ export const FLANGED_DUMMY_COVER = {
 }
 
 export function FlangedDummyCover(props: DiagramNodeProps) {
-  return <Shape {...FLANGED_DUMMY_COVER} {...props} />
+  return (
+    <Shape
+      {...FLANGED_DUMMY_COVER}
+      {...props}
+      _style={extendStyle(FLANGED_DUMMY_COVER, props)}
+    />
+  )
 }

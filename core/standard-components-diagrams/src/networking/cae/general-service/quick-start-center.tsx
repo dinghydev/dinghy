@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const QUICK_START_CENTER = {
   _style:
     'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Quick_Start_Center.svg;strokeColor=none;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function QuickStartCenter(props: DiagramNodeProps) {
-  return <Shape {...QUICK_START_CENTER} {...props} />
+  return (
+    <Shape
+      {...QUICK_START_CENTER}
+      {...props}
+      _style={extendStyle(QUICK_START_CENTER, props)}
+    />
+  )
 }

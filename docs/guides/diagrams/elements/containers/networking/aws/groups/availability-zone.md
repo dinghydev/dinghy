@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { AvailabilityZone } from '@reactiac/standard-components-diagrams/awsGroups'
+import { AvailabilityZone } from '@diac/standard-components-diagrams/awsGroups'
 
 <AvailabilityZone/>
 ```

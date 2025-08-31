@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARAGRAPH_OF_TEXT = {
   _style:
@@ -9,5 +9,11 @@ export const PARAGRAPH_OF_TEXT = {
 }
 
 export function ParagraphOfText(props: DiagramNodeProps) {
-  return <Shape {...PARAGRAPH_OF_TEXT} {...props} />
+  return (
+    <Shape
+      {...PARAGRAPH_OF_TEXT}
+      {...props}
+      _style={extendStyle(PARAGRAPH_OF_TEXT, props)}
+    />
+  )
 }

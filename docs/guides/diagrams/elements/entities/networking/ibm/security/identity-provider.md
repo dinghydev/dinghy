@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IdentityProvider } from '@reactiac/standard-components-diagrams/ibmSecurity'
+import { IdentityProvider } from '@diac/standard-components-diagrams/ibmSecurity'
 
 <IdentityProvider/>
 ```

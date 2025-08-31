@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bastionhost } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Bastionhost } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Bastionhost/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DESKTOP_HIGHTLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const DESKTOP_HIGHTLIGHT = {
 }
 
 export function DesktopHightlight(props: DiagramNodeProps) {
-  return <Shape {...DESKTOP_HIGHTLIGHT} {...props} />
+  return (
+    <Shape
+      {...DESKTOP_HIGHTLIGHT}
+      {...props}
+      _style={extendStyle(DESKTOP_HIGHTLIGHT, props)}
+    />
+  )
 }

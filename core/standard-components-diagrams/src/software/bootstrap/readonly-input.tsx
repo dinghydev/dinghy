@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const READONLY_INPUT = {
   _style:
@@ -9,5 +9,11 @@ export const READONLY_INPUT = {
 }
 
 export function ReadonlyInput(props: DiagramNodeProps) {
-  return <Shape {...READONLY_INPUT} {...props} />
+  return (
+    <Shape
+      {...READONLY_INPUT}
+      {...props}
+      _style={extendStyle(READONLY_INPUT, props)}
+    />
+  )
 }

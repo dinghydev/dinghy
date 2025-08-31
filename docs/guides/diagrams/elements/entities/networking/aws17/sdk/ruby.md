@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ruby } from '@reactiac/standard-components-diagrams/aws17Sdk'
+import { Ruby } from '@diac/standard-components-diagrams/aws17Sdk'
 
 <Ruby/>
 ```

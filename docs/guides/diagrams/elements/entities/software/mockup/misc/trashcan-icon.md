@@ -5,15 +5,15 @@
 ```
 {
   _style: 'strokeColor=#999999;verticalLabelPosition=bottom;shadow=0;dashed=0;verticalAlign=top;strokeWidth=2;html=1;shape=mxgraph.mockup.misc.trashcanIcon;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { TrashcanIcon } from '@reactiac/standard-components-diagrams/mockupMisc'
+import { TrashcanIcon } from '@diac/standard-components-diagrams/mockupMisc'
 
 <TrashcanIcon/>
 ```

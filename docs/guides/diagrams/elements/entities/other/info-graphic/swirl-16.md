@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Swirl16 } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { Swirl16 } from '@diac/standard-components-diagrams/infoGraphic'
 
 <Swirl16/>
 ```

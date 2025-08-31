@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ClaimCheck } from '@reactiac/standard-components-diagrams/eipMessageTransformation'
+import { ClaimCheck } from '@diac/standard-components-diagrams/eipMessageTransformation'
 
 <ClaimCheck/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureMediaPlayer } from '@reactiac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
+import { AzureMediaPlayer } from '@diac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
 
 <AzureMediaPlayer/>
 ```

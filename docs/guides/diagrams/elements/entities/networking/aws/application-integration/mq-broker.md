@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MqBroker } from '@reactiac/standard-components-diagrams/awsApplicationIntegration'
+import { MqBroker } from '@diac/standard-components-diagrams/awsApplicationIntegration'
 
 <MqBroker/>
 ```

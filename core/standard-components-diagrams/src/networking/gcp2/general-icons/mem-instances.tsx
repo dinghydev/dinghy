@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MEM_INSTANCES = {
   _style:
@@ -9,5 +9,11 @@ export const MEM_INSTANCES = {
 }
 
 export function MemInstances(props: DiagramNodeProps) {
-  return <Shape {...MEM_INSTANCES} {...props} />
+  return (
+    <Shape
+      {...MEM_INSTANCES}
+      {...props}
+      _style={extendStyle(MEM_INSTANCES, props)}
+    />
+  )
 }

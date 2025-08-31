@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALLOCATION_GENERAL = {
   _style: 'shape=rect;html=1;fontStyle=1;whiteSpace=wrap;align=center;',
@@ -8,5 +8,11 @@ export const ALLOCATION_GENERAL = {
 }
 
 export function AllocationGeneral(props: DiagramNodeProps) {
-  return <Shape {...ALLOCATION_GENERAL} {...props} />
+  return (
+    <Shape
+      {...ALLOCATION_GENERAL}
+      {...props}
+      _style={extendStyle(ALLOCATION_GENERAL, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const M6G_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const M6G_INSTANCE = {
 }
 
 export function M6gInstance(props: DiagramNodeProps) {
-  return <Shape {...M6G_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...M6G_INSTANCE}
+      {...props}
+      _style={extendStyle(M6G_INSTANCE, props)}
+    />
+  )
 }

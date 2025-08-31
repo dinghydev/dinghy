@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TransitGateway } from '@reactiac/standard-components-diagrams/ibmVpc'
+import { TransitGateway } from '@diac/standard-components-diagrams/ibmVpc'
 
 <TransitGateway/>
 ```

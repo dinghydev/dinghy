@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ses } from '@reactiac/standard-components-diagrams/aws17Messaging'
+import { Ses } from '@diac/standard-components-diagrams/aws17Messaging'
 
 <Ses/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TICKET_MACHINE = {
   _style:
@@ -9,5 +9,11 @@ export const TICKET_MACHINE = {
 }
 
 export function TicketMachine(props: DiagramNodeProps) {
-  return <Shape {...TICKET_MACHINE} {...props} />
+  return (
+    <Shape
+      {...TICKET_MACHINE}
+      {...props}
+      _style={extendStyle(TICKET_MACHINE, props)}
+    />
+  )
 }

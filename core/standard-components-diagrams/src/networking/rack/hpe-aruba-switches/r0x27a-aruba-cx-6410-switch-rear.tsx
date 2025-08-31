@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const R0X27A_ARUBA_CX_6410_SWITCH_REAR = {
   _style:
@@ -9,5 +9,11 @@ export const R0X27A_ARUBA_CX_6410_SWITCH_REAR = {
 }
 
 export function R0x27aArubaCx6410SwitchRear(props: DiagramNodeProps) {
-  return <Shape {...R0X27A_ARUBA_CX_6410_SWITCH_REAR} {...props} />
+  return (
+    <Shape
+      {...R0X27A_ARUBA_CX_6410_SWITCH_REAR}
+      {...props}
+      _style={extendStyle(R0X27A_ARUBA_CX_6410_SWITCH_REAR, props)}
+    />
+  )
 }

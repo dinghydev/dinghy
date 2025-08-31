@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CCC_CLOUD_CALL_CENTER = {
   _style:
@@ -9,5 +9,11 @@ export const CCC_CLOUD_CALL_CENTER = {
 }
 
 export function CccCloudCallCenter(props: DiagramNodeProps) {
-  return <Shape {...CCC_CLOUD_CALL_CENTER} {...props} />
+  return (
+    <Shape
+      {...CCC_CLOUD_CALL_CENTER}
+      {...props}
+      _style={extendStyle(CCC_CLOUD_CALL_CENTER, props)}
+    />
+  )
 }

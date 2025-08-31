@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GoSeeProductionScheduling } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { GoSeeProductionScheduling } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <GoSeeProductionScheduling/>
 ```

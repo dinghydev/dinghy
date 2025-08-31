@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiscoverySearchMailbox } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { DiscoverySearchMailbox } from '@diac/standard-components-diagrams/officeCommunications'
 
 <DiscoverySearchMailbox/>
 ```

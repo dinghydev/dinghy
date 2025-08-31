@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLACIER_DEEP_ARCHIVE = {
   _style:
@@ -9,5 +9,11 @@ export const GLACIER_DEEP_ARCHIVE = {
 }
 
 export function GlacierDeepArchive(props: DiagramNodeProps) {
-  return <Shape {...GLACIER_DEEP_ARCHIVE} {...props} />
+  return (
+    <Shape
+      {...GLACIER_DEEP_ARCHIVE}
+      {...props}
+      _style={extendStyle(GLACIER_DEEP_ARCHIVE, props)}
+    />
+  )
 }

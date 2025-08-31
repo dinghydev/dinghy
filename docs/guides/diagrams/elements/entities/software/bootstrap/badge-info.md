@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BadgeInfo } from '@reactiac/standard-components-diagrams/bootstrap'
+import { BadgeInfo } from '@diac/standard-components-diagrams/bootstrap'
 
 <BadgeInfo/>
 ```

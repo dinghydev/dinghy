@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DnsPrivateResolver } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { DnsPrivateResolver } from '@diac/standard-components-diagrams/azure2Networking'
 
 <DnsPrivateResolver/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Snowflake } from '@reactiac/standard-components-diagrams/signsNature'
+import { Snowflake } from '@diac/standard-components-diagrams/signsNature'
 
 <Snowflake/>
 ```

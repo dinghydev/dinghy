@@ -32,12 +32,12 @@ export const projectVersionReleaseBase = () =>
 
 export const versionDetails = () => {
   const versionInfo: string[] = []
-  const cliVersion = Deno.env.get('REACTIAC_CLI_VERSION')
+  const cliVersion = Deno.env.get('DIAC_CLI_VERSION')
   if (cliVersion) {
-    versionInfo.push(`@reactiac/engine/${projectVersionRelease()}`)
-    versionInfo.push(`@reactiac/cli/${cliVersion}`)
+    versionInfo.push(`@diac/engine/${projectVersionRelease()}`)
+    versionInfo.push(`@diac/cli/${cliVersion}`)
   } else {
-    versionInfo.push(`@reactiac/cli/${projectVersionRelease()}`)
+    versionInfo.push(`@diac/cli/${projectVersionRelease()}`)
   }
   versionInfo.push(
     `deno/${Deno.version.deno}-${Deno.build.os}-${Deno.build.arch}`,

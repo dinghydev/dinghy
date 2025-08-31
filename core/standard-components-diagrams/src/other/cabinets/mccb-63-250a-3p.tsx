@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MCCB_63_250A_3P = {
   _style:
@@ -9,5 +9,11 @@ export const MCCB_63_250A_3P = {
 }
 
 export function Mccb63250a3p(props: DiagramNodeProps) {
-  return <Shape {...MCCB_63_250A_3P} {...props} />
+  return (
+    <Shape
+      {...MCCB_63_250A_3P}
+      {...props}
+      _style={extendStyle(MCCB_63_250A_3P, props)}
+    />
+  )
 }

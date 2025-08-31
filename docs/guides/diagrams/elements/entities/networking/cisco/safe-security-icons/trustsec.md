@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Trustsec } from '@reactiac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { Trustsec } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <Trustsec/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_AD_B2C = {
   _style:
@@ -9,5 +9,11 @@ export const AZURE_AD_B2C = {
 }
 
 export function AzureAdB2c(props: DiagramNodeProps) {
-  return <Shape {...AZURE_AD_B2C} {...props} />
+  return (
+    <Shape
+      {...AZURE_AD_B2C}
+      {...props}
+      _style={extendStyle(AZURE_AD_B2C, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FOLDED_BANNERS_4 = {
   _style:
@@ -9,5 +9,11 @@ export const FOLDED_BANNERS_4 = {
 }
 
 export function FoldedBanners4(props: DiagramNodeProps) {
-  return <Shape {...FOLDED_BANNERS_4} {...props} />
+  return (
+    <Shape
+      {...FOLDED_BANNERS_4}
+      {...props}
+      _style={extendStyle(FOLDED_BANNERS_4, props)}
+    />
+  )
 }

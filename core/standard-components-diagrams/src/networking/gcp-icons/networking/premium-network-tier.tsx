@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PREMIUM_NETWORK_TIER = {
   _style:
@@ -9,5 +9,11 @@ export const PREMIUM_NETWORK_TIER = {
 }
 
 export function PremiumNetworkTier(props: DiagramNodeProps) {
-  return <Shape {...PREMIUM_NETWORK_TIER} {...props} />
+  return (
+    <Shape
+      {...PREMIUM_NETWORK_TIER}
+      {...props}
+      _style={extendStyle(PREMIUM_NETWORK_TIER, props)}
+    />
+  )
 }

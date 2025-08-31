@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WebSaasApps } from '@reactiac/standard-components-diagrams/citrixResources'
+import { WebSaasApps } from '@diac/standard-components-diagrams/citrixResources'
 
 <WebSaasApps/>
 ```

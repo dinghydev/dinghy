@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NUTANIX = {
   _style:
@@ -9,5 +9,5 @@ export const NUTANIX = {
 }
 
 export function Nutanix(props: DiagramNodeProps) {
-  return <Shape {...NUTANIX} {...props} />
+  return <Shape {...NUTANIX} {...props} _style={extendStyle(NUTANIX, props)} />
 }

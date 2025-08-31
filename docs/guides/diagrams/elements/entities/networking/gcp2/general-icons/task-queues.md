@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TaskQueues } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { TaskQueues } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <TaskQueues/>
 ```

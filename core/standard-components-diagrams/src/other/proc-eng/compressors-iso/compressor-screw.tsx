@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPRESSOR_SCREW = {
   _style:
     'shape=mxgraph.pid.compressors_-_iso.compressor_(screw);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 
 export function CompressorScrew(props: DiagramNodeProps) {
-  return <Shape {...COMPRESSOR_SCREW} {...props} />
+  return (
+    <Shape
+      {...COMPRESSOR_SCREW}
+      {...props}
+      _style={extendStyle(COMPRESSOR_SCREW, props)}
+    />
+  )
 }

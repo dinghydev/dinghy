@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOTTED_LINE_GREY_3 = {
   _style: {
@@ -9,5 +9,11 @@ export const DOTTED_LINE_GREY_3 = {
 }
 
 export function DottedLineGrey3(props: DiagramNodeProps) {
-  return <Dependency {...DOTTED_LINE_GREY_3} {...props} />
+  return (
+    <Dependency
+      {...DOTTED_LINE_GREY_3}
+      {...props}
+      _style={extendStyle(DOTTED_LINE_GREY_3, props)}
+    />
+  )
 }

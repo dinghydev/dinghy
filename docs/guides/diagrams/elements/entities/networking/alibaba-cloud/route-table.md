@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RouteTable } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { RouteTable } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <RouteTable/>
 ```

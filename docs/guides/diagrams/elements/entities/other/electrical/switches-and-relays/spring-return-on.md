@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SpringReturnOn } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { SpringReturnOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <SpringReturnOn/>
 ```

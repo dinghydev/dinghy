@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOZENGE_STATE_BOLD = {
   _style:
@@ -9,5 +9,11 @@ export const LOZENGE_STATE_BOLD = {
 }
 
 export function LozengeStateBold(props: DiagramNodeProps) {
-  return <Shape {...LOZENGE_STATE_BOLD} {...props} />
+  return (
+    <Shape
+      {...LOZENGE_STATE_BOLD}
+      {...props}
+      _style={extendStyle(LOZENGE_STATE_BOLD, props)}
+    />
+  )
 }

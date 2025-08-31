@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HTML_TABLE_4 = {
   _style:
@@ -9,5 +9,11 @@ export const HTML_TABLE_4 = {
 }
 
 export function HtmlTable4(props: DiagramNodeProps) {
-  return <Shape {...HTML_TABLE_4} {...props} />
+  return (
+    <Shape
+      {...HTML_TABLE_4}
+      {...props}
+      _style={extendStyle(HTML_TABLE_4, props)}
+    />
+  )
 }

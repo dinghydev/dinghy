@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ESS_ELASTIC_SCALING_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const ESS_ELASTIC_SCALING_SERVICE = {
 }
 
 export function EssElasticScalingService(props: DiagramNodeProps) {
-  return <Shape {...ESS_ELASTIC_SCALING_SERVICE} {...props} />
+  return (
+    <Shape
+      {...ESS_ELASTIC_SCALING_SERVICE}
+      {...props}
+      _style={extendStyle(ESS_ELASTIC_SCALING_SERVICE, props)}
+    />
+  )
 }

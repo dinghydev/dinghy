@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Genomics } from '@reactiac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { Genomics } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <Genomics/>
 ```

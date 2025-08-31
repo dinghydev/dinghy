@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MasterCallout2 } from '@reactiac/standard-components-diagrams/sysmlRequirements'
+import { MasterCallout2 } from '@diac/standard-components-diagrams/sysmlRequirements'
 
 <MasterCallout2/>
 ```

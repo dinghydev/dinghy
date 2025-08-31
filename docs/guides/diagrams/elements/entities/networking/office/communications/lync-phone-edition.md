@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LyncPhoneEdition } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { LyncPhoneEdition } from '@diac/standard-components-diagrams/officeCommunications'
 
 <LyncPhoneEdition/>
 ```

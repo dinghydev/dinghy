@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONNECTED_VEHICLE_PLATFORM = {
   _style:
@@ -9,5 +9,11 @@ export const CONNECTED_VEHICLE_PLATFORM = {
 }
 
 export function ConnectedVehiclePlatform(props: DiagramNodeProps) {
-  return <Shape {...CONNECTED_VEHICLE_PLATFORM} {...props} />
+  return (
+    <Shape
+      {...CONNECTED_VEHICLE_PLATFORM}
+      {...props}
+      _style={extendStyle(CONNECTED_VEHICLE_PLATFORM, props)}
+    />
+  )
 }

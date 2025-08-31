@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FC_FUNCTION_COMPUTE = {
   _style:
@@ -9,5 +9,11 @@ export const FC_FUNCTION_COMPUTE = {
 }
 
 export function FcFunctionCompute(props: DiagramNodeProps) {
-  return <Shape {...FC_FUNCTION_COMPUTE} {...props} />
+  return (
+    <Shape
+      {...FC_FUNCTION_COMPUTE}
+      {...props}
+      _style={extendStyle(FC_FUNCTION_COMPUTE, props)}
+    />
+  )
 }

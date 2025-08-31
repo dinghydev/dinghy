@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ATM_ROUTER = {
   _style:
@@ -9,5 +9,7 @@ export const ATM_ROUTER = {
 }
 
 export function AtmRouter(props: DiagramNodeProps) {
-  return <Shape {...ATM_ROUTER} {...props} />
+  return (
+    <Shape {...ATM_ROUTER} {...props} _style={extendStyle(ATM_ROUTER, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Trigger } from '@reactiac/standard-components-diagrams/uml25'
+import { Trigger } from '@diac/standard-components-diagrams/uml25'
 
 <Trigger/>
 ```

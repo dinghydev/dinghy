@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NlpWsWordSegmentation } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { NlpWsWordSegmentation } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <NlpWsWordSegmentation/>
 ```

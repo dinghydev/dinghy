@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11970InLineParticle } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11970InLineParticle } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11970InLineParticle/>
 ```

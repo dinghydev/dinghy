@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SENSING_LINK_SQUIB = {
   _style:
@@ -9,5 +9,11 @@ export const SENSING_LINK_SQUIB = {
 }
 
 export function SensingLinkSquib(props: DiagramNodeProps) {
-  return <Shape {...SENSING_LINK_SQUIB} {...props} />
+  return (
+    <Shape
+      {...SENSING_LINK_SQUIB}
+      {...props}
+      _style={extendStyle(SENSING_LINK_SQUIB, props)}
+    />
+  )
 }

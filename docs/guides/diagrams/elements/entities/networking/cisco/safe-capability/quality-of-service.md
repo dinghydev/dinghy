@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { QualityOfService } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { QualityOfService } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <QualityOfService/>
 ```

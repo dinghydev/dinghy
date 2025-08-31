@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MESSAGE_BROKER_3 = {
   _style: 'edgeStyle=none;endArrow=none;dashed=0;html=1;strokeWidth=2;',
@@ -8,5 +8,11 @@ export const MESSAGE_BROKER_3 = {
 }
 
 export function MessageBroker3(props: DiagramNodeProps) {
-  return <Shape {...MESSAGE_BROKER_3} {...props} />
+  return (
+    <Shape
+      {...MESSAGE_BROKER_3}
+      {...props}
+      _style={extendStyle(MESSAGE_BROKER_3, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BANDPASS_FILTER = {
   _style:
@@ -9,5 +9,11 @@ export const BANDPASS_FILTER = {
 }
 
 export function BandpassFilter(props: DiagramNodeProps) {
-  return <Shape {...BANDPASS_FILTER} {...props} />
+  return (
+    <Shape
+      {...BANDPASS_FILTER}
+      {...props}
+      _style={extendStyle(BANDPASS_FILTER, props)}
+    />
+  )
 }

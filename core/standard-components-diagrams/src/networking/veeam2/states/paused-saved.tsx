@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PAUSED_SAVED = {
   _style:
@@ -9,5 +9,11 @@ export const PAUSED_SAVED = {
 }
 
 export function PausedSaved(props: DiagramNodeProps) {
-  return <Shape {...PAUSED_SAVED} {...props} />
+  return (
+    <Shape
+      {...PAUSED_SAVED}
+      {...props}
+      _style={extendStyle(PAUSED_SAVED, props)}
+    />
+  )
 }

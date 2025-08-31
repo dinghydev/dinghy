@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AUTOMATION_TOOLS = {
   _style:
@@ -9,5 +9,11 @@ export const AUTOMATION_TOOLS = {
 }
 
 export function AutomationTools(props: DiagramNodeProps) {
-  return <Shape {...AUTOMATION_TOOLS} {...props} />
+  return (
+    <Shape
+      {...AUTOMATION_TOOLS}
+      {...props}
+      _style={extendStyle(AUTOMATION_TOOLS, props)}
+    />
+  )
 }

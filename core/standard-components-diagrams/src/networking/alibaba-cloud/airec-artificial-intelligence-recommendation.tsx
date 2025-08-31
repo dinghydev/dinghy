@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION = {
   _style:
@@ -11,5 +11,11 @@ export const AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION = {
 export function AirecArtificialIntelligenceRecommendation(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION} {...props} />
+  return (
+    <Shape
+      {...AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION}
+      {...props}
+      _style={extendStyle(AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEFAULT_RELATIONSHIP_CONNECTOR = {
   _style: {
@@ -9,5 +9,11 @@ export const DEFAULT_RELATIONSHIP_CONNECTOR = {
 }
 
 export function DefaultRelationshipConnector(props: DiagramNodeProps) {
-  return <Dependency {...DEFAULT_RELATIONSHIP_CONNECTOR} {...props} />
+  return (
+    <Dependency
+      {...DEFAULT_RELATIONSHIP_CONNECTOR}
+      {...props}
+      _style={extendStyle(DEFAULT_RELATIONSHIP_CONNECTOR, props)}
+    />
+  )
 }

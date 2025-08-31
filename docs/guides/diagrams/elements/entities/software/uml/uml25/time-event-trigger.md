@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TimeEventTrigger } from '@reactiac/standard-components-diagrams/uml25'
+import { TimeEventTrigger } from '@diac/standard-components-diagrams/uml25'
 
 <TimeEventTrigger/>
 ```

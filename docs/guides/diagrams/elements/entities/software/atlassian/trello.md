@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/atlassian/Trello_Logo.svg;strokeColor=none;',
-  _width: 70,
-  _height: 70,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Trello } from '@reactiac/standard-components-diagrams/atlassian'
+import { Trello } from '@diac/standard-components-diagrams/atlassian'
 
 <Trello/>
 ```

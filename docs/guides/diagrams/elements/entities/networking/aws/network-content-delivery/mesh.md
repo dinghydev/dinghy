@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mesh } from '@reactiac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Mesh } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Mesh/>
 ```

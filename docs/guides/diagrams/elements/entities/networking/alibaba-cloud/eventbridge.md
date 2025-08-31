@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Eventbridge } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Eventbridge } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Eventbridge/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADOBE_PDF = {
   _style:
@@ -9,5 +9,7 @@ export const ADOBE_PDF = {
 }
 
 export function AdobePdf(props: DiagramNodeProps) {
-  return <Shape {...ADOBE_PDF} {...props} />
+  return (
+    <Shape {...ADOBE_PDF} {...props} _style={extendStyle(ADOBE_PDF, props)} />
+  )
 }

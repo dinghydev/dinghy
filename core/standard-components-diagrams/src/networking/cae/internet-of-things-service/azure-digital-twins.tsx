@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_DIGITAL_TWINS = {
   _style:
@@ -9,5 +9,11 @@ export const AZURE_DIGITAL_TWINS = {
 }
 
 export function AzureDigitalTwins(props: DiagramNodeProps) {
-  return <Shape {...AZURE_DIGITAL_TWINS} {...props} />
+  return (
+    <Shape
+      {...AZURE_DIGITAL_TWINS}
+      {...props}
+      _style={extendStyle(AZURE_DIGITAL_TWINS, props)}
+    />
+  )
 }

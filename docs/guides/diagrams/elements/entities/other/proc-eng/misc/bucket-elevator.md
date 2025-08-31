@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BucketElevator } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { BucketElevator } from '@diac/standard-components-diagrams/procEngMisc'
 
 <BucketElevator/>
 ```

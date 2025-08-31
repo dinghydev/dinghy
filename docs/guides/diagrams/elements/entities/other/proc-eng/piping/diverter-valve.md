@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiverterValve } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { DiverterValve } from '@diac/standard-components-diagrams/procEngPiping'
 
 <DiverterValve/>
 ```

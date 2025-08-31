@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUSINESS_INTERFACE = {
   _style:
@@ -9,5 +9,11 @@ export const BUSINESS_INTERFACE = {
 }
 
 export function BusinessInterface(props: DiagramNodeProps) {
-  return <Shape {...BUSINESS_INTERFACE} {...props} />
+  return (
+    <Shape
+      {...BUSINESS_INTERFACE}
+      {...props}
+      _style={extendStyle(BUSINESS_INTERFACE, props)}
+    />
+  )
 }

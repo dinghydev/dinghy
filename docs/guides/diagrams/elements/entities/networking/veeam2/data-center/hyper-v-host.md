@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HyperVHost } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { HyperVHost } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <HyperVHost/>
 ```

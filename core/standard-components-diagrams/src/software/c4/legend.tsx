@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LEGEND = {
   _style: {
@@ -12,5 +12,5 @@ export const LEGEND = {
 }
 
 export function Legend(props: DiagramNodeProps) {
-  return <Shape {...LEGEND} {...props} />
+  return <Shape {...LEGEND} {...props} _style={extendStyle(LEGEND, props)} />
 }

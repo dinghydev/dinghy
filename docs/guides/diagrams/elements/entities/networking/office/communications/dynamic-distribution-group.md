@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DynamicDistributionGroup } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { DynamicDistributionGroup } from '@diac/standard-components-diagrams/officeCommunications'
 
 <DynamicDistributionGroup/>
 ```

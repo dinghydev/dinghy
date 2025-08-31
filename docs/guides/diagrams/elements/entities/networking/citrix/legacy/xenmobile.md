@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Xenmobile } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { Xenmobile } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <Xenmobile/>
 ```

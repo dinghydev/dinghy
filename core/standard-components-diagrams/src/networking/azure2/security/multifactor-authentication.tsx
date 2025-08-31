@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTIFACTOR_AUTHENTICATION = {
   _style:
@@ -9,5 +9,11 @@ export const MULTIFACTOR_AUTHENTICATION = {
 }
 
 export function MultifactorAuthentication(props: DiagramNodeProps) {
-  return <Shape {...MULTIFACTOR_AUTHENTICATION} {...props} />
+  return (
+    <Shape
+      {...MULTIFACTOR_AUTHENTICATION}
+      {...props}
+      _style={extendStyle(MULTIFACTOR_AUTHENTICATION, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudComputing } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { CloudComputing } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <CloudComputing/>
 ```

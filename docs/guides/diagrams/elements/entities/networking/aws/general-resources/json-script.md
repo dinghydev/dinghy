@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { JsonScript } from '@reactiac/standard-components-diagrams/awsGeneralResources'
+import { JsonScript } from '@diac/standard-components-diagrams/awsGeneralResources'
 
 <JsonScript/>
 ```

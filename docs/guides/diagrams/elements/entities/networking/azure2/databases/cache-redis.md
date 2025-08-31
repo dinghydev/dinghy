@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CacheRedis } from '@reactiac/standard-components-diagrams/azure2Databases'
+import { CacheRedis } from '@diac/standard-components-diagrams/azure2Databases'
 
 <CacheRedis/>
 ```

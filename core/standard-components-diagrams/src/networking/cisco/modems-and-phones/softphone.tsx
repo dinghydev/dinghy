@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOFTPHONE = {
   _style:
@@ -9,5 +9,7 @@ export const SOFTPHONE = {
 }
 
 export function Softphone(props: DiagramNodeProps) {
-  return <Shape {...SOFTPHONE} {...props} />
+  return (
+    <Shape {...SOFTPHONE} {...props} _style={extendStyle(SOFTPHONE, props)} />
+  )
 }

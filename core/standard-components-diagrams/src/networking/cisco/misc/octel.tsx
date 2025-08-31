@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OCTEL = {
   _style:
@@ -9,5 +9,5 @@ export const OCTEL = {
 }
 
 export function Octel(props: DiagramNodeProps) {
-  return <Shape {...OCTEL} {...props} />
+  return <Shape {...OCTEL} {...props} _style={extendStyle(OCTEL, props)} />
 }

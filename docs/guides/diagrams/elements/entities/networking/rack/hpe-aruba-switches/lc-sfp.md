@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LcSfp } from '@reactiac/standard-components-diagrams/rackHpeArubaSwitches'
+import { LcSfp } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
 
 <LcSfp/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_CATALYST_6504_E_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_CATALYST_6504_E_SWITCH = {
 }
 
 export function CiscoCatalyst6504ESwitch(props: DiagramNodeProps) {
-  return <Shape {...CISCO_CATALYST_6504_E_SWITCH} {...props} />
+  return (
+    <Shape
+      {...CISCO_CATALYST_6504_E_SWITCH}
+      {...props}
+      _style={extendStyle(CISCO_CATALYST_6504_E_SWITCH, props)}
+    />
+  )
 }

@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DESIGNATE_RECORDSET = {
   _style:
     'fillColor=#008000;aspect=fixed;sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;outlineConnect=0;verticalAlign=top;align=center;shape=mxgraph.openstack.designate_recordset;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function DesignateRecordset(props: DiagramNodeProps) {
-  return <Shape {...DESIGNATE_RECORDSET} {...props} />
+  return (
+    <Shape
+      {...DESIGNATE_RECORDSET}
+      {...props}
+      _style={extendStyle(DESIGNATE_RECORDSET, props)}
+    />
+  )
 }

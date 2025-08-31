@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLASHLIGHT = {
   _style:
@@ -9,5 +9,7 @@ export const FLASHLIGHT = {
 }
 
 export function Flashlight(props: DiagramNodeProps) {
-  return <Shape {...FLASHLIGHT} {...props} />
+  return (
+    <Shape {...FLASHLIGHT} {...props} _style={extendStyle(FLASHLIGHT, props)} />
+  )
 }

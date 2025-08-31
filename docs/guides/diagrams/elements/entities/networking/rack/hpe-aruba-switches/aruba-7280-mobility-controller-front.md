@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Aruba7280MobilityControllerFront } from '@reactiac/standard-components-diagrams/rackHpeArubaSwitches'
+import { Aruba7280MobilityControllerFront } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
 
 <Aruba7280MobilityControllerFront/>
 ```

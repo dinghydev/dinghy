@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CmnCloudManagedNetwork } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { CmnCloudManagedNetwork } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <CmnCloudManagedNetwork/>
 ```

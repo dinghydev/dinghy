@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDFRONT = {
   _style:
@@ -9,5 +9,7 @@ export const CLOUDFRONT = {
 }
 
 export function Cloudfront(props: DiagramNodeProps) {
-  return <Shape {...CLOUDFRONT} {...props} />
+  return (
+    <Shape {...CLOUDFRONT} {...props} _style={extendStyle(CLOUDFRONT, props)} />
+  )
 }

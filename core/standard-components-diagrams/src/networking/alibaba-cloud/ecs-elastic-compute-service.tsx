@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ECS_ELASTIC_COMPUTE_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const ECS_ELASTIC_COMPUTE_SERVICE = {
 }
 
 export function EcsElasticComputeService(props: DiagramNodeProps) {
-  return <Shape {...ECS_ELASTIC_COMPUTE_SERVICE} {...props} />
+  return (
+    <Shape
+      {...ECS_ELASTIC_COMPUTE_SERVICE}
+      {...props}
+      _style={extendStyle(ECS_ELASTIC_COMPUTE_SERVICE, props)}
+    />
+  )
 }

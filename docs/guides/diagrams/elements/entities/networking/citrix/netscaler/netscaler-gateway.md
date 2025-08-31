@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetscalerGateway } from '@reactiac/standard-components-diagrams/citrixNetscaler'
+import { NetscalerGateway } from '@diac/standard-components-diagrams/citrixNetscaler'
 
 <NetscalerGateway/>
 ```

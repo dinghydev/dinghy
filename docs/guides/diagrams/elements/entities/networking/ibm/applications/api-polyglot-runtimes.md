@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApiPolyglotRuntimes } from '@reactiac/standard-components-diagrams/ibmApplications'
+import { ApiPolyglotRuntimes } from '@diac/standard-components-diagrams/ibmApplications'
 
 <ApiPolyglotRuntimes/>
 ```

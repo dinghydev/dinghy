@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { PointOfPresence } from '@reactiac/standard-components-diagrams/ibmCloudGroups'
+import { PointOfPresence } from '@diac/standard-components-diagrams/ibmCloudGroups'
 
 <PointOfPresence/>
 ```

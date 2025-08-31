@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUN_WORKSTATION = {
   _style:
@@ -9,5 +9,11 @@ export const SUN_WORKSTATION = {
 }
 
 export function SunWorkstation(props: DiagramNodeProps) {
-  return <Shape {...SUN_WORKSTATION} {...props} />
+  return (
+    <Shape
+      {...SUN_WORKSTATION}
+      {...props}
+      _style={extendStyle(SUN_WORKSTATION, props)}
+    />
+  )
 }

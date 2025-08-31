@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIREPOWER_MANAGEMENT_CENTER = {
   _style:
@@ -9,5 +9,11 @@ export const FIREPOWER_MANAGEMENT_CENTER = {
 }
 
 export function FirepowerManagementCenter(props: DiagramNodeProps) {
-  return <Shape {...FIREPOWER_MANAGEMENT_CENTER} {...props} />
+  return (
+    <Shape
+      {...FIREPOWER_MANAGEMENT_CENTER}
+      {...props}
+      _style={extendStyle(FIREPOWER_MANAGEMENT_CENTER, props)}
+    />
+  )
 }

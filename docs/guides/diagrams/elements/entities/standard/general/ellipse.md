@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ellipse } from '@reactiac/standard-components-diagrams/general'
+import { Ellipse } from '@diac/standard-components-diagrams/general'
 
 <Ellipse/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const QUICKSCROLL = {
   _style:
@@ -9,5 +9,11 @@ export const QUICKSCROLL = {
 }
 
 export function Quickscroll(props: DiagramNodeProps) {
-  return <Shape {...QUICKSCROLL} {...props} />
+  return (
+    <Shape
+      {...QUICKSCROLL}
+      {...props}
+      _style={extendStyle(QUICKSCROLL, props)}
+    />
+  )
 }

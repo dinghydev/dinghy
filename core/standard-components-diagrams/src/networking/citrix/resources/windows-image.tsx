@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WINDOWS_IMAGE = {
   _style:
@@ -9,5 +9,11 @@ export const WINDOWS_IMAGE = {
 }
 
 export function WindowsImage(props: DiagramNodeProps) {
-  return <Shape {...WINDOWS_IMAGE} {...props} />
+  return (
+    <Shape
+      {...WINDOWS_IMAGE}
+      {...props}
+      _style={extendStyle(WINDOWS_IMAGE, props)}
+    />
+  )
 }

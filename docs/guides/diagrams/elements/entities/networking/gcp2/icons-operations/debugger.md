@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Debugger } from '@reactiac/standard-components-diagrams/gcp2IconsOperations'
+import { Debugger } from '@diac/standard-components-diagrams/gcp2IconsOperations'
 
 <Debugger/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAS_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const MAS_GATEWAY = {
 }
 
 export function MasGateway(props: DiagramNodeProps) {
-  return <Shape {...MAS_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...MAS_GATEWAY}
+      {...props}
+      _style={extendStyle(MAS_GATEWAY, props)}
+    />
+  )
 }

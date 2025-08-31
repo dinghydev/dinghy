@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIFELINE = {
   _style: 'shape=rect;html=1;whiteSpace=wrap;align=center;',
@@ -8,5 +8,7 @@ export const LIFELINE = {
 }
 
 export function Lifeline(props: DiagramNodeProps) {
-  return <Shape {...LIFELINE} {...props} />
+  return (
+    <Shape {...LIFELINE} {...props} _style={extendStyle(LIFELINE, props)} />
+  )
 }

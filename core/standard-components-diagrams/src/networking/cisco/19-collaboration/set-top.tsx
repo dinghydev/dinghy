@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SET_TOP = {
   _style:
@@ -9,5 +9,5 @@ export const SET_TOP = {
 }
 
 export function SetTop(props: DiagramNodeProps) {
-  return <Shape {...SET_TOP} {...props} />
+  return <Shape {...SET_TOP} {...props} _style={extendStyle(SET_TOP, props)} />
 }

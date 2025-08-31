@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEARCH_BOX = {
   _style:
@@ -9,5 +9,7 @@ export const SEARCH_BOX = {
 }
 
 export function SearchBox(props: DiagramNodeProps) {
-  return <Shape {...SEARCH_BOX} {...props} />
+  return (
+    <Shape {...SEARCH_BOX} {...props} _style={extendStyle(SEARCH_BOX, props)} />
+  )
 }

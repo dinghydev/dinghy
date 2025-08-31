@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SVX = {
   _style:
@@ -9,5 +9,5 @@ export const SVX = {
 }
 
 export function Svx(props: DiagramNodeProps) {
-  return <Shape {...SVX} {...props} />
+  return <Shape {...SVX} {...props} _style={extendStyle(SVX, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Iso } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { Iso } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <Iso/>
 ```

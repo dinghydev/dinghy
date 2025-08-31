@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OnPremiseHighlight } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { OnPremiseHighlight } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <OnPremiseHighlight/>
 ```

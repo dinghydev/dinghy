@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScratchOut } from '@reactiac/standard-components-diagrams/mockupMarkup'
+import { ScratchOut } from '@diac/standard-components-diagrams/mockupMarkup'
 
 <ScratchOut/>
 ```

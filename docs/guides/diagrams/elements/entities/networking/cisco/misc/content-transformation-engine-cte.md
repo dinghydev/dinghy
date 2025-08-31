@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentTransformationEngineCte } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { ContentTransformationEngineCte } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <ContentTransformationEngineCte/>
 ```

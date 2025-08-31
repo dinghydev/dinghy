@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { AwsIotGreengrassDeployment } from '@reactiac/standard-components-diagrams/awsGroups'
+import { AwsIotGreengrassDeployment } from '@diac/standard-components-diagrams/awsGroups'
 
 <AwsIotGreengrassDeployment/>
 ```

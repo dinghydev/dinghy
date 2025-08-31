@@ -14,7 +14,7 @@ Fusion
 ## Usage
 
 ```
-import { CloudDataFusion } from '@reactiac/standard-components-diagrams/gcp2IconsAnalytics'
+import { CloudDataFusion } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
 
 <CloudDataFusion/>
 ```

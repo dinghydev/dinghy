@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Fisheye } from '@reactiac/standard-components-diagrams/webLogos'
+import { Fisheye } from '@diac/standard-components-diagrams/webLogos'
 
 <Fisheye/>
 ```

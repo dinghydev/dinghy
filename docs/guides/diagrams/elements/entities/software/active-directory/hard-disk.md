@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HardDisk } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { HardDisk } from '@diac/standard-components-diagrams/activeDirectory'
 
 <HardDisk/>
 ```

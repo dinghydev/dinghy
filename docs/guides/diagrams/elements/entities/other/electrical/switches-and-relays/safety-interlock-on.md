@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SafetyInterlockOn } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { SafetyInterlockOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <SafetyInterlockOn/>
 ```

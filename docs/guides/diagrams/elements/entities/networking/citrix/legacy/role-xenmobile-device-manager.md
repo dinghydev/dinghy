@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RoleXenmobileDeviceManager } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { RoleXenmobileDeviceManager } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <RoleXenmobileDeviceManager/>
 ```

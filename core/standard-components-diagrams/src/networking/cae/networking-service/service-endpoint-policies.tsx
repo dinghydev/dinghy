@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SERVICE_ENDPOINT_POLICIES = {
   _style:
@@ -9,5 +9,11 @@ export const SERVICE_ENDPOINT_POLICIES = {
 }
 
 export function ServiceEndpointPolicies(props: DiagramNodeProps) {
-  return <Shape {...SERVICE_ENDPOINT_POLICIES} {...props} />
+  return (
+    <Shape
+      {...SERVICE_ENDPOINT_POLICIES}
+      {...props}
+      _style={extendStyle(SERVICE_ENDPOINT_POLICIES, props)}
+    />
+  )
 }

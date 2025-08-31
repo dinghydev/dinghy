@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERSERVICE_COMMUNICATION = {
   _style:
@@ -9,5 +9,11 @@ export const INTERSERVICE_COMMUNICATION = {
 }
 
 export function InterserviceCommunication(props: DiagramNodeProps) {
-  return <Shape {...INTERSERVICE_COMMUNICATION} {...props} />
+  return (
+    <Shape
+      {...INTERSERVICE_COMMUNICATION}
+      {...props}
+      _style={extendStyle(INTERSERVICE_COMMUNICATION, props)}
+    />
+  )
 }

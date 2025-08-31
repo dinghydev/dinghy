@@ -1,33 +1,23 @@
-import { Shape } from "@reactiac/base-components";
+import { Shape } from "@diac/base-components";
+import { Android } from "@diac/standard-components-diagrams/aws17Sdk";
+import * as awsGeneralResources from "@diac/standard-components-diagrams/awsGeneralResources";
+import * as awsGroups from "@diac/standard-components-diagrams/awsGroups";
+import { PostgreSqlInstance } from "@diac/standard-components-diagrams/awsDatabase";
+import { ApplicationLoadBalancer } from "@diac/standard-components-diagrams/awsNetworkContentDelivery";
+import { Waf } from "@diac/standard-components-diagrams/awsSecurityIdentityCompliance";
 
-import {
-  Android,
-  // ApplicationLoadBalancer,
-  // Client,
-  // GroupAwsCloudAlt,
-  // GroupSecurityGroup,
-  // RdsPostgresqlInstance,
-  // Waf,
-} from "@reactiac/standard-components-diagrams/aws17Sdk";
-
-const Postgres = (props: any) => <RdsPostgresqlInstance {...props} />;
+const Postgres = (props: any) => <PostgreSqlInstance {...props} />;
 
 const WebApp = (props: any) => <Shape {...props} />;
 
-const Client = (props: any) => <Client _dependsOn="Load Balancer" {...props} />;
-
-const Cloud = (props: any) => <GroupAwsCloudAlt {...props} />;
-
-const Subnet = (props: any) => (
-  <GroupSecurityGroup _direction="vertical" {...props} />
-);
+const Cloud = (props: any) => <awsGroups.AwsCloud {...props} />;
 
 const PublicSubnet = (props: any) => (
-  <Subnet _color="#7AA116" _background="#F2F6E8" {...props} />
+  <awsGroups.PublicSubnet _direction="vertical" {...props} />
 );
 
 const PrivateSubnet = (props: any) => (
-  <Subnet _color="#00A4A6" _background="#E6F6F7" {...props} />
+  <awsGroups.PrivateSubnet _direction="vertical" {...props} />
 );
 
 const LoadBalancer = (props: any) => (
@@ -37,10 +27,26 @@ const LoadBalancer = (props: any) => (
   />
 );
 
-const Firewall = (props: any) => <Waf {...props} />;
+const Firewall = (props: any) => (
+  <Waf
+    _style={{
+      strokeColor: "blue",
+      fillColor: "transparent",
+    }}
+    {...props}
+  />
+);
 
 const Application = (props: any) => (
   <Android
+    _dependsOn="Postgres"
+    {...props}
+  />
+);
+
+const Client = (props: any) => (
+  <awsGeneralResources.Client
+    _dependsOn="Load Balancer"
     {...props}
   />
 );
@@ -48,7 +54,17 @@ const Application = (props: any) => (
 export function App() {
   return (
     <WebApp>
-      <Application />
+      <Client />
+      <Cloud>
+        <PublicSubnet>
+          <LoadBalancer />
+          <Firewall />
+        </PublicSubnet>
+        <PrivateSubnet>
+          <Application />
+          <Postgres />
+        </PrivateSubnet>
+      </Cloud>
     </WebApp>
   );
 }

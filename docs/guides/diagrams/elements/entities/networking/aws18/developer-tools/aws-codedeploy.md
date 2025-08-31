@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsCodedeploy } from '@reactiac/standard-components-diagrams/aws18DeveloperTools'
+import { AwsCodedeploy } from '@diac/standard-components-diagrams/aws18DeveloperTools'
 
 <AwsCodedeploy/>
 ```

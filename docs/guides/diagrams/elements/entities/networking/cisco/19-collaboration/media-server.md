@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MediaServer } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { MediaServer } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <MediaServer/>
 ```

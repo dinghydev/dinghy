@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChoicePseudoState } from '@reactiac/standard-components-diagrams/sysmlStateMachines'
+import { ChoicePseudoState } from '@diac/standard-components-diagrams/sysmlStateMachines'
 
 <ChoicePseudoState/>
 ```

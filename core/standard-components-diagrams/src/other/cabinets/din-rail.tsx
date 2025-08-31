@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIN_RAIL = {
   _style:
@@ -9,5 +9,7 @@ export const DIN_RAIL = {
 }
 
 export function DinRail(props: DiagramNodeProps) {
-  return <Shape {...DIN_RAIL} {...props} />
+  return (
+    <Shape {...DIN_RAIL} {...props} _style={extendStyle(DIN_RAIL, props)} />
+  )
 }

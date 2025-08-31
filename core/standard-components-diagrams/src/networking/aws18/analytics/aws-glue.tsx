@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_GLUE = {
   _style:
@@ -9,5 +9,7 @@ export const AWS_GLUE = {
 }
 
 export function AwsGlue(props: DiagramNodeProps) {
-  return <Shape {...AWS_GLUE} {...props} />
+  return (
+    <Shape {...AWS_GLUE} {...props} _style={extendStyle(AWS_GLUE, props)} />
+  )
 }

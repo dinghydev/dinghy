@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HP_PROLIANT_BL620C_SERVER_BLADE = {
   _style:
@@ -9,5 +9,11 @@ export const HP_PROLIANT_BL620C_SERVER_BLADE = {
 }
 
 export function HpProliantBl620cServerBlade(props: DiagramNodeProps) {
-  return <Shape {...HP_PROLIANT_BL620C_SERVER_BLADE} {...props} />
+  return (
+    <Shape
+      {...HP_PROLIANT_BL620C_SERVER_BLADE}
+      {...props}
+      _style={extendStyle(HP_PROLIANT_BL620C_SERVER_BLADE, props)}
+    />
+  )
 }

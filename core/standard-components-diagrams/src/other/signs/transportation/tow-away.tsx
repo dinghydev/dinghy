@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TOW_AWAY = {
   _style:
@@ -9,5 +9,7 @@ export const TOW_AWAY = {
 }
 
 export function TowAway(props: DiagramNodeProps) {
-  return <Shape {...TOW_AWAY} {...props} />
+  return (
+    <Shape {...TOW_AWAY} {...props} _style={extendStyle(TOW_AWAY, props)} />
+  )
 }

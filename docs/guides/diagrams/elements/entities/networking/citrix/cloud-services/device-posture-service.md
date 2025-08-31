@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DevicePostureService } from '@reactiac/standard-components-diagrams/citrixCloudServices'
+import { DevicePostureService } from '@diac/standard-components-diagrams/citrixCloudServices'
 
 <DevicePostureService/>
 ```

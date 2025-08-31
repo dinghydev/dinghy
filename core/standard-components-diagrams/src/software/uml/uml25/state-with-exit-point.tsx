@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STATE_WITH_EXIT_POINT = {
   _style:
@@ -9,5 +9,11 @@ export const STATE_WITH_EXIT_POINT = {
 }
 
 export function StateWithExitPoint(props: DiagramNodeProps) {
-  return <Shape {...STATE_WITH_EXIT_POINT} {...props} />
+  return (
+    <Shape
+      {...STATE_WITH_EXIT_POINT}
+      {...props}
+      _style={extendStyle(STATE_WITH_EXIT_POINT, props)}
+    />
+  )
 }

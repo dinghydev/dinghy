@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TrustBoundary } from '@reactiac/standard-components-diagrams/threatModeling'
+import { TrustBoundary } from '@diac/standard-components-diagrams/threatModeling'
 
 <TrustBoundary/>
 ```

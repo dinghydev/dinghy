@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Accent1 } from '@reactiac/standard-components-diagrams/sapConnectors'
+import { Accent1 } from '@diac/standard-components-diagrams/sapConnectors'
 
 <Accent1/>
 ```

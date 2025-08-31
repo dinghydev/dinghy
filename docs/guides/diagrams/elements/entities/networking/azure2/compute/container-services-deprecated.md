@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContainerServicesDeprecated } from '@reactiac/standard-components-diagrams/azure2Compute'
+import { ContainerServicesDeprecated } from '@diac/standard-components-diagrams/azure2Compute'
 
 <ContainerServicesDeprecated/>
 ```

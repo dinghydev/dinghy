@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HANDLE_WITH_CARE = {
   _style:
@@ -9,5 +9,11 @@ export const HANDLE_WITH_CARE = {
 }
 
 export function HandleWithCare(props: DiagramNodeProps) {
-  return <Shape {...HANDLE_WITH_CARE} {...props} />
+  return (
+    <Shape
+      {...HANDLE_WITH_CARE}
+      {...props}
+      _style={extendStyle(HANDLE_WITH_CARE, props)}
+    />
+  )
 }

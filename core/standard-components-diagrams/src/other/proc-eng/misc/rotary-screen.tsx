@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROTARY_SCREEN = {
   _style:
@@ -9,5 +9,11 @@ export const ROTARY_SCREEN = {
 }
 
 export function RotaryScreen(props: DiagramNodeProps) {
-  return <Shape {...ROTARY_SCREEN} {...props} />
+  return (
+    <Shape
+      {...ROTARY_SCREEN}
+      {...props}
+      _style={extendStyle(ROTARY_SCREEN, props)}
+    />
+  )
 }

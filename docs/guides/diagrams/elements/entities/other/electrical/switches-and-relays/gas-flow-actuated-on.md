@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GasFlowActuatedOn } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { GasFlowActuatedOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <GasFlowActuatedOn/>
 ```

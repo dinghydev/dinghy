@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SELECTIVE_CONSUMER = {
   _style:
@@ -9,5 +9,11 @@ export const SELECTIVE_CONSUMER = {
 }
 
 export function SelectiveConsumer(props: DiagramNodeProps) {
-  return <Shape {...SELECTIVE_CONSUMER} {...props} />
+  return (
+    <Shape
+      {...SELECTIVE_CONSUMER}
+      {...props}
+      _style={extendStyle(SELECTIVE_CONSUMER, props)}
+    />
+  )
 }

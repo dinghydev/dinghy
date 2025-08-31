@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KEY_PERMISSIONS_GHOSTED = {
   _style:
@@ -9,5 +9,11 @@ export const KEY_PERMISSIONS_GHOSTED = {
 }
 
 export function KeyPermissionsGhosted(props: DiagramNodeProps) {
-  return <Shape {...KEY_PERMISSIONS_GHOSTED} {...props} />
+  return (
+    <Shape
+      {...KEY_PERMISSIONS_GHOSTED}
+      {...props}
+      _style={extendStyle(KEY_PERMISSIONS_GHOSTED, props)}
+    />
+  )
 }

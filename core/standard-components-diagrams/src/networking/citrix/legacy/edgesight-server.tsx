@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EDGESIGHT_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const EDGESIGHT_SERVER = {
 }
 
 export function EdgesightServer(props: DiagramNodeProps) {
-  return <Shape {...EDGESIGHT_SERVER} {...props} />
+  return (
+    <Shape
+      {...EDGESIGHT_SERVER}
+      {...props}
+      _style={extendStyle(EDGESIGHT_SERVER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Browser } from '@reactiac/standard-components-diagrams/ibmUsers'
+import { Browser } from '@diac/standard-components-diagrams/ibmUsers'
 
 <Browser/>
 ```

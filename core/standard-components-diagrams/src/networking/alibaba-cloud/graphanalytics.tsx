@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GRAPHANALYTICS = {
   _style:
@@ -9,5 +9,11 @@ export const GRAPHANALYTICS = {
 }
 
 export function Graphanalytics(props: DiagramNodeProps) {
-  return <Shape {...GRAPHANALYTICS} {...props} />
+  return (
+    <Shape
+      {...GRAPHANALYTICS}
+      {...props}
+      _style={extendStyle(GRAPHANALYTICS, props)}
+    />
+  )
 }

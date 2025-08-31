@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSORB_1 = {
   _style:
@@ -9,5 +9,7 @@ export const TRANSORB_1 = {
 }
 
 export function Transorb1(props: DiagramNodeProps) {
-  return <Shape {...TRANSORB_1} {...props} />
+  return (
+    <Shape {...TRANSORB_1} {...props} _style={extendStyle(TRANSORB_1, props)} />
+  )
 }

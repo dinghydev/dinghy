@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IBM_1U_FLAT_PANEL_CONSOLE_KIT = {
   _style:
@@ -9,5 +9,11 @@ export const IBM_1U_FLAT_PANEL_CONSOLE_KIT = {
 }
 
 export function Ibm1uFlatPanelConsoleKit(props: DiagramNodeProps) {
-  return <Shape {...IBM_1U_FLAT_PANEL_CONSOLE_KIT} {...props} />
+  return (
+    <Shape
+      {...IBM_1U_FLAT_PANEL_CONSOLE_KIT}
+      {...props}
+      _style={extendStyle(IBM_1U_FLAT_PANEL_CONSOLE_KIT, props)}
+    />
+  )
 }

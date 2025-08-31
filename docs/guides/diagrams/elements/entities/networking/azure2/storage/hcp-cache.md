@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HcpCache } from '@reactiac/standard-components-diagrams/azure2Storage'
+import { HcpCache } from '@diac/standard-components-diagrams/azure2Storage'
 
 <HcpCache/>
 ```

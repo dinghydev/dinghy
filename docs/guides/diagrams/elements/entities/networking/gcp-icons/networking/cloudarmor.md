@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cloudarmor } from '@reactiac/standard-components-diagrams/gcpIconsNetworking'
+import { Cloudarmor } from '@diac/standard-components-diagrams/gcpIconsNetworking'
 
 <Cloudarmor/>
 ```

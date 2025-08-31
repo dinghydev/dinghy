@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10750_QUICK_EXHAUST_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const X10750_QUICK_EXHAUST_VALVE = {
 }
 
 export function X10750QuickExhaustValve(props: DiagramNodeProps) {
-  return <Shape {...X10750_QUICK_EXHAUST_VALVE} {...props} />
+  return (
+    <Shape
+      {...X10750_QUICK_EXHAUST_VALVE}
+      {...props}
+      _style={extendStyle(X10750_QUICK_EXHAUST_VALVE, props)}
+    />
+  )
 }

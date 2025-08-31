@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAML_TOKEN = {
   _style:
@@ -9,5 +9,7 @@ export const SAML_TOKEN = {
 }
 
 export function SamlToken(props: DiagramNodeProps) {
-  return <Shape {...SAML_TOKEN} {...props} />
+  return (
+    <Shape {...SAML_TOKEN} {...props} _style={extendStyle(SAML_TOKEN, props)} />
+  )
 }

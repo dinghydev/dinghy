@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WorkspacesFamilyAmazonWorkspacesCore } from '@reactiac/standard-components-diagrams/awsEndUserComputing'
+import { WorkspacesFamilyAmazonWorkspacesCore } from '@diac/standard-components-diagrams/awsEndUserComputing'
 
 <WorkspacesFamilyAmazonWorkspacesCore/>
 ```

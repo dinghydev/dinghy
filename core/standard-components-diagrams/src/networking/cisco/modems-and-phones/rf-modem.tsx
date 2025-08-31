@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RF_MODEM = {
   _style:
@@ -9,5 +9,7 @@ export const RF_MODEM = {
 }
 
 export function RfModem(props: DiagramNodeProps) {
-  return <Shape {...RF_MODEM} {...props} />
+  return (
+    <Shape {...RF_MODEM} {...props} _style={extendStyle(RF_MODEM, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConveyorBelt } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { ConveyorBelt } from '@diac/standard-components-diagrams/procEngMisc'
 
 <ConveyorBelt/>
 ```

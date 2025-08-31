@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POWERAUTOMATE = {
   _style:
@@ -9,5 +9,11 @@ export const POWERAUTOMATE = {
 }
 
 export function Powerautomate(props: DiagramNodeProps) {
-  return <Shape {...POWERAUTOMATE} {...props} />
+  return (
+    <Shape
+      {...POWERAUTOMATE}
+      {...props}
+      _style={extendStyle(POWERAUTOMATE, props)}
+    />
+  )
 }

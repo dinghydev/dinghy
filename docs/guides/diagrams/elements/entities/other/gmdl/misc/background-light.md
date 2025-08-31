@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BackgroundLight } from '@reactiac/standard-components-diagrams/gmdlMisc'
+import { BackgroundLight } from '@diac/standard-components-diagrams/gmdlMisc'
 
 <BackgroundLight/>
 ```

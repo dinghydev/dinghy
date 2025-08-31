@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IDENTITY_PROVISIONING_2 = {
   _style:
     'shape=mxgraph.sap.icon;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeWidth=1;strokeColor=#D5DADD;fillColor=#EDEFF0;gradientColor=#FCFCFC;gradientDirection=west;aspect=fixed;SAPIcon=Identity_Provisioning',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function IdentityProvisioning2(props: DiagramNodeProps) {
-  return <Shape {...IDENTITY_PROVISIONING_2} {...props} />
+  return (
+    <Shape
+      {...IDENTITY_PROVISIONING_2}
+      {...props}
+      _style={extendStyle(IDENTITY_PROVISIONING_2, props)}
+    />
+  )
 }

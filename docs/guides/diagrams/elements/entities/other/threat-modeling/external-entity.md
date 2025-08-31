@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExternalEntity } from '@reactiac/standard-components-diagrams/threatModeling'
+import { ExternalEntity } from '@diac/standard-components-diagrams/threatModeling'
 
 <ExternalEntity/>
 ```

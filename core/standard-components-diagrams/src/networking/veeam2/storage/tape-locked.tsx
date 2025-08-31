@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TAPE_LOCKED = {
   _style:
@@ -9,5 +9,11 @@ export const TAPE_LOCKED = {
 }
 
 export function TapeLocked(props: DiagramNodeProps) {
-  return <Shape {...TAPE_LOCKED} {...props} />
+  return (
+    <Shape
+      {...TAPE_LOCKED}
+      {...props}
+      _style={extendStyle(TAPE_LOCKED, props)}
+    />
+  )
 }

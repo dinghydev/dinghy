@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ask } from '@reactiac/standard-components-diagrams/webIcons'
+import { Ask } from '@diac/standard-components-diagrams/webIcons'
 
 <Ask/>
 ```

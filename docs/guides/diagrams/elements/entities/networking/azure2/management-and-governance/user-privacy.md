@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UserPrivacy } from '@reactiac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { UserPrivacy } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <UserPrivacy/>
 ```

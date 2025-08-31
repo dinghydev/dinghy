@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SMALL_KITCHEN_TABLE = {
   _style:
@@ -9,5 +9,11 @@ export const SMALL_KITCHEN_TABLE = {
 }
 
 export function SmallKitchenTable(props: DiagramNodeProps) {
-  return <Shape {...SMALL_KITCHEN_TABLE} {...props} />
+  return (
+    <Shape
+      {...SMALL_KITCHEN_TABLE}
+      {...props}
+      _style={extendStyle(SMALL_KITCHEN_TABLE, props)}
+    />
+  )
 }

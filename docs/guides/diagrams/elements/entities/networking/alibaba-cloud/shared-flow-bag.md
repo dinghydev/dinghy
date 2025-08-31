@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SharedFlowBag } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { SharedFlowBag } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <SharedFlowBag/>
 ```

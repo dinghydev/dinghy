@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Channels } from '@reactiac/standard-components-diagrams/salesforcePlatform'
+import { Channels } from '@diac/standard-components-diagrams/salesforcePlatform'
 
 <Channels/>
 ```

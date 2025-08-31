@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLUMN_STAGGERED_BAFFLE_TRAYS = {
   _style:
@@ -9,5 +9,11 @@ export const COLUMN_STAGGERED_BAFFLE_TRAYS = {
 }
 
 export function ColumnStaggeredBaffleTrays(props: DiagramNodeProps) {
-  return <Shape {...COLUMN_STAGGERED_BAFFLE_TRAYS} {...props} />
+  return (
+    <Shape
+      {...COLUMN_STAGGERED_BAFFLE_TRAYS}
+      {...props}
+      _style={extendStyle(COLUMN_STAGGERED_BAFFLE_TRAYS, props)}
+    />
+  )
 }

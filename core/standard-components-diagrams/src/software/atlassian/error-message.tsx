@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ERROR_MESSAGE = {
   _style:
@@ -9,5 +9,11 @@ export const ERROR_MESSAGE = {
 }
 
 export function ErrorMessage(props: DiagramNodeProps) {
-  return <Shape {...ERROR_MESSAGE} {...props} />
+  return (
+    <Shape
+      {...ERROR_MESSAGE}
+      {...props}
+      _style={extendStyle(ERROR_MESSAGE, props)}
+    />
+  )
 }

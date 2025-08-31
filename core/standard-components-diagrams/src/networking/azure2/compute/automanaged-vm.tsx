@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AUTOMANAGED_VM = {
   _style:
@@ -9,5 +9,11 @@ export const AUTOMANAGED_VM = {
 }
 
 export function AutomanagedVm(props: DiagramNodeProps) {
-  return <Shape {...AUTOMANAGED_VM} {...props} />
+  return (
+    <Shape
+      {...AUTOMANAGED_VM}
+      {...props}
+      _style={extendStyle(AUTOMANAGED_VM, props)}
+    />
+  )
 }

@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOLUME_SHADOW_COPY = {
   _style:
     'shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#75B4DB;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.volume_shadow_copy;',
-  _width: 57.2,
-  _height: 57.2,
+  _width: 60,
+  _height: 60,
 }
 
 export function VolumeShadowCopy(props: DiagramNodeProps) {
-  return <Shape {...VOLUME_SHADOW_COPY} {...props} />
+  return (
+    <Shape
+      {...VOLUME_SHADOW_COPY}
+      {...props}
+      _style={extendStyle(VOLUME_SHADOW_COPY, props)}
+    />
+  )
 }

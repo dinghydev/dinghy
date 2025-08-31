@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DottedLine } from '@reactiac/standard-components-diagrams/general'
+import { DottedLine } from '@diac/standard-components-diagrams/general'
 
 <DottedLine/>
 ```

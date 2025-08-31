@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHIP_WITH_TEXT_AND_ICON = {
   _style:
@@ -9,5 +9,11 @@ export const CHIP_WITH_TEXT_AND_ICON = {
 }
 
 export function ChipWithTextAndIcon(props: DiagramNodeProps) {
-  return <Shape {...CHIP_WITH_TEXT_AND_ICON} {...props} />
+  return (
+    <Shape
+      {...CHIP_WITH_TEXT_AND_ICON}
+      {...props}
+      _style={extendStyle(CHIP_WITH_TEXT_AND_ICON, props)}
+    />
+  )
 }

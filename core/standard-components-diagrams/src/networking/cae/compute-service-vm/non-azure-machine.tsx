@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NON_AZURE_MACHINE = {
   _style:
@@ -9,5 +9,11 @@ export const NON_AZURE_MACHINE = {
 }
 
 export function NonAzureMachine(props: DiagramNodeProps) {
-  return <Shape {...NON_AZURE_MACHINE} {...props} />
+  return (
+    <Shape
+      {...NON_AZURE_MACHINE}
+      {...props}
+      _style={extendStyle(NON_AZURE_MACHINE, props)}
+    />
+  )
 }

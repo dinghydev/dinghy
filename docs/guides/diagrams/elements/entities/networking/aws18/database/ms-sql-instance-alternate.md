@@ -15,7 +15,7 @@ alternate
 ## Usage
 
 ```
-import { MsSqlInstanceAlternate } from '@reactiac/standard-components-diagrams/aws18Database'
+import { MsSqlInstanceAlternate } from '@diac/standard-components-diagrams/aws18Database'
 
 <MsSqlInstanceAlternate/>
 ```

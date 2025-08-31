@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PCDN_P2P_CDN = {
   _style:
@@ -9,5 +9,11 @@ export const PCDN_P2P_CDN = {
 }
 
 export function PcdnP2pCdn(props: DiagramNodeProps) {
-  return <Shape {...PCDN_P2P_CDN} {...props} />
+  return (
+    <Shape
+      {...PCDN_P2P_CDN}
+      {...props}
+      _style={extendStyle(PCDN_P2P_CDN, props)}
+    />
+  )
 }

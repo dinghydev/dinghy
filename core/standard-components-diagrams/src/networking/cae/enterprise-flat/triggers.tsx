@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRIGGERS = {
   _style:
@@ -9,5 +9,7 @@ export const TRIGGERS = {
 }
 
 export function Triggers(props: DiagramNodeProps) {
-  return <Shape {...TRIGGERS} {...props} />
+  return (
+    <Shape {...TRIGGERS} {...props} _style={extendStyle(TRIGGERS, props)} />
+  )
 }

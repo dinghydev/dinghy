@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VerticalBackbone } from '@reactiac/standard-components-diagrams/misc'
+import { VerticalBackbone } from '@diac/standard-components-diagrams/misc'
 
 <VerticalBackbone/>
 ```

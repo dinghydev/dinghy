@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIALOG_WITH_SCROLLABLE_LIST_2 = {
   _style:
@@ -9,5 +9,11 @@ export const DIALOG_WITH_SCROLLABLE_LIST_2 = {
 }
 
 export function DialogWithScrollableList2(props: DiagramNodeProps) {
-  return <Shape {...DIALOG_WITH_SCROLLABLE_LIST_2} {...props} />
+  return (
+    <Shape
+      {...DIALOG_WITH_SCROLLABLE_LIST_2}
+      {...props}
+      _style={extendStyle(DIALOG_WITH_SCROLLABLE_LIST_2, props)}
+    />
+  )
 }

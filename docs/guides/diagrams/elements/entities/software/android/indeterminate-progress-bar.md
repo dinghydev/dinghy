@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IndeterminateProgressBar } from '@reactiac/standard-components-diagrams/android'
+import { IndeterminateProgressBar } from '@diac/standard-components-diagrams/android'
 
 <IndeterminateProgressBar/>
 ```

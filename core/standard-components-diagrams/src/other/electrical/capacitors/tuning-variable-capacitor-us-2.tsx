@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TUNING_VARIABLE_CAPACITOR_US_2 = {
   _style:
@@ -9,5 +9,11 @@ export const TUNING_VARIABLE_CAPACITOR_US_2 = {
 }
 
 export function TuningVariableCapacitorUs2(props: DiagramNodeProps) {
-  return <Shape {...TUNING_VARIABLE_CAPACITOR_US_2} {...props} />
+  return (
+    <Shape
+      {...TUNING_VARIABLE_CAPACITOR_US_2}
+      {...props}
+      _style={extendStyle(TUNING_VARIABLE_CAPACITOR_US_2, props)}
+    />
+  )
 }

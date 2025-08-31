@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualDesktopService } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { VirtualDesktopService } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <VirtualDesktopService/>
 ```

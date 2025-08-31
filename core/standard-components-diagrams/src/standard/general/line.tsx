@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LINE = {
   _style: {
@@ -8,5 +8,5 @@ export const LINE = {
 }
 
 export function Line(props: DiagramNodeProps) {
-  return <Dependency {...LINE} {...props} />
+  return <Dependency {...LINE} {...props} _style={extendStyle(LINE, props)} />
 }

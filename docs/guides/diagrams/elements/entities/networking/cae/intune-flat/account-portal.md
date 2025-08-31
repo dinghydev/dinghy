@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AccountPortal } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { AccountPortal } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <AccountPortal/>
 ```

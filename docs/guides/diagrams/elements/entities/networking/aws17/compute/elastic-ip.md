@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticIp } from '@reactiac/standard-components-diagrams/aws17Compute'
+import { ElasticIp } from '@diac/standard-components-diagrams/aws17Compute'
 
 <ElasticIp/>
 ```

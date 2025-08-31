@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AllocatedStereotype } from '@reactiac/standard-components-diagrams/sysmlAllocations'
+import { AllocatedStereotype } from '@diac/standard-components-diagrams/sysmlAllocations'
 
 <AllocatedStereotype/>
 ```

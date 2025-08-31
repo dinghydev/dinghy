@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LINUX_APPS = {
   _style:
@@ -9,5 +9,7 @@ export const LINUX_APPS = {
 }
 
 export function LinuxApps(props: DiagramNodeProps) {
-  return <Shape {...LINUX_APPS} {...props} />
+  return (
+    <Shape {...LINUX_APPS} {...props} _style={extendStyle(LINUX_APPS, props)} />
+  )
 }

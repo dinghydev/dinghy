@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GroundTruth } from '@reactiac/standard-components-diagrams/ibmData'
+import { GroundTruth } from '@diac/standard-components-diagrams/ibmData'
 
 <GroundTruth/>
 ```

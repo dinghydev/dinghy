@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BentUpArrow } from '@reactiac/standard-components-diagrams/arrows'
+import { BentUpArrow } from '@diac/standard-components-diagrams/arrows'
 
 <BentUpArrow/>
 ```

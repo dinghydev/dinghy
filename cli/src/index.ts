@@ -9,6 +9,6 @@ import commands from './commands/index.ts'
 import Debug from 'debug'
 
 if (import.meta.main) {
-  const debug = Debug('reactiac-cli')
+  const debug = Debug('diac-cli')
   cliRun(commands, debug, false)
 }

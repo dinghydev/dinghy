@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Jamespot } from '@reactiac/standard-components-diagrams/webIcons'
+import { Jamespot } from '@diac/standard-components-diagrams/webIcons'
 
 <Jamespot/>
 ```

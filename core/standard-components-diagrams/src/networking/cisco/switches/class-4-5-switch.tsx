@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLASS_4_5_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const CLASS_4_5_SWITCH = {
 }
 
 export function Class45Switch(props: DiagramNodeProps) {
-  return <Shape {...CLASS_4_5_SWITCH} {...props} />
+  return (
+    <Shape
+      {...CLASS_4_5_SWITCH}
+      {...props}
+      _style={extendStyle(CLASS_4_5_SWITCH, props)}
+    />
+  )
 }

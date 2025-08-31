@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PressPiston } from '@reactiac/standard-components-diagrams/procEngShapingMachines'
+import { PressPiston } from '@diac/standard-components-diagrams/procEngShapingMachines'
 
 <PressPiston/>
 ```

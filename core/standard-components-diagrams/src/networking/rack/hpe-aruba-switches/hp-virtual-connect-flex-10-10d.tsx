@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HP_VIRTUAL_CONNECT_FLEX_10_10D = {
   _style:
@@ -9,5 +9,11 @@ export const HP_VIRTUAL_CONNECT_FLEX_10_10D = {
 }
 
 export function HpVirtualConnectFlex1010d(props: DiagramNodeProps) {
-  return <Shape {...HP_VIRTUAL_CONNECT_FLEX_10_10D} {...props} />
+  return (
+    <Shape
+      {...HP_VIRTUAL_CONNECT_FLEX_10_10D}
+      {...props}
+      _style={extendStyle(HP_VIRTUAL_CONNECT_FLEX_10_10D, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PluginRelay } from '@reactiac/standard-components-diagrams/cabinets'
+import { PluginRelay } from '@diac/standard-components-diagrams/cabinets'
 
 <PluginRelay/>
 ```

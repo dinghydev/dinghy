@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudConnectorSap } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { CloudConnectorSap } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <CloudConnectorSap/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UseCase } from '@reactiac/standard-components-diagrams/uml'
+import { UseCase } from '@diac/standard-components-diagrams/uml'
 
 <UseCase/>
 ```

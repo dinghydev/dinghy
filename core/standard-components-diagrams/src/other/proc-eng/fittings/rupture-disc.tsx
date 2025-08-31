@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RUPTURE_DISC = {
   _style:
@@ -9,5 +9,11 @@ export const RUPTURE_DISC = {
 }
 
 export function RuptureDisc(props: DiagramNodeProps) {
-  return <Shape {...RUPTURE_DISC} {...props} />
+  return (
+    <Shape
+      {...RUPTURE_DISC}
+      {...props}
+      _style={extendStyle(RUPTURE_DISC, props)}
+    />
+  )
 }

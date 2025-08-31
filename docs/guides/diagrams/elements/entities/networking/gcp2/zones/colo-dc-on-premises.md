@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ColoDcOnPremises } from '@reactiac/standard-components-diagrams/gcp2Zones'
+import { ColoDcOnPremises } from '@diac/standard-components-diagrams/gcp2Zones'
 
 <ColoDcOnPremises/>
 ```

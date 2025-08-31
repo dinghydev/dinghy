@@ -4,7 +4,7 @@ import {
   ResolvableRecordSchema,
   ResolvableStringSchema,
   Shape,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 
 import { awsProps } from '../index.ts'
 

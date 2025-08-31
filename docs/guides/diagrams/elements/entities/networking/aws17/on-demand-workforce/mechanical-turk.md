@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MechanicalTurk } from '@reactiac/standard-components-diagrams/aws17OnDemandWorkforce'
+import { MechanicalTurk } from '@diac/standard-components-diagrams/aws17OnDemandWorkforce'
 
 <MechanicalTurk/>
 ```

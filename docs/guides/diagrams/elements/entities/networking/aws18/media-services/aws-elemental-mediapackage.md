@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsElementalMediapackage } from '@reactiac/standard-components-diagrams/aws18MediaServices'
+import { AwsElementalMediapackage } from '@diac/standard-components-diagrams/aws18MediaServices'
 
 <AwsElementalMediapackage/>
 ```

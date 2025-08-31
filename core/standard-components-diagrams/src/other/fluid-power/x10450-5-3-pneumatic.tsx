@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10450_5_3_PNEUMATIC = {
   _style:
@@ -9,5 +9,11 @@ export const X10450_5_3_PNEUMATIC = {
 }
 
 export function X1045053Pneumatic(props: DiagramNodeProps) {
-  return <Shape {...X10450_5_3_PNEUMATIC} {...props} />
+  return (
+    <Shape
+      {...X10450_5_3_PNEUMATIC}
+      {...props}
+      _style={extendStyle(X10450_5_3_PNEUMATIC, props)}
+    />
+  )
 }

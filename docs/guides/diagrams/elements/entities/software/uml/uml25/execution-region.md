@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExecutionRegion } from '@reactiac/standard-components-diagrams/uml25'
+import { ExecutionRegion } from '@diac/standard-components-diagrams/uml25'
 
 <ExecutionRegion/>
 ```

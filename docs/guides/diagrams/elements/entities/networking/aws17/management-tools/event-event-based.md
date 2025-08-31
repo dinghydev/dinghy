@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EventEventBased } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { EventEventBased } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <EventEventBased/>
 ```

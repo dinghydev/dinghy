@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRIVATE_KEY = {
   _style:
@@ -9,5 +9,11 @@ export const PRIVATE_KEY = {
 }
 
 export function PrivateKey(props: DiagramNodeProps) {
-  return <Shape {...PRIVATE_KEY} {...props} />
+  return (
+    <Shape
+      {...PRIVATE_KEY}
+      {...props}
+      _style={extendStyle(PRIVATE_KEY, props)}
+    />
+  )
 }

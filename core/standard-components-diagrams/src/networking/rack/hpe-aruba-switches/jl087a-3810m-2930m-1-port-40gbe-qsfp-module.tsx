@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL087A_3810M_2930M_1_PORT_40GBE_QSFP_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const JL087A_3810M_2930M_1_PORT_40GBE_QSFP_MODULE = {
 }
 
 export function Jl087a3810m2930m1Port40gbeQsfpModule(props: DiagramNodeProps) {
-  return <Shape {...JL087A_3810M_2930M_1_PORT_40GBE_QSFP_MODULE} {...props} />
+  return (
+    <Shape
+      {...JL087A_3810M_2930M_1_PORT_40GBE_QSFP_MODULE}
+      {...props}
+      _style={extendStyle(JL087A_3810M_2930M_1_PORT_40GBE_QSFP_MODULE, props)}
+    />
+  )
 }

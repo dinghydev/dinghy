@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOOR_BI_FOLD = {
   _style:
@@ -9,5 +9,11 @@ export const DOOR_BI_FOLD = {
 }
 
 export function DoorBiFold(props: DiagramNodeProps) {
-  return <Shape {...DOOR_BI_FOLD} {...props} />
+  return (
+    <Shape
+      {...DOOR_BI_FOLD}
+      {...props}
+      _style={extendStyle(DOOR_BI_FOLD, props)}
+    />
+  )
 }

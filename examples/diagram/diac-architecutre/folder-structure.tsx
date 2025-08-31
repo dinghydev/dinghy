@@ -1,8 +1,8 @@
-import { Shape } from "@reactiac/base-components";
+import { Shape } from "@diac/base-components";
 
 export function App() {
   return (
-    <ReactIAC>
+    <DIaC>
       <Folder _dependsBy={["engine", "examples"]}>core</Folder>
       <Row _id="second">
         <Folder>engine</Folder>
@@ -19,13 +19,13 @@ export function App() {
         </Folder>
         <Folder>.github</Folder>
       </Row>
-    </ReactIAC>
+    </DIaC>
   );
 }
 
-const ReactIAC = (props: any) => (
+const DIaC = (props: any) => (
   <Shape
-    _title="ReactIAC Top Level Folder Structure"
+    _title="DIaC Top Level Folder Structure"
     _direction={"vertical"}
     {...props}
   />

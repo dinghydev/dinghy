@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GENERIC_BUILDING = {
   _style:
@@ -9,5 +9,11 @@ export const GENERIC_BUILDING = {
 }
 
 export function GenericBuilding(props: DiagramNodeProps) {
-  return <Shape {...GENERIC_BUILDING} {...props} />
+  return (
+    <Shape
+      {...GENERIC_BUILDING}
+      {...props}
+      _style={extendStyle(GENERIC_BUILDING, props)}
+    />
+  )
 }

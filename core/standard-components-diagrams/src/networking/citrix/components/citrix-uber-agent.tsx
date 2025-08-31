@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CITRIX_UBER_AGENT = {
   _style:
@@ -9,5 +9,11 @@ export const CITRIX_UBER_AGENT = {
 }
 
 export function CitrixUberAgent(props: DiagramNodeProps) {
-  return <Shape {...CITRIX_UBER_AGENT} {...props} />
+  return (
+    <Shape
+      {...CITRIX_UBER_AGENT}
+      {...props}
+      _style={extendStyle(CITRIX_UBER_AGENT, props)}
+    />
+  )
 }

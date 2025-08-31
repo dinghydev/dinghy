@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X10730DoubleNonReturn } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X10730DoubleNonReturn } from '@diac/standard-components-diagrams/fluidPower'
 
 <X10730DoubleNonReturn/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MEDIATOR = {
   _style:
@@ -9,5 +9,7 @@ export const MEDIATOR = {
 }
 
 export function Mediator(props: DiagramNodeProps) {
-  return <Shape {...MEDIATOR} {...props} />
+  return (
+    <Shape {...MEDIATOR} {...props} _style={extendStyle(MEDIATOR, props)} />
+  )
 }

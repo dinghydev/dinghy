@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FISH_HATCHERY = {
   _style:
@@ -9,5 +9,11 @@ export const FISH_HATCHERY = {
 }
 
 export function FishHatchery(props: DiagramNodeProps) {
-  return <Shape {...FISH_HATCHERY} {...props} />
+  return (
+    <Shape
+      {...FISH_HATCHERY}
+      {...props}
+      _style={extendStyle(FISH_HATCHERY, props)}
+    />
+  )
 }

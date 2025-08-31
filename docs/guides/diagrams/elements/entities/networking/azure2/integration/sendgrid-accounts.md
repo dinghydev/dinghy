@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SendgridAccounts } from '@reactiac/standard-components-diagrams/azure2Integration'
+import { SendgridAccounts } from '@diac/standard-components-diagrams/azure2Integration'
 
 <SendgridAccounts/>
 ```

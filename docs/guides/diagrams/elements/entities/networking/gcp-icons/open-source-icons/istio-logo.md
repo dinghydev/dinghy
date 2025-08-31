@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IstioLogo } from '@reactiac/standard-components-diagrams/gcpIconsOpenSourceIcons'
+import { IstioLogo } from '@diac/standard-components-diagrams/gcpIconsOpenSourceIcons'
 
 <IstioLogo/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Kneader } from '@reactiac/standard-components-diagrams/procEngMixers'
+import { Kneader } from '@diac/standard-components-diagrams/procEngMixers'
 
 <Kneader/>
 ```

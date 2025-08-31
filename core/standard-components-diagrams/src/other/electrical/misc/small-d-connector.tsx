@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SMALL_D_CONNECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const SMALL_D_CONNECTOR = {
 }
 
 export function SmallDConnector(props: DiagramNodeProps) {
-  return <Shape {...SMALL_D_CONNECTOR} {...props} />
+  return (
+    <Shape
+      {...SMALL_D_CONNECTOR}
+      {...props}
+      _style={extendStyle(SMALL_D_CONNECTOR, props)}
+    />
+  )
 }

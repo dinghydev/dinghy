@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RetentionPolicyTag } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { RetentionPolicyTag } from '@diac/standard-components-diagrams/officeSecurity'
 
 <RetentionPolicyTag/>
 ```

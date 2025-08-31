@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FtpServer } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { FtpServer } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <FtpServer/>
 ```

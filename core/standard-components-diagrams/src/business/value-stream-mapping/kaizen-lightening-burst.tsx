@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KAIZEN_LIGHTENING_BURST = {
   _style:
@@ -9,5 +9,11 @@ export const KAIZEN_LIGHTENING_BURST = {
 }
 
 export function KaizenLighteningBurst(props: DiagramNodeProps) {
-  return <Shape {...KAIZEN_LIGHTENING_BURST} {...props} />
+  return (
+    <Shape
+      {...KAIZEN_LIGHTENING_BURST}
+      {...props}
+      _style={extendStyle(KAIZEN_LIGHTENING_BURST, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLP_AUTOML = {
   _style:
@@ -9,5 +9,7 @@ export const NLP_AUTOML = {
 }
 
 export function NlpAutoml(props: DiagramNodeProps) {
-  return <Shape {...NLP_AUTOML} {...props} />
+  return (
+    <Shape {...NLP_AUTOML} {...props} _style={extendStyle(NLP_AUTOML, props)} />
+  )
 }

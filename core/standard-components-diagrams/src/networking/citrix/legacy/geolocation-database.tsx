@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GEOLOCATION_DATABASE = {
   _style:
@@ -9,5 +9,11 @@ export const GEOLOCATION_DATABASE = {
 }
 
 export function GeolocationDatabase(props: DiagramNodeProps) {
-  return <Shape {...GEOLOCATION_DATABASE} {...props} />
+  return (
+    <Shape
+      {...GEOLOCATION_DATABASE}
+      {...props}
+      _style={extendStyle(GEOLOCATION_DATABASE, props)}
+    />
+  )
 }

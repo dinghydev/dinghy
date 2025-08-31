@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HEAT_EXCHANGER_STRAIGHT_TUBES = {
   _style:
@@ -9,5 +9,11 @@ export const HEAT_EXCHANGER_STRAIGHT_TUBES = {
 }
 
 export function HeatExchangerStraightTubes(props: DiagramNodeProps) {
-  return <Shape {...HEAT_EXCHANGER_STRAIGHT_TUBES} {...props} />
+  return (
+    <Shape
+      {...HEAT_EXCHANGER_STRAIGHT_TUBES}
+      {...props}
+      _style={extendStyle(HEAT_EXCHANGER_STRAIGHT_TUBES, props)}
+    />
+  )
 }

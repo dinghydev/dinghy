@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BandwidthCalculator } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { BandwidthCalculator } from '@diac/standard-components-diagrams/officeConcepts'
 
 <BandwidthCalculator/>
 ```

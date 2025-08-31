@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAS_NETWORK_ATTACHED_STORAGE = {
   _style:
@@ -9,5 +9,11 @@ export const NAS_NETWORK_ATTACHED_STORAGE = {
 }
 
 export function NasNetworkAttachedStorage(props: DiagramNodeProps) {
-  return <Shape {...NAS_NETWORK_ATTACHED_STORAGE} {...props} />
+  return (
+    <Shape
+      {...NAS_NETWORK_ATTACHED_STORAGE}
+      {...props}
+      _style={extendStyle(NAS_NETWORK_ATTACHED_STORAGE, props)}
+    />
+  )
 }

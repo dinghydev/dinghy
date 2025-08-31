@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatePicker4 } from '@reactiac/standard-components-diagrams/atlassian'
+import { DatePicker4 } from '@diac/standard-components-diagrams/atlassian'
 
 <DatePicker4/>
 ```

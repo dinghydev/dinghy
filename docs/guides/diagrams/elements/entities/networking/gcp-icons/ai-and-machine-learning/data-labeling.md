@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataLabeling } from '@reactiac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { DataLabeling } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <DataLabeling/>
 ```

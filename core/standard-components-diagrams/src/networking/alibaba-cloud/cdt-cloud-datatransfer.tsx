@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CDT_CLOUD_DATATRANSFER = {
   _style:
@@ -9,5 +9,11 @@ export const CDT_CLOUD_DATATRANSFER = {
 }
 
 export function CdtCloudDatatransfer(props: DiagramNodeProps) {
-  return <Shape {...CDT_CLOUD_DATATRANSFER} {...props} />
+  return (
+    <Shape
+      {...CDT_CLOUD_DATATRANSFER}
+      {...props}
+      _style={extendStyle(CDT_CLOUD_DATATRANSFER, props)}
+    />
+  )
 }

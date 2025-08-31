@@ -14,7 +14,7 @@ instance
 ## Usage
 
 ```
-import { OracleDbInstance } from '@reactiac/standard-components-diagrams/aws18Database'
+import { OracleDbInstance } from '@diac/standard-components-diagrams/aws18Database'
 
 <OracleDbInstance/>
 ```

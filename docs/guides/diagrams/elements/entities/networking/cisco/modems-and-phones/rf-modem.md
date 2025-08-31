@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RfModem } from '@reactiac/standard-components-diagrams/ciscoModemsAndPhones'
+import { RfModem } from '@diac/standard-components-diagrams/ciscoModemsAndPhones'
 
 <RfModem/>
 ```

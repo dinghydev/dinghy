@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAVBAR_DARK = {
   _style:
@@ -9,5 +9,11 @@ export const NAVBAR_DARK = {
 }
 
 export function NavbarDark(props: DiagramNodeProps) {
-  return <Shape {...NAVBAR_DARK} {...props} />
+  return (
+    <Shape
+      {...NAVBAR_DARK}
+      {...props}
+      _style={extendStyle(NAVBAR_DARK, props)}
+    />
+  )
 }

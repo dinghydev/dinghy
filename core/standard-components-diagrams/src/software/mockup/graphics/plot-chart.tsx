@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLOT_CHART = {
   _style:
@@ -9,5 +9,7 @@ export const PLOT_CHART = {
 }
 
 export function PlotChart(props: DiagramNodeProps) {
-  return <Shape {...PLOT_CHART} {...props} />
+  return (
+    <Shape {...PLOT_CHART} {...props} _style={extendStyle(PLOT_CHART, props)} />
+  )
 }

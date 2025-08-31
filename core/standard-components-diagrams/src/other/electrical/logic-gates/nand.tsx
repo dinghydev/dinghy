@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAND = {
   _style:
@@ -9,5 +9,5 @@ export const NAND = {
 }
 
 export function Nand(props: DiagramNodeProps) {
-  return <Shape {...NAND} {...props} />
+  return <Shape {...NAND} {...props} _style={extendStyle(NAND, props)} />
 }

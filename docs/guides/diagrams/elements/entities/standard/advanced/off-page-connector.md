@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=offPageConnector;whiteSpace=wrap;html=1;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { OffPageConnector } from '@reactiac/standard-components-diagrams/advanced'
+import { OffPageConnector } from '@diac/standard-components-diagrams/advanced'
 
 <OffPageConnector/>
 ```

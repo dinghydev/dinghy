@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DistributionGroup } from '@reactiac/standard-components-diagrams/officeUsers'
+import { DistributionGroup } from '@diac/standard-components-diagrams/officeUsers'
 
 <DistributionGroup/>
 ```

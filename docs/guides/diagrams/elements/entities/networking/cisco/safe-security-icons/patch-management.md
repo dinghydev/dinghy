@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PatchManagement } from '@reactiac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { PatchManagement } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <PatchManagement/>
 ```

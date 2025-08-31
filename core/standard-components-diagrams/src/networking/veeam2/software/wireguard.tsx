@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIREGUARD = {
   _style:
@@ -9,5 +9,7 @@ export const WIREGUARD = {
 }
 
 export function Wireguard(props: DiagramNodeProps) {
-  return <Shape {...WIREGUARD} {...props} />
+  return (
+    <Shape {...WIREGUARD} {...props} _style={extendStyle(WIREGUARD, props)} />
+  )
 }

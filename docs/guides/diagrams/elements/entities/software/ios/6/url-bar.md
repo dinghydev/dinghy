@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UrlBar } from '@reactiac/standard-components-diagrams/ios6'
+import { UrlBar } from '@diac/standard-components-diagrams/ios6'
 
 <UrlBar/>
 ```

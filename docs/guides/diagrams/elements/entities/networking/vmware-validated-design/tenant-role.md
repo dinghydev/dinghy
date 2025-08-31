@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TenantRole } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { TenantRole } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <TenantRole/>
 ```

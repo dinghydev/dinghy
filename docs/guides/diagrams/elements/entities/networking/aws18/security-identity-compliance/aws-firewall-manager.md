@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsFirewallManager } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsFirewallManager } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsFirewallManager/>
 ```

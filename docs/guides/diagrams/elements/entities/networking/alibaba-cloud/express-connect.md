@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExpressConnect } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { ExpressConnect } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <ExpressConnect/>
 ```

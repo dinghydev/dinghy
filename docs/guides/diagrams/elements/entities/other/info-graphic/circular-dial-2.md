@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CircularDial2 } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { CircularDial2 } from '@diac/standard-components-diagrams/infoGraphic'
 
 <CircularDial2/>
 ```

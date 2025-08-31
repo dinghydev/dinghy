@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCRIBD = {
   _style:
@@ -9,5 +9,5 @@ export const SCRIBD = {
 }
 
 export function Scribd(props: DiagramNodeProps) {
-  return <Shape {...SCRIBD} {...props} />
+  return <Shape {...SCRIBD} {...props} _style={extendStyle(SCRIBD, props)} />
 }

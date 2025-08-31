@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FULL_MS_INTEGRATION = {
   _style:
@@ -9,5 +9,11 @@ export const FULL_MS_INTEGRATION = {
 }
 
 export function FullMsIntegration(props: DiagramNodeProps) {
-  return <Shape {...FULL_MS_INTEGRATION} {...props} />
+  return (
+    <Shape
+      {...FULL_MS_INTEGRATION}
+      {...props}
+      _style={extendStyle(FULL_MS_INTEGRATION, props)}
+    />
+  )
 }

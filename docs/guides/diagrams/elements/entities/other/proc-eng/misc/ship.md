@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ship } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { Ship } from '@diac/standard-components-diagrams/procEngMisc'
 
 <Ship/>
 ```

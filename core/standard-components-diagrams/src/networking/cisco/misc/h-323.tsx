@@ -1,13 +1,13 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const H_323 = {
   _style:
     'shape=mxgraph.cisco.misc.h_323;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
-  _width: 51,
-  _height: 51,
+  _width: 60,
+  _height: 60,
 }
 
 export function H323(props: DiagramNodeProps) {
-  return <Shape {...H_323} {...props} />
+  return <Shape {...H_323} {...props} _style={extendStyle(H_323, props)} />
 }

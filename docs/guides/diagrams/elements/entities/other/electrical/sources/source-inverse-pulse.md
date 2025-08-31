@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SourceInversePulse } from '@reactiac/standard-components-diagrams/electricalSources'
+import { SourceInversePulse } from '@diac/standard-components-diagrams/electricalSources'
 
 <SourceInversePulse/>
 ```

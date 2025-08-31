@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SmallKitchenTable } from '@reactiac/standard-components-diagrams/floorPlans'
+import { SmallKitchenTable } from '@diac/standard-components-diagrams/floorPlans'
 
 <SmallKitchenTable/>
 ```

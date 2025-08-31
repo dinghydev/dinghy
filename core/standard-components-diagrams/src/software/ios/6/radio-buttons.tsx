@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RADIO_BUTTONS = {
   _style:
@@ -9,5 +9,11 @@ export const RADIO_BUTTONS = {
 }
 
 export function RadioButtons(props: DiagramNodeProps) {
-  return <Shape {...RADIO_BUTTONS} {...props} />
+  return (
+    <Shape
+      {...RADIO_BUTTONS}
+      {...props}
+      _style={extendStyle(RADIO_BUTTONS, props)}
+    />
+  )
 }

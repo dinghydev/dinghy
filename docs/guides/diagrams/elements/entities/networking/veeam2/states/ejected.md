@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ejected } from '@reactiac/standard-components-diagrams/veeam2States'
+import { Ejected } from '@diac/standard-components-diagrams/veeam2States'
 
 <Ejected/>
 ```

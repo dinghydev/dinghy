@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AVAILABILITY_ORCHESTRATOR = {
   _style:
@@ -9,5 +9,11 @@ export const AVAILABILITY_ORCHESTRATOR = {
 }
 
 export function AvailabilityOrchestrator(props: DiagramNodeProps) {
-  return <Shape {...AVAILABILITY_ORCHESTRATOR} {...props} />
+  return (
+    <Shape
+      {...AVAILABILITY_ORCHESTRATOR}
+      {...props}
+      _style={extendStyle(AVAILABILITY_ORCHESTRATOR, props)}
+    />
+  )
 }

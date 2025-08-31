@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JK_FLIP_FLOP = {
   _style:
@@ -9,5 +9,11 @@ export const JK_FLIP_FLOP = {
 }
 
 export function JkFlipFlop(props: DiagramNodeProps) {
-  return <Shape {...JK_FLIP_FLOP} {...props} />
+  return (
+    <Shape
+      {...JK_FLIP_FLOP}
+      {...props}
+      _style={extendStyle(JK_FLIP_FLOP, props)}
+    />
+  )
 }

@@ -1,13 +1,15 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STOCK_UP = {
   _style:
     'image;html=1;image=img/lib/clip_art/finance/Stock_Up_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 
 export function StockUp(props: DiagramNodeProps) {
-  return <Shape {...STOCK_UP} {...props} />
+  return (
+    <Shape {...STOCK_UP} {...props} _style={extendStyle(STOCK_UP, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDUCED_DRAFT_COOLING_TOWER = {
   _style:
@@ -9,5 +9,11 @@ export const INDUCED_DRAFT_COOLING_TOWER = {
 }
 
 export function InducedDraftCoolingTower(props: DiagramNodeProps) {
-  return <Shape {...INDUCED_DRAFT_COOLING_TOWER} {...props} />
+  return (
+    <Shape
+      {...INDUCED_DRAFT_COOLING_TOWER}
+      {...props}
+      _style={extendStyle(INDUCED_DRAFT_COOLING_TOWER, props)}
+    />
+  )
 }

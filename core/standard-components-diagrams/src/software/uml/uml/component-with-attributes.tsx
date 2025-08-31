@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_WITH_ATTRIBUTES = {
   _style: 'align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;',
@@ -8,5 +8,11 @@ export const COMPONENT_WITH_ATTRIBUTES = {
 }
 
 export function ComponentWithAttributes(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_WITH_ATTRIBUTES} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_WITH_ATTRIBUTES}
+      {...props}
+      _style={extendStyle(COMPONENT_WITH_ATTRIBUTES, props)}
+    />
+  )
 }

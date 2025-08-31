@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TelecommuterHousePc } from '@reactiac/standard-components-diagrams/ciscoBuildings'
+import { TelecommuterHousePc } from '@diac/standard-components-diagrams/ciscoBuildings'
 
 <TelecommuterHousePc/>
 ```

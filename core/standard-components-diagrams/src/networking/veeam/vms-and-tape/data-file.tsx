@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATA_FILE = {
   _style:
@@ -9,5 +9,7 @@ export const DATA_FILE = {
 }
 
 export function DataFile(props: DiagramNodeProps) {
-  return <Shape {...DATA_FILE} {...props} />
+  return (
+    <Shape {...DATA_FILE} {...props} _style={extendStyle(DATA_FILE, props)} />
+  )
 }

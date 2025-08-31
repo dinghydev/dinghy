@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JSON_SCRIPT = {
   _style:
@@ -9,5 +9,11 @@ export const JSON_SCRIPT = {
 }
 
 export function JsonScript(props: DiagramNodeProps) {
-  return <Shape {...JSON_SCRIPT} {...props} />
+  return (
+    <Shape
+      {...JSON_SCRIPT}
+      {...props}
+      _style={extendStyle(JSON_SCRIPT, props)}
+    />
+  )
 }

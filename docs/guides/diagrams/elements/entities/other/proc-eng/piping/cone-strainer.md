@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConeStrainer } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { ConeStrainer } from '@diac/standard-components-diagrams/procEngPiping'
 
 <ConeStrainer/>
 ```

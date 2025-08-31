@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STREAM = {
   _style:
@@ -9,5 +9,5 @@ export const STREAM = {
 }
 
 export function Stream(props: DiagramNodeProps) {
-  return <Shape {...STREAM} {...props} />
+  return <Shape {...STREAM} {...props} _style={extendStyle(STREAM, props)} />
 }

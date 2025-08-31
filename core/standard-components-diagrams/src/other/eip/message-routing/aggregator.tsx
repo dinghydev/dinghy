@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AGGREGATOR = {
   _style:
@@ -9,5 +9,7 @@ export const AGGREGATOR = {
 }
 
 export function Aggregator(props: DiagramNodeProps) {
-  return <Shape {...AGGREGATOR} {...props} />
+  return (
+    <Shape {...AGGREGATOR} {...props} _style={extendStyle(AGGREGATOR, props)} />
+  )
 }

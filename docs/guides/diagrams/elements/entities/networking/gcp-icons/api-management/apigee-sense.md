@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApigeeSense } from '@reactiac/standard-components-diagrams/gcpIconsApiManagement'
+import { ApigeeSense } from '@diac/standard-components-diagrams/gcpIconsApiManagement'
 
 <ApigeeSense/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLUEPRINT = {
   _style:
@@ -9,5 +9,7 @@ export const BLUEPRINT = {
 }
 
 export function Blueprint(props: DiagramNodeProps) {
-  return <Shape {...BLUEPRINT} {...props} />
+  return (
+    <Shape {...BLUEPRINT} {...props} _style={extendStyle(BLUEPRINT, props)} />
+  )
 }

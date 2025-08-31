@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEPENDENCY_RELATIONSHIP = {
   _style: {
@@ -8,5 +8,11 @@ export const DEPENDENCY_RELATIONSHIP = {
 }
 
 export function DependencyRelationship(props: DiagramNodeProps) {
-  return <Dependency {...DEPENDENCY_RELATIONSHIP} {...props} />
+  return (
+    <Dependency
+      {...DEPENDENCY_RELATIONSHIP}
+      {...props}
+      _style={extendStyle(DEPENDENCY_RELATIONSHIP, props)}
+    />
+  )
 }

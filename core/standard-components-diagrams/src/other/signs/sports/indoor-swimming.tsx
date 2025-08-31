@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDOOR_SWIMMING = {
   _style:
@@ -9,5 +9,11 @@ export const INDOOR_SWIMMING = {
 }
 
 export function IndoorSwimming(props: DiagramNodeProps) {
-  return <Shape {...INDOOR_SWIMMING} {...props} />
+  return (
+    <Shape
+      {...INDOOR_SWIMMING}
+      {...props}
+      _style={extendStyle(INDOOR_SWIMMING, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEB_SERVER_ORANGE = {
   _style:
@@ -9,5 +9,11 @@ export const WEB_SERVER_ORANGE = {
 }
 
 export function WebServerOrange(props: DiagramNodeProps) {
-  return <Shape {...WEB_SERVER_ORANGE} {...props} />
+  return (
+    <Shape
+      {...WEB_SERVER_ORANGE}
+      {...props}
+      _style={extendStyle(WEB_SERVER_ORANGE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VeeamReversedIncrementalBackup } from '@reactiac/standard-components-diagrams/veeam2Storage'
+import { VeeamReversedIncrementalBackup } from '@diac/standard-components-diagrams/veeam2Storage'
 
 <VeeamReversedIncrementalBackup/>
 ```

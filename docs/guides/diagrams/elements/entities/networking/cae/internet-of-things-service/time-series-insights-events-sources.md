@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TimeSeriesInsightsEventsSources } from '@reactiac/standard-components-diagrams/caeInternetOfThingsService'
+import { TimeSeriesInsightsEventsSources } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
 
 <TimeSeriesInsightsEventsSources/>
 ```

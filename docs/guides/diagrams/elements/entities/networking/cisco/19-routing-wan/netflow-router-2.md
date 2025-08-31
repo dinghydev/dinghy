@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetflowRouter2 } from '@reactiac/standard-components-diagrams/cisco19RoutingWan'
+import { NetflowRouter2 } from '@diac/standard-components-diagrams/cisco19RoutingWan'
 
 <NetflowRouter2/>
 ```

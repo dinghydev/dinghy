@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatePickerPortraitDark } from '@reactiac/standard-components-diagrams/gmdlPickers'
+import { DatePickerPortraitDark } from '@diac/standard-components-diagrams/gmdlPickers'
 
 <DatePickerPortraitDark/>
 ```

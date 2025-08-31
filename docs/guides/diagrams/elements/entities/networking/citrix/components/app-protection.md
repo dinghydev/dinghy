@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AppProtection } from '@reactiac/standard-components-diagrams/citrixComponents'
+import { AppProtection } from '@diac/standard-components-diagrams/citrixComponents'
 
 <AppProtection/>
 ```

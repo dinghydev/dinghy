@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BtpBasicLayer } from '@reactiac/standard-components-diagrams/sapComponents'
+import { BtpBasicLayer } from '@diac/standard-components-diagrams/sapComponents'
 
 <BtpBasicLayer/>
 ```

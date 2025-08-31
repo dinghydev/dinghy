@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FuseObsolete } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { FuseObsolete } from '@diac/standard-components-diagrams/electricalMisc'
 
 <FuseObsolete/>
 ```

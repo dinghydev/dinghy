@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT = {
   _style:
@@ -12,6 +12,13 @@ export function OnsmqttMicroMessageQueuingTelemetryTransport(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT} {...props} />
+    <Shape
+      {...ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT}
+      {...props}
+      _style={extendStyle(
+        ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT,
+        props,
+      )}
+    />
   )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GridStyleWithSomeOptions } from '@reactiac/standard-components-diagrams/gmdlBottomSheets'
+import { GridStyleWithSomeOptions } from '@diac/standard-components-diagrams/gmdlBottomSheets'
 
 <GridStyleWithSomeOptions/>
 ```

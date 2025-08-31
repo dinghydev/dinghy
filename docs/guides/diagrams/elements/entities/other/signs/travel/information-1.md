@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.signs.travel.information_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
-  _width: 98,
-  _height: 98,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Information1 } from '@reactiac/standard-components-diagrams/signsTravel'
+import { Information1 } from '@diac/standard-components-diagrams/signsTravel'
 
 <Information1/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SystemContextDiagramTitle } from '@reactiac/standard-components-diagrams/c4'
+import { SystemContextDiagramTitle } from '@diac/standard-components-diagrams/c4'
 
 <SystemContextDiagramTitle/>
 ```

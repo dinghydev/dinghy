@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Fragile } from '@reactiac/standard-components-diagrams/signsSafety'
+import { Fragile } from '@diac/standard-components-diagrams/signsSafety'
 
 <Fragile/>
 ```

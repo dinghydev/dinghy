@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IRONPORT = {
   _style:
@@ -9,5 +9,7 @@ export const IRONPORT = {
 }
 
 export function Ironport(props: DiagramNodeProps) {
-  return <Shape {...IRONPORT} {...props} />
+  return (
+    <Shape {...IRONPORT} {...props} _style={extendStyle(IRONPORT, props)} />
+  )
 }

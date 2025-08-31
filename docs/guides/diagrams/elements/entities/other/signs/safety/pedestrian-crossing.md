@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.signs.safety.pedestrian_crossing;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
-  _width: 98,
-  _height: 98,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { PedestrianCrossing } from '@reactiac/standard-components-diagrams/signsSafety'
+import { PedestrianCrossing } from '@diac/standard-components-diagrams/signsSafety'
 
 <PedestrianCrossing/>
 ```

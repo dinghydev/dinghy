@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FhirService } from '@reactiac/standard-components-diagrams/azure2Other'
+import { FhirService } from '@diac/standard-components-diagrams/azure2Other'
 
 <FhirService/>
 ```

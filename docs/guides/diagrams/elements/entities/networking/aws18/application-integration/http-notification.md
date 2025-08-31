@@ -14,7 +14,7 @@ notification
 ## Usage
 
 ```
-import { HttpNotification } from '@reactiac/standard-components-diagrams/aws18ApplicationIntegration'
+import { HttpNotification } from '@diac/standard-components-diagrams/aws18ApplicationIntegration'
 
 <HttpNotification/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCRATCH_OUT = {
   _style:
@@ -9,5 +9,11 @@ export const SCRATCH_OUT = {
 }
 
 export function ScratchOut(props: DiagramNodeProps) {
-  return <Shape {...SCRATCH_OUT} {...props} />
+  return (
+    <Shape
+      {...SCRATCH_OUT}
+      {...props}
+      _style={extendStyle(SCRATCH_OUT, props)}
+    />
+  )
 }

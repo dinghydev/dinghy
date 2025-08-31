@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TIME_EVENT = {
   _style:
@@ -9,5 +9,7 @@ export const TIME_EVENT = {
 }
 
 export function TimeEvent(props: DiagramNodeProps) {
-  return <Shape {...TIME_EVENT} {...props} />
+  return (
+    <Shape {...TIME_EVENT} {...props} _style={extendStyle(TIME_EVENT, props)} />
+  )
 }

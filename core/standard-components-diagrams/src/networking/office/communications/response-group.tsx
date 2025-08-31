@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESPONSE_GROUP = {
   _style:
@@ -9,5 +9,11 @@ export const RESPONSE_GROUP = {
 }
 
 export function ResponseGroup(props: DiagramNodeProps) {
-  return <Shape {...RESPONSE_GROUP} {...props} />
+  return (
+    <Shape
+      {...RESPONSE_GROUP}
+      {...props}
+      _style={extendStyle(RESPONSE_GROUP, props)}
+    />
+  )
 }

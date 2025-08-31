@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIRECTION_OF_FLOW = {
   _style: {
@@ -8,5 +8,11 @@ export const DIRECTION_OF_FLOW = {
 }
 
 export function DirectionOfFlow(props: DiagramNodeProps) {
-  return <Dependency {...DIRECTION_OF_FLOW} {...props} />
+  return (
+    <Dependency
+      {...DIRECTION_OF_FLOW}
+      {...props}
+      _style={extendStyle(DIRECTION_OF_FLOW, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET = {
   _style:
@@ -9,5 +9,11 @@ export const SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET = {
 }
 
 export function SeparatorElectrostaticPrecipitatorWet(props: DiagramNodeProps) {
-  return <Shape {...SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET} {...props} />
+  return (
+    <Shape
+      {...SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET}
+      {...props}
+      _style={extendStyle(SEPARATOR_ELECTROSTATIC_PRECIPITATOR_WET, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ClampedFlangeCoupling } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { ClampedFlangeCoupling } from '@diac/standard-components-diagrams/procEngFittings'
 
 <ClampedFlangeCoupling/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PORT_DOUBLE_FLOW_HORIZONTAL = {
   _style: 'html=1;shape=mxgraph.sysml.port;sysMLPortType=doubleH;',
@@ -8,5 +8,11 @@ export const PORT_DOUBLE_FLOW_HORIZONTAL = {
 }
 
 export function PortDoubleFlowHorizontal(props: DiagramNodeProps) {
-  return <Shape {...PORT_DOUBLE_FLOW_HORIZONTAL} {...props} />
+  return (
+    <Shape
+      {...PORT_DOUBLE_FLOW_HORIZONTAL}
+      {...props}
+      _style={extendStyle(PORT_DOUBLE_FLOW_HORIZONTAL, props)}
+    />
+  )
 }

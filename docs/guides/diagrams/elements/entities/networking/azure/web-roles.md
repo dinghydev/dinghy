@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WebRoles } from '@reactiac/standard-components-diagrams/azure'
+import { WebRoles } from '@diac/standard-components-diagrams/azure'
 
 <WebRoles/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEREOTYPE_NOTE_2 = {
   _style: 'shape=rect;fontStyle=1;html=1;whiteSpace=wrap;align=center;',
@@ -8,5 +8,11 @@ export const STEREOTYPE_NOTE_2 = {
 }
 
 export function StereotypeNote2(props: DiagramNodeProps) {
-  return <Shape {...STEREOTYPE_NOTE_2} {...props} />
+  return (
+    <Shape
+      {...STEREOTYPE_NOTE_2}
+      {...props}
+      _style={extendStyle(STEREOTYPE_NOTE_2, props)}
+    />
+  )
 }

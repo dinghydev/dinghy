@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIMITS = {
   _style:
@@ -9,5 +9,5 @@ export const LIMITS = {
 }
 
 export function Limits(props: DiagramNodeProps) {
-  return <Shape {...LIMITS} {...props} />
+  return <Shape {...LIMITS} {...props} _style={extendStyle(LIMITS, props)} />
 }

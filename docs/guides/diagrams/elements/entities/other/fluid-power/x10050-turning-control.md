@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X10050TurningControl } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X10050TurningControl } from '@diac/standard-components-diagrams/fluidPower'
 
 <X10050TurningControl/>
 ```

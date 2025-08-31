@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OOB_RMP = {
   _style: {
@@ -9,5 +9,7 @@ export const OOB_RMP = {
 }
 
 export function OobRmp(props: DiagramNodeProps) {
-  return <Dependency {...OOB_RMP} {...props} />
+  return (
+    <Dependency {...OOB_RMP} {...props} _style={extendStyle(OOB_RMP, props)} />
+  )
 }

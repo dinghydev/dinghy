@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CITEULIKE = {
   _style:
@@ -9,5 +9,7 @@ export const CITEULIKE = {
 }
 
 export function Citeulike(props: DiagramNodeProps) {
-  return <Shape {...CITEULIKE} {...props} />
+  return (
+    <Shape {...CITEULIKE} {...props} _style={extendStyle(CITEULIKE, props)} />
+  )
 }

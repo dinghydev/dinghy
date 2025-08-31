@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RadioButtonOnHover } from '@reactiac/standard-components-diagrams/gmdlSelectionControls'
+import { RadioButtonOnHover } from '@diac/standard-components-diagrams/gmdlSelectionControls'
 
 <RadioButtonOnHover/>
 ```

@@ -14,7 +14,7 @@ standby
 ## Usage
 
 ```
-import { DbInstanceStandby } from '@reactiac/standard-components-diagrams/aws18Database'
+import { DbInstanceStandby } from '@diac/standard-components-diagrams/aws18Database'
 
 <DbInstanceStandby/>
 ```

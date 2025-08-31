@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeviceConfiguration } from '@reactiac/standard-components-diagrams/azure2Intune'
+import { DeviceConfiguration } from '@diac/standard-components-diagrams/azure2Intune'
 
 <DeviceConfiguration/>
 ```

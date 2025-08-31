@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Administrator } from '@reactiac/standard-components-diagrams/officeUsers'
+import { Administrator } from '@diac/standard-components-diagrams/officeUsers'
 
 <Administrator/>
 ```

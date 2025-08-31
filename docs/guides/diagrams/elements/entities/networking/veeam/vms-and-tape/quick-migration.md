@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { QuickMigration } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { QuickMigration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <QuickMigration/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IBM_MINI_AS400 = {
   _style:
@@ -9,5 +9,11 @@ export const IBM_MINI_AS400 = {
 }
 
 export function IbmMiniAs400(props: DiagramNodeProps) {
-  return <Shape {...IBM_MINI_AS400} {...props} />
+  return (
+    <Shape
+      {...IBM_MINI_AS400}
+      {...props}
+      _style={extendStyle(IBM_MINI_AS400, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mongodb } from '@reactiac/standard-components-diagrams/webLogos'
+import { Mongodb } from '@diac/standard-components-diagrams/webLogos'
 
 <Mongodb/>
 ```

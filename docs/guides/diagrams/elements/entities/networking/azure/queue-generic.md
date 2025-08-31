@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { QueueGeneric } from '@reactiac/standard-components-diagrams/azure'
+import { QueueGeneric } from '@diac/standard-components-diagrams/azure'
 
 <QueueGeneric/>
 ```

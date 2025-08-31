@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PublishSubscribeChannel } from '@reactiac/standard-components-diagrams/eipMessagingChannels'
+import { PublishSubscribeChannel } from '@diac/standard-components-diagrams/eipMessagingChannels'
 
 <PublishSubscribeChannel/>
 ```

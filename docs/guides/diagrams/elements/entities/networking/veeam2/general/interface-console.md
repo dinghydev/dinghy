@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InterfaceConsole } from '@reactiac/standard-components-diagrams/veeam2General'
+import { InterfaceConsole } from '@diac/standard-components-diagrams/veeam2General'
 
 <InterfaceConsole/>
 ```

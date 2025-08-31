@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Calendar } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { Calendar } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <Calendar/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Smb } from '@reactiac/standard-components-diagrams/salesforceIndustry'
+import { Smb } from '@diac/standard-components-diagrams/salesforceIndustry'
 
 <Smb/>
 ```

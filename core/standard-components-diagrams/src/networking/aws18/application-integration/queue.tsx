@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const QUEUE = {
   _style:
@@ -9,5 +9,5 @@ export const QUEUE = {
 }
 
 export function Queue(props: DiagramNodeProps) {
-  return <Shape {...QUEUE} {...props} />
+  return <Shape {...QUEUE} {...props} _style={extendStyle(QUEUE, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_GPU = {
   _style:
@@ -9,5 +9,7 @@ export const CLOUD_GPU = {
 }
 
 export function CloudGpu(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_GPU} {...props} />
+  return (
+    <Shape {...CLOUD_GPU} {...props} _style={extendStyle(CLOUD_GPU, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AiHub } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AiHub } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AiHub/>
 ```

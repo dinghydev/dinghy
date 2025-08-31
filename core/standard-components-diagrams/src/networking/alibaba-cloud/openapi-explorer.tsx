@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPENAPI_EXPLORER = {
   _style:
@@ -9,5 +9,11 @@ export const OPENAPI_EXPLORER = {
 }
 
 export function OpenapiExplorer(props: DiagramNodeProps) {
-  return <Shape {...OPENAPI_EXPLORER} {...props} />
+  return (
+    <Shape
+      {...OPENAPI_EXPLORER}
+      {...props}
+      _style={extendStyle(OPENAPI_EXPLORER, props)}
+    />
+  )
 }

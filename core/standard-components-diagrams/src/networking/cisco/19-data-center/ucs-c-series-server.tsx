@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UCS_C_SERIES_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const UCS_C_SERIES_SERVER = {
 }
 
 export function UcsCSeriesServer(props: DiagramNodeProps) {
-  return <Shape {...UCS_C_SERIES_SERVER} {...props} />
+  return (
+    <Shape
+      {...UCS_C_SERIES_SERVER}
+      {...props}
+      _style={extendStyle(UCS_C_SERIES_SERVER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INSTANCE_SPECIFICATION_2 = {
   _style:
@@ -9,5 +9,11 @@ export const INSTANCE_SPECIFICATION_2 = {
 }
 
 export function InstanceSpecification2(props: DiagramNodeProps) {
-  return <Shape {...INSTANCE_SPECIFICATION_2} {...props} />
+  return (
+    <Shape
+      {...INSTANCE_SPECIFICATION_2}
+      {...props}
+      _style={extendStyle(INSTANCE_SPECIFICATION_2, props)}
+    />
+  )
 }

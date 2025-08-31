@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MQC_MOBILE_QUALITY_CENTER = {
   _style:
@@ -9,5 +9,11 @@ export const MQC_MOBILE_QUALITY_CENTER = {
 }
 
 export function MqcMobileQualityCenter(props: DiagramNodeProps) {
-  return <Shape {...MQC_MOBILE_QUALITY_CENTER} {...props} />
+  return (
+    <Shape
+      {...MQC_MOBILE_QUALITY_CENTER}
+      {...props}
+      _style={extendStyle(MQC_MOBILE_QUALITY_CENTER, props)}
+    />
+  )
 }

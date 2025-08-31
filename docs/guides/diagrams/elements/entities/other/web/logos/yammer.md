@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Yammer } from '@reactiac/standard-components-diagrams/webLogos'
+import { Yammer } from '@diac/standard-components-diagrams/webLogos'
 
 <Yammer/>
 ```

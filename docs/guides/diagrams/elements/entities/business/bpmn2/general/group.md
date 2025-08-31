@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Group } from '@reactiac/standard-components-diagrams/bpmn2General'
+import { Group } from '@diac/standard-components-diagrams/bpmn2General'
 
 <Group/>
 ```

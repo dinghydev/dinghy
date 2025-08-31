@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Weheartit } from '@reactiac/standard-components-diagrams/webIcons'
+import { Weheartit } from '@diac/standard-components-diagrams/webIcons'
 
 <Weheartit/>
 ```

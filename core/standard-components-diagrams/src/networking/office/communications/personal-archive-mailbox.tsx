@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PERSONAL_ARCHIVE_MAILBOX = {
   _style:
@@ -9,5 +9,11 @@ export const PERSONAL_ARCHIVE_MAILBOX = {
 }
 
 export function PersonalArchiveMailbox(props: DiagramNodeProps) {
-  return <Shape {...PERSONAL_ARCHIVE_MAILBOX} {...props} />
+  return (
+    <Shape
+      {...PERSONAL_ARCHIVE_MAILBOX}
+      {...props}
+      _style={extendStyle(PERSONAL_ARCHIVE_MAILBOX, props)}
+    />
+  )
 }

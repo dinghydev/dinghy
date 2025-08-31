@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REVERSE_PROXY = {
   _style:
@@ -9,5 +9,11 @@ export const REVERSE_PROXY = {
 }
 
 export function ReverseProxy(props: DiagramNodeProps) {
-  return <Shape {...REVERSE_PROXY} {...props} />
+  return (
+    <Shape
+      {...REVERSE_PROXY}
+      {...props}
+      _style={extendStyle(REVERSE_PROXY, props)}
+    />
+  )
 }

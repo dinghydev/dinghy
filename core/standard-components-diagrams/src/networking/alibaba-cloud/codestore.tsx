@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CODESTORE = {
   _style:
@@ -9,5 +9,7 @@ export const CODESTORE = {
 }
 
 export function Codestore(props: DiagramNodeProps) {
-  return <Shape {...CODESTORE} {...props} />
+  return (
+    <Shape {...CODESTORE} {...props} _style={extendStyle(CODESTORE, props)} />
+  )
 }

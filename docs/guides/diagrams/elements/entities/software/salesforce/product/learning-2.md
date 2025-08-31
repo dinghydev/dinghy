@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Learning2 } from '@reactiac/standard-components-diagrams/salesforceProduct'
+import { Learning2 } from '@diac/standard-components-diagrams/salesforceProduct'
 
 <Learning2/>
 ```

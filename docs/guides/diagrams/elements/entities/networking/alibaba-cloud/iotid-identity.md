@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IotidIdentity } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { IotidIdentity } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <IotidIdentity/>
 ```

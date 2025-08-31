@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataboxGateway } from '@reactiac/standard-components-diagrams/azure2Integration'
+import { DataboxGateway } from '@diac/standard-components-diagrams/azure2Integration'
 
 <DataboxGateway/>
 ```

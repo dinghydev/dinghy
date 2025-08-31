@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FACE_RECOGNITION = {
   _style:
@@ -9,5 +9,11 @@ export const FACE_RECOGNITION = {
 }
 
 export function FaceRecognition(props: DiagramNodeProps) {
-  return <Shape {...FACE_RECOGNITION} {...props} />
+  return (
+    <Shape
+      {...FACE_RECOGNITION}
+      {...props}
+      _style={extendStyle(FACE_RECOGNITION, props)}
+    />
+  )
 }

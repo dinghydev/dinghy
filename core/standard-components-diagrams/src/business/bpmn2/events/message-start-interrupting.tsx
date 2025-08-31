@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MESSAGE_START_INTERRUPTING = {
   _style:
     'points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=message;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function MessageStartInterrupting(props: DiagramNodeProps) {
-  return <Shape {...MESSAGE_START_INTERRUPTING} {...props} />
+  return (
+    <Shape
+      {...MESSAGE_START_INTERRUPTING}
+      {...props}
+      _style={extendStyle(MESSAGE_START_INTERRUPTING, props)}
+    />
+  )
 }

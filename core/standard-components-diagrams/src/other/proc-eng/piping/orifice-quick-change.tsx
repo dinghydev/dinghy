@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ORIFICE_QUICK_CHANGE = {
   _style:
@@ -9,5 +9,11 @@ export const ORIFICE_QUICK_CHANGE = {
 }
 
 export function OrificeQuickChange(props: DiagramNodeProps) {
-  return <Shape {...ORIFICE_QUICK_CHANGE} {...props} />
+  return (
+    <Shape
+      {...ORIFICE_QUICK_CHANGE}
+      {...props}
+      _style={extendStyle(ORIFICE_QUICK_CHANGE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OtsTablestore } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { OtsTablestore } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <OtsTablestore/>
 ```

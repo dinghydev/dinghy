@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HYBRID_VOIP_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const HYBRID_VOIP_GATEWAY = {
 }
 
 export function HybridVoipGateway(props: DiagramNodeProps) {
-  return <Shape {...HYBRID_VOIP_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...HYBRID_VOIP_GATEWAY}
+      {...props}
+      _style={extendStyle(HYBRID_VOIP_GATEWAY, props)}
+    />
+  )
 }

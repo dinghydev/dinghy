@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StorsimpleDeviceManagers } from '@reactiac/standard-components-diagrams/azure2Storage'
+import { StorsimpleDeviceManagers } from '@diac/standard-components-diagrams/azure2Storage'
 
 <StorsimpleDeviceManagers/>
 ```

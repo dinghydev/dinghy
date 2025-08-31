@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExchangeHubTransportServerRole } from '@reactiac/standard-components-diagrams/officeServers'
+import { ExchangeHubTransportServerRole } from '@diac/standard-components-diagrams/officeServers'
 
 <ExchangeHubTransportServerRole/>
 ```

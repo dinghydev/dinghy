@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROJECT_TIMESHEET = {
   _style:
@@ -9,5 +9,11 @@ export const PROJECT_TIMESHEET = {
 }
 
 export function ProjectTimesheet(props: DiagramNodeProps) {
-  return <Shape {...PROJECT_TIMESHEET} {...props} />
+  return (
+    <Shape
+      {...PROJECT_TIMESHEET}
+      {...props}
+      _style={extendStyle(PROJECT_TIMESHEET, props)}
+    />
+  )
 }

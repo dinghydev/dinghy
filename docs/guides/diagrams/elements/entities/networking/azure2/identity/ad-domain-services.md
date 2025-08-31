@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AdDomainServices } from '@reactiac/standard-components-diagrams/azure2Identity'
+import { AdDomainServices } from '@diac/standard-components-diagrams/azure2Identity'
 
 <AdDomainServices/>
 ```

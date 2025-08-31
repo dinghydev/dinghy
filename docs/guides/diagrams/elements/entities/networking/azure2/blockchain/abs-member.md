@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AbsMember } from '@reactiac/standard-components-diagrams/azure2Blockchain'
+import { AbsMember } from '@diac/standard-components-diagrams/azure2Blockchain'
 
 <AbsMember/>
 ```

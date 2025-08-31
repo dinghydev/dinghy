@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PBX_SWITCH = {
   _style:
@@ -9,5 +9,7 @@ export const PBX_SWITCH = {
 }
 
 export function PbxSwitch(props: DiagramNodeProps) {
-  return <Shape {...PBX_SWITCH} {...props} />
+  return (
+    <Shape {...PBX_SWITCH} {...props} _style={extendStyle(PBX_SWITCH, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SINE_WAVE = {
   _style:
@@ -9,5 +9,7 @@ export const SINE_WAVE = {
 }
 
 export function SineWave(props: DiagramNodeProps) {
-  return <Shape {...SINE_WAVE} {...props} />
+  return (
+    <Shape {...SINE_WAVE} {...props} _style={extendStyle(SINE_WAVE, props)} />
+  )
 }

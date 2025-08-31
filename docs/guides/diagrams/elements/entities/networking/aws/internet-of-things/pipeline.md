@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pipeline } from '@reactiac/standard-components-diagrams/awsInternetOfThings'
+import { Pipeline } from '@diac/standard-components-diagrams/awsInternetOfThings'
 
 <Pipeline/>
 ```

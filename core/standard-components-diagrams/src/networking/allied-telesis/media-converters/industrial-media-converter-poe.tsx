@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDUSTRIAL_MEDIA_CONVERTER_POE = {
   _style:
@@ -9,5 +9,11 @@ export const INDUSTRIAL_MEDIA_CONVERTER_POE = {
 }
 
 export function IndustrialMediaConverterPoe(props: DiagramNodeProps) {
-  return <Shape {...INDUSTRIAL_MEDIA_CONVERTER_POE} {...props} />
+  return (
+    <Shape
+      {...INDUSTRIAL_MEDIA_CONVERTER_POE}
+      {...props}
+      _style={extendStyle(INDUSTRIAL_MEDIA_CONVERTER_POE, props)}
+    />
+  )
 }

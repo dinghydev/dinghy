@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENVELOPE_WRAPPER = {
   _style:
@@ -9,5 +9,11 @@ export const ENVELOPE_WRAPPER = {
 }
 
 export function EnvelopeWrapper(props: DiagramNodeProps) {
-  return <Shape {...ENVELOPE_WRAPPER} {...props} />
+  return (
+    <Shape
+      {...ENVELOPE_WRAPPER}
+      {...props}
+      _style={extendStyle(ENVELOPE_WRAPPER, props)}
+    />
+  )
 }

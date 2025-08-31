@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalCrossbar } from '@reactiac/standard-components-diagrams/misc'
+import { HorizontalCrossbar } from '@diac/standard-components-diagrams/misc'
 
 <HorizontalCrossbar/>
 ```

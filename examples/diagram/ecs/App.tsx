@@ -3,16 +3,16 @@ import {
   Ec2InstanceContents,
   Region,
   Vpc,
-} from "@reactiac/standard-components-diagrams/awsGroups";
-import { type DiagramNodeProps, Shape } from "@reactiac/base-components";
-import { ApplicationLoadBalancer } from "@reactiac/standard-components-diagrams/awsNetworkContentDelivery";
-import { Client } from "@reactiac/standard-components-diagrams/awsGeneralResources";
-import { Android } from "@reactiac/standard-components-diagrams/aws17Sdk";
+} from "@diac/standard-components-diagrams/awsGroups";
+import { type DiagramNodeProps, Shape } from "@diac/base-components";
+import { ApplicationLoadBalancer } from "@diac/standard-components-diagrams/awsNetworkContentDelivery";
+import { Client } from "@diac/standard-components-diagrams/awsGeneralResources";
+import { Android } from "@diac/standard-components-diagrams/aws17Sdk";
 import {
   ElasticacheForRedis,
   PostgreSqlInstance,
-} from "@reactiac/standard-components-diagrams/awsDatabase";
-import { Waf } from "@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance";
+} from "@diac/standard-components-diagrams/awsDatabase";
+import { Waf } from "@diac/standard-components-diagrams/awsSecurityIdentityCompliance";
 function Stack(props: DiagramNodeProps) {
   return <Shape {...props} />;
 }

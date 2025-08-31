@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Restaurant2 } from '@reactiac/standard-components-diagrams/signsFood'
+import { Restaurant2 } from '@diac/standard-components-diagrams/signsFood'
 
 <Restaurant2/>
 ```

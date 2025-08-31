@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DROP = {
   _style:
@@ -9,5 +9,5 @@ export const DROP = {
 }
 
 export function Drop(props: DiagramNodeProps) {
-  return <Shape {...DROP} {...props} />
+  return <Shape {...DROP} {...props} _style={extendStyle(DROP, props)} />
 }

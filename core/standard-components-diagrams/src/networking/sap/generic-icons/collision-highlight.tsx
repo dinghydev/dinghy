@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLLISION_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const COLLISION_HIGHLIGHT = {
 }
 
 export function CollisionHighlight(props: DiagramNodeProps) {
-  return <Shape {...COLLISION_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...COLLISION_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(COLLISION_HIGHLIGHT, props)}
+    />
+  )
 }

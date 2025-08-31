@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GTM_GLOBAL_TRAFFIC_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const GTM_GLOBAL_TRAFFIC_MANAGER = {
 }
 
 export function GtmGlobalTrafficManager(props: DiagramNodeProps) {
-  return <Shape {...GTM_GLOBAL_TRAFFIC_MANAGER} {...props} />
+  return (
+    <Shape
+      {...GTM_GLOBAL_TRAFFIC_MANAGER}
+      {...props}
+      _style={extendStyle(GTM_GLOBAL_TRAFFIC_MANAGER, props)}
+    />
+  )
 }

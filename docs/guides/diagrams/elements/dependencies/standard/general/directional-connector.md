@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectionalConnector } from '@reactiac/standard-components-diagrams/general'
+import { DirectionalConnector } from '@diac/standard-components-diagrams/general'
 
 <DirectionalConnector/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BottomNavigation } from '@reactiac/standard-components-diagrams/gmdlBottomNavigation'
+import { BottomNavigation } from '@diac/standard-components-diagrams/gmdlBottomNavigation'
 
 <BottomNavigation/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MediaConverterStandalonePoe } from '@reactiac/standard-components-diagrams/alliedTelesisMediaConverters'
+import { MediaConverterStandalonePoe } from '@diac/standard-components-diagrams/alliedTelesisMediaConverters'
 
 <MediaConverterStandalonePoe/>
 ```

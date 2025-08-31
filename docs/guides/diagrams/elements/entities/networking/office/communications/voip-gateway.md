@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VoipGateway } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { VoipGateway } from '@diac/standard-components-diagrams/officeCommunications'
 
 <VoipGateway/>
 ```

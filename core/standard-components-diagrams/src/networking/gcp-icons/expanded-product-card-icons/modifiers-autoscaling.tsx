@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MODIFIERS_AUTOSCALING = {
   _style:
@@ -9,5 +9,11 @@ export const MODIFIERS_AUTOSCALING = {
 }
 
 export function ModifiersAutoscaling(props: DiagramNodeProps) {
-  return <Shape {...MODIFIERS_AUTOSCALING} {...props} />
+  return (
+    <Shape
+      {...MODIFIERS_AUTOSCALING}
+      {...props}
+      _style={extendStyle(MODIFIERS_AUTOSCALING, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BIDIRECTIONAL_CONNECTOR = {
   _style: {
@@ -8,5 +8,11 @@ export const BIDIRECTIONAL_CONNECTOR = {
 }
 
 export function BidirectionalConnector(props: DiagramNodeProps) {
-  return <Dependency {...BIDIRECTIONAL_CONNECTOR} {...props} />
+  return (
+    <Dependency
+      {...BIDIRECTIONAL_CONNECTOR}
+      {...props}
+      _style={extendStyle(BIDIRECTIONAL_CONNECTOR, props)}
+    />
+  )
 }

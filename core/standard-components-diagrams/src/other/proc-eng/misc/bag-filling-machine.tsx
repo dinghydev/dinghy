@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BAG_FILLING_MACHINE = {
   _style:
@@ -9,5 +9,11 @@ export const BAG_FILLING_MACHINE = {
 }
 
 export function BagFillingMachine(props: DiagramNodeProps) {
-  return <Shape {...BAG_FILLING_MACHINE} {...props} />
+  return (
+    <Shape
+      {...BAG_FILLING_MACHINE}
+      {...props}
+      _style={extendStyle(BAG_FILLING_MACHINE, props)}
+    />
+  )
 }

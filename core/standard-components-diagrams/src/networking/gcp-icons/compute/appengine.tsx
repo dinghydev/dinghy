@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const APPENGINE = {
   _style:
@@ -9,5 +9,7 @@ export const APPENGINE = {
 }
 
 export function Appengine(props: DiagramNodeProps) {
-  return <Shape {...APPENGINE} {...props} />
+  return (
+    <Shape {...APPENGINE} {...props} _style={extendStyle(APPENGINE, props)} />
+  )
 }

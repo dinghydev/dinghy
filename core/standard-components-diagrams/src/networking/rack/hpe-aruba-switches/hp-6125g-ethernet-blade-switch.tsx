@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HP_6125G_ETHERNET_BLADE_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const HP_6125G_ETHERNET_BLADE_SWITCH = {
 }
 
 export function Hp6125gEthernetBladeSwitch(props: DiagramNodeProps) {
-  return <Shape {...HP_6125G_ETHERNET_BLADE_SWITCH} {...props} />
+  return (
+    <Shape
+      {...HP_6125G_ETHERNET_BLADE_SWITCH}
+      {...props}
+      _style={extendStyle(HP_6125G_ETHERNET_BLADE_SWITCH, props)}
+    />
+  )
 }

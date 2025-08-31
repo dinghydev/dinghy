@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const YOOLINK = {
   _style:
@@ -9,5 +9,5 @@ export const YOOLINK = {
 }
 
 export function Yoolink(props: DiagramNodeProps) {
-  return <Shape {...YOOLINK} {...props} />
+  return <Shape {...YOOLINK} {...props} _style={extendStyle(YOOLINK, props)} />
 }

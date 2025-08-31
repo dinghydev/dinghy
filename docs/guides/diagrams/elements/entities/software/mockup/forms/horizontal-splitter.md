@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalSplitter } from '@reactiac/standard-components-diagrams/mockupForms'
+import { HorizontalSplitter } from '@diac/standard-components-diagrams/mockupForms'
 
 <HorizontalSplitter/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FISHEYE = {
   _style:
@@ -9,5 +9,5 @@ export const FISHEYE = {
 }
 
 export function Fisheye(props: DiagramNodeProps) {
-  return <Shape {...FISHEYE} {...props} />
+  return <Shape {...FISHEYE} {...props} _style={extendStyle(FISHEYE, props)} />
 }

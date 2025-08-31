@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AutomaticReturn } from '@reactiac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { AutomaticReturn } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <AutomaticReturn/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Photocell } from '@reactiac/standard-components-diagrams/electricalVacuumTubes'
+import { Photocell } from '@diac/standard-components-diagrams/electricalVacuumTubes'
 
 <Photocell/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLUG_SOCKET_CONNECTION = {
   _style:
@@ -9,5 +9,11 @@ export const PLUG_SOCKET_CONNECTION = {
 }
 
 export function PlugSocketConnection(props: DiagramNodeProps) {
-  return <Shape {...PLUG_SOCKET_CONNECTION} {...props} />
+  return (
+    <Shape
+      {...PLUG_SOCKET_CONNECTION}
+      {...props}
+      _style={extendStyle(PLUG_SOCKET_CONNECTION, props)}
+    />
+  )
 }

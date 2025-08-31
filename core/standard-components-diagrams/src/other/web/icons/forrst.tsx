@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FORRST = {
   _style:
@@ -9,5 +9,5 @@ export const FORRST = {
 }
 
 export function Forrst(props: DiagramNodeProps) {
-  return <Shape {...FORRST} {...props} />
+  return <Shape {...FORRST} {...props} _style={extendStyle(FORRST, props)} />
 }

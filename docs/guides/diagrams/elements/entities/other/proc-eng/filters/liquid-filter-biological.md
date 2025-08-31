@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LiquidFilterBiological } from '@reactiac/standard-components-diagrams/procEngFilters'
+import { LiquidFilterBiological } from '@diac/standard-components-diagrams/procEngFilters'
 
 <LiquidFilterBiological/>
 ```

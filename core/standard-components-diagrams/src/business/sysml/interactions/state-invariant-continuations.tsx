@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STATE_INVARIANT_CONTINUATIONS = {
   _style:
@@ -9,5 +9,11 @@ export const STATE_INVARIANT_CONTINUATIONS = {
 }
 
 export function StateInvariantContinuations(props: DiagramNodeProps) {
-  return <Shape {...STATE_INVARIANT_CONTINUATIONS} {...props} />
+  return (
+    <Shape
+      {...STATE_INVARIANT_CONTINUATIONS}
+      {...props}
+      _style={extendStyle(STATE_INVARIANT_CONTINUATIONS, props)}
+    />
+  )
 }

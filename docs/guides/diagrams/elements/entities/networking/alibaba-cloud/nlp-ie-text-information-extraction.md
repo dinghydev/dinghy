@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NlpIeTextInformationExtraction } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { NlpIeTextInformationExtraction } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <NlpIeTextInformationExtraction/>
 ```

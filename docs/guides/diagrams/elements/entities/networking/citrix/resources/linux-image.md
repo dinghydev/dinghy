@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LinuxImage } from '@reactiac/standard-components-diagrams/citrixResources'
+import { LinuxImage } from '@diac/standard-components-diagrams/citrixResources'
 
 <LinuxImage/>
 ```

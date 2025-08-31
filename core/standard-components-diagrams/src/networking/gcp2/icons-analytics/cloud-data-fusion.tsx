@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_DATA_FUSION = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_DATA_FUSION = {
 }
 
 export function CloudDataFusion(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_DATA_FUSION} {...props} />
+  return (
+    <Shape
+      {...CLOUD_DATA_FUSION}
+      {...props}
+      _style={extendStyle(CLOUD_DATA_FUSION, props)}
+    />
+  )
 }

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;align=center;html=1;verticalAlign=top;pointerEvents=1;dashed=0;shape=mxgraph.pid2valves.valve;valveType=gate;actuator=singActing',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { GateValveSingleActingCylinder } from '@reactiac/standard-components-diagrams/procEngValves'
+import { GateValveSingleActingCylinder } from '@diac/standard-components-diagrams/procEngValves'
 
 <GateValveSingleActingCylinder/>
 ```

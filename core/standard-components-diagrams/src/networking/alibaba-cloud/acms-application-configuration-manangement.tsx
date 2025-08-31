@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACMS_APPLICATION_CONFIGURATION_MANANGEMENT = {
   _style:
@@ -11,5 +11,11 @@ export const ACMS_APPLICATION_CONFIGURATION_MANANGEMENT = {
 export function AcmsApplicationConfigurationManangement(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...ACMS_APPLICATION_CONFIGURATION_MANANGEMENT} {...props} />
+  return (
+    <Shape
+      {...ACMS_APPLICATION_CONFIGURATION_MANANGEMENT}
+      {...props}
+      _style={extendStyle(ACMS_APPLICATION_CONFIGURATION_MANANGEMENT, props)}
+    />
+  )
 }

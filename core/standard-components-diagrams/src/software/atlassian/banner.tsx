@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BANNER = {
   _style: 'rounded=0;fillColor=#FFAB00;strokeColor=none;html=1',
@@ -8,5 +8,5 @@ export const BANNER = {
 }
 
 export function Banner(props: DiagramNodeProps) {
-  return <Shape {...BANNER} {...props} />
+  return <Shape {...BANNER} {...props} _style={extendStyle(BANNER, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLOBE_INTERNET = {
   _style:
@@ -9,5 +9,11 @@ export const GLOBE_INTERNET = {
 }
 
 export function GlobeInternet(props: DiagramNodeProps) {
-  return <Shape {...GLOBE_INTERNET} {...props} />
+  return (
+    <Shape
+      {...GLOBE_INTERNET}
+      {...props}
+      _style={extendStyle(GLOBE_INTERNET, props)}
+    />
+  )
 }

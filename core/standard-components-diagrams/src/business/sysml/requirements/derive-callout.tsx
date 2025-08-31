@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DERIVE_CALLOUT = {
   _style: 'endArrow=none;edgeStyle=none;dashed=1;html=1;',
@@ -8,5 +8,11 @@ export const DERIVE_CALLOUT = {
 }
 
 export function DeriveCallout(props: DiagramNodeProps) {
-  return <Shape {...DERIVE_CALLOUT} {...props} />
+  return (
+    <Shape
+      {...DERIVE_CALLOUT}
+      {...props}
+      _style={extendStyle(DERIVE_CALLOUT, props)}
+    />
+  )
 }

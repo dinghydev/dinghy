@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CallSubConversation } from '@reactiac/standard-components-diagrams/bpmn2General'
+import { CallSubConversation } from '@diac/standard-components-diagrams/bpmn2General'
 
 <CallSubConversation/>
 ```

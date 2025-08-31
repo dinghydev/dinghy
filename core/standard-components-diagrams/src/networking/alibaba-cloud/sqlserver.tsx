@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SQLSERVER = {
   _style:
@@ -9,5 +9,7 @@ export const SQLSERVER = {
 }
 
 export function Sqlserver(props: DiagramNodeProps) {
-  return <Shape {...SQLSERVER} {...props} />
+  return (
+    <Shape {...SQLSERVER} {...props} _style={extendStyle(SQLSERVER, props)} />
+  )
 }

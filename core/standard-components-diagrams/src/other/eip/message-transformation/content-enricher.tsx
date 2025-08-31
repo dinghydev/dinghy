@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTENT_ENRICHER = {
   _style:
@@ -9,5 +9,11 @@ export const CONTENT_ENRICHER = {
 }
 
 export function ContentEnricher(props: DiagramNodeProps) {
-  return <Shape {...CONTENT_ENRICHER} {...props} />
+  return (
+    <Shape
+      {...CONTENT_ENRICHER}
+      {...props}
+      _style={extendStyle(CONTENT_ENRICHER, props)}
+    />
+  )
 }

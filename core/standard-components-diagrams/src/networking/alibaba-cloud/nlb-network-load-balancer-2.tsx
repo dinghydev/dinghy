@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLB_NETWORK_LOAD_BALANCER_2 = {
   _style:
@@ -9,5 +9,11 @@ export const NLB_NETWORK_LOAD_BALANCER_2 = {
 }
 
 export function NlbNetworkLoadBalancer2(props: DiagramNodeProps) {
-  return <Shape {...NLB_NETWORK_LOAD_BALANCER_2} {...props} />
+  return (
+    <Shape
+      {...NLB_NETWORK_LOAD_BALANCER_2}
+      {...props}
+      _style={extendStyle(NLB_NETWORK_LOAD_BALANCER_2, props)}
+    />
+  )
 }

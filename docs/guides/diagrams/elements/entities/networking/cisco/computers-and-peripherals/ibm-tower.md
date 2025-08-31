@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IbmTower } from '@reactiac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { IbmTower } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <IbmTower/>
 ```

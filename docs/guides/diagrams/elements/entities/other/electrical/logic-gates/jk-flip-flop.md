@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { JkFlipFlop } from '@reactiac/standard-components-diagrams/electricalLogicGates'
+import { JkFlipFlop } from '@diac/standard-components-diagrams/electricalLogicGates'
 
 <JkFlipFlop/>
 ```

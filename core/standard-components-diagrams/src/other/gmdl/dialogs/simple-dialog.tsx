@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SIMPLE_DIALOG = {
   _style:
@@ -9,5 +9,11 @@ export const SIMPLE_DIALOG = {
 }
 
 export function SimpleDialog(props: DiagramNodeProps) {
-  return <Shape {...SIMPLE_DIALOG} {...props} />
+  return (
+    <Shape
+      {...SIMPLE_DIALOG}
+      {...props}
+      _style={extendStyle(SIMPLE_DIALOG, props)}
+    />
+  )
 }

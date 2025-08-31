@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_VISION_API = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_VISION_API = {
 }
 
 export function CloudVisionApi(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_VISION_API} {...props} />
+  return (
+    <Shape
+      {...CLOUD_VISION_API}
+      {...props}
+      _style={extendStyle(CLOUD_VISION_API, props)}
+    />
+  )
 }

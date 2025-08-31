@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DpstOff } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { DpstOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <DpstOff/>
 ```

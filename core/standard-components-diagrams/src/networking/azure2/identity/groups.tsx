@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GROUPS = {
   _style:
@@ -9,5 +9,5 @@ export const GROUPS = {
 }
 
 export function Groups(props: DiagramNodeProps) {
-  return <Shape {...GROUPS} {...props} />
+  return <Shape {...GROUPS} {...props} _style={extendStyle(GROUPS, props)} />
 }

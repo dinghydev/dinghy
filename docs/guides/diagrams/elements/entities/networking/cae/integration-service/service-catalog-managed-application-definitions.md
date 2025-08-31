@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ServiceCatalogManagedApplicationDefinitions } from '@reactiac/standard-components-diagrams/caeIntegrationService'
+import { ServiceCatalogManagedApplicationDefinitions } from '@diac/standard-components-diagrams/caeIntegrationService'
 
 <ServiceCatalogManagedApplicationDefinitions/>
 ```

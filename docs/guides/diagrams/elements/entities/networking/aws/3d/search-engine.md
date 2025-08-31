@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SearchEngine } from '@reactiac/standard-components-diagrams/aws3d'
+import { SearchEngine } from '@diac/standard-components-diagrams/aws3d'
 
 <SearchEngine/>
 ```

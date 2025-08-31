@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticNetworkAdapter } from '@reactiac/standard-components-diagrams/aws17Compute'
+import { ElasticNetworkAdapter } from '@diac/standard-components-diagrams/aws17Compute'
 
 <ElasticNetworkAdapter/>
 ```

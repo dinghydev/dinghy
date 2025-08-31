@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAS_MOBILE_ACCELERATION_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const MAS_MOBILE_ACCELERATION_SERVICE = {
 }
 
 export function MasMobileAccelerationService(props: DiagramNodeProps) {
-  return <Shape {...MAS_MOBILE_ACCELERATION_SERVICE} {...props} />
+  return (
+    <Shape
+      {...MAS_MOBILE_ACCELERATION_SERVICE}
+      {...props}
+      _style={extendStyle(MAS_MOBILE_ACCELERATION_SERVICE, props)}
+    />
+  )
 }

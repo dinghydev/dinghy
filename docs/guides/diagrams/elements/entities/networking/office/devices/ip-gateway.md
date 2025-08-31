@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IpGateway } from '@reactiac/standard-components-diagrams/officeDevices'
+import { IpGateway } from '@diac/standard-components-diagrams/officeDevices'
 
 <IpGateway/>
 ```

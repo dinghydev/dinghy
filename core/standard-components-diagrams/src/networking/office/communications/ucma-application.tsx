@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UCMA_APPLICATION = {
   _style:
@@ -9,5 +9,11 @@ export const UCMA_APPLICATION = {
 }
 
 export function UcmaApplication(props: DiagramNodeProps) {
-  return <Shape {...UCMA_APPLICATION} {...props} />
+  return (
+    <Shape
+      {...UCMA_APPLICATION}
+      {...props}
+      _style={extendStyle(UCMA_APPLICATION, props)}
+    />
+  )
 }

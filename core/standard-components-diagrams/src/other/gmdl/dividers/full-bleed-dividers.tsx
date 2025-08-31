@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FULL_BLEED_DIVIDERS = {
   _style: 'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=none;',
@@ -8,5 +8,11 @@ export const FULL_BLEED_DIVIDERS = {
 }
 
 export function FullBleedDividers(props: DiagramNodeProps) {
-  return <Shape {...FULL_BLEED_DIVIDERS} {...props} />
+  return (
+    <Shape
+      {...FULL_BLEED_DIVIDERS}
+      {...props}
+      _style={extendStyle(FULL_BLEED_DIVIDERS, props)}
+    />
+  )
 }

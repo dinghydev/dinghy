@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IMPORT_TOOL = {
   _style:
@@ -9,5 +9,11 @@ export const IMPORT_TOOL = {
 }
 
 export function ImportTool(props: DiagramNodeProps) {
-  return <Shape {...IMPORT_TOOL} {...props} />
+  return (
+    <Shape
+      {...IMPORT_TOOL}
+      {...props}
+      _style={extendStyle(IMPORT_TOOL, props)}
+    />
+  )
 }

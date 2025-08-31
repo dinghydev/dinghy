@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POINTER = {
   _style:
@@ -9,5 +9,5 @@ export const POINTER = {
 }
 
 export function Pointer(props: DiagramNodeProps) {
-  return <Shape {...POINTER} {...props} />
+  return <Shape {...POINTER} {...props} _style={extendStyle(POINTER, props)} />
 }

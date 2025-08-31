@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.rackGeneral.cabinetLeg;html=1;shadow=0;dashed=0;fillColor=#444444;strokeColor=#444444;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { CabinetLeg } from '@reactiac/standard-components-diagrams/rackGeneral'
+import { CabinetLeg } from '@diac/standard-components-diagrams/rackGeneral'
 
 <CabinetLeg/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11040_PRESSURE_REDUCING_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const X11040_PRESSURE_REDUCING_VALVE = {
 }
 
 export function X11040PressureReducingValve(props: DiagramNodeProps) {
-  return <Shape {...X11040_PRESSURE_REDUCING_VALVE} {...props} />
+  return (
+    <Shape
+      {...X11040_PRESSURE_REDUCING_VALVE}
+      {...props}
+      _style={extendStyle(X11040_PRESSURE_REDUCING_VALVE, props)}
+    />
+  )
 }

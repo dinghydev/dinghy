@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CreditCard } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { CreditCard } from '@diac/standard-components-diagrams/officeConcepts'
 
 <CreditCard/>
 ```

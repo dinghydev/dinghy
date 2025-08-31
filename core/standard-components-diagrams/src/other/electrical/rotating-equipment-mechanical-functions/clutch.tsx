@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLUTCH = {
   _style:
@@ -9,5 +9,5 @@ export const CLUTCH = {
 }
 
 export function Clutch(props: DiagramNodeProps) {
-  return <Shape {...CLUTCH} {...props} />
+  return <Shape {...CLUTCH} {...props} _style={extendStyle(CLUTCH, props)} />
 }

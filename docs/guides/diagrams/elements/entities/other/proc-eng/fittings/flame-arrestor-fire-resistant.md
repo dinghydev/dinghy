@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.flame_arrestor_(fire-resistant);',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { FlameArrestorFireResistant } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { FlameArrestorFireResistant } from '@diac/standard-components-diagrams/procEngFittings'
 
 <FlameArrestorFireResistant/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IPAD_MINI = {
   _style:
@@ -9,5 +9,7 @@ export const IPAD_MINI = {
 }
 
 export function IpadMini(props: DiagramNodeProps) {
-  return <Shape {...IPAD_MINI} {...props} />
+  return (
+    <Shape {...IPAD_MINI} {...props} _style={extendStyle(IPAD_MINI, props)} />
+  )
 }

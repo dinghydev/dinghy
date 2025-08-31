@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TrainiumInstance } from '@reactiac/standard-components-diagrams/awsCompute'
+import { TrainiumInstance } from '@diac/standard-components-diagrams/awsCompute'
 
 <TrainiumInstance/>
 ```

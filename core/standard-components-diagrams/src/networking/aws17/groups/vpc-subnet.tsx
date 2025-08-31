@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VPC_SUBNET = {
   _style: {
@@ -12,5 +12,7 @@ export const VPC_SUBNET = {
 }
 
 export function VpcSubnet(props: DiagramNodeProps) {
-  return <Shape {...VPC_SUBNET} {...props} />
+  return (
+    <Shape {...VPC_SUBNET} {...props} _style={extendStyle(VPC_SUBNET, props)} />
+  )
 }

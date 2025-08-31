@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Macintosh } from '@reactiac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { Macintosh } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <Macintosh/>
 ```

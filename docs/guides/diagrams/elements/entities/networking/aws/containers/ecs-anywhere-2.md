@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EcsAnywhere2 } from '@reactiac/standard-components-diagrams/awsContainers'
+import { EcsAnywhere2 } from '@diac/standard-components-diagrams/awsContainers'
 
 <EcsAnywhere2/>
 ```

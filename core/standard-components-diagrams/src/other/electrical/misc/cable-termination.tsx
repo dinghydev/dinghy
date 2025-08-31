@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CABLE_TERMINATION = {
   _style:
@@ -9,5 +9,11 @@ export const CABLE_TERMINATION = {
 }
 
 export function CableTermination(props: DiagramNodeProps) {
-  return <Shape {...CABLE_TERMINATION} {...props} />
+  return (
+    <Shape
+      {...CABLE_TERMINATION}
+      {...props}
+      _style={extendStyle(CABLE_TERMINATION, props)}
+    />
+  )
 }

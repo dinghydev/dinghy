@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIEWING_GLASS = {
   _style:
@@ -9,5 +9,11 @@ export const VIEWING_GLASS = {
 }
 
 export function ViewingGlass(props: DiagramNodeProps) {
-  return <Shape {...VIEWING_GLASS} {...props} />
+  return (
+    <Shape
+      {...VIEWING_GLASS}
+      {...props}
+      _style={extendStyle(VIEWING_GLASS, props)}
+    />
+  )
 }

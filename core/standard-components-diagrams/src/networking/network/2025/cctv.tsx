@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CCTV = {
   _style:
@@ -9,5 +9,5 @@ export const CCTV = {
 }
 
 export function Cctv(props: DiagramNodeProps) {
-  return <Shape {...CCTV} {...props} />
+  return <Shape {...CCTV} {...props} _style={extendStyle(CCTV, props)} />
 }

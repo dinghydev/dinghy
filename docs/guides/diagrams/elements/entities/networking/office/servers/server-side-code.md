@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ServerSideCode } from '@reactiac/standard-components-diagrams/officeServers'
+import { ServerSideCode } from '@diac/standard-components-diagrams/officeServers'
 
 <ServerSideCode/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Antibot } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Antibot } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Antibot/>
 ```

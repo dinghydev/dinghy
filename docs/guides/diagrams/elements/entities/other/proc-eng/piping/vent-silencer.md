@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VentSilencer } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { VentSilencer } from '@diac/standard-components-diagrams/procEngPiping'
 
 <VentSilencer/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SERVER_FARM_BLUE = {
   _style:
@@ -9,5 +9,11 @@ export const SERVER_FARM_BLUE = {
 }
 
 export function ServerFarmBlue(props: DiagramNodeProps) {
-  return <Shape {...SERVER_FARM_BLUE} {...props} />
+  return (
+    <Shape
+      {...SERVER_FARM_BLUE}
+      {...props}
+      _style={extendStyle(SERVER_FARM_BLUE, props)}
+    />
+  )
 }

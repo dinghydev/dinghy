@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLP_WS_WORD_SEGMENTATION = {
   _style:
@@ -9,5 +9,11 @@ export const NLP_WS_WORD_SEGMENTATION = {
 }
 
 export function NlpWsWordSegmentation(props: DiagramNodeProps) {
-  return <Shape {...NLP_WS_WORD_SEGMENTATION} {...props} />
+  return (
+    <Shape
+      {...NLP_WS_WORD_SEGMENTATION}
+      {...props}
+      _style={extendStyle(NLP_WS_WORD_SEGMENTATION, props)}
+    />
+  )
 }

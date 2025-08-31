@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOOR_DOUBLE_ACTION = {
   _style:
@@ -9,5 +9,11 @@ export const DOOR_DOUBLE_ACTION = {
 }
 
 export function DoorDoubleAction(props: DiagramNodeProps) {
-  return <Shape {...DOOR_DOUBLE_ACTION} {...props} />
+  return (
+    <Shape
+      {...DOOR_DOUBLE_ACTION}
+      {...props}
+      _style={extendStyle(DOOR_DOUBLE_ACTION, props)}
+    />
+  )
 }

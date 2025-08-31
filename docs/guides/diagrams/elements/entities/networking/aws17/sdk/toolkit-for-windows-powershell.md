@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ToolkitForWindowsPowershell } from '@reactiac/standard-components-diagrams/aws17Sdk'
+import { ToolkitForWindowsPowershell } from '@diac/standard-components-diagrams/aws17Sdk'
 
 <ToolkitForWindowsPowershell/>
 ```

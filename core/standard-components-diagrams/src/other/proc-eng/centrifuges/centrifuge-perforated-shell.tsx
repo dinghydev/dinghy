@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CENTRIFUGE_PERFORATED_SHELL = {
   _style:
@@ -9,5 +9,11 @@ export const CENTRIFUGE_PERFORATED_SHELL = {
 }
 
 export function CentrifugePerforatedShell(props: DiagramNodeProps) {
-  return <Shape {...CENTRIFUGE_PERFORATED_SHELL} {...props} />
+  return (
+    <Shape
+      {...CENTRIFUGE_PERFORATED_SHELL}
+      {...props}
+      _style={extendStyle(CENTRIFUGE_PERFORATED_SHELL, props)}
+    />
+  )
 }

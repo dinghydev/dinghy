@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PERCENTAGE_LIST_15 = {
   _style:
@@ -9,5 +9,11 @@ export const PERCENTAGE_LIST_15 = {
 }
 
 export function PercentageList15(props: DiagramNodeProps) {
-  return <Shape {...PERCENTAGE_LIST_15} {...props} />
+  return (
+    <Shape
+      {...PERCENTAGE_LIST_15}
+      {...props}
+      _style={extendStyle(PERCENTAGE_LIST_15, props)}
+    />
+  )
 }

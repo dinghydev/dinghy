@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SpeechToText } from '@reactiac/standard-components-diagrams/ibmApplications'
+import { SpeechToText } from '@diac/standard-components-diagrams/ibmApplications'
 
 <SpeechToText/>
 ```

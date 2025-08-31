@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTROL_FLOW = {
   _style: 'shape=rect;html=1;rounded=1;whiteSpace=wrap;',
@@ -8,5 +8,11 @@ export const CONTROL_FLOW = {
 }
 
 export function ControlFlow(props: DiagramNodeProps) {
-  return <Shape {...CONTROL_FLOW} {...props} />
+  return (
+    <Shape
+      {...CONTROL_FLOW}
+      {...props}
+      _style={extendStyle(CONTROL_FLOW, props)}
+    />
+  )
 }

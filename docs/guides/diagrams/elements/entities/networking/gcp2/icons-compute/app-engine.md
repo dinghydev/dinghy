@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AppEngine } from '@reactiac/standard-components-diagrams/gcp2IconsCompute'
+import { AppEngine } from '@diac/standard-components-diagrams/gcp2IconsCompute'
 
 <AppEngine/>
 ```

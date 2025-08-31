@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ControlPlane } from '@reactiac/standard-components-diagrams/kubernetes'
+import { ControlPlane } from '@diac/standard-components-diagrams/kubernetes'
 
 <ControlPlane/>
 ```

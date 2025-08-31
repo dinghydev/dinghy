@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WINDOWS_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const WINDOWS_ROUTER = {
 }
 
 export function WindowsRouter(props: DiagramNodeProps) {
-  return <Shape {...WINDOWS_ROUTER} {...props} />
+  return (
+    <Shape
+      {...WINDOWS_ROUTER}
+      {...props}
+      _style={extendStyle(WINDOWS_ROUTER, props)}
+    />
+  )
 }

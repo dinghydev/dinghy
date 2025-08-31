@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERNAL_ACTIVE_STRUCTURE_ELEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const INTERNAL_ACTIVE_STRUCTURE_ELEMENT = {
 }
 
 export function InternalActiveStructureElement(props: DiagramNodeProps) {
-  return <Shape {...INTERNAL_ACTIVE_STRUCTURE_ELEMENT} {...props} />
+  return (
+    <Shape
+      {...INTERNAL_ACTIVE_STRUCTURE_ELEMENT}
+      {...props}
+      _style={extendStyle(INTERNAL_ACTIVE_STRUCTURE_ELEMENT, props)}
+    />
+  )
 }

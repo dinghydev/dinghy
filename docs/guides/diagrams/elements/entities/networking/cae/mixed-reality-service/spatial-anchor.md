@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SpatialAnchor } from '@reactiac/standard-components-diagrams/caeMixedRealityService'
+import { SpatialAnchor } from '@diac/standard-components-diagrams/caeMixedRealityService'
 
 <SpatialAnchor/>
 ```

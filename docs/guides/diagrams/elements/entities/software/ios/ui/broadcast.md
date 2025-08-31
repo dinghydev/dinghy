@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Broadcast } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { Broadcast } from '@diac/standard-components-diagrams/ios7Ui'
 
 <Broadcast/>
 ```

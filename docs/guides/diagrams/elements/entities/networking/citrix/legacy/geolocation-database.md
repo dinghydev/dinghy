@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GeolocationDatabase } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { GeolocationDatabase } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <GeolocationDatabase/>
 ```

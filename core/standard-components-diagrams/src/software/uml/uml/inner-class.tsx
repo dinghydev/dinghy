@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INNER_CLASS = {
   _style: {
@@ -9,5 +9,11 @@ export const INNER_CLASS = {
 }
 
 export function InnerClass(props: DiagramNodeProps) {
-  return <Dependency {...INNER_CLASS} {...props} />
+  return (
+    <Dependency
+      {...INNER_CLASS}
+      {...props}
+      _style={extendStyle(INNER_CLASS, props)}
+    />
+  )
 }

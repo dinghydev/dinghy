@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Factory } from '@reactiac/standard-components-diagrams/citrixLocations'
+import { Factory } from '@diac/standard-components-diagrams/citrixLocations'
 
 <Factory/>
 ```

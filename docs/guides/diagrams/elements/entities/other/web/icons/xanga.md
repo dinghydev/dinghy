@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Xanga } from '@reactiac/standard-components-diagrams/webIcons'
+import { Xanga } from '@diac/standard-components-diagrams/webIcons'
 
 <Xanga/>
 ```

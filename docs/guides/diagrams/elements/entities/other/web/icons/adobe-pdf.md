@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AdobePdf } from '@reactiac/standard-components-diagrams/webIcons'
+import { AdobePdf } from '@diac/standard-components-diagrams/webIcons'
 
 <AdobePdf/>
 ```

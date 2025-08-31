@@ -14,7 +14,7 @@ protocol
 ## Usage
 
 ```
-import { Http2Protocol } from '@reactiac/standard-components-diagrams/aws18IotResources'
+import { Http2Protocol } from '@diac/standard-components-diagrams/aws18IotResources'
 
 <Http2Protocol/>
 ```

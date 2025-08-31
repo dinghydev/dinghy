@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sawtooth } from '@reactiac/standard-components-diagrams/electricalWaveforms'
+import { Sawtooth } from '@diac/standard-components-diagrams/electricalWaveforms'
 
 <Sawtooth/>
 ```

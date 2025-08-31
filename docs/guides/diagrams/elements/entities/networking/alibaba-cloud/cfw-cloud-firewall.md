@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CfwCloudFirewall } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { CfwCloudFirewall } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <CfwCloudFirewall/>
 ```

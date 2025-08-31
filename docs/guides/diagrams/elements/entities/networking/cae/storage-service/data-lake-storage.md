@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataLakeStorage } from '@reactiac/standard-components-diagrams/caeStorageService'
+import { DataLakeStorage } from '@diac/standard-components-diagrams/caeStorageService'
 
 <DataLakeStorage/>
 ```

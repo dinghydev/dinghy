@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NUMBERED_ENTRY_VERTICAL = {
   _style:
@@ -9,5 +9,11 @@ export const NUMBERED_ENTRY_VERTICAL = {
 }
 
 export function NumberedEntryVertical(props: DiagramNodeProps) {
-  return <Shape {...NUMBERED_ENTRY_VERTICAL} {...props} />
+  return (
+    <Shape
+      {...NUMBERED_ENTRY_VERTICAL}
+      {...props}
+      _style={extendStyle(NUMBERED_ENTRY_VERTICAL, props)}
+    />
+  )
 }

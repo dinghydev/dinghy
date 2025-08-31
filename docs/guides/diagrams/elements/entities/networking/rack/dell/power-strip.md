@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PowerStrip } from '@reactiac/standard-components-diagrams/rackDell'
+import { PowerStrip } from '@diac/standard-components-diagrams/rackDell'
 
 <PowerStrip/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataprepByTrifacta } from '@reactiac/standard-components-diagrams/gcp2IconsAnalytics'
+import { DataprepByTrifacta } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
 
 <DataprepByTrifacta/>
 ```

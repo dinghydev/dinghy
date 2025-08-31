@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PrivateCloud } from '@reactiac/standard-components-diagrams/officeClouds'
+import { PrivateCloud } from '@diac/standard-components-diagrams/officeClouds'
 
 <PrivateCloud/>
 ```

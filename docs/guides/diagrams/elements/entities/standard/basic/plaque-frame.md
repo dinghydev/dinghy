@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PlaqueFrame } from '@reactiac/standard-components-diagrams/basic'
+import { PlaqueFrame } from '@diac/standard-components-diagrams/basic'
 
 <PlaqueFrame/>
 ```

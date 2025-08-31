@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ColumnBubbleCapTrays } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { ColumnBubbleCapTrays } from '@diac/standard-components-diagrams/procEngMisc'
 
 <ColumnBubbleCapTrays/>
 ```

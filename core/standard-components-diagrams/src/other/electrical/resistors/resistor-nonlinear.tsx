@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESISTOR_NONLINEAR = {
   _style:
@@ -9,5 +9,11 @@ export const RESISTOR_NONLINEAR = {
 }
 
 export function ResistorNonlinear(props: DiagramNodeProps) {
-  return <Shape {...RESISTOR_NONLINEAR} {...props} />
+  return (
+    <Shape
+      {...RESISTOR_NONLINEAR}
+      {...props}
+      _style={extendStyle(RESISTOR_NONLINEAR, props)}
+    />
+  )
 }

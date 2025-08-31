@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11880_FLUID_LEVEL_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const X11880_FLUID_LEVEL_SWITCH = {
 }
 
 export function X11880FluidLevelSwitch(props: DiagramNodeProps) {
-  return <Shape {...X11880_FLUID_LEVEL_SWITCH} {...props} />
+  return (
+    <Shape
+      {...X11880_FLUID_LEVEL_SWITCH}
+      {...props}
+      _style={extendStyle(X11880_FLUID_LEVEL_SWITCH, props)}
+    />
+  )
 }

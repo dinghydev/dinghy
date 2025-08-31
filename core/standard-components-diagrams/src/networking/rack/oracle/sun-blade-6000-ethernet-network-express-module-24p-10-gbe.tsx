@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUN_BLADE_6000_ETHERNET_NETWORK_EXPRESS_MODULE_24P_10_GBE = {
   _style:
@@ -15,6 +15,10 @@ export function SunBlade6000EthernetNetworkExpressModule24p10Gbe(
     <Shape
       {...SUN_BLADE_6000_ETHERNET_NETWORK_EXPRESS_MODULE_24P_10_GBE}
       {...props}
+      _style={extendStyle(
+        SUN_BLADE_6000_ETHERNET_NETWORK_EXPRESS_MODULE_24P_10_GBE,
+        props,
+      )}
     />
   )
 }

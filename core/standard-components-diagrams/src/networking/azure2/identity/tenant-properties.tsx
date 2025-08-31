@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TENANT_PROPERTIES = {
   _style:
@@ -9,5 +9,11 @@ export const TENANT_PROPERTIES = {
 }
 
 export function TenantProperties(props: DiagramNodeProps) {
-  return <Shape {...TENANT_PROPERTIES} {...props} />
+  return (
+    <Shape
+      {...TENANT_PROPERTIES}
+      {...props}
+      _style={extendStyle(TENANT_PROPERTIES, props)}
+    />
+  )
 }

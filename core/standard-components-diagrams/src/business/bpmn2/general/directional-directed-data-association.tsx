@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIRECTIONAL_DIRECTED_DATA_ASSOCIATION = {
   _style: {
@@ -9,5 +9,11 @@ export const DIRECTIONAL_DIRECTED_DATA_ASSOCIATION = {
 }
 
 export function DirectionalDirectedDataAssociation(props: DiagramNodeProps) {
-  return <Dependency {...DIRECTIONAL_DIRECTED_DATA_ASSOCIATION} {...props} />
+  return (
+    <Dependency
+      {...DIRECTIONAL_DIRECTED_DATA_ASSOCIATION}
+      {...props}
+      _style={extendStyle(DIRECTIONAL_DIRECTED_DATA_ASSOCIATION, props)}
+    />
+  )
 }

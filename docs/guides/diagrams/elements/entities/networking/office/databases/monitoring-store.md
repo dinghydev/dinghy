@@ -5,15 +5,15 @@
 ```
 {
   _style: 'sketch=0;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.databases.monitoring_store;',
-  _width: 58,
-  _height: 58,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { MonitoringStore } from '@reactiac/standard-components-diagrams/officeDatabases'
+import { MonitoringStore } from '@diac/standard-components-diagrams/officeDatabases'
 
 <MonitoringStore/>
 ```

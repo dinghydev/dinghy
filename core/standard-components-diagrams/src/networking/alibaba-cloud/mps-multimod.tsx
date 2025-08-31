@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MPS_MULTIMOD = {
   _style:
@@ -9,5 +9,11 @@ export const MPS_MULTIMOD = {
 }
 
 export function MpsMultimod(props: DiagramNodeProps) {
-  return <Shape {...MPS_MULTIMOD} {...props} />
+  return (
+    <Shape
+      {...MPS_MULTIMOD}
+      {...props}
+      _style={extendStyle(MPS_MULTIMOD, props)}
+    />
+  )
 }

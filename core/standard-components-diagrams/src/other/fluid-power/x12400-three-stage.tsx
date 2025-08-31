@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12400_THREE_STAGE = {
   _style:
@@ -9,5 +9,11 @@ export const X12400_THREE_STAGE = {
 }
 
 export function X12400ThreeStage(props: DiagramNodeProps) {
-  return <Shape {...X12400_THREE_STAGE} {...props} />
+  return (
+    <Shape
+      {...X12400_THREE_STAGE}
+      {...props}
+      _style={extendStyle(X12400_THREE_STAGE, props)}
+    />
+  )
 }

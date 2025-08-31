@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PINTEREST = {
   _style:
@@ -9,5 +9,7 @@ export const PINTEREST = {
 }
 
 export function Pinterest(props: DiagramNodeProps) {
-  return <Shape {...PINTEREST} {...props} />
+  return (
+    <Shape {...PINTEREST} {...props} _style={extendStyle(PINTEREST, props)} />
+  )
 }

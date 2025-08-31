@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Oracle } from '@reactiac/standard-components-diagrams/webIcons'
+import { Oracle } from '@diac/standard-components-diagrams/webIcons'
 
 <Oracle/>
 ```

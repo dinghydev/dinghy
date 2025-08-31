@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ngfw } from '@reactiac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { Ngfw } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <Ngfw/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PHONE_DIGITAL = {
   _style:
@@ -9,5 +9,11 @@ export const PHONE_DIGITAL = {
 }
 
 export function PhoneDigital(props: DiagramNodeProps) {
-  return <Shape {...PHONE_DIGITAL} {...props} />
+  return (
+    <Shape
+      {...PHONE_DIGITAL}
+      {...props}
+      _style={extendStyle(PHONE_DIGITAL, props)}
+    />
+  )
 }

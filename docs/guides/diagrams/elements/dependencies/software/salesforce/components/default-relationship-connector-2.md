@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DefaultRelationshipConnector2 } from '@reactiac/standard-components-diagrams/salesforceComponents'
+import { DefaultRelationshipConnector2 } from '@diac/standard-components-diagrams/salesforceComponents'
 
 <DefaultRelationshipConnector2/>
 ```

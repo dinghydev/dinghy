@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButtonLabelOnly } from '@reactiac/standard-components-diagrams/atlassian'
+import { ButtonLabelOnly } from '@diac/standard-components-diagrams/atlassian'
 
 <ButtonLabelOnly/>
 ```

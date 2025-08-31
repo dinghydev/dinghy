@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProxyPort } from '@reactiac/standard-components-diagrams/sysmlPortsAndFlows'
+import { ProxyPort } from '@diac/standard-components-diagrams/sysmlPortsAndFlows'
 
 <ProxyPort/>
 ```

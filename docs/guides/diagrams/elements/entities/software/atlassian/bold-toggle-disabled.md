@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BoldToggleDisabled } from '@reactiac/standard-components-diagrams/atlassian'
+import { BoldToggleDisabled } from '@diac/standard-components-diagrams/atlassian'
 
 <BoldToggleDisabled/>
 ```

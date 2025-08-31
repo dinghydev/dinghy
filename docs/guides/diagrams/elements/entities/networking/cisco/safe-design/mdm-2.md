@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mdm2 } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { Mdm2 } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <Mdm2/>
 ```

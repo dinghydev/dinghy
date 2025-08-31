@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ABS_MEMBER = {
   _style:
@@ -9,5 +9,7 @@ export const ABS_MEMBER = {
 }
 
 export function AbsMember(props: DiagramNodeProps) {
-  return <Shape {...ABS_MEMBER} {...props} />
+  return (
+    <Shape {...ABS_MEMBER} {...props} _style={extendStyle(ABS_MEMBER, props)} />
+  )
 }

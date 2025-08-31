@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ShallowHistory } from '@reactiac/standard-components-diagrams/uml25'
+import { ShallowHistory } from '@diac/standard-components-diagrams/uml25'
 
 <ShallowHistory/>
 ```

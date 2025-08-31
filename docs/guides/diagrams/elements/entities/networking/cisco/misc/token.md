@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Token } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Token } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Token/>
 ```

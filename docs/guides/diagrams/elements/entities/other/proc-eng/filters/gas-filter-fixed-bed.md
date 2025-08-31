@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GasFilterFixedBed } from '@reactiac/standard-components-diagrams/procEngFilters'
+import { GasFilterFixedBed } from '@diac/standard-components-diagrams/procEngFilters'
 
 <GasFilterFixedBed/>
 ```

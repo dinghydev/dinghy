@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TROPHY = {
   _style:
@@ -9,5 +9,5 @@ export const TROPHY = {
 }
 
 export function Trophy(props: DiagramNodeProps) {
-  return <Shape {...TROPHY} {...props} />
+  return <Shape {...TROPHY} {...props} _style={extendStyle(TROPHY, props)} />
 }

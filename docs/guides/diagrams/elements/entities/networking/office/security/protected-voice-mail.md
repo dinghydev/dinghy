@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProtectedVoiceMail } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { ProtectedVoiceMail } from '@diac/standard-components-diagrams/officeSecurity'
 
 <ProtectedVoiceMail/>
 ```

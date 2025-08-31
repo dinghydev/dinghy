@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FASHIOLISTA = {
   _style:
@@ -9,5 +9,11 @@ export const FASHIOLISTA = {
 }
 
 export function Fashiolista(props: DiagramNodeProps) {
-  return <Shape {...FASHIOLISTA} {...props} />
+  return (
+    <Shape
+      {...FASHIOLISTA}
+      {...props}
+      _style={extendStyle(FASHIOLISTA, props)}
+    />
+  )
 }

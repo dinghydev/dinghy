@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESTORE_POINTS_COLLECTIONS = {
   _style:
@@ -9,5 +9,11 @@ export const RESTORE_POINTS_COLLECTIONS = {
 }
 
 export function RestorePointsCollections(props: DiagramNodeProps) {
-  return <Shape {...RESTORE_POINTS_COLLECTIONS} {...props} />
+  return (
+    <Shape
+      {...RESTORE_POINTS_COLLECTIONS}
+      {...props}
+      _style={extendStyle(RESTORE_POINTS_COLLECTIONS, props)}
+    />
+  )
 }

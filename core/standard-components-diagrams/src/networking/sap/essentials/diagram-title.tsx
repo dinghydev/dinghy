@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIAGRAM_TITLE = {
   _style:
@@ -9,5 +9,11 @@ export const DIAGRAM_TITLE = {
 }
 
 export function DiagramTitle(props: DiagramNodeProps) {
-  return <Shape {...DIAGRAM_TITLE} {...props} />
+  return (
+    <Shape
+      {...DIAGRAM_TITLE}
+      {...props}
+      _style={extendStyle(DIAGRAM_TITLE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SqlManagedInstances } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { SqlManagedInstances } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <SqlManagedInstances/>
 ```

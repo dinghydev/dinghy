@@ -5,15 +5,15 @@
 ```
 {
   _style: 'dashed=0;outlineConnect=0;align=center;html=1;shape=mxgraph.pid.engines.electric_motor;fontSize=45;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { ElectricMotor } from '@reactiac/standard-components-diagrams/procEngEngines'
+import { ElectricMotor } from '@diac/standard-components-diagrams/procEngEngines'
 
 <ElectricMotor/>
 ```

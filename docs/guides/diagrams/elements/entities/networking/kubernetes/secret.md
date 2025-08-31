@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Secret } from '@reactiac/standard-components-diagrams/kubernetes'
+import { Secret } from '@diac/standard-components-diagrams/kubernetes'
 
 <Secret/>
 ```

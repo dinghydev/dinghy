@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLOBAL_SECONDARY_INDEX = {
   _style:
@@ -9,5 +9,11 @@ export const GLOBAL_SECONDARY_INDEX = {
 }
 
 export function GlobalSecondaryIndex(props: DiagramNodeProps) {
-  return <Shape {...GLOBAL_SECONDARY_INDEX} {...props} />
+  return (
+    <Shape
+      {...GLOBAL_SECONDARY_INDEX}
+      {...props}
+      _style={extendStyle(GLOBAL_SECONDARY_INDEX, props)}
+    />
+  )
 }

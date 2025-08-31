@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VeeamPluginForOracleRman } from '@reactiac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamPluginForOracleRman } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamPluginForOracleRman/>
 ```

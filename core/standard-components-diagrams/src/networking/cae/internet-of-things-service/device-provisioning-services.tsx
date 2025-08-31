@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEVICE_PROVISIONING_SERVICES = {
   _style:
@@ -9,5 +9,11 @@ export const DEVICE_PROVISIONING_SERVICES = {
 }
 
 export function DeviceProvisioningServices(props: DiagramNodeProps) {
-  return <Shape {...DEVICE_PROVISIONING_SERVICES} {...props} />
+  return (
+    <Shape
+      {...DEVICE_PROVISIONING_SERVICES}
+      {...props}
+      _style={extendStyle(DEVICE_PROVISIONING_SERVICES, props)}
+    />
+  )
 }

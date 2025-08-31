@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PageControl } from '@reactiac/standard-components-diagrams/ios6'
+import { PageControl } from '@diac/standard-components-diagrams/ios6'
 
 <PageControl/>
 ```

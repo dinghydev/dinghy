@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RouteTable } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { RouteTable } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <RouteTable/>
 ```

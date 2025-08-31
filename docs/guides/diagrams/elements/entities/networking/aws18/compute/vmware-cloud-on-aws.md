@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VmwareCloudOnAws } from '@reactiac/standard-components-diagrams/aws18Compute'
+import { VmwareCloudOnAws } from '@diac/standard-components-diagrams/aws18Compute'
 
 <VmwareCloudOnAws/>
 ```

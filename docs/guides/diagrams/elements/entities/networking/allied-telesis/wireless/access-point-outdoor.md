@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AccessPointOutdoor } from '@reactiac/standard-components-diagrams/alliedTelesisWireless'
+import { AccessPointOutdoor } from '@diac/standard-components-diagrams/alliedTelesisWireless'
 
 <AccessPointOutdoor/>
 ```

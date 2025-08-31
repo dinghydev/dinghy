@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SKYROCK = {
   _style:
@@ -9,5 +9,5 @@ export const SKYROCK = {
 }
 
 export function Skyrock(props: DiagramNodeProps) {
-  return <Shape {...SKYROCK} {...props} />
+  return <Shape {...SKYROCK} {...props} _style={extendStyle(SKYROCK, props)} />
 }

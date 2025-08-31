@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_3_POSITION_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_3_POSITION_SWITCH = {
 }
 
 export function Component3PositionSwitch(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_3_POSITION_SWITCH} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_3_POSITION_SWITCH}
+      {...props}
+      _style={extendStyle(COMPONENT_3_POSITION_SWITCH, props)}
+    />
+  )
 }

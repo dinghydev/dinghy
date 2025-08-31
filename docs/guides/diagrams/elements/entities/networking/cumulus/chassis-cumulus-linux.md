@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChassisCumulusLinux } from '@reactiac/standard-components-diagrams/cumulus'
+import { ChassisCumulusLinux } from '@diac/standard-components-diagrams/cumulus'
 
 <ChassisCumulusLinux/>
 ```

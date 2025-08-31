@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FILE_INPUT_FORM = {
   _style:
@@ -9,5 +9,11 @@ export const FILE_INPUT_FORM = {
 }
 
 export function FileInputForm(props: DiagramNodeProps) {
-  return <Shape {...FILE_INPUT_FORM} {...props} />
+  return (
+    <Shape
+      {...FILE_INPUT_FORM}
+      {...props}
+      _style={extendStyle(FILE_INPUT_FORM, props)}
+    />
+  )
 }

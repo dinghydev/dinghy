@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY = {
 }
 
 export function HcsSgwHybridCloudStorageGateway(props: DiagramNodeProps) {
-  return <Shape {...HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY}
+      {...props}
+      _style={extendStyle(HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY, props)}
+    />
+  )
 }

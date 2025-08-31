@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EventSubProcessExpanded } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { EventSubProcessExpanded } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <EventSubProcessExpanded/>
 ```

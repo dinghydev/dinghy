@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Trace } from '@reactiac/standard-components-diagrams/gcpIconsManagementTools'
+import { Trace } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
 
 <Trace/>
 ```

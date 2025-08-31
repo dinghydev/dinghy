@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MILL_PULVERIZER_HAMMER = {
   _style:
@@ -9,5 +9,11 @@ export const MILL_PULVERIZER_HAMMER = {
 }
 
 export function MillPulverizerHammer(props: DiagramNodeProps) {
-  return <Shape {...MILL_PULVERIZER_HAMMER} {...props} />
+  return (
+    <Shape
+      {...MILL_PULVERIZER_HAMMER}
+      {...props}
+      _style={extendStyle(MILL_PULVERIZER_HAMMER, props)}
+    />
+  )
 }

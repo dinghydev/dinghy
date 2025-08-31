@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CDP = {
   _style:
@@ -9,5 +9,5 @@ export const CDP = {
 }
 
 export function Cdp(props: DiagramNodeProps) {
-  return <Shape {...CDP} {...props} />
+  return <Shape {...CDP} {...props} _style={extendStyle(CDP, props)} />
 }

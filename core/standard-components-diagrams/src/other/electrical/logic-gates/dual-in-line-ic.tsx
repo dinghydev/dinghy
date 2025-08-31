@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DUAL_IN_LINE_IC = {
   _style:
@@ -9,5 +9,11 @@ export const DUAL_IN_LINE_IC = {
 }
 
 export function DualInLineIc(props: DiagramNodeProps) {
-  return <Shape {...DUAL_IN_LINE_IC} {...props} />
+  return (
+    <Shape
+      {...DUAL_IN_LINE_IC}
+      {...props}
+      _style={extendStyle(DUAL_IN_LINE_IC, props)}
+    />
+  )
 }

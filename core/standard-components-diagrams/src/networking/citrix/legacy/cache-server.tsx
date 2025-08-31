@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CACHE_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const CACHE_SERVER = {
 }
 
 export function CacheServer(props: DiagramNodeProps) {
-  return <Shape {...CACHE_SERVER} {...props} />
+  return (
+    <Shape
+      {...CACHE_SERVER}
+      {...props}
+      _style={extendStyle(CACHE_SERVER, props)}
+    />
+  )
 }

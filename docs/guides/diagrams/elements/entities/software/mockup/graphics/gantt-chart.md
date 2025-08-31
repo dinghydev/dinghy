@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GanttChart } from '@reactiac/standard-components-diagrams/mockupGraphics'
+import { GanttChart } from '@diac/standard-components-diagrams/mockupGraphics'
 
 <GanttChart/>
 ```

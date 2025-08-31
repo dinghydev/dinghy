@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RectangleWithHorizontalFill } from '@reactiac/standard-components-diagrams/basic'
+import { RectangleWithHorizontalFill } from '@diac/standard-components-diagrams/basic'
 
 <RectangleWithHorizontalFill/>
 ```

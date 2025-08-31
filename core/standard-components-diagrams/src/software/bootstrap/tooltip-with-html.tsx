@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TOOLTIP_WITH_HTML = {
   _style:
@@ -9,5 +9,11 @@ export const TOOLTIP_WITH_HTML = {
 }
 
 export function TooltipWithHtml(props: DiagramNodeProps) {
-  return <Shape {...TOOLTIP_WITH_HTML} {...props} />
+  return (
+    <Shape
+      {...TOOLTIP_WITH_HTML}
+      {...props}
+      _style={extendStyle(TOOLTIP_WITH_HTML, props)}
+    />
+  )
 }

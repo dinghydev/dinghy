@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FrontEndProcessor } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { FrontEndProcessor } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <FrontEndProcessor/>
 ```

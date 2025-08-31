@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Firewall } from '@reactiac/standard-components-diagrams/network2'
+import { Firewall } from '@diac/standard-components-diagrams/network2'
 
 <Firewall/>
 ```

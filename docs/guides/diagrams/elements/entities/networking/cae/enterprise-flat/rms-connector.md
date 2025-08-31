@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RmsConnector } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { RmsConnector } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <RmsConnector/>
 ```

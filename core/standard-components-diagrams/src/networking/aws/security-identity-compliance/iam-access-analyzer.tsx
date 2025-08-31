@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IAM_ACCESS_ANALYZER = {
   _style:
@@ -9,5 +9,11 @@ export const IAM_ACCESS_ANALYZER = {
 }
 
 export function IamAccessAnalyzer(props: DiagramNodeProps) {
-  return <Shape {...IAM_ACCESS_ANALYZER} {...props} />
+  return (
+    <Shape
+      {...IAM_ACCESS_ANALYZER}
+      {...props}
+      _style={extendStyle(IAM_ACCESS_ANALYZER, props)}
+    />
+  )
 }

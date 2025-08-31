@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StructuredActivityNode } from '@reactiac/standard-components-diagrams/uml25'
+import { StructuredActivityNode } from '@diac/standard-components-diagrams/uml25'
 
 <StructuredActivityNode/>
 ```

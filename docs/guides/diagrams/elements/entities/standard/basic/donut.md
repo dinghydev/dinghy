@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.donut;dx=25;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Donut } from '@reactiac/standard-components-diagrams/basic'
+import { Donut } from '@diac/standard-components-diagrams/basic'
 
 <Donut/>
 ```

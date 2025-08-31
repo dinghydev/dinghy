@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETWORK_SECURITY_GROUPS_CLASSIC = {
   _style:
@@ -9,5 +9,11 @@ export const NETWORK_SECURITY_GROUPS_CLASSIC = {
 }
 
 export function NetworkSecurityGroupsClassic(props: DiagramNodeProps) {
-  return <Shape {...NETWORK_SECURITY_GROUPS_CLASSIC} {...props} />
+  return (
+    <Shape
+      {...NETWORK_SECURITY_GROUPS_CLASSIC}
+      {...props}
+      _style={extendStyle(NETWORK_SECURITY_GROUPS_CLASSIC, props)}
+    />
+  )
 }

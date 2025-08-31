@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DurationConstraint4 } from '@reactiac/standard-components-diagrams/sysmlInteractions'
+import { DurationConstraint4 } from '@diac/standard-components-diagrams/sysmlInteractions'
 
 <DurationConstraint4/>
 ```

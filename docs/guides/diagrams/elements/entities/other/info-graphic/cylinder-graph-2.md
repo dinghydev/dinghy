@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CylinderGraph2 } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { CylinderGraph2 } from '@diac/standard-components-diagrams/infoGraphic'
 
 <CylinderGraph2/>
 ```

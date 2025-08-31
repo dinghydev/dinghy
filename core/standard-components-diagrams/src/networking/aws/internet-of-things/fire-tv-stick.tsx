@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIRE_TV_STICK = {
   _style:
@@ -9,5 +9,11 @@ export const FIRE_TV_STICK = {
 }
 
 export function FireTvStick(props: DiagramNodeProps) {
-  return <Shape {...FIRE_TV_STICK} {...props} />
+  return (
+    <Shape
+      {...FIRE_TV_STICK}
+      {...props}
+      _style={extendStyle(FIRE_TV_STICK, props)}
+    />
+  )
 }

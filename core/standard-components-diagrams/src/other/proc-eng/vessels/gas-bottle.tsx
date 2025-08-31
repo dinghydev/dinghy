@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GAS_BOTTLE = {
   _style:
@@ -9,5 +9,7 @@ export const GAS_BOTTLE = {
 }
 
 export function GasBottle(props: DiagramNodeProps) {
-  return <Shape {...GAS_BOTTLE} {...props} />
+  return (
+    <Shape {...GAS_BOTTLE} {...props} _style={extendStyle(GAS_BOTTLE, props)} />
+  )
 }

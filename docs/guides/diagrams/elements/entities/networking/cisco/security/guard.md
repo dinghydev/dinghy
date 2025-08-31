@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Guard } from '@reactiac/standard-components-diagrams/ciscoSecurity'
+import { Guard } from '@diac/standard-components-diagrams/ciscoSecurity'
 
 <Guard/>
 ```

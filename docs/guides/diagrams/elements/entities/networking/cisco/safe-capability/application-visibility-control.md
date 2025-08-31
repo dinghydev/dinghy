@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApplicationVisibilityControl } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { ApplicationVisibilityControl } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <ApplicationVisibilityControl/>
 ```

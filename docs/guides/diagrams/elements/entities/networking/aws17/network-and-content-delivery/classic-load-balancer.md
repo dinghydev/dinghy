@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ClassicLoadBalancer } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { ClassicLoadBalancer } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <ClassicLoadBalancer/>
 ```

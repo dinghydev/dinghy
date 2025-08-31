@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHANGE_GRAPH_2 = {
   _style: 'fillColor=#F2931E;strokeColor=none;',
@@ -8,5 +8,11 @@ export const CHANGE_GRAPH_2 = {
 }
 
 export function ChangeGraph2(props: DiagramNodeProps) {
-  return <Shape {...CHANGE_GRAPH_2} {...props} />
+  return (
+    <Shape
+      {...CHANGE_GRAPH_2}
+      {...props}
+      _style={extendStyle(CHANGE_GRAPH_2, props)}
+    />
+  )
 }

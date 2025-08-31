@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VWEB_SECURITY = {
   _style:
@@ -9,5 +9,11 @@ export const VWEB_SECURITY = {
 }
 
 export function VwebSecurity(props: DiagramNodeProps) {
-  return <Shape {...VWEB_SECURITY} {...props} />
+  return (
+    <Shape
+      {...VWEB_SECURITY}
+      {...props}
+      _style={extendStyle(VWEB_SECURITY, props)}
+    />
+  )
 }

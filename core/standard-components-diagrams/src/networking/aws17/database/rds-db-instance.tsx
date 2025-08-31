@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RDS_DB_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const RDS_DB_INSTANCE = {
 }
 
 export function RdsDbInstance(props: DiagramNodeProps) {
-  return <Shape {...RDS_DB_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...RDS_DB_INSTANCE}
+      {...props}
+      _style={extendStyle(RDS_DB_INSTANCE, props)}
+    />
+  )
 }

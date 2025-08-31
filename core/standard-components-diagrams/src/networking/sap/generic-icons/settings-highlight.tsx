@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SETTINGS_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const SETTINGS_HIGHLIGHT = {
 }
 
 export function SettingsHighlight(props: DiagramNodeProps) {
-  return <Shape {...SETTINGS_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...SETTINGS_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(SETTINGS_HIGHLIGHT, props)}
+    />
+  )
 }

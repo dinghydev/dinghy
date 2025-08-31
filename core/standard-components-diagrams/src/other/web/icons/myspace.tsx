@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MYSPACE = {
   _style:
@@ -9,5 +9,5 @@ export const MYSPACE = {
 }
 
 export function Myspace(props: DiagramNodeProps) {
-  return <Shape {...MYSPACE} {...props} />
+  return <Shape {...MYSPACE} {...props} _style={extendStyle(MYSPACE, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALLOCATED_STEREOTYPE = {
   _style:
@@ -9,5 +9,11 @@ export const ALLOCATED_STEREOTYPE = {
 }
 
 export function AllocatedStereotype(props: DiagramNodeProps) {
-  return <Shape {...ALLOCATED_STEREOTYPE} {...props} />
+  return (
+    <Shape
+      {...ALLOCATED_STEREOTYPE}
+      {...props}
+      _style={extendStyle(ALLOCATED_STEREOTYPE, props)}
+    />
+  )
 }

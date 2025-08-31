@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FRAME = {
   _style: 'shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;',
@@ -8,5 +8,5 @@ export const FRAME = {
 }
 
 export function Frame(props: DiagramNodeProps) {
-  return <Shape {...FRAME} {...props} />
+  return <Shape {...FRAME} {...props} _style={extendStyle(FRAME, props)} />
 }

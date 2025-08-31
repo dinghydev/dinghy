@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApiProxy } from '@reactiac/standard-components-diagrams/azure2Other'
+import { ApiProxy } from '@diac/standard-components-diagrams/azure2Other'
 
 <ApiProxy/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AuxiliaryContactCircuitBreaker } from '@reactiac/standard-components-diagrams/cabinets'
+import { AuxiliaryContactCircuitBreaker } from '@diac/standard-components-diagrams/cabinets'
 
 <AuxiliaryContactCircuitBreaker/>
 ```

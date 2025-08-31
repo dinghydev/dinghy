@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MARKETPLACE_SHOPPING_BAG = {
   _style:
@@ -9,5 +9,11 @@ export const MARKETPLACE_SHOPPING_BAG = {
 }
 
 export function MarketplaceShoppingBag(props: DiagramNodeProps) {
-  return <Shape {...MARKETPLACE_SHOPPING_BAG} {...props} />
+  return (
+    <Shape
+      {...MARKETPLACE_SHOPPING_BAG}
+      {...props}
+      _style={extendStyle(MARKETPLACE_SHOPPING_BAG, props)}
+    />
+  )
 }

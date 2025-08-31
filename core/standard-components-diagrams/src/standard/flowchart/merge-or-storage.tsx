@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MERGE_OR_STORAGE = {
   _style:
@@ -9,5 +9,11 @@ export const MERGE_OR_STORAGE = {
 }
 
 export function MergeOrStorage(props: DiagramNodeProps) {
-  return <Shape {...MERGE_OR_STORAGE} {...props} />
+  return (
+    <Shape
+      {...MERGE_OR_STORAGE}
+      {...props}
+      _style={extendStyle(MERGE_OR_STORAGE, props)}
+    />
+  )
 }

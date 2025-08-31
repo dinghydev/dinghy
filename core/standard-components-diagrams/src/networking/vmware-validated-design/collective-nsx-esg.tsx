@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLLECTIVE_NSX_ESG = {
   _style:
@@ -9,5 +9,11 @@ export const COLLECTIVE_NSX_ESG = {
 }
 
 export function CollectiveNsxEsg(props: DiagramNodeProps) {
-  return <Shape {...COLLECTIVE_NSX_ESG} {...props} />
+  return (
+    <Shape
+      {...COLLECTIVE_NSX_ESG}
+      {...props}
+      _style={extendStyle(COLLECTIVE_NSX_ESG, props)}
+    />
+  )
 }

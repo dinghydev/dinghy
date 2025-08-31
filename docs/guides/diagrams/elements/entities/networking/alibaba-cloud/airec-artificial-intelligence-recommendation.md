@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AirecArtificialIntelligenceRecommendation } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { AirecArtificialIntelligenceRecommendation } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <AirecArtificialIntelligenceRecommendation/>
 ```

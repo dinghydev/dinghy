@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ErrorDashed } from '@reactiac/standard-components-diagrams/sapConnectors'
+import { ErrorDashed } from '@diac/standard-components-diagrams/sapConnectors'
 
 <ErrorDashed/>
 ```

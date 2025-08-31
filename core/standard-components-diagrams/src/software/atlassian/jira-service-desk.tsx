@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JIRA_SERVICE_DESK = {
   _style:
@@ -9,5 +9,11 @@ export const JIRA_SERVICE_DESK = {
 }
 
 export function JiraServiceDesk(props: DiagramNodeProps) {
-  return <Shape {...JIRA_SERVICE_DESK} {...props} />
+  return (
+    <Shape
+      {...JIRA_SERVICE_DESK}
+      {...props}
+      _style={extendStyle(JIRA_SERVICE_DESK, props)}
+    />
+  )
 }

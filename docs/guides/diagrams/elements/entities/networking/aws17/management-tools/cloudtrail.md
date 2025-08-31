@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cloudtrail } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { Cloudtrail } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <Cloudtrail/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Key } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { Key } from '@diac/standard-components-diagrams/activeDirectory'
 
 <Key/>
 ```

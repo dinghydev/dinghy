@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NCE_ROUTER = {
   _style:
@@ -9,5 +9,7 @@ export const NCE_ROUTER = {
 }
 
 export function NceRouter(props: DiagramNodeProps) {
-  return <Shape {...NCE_ROUTER} {...props} />
+  return (
+    <Shape {...NCE_ROUTER} {...props} _style={extendStyle(NCE_ROUTER, props)} />
+  )
 }

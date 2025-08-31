@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ParameterSet2 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { ParameterSet2 } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <ParameterSet2/>
 ```

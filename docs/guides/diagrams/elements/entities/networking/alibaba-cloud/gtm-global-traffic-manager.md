@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GtmGlobalTrafficManager } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { GtmGlobalTrafficManager } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <GtmGlobalTrafficManager/>
 ```

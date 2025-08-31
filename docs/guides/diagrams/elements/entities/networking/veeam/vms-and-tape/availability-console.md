@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AvailabilityConsole } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { AvailabilityConsole } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <AvailabilityConsole/>
 ```

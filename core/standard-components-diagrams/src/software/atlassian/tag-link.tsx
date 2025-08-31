@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TAG_LINK = {
   _style:
@@ -9,5 +9,7 @@ export const TAG_LINK = {
 }
 
 export function TagLink(props: DiagramNodeProps) {
-  return <Shape {...TAG_LINK} {...props} />
+  return (
+    <Shape {...TAG_LINK} {...props} _style={extendStyle(TAG_LINK, props)} />
+  )
 }

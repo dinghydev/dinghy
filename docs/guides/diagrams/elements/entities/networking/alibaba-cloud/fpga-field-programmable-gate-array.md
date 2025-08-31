@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FpgaFieldProgrammableGateArray } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { FpgaFieldProgrammableGateArray } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <FpgaFieldProgrammableGateArray/>
 ```

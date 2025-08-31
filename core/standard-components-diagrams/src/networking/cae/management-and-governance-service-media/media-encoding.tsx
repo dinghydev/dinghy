@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MEDIA_ENCODING = {
   _style:
@@ -9,5 +9,11 @@ export const MEDIA_ENCODING = {
 }
 
 export function MediaEncoding(props: DiagramNodeProps) {
-  return <Shape {...MEDIA_ENCODING} {...props} />
+  return (
+    <Shape
+      {...MEDIA_ENCODING}
+      {...props}
+      _style={extendStyle(MEDIA_ENCODING, props)}
+    />
+  )
 }

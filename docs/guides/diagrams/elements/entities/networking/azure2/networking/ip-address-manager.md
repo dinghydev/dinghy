@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IpAddressManager } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { IpAddressManager } from '@diac/standard-components-diagrams/azure2Networking'
 
 <IpAddressManager/>
 ```

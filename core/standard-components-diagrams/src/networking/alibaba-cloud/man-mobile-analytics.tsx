@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAN_MOBILE_ANALYTICS = {
   _style:
@@ -9,5 +9,11 @@ export const MAN_MOBILE_ANALYTICS = {
 }
 
 export function ManMobileAnalytics(props: DiagramNodeProps) {
-  return <Shape {...MAN_MOBILE_ANALYTICS} {...props} />
+  return (
+    <Shape
+      {...MAN_MOBILE_ANALYTICS}
+      {...props}
+      _style={extendStyle(MAN_MOBILE_ANALYTICS, props)}
+    />
+  )
 }

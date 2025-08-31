@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHECKBOX_GROUP_2 = {
   _style:
@@ -9,5 +9,11 @@ export const CHECKBOX_GROUP_2 = {
 }
 
 export function CheckboxGroup2(props: DiagramNodeProps) {
-  return <Shape {...CHECKBOX_GROUP_2} {...props} />
+  return (
+    <Shape
+      {...CHECKBOX_GROUP_2}
+      {...props}
+      _style={extendStyle(CHECKBOX_GROUP_2, props)}
+    />
+  )
 }

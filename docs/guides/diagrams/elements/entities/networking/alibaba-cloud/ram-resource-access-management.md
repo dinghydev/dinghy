@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RamResourceAccessManagement } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { RamResourceAccessManagement } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <RamResourceAccessManagement/>
 ```

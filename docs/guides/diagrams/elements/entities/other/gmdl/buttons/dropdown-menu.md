@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DropdownMenu } from '@reactiac/standard-components-diagrams/gmdlButtons'
+import { DropdownMenu } from '@diac/standard-components-diagrams/gmdlButtons'
 
 <DropdownMenu/>
 ```

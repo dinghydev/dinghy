@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CARD_WITH_SEGMENTED_BUTTONS = {
   _style: 'shape=rect;fillColor=#BDBDBD;strokeColor=#eeeeee;shadow=1;',
@@ -8,5 +8,11 @@ export const CARD_WITH_SEGMENTED_BUTTONS = {
 }
 
 export function CardWithSegmentedButtons(props: DiagramNodeProps) {
-  return <Shape {...CARD_WITH_SEGMENTED_BUTTONS} {...props} />
+  return (
+    <Shape
+      {...CARD_WITH_SEGMENTED_BUTTONS}
+      {...props}
+      _style={extendStyle(CARD_WITH_SEGMENTED_BUTTONS, props)}
+    />
+  )
 }

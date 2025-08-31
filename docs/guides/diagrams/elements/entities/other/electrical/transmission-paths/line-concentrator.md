@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LineConcentrator } from '@reactiac/standard-components-diagrams/electricalTransmissionPaths'
+import { LineConcentrator } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
 
 <LineConcentrator/>
 ```

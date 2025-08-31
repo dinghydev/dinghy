@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AndGate } from '@reactiac/standard-components-diagrams/threatModeling'
+import { AndGate } from '@diac/standard-components-diagrams/threatModeling'
 
 <AndGate/>
 ```

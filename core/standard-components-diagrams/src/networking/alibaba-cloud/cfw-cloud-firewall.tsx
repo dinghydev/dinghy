@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CFW_CLOUD_FIREWALL = {
   _style:
@@ -9,5 +9,11 @@ export const CFW_CLOUD_FIREWALL = {
 }
 
 export function CfwCloudFirewall(props: DiagramNodeProps) {
-  return <Shape {...CFW_CLOUD_FIREWALL} {...props} />
+  return (
+    <Shape
+      {...CFW_CLOUD_FIREWALL}
+      {...props}
+      _style={extendStyle(CFW_CLOUD_FIREWALL, props)}
+    />
+  )
 }

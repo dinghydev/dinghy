@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Key } from '@reactiac/standard-components-diagrams/veeam2General'
+import { Key } from '@diac/standard-components-diagrams/veeam2General'
 
 <Key/>
 ```

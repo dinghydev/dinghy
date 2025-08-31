@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DnsDomainNameSystem } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { DnsDomainNameSystem } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <DnsDomainNameSystem/>
 ```

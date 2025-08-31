@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PlugSocketConnection } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { PlugSocketConnection } from '@diac/standard-components-diagrams/electricalMisc'
 
 <PlugSocketConnection/>
 ```

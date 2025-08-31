@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Datacenter } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { Datacenter } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <Datacenter/>
 ```

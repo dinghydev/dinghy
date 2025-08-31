@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VesselDishedEndsBrackets } from '@reactiac/standard-components-diagrams/procEngVessels'
+import { VesselDishedEndsBrackets } from '@diac/standard-components-diagrams/procEngVessels'
 
 <VesselDishedEndsBrackets/>
 ```

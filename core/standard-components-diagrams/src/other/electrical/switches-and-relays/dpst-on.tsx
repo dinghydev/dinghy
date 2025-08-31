@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DPST_ON = {
   _style:
@@ -9,5 +9,5 @@ export const DPST_ON = {
 }
 
 export function DpstOn(props: DiagramNodeProps) {
-  return <Shape {...DPST_ON} {...props} />
+  return <Shape {...DPST_ON} {...props} _style={extendStyle(DPST_ON, props)} />
 }

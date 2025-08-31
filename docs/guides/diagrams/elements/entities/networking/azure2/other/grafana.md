@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Grafana } from '@reactiac/standard-components-diagrams/azure2Other'
+import { Grafana } from '@diac/standard-components-diagrams/azure2Other'
 
 <Grafana/>
 ```

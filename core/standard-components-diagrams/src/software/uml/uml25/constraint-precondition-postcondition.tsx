@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONSTRAINT_PRECONDITION_POSTCONDITION = {
   _style:
@@ -9,5 +9,11 @@ export const CONSTRAINT_PRECONDITION_POSTCONDITION = {
 }
 
 export function ConstraintPreconditionPostcondition(props: DiagramNodeProps) {
-  return <Shape {...CONSTRAINT_PRECONDITION_POSTCONDITION} {...props} />
+  return (
+    <Shape
+      {...CONSTRAINT_PRECONDITION_POSTCONDITION}
+      {...props}
+      _style={extendStyle(CONSTRAINT_PRECONDITION_POSTCONDITION, props)}
+    />
+  )
 }

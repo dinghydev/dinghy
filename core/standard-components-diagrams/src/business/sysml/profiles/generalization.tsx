@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GENERALIZATION = {
   _style:
@@ -9,5 +9,11 @@ export const GENERALIZATION = {
 }
 
 export function Generalization(props: DiagramNodeProps) {
-  return <Shape {...GENERALIZATION} {...props} />
+  return (
+    <Shape
+      {...GENERALIZATION}
+      {...props}
+      _style={extendStyle(GENERALIZATION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VENT_SILENCER = {
   _style:
@@ -9,5 +9,11 @@ export const VENT_SILENCER = {
 }
 
 export function VentSilencer(props: DiagramNodeProps) {
-  return <Shape {...VENT_SILENCER} {...props} />
+  return (
+    <Shape
+      {...VENT_SILENCER}
+      {...props}
+      _style={extendStyle(VENT_SILENCER, props)}
+    />
+  )
 }

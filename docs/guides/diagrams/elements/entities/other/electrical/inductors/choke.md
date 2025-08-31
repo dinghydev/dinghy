@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Choke } from '@reactiac/standard-components-diagrams/electricalInductors'
+import { Choke } from '@diac/standard-components-diagrams/electricalInductors'
 
 <Choke/>
 ```

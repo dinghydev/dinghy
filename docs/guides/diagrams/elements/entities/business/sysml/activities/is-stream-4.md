@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IsStream4 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { IsStream4 } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <IsStream4/>
 ```

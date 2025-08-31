@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11810_ACOUSTIC_INDICATOR = {
   _style:
@@ -9,5 +9,11 @@ export const X11810_ACOUSTIC_INDICATOR = {
 }
 
 export function X11810AcousticIndicator(props: DiagramNodeProps) {
-  return <Shape {...X11810_ACOUSTIC_INDICATOR} {...props} />
+  return (
+    <Shape
+      {...X11810_ACOUSTIC_INDICATOR}
+      {...props}
+      _style={extendStyle(X11810_ACOUSTIC_INDICATOR, props)}
+    />
+  )
 }

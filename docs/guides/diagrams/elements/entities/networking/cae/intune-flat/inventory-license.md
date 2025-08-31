@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InventoryLicense } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { InventoryLicense } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <InventoryLicense/>
 ```

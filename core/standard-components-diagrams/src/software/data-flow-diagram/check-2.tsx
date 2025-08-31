@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHECK_2 = {
   _style: 'html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.check2',
@@ -8,5 +8,5 @@ export const CHECK_2 = {
 }
 
 export function Check2(props: DiagramNodeProps) {
-  return <Shape {...CHECK_2} {...props} />
+  return <Shape {...CHECK_2} {...props} _style={extendStyle(CHECK_2, props)} />
 }

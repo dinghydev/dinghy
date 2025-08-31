@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VentBent } from '@reactiac/standard-components-diagrams/procEngVessels'
+import { VentBent } from '@diac/standard-components-diagrams/procEngVessels'
 
 <VentBent/>
 ```

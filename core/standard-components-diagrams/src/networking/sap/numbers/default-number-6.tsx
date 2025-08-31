@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEFAULT_NUMBER_6 = {
   _style:
@@ -9,5 +9,11 @@ export const DEFAULT_NUMBER_6 = {
 }
 
 export function DefaultNumber6(props: DiagramNodeProps) {
-  return <Shape {...DEFAULT_NUMBER_6} {...props} />
+  return (
+    <Shape
+      {...DEFAULT_NUMBER_6}
+      {...props}
+      _style={extendStyle(DEFAULT_NUMBER_6, props)}
+    />
+  )
 }

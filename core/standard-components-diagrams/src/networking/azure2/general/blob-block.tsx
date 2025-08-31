@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLOB_BLOCK = {
   _style:
@@ -9,5 +9,7 @@ export const BLOB_BLOCK = {
 }
 
 export function BlobBlock(props: DiagramNodeProps) {
-  return <Shape {...BLOB_BLOCK} {...props} />
+  return (
+    <Shape {...BLOB_BLOCK} {...props} _style={extendStyle(BLOB_BLOCK, props)} />
+  )
 }

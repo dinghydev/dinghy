@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLP_POS_PART_OF_SPEECH_TAGGING = {
   _style:
@@ -9,5 +9,11 @@ export const NLP_POS_PART_OF_SPEECH_TAGGING = {
 }
 
 export function NlpPosPartOfSpeechTagging(props: DiagramNodeProps) {
-  return <Shape {...NLP_POS_PART_OF_SPEECH_TAGGING} {...props} />
+  return (
+    <Shape
+      {...NLP_POS_PART_OF_SPEECH_TAGGING}
+      {...props}
+      _style={extendStyle(NLP_POS_PART_OF_SPEECH_TAGGING, props)}
+    />
+  )
 }

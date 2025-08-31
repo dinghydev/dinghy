@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Vda } from '@reactiac/standard-components-diagrams/citrixComponents'
+import { Vda } from '@diac/standard-components-diagrams/citrixComponents'
 
 <Vda/>
 ```

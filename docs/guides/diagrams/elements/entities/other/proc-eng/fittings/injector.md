@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Injector } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { Injector } from '@diac/standard-components-diagrams/procEngFittings'
 
 <Injector/>
 ```

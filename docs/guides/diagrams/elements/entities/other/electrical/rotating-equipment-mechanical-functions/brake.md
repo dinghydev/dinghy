@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Brake } from '@reactiac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { Brake } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <Brake/>
 ```

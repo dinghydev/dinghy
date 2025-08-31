@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AGITATOR_FLATE_BLADE_PADDLE = {
   _style:
@@ -9,5 +9,11 @@ export const AGITATOR_FLATE_BLADE_PADDLE = {
 }
 
 export function AgitatorFlateBladePaddle(props: DiagramNodeProps) {
-  return <Shape {...AGITATOR_FLATE_BLADE_PADDLE} {...props} />
+  return (
+    <Shape
+      {...AGITATOR_FLATE_BLADE_PADDLE}
+      {...props}
+      _style={extendStyle(AGITATOR_FLATE_BLADE_PADDLE, props)}
+    />
+  )
 }

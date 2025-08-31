@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TICKET_PURCHASE = {
   _style:
@@ -9,5 +9,11 @@ export const TICKET_PURCHASE = {
 }
 
 export function TicketPurchase(props: DiagramNodeProps) {
-  return <Shape {...TICKET_PURCHASE} {...props} />
+  return (
+    <Shape
+      {...TICKET_PURCHASE}
+      {...props}
+      _style={extendStyle(TICKET_PURCHASE, props)}
+    />
+  )
 }

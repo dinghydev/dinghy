@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DASHED_CONNECTOR_SINGLE_ARROW = {
   _style: {
@@ -9,5 +9,11 @@ export const DASHED_CONNECTOR_SINGLE_ARROW = {
 }
 
 export function DashedConnectorSingleArrow(props: DiagramNodeProps) {
-  return <Dependency {...DASHED_CONNECTOR_SINGLE_ARROW} {...props} />
+  return (
+    <Dependency
+      {...DASHED_CONNECTOR_SINGLE_ARROW}
+      {...props}
+      _style={extendStyle(DASHED_CONNECTOR_SINGLE_ARROW, props)}
+    />
+  )
 }

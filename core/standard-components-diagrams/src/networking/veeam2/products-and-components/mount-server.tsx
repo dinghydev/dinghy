@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOUNT_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const MOUNT_SERVER = {
 }
 
 export function MountServer(props: DiagramNodeProps) {
-  return <Shape {...MOUNT_SERVER} {...props} />
+  return (
+    <Shape
+      {...MOUNT_SERVER}
+      {...props}
+      _style={extendStyle(MOUNT_SERVER, props)}
+    />
+  )
 }

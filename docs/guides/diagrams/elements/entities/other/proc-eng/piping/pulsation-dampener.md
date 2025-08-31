@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PulsationDampener } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { PulsationDampener } from '@diac/standard-components-diagrams/procEngPiping'
 
 <PulsationDampener/>
 ```

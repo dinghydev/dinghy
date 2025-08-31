@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GAS_FLOW_ACTUATED_ON = {
   _style:
@@ -9,5 +9,11 @@ export const GAS_FLOW_ACTUATED_ON = {
 }
 
 export function GasFlowActuatedOn(props: DiagramNodeProps) {
-  return <Shape {...GAS_FLOW_ACTUATED_ON} {...props} />
+  return (
+    <Shape
+      {...GAS_FLOW_ACTUATED_ON}
+      {...props}
+      _style={extendStyle(GAS_FLOW_ACTUATED_ON, props)}
+    />
+  )
 }

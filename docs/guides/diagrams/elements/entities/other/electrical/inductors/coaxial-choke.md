@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CoaxialChoke } from '@reactiac/standard-components-diagrams/electricalInductors'
+import { CoaxialChoke } from '@diac/standard-components-diagrams/electricalInductors'
 
 <CoaxialChoke/>
 ```

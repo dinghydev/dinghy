@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETRA_CP3270_ATCA_BLADE_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const NETRA_CP3270_ATCA_BLADE_SERVER = {
 }
 
 export function NetraCp3270AtcaBladeServer(props: DiagramNodeProps) {
-  return <Shape {...NETRA_CP3270_ATCA_BLADE_SERVER} {...props} />
+  return (
+    <Shape
+      {...NETRA_CP3270_ATCA_BLADE_SERVER}
+      {...props}
+      _style={extendStyle(NETRA_CP3270_ATCA_BLADE_SERVER, props)}
+    />
+  )
 }

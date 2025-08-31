@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/atlassian/Clover_Logo.svg;strokeColor=none;',
-  _width: 71,
-  _height: 71,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Clover } from '@reactiac/standard-components-diagrams/atlassian'
+import { Clover } from '@diac/standard-components-diagrams/atlassian'
 
 <Clover/>
 ```

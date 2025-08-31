@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButtonWithSpinner } from '@reactiac/standard-components-diagrams/bootstrap'
+import { ButtonWithSpinner } from '@diac/standard-components-diagrams/bootstrap'
 
 <ButtonWithSpinner/>
 ```

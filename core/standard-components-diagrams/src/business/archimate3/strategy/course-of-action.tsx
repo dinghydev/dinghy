@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COURSE_OF_ACTION = {
   _style:
@@ -9,5 +9,11 @@ export const COURSE_OF_ACTION = {
 }
 
 export function CourseOfAction(props: DiagramNodeProps) {
-  return <Shape {...COURSE_OF_ACTION} {...props} />
+  return (
+    <Shape
+      {...COURSE_OF_ACTION}
+      {...props}
+      _style={extendStyle(COURSE_OF_ACTION, props)}
+    />
+  )
 }

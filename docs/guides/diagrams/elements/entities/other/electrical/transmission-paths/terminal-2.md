@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Terminal2 } from '@reactiac/standard-components-diagrams/electricalTransmissionPaths'
+import { Terminal2 } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
 
 <Terminal2/>
 ```

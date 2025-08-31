@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MainframeModernizationRuntime } from '@reactiac/standard-components-diagrams/awsMigrationModernization'
+import { MainframeModernizationRuntime } from '@diac/standard-components-diagrams/awsMigrationModernization'
 
 <MainframeModernizationRuntime/>
 ```

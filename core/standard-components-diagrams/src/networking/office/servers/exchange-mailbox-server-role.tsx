@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXCHANGE_MAILBOX_SERVER_ROLE = {
   _style:
@@ -9,5 +9,11 @@ export const EXCHANGE_MAILBOX_SERVER_ROLE = {
 }
 
 export function ExchangeMailboxServerRole(props: DiagramNodeProps) {
-  return <Shape {...EXCHANGE_MAILBOX_SERVER_ROLE} {...props} />
+  return (
+    <Shape
+      {...EXCHANGE_MAILBOX_SERVER_ROLE}
+      {...props}
+      _style={extendStyle(EXCHANGE_MAILBOX_SERVER_ROLE, props)}
+    />
+  )
 }

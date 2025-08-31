@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OOS_OPERATION_ORCHESTRATION_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const OOS_OPERATION_ORCHESTRATION_SERVICE = {
 }
 
 export function OosOperationOrchestrationService(props: DiagramNodeProps) {
-  return <Shape {...OOS_OPERATION_ORCHESTRATION_SERVICE} {...props} />
+  return (
+    <Shape
+      {...OOS_OPERATION_ORCHESTRATION_SERVICE}
+      {...props}
+      _style={extendStyle(OOS_OPERATION_ORCHESTRATION_SERVICE, props)}
+    />
+  )
 }

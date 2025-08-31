@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PremiumNetworkTier } from '@reactiac/standard-components-diagrams/gcpIconsNetworking'
+import { PremiumNetworkTier } from '@diac/standard-components-diagrams/gcpIconsNetworking'
 
 <PremiumNetworkTier/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLOCKING_DEVICE = {
   _style:
@@ -9,5 +9,11 @@ export const BLOCKING_DEVICE = {
 }
 
 export function BlockingDevice(props: DiagramNodeProps) {
-  return <Shape {...BLOCKING_DEVICE} {...props} />
+  return (
+    <Shape
+      {...BLOCKING_DEVICE}
+      {...props}
+      _style={extendStyle(BLOCKING_DEVICE, props)}
+    />
+  )
 }

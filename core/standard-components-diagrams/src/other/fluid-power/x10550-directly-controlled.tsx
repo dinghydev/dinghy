@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10550_DIRECTLY_CONTROLLED = {
   _style:
@@ -9,5 +9,11 @@ export const X10550_DIRECTLY_CONTROLLED = {
 }
 
 export function X10550DirectlyControlled(props: DiagramNodeProps) {
-  return <Shape {...X10550_DIRECTLY_CONTROLLED} {...props} />
+  return (
+    <Shape
+      {...X10550_DIRECTLY_CONTROLLED}
+      {...props}
+      _style={extendStyle(X10550_DIRECTLY_CONTROLLED, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GoogleDrive } from '@reactiac/standard-components-diagrams/webLogos'
+import { GoogleDrive } from '@diac/standard-components-diagrams/webLogos'
 
 <GoogleDrive/>
 ```

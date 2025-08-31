@@ -4,7 +4,7 @@ import {
   ResolvableBooleanSchema,
   ResolvableNumberSchema,
   ResolvableStringSchema,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 import z from 'zod'
 import {
   AwsCloudfrontDistribution,
@@ -77,10 +77,10 @@ export function CloudfrontSite(props: CloudfrontSiteInputProps) {
   const { default_ttl, s3OriginPrefix } = CloudfrontSiteInputSchema.parse(props)
   const logging_config = {
     bucket: logBucket.bucket_regional_domain_name,
-    prefix: () => `log-sink/cloudfront/${props.title}.reactiac.dev/`,
+    prefix: () => `log-sink/cloudfront/${props.title}.diac.dev/`,
   }
 
-  const domainName = `${props.title}.reactiac.dev`
+  const domainName = `${props.title}.diac.dev`
   const origin_path = `/sites/${domainName}${
     s3OriginPrefix ? `/${s3OriginPrefix}` : ''
   }`

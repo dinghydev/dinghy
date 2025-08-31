@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEQUENCE_FLOW = {
   _style: {
@@ -9,5 +9,11 @@ export const SEQUENCE_FLOW = {
 }
 
 export function SequenceFlow(props: DiagramNodeProps) {
-  return <Dependency {...SEQUENCE_FLOW} {...props} />
+  return (
+    <Dependency
+      {...SEQUENCE_FLOW}
+      {...props}
+      _style={extendStyle(SEQUENCE_FLOW, props)}
+    />
+  )
 }

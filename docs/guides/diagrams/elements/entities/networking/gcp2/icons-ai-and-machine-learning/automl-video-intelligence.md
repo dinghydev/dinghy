@@ -14,7 +14,7 @@ Intelligence
 ## Usage
 
 ```
-import { AutomlVideoIntelligence } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AutomlVideoIntelligence } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AutomlVideoIntelligence/>
 ```

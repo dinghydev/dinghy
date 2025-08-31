@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_1FTVM_WARNING = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_1FTVM_WARNING = {
 }
 
 export function Component1ftvmWarning(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_1FTVM_WARNING} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_1FTVM_WARNING}
+      {...props}
+      _style={extendStyle(COMPONENT_1FTVM_WARNING, props)}
+    />
+  )
 }

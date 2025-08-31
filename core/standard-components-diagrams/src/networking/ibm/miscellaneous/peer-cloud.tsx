@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PEER_CLOUD = {
   _style:
@@ -9,5 +9,7 @@ export const PEER_CLOUD = {
 }
 
 export function PeerCloud(props: DiagramNodeProps) {
-  return <Shape {...PEER_CLOUD} {...props} />
+  return (
+    <Shape {...PEER_CLOUD} {...props} _style={extendStyle(PEER_CLOUD, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EVENT_GRID_TOPICS = {
   _style:
@@ -9,5 +9,11 @@ export const EVENT_GRID_TOPICS = {
 }
 
 export function EventGridTopics(props: DiagramNodeProps) {
-  return <Shape {...EVENT_GRID_TOPICS} {...props} />
+  return (
+    <Shape
+      {...EVENT_GRID_TOPICS}
+      {...props}
+      _style={extendStyle(EVENT_GRID_TOPICS, props)}
+    />
+  )
 }

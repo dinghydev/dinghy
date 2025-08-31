@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUTING = {
   _style:
@@ -9,5 +9,5 @@ export const ROUTING = {
 }
 
 export function Routing(props: DiagramNodeProps) {
-  return <Shape {...ROUTING} {...props} />
+  return <Shape {...ROUTING} {...props} _style={extendStyle(ROUTING, props)} />
 }

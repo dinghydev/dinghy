@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIRECT_LINK = {
   _style:
@@ -9,5 +9,11 @@ export const DIRECT_LINK = {
 }
 
 export function DirectLink(props: DiagramNodeProps) {
-  return <Shape {...DIRECT_LINK} {...props} />
+  return (
+    <Shape
+      {...DIRECT_LINK}
+      {...props}
+      _style={extendStyle(DIRECT_LINK, props)}
+    />
+  )
 }

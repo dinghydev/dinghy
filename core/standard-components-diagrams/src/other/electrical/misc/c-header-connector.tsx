@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const C_HEADER_CONNECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const C_HEADER_CONNECTOR = {
 }
 
 export function CHeaderConnector(props: DiagramNodeProps) {
-  return <Shape {...C_HEADER_CONNECTOR} {...props} />
+  return (
+    <Shape
+      {...C_HEADER_CONNECTOR}
+      {...props}
+      _style={extendStyle(C_HEADER_CONNECTOR, props)}
+    />
+  )
 }

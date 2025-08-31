@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DBFS_DATABASE_FILE_SYSTEM = {
   _style:
@@ -9,5 +9,11 @@ export const DBFS_DATABASE_FILE_SYSTEM = {
 }
 
 export function DbfsDatabaseFileSystem(props: DiagramNodeProps) {
-  return <Shape {...DBFS_DATABASE_FILE_SYSTEM} {...props} />
+  return (
+    <Shape
+      {...DBFS_DATABASE_FILE_SYSTEM}
+      {...props}
+      _style={extendStyle(DBFS_DATABASE_FILE_SYSTEM, props)}
+    />
+  )
 }

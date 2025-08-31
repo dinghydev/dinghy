@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER = {
   _style:
@@ -9,5 +9,11 @@ export const TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER = {
 }
 
 export function TurboDrierDiscDrierMovingShelfDrier(props: DiagramNodeProps) {
-  return <Shape {...TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER} {...props} />
+  return (
+    <Shape
+      {...TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER}
+      {...props}
+      _style={extendStyle(TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER, props)}
+    />
+  )
 }

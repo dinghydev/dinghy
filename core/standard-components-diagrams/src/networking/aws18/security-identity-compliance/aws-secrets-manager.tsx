@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_SECRETS_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_SECRETS_MANAGER = {
 }
 
 export function AwsSecretsManager(props: DiagramNodeProps) {
-  return <Shape {...AWS_SECRETS_MANAGER} {...props} />
+  return (
+    <Shape
+      {...AWS_SECRETS_MANAGER}
+      {...props}
+      _style={extendStyle(AWS_SECRETS_MANAGER, props)}
+    />
+  )
 }

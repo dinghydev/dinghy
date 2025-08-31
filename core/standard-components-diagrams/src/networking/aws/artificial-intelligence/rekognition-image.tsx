@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REKOGNITION_IMAGE = {
   _style:
@@ -9,5 +9,11 @@ export const REKOGNITION_IMAGE = {
 }
 
 export function RekognitionImage(props: DiagramNodeProps) {
-  return <Shape {...REKOGNITION_IMAGE} {...props} />
+  return (
+    <Shape
+      {...REKOGNITION_IMAGE}
+      {...props}
+      _style={extendStyle(REKOGNITION_IMAGE, props)}
+    />
+  )
 }

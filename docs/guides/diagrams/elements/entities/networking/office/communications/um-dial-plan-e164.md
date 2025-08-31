@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UmDialPlanE164 } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { UmDialPlanE164 } from '@diac/standard-components-diagrams/officeCommunications'
 
 <UmDialPlanE164/>
 ```

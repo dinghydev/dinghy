@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X10840ProportionalPressureRelief } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X10840ProportionalPressureRelief } from '@diac/standard-components-diagrams/fluidPower'
 
 <X10840ProportionalPressureRelief/>
 ```

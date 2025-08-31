@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXTERNAL_INFRASTRUCTURE_1ST_PARTY = {
   _style:
@@ -9,5 +9,11 @@ export const EXTERNAL_INFRASTRUCTURE_1ST_PARTY = {
 }
 
 export function ExternalInfrastructure1stParty(props: DiagramNodeProps) {
-  return <Shape {...EXTERNAL_INFRASTRUCTURE_1ST_PARTY} {...props} />
+  return (
+    <Shape
+      {...EXTERNAL_INFRASTRUCTURE_1ST_PARTY}
+      {...props}
+      _style={extendStyle(EXTERNAL_INFRASTRUCTURE_1ST_PARTY, props)}
+    />
+  )
 }

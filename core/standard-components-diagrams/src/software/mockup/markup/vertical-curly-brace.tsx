@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VERTICAL_CURLY_BRACE = {
   _style:
@@ -9,5 +9,11 @@ export const VERTICAL_CURLY_BRACE = {
 }
 
 export function VerticalCurlyBrace(props: DiagramNodeProps) {
-  return <Shape {...VERTICAL_CURLY_BRACE} {...props} />
+  return (
+    <Shape
+      {...VERTICAL_CURLY_BRACE}
+      {...props}
+      _style={extendStyle(VERTICAL_CURLY_BRACE, props)}
+    />
+  )
 }

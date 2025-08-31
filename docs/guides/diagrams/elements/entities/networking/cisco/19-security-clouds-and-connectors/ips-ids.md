@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IpsIds } from '@reactiac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { IpsIds } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <IpsIds/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMI = {
   _style:
@@ -9,5 +9,5 @@ export const AMI = {
 }
 
 export function Ami(props: DiagramNodeProps) {
-  return <Shape {...AMI} {...props} />
+  return <Shape {...AMI} {...props} _style={extendStyle(AMI, props)} />
 }

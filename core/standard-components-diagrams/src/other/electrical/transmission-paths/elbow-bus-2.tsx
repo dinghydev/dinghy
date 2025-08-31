@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELBOW_BUS_2 = {
   _style:
@@ -9,5 +9,11 @@ export const ELBOW_BUS_2 = {
 }
 
 export function ElbowBus2(props: DiagramNodeProps) {
-  return <Shape {...ELBOW_BUS_2} {...props} />
+  return (
+    <Shape
+      {...ELBOW_BUS_2}
+      {...props}
+      _style={extendStyle(ELBOW_BUS_2, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X2GD_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const X2GD_INSTANCE = {
 }
 
 export function X2gdInstance(props: DiagramNodeProps) {
-  return <Shape {...X2GD_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...X2GD_INSTANCE}
+      {...props}
+      _style={extendStyle(X2GD_INSTANCE, props)}
+    />
+  )
 }

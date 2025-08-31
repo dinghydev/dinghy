@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const END_OFFICE = {
   _style:
@@ -9,5 +9,7 @@ export const END_OFFICE = {
 }
 
 export function EndOffice(props: DiagramNodeProps) {
-  return <Shape {...END_OFFICE} {...props} />
+  return (
+    <Shape {...END_OFFICE} {...props} _style={extendStyle(END_OFFICE, props)} />
+  )
 }

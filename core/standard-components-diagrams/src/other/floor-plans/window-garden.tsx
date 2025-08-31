@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WINDOW_GARDEN = {
   _style:
@@ -9,5 +9,11 @@ export const WINDOW_GARDEN = {
 }
 
 export function WindowGarden(props: DiagramNodeProps) {
-  return <Shape {...WINDOW_GARDEN} {...props} />
+  return (
+    <Shape
+      {...WINDOW_GARDEN}
+      {...props}
+      _style={extendStyle(WINDOW_GARDEN, props)}
+    />
+  )
 }

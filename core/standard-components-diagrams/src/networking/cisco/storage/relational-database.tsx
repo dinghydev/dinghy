@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RELATIONAL_DATABASE = {
   _style:
@@ -9,5 +9,11 @@ export const RELATIONAL_DATABASE = {
 }
 
 export function RelationalDatabase(props: DiagramNodeProps) {
-  return <Shape {...RELATIONAL_DATABASE} {...props} />
+  return (
+    <Shape
+      {...RELATIONAL_DATABASE}
+      {...props}
+      _style={extendStyle(RELATIONAL_DATABASE, props)}
+    />
+  )
 }

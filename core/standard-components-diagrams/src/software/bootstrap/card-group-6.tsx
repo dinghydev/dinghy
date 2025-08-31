@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CARD_GROUP_6 = {
   _style:
@@ -9,5 +9,11 @@ export const CARD_GROUP_6 = {
 }
 
 export function CardGroup6(props: DiagramNodeProps) {
-  return <Shape {...CARD_GROUP_6} {...props} />
+  return (
+    <Shape
+      {...CARD_GROUP_6}
+      {...props}
+      _style={extendStyle(CARD_GROUP_6, props)}
+    />
+  )
 }

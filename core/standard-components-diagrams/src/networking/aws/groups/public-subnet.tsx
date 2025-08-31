@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PUBLIC_SUBNET = {
   _style: {
@@ -14,5 +14,11 @@ export const PUBLIC_SUBNET = {
 }
 
 export function PublicSubnet(props: DiagramNodeProps) {
-  return <Shape {...PUBLIC_SUBNET} {...props} />
+  return (
+    <Shape
+      {...PUBLIC_SUBNET}
+      {...props}
+      _style={extendStyle(PUBLIC_SUBNET, props)}
+    />
+  )
 }

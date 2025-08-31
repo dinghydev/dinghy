@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BackupEnterpriseManagerServer } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { BackupEnterpriseManagerServer } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <BackupEnterpriseManagerServer/>
 ```

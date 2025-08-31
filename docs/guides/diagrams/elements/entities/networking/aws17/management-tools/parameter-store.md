@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ParameterStore } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { ParameterStore } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <ParameterStore/>
 ```

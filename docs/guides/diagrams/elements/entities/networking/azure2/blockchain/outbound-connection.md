@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OutboundConnection } from '@reactiac/standard-components-diagrams/azure2Blockchain'
+import { OutboundConnection } from '@diac/standard-components-diagrams/azure2Blockchain'
 
 <OutboundConnection/>
 ```

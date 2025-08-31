@@ -14,7 +14,7 @@ Transfer
 ## Usage
 
 ```
-import { CloudDataTransfer } from '@reactiac/standard-components-diagrams/gcp2IconsMigration'
+import { CloudDataTransfer } from '@diac/standard-components-diagrams/gcp2IconsMigration'
 
 <CloudDataTransfer/>
 ```

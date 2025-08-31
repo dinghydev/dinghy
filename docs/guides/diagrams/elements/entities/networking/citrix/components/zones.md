@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Zones } from '@reactiac/standard-components-diagrams/citrixComponents'
+import { Zones } from '@diac/standard-components-diagrams/citrixComponents'
 
 <Zones/>
 ```

@@ -1,4 +1,4 @@
-import type { NodeTree, Props } from '@reactiac/base-components'
+import type { NodeTree, Props } from '@diac/base-components'
 import { globalCategory } from './globalCategory.ts'
 import type { TfRenderOptions } from '../types.ts'
 

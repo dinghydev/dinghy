@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BAAS_BLOCKCHAIN_AS_A_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const BAAS_BLOCKCHAIN_AS_A_SERVICE = {
 }
 
 export function BaasBlockchainAsAService(props: DiagramNodeProps) {
-  return <Shape {...BAAS_BLOCKCHAIN_AS_A_SERVICE} {...props} />
+  return (
+    <Shape
+      {...BAAS_BLOCKCHAIN_AS_A_SERVICE}
+      {...props}
+      _style={extendStyle(BAAS_BLOCKCHAIN_AS_A_SERVICE, props)}
+    />
+  )
 }

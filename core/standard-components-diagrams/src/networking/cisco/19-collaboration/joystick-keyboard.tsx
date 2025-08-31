@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JOYSTICK_KEYBOARD = {
   _style:
@@ -9,5 +9,11 @@ export const JOYSTICK_KEYBOARD = {
 }
 
 export function JoystickKeyboard(props: DiagramNodeProps) {
-  return <Shape {...JOYSTICK_KEYBOARD} {...props} />
+  return (
+    <Shape
+      {...JOYSTICK_KEYBOARD}
+      {...props}
+      _style={extendStyle(JOYSTICK_KEYBOARD, props)}
+    />
+  )
 }

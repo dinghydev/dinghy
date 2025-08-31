@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CiscoUnityExpress } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { CiscoUnityExpress } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <CiscoUnityExpress/>
 ```

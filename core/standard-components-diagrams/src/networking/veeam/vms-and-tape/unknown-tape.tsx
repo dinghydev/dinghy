@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNKNOWN_TAPE = {
   _style:
@@ -9,5 +9,11 @@ export const UNKNOWN_TAPE = {
 }
 
 export function UnknownTape(props: DiagramNodeProps) {
-  return <Shape {...UNKNOWN_TAPE} {...props} />
+  return (
+    <Shape
+      {...UNKNOWN_TAPE}
+      {...props}
+      _style={extendStyle(UNKNOWN_TAPE, props)}
+    />
+  )
 }

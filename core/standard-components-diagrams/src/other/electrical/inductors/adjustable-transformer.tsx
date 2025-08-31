@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADJUSTABLE_TRANSFORMER = {
   _style:
@@ -9,5 +9,11 @@ export const ADJUSTABLE_TRANSFORMER = {
 }
 
 export function AdjustableTransformer(props: DiagramNodeProps) {
-  return <Shape {...ADJUSTABLE_TRANSFORMER} {...props} />
+  return (
+    <Shape
+      {...ADJUSTABLE_TRANSFORMER}
+      {...props}
+      _style={extendStyle(ADJUSTABLE_TRANSFORMER, props)}
+    />
+  )
 }

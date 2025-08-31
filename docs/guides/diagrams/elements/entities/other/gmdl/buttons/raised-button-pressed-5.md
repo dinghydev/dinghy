@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RaisedButtonPressed5 } from '@reactiac/standard-components-diagrams/gmdlButtons'
+import { RaisedButtonPressed5 } from '@diac/standard-components-diagrams/gmdlButtons'
 
 <RaisedButtonPressed5/>
 ```

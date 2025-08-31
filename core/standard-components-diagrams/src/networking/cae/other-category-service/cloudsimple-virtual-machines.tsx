@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDSIMPLE_VIRTUAL_MACHINES = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUDSIMPLE_VIRTUAL_MACHINES = {
 }
 
 export function CloudsimpleVirtualMachines(props: DiagramNodeProps) {
-  return <Shape {...CLOUDSIMPLE_VIRTUAL_MACHINES} {...props} />
+  return (
+    <Shape
+      {...CLOUDSIMPLE_VIRTUAL_MACHINES}
+      {...props}
+      _style={extendStyle(CLOUDSIMPLE_VIRTUAL_MACHINES, props)}
+    />
+  )
 }

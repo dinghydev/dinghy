@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PairSites } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { PairSites } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <PairSites/>
 ```

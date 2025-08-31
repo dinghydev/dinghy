@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESTFUL_API = {
   _style:
@@ -9,5 +9,11 @@ export const RESTFUL_API = {
 }
 
 export function RestfulApi(props: DiagramNodeProps) {
-  return <Shape {...RESTFUL_API} {...props} />
+  return (
+    <Shape
+      {...RESTFUL_API}
+      {...props}
+      _style={extendStyle(RESTFUL_API, props)}
+    />
+  )
 }

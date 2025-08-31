@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHANGING_STATION = {
   _style:
@@ -9,5 +9,11 @@ export const CHANGING_STATION = {
 }
 
 export function ChangingStation(props: DiagramNodeProps) {
-  return <Shape {...CHANGING_STATION} {...props} />
+  return (
+    <Shape
+      {...CHANGING_STATION}
+      {...props}
+      _style={extendStyle(CHANGING_STATION, props)}
+    />
+  )
 }

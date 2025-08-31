@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COPYRIGHT = {
   _style:
@@ -9,5 +9,7 @@ export const COPYRIGHT = {
 }
 
 export function Copyright(props: DiagramNodeProps) {
-  return <Shape {...COPYRIGHT} {...props} />
+  return (
+    <Shape {...COPYRIGHT} {...props} _style={extendStyle(COPYRIGHT, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BaasBlockchainAsAService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { BaasBlockchainAsAService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <BaasBlockchainAsAService/>
 ```

@@ -21,12 +21,12 @@ const options: CommandOptions = {
   default: {
     version: 'latest',
   },
-  cmdDescription: 'Upgrade ReactIAC Cli to the latest version',
+  cmdDescription: 'Upgrade DIaC Cli to the latest version',
   cmdAlias: ['up'],
 }
 
 export const upgradeToVersion = async (version: string) => {
-  const url = 'https://play.reactiac.dev/download/install.sh'
+  const url = 'https://play.diac.dev/download/install.sh'
   const response = await fetch(url)
   const content = await response.text()
 
@@ -35,7 +35,7 @@ export const upgradeToVersion = async (version: string) => {
     stdout: 'inherit',
     input: content,
     env: {
-      REACTIAC_VERSION: version,
+      DIAC_VERSION: version,
     },
   })`sh`
 }

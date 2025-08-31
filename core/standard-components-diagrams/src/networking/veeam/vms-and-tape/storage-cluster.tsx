@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STORAGE_CLUSTER = {
   _style:
@@ -9,5 +9,11 @@ export const STORAGE_CLUSTER = {
 }
 
 export function StorageCluster(props: DiagramNodeProps) {
-  return <Shape {...STORAGE_CLUSTER} {...props} />
+  return (
+    <Shape
+      {...STORAGE_CLUSTER}
+      {...props}
+      _style={extendStyle(STORAGE_CLUSTER, props)}
+    />
+  )
 }

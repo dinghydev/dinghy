@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HttpsProtocol3 } from '@reactiac/standard-components-diagrams/sapEssentials'
+import { HttpsProtocol3 } from '@diac/standard-components-diagrams/sapEssentials'
 
 <HttpsProtocol3/>
 ```

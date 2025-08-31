@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataEncryptionKey } from '@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { DataEncryptionKey } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <DataEncryptionKey/>
 ```

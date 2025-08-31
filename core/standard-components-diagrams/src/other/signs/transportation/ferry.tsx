@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FERRY = {
   _style:
@@ -9,5 +9,5 @@ export const FERRY = {
 }
 
 export function Ferry(props: DiagramNodeProps) {
-  return <Shape {...FERRY} {...props} />
+  return <Shape {...FERRY} {...props} _style={extendStyle(FERRY, props)} />
 }

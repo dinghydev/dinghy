@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUTE_SWITCH_PROCESSOR = {
   _style:
@@ -9,5 +9,11 @@ export const ROUTE_SWITCH_PROCESSOR = {
 }
 
 export function RouteSwitchProcessor(props: DiagramNodeProps) {
-  return <Shape {...ROUTE_SWITCH_PROCESSOR} {...props} />
+  return (
+    <Shape
+      {...ROUTE_SWITCH_PROCESSOR}
+      {...props}
+      _style={extendStyle(ROUTE_SWITCH_PROCESSOR, props)}
+    />
+  )
 }

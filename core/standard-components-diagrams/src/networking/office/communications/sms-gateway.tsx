@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SMS_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const SMS_GATEWAY = {
 }
 
 export function SmsGateway(props: DiagramNodeProps) {
-  return <Shape {...SMS_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...SMS_GATEWAY}
+      {...props}
+      _style={extendStyle(SMS_GATEWAY, props)}
+    />
+  )
 }

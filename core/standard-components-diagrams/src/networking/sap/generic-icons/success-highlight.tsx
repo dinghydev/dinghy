@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUCCESS_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const SUCCESS_HIGHLIGHT = {
 }
 
 export function SuccessHighlight(props: DiagramNodeProps) {
-  return <Shape {...SUCCESS_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...SUCCESS_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(SUCCESS_HIGHLIGHT, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDUSTRIAL_ETHERNET_IE200_POE = {
   _style:
@@ -9,5 +9,11 @@ export const INDUSTRIAL_ETHERNET_IE200_POE = {
 }
 
 export function IndustrialEthernetIe200Poe(props: DiagramNodeProps) {
-  return <Shape {...INDUSTRIAL_ETHERNET_IE200_POE} {...props} />
+  return (
+    <Shape
+      {...INDUSTRIAL_ETHERNET_IE200_POE}
+      {...props}
+      _style={extendStyle(INDUSTRIAL_ETHERNET_IE200_POE, props)}
+    />
+  )
 }

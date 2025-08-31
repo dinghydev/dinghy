@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DURABLE_SUBSCRIBER = {
   _style:
@@ -9,5 +9,11 @@ export const DURABLE_SUBSCRIBER = {
 }
 
 export function DurableSubscriber(props: DiagramNodeProps) {
-  return <Shape {...DURABLE_SUBSCRIBER} {...props} />
+  return (
+    <Shape
+      {...DURABLE_SUBSCRIBER}
+      {...props}
+      _style={extendStyle(DURABLE_SUBSCRIBER, props)}
+    />
+  )
 }

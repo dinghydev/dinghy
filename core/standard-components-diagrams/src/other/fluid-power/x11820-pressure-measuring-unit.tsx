@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11820_PRESSURE_MEASURING_UNIT = {
   _style:
@@ -9,5 +9,11 @@ export const X11820_PRESSURE_MEASURING_UNIT = {
 }
 
 export function X11820PressureMeasuringUnit(props: DiagramNodeProps) {
-  return <Shape {...X11820_PRESSURE_MEASURING_UNIT} {...props} />
+  return (
+    <Shape
+      {...X11820_PRESSURE_MEASURING_UNIT}
+      {...props}
+      _style={extendStyle(X11820_PRESSURE_MEASURING_UNIT, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOZENGE_SUCCESS_SUBTLE = {
   _style:
@@ -9,5 +9,11 @@ export const LOZENGE_SUCCESS_SUBTLE = {
 }
 
 export function LozengeSuccessSubtle(props: DiagramNodeProps) {
-  return <Shape {...LOZENGE_SUCCESS_SUBTLE} {...props} />
+  return (
+    <Shape
+      {...LOZENGE_SUCCESS_SUBTLE}
+      {...props}
+      _style={extendStyle(LOZENGE_SUCCESS_SUBTLE, props)}
+    />
+  )
 }

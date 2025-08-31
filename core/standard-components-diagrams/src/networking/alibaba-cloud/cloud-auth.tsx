@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_AUTH = {
   _style:
@@ -9,5 +9,7 @@ export const CLOUD_AUTH = {
 }
 
 export function CloudAuth(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_AUTH} {...props} />
+  return (
+    <Shape {...CLOUD_AUTH} {...props} _style={extendStyle(CLOUD_AUTH, props)} />
+  )
 }

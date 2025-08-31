@@ -1,4 +1,4 @@
-import { Shape } from "@reactiac/base-components";
+import { Shape } from "@diac/base-components";
 
 export function App() {
   return (

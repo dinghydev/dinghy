@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UcsCSeriesServer } from '@reactiac/standard-components-diagrams/cisco19DataCenter'
+import { UcsCSeriesServer } from '@diac/standard-components-diagrams/cisco19DataCenter'
 
 <UcsCSeriesServer/>
 ```

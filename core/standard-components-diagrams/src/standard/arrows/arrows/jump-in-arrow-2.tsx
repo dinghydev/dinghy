@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JUMP_IN_ARROW_2 = {
   _style:
@@ -9,5 +9,11 @@ export const JUMP_IN_ARROW_2 = {
 }
 
 export function JumpInArrow2(props: DiagramNodeProps) {
-  return <Shape {...JUMP_IN_ARROW_2} {...props} />
+  return (
+    <Shape
+      {...JUMP_IN_ARROW_2}
+      {...props}
+      _style={extendStyle(JUMP_IN_ARROW_2, props)}
+    />
+  )
 }

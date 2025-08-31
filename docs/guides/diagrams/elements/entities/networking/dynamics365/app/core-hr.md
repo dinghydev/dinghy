@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/CoreHR.svg;strokeColor=none;',
-  _width: 68,
-  _height: 68,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { CoreHr } from '@reactiac/standard-components-diagrams/dynamics365App'
+import { CoreHr } from '@diac/standard-components-diagrams/dynamics365App'
 
 <CoreHr/>
 ```

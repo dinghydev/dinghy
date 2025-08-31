@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PointToPointChannel } from '@reactiac/standard-components-diagrams/eipMessagingChannels'
+import { PointToPointChannel } from '@diac/standard-components-diagrams/eipMessagingChannels'
 
 <PointToPointChannel/>
 ```

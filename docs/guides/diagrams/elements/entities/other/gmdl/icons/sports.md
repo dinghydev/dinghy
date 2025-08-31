@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sports } from '@reactiac/standard-components-diagrams/gmdlIcons'
+import { Sports } from '@diac/standard-components-diagrams/gmdlIcons'
 
 <Sports/>
 ```

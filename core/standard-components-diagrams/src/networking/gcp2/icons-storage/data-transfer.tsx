@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATA_TRANSFER = {
   _style:
@@ -9,5 +9,11 @@ export const DATA_TRANSFER = {
 }
 
 export function DataTransfer(props: DiagramNodeProps) {
-  return <Shape {...DATA_TRANSFER} {...props} />
+  return (
+    <Shape
+      {...DATA_TRANSFER}
+      {...props}
+      _style={extendStyle(DATA_TRANSFER, props)}
+    />
+  )
 }

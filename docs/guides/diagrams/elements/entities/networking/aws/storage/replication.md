@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Replication } from '@reactiac/standard-components-diagrams/awsStorage'
+import { Replication } from '@diac/standard-components-diagrams/awsStorage'
 
 <Replication/>
 ```

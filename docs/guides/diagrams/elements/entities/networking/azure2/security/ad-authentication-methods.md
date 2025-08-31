@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AdAuthenticationMethods } from '@reactiac/standard-components-diagrams/azure2Security'
+import { AdAuthenticationMethods } from '@diac/standard-components-diagrams/azure2Security'
 
 <AdAuthenticationMethods/>
 ```

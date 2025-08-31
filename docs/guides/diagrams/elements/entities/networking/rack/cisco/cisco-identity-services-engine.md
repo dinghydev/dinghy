@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CiscoIdentityServicesEngine } from '@reactiac/standard-components-diagrams/rackCisco'
+import { CiscoIdentityServicesEngine } from '@diac/standard-components-diagrams/rackCisco'
 
 <CiscoIdentityServicesEngine/>
 ```

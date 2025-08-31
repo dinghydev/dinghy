@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FlashDrive } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { FlashDrive } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <FlashDrive/>
 ```

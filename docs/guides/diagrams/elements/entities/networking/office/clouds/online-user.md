@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OnlineUser } from '@reactiac/standard-components-diagrams/officeClouds'
+import { OnlineUser } from '@diac/standard-components-diagrams/officeClouds'
 
 <OnlineUser/>
 ```

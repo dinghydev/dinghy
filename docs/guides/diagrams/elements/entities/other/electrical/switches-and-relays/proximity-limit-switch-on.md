@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProximityLimitSwitchOn } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { ProximityLimitSwitchOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <ProximityLimitSwitchOn/>
 ```

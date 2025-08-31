@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Amazon } from '@reactiac/standard-components-diagrams/webIcons'
+import { Amazon } from '@diac/standard-components-diagrams/webIcons'
 
 <Amazon/>
 ```

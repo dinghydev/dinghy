@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Custom_Azure_AD_Roles.svg;strokeColor=none;',
-  _width: 68,
-  _height: 68,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { CustomAzureAdRoles } from '@reactiac/standard-components-diagrams/azure2Identity'
+import { CustomAzureAdRoles } from '@diac/standard-components-diagrams/azure2Identity'
 
 <CustomAzureAdRoles/>
 ```

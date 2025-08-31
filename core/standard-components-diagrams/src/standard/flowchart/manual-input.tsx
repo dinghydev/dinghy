@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MANUAL_INPUT = {
   _style:
@@ -9,5 +9,11 @@ export const MANUAL_INPUT = {
 }
 
 export function ManualInput(props: DiagramNodeProps) {
-  return <Shape {...MANUAL_INPUT} {...props} />
+  return (
+    <Shape
+      {...MANUAL_INPUT}
+      {...props}
+      _style={extendStyle(MANUAL_INPUT, props)}
+    />
+  )
 }

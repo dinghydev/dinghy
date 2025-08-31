@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12340_GAS_LOADED_ACCUMULATOR = {
   _style:
@@ -9,5 +9,11 @@ export const X12340_GAS_LOADED_ACCUMULATOR = {
 }
 
 export function X12340GasLoadedAccumulator(props: DiagramNodeProps) {
-  return <Shape {...X12340_GAS_LOADED_ACCUMULATOR} {...props} />
+  return (
+    <Shape
+      {...X12340_GAS_LOADED_ACCUMULATOR}
+      {...props}
+      _style={extendStyle(X12340_GAS_LOADED_ACCUMULATOR, props)}
+    />
+  )
 }

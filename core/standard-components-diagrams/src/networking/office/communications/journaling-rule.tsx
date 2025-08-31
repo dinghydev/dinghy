@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JOURNALING_RULE = {
   _style:
@@ -9,5 +9,11 @@ export const JOURNALING_RULE = {
 }
 
 export function JournalingRule(props: DiagramNodeProps) {
-  return <Shape {...JOURNALING_RULE} {...props} />
+  return (
+    <Shape
+      {...JOURNALING_RULE}
+      {...props}
+      _style={extendStyle(JOURNALING_RULE, props)}
+    />
+  )
 }

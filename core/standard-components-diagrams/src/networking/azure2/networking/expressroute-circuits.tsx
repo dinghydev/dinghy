@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXPRESSROUTE_CIRCUITS = {
   _style:
@@ -9,5 +9,11 @@ export const EXPRESSROUTE_CIRCUITS = {
 }
 
 export function ExpressrouteCircuits(props: DiagramNodeProps) {
-  return <Shape {...EXPRESSROUTE_CIRCUITS} {...props} />
+  return (
+    <Shape
+      {...EXPRESSROUTE_CIRCUITS}
+      {...props}
+      _style={extendStyle(EXPRESSROUTE_CIRCUITS, props)}
+    />
+  )
 }

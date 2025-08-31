@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MEMCACHED = {
   _style:
@@ -9,5 +9,7 @@ export const MEMCACHED = {
 }
 
 export function Memcached(props: DiagramNodeProps) {
-  return <Shape {...MEMCACHED} {...props} />
+  return (
+    <Shape {...MEMCACHED} {...props} _style={extendStyle(MEMCACHED, props)} />
+  )
 }

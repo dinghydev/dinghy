@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BucketScale } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { BucketScale } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <BucketScale/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EncryptionKey } from '@reactiac/standard-components-diagrams/veeam2General'
+import { EncryptionKey } from '@diac/standard-components-diagrams/veeam2General'
 
 <EncryptionKey/>
 ```

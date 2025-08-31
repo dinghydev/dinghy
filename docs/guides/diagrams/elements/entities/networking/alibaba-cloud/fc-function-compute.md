@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FcFunctionCompute } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { FcFunctionCompute } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <FcFunctionCompute/>
 ```

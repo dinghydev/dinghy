@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Lambda } from '@reactiac/standard-components-diagrams/aws17Compute'
+import { Lambda } from '@diac/standard-components-diagrams/aws17Compute'
 
 <Lambda/>
 ```

@@ -1,4 +1,4 @@
-import { deepResolve } from '@reactiac/base-components'
+import { deepResolve } from '@diac/base-components'
 import type { DimensionType, DrawioContext, DrawioNodeTree } from '../types.ts'
 
 const applySameDimension = (

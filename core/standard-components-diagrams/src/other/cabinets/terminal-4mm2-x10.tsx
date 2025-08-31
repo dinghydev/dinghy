@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TERMINAL_4MM2_X10 = {
   _style:
@@ -9,5 +9,11 @@ export const TERMINAL_4MM2_X10 = {
 }
 
 export function Terminal4mm2X10(props: DiagramNodeProps) {
-  return <Shape {...TERMINAL_4MM2_X10} {...props} />
+  return (
+    <Shape
+      {...TERMINAL_4MM2_X10}
+      {...props}
+      _style={extendStyle(TERMINAL_4MM2_X10, props)}
+    />
+  )
 }

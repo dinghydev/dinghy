@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SetTop } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { SetTop } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <SetTop/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Spdt } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { Spdt } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <Spdt/>
 ```

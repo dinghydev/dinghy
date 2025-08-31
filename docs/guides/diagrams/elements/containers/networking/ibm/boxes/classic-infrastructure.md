@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { ClassicInfrastructure } from '@reactiac/standard-components-diagrams/ibmBoxes'
+import { ClassicInfrastructure } from '@diac/standard-components-diagrams/ibmBoxes'
 
 <ClassicInfrastructure/>
 ```

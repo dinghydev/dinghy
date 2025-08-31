@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { Send } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { Send } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <Send/>
 ```

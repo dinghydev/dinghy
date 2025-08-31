@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CrusherJaw } from '@reactiac/standard-components-diagrams/procEngCrushersGrinding'
+import { CrusherJaw } from '@diac/standard-components-diagrams/procEngCrushersGrinding'
 
 <CrusherJaw/>
 ```

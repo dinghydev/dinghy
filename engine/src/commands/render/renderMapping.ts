@@ -1,20 +1,20 @@
 import { renderJson } from '../../../../core/renderer-json/src/index.ts'
 import { renderDrawio } from '../../../../core/renderer-drawio/src/index.ts'
 import { renderTf } from '../../../../core/renderer-tf/src/index.ts'
-import { dirname, resolve } from '@std/path'
+import { dirname, resolve } from 'jsr:@std/path@1.0.8'
 import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
-import { hostAppHome } from '@reactiac/cli'
+import { hostAppHome } from '@diac/cli'
 import {
   createStage,
   createView,
   deepMerge,
   toTitle,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 import { runCommand } from '../../../../cli/src/utils/runCommand.ts'
 import png from '../diagram/png.ts'
-import { OPTIONS_SYMBOL } from '@reactiac/cli'
+import { OPTIONS_SYMBOL } from '@diac/cli'
 const debug = Debug('rendererMapping')
 
 const writeFile = async (path: string, content: string) => {
@@ -179,7 +179,7 @@ const tf = async (app: any, options: any, args: any) => {
     const outputPath = `${args.output}/${stage.id}/${stage.id}.tf.json`
     debug('rendering tf to %s/%s', hostAppHome, outputPath)
     const result = await renderTf(app, options)
-    if (result.result !== '{}') {
+    if (result.result !== '{}\n') {
       await writeFile(outputPath, result.result)
       renderedStages.push(stageString)
       stackInfo.stages[stage.id] = stage

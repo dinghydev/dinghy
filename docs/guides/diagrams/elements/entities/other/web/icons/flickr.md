@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Flickr } from '@reactiac/standard-components-diagrams/webIcons'
+import { Flickr } from '@diac/standard-components-diagrams/webIcons'
 
 <Flickr/>
 ```

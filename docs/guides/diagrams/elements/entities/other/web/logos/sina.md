@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sina } from '@reactiac/standard-components-diagrams/webLogos'
+import { Sina } from '@diac/standard-components-diagrams/webLogos'
 
 <Sina/>
 ```

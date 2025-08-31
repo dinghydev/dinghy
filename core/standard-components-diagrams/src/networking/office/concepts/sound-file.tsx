@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOUND_FILE = {
   _style:
@@ -9,5 +9,7 @@ export const SOUND_FILE = {
 }
 
 export function SoundFile(props: DiagramNodeProps) {
-  return <Shape {...SOUND_FILE} {...props} />
+  return (
+    <Shape {...SOUND_FILE} {...props} _style={extendStyle(SOUND_FILE, props)} />
+  )
 }

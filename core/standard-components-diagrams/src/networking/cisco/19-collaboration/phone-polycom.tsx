@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PHONE_POLYCOM = {
   _style:
@@ -9,5 +9,11 @@ export const PHONE_POLYCOM = {
 }
 
 export function PhonePolycom(props: DiagramNodeProps) {
-  return <Shape {...PHONE_POLYCOM} {...props} />
+  return (
+    <Shape
+      {...PHONE_POLYCOM}
+      {...props}
+      _style={extendStyle(PHONE_POLYCOM, props)}
+    />
+  )
 }

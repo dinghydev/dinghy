@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LoadBalancingRouting } from '@reactiac/standard-components-diagrams/ibmInfrastructure'
+import { LoadBalancingRouting } from '@diac/standard-components-diagrams/ibmInfrastructure'
 
 <LoadBalancingRouting/>
 ```

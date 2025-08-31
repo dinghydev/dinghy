@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IdentityAuthorization } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { IdentityAuthorization } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <IdentityAuthorization/>
 ```

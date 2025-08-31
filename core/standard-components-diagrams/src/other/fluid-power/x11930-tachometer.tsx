@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11930_TACHOMETER = {
   _style:
@@ -9,5 +9,11 @@ export const X11930_TACHOMETER = {
 }
 
 export function X11930Tachometer(props: DiagramNodeProps) {
-  return <Shape {...X11930_TACHOMETER} {...props} />
+  return (
+    <Shape
+      {...X11930_TACHOMETER}
+      {...props}
+      _style={extendStyle(X11930_TACHOMETER, props)}
+    />
+  )
 }

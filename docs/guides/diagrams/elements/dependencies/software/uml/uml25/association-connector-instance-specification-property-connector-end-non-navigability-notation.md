@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AssociationConnectorInstanceSpecificationPropertyConnectorEndNonNavigabilityNotation } from '@reactiac/standard-components-diagrams/uml25'
+import { AssociationConnectorInstanceSpecificationPropertyConnectorEndNonNavigabilityNotation } from '@diac/standard-components-diagrams/uml25'
 
 <AssociationConnectorInstanceSpecificationPropertyConnectorEndNonNavigabilityNotation/>
 ```

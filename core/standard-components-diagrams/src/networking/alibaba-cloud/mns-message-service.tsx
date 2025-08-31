@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MNS_MESSAGE_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const MNS_MESSAGE_SERVICE = {
 }
 
 export function MnsMessageService(props: DiagramNodeProps) {
-  return <Shape {...MNS_MESSAGE_SERVICE} {...props} />
+  return (
+    <Shape
+      {...MNS_MESSAGE_SERVICE}
+      {...props}
+      _style={extendStyle(MNS_MESSAGE_SERVICE, props)}
+    />
+  )
 }

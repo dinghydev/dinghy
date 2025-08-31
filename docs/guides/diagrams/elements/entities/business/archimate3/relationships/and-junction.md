@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AndJunction } from '@reactiac/standard-components-diagrams/archimate3Relationships'
+import { AndJunction } from '@diac/standard-components-diagrams/archimate3Relationships'
 
 <AndJunction/>
 ```

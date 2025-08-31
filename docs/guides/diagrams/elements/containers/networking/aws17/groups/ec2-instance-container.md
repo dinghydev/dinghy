@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { Ec2InstanceContainer } from '@reactiac/standard-components-diagrams/aws17Groups'
+import { Ec2InstanceContainer } from '@diac/standard-components-diagrams/aws17Groups'
 
 <Ec2InstanceContainer/>
 ```

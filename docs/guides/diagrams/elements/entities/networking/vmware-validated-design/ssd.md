@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ssd } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { Ssd } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <Ssd/>
 ```

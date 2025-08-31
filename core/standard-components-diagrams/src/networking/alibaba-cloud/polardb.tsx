@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POLARDB = {
   _style:
@@ -9,5 +9,5 @@ export const POLARDB = {
 }
 
 export function Polardb(props: DiagramNodeProps) {
-  return <Shape {...POLARDB} {...props} />
+  return <Shape {...POLARDB} {...props} _style={extendStyle(POLARDB, props)} />
 }

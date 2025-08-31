@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProgressBarStripedBlue } from '@reactiac/standard-components-diagrams/bootstrap'
+import { ProgressBarStripedBlue } from '@diac/standard-components-diagrams/bootstrap'
 
 <ProgressBarStripedBlue/>
 ```

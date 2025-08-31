@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CacheNode } from '@reactiac/standard-components-diagrams/aws18Database'
+import { CacheNode } from '@diac/standard-components-diagrams/aws18Database'
 
 <CacheNode/>
 ```

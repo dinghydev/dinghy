@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Constraint } from '@reactiac/standard-components-diagrams/archimate2'
+import { Constraint } from '@diac/standard-components-diagrams/archimate2'
 
 <Constraint/>
 ```

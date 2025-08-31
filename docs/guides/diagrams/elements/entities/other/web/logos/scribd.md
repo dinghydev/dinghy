@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Scribd } from '@reactiac/standard-components-diagrams/webLogos'
+import { Scribd } from '@diac/standard-components-diagrams/webLogos'
 
 <Scribd/>
 ```

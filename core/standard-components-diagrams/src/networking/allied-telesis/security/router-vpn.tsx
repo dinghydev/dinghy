@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUTER_VPN = {
   _style:
@@ -9,5 +9,7 @@ export const ROUTER_VPN = {
 }
 
 export function RouterVpn(props: DiagramNodeProps) {
-  return <Shape {...ROUTER_VPN} {...props} />
+  return (
+    <Shape {...ROUTER_VPN} {...props} _style={extendStyle(ROUTER_VPN, props)} />
+  )
 }

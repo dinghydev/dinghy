@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FlowCollector } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { FlowCollector } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <FlowCollector/>
 ```

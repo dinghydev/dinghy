@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BatchedKanban } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { BatchedKanban } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <BatchedKanban/>
 ```

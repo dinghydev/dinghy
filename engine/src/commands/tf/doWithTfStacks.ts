@@ -1,6 +1,6 @@
-import type { CommandArgs } from '@reactiac/cli'
+import type { CommandArgs } from '@diac/cli'
 import { parseTfOptions } from './tfOptions.ts'
-import { reactiacAppConfig } from '@reactiac/cli'
+import { diacAppConfig } from '@diac/cli'
 import { doWithStacks } from '../../../../cli/src/utils/index.ts'
 
 export const doWithTfStacks = async (
@@ -8,7 +8,7 @@ export const doWithTfStacks = async (
   callback: (tfOptions: any, args: CommandArgs) => Promise<void>,
 ) => {
   await doWithStacks(
-    reactiacAppConfig,
+    diacAppConfig,
     args.stack,
     async (stackOptions: any) => {
       const tfOptions = parseTfOptions(args, stackOptions)

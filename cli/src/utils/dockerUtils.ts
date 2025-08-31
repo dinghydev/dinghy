@@ -1,11 +1,11 @@
 import { existsSync } from '@std/fs/exists'
-import { dirname, resolve } from '@std/path'
+import { dirname, resolve } from 'jsr:@std/path@1.0.8'
 import {
   appHomeMount,
   containerAppHome,
+  diacRc,
   hostAppHome,
   isInsideContainer,
-  reactiacRc,
 } from './loadConfig.ts'
 import { streamCmd } from './cmd.ts'
 import { mkdirSync } from 'node:fs'
@@ -48,7 +48,7 @@ export const getDockerHostPath = (path: string) =>
 
 export function getDockerEnvs(appEnvs: Env = {}) {
   const envs = deepMerge({}, Deno.env.toObject())
-  deepMerge(envs, reactiacRc)
+  deepMerge(envs, diacRc)
   const whiteListEnvs = Object.entries(envs).filter(([key]) =>
     !DOCKER_EXCLUDED_ENVS.includes(key)
   ).reduce((acc, [key, value]) => {

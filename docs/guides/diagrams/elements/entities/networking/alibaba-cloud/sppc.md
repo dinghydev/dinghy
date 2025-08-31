@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sppc } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Sppc } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Sppc/>
 ```

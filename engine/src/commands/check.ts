@@ -4,10 +4,10 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@reactiac/cli'
-import { OPTIONS_SYMBOL, ReactiacError, RUN_SYMBOL } from '@reactiac/cli'
+} from '@diac/cli'
+import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@diac/cli'
 import { streamCmd } from '../utils/cmd.ts'
-import { hostAppHome } from '@reactiac/cli'
+import { hostAppHome } from '@diac/cli'
 import chalk from 'chalk'
 
 const SUPPORTED_CHECKS = ['fmt', 'lint', 'type', 'git']
@@ -72,7 +72,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   }
   const failedChecks = results.filter((result) => result.result.exitCode !== 0)
   if (failedChecks.length > 0) {
-    throw new ReactiacError(
+    throw new DiacError(
       `Failed to run checks [${
         failedChecks.map((result) => result.check).join(', ')
       }], see error above`,

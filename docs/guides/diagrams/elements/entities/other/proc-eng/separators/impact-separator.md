@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ImpactSeparator } from '@reactiac/standard-components-diagrams/procEngSeparators'
+import { ImpactSeparator } from '@diac/standard-components-diagrams/procEngSeparators'
 
 <ImpactSeparator/>
 ```

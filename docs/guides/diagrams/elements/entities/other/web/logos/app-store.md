@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AppStore } from '@reactiac/standard-components-diagrams/webLogos'
+import { AppStore } from '@diac/standard-components-diagrams/webLogos'
 
 <AppStore/>
 ```

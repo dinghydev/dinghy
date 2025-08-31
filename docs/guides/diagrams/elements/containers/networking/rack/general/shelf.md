@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { Shelf } from '@reactiac/standard-components-diagrams/rackGeneral'
+import { Shelf } from '@diac/standard-components-diagrams/rackGeneral'
 
 <Shelf/>
 ```

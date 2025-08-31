@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Database } from '@reactiac/standard-components-diagrams/azure'
+import { Database } from '@diac/standard-components-diagrams/azure'
 
 <Database/>
 ```

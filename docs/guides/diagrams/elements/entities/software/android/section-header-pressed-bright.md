@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SectionHeaderPressedBright } from '@reactiac/standard-components-diagrams/android'
+import { SectionHeaderPressedBright } from '@diac/standard-components-diagrams/android'
 
 <SectionHeaderPressedBright/>
 ```

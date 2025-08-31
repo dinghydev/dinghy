@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/computers/Monitor_Tower_Behind_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { MonitorTowerBehind } from '@reactiac/standard-components-diagrams/clipartComputer'
+import { MonitorTowerBehind } from '@diac/standard-components-diagrams/clipartComputer'
 
 <MonitorTowerBehind/>
 ```

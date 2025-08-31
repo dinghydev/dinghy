@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOCKET_CONNECTION_NOZZLE = {
   _style:
@@ -9,5 +9,11 @@ export const SOCKET_CONNECTION_NOZZLE = {
 }
 
 export function SocketConnectionNozzle(props: DiagramNodeProps) {
-  return <Shape {...SOCKET_CONNECTION_NOZZLE} {...props} />
+  return (
+    <Shape
+      {...SOCKET_CONNECTION_NOZZLE}
+      {...props}
+      _style={extendStyle(SOCKET_CONNECTION_NOZZLE, props)}
+    />
+  )
 }

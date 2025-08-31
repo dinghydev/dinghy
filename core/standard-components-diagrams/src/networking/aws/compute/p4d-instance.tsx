@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const P4D_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const P4D_INSTANCE = {
 }
 
 export function P4dInstance(props: DiagramNodeProps) {
-  return <Shape {...P4D_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...P4D_INSTANCE}
+      {...props}
+      _style={extendStyle(P4D_INSTANCE, props)}
+    />
+  )
 }

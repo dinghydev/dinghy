@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cube } from '@reactiac/standard-components-diagrams/general'
+import { Cube } from '@diac/standard-components-diagrams/general'
 
 <Cube/>
 ```

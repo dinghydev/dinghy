@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ethergrid } from '@reactiac/standard-components-diagrams/alliedTelesisSecurity'
+import { Ethergrid } from '@diac/standard-components-diagrams/alliedTelesisSecurity'
 
 <Ethergrid/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const R0X36A_ARUBA_6400_3000W_PS_W_C20 = {
   _style:
@@ -9,5 +9,11 @@ export const R0X36A_ARUBA_6400_3000W_PS_W_C20 = {
 }
 
 export function R0x36aAruba64003000wPsWC20(props: DiagramNodeProps) {
-  return <Shape {...R0X36A_ARUBA_6400_3000W_PS_W_C20} {...props} />
+  return (
+    <Shape
+      {...R0X36A_ARUBA_6400_3000W_PS_W_C20}
+      {...props}
+      _style={extendStyle(R0X36A_ARUBA_6400_3000W_PS_W_C20, props)}
+    />
+  )
 }

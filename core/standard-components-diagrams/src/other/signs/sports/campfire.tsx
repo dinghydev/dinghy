@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CAMPFIRE = {
   _style:
@@ -9,5 +9,7 @@ export const CAMPFIRE = {
 }
 
 export function Campfire(props: DiagramNodeProps) {
-  return <Shape {...CAMPFIRE} {...props} />
+  return (
+    <Shape {...CAMPFIRE} {...props} _style={extendStyle(CAMPFIRE, props)} />
+  )
 }

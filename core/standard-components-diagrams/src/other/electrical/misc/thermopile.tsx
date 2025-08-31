@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const THERMOPILE = {
   _style:
@@ -9,5 +9,7 @@ export const THERMOPILE = {
 }
 
 export function Thermopile(props: DiagramNodeProps) {
-  return <Shape {...THERMOPILE} {...props} />
+  return (
+    <Shape {...THERMOPILE} {...props} _style={extendStyle(THERMOPILE, props)} />
+  )
 }

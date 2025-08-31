@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ICON_GRID = {
   _style:
@@ -9,5 +9,7 @@ export const ICON_GRID = {
 }
 
 export function IconGrid(props: DiagramNodeProps) {
-  return <Shape {...ICON_GRID} {...props} />
+  return (
+    <Shape {...ICON_GRID} {...props} _style={extendStyle(ICON_GRID, props)} />
+  )
 }

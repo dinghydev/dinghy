@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROTECTION_GROUP = {
   _style:
@@ -9,5 +9,11 @@ export const PROTECTION_GROUP = {
 }
 
 export function ProtectionGroup(props: DiagramNodeProps) {
-  return <Shape {...PROTECTION_GROUP} {...props} />
+  return (
+    <Shape
+      {...PROTECTION_GROUP}
+      {...props}
+      _style={extendStyle(PROTECTION_GROUP, props)}
+    />
+  )
 }

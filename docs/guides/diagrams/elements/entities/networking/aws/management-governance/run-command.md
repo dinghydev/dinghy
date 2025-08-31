@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RunCommand } from '@reactiac/standard-components-diagrams/awsManagementGovernance'
+import { RunCommand } from '@diac/standard-components-diagrams/awsManagementGovernance'
 
 <RunCommand/>
 ```

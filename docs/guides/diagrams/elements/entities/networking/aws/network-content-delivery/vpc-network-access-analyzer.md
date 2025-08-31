@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VpcNetworkAccessAnalyzer } from '@reactiac/standard-components-diagrams/awsNetworkContentDelivery'
+import { VpcNetworkAccessAnalyzer } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
 
 <VpcNetworkAccessAnalyzer/>
 ```

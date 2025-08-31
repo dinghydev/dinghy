@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonConnect } from '@reactiac/standard-components-diagrams/aws18CustomerEngagement'
+import { AmazonConnect } from '@diac/standard-components-diagrams/aws18CustomerEngagement'
 
 <AmazonConnect/>
 ```

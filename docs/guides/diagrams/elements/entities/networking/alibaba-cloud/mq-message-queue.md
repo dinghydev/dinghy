@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MqMessageQueue } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { MqMessageQueue } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <MqMessageQueue/>
 ```

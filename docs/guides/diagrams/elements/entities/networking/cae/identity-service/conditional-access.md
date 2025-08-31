@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConditionalAccess } from '@reactiac/standard-components-diagrams/caeIdentityService'
+import { ConditionalAccess } from '@diac/standard-components-diagrams/caeIdentityService'
 
 <ConditionalAccess/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TextfieldDisabled } from '@reactiac/standard-components-diagrams/android'
+import { TextfieldDisabled } from '@diac/standard-components-diagrams/android'
 
 <TextfieldDisabled/>
 ```

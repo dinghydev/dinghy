@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROXIMITY_PLACEMENT_GROUPS = {
   _style:
@@ -9,5 +9,11 @@ export const PROXIMITY_PLACEMENT_GROUPS = {
 }
 
 export function ProximityPlacementGroups(props: DiagramNodeProps) {
-  return <Shape {...PROXIMITY_PLACEMENT_GROUPS} {...props} />
+  return (
+    <Shape
+      {...PROXIMITY_PLACEMENT_GROUPS}
+      {...props}
+      _style={extendStyle(PROXIMITY_PLACEMENT_GROUPS, props)}
+    />
+  )
 }

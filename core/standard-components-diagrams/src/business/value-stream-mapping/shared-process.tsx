@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHARED_PROCESS = {
   _style:
@@ -9,5 +9,11 @@ export const SHARED_PROCESS = {
 }
 
 export function SharedProcess(props: DiagramNodeProps) {
-  return <Shape {...SHARED_PROCESS} {...props} />
+  return (
+    <Shape
+      {...SHARED_PROCESS}
+      {...props}
+      _style={extendStyle(SHARED_PROCESS, props)}
+    />
+  )
 }

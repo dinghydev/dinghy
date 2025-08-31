@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAKE_CONTACT = {
   _style:
@@ -9,5 +9,11 @@ export const MAKE_CONTACT = {
 }
 
 export function MakeContact(props: DiagramNodeProps) {
-  return <Shape {...MAKE_CONTACT} {...props} />
+  return (
+    <Shape
+      {...MAKE_CONTACT}
+      {...props}
+      _style={extendStyle(MAKE_CONTACT, props)}
+    />
+  )
 }

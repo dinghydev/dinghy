@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEFAULT_SIZE_DROPDOWN_BUTTON = {
   _style:
@@ -9,5 +9,11 @@ export const DEFAULT_SIZE_DROPDOWN_BUTTON = {
 }
 
 export function DefaultSizeDropdownButton(props: DiagramNodeProps) {
-  return <Shape {...DEFAULT_SIZE_DROPDOWN_BUTTON} {...props} />
+  return (
+    <Shape
+      {...DEFAULT_SIZE_DROPDOWN_BUTTON}
+      {...props}
+      _style={extendStyle(DEFAULT_SIZE_DROPDOWN_BUTTON, props)}
+    />
+  )
 }

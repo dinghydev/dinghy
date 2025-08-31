@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AnticreepageDevice } from '@reactiac/standard-components-diagrams/electricalTransmissionPaths'
+import { AnticreepageDevice } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
 
 <AnticreepageDevice/>
 ```

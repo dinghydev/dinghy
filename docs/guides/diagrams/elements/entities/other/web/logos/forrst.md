@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Forrst } from '@reactiac/standard-components-diagrams/webLogos'
+import { Forrst } from '@diac/standard-components-diagrams/webLogos'
 
 <Forrst/>
 ```

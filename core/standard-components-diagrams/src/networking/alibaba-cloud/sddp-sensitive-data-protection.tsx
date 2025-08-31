@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SDDP_SENSITIVE_DATA_PROTECTION = {
   _style:
@@ -9,5 +9,11 @@ export const SDDP_SENSITIVE_DATA_PROTECTION = {
 }
 
 export function SddpSensitiveDataProtection(props: DiagramNodeProps) {
-  return <Shape {...SDDP_SENSITIVE_DATA_PROTECTION} {...props} />
+  return (
+    <Shape
+      {...SDDP_SENSITIVE_DATA_PROTECTION}
+      {...props}
+      _style={extendStyle(SDDP_SENSITIVE_DATA_PROTECTION, props)}
+    />
+  )
 }

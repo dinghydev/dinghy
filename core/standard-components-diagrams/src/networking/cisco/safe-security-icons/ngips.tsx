@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NGIPS = {
   _style:
@@ -9,5 +9,5 @@ export const NGIPS = {
 }
 
 export function Ngips(props: DiagramNodeProps) {
-  return <Shape {...NGIPS} {...props} />
+  return <Shape {...NGIPS} {...props} _style={extendStyle(NGIPS, props)} />
 }

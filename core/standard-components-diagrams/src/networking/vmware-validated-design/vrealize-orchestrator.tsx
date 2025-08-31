@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VREALIZE_ORCHESTRATOR = {
   _style:
@@ -9,5 +9,11 @@ export const VREALIZE_ORCHESTRATOR = {
 }
 
 export function VrealizeOrchestrator(props: DiagramNodeProps) {
-  return <Shape {...VREALIZE_ORCHESTRATOR} {...props} />
+  return (
+    <Shape
+      {...VREALIZE_ORCHESTRATOR}
+      {...props}
+      _style={extendStyle(VREALIZE_ORCHESTRATOR, props)}
+    />
+  )
 }

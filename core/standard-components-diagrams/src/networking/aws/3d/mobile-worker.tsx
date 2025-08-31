@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOBILE_WORKER = {
   _style:
@@ -9,5 +9,11 @@ export const MOBILE_WORKER = {
 }
 
 export function MobileWorker(props: DiagramNodeProps) {
-  return <Shape {...MOBILE_WORKER} {...props} />
+  return (
+    <Shape
+      {...MOBILE_WORKER}
+      {...props}
+      _style={extendStyle(MOBILE_WORKER, props)}
+    />
+  )
 }

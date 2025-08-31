@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PIPELINE = {
   _style:
@@ -9,5 +9,7 @@ export const PIPELINE = {
 }
 
 export function Pipeline(props: DiagramNodeProps) {
-  return <Shape {...PIPELINE} {...props} />
+  return (
+    <Shape {...PIPELINE} {...props} _style={extendStyle(PIPELINE, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SLB_SERVER_LOAD_BALANCER = {
   _style:
@@ -9,5 +9,11 @@ export const SLB_SERVER_LOAD_BALANCER = {
 }
 
 export function SlbServerLoadBalancer(props: DiagramNodeProps) {
-  return <Shape {...SLB_SERVER_LOAD_BALANCER} {...props} />
+  return (
+    <Shape
+      {...SLB_SERVER_LOAD_BALANCER}
+      {...props}
+      _style={extendStyle(SLB_SERVER_LOAD_BALANCER, props)}
+    />
+  )
 }

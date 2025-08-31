@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHOPPED_SQUARE_WAVE = {
   _style:
@@ -9,5 +9,11 @@ export const CHOPPED_SQUARE_WAVE = {
 }
 
 export function ChoppedSquareWave(props: DiagramNodeProps) {
-  return <Shape {...CHOPPED_SQUARE_WAVE} {...props} />
+  return (
+    <Shape
+      {...CHOPPED_SQUARE_WAVE}
+      {...props}
+      _style={extendStyle(CHOPPED_SQUARE_WAVE, props)}
+    />
+  )
 }

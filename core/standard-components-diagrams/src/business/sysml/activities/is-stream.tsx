@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IS_STREAM = {
   _style: 'html=1;shape=mxgraph.sysml.isStream;whiteSpace=wrap;align=center;',
@@ -8,5 +8,7 @@ export const IS_STREAM = {
 }
 
 export function IsStream(props: DiagramNodeProps) {
-  return <Shape {...IS_STREAM} {...props} />
+  return (
+    <Shape {...IS_STREAM} {...props} _style={extendStyle(IS_STREAM, props)} />
+  )
 }

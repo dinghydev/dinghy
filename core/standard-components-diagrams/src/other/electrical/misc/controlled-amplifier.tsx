@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTROLLED_AMPLIFIER = {
   _style:
@@ -9,5 +9,11 @@ export const CONTROLLED_AMPLIFIER = {
 }
 
 export function ControlledAmplifier(props: DiagramNodeProps) {
-  return <Shape {...CONTROLLED_AMPLIFIER} {...props} />
+  return (
+    <Shape
+      {...CONTROLLED_AMPLIFIER}
+      {...props}
+      _style={extendStyle(CONTROLLED_AMPLIFIER, props)}
+    />
+  )
 }

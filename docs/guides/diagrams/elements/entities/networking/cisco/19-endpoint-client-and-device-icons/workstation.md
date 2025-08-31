@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Workstation } from '@reactiac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
+import { Workstation } from '@diac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
 
 <Workstation/>
 ```

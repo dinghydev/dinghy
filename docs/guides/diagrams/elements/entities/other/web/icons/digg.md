@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Digg } from '@reactiac/standard-components-diagrams/webIcons'
+import { Digg } from '@diac/standard-components-diagrams/webIcons'
 
 <Digg/>
 ```

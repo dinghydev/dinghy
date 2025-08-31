@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AIR_FILTER = {
   _style:
@@ -9,5 +9,7 @@ export const AIR_FILTER = {
 }
 
 export function AirFilter(props: DiagramNodeProps) {
-  return <Shape {...AIR_FILTER} {...props} />
+  return (
+    <Shape {...AIR_FILTER} {...props} _style={extendStyle(AIR_FILTER, props)} />
+  )
 }

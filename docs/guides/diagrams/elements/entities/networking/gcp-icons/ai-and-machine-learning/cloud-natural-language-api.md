@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudNaturalLanguageApi } from '@reactiac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { CloudNaturalLanguageApi } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <CloudNaturalLanguageApi/>
 ```

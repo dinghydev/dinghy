@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL581A_ARUBA_8320_48P_1G_10GBASE_T_AND_6P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE =
   {
@@ -16,6 +16,10 @@ export function Jl581aAruba832048p1g10gbaseTAnd6p40gQsfp5Fans2PsSwitchBundle(
     <Shape
       {...JL581A_ARUBA_8320_48P_1G_10GBASE_T_AND_6P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE}
       {...props}
+      _style={extendStyle(
+        JL581A_ARUBA_8320_48P_1G_10GBASE_T_AND_6P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE,
+        props,
+      )}
     />
   )
 }

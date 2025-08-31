@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FWISP = {
   _style:
@@ -9,5 +9,5 @@ export const FWISP = {
 }
 
 export function Fwisp(props: DiagramNodeProps) {
-  return <Shape {...FWISP} {...props} />
+  return <Shape {...FWISP} {...props} _style={extendStyle(FWISP, props)} />
 }

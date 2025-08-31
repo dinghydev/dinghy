@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VpnGateway } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { VpnGateway } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <VpnGateway/>
 ```

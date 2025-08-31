@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsPrivatelink } from '@reactiac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { AwsPrivatelink } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <AwsPrivatelink/>
 ```

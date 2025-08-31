@@ -1,11 +1,6 @@
 import type { TfRenderOptions } from '../types.ts'
 import { requiredSchema } from './index.ts'
-import {
-  deepMerge,
-  deepResolve,
-  NodeTree,
-  Props,
-} from '@reactiac/base-components'
+import { deepMerge, deepResolve, NodeTree, Props } from '@diac/base-components'
 
 export const resourceOrData = (
   renderOptions: TfRenderOptions,

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InBlockDefinitionDiagramsActivityAssociation } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { InBlockDefinitionDiagramsActivityAssociation } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <InBlockDefinitionDiagramsActivityAssociation/>
 ```

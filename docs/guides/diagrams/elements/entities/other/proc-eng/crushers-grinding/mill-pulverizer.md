@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MillPulverizer } from '@reactiac/standard-components-diagrams/procEngCrushersGrinding'
+import { MillPulverizer } from '@diac/standard-components-diagrams/procEngCrushersGrinding'
 
 <MillPulverizer/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mindaro } from '@reactiac/standard-components-diagrams/azure2Intune'
+import { Mindaro } from '@diac/standard-components-diagrams/azure2Intune'
 
 <Mindaro/>
 ```

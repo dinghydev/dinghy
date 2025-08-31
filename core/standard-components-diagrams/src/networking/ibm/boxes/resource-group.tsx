@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESOURCE_GROUP = {
   _style: {
@@ -12,5 +12,11 @@ export const RESOURCE_GROUP = {
 }
 
 export function ResourceGroup(props: DiagramNodeProps) {
-  return <Shape {...RESOURCE_GROUP} {...props} />
+  return (
+    <Shape
+      {...RESOURCE_GROUP}
+      {...props}
+      _style={extendStyle(RESOURCE_GROUP, props)}
+    />
+  )
 }

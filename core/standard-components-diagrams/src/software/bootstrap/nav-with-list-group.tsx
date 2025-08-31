@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAV_WITH_LIST_GROUP = {
   _style:
@@ -9,5 +9,11 @@ export const NAV_WITH_LIST_GROUP = {
 }
 
 export function NavWithListGroup(props: DiagramNodeProps) {
-  return <Shape {...NAV_WITH_LIST_GROUP} {...props} />
+  return (
+    <Shape
+      {...NAV_WITH_LIST_GROUP}
+      {...props}
+      _style={extendStyle(NAV_WITH_LIST_GROUP, props)}
+    />
+  )
 }

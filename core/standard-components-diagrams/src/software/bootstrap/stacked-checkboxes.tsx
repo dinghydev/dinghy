@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STACKED_CHECKBOXES = {
   _style:
@@ -9,5 +9,11 @@ export const STACKED_CHECKBOXES = {
 }
 
 export function StackedCheckboxes(props: DiagramNodeProps) {
-  return <Shape {...STACKED_CHECKBOXES} {...props} />
+  return (
+    <Shape
+      {...STACKED_CHECKBOXES}
+      {...props}
+      _style={extendStyle(STACKED_CHECKBOXES, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SmsGateway } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { SmsGateway } from '@diac/standard-components-diagrams/officeCommunications'
 
 <SmsGateway/>
 ```

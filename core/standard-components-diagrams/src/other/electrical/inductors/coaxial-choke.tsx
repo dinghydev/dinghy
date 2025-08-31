@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COAXIAL_CHOKE = {
   _style:
@@ -9,5 +9,11 @@ export const COAXIAL_CHOKE = {
 }
 
 export function CoaxialChoke(props: DiagramNodeProps) {
-  return <Shape {...COAXIAL_CHOKE} {...props} />
+  return (
+    <Shape
+      {...COAXIAL_CHOKE}
+      {...props}
+      _style={extendStyle(COAXIAL_CHOKE, props)}
+    />
+  )
 }

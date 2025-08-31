@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChoiceMergeNodeDecisionNode } from '@reactiac/standard-components-diagrams/uml25'
+import { ChoiceMergeNodeDecisionNode } from '@diac/standard-components-diagrams/uml25'
 
 <ChoiceMergeNodeDecisionNode/>
 ```

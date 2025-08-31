@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CYLINDER_STACK = {
   _style:
@@ -9,5 +9,11 @@ export const CYLINDER_STACK = {
 }
 
 export function CylinderStack(props: DiagramNodeProps) {
-  return <Shape {...CYLINDER_STACK} {...props} />
+  return (
+    <Shape
+      {...CYLINDER_STACK}
+      {...props}
+      _style={extendStyle(CYLINDER_STACK, props)}
+    />
+  )
 }

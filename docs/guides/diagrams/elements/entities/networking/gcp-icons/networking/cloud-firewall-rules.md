@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudFirewallRules } from '@reactiac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudFirewallRules } from '@diac/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudFirewallRules/>
 ```

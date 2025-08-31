@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NlpAddress } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { NlpAddress } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <NlpAddress/>
 ```

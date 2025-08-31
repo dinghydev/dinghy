@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SmallDropdownButton } from '@reactiac/standard-components-diagrams/bootstrap'
+import { SmallDropdownButton } from '@diac/standard-components-diagrams/bootstrap'
 
 <SmallDropdownButton/>
 ```

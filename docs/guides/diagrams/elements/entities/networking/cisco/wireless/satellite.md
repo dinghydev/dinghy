@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Satellite } from '@reactiac/standard-components-diagrams/ciscoWireless'
+import { Satellite } from '@diac/standard-components-diagrams/ciscoWireless'
 
 <Satellite/>
 ```

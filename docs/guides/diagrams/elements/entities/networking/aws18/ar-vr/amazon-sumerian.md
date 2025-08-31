@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonSumerian } from '@reactiac/standard-components-diagrams/aws18ArVr'
+import { AmazonSumerian } from '@diac/standard-components-diagrams/aws18ArVr'
 
 <AmazonSumerian/>
 ```

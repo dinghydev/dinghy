@@ -1,5 +1,5 @@
 {
-  "name": "@reactiac/renderer-json",
+  "name": "@diac/renderer-json",
   "exports": {
     ".": "./src/index.ts"
   },

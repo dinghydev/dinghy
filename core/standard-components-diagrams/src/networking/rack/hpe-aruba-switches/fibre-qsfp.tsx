@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIBRE_QSFP = {
   _style:
@@ -9,5 +9,7 @@ export const FIBRE_QSFP = {
 }
 
 export function FibreQsfp(props: DiagramNodeProps) {
-  return <Shape {...FIBRE_QSFP} {...props} />
+  return (
+    <Shape {...FIBRE_QSFP} {...props} _style={extendStyle(FIBRE_QSFP, props)} />
+  )
 }

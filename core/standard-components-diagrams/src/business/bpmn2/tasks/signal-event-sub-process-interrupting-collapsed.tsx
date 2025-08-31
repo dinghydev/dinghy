@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SIGNAL_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED = {
   _style: {
@@ -12,6 +12,13 @@ export function SignalEventSubProcessInterruptingCollapsed(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...SIGNAL_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED} {...props} />
+    <Shape
+      {...SIGNAL_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED}
+      {...props}
+      _style={extendStyle(
+        SIGNAL_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED,
+        props,
+      )}
+    />
   )
 }

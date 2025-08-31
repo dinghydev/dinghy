@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Wavefront } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { Wavefront } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <Wavefront/>
 ```

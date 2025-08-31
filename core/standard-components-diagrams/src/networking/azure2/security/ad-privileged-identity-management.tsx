@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AD_PRIVILEGED_IDENTITY_MANAGEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const AD_PRIVILEGED_IDENTITY_MANAGEMENT = {
 }
 
 export function AdPrivilegedIdentityManagement(props: DiagramNodeProps) {
-  return <Shape {...AD_PRIVILEGED_IDENTITY_MANAGEMENT} {...props} />
+  return (
+    <Shape
+      {...AD_PRIVILEGED_IDENTITY_MANAGEMENT}
+      {...props}
+      _style={extendStyle(AD_PRIVILEGED_IDENTITY_MANAGEMENT, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_CLOUDSEARCH = {
   _style:
@@ -9,5 +9,11 @@ export const AMAZON_CLOUDSEARCH = {
 }
 
 export function AmazonCloudsearch(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_CLOUDSEARCH} {...props} />
+  return (
+    <Shape
+      {...AMAZON_CLOUDSEARCH}
+      {...props}
+      _style={extendStyle(AMAZON_CLOUDSEARCH, props)}
+    />
+  )
 }

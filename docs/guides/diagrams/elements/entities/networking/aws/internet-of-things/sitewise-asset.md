@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SitewiseAsset } from '@reactiac/standard-components-diagrams/awsInternetOfThings'
+import { SitewiseAsset } from '@diac/standard-components-diagrams/awsInternetOfThings'
 
 <SitewiseAsset/>
 ```

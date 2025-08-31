@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHARED_CONTROL_DISPLAY_IN_DCS_LOCAL_PANEL = {
   _style:
     'html=1;outlineConnect=0;align=center;dashed=0;aspect=fixed;shape=mxgraph.pid2inst.sharedCont;mounting=local',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function SharedControlDisplayInDcsLocalPanel(props: DiagramNodeProps) {
-  return <Shape {...SHARED_CONTROL_DISPLAY_IN_DCS_LOCAL_PANEL} {...props} />
+  return (
+    <Shape
+      {...SHARED_CONTROL_DISPLAY_IN_DCS_LOCAL_PANEL}
+      {...props}
+      _style={extendStyle(SHARED_CONTROL_DISPLAY_IN_DCS_LOCAL_PANEL, props)}
+    />
+  )
 }

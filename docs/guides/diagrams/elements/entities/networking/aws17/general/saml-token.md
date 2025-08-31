@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SamlToken } from '@reactiac/standard-components-diagrams/aws17General'
+import { SamlToken } from '@diac/standard-components-diagrams/aws17General'
 
 <SamlToken/>
 ```

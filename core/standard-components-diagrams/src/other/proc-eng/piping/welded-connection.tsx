@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WELDED_CONNECTION = {
   _style:
@@ -9,5 +9,11 @@ export const WELDED_CONNECTION = {
 }
 
 export function WeldedConnection(props: DiagramNodeProps) {
-  return <Shape {...WELDED_CONNECTION} {...props} />
+  return (
+    <Shape
+      {...WELDED_CONNECTION}
+      {...props}
+      _style={extendStyle(WELDED_CONNECTION, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonAppstream20 } from '@reactiac/standard-components-diagrams/aws18DesktopAppStreaming'
+import { AmazonAppstream20 } from '@diac/standard-components-diagrams/aws18DesktopAppStreaming'
 
 <AmazonAppstream20/>
 ```

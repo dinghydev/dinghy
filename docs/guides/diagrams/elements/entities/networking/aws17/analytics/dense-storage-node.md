@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DenseStorageNode } from '@reactiac/standard-components-diagrams/aws17Analytics'
+import { DenseStorageNode } from '@diac/standard-components-diagrams/aws17Analytics'
 
 <DenseStorageNode/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IgniterPlug } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { IgniterPlug } from '@diac/standard-components-diagrams/electricalMisc'
 
 <IgniterPlug/>
 ```

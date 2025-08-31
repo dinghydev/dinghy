@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTAINER_REGISTRY = {
   _style:
@@ -9,5 +9,11 @@ export const CONTAINER_REGISTRY = {
 }
 
 export function ContainerRegistry(props: DiagramNodeProps) {
-  return <Shape {...CONTAINER_REGISTRY} {...props} />
+  return (
+    <Shape
+      {...CONTAINER_REGISTRY}
+      {...props}
+      _style={extendStyle(CONTAINER_REGISTRY, props)}
+    />
+  )
 }

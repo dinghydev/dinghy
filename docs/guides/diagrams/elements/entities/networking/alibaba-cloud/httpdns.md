@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Httpdns } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Httpdns } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Httpdns/>
 ```

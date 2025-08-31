@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LogFiles } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { LogFiles } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <LogFiles/>
 ```

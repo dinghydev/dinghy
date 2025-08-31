@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AdDecoder } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { AdDecoder } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <AdDecoder/>
 ```

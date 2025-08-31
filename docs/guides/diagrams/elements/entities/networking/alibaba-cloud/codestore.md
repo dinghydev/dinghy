@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Codestore } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Codestore } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Codestore/>
 ```

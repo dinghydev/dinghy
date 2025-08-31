@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectionOfFlow } from '@reactiac/standard-components-diagrams/electricalTransmissionPaths'
+import { DirectionOfFlow } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
 
 <DirectionOfFlow/>
 ```

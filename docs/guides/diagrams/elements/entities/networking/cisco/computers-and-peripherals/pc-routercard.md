@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PcRoutercard } from '@reactiac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { PcRoutercard } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <PcRoutercard/>
 ```

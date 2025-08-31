@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXHAUST_HEAD = {
   _style:
@@ -9,5 +9,11 @@ export const EXHAUST_HEAD = {
 }
 
 export function ExhaustHead(props: DiagramNodeProps) {
-  return <Shape {...EXHAUST_HEAD} {...props} />
+  return (
+    <Shape
+      {...EXHAUST_HEAD}
+      {...props}
+      _style={extendStyle(EXHAUST_HEAD, props)}
+    />
+  )
 }

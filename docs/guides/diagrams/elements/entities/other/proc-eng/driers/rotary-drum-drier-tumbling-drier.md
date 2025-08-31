@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RotaryDrumDrierTumblingDrier } from '@reactiac/standard-components-diagrams/procEngDriers'
+import { RotaryDrumDrierTumblingDrier } from '@diac/standard-components-diagrams/procEngDriers'
 
 <RotaryDrumDrierTumblingDrier/>
 ```

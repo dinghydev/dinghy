@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X10190MechanicalFeedback } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X10190MechanicalFeedback } from '@diac/standard-components-diagrams/fluidPower'
 
 <X10190MechanicalFeedback/>
 ```

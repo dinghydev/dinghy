@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMPHITEATER = {
   _style:
@@ -9,5 +9,11 @@ export const AMPHITEATER = {
 }
 
 export function Amphiteater(props: DiagramNodeProps) {
-  return <Shape {...AMPHITEATER} {...props} />
+  return (
+    <Shape
+      {...AMPHITEATER}
+      {...props}
+      _style={extendStyle(AMPHITEATER, props)}
+    />
+  )
 }

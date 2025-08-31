@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TenantProperties } from '@reactiac/standard-components-diagrams/azure2Identity'
+import { TenantProperties } from '@diac/standard-components-diagrams/azure2Identity'
 
 <TenantProperties/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CO_AX = {
   _style:
@@ -9,5 +9,5 @@ export const CO_AX = {
 }
 
 export function CoAx(props: DiagramNodeProps) {
-  return <Shape {...CO_AX} {...props} />
+  return <Shape {...CO_AX} {...props} _style={extendStyle(CO_AX, props)} />
 }

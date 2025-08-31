@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DENSE_COMPUTE_NODE = {
   _style:
@@ -9,5 +9,11 @@ export const DENSE_COMPUTE_NODE = {
 }
 
 export function DenseComputeNode(props: DiagramNodeProps) {
-  return <Shape {...DENSE_COMPUTE_NODE} {...props} />
+  return (
+    <Shape
+      {...DENSE_COMPUTE_NODE}
+      {...props}
+      _style={extendStyle(DENSE_COMPUTE_NODE, props)}
+    />
+  )
 }

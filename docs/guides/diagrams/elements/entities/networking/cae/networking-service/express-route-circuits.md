@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExpressRouteCircuits } from '@reactiac/standard-components-diagrams/caeNetworkingService'
+import { ExpressRouteCircuits } from '@diac/standard-components-diagrams/caeNetworkingService'
 
 <ExpressRouteCircuits/>
 ```

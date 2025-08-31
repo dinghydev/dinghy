@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOST_AND_FOUND = {
   _style:
@@ -9,5 +9,11 @@ export const LOST_AND_FOUND = {
 }
 
 export function LostAndFound(props: DiagramNodeProps) {
-  return <Shape {...LOST_AND_FOUND} {...props} />
+  return (
+    <Shape
+      {...LOST_AND_FOUND}
+      {...props}
+      _style={extendStyle(LOST_AND_FOUND, props)}
+    />
+  )
 }

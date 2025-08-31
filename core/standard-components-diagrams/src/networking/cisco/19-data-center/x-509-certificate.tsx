@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X_509_CERTIFICATE = {
   _style:
@@ -9,5 +9,11 @@ export const X_509_CERTIFICATE = {
 }
 
 export function X509Certificate(props: DiagramNodeProps) {
-  return <Shape {...X_509_CERTIFICATE} {...props} />
+  return (
+    <Shape
+      {...X_509_CERTIFICATE}
+      {...props}
+      _style={extendStyle(X_509_CERTIFICATE, props)}
+    />
+  )
 }

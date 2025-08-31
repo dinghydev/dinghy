@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NESTED_PORT = {
   _style:
@@ -9,5 +9,11 @@ export const NESTED_PORT = {
 }
 
 export function NestedPort(props: DiagramNodeProps) {
-  return <Shape {...NESTED_PORT} {...props} />
+  return (
+    <Shape
+      {...NESTED_PORT}
+      {...props}
+      _style={extendStyle(NESTED_PORT, props)}
+    />
+  )
 }

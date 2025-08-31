@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LINE_CABLE = {
   _style:
@@ -9,5 +9,7 @@ export const LINE_CABLE = {
 }
 
 export function LineCable(props: DiagramNodeProps) {
-  return <Shape {...LINE_CABLE} {...props} />
+  return (
+    <Shape {...LINE_CABLE} {...props} _style={extendStyle(LINE_CABLE, props)} />
+  )
 }

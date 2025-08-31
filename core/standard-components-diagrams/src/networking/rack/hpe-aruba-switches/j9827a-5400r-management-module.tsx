@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9827A_5400R_MANAGEMENT_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const J9827A_5400R_MANAGEMENT_MODULE = {
 }
 
 export function J9827a5400rManagementModule(props: DiagramNodeProps) {
-  return <Shape {...J9827A_5400R_MANAGEMENT_MODULE} {...props} />
+  return (
+    <Shape
+      {...J9827A_5400R_MANAGEMENT_MODULE}
+      {...props}
+      _style={extendStyle(J9827A_5400R_MANAGEMENT_MODULE, props)}
+    />
+  )
 }

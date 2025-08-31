@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL376A_ARUBA_8400_FRONT = {
   _style:
@@ -9,5 +9,11 @@ export const JL376A_ARUBA_8400_FRONT = {
 }
 
 export function Jl376aAruba8400Front(props: DiagramNodeProps) {
-  return <Shape {...JL376A_ARUBA_8400_FRONT} {...props} />
+  return (
+    <Shape
+      {...JL376A_ARUBA_8400_FRONT}
+      {...props}
+      _style={extendStyle(JL376A_ARUBA_8400_FRONT, props)}
+    />
+  )
 }

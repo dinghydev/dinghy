@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IM_WORKLOAD = {
   _style:
@@ -9,5 +9,11 @@ export const IM_WORKLOAD = {
 }
 
 export function ImWorkload(props: DiagramNodeProps) {
-  return <Shape {...IM_WORKLOAD} {...props} />
+  return (
+    <Shape
+      {...IM_WORKLOAD}
+      {...props}
+      _style={extendStyle(IM_WORKLOAD, props)}
+    />
+  )
 }

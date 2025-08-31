@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bluetooth } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { Bluetooth } from '@diac/standard-components-diagrams/ios7Ui'
 
 <Bluetooth/>
 ```

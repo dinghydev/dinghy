@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cluster } from '@reactiac/standard-components-diagrams/aws18Analytics'
+import { Cluster } from '@diac/standard-components-diagrams/aws18Analytics'
 
 <Cluster/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL557A_ARUBA_2930F_48G_POE_4SFP_740W_SWITCH_REAR = {
   _style:
@@ -12,6 +12,13 @@ export function Jl557aAruba2930f48gPoe4sfp740wSwitchRear(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...JL557A_ARUBA_2930F_48G_POE_4SFP_740W_SWITCH_REAR} {...props} />
+    <Shape
+      {...JL557A_ARUBA_2930F_48G_POE_4SFP_740W_SWITCH_REAR}
+      {...props}
+      _style={extendStyle(
+        JL557A_ARUBA_2930F_48G_POE_4SFP_740W_SWITCH_REAR,
+        props,
+      )}
+    />
   )
 }

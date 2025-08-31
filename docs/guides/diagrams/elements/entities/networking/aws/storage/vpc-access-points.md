@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VpcAccessPoints } from '@reactiac/standard-components-diagrams/awsStorage'
+import { VpcAccessPoints } from '@diac/standard-components-diagrams/awsStorage'
 
 <VpcAccessPoints/>
 ```

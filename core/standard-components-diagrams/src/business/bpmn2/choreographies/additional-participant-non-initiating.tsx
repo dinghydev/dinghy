@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADDITIONAL_PARTICIPANT_NON_INITIATING = {
   _style:
@@ -9,5 +9,11 @@ export const ADDITIONAL_PARTICIPANT_NON_INITIATING = {
 }
 
 export function AdditionalParticipantNonInitiating(props: DiagramNodeProps) {
-  return <Shape {...ADDITIONAL_PARTICIPANT_NON_INITIATING} {...props} />
+  return (
+    <Shape
+      {...ADDITIONAL_PARTICIPANT_NON_INITIATING}
+      {...props}
+      _style={extendStyle(ADDITIONAL_PARTICIPANT_NON_INITIATING, props)}
+    />
+  )
 }

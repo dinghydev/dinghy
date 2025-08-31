@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HTTPS_PROTOCOL_2 = {
   _style:
@@ -9,5 +9,11 @@ export const HTTPS_PROTOCOL_2 = {
 }
 
 export function HttpsProtocol2(props: DiagramNodeProps) {
-  return <Shape {...HTTPS_PROTOCOL_2} {...props} />
+  return (
+    <Shape
+      {...HTTPS_PROTOCOL_2}
+      {...props}
+      _style={extendStyle(HTTPS_PROTOCOL_2, props)}
+    />
+  )
 }

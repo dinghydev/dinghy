@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLUGIN_RELAY = {
   _style:
@@ -9,5 +9,11 @@ export const PLUGIN_RELAY = {
 }
 
 export function PluginRelay(props: DiagramNodeProps) {
-  return <Shape {...PLUGIN_RELAY} {...props} />
+  return (
+    <Shape
+      {...PLUGIN_RELAY}
+      {...props}
+      _style={extendStyle(PLUGIN_RELAY, props)}
+    />
+  )
 }

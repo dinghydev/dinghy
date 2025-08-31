@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAP_HANA_DB = {
   _style:
@@ -9,5 +9,11 @@ export const SAP_HANA_DB = {
 }
 
 export function SapHanaDb(props: DiagramNodeProps) {
-  return <Shape {...SAP_HANA_DB} {...props} />
+  return (
+    <Shape
+      {...SAP_HANA_DB}
+      {...props}
+      _style={extendStyle(SAP_HANA_DB, props)}
+    />
+  )
 }

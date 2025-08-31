@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButtonPressed } from '@reactiac/standard-components-diagrams/android'
+import { ButtonPressed } from '@diac/standard-components-diagrams/android'
 
 <ButtonPressed/>
 ```

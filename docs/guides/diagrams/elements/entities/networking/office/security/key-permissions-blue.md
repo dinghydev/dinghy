@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KeyPermissionsBlue } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { KeyPermissionsBlue } from '@diac/standard-components-diagrams/officeSecurity'
 
 <KeyPermissionsBlue/>
 ```

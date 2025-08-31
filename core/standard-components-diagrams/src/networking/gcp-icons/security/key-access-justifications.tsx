@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KEY_ACCESS_JUSTIFICATIONS = {
   _style:
@@ -9,5 +9,11 @@ export const KEY_ACCESS_JUSTIFICATIONS = {
 }
 
 export function KeyAccessJustifications(props: DiagramNodeProps) {
-  return <Shape {...KEY_ACCESS_JUSTIFICATIONS} {...props} />
+  return (
+    <Shape
+      {...KEY_ACCESS_JUSTIFICATIONS}
+      {...props}
+      _style={extendStyle(KEY_ACCESS_JUSTIFICATIONS, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Rule } from '@reactiac/standard-components-diagrams/aws17InternetOfThings'
+import { Rule } from '@diac/standard-components-diagrams/aws17InternetOfThings'
 
 <Rule/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GREENGRASS_RECIPE = {
   _style:
@@ -9,5 +9,11 @@ export const GREENGRASS_RECIPE = {
 }
 
 export function GreengrassRecipe(props: DiagramNodeProps) {
-  return <Shape {...GREENGRASS_RECIPE} {...props} />
+  return (
+    <Shape
+      {...GREENGRASS_RECIPE}
+      {...props}
+      _style={extendStyle(GREENGRASS_RECIPE, props)}
+    />
+  )
 }

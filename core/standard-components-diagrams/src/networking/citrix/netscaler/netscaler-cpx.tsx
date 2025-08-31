@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETSCALER_CPX = {
   _style:
@@ -9,5 +9,11 @@ export const NETSCALER_CPX = {
 }
 
 export function NetscalerCpx(props: DiagramNodeProps) {
-  return <Shape {...NETSCALER_CPX} {...props} />
+  return (
+    <Shape
+      {...NETSCALER_CPX}
+      {...props}
+      _style={extendStyle(NETSCALER_CPX, props)}
+    />
+  )
 }

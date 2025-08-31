@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CentralManagementService } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { CentralManagementService } from '@diac/standard-components-diagrams/officeCommunications'
 
 <CentralManagementService/>
 ```

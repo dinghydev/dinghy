@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CurrentTransformer3 } from '@reactiac/standard-components-diagrams/electricalInductors'
+import { CurrentTransformer3 } from '@diac/standard-components-diagrams/electricalInductors'
 
 <CurrentTransformer3/>
 ```

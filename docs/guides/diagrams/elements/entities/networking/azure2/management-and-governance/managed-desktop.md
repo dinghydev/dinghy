@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManagedDesktop } from '@reactiac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { ManagedDesktop } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <ManagedDesktop/>
 ```

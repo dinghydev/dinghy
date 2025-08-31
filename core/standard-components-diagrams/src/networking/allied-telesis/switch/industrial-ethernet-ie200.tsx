@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDUSTRIAL_ETHERNET_IE200 = {
   _style:
@@ -9,5 +9,11 @@ export const INDUSTRIAL_ETHERNET_IE200 = {
 }
 
 export function IndustrialEthernetIe200(props: DiagramNodeProps) {
-  return <Shape {...INDUSTRIAL_ETHERNET_IE200} {...props} />
+  return (
+    <Shape
+      {...INDUSTRIAL_ETHERNET_IE200}
+      {...props}
+      _style={extendStyle(INDUSTRIAL_ETHERNET_IE200, props)}
+    />
+  )
 }

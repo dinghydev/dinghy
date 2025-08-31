@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RADWARE_APPLIANCE = {
   _style:
@@ -9,5 +9,11 @@ export const RADWARE_APPLIANCE = {
 }
 
 export function RadwareAppliance(props: DiagramNodeProps) {
-  return <Shape {...RADWARE_APPLIANCE} {...props} />
+  return (
+    <Shape
+      {...RADWARE_APPLIANCE}
+      {...props}
+      _style={extendStyle(RADWARE_APPLIANCE, props)}
+    />
+  )
 }

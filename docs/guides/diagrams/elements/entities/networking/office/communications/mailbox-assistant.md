@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MailboxAssistant } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { MailboxAssistant } from '@diac/standard-components-diagrams/officeCommunications'
 
 <MailboxAssistant/>
 ```

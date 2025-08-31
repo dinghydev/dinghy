@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HALF_CIRCLE = {
   _style:
@@ -9,5 +9,11 @@ export const HALF_CIRCLE = {
 }
 
 export function HalfCircle(props: DiagramNodeProps) {
-  return <Shape {...HALF_CIRCLE} {...props} />
+  return (
+    <Shape
+      {...HALF_CIRCLE}
+      {...props}
+      _style={extendStyle(HALF_CIRCLE, props)}
+    />
+  )
 }

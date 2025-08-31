@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VARISTOR_SYMMETRICAL = {
   _style:
@@ -9,5 +9,11 @@ export const VARISTOR_SYMMETRICAL = {
 }
 
 export function VaristorSymmetrical(props: DiagramNodeProps) {
-  return <Shape {...VARISTOR_SYMMETRICAL} {...props} />
+  return (
+    <Shape
+      {...VARISTOR_SYMMETRICAL}
+      {...props}
+      _style={extendStyle(VARISTOR_SYMMETRICAL, props)}
+    />
+  )
 }

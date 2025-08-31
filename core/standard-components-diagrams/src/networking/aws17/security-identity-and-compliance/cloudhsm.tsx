@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDHSM = {
   _style:
@@ -9,5 +9,7 @@ export const CLOUDHSM = {
 }
 
 export function Cloudhsm(props: DiagramNodeProps) {
-  return <Shape {...CLOUDHSM} {...props} />
+  return (
+    <Shape {...CLOUDHSM} {...props} _style={extendStyle(CLOUDHSM, props)} />
+  )
 }

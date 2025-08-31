@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Peristaltic } from '@reactiac/standard-components-diagrams/procEngPumps'
+import { Peristaltic } from '@diac/standard-components-diagrams/procEngPumps'
 
 <Peristaltic/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VEEAM_AGENTS = {
   _style:
@@ -9,5 +9,11 @@ export const VEEAM_AGENTS = {
 }
 
 export function VeeamAgents(props: DiagramNodeProps) {
-  return <Shape {...VEEAM_AGENTS} {...props} />
+  return (
+    <Shape
+      {...VEEAM_AGENTS}
+      {...props}
+      _style={extendStyle(VEEAM_AGENTS, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XENCENTER = {
   _style:
@@ -9,5 +9,7 @@ export const XENCENTER = {
 }
 
 export function Xencenter(props: DiagramNodeProps) {
-  return <Shape {...XENCENTER} {...props} />
+  return (
+    <Shape {...XENCENTER} {...props} _style={extendStyle(XENCENTER, props)} />
+  )
 }

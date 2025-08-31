@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FileInputForm } from '@reactiac/standard-components-diagrams/bootstrap'
+import { FileInputForm } from '@diac/standard-components-diagrams/bootstrap'
 
 <FileInputForm/>
 ```

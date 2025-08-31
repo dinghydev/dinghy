@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.lift;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Lift } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { Lift } from '@diac/standard-components-diagrams/procEngMisc'
 
 <Lift/>
 ```

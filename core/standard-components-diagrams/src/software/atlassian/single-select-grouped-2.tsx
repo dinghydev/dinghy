@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SINGLE_SELECT_GROUPED_2 = {
   _style:
@@ -9,5 +9,11 @@ export const SINGLE_SELECT_GROUPED_2 = {
 }
 
 export function SingleSelectGrouped2(props: DiagramNodeProps) {
-  return <Shape {...SINGLE_SELECT_GROUPED_2} {...props} />
+  return (
+    <Shape
+      {...SINGLE_SELECT_GROUPED_2}
+      {...props}
+      _style={extendStyle(SINGLE_SELECT_GROUPED_2, props)}
+    />
+  )
 }

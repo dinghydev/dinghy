@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STANDARDIZED_SYSTEM_IMAGES = {
   _style:
@@ -9,5 +9,11 @@ export const STANDARDIZED_SYSTEM_IMAGES = {
 }
 
 export function StandardizedSystemImages(props: DiagramNodeProps) {
-  return <Shape {...STANDARDIZED_SYSTEM_IMAGES} {...props} />
+  return (
+    <Shape
+      {...STANDARDIZED_SYSTEM_IMAGES}
+      {...props}
+      _style={extendStyle(STANDARDIZED_SYSTEM_IMAGES, props)}
+    />
+  )
 }

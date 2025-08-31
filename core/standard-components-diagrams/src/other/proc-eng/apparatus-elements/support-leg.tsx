@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUPPORT_LEG = {
   _style:
@@ -9,5 +9,11 @@ export const SUPPORT_LEG = {
 }
 
 export function SupportLeg(props: DiagramNodeProps) {
-  return <Shape {...SUPPORT_LEG} {...props} />
+  return (
+    <Shape
+      {...SUPPORT_LEG}
+      {...props}
+      _style={extendStyle(SUPPORT_LEG, props)}
+    />
+  )
 }

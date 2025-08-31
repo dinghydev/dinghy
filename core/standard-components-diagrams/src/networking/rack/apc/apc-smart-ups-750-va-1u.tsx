@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const APC_SMART_UPS_750_VA_1U = {
   _style:
@@ -9,5 +9,11 @@ export const APC_SMART_UPS_750_VA_1U = {
 }
 
 export function ApcSmartUps750Va1u(props: DiagramNodeProps) {
-  return <Shape {...APC_SMART_UPS_750_VA_1U} {...props} />
+  return (
+    <Shape
+      {...APC_SMART_UPS_750_VA_1U}
+      {...props}
+      _style={extendStyle(APC_SMART_UPS_750_VA_1U, props)}
+    />
+  )
 }

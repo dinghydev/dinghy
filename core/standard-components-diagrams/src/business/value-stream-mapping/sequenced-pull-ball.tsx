@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEQUENCED_PULL_BALL = {
   _style:
@@ -9,5 +9,11 @@ export const SEQUENCED_PULL_BALL = {
 }
 
 export function SequencedPullBall(props: DiagramNodeProps) {
-  return <Shape {...SEQUENCED_PULL_BALL} {...props} />
+  return (
+    <Shape
+      {...SEQUENCED_PULL_BALL}
+      {...props}
+      _style={extendStyle(SEQUENCED_PULL_BALL, props)}
+    />
+  )
 }

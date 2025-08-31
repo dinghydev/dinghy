@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LyncStorageService } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { LyncStorageService } from '@diac/standard-components-diagrams/officeCommunications'
 
 <LyncStorageService/>
 ```

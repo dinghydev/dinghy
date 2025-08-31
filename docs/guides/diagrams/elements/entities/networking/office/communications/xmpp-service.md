@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { XmppService } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { XmppService } from '@diac/standard-components-diagrams/officeCommunications'
 
 <XmppService/>
 ```

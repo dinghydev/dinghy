@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOICEBOT_INTELLIGENT_VOICE_NAVIGATION = {
   _style:
@@ -9,5 +9,11 @@ export const VOICEBOT_INTELLIGENT_VOICE_NAVIGATION = {
 }
 
 export function VoicebotIntelligentVoiceNavigation(props: DiagramNodeProps) {
-  return <Shape {...VOICEBOT_INTELLIGENT_VOICE_NAVIGATION} {...props} />
+  return (
+    <Shape
+      {...VOICEBOT_INTELLIGENT_VOICE_NAVIGATION}
+      {...props}
+      _style={extendStyle(VOICEBOT_INTELLIGENT_VOICE_NAVIGATION, props)}
+    />
+  )
 }

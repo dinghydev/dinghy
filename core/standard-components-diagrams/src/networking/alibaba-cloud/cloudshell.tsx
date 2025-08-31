@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDSHELL = {
   _style:
@@ -9,5 +9,7 @@ export const CLOUDSHELL = {
 }
 
 export function Cloudshell(props: DiagramNodeProps) {
-  return <Shape {...CLOUDSHELL} {...props} />
+  return (
+    <Shape {...CLOUDSHELL} {...props} _style={extendStyle(CLOUDSHELL, props)} />
+  )
 }

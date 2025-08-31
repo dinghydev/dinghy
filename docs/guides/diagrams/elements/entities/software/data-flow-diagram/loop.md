@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Loop } from '@reactiac/standard-components-diagrams/dataFlowDiagram'
+import { Loop } from '@diac/standard-components-diagrams/dataFlowDiagram'
 
 <Loop/>
 ```

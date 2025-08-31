@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REGION_2 = {
   _style: 'text;align=right;',
@@ -8,5 +8,7 @@ export const REGION_2 = {
 }
 
 export function Region2(props: DiagramNodeProps) {
-  return <Shape {...REGION_2} {...props} />
+  return (
+    <Shape {...REGION_2} {...props} _style={extendStyle(REGION_2, props)} />
+  )
 }

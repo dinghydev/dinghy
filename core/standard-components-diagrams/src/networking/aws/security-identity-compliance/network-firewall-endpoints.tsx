@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETWORK_FIREWALL_ENDPOINTS = {
   _style:
     'sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.network_firewall_endpoints;',
-  _width: 78,
-  _height: 78,
+  _width: 60,
+  _height: 60,
 }
 
 export function NetworkFirewallEndpoints(props: DiagramNodeProps) {
-  return <Shape {...NETWORK_FIREWALL_ENDPOINTS} {...props} />
+  return (
+    <Shape
+      {...NETWORK_FIREWALL_ENDPOINTS}
+      {...props}
+      _style={extendStyle(NETWORK_FIREWALL_ENDPOINTS, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GATE_VALVE_POWERED = {
   _style:
@@ -9,5 +9,11 @@ export const GATE_VALVE_POWERED = {
 }
 
 export function GateValvePowered(props: DiagramNodeProps) {
-  return <Shape {...GATE_VALVE_POWERED} {...props} />
+  return (
+    <Shape
+      {...GATE_VALVE_POWERED}
+      {...props}
+      _style={extendStyle(GATE_VALVE_POWERED, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { XdragonBareMetalServer } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { XdragonBareMetalServer } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <XdragonBareMetalServer/>
 ```

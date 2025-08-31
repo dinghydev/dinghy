@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11370_HYDROSTATIC_TRANSMISSION = {
   _style:
@@ -9,5 +9,11 @@ export const X11370_HYDROSTATIC_TRANSMISSION = {
 }
 
 export function X11370HydrostaticTransmission(props: DiagramNodeProps) {
-  return <Shape {...X11370_HYDROSTATIC_TRANSMISSION} {...props} />
+  return (
+    <Shape
+      {...X11370_HYDROSTATIC_TRANSMISSION}
+      {...props}
+      _style={extendStyle(X11370_HYDROSTATIC_TRANSMISSION, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BotMitigation } from '@reactiac/standard-components-diagrams/citrixNetscaler'
+import { BotMitigation } from '@diac/standard-components-diagrams/citrixNetscaler'
 
 <BotMitigation/>
 ```

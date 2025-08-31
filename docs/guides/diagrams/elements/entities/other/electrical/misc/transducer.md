@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Transducer } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { Transducer } from '@diac/standard-components-diagrams/electricalMisc'
 
 <Transducer/>
 ```

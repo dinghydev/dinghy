@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dzone } from '@reactiac/standard-components-diagrams/webLogos'
+import { Dzone } from '@diac/standard-components-diagrams/webLogos'
 
 <Dzone/>
 ```

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Firewall1 } from '@reactiac/standard-components-diagrams/clipartNetworking'
+import { Firewall1 } from '@diac/standard-components-diagrams/clipartNetworking'
 
 <Firewall1/>
 ```

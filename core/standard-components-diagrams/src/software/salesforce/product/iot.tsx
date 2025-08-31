@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IOT = {
   _style:
@@ -9,5 +9,5 @@ export const IOT = {
 }
 
 export function Iot(props: DiagramNodeProps) {
-  return <Shape {...IOT} {...props} />
+  return <Shape {...IOT} {...props} _style={extendStyle(IOT, props)} />
 }

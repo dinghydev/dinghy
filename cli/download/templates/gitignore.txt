@@ -1,5 +1,5 @@
-ReactIAC
-.reactiacrc.local
+DIaC
+.diacrc.local
 **/.terraform
 **/.terraform.lock.hcl
 #**/*.tf.json

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCA_SMART_CONVERSATION_ANALYSIS = {
   _style:
@@ -9,5 +9,11 @@ export const SCA_SMART_CONVERSATION_ANALYSIS = {
 }
 
 export function ScaSmartConversationAnalysis(props: DiagramNodeProps) {
-  return <Shape {...SCA_SMART_CONVERSATION_ANALYSIS} {...props} />
+  return (
+    <Shape
+      {...SCA_SMART_CONVERSATION_ANALYSIS}
+      {...props}
+      _style={extendStyle(SCA_SMART_CONVERSATION_ANALYSIS, props)}
+    />
+  )
 }

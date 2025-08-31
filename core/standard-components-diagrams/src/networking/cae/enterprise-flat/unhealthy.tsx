@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNHEALTHY = {
   _style:
@@ -9,5 +9,7 @@ export const UNHEALTHY = {
 }
 
 export function Unhealthy(props: DiagramNodeProps) {
-  return <Shape {...UNHEALTHY} {...props} />
+  return (
+    <Shape {...UNHEALTHY} {...props} _style={extendStyle(UNHEALTHY, props)} />
+  )
 }

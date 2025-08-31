@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InputOutputFilter } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { InputOutputFilter } from '@diac/standard-components-diagrams/activeDirectory'
 
 <InputOutputFilter/>
 ```

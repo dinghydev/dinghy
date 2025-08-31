@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NsxEdgeAndLoadBalancer } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { NsxEdgeAndLoadBalancer } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <NsxEdgeAndLoadBalancer/>
 ```

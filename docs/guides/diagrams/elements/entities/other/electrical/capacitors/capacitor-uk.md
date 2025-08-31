@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CapacitorUk } from '@reactiac/standard-components-diagrams/electricalCapacitors'
+import { CapacitorUk } from '@diac/standard-components-diagrams/electricalCapacitors'
 
 <CapacitorUk/>
 ```

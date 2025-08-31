@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATABASE_ORANGE = {
   _style:
@@ -9,5 +9,11 @@ export const DATABASE_ORANGE = {
 }
 
 export function DatabaseOrange(props: DiagramNodeProps) {
-  return <Shape {...DATABASE_ORANGE} {...props} />
+  return (
+    <Shape
+      {...DATABASE_ORANGE}
+      {...props}
+      _style={extendStyle(DATABASE_ORANGE, props)}
+    />
+  )
 }

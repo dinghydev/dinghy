@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPINNER_PRESSED = {
   _style:
@@ -9,5 +9,11 @@ export const SPINNER_PRESSED = {
 }
 
 export function SpinnerPressed(props: DiagramNodeProps) {
-  return <Shape {...SPINNER_PRESSED} {...props} />
+  return (
+    <Shape
+      {...SPINNER_PRESSED}
+      {...props}
+      _style={extendStyle(SPINNER_PRESSED, props)}
+    />
+  )
 }

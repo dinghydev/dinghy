@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETRA_SPARC_T4_2_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const NETRA_SPARC_T4_2_SERVER = {
 }
 
 export function NetraSparcT42Server(props: DiagramNodeProps) {
-  return <Shape {...NETRA_SPARC_T4_2_SERVER} {...props} />
+  return (
+    <Shape
+      {...NETRA_SPARC_T4_2_SERVER}
+      {...props}
+      _style={extendStyle(NETRA_SPARC_T4_2_SERVER, props)}
+    />
+  )
 }

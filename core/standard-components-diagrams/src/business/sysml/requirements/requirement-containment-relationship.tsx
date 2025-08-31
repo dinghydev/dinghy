@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REQUIREMENT_CONTAINMENT_RELATIONSHIP = {
   _style: 'shape=rect;html=1;whiteSpace=wrap;align=center;',
@@ -8,5 +8,11 @@ export const REQUIREMENT_CONTAINMENT_RELATIONSHIP = {
 }
 
 export function RequirementContainmentRelationship(props: DiagramNodeProps) {
-  return <Shape {...REQUIREMENT_CONTAINMENT_RELATIONSHIP} {...props} />
+  return (
+    <Shape
+      {...REQUIREMENT_CONTAINMENT_RELATIONSHIP}
+      {...props}
+      _style={extendStyle(REQUIREMENT_CONTAINMENT_RELATIONSHIP, props)}
+    />
+  )
 }

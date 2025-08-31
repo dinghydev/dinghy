@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConstraintPreconditionPostcondition } from '@reactiac/standard-components-diagrams/uml25'
+import { ConstraintPreconditionPostcondition } from '@diac/standard-components-diagrams/uml25'
 
 <ConstraintPreconditionPostcondition/>
 ```

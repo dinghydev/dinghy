@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ParticipantProperty2 } from '@reactiac/standard-components-diagrams/sysmlBlocks'
+import { ParticipantProperty2 } from '@diac/standard-components-diagrams/sysmlBlocks'
 
 <ParticipantProperty2/>
 ```

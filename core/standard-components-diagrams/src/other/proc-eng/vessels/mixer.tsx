@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MIXER = {
   _style:
@@ -9,5 +9,5 @@ export const MIXER = {
 }
 
 export function Mixer(props: DiagramNodeProps) {
-  return <Shape {...MIXER} {...props} />
+  return <Shape {...MIXER} {...props} _style={extendStyle(MIXER, props)} />
 }

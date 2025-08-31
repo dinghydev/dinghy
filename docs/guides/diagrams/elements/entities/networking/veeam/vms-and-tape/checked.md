@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Checked } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { Checked } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <Checked/>
 ```

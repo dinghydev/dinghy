@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProgressScrubberPressed } from '@reactiac/standard-components-diagrams/android'
+import { ProgressScrubberPressed } from '@diac/standard-components-diagrams/android'
 
 <ProgressScrubberPressed/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ftps } from '@reactiac/standard-components-diagrams/awsMigrationModernization'
+import { Ftps } from '@diac/standard-components-diagrams/awsMigrationModernization'
 
 <Ftps/>
 ```

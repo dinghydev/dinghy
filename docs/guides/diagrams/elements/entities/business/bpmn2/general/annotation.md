@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Annotation } from '@reactiac/standard-components-diagrams/bpmn2General'
+import { Annotation } from '@diac/standard-components-diagrams/bpmn2General'
 
 <Annotation/>
 ```

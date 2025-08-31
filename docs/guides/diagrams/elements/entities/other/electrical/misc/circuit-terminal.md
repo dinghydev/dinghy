@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CircuitTerminal } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { CircuitTerminal } from '@diac/standard-components-diagrams/electricalMisc'
 
 <CircuitTerminal/>
 ```

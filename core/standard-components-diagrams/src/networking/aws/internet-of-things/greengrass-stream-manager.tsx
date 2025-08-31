@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GREENGRASS_STREAM_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const GREENGRASS_STREAM_MANAGER = {
 }
 
 export function GreengrassStreamManager(props: DiagramNodeProps) {
-  return <Shape {...GREENGRASS_STREAM_MANAGER} {...props} />
+  return (
+    <Shape
+      {...GREENGRASS_STREAM_MANAGER}
+      {...props}
+      _style={extendStyle(GREENGRASS_STREAM_MANAGER, props)}
+    />
+  )
 }

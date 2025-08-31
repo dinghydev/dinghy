@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STOP_STATE = {
   _style:
@@ -9,5 +9,7 @@ export const STOP_STATE = {
 }
 
 export function StopState(props: DiagramNodeProps) {
-  return <Shape {...STOP_STATE} {...props} />
+  return (
+    <Shape {...STOP_STATE} {...props} _style={extendStyle(STOP_STATE, props)} />
+  )
 }

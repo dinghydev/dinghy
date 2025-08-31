@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MONITOR_PIPELINE = {
   _style:
@@ -9,5 +9,11 @@ export const MONITOR_PIPELINE = {
 }
 
 export function MonitorPipeline(props: DiagramNodeProps) {
-  return <Shape {...MONITOR_PIPELINE} {...props} />
+  return (
+    <Shape
+      {...MONITOR_PIPELINE}
+      {...props}
+      _style={extendStyle(MONITOR_PIPELINE, props)}
+    />
+  )
 }

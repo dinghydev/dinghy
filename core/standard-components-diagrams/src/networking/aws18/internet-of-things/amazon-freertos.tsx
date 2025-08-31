@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_FREERTOS = {
   _style:
@@ -9,5 +9,11 @@ export const AMAZON_FREERTOS = {
 }
 
 export function AmazonFreertos(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_FREERTOS} {...props} />
+  return (
+    <Shape
+      {...AMAZON_FREERTOS}
+      {...props}
+      _style={extendStyle(AMAZON_FREERTOS, props)}
+    />
+  )
 }

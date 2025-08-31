@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOTOR_CIRCUIT_BREAKER_125_400A_2 = {
   _style:
@@ -9,5 +9,11 @@ export const MOTOR_CIRCUIT_BREAKER_125_400A_2 = {
 }
 
 export function MotorCircuitBreaker125400a2(props: DiagramNodeProps) {
-  return <Shape {...MOTOR_CIRCUIT_BREAKER_125_400A_2} {...props} />
+  return (
+    <Shape
+      {...MOTOR_CIRCUIT_BREAKER_125_400A_2}
+      {...props}
+      _style={extendStyle(MOTOR_CIRCUIT_BREAKER_125_400A_2, props)}
+    />
+  )
 }

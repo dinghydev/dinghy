@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeviceIdentityService } from '@reactiac/standard-components-diagrams/ibmData'
+import { DeviceIdentityService } from '@diac/standard-components-diagrams/ibmData'
 
 <DeviceIdentityService/>
 ```

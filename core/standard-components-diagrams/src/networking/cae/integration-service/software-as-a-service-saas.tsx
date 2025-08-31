@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOFTWARE_AS_A_SERVICE_SAAS = {
   _style:
     'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Software_as_a_Service.svg;strokeColor=none;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function SoftwareAsAServiceSaas(props: DiagramNodeProps) {
-  return <Shape {...SOFTWARE_AS_A_SERVICE_SAAS} {...props} />
+  return (
+    <Shape
+      {...SOFTWARE_AS_A_SERVICE_SAAS}
+      {...props}
+      _style={extendStyle(SOFTWARE_AS_A_SERVICE_SAAS, props)}
+    />
+  )
 }

@@ -14,7 +14,7 @@ MapR M7
 ## Usage
 
 ```
-import { EmrEngineMaprM7 } from '@reactiac/standard-components-diagrams/aws18Analytics'
+import { EmrEngineMaprM7 } from '@diac/standard-components-diagrams/aws18Analytics'
 
 <EmrEngineMaprM7/>
 ```

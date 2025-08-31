@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stereotype } from '@reactiac/standard-components-diagrams/sysmlProfiles'
+import { Stereotype } from '@diac/standard-components-diagrams/sysmlProfiles'
 
 <Stereotype/>
 ```

@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { ChoreographyTask } from '@reactiac/standard-components-diagrams/bpmn2Choreographies'
+import { ChoreographyTask } from '@diac/standard-components-diagrams/bpmn2Choreographies'
 
 <ChoreographyTask/>
 ```

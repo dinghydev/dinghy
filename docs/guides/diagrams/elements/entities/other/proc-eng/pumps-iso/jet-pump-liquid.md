@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.pid.pumps_-_iso.jet_pump_(liquid);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { JetPumpLiquid } from '@reactiac/standard-components-diagrams/procEngPumpsIso'
+import { JetPumpLiquid } from '@diac/standard-components-diagrams/procEngPumpsIso'
 
 <JetPumpLiquid/>
 ```

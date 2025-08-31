@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENTRA_CONNECT_HEALTH = {
   _style:
@@ -9,5 +9,11 @@ export const ENTRA_CONNECT_HEALTH = {
 }
 
 export function EntraConnectHealth(props: DiagramNodeProps) {
-  return <Shape {...ENTRA_CONNECT_HEALTH} {...props} />
+  return (
+    <Shape
+      {...ENTRA_CONNECT_HEALTH}
+      {...props}
+      _style={extendStyle(ENTRA_CONNECT_HEALTH, props)}
+    />
+  )
 }

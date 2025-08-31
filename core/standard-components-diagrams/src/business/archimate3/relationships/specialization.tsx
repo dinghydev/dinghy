@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPECIALIZATION = {
   _style: {
@@ -9,5 +9,11 @@ export const SPECIALIZATION = {
 }
 
 export function Specialization(props: DiagramNodeProps) {
-  return <Dependency {...SPECIALIZATION} {...props} />
+  return (
+    <Dependency
+      {...SPECIALIZATION}
+      {...props}
+      _style={extendStyle(SPECIALIZATION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MEDIUM_DATASTORE = {
   _style:
@@ -9,5 +9,11 @@ export const MEDIUM_DATASTORE = {
 }
 
 export function MediumDatastore(props: DiagramNodeProps) {
-  return <Shape {...MEDIUM_DATASTORE} {...props} />
+  return (
+    <Shape
+      {...MEDIUM_DATASTORE}
+      {...props}
+      _style={extendStyle(MEDIUM_DATASTORE, props)}
+    />
+  )
 }

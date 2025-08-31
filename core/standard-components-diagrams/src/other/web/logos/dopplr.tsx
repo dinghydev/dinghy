@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOPPLR = {
   _style:
@@ -9,5 +9,5 @@ export const DOPPLR = {
 }
 
 export function Dopplr(props: DiagramNodeProps) {
-  return <Shape {...DOPPLR} {...props} />
+  return <Shape {...DOPPLR} {...props} _style={extendStyle(DOPPLR, props)} />
 }

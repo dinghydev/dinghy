@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Detour } from '@reactiac/standard-components-diagrams/eipSystemManagement'
+import { Detour } from '@diac/standard-components-diagrams/eipSystemManagement'
 
 <Detour/>
 ```

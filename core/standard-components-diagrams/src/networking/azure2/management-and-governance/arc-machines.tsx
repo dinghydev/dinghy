@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARC_MACHINES = {
   _style:
@@ -9,5 +9,11 @@ export const ARC_MACHINES = {
 }
 
 export function ArcMachines(props: DiagramNodeProps) {
-  return <Shape {...ARC_MACHINES} {...props} />
+  return (
+    <Shape
+      {...ARC_MACHINES}
+      {...props}
+      _style={extendStyle(ARC_MACHINES, props)}
+    />
+  )
 }

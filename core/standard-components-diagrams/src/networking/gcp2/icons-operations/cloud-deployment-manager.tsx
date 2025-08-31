@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_DEPLOYMENT_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_DEPLOYMENT_MANAGER = {
 }
 
 export function CloudDeploymentManager(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_DEPLOYMENT_MANAGER} {...props} />
+  return (
+    <Shape
+      {...CLOUD_DEPLOYMENT_MANAGER}
+      {...props}
+      _style={extendStyle(CLOUD_DEPLOYMENT_MANAGER, props)}
+    />
+  )
 }

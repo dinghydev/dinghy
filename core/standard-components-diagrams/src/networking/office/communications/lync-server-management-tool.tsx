@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LYNC_SERVER_MANAGEMENT_TOOL = {
   _style:
@@ -9,5 +9,11 @@ export const LYNC_SERVER_MANAGEMENT_TOOL = {
 }
 
 export function LyncServerManagementTool(props: DiagramNodeProps) {
-  return <Shape {...LYNC_SERVER_MANAGEMENT_TOOL} {...props} />
+  return (
+    <Shape
+      {...LYNC_SERVER_MANAGEMENT_TOOL}
+      {...props}
+      _style={extendStyle(LYNC_SERVER_MANAGEMENT_TOOL, props)}
+    />
+  )
 }

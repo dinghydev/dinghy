@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Livejournal } from '@reactiac/standard-components-diagrams/webLogos'
+import { Livejournal } from '@diac/standard-components-diagrams/webLogos'
 
 <Livejournal/>
 ```

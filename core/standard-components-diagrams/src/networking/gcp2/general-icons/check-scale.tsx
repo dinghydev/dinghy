@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHECK_SCALE = {
   _style:
@@ -9,5 +9,11 @@ export const CHECK_SCALE = {
 }
 
 export function CheckScale(props: DiagramNodeProps) {
-  return <Shape {...CHECK_SCALE} {...props} />
+  return (
+    <Shape
+      {...CHECK_SCALE}
+      {...props}
+      _style={extendStyle(CHECK_SCALE, props)}
+    />
+  )
 }

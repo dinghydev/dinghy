@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11100_CONTROL_COVER = {
   _style:
@@ -9,5 +9,11 @@ export const X11100_CONTROL_COVER = {
 }
 
 export function X11100ControlCover(props: DiagramNodeProps) {
-  return <Shape {...X11100_CONTROL_COVER} {...props} />
+  return (
+    <Shape
+      {...X11100_CONTROL_COVER}
+      {...props}
+      _style={extendStyle(X11100_CONTROL_COVER, props)}
+    />
+  )
 }

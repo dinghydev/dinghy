@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EndProtection } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { EndProtection } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <EndProtection/>
 ```

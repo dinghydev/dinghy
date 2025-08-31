@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARC_POSTGRESQL = {
   _style:
@@ -9,5 +9,11 @@ export const ARC_POSTGRESQL = {
 }
 
 export function ArcPostgresql(props: DiagramNodeProps) {
-  return <Shape {...ARC_POSTGRESQL} {...props} />
+  return (
+    <Shape
+      {...ARC_POSTGRESQL}
+      {...props}
+      _style={extendStyle(ARC_POSTGRESQL, props)}
+    />
+  )
 }

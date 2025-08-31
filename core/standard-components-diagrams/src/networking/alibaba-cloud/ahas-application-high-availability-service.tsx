@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE = {
   _style:
@@ -11,5 +11,11 @@ export const AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE = {
 export function AhasApplicationHighAvailabilityService(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE} {...props} />
+  return (
+    <Shape
+      {...AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE}
+      {...props}
+      _style={extendStyle(AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE, props)}
+    />
+  )
 }

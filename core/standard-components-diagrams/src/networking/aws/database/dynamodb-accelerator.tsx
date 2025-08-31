@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DYNAMODB_ACCELERATOR = {
   _style:
@@ -9,5 +9,11 @@ export const DYNAMODB_ACCELERATOR = {
 }
 
 export function DynamodbAccelerator(props: DiagramNodeProps) {
-  return <Shape {...DYNAMODB_ACCELERATOR} {...props} />
+  return (
+    <Shape
+      {...DYNAMODB_ACCELERATOR}
+      {...props}
+      _style={extendStyle(DYNAMODB_ACCELERATOR, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_SERVERLESS_APPLICATION_REPOSITORY = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_SERVERLESS_APPLICATION_REPOSITORY = {
 }
 
 export function AwsServerlessApplicationRepository(props: DiagramNodeProps) {
-  return <Shape {...AWS_SERVERLESS_APPLICATION_REPOSITORY} {...props} />
+  return (
+    <Shape
+      {...AWS_SERVERLESS_APPLICATION_REPOSITORY}
+      {...props}
+      _style={extendStyle(AWS_SERVERLESS_APPLICATION_REPOSITORY, props)}
+    />
+  )
 }

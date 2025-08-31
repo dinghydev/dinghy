@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SpringMe } from '@reactiac/standard-components-diagrams/webIcons'
+import { SpringMe } from '@diac/standard-components-diagrams/webIcons'
 
 <SpringMe/>
 ```

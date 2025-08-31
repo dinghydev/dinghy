@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CitrixFederatedAuthenticationService } from '@reactiac/standard-components-diagrams/citrixComponents'
+import { CitrixFederatedAuthenticationService } from '@diac/standard-components-diagrams/citrixComponents'
 
 <CitrixFederatedAuthenticationService/>
 ```

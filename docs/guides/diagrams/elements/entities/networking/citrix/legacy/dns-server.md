@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DnsServer } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { DnsServer } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <DnsServer/>
 ```

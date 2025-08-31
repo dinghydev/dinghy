@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { IbmCloud } from '@reactiac/standard-components-diagrams/ibmCloudGroups'
+import { IbmCloud } from '@diac/standard-components-diagrams/ibmCloudGroups'
 
 <IbmCloud/>
 ```

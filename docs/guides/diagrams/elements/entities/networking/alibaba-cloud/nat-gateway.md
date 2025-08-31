@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NatGateway } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { NatGateway } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <NatGateway/>
 ```

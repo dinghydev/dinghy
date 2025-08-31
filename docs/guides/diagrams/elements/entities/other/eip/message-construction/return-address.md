@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ReturnAddress } from '@reactiac/standard-components-diagrams/eipMessageConstruction'
+import { ReturnAddress } from '@diac/standard-components-diagrams/eipMessageConstruction'
 
 <ReturnAddress/>
 ```

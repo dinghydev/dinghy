@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GenericProtocol3 } from '@reactiac/standard-components-diagrams/sapAnnotationsAndInterfaces'
+import { GenericProtocol3 } from '@diac/standard-components-diagrams/sapAnnotationsAndInterfaces'
 
 <GenericProtocol3/>
 ```

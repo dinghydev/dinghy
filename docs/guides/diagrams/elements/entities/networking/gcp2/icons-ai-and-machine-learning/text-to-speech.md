@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TextToSpeech } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { TextToSpeech } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <TextToSpeech/>
 ```

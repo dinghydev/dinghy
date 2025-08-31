@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROTECTIVE_PALETTE_COVERING = {
   _style:
@@ -9,5 +9,11 @@ export const PROTECTIVE_PALETTE_COVERING = {
 }
 
 export function ProtectivePaletteCovering(props: DiagramNodeProps) {
-  return <Shape {...PROTECTIVE_PALETTE_COVERING} {...props} />
+  return (
+    <Shape
+      {...PROTECTIVE_PALETTE_COVERING}
+      {...props}
+      _style={extendStyle(PROTECTIVE_PALETTE_COVERING, props)}
+    />
+  )
 }

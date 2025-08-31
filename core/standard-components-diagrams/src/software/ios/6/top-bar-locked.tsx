@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TOP_BAR_LOCKED = {
   _style:
@@ -9,5 +9,11 @@ export const TOP_BAR_LOCKED = {
 }
 
 export function TopBarLocked(props: DiagramNodeProps) {
-  return <Shape {...TOP_BAR_LOCKED} {...props} />
+  return (
+    <Shape
+      {...TOP_BAR_LOCKED}
+      {...props}
+      _style={extendStyle(TOP_BAR_LOCKED, props)}
+    />
+  )
 }

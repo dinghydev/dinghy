@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonGamelift } from '@reactiac/standard-components-diagrams/aws18GameDevelopment'
+import { AmazonGamelift } from '@diac/standard-components-diagrams/aws18GameDevelopment'
 
 <AmazonGamelift/>
 ```

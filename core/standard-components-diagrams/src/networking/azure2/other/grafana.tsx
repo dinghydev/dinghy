@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GRAFANA = {
   _style:
@@ -9,5 +9,5 @@ export const GRAFANA = {
 }
 
 export function Grafana(props: DiagramNodeProps) {
-  return <Shape {...GRAFANA} {...props} />
+  return <Shape {...GRAFANA} {...props} _style={extendStyle(GRAFANA, props)} />
 }

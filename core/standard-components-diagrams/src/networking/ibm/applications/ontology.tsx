@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ONTOLOGY = {
   _style:
@@ -9,5 +9,7 @@ export const ONTOLOGY = {
 }
 
 export function Ontology(props: DiagramNodeProps) {
-  return <Shape {...ONTOLOGY} {...props} />
+  return (
+    <Shape {...ONTOLOGY} {...props} _style={extendStyle(ONTOLOGY, props)} />
+  )
 }

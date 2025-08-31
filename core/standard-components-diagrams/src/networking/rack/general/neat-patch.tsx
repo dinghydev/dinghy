@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NEAT_PATCH = {
   _style:
@@ -9,5 +9,7 @@ export const NEAT_PATCH = {
 }
 
 export function NeatPatch(props: DiagramNodeProps) {
-  return <Shape {...NEAT_PATCH} {...props} />
+  return (
+    <Shape {...NEAT_PATCH} {...props} _style={extendStyle(NEAT_PATCH, props)} />
+  )
 }

@@ -3,7 +3,7 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '@reactiac/cli'
+} from '@diac/cli'
 import {
   devcontainer,
   info,
@@ -11,9 +11,9 @@ import {
   RUN_SYMBOL,
   runCommand,
   showHelp,
-  throwReactiacError,
+  throwDiacError,
   versionDetails,
-} from '@reactiac/cli'
+} from '@diac/cli'
 import render from './render/index.ts'
 import diagram from './diagram/index.ts'
 import tf from './tf/index.ts'
@@ -22,7 +22,7 @@ import upgrade from './upgrade.ts'
 import check from './check.ts'
 import deno from './deno.ts'
 import bash from './bash.ts'
-const debug = Debug('reactiac:main')
+const debug = Debug('diac:main')
 
 const options: CommandOptions = {
   boolean: ['debug', 'help', 'version'],
@@ -42,16 +42,16 @@ const options: CommandOptions = {
     v: 'version',
     c: 'commands',
   },
-  cmdDescription: 'ReactIAC Engine',
+  cmdDescription: 'DIaC Engine',
   additionalOptions: {
     'Global Options': [
       {
         name: '--app-home',
-        description: 'The path to the ReactIAC app home directory',
+        description: 'The path to the DIaC app home directory',
       },
       {
         name: '--version',
-        description: 'The docker image version of the ReactIAC app to use',
+        description: 'The docker image version of the DIaC app to use',
       },
       {
         name: '--debug',
@@ -93,7 +93,7 @@ const runCommandInParallel = async (cmds: string[]) => {
       }
     })
     if (failed) {
-      throwReactiacError('Failed to run commands. See above for details.')
+      throwDiacError('Failed to run commands. See above for details.')
     }
   })
 }

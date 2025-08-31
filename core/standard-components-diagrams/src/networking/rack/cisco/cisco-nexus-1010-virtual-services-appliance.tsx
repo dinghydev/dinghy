@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE = {
   _style:
@@ -11,5 +11,11 @@ export const CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE = {
 export function CiscoNexus1010VirtualServicesAppliance(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE} {...props} />
+  return (
+    <Shape
+      {...CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE}
+      {...props}
+      _style={extendStyle(CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE, props)}
+    />
+  )
 }

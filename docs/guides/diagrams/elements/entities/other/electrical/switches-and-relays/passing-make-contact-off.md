@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PassingMakeContactOff } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { PassingMakeContactOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <PassingMakeContactOff/>
 ```

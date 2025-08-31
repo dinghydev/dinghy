@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PercentageList13 } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { PercentageList13 } from '@diac/standard-components-diagrams/infoGraphic'
 
 <PercentageList13/>
 ```

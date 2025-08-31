@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UdpDirector } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { UdpDirector } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <UdpDirector/>
 ```

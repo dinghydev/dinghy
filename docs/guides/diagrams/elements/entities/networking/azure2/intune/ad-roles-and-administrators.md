@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/intune/Azure_AD_Roles_and_Administrators.svg;strokeColor=none;',
-  _width: 64,
-  _height: 64,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { AdRolesAndAdministrators } from '@reactiac/standard-components-diagrams/azure2Intune'
+import { AdRolesAndAdministrators } from '@diac/standard-components-diagrams/azure2Intune'
 
 <AdRolesAndAdministrators/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Commit } from '@reactiac/standard-components-diagrams/azure2General'
+import { Commit } from '@diac/standard-components-diagrams/azure2General'
 
 <Commit/>
 ```

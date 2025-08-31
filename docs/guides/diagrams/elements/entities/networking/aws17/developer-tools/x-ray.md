@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { XRay } from '@reactiac/standard-components-diagrams/aws17DeveloperTools'
+import { XRay } from '@diac/standard-components-diagrams/aws17DeveloperTools'
 
 <XRay/>
 ```

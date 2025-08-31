@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BENT_UP_ARROW = {
   _style:
@@ -9,5 +9,11 @@ export const BENT_UP_ARROW = {
 }
 
 export function BentUpArrow(props: DiagramNodeProps) {
-  return <Shape {...BENT_UP_ARROW} {...props} />
+  return (
+    <Shape
+      {...BENT_UP_ARROW}
+      {...props}
+      _style={extendStyle(BENT_UP_ARROW, props)}
+    />
+  )
 }

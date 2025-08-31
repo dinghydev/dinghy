@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WATCHER_NODE = {
   _style:
@@ -9,5 +9,11 @@ export const WATCHER_NODE = {
 }
 
 export function WatcherNode(props: DiagramNodeProps) {
-  return <Shape {...WATCHER_NODE} {...props} />
+  return (
+    <Shape
+      {...WATCHER_NODE}
+      {...props}
+      _style={extendStyle(WATCHER_NODE, props)}
+    />
+  )
 }

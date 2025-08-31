@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RTC_REAL_TIME_COMMUNICATION = {
   _style:
@@ -9,5 +9,11 @@ export const RTC_REAL_TIME_COMMUNICATION = {
 }
 
 export function RtcRealTimeCommunication(props: DiagramNodeProps) {
-  return <Shape {...RTC_REAL_TIME_COMMUNICATION} {...props} />
+  return (
+    <Shape
+      {...RTC_REAL_TIME_COMMUNICATION}
+      {...props}
+      _style={extendStyle(RTC_REAL_TIME_COMMUNICATION, props)}
+    />
+  )
 }

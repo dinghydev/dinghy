@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetworkFileShareService } from '@reactiac/standard-components-diagrams/officeServices'
+import { NetworkFileShareService } from '@diac/standard-components-diagrams/officeServices'
 
 <NetworkFileShareService/>
 ```

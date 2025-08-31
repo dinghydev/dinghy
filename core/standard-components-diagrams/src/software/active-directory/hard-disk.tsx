@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HARD_DISK = {
   _style:
@@ -9,5 +9,7 @@ export const HARD_DISK = {
 }
 
 export function HardDisk(props: DiagramNodeProps) {
-  return <Shape {...HARD_DISK} {...props} />
+  return (
+    <Shape {...HARD_DISK} {...props} _style={extendStyle(HARD_DISK, props)} />
+  )
 }

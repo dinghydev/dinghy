@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AspectRatio } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { AspectRatio } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <AspectRatio/>
 ```

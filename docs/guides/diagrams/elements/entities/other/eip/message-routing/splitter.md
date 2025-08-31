@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Splitter } from '@reactiac/standard-components-diagrams/eipMessageRouting'
+import { Splitter } from '@diac/standard-components-diagrams/eipMessageRouting'
 
 <Splitter/>
 ```

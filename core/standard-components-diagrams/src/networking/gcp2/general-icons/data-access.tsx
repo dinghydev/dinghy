@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATA_ACCESS = {
   _style:
@@ -9,5 +9,11 @@ export const DATA_ACCESS = {
 }
 
 export function DataAccess(props: DiagramNodeProps) {
-  return <Shape {...DATA_ACCESS} {...props} />
+  return (
+    <Shape
+      {...DATA_ACCESS}
+      {...props}
+      _style={extendStyle(DATA_ACCESS, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButtonGroupHorizontal } from '@reactiac/standard-components-diagrams/bootstrap'
+import { ButtonGroupHorizontal } from '@diac/standard-components-diagrams/bootstrap'
 
 <ButtonGroupHorizontal/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEND_SIGNAL_ACTION = {
   _style:
@@ -9,5 +9,11 @@ export const SEND_SIGNAL_ACTION = {
 }
 
 export function SendSignalAction(props: DiagramNodeProps) {
-  return <Shape {...SEND_SIGNAL_ACTION} {...props} />
+  return (
+    <Shape
+      {...SEND_SIGNAL_ACTION}
+      {...props}
+      _style={extendStyle(SEND_SIGNAL_ACTION, props)}
+    />
+  )
 }

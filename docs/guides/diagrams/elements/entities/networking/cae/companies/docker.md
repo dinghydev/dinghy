@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Docker } from '@reactiac/standard-components-diagrams/caeCompanies'
+import { Docker } from '@diac/standard-components-diagrams/caeCompanies'
 
 <Docker/>
 ```

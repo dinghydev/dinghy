@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GANGED_CAPACITOR = {
   _style:
@@ -9,5 +9,11 @@ export const GANGED_CAPACITOR = {
 }
 
 export function GangedCapacitor(props: DiagramNodeProps) {
-  return <Shape {...GANGED_CAPACITOR} {...props} />
+  return (
+    <Shape
+      {...GANGED_CAPACITOR}
+      {...props}
+      _style={extendStyle(GANGED_CAPACITOR, props)}
+    />
+  )
 }

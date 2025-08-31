@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ShortingSelector } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { ShortingSelector } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <ShortingSelector/>
 ```

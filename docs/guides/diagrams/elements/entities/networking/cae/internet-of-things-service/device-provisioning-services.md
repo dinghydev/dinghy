@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeviceProvisioningServices } from '@reactiac/standard-components-diagrams/caeInternetOfThingsService'
+import { DeviceProvisioningServices } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
 
 <DeviceProvisioningServices/>
 ```

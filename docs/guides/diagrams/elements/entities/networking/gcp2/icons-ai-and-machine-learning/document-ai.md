@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DocumentAi } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { DocumentAi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <DocumentAi/>
 ```

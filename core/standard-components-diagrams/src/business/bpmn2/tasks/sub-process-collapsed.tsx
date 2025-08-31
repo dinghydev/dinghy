@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUB_PROCESS_COLLAPSED = {
   _style: {
@@ -9,5 +9,11 @@ export const SUB_PROCESS_COLLAPSED = {
 }
 
 export function SubProcessCollapsed(props: DiagramNodeProps) {
-  return <Shape {...SUB_PROCESS_COLLAPSED} {...props} />
+  return (
+    <Shape
+      {...SUB_PROCESS_COLLAPSED}
+      {...props}
+      _style={extendStyle(SUB_PROCESS_COLLAPSED, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Vpc } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { Vpc } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <Vpc/>
 ```

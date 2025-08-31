@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Vimeo } from '@reactiac/standard-components-diagrams/webIcons'
+import { Vimeo } from '@diac/standard-components-diagrams/webIcons'
 
 <Vimeo/>
 ```

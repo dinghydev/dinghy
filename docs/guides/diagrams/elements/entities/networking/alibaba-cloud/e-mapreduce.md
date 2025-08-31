@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EMapreduce } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { EMapreduce } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <EMapreduce/>
 ```

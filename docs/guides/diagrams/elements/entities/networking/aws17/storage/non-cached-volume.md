@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NonCachedVolume } from '@reactiac/standard-components-diagrams/aws17Storage'
+import { NonCachedVolume } from '@diac/standard-components-diagrams/aws17Storage'
 
 <NonCachedVolume/>
 ```

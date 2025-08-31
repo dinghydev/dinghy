@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EciElasticContainerInstance } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { EciElasticContainerInstance } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <EciElasticContainerInstance/>
 ```

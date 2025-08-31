@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const YOUTUBE = {
   _style:
@@ -9,5 +9,5 @@ export const YOUTUBE = {
 }
 
 export function Youtube(props: DiagramNodeProps) {
-  return <Shape {...YOUTUBE} {...props} />
+  return <Shape {...YOUTUBE} {...props} _style={extendStyle(YOUTUBE, props)} />
 }

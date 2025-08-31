@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INVENTORY_SOFTWARE = {
   _style:
@@ -9,5 +9,11 @@ export const INVENTORY_SOFTWARE = {
 }
 
 export function InventorySoftware(props: DiagramNodeProps) {
-  return <Shape {...INVENTORY_SOFTWARE} {...props} />
+  return (
+    <Shape
+      {...INVENTORY_SOFTWARE}
+      {...props}
+      _style={extendStyle(INVENTORY_SOFTWARE, props)}
+    />
+  )
 }

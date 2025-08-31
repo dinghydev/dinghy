@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CommandCenter } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { CommandCenter } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <CommandCenter/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XAMARIN = {
   _style:
@@ -9,5 +9,5 @@ export const XAMARIN = {
 }
 
 export function Xamarin(props: DiagramNodeProps) {
-  return <Shape {...XAMARIN} {...props} />
+  return <Shape {...XAMARIN} {...props} _style={extendStyle(XAMARIN, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ActiveDirectoryFederationServicesProxy } from '@reactiac/standard-components-diagrams/officeServers'
+import { ActiveDirectoryFederationServicesProxy } from '@diac/standard-components-diagrams/officeServers'
 
 <ActiveDirectoryFederationServicesProxy/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACCEPT_EVENT_ACTION = {
   _style:
@@ -9,5 +9,11 @@ export const ACCEPT_EVENT_ACTION = {
 }
 
 export function AcceptEventAction(props: DiagramNodeProps) {
-  return <Shape {...ACCEPT_EVENT_ACTION} {...props} />
+  return (
+    <Shape
+      {...ACCEPT_EVENT_ACTION}
+      {...props}
+      _style={extendStyle(ACCEPT_EVENT_ACTION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTACTOR_32_TO_125A = {
   _style:
@@ -9,5 +9,11 @@ export const CONTACTOR_32_TO_125A = {
 }
 
 export function Contactor32To125a(props: DiagramNodeProps) {
-  return <Shape {...CONTACTOR_32_TO_125A} {...props} />
+  return (
+    <Shape
+      {...CONTACTOR_32_TO_125A}
+      {...props}
+      _style={extendStyle(CONTACTOR_32_TO_125A, props)}
+    />
+  )
 }

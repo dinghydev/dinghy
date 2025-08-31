@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RestfulApi } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { RestfulApi } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <RestfulApi/>
 ```

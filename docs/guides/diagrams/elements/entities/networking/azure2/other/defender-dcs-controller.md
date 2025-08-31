@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DefenderDcsController } from '@reactiac/standard-components-diagrams/azure2Other'
+import { DefenderDcsController } from '@diac/standard-components-diagrams/azure2Other'
 
 <DefenderDcsController/>
 ```

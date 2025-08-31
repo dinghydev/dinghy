@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cloudhsm } from '@reactiac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { Cloudhsm } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <Cloudhsm/>
 ```

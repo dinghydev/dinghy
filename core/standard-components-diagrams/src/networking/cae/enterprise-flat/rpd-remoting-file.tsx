@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RPD_REMOTING_FILE = {
   _style:
@@ -9,5 +9,11 @@ export const RPD_REMOTING_FILE = {
 }
 
 export function RpdRemotingFile(props: DiagramNodeProps) {
-  return <Shape {...RPD_REMOTING_FILE} {...props} />
+  return (
+    <Shape
+      {...RPD_REMOTING_FILE}
+      {...props}
+      _style={extendStyle(RPD_REMOTING_FILE, props)}
+    />
+  )
 }

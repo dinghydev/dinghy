@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASR_1000_SERIES = {
   _style:
@@ -9,5 +9,11 @@ export const ASR_1000_SERIES = {
 }
 
 export function Asr1000Series(props: DiagramNodeProps) {
-  return <Shape {...ASR_1000_SERIES} {...props} />
+  return (
+    <Shape
+      {...ASR_1000_SERIES}
+      {...props}
+      _style={extendStyle(ASR_1000_SERIES, props)}
+    />
+  )
 }

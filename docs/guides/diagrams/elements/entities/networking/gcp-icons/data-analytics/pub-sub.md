@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PubSub } from '@reactiac/standard-components-diagrams/gcpIconsDataAnalytics'
+import { PubSub } from '@diac/standard-components-diagrams/gcpIconsDataAnalytics'
 
 <PubSub/>
 ```

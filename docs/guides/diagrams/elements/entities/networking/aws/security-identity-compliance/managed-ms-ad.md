@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManagedMsAd } from '@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { ManagedMsAd } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <ManagedMsAd/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataStore } from '@reactiac/standard-components-diagrams/awsInternetOfThings'
+import { DataStore } from '@diac/standard-components-diagrams/awsInternetOfThings'
 
 <DataStore/>
 ```

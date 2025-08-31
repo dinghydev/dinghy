@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DcdnDynamicRouteForCdn } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { DcdnDynamicRouteForCdn } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <DcdnDynamicRouteForCdn/>
 ```

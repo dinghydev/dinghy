@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SKYPE_FOR_BUSINESS_ROOM_SYSTEM = {
   _style:
@@ -9,5 +9,11 @@ export const SKYPE_FOR_BUSINESS_ROOM_SYSTEM = {
 }
 
 export function SkypeForBusinessRoomSystem(props: DiagramNodeProps) {
-  return <Shape {...SKYPE_FOR_BUSINESS_ROOM_SYSTEM} {...props} />
+  return (
+    <Shape
+      {...SKYPE_FOR_BUSINESS_ROOM_SYSTEM}
+      {...props}
+      _style={extendStyle(SKYPE_FOR_BUSINESS_ROOM_SYSTEM, props)}
+    />
+  )
 }

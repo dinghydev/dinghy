@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GitRepository } from '@reactiac/standard-components-diagrams/awsGeneralResources'
+import { GitRepository } from '@diac/standard-components-diagrams/awsGeneralResources'
 
 <GitRepository/>
 ```

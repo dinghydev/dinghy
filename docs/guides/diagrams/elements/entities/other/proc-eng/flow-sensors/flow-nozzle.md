@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FlowNozzle } from '@reactiac/standard-components-diagrams/procEngFlowSensors'
+import { FlowNozzle } from '@diac/standard-components-diagrams/procEngFlowSensors'
 
 <FlowNozzle/>
 ```

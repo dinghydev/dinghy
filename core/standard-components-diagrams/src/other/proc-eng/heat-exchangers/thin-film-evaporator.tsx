@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const THIN_FILM_EVAPORATOR = {
   _style:
@@ -9,5 +9,11 @@ export const THIN_FILM_EVAPORATOR = {
 }
 
 export function ThinFilmEvaporator(props: DiagramNodeProps) {
-  return <Shape {...THIN_FILM_EVAPORATOR} {...props} />
+  return (
+    <Shape
+      {...THIN_FILM_EVAPORATOR}
+      {...props}
+      _style={extendStyle(THIN_FILM_EVAPORATOR, props)}
+    />
+  )
 }

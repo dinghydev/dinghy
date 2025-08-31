@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TENSORFLOW = {
   _style:
@@ -9,5 +9,7 @@ export const TENSORFLOW = {
 }
 
 export function Tensorflow(props: DiagramNodeProps) {
-  return <Shape {...TENSORFLOW} {...props} />
+  return (
+    <Shape {...TENSORFLOW} {...props} _style={extendStyle(TENSORFLOW, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CREDIT_CARD = {
   _style:
@@ -9,5 +9,11 @@ export const CREDIT_CARD = {
 }
 
 export function CreditCard(props: DiagramNodeProps) {
-  return <Shape {...CREDIT_CARD} {...props} />
+  return (
+    <Shape
+      {...CREDIT_CARD}
+      {...props}
+      _style={extendStyle(CREDIT_CARD, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabasePostgresqlServer } from '@reactiac/standard-components-diagrams/azure2Databases'
+import { DatabasePostgresqlServer } from '@diac/standard-components-diagrams/azure2Databases'
 
 <DatabasePostgresqlServer/>
 ```

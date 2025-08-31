@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NotificationHubNamespaces } from '@reactiac/standard-components-diagrams/azure2Web'
+import { NotificationHubNamespaces } from '@diac/standard-components-diagrams/azure2Web'
 
 <NotificationHubNamespaces/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AntiSpam } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { AntiSpam } from '@diac/standard-components-diagrams/officeConcepts'
 
 <AntiSpam/>
 ```

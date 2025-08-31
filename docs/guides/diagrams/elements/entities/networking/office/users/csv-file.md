@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CsvFile } from '@reactiac/standard-components-diagrams/officeUsers'
+import { CsvFile } from '@diac/standard-components-diagrams/officeUsers'
 
 <CsvFile/>
 ```

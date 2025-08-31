@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const T3_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const T3_INSTANCE = {
 }
 
 export function T3Instance(props: DiagramNodeProps) {
-  return <Shape {...T3_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...T3_INSTANCE}
+      {...props}
+      _style={extendStyle(T3_INSTANCE, props)}
+    />
+  )
 }

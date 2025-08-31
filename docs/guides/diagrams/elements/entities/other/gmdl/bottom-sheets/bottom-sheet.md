@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BottomSheet } from '@reactiac/standard-components-diagrams/gmdlBottomSheets'
+import { BottomSheet } from '@diac/standard-components-diagrams/gmdlBottomSheets'
 
 <BottomSheet/>
 ```

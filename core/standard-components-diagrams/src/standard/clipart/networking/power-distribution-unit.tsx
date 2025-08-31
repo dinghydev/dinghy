@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POWER_DISTRIBUTION_UNIT = {
   _style:
     'image;html=1;image=img/lib/clip_art/networking/power_distribution_unit_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 
 export function PowerDistributionUnit(props: DiagramNodeProps) {
-  return <Shape {...POWER_DISTRIBUTION_UNIT} {...props} />
+  return (
+    <Shape
+      {...POWER_DISTRIBUTION_UNIT}
+      {...props}
+      _style={extendStyle(POWER_DISTRIBUTION_UNIT, props)}
+    />
+  )
 }

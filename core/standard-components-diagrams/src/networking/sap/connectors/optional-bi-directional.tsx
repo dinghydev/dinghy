@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPTIONAL_BI_DIRECTIONAL = {
   _style:
@@ -9,5 +9,11 @@ export const OPTIONAL_BI_DIRECTIONAL = {
 }
 
 export function OptionalBiDirectional(props: DiagramNodeProps) {
-  return <Shape {...OPTIONAL_BI_DIRECTIONAL} {...props} />
+  return (
+    <Shape
+      {...OPTIONAL_BI_DIRECTIONAL}
+      {...props}
+      _style={extendStyle(OPTIONAL_BI_DIRECTIONAL, props)}
+    />
+  )
 }

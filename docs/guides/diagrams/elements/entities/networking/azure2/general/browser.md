@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Browser } from '@reactiac/standard-components-diagrams/azure2General'
+import { Browser } from '@diac/standard-components-diagrams/azure2General'
 
 <Browser/>
 ```

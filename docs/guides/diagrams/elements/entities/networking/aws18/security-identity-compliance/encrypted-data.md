@@ -14,7 +14,7 @@ data
 ## Usage
 
 ```
-import { EncryptedData } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { EncryptedData } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <EncryptedData/>
 ```

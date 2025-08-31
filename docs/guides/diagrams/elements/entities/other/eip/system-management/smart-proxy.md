@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SmartProxy } from '@reactiac/standard-components-diagrams/eipSystemManagement'
+import { SmartProxy } from '@diac/standard-components-diagrams/eipSystemManagement'
 
 <SmartProxy/>
 ```

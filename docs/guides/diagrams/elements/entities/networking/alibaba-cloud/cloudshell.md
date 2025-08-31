@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cloudshell } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Cloudshell } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Cloudshell/>
 ```

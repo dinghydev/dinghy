@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SearchBox } from '@reactiac/standard-components-diagrams/mockupForms'
+import { SearchBox } from '@diac/standard-components-diagrams/mockupForms'
 
 <SearchBox/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12360_PISTON_TYPE_ACCUMULATOR = {
   _style:
@@ -9,5 +9,11 @@ export const X12360_PISTON_TYPE_ACCUMULATOR = {
 }
 
 export function X12360PistonTypeAccumulator(props: DiagramNodeProps) {
-  return <Shape {...X12360_PISTON_TYPE_ACCUMULATOR} {...props} />
+  return (
+    <Shape
+      {...X12360_PISTON_TYPE_ACCUMULATOR}
+      {...props}
+      _style={extendStyle(X12360_PISTON_TYPE_ACCUMULATOR, props)}
+    />
+  )
 }

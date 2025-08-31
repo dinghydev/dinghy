@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL665A_ARUBA_6300F_48_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP56_SWITCH =
   {
@@ -16,6 +16,10 @@ export function Jl665aAruba6300f48Port1gbeClass4PoeAnd4PortSfp56Switch(
     <Shape
       {...JL665A_ARUBA_6300F_48_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP56_SWITCH}
       {...props}
+      _style={extendStyle(
+        JL665A_ARUBA_6300F_48_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP56_SWITCH,
+        props,
+      )}
     />
   )
 }

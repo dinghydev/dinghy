@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIAGONAL_SNIP_RECTANGLE = {
   _style:
@@ -9,5 +9,11 @@ export const DIAGONAL_SNIP_RECTANGLE = {
 }
 
 export function DiagonalSnipRectangle(props: DiagramNodeProps) {
-  return <Shape {...DIAGONAL_SNIP_RECTANGLE} {...props} />
+  return (
+    <Shape
+      {...DIAGONAL_SNIP_RECTANGLE}
+      {...props}
+      _style={extendStyle(DIAGONAL_SNIP_RECTANGLE, props)}
+    />
+  )
 }

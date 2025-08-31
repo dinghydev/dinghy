@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTACT_BADGE_NORMAL = {
   _style:
@@ -9,5 +9,11 @@ export const CONTACT_BADGE_NORMAL = {
 }
 
 export function ContactBadgeNormal(props: DiagramNodeProps) {
-  return <Shape {...CONTACT_BADGE_NORMAL} {...props} />
+  return (
+    <Shape
+      {...CONTACT_BADGE_NORMAL}
+      {...props}
+      _style={extendStyle(CONTACT_BADGE_NORMAL, props)}
+    />
+  )
 }

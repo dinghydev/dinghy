@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TERMINAL_3_PHASE = {
   _style:
@@ -9,5 +9,11 @@ export const TERMINAL_3_PHASE = {
 }
 
 export function Terminal3Phase(props: DiagramNodeProps) {
-  return <Shape {...TERMINAL_3_PHASE} {...props} />
+  return (
+    <Shape
+      {...TERMINAL_3_PHASE}
+      {...props}
+      _style={extendStyle(TERMINAL_3_PHASE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VERTICAL_SWIMLANE = {
   _style: 'swimlane;startSize=20;whiteSpace=wrap;html=1;',
@@ -8,5 +8,11 @@ export const VERTICAL_SWIMLANE = {
 }
 
 export function VerticalSwimlane(props: DiagramNodeProps) {
-  return <Shape {...VERTICAL_SWIMLANE} {...props} />
+  return (
+    <Shape
+      {...VERTICAL_SWIMLANE}
+      {...props}
+      _style={extendStyle(VERTICAL_SWIMLANE, props)}
+    />
+  )
 }

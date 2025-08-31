@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALIMT_MACHINE_TRANSLATION = {
   _style:
@@ -9,5 +9,11 @@ export const ALIMT_MACHINE_TRANSLATION = {
 }
 
 export function AlimtMachineTranslation(props: DiagramNodeProps) {
-  return <Shape {...ALIMT_MACHINE_TRANSLATION} {...props} />
+  return (
+    <Shape
+      {...ALIMT_MACHINE_TRANSLATION}
+      {...props}
+      _style={extendStyle(ALIMT_MACHINE_TRANSLATION, props)}
+    />
+  )
 }

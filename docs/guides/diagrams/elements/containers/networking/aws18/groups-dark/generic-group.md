@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { GenericGroup } from '@reactiac/standard-components-diagrams/aws18GroupsDark'
+import { GenericGroup } from '@diac/standard-components-diagrams/aws18GroupsDark'
 
 <GenericGroup/>
 ```

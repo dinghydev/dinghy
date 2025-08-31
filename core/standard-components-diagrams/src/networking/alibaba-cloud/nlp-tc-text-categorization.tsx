@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLP_TC_TEXT_CATEGORIZATION = {
   _style:
@@ -9,5 +9,11 @@ export const NLP_TC_TEXT_CATEGORIZATION = {
 }
 
 export function NlpTcTextCategorization(props: DiagramNodeProps) {
-  return <Shape {...NLP_TC_TEXT_CATEGORIZATION} {...props} />
+  return (
+    <Shape
+      {...NLP_TC_TEXT_CATEGORIZATION}
+      {...props}
+      _style={extendStyle(NLP_TC_TEXT_CATEGORIZATION, props)}
+    />
+  )
 }

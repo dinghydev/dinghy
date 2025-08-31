@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FAX_PARTNER = {
   _style:
@@ -9,5 +9,11 @@ export const FAX_PARTNER = {
 }
 
 export function FaxPartner(props: DiagramNodeProps) {
-  return <Shape {...FAX_PARTNER} {...props} />
+  return (
+    <Shape
+      {...FAX_PARTNER}
+      {...props}
+      _style={extendStyle(FAX_PARTNER, props)}
+    />
+  )
 }

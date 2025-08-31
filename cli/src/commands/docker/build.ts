@@ -14,10 +14,7 @@ import { baseVersion, commitVersion } from '../../utils/commitVersion.ts'
 import { walk } from '@std/fs/walk'
 import ejs from 'ejs'
 import { createHash } from 'node:crypto'
-import {
-  configEngineRepoPublicEcr,
-  configGetEngineRepo,
-} from '../../utils/dockerConfig.ts'
+import { configGetEngineRepo } from '../../utils/dockerConfig.ts'
 import { isCi } from '../../utils/index.ts'
 import { projectRoot } from '../../utils/projectRoot.ts'
 import { readFileSync } from 'node:fs'
@@ -31,7 +28,7 @@ const options: CommandOptions = {
   default: {
     source: 'docker/images',
     arch: ['arm64', 'amd64'],
-    repo: ['reactiac/reactiac', 'public.ecr.aws/f2v6q7q7/reactiac/reactiac'],
+    repo: ['diacdev/diac'],
     'multi-arch': true,
   },
   description: {},

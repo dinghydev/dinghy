@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ecs } from '@reactiac/standard-components-diagrams/aws17Compute'
+import { Ecs } from '@diac/standard-components-diagrams/aws17Compute'
 
 <Ecs/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARTICIPANT_INITIATING_BOTTOM_WITH_DECORATOR = {
   _style:
@@ -11,5 +11,11 @@ export const PARTICIPANT_INITIATING_BOTTOM_WITH_DECORATOR = {
 export function ParticipantInitiatingBottomWithDecorator(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...PARTICIPANT_INITIATING_BOTTOM_WITH_DECORATOR} {...props} />
+  return (
+    <Shape
+      {...PARTICIPANT_INITIATING_BOTTOM_WITH_DECORATOR}
+      {...props}
+      _style={extendStyle(PARTICIPANT_INITIATING_BOTTOM_WITH_DECORATOR, props)}
+    />
+  )
 }

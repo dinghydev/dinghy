@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUS_WIDTH = {
   _style:
@@ -9,5 +9,7 @@ export const BUS_WIDTH = {
 }
 
 export function BusWidth(props: DiagramNodeProps) {
-  return <Shape {...BUS_WIDTH} {...props} />
+  return (
+    <Shape {...BUS_WIDTH} {...props} _style={extendStyle(BUS_WIDTH, props)} />
+  )
 }

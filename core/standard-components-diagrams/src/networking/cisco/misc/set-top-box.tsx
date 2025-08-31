@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SET_TOP_BOX = {
   _style:
@@ -9,5 +9,11 @@ export const SET_TOP_BOX = {
 }
 
 export function SetTopBox(props: DiagramNodeProps) {
-  return <Shape {...SET_TOP_BOX} {...props} />
+  return (
+    <Shape
+      {...SET_TOP_BOX}
+      {...props}
+      _style={extendStyle(SET_TOP_BOX, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManagedDatabase } from '@reactiac/standard-components-diagrams/azure2Databases'
+import { ManagedDatabase } from '@diac/standard-components-diagrams/azure2Databases'
 
 <ManagedDatabase/>
 ```

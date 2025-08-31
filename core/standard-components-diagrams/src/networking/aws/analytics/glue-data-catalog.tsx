@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLUE_DATA_CATALOG = {
   _style:
@@ -9,5 +9,11 @@ export const GLUE_DATA_CATALOG = {
 }
 
 export function GlueDataCatalog(props: DiagramNodeProps) {
-  return <Shape {...GLUE_DATA_CATALOG} {...props} />
+  return (
+    <Shape
+      {...GLUE_DATA_CATALOG}
+      {...props}
+      _style={extendStyle(GLUE_DATA_CATALOG, props)}
+    />
+  )
 }

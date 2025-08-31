@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AD_DOMAIN_SERVICES = {
   _style:
@@ -9,5 +9,11 @@ export const AD_DOMAIN_SERVICES = {
 }
 
 export function AdDomainServices(props: DiagramNodeProps) {
-  return <Shape {...AD_DOMAIN_SERVICES} {...props} />
+  return (
+    <Shape
+      {...AD_DOMAIN_SERVICES}
+      {...props}
+      _style={extendStyle(AD_DOMAIN_SERVICES, props)}
+    />
+  )
 }

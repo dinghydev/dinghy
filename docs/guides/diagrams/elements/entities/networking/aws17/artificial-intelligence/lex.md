@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Lex } from '@reactiac/standard-components-diagrams/aws17ArtificialIntelligence'
+import { Lex } from '@diac/standard-components-diagrams/aws17ArtificialIntelligence'
 
 <Lex/>
 ```

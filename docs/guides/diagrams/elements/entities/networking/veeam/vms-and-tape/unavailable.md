@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Unavailable } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { Unavailable } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <Unavailable/>
 ```

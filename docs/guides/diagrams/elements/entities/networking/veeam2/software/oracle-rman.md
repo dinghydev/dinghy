@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OracleRman } from '@reactiac/standard-components-diagrams/veeam2Software'
+import { OracleRman } from '@diac/standard-components-diagrams/veeam2Software'
 
 <OracleRman/>
 ```

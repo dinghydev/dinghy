@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANOMALY_DETECTION = {
   _style:
@@ -9,5 +9,11 @@ export const ANOMALY_DETECTION = {
 }
 
 export function AnomalyDetection(props: DiagramNodeProps) {
-  return <Shape {...ANOMALY_DETECTION} {...props} />
+  return (
+    <Shape
+      {...ANOMALY_DETECTION}
+      {...props}
+      _style={extendStyle(ANOMALY_DETECTION, props)}
+    />
+  )
 }

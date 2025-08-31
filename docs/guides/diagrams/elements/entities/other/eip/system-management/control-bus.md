@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ControlBus } from '@reactiac/standard-components-diagrams/eipSystemManagement'
+import { ControlBus } from '@diac/standard-components-diagrams/eipSystemManagement'
 
 <ControlBus/>
 ```

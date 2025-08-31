@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INSTAGRAM = {
   _style:
@@ -9,5 +9,7 @@ export const INSTAGRAM = {
 }
 
 export function Instagram(props: DiagramNodeProps) {
-  return <Shape {...INSTAGRAM} {...props} />
+  return (
+    <Shape {...INSTAGRAM} {...props} _style={extendStyle(INSTAGRAM, props)} />
+  )
 }

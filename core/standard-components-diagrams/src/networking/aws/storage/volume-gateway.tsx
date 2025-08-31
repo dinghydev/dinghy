@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOLUME_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const VOLUME_GATEWAY = {
 }
 
 export function VolumeGateway(props: DiagramNodeProps) {
-  return <Shape {...VOLUME_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...VOLUME_GATEWAY}
+      {...props}
+      _style={extendStyle(VOLUME_GATEWAY, props)}
+    />
+  )
 }

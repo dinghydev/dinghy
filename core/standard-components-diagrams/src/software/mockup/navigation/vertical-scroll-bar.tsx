@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VERTICAL_SCROLL_BAR = {
   _style:
@@ -9,5 +9,11 @@ export const VERTICAL_SCROLL_BAR = {
 }
 
 export function VerticalScrollBar(props: DiagramNodeProps) {
-  return <Shape {...VERTICAL_SCROLL_BAR} {...props} />
+  return (
+    <Shape
+      {...VERTICAL_SCROLL_BAR}
+      {...props}
+      _style={extendStyle(VERTICAL_SCROLL_BAR, props)}
+    />
+  )
 }

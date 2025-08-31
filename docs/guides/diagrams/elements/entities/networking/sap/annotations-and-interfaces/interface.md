@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Interface } from '@reactiac/standard-components-diagrams/sapAnnotationsAndInterfaces'
+import { Interface } from '@diac/standard-components-diagrams/sapAnnotationsAndInterfaces'
 
 <Interface/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CognitiveSearch } from '@reactiac/standard-components-diagrams/azure2Web'
+import { CognitiveSearch } from '@diac/standard-components-diagrams/azure2Web'
 
 <CognitiveSearch/>
 ```

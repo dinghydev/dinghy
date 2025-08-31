@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ebooks } from '@reactiac/standard-components-diagrams/azure2Intune'
+import { Ebooks } from '@diac/standard-components-diagrams/azure2Intune'
 
 <Ebooks/>
 ```

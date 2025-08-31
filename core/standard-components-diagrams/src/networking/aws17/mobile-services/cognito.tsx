@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COGNITO = {
   _style:
@@ -9,5 +9,5 @@ export const COGNITO = {
 }
 
 export function Cognito(props: DiagramNodeProps) {
-  return <Shape {...COGNITO} {...props} />
+  return <Shape {...COGNITO} {...props} _style={extendStyle(COGNITO, props)} />
 }

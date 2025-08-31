@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIRTUAL_TAPE_LIBRARY = {
   _style:
@@ -9,5 +9,11 @@ export const VIRTUAL_TAPE_LIBRARY = {
 }
 
 export function VirtualTapeLibrary(props: DiagramNodeProps) {
-  return <Shape {...VIRTUAL_TAPE_LIBRARY} {...props} />
+  return (
+    <Shape
+      {...VIRTUAL_TAPE_LIBRARY}
+      {...props}
+      _style={extendStyle(VIRTUAL_TAPE_LIBRARY, props)}
+    />
+  )
 }

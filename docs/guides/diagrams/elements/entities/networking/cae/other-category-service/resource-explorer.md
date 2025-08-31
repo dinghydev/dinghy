@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ResourceExplorer } from '@reactiac/standard-components-diagrams/caeOtherCategoryService'
+import { ResourceExplorer } from '@diac/standard-components-diagrams/caeOtherCategoryService'
 
 <ResourceExplorer/>
 ```

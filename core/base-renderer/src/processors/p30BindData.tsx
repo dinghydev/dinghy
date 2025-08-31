@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import type { NodeTree } from '@reactiac/base-components'
+import type { NodeTree } from '@diac/base-components'
 import type { HostContainer } from '../types.ts'
 
 export const p30BindData = (

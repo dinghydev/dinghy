@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MANAGED_IDENTITIES = {
   _style:
@@ -9,5 +9,11 @@ export const MANAGED_IDENTITIES = {
 }
 
 export function ManagedIdentities(props: DiagramNodeProps) {
-  return <Shape {...MANAGED_IDENTITIES} {...props} />
+  return (
+    <Shape
+      {...MANAGED_IDENTITIES}
+      {...props}
+      _style={extendStyle(MANAGED_IDENTITIES, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VoiceAssistant } from '@reactiac/standard-components-diagrams/dynamics365MixedReality'
+import { VoiceAssistant } from '@diac/standard-components-diagrams/dynamics365MixedReality'
 
 <VoiceAssistant/>
 ```

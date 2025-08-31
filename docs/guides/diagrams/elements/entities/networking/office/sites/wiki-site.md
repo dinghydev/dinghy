@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WikiSite } from '@reactiac/standard-components-diagrams/officeSites'
+import { WikiSite } from '@diac/standard-components-diagrams/officeSites'
 
 <WikiSite/>
 ```

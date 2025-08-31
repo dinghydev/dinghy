@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTACT_CENTER_AI_PLATFORM = {
   _style:
@@ -9,5 +9,11 @@ export const CONTACT_CENTER_AI_PLATFORM = {
 }
 
 export function ContactCenterAiPlatform(props: DiagramNodeProps) {
-  return <Shape {...CONTACT_CENTER_AI_PLATFORM} {...props} />
+  return (
+    <Shape
+      {...CONTACT_CENTER_AI_PLATFORM}
+      {...props}
+      _style={extendStyle(CONTACT_CENTER_AI_PLATFORM, props)}
+    />
+  )
 }

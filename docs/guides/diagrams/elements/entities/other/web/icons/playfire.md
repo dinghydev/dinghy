@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Playfire } from '@reactiac/standard-components-diagrams/webIcons'
+import { Playfire } from '@diac/standard-components-diagrams/webIcons'
 
 <Playfire/>
 ```

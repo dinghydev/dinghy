@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Callout4 } from '@reactiac/standard-components-diagrams/mockupText'
+import { Callout4 } from '@diac/standard-components-diagrams/mockupText'
 
 <Callout4/>
 ```

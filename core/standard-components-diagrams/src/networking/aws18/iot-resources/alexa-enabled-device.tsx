@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALEXA_ENABLED_DEVICE = {
   _style:
@@ -9,5 +9,11 @@ export const ALEXA_ENABLED_DEVICE = {
 }
 
 export function AlexaEnabledDevice(props: DiagramNodeProps) {
-  return <Shape {...ALEXA_ENABLED_DEVICE} {...props} />
+  return (
+    <Shape
+      {...ALEXA_ENABLED_DEVICE}
+      {...props}
+      _style={extendStyle(ALEXA_ENABLED_DEVICE, props)}
+    />
+  )
 }

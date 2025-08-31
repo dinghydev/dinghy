@@ -5,15 +5,15 @@
 ```
 {
   _style: 'perimeter=ellipsePerimeter;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.instruments.signal_generator;',
-  _width: 90,
-  _height: 90,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { SignalGenerator } from '@reactiac/standard-components-diagrams/electricalInstruments'
+import { SignalGenerator } from '@diac/standard-components-diagrams/electricalInstruments'
 
 <SignalGenerator/>
 ```

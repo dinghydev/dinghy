@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INSPECTOR = {
   _style:
@@ -9,5 +9,7 @@ export const INSPECTOR = {
 }
 
 export function Inspector(props: DiagramNodeProps) {
-  return <Shape {...INSPECTOR} {...props} />
+  return (
+    <Shape {...INSPECTOR} {...props} _style={extendStyle(INSPECTOR, props)} />
+  )
 }

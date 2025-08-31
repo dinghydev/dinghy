@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stackoverflow } from '@reactiac/standard-components-diagrams/webLogos'
+import { Stackoverflow } from '@diac/standard-components-diagrams/webLogos'
 
 <Stackoverflow/>
 ```

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'ellipse;whiteSpace=wrap;html=1;aspect=fixed;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Process } from '@reactiac/standard-components-diagrams/threatModeling'
+import { Process } from '@diac/standard-components-diagrams/threatModeling'
 
 <Process/>
 ```

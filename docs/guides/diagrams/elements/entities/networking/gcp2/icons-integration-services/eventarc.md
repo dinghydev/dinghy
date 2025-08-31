@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Eventarc } from '@reactiac/standard-components-diagrams/gcp2IconsIntegrationServices'
+import { Eventarc } from '@diac/standard-components-diagrams/gcp2IconsIntegrationServices'
 
 <Eventarc/>
 ```

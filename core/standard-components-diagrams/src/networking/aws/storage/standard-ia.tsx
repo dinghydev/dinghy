@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STANDARD_IA = {
   _style:
@@ -9,5 +9,11 @@ export const STANDARD_IA = {
 }
 
 export function StandardIa(props: DiagramNodeProps) {
-  return <Shape {...STANDARD_IA} {...props} />
+  return (
+    <Shape
+      {...STANDARD_IA}
+      {...props}
+      _style={extendStyle(STANDARD_IA, props)}
+    />
+  )
 }

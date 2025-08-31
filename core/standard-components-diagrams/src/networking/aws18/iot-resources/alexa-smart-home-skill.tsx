@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALEXA_SMART_HOME_SKILL = {
   _style:
@@ -9,5 +9,11 @@ export const ALEXA_SMART_HOME_SKILL = {
 }
 
 export function AlexaSmartHomeSkill(props: DiagramNodeProps) {
-  return <Shape {...ALEXA_SMART_HOME_SKILL} {...props} />
+  return (
+    <Shape
+      {...ALEXA_SMART_HOME_SKILL}
+      {...props}
+      _style={extendStyle(ALEXA_SMART_HOME_SKILL, props)}
+    />
+  )
 }

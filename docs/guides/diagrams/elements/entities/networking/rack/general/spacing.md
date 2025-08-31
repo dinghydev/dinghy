@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Spacing } from '@reactiac/standard-components-diagrams/rackGeneral'
+import { Spacing } from '@diac/standard-components-diagrams/rackGeneral'
 
 <Spacing/>
 ```

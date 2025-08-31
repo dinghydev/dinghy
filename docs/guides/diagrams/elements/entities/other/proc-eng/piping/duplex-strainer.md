@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DuplexStrainer } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { DuplexStrainer } from '@diac/standard-components-diagrams/procEngPiping'
 
 <DuplexStrainer/>
 ```

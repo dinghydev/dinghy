@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Turbine } from '@reactiac/standard-components-diagrams/procEngEngines'
+import { Turbine } from '@diac/standard-components-diagrams/procEngEngines'
 
 <Turbine/>
 ```

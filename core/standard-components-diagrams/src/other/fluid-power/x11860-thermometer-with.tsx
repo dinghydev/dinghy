@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11860_THERMOMETER_WITH = {
   _style:
@@ -9,5 +9,11 @@ export const X11860_THERMOMETER_WITH = {
 }
 
 export function X11860ThermometerWith(props: DiagramNodeProps) {
-  return <Shape {...X11860_THERMOMETER_WITH} {...props} />
+  return (
+    <Shape
+      {...X11860_THERMOMETER_WITH}
+      {...props}
+      _style={extendStyle(X11860_THERMOMETER_WITH, props)}
+    />
+  )
 }

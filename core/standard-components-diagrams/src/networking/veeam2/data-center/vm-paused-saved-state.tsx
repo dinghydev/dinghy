@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VM_PAUSED_SAVED_STATE = {
   _style:
@@ -9,5 +9,11 @@ export const VM_PAUSED_SAVED_STATE = {
 }
 
 export function VmPausedSavedState(props: DiagramNodeProps) {
-  return <Shape {...VM_PAUSED_SAVED_STATE} {...props} />
+  return (
+    <Shape
+      {...VM_PAUSED_SAVED_STATE}
+      {...props}
+      _style={extendStyle(VM_PAUSED_SAVED_STATE, props)}
+    />
+  )
 }

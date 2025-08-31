@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASA_5500 = {
   _style:
@@ -9,5 +9,7 @@ export const ASA_5500 = {
 }
 
 export function Asa5500(props: DiagramNodeProps) {
-  return <Shape {...ASA_5500} {...props} />
+  return (
+    <Shape {...ASA_5500} {...props} _style={extendStyle(ASA_5500, props)} />
+  )
 }

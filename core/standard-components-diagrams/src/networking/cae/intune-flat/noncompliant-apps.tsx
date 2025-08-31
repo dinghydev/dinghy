@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NONCOMPLIANT_APPS = {
   _style:
@@ -9,5 +9,11 @@ export const NONCOMPLIANT_APPS = {
 }
 
 export function NoncompliantApps(props: DiagramNodeProps) {
-  return <Shape {...NONCOMPLIANT_APPS} {...props} />
+  return (
+    <Shape
+      {...NONCOMPLIANT_APPS}
+      {...props}
+      _style={extendStyle(NONCOMPLIANT_APPS, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CodeEditor } from '@reactiac/standard-components-diagrams/ibmDevops'
+import { CodeEditor } from '@diac/standard-components-diagrams/ibmDevops'
 
 <CodeEditor/>
 ```

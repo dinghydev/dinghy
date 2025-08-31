@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPAQUE_ACTION = {
   _style: 'text;align=center;verticalAlign=middle;dashed=0;whiteSpace=wrap;',
@@ -8,5 +8,11 @@ export const OPAQUE_ACTION = {
 }
 
 export function OpaqueAction(props: DiagramNodeProps) {
-  return <Shape {...OPAQUE_ACTION} {...props} />
+  return (
+    <Shape
+      {...OPAQUE_ACTION}
+      {...props}
+      _style={extendStyle(OPAQUE_ACTION, props)}
+    />
+  )
 }

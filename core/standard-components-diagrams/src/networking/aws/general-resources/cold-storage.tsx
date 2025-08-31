@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLD_STORAGE = {
   _style:
@@ -9,5 +9,11 @@ export const COLD_STORAGE = {
 }
 
 export function ColdStorage(props: DiagramNodeProps) {
-  return <Shape {...COLD_STORAGE} {...props} />
+  return (
+    <Shape
+      {...COLD_STORAGE}
+      {...props}
+      _style={extendStyle(COLD_STORAGE, props)}
+    />
+  )
 }

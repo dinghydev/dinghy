@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SILENCER = {
   _style:
@@ -9,5 +9,7 @@ export const SILENCER = {
 }
 
 export function Silencer(props: DiagramNodeProps) {
-  return <Shape {...SILENCER} {...props} />
+  return (
+    <Shape {...SILENCER} {...props} _style={extendStyle(SILENCER, props)} />
+  )
 }

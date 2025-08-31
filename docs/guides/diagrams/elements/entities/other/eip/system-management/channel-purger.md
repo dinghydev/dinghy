@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChannelPurger } from '@reactiac/standard-components-diagrams/eipSystemManagement'
+import { ChannelPurger } from '@diac/standard-components-diagrams/eipSystemManagement'
 
 <ChannelPurger/>
 ```

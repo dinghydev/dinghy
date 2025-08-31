@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GoogleHangout } from '@reactiac/standard-components-diagrams/webLogos'
+import { GoogleHangout } from '@diac/standard-components-diagrams/webLogos'
 
 <GoogleHangout/>
 ```

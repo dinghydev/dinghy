@@ -3,11 +3,11 @@ import {
   IacNodeSchema,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 
 import { awsProps } from './index.ts'
 import type z from 'zod'
-import { Shape } from '@reactiac/base-components'
+import { Shape } from '@diac/base-components'
 
 export const AwsBackendS3InputSchema = IacNodeSchema.extend({
   bucket: ResolvableStringSchema.optional(),

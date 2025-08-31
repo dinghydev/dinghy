@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SunBladeX6270M2ServerModule } from '@reactiac/standard-components-diagrams/rackOracle'
+import { SunBladeX6270M2ServerModule } from '@diac/standard-components-diagrams/rackOracle'
 
 <SunBladeX6270M2ServerModule/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OR_GATE = {
   _style:
@@ -9,5 +9,5 @@ export const OR_GATE = {
 }
 
 export function OrGate(props: DiagramNodeProps) {
-  return <Shape {...OR_GATE} {...props} />
+  return <Shape {...OR_GATE} {...props} _style={extendStyle(OR_GATE, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BRANCH_REPEATER = {
   _style:
@@ -9,5 +9,11 @@ export const BRANCH_REPEATER = {
 }
 
 export function BranchRepeater(props: DiagramNodeProps) {
-  return <Shape {...BRANCH_REPEATER} {...props} />
+  return (
+    <Shape
+      {...BRANCH_REPEATER}
+      {...props}
+      _style={extendStyle(BRANCH_REPEATER, props)}
+    />
+  )
 }

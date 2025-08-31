@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ota } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { Ota } from '@diac/standard-components-diagrams/electricalMisc'
 
 <Ota/>
 ```

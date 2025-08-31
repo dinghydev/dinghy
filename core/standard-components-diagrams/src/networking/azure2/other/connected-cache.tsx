@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONNECTED_CACHE = {
   _style:
@@ -9,5 +9,11 @@ export const CONNECTED_CACHE = {
 }
 
 export function ConnectedCache(props: DiagramNodeProps) {
-  return <Shape {...CONNECTED_CACHE} {...props} />
+  return (
+    <Shape
+      {...CONNECTED_CACHE}
+      {...props}
+      _style={extendStyle(CONNECTED_CACHE, props)}
+    />
+  )
 }

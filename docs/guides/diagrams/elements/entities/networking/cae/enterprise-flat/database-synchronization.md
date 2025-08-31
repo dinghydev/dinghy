@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabaseSynchronization } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { DatabaseSynchronization } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <DatabaseSynchronization/>
 ```

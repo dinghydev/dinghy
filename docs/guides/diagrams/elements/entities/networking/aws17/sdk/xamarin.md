@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Xamarin } from '@reactiac/standard-components-diagrams/aws17Sdk'
+import { Xamarin } from '@diac/standard-components-diagrams/aws17Sdk'
 
 <Xamarin/>
 ```

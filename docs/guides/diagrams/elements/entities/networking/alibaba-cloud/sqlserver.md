@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sqlserver } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Sqlserver } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Sqlserver/>
 ```

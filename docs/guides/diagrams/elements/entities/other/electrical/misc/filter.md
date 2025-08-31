@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Filter } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { Filter } from '@diac/standard-components-diagrams/electricalMisc'
 
 <Filter/>
 ```

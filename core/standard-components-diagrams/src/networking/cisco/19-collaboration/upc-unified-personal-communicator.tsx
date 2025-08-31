@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UPC_UNIFIED_PERSONAL_COMMUNICATOR = {
   _style:
@@ -9,5 +9,11 @@ export const UPC_UNIFIED_PERSONAL_COMMUNICATOR = {
 }
 
 export function UpcUnifiedPersonalCommunicator(props: DiagramNodeProps) {
-  return <Shape {...UPC_UNIFIED_PERSONAL_COMMUNICATOR} {...props} />
+  return (
+    <Shape
+      {...UPC_UNIFIED_PERSONAL_COMMUNICATOR}
+      {...props}
+      _style={extendStyle(UPC_UNIFIED_PERSONAL_COMMUNICATOR, props)}
+    />
+  )
 }

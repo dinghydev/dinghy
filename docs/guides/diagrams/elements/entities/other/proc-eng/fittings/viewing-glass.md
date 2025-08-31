@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ViewingGlass } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { ViewingGlass } from '@diac/standard-components-diagrams/procEngFittings'
 
 <ViewingGlass/>
 ```

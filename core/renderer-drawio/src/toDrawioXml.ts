@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import type { HostContainer, Output } from '@reactiac/base-renderer'
+import type { HostContainer, Output } from '@diac/base-renderer'
 import type { DrawioNodeTree, DrawioRenderOptions } from './types.ts'
 import { encode } from 'html-entities'
 

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/networking/Cloud_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Cloud } from '@reactiac/standard-components-diagrams/clipartNetworking'
+import { Cloud } from '@diac/standard-components-diagrams/clipartNetworking'
 
 <Cloud/>
 ```

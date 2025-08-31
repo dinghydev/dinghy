@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TAPE_LIBRARY = {
   _style:
@@ -9,5 +9,11 @@ export const TAPE_LIBRARY = {
 }
 
 export function TapeLibrary(props: DiagramNodeProps) {
-  return <Shape {...TAPE_LIBRARY} {...props} />
+  return (
+    <Shape
+      {...TAPE_LIBRARY}
+      {...props}
+      _style={extendStyle(TAPE_LIBRARY, props)}
+    />
+  )
 }

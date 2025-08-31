@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Xing } from '@reactiac/standard-components-diagrams/webLogos'
+import { Xing } from '@diac/standard-components-diagrams/webLogos'
 
 <Xing/>
 ```

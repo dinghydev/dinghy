@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PORANA_PORTRAIT_ANALYSIS = {
   _style:
@@ -9,5 +9,11 @@ export const PORANA_PORTRAIT_ANALYSIS = {
 }
 
 export function PoranaPortraitAnalysis(props: DiagramNodeProps) {
-  return <Shape {...PORANA_PORTRAIT_ANALYSIS} {...props} />
+  return (
+    <Shape
+      {...PORANA_PORTRAIT_ANALYSIS}
+      {...props}
+      _style={extendStyle(PORANA_PORTRAIT_ANALYSIS, props)}
+    />
+  )
 }

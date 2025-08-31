@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COPY_AREA = {
   _style:
@@ -9,5 +9,7 @@ export const COPY_AREA = {
 }
 
 export function CopyArea(props: DiagramNodeProps) {
-  return <Shape {...COPY_AREA} {...props} />
+  return (
+    <Shape {...COPY_AREA} {...props} _style={extendStyle(COPY_AREA, props)} />
+  )
 }

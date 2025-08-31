@@ -14,7 +14,7 @@ Translation API
 ## Usage
 
 ```
-import { CloudTranslationApi } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { CloudTranslationApi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <CloudTranslationApi/>
 ```

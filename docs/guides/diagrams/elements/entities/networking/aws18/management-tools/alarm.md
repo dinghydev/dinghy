@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Alarm } from '@reactiac/standard-components-diagrams/aws18ManagementTools'
+import { Alarm } from '@diac/standard-components-diagrams/aws18ManagementTools'
 
 <Alarm/>
 ```

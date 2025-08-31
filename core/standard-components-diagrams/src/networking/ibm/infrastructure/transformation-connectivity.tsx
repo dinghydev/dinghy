@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSFORMATION_CONNECTIVITY = {
   _style:
@@ -9,5 +9,11 @@ export const TRANSFORMATION_CONNECTIVITY = {
 }
 
 export function TransformationConnectivity(props: DiagramNodeProps) {
-  return <Shape {...TRANSFORMATION_CONNECTIVITY} {...props} />
+  return (
+    <Shape
+      {...TRANSFORMATION_CONNECTIVITY}
+      {...props}
+      _style={extendStyle(TRANSFORMATION_CONNECTIVITY, props)}
+    />
+  )
 }

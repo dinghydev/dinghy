@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CREATION_DESTRUCTION_EVENT_3 = {
   _style: 'edgeStyle=none;dashed=1;endArrow=none;html=1;rounded=0;',
@@ -8,5 +8,11 @@ export const CREATION_DESTRUCTION_EVENT_3 = {
 }
 
 export function CreationDestructionEvent3(props: DiagramNodeProps) {
-  return <Shape {...CREATION_DESTRUCTION_EVENT_3} {...props} />
+  return (
+    <Shape
+      {...CREATION_DESTRUCTION_EVENT_3}
+      {...props}
+      _style={extendStyle(CREATION_DESTRUCTION_EVENT_3, props)}
+    />
+  )
 }

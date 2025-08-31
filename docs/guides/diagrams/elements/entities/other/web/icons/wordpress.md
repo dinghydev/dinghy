@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Wordpress } from '@reactiac/standard-components-diagrams/webIcons'
+import { Wordpress } from '@diac/standard-components-diagrams/webIcons'
 
 <Wordpress/>
 ```

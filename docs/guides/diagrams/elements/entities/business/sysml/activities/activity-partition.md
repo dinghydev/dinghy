@@ -5,15 +5,15 @@
 ```
 {
   _style: 'html=1;shape=mxgraph.sysml.actPart;strokeWidth=3;verticalAlign=top;rotation=-90;whiteSpace=wrap;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { ActivityPartition } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { ActivityPartition } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <ActivityPartition/>
 ```

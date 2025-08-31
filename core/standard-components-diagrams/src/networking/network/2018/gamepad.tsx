@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GAMEPAD = {
   _style:
@@ -9,5 +9,5 @@ export const GAMEPAD = {
 }
 
 export function Gamepad(props: DiagramNodeProps) {
-  return <Shape {...GAMEPAD} {...props} />
+  return <Shape {...GAMEPAD} {...props} _style={extendStyle(GAMEPAD, props)} />
 }

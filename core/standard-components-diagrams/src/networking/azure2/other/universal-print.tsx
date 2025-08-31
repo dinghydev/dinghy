@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNIVERSAL_PRINT = {
   _style:
@@ -9,5 +9,11 @@ export const UNIVERSAL_PRINT = {
 }
 
 export function UniversalPrint(props: DiagramNodeProps) {
-  return <Shape {...UNIVERSAL_PRINT} {...props} />
+  return (
+    <Shape
+      {...UNIVERSAL_PRINT}
+      {...props}
+      _style={extendStyle(UNIVERSAL_PRINT, props)}
+    />
+  )
 }

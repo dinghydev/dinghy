@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LONGREACH_CPE = {
   _style:
@@ -9,5 +9,11 @@ export const LONGREACH_CPE = {
 }
 
 export function LongreachCpe(props: DiagramNodeProps) {
-  return <Shape {...LONGREACH_CPE} {...props} />
+  return (
+    <Shape
+      {...LONGREACH_CPE}
+      {...props}
+      _style={extendStyle(LONGREACH_CPE, props)}
+    />
+  )
 }

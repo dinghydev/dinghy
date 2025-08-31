@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VMWARE_VSWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const VMWARE_VSWITCH = {
 }
 
 export function VmwareVswitch(props: DiagramNodeProps) {
-  return <Shape {...VMWARE_VSWITCH} {...props} />
+  return (
+    <Shape
+      {...VMWARE_VSWITCH}
+      {...props}
+      _style={extendStyle(VMWARE_VSWITCH, props)}
+    />
+  )
 }

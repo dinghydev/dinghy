@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MIGRATION_PROJECTS = {
   _style:
@@ -9,5 +9,11 @@ export const MIGRATION_PROJECTS = {
 }
 
 export function MigrationProjects(props: DiagramNodeProps) {
-  return <Shape {...MIGRATION_PROJECTS} {...props} />
+  return (
+    <Shape
+      {...MIGRATION_PROJECTS}
+      {...props}
+      _style={extendStyle(MIGRATION_PROJECTS, props)}
+    />
+  )
 }

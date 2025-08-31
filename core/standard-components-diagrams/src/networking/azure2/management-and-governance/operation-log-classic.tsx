@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPERATION_LOG_CLASSIC = {
   _style:
@@ -9,5 +9,11 @@ export const OPERATION_LOG_CLASSIC = {
 }
 
 export function OperationLogClassic(props: DiagramNodeProps) {
-  return <Shape {...OPERATION_LOG_CLASSIC} {...props} />
+  return (
+    <Shape
+      {...OPERATION_LOG_CLASSIC}
+      {...props}
+      _style={extendStyle(OPERATION_LOG_CLASSIC, props)}
+    />
+  )
 }

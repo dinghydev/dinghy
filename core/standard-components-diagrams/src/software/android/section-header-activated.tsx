@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SECTION_HEADER_ACTIVATED = {
   _style:
@@ -9,5 +9,11 @@ export const SECTION_HEADER_ACTIVATED = {
 }
 
 export function SectionHeaderActivated(props: DiagramNodeProps) {
-  return <Shape {...SECTION_HEADER_ACTIVATED} {...props} />
+  return (
+    <Shape
+      {...SECTION_HEADER_ACTIVATED}
+      {...props}
+      _style={extendStyle(SECTION_HEADER_ACTIVATED, props)}
+    />
+  )
 }

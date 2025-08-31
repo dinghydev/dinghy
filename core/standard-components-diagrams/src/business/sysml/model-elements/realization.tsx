@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REALIZATION = {
   _style: {
@@ -9,5 +9,11 @@ export const REALIZATION = {
 }
 
 export function Realization(props: DiagramNodeProps) {
-  return <Dependency {...REALIZATION} {...props} />
+  return (
+    <Dependency
+      {...REALIZATION}
+      {...props}
+      _style={extendStyle(REALIZATION, props)}
+    />
+  )
 }

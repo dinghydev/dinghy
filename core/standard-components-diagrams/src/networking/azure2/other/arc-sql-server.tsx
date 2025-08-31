@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARC_SQL_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const ARC_SQL_SERVER = {
 }
 
 export function ArcSqlServer(props: DiagramNodeProps) {
-  return <Shape {...ARC_SQL_SERVER} {...props} />
+  return (
+    <Shape
+      {...ARC_SQL_SERVER}
+      {...props}
+      _style={extendStyle(ARC_SQL_SERVER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXPLORER_FOR_ACTIVE_DIRECTORY = {
   _style:
@@ -9,5 +9,11 @@ export const EXPLORER_FOR_ACTIVE_DIRECTORY = {
 }
 
 export function ExplorerForActiveDirectory(props: DiagramNodeProps) {
-  return <Shape {...EXPLORER_FOR_ACTIVE_DIRECTORY} {...props} />
+  return (
+    <Shape
+      {...EXPLORER_FOR_ACTIVE_DIRECTORY}
+      {...props}
+      _style={extendStyle(EXPLORER_FOR_ACTIVE_DIRECTORY, props)}
+    />
+  )
 }

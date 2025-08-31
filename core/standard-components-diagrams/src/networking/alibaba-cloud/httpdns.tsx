@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HTTPDNS = {
   _style:
@@ -9,5 +9,5 @@ export const HTTPDNS = {
 }
 
 export function Httpdns(props: DiagramNodeProps) {
-  return <Shape {...HTTPDNS} {...props} />
+  return <Shape {...HTTPDNS} {...props} _style={extendStyle(HTTPDNS, props)} />
 }

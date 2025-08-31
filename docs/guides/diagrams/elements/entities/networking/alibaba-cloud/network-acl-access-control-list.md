@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetworkAclAccessControlList } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { NetworkAclAccessControlList } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <NetworkAclAccessControlList/>
 ```

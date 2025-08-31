@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIRESTORE = {
   _style:
@@ -9,5 +9,7 @@ export const FIRESTORE = {
 }
 
 export function Firestore(props: DiagramNodeProps) {
-  return <Shape {...FIRESTORE} {...props} />
+  return (
+    <Shape {...FIRESTORE} {...props} _style={extendStyle(FIRESTORE, props)} />
+  )
 }

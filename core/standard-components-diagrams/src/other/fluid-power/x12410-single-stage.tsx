@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12410_SINGLE_STAGE = {
   _style:
@@ -9,5 +9,11 @@ export const X12410_SINGLE_STAGE = {
 }
 
 export function X12410SingleStage(props: DiagramNodeProps) {
-  return <Shape {...X12410_SINGLE_STAGE} {...props} />
+  return (
+    <Shape
+      {...X12410_SINGLE_STAGE}
+      {...props}
+      _style={extendStyle(X12410_SINGLE_STAGE, props)}
+    />
+  )
 }

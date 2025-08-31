@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SchmittTrigger } from '@reactiac/standard-components-diagrams/electricalLogicGates'
+import { SchmittTrigger } from '@diac/standard-components-diagrams/electricalLogicGates'
 
 <SchmittTrigger/>
 ```

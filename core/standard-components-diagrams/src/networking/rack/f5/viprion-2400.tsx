@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIPRION_2400 = {
   _style:
@@ -9,5 +9,11 @@ export const VIPRION_2400 = {
 }
 
 export function Viprion2400(props: DiagramNodeProps) {
-  return <Shape {...VIPRION_2400} {...props} />
+  return (
+    <Shape
+      {...VIPRION_2400}
+      {...props}
+      _style={extendStyle(VIPRION_2400, props)}
+    />
+  )
 }

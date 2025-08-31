@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IndustrialMediaConverter } from '@reactiac/standard-components-diagrams/alliedTelesisMediaConverters'
+import { IndustrialMediaConverter } from '@diac/standard-components-diagrams/alliedTelesisMediaConverters'
 
 <IndustrialMediaConverter/>
 ```

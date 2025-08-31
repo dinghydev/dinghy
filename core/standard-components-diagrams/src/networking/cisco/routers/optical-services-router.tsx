@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPTICAL_SERVICES_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const OPTICAL_SERVICES_ROUTER = {
 }
 
 export function OpticalServicesRouter(props: DiagramNodeProps) {
-  return <Shape {...OPTICAL_SERVICES_ROUTER} {...props} />
+  return (
+    <Shape
+      {...OPTICAL_SERVICES_ROUTER}
+      {...props}
+      _style={extendStyle(OPTICAL_SERVICES_ROUTER, props)}
+    />
+  )
 }

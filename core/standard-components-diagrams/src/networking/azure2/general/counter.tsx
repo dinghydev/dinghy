@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COUNTER = {
   _style:
@@ -9,5 +9,5 @@ export const COUNTER = {
 }
 
 export function Counter(props: DiagramNodeProps) {
-  return <Shape {...COUNTER} {...props} />
+  return <Shape {...COUNTER} {...props} _style={extendStyle(COUNTER, props)} />
 }

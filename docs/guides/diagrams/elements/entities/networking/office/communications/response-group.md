@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ResponseGroup } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { ResponseGroup } from '@diac/standard-components-diagrams/officeCommunications'
 
 <ResponseGroup/>
 ```

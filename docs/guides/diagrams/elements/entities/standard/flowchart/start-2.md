@@ -5,15 +5,15 @@
 ```
 {
   _style: 'strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Start2 } from '@reactiac/standard-components-diagrams/flowchart'
+import { Start2 } from '@diac/standard-components-diagrams/flowchart'
 
 <Start2/>
 ```

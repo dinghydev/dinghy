@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POLLY = {
   _style:
@@ -9,5 +9,5 @@ export const POLLY = {
 }
 
 export function Polly(props: DiagramNodeProps) {
-  return <Shape {...POLLY} {...props} />
+  return <Shape {...POLLY} {...props} _style={extendStyle(POLLY, props)} />
 }

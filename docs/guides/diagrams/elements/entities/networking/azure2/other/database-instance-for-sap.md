@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabaseInstanceForSap } from '@reactiac/standard-components-diagrams/azure2Other'
+import { DatabaseInstanceForSap } from '@diac/standard-components-diagrams/azure2Other'
 
 <DatabaseInstanceForSap/>
 ```

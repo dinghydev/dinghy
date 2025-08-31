@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_INSPECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const AMAZON_INSPECTOR = {
 }
 
 export function AmazonInspector(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_INSPECTOR} {...props} />
+  return (
+    <Shape
+      {...AMAZON_INSPECTOR}
+      {...props}
+      _style={extendStyle(AMAZON_INSPECTOR, props)}
+    />
+  )
 }

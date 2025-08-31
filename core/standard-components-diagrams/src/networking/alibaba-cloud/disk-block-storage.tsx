@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISK_BLOCK_STORAGE = {
   _style:
@@ -9,5 +9,11 @@ export const DISK_BLOCK_STORAGE = {
 }
 
 export function DiskBlockStorage(props: DiagramNodeProps) {
-  return <Shape {...DISK_BLOCK_STORAGE} {...props} />
+  return (
+    <Shape
+      {...DISK_BLOCK_STORAGE}
+      {...props}
+      _style={extendStyle(DISK_BLOCK_STORAGE, props)}
+    />
+  )
 }

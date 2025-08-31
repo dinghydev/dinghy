@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XING = {
   _style:
@@ -9,5 +9,5 @@ export const XING = {
 }
 
 export function Xing(props: DiagramNodeProps) {
-  return <Shape {...XING} {...props} />
+  return <Shape {...XING} {...props} _style={extendStyle(XING, props)} />
 }

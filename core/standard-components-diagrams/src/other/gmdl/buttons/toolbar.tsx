@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TOOLBAR = {
   _style:
@@ -9,5 +9,5 @@ export const TOOLBAR = {
 }
 
 export function Toolbar(props: DiagramNodeProps) {
-  return <Shape {...TOOLBAR} {...props} />
+  return <Shape {...TOOLBAR} {...props} _style={extendStyle(TOOLBAR, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bamboo } from '@reactiac/standard-components-diagrams/webLogos'
+import { Bamboo } from '@diac/standard-components-diagrams/webLogos'
 
 <Bamboo/>
 ```

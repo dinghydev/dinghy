@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WATSONX = {
   _style: {
@@ -12,5 +12,5 @@ export const WATSONX = {
 }
 
 export function Watsonx(props: DiagramNodeProps) {
-  return <Shape {...WATSONX} {...props} />
+  return <Shape {...WATSONX} {...props} _style={extendStyle(WATSONX, props)} />
 }

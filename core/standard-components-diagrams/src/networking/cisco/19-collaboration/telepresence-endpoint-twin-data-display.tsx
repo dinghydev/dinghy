@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TELEPRESENCE_ENDPOINT_TWIN_DATA_DISPLAY = {
   _style:
@@ -9,5 +9,11 @@ export const TELEPRESENCE_ENDPOINT_TWIN_DATA_DISPLAY = {
 }
 
 export function TelepresenceEndpointTwinDataDisplay(props: DiagramNodeProps) {
-  return <Shape {...TELEPRESENCE_ENDPOINT_TWIN_DATA_DISPLAY} {...props} />
+  return (
+    <Shape
+      {...TELEPRESENCE_ENDPOINT_TWIN_DATA_DISPLAY}
+      {...props}
+      _style={extendStyle(TELEPRESENCE_ENDPOINT_TWIN_DATA_DISPLAY, props)}
+    />
+  )
 }

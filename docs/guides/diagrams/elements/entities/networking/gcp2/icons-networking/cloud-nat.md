@@ -14,7 +14,7 @@ NAT
 ## Usage
 
 ```
-import { CloudNat } from '@reactiac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudNat } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudNat/>
 ```

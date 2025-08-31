@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PUBLIC_IP_PREFIXES = {
   _style:
@@ -9,5 +9,11 @@ export const PUBLIC_IP_PREFIXES = {
 }
 
 export function PublicIpPrefixes(props: DiagramNodeProps) {
-  return <Shape {...PUBLIC_IP_PREFIXES} {...props} />
+  return (
+    <Shape
+      {...PUBLIC_IP_PREFIXES}
+      {...props}
+      _style={extendStyle(PUBLIC_IP_PREFIXES, props)}
+    />
+  )
 }

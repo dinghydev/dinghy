@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KANBAN_POST = {
   _style:
@@ -9,5 +9,11 @@ export const KANBAN_POST = {
 }
 
 export function KanbanPost(props: DiagramNodeProps) {
-  return <Shape {...KANBAN_POST} {...props} />
+  return (
+    <Shape
+      {...KANBAN_POST}
+      {...props}
+      _style={extendStyle(KANBAN_POST, props)}
+    />
+  )
 }

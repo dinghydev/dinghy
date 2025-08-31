@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11320_VARIABLE_DISPLACEMENT_PUMP = {
   _style:
@@ -9,5 +9,11 @@ export const X11320_VARIABLE_DISPLACEMENT_PUMP = {
 }
 
 export function X11320VariableDisplacementPump(props: DiagramNodeProps) {
-  return <Shape {...X11320_VARIABLE_DISPLACEMENT_PUMP} {...props} />
+  return (
+    <Shape
+      {...X11320_VARIABLE_DISPLACEMENT_PUMP}
+      {...props}
+      _style={extendStyle(X11320_VARIABLE_DISPLACEMENT_PUMP, props)}
+    />
+  )
 }

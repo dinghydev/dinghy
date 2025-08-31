@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPRAY_COOLER = {
   _style:
@@ -9,5 +9,11 @@ export const SPRAY_COOLER = {
 }
 
 export function SprayCooler(props: DiagramNodeProps) {
-  return <Shape {...SPRAY_COOLER} {...props} />
+  return (
+    <Shape
+      {...SPRAY_COOLER}
+      {...props}
+      _style={extendStyle(SPRAY_COOLER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SecurityTokenService } from '@reactiac/standard-components-diagrams/aws3d'
+import { SecurityTokenService } from '@diac/standard-components-diagrams/aws3d'
 
 <SecurityTokenService/>
 ```

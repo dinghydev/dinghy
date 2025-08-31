@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ActiveDirectory } from '@reactiac/standard-components-diagrams/azure2Identity'
+import { ActiveDirectory } from '@diac/standard-components-diagrams/azure2Identity'
 
 <ActiveDirectory/>
 ```

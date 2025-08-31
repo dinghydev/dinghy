@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MANY_OPTIONAL_TO_MANY_OPTIONAL = {
   _style: {
@@ -9,5 +9,11 @@ export const MANY_OPTIONAL_TO_MANY_OPTIONAL = {
 }
 
 export function ManyOptionalToManyOptional(props: DiagramNodeProps) {
-  return <Dependency {...MANY_OPTIONAL_TO_MANY_OPTIONAL} {...props} />
+  return (
+    <Dependency
+      {...MANY_OPTIONAL_TO_MANY_OPTIONAL}
+      {...props}
+      _style={extendStyle(MANY_OPTIONAL_TO_MANY_OPTIONAL, props)}
+    />
+  )
 }

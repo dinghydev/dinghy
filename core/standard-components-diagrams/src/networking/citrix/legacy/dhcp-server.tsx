@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DHCP_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const DHCP_SERVER = {
 }
 
 export function DhcpServer(props: DiagramNodeProps) {
-  return <Shape {...DHCP_SERVER} {...props} />
+  return (
+    <Shape
+      {...DHCP_SERVER}
+      {...props}
+      _style={extendStyle(DHCP_SERVER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SafetyStock } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { SafetyStock } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <SafetyStock/>
 ```

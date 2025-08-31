@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeviceSecurityApple } from '@reactiac/standard-components-diagrams/azure2Intune'
+import { DeviceSecurityApple } from '@diac/standard-components-diagrams/azure2Intune'
 
 <DeviceSecurityApple/>
 ```

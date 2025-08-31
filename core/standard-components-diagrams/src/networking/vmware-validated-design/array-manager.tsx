@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARRAY_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const ARRAY_MANAGER = {
 }
 
 export function ArrayManager(props: DiagramNodeProps) {
-  return <Shape {...ARRAY_MANAGER} {...props} />
+  return (
+    <Shape
+      {...ARRAY_MANAGER}
+      {...props}
+      _style={extendStyle(ARRAY_MANAGER, props)}
+    />
+  )
 }

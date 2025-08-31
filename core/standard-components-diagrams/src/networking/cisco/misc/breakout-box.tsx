@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BREAKOUT_BOX = {
   _style:
@@ -9,5 +9,11 @@ export const BREAKOUT_BOX = {
 }
 
 export function BreakoutBox(props: DiagramNodeProps) {
-  return <Shape {...BREAKOUT_BOX} {...props} />
+  return (
+    <Shape
+      {...BREAKOUT_BOX}
+      {...props}
+      _style={extendStyle(BREAKOUT_BOX, props)}
+    />
+  )
 }

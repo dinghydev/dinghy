@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ObjectFlow4 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { ObjectFlow4 } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <ObjectFlow4/>
 ```

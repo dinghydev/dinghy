@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIQUID_FILTER = {
   _style:
@@ -9,5 +9,11 @@ export const LIQUID_FILTER = {
 }
 
 export function LiquidFilter(props: DiagramNodeProps) {
-  return <Shape {...LIQUID_FILTER} {...props} />
+  return (
+    <Shape
+      {...LIQUID_FILTER}
+      {...props}
+      _style={extendStyle(LIQUID_FILTER, props)}
+    />
+  )
 }

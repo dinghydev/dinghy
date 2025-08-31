@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EksOnOutposts } from '@reactiac/standard-components-diagrams/awsContainers'
+import { EksOnOutposts } from '@diac/standard-components-diagrams/awsContainers'
 
 <EksOnOutposts/>
 ```

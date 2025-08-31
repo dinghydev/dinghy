@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDFORMATION = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUDFORMATION = {
 }
 
 export function Cloudformation(props: DiagramNodeProps) {
-  return <Shape {...CLOUDFORMATION} {...props} />
+  return (
+    <Shape
+      {...CLOUDFORMATION}
+      {...props}
+      _style={extendStyle(CLOUDFORMATION, props)}
+    />
+  )
 }

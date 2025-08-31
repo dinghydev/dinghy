@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FILTERING_RULE = {
   _style:
@@ -9,5 +9,11 @@ export const FILTERING_RULE = {
 }
 
 export function FilteringRule(props: DiagramNodeProps) {
-  return <Shape {...FILTERING_RULE} {...props} />
+  return (
+    <Shape
+      {...FILTERING_RULE}
+      {...props}
+      _style={extendStyle(FILTERING_RULE, props)}
+    />
+  )
 }

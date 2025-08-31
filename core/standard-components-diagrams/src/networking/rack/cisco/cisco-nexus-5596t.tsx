@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_NEXUS_5596T = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_NEXUS_5596T = {
 }
 
 export function CiscoNexus5596t(props: DiagramNodeProps) {
-  return <Shape {...CISCO_NEXUS_5596T} {...props} />
+  return (
+    <Shape
+      {...CISCO_NEXUS_5596T}
+      {...props}
+      _style={extendStyle(CISCO_NEXUS_5596T, props)}
+    />
+  )
 }

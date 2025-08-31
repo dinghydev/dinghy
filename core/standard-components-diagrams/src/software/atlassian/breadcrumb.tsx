@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BREADCRUMB = {
   _style:
@@ -9,5 +9,7 @@ export const BREADCRUMB = {
 }
 
 export function Breadcrumb(props: DiagramNodeProps) {
-  return <Shape {...BREADCRUMB} {...props} />
+  return (
+    <Shape {...BREADCRUMB} {...props} _style={extendStyle(BREADCRUMB, props)} />
+  )
 }

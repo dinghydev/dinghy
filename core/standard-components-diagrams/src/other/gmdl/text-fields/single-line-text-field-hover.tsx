@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SINGLE_LINE_TEXT_FIELD_HOVER = {
   _style:
@@ -9,5 +9,11 @@ export const SINGLE_LINE_TEXT_FIELD_HOVER = {
 }
 
 export function SingleLineTextFieldHover(props: DiagramNodeProps) {
-  return <Shape {...SINGLE_LINE_TEXT_FIELD_HOVER} {...props} />
+  return (
+    <Shape
+      {...SINGLE_LINE_TEXT_FIELD_HOVER}
+      {...props}
+      _style={extendStyle(SINGLE_LINE_TEXT_FIELD_HOVER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InternalActiveStructureElement } from '@reactiac/standard-components-diagrams/archimate3Generic'
+import { InternalActiveStructureElement } from '@diac/standard-components-diagrams/archimate3Generic'
 
 <InternalActiveStructureElement/>
 ```

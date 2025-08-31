@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Netsonar } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Netsonar } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Netsonar/>
 ```

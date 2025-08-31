@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_WAF = {
   _style:
@@ -9,5 +9,5 @@ export const AWS_WAF = {
 }
 
 export function AwsWaf(props: DiagramNodeProps) {
-  return <Shape {...AWS_WAF} {...props} />
+  return <Shape {...AWS_WAF} {...props} _style={extendStyle(AWS_WAF, props)} />
 }

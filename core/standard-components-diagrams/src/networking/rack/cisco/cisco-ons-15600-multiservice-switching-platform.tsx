@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM = {
   _style:
@@ -12,6 +12,13 @@ export function CiscoOns15600MultiserviceSwitchingPlatform(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM} {...props} />
+    <Shape
+      {...CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM}
+      {...props}
+      _style={extendStyle(
+        CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM,
+        props,
+      )}
+    />
   )
 }

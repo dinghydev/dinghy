@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INPUT_PIN = {
   _style: 'shape=mxgraph.uml25.inputPin;html=1;points=[[0,0.5],[1,0.5]];',
@@ -8,5 +8,7 @@ export const INPUT_PIN = {
 }
 
 export function InputPin(props: DiagramNodeProps) {
-  return <Shape {...INPUT_PIN} {...props} />
+  return (
+    <Shape {...INPUT_PIN} {...props} _style={extendStyle(INPUT_PIN, props)} />
+  )
 }

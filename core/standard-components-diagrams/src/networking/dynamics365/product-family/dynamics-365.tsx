@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DYNAMICS_365 = {
   _style:
@@ -9,5 +9,11 @@ export const DYNAMICS_365 = {
 }
 
 export function Dynamics365(props: DiagramNodeProps) {
-  return <Shape {...DYNAMICS_365} {...props} />
+  return (
+    <Shape
+      {...DYNAMICS_365}
+      {...props}
+      _style={extendStyle(DYNAMICS_365, props)}
+    />
+  )
 }

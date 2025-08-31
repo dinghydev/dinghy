@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EssElasticScalingService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { EssElasticScalingService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <EssElasticScalingService/>
 ```

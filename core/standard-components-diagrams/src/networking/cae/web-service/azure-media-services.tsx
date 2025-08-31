@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_MEDIA_SERVICES = {
   _style:
@@ -9,5 +9,11 @@ export const AZURE_MEDIA_SERVICES = {
 }
 
 export function AzureMediaServices(props: DiagramNodeProps) {
-  return <Shape {...AZURE_MEDIA_SERVICES} {...props} />
+  return (
+    <Shape
+      {...AZURE_MEDIA_SERVICES}
+      {...props}
+      _style={extendStyle(AZURE_MEDIA_SERVICES, props)}
+    />
+  )
 }

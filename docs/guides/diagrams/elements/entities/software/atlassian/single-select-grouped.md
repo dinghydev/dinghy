@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SingleSelectGrouped } from '@reactiac/standard-components-diagrams/atlassian'
+import { SingleSelectGrouped } from '@diac/standard-components-diagrams/atlassian'
 
 <SingleSelectGrouped/>
 ```

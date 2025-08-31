@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_SENTINEL = {
   _style:
@@ -9,5 +9,11 @@ export const AZURE_SENTINEL = {
 }
 
 export function AzureSentinel(props: DiagramNodeProps) {
-  return <Shape {...AZURE_SENTINEL} {...props} />
+  return (
+    <Shape
+      {...AZURE_SENTINEL}
+      {...props}
+      _style={extendStyle(AZURE_SENTINEL, props)}
+    />
+  )
 }

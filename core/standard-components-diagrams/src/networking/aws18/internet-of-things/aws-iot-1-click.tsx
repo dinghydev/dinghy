@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_IOT_1_CLICK = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_IOT_1_CLICK = {
 }
 
 export function AwsIot1Click(props: DiagramNodeProps) {
-  return <Shape {...AWS_IOT_1_CLICK} {...props} />
+  return (
+    <Shape
+      {...AWS_IOT_1_CLICK}
+      {...props}
+      _style={extendStyle(AWS_IOT_1_CLICK, props)}
+    />
+  )
 }

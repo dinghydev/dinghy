@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IMPORT_GENERIC = {
   _style:
@@ -9,5 +9,11 @@ export const IMPORT_GENERIC = {
 }
 
 export function ImportGeneric(props: DiagramNodeProps) {
-  return <Shape {...IMPORT_GENERIC} {...props} />
+  return (
+    <Shape
+      {...IMPORT_GENERIC}
+      {...props}
+      _style={extendStyle(IMPORT_GENERIC, props)}
+    />
+  )
 }

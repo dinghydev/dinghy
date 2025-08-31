@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { SpotFleet } from '@reactiac/standard-components-diagrams/awsGroups'
+import { SpotFleet } from '@diac/standard-components-diagrams/awsGroups'
 
 <SpotFleet/>
 ```

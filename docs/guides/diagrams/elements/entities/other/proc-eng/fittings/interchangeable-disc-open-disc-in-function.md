@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InterchangeableDiscOpenDiscInFunction } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { InterchangeableDiscOpenDiscInFunction } from '@diac/standard-components-diagrams/procEngFittings'
 
 <InterchangeableDiscOpenDiscInFunction/>
 ```

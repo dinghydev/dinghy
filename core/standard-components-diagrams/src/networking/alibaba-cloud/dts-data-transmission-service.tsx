@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DTS_DATA_TRANSMISSION_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const DTS_DATA_TRANSMISSION_SERVICE = {
 }
 
 export function DtsDataTransmissionService(props: DiagramNodeProps) {
-  return <Shape {...DTS_DATA_TRANSMISSION_SERVICE} {...props} />
+  return (
+    <Shape
+      {...DTS_DATA_TRANSMISSION_SERVICE}
+      {...props}
+      _style={extendStyle(DTS_DATA_TRANSMISSION_SERVICE, props)}
+    />
+  )
 }

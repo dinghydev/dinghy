@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonSagemaker } from '@reactiac/standard-components-diagrams/aws18MachineLearning'
+import { AmazonSagemaker } from '@diac/standard-components-diagrams/aws18MachineLearning'
 
 <AmazonSagemaker/>
 ```

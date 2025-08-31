@@ -1,4 +1,4 @@
-import { Dependency, DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, DiagramNodeProps } from '@diac/base-components'
 
 type Point = {
   x: number

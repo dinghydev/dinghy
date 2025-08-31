@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RDS_BLUE_GREEN_DEPLOYMENTS = {
   _style:
@@ -9,5 +9,11 @@ export const RDS_BLUE_GREEN_DEPLOYMENTS = {
 }
 
 export function RdsBlueGreenDeployments(props: DiagramNodeProps) {
-  return <Shape {...RDS_BLUE_GREEN_DEPLOYMENTS} {...props} />
+  return (
+    <Shape
+      {...RDS_BLUE_GREEN_DEPLOYMENTS}
+      {...props}
+      _style={extendStyle(RDS_BLUE_GREEN_DEPLOYMENTS, props)}
+    />
+  )
 }

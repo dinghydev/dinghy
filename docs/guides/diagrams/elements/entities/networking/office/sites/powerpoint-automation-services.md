@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PowerpointAutomationServices } from '@reactiac/standard-components-diagrams/officeSites'
+import { PowerpointAutomationServices } from '@diac/standard-components-diagrams/officeSites'
 
 <PowerpointAutomationServices/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GreengrassRecipe } from '@reactiac/standard-components-diagrams/awsInternetOfThings'
+import { GreengrassRecipe } from '@diac/standard-components-diagrams/awsInternetOfThings'
 
 <GreengrassRecipe/>
 ```

@@ -1,12 +1,12 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CROSS = {
   _style: 'shape=cross;whiteSpace=wrap;html=1;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 
 export function Cross(props: DiagramNodeProps) {
-  return <Shape {...CROSS} {...props} />
+  return <Shape {...CROSS} {...props} _style={extendStyle(CROSS, props)} />
 }

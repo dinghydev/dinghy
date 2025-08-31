@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MpsCensor } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { MpsCensor } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <MpsCensor/>
 ```

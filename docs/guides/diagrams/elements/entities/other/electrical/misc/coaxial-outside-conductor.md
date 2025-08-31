@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CoaxialOutsideConductor } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { CoaxialOutsideConductor } from '@diac/standard-components-diagrams/electricalMisc'
 
 <CoaxialOutsideConductor/>
 ```

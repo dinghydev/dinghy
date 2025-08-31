@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Chrome } from '@reactiac/standard-components-diagrams/webIcons'
+import { Chrome } from '@diac/standard-components-diagrams/webIcons'
 
 <Chrome/>
 ```

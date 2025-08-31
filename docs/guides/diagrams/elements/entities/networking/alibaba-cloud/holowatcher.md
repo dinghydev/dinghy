@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Holowatcher } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Holowatcher } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Holowatcher/>
 ```

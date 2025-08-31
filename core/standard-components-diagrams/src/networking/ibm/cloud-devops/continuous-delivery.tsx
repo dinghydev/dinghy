@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTINUOUS_DELIVERY = {
   _style:
@@ -9,5 +9,11 @@ export const CONTINUOUS_DELIVERY = {
 }
 
 export function ContinuousDelivery(props: DiagramNodeProps) {
-  return <Shape {...CONTINUOUS_DELIVERY} {...props} />
+  return (
+    <Shape
+      {...CONTINUOUS_DELIVERY}
+      {...props}
+      _style={extendStyle(CONTINUOUS_DELIVERY, props)}
+    />
+  )
 }

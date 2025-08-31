@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Hbase } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Hbase } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Hbase/>
 ```

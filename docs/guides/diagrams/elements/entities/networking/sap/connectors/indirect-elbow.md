@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IndirectElbow } from '@reactiac/standard-components-diagrams/sapConnectors'
+import { IndirectElbow } from '@diac/standard-components-diagrams/sapConnectors'
 
 <IndirectElbow/>
 ```

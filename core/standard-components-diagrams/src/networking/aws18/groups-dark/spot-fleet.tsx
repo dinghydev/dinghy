@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPOT_FLEET = {
   _style: {
@@ -13,5 +13,7 @@ export const SPOT_FLEET = {
 }
 
 export function SpotFleet(props: DiagramNodeProps) {
-  return <Shape {...SPOT_FLEET} {...props} />
+  return (
+    <Shape {...SPOT_FLEET} {...props} _style={extendStyle(SPOT_FLEET, props)} />
+  )
 }

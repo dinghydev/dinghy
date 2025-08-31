@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WINDOWS_NOTIFICATION_SERVICES = {
   _style:
     'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Windows_Notification_Services.svg;strokeColor=none;',
-  _width: 68,
-  _height: 68,
+  _width: 60,
+  _height: 60,
 }
 
 export function WindowsNotificationServices(props: DiagramNodeProps) {
-  return <Shape {...WINDOWS_NOTIFICATION_SERVICES} {...props} />
+  return (
+    <Shape
+      {...WINDOWS_NOTIFICATION_SERVICES}
+      {...props}
+      _style={extendStyle(WINDOWS_NOTIFICATION_SERVICES, props)}
+    />
+  )
 }

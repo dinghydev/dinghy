@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTENT_ENGINE_CACHE_DIRECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const CONTENT_ENGINE_CACHE_DIRECTOR = {
 }
 
 export function ContentEngineCacheDirector(props: DiagramNodeProps) {
-  return <Shape {...CONTENT_ENGINE_CACHE_DIRECTOR} {...props} />
+  return (
+    <Shape
+      {...CONTENT_ENGINE_CACHE_DIRECTOR}
+      {...props}
+      _style={extendStyle(CONTENT_ENGINE_CACHE_DIRECTOR, props)}
+    />
+  )
 }

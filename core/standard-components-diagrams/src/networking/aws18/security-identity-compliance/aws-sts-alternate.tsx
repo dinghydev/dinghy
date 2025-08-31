@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_STS_ALTERNATE = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_STS_ALTERNATE = {
 }
 
 export function AwsStsAlternate(props: DiagramNodeProps) {
-  return <Shape {...AWS_STS_ALTERNATE} {...props} />
+  return (
+    <Shape
+      {...AWS_STS_ALTERNATE}
+      {...props}
+      _style={extendStyle(AWS_STS_ALTERNATE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DASHED_EDGE_DOUBLE_ARROW = {
   _style:
@@ -9,5 +9,11 @@ export const DASHED_EDGE_DOUBLE_ARROW = {
 }
 
 export function DashedEdgeDoubleArrow(props: DiagramNodeProps) {
-  return <Shape {...DASHED_EDGE_DOUBLE_ARROW} {...props} />
+  return (
+    <Shape
+      {...DASHED_EDGE_DOUBLE_ARROW}
+      {...props}
+      _style={extendStyle(DASHED_EDGE_DOUBLE_ARROW, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_ANYCONNECT = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_ANYCONNECT = {
 }
 
 export function CiscoAnyconnect(props: DiagramNodeProps) {
-  return <Shape {...CISCO_ANYCONNECT} {...props} />
+  return (
+    <Shape
+      {...CISCO_ANYCONNECT}
+      {...props}
+      _style={extendStyle(CISCO_ANYCONNECT, props)}
+    />
+  )
 }

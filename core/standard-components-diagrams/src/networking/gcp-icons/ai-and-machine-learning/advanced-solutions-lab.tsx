@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADVANCED_SOLUTIONS_LAB = {
   _style:
@@ -9,5 +9,11 @@ export const ADVANCED_SOLUTIONS_LAB = {
 }
 
 export function AdvancedSolutionsLab(props: DiagramNodeProps) {
-  return <Shape {...ADVANCED_SOLUTIONS_LAB} {...props} />
+  return (
+    <Shape
+      {...ADVANCED_SOLUTIONS_LAB}
+      {...props}
+      _style={extendStyle(ADVANCED_SOLUTIONS_LAB, props)}
+    />
+  )
 }

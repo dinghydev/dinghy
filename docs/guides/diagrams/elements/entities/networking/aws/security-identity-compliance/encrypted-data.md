@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EncryptedData } from '@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { EncryptedData } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <EncryptedData/>
 ```

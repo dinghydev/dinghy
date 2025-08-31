@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN = {
   _style:
@@ -9,5 +9,11 @@ export const CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN = {
 }
 
 export function CentrifugalCompressorTurbineDriven(props: DiagramNodeProps) {
-  return <Shape {...CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN} {...props} />
+  return (
+    <Shape
+      {...CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN}
+      {...props}
+      _style={extendStyle(CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN, props)}
+    />
+  )
 }

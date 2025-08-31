@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLOCK_DEFINITION_DIAGRAM = {
   _style:
@@ -9,5 +9,11 @@ export const BLOCK_DEFINITION_DIAGRAM = {
 }
 
 export function BlockDefinitionDiagram(props: DiagramNodeProps) {
-  return <Shape {...BLOCK_DEFINITION_DIAGRAM} {...props} />
+  return (
+    <Shape
+      {...BLOCK_DEFINITION_DIAGRAM}
+      {...props}
+      _style={extendStyle(BLOCK_DEFINITION_DIAGRAM, props)}
+    />
+  )
 }

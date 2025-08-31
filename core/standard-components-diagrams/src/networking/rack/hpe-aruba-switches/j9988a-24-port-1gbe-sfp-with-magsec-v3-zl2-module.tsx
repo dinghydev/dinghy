@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE = {
   _style:
@@ -12,6 +12,13 @@ export function J9988a24Port1gbeSfpWithMagsecV3Zl2Module(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE} {...props} />
+    <Shape
+      {...J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE}
+      {...props}
+      _style={extendStyle(
+        J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE,
+        props,
+      )}
+    />
   )
 }

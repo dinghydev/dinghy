@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEDDY_BEAR = {
   _style:
@@ -9,5 +9,7 @@ export const TEDDY_BEAR = {
 }
 
 export function TeddyBear(props: DiagramNodeProps) {
-  return <Shape {...TEDDY_BEAR} {...props} />
+  return (
+    <Shape {...TEDDY_BEAR} {...props} _style={extendStyle(TEDDY_BEAR, props)} />
+  )
 }

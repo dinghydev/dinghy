@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BRIEFCASE = {
   _style:
@@ -9,5 +9,7 @@ export const BRIEFCASE = {
 }
 
 export function Briefcase(props: DiagramNodeProps) {
-  return <Shape {...BRIEFCASE} {...props} />
+  return (
+    <Shape {...BRIEFCASE} {...props} _style={extendStyle(BRIEFCASE, props)} />
+  )
 }

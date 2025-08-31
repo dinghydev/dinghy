@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11020_CARTRIDGE_FOR = {
   _style:
@@ -9,5 +9,11 @@ export const X11020_CARTRIDGE_FOR = {
 }
 
 export function X11020CartridgeFor(props: DiagramNodeProps) {
-  return <Shape {...X11020_CARTRIDGE_FOR} {...props} />
+  return (
+    <Shape
+      {...X11020_CARTRIDGE_FOR}
+      {...props}
+      _style={extendStyle(X11020_CARTRIDGE_FOR, props)}
+    />
+  )
 }

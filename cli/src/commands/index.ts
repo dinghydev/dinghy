@@ -38,16 +38,16 @@ const options: CommandOptions = {
     c: 'commands',
   },
   cmdDescription:
-    'ReactIAC CLI is a command-line tool for running ReactIAC in local development to interact with ReactIAC engine.',
+    'DIaC CLI is a command-line tool for running DIaC in local development to interact with DIaC engine.',
   additionalOptions: {
     'Global Options': [
       {
         name: '--app-home',
-        description: 'The path to the ReactIAC app home directory',
+        description: 'The path to the DIaC app home directory',
       },
       {
         name: '--version',
-        description: 'The ReactIAC engine version to use',
+        description: 'The DIaC engine version to use',
       },
       {
         name: '--debug',

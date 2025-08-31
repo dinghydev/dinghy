@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudProgressBar } from '@reactiac/standard-components-diagrams/ios6'
+import { CloudProgressBar } from '@diac/standard-components-diagrams/ios6'
 
 <CloudProgressBar/>
 ```

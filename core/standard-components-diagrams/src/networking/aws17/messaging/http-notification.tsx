@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HTTP_NOTIFICATION = {
   _style:
@@ -9,5 +9,11 @@ export const HTTP_NOTIFICATION = {
 }
 
 export function HttpNotification(props: DiagramNodeProps) {
-  return <Shape {...HTTP_NOTIFICATION} {...props} />
+  return (
+    <Shape
+      {...HTTP_NOTIFICATION}
+      {...props}
+      _style={extendStyle(HTTP_NOTIFICATION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEMPORARY_STRAINER = {
   _style:
@@ -9,5 +9,11 @@ export const TEMPORARY_STRAINER = {
 }
 
 export function TemporaryStrainer(props: DiagramNodeProps) {
-  return <Shape {...TEMPORARY_STRAINER} {...props} />
+  return (
+    <Shape
+      {...TEMPORARY_STRAINER}
+      {...props}
+      _style={extendStyle(TEMPORARY_STRAINER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PASSIVE_STRUCTURE_ELEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const PASSIVE_STRUCTURE_ELEMENT = {
 }
 
 export function PassiveStructureElement(props: DiagramNodeProps) {
-  return <Shape {...PASSIVE_STRUCTURE_ELEMENT} {...props} />
+  return (
+    <Shape
+      {...PASSIVE_STRUCTURE_ELEMENT}
+      {...props}
+      _style={extendStyle(PASSIVE_STRUCTURE_ELEMENT, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mux } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { Mux } from '@diac/standard-components-diagrams/electricalMisc'
 
 <Mux/>
 ```

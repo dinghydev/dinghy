@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SURVEILLANCE_CAMERA_CEILING = {
   _style:
@@ -9,5 +9,11 @@ export const SURVEILLANCE_CAMERA_CEILING = {
 }
 
 export function SurveillanceCameraCeiling(props: DiagramNodeProps) {
-  return <Shape {...SURVEILLANCE_CAMERA_CEILING} {...props} />
+  return (
+    <Shape
+      {...SURVEILLANCE_CAMERA_CEILING}
+      {...props}
+      _style={extendStyle(SURVEILLANCE_CAMERA_CEILING, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRESSURIZED_VESSEL = {
   _style:
@@ -9,5 +9,11 @@ export const PRESSURIZED_VESSEL = {
 }
 
 export function PressurizedVessel(props: DiagramNodeProps) {
-  return <Shape {...PRESSURIZED_VESSEL} {...props} />
+  return (
+    <Shape
+      {...PRESSURIZED_VESSEL}
+      {...props}
+      _style={extendStyle(PRESSURIZED_VESSEL, props)}
+    />
+  )
 }

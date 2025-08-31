@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOLAR_CELL = {
   _style:
@@ -9,5 +9,7 @@ export const SOLAR_CELL = {
 }
 
 export function SolarCell(props: DiagramNodeProps) {
-  return <Shape {...SOLAR_CELL} {...props} />
+  return (
+    <Shape {...SOLAR_CELL} {...props} _style={extendStyle(SOLAR_CELL, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETSCALER_ITM = {
   _style:
@@ -9,5 +9,11 @@ export const NETSCALER_ITM = {
 }
 
 export function NetscalerItm(props: DiagramNodeProps) {
-  return <Shape {...NETSCALER_ITM} {...props} />
+  return (
+    <Shape
+      {...NETSCALER_ITM}
+      {...props}
+      _style={extendStyle(NETSCALER_ITM, props)}
+    />
+  )
 }

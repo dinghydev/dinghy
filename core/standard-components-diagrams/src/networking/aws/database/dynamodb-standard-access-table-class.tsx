@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DYNAMODB_STANDARD_ACCESS_TABLE_CLASS = {
   _style:
@@ -9,5 +9,11 @@ export const DYNAMODB_STANDARD_ACCESS_TABLE_CLASS = {
 }
 
 export function DynamodbStandardAccessTableClass(props: DiagramNodeProps) {
-  return <Shape {...DYNAMODB_STANDARD_ACCESS_TABLE_CLASS} {...props} />
+  return (
+    <Shape
+      {...DYNAMODB_STANDARD_ACCESS_TABLE_CLASS}
+      {...props}
+      _style={extendStyle(DYNAMODB_STANDARD_ACCESS_TABLE_CLASS, props)}
+    />
+  )
 }

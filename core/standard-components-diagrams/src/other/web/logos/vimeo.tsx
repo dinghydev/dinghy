@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIMEO = {
   _style:
@@ -9,5 +9,5 @@ export const VIMEO = {
 }
 
 export function Vimeo(props: DiagramNodeProps) {
-  return <Shape {...VIMEO} {...props} />
+  return <Shape {...VIMEO} {...props} _style={extendStyle(VIMEO, props)} />
 }

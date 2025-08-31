@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VmWindowsNonAzure } from '@reactiac/standard-components-diagrams/caeComputeServiceVm'
+import { VmWindowsNonAzure } from '@diac/standard-components-diagrams/caeComputeServiceVm'
 
 <VmWindowsNonAzure/>
 ```

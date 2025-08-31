@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PERSISTENT_DISK = {
   _style:
@@ -9,5 +9,11 @@ export const PERSISTENT_DISK = {
 }
 
 export function PersistentDisk(props: DiagramNodeProps) {
-  return <Shape {...PERSISTENT_DISK} {...props} />
+  return (
+    <Shape
+      {...PERSISTENT_DISK}
+      {...props}
+      _style={extendStyle(PERSISTENT_DISK, props)}
+    />
+  )
 }

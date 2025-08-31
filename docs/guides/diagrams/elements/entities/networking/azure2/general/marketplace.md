@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Marketplace } from '@reactiac/standard-components-diagrams/azure2General'
+import { Marketplace } from '@diac/standard-components-diagrams/azure2General'
 
 <Marketplace/>
 ```

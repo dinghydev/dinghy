@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Lifeline } from '@reactiac/standard-components-diagrams/uml25'
+import { Lifeline } from '@diac/standard-components-diagrams/uml25'
 
 <Lifeline/>
 ```

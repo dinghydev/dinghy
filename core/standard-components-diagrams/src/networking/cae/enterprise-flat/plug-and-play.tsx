@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLUG_AND_PLAY = {
   _style:
@@ -9,5 +9,11 @@ export const PLUG_AND_PLAY = {
 }
 
 export function PlugAndPlay(props: DiagramNodeProps) {
-  return <Shape {...PLUG_AND_PLAY} {...props} />
+  return (
+    <Shape
+      {...PLUG_AND_PLAY}
+      {...props}
+      _style={extendStyle(PLUG_AND_PLAY, props)}
+    />
+  )
 }

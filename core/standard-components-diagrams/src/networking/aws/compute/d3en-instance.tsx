@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const D3EN_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const D3EN_INSTANCE = {
 }
 
 export function D3enInstance(props: DiagramNodeProps) {
-  return <Shape {...D3EN_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...D3EN_INSTANCE}
+      {...props}
+      _style={extendStyle(D3EN_INSTANCE, props)}
+    />
+  )
 }

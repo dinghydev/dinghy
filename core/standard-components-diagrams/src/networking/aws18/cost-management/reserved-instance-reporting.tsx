@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESERVED_INSTANCE_REPORTING = {
   _style:
@@ -9,5 +9,11 @@ export const RESERVED_INSTANCE_REPORTING = {
 }
 
 export function ReservedInstanceReporting(props: DiagramNodeProps) {
-  return <Shape {...RESERVED_INSTANCE_REPORTING} {...props} />
+  return (
+    <Shape
+      {...RESERVED_INSTANCE_REPORTING}
+      {...props}
+      _style={extendStyle(RESERVED_INSTANCE_REPORTING, props)}
+    />
+  )
 }

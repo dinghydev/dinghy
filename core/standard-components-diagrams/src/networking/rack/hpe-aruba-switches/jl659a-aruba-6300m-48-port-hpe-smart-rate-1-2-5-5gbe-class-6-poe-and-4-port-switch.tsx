@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL659A_ARUBA_6300M_48_PORT_HPE_SMART_RATE_1_2_5_5GBE_CLASS_6_POE_AND_4_PORT_SWITCH =
   {
@@ -16,6 +16,10 @@ export function Jl659aAruba6300m48PortHpeSmartRate1255gbeClass6PoeAnd4PortSwitch
     <Shape
       {...JL659A_ARUBA_6300M_48_PORT_HPE_SMART_RATE_1_2_5_5GBE_CLASS_6_POE_AND_4_PORT_SWITCH}
       {...props}
+      _style={extendStyle(
+        JL659A_ARUBA_6300M_48_PORT_HPE_SMART_RATE_1_2_5_5GBE_CLASS_6_POE_AND_4_PORT_SWITCH,
+        props,
+      )}
     />
   )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IbmObjectStorage } from '@reactiac/standard-components-diagrams/veeam2Storage'
+import { IbmObjectStorage } from '@diac/standard-components-diagrams/veeam2Storage'
 
 <IbmObjectStorage/>
 ```

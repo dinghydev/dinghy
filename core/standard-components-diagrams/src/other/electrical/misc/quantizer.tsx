@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const QUANTIZER = {
   _style:
@@ -9,5 +9,7 @@ export const QUANTIZER = {
 }
 
 export function Quantizer(props: DiagramNodeProps) {
-  return <Shape {...QUANTIZER} {...props} />
+  return (
+    <Shape {...QUANTIZER} {...props} _style={extendStyle(QUANTIZER, props)} />
+  )
 }

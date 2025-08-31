@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonSimpleEmailService } from '@reactiac/standard-components-diagrams/aws18CustomerEngagement'
+import { AmazonSimpleEmailService } from '@diac/standard-components-diagrams/aws18CustomerEngagement'
 
 <AmazonSimpleEmailService/>
 ```

@@ -14,7 +14,7 @@ DNS
 ## Usage
 
 ```
-import { CloudDns } from '@reactiac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudDns } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudDns/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRUST_BOUNDARY = {
   _style:
@@ -9,5 +9,11 @@ export const TRUST_BOUNDARY = {
 }
 
 export function TrustBoundary(props: DiagramNodeProps) {
-  return <Shape {...TRUST_BOUNDARY} {...props} />
+  return (
+    <Shape
+      {...TRUST_BOUNDARY}
+      {...props}
+      _style={extendStyle(TRUST_BOUNDARY, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudRectangle } from '@reactiac/standard-components-diagrams/basic'
+import { CloudRectangle } from '@diac/standard-components-diagrams/basic'
 
 <CloudRectangle/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LoadBalancerListener } from '@reactiac/standard-components-diagrams/ibmVpc'
+import { LoadBalancerListener } from '@diac/standard-components-diagrams/ibmVpc'
 
 <LoadBalancerListener/>
 ```

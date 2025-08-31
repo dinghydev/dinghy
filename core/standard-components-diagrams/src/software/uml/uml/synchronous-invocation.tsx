@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SYNCHRONOUS_INVOCATION = {
   _style:
@@ -9,5 +9,11 @@ export const SYNCHRONOUS_INVOCATION = {
 }
 
 export function SynchronousInvocation(props: DiagramNodeProps) {
-  return <Shape {...SYNCHRONOUS_INVOCATION} {...props} />
+  return (
+    <Shape
+      {...SYNCHRONOUS_INVOCATION}
+      {...props}
+      _style={extendStyle(SYNCHRONOUS_INVOCATION, props)}
+    />
+  )
 }

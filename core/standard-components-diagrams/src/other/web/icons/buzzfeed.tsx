@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUZZFEED = {
   _style:
@@ -9,5 +9,7 @@ export const BUZZFEED = {
 }
 
 export function Buzzfeed(props: DiagramNodeProps) {
-  return <Shape {...BUZZFEED} {...props} />
+  return (
+    <Shape {...BUZZFEED} {...props} _style={extendStyle(BUZZFEED, props)} />
+  )
 }

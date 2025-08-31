@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CommunicationPath } from '@reactiac/standard-components-diagrams/sysmlUsecases'
+import { CommunicationPath } from '@diac/standard-components-diagrams/sysmlUsecases'
 
 <CommunicationPath/>
 ```

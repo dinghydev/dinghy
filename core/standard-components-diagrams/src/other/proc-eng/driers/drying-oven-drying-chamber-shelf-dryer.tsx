@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER = {
   _style:
@@ -9,5 +9,11 @@ export const DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER = {
 }
 
 export function DryingOvenDryingChamberShelfDryer(props: DiagramNodeProps) {
-  return <Shape {...DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER} {...props} />
+  return (
+    <Shape
+      {...DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER}
+      {...props}
+      _style={extendStyle(DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER, props)}
+    />
+  )
 }

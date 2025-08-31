@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SELECTOR_SWITCH_6_POSITIONS = {
   _style:
@@ -9,5 +9,11 @@ export const SELECTOR_SWITCH_6_POSITIONS = {
 }
 
 export function SelectorSwitch6Positions(props: DiagramNodeProps) {
-  return <Shape {...SELECTOR_SWITCH_6_POSITIONS} {...props} />
+  return (
+    <Shape
+      {...SELECTOR_SWITCH_6_POSITIONS}
+      {...props}
+      _style={extendStyle(SELECTOR_SWITCH_6_POSITIONS, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUBMERSIBLE_PUMP = {
   _style:
@@ -9,5 +9,11 @@ export const SUBMERSIBLE_PUMP = {
 }
 
 export function SubmersiblePump(props: DiagramNodeProps) {
-  return <Shape {...SUBMERSIBLE_PUMP} {...props} />
+  return (
+    <Shape
+      {...SUBMERSIBLE_PUMP}
+      {...props}
+      _style={extendStyle(SUBMERSIBLE_PUMP, props)}
+    />
+  )
 }

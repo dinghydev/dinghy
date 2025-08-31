@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CELL_PHONE_WINDOWS_PHONE_STANDALONE = {
   _style:
@@ -9,5 +9,11 @@ export const CELL_PHONE_WINDOWS_PHONE_STANDALONE = {
 }
 
 export function CellPhoneWindowsPhoneStandalone(props: DiagramNodeProps) {
-  return <Shape {...CELL_PHONE_WINDOWS_PHONE_STANDALONE} {...props} />
+  return (
+    <Shape
+      {...CELL_PHONE_WINDOWS_PHONE_STANDALONE}
+      {...props}
+      _style={extendStyle(CELL_PHONE_WINDOWS_PHONE_STANDALONE, props)}
+    />
+  )
 }

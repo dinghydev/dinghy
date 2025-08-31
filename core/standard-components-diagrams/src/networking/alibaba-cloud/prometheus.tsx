@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROMETHEUS = {
   _style:
@@ -9,5 +9,7 @@ export const PROMETHEUS = {
 }
 
 export function Prometheus(props: DiagramNodeProps) {
-  return <Shape {...PROMETHEUS} {...props} />
+  return (
+    <Shape {...PROMETHEUS} {...props} _style={extendStyle(PROMETHEUS, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_CATALYST_BLADE_SWITCH_3032_FOR_DELL = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_CATALYST_BLADE_SWITCH_3032_FOR_DELL = {
 }
 
 export function CiscoCatalystBladeSwitch3032ForDell(props: DiagramNodeProps) {
-  return <Shape {...CISCO_CATALYST_BLADE_SWITCH_3032_FOR_DELL} {...props} />
+  return (
+    <Shape
+      {...CISCO_CATALYST_BLADE_SWITCH_3032_FOR_DELL}
+      {...props}
+      _style={extendStyle(CISCO_CATALYST_BLADE_SWITCH_3032_FOR_DELL, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAINFRAME_HOST = {
   _style:
@@ -9,5 +9,11 @@ export const MAINFRAME_HOST = {
 }
 
 export function MainframeHost(props: DiagramNodeProps) {
-  return <Shape {...MAINFRAME_HOST} {...props} />
+  return (
+    <Shape
+      {...MAINFRAME_HOST}
+      {...props}
+      _style={extendStyle(MAINFRAME_HOST, props)}
+    />
+  )
 }

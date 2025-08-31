@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SELF_SERVICE_RECOVERY = {
   _style:
@@ -9,5 +9,11 @@ export const SELF_SERVICE_RECOVERY = {
 }
 
 export function SelfServiceRecovery(props: DiagramNodeProps) {
-  return <Shape {...SELF_SERVICE_RECOVERY} {...props} />
+  return (
+    <Shape
+      {...SELF_SERVICE_RECOVERY}
+      {...props}
+      _style={extendStyle(SELF_SERVICE_RECOVERY, props)}
+    />
+  )
 }

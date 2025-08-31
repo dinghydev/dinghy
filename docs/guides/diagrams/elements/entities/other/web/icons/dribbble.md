@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dribbble } from '@reactiac/standard-components-diagrams/webIcons'
+import { Dribbble } from '@diac/standard-components-diagrams/webIcons'
 
 <Dribbble/>
 ```

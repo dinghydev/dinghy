@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ATTACHMENT = {
   _style:
@@ -9,5 +9,7 @@ export const ATTACHMENT = {
 }
 
 export function Attachment(props: DiagramNodeProps) {
-  return <Shape {...ATTACHMENT} {...props} />
+  return (
+    <Shape {...ATTACHMENT} {...props} _style={extendStyle(ATTACHMENT, props)} />
+  )
 }

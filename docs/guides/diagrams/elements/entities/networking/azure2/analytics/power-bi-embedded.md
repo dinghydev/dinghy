@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PowerBiEmbedded } from '@reactiac/standard-components-diagrams/azure2Analytics'
+import { PowerBiEmbedded } from '@diac/standard-components-diagrams/azure2Analytics'
 
 <PowerBiEmbedded/>
 ```

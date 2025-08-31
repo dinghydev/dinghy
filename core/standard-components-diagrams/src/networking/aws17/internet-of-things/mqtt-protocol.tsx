@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MQTT_PROTOCOL = {
   _style:
@@ -9,5 +9,11 @@ export const MQTT_PROTOCOL = {
 }
 
 export function MqttProtocol(props: DiagramNodeProps) {
-  return <Shape {...MQTT_PROTOCOL} {...props} />
+  return (
+    <Shape
+      {...MQTT_PROTOCOL}
+      {...props}
+      _style={extendStyle(MQTT_PROTOCOL, props)}
+    />
+  )
 }

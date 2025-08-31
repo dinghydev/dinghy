@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ISTIO = {
   _style:
@@ -9,5 +9,5 @@ export const ISTIO = {
 }
 
 export function Istio(props: DiagramNodeProps) {
-  return <Shape {...ISTIO} {...props} />
+  return <Shape {...ISTIO} {...props} _style={extendStyle(ISTIO, props)} />
 }

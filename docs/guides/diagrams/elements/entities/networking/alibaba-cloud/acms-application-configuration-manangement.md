@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AcmsApplicationConfigurationManangement } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { AcmsApplicationConfigurationManangement } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <AcmsApplicationConfigurationManangement/>
 ```

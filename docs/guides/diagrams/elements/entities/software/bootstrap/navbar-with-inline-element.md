@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NavbarWithInlineElement } from '@reactiac/standard-components-diagrams/bootstrap'
+import { NavbarWithInlineElement } from '@diac/standard-components-diagrams/bootstrap'
 
 <NavbarWithInlineElement/>
 ```

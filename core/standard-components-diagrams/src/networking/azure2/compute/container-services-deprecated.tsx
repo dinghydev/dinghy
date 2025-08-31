@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTAINER_SERVICES_DEPRECATED = {
   _style:
@@ -9,5 +9,11 @@ export const CONTAINER_SERVICES_DEPRECATED = {
 }
 
 export function ContainerServicesDeprecated(props: DiagramNodeProps) {
-  return <Shape {...CONTAINER_SERVICES_DEPRECATED} {...props} />
+  return (
+    <Shape
+      {...CONTAINER_SERVICES_DEPRECATED}
+      {...props}
+      _style={extendStyle(CONTAINER_SERVICES_DEPRECATED, props)}
+    />
+  )
 }

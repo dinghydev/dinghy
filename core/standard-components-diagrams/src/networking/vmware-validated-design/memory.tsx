@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MEMORY = {
   _style:
@@ -9,5 +9,5 @@ export const MEMORY = {
 }
 
 export function Memory(props: DiagramNodeProps) {
-  return <Shape {...MEMORY} {...props} />
+  return <Shape {...MEMORY} {...props} _style={extendStyle(MEMORY, props)} />
 }

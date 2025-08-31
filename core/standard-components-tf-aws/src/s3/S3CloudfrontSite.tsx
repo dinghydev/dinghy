@@ -3,7 +3,7 @@ import {
   ResolvableRecordSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 import z from 'zod'
 import { useLogBucket } from './LogBucket.tsx'
 import { useAwsAcmCertificate } from '../AwsAcmCertificate.tsx'
@@ -11,7 +11,7 @@ import {
   AwsCloudfrontOriginAccessControl,
   useAwsCloudfrontOriginAccessControl,
 } from '../cloudfront/AwsCloudfrontOriginAccessControl.tsx'
-import { useStack } from '@reactiac/base-components'
+import { useStack } from '@diac/base-components'
 import {
   AwsCloudfrontDistribution,
   type AwsCloudfrontDistributionInputProps,
@@ -42,22 +42,22 @@ export type S3CloudfrontSiteInputProps =
 
 export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
   const { stack } = useStack()
-  const { certificate } = useAwsAcmCertificate()
-  const { distribution } = useAwsCloudfrontDistribution()
+  const { acmCertificate } = useAwsAcmCertificate()
+  const { cloudfrontDistribution } = useAwsCloudfrontDistribution()
   const { subdomain, bucketVersions, files } = S3CloudfrontSiteInputSchema
     .parse(props)
-  const { bucket: logBucket } = useLogBucket()
+  const { logBucket } = useLogBucket()
   const domain = () => {
-    return `${subdomain}.${(certificate as any).domain()}`.replace(
+    return `${subdomain}.${(acmCertificate as any).domain()}`.replace(
       /^(WWW\.)/,
       '',
     )
   }
 
   const Cloudfront = () => {
-    const { bucket: originBucket } = useAwsS3Bucket()
-    const { zone } = useAwsRoute53Zone()
-    const { control: awsCloudfrontOriginAccessControl } =
+    const { s3Bucket: originBucket } = useAwsS3Bucket()
+    const { route53Zone: zone } = useAwsRoute53Zone()
+    const { accessControl: awsCloudfrontOriginAccessControl } =
       useAwsCloudfrontOriginAccessControl()
     const logging_config = {
       bucket: logBucket.bucket_regional_domain_name,
@@ -90,7 +90,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
           origin_access_control_id: awsCloudfrontOriginAccessControl.id,
         }}
         viewer_certificate={{
-          acm_certificate_arn: certificate.arn,
+          acm_certificate_arn: acmCertificate.arn,
           ssl_support_method: 'sni-only',
           minimum_protocol_version: 'TLSv1.2_2021',
         }}
@@ -111,8 +111,8 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
           type='A'
           zone_id={zone.zone_id}
           alias={{
-            name: distribution.domain_name,
-            zone_id: distribution.hosted_zone_id,
+            name: cloudfrontDistribution.domain_name,
+            zone_id: cloudfrontDistribution.hosted_zone_id,
             evaluate_target_health: false,
           }}
         />
@@ -135,7 +135,8 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
     const target_prefix = () => `log-sink/s3/${bucket()}/`
 
     const S3BucketPolicy = () => {
-      const { dataAwsIamPolicyDocument } = useDataAwsIamPolicyDocument()
+      const { policyDocument: dataAwsIamPolicyDocument } =
+        useDataAwsIamPolicyDocument()
       return (
         <AwsS3BucketPolicy
           _name={bucketName}
@@ -155,7 +156,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
               condition: {
                 test: 'StringEquals',
                 variable: 'AWS:SourceArn',
-                values: [distribution.arn],
+                values: [cloudfrontDistribution.arn],
               },
             }}
           />

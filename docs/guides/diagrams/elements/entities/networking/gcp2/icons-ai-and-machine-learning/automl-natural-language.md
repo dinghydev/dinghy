@@ -14,7 +14,7 @@ Language
 ## Usage
 
 ```
-import { AutomlNaturalLanguage } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AutomlNaturalLanguage } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AutomlNaturalLanguage/>
 ```

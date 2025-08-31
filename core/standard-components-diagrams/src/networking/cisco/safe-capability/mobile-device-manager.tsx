@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOBILE_DEVICE_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const MOBILE_DEVICE_MANAGER = {
 }
 
 export function MobileDeviceManager(props: DiagramNodeProps) {
-  return <Shape {...MOBILE_DEVICE_MANAGER} {...props} />
+  return (
+    <Shape
+      {...MOBILE_DEVICE_MANAGER}
+      {...props}
+      _style={extendStyle(MOBILE_DEVICE_MANAGER, props)}
+    />
+  )
 }

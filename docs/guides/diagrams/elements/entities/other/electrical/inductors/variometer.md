@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Variometer } from '@reactiac/standard-components-diagrams/electricalInductors'
+import { Variometer } from '@diac/standard-components-diagrams/electricalInductors'
 
 <Variometer/>
 ```

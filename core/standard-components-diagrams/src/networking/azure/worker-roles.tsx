@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORKER_ROLES = {
   _style:
@@ -9,5 +9,11 @@ export const WORKER_ROLES = {
 }
 
 export function WorkerRoles(props: DiagramNodeProps) {
-  return <Shape {...WORKER_ROLES} {...props} />
+  return (
+    <Shape
+      {...WORKER_ROLES}
+      {...props}
+      _style={extendStyle(WORKER_ROLES, props)}
+    />
+  )
 }

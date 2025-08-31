@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DedicatedHsm } from '@reactiac/standard-components-diagrams/azure2Other'
+import { DedicatedHsm } from '@diac/standard-components-diagrams/azure2Other'
 
 <DedicatedHsm/>
 ```

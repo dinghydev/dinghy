@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CheckboxOnHover } from '@reactiac/standard-components-diagrams/gmdlSelectionControls'
+import { CheckboxOnHover } from '@diac/standard-components-diagrams/gmdlSelectionControls'
 
 <CheckboxOnHover/>
 ```

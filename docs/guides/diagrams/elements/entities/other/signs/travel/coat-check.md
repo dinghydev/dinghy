@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CoatCheck } from '@reactiac/standard-components-diagrams/signsTravel'
+import { CoatCheck } from '@diac/standard-components-diagrams/signsTravel'
 
 <CoatCheck/>
 ```

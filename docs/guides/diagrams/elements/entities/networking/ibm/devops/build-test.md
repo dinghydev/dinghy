@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BuildTest } from '@reactiac/standard-components-diagrams/ibmDevops'
+import { BuildTest } from '@diac/standard-components-diagrams/ibmDevops'
 
 <BuildTest/>
 ```

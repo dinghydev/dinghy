@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GENERIC_GROUP = {
   _style: {
@@ -13,5 +13,11 @@ export const GENERIC_GROUP = {
 }
 
 export function GenericGroup(props: DiagramNodeProps) {
-  return <Shape {...GENERIC_GROUP} {...props} />
+  return (
+    <Shape
+      {...GENERIC_GROUP}
+      {...props}
+      _style={extendStyle(GENERIC_GROUP, props)}
+    />
+  )
 }

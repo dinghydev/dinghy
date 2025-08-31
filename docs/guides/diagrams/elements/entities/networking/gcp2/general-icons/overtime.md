@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Overtime } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { Overtime } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <Overtime/>
 ```

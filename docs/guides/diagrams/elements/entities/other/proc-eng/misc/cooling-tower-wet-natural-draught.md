@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CoolingTowerWetNaturalDraught } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { CoolingTowerWetNaturalDraught } from '@diac/standard-components-diagrams/procEngMisc'
 
 <CoolingTowerWetNaturalDraught/>
 ```

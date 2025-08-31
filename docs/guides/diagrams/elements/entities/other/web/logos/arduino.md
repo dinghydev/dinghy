@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Arduino } from '@reactiac/standard-components-diagrams/webLogos'
+import { Arduino } from '@diac/standard-components-diagrams/webLogos'
 
 <Arduino/>
 ```

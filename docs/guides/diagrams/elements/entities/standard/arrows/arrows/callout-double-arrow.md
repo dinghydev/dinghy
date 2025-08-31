@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CalloutDoubleArrow } from '@reactiac/standard-components-diagrams/arrows'
+import { CalloutDoubleArrow } from '@diac/standard-components-diagrams/arrows'
 
 <CalloutDoubleArrow/>
 ```

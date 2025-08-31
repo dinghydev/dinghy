@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VmWindows } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { VmWindows } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <VmWindows/>
 ```

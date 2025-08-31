@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Hipchat } from '@reactiac/standard-components-diagrams/atlassian'
+import { Hipchat } from '@diac/standard-components-diagrams/atlassian'
 
 <Hipchat/>
 ```

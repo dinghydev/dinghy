@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonElasticsearchService } from '@reactiac/standard-components-diagrams/aws18Analytics'
+import { AmazonElasticsearchService } from '@diac/standard-components-diagrams/aws18Analytics'
 
 <AmazonElasticsearchService/>
 ```

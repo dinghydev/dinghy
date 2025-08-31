@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STUDIO_WEB_STUDIO = {
   _style:
@@ -9,5 +9,11 @@ export const STUDIO_WEB_STUDIO = {
 }
 
 export function StudioWebStudio(props: DiagramNodeProps) {
-  return <Shape {...STUDIO_WEB_STUDIO} {...props} />
+  return (
+    <Shape
+      {...STUDIO_WEB_STUDIO}
+      {...props}
+      _style={extendStyle(STUDIO_WEB_STUDIO, props)}
+    />
+  )
 }

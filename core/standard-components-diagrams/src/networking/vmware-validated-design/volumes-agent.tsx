@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOLUMES_AGENT = {
   _style:
@@ -9,5 +9,11 @@ export const VOLUMES_AGENT = {
 }
 
 export function VolumesAgent(props: DiagramNodeProps) {
-  return <Shape {...VOLUMES_AGENT} {...props} />
+  return (
+    <Shape
+      {...VOLUMES_AGENT}
+      {...props}
+      _style={extendStyle(VOLUMES_AGENT, props)}
+    />
+  )
 }

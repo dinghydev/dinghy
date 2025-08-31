@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Nas } from '@reactiac/standard-components-diagrams/veeam2Storage'
+import { Nas } from '@diac/standard-components-diagrams/veeam2Storage'
 
 <Nas/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLOATING_IP = {
   _style:
@@ -9,5 +9,11 @@ export const FLOATING_IP = {
 }
 
 export function FloatingIp(props: DiagramNodeProps) {
-  return <Shape {...FLOATING_IP} {...props} />
+  return (
+    <Shape
+      {...FLOATING_IP}
+      {...props}
+      _style={extendStyle(FLOATING_IP, props)}
+    />
+  )
 }

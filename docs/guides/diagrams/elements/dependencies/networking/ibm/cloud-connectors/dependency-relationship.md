@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DependencyRelationship } from '@reactiac/standard-components-diagrams/ibmCloudConnectors'
+import { DependencyRelationship } from '@diac/standard-components-diagrams/ibmCloudConnectors'
 
 <DependencyRelationship/>
 ```

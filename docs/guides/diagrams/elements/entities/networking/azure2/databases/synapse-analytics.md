@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SynapseAnalytics } from '@reactiac/standard-components-diagrams/azure2Databases'
+import { SynapseAnalytics } from '@diac/standard-components-diagrams/azure2Databases'
 
 <SynapseAnalytics/>
 ```

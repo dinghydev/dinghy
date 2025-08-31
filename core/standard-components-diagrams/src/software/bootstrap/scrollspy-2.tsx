@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCROLLSPY_2 = {
   _style:
@@ -9,5 +9,11 @@ export const SCROLLSPY_2 = {
 }
 
 export function Scrollspy2(props: DiagramNodeProps) {
-  return <Shape {...SCROLLSPY_2} {...props} />
+  return (
+    <Shape
+      {...SCROLLSPY_2}
+      {...props}
+      _style={extendStyle(SCROLLSPY_2, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SELECT = {
   _style:
@@ -9,5 +9,5 @@ export const SELECT = {
 }
 
 export function Select(props: DiagramNodeProps) {
-  return <Shape {...SELECT} {...props} />
+  return <Shape {...SELECT} {...props} _style={extendStyle(SELECT, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OUTLOOK_WEB_APP = {
   _style:
@@ -9,5 +9,11 @@ export const OUTLOOK_WEB_APP = {
 }
 
 export function OutlookWebApp(props: DiagramNodeProps) {
-  return <Shape {...OUTLOOK_WEB_APP} {...props} />
+  return (
+    <Shape
+      {...OUTLOOK_WEB_APP}
+      {...props}
+      _style={extendStyle(OUTLOOK_WEB_APP, props)}
+    />
+  )
 }

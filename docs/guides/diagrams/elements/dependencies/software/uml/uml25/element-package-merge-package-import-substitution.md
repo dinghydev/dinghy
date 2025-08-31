@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElementPackageMergePackageImportSubstitution } from '@reactiac/standard-components-diagrams/uml25'
+import { ElementPackageMergePackageImportSubstitution } from '@diac/standard-components-diagrams/uml25'
 
 <ElementPackageMergePackageImportSubstitution/>
 ```

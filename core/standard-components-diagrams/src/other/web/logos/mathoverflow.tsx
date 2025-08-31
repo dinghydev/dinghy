@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MATHOVERFLOW = {
   _style:
@@ -9,5 +9,11 @@ export const MATHOVERFLOW = {
 }
 
 export function Mathoverflow(props: DiagramNodeProps) {
-  return <Shape {...MATHOVERFLOW} {...props} />
+  return (
+    <Shape
+      {...MATHOVERFLOW}
+      {...props}
+      _style={extendStyle(MATHOVERFLOW, props)}
+    />
+  )
 }

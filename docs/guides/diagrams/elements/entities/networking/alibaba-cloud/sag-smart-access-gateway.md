@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SagSmartAccessGateway } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { SagSmartAccessGateway } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <SagSmartAccessGateway/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TOOLTIP_ON_LEFT = {
   _style:
@@ -9,5 +9,11 @@ export const TOOLTIP_ON_LEFT = {
 }
 
 export function TooltipOnLeft(props: DiagramNodeProps) {
-  return <Shape {...TOOLTIP_ON_LEFT} {...props} />
+  return (
+    <Shape
+      {...TOOLTIP_ON_LEFT}
+      {...props}
+      _style={extendStyle(TOOLTIP_ON_LEFT, props)}
+    />
+  )
 }

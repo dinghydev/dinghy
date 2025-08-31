@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Keys } from '@reactiac/standard-components-diagrams/azure2Menu'
+import { Keys } from '@diac/standard-components-diagrams/azure2Menu'
 
 <Keys/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Marketplace } from '@reactiac/standard-components-diagrams/caeGeneralService'
+import { Marketplace } from '@diac/standard-components-diagrams/caeGeneralService'
 
 <Marketplace/>
 ```

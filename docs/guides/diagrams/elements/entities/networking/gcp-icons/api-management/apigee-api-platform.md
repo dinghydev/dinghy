@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApigeeApiPlatform } from '@reactiac/standard-components-diagrams/gcpIconsApiManagement'
+import { ApigeeApiPlatform } from '@diac/standard-components-diagrams/gcpIconsApiManagement'
 
 <ApigeeApiPlatform/>
 ```

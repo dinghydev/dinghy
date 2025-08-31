@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROTOPAGE = {
   _style:
@@ -9,5 +9,7 @@ export const PROTOPAGE = {
 }
 
 export function Protopage(props: DiagramNodeProps) {
-  return <Shape {...PROTOPAGE} {...props} />
+  return (
+    <Shape {...PROTOPAGE} {...props} _style={extendStyle(PROTOPAGE, props)} />
+  )
 }

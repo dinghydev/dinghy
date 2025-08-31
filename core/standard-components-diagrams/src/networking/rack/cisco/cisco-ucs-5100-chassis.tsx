@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_UCS_5100_CHASSIS = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_UCS_5100_CHASSIS = {
 }
 
 export function CiscoUcs5100Chassis(props: DiagramNodeProps) {
-  return <Shape {...CISCO_UCS_5100_CHASSIS} {...props} />
+  return (
+    <Shape
+      {...CISCO_UCS_5100_CHASSIS}
+      {...props}
+      _style={extendStyle(CISCO_UCS_5100_CHASSIS, props)}
+    />
+  )
 }

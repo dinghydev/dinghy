@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SIGNAL_KANBAN = {
   _style:
@@ -9,5 +9,11 @@ export const SIGNAL_KANBAN = {
 }
 
 export function SignalKanban(props: DiagramNodeProps) {
-  return <Shape {...SIGNAL_KANBAN} {...props} />
+  return (
+    <Shape
+      {...SIGNAL_KANBAN}
+      {...props}
+      _style={extendStyle(SIGNAL_KANBAN, props)}
+    />
+  )
 }

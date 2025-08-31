@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNLOCKED = {
   _style:
@@ -9,5 +9,7 @@ export const UNLOCKED = {
 }
 
 export function Unlocked(props: DiagramNodeProps) {
-  return <Shape {...UNLOCKED} {...props} />
+  return (
+    <Shape {...UNLOCKED} {...props} _style={extendStyle(UNLOCKED, props)} />
+  )
 }

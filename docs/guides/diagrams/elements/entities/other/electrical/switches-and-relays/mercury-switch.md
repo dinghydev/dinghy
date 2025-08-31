@@ -5,15 +5,15 @@
 ```
 {
   _style: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.mercury_switch;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { MercurySwitch } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { MercurySwitch } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <MercurySwitch/>
 ```

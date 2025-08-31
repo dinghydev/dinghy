@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDUCTOR_AIR_CORE_3 = {
   _style:
@@ -9,5 +9,11 @@ export const INDUCTOR_AIR_CORE_3 = {
 }
 
 export function InductorAirCore3(props: DiagramNodeProps) {
-  return <Shape {...INDUCTOR_AIR_CORE_3} {...props} />
+  return (
+    <Shape
+      {...INDUCTOR_AIR_CORE_3}
+      {...props}
+      _style={extendStyle(INDUCTOR_AIR_CORE_3, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { JiraSoftware } from '@reactiac/standard-components-diagrams/atlassian'
+import { JiraSoftware } from '@diac/standard-components-diagrams/atlassian'
 
 <JiraSoftware/>
 ```

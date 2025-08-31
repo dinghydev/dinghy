@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RELEASE_MANAGEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const RELEASE_MANAGEMENT = {
 }
 
 export function ReleaseManagement(props: DiagramNodeProps) {
-  return <Shape {...RELEASE_MANAGEMENT} {...props} />
+  return (
+    <Shape
+      {...RELEASE_MANAGEMENT}
+      {...props}
+      _style={extendStyle(RELEASE_MANAGEMENT, props)}
+    />
+  )
 }

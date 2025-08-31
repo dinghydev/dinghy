@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ForsetiSecurity } from '@reactiac/standard-components-diagrams/gcpIconsOpenSourceIcons'
+import { ForsetiSecurity } from '@diac/standard-components-diagrams/gcpIconsOpenSourceIcons'
 
 <ForsetiSecurity/>
 ```

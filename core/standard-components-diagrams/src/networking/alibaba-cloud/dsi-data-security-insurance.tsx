@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DSI_DATA_SECURITY_INSURANCE = {
   _style:
@@ -9,5 +9,11 @@ export const DSI_DATA_SECURITY_INSURANCE = {
 }
 
 export function DsiDataSecurityInsurance(props: DiagramNodeProps) {
-  return <Shape {...DSI_DATA_SECURITY_INSURANCE} {...props} />
+  return (
+    <Shape
+      {...DSI_DATA_SECURITY_INSURANCE}
+      {...props}
+      _style={extendStyle(DSI_DATA_SECURITY_INSURANCE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Redshift } from '@reactiac/standard-components-diagrams/aws17Analytics'
+import { Redshift } from '@diac/standard-components-diagrams/aws17Analytics'
 
 <Redshift/>
 ```

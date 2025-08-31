@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticMapreduce } from '@reactiac/standard-components-diagrams/aws3d'
+import { ElasticMapreduce } from '@diac/standard-components-diagrams/aws3d'
 
 <ElasticMapreduce/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InlineForm3 } from '@reactiac/standard-components-diagrams/bootstrap'
+import { InlineForm3 } from '@diac/standard-components-diagrams/bootstrap'
 
 <InlineForm3/>
 ```

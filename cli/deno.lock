@@ -4,12 +4,14 @@
     "jsr:@std/cli@1.0.14": "1.0.14",
     "jsr:@std/fs@*": "1.0.15",
     "jsr:@std/fs@1.0.15": "1.0.15",
+    "jsr:@std/fs@1.0.8": "1.0.8",
     "jsr:@std/path@1.0.8": "1.0.8",
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/yaml@1.0.5": "1.0.5",
     "npm:@aws-sdk/client-s3@3.802.0": "3.802.0",
     "npm:@aws-sdk/lib-storage@3.802.0": "3.802.0_@aws-sdk+client-s3@3.802.0",
     "npm:@inquirer/confirm@5.1.9": "5.1.9_@types+node@22.14.0",
+    "npm:@types/node@*": "22.14.0",
     "npm:@types/node@22.14.0": "22.14.0",
     "npm:chalk@5.4.1": "5.4.1",
     "npm:dayjs@1.11.13": "1.11.13",
@@ -22,6 +24,12 @@
   "jsr": {
     "@std/cli@1.0.14": {
       "integrity": "b09ee9921cd476c0e08185ed2bfce682d45ecf4654f26c31b4aa244a2c5c024e"
+    },
+    "@std/fs@1.0.8": {
+      "integrity": "161c721b6f9400b8100a851b6f4061431c538b204bb76c501d02c508995cffe0",
+      "dependencies": [
+        "jsr:@std/path@^1.0.8"
+      ]
     },
     "@std/fs@1.0.15": {
       "integrity": "c083fb479889d6440d768e498195c3fc499d426fbf9a6592f98f53884d1d3f41",

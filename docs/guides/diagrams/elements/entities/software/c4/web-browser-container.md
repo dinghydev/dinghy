@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WebBrowserContainer } from '@reactiac/standard-components-diagrams/c4'
+import { WebBrowserContainer } from '@diac/standard-components-diagrams/c4'
 
 <WebBrowserContainer/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataStore } from '@reactiac/standard-components-diagrams/dataFlowDiagram'
+import { DataStore } from '@diac/standard-components-diagrams/dataFlowDiagram'
 
 <DataStore/>
 ```

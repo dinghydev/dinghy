@@ -14,7 +14,7 @@ instance
 ## Usage
 
 ```
-import { MysqlDbInstance } from '@reactiac/standard-components-diagrams/aws18Database'
+import { MysqlDbInstance } from '@diac/standard-components-diagrams/aws18Database'
 
 <MysqlDbInstance/>
 ```

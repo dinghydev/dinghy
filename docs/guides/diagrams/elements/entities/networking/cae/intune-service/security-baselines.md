@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SecurityBaselines } from '@reactiac/standard-components-diagrams/caeIntuneService'
+import { SecurityBaselines } from '@diac/standard-components-diagrams/caeIntuneService'
 
 <SecurityBaselines/>
 ```

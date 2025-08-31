@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AllocationActivityPartition2 } from '@reactiac/standard-components-diagrams/sysmlAllocations'
+import { AllocationActivityPartition2 } from '@diac/standard-components-diagrams/sysmlAllocations'
 
 <AllocationActivityPartition2/>
 ```

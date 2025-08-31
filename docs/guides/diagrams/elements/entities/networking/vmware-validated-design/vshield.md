@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Vshield } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { Vshield } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <Vshield/>
 ```

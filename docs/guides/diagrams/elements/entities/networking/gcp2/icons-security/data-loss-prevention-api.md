@@ -14,7 +14,7 @@ Prevention API
 ## Usage
 
 ```
-import { DataLossPreventionApi } from '@reactiac/standard-components-diagrams/gcp2IconsSecurity'
+import { DataLossPreventionApi } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
 
 <DataLossPreventionApi/>
 ```

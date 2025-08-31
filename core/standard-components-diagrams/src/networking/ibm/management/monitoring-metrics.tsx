@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MONITORING_METRICS = {
   _style:
@@ -9,5 +9,11 @@ export const MONITORING_METRICS = {
 }
 
 export function MonitoringMetrics(props: DiagramNodeProps) {
-  return <Shape {...MONITORING_METRICS} {...props} />
+  return (
+    <Shape
+      {...MONITORING_METRICS}
+      {...props}
+      _style={extendStyle(MONITORING_METRICS, props)}
+    />
+  )
 }

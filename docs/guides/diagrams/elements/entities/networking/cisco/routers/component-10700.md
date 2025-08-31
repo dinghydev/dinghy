@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component10700 } from '@reactiac/standard-components-diagrams/ciscoRouters'
+import { Component10700 } from '@diac/standard-components-diagrams/ciscoRouters'
 
 <Component10700/>
 ```

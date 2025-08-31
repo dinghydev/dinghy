@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabaseMysqlServer } from '@reactiac/standard-components-diagrams/azure2Databases'
+import { DatabaseMysqlServer } from '@diac/standard-components-diagrams/azure2Databases'
 
 <DatabaseMysqlServer/>
 ```

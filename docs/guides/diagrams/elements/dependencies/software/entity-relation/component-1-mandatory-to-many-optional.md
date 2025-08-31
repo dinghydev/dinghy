@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component1MandatoryToManyOptional } from '@reactiac/standard-components-diagrams/entityRelation'
+import { Component1MandatoryToManyOptional } from '@diac/standard-components-diagrams/entityRelation'
 
 <Component1MandatoryToManyOptional/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BEEBOT = {
   _style:
@@ -9,5 +9,5 @@ export const BEEBOT = {
 }
 
 export function Beebot(props: DiagramNodeProps) {
-  return <Shape {...BEEBOT} {...props} />
+  return <Shape {...BEEBOT} {...props} _style={extendStyle(BEEBOT, props)} />
 }

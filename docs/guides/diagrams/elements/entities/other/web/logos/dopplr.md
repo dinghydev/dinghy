@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dopplr } from '@reactiac/standard-components-diagrams/webLogos'
+import { Dopplr } from '@diac/standard-components-diagrams/webLogos'
 
 <Dopplr/>
 ```

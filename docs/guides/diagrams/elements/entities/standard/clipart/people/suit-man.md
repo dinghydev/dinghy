@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/people/Suit_Man_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { SuitMan } from '@reactiac/standard-components-diagrams/clipartPeople'
+import { SuitMan } from '@diac/standard-components-diagrams/clipartPeople'
 
 <SuitMan/>
 ```

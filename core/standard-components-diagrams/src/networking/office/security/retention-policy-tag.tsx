@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RETENTION_POLICY_TAG = {
   _style:
@@ -9,5 +9,11 @@ export const RETENTION_POLICY_TAG = {
 }
 
 export function RetentionPolicyTag(props: DiagramNodeProps) {
-  return <Shape {...RETENTION_POLICY_TAG} {...props} />
+  return (
+    <Shape
+      {...RETENTION_POLICY_TAG}
+      {...props}
+      _style={extendStyle(RETENTION_POLICY_TAG, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IS4GEN_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const IS4GEN_INSTANCE = {
 }
 
 export function Is4genInstance(props: DiagramNodeProps) {
-  return <Shape {...IS4GEN_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...IS4GEN_INSTANCE}
+      {...props}
+      _style={extendStyle(IS4GEN_INSTANCE, props)}
+    />
+  )
 }

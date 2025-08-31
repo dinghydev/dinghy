@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dns } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { Dns } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <Dns/>
 ```

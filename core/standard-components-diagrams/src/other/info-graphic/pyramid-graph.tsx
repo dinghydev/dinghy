@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PYRAMID_GRAPH = {
   _style:
@@ -9,5 +9,11 @@ export const PYRAMID_GRAPH = {
 }
 
 export function PyramidGraph(props: DiagramNodeProps) {
-  return <Shape {...PYRAMID_GRAPH} {...props} />
+  return (
+    <Shape
+      {...PYRAMID_GRAPH}
+      {...props}
+      _style={extendStyle(PYRAMID_GRAPH, props)}
+    />
+  )
 }

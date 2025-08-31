@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Myspace } from '@reactiac/standard-components-diagrams/webLogos'
+import { Myspace } from '@diac/standard-components-diagrams/webLogos'
 
 <Myspace/>
 ```

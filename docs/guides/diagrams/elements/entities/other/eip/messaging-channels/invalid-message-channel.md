@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InvalidMessageChannel } from '@reactiac/standard-components-diagrams/eipMessagingChannels'
+import { InvalidMessageChannel } from '@diac/standard-components-diagrams/eipMessagingChannels'
 
 <InvalidMessageChannel/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Scheduler } from '@reactiac/standard-components-diagrams/azure'
+import { Scheduler } from '@diac/standard-components-diagrams/azure'
 
 <Scheduler/>
 ```

@@ -15,7 +15,7 @@ key
 ## Usage
 
 ```
-import { DataEncryptionKey } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { DataEncryptionKey } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <DataEncryptionKey/>
 ```

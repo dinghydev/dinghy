@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FraudProtection } from '@reactiac/standard-components-diagrams/dynamics365App'
+import { FraudProtection } from '@diac/standard-components-diagrams/dynamics365App'
 
 <FraudProtection/>
 ```

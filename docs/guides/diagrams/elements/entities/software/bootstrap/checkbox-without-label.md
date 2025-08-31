@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CheckboxWithoutLabel } from '@reactiac/standard-components-diagrams/bootstrap'
+import { CheckboxWithoutLabel } from '@diac/standard-components-diagrams/bootstrap'
 
 <CheckboxWithoutLabel/>
 ```

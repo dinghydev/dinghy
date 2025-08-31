@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Psp } from '@reactiac/standard-components-diagrams/kubernetes'
+import { Psp } from '@diac/standard-components-diagrams/kubernetes'
 
 <Psp/>
 ```

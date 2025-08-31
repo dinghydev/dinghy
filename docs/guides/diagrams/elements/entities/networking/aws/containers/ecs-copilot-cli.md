@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EcsCopilotCli } from '@reactiac/standard-components-diagrams/awsContainers'
+import { EcsCopilotCli } from '@diac/standard-components-diagrams/awsContainers'
 
 <EcsCopilotCli/>
 ```

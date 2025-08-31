@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Socialvibe } from '@reactiac/standard-components-diagrams/webIcons'
+import { Socialvibe } from '@diac/standard-components-diagrams/webIcons'
 
 <Socialvibe/>
 ```

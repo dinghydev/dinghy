@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11530_DOUBLE_ACTING_CABLE_TYPE = {
   _style:
@@ -9,5 +9,11 @@ export const X11530_DOUBLE_ACTING_CABLE_TYPE = {
 }
 
 export function X11530DoubleActingCableType(props: DiagramNodeProps) {
-  return <Shape {...X11530_DOUBLE_ACTING_CABLE_TYPE} {...props} />
+  return (
+    <Shape
+      {...X11530_DOUBLE_ACTING_CABLE_TYPE}
+      {...props}
+      _style={extendStyle(X11530_DOUBLE_ACTING_CABLE_TYPE, props)}
+    />
+  )
 }

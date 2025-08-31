@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PREV_NEXT_BUTTON = {
   _style:
@@ -9,5 +9,11 @@ export const PREV_NEXT_BUTTON = {
 }
 
 export function PrevNextButton(props: DiagramNodeProps) {
-  return <Shape {...PREV_NEXT_BUTTON} {...props} />
+  return (
+    <Shape
+      {...PREV_NEXT_BUTTON}
+      {...props}
+      _style={extendStyle(PREV_NEXT_BUTTON, props)}
+    />
+  )
 }

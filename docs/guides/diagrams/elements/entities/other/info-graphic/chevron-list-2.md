@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChevronList2 } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { ChevronList2 } from '@diac/standard-components-diagrams/infoGraphic'
 
 <ChevronList2/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ArchiveTier } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { ArchiveTier } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <ArchiveTier/>
 ```

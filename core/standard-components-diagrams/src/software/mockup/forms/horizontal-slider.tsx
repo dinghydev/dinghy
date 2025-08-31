@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_SLIDER = {
   _style:
@@ -9,5 +9,11 @@ export const HORIZONTAL_SLIDER = {
 }
 
 export function HorizontalSlider(props: DiagramNodeProps) {
-  return <Shape {...HORIZONTAL_SLIDER} {...props} />
+  return (
+    <Shape
+      {...HORIZONTAL_SLIDER}
+      {...props}
+      _style={extendStyle(HORIZONTAL_SLIDER, props)}
+    />
+  )
 }

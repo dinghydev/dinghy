@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { AutoScalingGroup } from '@reactiac/standard-components-diagrams/awsGroups'
+import { AutoScalingGroup } from '@diac/standard-components-diagrams/awsGroups'
 
 <AutoScalingGroup/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { S3MultiRegionAccessPoints } from '@reactiac/standard-components-diagrams/awsStorage'
+import { S3MultiRegionAccessPoints } from '@diac/standard-components-diagrams/awsStorage'
 
 <S3MultiRegionAccessPoints/>
 ```

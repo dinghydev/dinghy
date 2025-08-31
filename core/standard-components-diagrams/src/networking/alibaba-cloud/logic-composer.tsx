@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOGIC_COMPOSER = {
   _style:
@@ -9,5 +9,11 @@ export const LOGIC_COMPOSER = {
 }
 
 export function LogicComposer(props: DiagramNodeProps) {
-  return <Shape {...LOGIC_COMPOSER} {...props} />
+  return (
+    <Shape
+      {...LOGIC_COMPOSER}
+      {...props}
+      _style={extendStyle(LOGIC_COMPOSER, props)}
+    />
+  )
 }

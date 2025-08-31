@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const METRO_1500 = {
   _style:
@@ -9,5 +9,7 @@ export const METRO_1500 = {
 }
 
 export function Metro1500(props: DiagramNodeProps) {
-  return <Shape {...METRO_1500} {...props} />
+  return (
+    <Shape {...METRO_1500} {...props} _style={extendStyle(METRO_1500, props)} />
+  )
 }

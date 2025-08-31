@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MnsMessageService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { MnsMessageService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <MnsMessageService/>
 ```

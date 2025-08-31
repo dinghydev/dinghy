@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUPERCOMPUTER = {
   _style:
@@ -9,5 +9,11 @@ export const SUPERCOMPUTER = {
 }
 
 export function Supercomputer(props: DiagramNodeProps) {
-  return <Shape {...SUPERCOMPUTER} {...props} />
+  return (
+    <Shape
+      {...SUPERCOMPUTER}
+      {...props}
+      _style={extendStyle(SUPERCOMPUTER, props)}
+    />
+  )
 }

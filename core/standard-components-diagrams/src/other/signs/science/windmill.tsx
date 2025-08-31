@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WINDMILL = {
   _style:
@@ -9,5 +9,7 @@ export const WINDMILL = {
 }
 
 export function Windmill(props: DiagramNodeProps) {
-  return <Shape {...WINDMILL} {...props} />
+  return (
+    <Shape {...WINDMILL} {...props} _style={extendStyle(WINDMILL, props)} />
+  )
 }

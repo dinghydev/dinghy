@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VideoAnalytics } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { VideoAnalytics } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <VideoAnalytics/>
 ```

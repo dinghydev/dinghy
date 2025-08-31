@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DETAIL_VIEW_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const DETAIL_VIEW_HIGHLIGHT = {
 }
 
 export function DetailViewHighlight(props: DiagramNodeProps) {
-  return <Shape {...DETAIL_VIEW_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...DETAIL_VIEW_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(DETAIL_VIEW_HIGHLIGHT, props)}
+    />
+  )
 }

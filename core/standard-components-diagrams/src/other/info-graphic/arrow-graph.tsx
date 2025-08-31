@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARROW_GRAPH = {
   _style:
@@ -9,5 +9,11 @@ export const ARROW_GRAPH = {
 }
 
 export function ArrowGraph(props: DiagramNodeProps) {
-  return <Shape {...ARROW_GRAPH} {...props} />
+  return (
+    <Shape
+      {...ARROW_GRAPH}
+      {...props}
+      _style={extendStyle(ARROW_GRAPH, props)}
+    />
+  )
 }

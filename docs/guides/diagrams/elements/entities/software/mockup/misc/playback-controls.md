@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PlaybackControls } from '@reactiac/standard-components-diagrams/mockupMisc'
+import { PlaybackControls } from '@diac/standard-components-diagrams/mockupMisc'
 
 <PlaybackControls/>
 ```

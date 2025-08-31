@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_100BASET_HUB = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_100BASET_HUB = {
 }
 
 export function Component100basetHub(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_100BASET_HUB} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_100BASET_HUB}
+      {...props}
+      _style={extendStyle(COMPONENT_100BASET_HUB, props)}
+    />
+  )
 }

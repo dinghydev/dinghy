@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BOARDWALK = {
   _style:
@@ -9,5 +9,7 @@ export const BOARDWALK = {
 }
 
 export function Boardwalk(props: DiagramNodeProps) {
-  return <Shape {...BOARDWALK} {...props} />
+  return (
+    <Shape {...BOARDWALK} {...props} _style={extendStyle(BOARDWALK, props)} />
+  )
 }

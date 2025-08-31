@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pin } from '@reactiac/standard-components-diagrams/ios6'
+import { Pin } from '@diac/standard-components-diagrams/ios6'
 
 <Pin/>
 ```

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.fan;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Fan3 } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { Fan3 } from '@diac/standard-components-diagrams/procEngMisc'
 
 <Fan3/>
 ```

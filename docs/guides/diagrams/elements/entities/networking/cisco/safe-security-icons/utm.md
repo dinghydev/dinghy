@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Utm } from '@reactiac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { Utm } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <Utm/>
 ```

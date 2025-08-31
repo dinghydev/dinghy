@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAFETY_INTERLOCK_ON = {
   _style:
@@ -9,5 +9,11 @@ export const SAFETY_INTERLOCK_ON = {
 }
 
 export function SafetyInterlockOn(props: DiagramNodeProps) {
-  return <Shape {...SAFETY_INTERLOCK_ON} {...props} />
+  return (
+    <Shape
+      {...SAFETY_INTERLOCK_ON}
+      {...props}
+      _style={extendStyle(SAFETY_INTERLOCK_ON, props)}
+    />
+  )
 }

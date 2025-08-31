@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApplicationSharingWorkload } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { ApplicationSharingWorkload } from '@diac/standard-components-diagrams/officeCommunications'
 
 <ApplicationSharingWorkload/>
 ```

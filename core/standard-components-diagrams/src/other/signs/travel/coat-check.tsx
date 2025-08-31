@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COAT_CHECK = {
   _style:
@@ -9,5 +9,7 @@ export const COAT_CHECK = {
 }
 
 export function CoatCheck(props: DiagramNodeProps) {
-  return <Shape {...COAT_CHECK} {...props} />
+  return (
+    <Shape {...COAT_CHECK} {...props} _style={extendStyle(COAT_CHECK, props)} />
+  )
 }

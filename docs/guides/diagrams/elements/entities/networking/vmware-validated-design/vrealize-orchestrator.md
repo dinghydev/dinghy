@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VrealizeOrchestrator } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { VrealizeOrchestrator } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <VrealizeOrchestrator/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOOP_ANTENNA = {
   _style:
@@ -9,5 +9,11 @@ export const LOOP_ANTENNA = {
 }
 
 export function LoopAntenna(props: DiagramNodeProps) {
-  return <Shape {...LOOP_ANTENNA} {...props} />
+  return (
+    <Shape
+      {...LOOP_ANTENNA}
+      {...props}
+      _style={extendStyle(LOOP_ANTENNA, props)}
+    />
+  )
 }

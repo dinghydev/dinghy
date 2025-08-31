@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TextSize } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { TextSize } from '@diac/standard-components-diagrams/ios7Ui'
 
 <TextSize/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPERATOR = {
   _style:
@@ -9,5 +9,7 @@ export const OPERATOR = {
 }
 
 export function Operator(props: DiagramNodeProps) {
-  return <Shape {...OPERATOR} {...props} />
+  return (
+    <Shape {...OPERATOR} {...props} _style={extendStyle(OPERATOR, props)} />
+  )
 }

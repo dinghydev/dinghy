@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ArrowLeft } from '@reactiac/standard-components-diagrams/arrows'
+import { ArrowLeft } from '@diac/standard-components-diagrams/arrows'
 
 <ArrowLeft/>
 ```

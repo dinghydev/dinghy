@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureBlob } from '@reactiac/standard-components-diagrams/veeam2Storage'
+import { AzureBlob } from '@diac/standard-components-diagrams/veeam2Storage'
 
 <AzureBlob/>
 ```

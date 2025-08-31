@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PublicConnectorCircleCircle } from '@reactiac/standard-components-diagrams/ibmCloudConnectors'
+import { PublicConnectorCircleCircle } from '@diac/standard-components-diagrams/ibmCloudConnectors'
 
 <PublicConnectorCircleCircle/>
 ```

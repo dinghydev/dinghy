@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Globe } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { Globe } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <Globe/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GATEKEEPER = {
   _style:
@@ -9,5 +9,7 @@ export const GATEKEEPER = {
 }
 
 export function Gatekeeper(props: DiagramNodeProps) {
-  return <Shape {...GATEKEEPER} {...props} />
+  return (
+    <Shape {...GATEKEEPER} {...props} _style={extendStyle(GATEKEEPER, props)} />
+  )
 }

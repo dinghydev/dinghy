@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Tunnel } from '@reactiac/standard-components-diagrams/citrixNetworking'
+import { Tunnel } from '@diac/standard-components-diagrams/citrixNetworking'
 
 <Tunnel/>
 ```

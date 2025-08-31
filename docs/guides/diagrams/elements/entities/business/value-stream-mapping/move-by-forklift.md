@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MoveByForklift } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { MoveByForklift } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <MoveByForklift/>
 ```

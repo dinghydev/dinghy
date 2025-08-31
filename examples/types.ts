@@ -1,5 +1,5 @@
-import z from 'zod'
-import { Stack } from '@reactiac/base-components'
+import z from "zod";
+import { Stack } from "@diac/base-components";
 
 export const ExampleSchema = z.object({
   title: z.string().optional(),
@@ -13,16 +13,16 @@ export const ExampleSchema = z.object({
   App: z.any().optional(),
   stacks: z.any().array().optional(),
   tags: z.string().array().optional(),
-})
+});
 
-export type ExampleType = z.input<typeof ExampleSchema>
+export type ExampleType = z.input<typeof ExampleSchema>;
 
 export type AppStackResult = {
-  app: ExampleType
-  stack: Stack
+  app: ExampleType;
+  stack: Stack;
   result: {
-    success: boolean
-    png?: string
-    reason?: unknown
-  }
-}
+    success: boolean;
+    png?: string;
+    reason?: unknown;
+  };
+};

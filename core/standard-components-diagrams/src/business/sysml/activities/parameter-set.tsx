@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARAMETER_SET = {
   _style: 'html=1;shape=mxgraph.sysml.paramSet;whiteSpace=wrap;align=center;',
@@ -8,5 +8,11 @@ export const PARAMETER_SET = {
 }
 
 export function ParameterSet(props: DiagramNodeProps) {
-  return <Shape {...PARAMETER_SET} {...props} />
+  return (
+    <Shape
+      {...PARAMETER_SET}
+      {...props}
+      _style={extendStyle(PARAMETER_SET, props)}
+    />
+  )
 }

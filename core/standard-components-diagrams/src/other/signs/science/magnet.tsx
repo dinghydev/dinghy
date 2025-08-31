@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAGNET = {
   _style:
@@ -9,5 +9,5 @@ export const MAGNET = {
 }
 
 export function Magnet(props: DiagramNodeProps) {
-  return <Shape {...MAGNET} {...props} />
+  return <Shape {...MAGNET} {...props} _style={extendStyle(MAGNET, props)} />
 }

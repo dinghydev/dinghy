@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRIPLEX_INDUCTION_VOLTAGE_REGULATOR = {
   _style:
     'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.triplex_induction_volt_reg;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 
 export function TriplexInductionVoltageRegulator(props: DiagramNodeProps) {
-  return <Shape {...TRIPLEX_INDUCTION_VOLTAGE_REGULATOR} {...props} />
+  return (
+    <Shape
+      {...TRIPLEX_INDUCTION_VOLTAGE_REGULATOR}
+      {...props}
+      _style={extendStyle(TRIPLEX_INDUCTION_VOLTAGE_REGULATOR, props)}
+    />
+  )
 }

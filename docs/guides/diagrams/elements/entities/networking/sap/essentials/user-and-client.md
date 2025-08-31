@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UserAndClient } from '@reactiac/standard-components-diagrams/sapEssentials'
+import { UserAndClient } from '@diac/standard-components-diagrams/sapEssentials'
 
 <UserAndClient/>
 ```

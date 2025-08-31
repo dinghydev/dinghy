@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_WAE_7341 = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_WAE_7341 = {
 }
 
 export function CiscoWae7341(props: DiagramNodeProps) {
-  return <Shape {...CISCO_WAE_7341} {...props} />
+  return (
+    <Shape
+      {...CISCO_WAE_7341}
+      {...props}
+      _style={extendStyle(CISCO_WAE_7341, props)}
+    />
+  )
 }

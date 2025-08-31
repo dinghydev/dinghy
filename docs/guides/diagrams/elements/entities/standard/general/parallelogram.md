@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Parallelogram } from '@reactiac/standard-components-diagrams/general'
+import { Parallelogram } from '@diac/standard-components-diagrams/general'
 
 <Parallelogram/>
 ```

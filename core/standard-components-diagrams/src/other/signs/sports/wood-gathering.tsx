@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WOOD_GATHERING = {
   _style:
@@ -9,5 +9,11 @@ export const WOOD_GATHERING = {
 }
 
 export function WoodGathering(props: DiagramNodeProps) {
-  return <Shape {...WOOD_GATHERING} {...props} />
+  return (
+    <Shape
+      {...WOOD_GATHERING}
+      {...props}
+      _style={extendStyle(WOOD_GATHERING, props)}
+    />
+  )
 }

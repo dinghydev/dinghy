@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MsSql } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { MsSql } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <MsSql/>
 ```

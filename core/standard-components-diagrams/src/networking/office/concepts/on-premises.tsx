@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ON_PREMISES = {
   _style:
@@ -9,5 +9,11 @@ export const ON_PREMISES = {
 }
 
 export function OnPremises(props: DiagramNodeProps) {
-  return <Shape {...ON_PREMISES} {...props} />
+  return (
+    <Shape
+      {...ON_PREMISES}
+      {...props}
+      _style={extendStyle(ON_PREMISES, props)}
+    />
+  )
 }

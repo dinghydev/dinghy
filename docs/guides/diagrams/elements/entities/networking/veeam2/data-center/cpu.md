@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cpu } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { Cpu } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <Cpu/>
 ```

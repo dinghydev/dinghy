@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MobileClient } from '@reactiac/standard-components-diagrams/aws18GeneralResources'
+import { MobileClient } from '@diac/standard-components-diagrams/aws18GeneralResources'
 
 <MobileClient/>
 ```

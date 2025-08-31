@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHOPPING_CART = {
   _style:
     'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.misc.shoppingCart;strokeColor=#999999;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function ShoppingCart(props: DiagramNodeProps) {
-  return <Shape {...SHOPPING_CART} {...props} />
+  return (
+    <Shape
+      {...SHOPPING_CART}
+      {...props}
+      _style={extendStyle(SHOPPING_CART, props)}
+    />
+  )
 }

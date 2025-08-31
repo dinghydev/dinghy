@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARALLEL_MODE = {
   _style:
@@ -9,5 +9,11 @@ export const PARALLEL_MODE = {
 }
 
 export function ParallelMode(props: DiagramNodeProps) {
-  return <Shape {...PARALLEL_MODE} {...props} />
+  return (
+    <Shape
+      {...PARALLEL_MODE}
+      {...props}
+      _style={extendStyle(PARALLEL_MODE, props)}
+    />
+  )
 }

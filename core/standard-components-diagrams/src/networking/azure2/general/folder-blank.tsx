@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FOLDER_BLANK = {
   _style:
@@ -9,5 +9,11 @@ export const FOLDER_BLANK = {
 }
 
 export function FolderBlank(props: DiagramNodeProps) {
-  return <Shape {...FOLDER_BLANK} {...props} />
+  return (
+    <Shape
+      {...FOLDER_BLANK}
+      {...props}
+      _style={extendStyle(FOLDER_BLANK, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AllocationGeneral } from '@reactiac/standard-components-diagrams/sysmlAllocations'
+import { AllocationGeneral } from '@diac/standard-components-diagrams/sysmlAllocations'
 
 <AllocationGeneral/>
 ```

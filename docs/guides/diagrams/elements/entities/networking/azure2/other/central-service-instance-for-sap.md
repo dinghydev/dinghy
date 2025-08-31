@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CentralServiceInstanceForSap } from '@reactiac/standard-components-diagrams/azure2Other'
+import { CentralServiceInstanceForSap } from '@diac/standard-components-diagrams/azure2Other'
 
 <CentralServiceInstanceForSap/>
 ```

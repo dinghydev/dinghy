@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LAMBDA = {
   _style:
@@ -9,5 +9,5 @@ export const LAMBDA = {
 }
 
 export function Lambda(props: DiagramNodeProps) {
-  return <Shape {...LAMBDA} {...props} />
+  return <Shape {...LAMBDA} {...props} _style={extendStyle(LAMBDA, props)} />
 }

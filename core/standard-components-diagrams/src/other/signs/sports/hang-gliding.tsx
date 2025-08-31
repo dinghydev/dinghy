@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HANG_GLIDING = {
   _style:
@@ -9,5 +9,11 @@ export const HANG_GLIDING = {
 }
 
 export function HangGliding(props: DiagramNodeProps) {
-  return <Shape {...HANG_GLIDING} {...props} />
+  return (
+    <Shape
+      {...HANG_GLIDING}
+      {...props}
+      _style={extendStyle(HANG_GLIDING, props)}
+    />
+  )
 }

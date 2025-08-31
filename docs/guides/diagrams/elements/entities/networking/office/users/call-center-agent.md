@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CallCenterAgent } from '@reactiac/standard-components-diagrams/officeUsers'
+import { CallCenterAgent } from '@diac/standard-components-diagrams/officeUsers'
 
 <CallCenterAgent/>
 ```

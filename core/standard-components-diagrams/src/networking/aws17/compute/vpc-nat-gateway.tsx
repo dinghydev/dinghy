@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VPC_NAT_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const VPC_NAT_GATEWAY = {
 }
 
 export function VpcNatGateway(props: DiagramNodeProps) {
-  return <Shape {...VPC_NAT_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...VPC_NAT_GATEWAY}
+      {...props}
+      _style={extendStyle(VPC_NAT_GATEWAY, props)}
+    />
+  )
 }

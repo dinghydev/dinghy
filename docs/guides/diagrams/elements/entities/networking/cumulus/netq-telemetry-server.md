@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetqTelemetryServer } from '@reactiac/standard-components-diagrams/cumulus'
+import { NetqTelemetryServer } from '@diac/standard-components-diagrams/cumulus'
 
 <NetqTelemetryServer/>
 ```

@@ -14,7 +14,7 @@ Talent Solutions
 ## Usage
 
 ```
-import { CloudTalentSolutions } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { CloudTalentSolutions } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <CloudTalentSolutions/>
 ```

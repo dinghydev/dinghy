@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IS_CONTROL = {
   _style: 'html=1;shape=mxgraph.sysml.isControl;whiteSpace=wrap;align=center;',
@@ -8,5 +8,7 @@ export const IS_CONTROL = {
 }
 
 export function IsControl(props: DiagramNodeProps) {
-  return <Shape {...IS_CONTROL} {...props} />
+  return (
+    <Shape {...IS_CONTROL} {...props} _style={extendStyle(IS_CONTROL, props)} />
+  )
 }

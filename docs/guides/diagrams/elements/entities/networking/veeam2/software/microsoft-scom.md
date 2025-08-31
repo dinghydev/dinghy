@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MicrosoftScom } from '@reactiac/standard-components-diagrams/veeam2Software'
+import { MicrosoftScom } from '@diac/standard-components-diagrams/veeam2Software'
 
 <MicrosoftScom/>
 ```

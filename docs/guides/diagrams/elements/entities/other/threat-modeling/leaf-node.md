@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LeafNode } from '@reactiac/standard-components-diagrams/threatModeling'
+import { LeafNode } from '@diac/standard-components-diagrams/threatModeling'
 
 <LeafNode/>
 ```

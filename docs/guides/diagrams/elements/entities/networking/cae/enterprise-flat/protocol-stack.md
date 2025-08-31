@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProtocolStack } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { ProtocolStack } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <ProtocolStack/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VerticalSwimlane } from '@reactiac/standard-components-diagrams/bpmn2General'
+import { VerticalSwimlane } from '@diac/standard-components-diagrams/bpmn2General'
 
 <VerticalSwimlane/>
 ```

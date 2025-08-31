@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AddOn } from '@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { AddOn } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <AddOn/>
 ```

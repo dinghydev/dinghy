@@ -14,7 +14,7 @@ Tasks
 ## Usage
 
 ```
-import { CloudTasks } from '@reactiac/standard-components-diagrams/gcp2IconsIntegrationServices'
+import { CloudTasks } from '@diac/standard-components-diagrams/gcp2IconsIntegrationServices'
 
 <CloudTasks/>
 ```

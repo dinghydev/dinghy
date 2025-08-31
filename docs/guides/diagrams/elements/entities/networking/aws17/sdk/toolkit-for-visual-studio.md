@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ToolkitForVisualStudio } from '@reactiac/standard-components-diagrams/aws17Sdk'
+import { ToolkitForVisualStudio } from '@diac/standard-components-diagrams/aws17Sdk'
 
 <ToolkitForVisualStudio/>
 ```

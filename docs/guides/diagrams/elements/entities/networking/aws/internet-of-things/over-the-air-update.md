@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OverTheAirUpdate } from '@reactiac/standard-components-diagrams/awsInternetOfThings'
+import { OverTheAirUpdate } from '@diac/standard-components-diagrams/awsInternetOfThings'
 
 <OverTheAirUpdate/>
 ```

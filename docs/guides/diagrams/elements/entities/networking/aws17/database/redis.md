@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Redis } from '@reactiac/standard-components-diagrams/aws17Database'
+import { Redis } from '@diac/standard-components-diagrams/aws17Database'
 
 <Redis/>
 ```

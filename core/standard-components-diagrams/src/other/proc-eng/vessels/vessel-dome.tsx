@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VESSEL_DOME = {
   _style:
@@ -9,5 +9,11 @@ export const VESSEL_DOME = {
 }
 
 export function VesselDome(props: DiagramNodeProps) {
-  return <Shape {...VESSEL_DOME} {...props} />
+  return (
+    <Shape
+      {...VESSEL_DOME}
+      {...props}
+      _style={extendStyle(VESSEL_DOME, props)}
+    />
+  )
 }

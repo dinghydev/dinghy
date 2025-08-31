@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESEQUENCER = {
   _style:
@@ -9,5 +9,11 @@ export const RESEQUENCER = {
 }
 
 export function Resequencer(props: DiagramNodeProps) {
-  return <Shape {...RESEQUENCER} {...props} />
+  return (
+    <Shape
+      {...RESEQUENCER}
+      {...props}
+      _style={extendStyle(RESEQUENCER, props)}
+    />
+  )
 }

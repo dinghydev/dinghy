@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CWH_CLOUD_WEB_HOSTING = {
   _style:
@@ -9,5 +9,11 @@ export const CWH_CLOUD_WEB_HOSTING = {
 }
 
 export function CwhCloudWebHosting(props: DiagramNodeProps) {
-  return <Shape {...CWH_CLOUD_WEB_HOSTING} {...props} />
+  return (
+    <Shape
+      {...CWH_CLOUD_WEB_HOSTING}
+      {...props}
+      _style={extendStyle(CWH_CLOUD_WEB_HOSTING, props)}
+    />
+  )
 }

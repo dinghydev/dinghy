@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticJobAgents } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { ElasticJobAgents } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <ElasticJobAgents/>
 ```

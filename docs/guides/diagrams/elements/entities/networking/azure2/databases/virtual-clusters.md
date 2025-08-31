@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualClusters } from '@reactiac/standard-components-diagrams/azure2Databases'
+import { VirtualClusters } from '@diac/standard-components-diagrams/azure2Databases'
 
 <VirtualClusters/>
 ```

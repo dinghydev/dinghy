@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SecurePrivateAccess } from '@reactiac/standard-components-diagrams/citrixCloudServices'
+import { SecurePrivateAccess } from '@diac/standard-components-diagrams/citrixCloudServices'
 
 <SecurePrivateAccess/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11640_GRIPPER_DOUBLE_ACTING = {
   _style:
@@ -9,5 +9,11 @@ export const X11640_GRIPPER_DOUBLE_ACTING = {
 }
 
 export function X11640GripperDoubleActing(props: DiagramNodeProps) {
-  return <Shape {...X11640_GRIPPER_DOUBLE_ACTING} {...props} />
+  return (
+    <Shape
+      {...X11640_GRIPPER_DOUBLE_ACTING}
+      {...props}
+      _style={extendStyle(X11640_GRIPPER_DOUBLE_ACTING, props)}
+    />
+  )
 }

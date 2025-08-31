@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MicroservicesMesh } from '@reactiac/standard-components-diagrams/ibmInfrastructure'
+import { MicroservicesMesh } from '@diac/standard-components-diagrams/ibmInfrastructure'
 
 <MicroservicesMesh/>
 ```

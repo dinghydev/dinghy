@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AND_GATE = {
   _style:
@@ -9,5 +9,7 @@ export const AND_GATE = {
 }
 
 export function AndGate(props: DiagramNodeProps) {
-  return <Shape {...AND_GATE} {...props} />
+  return (
+    <Shape {...AND_GATE} {...props} _style={extendStyle(AND_GATE, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TaskList } from '@reactiac/standard-components-diagrams/veeam2General'
+import { TaskList } from '@diac/standard-components-diagrams/veeam2General'
 
 <TaskList/>
 ```

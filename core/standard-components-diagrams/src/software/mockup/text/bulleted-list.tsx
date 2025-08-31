@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BULLETED_LIST = {
   _style:
@@ -9,5 +9,11 @@ export const BULLETED_LIST = {
 }
 
 export function BulletedList(props: DiagramNodeProps) {
-  return <Shape {...BULLETED_LIST} {...props} />
+  return (
+    <Shape
+      {...BULLETED_LIST}
+      {...props}
+      _style={extendStyle(BULLETED_LIST, props)}
+    />
+  )
 }

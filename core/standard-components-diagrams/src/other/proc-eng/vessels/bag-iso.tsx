@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BAG_ISO = {
   _style:
@@ -9,5 +9,5 @@ export const BAG_ISO = {
 }
 
 export function BagIso(props: DiagramNodeProps) {
-  return <Shape {...BAG_ISO} {...props} />
+  return <Shape {...BAG_ISO} {...props} _style={extendStyle(BAG_ISO, props)} />
 }

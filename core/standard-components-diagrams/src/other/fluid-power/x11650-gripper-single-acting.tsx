@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11650_GRIPPER_SINGLE_ACTING = {
   _style:
@@ -9,5 +9,11 @@ export const X11650_GRIPPER_SINGLE_ACTING = {
 }
 
 export function X11650GripperSingleActing(props: DiagramNodeProps) {
-  return <Shape {...X11650_GRIPPER_SINGLE_ACTING} {...props} />
+  return (
+    <Shape
+      {...X11650_GRIPPER_SINGLE_ACTING}
+      {...props}
+      _style={extendStyle(X11650_GRIPPER_SINGLE_ACTING, props)}
+    />
+  )
 }

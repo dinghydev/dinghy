@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MapsApi } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { MapsApi } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <MapsApi/>
 ```

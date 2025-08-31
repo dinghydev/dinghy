@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NacAppliance } from '@reactiac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { NacAppliance } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <NacAppliance/>
 ```

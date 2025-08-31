@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsArtifact } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsArtifact } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsArtifact/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHAPING_MACHINE_VERTICAL = {
   _style:
@@ -9,5 +9,11 @@ export const SHAPING_MACHINE_VERTICAL = {
 }
 
 export function ShapingMachineVertical(props: DiagramNodeProps) {
-  return <Shape {...SHAPING_MACHINE_VERTICAL} {...props} />
+  return (
+    <Shape
+      {...SHAPING_MACHINE_VERTICAL}
+      {...props}
+      _style={extendStyle(SHAPING_MACHINE_VERTICAL, props)}
+    />
+  )
 }

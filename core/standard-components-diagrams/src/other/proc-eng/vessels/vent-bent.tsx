@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VENT_BENT = {
   _style:
@@ -9,5 +9,7 @@ export const VENT_BENT = {
 }
 
 export function VentBent(props: DiagramNodeProps) {
-  return <Shape {...VENT_BENT} {...props} />
+  return (
+    <Shape {...VENT_BENT} {...props} _style={extendStyle(VENT_BENT, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL = {
   _style:
@@ -9,5 +9,11 @@ export const AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL = {
 }
 
 export function AmqpAdvancedMessageQueuingProtocol(props: DiagramNodeProps) {
-  return <Shape {...AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL} {...props} />
+  return (
+    <Shape
+      {...AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL}
+      {...props}
+      _style={extendStyle(AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExcessFlowValve } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { ExcessFlowValve } from '@diac/standard-components-diagrams/procEngPiping'
 
 <ExcessFlowValve/>
 ```

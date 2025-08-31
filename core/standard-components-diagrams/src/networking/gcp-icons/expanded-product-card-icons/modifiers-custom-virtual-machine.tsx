@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MODIFIERS_CUSTOM_VIRTUAL_MACHINE = {
   _style:
@@ -9,5 +9,11 @@ export const MODIFIERS_CUSTOM_VIRTUAL_MACHINE = {
 }
 
 export function ModifiersCustomVirtualMachine(props: DiagramNodeProps) {
-  return <Shape {...MODIFIERS_CUSTOM_VIRTUAL_MACHINE} {...props} />
+  return (
+    <Shape
+      {...MODIFIERS_CUSTOM_VIRTUAL_MACHINE}
+      {...props}
+      _style={extendStyle(MODIFIERS_CUSTOM_VIRTUAL_MACHINE, props)}
+    />
+  )
 }

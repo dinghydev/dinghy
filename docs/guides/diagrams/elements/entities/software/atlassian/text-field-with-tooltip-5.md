@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TextFieldWithTooltip5 } from '@reactiac/standard-components-diagrams/atlassian'
+import { TextFieldWithTooltip5 } from '@diac/standard-components-diagrams/atlassian'
 
 <TextFieldWithTooltip5/>
 ```

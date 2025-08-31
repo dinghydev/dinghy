@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dataproc } from '@reactiac/standard-components-diagrams/gcpIconsDataAnalytics'
+import { Dataproc } from '@diac/standard-components-diagrams/gcpIconsDataAnalytics'
 
 <Dataproc/>
 ```

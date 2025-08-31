@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOFTSWITCH_PGW_MGC = {
   _style:
@@ -9,5 +9,11 @@ export const SOFTSWITCH_PGW_MGC = {
 }
 
 export function SoftswitchPgwMgc(props: DiagramNodeProps) {
-  return <Shape {...SOFTSWITCH_PGW_MGC} {...props} />
+  return (
+    <Shape
+      {...SOFTSWITCH_PGW_MGC}
+      {...props}
+      _style={extendStyle(SOFTSWITCH_PGW_MGC, props)}
+    />
+  )
 }

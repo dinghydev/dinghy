@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MediaEncoding } from '@reactiac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
+import { MediaEncoding } from '@diac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
 
 <MediaEncoding/>
 ```

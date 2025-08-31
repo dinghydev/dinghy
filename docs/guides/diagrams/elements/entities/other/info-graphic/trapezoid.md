@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Trapezoid } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { Trapezoid } from '@diac/standard-components-diagrams/infoGraphic'
 
 <Trapezoid/>
 ```

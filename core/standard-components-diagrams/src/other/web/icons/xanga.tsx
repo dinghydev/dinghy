@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XANGA = {
   _style:
@@ -9,5 +9,5 @@ export const XANGA = {
 }
 
 export function Xanga(props: DiagramNodeProps) {
-  return <Shape {...XANGA} {...props} />
+  return <Shape {...XANGA} {...props} _style={extendStyle(XANGA, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ONION = {
   _style:
@@ -9,5 +9,5 @@ export const ONION = {
 }
 
 export function Onion(props: DiagramNodeProps) {
-  return <Shape {...ONION} {...props} />
+  return <Shape {...ONION} {...props} _style={extendStyle(ONION, props)} />
 }

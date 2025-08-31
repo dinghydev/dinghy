@@ -5,15 +5,15 @@
 ```
 {
   _style: 'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.door_lock;fillColor=#5294CF;gradientColor=none;',
-  _width: 79.5,
-  _height: 79.5,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { DoorLock } from '@reactiac/standard-components-diagrams/aws17InternetOfThings'
+import { DoorLock } from '@diac/standard-components-diagrams/aws17InternetOfThings'
 
 <DoorLock/>
 ```

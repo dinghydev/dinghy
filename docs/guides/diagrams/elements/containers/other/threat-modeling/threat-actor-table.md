@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { ThreatActorTable } from '@reactiac/standard-components-diagrams/threatModeling'
+import { ThreatActorTable } from '@diac/standard-components-diagrams/threatModeling'
 
 <ThreatActorTable/>
 ```

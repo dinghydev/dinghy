@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HPC6ID_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const HPC6ID_INSTANCE = {
 }
 
 export function Hpc6idInstance(props: DiagramNodeProps) {
-  return <Shape {...HPC6ID_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...HPC6ID_INSTANCE}
+      {...props}
+      _style={extendStyle(HPC6ID_INSTANCE, props)}
+    />
+  )
 }

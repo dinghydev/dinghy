@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DoorBiFold } from '@reactiac/standard-components-diagrams/floorPlans'
+import { DoorBiFold } from '@diac/standard-components-diagrams/floorPlans'
 
 <DoorBiFold/>
 ```

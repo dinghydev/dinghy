@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Registry } from '@reactiac/standard-components-diagrams/awsContainers'
+import { Registry } from '@diac/standard-components-diagrams/awsContainers'
 
 <Registry/>
 ```

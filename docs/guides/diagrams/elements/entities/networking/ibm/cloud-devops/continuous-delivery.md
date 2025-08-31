@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContinuousDelivery } from '@reactiac/standard-components-diagrams/ibmCloudDevops'
+import { ContinuousDelivery } from '@diac/standard-components-diagrams/ibmCloudDevops'
 
 <ContinuousDelivery/>
 ```

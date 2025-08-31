@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsAppsync } from '@reactiac/standard-components-diagrams/aws18ApplicationIntegration'
+import { AwsAppsync } from '@diac/standard-components-diagrams/aws18ApplicationIntegration'
 
 <AwsAppsync/>
 ```

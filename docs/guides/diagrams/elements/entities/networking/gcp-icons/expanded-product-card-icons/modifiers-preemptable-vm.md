@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ModifiersPreemptableVm } from '@reactiac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { ModifiersPreemptableVm } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <ModifiersPreemptableVm/>
 ```

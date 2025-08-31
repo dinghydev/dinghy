@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.boat_shipment;align=center;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { BoatShipment } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { BoatShipment } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <BoatShipment/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ECI_ELASTIC_CONTAINER_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const ECI_ELASTIC_CONTAINER_INSTANCE = {
 }
 
 export function EciElasticContainerInstance(props: DiagramNodeProps) {
-  return <Shape {...ECI_ELASTIC_CONTAINER_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...ECI_ELASTIC_CONTAINER_INSTANCE}
+      {...props}
+      _style={extendStyle(ECI_ELASTIC_CONTAINER_INSTANCE, props)}
+    />
+  )
 }

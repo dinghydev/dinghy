@@ -1,4 +1,4 @@
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 import { RdsInstance } from './RdsInstance.tsx'
 
 export const RDS_POSTGRESQL_INSTANCE = {

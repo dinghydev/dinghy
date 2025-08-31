@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MDM = {
   _style:
@@ -9,5 +9,5 @@ export const MDM = {
 }
 
 export function Mdm(props: DiagramNodeProps) {
-  return <Shape {...MDM} {...props} />
+  return <Shape {...MDM} {...props} _style={extendStyle(MDM, props)} />
 }

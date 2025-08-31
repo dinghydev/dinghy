@@ -14,7 +14,7 @@ instance
 ## Usage
 
 ```
-import { PostgresqlInstance } from '@reactiac/standard-components-diagrams/aws18Database'
+import { PostgresqlInstance } from '@diac/standard-components-diagrams/aws18Database'
 
 <PostgresqlInstance/>
 ```

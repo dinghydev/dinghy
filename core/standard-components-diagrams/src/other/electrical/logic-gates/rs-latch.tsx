@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RS_LATCH = {
   _style:
@@ -9,5 +9,7 @@ export const RS_LATCH = {
 }
 
 export function RsLatch(props: DiagramNodeProps) {
-  return <Shape {...RS_LATCH} {...props} />
+  return (
+    <Shape {...RS_LATCH} {...props} _style={extendStyle(RS_LATCH, props)} />
+  )
 }

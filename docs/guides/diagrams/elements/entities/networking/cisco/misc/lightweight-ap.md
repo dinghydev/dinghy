@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LightweightAp } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { LightweightAp } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <LightweightAp/>
 ```

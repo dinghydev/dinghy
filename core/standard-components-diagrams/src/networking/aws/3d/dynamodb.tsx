@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DYNAMODB = {
   _style:
@@ -9,5 +9,7 @@ export const DYNAMODB = {
 }
 
 export function Dynamodb(props: DiagramNodeProps) {
-  return <Shape {...DYNAMODB} {...props} />
+  return (
+    <Shape {...DYNAMODB} {...props} _style={extendStyle(DYNAMODB, props)} />
+  )
 }

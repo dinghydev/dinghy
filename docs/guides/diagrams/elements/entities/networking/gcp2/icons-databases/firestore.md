@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Firestore } from '@reactiac/standard-components-diagrams/gcp2IconsDatabases'
+import { Firestore } from '@diac/standard-components-diagrams/gcp2IconsDatabases'
 
 <Firestore/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MODAL_DIALOG_ERROR = {
   _style:
@@ -9,5 +9,11 @@ export const MODAL_DIALOG_ERROR = {
 }
 
 export function ModalDialogError(props: DiagramNodeProps) {
-  return <Shape {...MODAL_DIALOG_ERROR} {...props} />
+  return (
+    <Shape
+      {...MODAL_DIALOG_ERROR}
+      {...props}
+      _style={extendStyle(MODAL_DIALOG_ERROR, props)}
+    />
+  )
 }

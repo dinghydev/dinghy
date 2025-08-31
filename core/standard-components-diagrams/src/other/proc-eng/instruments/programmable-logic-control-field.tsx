@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROGRAMMABLE_LOGIC_CONTROL_FIELD = {
   _style:
     'html=1;outlineConnect=0;align=center;dashed=0;aspect=fixed;shape=mxgraph.pid2inst.progLogCont;mounting=field',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function ProgrammableLogicControlField(props: DiagramNodeProps) {
-  return <Shape {...PROGRAMMABLE_LOGIC_CONTROL_FIELD} {...props} />
+  return (
+    <Shape
+      {...PROGRAMMABLE_LOGIC_CONTROL_FIELD}
+      {...props}
+      _style={extendStyle(PROGRAMMABLE_LOGIC_CONTROL_FIELD, props)}
+    />
+  )
 }

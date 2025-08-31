@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMBINED_FRAGMENT = {
   _style:
@@ -9,5 +9,11 @@ export const COMBINED_FRAGMENT = {
 }
 
 export function CombinedFragment(props: DiagramNodeProps) {
-  return <Shape {...COMBINED_FRAGMENT} {...props} />
+  return (
+    <Shape
+      {...COMBINED_FRAGMENT}
+      {...props}
+      _style={extendStyle(COMBINED_FRAGMENT, props)}
+    />
+  )
 }

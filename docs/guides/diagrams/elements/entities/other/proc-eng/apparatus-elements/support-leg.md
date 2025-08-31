@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SupportLeg } from '@reactiac/standard-components-diagrams/procEngApparatusElements'
+import { SupportLeg } from '@diac/standard-components-diagrams/procEngApparatusElements'
 
 <SupportLeg/>
 ```

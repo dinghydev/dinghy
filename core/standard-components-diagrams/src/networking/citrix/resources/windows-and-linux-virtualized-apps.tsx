@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WINDOWS_AND_LINUX_VIRTUALIZED_APPS = {
   _style:
@@ -9,5 +9,11 @@ export const WINDOWS_AND_LINUX_VIRTUALIZED_APPS = {
 }
 
 export function WindowsAndLinuxVirtualizedApps(props: DiagramNodeProps) {
-  return <Shape {...WINDOWS_AND_LINUX_VIRTUALIZED_APPS} {...props} />
+  return (
+    <Shape
+      {...WINDOWS_AND_LINUX_VIRTUALIZED_APPS}
+      {...props}
+      _style={extendStyle(WINDOWS_AND_LINUX_VIRTUALIZED_APPS, props)}
+    />
+  )
 }

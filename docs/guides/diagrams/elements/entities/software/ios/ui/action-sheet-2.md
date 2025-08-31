@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ActionSheet2 } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { ActionSheet2 } from '@diac/standard-components-diagrams/ios7Ui'
 
 <ActionSheet2/>
 ```

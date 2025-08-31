@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER = {
 }
 
 export function Component3x74FloorClusterController(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER}
+      {...props}
+      _style={extendStyle(COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER, props)}
+    />
+  )
 }

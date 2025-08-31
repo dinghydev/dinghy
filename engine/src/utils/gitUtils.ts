@@ -10,7 +10,7 @@ export const mrId = () => Deno.env.get('CI_MERGE_REQUEST_IID')
 export const isCi = () => Deno.env.get('CI') === 'true'
 export const isMr = () => mrId() !== undefined
 export const jobName = () =>
-  Deno.env.get('CI_JOB_NAME') || `reactiac ${Deno.args.join(' ')}`
+  Deno.env.get('CI_JOB_NAME') || `diac ${Deno.args.join(' ')}`
 const projectId = () => Deno.env.get('CI_PROJECT_ID')
 
 let _projectName: string | undefined
@@ -200,7 +200,7 @@ export const attachChangeToMR = async (changes: any[]) => {
   }
 
   const markDown = lines.join('\n')
-  debug('reactiac tf diff mark down: %s', markDown)
+  debug('diac tf diff mark down: %s', markDown)
 
   const mrIid = mrId()!
   const projectId = await projectName()
@@ -221,7 +221,7 @@ export const attachChangeToMR = async (changes: any[]) => {
     : gitlabMrNoteCreate(mrIid, markDown, key))
 
   debug(
-    `reactiac tf diff result ${
+    `diac tf diff result ${
       existingNoteId ? 'edited' : 'attached'
     } for merge request ${mrIid}`,
   )
@@ -236,8 +236,8 @@ export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
   if (!args.stack) {
     namesCandidates.push('tf apply')
     namesCandidates.push('tf up')
-    namesCandidates.push('reactiac tf apply')
-    namesCandidates.push('reactiac tf up')
+    namesCandidates.push('diac tf apply')
+    namesCandidates.push('diac tf up')
   }
 
   for (const stack of stacks) {
@@ -248,9 +248,9 @@ export const triggerAutoDeployJobs = async (stacks: any[], args: any) => {
         `tf diff ${stack.id}`,
         `tf apply ${stack.id}`,
         `tf up ${stack.id}`,
-        `reactiac tf diff ${stack.id}`,
-        `reactiac tf apply ${stack.id}`,
-        `reactiac tf up ${stack.id}`,
+        `diac tf diff ${stack.id}`,
+        `diac tf apply ${stack.id}`,
+        `diac tf up ${stack.id}`,
       )
     }
   }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Freshbump } from '@reactiac/standard-components-diagrams/webLogos'
+import { Freshbump } from '@diac/standard-components-diagrams/webLogos'
 
 <Freshbump/>
 ```

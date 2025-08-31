@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Slashdot } from '@reactiac/standard-components-diagrams/webLogos'
+import { Slashdot } from '@diac/standard-components-diagrams/webLogos'
 
 <Slashdot/>
 ```

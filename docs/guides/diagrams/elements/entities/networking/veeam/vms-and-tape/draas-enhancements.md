@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DraasEnhancements } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { DraasEnhancements } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <DraasEnhancements/>
 ```

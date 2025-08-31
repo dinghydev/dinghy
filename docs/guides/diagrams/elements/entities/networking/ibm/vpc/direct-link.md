@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectLink } from '@reactiac/standard-components-diagrams/ibmVpc'
+import { DirectLink } from '@diac/standard-components-diagrams/ibmVpc'
 
 <DirectLink/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REMOTE_OFFICE = {
   _style:
@@ -9,5 +9,11 @@ export const REMOTE_OFFICE = {
 }
 
 export function RemoteOffice(props: DiagramNodeProps) {
-  return <Shape {...REMOTE_OFFICE} {...props} />
+  return (
+    <Shape
+      {...REMOTE_OFFICE}
+      {...props}
+      _style={extendStyle(REMOTE_OFFICE, props)}
+    />
+  )
 }

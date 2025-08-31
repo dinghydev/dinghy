@@ -5,15 +5,15 @@
 ```
 {
   _style: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.transformer;direction=north;',
-  _width: 64,
-  _height: 64,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Transformer } from '@reactiac/standard-components-diagrams/electricalInductors'
+import { Transformer } from '@diac/standard-components-diagrams/electricalInductors'
 
 <Transformer/>
 ```

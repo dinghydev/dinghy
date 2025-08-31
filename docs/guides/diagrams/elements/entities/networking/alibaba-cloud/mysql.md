@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mysql } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Mysql } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Mysql/>
 ```

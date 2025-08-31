@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RouteSwitchProcessor } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { RouteSwitchProcessor } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <RouteSwitchProcessor/>
 ```

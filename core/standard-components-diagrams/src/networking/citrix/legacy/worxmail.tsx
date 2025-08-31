@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORXMAIL = {
   _style:
@@ -9,5 +9,7 @@ export const WORXMAIL = {
 }
 
 export function Worxmail(props: DiagramNodeProps) {
-  return <Shape {...WORXMAIL} {...props} />
+  return (
+    <Shape {...WORXMAIL} {...props} _style={extendStyle(WORXMAIL, props)} />
+  )
 }

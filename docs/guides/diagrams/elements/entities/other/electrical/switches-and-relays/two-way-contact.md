@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TwoWayContact } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { TwoWayContact } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <TwoWayContact/>
 ```

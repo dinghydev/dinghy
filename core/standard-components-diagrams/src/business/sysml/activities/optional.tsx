@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPTIONAL = {
   _style:
@@ -9,5 +9,7 @@ export const OPTIONAL = {
 }
 
 export function Optional(props: DiagramNodeProps) {
-  return <Shape {...OPTIONAL} {...props} />
+  return (
+    <Shape {...OPTIONAL} {...props} _style={extendStyle(OPTIONAL, props)} />
+  )
 }

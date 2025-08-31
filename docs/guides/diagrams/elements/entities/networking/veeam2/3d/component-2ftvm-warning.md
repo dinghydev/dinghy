@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component2ftvmWarning } from '@reactiac/standard-components-diagrams/veeam23d'
+import { Component2ftvmWarning } from '@diac/standard-components-diagrams/veeam23d'
 
 <Component2ftvmWarning/>
 ```

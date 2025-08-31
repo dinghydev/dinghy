@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXPRESSROUTE_DIRECT = {
   _style:
@@ -9,5 +9,11 @@ export const EXPRESSROUTE_DIRECT = {
 }
 
 export function ExpressrouteDirect(props: DiagramNodeProps) {
-  return <Shape {...EXPRESSROUTE_DIRECT} {...props} />
+  return (
+    <Shape
+      {...EXPRESSROUTE_DIRECT}
+      {...props}
+      _style={extendStyle(EXPRESSROUTE_DIRECT, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { JoinNode } from '@reactiac/standard-components-diagrams/uml25'
+import { JoinNode } from '@diac/standard-components-diagrams/uml25'
 
 <JoinNode/>
 ```

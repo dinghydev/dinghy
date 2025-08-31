@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLOW_FINAL = {
   _style:
@@ -9,5 +9,7 @@ export const FLOW_FINAL = {
 }
 
 export function FlowFinal(props: DiagramNodeProps) {
-  return <Shape {...FLOW_FINAL} {...props} />
+  return (
+    <Shape {...FLOW_FINAL} {...props} _style={extendStyle(FLOW_FINAL, props)} />
+  )
 }

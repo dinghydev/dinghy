@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SpatialAnchorAccounts } from '@reactiac/standard-components-diagrams/azure2MixedReality'
+import { SpatialAnchorAccounts } from '@diac/standard-components-diagrams/azure2MixedReality'
 
 <SpatialAnchorAccounts/>
 ```

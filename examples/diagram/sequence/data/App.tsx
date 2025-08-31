@@ -1,13 +1,13 @@
-import { Shape } from "@reactiac/base-components";
+import { Shape } from "@diac/base-components";
 import {
     SequenceDiagram,
-} from "@reactiac/standard-components-diagrams/sequenceDiagram";
+} from "@diac/standard-components-diagrams/sequenceDiagram";
 
 import {
     Client,
     // Servers,
     User,
-} from "@reactiac/standard-components-diagrams/awsGeneralResources";
+} from "@diac/standard-components-diagrams/awsGeneralResources";
 
 const sequenceDiagram = {
     title: "Sequence Diagram from data",

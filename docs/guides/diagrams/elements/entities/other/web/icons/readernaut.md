@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Readernaut } from '@reactiac/standard-components-diagrams/webIcons'
+import { Readernaut } from '@diac/standard-components-diagrams/webIcons'
 
 <Readernaut/>
 ```

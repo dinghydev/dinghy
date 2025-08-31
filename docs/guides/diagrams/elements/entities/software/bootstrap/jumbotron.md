@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Jumbotron } from '@reactiac/standard-components-diagrams/bootstrap'
+import { Jumbotron } from '@diac/standard-components-diagrams/bootstrap'
 
 <Jumbotron/>
 ```

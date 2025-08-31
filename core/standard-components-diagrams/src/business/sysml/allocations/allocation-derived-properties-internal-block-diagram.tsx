@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALLOCATION_DERIVED_PROPERTIES_INTERNAL_BLOCK_DIAGRAM = {
   _style:
@@ -15,6 +15,10 @@ export function AllocationDerivedPropertiesInternalBlockDiagram(
     <Shape
       {...ALLOCATION_DERIVED_PROPERTIES_INTERNAL_BLOCK_DIAGRAM}
       {...props}
+      _style={extendStyle(
+        ALLOCATION_DERIVED_PROPERTIES_INTERNAL_BLOCK_DIAGRAM,
+        props,
+      )}
     />
   )
 }

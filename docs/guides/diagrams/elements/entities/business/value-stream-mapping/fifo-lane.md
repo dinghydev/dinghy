@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FifoLane } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { FifoLane } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <FifoLane/>
 ```

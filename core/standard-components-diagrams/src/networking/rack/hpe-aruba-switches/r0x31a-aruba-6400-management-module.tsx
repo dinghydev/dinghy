@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const R0X31A_ARUBA_6400_MANAGEMENT_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const R0X31A_ARUBA_6400_MANAGEMENT_MODULE = {
 }
 
 export function R0x31aAruba6400ManagementModule(props: DiagramNodeProps) {
-  return <Shape {...R0X31A_ARUBA_6400_MANAGEMENT_MODULE} {...props} />
+  return (
+    <Shape
+      {...R0X31A_ARUBA_6400_MANAGEMENT_MODULE}
+      {...props}
+      _style={extendStyle(R0X31A_ARUBA_6400_MANAGEMENT_MODULE, props)}
+    />
+  )
 }

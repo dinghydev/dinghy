@@ -14,7 +14,7 @@ manager
 ## Usage
 
 ```
-import { StateManager } from '@reactiac/standard-components-diagrams/aws18ManagementTools'
+import { StateManager } from '@diac/standard-components-diagrams/aws18ManagementTools'
 
 <StateManager/>
 ```

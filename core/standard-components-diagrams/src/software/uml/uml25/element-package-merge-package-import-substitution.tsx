@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION = {
   _style: {
@@ -15,6 +15,10 @@ export function ElementPackageMergePackageImportSubstitution(
     <Dependency
       {...ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION}
       {...props}
+      _style={extendStyle(
+        ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION,
+        props,
+      )}
     />
   )
 }

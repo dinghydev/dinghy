@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Batchcompute } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Batchcompute } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Batchcompute/>
 ```

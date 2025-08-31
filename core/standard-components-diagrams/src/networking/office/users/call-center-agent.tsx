@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CALL_CENTER_AGENT = {
   _style:
@@ -9,5 +9,11 @@ export const CALL_CENTER_AGENT = {
 }
 
 export function CallCenterAgent(props: DiagramNodeProps) {
-  return <Shape {...CALL_CENTER_AGENT} {...props} />
+  return (
+    <Shape
+      {...CALL_CENTER_AGENT}
+      {...props}
+      _style={extendStyle(CALL_CENTER_AGENT, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TWITTER = {
   _style:
@@ -9,5 +9,5 @@ export const TWITTER = {
 }
 
 export function Twitter(props: DiagramNodeProps) {
-  return <Shape {...TWITTER} {...props} />
+  return <Shape {...TWITTER} {...props} _style={extendStyle(TWITTER, props)} />
 }

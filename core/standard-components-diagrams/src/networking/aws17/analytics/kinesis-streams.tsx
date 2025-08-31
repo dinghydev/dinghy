@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KINESIS_STREAMS = {
   _style:
@@ -9,5 +9,11 @@ export const KINESIS_STREAMS = {
 }
 
 export function KinesisStreams(props: DiagramNodeProps) {
-  return <Shape {...KINESIS_STREAMS} {...props} />
+  return (
+    <Shape
+      {...KINESIS_STREAMS}
+      {...props}
+      _style={extendStyle(KINESIS_STREAMS, props)}
+    />
+  )
 }

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.signs.food.bar;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
-  _width: 98,
-  _height: 98,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Bar } from '@reactiac/standard-components-diagrams/signsFood'
+import { Bar } from '@diac/standard-components-diagrams/signsFood'
 
 <Bar/>
 ```

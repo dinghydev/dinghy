@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OpenSourceTools } from '@reactiac/standard-components-diagrams/ibmApplications'
+import { OpenSourceTools } from '@diac/standard-components-diagrams/ibmApplications'
 
 <OpenSourceTools/>
 ```

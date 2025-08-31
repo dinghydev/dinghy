@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Region } from '@reactiac/standard-components-diagrams/sysmlStateMachines'
+import { Region } from '@diac/standard-components-diagrams/sysmlStateMachines'
 
 <Region/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VolumeGateway } from '@reactiac/standard-components-diagrams/awsStorage'
+import { VolumeGateway } from '@diac/standard-components-diagrams/awsStorage'
 
 <VolumeGateway/>
 ```

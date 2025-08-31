@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLS_FILEBAG = {
   _style:
@@ -9,5 +9,11 @@ export const NLS_FILEBAG = {
 }
 
 export function NlsFilebag(props: DiagramNodeProps) {
-  return <Shape {...NLS_FILEBAG} {...props} />
+  return (
+    <Shape
+      {...NLS_FILEBAG}
+      {...props}
+      _style={extendStyle(NLS_FILEBAG, props)}
+    />
+  )
 }

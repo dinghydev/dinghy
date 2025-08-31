@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DbOnInstance } from '@reactiac/standard-components-diagrams/aws17Compute'
+import { DbOnInstance } from '@diac/standard-components-diagrams/aws17Compute'
 
 <DbOnInstance/>
 ```

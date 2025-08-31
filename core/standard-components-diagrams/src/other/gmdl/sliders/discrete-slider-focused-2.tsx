@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISCRETE_SLIDER_FOCUSED_2 = {
   _style:
@@ -9,5 +9,11 @@ export const DISCRETE_SLIDER_FOCUSED_2 = {
 }
 
 export function DiscreteSliderFocused2(props: DiagramNodeProps) {
-  return <Shape {...DISCRETE_SLIDER_FOCUSED_2} {...props} />
+  return (
+    <Shape
+      {...DISCRETE_SLIDER_FOCUSED_2}
+      {...props}
+      _style={extendStyle(DISCRETE_SLIDER_FOCUSED_2, props)}
+    />
+  )
 }

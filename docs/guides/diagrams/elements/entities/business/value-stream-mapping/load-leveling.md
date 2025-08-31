@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LoadLeveling } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { LoadLeveling } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <LoadLeveling/>
 ```

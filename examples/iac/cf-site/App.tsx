@@ -3,7 +3,7 @@ import {
   type NodeProps,
   Shape,
   Stack,
-} from "@reactiac/base-components";
+} from "@diac/base-components";
 
 import {
   AwsCloud,
@@ -16,8 +16,8 @@ import {
 } from "../../../core/standard-components/standard-components-tf-aws/src/index.ts";
 import { Client as Client } from "../../../core/standard-components/standard-components-diagrams/src/index.ts";
 
-const ReactIACWebsite = (props: NodeProps) => (
-  <Stack title="ReactIAC Website" {...props} />
+const DIaCWebsite = (props: NodeProps) => (
+  <Stack title="DIaC Website" {...props} />
 );
 
 const GlobalRegion = (props: NodeProps) => (
@@ -47,7 +47,7 @@ const Site = (props: any) => (
 
 export function App() {
   return (
-    <ReactIACWebsite>
+    <DIaCWebsite>
       <Client />
       <AwsCloud>
         <GlobalRegion>
@@ -57,13 +57,13 @@ export function App() {
             <Site subdomain="cdn" />
           </Sites>
           <Shared>
-            <DataAwsRoute53Zone name="reactiac.dev" />
-            <DataAwsAcmCertificate domain="reactiac.dev" />
+            <DataAwsRoute53Zone name="diac.dev" />
+            <DataAwsAcmCertificate domain="diac.dev" />
             <S3Backend />
             <LogBucket surfix="logs" />
           </Shared>
         </GlobalRegion>
       </AwsCloud>
-    </ReactIACWebsite>
+    </DIaCWebsite>
   );
 }

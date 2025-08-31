@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StreamingComputing } from '@reactiac/standard-components-diagrams/ibmAnalytics'
+import { StreamingComputing } from '@diac/standard-components-diagrams/ibmAnalytics'
 
 <StreamingComputing/>
 ```

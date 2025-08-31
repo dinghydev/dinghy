@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_DEEPLENS = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_DEEPLENS = {
 }
 
 export function AwsDeeplens(props: DiagramNodeProps) {
-  return <Shape {...AWS_DEEPLENS} {...props} />
+  return (
+    <Shape
+      {...AWS_DEEPLENS}
+      {...props}
+      _style={extendStyle(AWS_DEEPLENS, props)}
+    />
+  )
 }

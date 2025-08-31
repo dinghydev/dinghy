@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CITRIX_ENTERPRISE_BROWSER = {
   _style:
@@ -9,5 +9,11 @@ export const CITRIX_ENTERPRISE_BROWSER = {
 }
 
 export function CitrixEnterpriseBrowser(props: DiagramNodeProps) {
-  return <Shape {...CITRIX_ENTERPRISE_BROWSER} {...props} />
+  return (
+    <Shape
+      {...CITRIX_ENTERPRISE_BROWSER}
+      {...props}
+      _style={extendStyle(CITRIX_ENTERPRISE_BROWSER, props)}
+    />
+  )
 }

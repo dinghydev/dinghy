@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_BLADE_SWITCH_3030 = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_BLADE_SWITCH_3030 = {
 }
 
 export function CiscoBladeSwitch3030(props: DiagramNodeProps) {
-  return <Shape {...CISCO_BLADE_SWITCH_3030} {...props} />
+  return (
+    <Shape
+      {...CISCO_BLADE_SWITCH_3030}
+      {...props}
+      _style={extendStyle(CISCO_BLADE_SWITCH_3030, props)}
+    />
+  )
 }

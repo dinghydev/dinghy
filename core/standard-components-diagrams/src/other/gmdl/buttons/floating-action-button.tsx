@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLOATING_ACTION_BUTTON = {
   _style:
@@ -9,5 +9,11 @@ export const FLOATING_ACTION_BUTTON = {
 }
 
 export function FloatingActionButton(props: DiagramNodeProps) {
-  return <Shape {...FLOATING_ACTION_BUTTON} {...props} />
+  return (
+    <Shape
+      {...FLOATING_ACTION_BUTTON}
+      {...props}
+      _style={extendStyle(FLOATING_ACTION_BUTTON, props)}
+    />
+  )
 }

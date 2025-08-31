@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ImportTool } from '@reactiac/standard-components-diagrams/dynamics365MixedReality'
+import { ImportTool } from '@diac/standard-components-diagrams/dynamics365MixedReality'
 
 <ImportTool/>
 ```

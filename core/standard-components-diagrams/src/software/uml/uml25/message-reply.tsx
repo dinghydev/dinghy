@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MESSAGE_REPLY = {
   _style: {
@@ -9,5 +9,11 @@ export const MESSAGE_REPLY = {
 }
 
 export function MessageReply(props: DiagramNodeProps) {
-  return <Dependency {...MESSAGE_REPLY} {...props} />
+  return (
+    <Dependency
+      {...MESSAGE_REPLY}
+      {...props}
+      _style={extendStyle(MESSAGE_REPLY, props)}
+    />
+  )
 }

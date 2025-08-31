@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VisualStudioOnline } from '@reactiac/standard-components-diagrams/azure'
+import { VisualStudioOnline } from '@diac/standard-components-diagrams/azure'
 
 <VisualStudioOnline/>
 ```

@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { AwsIot1Click } from '@reactiac/standard-components-diagrams/aws18InternetOfThings'
+import { AwsIot1Click } from '@diac/standard-components-diagrams/aws18InternetOfThings'
 
 <AwsIot1Click/>
 ```

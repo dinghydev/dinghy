@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTAINER_AVATAR_LARGE = {
   _style:
@@ -9,5 +9,11 @@ export const CONTAINER_AVATAR_LARGE = {
 }
 
 export function ContainerAvatarLarge(props: DiagramNodeProps) {
-  return <Shape {...CONTAINER_AVATAR_LARGE} {...props} />
+  return (
+    <Shape
+      {...CONTAINER_AVATAR_LARGE}
+      {...props}
+      _style={extendStyle(CONTAINER_AVATAR_LARGE, props)}
+    />
+  )
 }

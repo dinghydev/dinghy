@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11620_SEMI_ROTARY_LINEAR = {
   _style:
@@ -9,5 +9,11 @@ export const X11620_SEMI_ROTARY_LINEAR = {
 }
 
 export function X11620SemiRotaryLinear(props: DiagramNodeProps) {
-  return <Shape {...X11620_SEMI_ROTARY_LINEAR} {...props} />
+  return (
+    <Shape
+      {...X11620_SEMI_ROTARY_LINEAR}
+      {...props}
+      _style={extendStyle(X11620_SEMI_ROTARY_LINEAR, props)}
+    />
+  )
 }

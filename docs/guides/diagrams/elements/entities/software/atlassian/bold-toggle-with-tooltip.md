@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BoldToggleWithTooltip } from '@reactiac/standard-components-diagrams/atlassian'
+import { BoldToggleWithTooltip } from '@diac/standard-components-diagrams/atlassian'
 
 <BoldToggleWithTooltip/>
 ```

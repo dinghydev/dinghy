@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/finance/Dollar_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Dollar } from '@reactiac/standard-components-diagrams/clipartFinance'
+import { Dollar } from '@diac/standard-components-diagrams/clipartFinance'
 
 <Dollar/>
 ```

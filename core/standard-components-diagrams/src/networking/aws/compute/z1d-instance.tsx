@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const Z1D_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const Z1D_INSTANCE = {
 }
 
 export function Z1dInstance(props: DiagramNodeProps) {
-  return <Shape {...Z1D_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...Z1D_INSTANCE}
+      {...props}
+      _style={extendStyle(Z1D_INSTANCE, props)}
+    />
+  )
 }

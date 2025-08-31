@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEPENDENCY_MONITOR = {
   _style:
@@ -9,5 +9,11 @@ export const DEPENDENCY_MONITOR = {
 }
 
 export function DependencyMonitor(props: DiagramNodeProps) {
-  return <Shape {...DEPENDENCY_MONITOR} {...props} />
+  return (
+    <Shape
+      {...DEPENDENCY_MONITOR}
+      {...props}
+      _style={extendStyle(DEPENDENCY_MONITOR, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IDENTIFYING_RELATIONSHIP = {
   _style:
@@ -9,5 +9,11 @@ export const IDENTIFYING_RELATIONSHIP = {
 }
 
 export function IdentifyingRelationship(props: DiagramNodeProps) {
-  return <Shape {...IDENTIFYING_RELATIONSHIP} {...props} />
+  return (
+    <Shape
+      {...IDENTIFYING_RELATIONSHIP}
+      {...props}
+      _style={extendStyle(IDENTIFYING_RELATIONSHIP, props)}
+    />
+  )
 }

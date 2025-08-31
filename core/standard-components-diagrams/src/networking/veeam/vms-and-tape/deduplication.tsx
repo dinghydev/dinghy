@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEDUPLICATION = {
   _style:
@@ -9,5 +9,11 @@ export const DEDUPLICATION = {
 }
 
 export function Deduplication(props: DiagramNodeProps) {
-  return <Shape {...DEDUPLICATION} {...props} />
+  return (
+    <Shape
+      {...DEDUPLICATION}
+      {...props}
+      _style={extendStyle(DEDUPLICATION, props)}
+    />
+  )
 }

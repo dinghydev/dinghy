@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SYNCHRO = {
   _style:
@@ -9,5 +9,5 @@ export const SYNCHRO = {
 }
 
 export function Synchro(props: DiagramNodeProps) {
-  return <Shape {...SYNCHRO} {...props} />
+  return <Shape {...SYNCHRO} {...props} _style={extendStyle(SYNCHRO, props)} />
 }

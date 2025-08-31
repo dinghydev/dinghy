@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SQL_DATABASE_SQL_AZURE = {
   _style:
@@ -9,5 +9,11 @@ export const SQL_DATABASE_SQL_AZURE = {
 }
 
 export function SqlDatabaseSqlAzure(props: DiagramNodeProps) {
-  return <Shape {...SQL_DATABASE_SQL_AZURE} {...props} />
+  return (
+    <Shape
+      {...SQL_DATABASE_SQL_AZURE}
+      {...props}
+      _style={extendStyle(SQL_DATABASE_SQL_AZURE, props)}
+    />
+  )
 }

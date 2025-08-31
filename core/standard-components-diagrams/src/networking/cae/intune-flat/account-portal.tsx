@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACCOUNT_PORTAL = {
   _style:
@@ -9,5 +9,11 @@ export const ACCOUNT_PORTAL = {
 }
 
 export function AccountPortal(props: DiagramNodeProps) {
-  return <Shape {...ACCOUNT_PORTAL} {...props} />
+  return (
+    <Shape
+      {...ACCOUNT_PORTAL}
+      {...props}
+      _style={extendStyle(ACCOUNT_PORTAL, props)}
+    />
+  )
 }

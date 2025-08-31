@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonPinpoint } from '@reactiac/standard-components-diagrams/aws18MobileServices'
+import { AmazonPinpoint } from '@diac/standard-components-diagrams/aws18MobileServices'
 
 <AmazonPinpoint/>
 ```

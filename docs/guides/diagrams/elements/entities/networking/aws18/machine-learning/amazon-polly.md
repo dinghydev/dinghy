@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonPolly } from '@reactiac/standard-components-diagrams/aws18MachineLearning'
+import { AmazonPolly } from '@diac/standard-components-diagrams/aws18MachineLearning'
 
 <AmazonPolly/>
 ```

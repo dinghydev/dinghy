@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Clock } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { Clock } from '@diac/standard-components-diagrams/officeConcepts'
 
 <Clock/>
 ```

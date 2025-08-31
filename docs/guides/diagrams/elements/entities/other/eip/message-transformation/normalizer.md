@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Normalizer } from '@reactiac/standard-components-diagrams/eipMessageTransformation'
+import { Normalizer } from '@diac/standard-components-diagrams/eipMessageTransformation'
 
 <Normalizer/>
 ```

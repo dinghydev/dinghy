@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLIENT_BASED_SECURITY = {
   _style:
@@ -9,5 +9,11 @@ export const CLIENT_BASED_SECURITY = {
 }
 
 export function ClientBasedSecurity(props: DiagramNodeProps) {
-  return <Shape {...CLIENT_BASED_SECURITY} {...props} />
+  return (
+    <Shape
+      {...CLIENT_BASED_SECURITY}
+      {...props}
+      _style={extendStyle(CLIENT_BASED_SECURITY, props)}
+    />
+  )
 }

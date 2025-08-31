@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.sap.icon;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeWidth=1;strokeColor=#D5DADD;fillColor=#EDEFF0;gradientColor=#FCFCFC;gradientDirection=west;aspect=fixed;SAPIcon=SAP_S4HANA_Cloud_for_Intelligent_Intercompany_Reconciliation',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { SapS4hanaCloudForIntelligentIntercompanyReconciliation } from '@reactiac/standard-components-diagrams/sapBtpSaas'
+import { SapS4hanaCloudForIntelligentIntercompanyReconciliation } from '@diac/standard-components-diagrams/sapBtpSaas'
 
 <SapS4hanaCloudForIntelligentIntercompanyReconciliation/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHANGEOVER_CONTACT = {
   _style:
@@ -9,5 +9,11 @@ export const CHANGEOVER_CONTACT = {
 }
 
 export function ChangeoverContact(props: DiagramNodeProps) {
-  return <Shape {...CHANGEOVER_CONTACT} {...props} />
+  return (
+    <Shape
+      {...CHANGEOVER_CONTACT}
+      {...props}
+      _style={extendStyle(CHANGEOVER_CONTACT, props)}
+    />
+  )
 }

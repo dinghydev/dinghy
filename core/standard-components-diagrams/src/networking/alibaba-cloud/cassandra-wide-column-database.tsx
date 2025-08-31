@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CASSANDRA_WIDE_COLUMN_DATABASE = {
   _style:
@@ -9,5 +9,11 @@ export const CASSANDRA_WIDE_COLUMN_DATABASE = {
 }
 
 export function CassandraWideColumnDatabase(props: DiagramNodeProps) {
-  return <Shape {...CASSANDRA_WIDE_COLUMN_DATABASE} {...props} />
+  return (
+    <Shape
+      {...CASSANDRA_WIDE_COLUMN_DATABASE}
+      {...props}
+      _style={extendStyle(CASSANDRA_WIDE_COLUMN_DATABASE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PORT_CONJUGATED_PORTS = {
   _style:
@@ -9,5 +9,11 @@ export const PORT_CONJUGATED_PORTS = {
 }
 
 export function PortConjugatedPorts(props: DiagramNodeProps) {
-  return <Shape {...PORT_CONJUGATED_PORTS} {...props} />
+  return (
+    <Shape
+      {...PORT_CONJUGATED_PORTS}
+      {...props}
+      _style={extendStyle(PORT_CONJUGATED_PORTS, props)}
+    />
+  )
 }

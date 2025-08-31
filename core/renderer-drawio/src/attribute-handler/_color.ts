@@ -1,4 +1,4 @@
-import type { Props } from '@reactiac/base-components'
+import type { Props } from '@diac/base-components'
 
 export const _color = (c: string | Props) => {
   const color = typeof c === 'string' ? c : c.color

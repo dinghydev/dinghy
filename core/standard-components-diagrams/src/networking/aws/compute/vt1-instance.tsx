@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VT1_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const VT1_INSTANCE = {
 }
 
 export function Vt1Instance(props: DiagramNodeProps) {
-  return <Shape {...VT1_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...VT1_INSTANCE}
+      {...props}
+      _style={extendStyle(VT1_INSTANCE, props)}
+    />
+  )
 }

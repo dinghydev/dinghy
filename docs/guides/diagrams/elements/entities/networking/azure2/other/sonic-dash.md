@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SonicDash } from '@reactiac/standard-components-diagrams/azure2Other'
+import { SonicDash } from '@diac/standard-components-diagrams/azure2Other'
 
 <SonicDash/>
 ```

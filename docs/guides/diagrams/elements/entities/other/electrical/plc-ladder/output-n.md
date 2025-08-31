@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OutputN } from '@reactiac/standard-components-diagrams/electricalPlcLadder'
+import { OutputN } from '@diac/standard-components-diagrams/electricalPlcLadder'
 
 <OutputN/>
 ```

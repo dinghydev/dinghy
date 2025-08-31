@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CAS_SSL_CENTRAL_AUTHENTICATION_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const CAS_SSL_CENTRAL_AUTHENTICATION_SERVICE = {
 }
 
 export function CasSslCentralAuthenticationService(props: DiagramNodeProps) {
-  return <Shape {...CAS_SSL_CENTRAL_AUTHENTICATION_SERVICE} {...props} />
+  return (
+    <Shape
+      {...CAS_SSL_CENTRAL_AUTHENTICATION_SERVICE}
+      {...props}
+      _style={extendStyle(CAS_SSL_CENTRAL_AUTHENTICATION_SERVICE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FARK = {
   _style:
@@ -9,5 +9,5 @@ export const FARK = {
 }
 
 export function Fark(props: DiagramNodeProps) {
-  return <Shape {...FARK} {...props} />
+  return <Shape {...FARK} {...props} _style={extendStyle(FARK, props)} />
 }

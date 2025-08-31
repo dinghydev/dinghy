@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabaseGeneric } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { DatabaseGeneric } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <DatabaseGeneric/>
 ```

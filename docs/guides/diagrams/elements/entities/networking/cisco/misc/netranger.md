@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Netranger } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Netranger } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Netranger/>
 ```

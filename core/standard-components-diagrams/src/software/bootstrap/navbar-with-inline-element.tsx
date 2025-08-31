@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAVBAR_WITH_INLINE_ELEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const NAVBAR_WITH_INLINE_ELEMENT = {
 }
 
 export function NavbarWithInlineElement(props: DiagramNodeProps) {
-  return <Shape {...NAVBAR_WITH_INLINE_ELEMENT} {...props} />
+  return (
+    <Shape
+      {...NAVBAR_WITH_INLINE_ELEMENT}
+      {...props}
+      _style={extendStyle(NAVBAR_WITH_INLINE_ELEMENT, props)}
+    />
+  )
 }

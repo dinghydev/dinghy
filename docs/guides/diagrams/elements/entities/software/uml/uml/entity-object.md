@@ -5,15 +5,15 @@
 ```
 {
   _style: 'ellipse;shape=umlEntity;whiteSpace=wrap;html=1;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { EntityObject } from '@reactiac/standard-components-diagrams/uml'
+import { EntityObject } from '@diac/standard-components-diagrams/uml'
 
 <EntityObject/>
 ```

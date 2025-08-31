@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_BLOB = {
   _style:
@@ -9,5 +9,7 @@ export const AZURE_BLOB = {
 }
 
 export function AzureBlob(props: DiagramNodeProps) {
-  return <Shape {...AZURE_BLOB} {...props} />
+  return (
+    <Shape {...AZURE_BLOB} {...props} _style={extendStyle(AZURE_BLOB, props)} />
+  )
 }

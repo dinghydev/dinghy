@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PUMP_PROGRESSIVE_CAVITY = {
   _style:
     'shape=mxgraph.pid.pumps_-_iso.pump_(progressive_cavity);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 
 export function PumpProgressiveCavity(props: DiagramNodeProps) {
-  return <Shape {...PUMP_PROGRESSIVE_CAVITY} {...props} />
+  return (
+    <Shape
+      {...PUMP_PROGRESSIVE_CAVITY}
+      {...props}
+      _style={extendStyle(PUMP_PROGRESSIVE_CAVITY, props)}
+    />
+  )
 }

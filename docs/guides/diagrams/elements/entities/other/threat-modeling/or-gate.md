@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OrGate } from '@reactiac/standard-components-diagrams/threatModeling'
+import { OrGate } from '@diac/standard-components-diagrams/threatModeling'
 
 <OrGate/>
 ```

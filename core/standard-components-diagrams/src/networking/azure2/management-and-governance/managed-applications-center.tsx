@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MANAGED_APPLICATIONS_CENTER = {
   _style:
@@ -9,5 +9,11 @@ export const MANAGED_APPLICATIONS_CENTER = {
 }
 
 export function ManagedApplicationsCenter(props: DiagramNodeProps) {
-  return <Shape {...MANAGED_APPLICATIONS_CENTER} {...props} />
+  return (
+    <Shape
+      {...MANAGED_APPLICATIONS_CENTER}
+      {...props}
+      _style={extendStyle(MANAGED_APPLICATIONS_CENTER, props)}
+    />
+  )
 }

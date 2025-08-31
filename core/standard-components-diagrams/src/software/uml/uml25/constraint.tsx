@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONSTRAINT = {
   _style: {
@@ -9,5 +9,11 @@ export const CONSTRAINT = {
 }
 
 export function Constraint(props: DiagramNodeProps) {
-  return <Dependency {...CONSTRAINT} {...props} />
+  return (
+    <Dependency
+      {...CONSTRAINT}
+      {...props}
+      _style={extendStyle(CONSTRAINT, props)}
+    />
+  )
 }

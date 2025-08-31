@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEAL = {
   _style:
@@ -9,5 +9,5 @@ export const SEAL = {
 }
 
 export function Seal(props: DiagramNodeProps) {
-  return <Shape {...SEAL} {...props} />
+  return <Shape {...SEAL} {...props} _style={extendStyle(SEAL, props)} />
 }

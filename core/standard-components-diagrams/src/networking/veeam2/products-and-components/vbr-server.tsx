@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VBR_SERVER = {
   _style:
@@ -9,5 +9,7 @@ export const VBR_SERVER = {
 }
 
 export function VbrServer(props: DiagramNodeProps) {
-  return <Shape {...VBR_SERVER} {...props} />
+  return (
+    <Shape {...VBR_SERVER} {...props} _style={extendStyle(VBR_SERVER, props)} />
+  )
 }

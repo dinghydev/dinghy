@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VSWITCH = {
   _style:
@@ -9,5 +9,5 @@ export const VSWITCH = {
 }
 
 export function Vswitch(props: DiagramNodeProps) {
-  return <Shape {...VSWITCH} {...props} />
+  return <Shape {...VSWITCH} {...props} _style={extendStyle(VSWITCH, props)} />
 }

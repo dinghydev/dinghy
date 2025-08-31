@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SineWave } from '@reactiac/standard-components-diagrams/electricalWaveforms'
+import { SineWave } from '@diac/standard-components-diagrams/electricalWaveforms'
 
 <SineWave/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPTO_COUPLER = {
   _style:
@@ -9,5 +9,11 @@ export const OPTO_COUPLER = {
 }
 
 export function OptoCoupler(props: DiagramNodeProps) {
-  return <Shape {...OPTO_COUPLER} {...props} />
+  return (
+    <Shape
+      {...OPTO_COUPLER}
+      {...props}
+      _style={extendStyle(OPTO_COUPLER, props)}
+    />
+  )
 }

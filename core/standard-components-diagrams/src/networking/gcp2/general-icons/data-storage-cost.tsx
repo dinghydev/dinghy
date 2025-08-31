@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATA_STORAGE_COST = {
   _style:
@@ -9,5 +9,11 @@ export const DATA_STORAGE_COST = {
 }
 
 export function DataStorageCost(props: DiagramNodeProps) {
-  return <Shape {...DATA_STORAGE_COST} {...props} />
+  return (
+    <Shape
+      {...DATA_STORAGE_COST}
+      {...props}
+      _style={extendStyle(DATA_STORAGE_COST, props)}
+    />
+  )
 }

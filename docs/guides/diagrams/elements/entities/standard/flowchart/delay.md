@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Delay } from '@reactiac/standard-components-diagrams/flowchart'
+import { Delay } from '@diac/standard-components-diagrams/flowchart'
 
 <Delay/>
 ```

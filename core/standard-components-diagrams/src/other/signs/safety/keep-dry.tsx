@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KEEP_DRY = {
   _style:
@@ -9,5 +9,7 @@ export const KEEP_DRY = {
 }
 
 export function KeepDry(props: DiagramNodeProps) {
-  return <Shape {...KEEP_DRY} {...props} />
+  return (
+    <Shape {...KEEP_DRY} {...props} _style={extendStyle(KEEP_DRY, props)} />
+  )
 }

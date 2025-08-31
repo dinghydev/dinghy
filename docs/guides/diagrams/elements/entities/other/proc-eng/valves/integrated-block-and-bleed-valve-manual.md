@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IntegratedBlockAndBleedValveManual } from '@reactiac/standard-components-diagrams/procEngValves'
+import { IntegratedBlockAndBleedValveManual } from '@diac/standard-components-diagrams/procEngValves'
 
 <IntegratedBlockAndBleedValveManual/>
 ```

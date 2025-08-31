@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ServiceProviderCloudEnvironment } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { ServiceProviderCloudEnvironment } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <ServiceProviderCloudEnvironment/>
 ```

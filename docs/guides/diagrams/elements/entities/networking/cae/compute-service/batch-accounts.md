@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BatchAccounts } from '@reactiac/standard-components-diagrams/caeComputeService'
+import { BatchAccounts } from '@diac/standard-components-diagrams/caeComputeService'
 
 <BatchAccounts/>
 ```

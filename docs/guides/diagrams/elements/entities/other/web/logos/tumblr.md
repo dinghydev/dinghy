@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Tumblr } from '@reactiac/standard-components-diagrams/webLogos'
+import { Tumblr } from '@diac/standard-components-diagrams/webLogos'
 
 <Tumblr/>
 ```

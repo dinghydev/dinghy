@@ -1,13 +1,15 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CRUCIBLE = {
   _style:
     'image;image=img/lib/atlassian/Crucible_Logo.svg;html=1;strokeColor=none;',
-  _width: 61,
-  _height: 61,
+  _width: 60,
+  _height: 60,
 }
 
 export function Crucible(props: DiagramNodeProps) {
-  return <Shape {...CRUCIBLE} {...props} />
+  return (
+    <Shape {...CRUCIBLE} {...props} _style={extendStyle(CRUCIBLE, props)} />
+  )
 }

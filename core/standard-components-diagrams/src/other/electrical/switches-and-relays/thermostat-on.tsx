@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const THERMOSTAT_ON = {
   _style:
@@ -9,5 +9,11 @@ export const THERMOSTAT_ON = {
 }
 
 export function ThermostatOn(props: DiagramNodeProps) {
-  return <Shape {...THERMOSTAT_ON} {...props} />
+  return (
+    <Shape
+      {...THERMOSTAT_ON}
+      {...props}
+      _style={extendStyle(THERMOSTAT_ON, props)}
+    />
+  )
 }

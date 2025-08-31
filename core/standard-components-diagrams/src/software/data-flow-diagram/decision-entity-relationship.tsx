@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DECISION_ENTITY_RELATIONSHIP = {
   _style:
@@ -9,5 +9,11 @@ export const DECISION_ENTITY_RELATIONSHIP = {
 }
 
 export function DecisionEntityRelationship(props: DiagramNodeProps) {
-  return <Shape {...DECISION_ENTITY_RELATIONSHIP} {...props} />
+  return (
+    <Shape
+      {...DECISION_ENTITY_RELATIONSHIP}
+      {...props}
+      _style={extendStyle(DECISION_ENTITY_RELATIONSHIP, props)}
+    />
+  )
 }

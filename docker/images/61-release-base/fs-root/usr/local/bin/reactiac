@@ -1,9 +1,0 @@
-#!/bin/bash -e
-
-deno run \
-  --config /reactiac/engine/deno.jsonc \
-  --lock /reactiac/engine/deno.lock \
-  --allow-all \
-   --cached-only \
-  /reactiac/engine/src/index.ts \
-  "$@"

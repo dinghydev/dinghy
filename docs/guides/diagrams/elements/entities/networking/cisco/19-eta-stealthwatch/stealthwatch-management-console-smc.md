@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StealthwatchManagementConsoleSmc } from '@reactiac/standard-components-diagrams/cisco19EtaStealthwatch'
+import { StealthwatchManagementConsoleSmc } from '@diac/standard-components-diagrams/cisco19EtaStealthwatch'
 
 <StealthwatchManagementConsoleSmc/>
 ```

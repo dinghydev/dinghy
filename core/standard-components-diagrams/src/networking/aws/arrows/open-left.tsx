@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPEN_LEFT = {
   _style: {
@@ -9,5 +9,11 @@ export const OPEN_LEFT = {
 }
 
 export function OpenLeft(props: DiagramNodeProps) {
-  return <Dependency {...OPEN_LEFT} {...props} />
+  return (
+    <Dependency
+      {...OPEN_LEFT}
+      {...props}
+      _style={extendStyle(OPEN_LEFT, props)}
+    />
+  )
 }

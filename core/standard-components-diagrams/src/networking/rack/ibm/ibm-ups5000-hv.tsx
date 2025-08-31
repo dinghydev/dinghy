@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IBM_UPS5000_HV = {
   _style:
@@ -9,5 +9,11 @@ export const IBM_UPS5000_HV = {
 }
 
 export function IbmUps5000Hv(props: DiagramNodeProps) {
-  return <Shape {...IBM_UPS5000_HV} {...props} />
+  return (
+    <Shape
+      {...IBM_UPS5000_HV}
+      {...props}
+      _style={extendStyle(IBM_UPS5000_HV, props)}
+    />
+  )
 }

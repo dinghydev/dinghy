@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10030_PUSH_PULL_CONTROL = {
   _style:
@@ -9,5 +9,11 @@ export const X10030_PUSH_PULL_CONTROL = {
 }
 
 export function X10030PushPullControl(props: DiagramNodeProps) {
-  return <Shape {...X10030_PUSH_PULL_CONTROL} {...props} />
+  return (
+    <Shape
+      {...X10030_PUSH_PULL_CONTROL}
+      {...props}
+      _style={extendStyle(X10030_PUSH_PULL_CONTROL, props)}
+    />
+  )
 }

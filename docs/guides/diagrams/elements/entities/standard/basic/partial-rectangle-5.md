@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PartialRectangle5 } from '@reactiac/standard-components-diagrams/basic'
+import { PartialRectangle5 } from '@diac/standard-components-diagrams/basic'
 
 <PartialRectangle5/>
 ```

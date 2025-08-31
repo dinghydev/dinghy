@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WireTap } from '@reactiac/standard-components-diagrams/eipSystemManagement'
+import { WireTap } from '@diac/standard-components-diagrams/eipSystemManagement'
 
 <WireTap/>
 ```

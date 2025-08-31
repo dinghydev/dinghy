@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHOICE_MERGE_NODE_DECISION_NODE = {
   _style: 'rhombus;',
@@ -8,5 +8,11 @@ export const CHOICE_MERGE_NODE_DECISION_NODE = {
 }
 
 export function ChoiceMergeNodeDecisionNode(props: DiagramNodeProps) {
-  return <Shape {...CHOICE_MERGE_NODE_DECISION_NODE} {...props} />
+  return (
+    <Shape
+      {...CHOICE_MERGE_NODE_DECISION_NODE}
+      {...props}
+      _style={extendStyle(CHOICE_MERGE_NODE_DECISION_NODE, props)}
+    />
+  )
 }

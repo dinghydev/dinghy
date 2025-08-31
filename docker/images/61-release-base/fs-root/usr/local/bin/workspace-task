@@ -6,9 +6,9 @@ task_name="$1"
 shift
 
 deno run \
-  --config /reactiac/workspace/deno.jsonc \
-  --lock /reactiac/workspace/deno.lock \
+  --config /diac/workspace/deno.jsonc \
+  --lock /diac/workspace/deno.lock \
   --allow-all \
    --cached-only \
-  /reactiac/workspace/tasks/${task_name}/index.ts \
+  /diac/workspace/tasks/${task_name}/index.ts \
   "$@"

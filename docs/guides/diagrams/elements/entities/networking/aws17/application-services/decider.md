@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Decider } from '@reactiac/standard-components-diagrams/aws17ApplicationServices'
+import { Decider } from '@diac/standard-components-diagrams/aws17ApplicationServices'
 
 <Decider/>
 ```

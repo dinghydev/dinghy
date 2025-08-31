@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EVENTARC = {
   _style:
@@ -9,5 +9,7 @@ export const EVENTARC = {
 }
 
 export function Eventarc(props: DiagramNodeProps) {
-  return <Shape {...EVENTARC} {...props} />
+  return (
+    <Shape {...EVENTARC} {...props} _style={extendStyle(EVENTARC, props)} />
+  )
 }

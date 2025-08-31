@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SkypeForBusinessBackEndServer } from '@reactiac/standard-components-diagrams/officeServers'
+import { SkypeForBusinessBackEndServer } from '@diac/standard-components-diagrams/officeServers'
 
 <SkypeForBusinessBackEndServer/>
 ```

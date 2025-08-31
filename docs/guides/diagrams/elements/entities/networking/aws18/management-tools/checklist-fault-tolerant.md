@@ -14,7 +14,7 @@ tolerant
 ## Usage
 
 ```
-import { ChecklistFaultTolerant } from '@reactiac/standard-components-diagrams/aws18ManagementTools'
+import { ChecklistFaultTolerant } from '@diac/standard-components-diagrams/aws18ManagementTools'
 
 <ChecklistFaultTolerant/>
 ```

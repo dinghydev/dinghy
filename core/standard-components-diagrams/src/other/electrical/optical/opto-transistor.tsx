@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPTO_TRANSISTOR = {
   _style:
@@ -9,5 +9,11 @@ export const OPTO_TRANSISTOR = {
 }
 
 export function OptoTransistor(props: DiagramNodeProps) {
-  return <Shape {...OPTO_TRANSISTOR} {...props} />
+  return (
+    <Shape
+      {...OPTO_TRANSISTOR}
+      {...props}
+      _style={extendStyle(OPTO_TRANSISTOR, props)}
+    />
+  )
 }

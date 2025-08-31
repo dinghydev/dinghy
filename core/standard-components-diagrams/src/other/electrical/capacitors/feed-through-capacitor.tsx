@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FEED_THROUGH_CAPACITOR = {
   _style:
@@ -9,5 +9,11 @@ export const FEED_THROUGH_CAPACITOR = {
 }
 
 export function FeedThroughCapacitor(props: DiagramNodeProps) {
-  return <Shape {...FEED_THROUGH_CAPACITOR} {...props} />
+  return (
+    <Shape
+      {...FEED_THROUGH_CAPACITOR}
+      {...props}
+      _style={extendStyle(FEED_THROUGH_CAPACITOR, props)}
+    />
+  )
 }

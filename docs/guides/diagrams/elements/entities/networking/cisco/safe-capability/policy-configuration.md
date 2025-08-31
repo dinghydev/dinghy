@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PolicyConfiguration } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { PolicyConfiguration } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <PolicyConfiguration/>
 ```

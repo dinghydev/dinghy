@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CodeplexCodeSource } from '@reactiac/standard-components-diagrams/azure'
+import { CodeplexCodeSource } from '@diac/standard-components-diagrams/azure'
 
 <CodeplexCodeSource/>
 ```

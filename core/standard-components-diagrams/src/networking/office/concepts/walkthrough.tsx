@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WALKTHROUGH = {
   _style:
@@ -9,5 +9,11 @@ export const WALKTHROUGH = {
 }
 
 export function Walkthrough(props: DiagramNodeProps) {
-  return <Shape {...WALKTHROUGH} {...props} />
+  return (
+    <Shape
+      {...WALKTHROUGH}
+      {...props}
+      _style={extendStyle(WALKTHROUGH, props)}
+    />
+  )
 }

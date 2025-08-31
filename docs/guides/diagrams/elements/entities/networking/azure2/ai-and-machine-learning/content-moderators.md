@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentModerators } from '@reactiac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { ContentModerators } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <ContentModerators/>
 ```

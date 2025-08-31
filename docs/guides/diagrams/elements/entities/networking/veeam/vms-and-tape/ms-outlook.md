@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MsOutlook } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { MsOutlook } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <MsOutlook/>
 ```

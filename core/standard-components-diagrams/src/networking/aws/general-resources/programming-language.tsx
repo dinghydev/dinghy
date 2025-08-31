@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROGRAMMING_LANGUAGE = {
   _style:
@@ -9,5 +9,11 @@ export const PROGRAMMING_LANGUAGE = {
 }
 
 export function ProgrammingLanguage(props: DiagramNodeProps) {
-  return <Shape {...PROGRAMMING_LANGUAGE} {...props} />
+  return (
+    <Shape
+      {...PROGRAMMING_LANGUAGE}
+      {...props}
+      _style={extendStyle(PROGRAMMING_LANGUAGE, props)}
+    />
+  )
 }

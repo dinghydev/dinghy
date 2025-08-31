@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HTML5 = {
   _style:
@@ -9,5 +9,5 @@ export const HTML5 = {
 }
 
 export function Html5(props: DiagramNodeProps) {
-  return <Shape {...HTML5} {...props} />
+  return <Shape {...HTML5} {...props} _style={extendStyle(HTML5, props)} />
 }

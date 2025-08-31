@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OfflineCapabilities } from '@reactiac/standard-components-diagrams/ibmMiscellaneous'
+import { OfflineCapabilities } from '@diac/standard-components-diagrams/ibmMiscellaneous'
 
 <OfflineCapabilities/>
 ```

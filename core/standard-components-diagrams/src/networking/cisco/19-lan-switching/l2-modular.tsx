@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const L2_MODULAR = {
   _style:
@@ -9,5 +9,7 @@ export const L2_MODULAR = {
 }
 
 export function L2Modular(props: DiagramNodeProps) {
-  return <Shape {...L2_MODULAR} {...props} />
+  return (
+    <Shape {...L2_MODULAR} {...props} _style={extendStyle(L2_MODULAR, props)} />
+  )
 }

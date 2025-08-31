@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10950_DIRECTIONAL_CONTROL = {
   _style:
@@ -9,5 +9,11 @@ export const X10950_DIRECTIONAL_CONTROL = {
 }
 
 export function X10950DirectionalControl(props: DiagramNodeProps) {
-  return <Shape {...X10950_DIRECTIONAL_CONTROL} {...props} />
+  return (
+    <Shape
+      {...X10950_DIRECTIONAL_CONTROL}
+      {...props}
+      _style={extendStyle(X10950_DIRECTIONAL_CONTROL, props)}
+    />
+  )
 }

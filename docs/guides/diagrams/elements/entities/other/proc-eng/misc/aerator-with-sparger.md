@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AeratorWithSparger } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { AeratorWithSparger } from '@diac/standard-components-diagrams/procEngMisc'
 
 <AeratorWithSparger/>
 ```

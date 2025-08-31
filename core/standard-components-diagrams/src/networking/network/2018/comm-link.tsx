@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMM_LINK = {
   _style: {
@@ -9,5 +9,11 @@ export const COMM_LINK = {
 }
 
 export function CommLink(props: DiagramNodeProps) {
-  return <Dependency {...COMM_LINK} {...props} />
+  return (
+    <Dependency
+      {...COMM_LINK}
+      {...props}
+      _style={extendStyle(COMM_LINK, props)}
+    />
+  )
 }

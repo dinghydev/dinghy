@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SELF_CALL = {
   _style:
@@ -9,5 +9,7 @@ export const SELF_CALL = {
 }
 
 export function SelfCall(props: DiagramNodeProps) {
-  return <Shape {...SELF_CALL} {...props} />
+  return (
+    <Shape {...SELF_CALL} {...props} _style={extendStyle(SELF_CALL, props)} />
+  )
 }

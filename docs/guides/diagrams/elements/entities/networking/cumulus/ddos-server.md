@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DdosServer } from '@reactiac/standard-components-diagrams/cumulus'
+import { DdosServer } from '@diac/standard-components-diagrams/cumulus'
 
 <DdosServer/>
 ```

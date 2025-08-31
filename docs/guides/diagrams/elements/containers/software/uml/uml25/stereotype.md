@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { Stereotype } from '@reactiac/standard-components-diagrams/uml25'
+import { Stereotype } from '@diac/standard-components-diagrams/uml25'
 
 <Stereotype/>
 ```

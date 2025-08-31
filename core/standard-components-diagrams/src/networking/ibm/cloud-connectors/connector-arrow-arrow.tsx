@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONNECTOR_ARROW_ARROW = {
   _style: {
@@ -9,5 +9,11 @@ export const CONNECTOR_ARROW_ARROW = {
 }
 
 export function ConnectorArrowArrow(props: DiagramNodeProps) {
-  return <Dependency {...CONNECTOR_ARROW_ARROW} {...props} />
+  return (
+    <Dependency
+      {...CONNECTOR_ARROW_ARROW}
+      {...props}
+      _style={extendStyle(CONNECTOR_ARROW_ARROW, props)}
+    />
+  )
 }

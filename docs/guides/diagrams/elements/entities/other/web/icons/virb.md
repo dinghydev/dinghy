@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Virb } from '@reactiac/standard-components-diagrams/webIcons'
+import { Virb } from '@diac/standard-components-diagrams/webIcons'
 
 <Virb/>
 ```

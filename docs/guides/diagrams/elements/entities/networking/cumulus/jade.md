@@ -5,15 +5,15 @@
 ```
 {
   _style: 'fillColor=#00AD69;strokeColor=none;whiteSpace=wrap;html=1;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Jade } from '@reactiac/standard-components-diagrams/cumulus'
+import { Jade } from '@diac/standard-components-diagrams/cumulus'
 
 <Jade/>
 ```

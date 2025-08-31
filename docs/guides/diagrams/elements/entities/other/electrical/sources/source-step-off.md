@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SourceStepOff } from '@reactiac/standard-components-diagrams/electricalSources'
+import { SourceStepOff } from '@diac/standard-components-diagrams/electricalSources'
 
 <SourceStepOff/>
 ```

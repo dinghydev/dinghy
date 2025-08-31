@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PHYSICAL_STORAGE = {
   _style:
@@ -9,5 +9,11 @@ export const PHYSICAL_STORAGE = {
 }
 
 export function PhysicalStorage(props: DiagramNodeProps) {
-  return <Shape {...PHYSICAL_STORAGE} {...props} />
+  return (
+    <Shape
+      {...PHYSICAL_STORAGE}
+      {...props}
+      _style={extendStyle(PHYSICAL_STORAGE, props)}
+    />
+  )
 }

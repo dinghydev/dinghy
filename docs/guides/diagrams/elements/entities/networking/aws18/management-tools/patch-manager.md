@@ -14,7 +14,7 @@ manager
 ## Usage
 
 ```
-import { PatchManager } from '@reactiac/standard-components-diagrams/aws18ManagementTools'
+import { PatchManager } from '@diac/standard-components-diagrams/aws18ManagementTools'
 
 <PatchManager/>
 ```

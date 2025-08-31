@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TERMINATE = {
   _style: 'shape=umlDestroy;html=1;',
@@ -8,5 +8,7 @@ export const TERMINATE = {
 }
 
 export function Terminate(props: DiagramNodeProps) {
-  return <Shape {...TERMINATE} {...props} />
+  return (
+    <Shape {...TERMINATE} {...props} _style={extendStyle(TERMINATE, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Switch } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { Switch } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <Switch/>
 ```

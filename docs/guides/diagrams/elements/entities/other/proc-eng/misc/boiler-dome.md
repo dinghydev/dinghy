@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BoilerDome } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { BoilerDome } from '@diac/standard-components-diagrams/procEngMisc'
 
 <BoilerDome/>
 ```

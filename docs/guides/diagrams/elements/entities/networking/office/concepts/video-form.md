@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VideoForm } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { VideoForm } from '@diac/standard-components-diagrams/officeConcepts'
 
 <VideoForm/>
 ```

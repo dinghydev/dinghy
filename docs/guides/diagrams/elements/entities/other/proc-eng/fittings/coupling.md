@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Coupling } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { Coupling } from '@diac/standard-components-diagrams/procEngFittings'
 
 <Coupling/>
 ```

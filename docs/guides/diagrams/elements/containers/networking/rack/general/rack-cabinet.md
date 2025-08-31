@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { RackCabinet } from '@reactiac/standard-components-diagrams/rackGeneral'
+import { RackCabinet } from '@diac/standard-components-diagrams/rackGeneral'
 
 <RackCabinet/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PERSISTENT_FOOTER_BUTTONS = {
   _style:
@@ -9,5 +9,11 @@ export const PERSISTENT_FOOTER_BUTTONS = {
 }
 
 export function PersistentFooterButtons(props: DiagramNodeProps) {
-  return <Shape {...PERSISTENT_FOOTER_BUTTONS} {...props} />
+  return (
+    <Shape
+      {...PERSISTENT_FOOTER_BUTTONS}
+      {...props}
+      _style={extendStyle(PERSISTENT_FOOTER_BUTTONS, props)}
+    />
+  )
 }

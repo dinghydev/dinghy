@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NSX_DASHBOARD = {
   _style:
@@ -9,5 +9,11 @@ export const NSX_DASHBOARD = {
 }
 
 export function NsxDashboard(props: DiagramNodeProps) {
-  return <Shape {...NSX_DASHBOARD} {...props} />
+  return (
+    <Shape
+      {...NSX_DASHBOARD}
+      {...props}
+      _style={extendStyle(NSX_DASHBOARD, props)}
+    />
+  )
 }

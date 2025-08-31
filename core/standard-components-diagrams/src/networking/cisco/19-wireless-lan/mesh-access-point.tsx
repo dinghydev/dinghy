@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MESH_ACCESS_POINT = {
   _style:
@@ -9,5 +9,11 @@ export const MESH_ACCESS_POINT = {
 }
 
 export function MeshAccessPoint(props: DiagramNodeProps) {
-  return <Shape {...MESH_ACCESS_POINT} {...props} />
+  return (
+    <Shape
+      {...MESH_ACCESS_POINT}
+      {...props}
+      _style={extendStyle(MESH_ACCESS_POINT, props)}
+    />
+  )
 }

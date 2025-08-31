@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabaseMiniGhosted } from '@reactiac/standard-components-diagrams/officeDatabases'
+import { DatabaseMiniGhosted } from '@diac/standard-components-diagrams/officeDatabases'
 
 <DatabaseMiniGhosted/>
 ```

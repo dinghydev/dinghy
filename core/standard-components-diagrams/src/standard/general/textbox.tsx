@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEXTBOX = {
   _style: 'text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;',
@@ -8,5 +8,5 @@ export const TEXTBOX = {
 }
 
 export function Textbox(props: DiagramNodeProps) {
-  return <Shape {...TEXTBOX} {...props} />
+  return <Shape {...TEXTBOX} {...props} _style={extendStyle(TEXTBOX, props)} />
 }

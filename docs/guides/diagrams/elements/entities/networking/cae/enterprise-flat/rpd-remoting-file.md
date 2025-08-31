@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RpdRemotingFile } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { RpdRemotingFile } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <RpdRemotingFile/>
 ```

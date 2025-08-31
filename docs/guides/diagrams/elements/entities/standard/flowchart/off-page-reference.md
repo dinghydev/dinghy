@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OffPageReference } from '@reactiac/standard-components-diagrams/flowchart'
+import { OffPageReference } from '@diac/standard-components-diagrams/flowchart'
 
 <OffPageReference/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Instapaper } from '@reactiac/standard-components-diagrams/webLogos'
+import { Instapaper } from '@diac/standard-components-diagrams/webLogos'
 
 <Instapaper/>
 ```

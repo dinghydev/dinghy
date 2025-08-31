@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUNFIRE_X4100 = {
   _style:
@@ -9,5 +9,11 @@ export const SUNFIRE_X4100 = {
 }
 
 export function SunfireX4100(props: DiagramNodeProps) {
-  return <Shape {...SUNFIRE_X4100} {...props} />
+  return (
+    <Shape
+      {...SUNFIRE_X4100}
+      {...props}
+      _style={extendStyle(SUNFIRE_X4100, props)}
+    />
+  )
 }

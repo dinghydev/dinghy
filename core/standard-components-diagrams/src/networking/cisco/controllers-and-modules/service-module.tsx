@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SERVICE_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const SERVICE_MODULE = {
 }
 
 export function ServiceModule(props: DiagramNodeProps) {
-  return <Shape {...SERVICE_MODULE} {...props} />
+  return (
+    <Shape
+      {...SERVICE_MODULE}
+      {...props}
+      _style={extendStyle(SERVICE_MODULE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROTARY_COMPRESSOR = {
   _style:
@@ -9,5 +9,11 @@ export const ROTARY_COMPRESSOR = {
 }
 
 export function RotaryCompressor(props: DiagramNodeProps) {
-  return <Shape {...ROTARY_COMPRESSOR} {...props} />
+  return (
+    <Shape
+      {...ROTARY_COMPRESSOR}
+      {...props}
+      _style={extendStyle(ROTARY_COMPRESSOR, props)}
+    />
+  )
 }

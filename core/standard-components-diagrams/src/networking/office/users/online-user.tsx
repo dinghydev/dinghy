@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ONLINE_USER = {
   _style:
@@ -9,5 +9,11 @@ export const ONLINE_USER = {
 }
 
 export function OnlineUser(props: DiagramNodeProps) {
-  return <Shape {...ONLINE_USER} {...props} />
+  return (
+    <Shape
+      {...ONLINE_USER}
+      {...props}
+      _style={extendStyle(ONLINE_USER, props)}
+    />
+  )
 }

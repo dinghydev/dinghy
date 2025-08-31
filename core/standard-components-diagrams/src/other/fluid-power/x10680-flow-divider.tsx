@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10680_FLOW_DIVIDER = {
   _style:
@@ -9,5 +9,11 @@ export const X10680_FLOW_DIVIDER = {
 }
 
 export function X10680FlowDivider(props: DiagramNodeProps) {
-  return <Shape {...X10680_FLOW_DIVIDER} {...props} />
+  return (
+    <Shape
+      {...X10680_FLOW_DIVIDER}
+      {...props}
+      _style={extendStyle(X10680_FLOW_DIVIDER, props)}
+    />
+  )
 }

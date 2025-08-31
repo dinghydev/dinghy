@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SECURE_ENDPOINT_PC = {
   _style:
@@ -9,5 +9,11 @@ export const SECURE_ENDPOINT_PC = {
 }
 
 export function SecureEndpointPc(props: DiagramNodeProps) {
-  return <Shape {...SECURE_ENDPOINT_PC} {...props} />
+  return (
+    <Shape
+      {...SECURE_ENDPOINT_PC}
+      {...props}
+      _style={extendStyle(SECURE_ENDPOINT_PC, props)}
+    />
+  )
 }

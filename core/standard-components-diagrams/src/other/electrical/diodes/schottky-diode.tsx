@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCHOTTKY_DIODE = {
   _style:
@@ -9,5 +9,11 @@ export const SCHOTTKY_DIODE = {
 }
 
 export function SchottkyDiode(props: DiagramNodeProps) {
-  return <Shape {...SCHOTTKY_DIODE} {...props} />
+  return (
+    <Shape
+      {...SCHOTTKY_DIODE}
+      {...props}
+      _style={extendStyle(SCHOTTKY_DIODE, props)}
+    />
+  )
 }

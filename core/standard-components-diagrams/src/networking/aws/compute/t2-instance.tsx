@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const T2_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const T2_INSTANCE = {
 }
 
 export function T2Instance(props: DiagramNodeProps) {
-  return <Shape {...T2_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...T2_INSTANCE}
+      {...props}
+      _style={extendStyle(T2_INSTANCE, props)}
+    />
+  )
 }

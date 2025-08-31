@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_COST_AND_USAGE_REPORT = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_COST_AND_USAGE_REPORT = {
 }
 
 export function AwsCostAndUsageReport(props: DiagramNodeProps) {
-  return <Shape {...AWS_COST_AND_USAGE_REPORT} {...props} />
+  return (
+    <Shape
+      {...AWS_COST_AND_USAGE_REPORT}
+      {...props}
+      _style={extendStyle(AWS_COST_AND_USAGE_REPORT, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RtcRealTimeCommunication } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { RtcRealTimeCommunication } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <RtcRealTimeCommunication/>
 ```

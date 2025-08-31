@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BAIDU = {
   _style:
@@ -9,5 +9,5 @@ export const BAIDU = {
 }
 
 export function Baidu(props: DiagramNodeProps) {
-  return <Shape {...BAIDU} {...props} />
+  return <Shape {...BAIDU} {...props} _style={extendStyle(BAIDU, props)} />
 }

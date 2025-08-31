@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Baidu } from '@reactiac/standard-components-diagrams/webIcons'
+import { Baidu } from '@diac/standard-components-diagrams/webIcons'
 
 <Baidu/>
 ```

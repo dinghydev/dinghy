@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectBiDirectional } from '@reactiac/standard-components-diagrams/sapConnectors'
+import { DirectBiDirectional } from '@diac/standard-components-diagrams/sapConnectors'
 
 <DirectBiDirectional/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const QUEUE_GENERIC = {
   _style:
@@ -9,5 +9,11 @@ export const QUEUE_GENERIC = {
 }
 
 export function QueueGeneric(props: DiagramNodeProps) {
-  return <Shape {...QUEUE_GENERIC} {...props} />
+  return (
+    <Shape
+      {...QUEUE_GENERIC}
+      {...props}
+      _style={extendStyle(QUEUE_GENERIC, props)}
+    />
+  )
 }

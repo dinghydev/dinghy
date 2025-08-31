@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ECCENTRIC_REDUCER = {
   _style:
@@ -9,5 +9,11 @@ export const ECCENTRIC_REDUCER = {
 }
 
 export function EccentricReducer(props: DiagramNodeProps) {
-  return <Shape {...ECCENTRIC_REDUCER} {...props} />
+  return (
+    <Shape
+      {...ECCENTRIC_REDUCER}
+      {...props}
+      _style={extendStyle(ECCENTRIC_REDUCER, props)}
+    />
+  )
 }

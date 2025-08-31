@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Captcha } from '@reactiac/standard-components-diagrams/mockupText'
+import { Captcha } from '@diac/standard-components-diagrams/mockupText'
 
 <Captcha/>
 ```

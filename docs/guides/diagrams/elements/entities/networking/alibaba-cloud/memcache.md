@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Memcache } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Memcache } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Memcache/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ListWithDivider } from '@reactiac/standard-components-diagrams/bootstrap'
+import { ListWithDivider } from '@diac/standard-components-diagrams/bootstrap'
 
 <ListWithDivider/>
 ```

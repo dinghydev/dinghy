@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETPOL = {
   _style:
@@ -9,5 +9,5 @@ export const NETPOL = {
 }
 
 export function Netpol(props: DiagramNodeProps) {
-  return <Shape {...NETPOL} {...props} />
+  return <Shape {...NETPOL} {...props} _style={extendStyle(NETPOL, props)} />
 }

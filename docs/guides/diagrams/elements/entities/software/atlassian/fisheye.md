@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Fisheye } from '@reactiac/standard-components-diagrams/atlassian'
+import { Fisheye } from '@diac/standard-components-diagrams/atlassian'
 
 <Fisheye/>
 ```

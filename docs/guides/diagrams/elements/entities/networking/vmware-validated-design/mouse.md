@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mouse } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { Mouse } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <Mouse/>
 ```

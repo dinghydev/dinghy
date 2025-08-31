@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COOLER = {
   _style:
@@ -9,5 +9,5 @@ export const COOLER = {
 }
 
 export function Cooler(props: DiagramNodeProps) {
-  return <Shape {...COOLER} {...props} />
+  return <Shape {...COOLER} {...props} _style={extendStyle(COOLER, props)} />
 }

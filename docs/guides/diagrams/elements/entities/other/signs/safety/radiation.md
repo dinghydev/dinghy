@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Radiation } from '@reactiac/standard-components-diagrams/signsSafety'
+import { Radiation } from '@diac/standard-components-diagrams/signsSafety'
 
 <Radiation/>
 ```

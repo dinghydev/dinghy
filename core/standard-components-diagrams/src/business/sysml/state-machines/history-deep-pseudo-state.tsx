@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HISTORY_DEEP_PSEUDO_STATE = {
   _style: 'shape=ellipse;html=1;fontSize=18;align=center;',
@@ -8,5 +8,11 @@ export const HISTORY_DEEP_PSEUDO_STATE = {
 }
 
 export function HistoryDeepPseudoState(props: DiagramNodeProps) {
-  return <Shape {...HISTORY_DEEP_PSEUDO_STATE} {...props} />
+  return (
+    <Shape
+      {...HISTORY_DEEP_PSEUDO_STATE}
+      {...props}
+      _style={extendStyle(HISTORY_DEEP_PSEUDO_STATE, props)}
+    />
+  )
 }

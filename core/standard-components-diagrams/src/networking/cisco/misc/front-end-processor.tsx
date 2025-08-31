@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FRONT_END_PROCESSOR = {
   _style:
@@ -9,5 +9,11 @@ export const FRONT_END_PROCESSOR = {
 }
 
 export function FrontEndProcessor(props: DiagramNodeProps) {
-  return <Shape {...FRONT_END_PROCESSOR} {...props} />
+  return (
+    <Shape
+      {...FRONT_END_PROCESSOR}
+      {...props}
+      _style={extendStyle(FRONT_END_PROCESSOR, props)}
+    />
+  )
 }

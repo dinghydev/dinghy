@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BorderSpinner4 } from '@reactiac/standard-components-diagrams/bootstrap'
+import { BorderSpinner4 } from '@diac/standard-components-diagrams/bootstrap'
 
 <BorderSpinner4/>
 ```

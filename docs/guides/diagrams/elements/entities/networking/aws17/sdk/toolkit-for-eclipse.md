@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ToolkitForEclipse } from '@reactiac/standard-components-diagrams/aws17Sdk'
+import { ToolkitForEclipse } from '@diac/standard-components-diagrams/aws17Sdk'
 
 <ToolkitForEclipse/>
 ```

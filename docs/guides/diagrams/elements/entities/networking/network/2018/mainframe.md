@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mainframe } from '@reactiac/standard-components-diagrams/network'
+import { Mainframe } from '@diac/standard-components-diagrams/network'
 
 <Mainframe/>
 ```

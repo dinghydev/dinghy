@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTIC_LOAD_BALANCING = {
   _style: {
@@ -13,5 +13,11 @@ export const ELASTIC_LOAD_BALANCING = {
 }
 
 export function ElasticLoadBalancing(props: DiagramNodeProps) {
-  return <Shape {...ELASTIC_LOAD_BALANCING} {...props} />
+  return (
+    <Shape
+      {...ELASTIC_LOAD_BALANCING}
+      {...props}
+      _style={extendStyle(ELASTIC_LOAD_BALANCING, props)}
+    />
+  )
 }

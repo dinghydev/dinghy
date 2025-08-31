@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Spacer } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { Spacer } from '@diac/standard-components-diagrams/procEngPiping'
 
 <Spacer/>
 ```

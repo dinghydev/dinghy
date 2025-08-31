@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MergeOrStorage } from '@reactiac/standard-components-diagrams/flowchart'
+import { MergeOrStorage } from '@diac/standard-components-diagrams/flowchart'
 
 <MergeOrStorage/>
 ```

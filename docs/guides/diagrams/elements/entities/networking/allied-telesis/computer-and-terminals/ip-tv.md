@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IpTv } from '@reactiac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { IpTv } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <IpTv/>
 ```

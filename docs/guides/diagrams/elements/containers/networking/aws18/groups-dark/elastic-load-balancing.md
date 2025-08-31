@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { ElasticLoadBalancing } from '@reactiac/standard-components-diagrams/aws18GroupsDark'
+import { ElasticLoadBalancing } from '@diac/standard-components-diagrams/aws18GroupsDark'
 
 <ElasticLoadBalancing/>
 ```

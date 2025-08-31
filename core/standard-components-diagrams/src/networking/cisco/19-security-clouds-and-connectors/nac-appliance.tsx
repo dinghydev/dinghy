@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAC_APPLIANCE = {
   _style:
@@ -9,5 +9,11 @@ export const NAC_APPLIANCE = {
 }
 
 export function NacAppliance(props: DiagramNodeProps) {
-  return <Shape {...NAC_APPLIANCE} {...props} />
+  return (
+    <Shape
+      {...NAC_APPLIANCE}
+      {...props}
+      _style={extendStyle(NAC_APPLIANCE, props)}
+    />
+  )
 }

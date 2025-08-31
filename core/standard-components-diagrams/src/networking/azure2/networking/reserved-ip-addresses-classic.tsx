@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESERVED_IP_ADDRESSES_CLASSIC = {
   _style:
@@ -9,5 +9,11 @@ export const RESERVED_IP_ADDRESSES_CLASSIC = {
 }
 
 export function ReservedIpAddressesClassic(props: DiagramNodeProps) {
-  return <Shape {...RESERVED_IP_ADDRESSES_CLASSIC} {...props} />
+  return (
+    <Shape
+      {...RESERVED_IP_ADDRESSES_CLASSIC}
+      {...props}
+      _style={extendStyle(RESERVED_IP_ADDRESSES_CLASSIC, props)}
+    />
+  )
 }

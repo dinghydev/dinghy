@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STRAINER = {
   _style:
@@ -9,5 +9,7 @@ export const STRAINER = {
 }
 
 export function Strainer(props: DiagramNodeProps) {
-  return <Shape {...STRAINER} {...props} />
+  return (
+    <Shape {...STRAINER} {...props} _style={extendStyle(STRAINER, props)} />
+  )
 }

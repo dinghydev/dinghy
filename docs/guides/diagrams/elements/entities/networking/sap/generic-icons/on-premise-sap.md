@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OnPremiseSap } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { OnPremiseSap } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <OnPremiseSap/>
 ```

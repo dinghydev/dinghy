@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HCS_HGW_HYBRID_CLOUD_STORAGE_ARRAY = {
   _style:
@@ -9,5 +9,11 @@ export const HCS_HGW_HYBRID_CLOUD_STORAGE_ARRAY = {
 }
 
 export function HcsHgwHybridCloudStorageArray(props: DiagramNodeProps) {
-  return <Shape {...HCS_HGW_HYBRID_CLOUD_STORAGE_ARRAY} {...props} />
+  return (
+    <Shape
+      {...HCS_HGW_HYBRID_CLOUD_STORAGE_ARRAY}
+      {...props}
+      _style={extendStyle(HCS_HGW_HYBRID_CLOUD_STORAGE_ARRAY, props)}
+    />
+  )
 }

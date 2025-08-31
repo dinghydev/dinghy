@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InstanceSpecification2 } from '@reactiac/standard-components-diagrams/sysmlBlocks'
+import { InstanceSpecification2 } from '@diac/standard-components-diagrams/sysmlBlocks'
 
 <InstanceSpecification2/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUBTLE_TOGGLE = {
   _style:
@@ -9,5 +9,11 @@ export const SUBTLE_TOGGLE = {
 }
 
 export function SubtleToggle(props: DiagramNodeProps) {
-  return <Shape {...SUBTLE_TOGGLE} {...props} />
+  return (
+    <Shape
+      {...SUBTLE_TOGGLE}
+      {...props}
+      _style={extendStyle(SUBTLE_TOGGLE, props)}
+    />
+  )
 }

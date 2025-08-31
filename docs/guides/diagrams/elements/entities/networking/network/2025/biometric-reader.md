@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BiometricReader } from '@reactiac/standard-components-diagrams/network2'
+import { BiometricReader } from '@diac/standard-components-diagrams/network2'
 
 <BiometricReader/>
 ```

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.instances_2;fillColor=#759C3E;gradientColor=none;',
-  _width: 81,
-  _height: 81,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Instances } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { Instances } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <Instances/>
 ```

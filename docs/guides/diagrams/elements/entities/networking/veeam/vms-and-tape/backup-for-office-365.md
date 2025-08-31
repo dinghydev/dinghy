@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BackupForOffice365 } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { BackupForOffice365 } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <BackupForOffice365/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CARD_WITH_HEADER_AND_FOOTER = {
   _style:
@@ -9,5 +9,11 @@ export const CARD_WITH_HEADER_AND_FOOTER = {
 }
 
 export function CardWithHeaderAndFooter(props: DiagramNodeProps) {
-  return <Shape {...CARD_WITH_HEADER_AND_FOOTER} {...props} />
+  return (
+    <Shape
+      {...CARD_WITH_HEADER_AND_FOOTER}
+      {...props}
+      _style={extendStyle(CARD_WITH_HEADER_AND_FOOTER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Skype } from '@reactiac/standard-components-diagrams/webIcons'
+import { Skype } from '@diac/standard-components-diagrams/webIcons'
 
 <Skype/>
 ```

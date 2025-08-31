@@ -1,4 +1,4 @@
-import type { Props } from '@reactiac/base-components'
+import type { Props } from '@diac/base-components'
 
 export const _icon = (icon: string | Props) =>
   typeof icon === 'string'

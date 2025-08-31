@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MobileStreamer } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { MobileStreamer } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <MobileStreamer/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STROLLER = {
   _style:
@@ -9,5 +9,7 @@ export const STROLLER = {
 }
 
 export function Stroller(props: DiagramNodeProps) {
-  return <Shape {...STROLLER} {...props} />
+  return (
+    <Shape {...STROLLER} {...props} _style={extendStyle(STROLLER, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10610_THREE_PORT_PRESSURE_REDUCING = {
   _style:
@@ -9,5 +9,11 @@ export const X10610_THREE_PORT_PRESSURE_REDUCING = {
 }
 
 export function X10610ThreePortPressureReducing(props: DiagramNodeProps) {
-  return <Shape {...X10610_THREE_PORT_PRESSURE_REDUCING} {...props} />
+  return (
+    <Shape
+      {...X10610_THREE_PORT_PRESSURE_REDUCING}
+      {...props}
+      _style={extendStyle(X10610_THREE_PORT_PRESSURE_REDUCING, props)}
+    />
+  )
 }

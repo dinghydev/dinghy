@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const L3_SWITCH_WITH_DUAL_SUPERVISOR = {
   _style:
@@ -9,5 +9,11 @@ export const L3_SWITCH_WITH_DUAL_SUPERVISOR = {
 }
 
 export function L3SwitchWithDualSupervisor(props: DiagramNodeProps) {
-  return <Shape {...L3_SWITCH_WITH_DUAL_SUPERVISOR} {...props} />
+  return (
+    <Shape
+      {...L3_SWITCH_WITH_DUAL_SUPERVISOR}
+      {...props}
+      _style={extendStyle(L3_SWITCH_WITH_DUAL_SUPERVISOR, props)}
+    />
+  )
 }

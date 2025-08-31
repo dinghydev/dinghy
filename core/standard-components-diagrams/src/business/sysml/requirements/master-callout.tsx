@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MASTER_CALLOUT = {
   _style:
@@ -9,5 +9,11 @@ export const MASTER_CALLOUT = {
 }
 
 export function MasterCallout(props: DiagramNodeProps) {
-  return <Shape {...MASTER_CALLOUT} {...props} />
+  return (
+    <Shape
+      {...MASTER_CALLOUT}
+      {...props}
+      _style={extendStyle(MASTER_CALLOUT, props)}
+    />
+  )
 }

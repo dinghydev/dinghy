@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VolumeSlider } from '@reactiac/standard-components-diagrams/mockupMisc'
+import { VolumeSlider } from '@diac/standard-components-diagrams/mockupMisc'
 
 <VolumeSlider/>
 ```

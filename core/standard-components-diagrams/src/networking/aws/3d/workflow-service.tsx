@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORKFLOW_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const WORKFLOW_SERVICE = {
 }
 
 export function WorkflowService(props: DiagramNodeProps) {
-  return <Shape {...WORKFLOW_SERVICE} {...props} />
+  return (
+    <Shape
+      {...WORKFLOW_SERVICE}
+      {...props}
+      _style={extendStyle(WORKFLOW_SERVICE, props)}
+    />
+  )
 }

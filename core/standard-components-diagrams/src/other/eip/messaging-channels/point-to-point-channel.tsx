@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POINT_TO_POINT_CHANNEL = {
   _style: {
@@ -9,5 +9,11 @@ export const POINT_TO_POINT_CHANNEL = {
 }
 
 export function PointToPointChannel(props: DiagramNodeProps) {
-  return <Dependency {...POINT_TO_POINT_CHANNEL} {...props} />
+  return (
+    <Dependency
+      {...POINT_TO_POINT_CHANNEL}
+      {...props}
+      _style={extendStyle(POINT_TO_POINT_CHANNEL, props)}
+    />
+  )
 }

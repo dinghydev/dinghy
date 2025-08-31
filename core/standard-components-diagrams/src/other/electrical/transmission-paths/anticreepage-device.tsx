@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANTICREEPAGE_DEVICE = {
   _style:
@@ -9,5 +9,11 @@ export const ANTICREEPAGE_DEVICE = {
 }
 
 export function AnticreepageDevice(props: DiagramNodeProps) {
-  return <Shape {...ANTICREEPAGE_DEVICE} {...props} />
+  return (
+    <Shape
+      {...ANTICREEPAGE_DEVICE}
+      {...props}
+      _style={extendStyle(ANTICREEPAGE_DEVICE, props)}
+    />
+  )
 }

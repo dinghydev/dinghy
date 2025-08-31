@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetworkFunctionManagerFunctions } from '@reactiac/standard-components-diagrams/azure2Other'
+import { NetworkFunctionManagerFunctions } from '@diac/standard-components-diagrams/azure2Other'
 
 <NetworkFunctionManagerFunctions/>
 ```

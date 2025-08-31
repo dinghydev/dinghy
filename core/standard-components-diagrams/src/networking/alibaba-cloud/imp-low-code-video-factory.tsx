@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IMP_LOW_CODE_VIDEO_FACTORY = {
   _style:
@@ -9,5 +9,11 @@ export const IMP_LOW_CODE_VIDEO_FACTORY = {
 }
 
 export function ImpLowCodeVideoFactory(props: DiagramNodeProps) {
-  return <Shape {...IMP_LOW_CODE_VIDEO_FACTORY} {...props} />
+  return (
+    <Shape
+      {...IMP_LOW_CODE_VIDEO_FACTORY}
+      {...props}
+      _style={extendStyle(IMP_LOW_CODE_VIDEO_FACTORY, props)}
+    />
+  )
 }

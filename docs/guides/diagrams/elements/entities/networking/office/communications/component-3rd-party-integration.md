@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component3rdPartyIntegration } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { Component3rdPartyIntegration } from '@diac/standard-components-diagrams/officeCommunications'
 
 <Component3rdPartyIntegration/>
 ```

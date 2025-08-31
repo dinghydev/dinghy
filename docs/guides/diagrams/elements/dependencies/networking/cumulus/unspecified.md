@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Unspecified } from '@reactiac/standard-components-diagrams/cumulus'
+import { Unspecified } from '@diac/standard-components-diagrams/cumulus'
 
 <Unspecified/>
 ```

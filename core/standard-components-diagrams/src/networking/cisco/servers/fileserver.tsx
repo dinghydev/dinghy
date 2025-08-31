@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FILESERVER = {
   _style:
@@ -9,5 +9,7 @@ export const FILESERVER = {
 }
 
 export function Fileserver(props: DiagramNodeProps) {
-  return <Shape {...FILESERVER} {...props} />
+  return (
+    <Shape {...FILESERVER} {...props} _style={extendStyle(FILESERVER, props)} />
+  )
 }

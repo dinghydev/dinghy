@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SensingLinkSquib } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { SensingLinkSquib } from '@diac/standard-components-diagrams/electricalMisc'
 
 <SensingLinkSquib/>
 ```

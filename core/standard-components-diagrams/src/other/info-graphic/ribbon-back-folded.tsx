@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RIBBON_BACK_FOLDED = {
   _style:
@@ -9,5 +9,11 @@ export const RIBBON_BACK_FOLDED = {
 }
 
 export function RibbonBackFolded(props: DiagramNodeProps) {
-  return <Shape {...RIBBON_BACK_FOLDED} {...props} />
+  return (
+    <Shape
+      {...RIBBON_BACK_FOLDED}
+      {...props}
+      _style={extendStyle(RIBBON_BACK_FOLDED, props)}
+    />
+  )
 }

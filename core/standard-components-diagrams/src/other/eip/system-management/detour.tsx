@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DETOUR = {
   _style:
@@ -9,5 +9,5 @@ export const DETOUR = {
 }
 
 export function Detour(props: DiagramNodeProps) {
-  return <Shape {...DETOUR} {...props} />
+  return <Shape {...DETOUR} {...props} _style={extendStyle(DETOUR, props)} />
 }

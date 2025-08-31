@@ -3,7 +3,7 @@ import {
   type Commands,
   HANDLED_ERROR_EXIT_CODE,
   OPTIONS_SYMBOL,
-  ReactiacError,
+  DiacError,
 } from '../types.ts'
 import { updateCheck } from './updateCheck.ts'
 import { setupDebug } from './setupDebug.ts'
@@ -48,7 +48,7 @@ export const cliRun = async (
     await reportResult(msTaken, error)
 
     if (error) {
-      if (error instanceof ReactiacError) {
+      if (error instanceof DiacError) {
         console.error(
           `${error.code ? `${chalk.bold(error.code)} ` : ''}${
             chalk.red(error.message)

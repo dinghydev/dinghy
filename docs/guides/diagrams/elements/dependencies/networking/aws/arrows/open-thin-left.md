@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OpenThinLeft } from '@reactiac/standard-components-diagrams/awsArrows'
+import { OpenThinLeft } from '@diac/standard-components-diagrams/awsArrows'
 
 <OpenThinLeft/>
 ```

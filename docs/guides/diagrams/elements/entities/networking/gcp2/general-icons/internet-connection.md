@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InternetConnection } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { InternetConnection } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <InternetConnection/>
 ```

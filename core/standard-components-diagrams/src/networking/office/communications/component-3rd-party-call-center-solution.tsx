@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION = {
 }
 
 export function Component3rdPartyCallCenterSolution(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION}
+      {...props}
+      _style={extendStyle(COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION, props)}
+    />
+  )
 }

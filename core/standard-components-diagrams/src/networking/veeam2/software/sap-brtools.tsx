@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAP_BRTOOLS = {
   _style:
@@ -9,5 +9,11 @@ export const SAP_BRTOOLS = {
 }
 
 export function SapBrtools(props: DiagramNodeProps) {
-  return <Shape {...SAP_BRTOOLS} {...props} />
+  return (
+    <Shape
+      {...SAP_BRTOOLS}
+      {...props}
+      _style={extendStyle(SAP_BRTOOLS, props)}
+    />
+  )
 }

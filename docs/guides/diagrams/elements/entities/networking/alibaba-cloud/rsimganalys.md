@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Rsimganalys } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Rsimganalys } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Rsimganalys/>
 ```

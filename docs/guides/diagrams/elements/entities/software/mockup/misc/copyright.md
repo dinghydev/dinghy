@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Copyright } from '@reactiac/standard-components-diagrams/mockupMisc'
+import { Copyright } from '@diac/standard-components-diagrams/mockupMisc'
 
 <Copyright/>
 ```

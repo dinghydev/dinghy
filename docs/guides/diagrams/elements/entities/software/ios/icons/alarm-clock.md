@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AlarmClock } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { AlarmClock } from '@diac/standard-components-diagrams/ios7Icons'
 
 <AlarmClock/>
 ```

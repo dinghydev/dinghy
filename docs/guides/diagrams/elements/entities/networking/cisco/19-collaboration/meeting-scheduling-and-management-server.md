@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MeetingSchedulingAndManagementServer } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { MeetingSchedulingAndManagementServer } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <MeetingSchedulingAndManagementServer/>
 ```

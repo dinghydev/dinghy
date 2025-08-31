@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExchangeObjects } from '@reactiac/standard-components-diagrams/veeam2General'
+import { ExchangeObjects } from '@diac/standard-components-diagrams/veeam2General'
 
 <ExchangeObjects/>
 ```

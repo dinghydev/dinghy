@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXTERNAL_DATA_RESOURCE = {
   _style:
@@ -9,5 +9,11 @@ export const EXTERNAL_DATA_RESOURCE = {
 }
 
 export function ExternalDataResource(props: DiagramNodeProps) {
-  return <Shape {...EXTERNAL_DATA_RESOURCE} {...props} />
+  return (
+    <Shape
+      {...EXTERNAL_DATA_RESOURCE}
+      {...props}
+      _style={extendStyle(EXTERNAL_DATA_RESOURCE, props)}
+    />
+  )
 }

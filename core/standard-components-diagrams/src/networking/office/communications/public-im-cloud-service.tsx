@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PUBLIC_IM_CLOUD_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const PUBLIC_IM_CLOUD_SERVICE = {
 }
 
 export function PublicImCloudService(props: DiagramNodeProps) {
-  return <Shape {...PUBLIC_IM_CLOUD_SERVICE} {...props} />
+  return (
+    <Shape
+      {...PUBLIC_IM_CLOUD_SERVICE}
+      {...props}
+      _style={extendStyle(PUBLIC_IM_CLOUD_SERVICE, props)}
+    />
+  )
 }

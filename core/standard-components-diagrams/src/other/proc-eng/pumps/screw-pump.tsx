@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCREW_PUMP = {
   _style:
@@ -9,5 +9,7 @@ export const SCREW_PUMP = {
 }
 
 export function ScrewPump(props: DiagramNodeProps) {
-  return <Shape {...SCREW_PUMP} {...props} />
+  return (
+    <Shape {...SCREW_PUMP} {...props} _style={extendStyle(SCREW_PUMP, props)} />
+  )
 }

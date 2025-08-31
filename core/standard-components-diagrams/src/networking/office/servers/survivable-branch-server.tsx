@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SURVIVABLE_BRANCH_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const SURVIVABLE_BRANCH_SERVER = {
 }
 
 export function SurvivableBranchServer(props: DiagramNodeProps) {
-  return <Shape {...SURVIVABLE_BRANCH_SERVER} {...props} />
+  return (
+    <Shape
+      {...SURVIVABLE_BRANCH_SERVER}
+      {...props}
+      _style={extendStyle(SURVIVABLE_BRANCH_SERVER, props)}
+    />
+  )
 }

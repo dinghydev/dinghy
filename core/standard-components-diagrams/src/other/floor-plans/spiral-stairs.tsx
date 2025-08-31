@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPIRAL_STAIRS = {
   _style:
@@ -9,5 +9,11 @@ export const SPIRAL_STAIRS = {
 }
 
 export function SpiralStairs(props: DiagramNodeProps) {
-  return <Shape {...SPIRAL_STAIRS} {...props} />
+  return (
+    <Shape
+      {...SPIRAL_STAIRS}
+      {...props}
+      _style={extendStyle(SPIRAL_STAIRS, props)}
+    />
+  )
 }

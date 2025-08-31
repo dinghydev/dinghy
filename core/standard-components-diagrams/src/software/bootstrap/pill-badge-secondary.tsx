@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PILL_BADGE_SECONDARY = {
   _style:
@@ -9,5 +9,11 @@ export const PILL_BADGE_SECONDARY = {
 }
 
 export function PillBadgeSecondary(props: DiagramNodeProps) {
-  return <Shape {...PILL_BADGE_SECONDARY} {...props} />
+  return (
+    <Shape
+      {...PILL_BADGE_SECONDARY}
+      {...props}
+      _style={extendStyle(PILL_BADGE_SECONDARY, props)}
+    />
+  )
 }

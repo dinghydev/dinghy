@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED = {
   _style:
@@ -12,6 +12,13 @@ export function CiscoUnifiedContactCenterEnterpriseAndHosted(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED} {...props} />
+    <Shape
+      {...CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED}
+      {...props}
+      _style={extendStyle(
+        CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED,
+        props,
+      )}
+    />
   )
 }

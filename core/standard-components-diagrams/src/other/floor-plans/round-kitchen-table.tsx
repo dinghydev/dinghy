@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUND_KITCHEN_TABLE = {
   _style: 'shape=ellipse;shadow=0;html=1;',
@@ -8,5 +8,11 @@ export const ROUND_KITCHEN_TABLE = {
 }
 
 export function RoundKitchenTable(props: DiagramNodeProps) {
-  return <Shape {...ROUND_KITCHEN_TABLE} {...props} />
+  return (
+    <Shape
+      {...ROUND_KITCHEN_TABLE}
+      {...props}
+      _style={extendStyle(ROUND_KITCHEN_TABLE, props)}
+    />
+  )
 }

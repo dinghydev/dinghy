@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HdiAksCluster } from '@reactiac/standard-components-diagrams/azure2Other'
+import { HdiAksCluster } from '@diac/standard-components-diagrams/azure2Other'
 
 <HdiAksCluster/>
 ```

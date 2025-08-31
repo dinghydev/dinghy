@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TYPEPAD = {
   _style:
@@ -9,5 +9,5 @@ export const TYPEPAD = {
 }
 
 export function Typepad(props: DiagramNodeProps) {
-  return <Shape {...TYPEPAD} {...props} />
+  return <Shape {...TYPEPAD} {...props} _style={extendStyle(TYPEPAD, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultiCloudFinops } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { MultiCloudFinops } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <MultiCloudFinops/>
 ```

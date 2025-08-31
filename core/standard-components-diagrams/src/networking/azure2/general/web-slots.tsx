@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEB_SLOTS = {
   _style:
@@ -9,5 +9,7 @@ export const WEB_SLOTS = {
 }
 
 export function WebSlots(props: DiagramNodeProps) {
-  return <Shape {...WEB_SLOTS} {...props} />
+  return (
+    <Shape {...WEB_SLOTS} {...props} _style={extendStyle(WEB_SLOTS, props)} />
+  )
 }

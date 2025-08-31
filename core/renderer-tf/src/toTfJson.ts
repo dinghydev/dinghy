@@ -3,9 +3,9 @@ import {
   type Item,
   type NodeTree,
   type Props,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 import { handleCategory } from './category-handler/index.ts'
-import type { HostContainer, Output } from '@reactiac/base-renderer'
+import type { HostContainer, Output } from '@diac/base-renderer'
 import type { TfRenderOptions } from './types.ts'
 
 const isStageMatch = (stage: Item, currentStage?: any): boolean => {

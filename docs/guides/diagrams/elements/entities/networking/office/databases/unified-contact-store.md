@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UnifiedContactStore } from '@reactiac/standard-components-diagrams/officeDatabases'
+import { UnifiedContactStore } from '@diac/standard-components-diagrams/officeDatabases'
 
 <UnifiedContactStore/>
 ```

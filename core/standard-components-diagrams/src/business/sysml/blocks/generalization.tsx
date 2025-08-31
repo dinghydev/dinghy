@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GENERALIZATION = {
   _style: {
@@ -8,5 +8,11 @@ export const GENERALIZATION = {
 }
 
 export function Generalization(props: DiagramNodeProps) {
-  return <Dependency {...GENERALIZATION} {...props} />
+  return (
+    <Dependency
+      {...GENERALIZATION}
+      {...props}
+      _style={extendStyle(GENERALIZATION, props)}
+    />
+  )
 }

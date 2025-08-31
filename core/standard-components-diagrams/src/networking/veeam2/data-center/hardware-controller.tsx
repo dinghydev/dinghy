@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HARDWARE_CONTROLLER = {
   _style:
@@ -9,5 +9,11 @@ export const HARDWARE_CONTROLLER = {
 }
 
 export function HardwareController(props: DiagramNodeProps) {
-  return <Shape {...HARDWARE_CONTROLLER} {...props} />
+  return (
+    <Shape
+      {...HARDWARE_CONTROLLER}
+      {...props}
+      _style={extendStyle(HARDWARE_CONTROLLER, props)}
+    />
+  )
 }

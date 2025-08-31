@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NodeGenericGhosted } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { NodeGenericGhosted } from '@diac/standard-components-diagrams/officeConcepts'
 
 <NodeGenericGhosted/>
 ```

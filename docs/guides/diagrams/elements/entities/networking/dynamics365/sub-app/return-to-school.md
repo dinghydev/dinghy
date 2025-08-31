@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ReturnToSchool } from '@reactiac/standard-components-diagrams/dynamics365SubApp'
+import { ReturnToSchool } from '@diac/standard-components-diagrams/dynamics365SubApp'
 
 <ReturnToSchool/>
 ```

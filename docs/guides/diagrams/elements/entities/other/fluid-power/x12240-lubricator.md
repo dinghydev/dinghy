@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X12240Lubricator } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X12240Lubricator } from '@diac/standard-components-diagrams/fluidPower'
 
 <X12240Lubricator/>
 ```

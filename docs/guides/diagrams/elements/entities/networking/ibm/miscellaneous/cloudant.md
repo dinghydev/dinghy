@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cloudant } from '@reactiac/standard-components-diagrams/ibmMiscellaneous'
+import { Cloudant } from '@diac/standard-components-diagrams/ibmMiscellaneous'
 
 <Cloudant/>
 ```

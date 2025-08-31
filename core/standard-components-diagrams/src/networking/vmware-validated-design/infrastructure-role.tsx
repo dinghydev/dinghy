@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INFRASTRUCTURE_ROLE = {
   _style:
@@ -9,5 +9,11 @@ export const INFRASTRUCTURE_ROLE = {
 }
 
 export function InfrastructureRole(props: DiagramNodeProps) {
-  return <Shape {...INFRASTRUCTURE_ROLE} {...props} />
+  return (
+    <Shape
+      {...INFRASTRUCTURE_ROLE}
+      {...props}
+      _style={extendStyle(INFRASTRUCTURE_ROLE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCU_STORAGE_CAPACITY_UNIT = {
   _style:
@@ -9,5 +9,11 @@ export const SCU_STORAGE_CAPACITY_UNIT = {
 }
 
 export function ScuStorageCapacityUnit(props: DiagramNodeProps) {
-  return <Shape {...SCU_STORAGE_CAPACITY_UNIT} {...props} />
+  return (
+    <Shape
+      {...SCU_STORAGE_CAPACITY_UNIT}
+      {...props}
+      _style={extendStyle(SCU_STORAGE_CAPACITY_UNIT, props)}
+    />
+  )
 }

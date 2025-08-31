@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLUMN_FIXED_BED = {
   _style:
@@ -9,5 +9,11 @@ export const COLUMN_FIXED_BED = {
 }
 
 export function ColumnFixedBed(props: DiagramNodeProps) {
-  return <Shape {...COLUMN_FIXED_BED} {...props} />
+  return (
+    <Shape
+      {...COLUMN_FIXED_BED}
+      {...props}
+      _style={extendStyle(COLUMN_FIXED_BED, props)}
+    />
+  )
 }

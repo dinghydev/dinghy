@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WifiRouter } from '@reactiac/standard-components-diagrams/citrixNetworking'
+import { WifiRouter } from '@diac/standard-components-diagrams/citrixNetworking'
 
 <WifiRouter/>
 ```

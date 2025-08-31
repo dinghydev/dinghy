@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CVC_CLOUD_VIDEO_CONFERENCING = {
   _style:
@@ -9,5 +9,11 @@ export const CVC_CLOUD_VIDEO_CONFERENCING = {
 }
 
 export function CvcCloudVideoConferencing(props: DiagramNodeProps) {
-  return <Shape {...CVC_CLOUD_VIDEO_CONFERENCING} {...props} />
+  return (
+    <Shape
+      {...CVC_CLOUD_VIDEO_CONFERENCING}
+      {...props}
+      _style={extendStyle(CVC_CLOUD_VIDEO_CONFERENCING, props)}
+    />
+  )
 }

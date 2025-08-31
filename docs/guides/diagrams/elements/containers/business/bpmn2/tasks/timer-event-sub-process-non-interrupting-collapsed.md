@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { TimerEventSubProcessNonInterruptingCollapsed } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { TimerEventSubProcessNonInterruptingCollapsed } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <TimerEventSubProcessNonInterruptingCollapsed/>
 ```

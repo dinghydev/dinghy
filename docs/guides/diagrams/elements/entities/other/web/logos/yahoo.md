@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Yahoo } from '@reactiac/standard-components-diagrams/webLogos'
+import { Yahoo } from '@diac/standard-components-diagrams/webLogos'
 
 <Yahoo/>
 ```

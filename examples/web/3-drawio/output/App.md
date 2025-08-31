@@ -2,4 +2,4 @@
 
 ## Overview
 
-![Overview](App.png)
+![Overview](app.png)

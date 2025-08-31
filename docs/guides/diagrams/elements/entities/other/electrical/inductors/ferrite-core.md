@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FerriteCore } from '@reactiac/standard-components-diagrams/electricalInductors'
+import { FerriteCore } from '@diac/standard-components-diagrams/electricalInductors'
 
 <FerriteCore/>
 ```

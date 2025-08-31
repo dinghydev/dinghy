@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNITY_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const UNITY_SERVER = {
 }
 
 export function UnityServer(props: DiagramNodeProps) {
-  return <Shape {...UNITY_SERVER} {...props} />
+  return (
+    <Shape
+      {...UNITY_SERVER}
+      {...props}
+      _style={extendStyle(UNITY_SERVER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WRITER = {
   _style:
@@ -9,5 +9,5 @@ export const WRITER = {
 }
 
 export function Writer(props: DiagramNodeProps) {
-  return <Shape {...WRITER} {...props} />
+  return <Shape {...WRITER} {...props} _style={extendStyle(WRITER, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MailRu } from '@reactiac/standard-components-diagrams/webLogos'
+import { MailRu } from '@diac/standard-components-diagrams/webLogos'
 
 <MailRu/>
 ```

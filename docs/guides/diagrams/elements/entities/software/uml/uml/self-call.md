@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SelfCall } from '@reactiac/standard-components-diagrams/uml'
+import { SelfCall } from '@diac/standard-components-diagrams/uml'
 
 <SelfCall/>
 ```

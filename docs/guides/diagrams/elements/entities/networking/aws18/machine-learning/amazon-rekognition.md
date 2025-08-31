@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonRekognition } from '@reactiac/standard-components-diagrams/aws18MachineLearning'
+import { AmazonRekognition } from '@diac/standard-components-diagrams/aws18MachineLearning'
 
 <AmazonRekognition/>
 ```

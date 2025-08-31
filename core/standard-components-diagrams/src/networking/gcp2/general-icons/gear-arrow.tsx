@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GEAR_ARROW = {
   _style:
@@ -9,5 +9,7 @@ export const GEAR_ARROW = {
 }
 
 export function GearArrow(props: DiagramNodeProps) {
-  return <Shape {...GEAR_ARROW} {...props} />
+  return (
+    <Shape {...GEAR_ARROW} {...props} _style={extendStyle(GEAR_ARROW, props)} />
+  )
 }

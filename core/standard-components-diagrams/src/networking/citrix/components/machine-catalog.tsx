@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MACHINE_CATALOG = {
   _style:
@@ -9,5 +9,11 @@ export const MACHINE_CATALOG = {
 }
 
 export function MachineCatalog(props: DiagramNodeProps) {
-  return <Shape {...MACHINE_CATALOG} {...props} />
+  return (
+    <Shape
+      {...MACHINE_CATALOG}
+      {...props}
+      _style={extendStyle(MACHINE_CATALOG, props)}
+    />
+  )
 }

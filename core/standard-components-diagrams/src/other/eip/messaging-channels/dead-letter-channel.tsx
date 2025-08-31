@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEAD_LETTER_CHANNEL = {
   _style:
@@ -9,5 +9,11 @@ export const DEAD_LETTER_CHANNEL = {
 }
 
 export function DeadLetterChannel(props: DiagramNodeProps) {
-  return <Shape {...DEAD_LETTER_CHANNEL} {...props} />
+  return (
+    <Shape
+      {...DEAD_LETTER_CHANNEL}
+      {...props}
+      _style={extendStyle(DEAD_LETTER_CHANNEL, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SortFind } from '@reactiac/standard-components-diagrams/ios6'
+import { SortFind } from '@diac/standard-components-diagrams/ios6'
 
 <SortFind/>
 ```

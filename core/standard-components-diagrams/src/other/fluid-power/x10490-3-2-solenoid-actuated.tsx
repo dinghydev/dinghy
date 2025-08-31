@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10490_3_2_SOLENOID_ACTUATED = {
   _style:
@@ -9,5 +9,11 @@ export const X10490_3_2_SOLENOID_ACTUATED = {
 }
 
 export function X1049032SolenoidActuated(props: DiagramNodeProps) {
-  return <Shape {...X10490_3_2_SOLENOID_ACTUATED} {...props} />
+  return (
+    <Shape
+      {...X10490_3_2_SOLENOID_ACTUATED}
+      {...props}
+      _style={extendStyle(X10490_3_2_SOLENOID_ACTUATED, props)}
+    />
+  )
 }

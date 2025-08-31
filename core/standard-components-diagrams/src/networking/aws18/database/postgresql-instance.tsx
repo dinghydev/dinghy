@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POSTGRESQL_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const POSTGRESQL_INSTANCE = {
 }
 
 export function PostgresqlInstance(props: DiagramNodeProps) {
-  return <Shape {...POSTGRESQL_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...POSTGRESQL_INSTANCE}
+      {...props}
+      _style={extendStyle(POSTGRESQL_INSTANCE, props)}
+    />
+  )
 }

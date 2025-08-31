@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PetadataHybriddbForMysql } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { PetadataHybriddbForMysql } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <PetadataHybriddbForMysql/>
 ```

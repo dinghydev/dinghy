@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConstraintTextualNote } from '@reactiac/standard-components-diagrams/sysmlModelElements'
+import { ConstraintTextualNote } from '@diac/standard-components-diagrams/sysmlModelElements'
 
 <ConstraintTextualNote/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InlineRadioButtons2 } from '@reactiac/standard-components-diagrams/bootstrap'
+import { InlineRadioButtons2 } from '@diac/standard-components-diagrams/bootstrap'
 
 <InlineRadioButtons2/>
 ```

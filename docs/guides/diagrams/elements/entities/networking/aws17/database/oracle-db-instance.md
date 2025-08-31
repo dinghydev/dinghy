@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OracleDbInstance } from '@reactiac/standard-components-diagrams/aws17Database'
+import { OracleDbInstance } from '@diac/standard-components-diagrams/aws17Database'
 
 <OracleDbInstance/>
 ```

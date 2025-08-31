@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AppstackVolume } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { AppstackVolume } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <AppstackVolume/>
 ```

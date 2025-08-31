@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProportionalFeederMetering } from '@reactiac/standard-components-diagrams/procEngFeeders'
+import { ProportionalFeederMetering } from '@diac/standard-components-diagrams/procEngFeeders'
 
 <ProportionalFeederMetering/>
 ```

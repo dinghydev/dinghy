@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Quantizer } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { Quantizer } from '@diac/standard-components-diagrams/electricalMisc'
 
 <Quantizer/>
 ```

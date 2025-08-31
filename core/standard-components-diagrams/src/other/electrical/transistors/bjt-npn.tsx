@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BJT_NPN = {
   _style:
@@ -9,5 +9,5 @@ export const BJT_NPN = {
 }
 
 export function BjtNpn(props: DiagramNodeProps) {
-  return <Shape {...BJT_NPN} {...props} />
+  return <Shape {...BJT_NPN} {...props} _style={extendStyle(BJT_NPN, props)} />
 }

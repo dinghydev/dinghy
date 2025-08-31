@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Podio } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { Podio } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <Podio/>
 ```

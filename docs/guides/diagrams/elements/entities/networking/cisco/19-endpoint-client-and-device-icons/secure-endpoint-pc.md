@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SecureEndpointPc } from '@reactiac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
+import { SecureEndpointPc } from '@diac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
 
 <SecureEndpointPc/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUNDED_RECTANGULAR_CALLOUT = {
   _style:
@@ -9,5 +9,11 @@ export const ROUNDED_RECTANGULAR_CALLOUT = {
 }
 
 export function RoundedRectangularCallout(props: DiagramNodeProps) {
-  return <Shape {...ROUNDED_RECTANGULAR_CALLOUT} {...props} />
+  return (
+    <Shape
+      {...ROUNDED_RECTANGULAR_CALLOUT}
+      {...props}
+      _style={extendStyle(ROUNDED_RECTANGULAR_CALLOUT, props)}
+    />
+  )
 }

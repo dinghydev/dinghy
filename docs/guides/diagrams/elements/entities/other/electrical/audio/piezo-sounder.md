@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PiezoSounder } from '@reactiac/standard-components-diagrams/electricalAudio'
+import { PiezoSounder } from '@diac/standard-components-diagrams/electricalAudio'
 
 <PiezoSounder/>
 ```

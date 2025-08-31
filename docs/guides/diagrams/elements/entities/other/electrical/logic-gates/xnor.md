@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Xnor } from '@reactiac/standard-components-diagrams/electricalLogicGates'
+import { Xnor } from '@diac/standard-components-diagrams/electricalLogicGates'
 
 <Xnor/>
 ```

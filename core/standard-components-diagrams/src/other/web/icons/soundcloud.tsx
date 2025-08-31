@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOUNDCLOUD = {
   _style:
@@ -9,5 +9,7 @@ export const SOUNDCLOUD = {
 }
 
 export function Soundcloud(props: DiagramNodeProps) {
-  return <Shape {...SOUNDCLOUD} {...props} />
+  return (
+    <Shape {...SOUNDCLOUD} {...props} _style={extendStyle(SOUNDCLOUD, props)} />
+  )
 }

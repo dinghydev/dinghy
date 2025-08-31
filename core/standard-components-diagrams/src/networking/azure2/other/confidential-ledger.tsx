@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONFIDENTIAL_LEDGER = {
   _style:
     'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Confidential_Ledger.svg;strokeColor=none;',
-  _width: 68,
-  _height: 68,
+  _width: 60,
+  _height: 60,
 }
 
 export function ConfidentialLedger(props: DiagramNodeProps) {
-  return <Shape {...CONFIDENTIAL_LEDGER} {...props} />
+  return (
+    <Shape
+      {...CONFIDENTIAL_LEDGER}
+      {...props}
+      _style={extendStyle(CONFIDENTIAL_LEDGER, props)}
+    />
+  )
 }

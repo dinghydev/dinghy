@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Iptc } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Iptc } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Iptc/>
 ```

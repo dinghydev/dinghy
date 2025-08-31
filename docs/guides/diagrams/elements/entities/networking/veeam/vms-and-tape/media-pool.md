@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MediaPool } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { MediaPool } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <MediaPool/>
 ```

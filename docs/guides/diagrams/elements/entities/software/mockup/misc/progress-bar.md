@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProgressBar } from '@reactiac/standard-components-diagrams/mockupMisc'
+import { ProgressBar } from '@diac/standard-components-diagrams/mockupMisc'
 
 <ProgressBar/>
 ```

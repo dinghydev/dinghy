@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VeeamServiceProviderConsole } from '@reactiac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamServiceProviderConsole } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamServiceProviderConsole/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IronCore } from '@reactiac/standard-components-diagrams/electricalInductors'
+import { IronCore } from '@diac/standard-components-diagrams/electricalInductors'
 
 <IronCore/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SignLanguage } from '@reactiac/standard-components-diagrams/signsHealthcare'
+import { SignLanguage } from '@diac/standard-components-diagrams/signsHealthcare'
 
 <SignLanguage/>
 ```

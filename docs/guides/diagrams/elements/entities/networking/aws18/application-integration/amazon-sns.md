@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonSns } from '@reactiac/standard-components-diagrams/aws18ApplicationIntegration'
+import { AmazonSns } from '@diac/standard-components-diagrams/aws18ApplicationIntegration'
 
 <AmazonSns/>
 ```

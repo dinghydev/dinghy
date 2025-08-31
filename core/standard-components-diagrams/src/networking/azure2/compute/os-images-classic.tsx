@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OS_IMAGES_CLASSIC = {
   _style:
@@ -9,5 +9,11 @@ export const OS_IMAGES_CLASSIC = {
 }
 
 export function OsImagesClassic(props: DiagramNodeProps) {
-  return <Shape {...OS_IMAGES_CLASSIC} {...props} />
+  return (
+    <Shape
+      {...OS_IMAGES_CLASSIC}
+      {...props}
+      _style={extendStyle(OS_IMAGES_CLASSIC, props)}
+    />
+  )
 }

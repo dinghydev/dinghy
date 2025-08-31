@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsBatch } from '@reactiac/standard-components-diagrams/aws18Compute'
+import { AwsBatch } from '@diac/standard-components-diagrams/aws18Compute'
 
 <AwsBatch/>
 ```

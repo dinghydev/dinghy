@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEGMENTS = {
   _style:
@@ -9,5 +9,7 @@ export const SEGMENTS = {
 }
 
 export function Segments(props: DiagramNodeProps) {
-  return <Shape {...SEGMENTS} {...props} />
+  return (
+    <Shape {...SEGMENTS} {...props} _style={extendStyle(SEGMENTS, props)} />
+  )
 }

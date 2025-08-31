@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KeySap } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { KeySap } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <KeySap/>
 ```

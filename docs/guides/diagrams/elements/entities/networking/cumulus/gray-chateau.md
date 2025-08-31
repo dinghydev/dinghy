@@ -5,15 +5,15 @@
 ```
 {
   _style: 'fillColor=#8C9AA6;strokeColor=none;whiteSpace=wrap;html=1;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { GrayChateau } from '@reactiac/standard-components-diagrams/cumulus'
+import { GrayChateau } from '@diac/standard-components-diagrams/cumulus'
 
 <GrayChateau/>
 ```

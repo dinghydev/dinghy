@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Check } from '@reactiac/standard-components-diagrams/dataFlowDiagram'
+import { Check } from '@diac/standard-components-diagrams/dataFlowDiagram'
 
 <Check/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DaEncoder } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { DaEncoder } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <DaEncoder/>
 ```

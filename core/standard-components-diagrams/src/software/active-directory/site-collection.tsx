@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SITE_COLLECTION = {
   _style:
@@ -9,5 +9,11 @@ export const SITE_COLLECTION = {
 }
 
 export function SiteCollection(props: DiagramNodeProps) {
-  return <Shape {...SITE_COLLECTION} {...props} />
+  return (
+    <Shape
+      {...SITE_COLLECTION}
+      {...props}
+      _style={extendStyle(SITE_COLLECTION, props)}
+    />
+  )
 }

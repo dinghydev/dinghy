@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DETONATION_ARRESTOR = {
   _style:
@@ -9,5 +9,11 @@ export const DETONATION_ARRESTOR = {
 }
 
 export function DetonationArrestor(props: DiagramNodeProps) {
-  return <Shape {...DETONATION_ARRESTOR} {...props} />
+  return (
+    <Shape
+      {...DETONATION_ARRESTOR}
+      {...props}
+      _style={extendStyle(DETONATION_ARRESTOR, props)}
+    />
+  )
 }

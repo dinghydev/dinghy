@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AdPrivilegedIdentityManagement } from '@reactiac/standard-components-diagrams/azure2Security'
+import { AdPrivilegedIdentityManagement } from '@diac/standard-components-diagrams/azure2Security'
 
 <AdPrivilegedIdentityManagement/>
 ```

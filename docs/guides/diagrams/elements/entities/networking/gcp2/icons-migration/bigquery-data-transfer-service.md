@@ -14,7 +14,7 @@ Transfer Service
 ## Usage
 
 ```
-import { BigqueryDataTransferService } from '@reactiac/standard-components-diagrams/gcp2IconsMigration'
+import { BigqueryDataTransferService } from '@diac/standard-components-diagrams/gcp2IconsMigration'
 
 <BigqueryDataTransferService/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXECUTION_SPECIFICATION_2 = {
   _style: 'edgeStyle=none;html=1;dashed=1;endArrow=none;',
@@ -8,5 +8,11 @@ export const EXECUTION_SPECIFICATION_2 = {
 }
 
 export function ExecutionSpecification2(props: DiagramNodeProps) {
-  return <Shape {...EXECUTION_SPECIFICATION_2} {...props} />
+  return (
+    <Shape
+      {...EXECUTION_SPECIFICATION_2}
+      {...props}
+      _style={extendStyle(EXECUTION_SPECIFICATION_2, props)}
+    />
+  )
 }

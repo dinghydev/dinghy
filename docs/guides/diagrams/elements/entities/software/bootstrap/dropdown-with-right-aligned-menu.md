@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DropdownWithRightAlignedMenu } from '@reactiac/standard-components-diagrams/bootstrap'
+import { DropdownWithRightAlignedMenu } from '@diac/standard-components-diagrams/bootstrap'
 
 <DropdownWithRightAlignedMenu/>
 ```

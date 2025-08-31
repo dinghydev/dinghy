@@ -14,7 +14,7 @@ Monitoring
 ## Usage
 
 ```
-import { CloudMonitoring } from '@reactiac/standard-components-diagrams/gcp2IconsOperations'
+import { CloudMonitoring } from '@diac/standard-components-diagrams/gcp2IconsOperations'
 
 <CloudMonitoring/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BANDWIDTH = {
   _style:
@@ -9,5 +9,7 @@ export const BANDWIDTH = {
 }
 
 export function Bandwidth(props: DiagramNodeProps) {
-  return <Shape {...BANDWIDTH} {...props} />
+  return (
+    <Shape {...BANDWIDTH} {...props} _style={extendStyle(BANDWIDTH, props)} />
+  )
 }

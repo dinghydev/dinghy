@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IPTV_CONTENT_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const IPTV_CONTENT_MANAGER = {
 }
 
 export function IptvContentManager(props: DiagramNodeProps) {
-  return <Shape {...IPTV_CONTENT_MANAGER} {...props} />
+  return (
+    <Shape
+      {...IPTV_CONTENT_MANAGER}
+      {...props}
+      _style={extendStyle(IPTV_CONTENT_MANAGER, props)}
+    />
+  )
 }

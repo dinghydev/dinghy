@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER = {
   _style:
@@ -12,6 +12,13 @@ export function ElasticBlockStoreAmazonDataLifecycleManager(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER} {...props} />
+    <Shape
+      {...ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER}
+      {...props}
+      _style={extendStyle(
+        ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER,
+        props,
+      )}
+    />
   )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENTERPRISE_USER_DIRECTORY = {
   _style:
@@ -9,5 +9,11 @@ export const ENTERPRISE_USER_DIRECTORY = {
 }
 
 export function EnterpriseUserDirectory(props: DiagramNodeProps) {
-  return <Shape {...ENTERPRISE_USER_DIRECTORY} {...props} />
+  return (
+    <Shape
+      {...ENTERPRISE_USER_DIRECTORY}
+      {...props}
+      _style={extendStyle(ENTERPRISE_USER_DIRECTORY, props)}
+    />
+  )
 }

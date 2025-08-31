@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DROPLEFT_BUTTON = {
   _style:
@@ -9,5 +9,11 @@ export const DROPLEFT_BUTTON = {
 }
 
 export function DropleftButton(props: DiagramNodeProps) {
-  return <Shape {...DROPLEFT_BUTTON} {...props} />
+  return (
+    <Shape
+      {...DROPLEFT_BUTTON}
+      {...props}
+      _style={extendStyle(DROPLEFT_BUTTON, props)}
+    />
+  )
 }

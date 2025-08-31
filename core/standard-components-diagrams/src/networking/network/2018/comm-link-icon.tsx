@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMM_LINK_ICON = {
   _style:
@@ -9,5 +9,11 @@ export const COMM_LINK_ICON = {
 }
 
 export function CommLinkIcon(props: DiagramNodeProps) {
-  return <Shape {...COMM_LINK_ICON} {...props} />
+  return (
+    <Shape
+      {...COMM_LINK_ICON}
+      {...props}
+      _style={extendStyle(COMM_LINK_ICON, props)}
+    />
+  )
 }

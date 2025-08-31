@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IrmProtectedMessage } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { IrmProtectedMessage } from '@diac/standard-components-diagrams/officeSecurity'
 
 <IrmProtectedMessage/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNIT = {
   _style: 'shape=rect;html=1;overflow=fill;whiteSpace=wrap;',
@@ -8,5 +8,5 @@ export const UNIT = {
 }
 
 export function Unit(props: DiagramNodeProps) {
-  return <Shape {...UNIT} {...props} />
+  return <Shape {...UNIT} {...props} _style={extendStyle(UNIT, props)} />
 }

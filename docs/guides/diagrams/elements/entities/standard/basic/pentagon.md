@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pentagon } from '@reactiac/standard-components-diagrams/basic'
+import { Pentagon } from '@diac/standard-components-diagrams/basic'
 
 <Pentagon/>
 ```

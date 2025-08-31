@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CiscoOns15454SonetSdhMultiserviceProvisioningPlatform } from '@reactiac/standard-components-diagrams/rackCisco'
+import { CiscoOns15454SonetSdhMultiserviceProvisioningPlatform } from '@diac/standard-components-diagrams/rackCisco'
 
 <CiscoOns15454SonetSdhMultiserviceProvisioningPlatform/>
 ```

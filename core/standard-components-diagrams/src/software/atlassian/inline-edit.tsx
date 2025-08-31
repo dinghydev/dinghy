@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INLINE_EDIT = {
   _style:
@@ -9,5 +9,11 @@ export const INLINE_EDIT = {
 }
 
 export function InlineEdit(props: DiagramNodeProps) {
-  return <Shape {...INLINE_EDIT} {...props} />
+  return (
+    <Shape
+      {...INLINE_EDIT}
+      {...props}
+      _style={extendStyle(INLINE_EDIT, props)}
+    />
+  )
 }

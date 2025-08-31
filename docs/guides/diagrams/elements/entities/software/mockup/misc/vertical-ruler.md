@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VerticalRuler } from '@reactiac/standard-components-diagrams/mockupMisc'
+import { VerticalRuler } from '@diac/standard-components-diagrams/mockupMisc'
 
 <VerticalRuler/>
 ```

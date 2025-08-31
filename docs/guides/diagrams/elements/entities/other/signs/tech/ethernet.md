@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ethernet } from '@reactiac/standard-components-diagrams/signsTech'
+import { Ethernet } from '@diac/standard-components-diagrams/signsTech'
 
 <Ethernet/>
 ```

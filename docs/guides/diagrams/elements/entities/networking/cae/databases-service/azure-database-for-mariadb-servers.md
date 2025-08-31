@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureDatabaseForMariadbServers } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { AzureDatabaseForMariadbServers } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <AzureDatabaseForMariadbServers/>
 ```

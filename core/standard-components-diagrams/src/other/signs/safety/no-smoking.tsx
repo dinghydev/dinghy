@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NO_SMOKING = {
   _style:
@@ -9,5 +9,7 @@ export const NO_SMOKING = {
 }
 
 export function NoSmoking(props: DiagramNodeProps) {
-  return <Shape {...NO_SMOKING} {...props} />
+  return (
+    <Shape {...NO_SMOKING} {...props} _style={extendStyle(NO_SMOKING, props)} />
+  )
 }

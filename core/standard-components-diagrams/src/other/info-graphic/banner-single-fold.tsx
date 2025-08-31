@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BANNER_SINGLE_FOLD = {
   _style:
@@ -9,5 +9,11 @@ export const BANNER_SINGLE_FOLD = {
 }
 
 export function BannerSingleFold(props: DiagramNodeProps) {
-  return <Shape {...BANNER_SINGLE_FOLD} {...props} />
+  return (
+    <Shape
+      {...BANNER_SINGLE_FOLD}
+      {...props}
+      _style={extendStyle(BANNER_SINGLE_FOLD, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIBRE_CHANNEL_FABRIC_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const FIBRE_CHANNEL_FABRIC_SWITCH = {
 }
 
 export function FibreChannelFabricSwitch(props: DiagramNodeProps) {
-  return <Shape {...FIBRE_CHANNEL_FABRIC_SWITCH} {...props} />
+  return (
+    <Shape
+      {...FIBRE_CHANNEL_FABRIC_SWITCH}
+      {...props}
+      _style={extendStyle(FIBRE_CHANNEL_FABRIC_SWITCH, props)}
+    />
+  )
 }

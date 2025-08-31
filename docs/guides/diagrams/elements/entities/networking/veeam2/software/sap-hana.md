@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SapHana } from '@reactiac/standard-components-diagrams/veeam2Software'
+import { SapHana } from '@diac/standard-components-diagrams/veeam2Software'
 
 <SapHana/>
 ```

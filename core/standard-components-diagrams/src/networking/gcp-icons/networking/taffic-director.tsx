@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TAFFIC_DIRECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const TAFFIC_DIRECTOR = {
 }
 
 export function TafficDirector(props: DiagramNodeProps) {
-  return <Shape {...TAFFIC_DIRECTOR} {...props} />
+  return (
+    <Shape
+      {...TAFFIC_DIRECTOR}
+      {...props}
+      _style={extendStyle(TAFFIC_DIRECTOR, props)}
+    />
+  )
 }

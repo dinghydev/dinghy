@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XENCLIENT = {
   _style:
@@ -9,5 +9,7 @@ export const XENCLIENT = {
 }
 
 export function Xenclient(props: DiagramNodeProps) {
-  return <Shape {...XENCLIENT} {...props} />
+  return (
+    <Shape {...XENCLIENT} {...props} _style={extendStyle(XENCLIENT, props)} />
+  )
 }

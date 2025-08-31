@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RELAY_COIL_2 = {
   _style:
@@ -9,5 +9,11 @@ export const RELAY_COIL_2 = {
 }
 
 export function RelayCoil2(props: DiagramNodeProps) {
-  return <Shape {...RELAY_COIL_2} {...props} />
+  return (
+    <Shape
+      {...RELAY_COIL_2}
+      {...props}
+      _style={extendStyle(RELAY_COIL_2, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RdsMultiAz } from '@reactiac/standard-components-diagrams/awsDatabase'
+import { RdsMultiAz } from '@diac/standard-components-diagrams/awsDatabase'
 
 <RdsMultiAz/>
 ```

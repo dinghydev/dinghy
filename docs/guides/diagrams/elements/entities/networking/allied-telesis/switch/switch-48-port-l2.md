@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Switch48PortL2 } from '@reactiac/standard-components-diagrams/alliedTelesisSwitch'
+import { Switch48PortL2 } from '@diac/standard-components-diagrams/alliedTelesisSwitch'
 
 <Switch48PortL2/>
 ```

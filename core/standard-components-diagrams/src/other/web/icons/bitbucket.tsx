@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BITBUCKET = {
   _style:
@@ -9,5 +9,7 @@ export const BITBUCKET = {
 }
 
 export function Bitbucket(props: DiagramNodeProps) {
-  return <Shape {...BITBUCKET} {...props} />
+  return (
+    <Shape {...BITBUCKET} {...props} _style={extendStyle(BITBUCKET, props)} />
+  )
 }

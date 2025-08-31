@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectSfp } from '@reactiac/standard-components-diagrams/rackHpeArubaSwitches'
+import { DirectSfp } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
 
 <DirectSfp/>
 ```

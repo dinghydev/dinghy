@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE = {
   _style:
@@ -9,5 +9,11 @@ export const WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE = {
 }
 
 export function WorkspacesFamilyAmazonWorkspacesCore(props: DiagramNodeProps) {
-  return <Shape {...WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE} {...props} />
+  return (
+    <Shape
+      {...WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE}
+      {...props}
+      _style={extendStyle(WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE, props)}
+    />
+  )
 }

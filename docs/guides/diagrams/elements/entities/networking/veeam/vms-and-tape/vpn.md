@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Vpn } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { Vpn } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <Vpn/>
 ```

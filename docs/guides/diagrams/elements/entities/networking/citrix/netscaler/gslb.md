@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Gslb } from '@reactiac/standard-components-diagrams/citrixNetscaler'
+import { Gslb } from '@diac/standard-components-diagrams/citrixNetscaler'
 
 <Gslb/>
 ```

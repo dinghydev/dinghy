@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { ServerContents } from '@reactiac/standard-components-diagrams/aws17Groups'
+import { ServerContents } from '@diac/standard-components-diagrams/aws17Groups'
 
 <ServerContents/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BreakContact } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { BreakContact } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <BreakContact/>
 ```

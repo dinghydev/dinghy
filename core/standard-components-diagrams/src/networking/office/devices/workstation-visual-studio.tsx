@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORKSTATION_VISUAL_STUDIO = {
   _style:
@@ -9,5 +9,11 @@ export const WORKSTATION_VISUAL_STUDIO = {
 }
 
 export function WorkstationVisualStudio(props: DiagramNodeProps) {
-  return <Shape {...WORKSTATION_VISUAL_STUDIO} {...props} />
+  return (
+    <Shape
+      {...WORKSTATION_VISUAL_STUDIO}
+      {...props}
+      _style={extendStyle(WORKSTATION_VISUAL_STUDIO, props)}
+    />
+  )
 }

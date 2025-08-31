@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PowerPlatform } from '@reactiac/standard-components-diagrams/azure2Mobile'
+import { PowerPlatform } from '@diac/standard-components-diagrams/azure2Mobile'
 
 <PowerPlatform/>
 ```

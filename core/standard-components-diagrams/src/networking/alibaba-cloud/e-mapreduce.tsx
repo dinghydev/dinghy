@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const E_MAPREDUCE = {
   _style:
@@ -9,5 +9,11 @@ export const E_MAPREDUCE = {
 }
 
 export function EMapreduce(props: DiagramNodeProps) {
-  return <Shape {...E_MAPREDUCE} {...props} />
+  return (
+    <Shape
+      {...E_MAPREDUCE}
+      {...props}
+      _style={extendStyle(E_MAPREDUCE, props)}
+    />
+  )
 }

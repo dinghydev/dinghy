@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SQL_SERVER_STRETCH_DATABASES = {
   _style:
@@ -9,5 +9,11 @@ export const SQL_SERVER_STRETCH_DATABASES = {
 }
 
 export function SqlServerStretchDatabases(props: DiagramNodeProps) {
-  return <Shape {...SQL_SERVER_STRETCH_DATABASES} {...props} />
+  return (
+    <Shape
+      {...SQL_SERVER_STRETCH_DATABASES}
+      {...props}
+      _style={extendStyle(SQL_SERVER_STRETCH_DATABASES, props)}
+    />
+  )
 }

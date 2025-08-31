@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CableTermination } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { CableTermination } from '@diac/standard-components-diagrams/electricalMisc'
 
 <CableTermination/>
 ```

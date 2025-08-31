@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { AwsStsAlternate } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsStsAlternate } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsStsAlternate/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADVANCED_REFS_INTEGRATION = {
   _style:
@@ -9,5 +9,11 @@ export const ADVANCED_REFS_INTEGRATION = {
 }
 
 export function AdvancedRefsIntegration(props: DiagramNodeProps) {
-  return <Shape {...ADVANCED_REFS_INTEGRATION} {...props} />
+  return (
+    <Shape
+      {...ADVANCED_REFS_INTEGRATION}
+      {...props}
+      _style={extendStyle(ADVANCED_REFS_INTEGRATION, props)}
+    />
+  )
 }

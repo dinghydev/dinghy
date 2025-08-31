@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HyperledgerFabric } from '@reactiac/standard-components-diagrams/ibmBlockchain'
+import { HyperledgerFabric } from '@diac/standard-components-diagrams/ibmBlockchain'
 
 <HyperledgerFabric/>
 ```

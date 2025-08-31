@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_CODE = {
   _style:
@@ -9,5 +9,7 @@ export const CLOUD_CODE = {
 }
 
 export function CloudCode(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_CODE} {...props} />
+  return (
+    <Shape {...CLOUD_CODE} {...props} _style={extendStyle(CLOUD_CODE, props)} />
+  )
 }

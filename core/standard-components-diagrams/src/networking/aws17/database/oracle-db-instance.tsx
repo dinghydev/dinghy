@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ORACLE_DB_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const ORACLE_DB_INSTANCE = {
 }
 
 export function OracleDbInstance(props: DiagramNodeProps) {
-  return <Shape {...ORACLE_DB_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...ORACLE_DB_INSTANCE}
+      {...props}
+      _style={extendStyle(ORACLE_DB_INSTANCE, props)}
+    />
+  )
 }

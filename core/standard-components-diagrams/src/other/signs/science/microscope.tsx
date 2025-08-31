@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MICROSCOPE = {
   _style:
@@ -9,5 +9,7 @@ export const MICROSCOPE = {
 }
 
 export function Microscope(props: DiagramNodeProps) {
-  return <Shape {...MICROSCOPE} {...props} />
+  return (
+    <Shape {...MICROSCOPE} {...props} _style={extendStyle(MICROSCOPE, props)} />
+  )
 }

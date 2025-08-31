@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STORSIMPLE_DEVICE_MANAGERS = {
   _style:
@@ -9,5 +9,11 @@ export const STORSIMPLE_DEVICE_MANAGERS = {
 }
 
 export function StorsimpleDeviceManagers(props: DiagramNodeProps) {
-  return <Shape {...STORSIMPLE_DEVICE_MANAGERS} {...props} />
+  return (
+    <Shape
+      {...STORSIMPLE_DEVICE_MANAGERS}
+      {...props}
+      _style={extendStyle(STORSIMPLE_DEVICE_MANAGERS, props)}
+    />
+  )
 }

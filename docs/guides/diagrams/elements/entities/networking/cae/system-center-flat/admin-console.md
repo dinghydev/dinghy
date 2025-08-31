@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AdminConsole } from '@reactiac/standard-components-diagrams/caeSystemCenterFlat'
+import { AdminConsole } from '@diac/standard-components-diagrams/caeSystemCenterFlat'
 
 <AdminConsole/>
 ```

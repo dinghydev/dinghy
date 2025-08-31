@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Radio } from '@reactiac/standard-components-diagrams/gmdlIcons'
+import { Radio } from '@diac/standard-components-diagrams/gmdlIcons'
 
 <Radio/>
 ```

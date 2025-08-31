@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MANAGED_DATABASE = {
   _style:
@@ -9,5 +9,11 @@ export const MANAGED_DATABASE = {
 }
 
 export function ManagedDatabase(props: DiagramNodeProps) {
-  return <Shape {...MANAGED_DATABASE} {...props} />
+  return (
+    <Shape
+      {...MANAGED_DATABASE}
+      {...props}
+      _style={extendStyle(MANAGED_DATABASE, props)}
+    />
+  )
 }

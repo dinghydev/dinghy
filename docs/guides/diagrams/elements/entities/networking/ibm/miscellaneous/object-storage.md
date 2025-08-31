@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ObjectStorage } from '@reactiac/standard-components-diagrams/ibmMiscellaneous'
+import { ObjectStorage } from '@diac/standard-components-diagrams/ibmMiscellaneous'
 
 <ObjectStorage/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BADGE_PRIMARY = {
   _style:
@@ -9,5 +9,11 @@ export const BADGE_PRIMARY = {
 }
 
 export function BadgePrimary(props: DiagramNodeProps) {
-  return <Shape {...BADGE_PRIMARY} {...props} />
+  return (
+    <Shape
+      {...BADGE_PRIMARY}
+      {...props}
+      _style={extendStyle(BADGE_PRIMARY, props)}
+    />
+  )
 }

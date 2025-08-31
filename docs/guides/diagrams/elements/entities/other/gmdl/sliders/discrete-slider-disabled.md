@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiscreteSliderDisabled } from '@reactiac/standard-components-diagrams/gmdlSliders'
+import { DiscreteSliderDisabled } from '@diac/standard-components-diagrams/gmdlSliders'
 
 <DiscreteSliderDisabled/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Generic } from '@reactiac/standard-components-diagrams/aws18IotThings'
+import { Generic } from '@diac/standard-components-diagrams/aws18IotThings'
 
 <Generic/>
 ```

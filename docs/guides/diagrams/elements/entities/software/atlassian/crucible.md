@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/atlassian/Crucible_Logo.svg;strokeColor=none;',
-  _width: 61,
-  _height: 61,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Crucible } from '@reactiac/standard-components-diagrams/atlassian'
+import { Crucible } from '@diac/standard-components-diagrams/atlassian'
 
 <Crucible/>
 ```

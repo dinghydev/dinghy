@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DesiredState } from '@reactiac/standard-components-diagrams/aws18IotResources'
+import { DesiredState } from '@diac/standard-components-diagrams/aws18IotResources'
 
 <DesiredState/>
 ```

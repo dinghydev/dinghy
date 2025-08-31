@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudBigtable } from '@reactiac/standard-components-diagrams/gcpIconsDatabases'
+import { CloudBigtable } from '@diac/standard-components-diagrams/gcpIconsDatabases'
 
 <CloudBigtable/>
 ```

@@ -14,7 +14,7 @@ instance
 ## Usage
 
 ```
-import { MsSqlInstance } from '@reactiac/standard-components-diagrams/aws18Database'
+import { MsSqlInstance } from '@diac/standard-components-diagrams/aws18Database'
 
 <MsSqlInstance/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CoverFlow } from '@reactiac/standard-components-diagrams/mockupNavigation'
+import { CoverFlow } from '@diac/standard-components-diagrams/mockupNavigation'
 
 <CoverFlow/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentEngineCacheDirector } from '@reactiac/standard-components-diagrams/ciscoDirectors'
+import { ContentEngineCacheDirector } from '@diac/standard-components-diagrams/ciscoDirectors'
 
 <ContentEngineCacheDirector/>
 ```

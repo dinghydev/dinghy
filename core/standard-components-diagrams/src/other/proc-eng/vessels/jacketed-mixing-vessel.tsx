@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JACKETED_MIXING_VESSEL = {
   _style:
@@ -9,5 +9,11 @@ export const JACKETED_MIXING_VESSEL = {
 }
 
 export function JacketedMixingVessel(props: DiagramNodeProps) {
-  return <Shape {...JACKETED_MIXING_VESSEL} {...props} />
+  return (
+    <Shape
+      {...JACKETED_MIXING_VESSEL}
+      {...props}
+      _style={extendStyle(JACKETED_MIXING_VESSEL, props)}
+    />
+  )
 }

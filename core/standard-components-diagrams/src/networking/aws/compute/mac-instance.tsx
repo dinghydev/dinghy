@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAC_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const MAC_INSTANCE = {
 }
 
 export function MacInstance(props: DiagramNodeProps) {
-  return <Shape {...MAC_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...MAC_INSTANCE}
+      {...props}
+      _style={extendStyle(MAC_INSTANCE, props)}
+    />
+  )
 }

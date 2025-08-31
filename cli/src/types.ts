@@ -48,18 +48,18 @@ export type CommandContext = {
   options: CommandOptions
 }
 
-export class ReactiacError extends Error {
+export class DiacError extends Error {
   code?: string
   constructor(message: string, code?: string) {
     super(message)
-    this.name = 'ReactiacError'
+    this.name = 'DiacError'
     this.code = code
-    Object.setPrototypeOf(this, ReactiacError.prototype)
+    Object.setPrototypeOf(this, DiacError.prototype)
   }
 }
 
-export const throwReactiacError = (message: string, code?: string) => {
-  throw new ReactiacError(message, code)
+export const throwDiacError = (message: string, code?: string) => {
+  throw new DiacError(message, code)
 }
 
 export const HANDLED_ERROR_EXIT_CODE = 66

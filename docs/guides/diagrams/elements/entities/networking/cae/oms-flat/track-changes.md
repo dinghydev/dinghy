@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TrackChanges } from '@reactiac/standard-components-diagrams/caeOmsFlat'
+import { TrackChanges } from '@diac/standard-components-diagrams/caeOmsFlat'
 
 <TrackChanges/>
 ```

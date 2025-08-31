@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GEAR_PUMP = {
   _style:
@@ -9,5 +9,7 @@ export const GEAR_PUMP = {
 }
 
 export function GearPump(props: DiagramNodeProps) {
-  return <Shape {...GEAR_PUMP} {...props} />
+  return (
+    <Shape {...GEAR_PUMP} {...props} _style={extendStyle(GEAR_PUMP, props)} />
+  )
 }

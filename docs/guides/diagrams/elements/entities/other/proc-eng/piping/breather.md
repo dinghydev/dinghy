@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Breather } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { Breather } from '@diac/standard-components-diagrams/procEngPiping'
 
 <Breather/>
 ```

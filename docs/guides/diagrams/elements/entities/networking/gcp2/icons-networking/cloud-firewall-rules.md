@@ -14,7 +14,7 @@ Rules
 ## Usage
 
 ```
-import { CloudFirewallRules } from '@reactiac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudFirewallRules } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudFirewallRules/>
 ```

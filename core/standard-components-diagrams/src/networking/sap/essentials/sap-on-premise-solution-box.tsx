@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAP_ON_PREMISE_SOLUTION_BOX = {
   _style:
@@ -9,5 +9,11 @@ export const SAP_ON_PREMISE_SOLUTION_BOX = {
 }
 
 export function SapOnPremiseSolutionBox(props: DiagramNodeProps) {
-  return <Shape {...SAP_ON_PREMISE_SOLUTION_BOX} {...props} />
+  return (
+    <Shape
+      {...SAP_ON_PREMISE_SOLUTION_BOX}
+      {...props}
+      _style={extendStyle(SAP_ON_PREMISE_SOLUTION_BOX, props)}
+    />
+  )
 }

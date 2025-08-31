@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEXTFIELD_NORMAL = {
   _style:
@@ -9,5 +9,11 @@ export const TEXTFIELD_NORMAL = {
 }
 
 export function TextfieldNormal(props: DiagramNodeProps) {
-  return <Shape {...TEXTFIELD_NORMAL} {...props} />
+  return (
+    <Shape
+      {...TEXTFIELD_NORMAL}
+      {...props}
+      _style={extendStyle(TEXTFIELD_NORMAL, props)}
+    />
+  )
 }

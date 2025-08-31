@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Synchro } from '@reactiac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { Synchro } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <Synchro/>
 ```

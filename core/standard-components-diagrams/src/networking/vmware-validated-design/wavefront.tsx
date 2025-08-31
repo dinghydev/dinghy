@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WAVEFRONT = {
   _style:
@@ -9,5 +9,7 @@ export const WAVEFRONT = {
 }
 
 export function Wavefront(props: DiagramNodeProps) {
-  return <Shape {...WAVEFRONT} {...props} />
+  return (
+    <Shape {...WAVEFRONT} {...props} _style={extendStyle(WAVEFRONT, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENTRY_POINT = {
   _style:
@@ -9,5 +9,11 @@ export const ENTRY_POINT = {
 }
 
 export function EntryPoint(props: DiagramNodeProps) {
-  return <Shape {...ENTRY_POINT} {...props} />
+  return (
+    <Shape
+      {...ENTRY_POINT}
+      {...props}
+      _style={extendStyle(ENTRY_POINT, props)}
+    />
+  )
 }

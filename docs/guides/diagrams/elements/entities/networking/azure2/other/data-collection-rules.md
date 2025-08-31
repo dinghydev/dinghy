@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataCollectionRules } from '@reactiac/standard-components-diagrams/azure2Other'
+import { DataCollectionRules } from '@diac/standard-components-diagrams/azure2Other'
 
 <DataCollectionRules/>
 ```

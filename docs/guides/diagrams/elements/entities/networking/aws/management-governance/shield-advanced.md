@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ShieldAdvanced } from '@reactiac/standard-components-diagrams/awsManagementGovernance'
+import { ShieldAdvanced } from '@diac/standard-components-diagrams/awsManagementGovernance'
 
 <ShieldAdvanced/>
 ```

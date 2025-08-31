@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ColdStorage } from '@reactiac/standard-components-diagrams/awsGeneralResources'
+import { ColdStorage } from '@diac/standard-components-diagrams/awsGeneralResources'
 
 <ColdStorage/>
 ```

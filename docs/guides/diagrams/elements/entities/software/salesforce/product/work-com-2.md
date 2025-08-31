@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WorkCom2 } from '@reactiac/standard-components-diagrams/salesforceProduct'
+import { WorkCom2 } from '@diac/standard-components-diagrams/salesforceProduct'
 
 <WorkCom2/>
 ```

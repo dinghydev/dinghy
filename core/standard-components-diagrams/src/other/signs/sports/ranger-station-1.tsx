@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RANGER_STATION_1 = {
   _style:
@@ -9,5 +9,11 @@ export const RANGER_STATION_1 = {
 }
 
 export function RangerStation1(props: DiagramNodeProps) {
-  return <Shape {...RANGER_STATION_1} {...props} />
+  return (
+    <Shape
+      {...RANGER_STATION_1}
+      {...props}
+      _style={extendStyle(RANGER_STATION_1, props)}
+    />
+  )
 }

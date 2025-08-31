@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RESERVED_CAPACITY = {
   _style:
@@ -9,5 +9,11 @@ export const RESERVED_CAPACITY = {
 }
 
 export function ReservedCapacity(props: DiagramNodeProps) {
-  return <Shape {...RESERVED_CAPACITY} {...props} />
+  return (
+    <Shape
+      {...RESERVED_CAPACITY}
+      {...props}
+      _style={extendStyle(RESERVED_CAPACITY, props)}
+    />
+  )
 }

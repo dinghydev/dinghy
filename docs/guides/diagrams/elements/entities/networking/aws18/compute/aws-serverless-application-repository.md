@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsServerlessApplicationRepository } from '@reactiac/standard-components-diagrams/aws18Compute'
+import { AwsServerlessApplicationRepository } from '@diac/standard-components-diagrams/aws18Compute'
 
 <AwsServerlessApplicationRepository/>
 ```

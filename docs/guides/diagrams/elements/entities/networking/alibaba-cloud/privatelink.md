@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Privatelink } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Privatelink } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Privatelink/>
 ```

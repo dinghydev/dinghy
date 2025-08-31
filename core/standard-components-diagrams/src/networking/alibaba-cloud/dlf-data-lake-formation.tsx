@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DLF_DATA_LAKE_FORMATION = {
   _style:
@@ -9,5 +9,11 @@ export const DLF_DATA_LAKE_FORMATION = {
 }
 
 export function DlfDataLakeFormation(props: DiagramNodeProps) {
-  return <Shape {...DLF_DATA_LAKE_FORMATION} {...props} />
+  return (
+    <Shape
+      {...DLF_DATA_LAKE_FORMATION}
+      {...props}
+      _style={extendStyle(DLF_DATA_LAKE_FORMATION, props)}
+    />
+  )
 }

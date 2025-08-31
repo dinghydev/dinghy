@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ImageDefinitions } from '@reactiac/standard-components-diagrams/caeOtherCategoryService'
+import { ImageDefinitions } from '@diac/standard-components-diagrams/caeOtherCategoryService'
 
 <ImageDefinitions/>
 ```

@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUMMING_JUNCTION = {
   _style:
     'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.flowchart.or;',
-  _width: 70,
-  _height: 70,
+  _width: 60,
+  _height: 60,
 }
 
 export function SummingJunction(props: DiagramNodeProps) {
-  return <Shape {...SUMMING_JUNCTION} {...props} />
+  return (
+    <Shape
+      {...SUMMING_JUNCTION}
+      {...props}
+      _style={extendStyle(SUMMING_JUNCTION, props)}
+    />
+  )
 }

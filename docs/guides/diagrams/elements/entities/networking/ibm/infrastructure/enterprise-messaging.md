@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EnterpriseMessaging } from '@reactiac/standard-components-diagrams/ibmInfrastructure'
+import { EnterpriseMessaging } from '@diac/standard-components-diagrams/ibmInfrastructure'
 
 <EnterpriseMessaging/>
 ```

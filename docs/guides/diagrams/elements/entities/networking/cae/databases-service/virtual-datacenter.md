@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Virtual_Datacenter.svg;strokeColor=none;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { VirtualDatacenter } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { VirtualDatacenter } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <VirtualDatacenter/>
 ```

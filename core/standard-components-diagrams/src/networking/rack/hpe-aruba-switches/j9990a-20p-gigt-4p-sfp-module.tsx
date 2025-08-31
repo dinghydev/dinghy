@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9990A_20P_GIGT_4P_SFP_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const J9990A_20P_GIGT_4P_SFP_MODULE = {
 }
 
 export function J9990a20pGigt4pSfpModule(props: DiagramNodeProps) {
-  return <Shape {...J9990A_20P_GIGT_4P_SFP_MODULE} {...props} />
+  return (
+    <Shape
+      {...J9990A_20P_GIGT_4P_SFP_MODULE}
+      {...props}
+      _style={extendStyle(J9990A_20P_GIGT_4P_SFP_MODULE, props)}
+    />
+  )
 }

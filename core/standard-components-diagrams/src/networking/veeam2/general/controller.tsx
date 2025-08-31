@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTROLLER = {
   _style:
@@ -9,5 +9,7 @@ export const CONTROLLER = {
 }
 
 export function Controller(props: DiagramNodeProps) {
-  return <Shape {...CONTROLLER} {...props} />
+  return (
+    <Shape {...CONTROLLER} {...props} _style={extendStyle(CONTROLLER, props)} />
+  )
 }

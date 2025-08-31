@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11220_TWO_PORT_CARTRIDGE = {
   _style:
@@ -9,5 +9,11 @@ export const X11220_TWO_PORT_CARTRIDGE = {
 }
 
 export function X11220TwoPortCartridge(props: DiagramNodeProps) {
-  return <Shape {...X11220_TWO_PORT_CARTRIDGE} {...props} />
+  return (
+    <Shape
+      {...X11220_TWO_PORT_CARTRIDGE}
+      {...props}
+      _style={extendStyle(X11220_TWO_PORT_CARTRIDGE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IMPACT_SEPARATOR = {
   _style:
@@ -9,5 +9,11 @@ export const IMPACT_SEPARATOR = {
 }
 
 export function ImpactSeparator(props: DiagramNodeProps) {
-  return <Shape {...IMPACT_SEPARATOR} {...props} />
+  return (
+    <Shape
+      {...IMPACT_SEPARATOR}
+      {...props}
+      _style={extendStyle(IMPACT_SEPARATOR, props)}
+    />
+  )
 }

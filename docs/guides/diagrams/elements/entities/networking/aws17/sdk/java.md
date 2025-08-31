@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Java } from '@reactiac/standard-components-diagrams/aws17Sdk'
+import { Java } from '@diac/standard-components-diagrams/aws17Sdk'
 
 <Java/>
 ```

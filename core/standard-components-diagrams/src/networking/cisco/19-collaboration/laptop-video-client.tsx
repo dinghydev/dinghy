@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LAPTOP_VIDEO_CLIENT = {
   _style:
@@ -9,5 +9,11 @@ export const LAPTOP_VIDEO_CLIENT = {
 }
 
 export function LaptopVideoClient(props: DiagramNodeProps) {
-  return <Shape {...LAPTOP_VIDEO_CLIENT} {...props} />
+  return (
+    <Shape
+      {...LAPTOP_VIDEO_CLIENT}
+      {...props}
+      _style={extendStyle(LAPTOP_VIDEO_CLIENT, props)}
+    />
+  )
 }

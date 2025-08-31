@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pinterest } from '@reactiac/standard-components-diagrams/webLogos'
+import { Pinterest } from '@diac/standard-components-diagrams/webLogos'
 
 <Pinterest/>
 ```

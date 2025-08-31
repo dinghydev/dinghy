@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PersistentDisk } from '@reactiac/standard-components-diagrams/gcpIconsStorage'
+import { PersistentDisk } from '@diac/standard-components-diagrams/gcpIconsStorage'
 
 <PersistentDisk/>
 ```

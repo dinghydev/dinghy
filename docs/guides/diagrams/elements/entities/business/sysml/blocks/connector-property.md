@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConnectorProperty } from '@reactiac/standard-components-diagrams/sysmlBlocks'
+import { ConnectorProperty } from '@diac/standard-components-diagrams/sysmlBlocks'
 
 <ConnectorProperty/>
 ```

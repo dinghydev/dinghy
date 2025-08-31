@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Talos } from '@reactiac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { Talos } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <Talos/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IGNITER_PLUG = {
   _style:
@@ -9,5 +9,11 @@ export const IGNITER_PLUG = {
 }
 
 export function IgniterPlug(props: DiagramNodeProps) {
-  return <Shape {...IGNITER_PLUG} {...props} />
+  return (
+    <Shape
+      {...IGNITER_PLUG}
+      {...props}
+      _style={extendStyle(IGNITER_PLUG, props)}
+    />
+  )
 }

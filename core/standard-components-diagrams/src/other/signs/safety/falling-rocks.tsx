@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FALLING_ROCKS = {
   _style:
@@ -9,5 +9,11 @@ export const FALLING_ROCKS = {
 }
 
 export function FallingRocks(props: DiagramNodeProps) {
-  return <Shape {...FALLING_ROCKS} {...props} />
+  return (
+    <Shape
+      {...FALLING_ROCKS}
+      {...props}
+      _style={extendStyle(FALLING_ROCKS, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_DIMENSION = {
   _style:
@@ -9,5 +9,11 @@ export const HORIZONTAL_DIMENSION = {
 }
 
 export function HorizontalDimension(props: DiagramNodeProps) {
-  return <Shape {...HORIZONTAL_DIMENSION} {...props} />
+  return (
+    <Shape
+      {...HORIZONTAL_DIMENSION}
+      {...props}
+      _style={extendStyle(HORIZONTAL_DIMENSION, props)}
+    />
+  )
 }

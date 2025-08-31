@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TMS_DATA_INTERFACE = {
   _style:
@@ -9,5 +9,11 @@ export const TMS_DATA_INTERFACE = {
 }
 
 export function TmsDataInterface(props: DiagramNodeProps) {
-  return <Shape {...TMS_DATA_INTERFACE} {...props} />
+  return (
+    <Shape
+      {...TMS_DATA_INTERFACE}
+      {...props}
+      _style={extendStyle(TMS_DATA_INTERFACE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VPC_PEERING = {
   _style:
@@ -9,5 +9,11 @@ export const VPC_PEERING = {
 }
 
 export function VpcPeering(props: DiagramNodeProps) {
-  return <Shape {...VPC_PEERING} {...props} />
+  return (
+    <Shape
+      {...VPC_PEERING}
+      {...props}
+      _style={extendStyle(VPC_PEERING, props)}
+    />
+  )
 }

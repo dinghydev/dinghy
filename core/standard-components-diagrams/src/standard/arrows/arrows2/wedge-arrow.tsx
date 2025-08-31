@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEDGE_ARROW = {
   _style: {
@@ -9,5 +9,11 @@ export const WEDGE_ARROW = {
 }
 
 export function WedgeArrow(props: DiagramNodeProps) {
-  return <Dependency {...WEDGE_ARROW} {...props} />
+  return (
+    <Dependency
+      {...WEDGE_ARROW}
+      {...props}
+      _style={extendStyle(WEDGE_ARROW, props)}
+    />
+  )
 }

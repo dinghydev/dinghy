@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VolumeControl } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { VolumeControl } from '@diac/standard-components-diagrams/ios7Ui'
 
 <VolumeControl/>
 ```

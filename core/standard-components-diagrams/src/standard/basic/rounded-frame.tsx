@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUNDED_FRAME = {
   _style:
@@ -9,5 +9,11 @@ export const ROUNDED_FRAME = {
 }
 
 export function RoundedFrame(props: DiagramNodeProps) {
-  return <Shape {...ROUNDED_FRAME} {...props} />
+  return (
+    <Shape
+      {...ROUNDED_FRAME}
+      {...props}
+      _style={extendStyle(ROUNDED_FRAME, props)}
+    />
+  )
 }

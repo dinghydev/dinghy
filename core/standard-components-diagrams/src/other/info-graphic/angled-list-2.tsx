@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANGLED_LIST_2 = {
   _style:
@@ -9,5 +9,11 @@ export const ANGLED_LIST_2 = {
 }
 
 export function AngledList2(props: DiagramNodeProps) {
-  return <Shape {...ANGLED_LIST_2} {...props} />
+  return (
+    <Shape
+      {...ANGLED_LIST_2}
+      {...props}
+      _style={extendStyle(ANGLED_LIST_2, props)}
+    />
+  )
 }

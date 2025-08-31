@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RemoteSite } from '@reactiac/standard-components-diagrams/veeam3d'
+import { RemoteSite } from '@diac/standard-components-diagrams/veeam3d'
 
 <RemoteSite/>
 ```

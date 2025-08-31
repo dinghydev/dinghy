@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALEXA_VOICE_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const ALEXA_VOICE_SERVICE = {
 }
 
 export function AlexaVoiceService(props: DiagramNodeProps) {
-  return <Shape {...ALEXA_VOICE_SERVICE} {...props} />
+  return (
+    <Shape
+      {...ALEXA_VOICE_SERVICE}
+      {...props}
+      _style={extendStyle(ALEXA_VOICE_SERVICE, props)}
+    />
+  )
 }

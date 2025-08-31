@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { GenericTask } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { GenericTask } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <GenericTask/>
 ```

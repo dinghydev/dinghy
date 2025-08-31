@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUILT_IN_MANAGEMENT_FOR_AGENTS = {
   _style:
@@ -9,5 +9,11 @@ export const BUILT_IN_MANAGEMENT_FOR_AGENTS = {
 }
 
 export function BuiltInManagementForAgents(props: DiagramNodeProps) {
-  return <Shape {...BUILT_IN_MANAGEMENT_FOR_AGENTS} {...props} />
+  return (
+    <Shape
+      {...BUILT_IN_MANAGEMENT_FOR_AGENTS}
+      {...props}
+      _style={extendStyle(BUILT_IN_MANAGEMENT_FOR_AGENTS, props)}
+    />
+  )
 }

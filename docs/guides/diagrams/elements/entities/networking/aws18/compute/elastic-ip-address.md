@@ -14,7 +14,7 @@ Address
 ## Usage
 
 ```
-import { ElasticIpAddress } from '@reactiac/standard-components-diagrams/aws18Compute'
+import { ElasticIpAddress } from '@diac/standard-components-diagrams/aws18Compute'
 
 <ElasticIpAddress/>
 ```

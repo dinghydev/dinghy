@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ForkNode3 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { ForkNode3 } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <ForkNode3/>
 ```

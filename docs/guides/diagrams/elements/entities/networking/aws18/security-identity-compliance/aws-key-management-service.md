@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsKeyManagementService } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsKeyManagementService } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsKeyManagementService/>
 ```

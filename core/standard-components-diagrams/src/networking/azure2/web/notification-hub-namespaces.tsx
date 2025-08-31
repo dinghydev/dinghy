@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NOTIFICATION_HUB_NAMESPACES = {
   _style:
@@ -9,5 +9,11 @@ export const NOTIFICATION_HUB_NAMESPACES = {
 }
 
 export function NotificationHubNamespaces(props: DiagramNodeProps) {
-  return <Shape {...NOTIFICATION_HUB_NAMESPACES} {...props} />
+  return (
+    <Shape
+      {...NOTIFICATION_HUB_NAMESPACES}
+      {...props}
+      _style={extendStyle(NOTIFICATION_HUB_NAMESPACES, props)}
+    />
+  )
 }

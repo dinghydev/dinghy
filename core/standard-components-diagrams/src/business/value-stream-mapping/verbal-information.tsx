@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VERBAL_INFORMATION = {
   _style:
@@ -9,5 +9,11 @@ export const VERBAL_INFORMATION = {
 }
 
 export function VerbalInformation(props: DiagramNodeProps) {
-  return <Shape {...VERBAL_INFORMATION} {...props} />
+  return (
+    <Shape
+      {...VERBAL_INFORMATION}
+      {...props}
+      _style={extendStyle(VERBAL_INFORMATION, props)}
+    />
+  )
 }

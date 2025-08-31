@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRACK_CHANGES = {
   _style:
@@ -9,5 +9,11 @@ export const TRACK_CHANGES = {
 }
 
 export function TrackChanges(props: DiagramNodeProps) {
-  return <Shape {...TRACK_CHANGES} {...props} />
+  return (
+    <Shape
+      {...TRACK_CHANGES}
+      {...props}
+      _style={extendStyle(TRACK_CHANGES, props)}
+    />
+  )
 }

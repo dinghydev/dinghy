@@ -5,15 +5,15 @@
 ```
 {
   _style: 'rhombus;whiteSpace=wrap;html=1;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Diamond } from '@reactiac/standard-components-diagrams/general'
+import { Diamond } from '@diac/standard-components-diagrams/general'
 
 <Diamond/>
 ```

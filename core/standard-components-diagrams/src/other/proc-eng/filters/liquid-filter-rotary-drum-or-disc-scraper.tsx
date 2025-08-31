@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIQUID_FILTER_ROTARY_DRUM_OR_DISC_SCRAPER = {
   _style:
@@ -9,5 +9,11 @@ export const LIQUID_FILTER_ROTARY_DRUM_OR_DISC_SCRAPER = {
 }
 
 export function LiquidFilterRotaryDrumOrDiscScraper(props: DiagramNodeProps) {
-  return <Shape {...LIQUID_FILTER_ROTARY_DRUM_OR_DISC_SCRAPER} {...props} />
+  return (
+    <Shape
+      {...LIQUID_FILTER_ROTARY_DRUM_OR_DISC_SCRAPER}
+      {...props}
+      _style={extendStyle(LIQUID_FILTER_ROTARY_DRUM_OR_DISC_SCRAPER, props)}
+    />
+  )
 }

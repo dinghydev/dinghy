@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FILE_CABINET = {
   _style:
@@ -9,5 +9,11 @@ export const FILE_CABINET = {
 }
 
 export function FileCabinet(props: DiagramNodeProps) {
-  return <Shape {...FILE_CABINET} {...props} />
+  return (
+    <Shape
+      {...FILE_CABINET}
+      {...props}
+      _style={extendStyle(FILE_CABINET, props)}
+    />
+  )
 }

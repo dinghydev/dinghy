@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DRIVING_TOUR = {
   _style:
@@ -9,5 +9,11 @@ export const DRIVING_TOUR = {
 }
 
 export function DrivingTour(props: DiagramNodeProps) {
-  return <Shape {...DRIVING_TOUR} {...props} />
+  return (
+    <Shape
+      {...DRIVING_TOUR}
+      {...props}
+      _style={extendStyle(DRIVING_TOUR, props)}
+    />
+  )
 }

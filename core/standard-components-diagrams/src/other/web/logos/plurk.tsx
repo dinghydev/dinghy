@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLURK = {
   _style:
@@ -9,5 +9,5 @@ export const PLURK = {
 }
 
 export function Plurk(props: DiagramNodeProps) {
-  return <Shape {...PLURK} {...props} />
+  return <Shape {...PLURK} {...props} _style={extendStyle(PLURK, props)} />
 }

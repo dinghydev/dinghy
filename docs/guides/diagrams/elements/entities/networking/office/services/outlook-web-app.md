@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OutlookWebApp } from '@reactiac/standard-components-diagrams/officeServices'
+import { OutlookWebApp } from '@diac/standard-components-diagrams/officeServices'
 
 <OutlookWebApp/>
 ```

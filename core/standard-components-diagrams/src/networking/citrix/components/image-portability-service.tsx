@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IMAGE_PORTABILITY_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const IMAGE_PORTABILITY_SERVICE = {
 }
 
 export function ImagePortabilityService(props: DiagramNodeProps) {
-  return <Shape {...IMAGE_PORTABILITY_SERVICE} {...props} />
+  return (
+    <Shape
+      {...IMAGE_PORTABILITY_SERVICE}
+      {...props}
+      _style={extendStyle(IMAGE_PORTABILITY_SERVICE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDIRECT_ONE_DIRECTIONAL = {
   _style:
@@ -9,5 +9,11 @@ export const INDIRECT_ONE_DIRECTIONAL = {
 }
 
 export function IndirectOneDirectional(props: DiagramNodeProps) {
-  return <Shape {...INDIRECT_ONE_DIRECTIONAL} {...props} />
+  return (
+    <Shape
+      {...INDIRECT_ONE_DIRECTIONAL}
+      {...props}
+      _style={extendStyle(INDIRECT_ONE_DIRECTIONAL, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANALYSIS_CORRELATION = {
   _style:
@@ -9,5 +9,11 @@ export const ANALYSIS_CORRELATION = {
 }
 
 export function AnalysisCorrelation(props: DiagramNodeProps) {
-  return <Shape {...ANALYSIS_CORRELATION} {...props} />
+  return (
+    <Shape
+      {...ANALYSIS_CORRELATION}
+      {...props}
+      _style={extendStyle(ANALYSIS_CORRELATION, props)}
+    />
+  )
 }

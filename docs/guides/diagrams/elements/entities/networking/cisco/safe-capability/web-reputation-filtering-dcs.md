@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WebReputationFilteringDcs } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { WebReputationFilteringDcs } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <WebReputationFilteringDcs/>
 ```

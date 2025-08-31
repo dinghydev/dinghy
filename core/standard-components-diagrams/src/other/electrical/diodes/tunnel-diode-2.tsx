@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TUNNEL_DIODE_2 = {
   _style:
@@ -9,5 +9,11 @@ export const TUNNEL_DIODE_2 = {
 }
 
 export function TunnelDiode2(props: DiagramNodeProps) {
-  return <Shape {...TUNNEL_DIODE_2} {...props} />
+  return (
+    <Shape
+      {...TUNNEL_DIODE_2}
+      {...props}
+      _style={extendStyle(TUNNEL_DIODE_2, props)}
+    />
+  )
 }

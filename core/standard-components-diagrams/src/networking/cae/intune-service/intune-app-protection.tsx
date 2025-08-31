@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTUNE_APP_PROTECTION = {
   _style:
@@ -9,5 +9,11 @@ export const INTUNE_APP_PROTECTION = {
 }
 
 export function IntuneAppProtection(props: DiagramNodeProps) {
-  return <Shape {...INTUNE_APP_PROTECTION} {...props} />
+  return (
+    <Shape
+      {...INTUNE_APP_PROTECTION}
+      {...props}
+      _style={extendStyle(INTUNE_APP_PROTECTION, props)}
+    />
+  )
 }

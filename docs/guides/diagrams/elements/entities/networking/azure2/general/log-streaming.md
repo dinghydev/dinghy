@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LogStreaming } from '@reactiac/standard-components-diagrams/azure2General'
+import { LogStreaming } from '@diac/standard-components-diagrams/azure2General'
 
 <LogStreaming/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AllocationDerivedPropertiesComment } from '@reactiac/standard-components-diagrams/sysmlAllocations'
+import { AllocationDerivedPropertiesComment } from '@diac/standard-components-diagrams/sysmlAllocations'
 
 <AllocationDerivedPropertiesComment/>
 ```

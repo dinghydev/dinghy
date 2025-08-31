@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ShapingMachineVertical } from '@reactiac/standard-components-diagrams/procEngShapingMachines'
+import { ShapingMachineVertical } from '@diac/standard-components-diagrams/procEngShapingMachines'
 
 <ShapingMachineVertical/>
 ```

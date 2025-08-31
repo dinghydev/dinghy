@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STUMBLEUPON = {
   _style:
@@ -9,5 +9,11 @@ export const STUMBLEUPON = {
 }
 
 export function Stumbleupon(props: DiagramNodeProps) {
-  return <Shape {...STUMBLEUPON} {...props} />
+  return (
+    <Shape
+      {...STUMBLEUPON}
+      {...props}
+      _style={extendStyle(STUMBLEUPON, props)}
+    />
+  )
 }

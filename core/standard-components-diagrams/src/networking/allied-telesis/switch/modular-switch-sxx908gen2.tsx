@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MODULAR_SWITCH_SXX908GEN2 = {
   _style:
@@ -9,5 +9,11 @@ export const MODULAR_SWITCH_SXX908GEN2 = {
 }
 
 export function ModularSwitchSxx908gen2(props: DiagramNodeProps) {
-  return <Shape {...MODULAR_SWITCH_SXX908GEN2} {...props} />
+  return (
+    <Shape
+      {...MODULAR_SWITCH_SXX908GEN2}
+      {...props}
+      _style={extendStyle(MODULAR_SWITCH_SXX908GEN2, props)}
+    />
+  )
 }

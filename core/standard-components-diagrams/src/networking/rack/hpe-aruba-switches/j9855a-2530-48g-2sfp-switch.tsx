@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9855A_2530_48G_2SFP_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const J9855A_2530_48G_2SFP_SWITCH = {
 }
 
 export function J9855a253048g2sfpSwitch(props: DiagramNodeProps) {
-  return <Shape {...J9855A_2530_48G_2SFP_SWITCH} {...props} />
+  return (
+    <Shape
+      {...J9855A_2530_48G_2SFP_SWITCH}
+      {...props}
+      _style={extendStyle(J9855A_2530_48G_2SFP_SWITCH, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONFERENCE_BRIDGE = {
   _style:
@@ -9,5 +9,11 @@ export const CONFERENCE_BRIDGE = {
 }
 
 export function ConferenceBridge(props: DiagramNodeProps) {
-  return <Shape {...CONFERENCE_BRIDGE} {...props} />
+  return (
+    <Shape
+      {...CONFERENCE_BRIDGE}
+      {...props}
+      _style={extendStyle(CONFERENCE_BRIDGE, props)}
+    />
+  )
 }

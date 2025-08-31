@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Repeater } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Repeater } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Repeater/>
 ```

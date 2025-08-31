@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOCK_PROTECTED_GHOSTED = {
   _style:
@@ -9,5 +9,11 @@ export const LOCK_PROTECTED_GHOSTED = {
 }
 
 export function LockProtectedGhosted(props: DiagramNodeProps) {
-  return <Shape {...LOCK_PROTECTED_GHOSTED} {...props} />
+  return (
+    <Shape
+      {...LOCK_PROTECTED_GHOSTED}
+      {...props}
+      _style={extendStyle(LOCK_PROTECTED_GHOSTED, props)}
+    />
+  )
 }

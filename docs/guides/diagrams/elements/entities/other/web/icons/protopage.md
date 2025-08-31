@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Protopage } from '@reactiac/standard-components-diagrams/webIcons'
+import { Protopage } from '@diac/standard-components-diagrams/webIcons'
 
 <Protopage/>
 ```

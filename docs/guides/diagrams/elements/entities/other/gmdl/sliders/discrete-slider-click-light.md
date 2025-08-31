@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiscreteSliderClickLight } from '@reactiac/standard-components-diagrams/gmdlSliders'
+import { DiscreteSliderClickLight } from '@diac/standard-components-diagrams/gmdlSliders'
 
 <DiscreteSliderClickLight/>
 ```

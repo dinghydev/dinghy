@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATABASE_MIGRATION_WORKFLOW_JOB = {
   _style:
@@ -9,5 +9,11 @@ export const DATABASE_MIGRATION_WORKFLOW_JOB = {
 }
 
 export function DatabaseMigrationWorkflowJob(props: DiagramNodeProps) {
-  return <Shape {...DATABASE_MIGRATION_WORKFLOW_JOB} {...props} />
+  return (
+    <Shape
+      {...DATABASE_MIGRATION_WORKFLOW_JOB}
+      {...props}
+      _style={extendStyle(DATABASE_MIGRATION_WORKFLOW_JOB, props)}
+    />
+  )
 }

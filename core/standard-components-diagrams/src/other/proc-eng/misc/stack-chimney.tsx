@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STACK_CHIMNEY = {
   _style:
@@ -9,5 +9,11 @@ export const STACK_CHIMNEY = {
 }
 
 export function StackChimney(props: DiagramNodeProps) {
-  return <Shape {...STACK_CHIMNEY} {...props} />
+  return (
+    <Shape
+      {...STACK_CHIMNEY}
+      {...props}
+      _style={extendStyle(STACK_CHIMNEY, props)}
+    />
+  )
 }

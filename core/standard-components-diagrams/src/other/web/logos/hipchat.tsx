@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HIPCHAT = {
   _style:
@@ -9,5 +9,5 @@ export const HIPCHAT = {
 }
 
 export function Hipchat(props: DiagramNodeProps) {
-  return <Shape {...HIPCHAT} {...props} />
+  return <Shape {...HIPCHAT} {...props} _style={extendStyle(HIPCHAT, props)} />
 }

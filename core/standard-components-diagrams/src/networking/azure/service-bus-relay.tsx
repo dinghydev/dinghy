@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SERVICE_BUS_RELAY = {
   _style:
@@ -9,5 +9,11 @@ export const SERVICE_BUS_RELAY = {
 }
 
 export function ServiceBusRelay(props: DiagramNodeProps) {
-  return <Shape {...SERVICE_BUS_RELAY} {...props} />
+  return (
+    <Shape
+      {...SERVICE_BUS_RELAY}
+      {...props}
+      _style={extendStyle(SERVICE_BUS_RELAY, props)}
+    />
+  )
 }

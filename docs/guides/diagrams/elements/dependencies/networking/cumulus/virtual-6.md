@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Virtual6 } from '@reactiac/standard-components-diagrams/cumulus'
+import { Virtual6 } from '@diac/standard-components-diagrams/cumulus'
 
 <Virtual6/>
 ```

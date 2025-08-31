@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXCHANGE_ACTIVE_SYNC = {
   _style:
@@ -9,5 +9,11 @@ export const EXCHANGE_ACTIVE_SYNC = {
 }
 
 export function ExchangeActiveSync(props: DiagramNodeProps) {
-  return <Shape {...EXCHANGE_ACTIVE_SYNC} {...props} />
+  return (
+    <Shape
+      {...EXCHANGE_ACTIVE_SYNC}
+      {...props}
+      _style={extendStyle(EXCHANGE_ACTIVE_SYNC, props)}
+    />
+  )
 }

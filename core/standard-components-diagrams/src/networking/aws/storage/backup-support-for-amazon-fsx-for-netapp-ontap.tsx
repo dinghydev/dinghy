@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP = {
   _style:
@@ -12,6 +12,13 @@ export function BackupSupportForAmazonFsxForNetappOntap(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP} {...props} />
+    <Shape
+      {...BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP}
+      {...props}
+      _style={extendStyle(
+        BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP,
+        props,
+      )}
+    />
   )
 }

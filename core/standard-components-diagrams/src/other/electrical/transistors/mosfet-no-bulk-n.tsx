@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOSFET_NO_BULK_N = {
   _style:
@@ -9,5 +9,11 @@ export const MOSFET_NO_BULK_N = {
 }
 
 export function MosfetNoBulkN(props: DiagramNodeProps) {
-  return <Shape {...MOSFET_NO_BULK_N} {...props} />
+  return (
+    <Shape
+      {...MOSFET_NO_BULK_N}
+      {...props}
+      _style={extendStyle(MOSFET_NO_BULK_N, props)}
+    />
+  )
 }

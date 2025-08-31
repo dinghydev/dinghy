@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Php } from '@reactiac/standard-components-diagrams/aws17Sdk'
+import { Php } from '@diac/standard-components-diagrams/aws17Sdk'
 
 <Php/>
 ```

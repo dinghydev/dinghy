@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Application } from '@reactiac/standard-components-diagrams/gcp2UserAndDeviceCards'
+import { Application } from '@diac/standard-components-diagrams/gcp2UserAndDeviceCards'
 
 <Application/>
 ```

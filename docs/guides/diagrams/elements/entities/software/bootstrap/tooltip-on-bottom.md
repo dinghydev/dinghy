@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TooltipOnBottom } from '@reactiac/standard-components-diagrams/bootstrap'
+import { TooltipOnBottom } from '@diac/standard-components-diagrams/bootstrap'
 
 <TooltipOnBottom/>
 ```

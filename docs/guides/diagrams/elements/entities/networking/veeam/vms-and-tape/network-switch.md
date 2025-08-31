@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetworkSwitch } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { NetworkSwitch } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <NetworkSwitch/>
 ```

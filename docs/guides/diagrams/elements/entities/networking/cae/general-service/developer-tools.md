@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeveloperTools } from '@reactiac/standard-components-diagrams/caeGeneralService'
+import { DeveloperTools } from '@diac/standard-components-diagrams/caeGeneralService'
 
 <DeveloperTools/>
 ```

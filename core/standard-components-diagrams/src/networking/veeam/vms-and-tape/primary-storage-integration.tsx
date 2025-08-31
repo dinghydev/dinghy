@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRIMARY_STORAGE_INTEGRATION = {
   _style:
@@ -9,5 +9,11 @@ export const PRIMARY_STORAGE_INTEGRATION = {
 }
 
 export function PrimaryStorageIntegration(props: DiagramNodeProps) {
-  return <Shape {...PRIMARY_STORAGE_INTEGRATION} {...props} />
+  return (
+    <Shape
+      {...PRIMARY_STORAGE_INTEGRATION}
+      {...props}
+      _style={extendStyle(PRIMARY_STORAGE_INTEGRATION, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Blinklist } from '@reactiac/standard-components-diagrams/webIcons'
+import { Blinklist } from '@diac/standard-components-diagrams/webIcons'
 
 <Blinklist/>
 ```

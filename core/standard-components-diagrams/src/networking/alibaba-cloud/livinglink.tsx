@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIVINGLINK = {
   _style:
@@ -9,5 +9,7 @@ export const LIVINGLINK = {
 }
 
 export function Livinglink(props: DiagramNodeProps) {
-  return <Shape {...LIVINGLINK} {...props} />
+  return (
+    <Shape {...LIVINGLINK} {...props} _style={extendStyle(LIVINGLINK, props)} />
+  )
 }

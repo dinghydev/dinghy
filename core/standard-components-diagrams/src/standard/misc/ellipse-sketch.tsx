@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELLIPSE_SKETCH = {
   _style:
@@ -9,5 +9,11 @@ export const ELLIPSE_SKETCH = {
 }
 
 export function EllipseSketch(props: DiagramNodeProps) {
-  return <Shape {...ELLIPSE_SKETCH} {...props} />
+  return (
+    <Shape
+      {...ELLIPSE_SKETCH}
+      {...props}
+      _style={extendStyle(ELLIPSE_SKETCH, props)}
+    />
+  )
 }

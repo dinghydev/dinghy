@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SingleLineTextFieldNormal } from '@reactiac/standard-components-diagrams/gmdlTextFields'
+import { SingleLineTextFieldNormal } from '@diac/standard-components-diagrams/gmdlTextFields'
 
 <SingleLineTextFieldNormal/>
 ```

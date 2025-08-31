@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LongTermSecurityCredential } from '@reactiac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { LongTermSecurityCredential } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <LongTermSecurityCredential/>
 ```

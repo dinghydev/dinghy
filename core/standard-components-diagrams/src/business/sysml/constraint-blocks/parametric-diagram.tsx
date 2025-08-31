@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARAMETRIC_DIAGRAM = {
   _style:
@@ -9,5 +9,11 @@ export const PARAMETRIC_DIAGRAM = {
 }
 
 export function ParametricDiagram(props: DiagramNodeProps) {
-  return <Shape {...PARAMETRIC_DIAGRAM} {...props} />
+  return (
+    <Shape
+      {...PARAMETRIC_DIAGRAM}
+      {...props}
+      _style={extendStyle(PARAMETRIC_DIAGRAM, props)}
+    />
+  )
 }

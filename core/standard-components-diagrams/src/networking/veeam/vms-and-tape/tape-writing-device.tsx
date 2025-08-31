@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TAPE_WRITING_DEVICE = {
   _style:
@@ -9,5 +9,11 @@ export const TAPE_WRITING_DEVICE = {
 }
 
 export function TapeWritingDevice(props: DiagramNodeProps) {
-  return <Shape {...TAPE_WRITING_DEVICE} {...props} />
+  return (
+    <Shape
+      {...TAPE_WRITING_DEVICE}
+      {...props}
+      _style={extendStyle(TAPE_WRITING_DEVICE, props)}
+    />
+  )
 }

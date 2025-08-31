@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InfoNonSap } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { InfoNonSap } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <InfoNonSap/>
 ```

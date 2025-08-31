@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTRUSION_DETECTION = {
   _style:
@@ -9,5 +9,11 @@ export const INTRUSION_DETECTION = {
 }
 
 export function IntrusionDetection(props: DiagramNodeProps) {
-  return <Shape {...INTRUSION_DETECTION} {...props} />
+  return (
+    <Shape
+      {...INTRUSION_DETECTION}
+      {...props}
+      _style={extendStyle(INTRUSION_DETECTION, props)}
+    />
+  )
 }

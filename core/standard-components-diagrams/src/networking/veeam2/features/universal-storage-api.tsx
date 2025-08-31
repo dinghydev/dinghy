@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNIVERSAL_STORAGE_API = {
   _style:
@@ -9,5 +9,11 @@ export const UNIVERSAL_STORAGE_API = {
 }
 
 export function UniversalStorageApi(props: DiagramNodeProps) {
-  return <Shape {...UNIVERSAL_STORAGE_API} {...props} />
+  return (
+    <Shape
+      {...UNIVERSAL_STORAGE_API}
+      {...props}
+      _style={extendStyle(UNIVERSAL_STORAGE_API, props)}
+    />
+  )
 }

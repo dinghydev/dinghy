@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LEDGER = {
   _style:
@@ -9,5 +9,5 @@ export const LEDGER = {
 }
 
 export function Ledger(props: DiagramNodeProps) {
-  return <Shape {...LEDGER} {...props} />
+  return <Shape {...LEDGER} {...props} _style={extendStyle(LEDGER, props)} />
 }

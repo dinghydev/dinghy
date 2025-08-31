@@ -3,8 +3,8 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@reactiac/cli'
-import { OPTIONS_SYMBOL, ReactiacError, RUN_SYMBOL } from '@reactiac/cli'
+} from '@diac/cli'
+import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@diac/cli'
 import { streamCmd } from '../utils/cmd.ts'
 import { subCommandArgs } from '../utils/subCommandArgs.ts'
 
@@ -23,7 +23,7 @@ const run = async (context: CommandContext, _args: CommandArgs) => {
     false,
   )
   if (result.exitCode !== 0) {
-    throw new ReactiacError(`Failed to run bash, see error above`)
+    throw new DiacError(`Failed to run bash, see error above`)
   }
 }
 export default {

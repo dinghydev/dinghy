@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { List } from '@reactiac/standard-components-diagrams/entityRelation'
+import { List } from '@diac/standard-components-diagrams/entityRelation'
 
 <List/>
 ```

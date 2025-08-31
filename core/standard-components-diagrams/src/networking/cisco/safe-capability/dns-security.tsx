@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DNS_SECURITY = {
   _style:
@@ -9,5 +9,11 @@ export const DNS_SECURITY = {
 }
 
 export function DnsSecurity(props: DiagramNodeProps) {
-  return <Shape {...DNS_SECURITY} {...props} />
+  return (
+    <Shape
+      {...DNS_SECURITY}
+      {...props}
+      _style={extendStyle(DNS_SECURITY, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TermsAndConditions } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { TermsAndConditions } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <TermsAndConditions/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SIMPLE_STATE = {
   _style: 'shape=rect;rounded=1;html=1;whiteSpace=wrap;align=center;',
@@ -8,5 +8,11 @@ export const SIMPLE_STATE = {
 }
 
 export function SimpleState(props: DiagramNodeProps) {
-  return <Shape {...SIMPLE_STATE} {...props} />
+  return (
+    <Shape
+      {...SIMPLE_STATE}
+      {...props}
+      _style={extendStyle(SIMPLE_STATE, props)}
+    />
+  )
 }

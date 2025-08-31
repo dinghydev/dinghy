@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NasFiler } from '@reactiac/standard-components-diagrams/network'
+import { NasFiler } from '@diac/standard-components-diagrams/network'
 
 <NasFiler/>
 ```

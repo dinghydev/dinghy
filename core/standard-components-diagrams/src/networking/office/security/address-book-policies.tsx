@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADDRESS_BOOK_POLICIES = {
   _style:
@@ -9,5 +9,11 @@ export const ADDRESS_BOOK_POLICIES = {
 }
 
 export function AddressBookPolicies(props: DiagramNodeProps) {
-  return <Shape {...ADDRESS_BOOK_POLICIES} {...props} />
+  return (
+    <Shape
+      {...ADDRESS_BOOK_POLICIES}
+      {...props}
+      _style={extendStyle(ADDRESS_BOOK_POLICIES, props)}
+    />
+  )
 }

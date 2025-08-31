@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EntraIdentity } from '@reactiac/standard-components-diagrams/azure2Other'
+import { EntraIdentity } from '@diac/standard-components-diagrams/azure2Other'
 
 <EntraIdentity/>
 ```

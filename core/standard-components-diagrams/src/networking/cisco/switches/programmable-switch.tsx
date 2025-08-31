@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROGRAMMABLE_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const PROGRAMMABLE_SWITCH = {
 }
 
 export function ProgrammableSwitch(props: DiagramNodeProps) {
-  return <Shape {...PROGRAMMABLE_SWITCH} {...props} />
+  return (
+    <Shape
+      {...PROGRAMMABLE_SWITCH}
+      {...props}
+      _style={extendStyle(PROGRAMMABLE_SWITCH, props)}
+    />
+  )
 }

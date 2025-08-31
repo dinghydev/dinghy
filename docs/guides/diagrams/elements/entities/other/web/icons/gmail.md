@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Gmail } from '@reactiac/standard-components-diagrams/webIcons'
+import { Gmail } from '@diac/standard-components-diagrams/webIcons'
 
 <Gmail/>
 ```

@@ -1,13 +1,15 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARKING_2 = {
   _style:
     'shape=mxgraph.signs.travel.parking_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
-  _width: 98,
-  _height: 98,
+  _width: 60,
+  _height: 60,
 }
 
 export function Parking2(props: DiagramNodeProps) {
-  return <Shape {...PARKING_2} {...props} />
+  return (
+    <Shape {...PARKING_2} {...props} _style={extendStyle(PARKING_2, props)} />
+  )
 }

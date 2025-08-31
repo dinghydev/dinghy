@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { XenclientSynchronizer } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { XenclientSynchronizer } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <XenclientSynchronizer/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Umbrella } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { Umbrella } from '@diac/standard-components-diagrams/ios7Icons'
 
 <Umbrella/>
 ```

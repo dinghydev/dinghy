@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLAT_EDGE = {
   _style:
@@ -9,5 +9,7 @@ export const FLAT_EDGE = {
 }
 
 export function FlatEdge(props: DiagramNodeProps) {
-  return <Shape {...FLAT_EDGE} {...props} />
+  return (
+    <Shape {...FLAT_EDGE} {...props} _style={extendStyle(FLAT_EDGE, props)} />
+  )
 }

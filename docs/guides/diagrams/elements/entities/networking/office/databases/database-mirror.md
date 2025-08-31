@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabaseMirror } from '@reactiac/standard-components-diagrams/officeDatabases'
+import { DatabaseMirror } from '@diac/standard-components-diagrams/officeDatabases'
 
 <DatabaseMirror/>
 ```

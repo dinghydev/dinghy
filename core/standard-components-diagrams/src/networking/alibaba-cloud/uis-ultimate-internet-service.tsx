@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UIS_ULTIMATE_INTERNET_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const UIS_ULTIMATE_INTERNET_SERVICE = {
 }
 
 export function UisUltimateInternetService(props: DiagramNodeProps) {
-  return <Shape {...UIS_ULTIMATE_INTERNET_SERVICE} {...props} />
+  return (
+    <Shape
+      {...UIS_ULTIMATE_INTERNET_SERVICE}
+      {...props}
+      _style={extendStyle(UIS_ULTIMATE_INTERNET_SERVICE, props)}
+    />
+  )
 }

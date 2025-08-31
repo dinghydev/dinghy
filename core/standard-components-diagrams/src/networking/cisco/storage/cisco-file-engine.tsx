@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_FILE_ENGINE = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_FILE_ENGINE = {
 }
 
 export function CiscoFileEngine(props: DiagramNodeProps) {
-  return <Shape {...CISCO_FILE_ENGINE} {...props} />
+  return (
+    <Shape
+      {...CISCO_FILE_ENGINE}
+      {...props}
+      _style={extendStyle(CISCO_FILE_ENGINE, props)}
+    />
+  )
 }

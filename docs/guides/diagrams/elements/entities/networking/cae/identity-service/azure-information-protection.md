@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureInformationProtection } from '@reactiac/standard-components-diagrams/caeIdentityService'
+import { AzureInformationProtection } from '@diac/standard-components-diagrams/caeIdentityService'
 
 <AzureInformationProtection/>
 ```

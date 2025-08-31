@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SWITCH_DISCONNECTOR_OFF = {
   _style:
@@ -9,5 +9,11 @@ export const SWITCH_DISCONNECTOR_OFF = {
 }
 
 export function SwitchDisconnectorOff(props: DiagramNodeProps) {
-  return <Shape {...SWITCH_DISCONNECTOR_OFF} {...props} />
+  return (
+    <Shape
+      {...SWITCH_DISCONNECTOR_OFF}
+      {...props}
+      _style={extendStyle(SWITCH_DISCONNECTOR_OFF, props)}
+    />
+  )
 }

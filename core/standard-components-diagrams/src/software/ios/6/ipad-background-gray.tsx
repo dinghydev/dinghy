@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IPAD_BACKGROUND_GRAY = {
   _style:
@@ -9,5 +9,11 @@ export const IPAD_BACKGROUND_GRAY = {
 }
 
 export function IpadBackgroundGray(props: DiagramNodeProps) {
-  return <Shape {...IPAD_BACKGROUND_GRAY} {...props} />
+  return (
+    <Shape
+      {...IPAD_BACKGROUND_GRAY}
+      {...props}
+      _style={extendStyle(IPAD_BACKGROUND_GRAY, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOFTWARE_UPDATE = {
   _style:
@@ -9,5 +9,11 @@ export const SOFTWARE_UPDATE = {
 }
 
 export function SoftwareUpdate(props: DiagramNodeProps) {
-  return <Shape {...SOFTWARE_UPDATE} {...props} />
+  return (
+    <Shape
+      {...SOFTWARE_UPDATE}
+      {...props}
+      _style={extendStyle(SOFTWARE_UPDATE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10060_ROLLER_LEVER = {
   _style:
@@ -9,5 +9,11 @@ export const X10060_ROLLER_LEVER = {
 }
 
 export function X10060RollerLever(props: DiagramNodeProps) {
-  return <Shape {...X10060_ROLLER_LEVER} {...props} />
+  return (
+    <Shape
+      {...X10060_ROLLER_LEVER}
+      {...props}
+      _style={extendStyle(X10060_ROLLER_LEVER, props)}
+    />
+  )
 }

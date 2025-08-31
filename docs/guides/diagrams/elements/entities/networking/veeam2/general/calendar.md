@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Calendar } from '@reactiac/standard-components-diagrams/veeam2General'
+import { Calendar } from '@diac/standard-components-diagrams/veeam2General'
 
 <Calendar/>
 ```

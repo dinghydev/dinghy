@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X1026032Lockout } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X1026032Lockout } from '@diac/standard-components-diagrams/fluidPower'
 
 <X1026032Lockout/>
 ```

@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ISOMETRIC_EDGE_1 = {
   _style: {
@@ -8,5 +8,11 @@ export const ISOMETRIC_EDGE_1 = {
 }
 
 export function IsometricEdge1(props: DiagramNodeProps) {
-  return <Dependency {...ISOMETRIC_EDGE_1} {...props} />
+  return (
+    <Dependency
+      {...ISOMETRIC_EDGE_1}
+      {...props}
+      _style={extendStyle(ISOMETRIC_EDGE_1, props)}
+    />
+  )
 }

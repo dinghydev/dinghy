@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CRUSHING_GRINDING_MACHINE = {
   _style:
@@ -9,5 +9,11 @@ export const CRUSHING_GRINDING_MACHINE = {
 }
 
 export function CrushingGrindingMachine(props: DiagramNodeProps) {
-  return <Shape {...CRUSHING_GRINDING_MACHINE} {...props} />
+  return (
+    <Shape
+      {...CRUSHING_GRINDING_MACHINE}
+      {...props}
+      _style={extendStyle(CRUSHING_GRINDING_MACHINE, props)}
+    />
+  )
 }

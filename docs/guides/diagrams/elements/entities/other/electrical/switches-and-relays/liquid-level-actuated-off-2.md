@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LiquidLevelActuatedOff2 } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { LiquidLevelActuatedOff2 } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <LiquidLevelActuatedOff2/>
 ```

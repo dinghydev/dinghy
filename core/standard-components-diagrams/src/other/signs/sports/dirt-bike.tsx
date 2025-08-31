@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIRT_BIKE = {
   _style:
@@ -9,5 +9,7 @@ export const DIRT_BIKE = {
 }
 
 export function DirtBike(props: DiagramNodeProps) {
-  return <Shape {...DIRT_BIKE} {...props} />
+  return (
+    <Shape {...DIRT_BIKE} {...props} _style={extendStyle(DIRT_BIKE, props)} />
+  )
 }

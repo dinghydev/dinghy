@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLUMN_FLUIDIZED_BED = {
   _style:
@@ -9,5 +9,11 @@ export const COLUMN_FLUIDIZED_BED = {
 }
 
 export function ColumnFluidizedBed(props: DiagramNodeProps) {
-  return <Shape {...COLUMN_FLUIDIZED_BED} {...props} />
+  return (
+    <Shape
+      {...COLUMN_FLUIDIZED_BED}
+      {...props}
+      _style={extendStyle(COLUMN_FLUIDIZED_BED, props)}
+    />
+  )
 }

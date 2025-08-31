@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StepperWithAlternativeLabelPlacing2 } from '@reactiac/standard-components-diagrams/gmdlSteppers'
+import { StepperWithAlternativeLabelPlacing2 } from '@diac/standard-components-diagrams/gmdlSteppers'
 
 <StepperWithAlternativeLabelPlacing2/>
 ```

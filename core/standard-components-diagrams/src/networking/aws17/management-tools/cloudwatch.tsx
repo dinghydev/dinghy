@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDWATCH = {
   _style:
@@ -9,5 +9,7 @@ export const CLOUDWATCH = {
 }
 
 export function Cloudwatch(props: DiagramNodeProps) {
-  return <Shape {...CLOUDWATCH} {...props} />
+  return (
+    <Shape {...CLOUDWATCH} {...props} _style={extendStyle(CLOUDWATCH, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HDINSIGHT = {
   _style:
@@ -9,5 +9,7 @@ export const HDINSIGHT = {
 }
 
 export function Hdinsight(props: DiagramNodeProps) {
-  return <Shape {...HDINSIGHT} {...props} />
+  return (
+    <Shape {...HDINSIGHT} {...props} _style={extendStyle(HDINSIGHT, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ClosedFigure8Blind } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { ClosedFigure8Blind } from '@diac/standard-components-diagrams/procEngPiping'
 
 <ClosedFigure8Blind/>
 ```

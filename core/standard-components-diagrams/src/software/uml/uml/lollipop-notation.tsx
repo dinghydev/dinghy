@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOLLIPOP_NOTATION = {
   _style:
@@ -9,5 +9,11 @@ export const LOLLIPOP_NOTATION = {
 }
 
 export function LollipopNotation(props: DiagramNodeProps) {
-  return <Shape {...LOLLIPOP_NOTATION} {...props} />
+  return (
+    <Shape
+      {...LOLLIPOP_NOTATION}
+      {...props}
+      _style={extendStyle(LOLLIPOP_NOTATION, props)}
+    />
+  )
 }

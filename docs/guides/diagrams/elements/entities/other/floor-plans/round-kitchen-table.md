@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RoundKitchenTable } from '@reactiac/standard-components-diagrams/floorPlans'
+import { RoundKitchenTable } from '@diac/standard-components-diagrams/floorPlans'
 
 <RoundKitchenTable/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudServicesConfigurationFile } from '@reactiac/standard-components-diagrams/azure'
+import { CloudServicesConfigurationFile } from '@diac/standard-components-diagrams/azure'
 
 <CloudServicesConfigurationFile/>
 ```

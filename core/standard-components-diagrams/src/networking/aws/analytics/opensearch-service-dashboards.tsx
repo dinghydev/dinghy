@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPENSEARCH_SERVICE_DASHBOARDS = {
   _style:
@@ -9,5 +9,11 @@ export const OPENSEARCH_SERVICE_DASHBOARDS = {
 }
 
 export function OpensearchServiceDashboards(props: DiagramNodeProps) {
-  return <Shape {...OPENSEARCH_SERVICE_DASHBOARDS} {...props} />
+  return (
+    <Shape
+      {...OPENSEARCH_SERVICE_DASHBOARDS}
+      {...props}
+      _style={extendStyle(OPENSEARCH_SERVICE_DASHBOARDS, props)}
+    />
+  )
 }

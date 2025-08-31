@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOICE_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const VOICE_SWITCH = {
 }
 
 export function VoiceSwitch(props: DiagramNodeProps) {
-  return <Shape {...VOICE_SWITCH} {...props} />
+  return (
+    <Shape
+      {...VOICE_SWITCH}
+      {...props}
+      _style={extendStyle(VOICE_SWITCH, props)}
+    />
+  )
 }

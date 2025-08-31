@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TUMBLR = {
   _style:
@@ -9,5 +9,5 @@ export const TUMBLR = {
 }
 
 export function Tumblr(props: DiagramNodeProps) {
-  return <Shape {...TUMBLR} {...props} />
+  return <Shape {...TUMBLR} {...props} _style={extendStyle(TUMBLR, props)} />
 }

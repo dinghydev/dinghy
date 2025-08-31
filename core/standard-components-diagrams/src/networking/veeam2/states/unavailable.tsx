@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNAVAILABLE = {
   _style:
@@ -9,5 +9,11 @@ export const UNAVAILABLE = {
 }
 
 export function Unavailable(props: DiagramNodeProps) {
-  return <Shape {...UNAVAILABLE} {...props} />
+  return (
+    <Shape
+      {...UNAVAILABLE}
+      {...props}
+      _style={extendStyle(UNAVAILABLE, props)}
+    />
+  )
 }

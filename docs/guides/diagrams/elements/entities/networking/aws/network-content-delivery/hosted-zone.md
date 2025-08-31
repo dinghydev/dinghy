@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HostedZone } from '@reactiac/standard-components-diagrams/awsNetworkContentDelivery'
+import { HostedZone } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
 
 <HostedZone/>
 ```

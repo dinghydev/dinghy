@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TapeEjecting } from '@reactiac/standard-components-diagrams/veeam3d'
+import { TapeEjecting } from '@diac/standard-components-diagrams/veeam3d'
 
 <TapeEjecting/>
 ```

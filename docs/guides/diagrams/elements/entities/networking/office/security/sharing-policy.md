@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SharingPolicy } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { SharingPolicy } from '@diac/standard-components-diagrams/officeSecurity'
 
 <SharingPolicy/>
 ```

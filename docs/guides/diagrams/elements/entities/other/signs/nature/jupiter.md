@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Jupiter } from '@reactiac/standard-components-diagrams/signsNature'
+import { Jupiter } from '@diac/standard-components-diagrams/signsNature'
 
 <Jupiter/>
 ```

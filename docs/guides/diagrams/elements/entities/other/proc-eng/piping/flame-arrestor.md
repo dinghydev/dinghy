@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FlameArrestor } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { FlameArrestor } from '@diac/standard-components-diagrams/procEngPiping'
 
 <FlameArrestor/>
 ```

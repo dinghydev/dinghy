@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CassandraWideColumnDatabase } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { CassandraWideColumnDatabase } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <CassandraWideColumnDatabase/>
 ```

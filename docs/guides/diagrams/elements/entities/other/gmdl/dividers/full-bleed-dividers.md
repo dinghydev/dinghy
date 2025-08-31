@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FullBleedDividers } from '@reactiac/standard-components-diagrams/gmdlDividers'
+import { FullBleedDividers } from '@diac/standard-components-diagrams/gmdlDividers'
 
 <FullBleedDividers/>
 ```

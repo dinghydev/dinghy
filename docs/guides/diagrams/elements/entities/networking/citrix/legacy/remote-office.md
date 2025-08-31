@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RemoteOffice } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { RemoteOffice } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <RemoteOffice/>
 ```

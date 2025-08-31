@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FilteringRule } from '@reactiac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { FilteringRule } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <FilteringRule/>
 ```

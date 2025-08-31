@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TOKEN_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const TOKEN_SERVICE = {
 }
 
 export function TokenService(props: DiagramNodeProps) {
-  return <Shape {...TOKEN_SERVICE} {...props} />
+  return (
+    <Shape
+      {...TOKEN_SERVICE}
+      {...props}
+      _style={extendStyle(TOKEN_SERVICE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Folders } from '@reactiac/standard-components-diagrams/awsGeneralResources'
+import { Folders } from '@diac/standard-components-diagrams/awsGeneralResources'
 
 <Folders/>
 ```

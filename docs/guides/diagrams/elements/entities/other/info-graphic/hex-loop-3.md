@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HexLoop3 } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { HexLoop3 } from '@diac/standard-components-diagrams/infoGraphic'
 
 <HexLoop3/>
 ```

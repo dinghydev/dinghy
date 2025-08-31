@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Resources } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { Resources } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <Resources/>
 ```

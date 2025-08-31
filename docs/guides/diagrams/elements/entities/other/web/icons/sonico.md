@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sonico } from '@reactiac/standard-components-diagrams/webIcons'
+import { Sonico } from '@diac/standard-components-diagrams/webIcons'
 
 <Sonico/>
 ```

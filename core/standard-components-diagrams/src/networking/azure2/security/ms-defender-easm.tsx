@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MS_DEFENDER_EASM = {
   _style:
@@ -9,5 +9,11 @@ export const MS_DEFENDER_EASM = {
 }
 
 export function MsDefenderEasm(props: DiagramNodeProps) {
-  return <Shape {...MS_DEFENDER_EASM} {...props} />
+  return (
+    <Shape
+      {...MS_DEFENDER_EASM}
+      {...props}
+      _style={extendStyle(MS_DEFENDER_EASM, props)}
+    />
+  )
 }

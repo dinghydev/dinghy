@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SITE_SHARED = {
   _style:
@@ -9,5 +9,11 @@ export const SITE_SHARED = {
 }
 
 export function SiteShared(props: DiagramNodeProps) {
-  return <Shape {...SITE_SHARED} {...props} />
+  return (
+    <Shape
+      {...SITE_SHARED}
+      {...props}
+      _style={extendStyle(SITE_SHARED, props)}
+    />
+  )
 }

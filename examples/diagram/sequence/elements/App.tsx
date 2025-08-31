@@ -1,16 +1,16 @@
-import { Rows, Shape } from "@reactiac/base-components";
+import { Rows, Shape } from "@diac/base-components";
 import {
     Activation,
     Frame,
     Message,
     Participant,
-} from "@reactiac/standard-components-diagrams/sequenceDiagram";
+} from "@diac/standard-components-diagrams/sequenceDiagram";
 
 import {
     Client,
     Servers,
     User,
-} from "@reactiac/standard-components-diagrams/awsGeneralResources";
+} from "@diac/standard-components-diagrams/awsGeneralResources";
 
 export function App() {
     return (

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SITEJOT = {
   _style:
@@ -9,5 +9,5 @@ export const SITEJOT = {
 }
 
 export function Sitejot(props: DiagramNodeProps) {
-  return <Shape {...SITEJOT} {...props} />
+  return <Shape {...SITEJOT} {...props} _style={extendStyle(SITEJOT, props)} />
 }

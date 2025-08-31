@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiagonalStripe } from '@reactiac/standard-components-diagrams/basic'
+import { DiagonalStripe } from '@diac/standard-components-diagrams/basic'
 
 <DiagonalStripe/>
 ```

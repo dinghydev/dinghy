@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApsaraFileStorageForHdfs } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { ApsaraFileStorageForHdfs } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <ApsaraFileStorageForHdfs/>
 ```

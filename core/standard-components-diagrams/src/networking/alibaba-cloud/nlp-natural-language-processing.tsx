@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLP_NATURAL_LANGUAGE_PROCESSING = {
   _style:
@@ -9,5 +9,11 @@ export const NLP_NATURAL_LANGUAGE_PROCESSING = {
 }
 
 export function NlpNaturalLanguageProcessing(props: DiagramNodeProps) {
-  return <Shape {...NLP_NATURAL_LANGUAGE_PROCESSING} {...props} />
+  return (
+    <Shape
+      {...NLP_NATURAL_LANGUAGE_PROCESSING}
+      {...props}
+      _style={extendStyle(NLP_NATURAL_LANGUAGE_PROCESSING, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CustomerLockbox } from '@reactiac/standard-components-diagrams/caeOtherCategoryService'
+import { CustomerLockbox } from '@diac/standard-components-diagrams/caeOtherCategoryService'
 
 <CustomerLockbox/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mccb2563a3p } from '@reactiac/standard-components-diagrams/cabinets'
+import { Mccb2563a3p } from '@diac/standard-components-diagrams/cabinets'
 
 <Mccb2563a3p/>
 ```

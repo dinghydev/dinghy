@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GoogleDocument } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { GoogleDocument } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <GoogleDocument/>
 ```

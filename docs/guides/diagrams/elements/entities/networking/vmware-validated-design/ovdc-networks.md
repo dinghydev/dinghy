@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OvdcNetworks } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { OvdcNetworks } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <OvdcNetworks/>
 ```

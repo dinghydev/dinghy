@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL325A_2930M_2_PORT_STACKING_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const JL325A_2930M_2_PORT_STACKING_MODULE = {
 }
 
 export function Jl325a2930m2PortStackingModule(props: DiagramNodeProps) {
-  return <Shape {...JL325A_2930M_2_PORT_STACKING_MODULE} {...props} />
+  return (
+    <Shape
+      {...JL325A_2930M_2_PORT_STACKING_MODULE}
+      {...props}
+      _style={extendStyle(JL325A_2930M_2_PORT_STACKING_MODULE, props)}
+    />
+  )
 }

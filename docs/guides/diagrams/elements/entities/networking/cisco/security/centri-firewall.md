@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CentriFirewall } from '@reactiac/standard-components-diagrams/ciscoSecurity'
+import { CentriFirewall } from '@diac/standard-components-diagrams/ciscoSecurity'
 
 <CentriFirewall/>
 ```

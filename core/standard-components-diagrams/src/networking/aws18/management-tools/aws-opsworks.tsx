@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_OPSWORKS = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_OPSWORKS = {
 }
 
 export function AwsOpsworks(props: DiagramNodeProps) {
-  return <Shape {...AWS_OPSWORKS} {...props} />
+  return (
+    <Shape
+      {...AWS_OPSWORKS}
+      {...props}
+      _style={extendStyle(AWS_OPSWORKS, props)}
+    />
+  )
 }

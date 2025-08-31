@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MicroSegmentation } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { MicroSegmentation } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <MicroSegmentation/>
 ```

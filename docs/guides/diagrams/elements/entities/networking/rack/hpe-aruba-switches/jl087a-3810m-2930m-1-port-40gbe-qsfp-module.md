@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Jl087a3810m2930m1Port40gbeQsfpModule } from '@reactiac/standard-components-diagrams/rackHpeArubaSwitches'
+import { Jl087a3810m2930m1Port40gbeQsfpModule } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
 
 <Jl087a3810m2930m1Port40gbeQsfpModule/>
 ```

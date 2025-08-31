@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PickupHead } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { PickupHead } from '@diac/standard-components-diagrams/electricalMisc'
 
 <PickupHead/>
 ```

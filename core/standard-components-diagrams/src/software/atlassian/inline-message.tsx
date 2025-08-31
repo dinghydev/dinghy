@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INLINE_MESSAGE = {
   _style:
@@ -9,5 +9,11 @@ export const INLINE_MESSAGE = {
 }
 
 export function InlineMessage(props: DiagramNodeProps) {
-  return <Shape {...INLINE_MESSAGE} {...props} />
+  return (
+    <Shape
+      {...INLINE_MESSAGE}
+      {...props}
+      _style={extendStyle(INLINE_MESSAGE, props)}
+    />
+  )
 }

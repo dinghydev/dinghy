@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ABAP_BUSINESS_APPLICATION_PLATFORM = {
   _style:
@@ -9,5 +9,11 @@ export const ABAP_BUSINESS_APPLICATION_PLATFORM = {
 }
 
 export function AbapBusinessApplicationPlatform(props: DiagramNodeProps) {
-  return <Shape {...ABAP_BUSINESS_APPLICATION_PLATFORM} {...props} />
+  return (
+    <Shape
+      {...ABAP_BUSINESS_APPLICATION_PLATFORM}
+      {...props}
+      _style={extendStyle(ABAP_BUSINESS_APPLICATION_PLATFORM, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MACHINE_LEARNING_SERVICE_WORKSPACES = {
   _style:
@@ -9,5 +9,11 @@ export const MACHINE_LEARNING_SERVICE_WORKSPACES = {
 }
 
 export function MachineLearningServiceWorkspaces(props: DiagramNodeProps) {
-  return <Shape {...MACHINE_LEARNING_SERVICE_WORKSPACES} {...props} />
+  return (
+    <Shape
+      {...MACHINE_LEARNING_SERVICE_WORKSPACES}
+      {...props}
+      _style={extendStyle(MACHINE_LEARNING_SERVICE_WORKSPACES, props)}
+    />
+  )
 }

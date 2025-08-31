@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureHome } from '@reactiac/standard-components-diagrams/caeGeneralService'
+import { AzureHome } from '@diac/standard-components-diagrams/caeGeneralService'
 
 <AzureHome/>
 ```

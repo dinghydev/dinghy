@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEDGE_BAR = {
   _style:
@@ -9,5 +9,7 @@ export const WEDGE_BAR = {
 }
 
 export function WedgeBar(props: DiagramNodeProps) {
-  return <Shape {...WEDGE_BAR} {...props} />
+  return (
+    <Shape {...WEDGE_BAR} {...props} _style={extendStyle(WEDGE_BAR, props)} />
+  )
 }

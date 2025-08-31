@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pocket } from '@reactiac/standard-components-diagrams/webIcons'
+import { Pocket } from '@diac/standard-components-diagrams/webIcons'
 
 <Pocket/>
 ```

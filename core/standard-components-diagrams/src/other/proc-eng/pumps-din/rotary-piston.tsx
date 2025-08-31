@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROTARY_PISTON = {
   _style:
     'shape=mxgraph.pid.pumps_-_din.rotary_piston;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 
 export function RotaryPiston(props: DiagramNodeProps) {
-  return <Shape {...ROTARY_PISTON} {...props} />
+  return (
+    <Shape
+      {...ROTARY_PISTON}
+      {...props}
+      _style={extendStyle(ROTARY_PISTON, props)}
+    />
+  )
 }

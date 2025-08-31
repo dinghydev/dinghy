@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TurboDrierDiscDrierMovingShelfDrier } from '@reactiac/standard-components-diagrams/procEngDriers'
+import { TurboDrierDiscDrierMovingShelfDrier } from '@diac/standard-components-diagrams/procEngDriers'
 
 <TurboDrierDiscDrierMovingShelfDrier/>
 ```

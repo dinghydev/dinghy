@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VappNetwork } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { VappNetwork } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <VappNetwork/>
 ```

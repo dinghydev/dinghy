@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MODIFIERS_SHARED_CORE_MACHINE_F1 = {
   _style:
@@ -9,5 +9,11 @@ export const MODIFIERS_SHARED_CORE_MACHINE_F1 = {
 }
 
 export function ModifiersSharedCoreMachineF1(props: DiagramNodeProps) {
-  return <Shape {...MODIFIERS_SHARED_CORE_MACHINE_F1} {...props} />
+  return (
+    <Shape
+      {...MODIFIERS_SHARED_CORE_MACHINE_F1}
+      {...props}
+      _style={extendStyle(MODIFIERS_SHARED_CORE_MACHINE_F1, props)}
+    />
+  )
 }

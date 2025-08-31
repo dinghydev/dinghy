@@ -66,7 +66,7 @@ export const NodeSchema = z.object({
   key: z.any().optional(),
   ref: z.any().optional(),
 
-  // reactiac core props
+  // diac core props
   title: ResolvableStringSchema.optional(),
   name: ResolvableStringSchema.optional(),
   id: ResolvableStringSchema.optional(),
@@ -74,7 +74,7 @@ export const NodeSchema = z.object({
   _name: ResolvableStringSchema.optional(),
   _id: ResolvableStringSchema.optional(),
 
-  // reactiac additional props
+  // diac additional props
   _level: ResolvableNumberSchema.optional(),
   _tags: ResolvableStringArraySchema.optional(),
   _type: ResolvableStringSchema.optional(),
@@ -117,6 +117,7 @@ export const DiagramNodeSchema = z.object({
   _diagram: RecordSchema.optional(),
   _style: z.union([
     ResolvableStringSchema.optional(),
+    z.any().array().optional(),
     z.object({
       element: z.union([
         ResolvableStringSchema.optional(),

@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPEN_DOUBLE = {
   _style: {
@@ -9,5 +9,11 @@ export const OPEN_DOUBLE = {
 }
 
 export function OpenDouble(props: DiagramNodeProps) {
-  return <Dependency {...OPEN_DOUBLE} {...props} />
+  return (
+    <Dependency
+      {...OPEN_DOUBLE}
+      {...props}
+      _style={extendStyle(OPEN_DOUBLE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudSql } from '@reactiac/standard-components-diagrams/gcpIconsDatabases'
+import { CloudSql } from '@diac/standard-components-diagrams/gcpIconsDatabases'
 
 <CloudSql/>
 ```

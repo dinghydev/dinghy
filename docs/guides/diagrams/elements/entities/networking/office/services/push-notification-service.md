@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PushNotificationService } from '@reactiac/standard-components-diagrams/officeServices'
+import { PushNotificationService } from '@diac/standard-components-diagrams/officeServices'
 
 <PushNotificationService/>
 ```

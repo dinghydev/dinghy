@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NlpAutoml } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { NlpAutoml } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <NlpAutoml/>
 ```

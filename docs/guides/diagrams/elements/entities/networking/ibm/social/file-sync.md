@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FileSync } from '@reactiac/standard-components-diagrams/ibmSocial'
+import { FileSync } from '@diac/standard-components-diagrams/ibmSocial'
 
 <FileSync/>
 ```

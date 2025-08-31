@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LONG_BUILDING = {
   _style:
@@ -9,5 +9,11 @@ export const LONG_BUILDING = {
 }
 
 export function LongBuilding(props: DiagramNodeProps) {
-  return <Shape {...LONG_BUILDING} {...props} />
+  return (
+    <Shape
+      {...LONG_BUILDING}
+      {...props}
+      _style={extendStyle(LONG_BUILDING, props)}
+    />
+  )
 }

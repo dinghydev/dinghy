@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DWDM_FILTER = {
   _style:
@@ -9,5 +9,11 @@ export const DWDM_FILTER = {
 }
 
 export function DwdmFilter(props: DiagramNodeProps) {
-  return <Shape {...DWDM_FILTER} {...props} />
+  return (
+    <Shape
+      {...DWDM_FILTER}
+      {...props}
+      _style={extendStyle(DWDM_FILTER, props)}
+    />
+  )
 }

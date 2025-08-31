@@ -1,4 +1,4 @@
-import type { NodeTree, Props } from '@reactiac/base-components'
+import type { NodeTree, Props } from '@diac/base-components'
 import { resourceOrData } from './resourceOrData.ts'
 import { TfRenderOptions } from '../types.ts'
 export const data = (

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bamboo } from '@reactiac/standard-components-diagrams/atlassian'
+import { Bamboo } from '@diac/standard-components-diagrams/atlassian'
 
 <Bamboo/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IRM_PROTECTED_MESSAGE = {
   _style:
@@ -9,5 +9,11 @@ export const IRM_PROTECTED_MESSAGE = {
 }
 
 export function IrmProtectedMessage(props: DiagramNodeProps) {
-  return <Shape {...IRM_PROTECTED_MESSAGE} {...props} />
+  return (
+    <Shape
+      {...IRM_PROTECTED_MESSAGE}
+      {...props}
+      _style={extendStyle(IRM_PROTECTED_MESSAGE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PODIO = {
   _style:
@@ -9,5 +9,5 @@ export const PODIO = {
 }
 
 export function Podio(props: DiagramNodeProps) {
-  return <Shape {...PODIO} {...props} />
+  return <Shape {...PODIO} {...props} _style={extendStyle(PODIO, props)} />
 }

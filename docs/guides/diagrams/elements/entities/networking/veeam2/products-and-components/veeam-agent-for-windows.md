@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VeeamAgentForWindows } from '@reactiac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamAgentForWindows } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamAgentForWindows/>
 ```

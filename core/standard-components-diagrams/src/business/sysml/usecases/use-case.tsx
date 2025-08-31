@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const USE_CASE = {
   _style:
@@ -9,5 +9,7 @@ export const USE_CASE = {
 }
 
 export function UseCase(props: DiagramNodeProps) {
-  return <Shape {...USE_CASE} {...props} />
+  return (
+    <Shape {...USE_CASE} {...props} _style={extendStyle(USE_CASE, props)} />
+  )
 }

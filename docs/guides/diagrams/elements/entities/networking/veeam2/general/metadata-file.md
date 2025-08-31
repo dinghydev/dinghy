@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MetadataFile } from '@reactiac/standard-components-diagrams/veeam2General'
+import { MetadataFile } from '@diac/standard-components-diagrams/veeam2General'
 
 <MetadataFile/>
 ```

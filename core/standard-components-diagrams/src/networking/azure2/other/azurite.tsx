@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURITE = {
   _style:
@@ -9,5 +9,5 @@ export const AZURITE = {
 }
 
 export function Azurite(props: DiagramNodeProps) {
-  return <Shape {...AZURITE} {...props} />
+  return <Shape {...AZURITE} {...props} _style={extendStyle(AZURITE, props)} />
 }

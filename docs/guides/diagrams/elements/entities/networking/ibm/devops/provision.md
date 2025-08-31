@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Provision } from '@reactiac/standard-components-diagrams/ibmDevops'
+import { Provision } from '@diac/standard-components-diagrams/ibmDevops'
 
 <Provision/>
 ```

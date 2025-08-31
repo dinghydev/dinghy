@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOG_ON_LEASH = {
   _style:
@@ -9,5 +9,11 @@ export const DOG_ON_LEASH = {
 }
 
 export function DogOnLeash(props: DiagramNodeProps) {
-  return <Shape {...DOG_ON_LEASH} {...props} />
+  return (
+    <Shape
+      {...DOG_ON_LEASH}
+      {...props}
+      _style={extendStyle(DOG_ON_LEASH, props)}
+    />
+  )
 }

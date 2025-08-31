@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_MEETINGPLACE_EXPRESS = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_MEETINGPLACE_EXPRESS = {
 }
 
 export function CiscoMeetingplaceExpress(props: DiagramNodeProps) {
-  return <Shape {...CISCO_MEETINGPLACE_EXPRESS} {...props} />
+  return (
+    <Shape
+      {...CISCO_MEETINGPLACE_EXPRESS}
+      {...props}
+      _style={extendStyle(CISCO_MEETINGPLACE_EXPRESS, props)}
+    />
+  )
 }

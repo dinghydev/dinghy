@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IVPD_INTELLIGENT_VISUAL_PRODUCTION = {
   _style:
@@ -9,5 +9,11 @@ export const IVPD_INTELLIGENT_VISUAL_PRODUCTION = {
 }
 
 export function IvpdIntelligentVisualProduction(props: DiagramNodeProps) {
-  return <Shape {...IVPD_INTELLIGENT_VISUAL_PRODUCTION} {...props} />
+  return (
+    <Shape
+      {...IVPD_INTELLIGENT_VISUAL_PRODUCTION}
+      {...props}
+      _style={extendStyle(IVPD_INTELLIGENT_VISUAL_PRODUCTION, props)}
+    />
+  )
 }

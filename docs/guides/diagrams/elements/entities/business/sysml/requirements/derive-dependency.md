@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeriveDependency } from '@reactiac/standard-components-diagrams/sysmlRequirements'
+import { DeriveDependency } from '@diac/standard-components-diagrams/sysmlRequirements'
 
 <DeriveDependency/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OTS_TABLESTORE = {
   _style:
@@ -9,5 +9,11 @@ export const OTS_TABLESTORE = {
 }
 
 export function OtsTablestore(props: DiagramNodeProps) {
-  return <Shape {...OTS_TABLESTORE} {...props} />
+  return (
+    <Shape
+      {...OTS_TABLESTORE}
+      {...props}
+      _style={extendStyle(OTS_TABLESTORE, props)}
+    />
+  )
 }

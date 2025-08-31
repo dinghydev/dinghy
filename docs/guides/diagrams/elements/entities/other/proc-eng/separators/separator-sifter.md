@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SeparatorSifter } from '@reactiac/standard-components-diagrams/procEngSeparators'
+import { SeparatorSifter } from '@diac/standard-components-diagrams/procEngSeparators'
 
 <SeparatorSifter/>
 ```

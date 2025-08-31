@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CEN_CLOUD_ENTERPRISE_NETWORK = {
   _style:
@@ -9,5 +9,11 @@ export const CEN_CLOUD_ENTERPRISE_NETWORK = {
 }
 
 export function CenCloudEnterpriseNetwork(props: DiagramNodeProps) {
-  return <Shape {...CEN_CLOUD_ENTERPRISE_NETWORK} {...props} />
+  return (
+    <Shape
+      {...CEN_CLOUD_ENTERPRISE_NETWORK}
+      {...props}
+      _style={extendStyle(CEN_CLOUD_ENTERPRISE_NETWORK, props)}
+    />
+  )
 }

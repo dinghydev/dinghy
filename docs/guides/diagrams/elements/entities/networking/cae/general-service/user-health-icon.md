@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UserHealthIcon } from '@reactiac/standard-components-diagrams/caeGeneralService'
+import { UserHealthIcon } from '@diac/standard-components-diagrams/caeGeneralService'
 
 <UserHealthIcon/>
 ```

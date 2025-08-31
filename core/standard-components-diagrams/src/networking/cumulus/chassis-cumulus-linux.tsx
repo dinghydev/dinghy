@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHASSIS_CUMULUS_LINUX = {
   _style:
@@ -9,5 +9,11 @@ export const CHASSIS_CUMULUS_LINUX = {
 }
 
 export function ChassisCumulusLinux(props: DiagramNodeProps) {
-  return <Shape {...CHASSIS_CUMULUS_LINUX} {...props} />
+  return (
+    <Shape
+      {...CHASSIS_CUMULUS_LINUX}
+      {...props}
+      _style={extendStyle(CHASSIS_CUMULUS_LINUX, props)}
+    />
+  )
 }

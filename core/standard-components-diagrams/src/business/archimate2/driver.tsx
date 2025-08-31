@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DRIVER = {
   _style:
@@ -9,5 +9,5 @@ export const DRIVER = {
 }
 
 export function Driver(props: DiagramNodeProps) {
-  return <Shape {...DRIVER} {...props} />
+  return <Shape {...DRIVER} {...props} _style={extendStyle(DRIVER, props)} />
 }

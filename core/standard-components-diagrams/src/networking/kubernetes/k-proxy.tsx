@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const K_PROXY = {
   _style:
@@ -9,5 +9,5 @@ export const K_PROXY = {
 }
 
 export function KProxy(props: DiagramNodeProps) {
-  return <Shape {...K_PROXY} {...props} />
+  return <Shape {...K_PROXY} {...props} _style={extendStyle(K_PROXY, props)} />
 }

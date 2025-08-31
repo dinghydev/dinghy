@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHARED_FLOW_BAG = {
   _style:
@@ -9,5 +9,11 @@ export const SHARED_FLOW_BAG = {
 }
 
 export function SharedFlowBag(props: DiagramNodeProps) {
-  return <Shape {...SHARED_FLOW_BAG} {...props} />
+  return (
+    <Shape
+      {...SHARED_FLOW_BAG}
+      {...props}
+      _style={extendStyle(SHARED_FLOW_BAG, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OcrOpticalCharacterRecognition } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { OcrOpticalCharacterRecognition } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <OcrOpticalCharacterRecognition/>
 ```

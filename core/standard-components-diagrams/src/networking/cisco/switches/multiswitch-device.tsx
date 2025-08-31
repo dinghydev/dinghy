@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTISWITCH_DEVICE = {
   _style:
@@ -9,5 +9,11 @@ export const MULTISWITCH_DEVICE = {
 }
 
 export function MultiswitchDevice(props: DiagramNodeProps) {
-  return <Shape {...MULTISWITCH_DEVICE} {...props} />
+  return (
+    <Shape
+      {...MULTISWITCH_DEVICE}
+      {...props}
+      _style={extendStyle(MULTISWITCH_DEVICE, props)}
+    />
+  )
 }

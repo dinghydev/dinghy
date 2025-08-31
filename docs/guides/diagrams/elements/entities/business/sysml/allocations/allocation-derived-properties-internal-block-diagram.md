@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AllocationDerivedPropertiesInternalBlockDiagram } from '@reactiac/standard-components-diagrams/sysmlAllocations'
+import { AllocationDerivedPropertiesInternalBlockDiagram } from '@diac/standard-components-diagrams/sysmlAllocations'
 
 <AllocationDerivedPropertiesInternalBlockDiagram/>
 ```

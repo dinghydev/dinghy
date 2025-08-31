@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Hybrid } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { Hybrid } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <Hybrid/>
 ```

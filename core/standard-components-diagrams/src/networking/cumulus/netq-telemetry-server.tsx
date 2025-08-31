@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETQ_TELEMETRY_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const NETQ_TELEMETRY_SERVER = {
 }
 
 export function NetqTelemetryServer(props: DiagramNodeProps) {
-  return <Shape {...NETQ_TELEMETRY_SERVER} {...props} />
+  return (
+    <Shape
+      {...NETQ_TELEMETRY_SERVER}
+      {...props}
+      _style={extendStyle(NETQ_TELEMETRY_SERVER, props)}
+    />
+  )
 }

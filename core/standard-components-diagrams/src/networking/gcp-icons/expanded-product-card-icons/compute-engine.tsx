@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPUTE_ENGINE = {
   _style:
@@ -9,5 +9,11 @@ export const COMPUTE_ENGINE = {
 }
 
 export function ComputeEngine(props: DiagramNodeProps) {
-  return <Shape {...COMPUTE_ENGINE} {...props} />
+  return (
+    <Shape
+      {...COMPUTE_ENGINE}
+      {...props}
+      _style={extendStyle(COMPUTE_ENGINE, props)}
+    />
+  )
 }

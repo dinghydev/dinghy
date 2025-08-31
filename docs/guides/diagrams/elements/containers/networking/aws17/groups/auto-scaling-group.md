@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { AutoScalingGroup } from '@reactiac/standard-components-diagrams/aws17Groups'
+import { AutoScalingGroup } from '@diac/standard-components-diagrams/aws17Groups'
 
 <AutoScalingGroup/>
 ```

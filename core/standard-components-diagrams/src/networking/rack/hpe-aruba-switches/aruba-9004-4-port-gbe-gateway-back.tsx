@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARUBA_9004_4_PORT_GBE_GATEWAY_BACK = {
   _style:
@@ -9,5 +9,11 @@ export const ARUBA_9004_4_PORT_GBE_GATEWAY_BACK = {
 }
 
 export function Aruba90044PortGbeGatewayBack(props: DiagramNodeProps) {
-  return <Shape {...ARUBA_9004_4_PORT_GBE_GATEWAY_BACK} {...props} />
+  return (
+    <Shape
+      {...ARUBA_9004_4_PORT_GBE_GATEWAY_BACK}
+      {...props}
+      _style={extendStyle(ARUBA_9004_4_PORT_GBE_GATEWAY_BACK, props)}
+    />
+  )
 }

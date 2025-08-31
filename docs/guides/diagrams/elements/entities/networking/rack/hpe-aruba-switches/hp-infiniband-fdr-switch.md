@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HpInfinibandFdrSwitch } from '@reactiac/standard-components-diagrams/rackHpeArubaSwitches'
+import { HpInfinibandFdrSwitch } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
 
 <HpInfinibandFdrSwitch/>
 ```

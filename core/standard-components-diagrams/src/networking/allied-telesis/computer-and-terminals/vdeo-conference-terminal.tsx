@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VDEO_CONFERENCE_TERMINAL = {
   _style:
@@ -9,5 +9,11 @@ export const VDEO_CONFERENCE_TERMINAL = {
 }
 
 export function VdeoConferenceTerminal(props: DiagramNodeProps) {
-  return <Shape {...VDEO_CONFERENCE_TERMINAL} {...props} />
+  return (
+    <Shape
+      {...VDEO_CONFERENCE_TERMINAL}
+      {...props}
+      _style={extendStyle(VDEO_CONFERENCE_TERMINAL, props)}
+    />
+  )
 }

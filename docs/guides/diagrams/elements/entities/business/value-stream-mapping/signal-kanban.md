@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SignalKanban } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { SignalKanban } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <SignalKanban/>
 ```

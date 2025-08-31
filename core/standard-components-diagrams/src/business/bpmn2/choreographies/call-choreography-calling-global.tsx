@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CALL_CHOREOGRAPHY_CALLING_GLOBAL = {
   _style: {
@@ -9,5 +9,11 @@ export const CALL_CHOREOGRAPHY_CALLING_GLOBAL = {
 }
 
 export function CallChoreographyCallingGlobal(props: DiagramNodeProps) {
-  return <Shape {...CALL_CHOREOGRAPHY_CALLING_GLOBAL} {...props} />
+  return (
+    <Shape
+      {...CALL_CHOREOGRAPHY_CALLING_GLOBAL}
+      {...props}
+      _style={extendStyle(CALL_CHOREOGRAPHY_CALLING_GLOBAL, props)}
+    />
+  )
 }

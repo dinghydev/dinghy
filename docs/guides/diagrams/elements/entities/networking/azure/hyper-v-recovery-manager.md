@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HyperVRecoveryManager } from '@reactiac/standard-components-diagrams/azure'
+import { HyperVRecoveryManager } from '@diac/standard-components-diagrams/azure'
 
 <HyperVRecoveryManager/>
 ```

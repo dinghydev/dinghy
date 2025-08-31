@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEREOTYPE_LABEL = {
   _style: 'text;html=1;align=center;',
@@ -8,5 +8,11 @@ export const STEREOTYPE_LABEL = {
 }
 
 export function StereotypeLabel(props: DiagramNodeProps) {
-  return <Shape {...STEREOTYPE_LABEL} {...props} />
+  return (
+    <Shape
+      {...STEREOTYPE_LABEL}
+      {...props}
+      _style={extendStyle(STEREOTYPE_LABEL, props)}
+    />
+  )
 }

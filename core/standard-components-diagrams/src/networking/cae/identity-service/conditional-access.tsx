@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONDITIONAL_ACCESS = {
   _style:
@@ -9,5 +9,11 @@ export const CONDITIONAL_ACCESS = {
 }
 
 export function ConditionalAccess(props: DiagramNodeProps) {
-  return <Shape {...CONDITIONAL_ACCESS} {...props} />
+  return (
+    <Shape
+      {...CONDITIONAL_ACCESS}
+      {...props}
+      _style={extendStyle(CONDITIONAL_ACCESS, props)}
+    />
+  )
 }

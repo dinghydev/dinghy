@@ -1,7 +1,7 @@
-import type { CommandArgs } from '@reactiac/cli'
-import { runDockerCmd } from '@reactiac/cli'
-import { configGetTfImage } from '@reactiac/cli'
-import { hostAppHome } from '@reactiac/cli'
+import type { CommandArgs } from '@diac/cli'
+import { runDockerCmd } from '@diac/cli'
+import { configGetTfImage } from '@diac/cli'
+import { hostAppHome } from '@diac/cli'
 
 export const runTfImageCmd = async (
   workingDir: string,

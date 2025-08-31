@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DRIBBBLE = {
   _style:
@@ -9,5 +9,7 @@ export const DRIBBBLE = {
 }
 
 export function Dribbble(props: DiagramNodeProps) {
-  return <Shape {...DRIBBBLE} {...props} />
+  return (
+    <Shape {...DRIBBBLE} {...props} _style={extendStyle(DRIBBBLE, props)} />
+  )
 }

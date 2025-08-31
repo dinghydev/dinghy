@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Gap2 } from '@reactiac/standard-components-diagrams/archimate3ImplementationAndMigration'
+import { Gap2 } from '@diac/standard-components-diagrams/archimate3ImplementationAndMigration'
 
 <Gap2/>
 ```

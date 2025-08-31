@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AnthosServiceMesh } from '@reactiac/standard-components-diagrams/gcpIconsManagementTools'
+import { AnthosServiceMesh } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
 
 <AnthosServiceMesh/>
 ```

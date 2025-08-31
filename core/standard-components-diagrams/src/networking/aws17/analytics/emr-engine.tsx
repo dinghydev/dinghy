@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EMR_ENGINE = {
   _style:
@@ -9,5 +9,7 @@ export const EMR_ENGINE = {
 }
 
 export function EmrEngine(props: DiagramNodeProps) {
-  return <Shape {...EMR_ENGINE} {...props} />
+  return (
+    <Shape {...EMR_ENGINE} {...props} _style={extendStyle(EMR_ENGINE, props)} />
+  )
 }

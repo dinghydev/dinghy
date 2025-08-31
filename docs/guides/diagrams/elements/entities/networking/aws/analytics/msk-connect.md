@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MskConnect } from '@reactiac/standard-components-diagrams/awsAnalytics'
+import { MskConnect } from '@diac/standard-components-diagrams/awsAnalytics'
 
 <MskConnect/>
 ```

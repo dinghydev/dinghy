@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TapeStorage } from '@reactiac/standard-components-diagrams/aws17General'
+import { TapeStorage } from '@diac/standard-components-diagrams/aws17General'
 
 <TapeStorage/>
 ```

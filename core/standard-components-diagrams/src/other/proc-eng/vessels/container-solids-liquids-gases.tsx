@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTAINER_SOLIDS_LIQUIDS_GASES = {
   _style:
@@ -9,5 +9,11 @@ export const CONTAINER_SOLIDS_LIQUIDS_GASES = {
 }
 
 export function ContainerSolidsLiquidsGases(props: DiagramNodeProps) {
-  return <Shape {...CONTAINER_SOLIDS_LIQUIDS_GASES} {...props} />
+  return (
+    <Shape
+      {...CONTAINER_SOLIDS_LIQUIDS_GASES}
+      {...props}
+      _style={extendStyle(CONTAINER_SOLIDS_LIQUIDS_GASES, props)}
+    />
+  )
 }

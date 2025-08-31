@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bin } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { Bin } from '@diac/standard-components-diagrams/procEngMisc'
 
 <Bin/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabaseSpeed } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { DatabaseSpeed } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <DatabaseSpeed/>
 ```

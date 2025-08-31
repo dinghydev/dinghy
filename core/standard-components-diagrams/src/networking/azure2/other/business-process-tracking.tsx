@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUSINESS_PROCESS_TRACKING = {
   _style:
@@ -9,5 +9,11 @@ export const BUSINESS_PROCESS_TRACKING = {
 }
 
 export function BusinessProcessTracking(props: DiagramNodeProps) {
-  return <Shape {...BUSINESS_PROCESS_TRACKING} {...props} />
+  return (
+    <Shape
+      {...BUSINESS_PROCESS_TRACKING}
+      {...props}
+      _style={extendStyle(BUSINESS_PROCESS_TRACKING, props)}
+    />
+  )
 }

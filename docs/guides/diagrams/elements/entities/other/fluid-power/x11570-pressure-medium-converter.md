@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11570PressureMediumConverter } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11570PressureMediumConverter } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11570PressureMediumConverter/>
 ```

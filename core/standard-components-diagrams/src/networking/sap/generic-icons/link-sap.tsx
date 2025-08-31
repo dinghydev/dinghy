@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LINK_SAP = {
   _style:
@@ -9,5 +9,7 @@ export const LINK_SAP = {
 }
 
 export function LinkSap(props: DiagramNodeProps) {
-  return <Shape {...LINK_SAP} {...props} />
+  return (
+    <Shape {...LINK_SAP} {...props} _style={extendStyle(LINK_SAP, props)} />
+  )
 }

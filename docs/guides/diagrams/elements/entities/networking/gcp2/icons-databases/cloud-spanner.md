@@ -14,7 +14,7 @@ Spanner
 ## Usage
 
 ```
-import { CloudSpanner } from '@reactiac/standard-components-diagrams/gcp2IconsDatabases'
+import { CloudSpanner } from '@diac/standard-components-diagrams/gcp2IconsDatabases'
 
 <CloudSpanner/>
 ```

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'fillColor=#7CCC6C;strokeColor=none;whiteSpace=wrap;html=1;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Mantis } from '@reactiac/standard-components-diagrams/cumulus'
+import { Mantis } from '@diac/standard-components-diagrams/cumulus'
 
 <Mantis/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OnPageReference } from '@reactiac/standard-components-diagrams/flowchart'
+import { OnPageReference } from '@diac/standard-components-diagrams/flowchart'
 
 <OnPageReference/>
 ```

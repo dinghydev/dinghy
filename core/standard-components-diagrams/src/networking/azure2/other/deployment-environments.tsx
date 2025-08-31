@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEPLOYMENT_ENVIRONMENTS = {
   _style:
@@ -9,5 +9,11 @@ export const DEPLOYMENT_ENVIRONMENTS = {
 }
 
 export function DeploymentEnvironments(props: DiagramNodeProps) {
-  return <Shape {...DEPLOYMENT_ENVIRONMENTS} {...props} />
+  return (
+    <Shape
+      {...DEPLOYMENT_ENVIRONMENTS}
+      {...props}
+      _style={extendStyle(DEPLOYMENT_ENVIRONMENTS, props)}
+    />
+  )
 }

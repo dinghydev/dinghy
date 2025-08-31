@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatasyncDiscovery } from '@reactiac/standard-components-diagrams/awsMigrationModernization'
+import { DatasyncDiscovery } from '@diac/standard-components-diagrams/awsMigrationModernization'
 
 <DatasyncDiscovery/>
 ```

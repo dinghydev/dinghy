@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CENTRAL_SERVICE_INSTANCE_FOR_SAP = {
   _style:
@@ -9,5 +9,11 @@ export const CENTRAL_SERVICE_INSTANCE_FOR_SAP = {
 }
 
 export function CentralServiceInstanceForSap(props: DiagramNodeProps) {
-  return <Shape {...CENTRAL_SERVICE_INSTANCE_FOR_SAP} {...props} />
+  return (
+    <Shape
+      {...CENTRAL_SERVICE_INSTANCE_FOR_SAP}
+      {...props}
+      _style={extendStyle(CENTRAL_SERVICE_INSTANCE_FOR_SAP, props)}
+    />
+  )
 }

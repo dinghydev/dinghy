@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CoverPlate } from '@reactiac/standard-components-diagrams/rackGeneral'
+import { CoverPlate } from '@diac/standard-components-diagrams/rackGeneral'
 
 <CoverPlate/>
 ```

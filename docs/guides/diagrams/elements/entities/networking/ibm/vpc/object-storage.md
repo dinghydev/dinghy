@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ObjectStorage } from '@reactiac/standard-components-diagrams/ibmVpc'
+import { ObjectStorage } from '@diac/standard-components-diagrams/ibmVpc'
 
 <ObjectStorage/>
 ```

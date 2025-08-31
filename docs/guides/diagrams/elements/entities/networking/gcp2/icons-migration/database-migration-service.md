@@ -14,7 +14,7 @@ Service
 ## Usage
 
 ```
-import { DatabaseMigrationService } from '@reactiac/standard-components-diagrams/gcp2IconsMigration'
+import { DatabaseMigrationService } from '@diac/standard-components-diagrams/gcp2IconsMigration'
 
 <DatabaseMigrationService/>
 ```

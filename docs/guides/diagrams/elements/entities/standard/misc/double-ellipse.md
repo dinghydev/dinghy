@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DoubleEllipse } from '@reactiac/standard-components-diagrams/misc'
+import { DoubleEllipse } from '@diac/standard-components-diagrams/misc'
 
 <DoubleEllipse/>
 ```

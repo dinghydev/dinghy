@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataPipeline } from '@reactiac/standard-components-diagrams/aws17Analytics'
+import { DataPipeline } from '@diac/standard-components-diagrams/aws17Analytics'
 
 <DataPipeline/>
 ```

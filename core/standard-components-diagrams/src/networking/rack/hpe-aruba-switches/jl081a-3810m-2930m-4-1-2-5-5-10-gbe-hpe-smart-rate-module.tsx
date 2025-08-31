@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE = {
   _style:
@@ -15,6 +15,10 @@ export function Jl081a3810m2930m4125510GbeHpeSmartRateModule(
     <Shape
       {...JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE}
       {...props}
+      _style={extendStyle(
+        JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE,
+        props,
+      )}
     />
   )
 }

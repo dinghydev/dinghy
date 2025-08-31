@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PERFORMANCE_MONITOR = {
   _style:
@@ -9,5 +9,11 @@ export const PERFORMANCE_MONITOR = {
 }
 
 export function PerformanceMonitor(props: DiagramNodeProps) {
-  return <Shape {...PERFORMANCE_MONITOR} {...props} />
+  return (
+    <Shape
+      {...PERFORMANCE_MONITOR}
+      {...props}
+      _style={extendStyle(PERFORMANCE_MONITOR, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KUBERNETES = {
   _style:
@@ -9,5 +9,7 @@ export const KUBERNETES = {
 }
 
 export function Kubernetes(props: DiagramNodeProps) {
-  return <Shape {...KUBERNETES} {...props} />
+  return (
+    <Shape {...KUBERNETES} {...props} _style={extendStyle(KUBERNETES, props)} />
+  )
 }

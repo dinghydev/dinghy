@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLANK_TWO_AND_THREE_LINE = {
   _style:
@@ -9,5 +9,11 @@ export const BLANK_TWO_AND_THREE_LINE = {
 }
 
 export function BlankTwoAndThreeLine(props: DiagramNodeProps) {
-  return <Shape {...BLANK_TWO_AND_THREE_LINE} {...props} />
+  return (
+    <Shape
+      {...BLANK_TWO_AND_THREE_LINE}
+      {...props}
+      _style={extendStyle(BLANK_TWO_AND_THREE_LINE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pim } from '@reactiac/standard-components-diagrams/azure2Identity'
+import { Pim } from '@diac/standard-components-diagrams/azure2Identity'
 
 <Pim/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PushNotifications } from '@reactiac/standard-components-diagrams/ibmManagement'
+import { PushNotifications } from '@diac/standard-components-diagrams/ibmManagement'
 
 <PushNotifications/>
 ```

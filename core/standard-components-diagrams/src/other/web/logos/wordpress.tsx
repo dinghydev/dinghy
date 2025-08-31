@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORDPRESS = {
   _style:
@@ -9,5 +9,7 @@ export const WORDPRESS = {
 }
 
 export function Wordpress(props: DiagramNodeProps) {
-  return <Shape {...WORDPRESS} {...props} />
+  return (
+    <Shape {...WORDPRESS} {...props} _style={extendStyle(WORDPRESS, props)} />
+  )
 }

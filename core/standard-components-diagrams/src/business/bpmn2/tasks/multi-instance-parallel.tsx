@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTI_INSTANCE_PARALLEL = {
   _style: {
@@ -9,5 +9,11 @@ export const MULTI_INSTANCE_PARALLEL = {
 }
 
 export function MultiInstanceParallel(props: DiagramNodeProps) {
-  return <Shape {...MULTI_INSTANCE_PARALLEL} {...props} />
+  return (
+    <Shape
+      {...MULTI_INSTANCE_PARALLEL}
+      {...props}
+      _style={extendStyle(MULTI_INSTANCE_PARALLEL, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IotCentralApplications } from '@reactiac/standard-components-diagrams/caeInternetOfThingsService'
+import { IotCentralApplications } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
 
 <IotCentralApplications/>
 ```

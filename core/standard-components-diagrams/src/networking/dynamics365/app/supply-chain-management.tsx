@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUPPLY_CHAIN_MANAGEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const SUPPLY_CHAIN_MANAGEMENT = {
 }
 
 export function SupplyChainManagement(props: DiagramNodeProps) {
-  return <Shape {...SUPPLY_CHAIN_MANAGEMENT} {...props} />
+  return (
+    <Shape
+      {...SUPPLY_CHAIN_MANAGEMENT}
+      {...props}
+      _style={extendStyle(SUPPLY_CHAIN_MANAGEMENT, props)}
+    />
+  )
 }

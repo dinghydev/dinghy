@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AERATOR_WITH_SPARGER = {
   _style:
@@ -9,5 +9,11 @@ export const AERATOR_WITH_SPARGER = {
 }
 
 export function AeratorWithSparger(props: DiagramNodeProps) {
-  return <Shape {...AERATOR_WITH_SPARGER} {...props} />
+  return (
+    <Shape
+      {...AERATOR_WITH_SPARGER}
+      {...props}
+      _style={extendStyle(AERATOR_WITH_SPARGER, props)}
+    />
+  )
 }

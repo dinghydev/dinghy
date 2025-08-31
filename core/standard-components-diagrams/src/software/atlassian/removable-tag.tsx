@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REMOVABLE_TAG = {
   _style:
@@ -9,5 +9,11 @@ export const REMOVABLE_TAG = {
 }
 
 export function RemovableTag(props: DiagramNodeProps) {
-  return <Shape {...REMOVABLE_TAG} {...props} />
+  return (
+    <Shape
+      {...REMOVABLE_TAG}
+      {...props}
+      _style={extendStyle(REMOVABLE_TAG, props)}
+    />
+  )
 }

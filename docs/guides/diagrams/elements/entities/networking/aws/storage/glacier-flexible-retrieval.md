@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GlacierFlexibleRetrieval } from '@reactiac/standard-components-diagrams/awsStorage'
+import { GlacierFlexibleRetrieval } from '@diac/standard-components-diagrams/awsStorage'
 
 <GlacierFlexibleRetrieval/>
 ```

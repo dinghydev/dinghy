@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ServiceActivator } from '@reactiac/standard-components-diagrams/eipMessagingEndpoints'
+import { ServiceActivator } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
 
 <ServiceActivator/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Driver } from '@reactiac/standard-components-diagrams/archimate2'
+import { Driver } from '@diac/standard-components-diagrams/archimate2'
 
 <Driver/>
 ```

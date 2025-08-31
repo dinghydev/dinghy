@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VAO_SERVER = {
   _style:
@@ -9,5 +9,7 @@ export const VAO_SERVER = {
 }
 
 export function VaoServer(props: DiagramNodeProps) {
-  return <Shape {...VAO_SERVER} {...props} />
+  return (
+    <Shape {...VAO_SERVER} {...props} _style={extendStyle(VAO_SERVER, props)} />
+  )
 }

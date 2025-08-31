@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WirelessIntrusionPreventionSystem } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { WirelessIntrusionPreventionSystem } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <WirelessIntrusionPreventionSystem/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPACER = {
   _style:
@@ -9,5 +9,5 @@ export const SPACER = {
 }
 
 export function Spacer(props: DiagramNodeProps) {
-  return <Shape {...SPACER} {...props} />
+  return <Shape {...SPACER} {...props} _style={extendStyle(SPACER, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Drier } from '@reactiac/standard-components-diagrams/procEngDriers'
+import { Drier } from '@diac/standard-components-diagrams/procEngDriers'
 
 <Drier/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PcSoftware } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { PcSoftware } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <PcSoftware/>
 ```

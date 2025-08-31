@@ -80,7 +80,7 @@ function prepareConfig(args: CommandArgs): any {
   }
 
   config.containerEnv = getDockerEnvs(config.containerEnv || {})
-  config.containerEnv.REACTIAC_CLI_VERSION = projectVersionRelease()
+  config.containerEnv.DIAC_CLI_VERSION = projectVersionRelease()
   config.containerEnv.DOCKER_IMAGE = Deno.env.get('DOCKER_IMAGE') ||
     config.image
 
@@ -91,20 +91,20 @@ function prepareConfig(args: CommandArgs): any {
     })),
     {
       source: 'deno.jsonc',
-      target: '/reactiac/engine/deno.jsonc',
+      target: '/diac/engine/deno.jsonc',
     },
     {
       source: 'deno.lock',
-      target: '/reactiac/engine/deno.lock',
+      target: '/diac/engine/deno.lock',
     },
   ]).map((mount) => `source=${mount.source},target=${mount.target},type=bind`)
 
   const vscodeConfigCheckFile = `${hostAppHome}/.vscode/launch.json`
   const vscodeConfigExist = existsSync(vscodeConfigCheckFile) &&
-    Deno.readTextFileSync(vscodeConfigCheckFile).includes('reactiac')
+    Deno.readTextFileSync(vscodeConfigCheckFile).includes('diac')
   if (vscodeConfigExist) {
     config.mounts.push(
-      `source=${vscodeConfigCheckFile},target=/reactiac/engine/workspace/.vscode/launch.json,type=bind`,
+      `source=${vscodeConfigCheckFile},target=/diac/engine/workspace/.vscode/launch.json,type=bind`,
     )
   }
   // config.workspaceFolder ??= args.workspace ||

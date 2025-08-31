@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Shadow } from '@reactiac/standard-components-diagrams/aws17InternetOfThings'
+import { Shadow } from '@diac/standard-components-diagrams/aws17InternetOfThings'
 
 <Shadow/>
 ```

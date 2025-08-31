@@ -1,12 +1,12 @@
 import chalk from 'chalk'
-import type { CommandArgs, CommandContext, Commands } from '@reactiac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
+import type { CommandArgs, CommandContext, Commands } from '@diac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
 import { isCi } from '../../utils/gitUtils.ts'
 import { notifyChanges } from '../../utils/notificationUtils.ts'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
-import { requireStacksConfig } from '@reactiac/cli'
+import { requireStacksConfig } from '@diac/cli'
 
 const options: any = createTfOptions({
   ...tfOptionsPlan,

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIVIDER = {
   _style:
@@ -9,5 +9,5 @@ export const DIVIDER = {
 }
 
 export function Divider(props: DiagramNodeProps) {
-  return <Shape {...DIVIDER} {...props} />
+  return <Shape {...DIVIDER} {...props} _style={extendStyle(DIVIDER, props)} />
 }

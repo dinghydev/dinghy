@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MFContact } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { MFContact } from '@diac/standard-components-diagrams/electricalMisc'
 
 <MFContact/>
 ```

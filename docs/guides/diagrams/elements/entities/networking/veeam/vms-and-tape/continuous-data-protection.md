@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContinuousDataProtection } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { ContinuousDataProtection } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <ContinuousDataProtection/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10870_THREE_PORT_PROPORTIONAL = {
   _style:
@@ -9,5 +9,11 @@ export const X10870_THREE_PORT_PROPORTIONAL = {
 }
 
 export function X10870ThreePortProportional(props: DiagramNodeProps) {
-  return <Shape {...X10870_THREE_PORT_PROPORTIONAL} {...props} />
+  return (
+    <Shape
+      {...X10870_THREE_PORT_PROPORTIONAL}
+      {...props}
+      _style={extendStyle(X10870_THREE_PORT_PROPORTIONAL, props)}
+    />
+  )
 }

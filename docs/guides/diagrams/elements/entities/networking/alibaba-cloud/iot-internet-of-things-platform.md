@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IotInternetOfThingsPlatform } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { IotInternetOfThingsPlatform } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <IotInternetOfThingsPlatform/>
 ```

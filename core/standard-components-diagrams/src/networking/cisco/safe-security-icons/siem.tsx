@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SIEM = {
   _style:
@@ -9,5 +9,5 @@ export const SIEM = {
 }
 
 export function Siem(props: DiagramNodeProps) {
-  return <Shape {...SIEM} {...props} />
+  return <Shape {...SIEM} {...props} _style={extendStyle(SIEM, props)} />
 }

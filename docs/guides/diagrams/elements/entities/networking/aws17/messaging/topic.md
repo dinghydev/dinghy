@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Topic } from '@reactiac/standard-components-diagrams/aws17Messaging'
+import { Topic } from '@diac/standard-components-diagrams/aws17Messaging'
 
 <Topic/>
 ```

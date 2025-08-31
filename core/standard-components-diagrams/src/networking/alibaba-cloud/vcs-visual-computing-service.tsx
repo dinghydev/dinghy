@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VCS_VISUAL_COMPUTING_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const VCS_VISUAL_COMPUTING_SERVICE = {
 }
 
 export function VcsVisualComputingService(props: DiagramNodeProps) {
-  return <Shape {...VCS_VISUAL_COMPUTING_SERVICE} {...props} />
+  return (
+    <Shape
+      {...VCS_VISUAL_COMPUTING_SERVICE}
+      {...props}
+      _style={extendStyle(VCS_VISUAL_COMPUTING_SERVICE, props)}
+    />
+  )
 }

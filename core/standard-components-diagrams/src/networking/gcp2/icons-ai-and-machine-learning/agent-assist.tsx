@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AGENT_ASSIST = {
   _style:
@@ -9,5 +9,11 @@ export const AGENT_ASSIST = {
 }
 
 export function AgentAssist(props: DiagramNodeProps) {
-  return <Shape {...AGENT_ASSIST} {...props} />
+  return (
+    <Shape
+      {...AGENT_ASSIST}
+      {...props}
+      _style={extendStyle(AGENT_ASSIST, props)}
+    />
+  )
 }

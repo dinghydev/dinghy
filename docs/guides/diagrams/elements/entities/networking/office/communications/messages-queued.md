@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MessagesQueued } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { MessagesQueued } from '@diac/standard-components-diagrams/officeCommunications'
 
 <MessagesQueued/>
 ```

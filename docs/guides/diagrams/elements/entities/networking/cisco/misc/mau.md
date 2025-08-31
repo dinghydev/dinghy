@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mau } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Mau } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Mau/>
 ```

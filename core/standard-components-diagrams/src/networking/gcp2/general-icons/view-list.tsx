@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIEW_LIST = {
   _style:
@@ -9,5 +9,7 @@ export const VIEW_LIST = {
 }
 
 export function ViewList(props: DiagramNodeProps) {
-  return <Shape {...VIEW_LIST} {...props} />
+  return (
+    <Shape {...VIEW_LIST} {...props} _style={extendStyle(VIEW_LIST, props)} />
+  )
 }

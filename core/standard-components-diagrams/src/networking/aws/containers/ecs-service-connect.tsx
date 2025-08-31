@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ECS_SERVICE_CONNECT = {
   _style:
@@ -9,5 +9,11 @@ export const ECS_SERVICE_CONNECT = {
 }
 
 export function EcsServiceConnect(props: DiagramNodeProps) {
-  return <Shape {...ECS_SERVICE_CONNECT} {...props} />
+  return (
+    <Shape
+      {...ECS_SERVICE_CONNECT}
+      {...props}
+      _style={extendStyle(ECS_SERVICE_CONNECT, props)}
+    />
+  )
 }

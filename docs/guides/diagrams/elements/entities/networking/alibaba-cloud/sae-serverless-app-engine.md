@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SaeServerlessAppEngine } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { SaeServerlessAppEngine } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <SaeServerlessAppEngine/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_IDENTITY_AND_ACCESS_MANAGEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_IDENTITY_AND_ACCESS_MANAGEMENT = {
 }
 
 export function AwsIdentityAndAccessManagement(props: DiagramNodeProps) {
-  return <Shape {...AWS_IDENTITY_AND_ACCESS_MANAGEMENT} {...props} />
+  return (
+    <Shape
+      {...AWS_IDENTITY_AND_ACCESS_MANAGEMENT}
+      {...props}
+      _style={extendStyle(AWS_IDENTITY_AND_ACCESS_MANAGEMENT, props)}
+    />
+  )
 }

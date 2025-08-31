@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BACKUP_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const BACKUP_GATEWAY = {
 }
 
 export function BackupGateway(props: DiagramNodeProps) {
-  return <Shape {...BACKUP_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...BACKUP_GATEWAY}
+      {...props}
+      _style={extendStyle(BACKUP_GATEWAY, props)}
+    />
+  )
 }

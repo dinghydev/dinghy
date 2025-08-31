@@ -14,7 +14,7 @@ Code
 ## Usage
 
 ```
-import { CloudCode } from '@reactiac/standard-components-diagrams/gcp2IconsCiCd'
+import { CloudCode } from '@diac/standard-components-diagrams/gcp2IconsCiCd'
 
 <CloudCode/>
 ```

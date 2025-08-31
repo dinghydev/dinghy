@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUTE_53_READINESS_CHECKS = {
   _style:
     'sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.route_53_readiness_checks;',
-  _width: 78,
-  _height: 78,
+  _width: 60,
+  _height: 60,
 }
 
 export function Route53ReadinessChecks(props: DiagramNodeProps) {
-  return <Shape {...ROUTE_53_READINESS_CHECKS} {...props} />
+  return (
+    <Shape
+      {...ROUTE_53_READINESS_CHECKS}
+      {...props}
+      _style={extendStyle(ROUTE_53_READINESS_CHECKS, props)}
+    />
+  )
 }

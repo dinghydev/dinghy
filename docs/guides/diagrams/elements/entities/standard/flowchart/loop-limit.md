@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LoopLimit } from '@reactiac/standard-components-diagrams/flowchart'
+import { LoopLimit } from '@diac/standard-components-diagrams/flowchart'
 
 <LoopLimit/>
 ```

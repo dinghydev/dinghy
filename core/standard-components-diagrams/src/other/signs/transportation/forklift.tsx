@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FORKLIFT = {
   _style:
@@ -9,5 +9,7 @@ export const FORKLIFT = {
 }
 
 export function Forklift(props: DiagramNodeProps) {
-  return <Shape {...FORKLIFT} {...props} />
+  return (
+    <Shape {...FORKLIFT} {...props} _style={extendStyle(FORKLIFT, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VSB_FILE = {
   _style:
@@ -9,5 +9,7 @@ export const VSB_FILE = {
 }
 
 export function VsbFile(props: DiagramNodeProps) {
-  return <Shape {...VSB_FILE} {...props} />
+  return (
+    <Shape {...VSB_FILE} {...props} _style={extendStyle(VSB_FILE, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultibranchSharedAssociation } from '@reactiac/standard-components-diagrams/sysmlBlocks'
+import { MultibranchSharedAssociation } from '@diac/standard-components-diagrams/sysmlBlocks'
 
 <MultibranchSharedAssociation/>
 ```

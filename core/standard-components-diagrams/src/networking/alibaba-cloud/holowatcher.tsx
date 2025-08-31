@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HOLOWATCHER = {
   _style:
@@ -9,5 +9,11 @@ export const HOLOWATCHER = {
 }
 
 export function Holowatcher(props: DiagramNodeProps) {
-  return <Shape {...HOLOWATCHER} {...props} />
+  return (
+    <Shape
+      {...HOLOWATCHER}
+      {...props}
+      _style={extendStyle(HOLOWATCHER, props)}
+    />
+  )
 }

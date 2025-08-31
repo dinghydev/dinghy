@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MANUAL_CALL_ACTIVITY = {
   _style: {
@@ -9,5 +9,11 @@ export const MANUAL_CALL_ACTIVITY = {
 }
 
 export function ManualCallActivity(props: DiagramNodeProps) {
-  return <Shape {...MANUAL_CALL_ACTIVITY} {...props} />
+  return (
+    <Shape
+      {...MANUAL_CALL_ACTIVITY}
+      {...props}
+      _style={extendStyle(MANUAL_CALL_ACTIVITY, props)}
+    />
+  )
 }

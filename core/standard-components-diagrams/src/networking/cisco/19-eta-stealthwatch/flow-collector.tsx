@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLOW_COLLECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const FLOW_COLLECTOR = {
 }
 
 export function FlowCollector(props: DiagramNodeProps) {
-  return <Shape {...FLOW_COLLECTOR} {...props} />
+  return (
+    <Shape
+      {...FLOW_COLLECTOR}
+      {...props}
+      _style={extendStyle(FLOW_COLLECTOR, props)}
+    />
+  )
 }

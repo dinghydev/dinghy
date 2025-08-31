@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RJ45_SFP_ALT = {
   _style:
@@ -9,5 +9,11 @@ export const RJ45_SFP_ALT = {
 }
 
 export function Rj45SfpAlt(props: DiagramNodeProps) {
-  return <Shape {...RJ45_SFP_ALT} {...props} />
+  return (
+    <Shape
+      {...RJ45_SFP_ALT}
+      {...props}
+      _style={extendStyle(RJ45_SFP_ALT, props)}
+    />
+  )
 }

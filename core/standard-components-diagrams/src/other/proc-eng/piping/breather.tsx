@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BREATHER = {
   _style:
@@ -9,5 +9,7 @@ export const BREATHER = {
 }
 
 export function Breather(props: DiagramNodeProps) {
-  return <Shape {...BREATHER} {...props} />
+  return (
+    <Shape {...BREATHER} {...props} _style={extendStyle(BREATHER, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { existsSync } from 'jsr:@std/fs'
-import { execaSync } from 'npm:execa'
+import { existsSync } from 'jsr:@std/fs@1.0.15'
+import { execaSync } from 'npm:execa@9.5.2'
 
 export const baseVersion = (projectRoot?: string) => {
   const workingDir = projectRoot || Deno.cwd()

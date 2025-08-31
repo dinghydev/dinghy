@@ -1,13 +1,15 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAGNETIC = {
   _style:
     'shape=mxgraph.pid.flow_sensors.magnetic;dashed=0;align=center;html=1;fontSize=25;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function Magnetic(props: DiagramNodeProps) {
-  return <Shape {...MAGNETIC} {...props} />
+  return (
+    <Shape {...MAGNETIC} {...props} _style={extendStyle(MAGNETIC, props)} />
+  )
 }

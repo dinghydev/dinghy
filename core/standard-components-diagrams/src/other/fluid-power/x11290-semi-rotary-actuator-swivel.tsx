@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11290_SEMI_ROTARY_ACTUATOR_SWIVEL = {
   _style:
@@ -9,5 +9,11 @@ export const X11290_SEMI_ROTARY_ACTUATOR_SWIVEL = {
 }
 
 export function X11290SemiRotaryActuatorSwivel(props: DiagramNodeProps) {
-  return <Shape {...X11290_SEMI_ROTARY_ACTUATOR_SWIVEL} {...props} />
+  return (
+    <Shape
+      {...X11290_SEMI_ROTARY_ACTUATOR_SWIVEL}
+      {...props}
+      _style={extendStyle(X11290_SEMI_ROTARY_ACTUATOR_SWIVEL, props)}
+    />
+  )
 }

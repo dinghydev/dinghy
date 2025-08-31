@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11440SingleActingSingleRod } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11440SingleActingSingleRod } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11440SingleActingSingleRod/>
 ```

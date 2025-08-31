@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISCRETE_SLIDER_CLICK_DARK_3 = {
   _style:
@@ -9,5 +9,11 @@ export const DISCRETE_SLIDER_CLICK_DARK_3 = {
 }
 
 export function DiscreteSliderClickDark3(props: DiagramNodeProps) {
-  return <Shape {...DISCRETE_SLIDER_CLICK_DARK_3} {...props} />
+  return (
+    <Shape
+      {...DISCRETE_SLIDER_CLICK_DARK_3}
+      {...props}
+      _style={extendStyle(DISCRETE_SLIDER_CLICK_DARK_3, props)}
+    />
+  )
 }

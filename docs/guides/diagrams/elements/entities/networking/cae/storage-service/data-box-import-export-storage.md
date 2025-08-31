@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataBoxImportExportStorage } from '@reactiac/standard-components-diagrams/caeStorageService'
+import { DataBoxImportExportStorage } from '@diac/standard-components-diagrams/caeStorageService'
 
 <DataBoxImportExportStorage/>
 ```

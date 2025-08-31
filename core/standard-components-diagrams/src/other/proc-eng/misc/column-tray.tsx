@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLUMN_TRAY = {
   _style:
@@ -9,5 +9,11 @@ export const COLUMN_TRAY = {
 }
 
 export function ColumnTray(props: DiagramNodeProps) {
-  return <Shape {...COLUMN_TRAY} {...props} />
+  return (
+    <Shape
+      {...COLUMN_TRAY}
+      {...props}
+      _style={extendStyle(COLUMN_TRAY, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_TEST_PLANS = {
   _style:
@@ -9,5 +9,11 @@ export const AZURE_TEST_PLANS = {
 }
 
 export function AzureTestPlans(props: DiagramNodeProps) {
-  return <Shape {...AZURE_TEST_PLANS} {...props} />
+  return (
+    <Shape
+      {...AZURE_TEST_PLANS}
+      {...props}
+      _style={extendStyle(AZURE_TEST_PLANS, props)}
+    />
+  )
 }

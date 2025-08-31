@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FRESQUI = {
   _style:
@@ -9,5 +9,5 @@ export const FRESQUI = {
 }
 
 export function Fresqui(props: DiagramNodeProps) {
-  return <Shape {...FRESQUI} {...props} />
+  return <Shape {...FRESQUI} {...props} _style={extendStyle(FRESQUI, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DENSE_STORAGE_NODE = {
   _style:
@@ -9,5 +9,11 @@ export const DENSE_STORAGE_NODE = {
 }
 
 export function DenseStorageNode(props: DiagramNodeProps) {
-  return <Shape {...DENSE_STORAGE_NODE} {...props} />
+  return (
+    <Shape
+      {...DENSE_STORAGE_NODE}
+      {...props}
+      _style={extendStyle(DENSE_STORAGE_NODE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IDENTITY_AUTHORIZATION_ALTERNATIVE = {
   _style:
@@ -9,5 +9,11 @@ export const IDENTITY_AUTHORIZATION_ALTERNATIVE = {
 }
 
 export function IdentityAuthorizationAlternative(props: DiagramNodeProps) {
-  return <Shape {...IDENTITY_AUTHORIZATION_ALTERNATIVE} {...props} />
+  return (
+    <Shape
+      {...IDENTITY_AUTHORIZATION_ALTERNATIVE}
+      {...props}
+      _style={extendStyle(IDENTITY_AUTHORIZATION_ALTERNATIVE, props)}
+    />
+  )
 }

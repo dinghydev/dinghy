@@ -20,7 +20,7 @@ export function generateApp(_args: any, cloud: any) {
 } from '${
         namespace.includes('/')
           ? namespace
-          : `@reactiac/standard-components-tf-aws${
+          : `@diac/standard-components-tf-aws${
             namespace ? `/${namespace}` : ''
           }`
       }'`
@@ -64,7 +64,7 @@ ${' '.repeat(indent)}</${element.tag}>`
   }
 
   const app = `
-import { Stack } from '@reactiac/base-components'
+import { Stack } from '@diac/base-components'
 
 ${generateImports()}
 

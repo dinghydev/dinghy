@@ -5,15 +5,15 @@
 ```
 {
   _style: 'fillColor=#AEB8C3;strokeColor=none;whiteSpace=wrap;html=1;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { CadetBlue } from '@reactiac/standard-components-diagrams/cumulus'
+import { CadetBlue } from '@diac/standard-components-diagrams/cumulus'
 
 <CadetBlue/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEVICE_PROFILING = {
   _style:
@@ -9,5 +9,11 @@ export const DEVICE_PROFILING = {
 }
 
 export function DeviceProfiling(props: DiagramNodeProps) {
-  return <Shape {...DEVICE_PROFILING} {...props} />
+  return (
+    <Shape
+      {...DEVICE_PROFILING}
+      {...props}
+      _style={extendStyle(DEVICE_PROFILING, props)}
+    />
+  )
 }

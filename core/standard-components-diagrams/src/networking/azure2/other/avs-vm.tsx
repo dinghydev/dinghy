@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AVS_VM = {
   _style:
@@ -9,5 +9,5 @@ export const AVS_VM = {
 }
 
 export function AvsVm(props: DiagramNodeProps) {
-  return <Shape {...AVS_VM} {...props} />
+  return <Shape {...AVS_VM} {...props} _style={extendStyle(AVS_VM, props)} />
 }

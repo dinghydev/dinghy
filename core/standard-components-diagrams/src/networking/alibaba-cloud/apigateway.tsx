@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const APIGATEWAY = {
   _style:
@@ -9,5 +9,7 @@ export const APIGATEWAY = {
 }
 
 export function Apigateway(props: DiagramNodeProps) {
-  return <Shape {...APIGATEWAY} {...props} />
+  return (
+    <Shape {...APIGATEWAY} {...props} _style={extendStyle(APIGATEWAY, props)} />
+  )
 }

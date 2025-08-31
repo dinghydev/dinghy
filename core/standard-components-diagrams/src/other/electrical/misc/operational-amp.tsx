@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPERATIONAL_AMP = {
   _style:
@@ -9,5 +9,11 @@ export const OPERATIONAL_AMP = {
 }
 
 export function OperationalAmp(props: DiagramNodeProps) {
-  return <Shape {...OPERATIONAL_AMP} {...props} />
+  return (
+    <Shape
+      {...OPERATIONAL_AMP}
+      {...props}
+      _style={extendStyle(OPERATIONAL_AMP, props)}
+    />
+  )
 }

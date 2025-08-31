@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CURVED_GAS_VENT = {
   _style:
@@ -9,5 +9,11 @@ export const CURVED_GAS_VENT = {
 }
 
 export function CurvedGasVent(props: DiagramNodeProps) {
-  return <Shape {...CURVED_GAS_VENT} {...props} />
+  return (
+    <Shape
+      {...CURVED_GAS_VENT}
+      {...props}
+      _style={extendStyle(CURVED_GAS_VENT, props)}
+    />
+  )
 }

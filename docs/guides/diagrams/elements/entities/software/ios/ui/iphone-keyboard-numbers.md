@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IphoneKeyboardNumbers } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { IphoneKeyboardNumbers } from '@diac/standard-components-diagrams/ios7Ui'
 
 <IphoneKeyboardNumbers/>
 ```

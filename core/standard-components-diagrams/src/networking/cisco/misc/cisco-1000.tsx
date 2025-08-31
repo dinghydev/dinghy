@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_1000 = {
   _style:
@@ -9,5 +9,7 @@ export const CISCO_1000 = {
 }
 
 export function Cisco1000(props: DiagramNodeProps) {
-  return <Shape {...CISCO_1000} {...props} />
+  return (
+    <Shape {...CISCO_1000} {...props} _style={extendStyle(CISCO_1000, props)} />
+  )
 }

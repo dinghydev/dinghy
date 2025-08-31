@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MYSQL_DB_INSTANCE_ALTERNATE = {
   _style:
@@ -9,5 +9,11 @@ export const MYSQL_DB_INSTANCE_ALTERNATE = {
 }
 
 export function MysqlDbInstanceAlternate(props: DiagramNodeProps) {
-  return <Shape {...MYSQL_DB_INSTANCE_ALTERNATE} {...props} />
+  return (
+    <Shape
+      {...MYSQL_DB_INSTANCE_ALTERNATE}
+      {...props}
+      _style={extendStyle(MYSQL_DB_INSTANCE_ALTERNATE, props)}
+    />
+  )
 }

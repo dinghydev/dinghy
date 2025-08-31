@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AcsSolutionsBuilder } from '@reactiac/standard-components-diagrams/azure2Other'
+import { AcsSolutionsBuilder } from '@diac/standard-components-diagrams/azure2Other'
 
 <AcsSolutionsBuilder/>
 ```

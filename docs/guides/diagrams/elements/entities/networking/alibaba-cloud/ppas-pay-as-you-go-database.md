@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PpasPayAsYouGoDatabase } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { PpasPayAsYouGoDatabase } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <PpasPayAsYouGoDatabase/>
 ```

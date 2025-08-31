@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOOP_AND_COMPENSATION = {
   _style: {
@@ -9,5 +9,11 @@ export const LOOP_AND_COMPENSATION = {
 }
 
 export function LoopAndCompensation(props: DiagramNodeProps) {
-  return <Shape {...LOOP_AND_COMPENSATION} {...props} />
+  return (
+    <Shape
+      {...LOOP_AND_COMPENSATION}
+      {...props}
+      _style={extendStyle(LOOP_AND_COMPENSATION, props)}
+    />
+  )
 }

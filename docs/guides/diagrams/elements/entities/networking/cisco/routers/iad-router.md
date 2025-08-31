@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IadRouter } from '@reactiac/standard-components-diagrams/ciscoRouters'
+import { IadRouter } from '@diac/standard-components-diagrams/ciscoRouters'
 
 <IadRouter/>
 ```

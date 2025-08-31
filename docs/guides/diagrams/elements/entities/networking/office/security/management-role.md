@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManagementRole } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { ManagementRole } from '@diac/standard-components-diagrams/officeSecurity'
 
 <ManagementRole/>
 ```

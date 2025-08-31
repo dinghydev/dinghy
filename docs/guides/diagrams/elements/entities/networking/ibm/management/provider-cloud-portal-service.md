@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProviderCloudPortalService } from '@reactiac/standard-components-diagrams/ibmManagement'
+import { ProviderCloudPortalService } from '@diac/standard-components-diagrams/ibmManagement'
 
 <ProviderCloudPortalService/>
 ```

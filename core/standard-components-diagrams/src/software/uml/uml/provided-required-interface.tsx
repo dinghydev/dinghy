@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROVIDED_REQUIRED_INTERFACE = {
   _style:
@@ -9,5 +9,11 @@ export const PROVIDED_REQUIRED_INTERFACE = {
 }
 
 export function ProvidedRequiredInterface(props: DiagramNodeProps) {
-  return <Shape {...PROVIDED_REQUIRED_INTERFACE} {...props} />
+  return (
+    <Shape
+      {...PROVIDED_REQUIRED_INTERFACE}
+      {...props}
+      _style={extendStyle(PROVIDED_REQUIRED_INTERFACE, props)}
+    />
+  )
 }

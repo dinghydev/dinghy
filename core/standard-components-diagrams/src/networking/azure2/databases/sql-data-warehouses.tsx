@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SQL_DATA_WAREHOUSES = {
   _style:
@@ -9,5 +9,11 @@ export const SQL_DATA_WAREHOUSES = {
 }
 
 export function SqlDataWarehouses(props: DiagramNodeProps) {
-  return <Shape {...SQL_DATA_WAREHOUSES} {...props} />
+  return (
+    <Shape
+      {...SQL_DATA_WAREHOUSES}
+      {...props}
+      _style={extendStyle(SQL_DATA_WAREHOUSES, props)}
+    />
+  )
 }

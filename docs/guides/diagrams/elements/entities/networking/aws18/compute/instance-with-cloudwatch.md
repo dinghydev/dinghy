@@ -14,7 +14,7 @@ CloudWatch
 ## Usage
 
 ```
-import { InstanceWithCloudwatch } from '@reactiac/standard-components-diagrams/aws18Compute'
+import { InstanceWithCloudwatch } from '@diac/standard-components-diagrams/aws18Compute'
 
 <InstanceWithCloudwatch/>
 ```

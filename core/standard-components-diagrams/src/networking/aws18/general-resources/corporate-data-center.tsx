@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CORPORATE_DATA_CENTER = {
   _style:
@@ -9,5 +9,11 @@ export const CORPORATE_DATA_CENTER = {
 }
 
 export function CorporateDataCenter(props: DiagramNodeProps) {
-  return <Shape {...CORPORATE_DATA_CENTER} {...props} />
+  return (
+    <Shape
+      {...CORPORATE_DATA_CENTER}
+      {...props}
+      _style={extendStyle(CORPORATE_DATA_CENTER, props)}
+    />
+  )
 }

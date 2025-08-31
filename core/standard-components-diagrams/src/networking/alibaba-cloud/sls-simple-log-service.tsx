@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SLS_SIMPLE_LOG_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const SLS_SIMPLE_LOG_SERVICE = {
 }
 
 export function SlsSimpleLogService(props: DiagramNodeProps) {
-  return <Shape {...SLS_SIMPLE_LOG_SERVICE} {...props} />
+  return (
+    <Shape
+      {...SLS_SIMPLE_LOG_SERVICE}
+      {...props}
+      _style={extendStyle(SLS_SIMPLE_LOG_SERVICE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LICENSE_FILE = {
   _style:
@@ -9,5 +9,11 @@ export const LICENSE_FILE = {
 }
 
 export function LicenseFile(props: DiagramNodeProps) {
-  return <Shape {...LICENSE_FILE} {...props} />
+  return (
+    <Shape
+      {...LICENSE_FILE}
+      {...props}
+      _style={extendStyle(LICENSE_FILE, props)}
+    />
+  )
 }

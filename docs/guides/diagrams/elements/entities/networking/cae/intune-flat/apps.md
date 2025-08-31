@@ -5,15 +5,15 @@
 ```
 {
   _style: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#505050;shape=mxgraph.mscae.intune.apps',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Apps } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { Apps } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <Apps/>
 ```

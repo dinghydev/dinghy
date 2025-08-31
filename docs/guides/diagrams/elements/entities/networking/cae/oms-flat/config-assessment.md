@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConfigAssessment } from '@reactiac/standard-components-diagrams/caeOmsFlat'
+import { ConfigAssessment } from '@diac/standard-components-diagrams/caeOmsFlat'
 
 <ConfigAssessment/>
 ```

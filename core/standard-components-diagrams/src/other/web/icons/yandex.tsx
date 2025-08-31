@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const YANDEX = {
   _style:
@@ -9,5 +9,5 @@ export const YANDEX = {
 }
 
 export function Yandex(props: DiagramNodeProps) {
-  return <Shape {...YANDEX} {...props} />
+  return <Shape {...YANDEX} {...props} _style={extendStyle(YANDEX, props)} />
 }

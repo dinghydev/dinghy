@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STACK_AWS_CLOUDFORMATION = {
   _style:
@@ -9,5 +9,11 @@ export const STACK_AWS_CLOUDFORMATION = {
 }
 
 export function StackAwsCloudformation(props: DiagramNodeProps) {
-  return <Shape {...STACK_AWS_CLOUDFORMATION} {...props} />
+  return (
+    <Shape
+      {...STACK_AWS_CLOUDFORMATION}
+      {...props}
+      _style={extendStyle(STACK_AWS_CLOUDFORMATION, props)}
+    />
+  )
 }

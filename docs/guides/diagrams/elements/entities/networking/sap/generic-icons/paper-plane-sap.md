@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PaperPlaneSap } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { PaperPlaneSap } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <PaperPlaneSap/>
 ```

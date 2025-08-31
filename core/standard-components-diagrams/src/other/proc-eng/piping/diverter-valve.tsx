@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIVERTER_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const DIVERTER_VALVE = {
 }
 
 export function DiverterValve(props: DiagramNodeProps) {
-  return <Shape {...DIVERTER_VALVE} {...props} />
+  return (
+    <Shape
+      {...DIVERTER_VALVE}
+      {...props}
+      _style={extendStyle(DIVERTER_VALVE, props)}
+    />
+  )
 }

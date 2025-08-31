@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Netvouz } from '@reactiac/standard-components-diagrams/webLogos'
+import { Netvouz } from '@diac/standard-components-diagrams/webLogos'
 
 <Netvouz/>
 ```

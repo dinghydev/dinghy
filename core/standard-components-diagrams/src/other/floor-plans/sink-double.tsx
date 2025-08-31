@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SINK_DOUBLE = {
   _style:
@@ -9,5 +9,11 @@ export const SINK_DOUBLE = {
 }
 
 export function SinkDouble(props: DiagramNodeProps) {
-  return <Shape {...SINK_DOUBLE} {...props} />
+  return (
+    <Shape
+      {...SINK_DOUBLE}
+      {...props}
+      _style={extendStyle(SINK_DOUBLE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BIGQUERY_2 = {
   _style:
@@ -9,5 +9,7 @@ export const BIGQUERY_2 = {
 }
 
 export function Bigquery2(props: DiagramNodeProps) {
-  return <Shape {...BIGQUERY_2} {...props} />
+  return (
+    <Shape {...BIGQUERY_2} {...props} _style={extendStyle(BIGQUERY_2, props)} />
+  )
 }

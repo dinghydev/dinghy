@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TABS_4 = {
   _style: 'shape=line;strokeColor=#dddddd;',
@@ -8,5 +8,5 @@ export const TABS_4 = {
 }
 
 export function Tabs4(props: DiagramNodeProps) {
-  return <Shape {...TABS_4} {...props} />
+  return <Shape {...TABS_4} {...props} _style={extendStyle(TABS_4, props)} />
 }

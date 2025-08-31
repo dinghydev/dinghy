@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { QueueViewer } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { QueueViewer } from '@diac/standard-components-diagrams/officeCommunications'
 
 <QueueViewer/>
 ```

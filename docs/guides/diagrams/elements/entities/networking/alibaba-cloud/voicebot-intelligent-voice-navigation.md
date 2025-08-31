@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VoicebotIntelligentVoiceNavigation } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { VoicebotIntelligentVoiceNavigation } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <VoicebotIntelligentVoiceNavigation/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VeeamAvailabilityOrchestrator } from '@reactiac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamAvailabilityOrchestrator } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamAvailabilityOrchestrator/>
 ```

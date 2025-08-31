@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IntuneCertificateProfiles } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { IntuneCertificateProfiles } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <IntuneCertificateProfiles/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PosPrinter } from '@reactiac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { PosPrinter } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <PosPrinter/>
 ```

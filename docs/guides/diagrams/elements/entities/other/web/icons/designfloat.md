@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Designfloat } from '@reactiac/standard-components-diagrams/webIcons'
+import { Designfloat } from '@diac/standard-components-diagrams/webIcons'
 
 <Designfloat/>
 ```

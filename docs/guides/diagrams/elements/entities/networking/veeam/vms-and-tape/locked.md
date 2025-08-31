@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Locked } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { Locked } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <Locked/>
 ```

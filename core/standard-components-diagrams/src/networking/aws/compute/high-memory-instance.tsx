@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HIGH_MEMORY_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const HIGH_MEMORY_INSTANCE = {
 }
 
 export function HighMemoryInstance(props: DiagramNodeProps) {
-  return <Shape {...HIGH_MEMORY_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...HIGH_MEMORY_INSTANCE}
+      {...props}
+      _style={extendStyle(HIGH_MEMORY_INSTANCE, props)}
+    />
+  )
 }

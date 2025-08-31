@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAGNETORESISTOR = {
   _style:
@@ -9,5 +9,11 @@ export const MAGNETORESISTOR = {
 }
 
 export function Magnetoresistor(props: DiagramNodeProps) {
-  return <Shape {...MAGNETORESISTOR} {...props} />
+  return (
+    <Shape
+      {...MAGNETORESISTOR}
+      {...props}
+      _style={extendStyle(MAGNETORESISTOR, props)}
+    />
+  )
 }

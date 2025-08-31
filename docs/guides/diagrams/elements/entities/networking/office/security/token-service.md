@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TokenService } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { TokenService } from '@diac/standard-components-diagrams/officeSecurity'
 
 <TokenService/>
 ```

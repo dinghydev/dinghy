@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExecutionSpecification } from '@reactiac/standard-components-diagrams/sysmlInteractions'
+import { ExecutionSpecification } from '@diac/standard-components-diagrams/sysmlInteractions'
 
 <ExecutionSpecification/>
 ```

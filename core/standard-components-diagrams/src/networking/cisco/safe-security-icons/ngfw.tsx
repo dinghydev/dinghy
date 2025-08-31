@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NGFW = {
   _style:
@@ -9,5 +9,5 @@ export const NGFW = {
 }
 
 export function Ngfw(props: DiagramNodeProps) {
-  return <Shape {...NGFW} {...props} />
+  return <Shape {...NGFW} {...props} _style={extendStyle(NGFW, props)} />
 }

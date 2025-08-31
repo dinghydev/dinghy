@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SpotInstance } from '@reactiac/standard-components-diagrams/aws3d'
+import { SpotInstance } from '@diac/standard-components-diagrams/aws3d'
 
 <SpotInstance/>
 ```

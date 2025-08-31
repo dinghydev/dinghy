@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Statuspage } from '@reactiac/standard-components-diagrams/atlassian'
+import { Statuspage } from '@diac/standard-components-diagrams/atlassian'
 
 <Statuspage/>
 ```

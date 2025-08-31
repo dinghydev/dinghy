@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ForwardButton } from '@reactiac/standard-components-diagrams/ios6'
+import { ForwardButton } from '@diac/standard-components-diagrams/ios6'
 
 <ForwardButton/>
 ```

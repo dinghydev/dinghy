@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12420_SUCTION_CUP = {
   _style:
@@ -9,5 +9,11 @@ export const X12420_SUCTION_CUP = {
 }
 
 export function X12420SuctionCup(props: DiagramNodeProps) {
-  return <Shape {...X12420_SUCTION_CUP} {...props} />
+  return (
+    <Shape
+      {...X12420_SUCTION_CUP}
+      {...props}
+      _style={extendStyle(X12420_SUCTION_CUP, props)}
+    />
+  )
 }

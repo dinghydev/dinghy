@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GtsGlobalTransactionService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { GtsGlobalTransactionService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <GtsGlobalTransactionService/>
 ```

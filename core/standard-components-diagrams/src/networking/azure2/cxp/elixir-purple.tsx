@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELIXIR_PURPLE = {
   _style:
@@ -9,5 +9,11 @@ export const ELIXIR_PURPLE = {
 }
 
 export function ElixirPurple(props: DiagramNodeProps) {
-  return <Shape {...ELIXIR_PURPLE} {...props} />
+  return (
+    <Shape
+      {...ELIXIR_PURPLE}
+      {...props}
+      _style={extendStyle(ELIXIR_PURPLE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UserGroup } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { UserGroup } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <UserGroup/>
 ```

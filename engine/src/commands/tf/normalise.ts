@@ -3,8 +3,8 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@reactiac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
+} from '@diac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
 import Debug from 'debug'
 import { loadTfJsonFile } from '../../utils/loadTfJsonFile.ts'
 const debug = Debug('init')

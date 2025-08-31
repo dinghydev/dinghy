@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_8340_APPLICATION_ORIENTED_NETWORKING_APPLIANCE = {
   _style:
@@ -15,6 +15,10 @@ export function Cisco8340ApplicationOrientedNetworkingAppliance(
     <Shape
       {...CISCO_8340_APPLICATION_ORIENTED_NETWORKING_APPLIANCE}
       {...props}
+      _style={extendStyle(
+        CISCO_8340_APPLICATION_ORIENTED_NETWORKING_APPLIANCE,
+        props,
+      )}
     />
   )
 }

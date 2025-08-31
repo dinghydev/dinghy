@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KENNEL = {
   _style:
@@ -9,5 +9,5 @@ export const KENNEL = {
 }
 
 export function Kennel(props: DiagramNodeProps) {
-  return <Shape {...KENNEL} {...props} />
+  return <Shape {...KENNEL} {...props} _style={extendStyle(KENNEL, props)} />
 }

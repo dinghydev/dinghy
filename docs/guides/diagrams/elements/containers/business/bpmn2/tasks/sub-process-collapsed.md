@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { SubProcessCollapsed } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { SubProcessCollapsed } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <SubProcessCollapsed/>
 ```

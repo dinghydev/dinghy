@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Breadcrumb } from '@reactiac/standard-components-diagrams/mockupNavigation'
+import { Breadcrumb } from '@diac/standard-components-diagrams/mockupNavigation'
 
 <Breadcrumb/>
 ```

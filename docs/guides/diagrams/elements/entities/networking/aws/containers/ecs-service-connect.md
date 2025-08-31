@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EcsServiceConnect } from '@reactiac/standard-components-diagrams/awsContainers'
+import { EcsServiceConnect } from '@diac/standard-components-diagrams/awsContainers'
 
 <EcsServiceConnect/>
 ```

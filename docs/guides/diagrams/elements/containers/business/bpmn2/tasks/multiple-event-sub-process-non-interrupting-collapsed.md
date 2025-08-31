@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { MultipleEventSubProcessNonInterruptingCollapsed } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { MultipleEventSubProcessNonInterruptingCollapsed } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <MultipleEventSubProcessNonInterruptingCollapsed/>
 ```

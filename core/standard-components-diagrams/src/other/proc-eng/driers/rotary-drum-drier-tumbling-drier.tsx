@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROTARY_DRUM_DRIER_TUMBLING_DRIER = {
   _style:
@@ -9,5 +9,11 @@ export const ROTARY_DRUM_DRIER_TUMBLING_DRIER = {
 }
 
 export function RotaryDrumDrierTumblingDrier(props: DiagramNodeProps) {
-  return <Shape {...ROTARY_DRUM_DRIER_TUMBLING_DRIER} {...props} />
+  return (
+    <Shape
+      {...ROTARY_DRUM_DRIER_TUMBLING_DRIER}
+      {...props}
+      _style={extendStyle(ROTARY_DRUM_DRIER_TUMBLING_DRIER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIDEO_ANALYTICS = {
   _style:
@@ -9,5 +9,11 @@ export const VIDEO_ANALYTICS = {
 }
 
 export function VideoAnalytics(props: DiagramNodeProps) {
-  return <Shape {...VIDEO_ANALYTICS} {...props} />
+  return (
+    <Shape
+      {...VIDEO_ANALYTICS}
+      {...props}
+      _style={extendStyle(VIDEO_ANALYTICS, props)}
+    />
+  )
 }

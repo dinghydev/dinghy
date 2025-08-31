@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AccessCard } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { AccessCard } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <AccessCard/>
 ```

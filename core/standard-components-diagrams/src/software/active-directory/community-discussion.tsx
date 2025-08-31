@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMMUNITY_DISCUSSION = {
   _style:
@@ -9,5 +9,11 @@ export const COMMUNITY_DISCUSSION = {
 }
 
 export function CommunityDiscussion(props: DiagramNodeProps) {
-  return <Shape {...COMMUNITY_DISCUSSION} {...props} />
+  return (
+    <Shape
+      {...COMMUNITY_DISCUSSION}
+      {...props}
+      _style={extendStyle(COMMUNITY_DISCUSSION, props)}
+    />
+  )
 }

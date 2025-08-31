@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataLab } from '@reactiac/standard-components-diagrams/gcpIconsDataAnalytics'
+import { DataLab } from '@diac/standard-components-diagrams/gcpIconsDataAnalytics'
 
 <DataLab/>
 ```

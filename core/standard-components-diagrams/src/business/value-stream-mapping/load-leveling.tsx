@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOAD_LEVELING = {
   _style:
@@ -9,5 +9,11 @@ export const LOAD_LEVELING = {
 }
 
 export function LoadLeveling(props: DiagramNodeProps) {
-  return <Shape {...LOAD_LEVELING} {...props} />
+  return (
+    <Shape
+      {...LOAD_LEVELING}
+      {...props}
+      _style={extendStyle(LOAD_LEVELING, props)}
+    />
+  )
 }

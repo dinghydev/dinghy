@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Heroku } from '@reactiac/standard-components-diagrams/salesforceProduct'
+import { Heroku } from '@diac/standard-components-diagrams/salesforceProduct'
 
 <Heroku/>
 ```

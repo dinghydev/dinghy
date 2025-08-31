@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NON_SAP_CONTENT = {
   _style:
@@ -9,5 +9,11 @@ export const NON_SAP_CONTENT = {
 }
 
 export function NonSapContent(props: DiagramNodeProps) {
-  return <Shape {...NON_SAP_CONTENT} {...props} />
+  return (
+    <Shape
+      {...NON_SAP_CONTENT}
+      {...props}
+      _style={extendStyle(NON_SAP_CONTENT, props)}
+    />
+  )
 }

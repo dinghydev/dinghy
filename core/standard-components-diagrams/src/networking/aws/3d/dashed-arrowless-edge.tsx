@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DASHED_ARROWLESS_EDGE = {
   _style:
@@ -9,5 +9,11 @@ export const DASHED_ARROWLESS_EDGE = {
 }
 
 export function DashedArrowlessEdge(props: DiagramNodeProps) {
-  return <Shape {...DASHED_ARROWLESS_EDGE} {...props} />
+  return (
+    <Shape
+      {...DASHED_ARROWLESS_EDGE}
+      {...props}
+      _style={extendStyle(DASHED_ARROWLESS_EDGE, props)}
+    />
+  )
 }

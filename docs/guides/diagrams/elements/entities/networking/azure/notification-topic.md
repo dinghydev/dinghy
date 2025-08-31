@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.notification_topic;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { NotificationTopic } from '@reactiac/standard-components-diagrams/azure'
+import { NotificationTopic } from '@diac/standard-components-diagrams/azure'
 
 <NotificationTopic/>
 ```

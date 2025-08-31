@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VBO_REPOSITORY = {
   _style:
@@ -9,5 +9,11 @@ export const VBO_REPOSITORY = {
 }
 
 export function VboRepository(props: DiagramNodeProps) {
-  return <Shape {...VBO_REPOSITORY} {...props} />
+  return (
+    <Shape
+      {...VBO_REPOSITORY}
+      {...props}
+      _style={extendStyle(VBO_REPOSITORY, props)}
+    />
+  )
 }

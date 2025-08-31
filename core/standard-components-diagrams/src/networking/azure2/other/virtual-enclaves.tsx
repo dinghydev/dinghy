@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIRTUAL_ENCLAVES = {
   _style:
@@ -9,5 +9,11 @@ export const VIRTUAL_ENCLAVES = {
 }
 
 export function VirtualEnclaves(props: DiagramNodeProps) {
-  return <Shape {...VIRTUAL_ENCLAVES} {...props} />
+  return (
+    <Shape
+      {...VIRTUAL_ENCLAVES}
+      {...props}
+      _style={extendStyle(VIRTUAL_ENCLAVES, props)}
+    />
+  )
 }

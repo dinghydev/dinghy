@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Directmail } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Directmail } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Directmail/>
 ```

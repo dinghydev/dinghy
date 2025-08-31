@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DAS_DATABASE_AUTONOMY_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const DAS_DATABASE_AUTONOMY_SERVICE = {
 }
 
 export function DasDatabaseAutonomyService(props: DiagramNodeProps) {
-  return <Shape {...DAS_DATABASE_AUTONOMY_SERVICE} {...props} />
+  return (
+    <Shape
+      {...DAS_DATABASE_AUTONOMY_SERVICE}
+      {...props}
+      _style={extendStyle(DAS_DATABASE_AUTONOMY_SERVICE, props)}
+    />
+  )
 }

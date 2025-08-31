@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HP_MINI = {
   _style:
@@ -9,5 +9,5 @@ export const HP_MINI = {
 }
 
 export function HpMini(props: DiagramNodeProps) {
-  return <Shape {...HP_MINI} {...props} />
+  return <Shape {...HP_MINI} {...props} _style={extendStyle(HP_MINI, props)} />
 }

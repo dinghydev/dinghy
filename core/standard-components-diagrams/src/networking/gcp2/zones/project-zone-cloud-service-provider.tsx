@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROJECT_ZONE_CLOUD_SERVICE_PROVIDER = {
   _style:
@@ -9,5 +9,11 @@ export const PROJECT_ZONE_CLOUD_SERVICE_PROVIDER = {
 }
 
 export function ProjectZoneCloudServiceProvider(props: DiagramNodeProps) {
-  return <Shape {...PROJECT_ZONE_CLOUD_SERVICE_PROVIDER} {...props} />
+  return (
+    <Shape
+      {...PROJECT_ZONE_CLOUD_SERVICE_PROVIDER}
+      {...props}
+      _style={extendStyle(PROJECT_ZONE_CLOUD_SERVICE_PROVIDER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LAYERED_RECTANGLE = {
   _style:
@@ -9,5 +9,11 @@ export const LAYERED_RECTANGLE = {
 }
 
 export function LayeredRectangle(props: DiagramNodeProps) {
-  return <Shape {...LAYERED_RECTANGLE} {...props} />
+  return (
+    <Shape
+      {...LAYERED_RECTANGLE}
+      {...props}
+      _style={extendStyle(LAYERED_RECTANGLE, props)}
+    />
+  )
 }

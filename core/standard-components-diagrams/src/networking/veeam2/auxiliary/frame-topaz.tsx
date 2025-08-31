@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FRAME_TOPAZ = {
   _style:
@@ -9,5 +9,11 @@ export const FRAME_TOPAZ = {
 }
 
 export function FrameTopaz(props: DiagramNodeProps) {
-  return <Shape {...FRAME_TOPAZ} {...props} />
+  return (
+    <Shape
+      {...FRAME_TOPAZ}
+      {...props}
+      _style={extendStyle(FRAME_TOPAZ, props)}
+    />
+  )
 }

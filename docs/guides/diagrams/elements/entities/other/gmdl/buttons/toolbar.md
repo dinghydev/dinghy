@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Toolbar } from '@reactiac/standard-components-diagrams/gmdlButtons'
+import { Toolbar } from '@diac/standard-components-diagrams/gmdlButtons'
 
 <Toolbar/>
 ```

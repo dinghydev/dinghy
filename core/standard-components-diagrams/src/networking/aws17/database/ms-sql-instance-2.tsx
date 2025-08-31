@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MS_SQL_INSTANCE_2 = {
   _style:
@@ -9,5 +9,11 @@ export const MS_SQL_INSTANCE_2 = {
 }
 
 export function MsSqlInstance2(props: DiagramNodeProps) {
-  return <Shape {...MS_SQL_INSTANCE_2} {...props} />
+  return (
+    <Shape
+      {...MS_SQL_INSTANCE_2}
+      {...props}
+      _style={extendStyle(MS_SQL_INSTANCE_2, props)}
+    />
+  )
 }

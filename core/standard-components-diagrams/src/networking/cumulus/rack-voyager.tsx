@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RACK_VOYAGER = {
   _style:
@@ -9,5 +9,11 @@ export const RACK_VOYAGER = {
 }
 
 export function RackVoyager(props: DiagramNodeProps) {
-  return <Shape {...RACK_VOYAGER} {...props} />
+  return (
+    <Shape
+      {...RACK_VOYAGER}
+      {...props}
+      _style={extendStyle(RACK_VOYAGER, props)}
+    />
+  )
 }

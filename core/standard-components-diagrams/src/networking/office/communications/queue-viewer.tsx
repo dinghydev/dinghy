@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const QUEUE_VIEWER = {
   _style:
@@ -9,5 +9,11 @@ export const QUEUE_VIEWER = {
 }
 
 export function QueueViewer(props: DiagramNodeProps) {
-  return <Shape {...QUEUE_VIEWER} {...props} />
+  return (
+    <Shape
+      {...QUEUE_VIEWER}
+      {...props}
+      _style={extendStyle(QUEUE_VIEWER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BORDER_SPINNER = {
   _style:
@@ -9,5 +9,11 @@ export const BORDER_SPINNER = {
 }
 
 export function BorderSpinner(props: DiagramNodeProps) {
-  return <Shape {...BORDER_SPINNER} {...props} />
+  return (
+    <Shape
+      {...BORDER_SPINNER}
+      {...props}
+      _style={extendStyle(BORDER_SPINNER, props)}
+    />
+  )
 }

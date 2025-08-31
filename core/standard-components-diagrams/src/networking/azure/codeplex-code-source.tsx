@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CODEPLEX_CODE_SOURCE = {
   _style:
@@ -9,5 +9,11 @@ export const CODEPLEX_CODE_SOURCE = {
 }
 
 export function CodeplexCodeSource(props: DiagramNodeProps) {
-  return <Shape {...CODEPLEX_CODE_SOURCE} {...props} />
+  return (
+    <Shape
+      {...CODEPLEX_CODE_SOURCE}
+      {...props}
+      _style={extendStyle(CODEPLEX_CODE_SOURCE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonRds } from '@reactiac/standard-components-diagrams/aws18Database'
+import { AmazonRds } from '@diac/standard-components-diagrams/aws18Database'
 
 <AmazonRds/>
 ```

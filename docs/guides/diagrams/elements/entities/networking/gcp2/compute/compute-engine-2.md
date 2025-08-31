@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ComputeEngine2 } from '@reactiac/standard-components-diagrams/gcp2Compute'
+import { ComputeEngine2 } from '@diac/standard-components-diagrams/gcp2Compute'
 
 <ComputeEngine2/>
 ```

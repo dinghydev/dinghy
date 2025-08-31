@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PChannelJfet } from '@reactiac/standard-components-diagrams/electricalTransistors'
+import { PChannelJfet } from '@diac/standard-components-diagrams/electricalTransistors'
 
 <PChannelJfet/>
 ```

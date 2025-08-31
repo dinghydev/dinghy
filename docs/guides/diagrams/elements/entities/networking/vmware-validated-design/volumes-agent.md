@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VolumesAgent } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { VolumesAgent } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <VolumesAgent/>
 ```

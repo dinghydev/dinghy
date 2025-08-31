@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TimeEvent } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { TimeEvent } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <TimeEvent/>
 ```

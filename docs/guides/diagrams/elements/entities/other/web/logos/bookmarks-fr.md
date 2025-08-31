@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BookmarksFr } from '@reactiac/standard-components-diagrams/webLogos'
+import { BookmarksFr } from '@diac/standard-components-diagrams/webLogos'
 
 <BookmarksFr/>
 ```

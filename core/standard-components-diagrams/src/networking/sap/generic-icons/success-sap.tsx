@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUCCESS_SAP = {
   _style:
@@ -9,5 +9,11 @@ export const SUCCESS_SAP = {
 }
 
 export function SuccessSap(props: DiagramNodeProps) {
-  return <Shape {...SUCCESS_SAP} {...props} />
+  return (
+    <Shape
+      {...SUCCESS_SAP}
+      {...props}
+      _style={extendStyle(SUCCESS_SAP, props)}
+    />
+  )
 }

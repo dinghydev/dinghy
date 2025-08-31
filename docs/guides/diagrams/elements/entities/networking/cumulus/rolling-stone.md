@@ -5,15 +5,15 @@
 ```
 {
   _style: 'fillColor=#6E7B86;strokeColor=none;whiteSpace=wrap;html=1;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { RollingStone } from '@reactiac/standard-components-diagrams/cumulus'
+import { RollingStone } from '@diac/standard-components-diagrams/cumulus'
 
 <RollingStone/>
 ```

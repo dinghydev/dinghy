@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NESTED_NAV = {
   _style:
@@ -9,5 +9,7 @@ export const NESTED_NAV = {
 }
 
 export function NestedNav(props: DiagramNodeProps) {
-  return <Shape {...NESTED_NAV} {...props} />
+  return (
+    <Shape {...NESTED_NAV} {...props} _style={extendStyle(NESTED_NAV, props)} />
+  )
 }

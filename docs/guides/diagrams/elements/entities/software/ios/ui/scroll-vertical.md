@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScrollVertical } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { ScrollVertical } from '@diac/standard-components-diagrams/ios7Ui'
 
 <ScrollVertical/>
 ```

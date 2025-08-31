@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DELL_EMC_DATA_DOMAIN_BOOST = {
   _style:
@@ -9,5 +9,11 @@ export const DELL_EMC_DATA_DOMAIN_BOOST = {
 }
 
 export function DellEmcDataDomainBoost(props: DiagramNodeProps) {
-  return <Shape {...DELL_EMC_DATA_DOMAIN_BOOST} {...props} />
+  return (
+    <Shape
+      {...DELL_EMC_DATA_DOMAIN_BOOST}
+      {...props}
+      _style={extendStyle(DELL_EMC_DATA_DOMAIN_BOOST, props)}
+    />
+  )
 }

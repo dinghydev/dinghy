@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OBTUSE_TRIANGLE = {
   _style:
@@ -9,5 +9,11 @@ export const OBTUSE_TRIANGLE = {
 }
 
 export function ObtuseTriangle(props: DiagramNodeProps) {
-  return <Shape {...OBTUSE_TRIANGLE} {...props} />
+  return (
+    <Shape
+      {...OBTUSE_TRIANGLE}
+      {...props}
+      _style={extendStyle(OBTUSE_TRIANGLE, props)}
+    />
+  )
 }

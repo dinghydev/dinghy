@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PoeDvsCamera } from '@reactiac/standard-components-diagrams/alliedTelesisSecurity'
+import { PoeDvsCamera } from '@diac/standard-components-diagrams/alliedTelesisSecurity'
 
 <PoeDvsCamera/>
 ```

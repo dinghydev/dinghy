@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ISOC_IOT_SECURITY_OPERATIONS_CENTER = {
   _style:
@@ -9,5 +9,11 @@ export const ISOC_IOT_SECURITY_OPERATIONS_CENTER = {
 }
 
 export function IsocIotSecurityOperationsCenter(props: DiagramNodeProps) {
-  return <Shape {...ISOC_IOT_SECURITY_OPERATIONS_CENTER} {...props} />
+  return (
+    <Shape
+      {...ISOC_IOT_SECURITY_OPERATIONS_CENTER}
+      {...props}
+      _style={extendStyle(ISOC_IOT_SECURITY_OPERATIONS_CENTER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REPLICATION_TIME_CONTROL = {
   _style:
@@ -9,5 +9,11 @@ export const REPLICATION_TIME_CONTROL = {
 }
 
 export function ReplicationTimeControl(props: DiagramNodeProps) {
-  return <Shape {...REPLICATION_TIME_CONTROL} {...props} />
+  return (
+    <Shape
+      {...REPLICATION_TIME_CONTROL}
+      {...props}
+      _style={extendStyle(REPLICATION_TIME_CONTROL, props)}
+    />
+  )
 }

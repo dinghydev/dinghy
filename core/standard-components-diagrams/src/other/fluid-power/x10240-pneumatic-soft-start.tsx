@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10240_PNEUMATIC_SOFT_START = {
   _style:
@@ -9,5 +9,11 @@ export const X10240_PNEUMATIC_SOFT_START = {
 }
 
 export function X10240PneumaticSoftStart(props: DiagramNodeProps) {
-  return <Shape {...X10240_PNEUMATIC_SOFT_START} {...props} />
+  return (
+    <Shape
+      {...X10240_PNEUMATIC_SOFT_START}
+      {...props}
+      _style={extendStyle(X10240_PNEUMATIC_SOFT_START, props)}
+    />
+  )
 }

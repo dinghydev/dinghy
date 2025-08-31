@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DVS_SURVEILLANCE_MONITOR = {
   _style:
@@ -9,5 +9,11 @@ export const DVS_SURVEILLANCE_MONITOR = {
 }
 
 export function DvsSurveillanceMonitor(props: DiagramNodeProps) {
-  return <Shape {...DVS_SURVEILLANCE_MONITOR} {...props} />
+  return (
+    <Shape
+      {...DVS_SURVEILLANCE_MONITOR}
+      {...props}
+      _style={extendStyle(DVS_SURVEILLANCE_MONITOR, props)}
+    />
+  )
 }

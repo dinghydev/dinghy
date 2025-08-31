@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pentode } from '@reactiac/standard-components-diagrams/electricalVacuumTubes'
+import { Pentode } from '@diac/standard-components-diagrams/electricalVacuumTubes'
 
 <Pentode/>
 ```

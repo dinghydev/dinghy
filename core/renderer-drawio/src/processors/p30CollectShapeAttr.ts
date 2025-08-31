@@ -1,5 +1,5 @@
 import type { DrawioContext, DrawioNodeTree } from '../types.ts'
-import * as base from '@reactiac/base-components'
+import * as base from '@diac/base-components'
 
 function mergeElement({ _props }: DrawioNodeTree) {
   let { _diagram } = _props

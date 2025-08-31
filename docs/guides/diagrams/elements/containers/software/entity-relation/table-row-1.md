@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { TableRow1 } from '@reactiac/standard-components-diagrams/entityRelation'
+import { TableRow1 } from '@diac/standard-components-diagrams/entityRelation'
 
 <TableRow1/>
 ```

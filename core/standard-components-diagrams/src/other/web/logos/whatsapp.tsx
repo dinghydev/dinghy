@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WHATSAPP = {
   _style:
@@ -9,5 +9,7 @@ export const WHATSAPP = {
 }
 
 export function Whatsapp(props: DiagramNodeProps) {
-  return <Shape {...WHATSAPP} {...props} />
+  return (
+    <Shape {...WHATSAPP} {...props} _style={extendStyle(WHATSAPP, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PageIcon } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { PageIcon } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <PageIcon/>
 ```

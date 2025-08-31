@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const L2_SWITCH = {
   _style:
@@ -9,5 +9,7 @@ export const L2_SWITCH = {
 }
 
 export function L2Switch(props: DiagramNodeProps) {
-  return <Shape {...L2_SWITCH} {...props} />
+  return (
+    <Shape {...L2_SWITCH} {...props} _style={extendStyle(L2_SWITCH, props)} />
+  )
 }

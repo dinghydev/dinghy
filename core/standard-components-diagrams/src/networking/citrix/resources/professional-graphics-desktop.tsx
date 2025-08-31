@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROFESSIONAL_GRAPHICS_DESKTOP = {
   _style:
@@ -9,5 +9,11 @@ export const PROFESSIONAL_GRAPHICS_DESKTOP = {
 }
 
 export function ProfessionalGraphicsDesktop(props: DiagramNodeProps) {
-  return <Shape {...PROFESSIONAL_GRAPHICS_DESKTOP} {...props} />
+  return (
+    <Shape
+      {...PROFESSIONAL_GRAPHICS_DESKTOP}
+      {...props}
+      _style={extendStyle(PROFESSIONAL_GRAPHICS_DESKTOP, props)}
+    />
+  )
 }

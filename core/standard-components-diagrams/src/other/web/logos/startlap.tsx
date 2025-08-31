@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STARTLAP = {
   _style:
@@ -9,5 +9,7 @@ export const STARTLAP = {
 }
 
 export function Startlap(props: DiagramNodeProps) {
-  return <Shape {...STARTLAP} {...props} />
+  return (
+    <Shape {...STARTLAP} {...props} _style={extendStyle(STARTLAP, props)} />
+  )
 }

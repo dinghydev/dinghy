@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TextInsertionPoint } from '@reactiac/standard-components-diagrams/android'
+import { TextInsertionPoint } from '@diac/standard-components-diagrams/android'
 
 <TextInsertionPoint/>
 ```

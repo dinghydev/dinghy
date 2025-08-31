@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DSLAM = {
   _style:
@@ -9,5 +9,5 @@ export const DSLAM = {
 }
 
 export function Dslam(props: DiagramNodeProps) {
-  return <Shape {...DSLAM} {...props} />
+  return <Shape {...DSLAM} {...props} _style={extendStyle(DSLAM, props)} />
 }

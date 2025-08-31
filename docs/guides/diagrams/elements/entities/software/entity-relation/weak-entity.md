@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WeakEntity } from '@reactiac/standard-components-diagrams/entityRelation'
+import { WeakEntity } from '@diac/standard-components-diagrams/entityRelation'
 
 <WeakEntity/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SolidifierOpen } from '@reactiac/standard-components-diagrams/procEngSeparators'
+import { SolidifierOpen } from '@diac/standard-components-diagrams/procEngSeparators'
 
 <SolidifierOpen/>
 ```

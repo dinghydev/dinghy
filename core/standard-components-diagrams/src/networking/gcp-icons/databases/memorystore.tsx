@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MEMORYSTORE = {
   _style:
@@ -9,5 +9,11 @@ export const MEMORYSTORE = {
 }
 
 export function Memorystore(props: DiagramNodeProps) {
-  return <Shape {...MEMORYSTORE} {...props} />
+  return (
+    <Shape
+      {...MEMORYSTORE}
+      {...props}
+      _style={extendStyle(MEMORYSTORE, props)}
+    />
+  )
 }

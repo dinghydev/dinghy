@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_SERVICE_PACKAGE_FILE = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_SERVICE_PACKAGE_FILE = {
 }
 
 export function CloudServicePackageFile(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_SERVICE_PACKAGE_FILE} {...props} />
+  return (
+    <Shape
+      {...CLOUD_SERVICE_PACKAGE_FILE}
+      {...props}
+      _style={extendStyle(CLOUD_SERVICE_PACKAGE_FILE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ActionableInsight } from '@reactiac/standard-components-diagrams/ibmApplications'
+import { ActionableInsight } from '@diac/standard-components-diagrams/ibmApplications'
 
 <ActionableInsight/>
 ```

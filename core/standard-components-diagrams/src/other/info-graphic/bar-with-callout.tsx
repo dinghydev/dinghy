@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BAR_WITH_CALLOUT = {
   _style:
@@ -9,5 +9,11 @@ export const BAR_WITH_CALLOUT = {
 }
 
 export function BarWithCallout(props: DiagramNodeProps) {
-  return <Shape {...BAR_WITH_CALLOUT} {...props} />
+  return (
+    <Shape
+      {...BAR_WITH_CALLOUT}
+      {...props}
+      _style={extendStyle(BAR_WITH_CALLOUT, props)}
+    />
+  )
 }

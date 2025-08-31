@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InfrastructureSecurity } from '@reactiac/standard-components-diagrams/ibmSecurity'
+import { InfrastructureSecurity } from '@diac/standard-components-diagrams/ibmSecurity'
 
 <InfrastructureSecurity/>
 ```

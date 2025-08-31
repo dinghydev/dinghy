@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONVEYOR_BELT_CLOSED_REVERSIBLE = {
   _style:
@@ -9,5 +9,11 @@ export const CONVEYOR_BELT_CLOSED_REVERSIBLE = {
 }
 
 export function ConveyorBeltClosedReversible(props: DiagramNodeProps) {
-  return <Shape {...CONVEYOR_BELT_CLOSED_REVERSIBLE} {...props} />
+  return (
+    <Shape
+      {...CONVEYOR_BELT_CLOSED_REVERSIBLE}
+      {...props}
+      _style={extendStyle(CONVEYOR_BELT_CLOSED_REVERSIBLE, props)}
+    />
+  )
 }

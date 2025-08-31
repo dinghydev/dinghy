@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REGISTRATION = {
   _style:
@@ -9,5 +9,11 @@ export const REGISTRATION = {
 }
 
 export function Registration(props: DiagramNodeProps) {
-  return <Shape {...REGISTRATION} {...props} />
+  return (
+    <Shape
+      {...REGISTRATION}
+      {...props}
+      _style={extendStyle(REGISTRATION, props)}
+    />
+  )
 }

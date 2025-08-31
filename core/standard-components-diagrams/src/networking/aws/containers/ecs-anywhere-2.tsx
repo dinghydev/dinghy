@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ECS_ANYWHERE_2 = {
   _style:
@@ -9,5 +9,11 @@ export const ECS_ANYWHERE_2 = {
 }
 
 export function EcsAnywhere2(props: DiagramNodeProps) {
-  return <Shape {...ECS_ANYWHERE_2} {...props} />
+  return (
+    <Shape
+      {...ECS_ANYWHERE_2}
+      {...props}
+      _style={extendStyle(ECS_ANYWHERE_2, props)}
+    />
+  )
 }

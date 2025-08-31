@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiskEncryption } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { DiskEncryption } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <DiskEncryption/>
 ```

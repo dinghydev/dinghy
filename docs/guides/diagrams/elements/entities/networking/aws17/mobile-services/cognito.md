@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cognito } from '@reactiac/standard-components-diagrams/aws17MobileServices'
+import { Cognito } from '@diac/standard-components-diagrams/aws17MobileServices'
 
 <Cognito/>
 ```

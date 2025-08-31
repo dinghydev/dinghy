@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GearPump } from '@reactiac/standard-components-diagrams/procEngPumps'
+import { GearPump } from '@diac/standard-components-diagrams/procEngPumps'
 
 <GearPump/>
 ```

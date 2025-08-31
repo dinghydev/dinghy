@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIQUID_LEVEL_ACTUATED_OFF = {
   _style:
@@ -9,5 +9,11 @@ export const LIQUID_LEVEL_ACTUATED_OFF = {
 }
 
 export function LiquidLevelActuatedOff(props: DiagramNodeProps) {
-  return <Shape {...LIQUID_LEVEL_ACTUATED_OFF} {...props} />
+  return (
+    <Shape
+      {...LIQUID_LEVEL_ACTUATED_OFF}
+      {...props}
+      _style={extendStyle(LIQUID_LEVEL_ACTUATED_OFF, props)}
+    />
+  )
 }

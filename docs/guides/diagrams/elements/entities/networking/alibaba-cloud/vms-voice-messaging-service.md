@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VmsVoiceMessagingService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { VmsVoiceMessagingService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <VmsVoiceMessagingService/>
 ```

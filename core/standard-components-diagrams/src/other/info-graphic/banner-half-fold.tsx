@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BANNER_HALF_FOLD = {
   _style:
@@ -9,5 +9,11 @@ export const BANNER_HALF_FOLD = {
 }
 
 export function BannerHalfFold(props: DiagramNodeProps) {
-  return <Shape {...BANNER_HALF_FOLD} {...props} />
+  return (
+    <Shape
+      {...BANNER_HALF_FOLD}
+      {...props}
+      _style={extendStyle(BANNER_HALF_FOLD, props)}
+    />
+  )
 }

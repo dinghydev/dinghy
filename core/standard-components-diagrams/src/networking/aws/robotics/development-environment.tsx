@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEVELOPMENT_ENVIRONMENT = {
   _style:
@@ -9,5 +9,11 @@ export const DEVELOPMENT_ENVIRONMENT = {
 }
 
 export function DevelopmentEnvironment(props: DiagramNodeProps) {
-  return <Shape {...DEVELOPMENT_ENVIRONMENT} {...props} />
+  return (
+    <Shape
+      {...DEVELOPMENT_ENVIRONMENT}
+      {...props}
+      _style={extendStyle(DEVELOPMENT_ENVIRONMENT, props)}
+    />
+  )
 }

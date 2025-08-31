@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IntuneVpnProfiles } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { IntuneVpnProfiles } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <IntuneVpnProfiles/>
 ```

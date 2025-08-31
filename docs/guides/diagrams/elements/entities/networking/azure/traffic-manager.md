@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.traffic_manager;pointerEvents=1;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { TrafficManager } from '@reactiac/standard-components-diagrams/azure'
+import { TrafficManager } from '@diac/standard-components-diagrams/azure'
 
 <TrafficManager/>
 ```

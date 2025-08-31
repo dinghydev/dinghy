@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonLex } from '@reactiac/standard-components-diagrams/aws18MachineLearning'
+import { AmazonLex } from '@diac/standard-components-diagrams/aws18MachineLearning'
 
 <AmazonLex/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Quicksight } from '@reactiac/standard-components-diagrams/aws17Analytics'
+import { Quicksight } from '@diac/standard-components-diagrams/aws17Analytics'
 
 <Quicksight/>
 ```

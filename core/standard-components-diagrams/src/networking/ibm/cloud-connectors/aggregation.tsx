@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AGGREGATION = {
   _style: {
@@ -9,5 +9,11 @@ export const AGGREGATION = {
 }
 
 export function Aggregation(props: DiagramNodeProps) {
-  return <Dependency {...AGGREGATION} {...props} />
+  return (
+    <Dependency
+      {...AGGREGATION}
+      {...props}
+      _style={extendStyle(AGGREGATION, props)}
+    />
+  )
 }

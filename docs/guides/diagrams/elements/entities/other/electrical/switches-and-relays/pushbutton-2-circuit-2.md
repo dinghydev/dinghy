@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pushbutton2Circuit2 } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { Pushbutton2Circuit2 } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <Pushbutton2Circuit2/>
 ```

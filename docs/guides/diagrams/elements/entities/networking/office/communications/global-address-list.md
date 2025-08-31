@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GlobalAddressList } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { GlobalAddressList } from '@diac/standard-components-diagrams/officeCommunications'
 
 <GlobalAddressList/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Plurk } from '@reactiac/standard-components-diagrams/webIcons'
+import { Plurk } from '@diac/standard-components-diagrams/webIcons'
 
 <Plurk/>
 ```

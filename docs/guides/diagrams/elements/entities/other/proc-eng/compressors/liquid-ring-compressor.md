@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.compressors.liquid_ring_compressor',
-  _width: 90,
-  _height: 90,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { LiquidRingCompressor } from '@reactiac/standard-components-diagrams/procEngCompressors'
+import { LiquidRingCompressor } from '@diac/standard-components-diagrams/procEngCompressors'
 
 <LiquidRingCompressor/>
 ```

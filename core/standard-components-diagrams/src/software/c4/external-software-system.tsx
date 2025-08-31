@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXTERNAL_SOFTWARE_SYSTEM = {
   _style:
@@ -9,5 +9,11 @@ export const EXTERNAL_SOFTWARE_SYSTEM = {
 }
 
 export function ExternalSoftwareSystem(props: DiagramNodeProps) {
-  return <Shape {...EXTERNAL_SOFTWARE_SYSTEM} {...props} />
+  return (
+    <Shape
+      {...EXTERNAL_SOFTWARE_SYSTEM}
+      {...props}
+      _style={extendStyle(EXTERNAL_SOFTWARE_SYSTEM, props)}
+    />
+  )
 }

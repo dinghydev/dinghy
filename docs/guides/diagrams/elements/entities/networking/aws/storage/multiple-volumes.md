@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultipleVolumes } from '@reactiac/standard-components-diagrams/awsStorage'
+import { MultipleVolumes } from '@diac/standard-components-diagrams/awsStorage'
 
 <MultipleVolumes/>
 ```

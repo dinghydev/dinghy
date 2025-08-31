@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ONE_REPORTER = {
   _style:
@@ -9,5 +9,11 @@ export const ONE_REPORTER = {
 }
 
 export function OneReporter(props: DiagramNodeProps) {
-  return <Shape {...ONE_REPORTER} {...props} />
+  return (
+    <Shape
+      {...ONE_REPORTER}
+      {...props}
+      _style={extendStyle(ONE_REPORTER, props)}
+    />
+  )
 }

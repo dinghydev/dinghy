@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SpinnerFocused } from '@reactiac/standard-components-diagrams/android'
+import { SpinnerFocused } from '@diac/standard-components-diagrams/android'
 
 <SpinnerFocused/>
 ```

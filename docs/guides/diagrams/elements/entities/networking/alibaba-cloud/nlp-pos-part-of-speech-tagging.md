@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NlpPosPartOfSpeechTagging } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { NlpPosPartOfSpeechTagging } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <NlpPosPartOfSpeechTagging/>
 ```

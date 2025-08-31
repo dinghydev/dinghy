@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Typepad } from '@reactiac/standard-components-diagrams/webLogos'
+import { Typepad } from '@diac/standard-components-diagrams/webLogos'
 
 <Typepad/>
 ```

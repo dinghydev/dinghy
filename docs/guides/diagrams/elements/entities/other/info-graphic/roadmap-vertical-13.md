@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RoadmapVertical13 } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { RoadmapVertical13 } from '@diac/standard-components-diagrams/infoGraphic'
 
 <RoadmapVertical13/>
 ```

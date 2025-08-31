@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ParticipantInitiatingBottomWithDecorator } from '@reactiac/standard-components-diagrams/bpmn2Choreographies'
+import { ParticipantInitiatingBottomWithDecorator } from '@diac/standard-components-diagrams/bpmn2Choreographies'
 
 <ParticipantInitiatingBottomWithDecorator/>
 ```

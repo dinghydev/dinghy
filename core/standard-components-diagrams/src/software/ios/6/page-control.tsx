@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PAGE_CONTROL = {
   _style:
@@ -9,5 +9,11 @@ export const PAGE_CONTROL = {
 }
 
 export function PageControl(props: DiagramNodeProps) {
-  return <Shape {...PAGE_CONTROL} {...props} />
+  return (
+    <Shape
+      {...PAGE_CONTROL}
+      {...props}
+      _style={extendStyle(PAGE_CONTROL, props)}
+    />
+  )
 }

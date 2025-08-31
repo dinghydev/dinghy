@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TELEPRESENCE_EXCHANGE = {
   _style:
@@ -9,5 +9,11 @@ export const TELEPRESENCE_EXCHANGE = {
 }
 
 export function TelepresenceExchange(props: DiagramNodeProps) {
-  return <Shape {...TELEPRESENCE_EXCHANGE} {...props} />
+  return (
+    <Shape
+      {...TELEPRESENCE_EXCHANGE}
+      {...props}
+      _style={extendStyle(TELEPRESENCE_EXCHANGE, props)}
+    />
+  )
 }

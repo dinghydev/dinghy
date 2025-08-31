@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIFFERENTIAL_CAPACITOR = {
   _style:
@@ -9,5 +9,11 @@ export const DIFFERENTIAL_CAPACITOR = {
 }
 
 export function DifferentialCapacitor(props: DiagramNodeProps) {
-  return <Shape {...DIFFERENTIAL_CAPACITOR} {...props} />
+  return (
+    <Shape
+      {...DIFFERENTIAL_CAPACITOR}
+      {...props}
+      _style={extendStyle(DIFFERENTIAL_CAPACITOR, props)}
+    />
+  )
 }

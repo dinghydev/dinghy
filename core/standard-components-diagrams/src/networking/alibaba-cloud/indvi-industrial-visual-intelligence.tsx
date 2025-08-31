@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE = {
   _style:
@@ -9,5 +9,11 @@ export const INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE = {
 }
 
 export function IndviIndustrialVisualIntelligence(props: DiagramNodeProps) {
-  return <Shape {...INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE} {...props} />
+  return (
+    <Shape
+      {...INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE}
+      {...props}
+      _style={extendStyle(INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE, props)}
+    />
+  )
 }

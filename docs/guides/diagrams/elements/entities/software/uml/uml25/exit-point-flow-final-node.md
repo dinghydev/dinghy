@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExitPointFlowFinalNode } from '@reactiac/standard-components-diagrams/uml25'
+import { ExitPointFlowFinalNode } from '@diac/standard-components-diagrams/uml25'
 
 <ExitPointFlowFinalNode/>
 ```

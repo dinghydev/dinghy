@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JAMESPOT = {
   _style:
@@ -9,5 +9,7 @@ export const JAMESPOT = {
 }
 
 export function Jamespot(props: DiagramNodeProps) {
-  return <Shape {...JAMESPOT} {...props} />
+  return (
+    <Shape {...JAMESPOT} {...props} _style={extendStyle(JAMESPOT, props)} />
+  )
 }

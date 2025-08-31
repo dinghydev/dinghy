@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProcessBar } from '@reactiac/standard-components-diagrams/advanced'
+import { ProcessBar } from '@diac/standard-components-diagrams/advanced'
 
 <ProcessBar/>
 ```

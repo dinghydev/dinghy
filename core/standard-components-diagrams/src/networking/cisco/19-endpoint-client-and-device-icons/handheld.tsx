@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HANDHELD = {
   _style:
@@ -9,5 +9,7 @@ export const HANDHELD = {
 }
 
 export function Handheld(props: DiagramNodeProps) {
-  return <Shape {...HANDHELD} {...props} />
+  return (
+    <Shape {...HANDHELD} {...props} _style={extendStyle(HANDHELD, props)} />
+  )
 }

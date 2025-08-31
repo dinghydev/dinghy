@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Shield } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { Shield } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <Shield/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INFERENTIA = {
   _style:
@@ -9,5 +9,7 @@ export const INFERENTIA = {
 }
 
 export function Inferentia(props: DiagramNodeProps) {
-  return <Shape {...INFERENTIA} {...props} />
+  return (
+    <Shape {...INFERENTIA} {...props} _style={extendStyle(INFERENTIA, props)} />
+  )
 }

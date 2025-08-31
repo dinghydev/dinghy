@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sphere } from '@reactiac/standard-components-diagrams/azure2Preview'
+import { Sphere } from '@diac/standard-components-diagrams/azure2Preview'
 
 <Sphere/>
 ```

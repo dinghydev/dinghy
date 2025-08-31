@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Netvibes } from '@reactiac/standard-components-diagrams/webIcons'
+import { Netvibes } from '@diac/standard-components-diagrams/webIcons'
 
 <Netvibes/>
 ```

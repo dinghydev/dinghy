@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CrossFunctionalFlowchart } from '@reactiac/standard-components-diagrams/bpmn2General'
+import { CrossFunctionalFlowchart } from '@diac/standard-components-diagrams/bpmn2General'
 
 <CrossFunctionalFlowchart/>
 ```

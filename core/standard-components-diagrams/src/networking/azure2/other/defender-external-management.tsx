@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEFENDER_EXTERNAL_MANAGEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const DEFENDER_EXTERNAL_MANAGEMENT = {
 }
 
 export function DefenderExternalManagement(props: DiagramNodeProps) {
-  return <Shape {...DEFENDER_EXTERNAL_MANAGEMENT} {...props} />
+  return (
+    <Shape
+      {...DEFENDER_EXTERNAL_MANAGEMENT}
+      {...props}
+      _style={extendStyle(DEFENDER_EXTERNAL_MANAGEMENT, props)}
+    />
+  )
 }

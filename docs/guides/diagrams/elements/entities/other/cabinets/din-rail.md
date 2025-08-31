@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DinRail } from '@reactiac/standard-components-diagrams/cabinets'
+import { DinRail } from '@diac/standard-components-diagrams/cabinets'
 
 <DinRail/>
 ```

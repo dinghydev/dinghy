@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BitbucketCodeSource } from '@reactiac/standard-components-diagrams/azure'
+import { BitbucketCodeSource } from '@diac/standard-components-diagrams/azure'
 
 <BitbucketCodeSource/>
 ```

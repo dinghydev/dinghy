@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Nutanix } from '@reactiac/standard-components-diagrams/veeam2Software'
+import { Nutanix } from '@diac/standard-components-diagrams/veeam2Software'
 
 <Nutanix/>
 ```

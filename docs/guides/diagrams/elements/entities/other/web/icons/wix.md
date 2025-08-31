@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Wix } from '@reactiac/standard-components-diagrams/webIcons'
+import { Wix } from '@diac/standard-components-diagrams/webIcons'
 
 <Wix/>
 ```

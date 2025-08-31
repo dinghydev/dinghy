@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pinpoint } from '@reactiac/standard-components-diagrams/aws17Messaging'
+import { Pinpoint } from '@diac/standard-components-diagrams/aws17Messaging'
 
 <Pinpoint/>
 ```

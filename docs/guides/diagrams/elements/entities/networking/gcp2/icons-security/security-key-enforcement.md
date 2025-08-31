@@ -14,7 +14,7 @@ Enforcement
 ## Usage
 
 ```
-import { SecurityKeyEnforcement } from '@reactiac/standard-components-diagrams/gcp2IconsSecurity'
+import { SecurityKeyEnforcement } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
 
 <SecurityKeyEnforcement/>
 ```

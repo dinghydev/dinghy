@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEMPLATE_SPECS = {
   _style:
@@ -9,5 +9,11 @@ export const TEMPLATE_SPECS = {
 }
 
 export function TemplateSpecs(props: DiagramNodeProps) {
-  return <Shape {...TEMPLATE_SPECS} {...props} />
+  return (
+    <Shape
+      {...TEMPLATE_SPECS}
+      {...props}
+      _style={extendStyle(TEMPLATE_SPECS, props)}
+    />
+  )
 }

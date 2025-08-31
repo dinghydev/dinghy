@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Streamer } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Streamer } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Streamer/>
 ```

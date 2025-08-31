@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COST_BUDGETS = {
   _style:
@@ -9,5 +9,11 @@ export const COST_BUDGETS = {
 }
 
 export function CostBudgets(props: DiagramNodeProps) {
-  return <Shape {...COST_BUDGETS} {...props} />
+  return (
+    <Shape
+      {...COST_BUDGETS}
+      {...props}
+      _style={extendStyle(COST_BUDGETS, props)}
+    />
+  )
 }

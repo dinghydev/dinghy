@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TenantKey } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { TenantKey } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <TenantKey/>
 ```

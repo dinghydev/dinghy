@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ArcSqlServer } from '@reactiac/standard-components-diagrams/azure2Other'
+import { ArcSqlServer } from '@diac/standard-components-diagrams/azure2Other'
 
 <ArcSqlServer/>
 ```

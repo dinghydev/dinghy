@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XENAPP_WEB = {
   _style:
@@ -9,5 +9,7 @@ export const XENAPP_WEB = {
 }
 
 export function XenappWeb(props: DiagramNodeProps) {
-  return <Shape {...XENAPP_WEB} {...props} />
+  return (
+    <Shape {...XENAPP_WEB} {...props} _style={extendStyle(XENAPP_WEB, props)} />
+  )
 }

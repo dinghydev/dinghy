@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CreationDestructionEvent6 } from '@reactiac/standard-components-diagrams/sysmlInteractions'
+import { CreationDestructionEvent6 } from '@diac/standard-components-diagrams/sysmlInteractions'
 
 <CreationDestructionEvent6/>
 ```

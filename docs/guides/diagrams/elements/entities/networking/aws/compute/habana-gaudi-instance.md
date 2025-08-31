@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HabanaGaudiInstance } from '@reactiac/standard-components-diagrams/awsCompute'
+import { HabanaGaudiInstance } from '@diac/standard-components-diagrams/awsCompute'
 
 <HabanaGaudiInstance/>
 ```

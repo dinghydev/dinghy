@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VERTEX_AI = {
   _style:
@@ -9,5 +9,7 @@ export const VERTEX_AI = {
 }
 
 export function VertexAi(props: DiagramNodeProps) {
-  return <Shape {...VERTEX_AI} {...props} />
+  return (
+    <Shape {...VERTEX_AI} {...props} _style={extendStyle(VERTEX_AI, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPACING = {
   _style:
@@ -9,5 +9,5 @@ export const SPACING = {
 }
 
 export function Spacing(props: DiagramNodeProps) {
-  return <Shape {...SPACING} {...props} />
+  return <Shape {...SPACING} {...props} _style={extendStyle(SPACING, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GENERIC_PROTOCOL = {
   _style:
@@ -9,5 +9,11 @@ export const GENERIC_PROTOCOL = {
 }
 
 export function GenericProtocol(props: DiagramNodeProps) {
-  return <Shape {...GENERIC_PROTOCOL} {...props} />
+  return (
+    <Shape
+      {...GENERIC_PROTOCOL}
+      {...props}
+      _style={extendStyle(GENERIC_PROTOCOL, props)}
+    />
+  )
 }

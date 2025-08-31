@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_PUMP = {
   _style:
@@ -9,5 +9,11 @@ export const HORIZONTAL_PUMP = {
 }
 
 export function HorizontalPump(props: DiagramNodeProps) {
-  return <Shape {...HORIZONTAL_PUMP} {...props} />
+  return (
+    <Shape
+      {...HORIZONTAL_PUMP}
+      {...props}
+      _style={extendStyle(HORIZONTAL_PUMP, props)}
+    />
+  )
 }

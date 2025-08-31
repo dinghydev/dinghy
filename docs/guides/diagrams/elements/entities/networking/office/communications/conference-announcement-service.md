@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConferenceAnnouncementService } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { ConferenceAnnouncementService } from '@diac/standard-components-diagrams/officeCommunications'
 
 <ConferenceAnnouncementService/>
 ```

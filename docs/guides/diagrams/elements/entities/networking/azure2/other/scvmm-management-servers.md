@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScvmmManagementServers } from '@reactiac/standard-components-diagrams/azure2Other'
+import { ScvmmManagementServers } from '@diac/standard-components-diagrams/azure2Other'
 
 <ScvmmManagementServers/>
 ```

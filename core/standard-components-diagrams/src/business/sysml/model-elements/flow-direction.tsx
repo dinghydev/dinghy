@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLOW_DIRECTION = {
   _style: 'shape=triangle;fillColor=strokeColor;',
@@ -8,5 +8,11 @@ export const FLOW_DIRECTION = {
 }
 
 export function FlowDirection(props: DiagramNodeProps) {
-  return <Shape {...FLOW_DIRECTION} {...props} />
+  return (
+    <Shape
+      {...FLOW_DIRECTION}
+      {...props}
+      _style={extendStyle(FLOW_DIRECTION, props)}
+    />
+  )
 }

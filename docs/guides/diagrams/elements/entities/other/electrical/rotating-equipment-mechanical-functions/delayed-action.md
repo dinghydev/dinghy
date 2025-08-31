@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DelayedAction } from '@reactiac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { DelayedAction } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <DelayedAction/>
 ```

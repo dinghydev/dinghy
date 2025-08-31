@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VCLOUD_DIRECTOR_SUPPORT = {
   _style:
@@ -9,5 +9,11 @@ export const VCLOUD_DIRECTOR_SUPPORT = {
 }
 
 export function VcloudDirectorSupport(props: DiagramNodeProps) {
-  return <Shape {...VCLOUD_DIRECTOR_SUPPORT} {...props} />
+  return (
+    <Shape
+      {...VCLOUD_DIRECTOR_SUPPORT}
+      {...props}
+      _style={extendStyle(VCLOUD_DIRECTOR_SUPPORT, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MESH_AP = {
   _style:
@@ -9,5 +9,5 @@ export const MESH_AP = {
 }
 
 export function MeshAp(props: DiagramNodeProps) {
-  return <Shape {...MESH_AP} {...props} />
+  return <Shape {...MESH_AP} {...props} _style={extendStyle(MESH_AP, props)} />
 }

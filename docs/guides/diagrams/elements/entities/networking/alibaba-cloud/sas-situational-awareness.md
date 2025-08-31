@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SasSituationalAwareness } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { SasSituationalAwareness } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <SasSituationalAwareness/>
 ```

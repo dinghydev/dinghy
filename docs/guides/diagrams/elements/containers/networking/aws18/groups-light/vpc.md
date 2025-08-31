@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { Vpc } from '@reactiac/standard-components-diagrams/aws18GroupsLight'
+import { Vpc } from '@diac/standard-components-diagrams/aws18GroupsLight'
 
 <Vpc/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConstraintProperty2 } from '@reactiac/standard-components-diagrams/sysmlConstraintBlocks'
+import { ConstraintProperty2 } from '@diac/standard-components-diagrams/sysmlConstraintBlocks'
 
 <ConstraintProperty2/>
 ```

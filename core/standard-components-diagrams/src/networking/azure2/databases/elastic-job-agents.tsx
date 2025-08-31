@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTIC_JOB_AGENTS = {
   _style:
     'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Elastic_Job_Agents.svg;strokeColor=none;',
-  _width: 64,
-  _height: 64,
+  _width: 60,
+  _height: 60,
 }
 
 export function ElasticJobAgents(props: DiagramNodeProps) {
-  return <Shape {...ELASTIC_JOB_AGENTS} {...props} />
+  return (
+    <Shape
+      {...ELASTIC_JOB_AGENTS}
+      {...props}
+      _style={extendStyle(ELASTIC_JOB_AGENTS, props)}
+    />
+  )
 }

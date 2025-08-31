@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DNS_DOMAIN_NAME_SYSTEM = {
   _style:
@@ -9,5 +9,11 @@ export const DNS_DOMAIN_NAME_SYSTEM = {
 }
 
 export function DnsDomainNameSystem(props: DiagramNodeProps) {
-  return <Shape {...DNS_DOMAIN_NAME_SYSTEM} {...props} />
+  return (
+    <Shape
+      {...DNS_DOMAIN_NAME_SYSTEM}
+      {...props}
+      _style={extendStyle(DNS_DOMAIN_NAME_SYSTEM, props)}
+    />
+  )
 }

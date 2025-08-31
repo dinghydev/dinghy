@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BreadcrumbOneLevel } from '@reactiac/standard-components-diagrams/bootstrap'
+import { BreadcrumbOneLevel } from '@diac/standard-components-diagrams/bootstrap'
 
 <BreadcrumbOneLevel/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BOUNDARY_OBJECT = {
   _style: 'shape=umlBoundary;whiteSpace=wrap;html=1;',
@@ -8,5 +8,11 @@ export const BOUNDARY_OBJECT = {
 }
 
 export function BoundaryObject(props: DiagramNodeProps) {
-  return <Shape {...BOUNDARY_OBJECT} {...props} />
+  return (
+    <Shape
+      {...BOUNDARY_OBJECT}
+      {...props}
+      _style={extendStyle(BOUNDARY_OBJECT, props)}
+    />
+  )
 }

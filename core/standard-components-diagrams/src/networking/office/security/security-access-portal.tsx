@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SECURITY_ACCESS_PORTAL = {
   _style:
@@ -9,5 +9,11 @@ export const SECURITY_ACCESS_PORTAL = {
 }
 
 export function SecurityAccessPortal(props: DiagramNodeProps) {
-  return <Shape {...SECURITY_ACCESS_PORTAL} {...props} />
+  return (
+    <Shape
+      {...SECURITY_ACCESS_PORTAL}
+      {...props}
+      _style={extendStyle(SECURITY_ACCESS_PORTAL, props)}
+    />
+  )
 }

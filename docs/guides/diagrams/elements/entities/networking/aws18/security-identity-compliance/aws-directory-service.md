@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsDirectoryService } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsDirectoryService } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsDirectoryService/>
 ```

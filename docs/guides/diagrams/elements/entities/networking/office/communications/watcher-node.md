@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WatcherNode } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { WatcherNode } from '@diac/standard-components-diagrams/officeCommunications'
 
 <WatcherNode/>
 ```

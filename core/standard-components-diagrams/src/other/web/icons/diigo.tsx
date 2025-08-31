@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIIGO = {
   _style:
@@ -9,5 +9,5 @@ export const DIIGO = {
 }
 
 export function Diigo(props: DiagramNodeProps) {
-  return <Shape {...DIIGO} {...props} />
+  return <Shape {...DIIGO} {...props} _style={extendStyle(DIIGO, props)} />
 }

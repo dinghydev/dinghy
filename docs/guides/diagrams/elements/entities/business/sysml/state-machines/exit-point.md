@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExitPoint } from '@reactiac/standard-components-diagrams/sysmlStateMachines'
+import { ExitPoint } from '@diac/standard-components-diagrams/sysmlStateMachines'
 
 <ExitPoint/>
 ```

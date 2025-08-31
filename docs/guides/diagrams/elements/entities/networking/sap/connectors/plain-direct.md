@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PlainDirect } from '@reactiac/standard-components-diagrams/sapConnectors'
+import { PlainDirect } from '@diac/standard-components-diagrams/sapConnectors'
 
 <PlainDirect/>
 ```

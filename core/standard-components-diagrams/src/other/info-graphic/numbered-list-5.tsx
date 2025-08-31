@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NUMBERED_LIST_5 = {
   _style:
@@ -9,5 +9,11 @@ export const NUMBERED_LIST_5 = {
 }
 
 export function NumberedList5(props: DiagramNodeProps) {
-  return <Shape {...NUMBERED_LIST_5} {...props} />
+  return (
+    <Shape
+      {...NUMBERED_LIST_5}
+      {...props}
+      _style={extendStyle(NUMBERED_LIST_5, props)}
+    />
+  )
 }

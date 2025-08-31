@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { JoystickKeyboard } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { JoystickKeyboard } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <JoystickKeyboard/>
 ```

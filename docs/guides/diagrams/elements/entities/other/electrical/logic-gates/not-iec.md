@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NotIec } from '@reactiac/standard-components-diagrams/electricalLogicGates'
+import { NotIec } from '@diac/standard-components-diagrams/electricalLogicGates'
 
 <NotIec/>
 ```

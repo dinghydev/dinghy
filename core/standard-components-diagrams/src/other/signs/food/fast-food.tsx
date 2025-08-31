@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FAST_FOOD = {
   _style:
@@ -9,5 +9,7 @@ export const FAST_FOOD = {
 }
 
 export function FastFood(props: DiagramNodeProps) {
-  return <Shape {...FAST_FOOD} {...props} />
+  return (
+    <Shape {...FAST_FOOD} {...props} _style={extendStyle(FAST_FOOD, props)} />
+  )
 }

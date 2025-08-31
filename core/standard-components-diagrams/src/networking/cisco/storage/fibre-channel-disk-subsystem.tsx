@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIBRE_CHANNEL_DISK_SUBSYSTEM = {
   _style:
@@ -9,5 +9,11 @@ export const FIBRE_CHANNEL_DISK_SUBSYSTEM = {
 }
 
 export function FibreChannelDiskSubsystem(props: DiagramNodeProps) {
-  return <Shape {...FIBRE_CHANNEL_DISK_SUBSYSTEM} {...props} />
+  return (
+    <Shape
+      {...FIBRE_CHANNEL_DISK_SUBSYSTEM}
+      {...props}
+      _style={extendStyle(FIBRE_CHANNEL_DISK_SUBSYSTEM, props)}
+    />
+  )
 }

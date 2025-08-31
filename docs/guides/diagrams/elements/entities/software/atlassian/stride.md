@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stride } from '@reactiac/standard-components-diagrams/atlassian'
+import { Stride } from '@diac/standard-components-diagrams/atlassian'
 
 <Stride/>
 ```

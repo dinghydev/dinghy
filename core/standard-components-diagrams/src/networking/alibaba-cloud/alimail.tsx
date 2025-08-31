@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALIMAIL = {
   _style:
@@ -9,5 +9,5 @@ export const ALIMAIL = {
 }
 
 export function Alimail(props: DiagramNodeProps) {
-  return <Shape {...ALIMAIL} {...props} />
+  return <Shape {...ALIMAIL} {...props} _style={extendStyle(ALIMAIL, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const READERNAUT = {
   _style:
@@ -9,5 +9,7 @@ export const READERNAUT = {
 }
 
 export function Readernaut(props: DiagramNodeProps) {
-  return <Shape {...READERNAUT} {...props} />
+  return (
+    <Shape {...READERNAUT} {...props} _style={extendStyle(READERNAUT, props)} />
+  )
 }

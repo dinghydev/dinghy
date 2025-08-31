@@ -1,13 +1,15 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATAPHIN = {
   _style:
     'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.dataphin;',
-  _width: 54.6,
-  _height: 54.6,
+  _width: 60,
+  _height: 60,
 }
 
 export function Dataphin(props: DiagramNodeProps) {
-  return <Shape {...DATAPHIN} {...props} />
+  return (
+    <Shape {...DATAPHIN} {...props} _style={extendStyle(DATAPHIN, props)} />
+  )
 }

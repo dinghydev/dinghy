@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProjectTimesheet } from '@reactiac/standard-components-diagrams/dynamics365SubApp'
+import { ProjectTimesheet } from '@diac/standard-components-diagrams/dynamics365SubApp'
 
 <ProjectTimesheet/>
 ```

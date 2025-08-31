@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { AwsStepFunctionsWorkflow } from '@reactiac/standard-components-diagrams/aws18GroupsLight'
+import { AwsStepFunctionsWorkflow } from '@diac/standard-components-diagrams/aws18GroupsLight'
 
 <AwsStepFunctionsWorkflow/>
 ```

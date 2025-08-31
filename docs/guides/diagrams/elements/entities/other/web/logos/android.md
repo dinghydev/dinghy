@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Android } from '@reactiac/standard-components-diagrams/webLogos'
+import { Android } from '@diac/standard-components-diagrams/webLogos'
 
 <Android/>
 ```

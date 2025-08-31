@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Matrix2x212 } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { Matrix2x212 } from '@diac/standard-components-diagrams/infoGraphic'
 
 <Matrix2x212/>
 ```

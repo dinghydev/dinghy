@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OTA = {
   _style:
@@ -9,5 +9,5 @@ export const OTA = {
 }
 
 export function Ota(props: DiagramNodeProps) {
-  return <Shape {...OTA} {...props} />
+  return <Shape {...OTA} {...props} _style={extendStyle(OTA, props)} />
 }

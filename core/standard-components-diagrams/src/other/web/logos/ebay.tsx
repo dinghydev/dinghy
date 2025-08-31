@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EBAY = {
   _style:
@@ -9,5 +9,5 @@ export const EBAY = {
 }
 
 export function Ebay(props: DiagramNodeProps) {
-  return <Shape {...EBAY} {...props} />
+  return <Shape {...EBAY} {...props} _style={extendStyle(EBAY, props)} />
 }

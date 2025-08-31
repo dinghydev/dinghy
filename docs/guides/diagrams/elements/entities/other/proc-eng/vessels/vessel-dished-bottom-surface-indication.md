@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VesselDishedBottomSurfaceIndication } from '@reactiac/standard-components-diagrams/procEngVessels'
+import { VesselDishedBottomSurfaceIndication } from '@diac/standard-components-diagrams/procEngVessels'
 
 <VesselDishedBottomSurfaceIndication/>
 ```

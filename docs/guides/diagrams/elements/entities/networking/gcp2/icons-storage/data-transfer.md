@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataTransfer } from '@reactiac/standard-components-diagrams/gcp2IconsStorage'
+import { DataTransfer } from '@diac/standard-components-diagrams/gcp2IconsStorage'
 
 <DataTransfer/>
 ```

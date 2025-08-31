@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChangeSet } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { ChangeSet } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <ChangeSet/>
 ```

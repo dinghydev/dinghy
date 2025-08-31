@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cisco3945IntegratedServicesRouter } from '@reactiac/standard-components-diagrams/rackCisco'
+import { Cisco3945IntegratedServicesRouter } from '@diac/standard-components-diagrams/rackCisco'
 
 <Cisco3945IntegratedServicesRouter/>
 ```

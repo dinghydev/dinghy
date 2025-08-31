@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10880_PROPORTIONAL_PRESSURE_RELIEF = {
   _style:
@@ -9,5 +9,11 @@ export const X10880_PROPORTIONAL_PRESSURE_RELIEF = {
 }
 
 export function X10880ProportionalPressureRelief(props: DiagramNodeProps) {
-  return <Shape {...X10880_PROPORTIONAL_PRESSURE_RELIEF} {...props} />
+  return (
+    <Shape
+      {...X10880_PROPORTIONAL_PRESSURE_RELIEF}
+      {...props}
+      _style={extendStyle(X10880_PROPORTIONAL_PRESSURE_RELIEF, props)}
+    />
+  )
 }

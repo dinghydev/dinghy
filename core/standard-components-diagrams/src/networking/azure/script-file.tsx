@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCRIPT_FILE = {
   _style:
@@ -9,5 +9,11 @@ export const SCRIPT_FILE = {
 }
 
 export function ScriptFile(props: DiagramNodeProps) {
-  return <Shape {...SCRIPT_FILE} {...props} />
+  return (
+    <Shape
+      {...SCRIPT_FILE}
+      {...props}
+      _style={extendStyle(SCRIPT_FILE, props)}
+    />
+  )
 }

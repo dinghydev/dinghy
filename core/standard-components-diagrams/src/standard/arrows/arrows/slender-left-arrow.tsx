@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SLENDER_LEFT_ARROW = {
   _style:
@@ -9,5 +9,11 @@ export const SLENDER_LEFT_ARROW = {
 }
 
 export function SlenderLeftArrow(props: DiagramNodeProps) {
-  return <Shape {...SLENDER_LEFT_ARROW} {...props} />
+  return (
+    <Shape
+      {...SLENDER_LEFT_ARROW}
+      {...props}
+      _style={extendStyle(SLENDER_LEFT_ARROW, props)}
+    />
+  )
 }

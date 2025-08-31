@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BEHANCE = {
   _style:
@@ -9,5 +9,5 @@ export const BEHANCE = {
 }
 
 export function Behance(props: DiagramNodeProps) {
-  return <Shape {...BEHANCE} {...props} />
+  return <Shape {...BEHANCE} {...props} _style={extendStyle(BEHANCE, props)} />
 }

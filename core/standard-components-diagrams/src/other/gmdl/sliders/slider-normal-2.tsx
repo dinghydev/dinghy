@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SLIDER_NORMAL_2 = {
   _style:
@@ -9,5 +9,11 @@ export const SLIDER_NORMAL_2 = {
 }
 
 export function SliderNormal2(props: DiagramNodeProps) {
-  return <Shape {...SLIDER_NORMAL_2} {...props} />
+  return (
+    <Shape
+      {...SLIDER_NORMAL_2}
+      {...props}
+      _style={extendStyle(SLIDER_NORMAL_2, props)}
+    />
+  )
 }

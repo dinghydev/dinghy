@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MINI_VAX = {
   _style:
@@ -9,5 +9,7 @@ export const MINI_VAX = {
 }
 
 export function MiniVax(props: DiagramNodeProps) {
-  return <Shape {...MINI_VAX} {...props} />
+  return (
+    <Shape {...MINI_VAX} {...props} _style={extendStyle(MINI_VAX, props)} />
+  )
 }

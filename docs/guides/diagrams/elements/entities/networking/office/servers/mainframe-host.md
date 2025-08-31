@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MainframeHost } from '@reactiac/standard-components-diagrams/officeServers'
+import { MainframeHost } from '@diac/standard-components-diagrams/officeServers'
 
 <MainframeHost/>
 ```

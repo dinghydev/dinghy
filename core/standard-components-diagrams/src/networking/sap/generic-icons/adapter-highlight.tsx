@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADAPTER_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const ADAPTER_HIGHLIGHT = {
 }
 
 export function AdapterHighlight(props: DiagramNodeProps) {
-  return <Shape {...ADAPTER_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...ADAPTER_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(ADAPTER_HIGHLIGHT, props)}
+    />
+  )
 }

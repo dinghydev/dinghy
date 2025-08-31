@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RemoteRendering } from '@reactiac/standard-components-diagrams/azure2MixedReality'
+import { RemoteRendering } from '@diac/standard-components-diagrams/azure2MixedReality'
 
 <RemoteRendering/>
 ```

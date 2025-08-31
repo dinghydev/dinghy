@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { ElasticBeanstalkContainer2 } from '@reactiac/standard-components-diagrams/aws17Groups'
+import { ElasticBeanstalkContainer2 } from '@diac/standard-components-diagrams/aws17Groups'
 
 <ElasticBeanstalkContainer2/>
 ```

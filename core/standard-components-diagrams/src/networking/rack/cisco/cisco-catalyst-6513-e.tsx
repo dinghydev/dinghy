@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_CATALYST_6513_E = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_CATALYST_6513_E = {
 }
 
 export function CiscoCatalyst6513E(props: DiagramNodeProps) {
-  return <Shape {...CISCO_CATALYST_6513_E} {...props} />
+  return (
+    <Shape
+      {...CISCO_CATALYST_6513_E}
+      {...props}
+      _style={extendStyle(CISCO_CATALYST_6513_E, props)}
+    />
+  )
 }

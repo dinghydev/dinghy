@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScaSmartConversationAnalysis2 } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { ScaSmartConversationAnalysis2 } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <ScaSmartConversationAnalysis2/>
 ```

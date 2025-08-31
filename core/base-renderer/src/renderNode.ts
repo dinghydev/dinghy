@@ -3,7 +3,7 @@ import { ConcurrentRoot } from 'react-reconciler/constants.js'
 import type { HostContainer, Output } from './types.ts'
 import { ZodError } from 'zod'
 import { nodeReconciler } from './nodeReconciler.ts'
-import { createDebugger } from '@reactiac/base-components'
+import { createDebugger } from '@diac/base-components'
 
 const debug = createDebugger('core')
 

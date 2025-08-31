@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROGRESS_TRACKER_3 = {
   _style:
@@ -9,5 +9,11 @@ export const PROGRESS_TRACKER_3 = {
 }
 
 export function ProgressTracker3(props: DiagramNodeProps) {
-  return <Shape {...PROGRESS_TRACKER_3} {...props} />
+  return (
+    <Shape
+      {...PROGRESS_TRACKER_3}
+      {...props}
+      _style={extendStyle(PROGRESS_TRACKER_3, props)}
+    />
+  )
 }

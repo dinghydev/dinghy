@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_MQ = {
   _style:
@@ -9,5 +9,7 @@ export const AMAZON_MQ = {
 }
 
 export function AmazonMq(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_MQ} {...props} />
+  return (
+    <Shape {...AMAZON_MQ} {...props} _style={extendStyle(AMAZON_MQ, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VESSEL_DISHED_ENDS_RING = {
   _style:
@@ -9,5 +9,11 @@ export const VESSEL_DISHED_ENDS_RING = {
 }
 
 export function VesselDishedEndsRing(props: DiagramNodeProps) {
-  return <Shape {...VESSEL_DISHED_ENDS_RING} {...props} />
+  return (
+    <Shape
+      {...VESSEL_DISHED_ENDS_RING}
+      {...props}
+      _style={extendStyle(VESSEL_DISHED_ENDS_RING, props)}
+    />
+  )
 }

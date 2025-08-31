@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CITRIX_APP_LAYERING = {
   _style:
@@ -9,5 +9,11 @@ export const CITRIX_APP_LAYERING = {
 }
 
 export function CitrixAppLayering(props: DiagramNodeProps) {
-  return <Shape {...CITRIX_APP_LAYERING} {...props} />
+  return (
+    <Shape
+      {...CITRIX_APP_LAYERING}
+      {...props}
+      _style={extendStyle(CITRIX_APP_LAYERING, props)}
+    />
+  )
 }

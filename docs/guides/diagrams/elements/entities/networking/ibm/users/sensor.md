@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sensor } from '@reactiac/standard-components-diagrams/ibmUsers'
+import { Sensor } from '@diac/standard-components-diagrams/ibmUsers'
 
 <Sensor/>
 ```

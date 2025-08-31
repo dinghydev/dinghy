@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLIND_DISC = {
   _style:
@@ -9,5 +9,7 @@ export const BLIND_DISC = {
 }
 
 export function BlindDisc(props: DiagramNodeProps) {
-  return <Shape {...BLIND_DISC} {...props} />
+  return (
+    <Shape {...BLIND_DISC} {...props} _style={extendStyle(BLIND_DISC, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INITIAL_PREUDOSTATE_NODE = {
   _style: 'ellipse;fillColor=strokeColor;html=1;',
@@ -8,5 +8,11 @@ export const INITIAL_PREUDOSTATE_NODE = {
 }
 
 export function InitialPreudostateNode(props: DiagramNodeProps) {
-  return <Shape {...INITIAL_PREUDOSTATE_NODE} {...props} />
+  return (
+    <Shape
+      {...INITIAL_PREUDOSTATE_NODE}
+      {...props}
+      _style={extendStyle(INITIAL_PREUDOSTATE_NODE, props)}
+    />
+  )
 }

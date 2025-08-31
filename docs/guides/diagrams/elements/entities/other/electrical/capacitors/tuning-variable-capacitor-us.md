@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TuningVariableCapacitorUs } from '@reactiac/standard-components-diagrams/electricalCapacitors'
+import { TuningVariableCapacitorUs } from '@diac/standard-components-diagrams/electricalCapacitors'
 
 <TuningVariableCapacitorUs/>
 ```

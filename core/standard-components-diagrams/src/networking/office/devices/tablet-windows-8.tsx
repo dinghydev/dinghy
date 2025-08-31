@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TABLET_WINDOWS_8 = {
   _style:
@@ -9,5 +9,11 @@ export const TABLET_WINDOWS_8 = {
 }
 
 export function TabletWindows8(props: DiagramNodeProps) {
-  return <Shape {...TABLET_WINDOWS_8} {...props} />
+  return (
+    <Shape
+      {...TABLET_WINDOWS_8}
+      {...props}
+      _style={extendStyle(TABLET_WINDOWS_8, props)}
+    />
+  )
 }

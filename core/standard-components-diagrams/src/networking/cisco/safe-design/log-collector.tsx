@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOG_COLLECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const LOG_COLLECTOR = {
 }
 
 export function LogCollector(props: DiagramNodeProps) {
-  return <Shape {...LOG_COLLECTOR} {...props} />
+  return (
+    <Shape
+      {...LOG_COLLECTOR}
+      {...props}
+      _style={extendStyle(LOG_COLLECTOR, props)}
+    />
+  )
 }

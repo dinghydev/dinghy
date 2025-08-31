@@ -3,7 +3,7 @@ import Debug from 'debug'
 import chalk from 'chalk'
 import { walk } from 'jsr:@std/fs/walk'
 import { upgradeToVersion } from '../commands/upgrade.ts'
-import { reactiacHome } from './loadConfig.ts'
+import { diacHome } from './loadConfig.ts'
 import { execa } from 'execa'
 import { projectVersionRelease } from './projectVersions.ts'
 const debug = Debug('updateCheck')
@@ -16,7 +16,7 @@ const todayYYYYMMDD = () => {
   return `${year}${month}${day}`
 }
 
-const latestVersionFile = () => `${reactiacHome}/states/latest-version.json`
+const latestVersionFile = () => `${diacHome}/states/latest-version.json`
 
 export const resolveLatestVersion = (base: string) => {
   const versionFile = latestVersionFile()
@@ -40,7 +40,7 @@ const writeLatestVersion = (version: object) => {
 }
 
 const updateCheckFile = () =>
-  `${reactiacHome}/states/update-check-${todayYYYYMMDD()}`
+  `${diacHome}/states/update-check-${todayYYYYMMDD()}`
 
 export const createUpdateCheckFile = () => {
   const file = updateCheckFile()
@@ -49,7 +49,7 @@ export const createUpdateCheckFile = () => {
 }
 
 export const cleanUpdateCheck = async () => {
-  const statesDir = `${reactiacHome}/states`
+  const statesDir = `${diacHome}/states`
   if (existsSync(statesDir)) {
     for await (const dirEntry of walk(statesDir)) {
       if (dirEntry.name.startsWith('update-check-')) {
@@ -61,8 +61,8 @@ export const cleanUpdateCheck = async () => {
 }
 
 export const fetchLatestVersion = async () => {
-  const url = Deno.env.get('REACTIAC_UPDATE_CHECK_URL') ||
-    'https://play.reactiac.dev/download/latest-version.json'
+  const url = Deno.env.get('DIAC_UPDATE_CHECK_URL') ||
+    'https://play.diac.dev/download/latest-version.json'
   const response = await fetch(
     `${url}?runner-version=${projectVersionRelease()}`,
   )
@@ -75,28 +75,28 @@ const runCommandWithUpgradedVersion = async () => {
   const result = await execa({
     stderr: 'inherit',
     stdout: 'inherit',
-  })`${reactiacHome}/bin/reactiac ${Deno.args}`
+  })`${diacHome}/bin/diac ${Deno.args}`
   Deno.exit(result.exitCode)
 }
 
 const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
-  debug('ReactIAC Cli version', projectVersionRelease())
+  debug('DIaC Cli version', projectVersionRelease())
   debug('Deno build %s/%s', Deno.version.deno, Deno.build.target)
 
-  if (Deno.env.get('REACTIAC_UPDATE_CHECK_SKIP')) {
-    debug('skip update check by REACTIAC_UPDATE_CHECK_SKIP')
+  if (Deno.env.get('DIAC_UPDATE_CHECK_SKIP')) {
+    debug('skip update check by DIAC_UPDATE_CHECK_SKIP')
     return
   }
 
   const updateCheckFile = `${
     Deno.env.get('HOME')
-  }/.reactiac/states/update-check-${todayYYYYMMDD()}`
+  }/.diac/states/update-check-${todayYYYYMMDD()}`
   if (existsSync(updateCheckFile)) {
     debug('skip update check as file %s exists', updateCheckFile)
     return
   }
 
-  const statesDir = `${reactiacHome}/states`
+  const statesDir = `${diacHome}/states`
   if (!existsSync(statesDir)) {
     Deno.mkdirSync(statesDir, { recursive: true })
   }
@@ -115,17 +115,17 @@ const performUpdateCheck = async (fetch = false, autoUpgrade: boolean) => {
           await runCommandWithUpgradedVersion()
         } else {
           console.log(
-            `A new release of ReactIAC is available: ${
+            `A new release of DIaC is available: ${
               chalk.dim(projectVersionRelease())
             } → ${chalk.green(latestVersion)}`,
           )
-          console.log(`Run ${chalk.yellow('reactiac upgrade')} to install it`)
+          console.log(`Run ${chalk.yellow('diac upgrade')} to install it`)
         }
       }
       createUpdateCheckFile()
     } catch (error) {
       debug('error %O', error)
-      console.warn('Failed to check for new ReactIAC updates')
+      console.warn('Failed to check for new DIaC updates')
     }
   }
 }
@@ -136,7 +136,7 @@ export const updateCheck = async (fetch = false) => {
     return
   }
   const autoUpgrade = Boolean(
-    Deno.env.get('REACTIAC_UPDATE_CHECK_AUTO_UPGRADE'),
+    Deno.env.get('DIAC_UPDATE_CHECK_AUTO_UPGRADE'),
   )
   if (autoUpgrade) {
     debug('auto-upgrade is enabled, check updates syncronously')
@@ -147,4 +147,4 @@ export const updateCheck = async (fetch = false) => {
   }
 }
 
-// rm -f ~/.reactiac/states/update-check-*; (cd cli ; deno task run -h --debug)
+// rm -f ~/.diac/states/update-check-*; (cd cli ; deno task run -h --debug)

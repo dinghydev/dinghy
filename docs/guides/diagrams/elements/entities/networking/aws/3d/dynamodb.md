@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dynamodb } from '@reactiac/standard-components-diagrams/aws3d'
+import { Dynamodb } from '@diac/standard-components-diagrams/aws3d'
 
 <Dynamodb/>
 ```

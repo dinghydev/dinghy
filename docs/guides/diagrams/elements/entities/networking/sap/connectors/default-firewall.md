@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DefaultFirewall } from '@reactiac/standard-components-diagrams/sapConnectors'
+import { DefaultFirewall } from '@diac/standard-components-diagrams/sapConnectors'
 
 <DefaultFirewall/>
 ```

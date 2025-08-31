@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CSV_FILE = {
   _style:
@@ -9,5 +9,7 @@ export const CSV_FILE = {
 }
 
 export function CsvFile(props: DiagramNodeProps) {
-  return <Shape {...CSV_FILE} {...props} />
+  return (
+    <Shape {...CSV_FILE} {...props} _style={extendStyle(CSV_FILE, props)} />
+  )
 }

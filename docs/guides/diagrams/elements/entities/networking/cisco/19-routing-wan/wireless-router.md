@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WirelessRouter } from '@reactiac/standard-components-diagrams/cisco19RoutingWan'
+import { WirelessRouter } from '@diac/standard-components-diagrams/cisco19RoutingWan'
 
 <WirelessRouter/>
 ```

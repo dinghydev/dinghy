@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEMPERATURE_SWITCH_ON = {
   _style:
@@ -9,5 +9,11 @@ export const TEMPERATURE_SWITCH_ON = {
 }
 
 export function TemperatureSwitchOn(props: DiagramNodeProps) {
-  return <Shape {...TEMPERATURE_SWITCH_ON} {...props} />
+  return (
+    <Shape
+      {...TEMPERATURE_SWITCH_ON}
+      {...props}
+      _style={extendStyle(TEMPERATURE_SWITCH_ON, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NORMALLY_CLOSED_BALL_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const NORMALLY_CLOSED_BALL_VALVE = {
 }
 
 export function NormallyClosedBallValve(props: DiagramNodeProps) {
-  return <Shape {...NORMALLY_CLOSED_BALL_VALVE} {...props} />
+  return (
+    <Shape
+      {...NORMALLY_CLOSED_BALL_VALVE}
+      {...props}
+      _style={extendStyle(NORMALLY_CLOSED_BALL_VALVE, props)}
+    />
+  )
 }

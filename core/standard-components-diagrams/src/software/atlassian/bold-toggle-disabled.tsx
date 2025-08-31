@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BOLD_TOGGLE_DISABLED = {
   _style:
@@ -9,5 +9,11 @@ export const BOLD_TOGGLE_DISABLED = {
 }
 
 export function BoldToggleDisabled(props: DiagramNodeProps) {
-  return <Shape {...BOLD_TOGGLE_DISABLED} {...props} />
+  return (
+    <Shape
+      {...BOLD_TOGGLE_DISABLED}
+      {...props}
+      _style={extendStyle(BOLD_TOGGLE_DISABLED, props)}
+    />
+  )
 }

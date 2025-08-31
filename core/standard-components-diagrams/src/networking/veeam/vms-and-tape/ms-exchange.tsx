@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MS_EXCHANGE = {
   _style:
@@ -9,5 +9,11 @@ export const MS_EXCHANGE = {
 }
 
 export function MsExchange(props: DiagramNodeProps) {
-  return <Shape {...MS_EXCHANGE} {...props} />
+  return (
+    <Shape
+      {...MS_EXCHANGE}
+      {...props}
+      _style={extendStyle(MS_EXCHANGE, props)}
+    />
+  )
 }

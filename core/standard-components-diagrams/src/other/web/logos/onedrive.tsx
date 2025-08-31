@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ONEDRIVE = {
   _style:
@@ -9,5 +9,7 @@ export const ONEDRIVE = {
 }
 
 export function Onedrive(props: DiagramNodeProps) {
-  return <Shape {...ONEDRIVE} {...props} />
+  return (
+    <Shape {...ONEDRIVE} {...props} _style={extendStyle(ONEDRIVE, props)} />
+  )
 }

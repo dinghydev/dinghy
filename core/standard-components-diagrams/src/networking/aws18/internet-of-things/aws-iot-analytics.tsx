@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_IOT_ANALYTICS = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_IOT_ANALYTICS = {
 }
 
 export function AwsIotAnalytics(props: DiagramNodeProps) {
-  return <Shape {...AWS_IOT_ANALYTICS} {...props} />
+  return (
+    <Shape
+      {...AWS_IOT_ANALYTICS}
+      {...props}
+      _style={extendStyle(AWS_IOT_ANALYTICS, props)}
+    />
+  )
 }

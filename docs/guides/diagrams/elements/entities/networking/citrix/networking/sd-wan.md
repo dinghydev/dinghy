@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SdWan } from '@reactiac/standard-components-diagrams/citrixNetworking'
+import { SdWan } from '@diac/standard-components-diagrams/citrixNetworking'
 
 <SdWan/>
 ```

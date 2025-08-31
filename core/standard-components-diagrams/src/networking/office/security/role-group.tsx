@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROLE_GROUP = {
   _style:
@@ -9,5 +9,7 @@ export const ROLE_GROUP = {
 }
 
 export function RoleGroup(props: DiagramNodeProps) {
-  return <Shape {...ROLE_GROUP} {...props} />
+  return (
+    <Shape {...ROLE_GROUP} {...props} _style={extendStyle(ROLE_GROUP, props)} />
+  )
 }

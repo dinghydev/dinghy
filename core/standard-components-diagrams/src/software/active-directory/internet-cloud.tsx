@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERNET_CLOUD = {
   _style:
@@ -9,5 +9,11 @@ export const INTERNET_CLOUD = {
 }
 
 export function InternetCloud(props: DiagramNodeProps) {
-  return <Shape {...INTERNET_CLOUD} {...props} />
+  return (
+    <Shape
+      {...INTERNET_CLOUD}
+      {...props}
+      _style={extendStyle(INTERNET_CLOUD, props)}
+    />
+  )
 }

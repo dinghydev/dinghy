@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VmPausedSavedState } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { VmPausedSavedState } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <VmPausedSavedState/>
 ```

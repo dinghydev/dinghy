@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RADIO_BUTTON_OFF_HOVER_LIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const RADIO_BUTTON_OFF_HOVER_LIGHT = {
 }
 
 export function RadioButtonOffHoverLight(props: DiagramNodeProps) {
-  return <Shape {...RADIO_BUTTON_OFF_HOVER_LIGHT} {...props} />
+  return (
+    <Shape
+      {...RADIO_BUTTON_OFF_HOVER_LIGHT}
+      {...props}
+      _style={extendStyle(RADIO_BUTTON_OFF_HOVER_LIGHT, props)}
+    />
+  )
 }

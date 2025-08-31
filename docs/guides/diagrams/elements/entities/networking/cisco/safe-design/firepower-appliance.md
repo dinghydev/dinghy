@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FirepowerAppliance } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { FirepowerAppliance } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <FirepowerAppliance/>
 ```

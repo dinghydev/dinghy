@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DualMode } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { DualMode } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <DualMode/>
 ```

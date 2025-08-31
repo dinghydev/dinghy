@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDSEARCH_SEARCH_DOCUMENTS = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUDSEARCH_SEARCH_DOCUMENTS = {
 }
 
 export function CloudsearchSearchDocuments(props: DiagramNodeProps) {
-  return <Shape {...CLOUDSEARCH_SEARCH_DOCUMENTS} {...props} />
+  return (
+    <Shape
+      {...CLOUDSEARCH_SEARCH_DOCUMENTS}
+      {...props}
+      _style={extendStyle(CLOUDSEARCH_SEARCH_DOCUMENTS, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IBM_OBJECT_STORAGE = {
   _style:
@@ -9,5 +9,11 @@ export const IBM_OBJECT_STORAGE = {
 }
 
 export function IbmObjectStorage(props: DiagramNodeProps) {
-  return <Shape {...IBM_OBJECT_STORAGE} {...props} />
+  return (
+    <Shape
+      {...IBM_OBJECT_STORAGE}
+      {...props}
+      _style={extendStyle(IBM_OBJECT_STORAGE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BlobBlock } from '@reactiac/standard-components-diagrams/azure2General'
+import { BlobBlock } from '@diac/standard-components-diagrams/azure2General'
 
 <BlobBlock/>
 ```

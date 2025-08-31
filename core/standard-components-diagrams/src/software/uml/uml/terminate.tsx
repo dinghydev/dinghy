@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TERMINATE = {
   _style: {
@@ -9,5 +9,11 @@ export const TERMINATE = {
 }
 
 export function Terminate(props: DiagramNodeProps) {
-  return <Dependency {...TERMINATE} {...props} />
+  return (
+    <Dependency
+      {...TERMINATE}
+      {...props}
+      _style={extendStyle(TERMINATE, props)}
+    />
+  )
 }

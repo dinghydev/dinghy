@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudGpus } from '@reactiac/standard-components-diagrams/gcp2IconsCompute'
+import { CloudGpus } from '@diac/standard-components-diagrams/gcp2IconsCompute'
 
 <CloudGpus/>
 ```

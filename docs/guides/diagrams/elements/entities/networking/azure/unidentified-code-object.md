@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UnidentifiedCodeObject } from '@reactiac/standard-components-diagrams/azure'
+import { UnidentifiedCodeObject } from '@diac/standard-components-diagrams/azure'
 
 <UnidentifiedCodeObject/>
 ```

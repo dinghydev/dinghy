@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConditionalAccess } from '@reactiac/standard-components-diagrams/azure2Security'
+import { ConditionalAccess } from '@diac/standard-components-diagrams/azure2Security'
 
 <ConditionalAccess/>
 ```

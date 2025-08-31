@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RELOAD = {
   _style:
@@ -9,5 +9,5 @@ export const RELOAD = {
 }
 
 export function Reload(props: DiagramNodeProps) {
-  return <Shape {...RELOAD} {...props} />
+  return <Shape {...RELOAD} {...props} _style={extendStyle(RELOAD, props)} />
 }

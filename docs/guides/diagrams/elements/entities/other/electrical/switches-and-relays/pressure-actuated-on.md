@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PressureActuatedOn } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { PressureActuatedOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <PressureActuatedOn/>
 ```

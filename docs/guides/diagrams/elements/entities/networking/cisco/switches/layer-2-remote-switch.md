@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Layer2RemoteSwitch } from '@reactiac/standard-components-diagrams/ciscoSwitches'
+import { Layer2RemoteSwitch } from '@diac/standard-components-diagrams/ciscoSwitches'
 
 <Layer2RemoteSwitch/>
 ```

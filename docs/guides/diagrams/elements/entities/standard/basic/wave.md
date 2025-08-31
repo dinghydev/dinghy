@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Wave } from '@reactiac/standard-components-diagrams/basic'
+import { Wave } from '@diac/standard-components-diagrams/basic'
 
 <Wave/>
 ```

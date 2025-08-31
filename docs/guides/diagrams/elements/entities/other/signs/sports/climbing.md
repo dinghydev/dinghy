@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.signs.sports.climbing;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
-  _width: 99,
-  _height: 99,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Climbing } from '@reactiac/standard-components-diagrams/signsSports'
+import { Climbing } from '@diac/standard-components-diagrams/signsSports'
 
 <Climbing/>
 ```

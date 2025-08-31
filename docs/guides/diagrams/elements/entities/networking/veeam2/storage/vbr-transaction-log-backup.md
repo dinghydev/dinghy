@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VbrTransactionLogBackup } from '@reactiac/standard-components-diagrams/veeam2Storage'
+import { VbrTransactionLogBackup } from '@diac/standard-components-diagrams/veeam2Storage'
 
 <VbrTransactionLogBackup/>
 ```

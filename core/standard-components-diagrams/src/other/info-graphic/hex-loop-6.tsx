@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HEX_LOOP_6 = {
   _style:
@@ -9,5 +9,7 @@ export const HEX_LOOP_6 = {
 }
 
 export function HexLoop6(props: DiagramNodeProps) {
-  return <Shape {...HEX_LOOP_6} {...props} />
+  return (
+    <Shape {...HEX_LOOP_6} {...props} _style={extendStyle(HEX_LOOP_6, props)} />
+  )
 }

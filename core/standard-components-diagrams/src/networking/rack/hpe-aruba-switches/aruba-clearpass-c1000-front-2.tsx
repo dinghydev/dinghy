@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARUBA_CLEARPASS_C1000_FRONT_2 = {
   _style:
@@ -9,5 +9,11 @@ export const ARUBA_CLEARPASS_C1000_FRONT_2 = {
 }
 
 export function ArubaClearpassC1000Front2(props: DiagramNodeProps) {
-  return <Shape {...ARUBA_CLEARPASS_C1000_FRONT_2} {...props} />
+  return (
+    <Shape
+      {...ARUBA_CLEARPASS_C1000_FRONT_2}
+      {...props}
+      _style={extendStyle(ARUBA_CLEARPASS_C1000_FRONT_2, props)}
+    />
+  )
 }

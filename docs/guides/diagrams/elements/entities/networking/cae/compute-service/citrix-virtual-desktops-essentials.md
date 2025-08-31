@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Citrix_Virtual_Desktops_Essentials.svg;strokeColor=none;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { CitrixVirtualDesktopsEssentials } from '@reactiac/standard-components-diagrams/caeComputeService'
+import { CitrixVirtualDesktopsEssentials } from '@diac/standard-components-diagrams/caeComputeService'
 
 <CitrixVirtualDesktopsEssentials/>
 ```

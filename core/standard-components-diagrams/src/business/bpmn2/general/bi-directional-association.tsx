@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BI_DIRECTIONAL_ASSOCIATION = {
   _style: {
@@ -9,5 +9,11 @@ export const BI_DIRECTIONAL_ASSOCIATION = {
 }
 
 export function BiDirectionalAssociation(props: DiagramNodeProps) {
-  return <Dependency {...BI_DIRECTIONAL_ASSOCIATION} {...props} />
+  return (
+    <Dependency
+      {...BI_DIRECTIONAL_ASSOCIATION}
+      {...props}
+      _style={extendStyle(BI_DIRECTIONAL_ASSOCIATION, props)}
+    />
+  )
 }

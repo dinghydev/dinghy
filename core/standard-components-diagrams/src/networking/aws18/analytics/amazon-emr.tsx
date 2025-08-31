@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_EMR = {
   _style:
@@ -9,5 +9,7 @@ export const AMAZON_EMR = {
 }
 
 export function AmazonEmr(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_EMR} {...props} />
+  return (
+    <Shape {...AMAZON_EMR} {...props} _style={extendStyle(AMAZON_EMR, props)} />
+  )
 }

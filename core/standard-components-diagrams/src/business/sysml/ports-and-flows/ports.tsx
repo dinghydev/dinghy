@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PORTS = {
   _style: 'whiteSpace=wrap;align=center;html=1;',
@@ -8,5 +8,5 @@ export const PORTS = {
 }
 
 export function Ports(props: DiagramNodeProps) {
-  return <Shape {...PORTS} {...props} />
+  return <Shape {...PORTS} {...props} _style={extendStyle(PORTS, props)} />
 }

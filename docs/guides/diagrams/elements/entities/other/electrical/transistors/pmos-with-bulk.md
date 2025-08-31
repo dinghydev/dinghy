@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PmosWithBulk } from '@reactiac/standard-components-diagrams/electricalTransistors'
+import { PmosWithBulk } from '@diac/standard-components-diagrams/electricalTransistors'
 
 <PmosWithBulk/>
 ```

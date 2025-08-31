@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FORSETI_LOCKUP = {
   _style:
@@ -9,5 +9,11 @@ export const FORSETI_LOCKUP = {
 }
 
 export function ForsetiLockup(props: DiagramNodeProps) {
-  return <Shape {...FORSETI_LOCKUP} {...props} />
+  return (
+    <Shape
+      {...FORSETI_LOCKUP}
+      {...props}
+      _style={extendStyle(FORSETI_LOCKUP, props)}
+    />
+  )
 }

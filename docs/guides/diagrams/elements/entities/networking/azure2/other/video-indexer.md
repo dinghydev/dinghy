@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VideoIndexer } from '@reactiac/standard-components-diagrams/azure2Other'
+import { VideoIndexer } from '@diac/standard-components-diagrams/azure2Other'
 
 <VideoIndexer/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IdentiCa } from '@reactiac/standard-components-diagrams/webLogos'
+import { IdentiCa } from '@diac/standard-components-diagrams/webLogos'
 
 <IdentiCa/>
 ```

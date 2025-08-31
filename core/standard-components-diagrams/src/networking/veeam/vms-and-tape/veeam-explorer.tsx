@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VEEAM_EXPLORER = {
   _style:
@@ -9,5 +9,11 @@ export const VEEAM_EXPLORER = {
 }
 
 export function VeeamExplorer(props: DiagramNodeProps) {
-  return <Shape {...VEEAM_EXPLORER} {...props} />
+  return (
+    <Shape
+      {...VEEAM_EXPLORER}
+      {...props}
+      _style={extendStyle(VEEAM_EXPLORER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IpPbx } from '@reactiac/standard-components-diagrams/officeDevices'
+import { IpPbx } from '@diac/standard-components-diagrams/officeDevices'
 
 <IpPbx/>
 ```

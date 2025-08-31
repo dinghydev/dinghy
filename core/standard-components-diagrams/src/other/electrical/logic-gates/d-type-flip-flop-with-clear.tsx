@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const D_TYPE_FLIP_FLOP_WITH_CLEAR = {
   _style:
@@ -9,5 +9,11 @@ export const D_TYPE_FLIP_FLOP_WITH_CLEAR = {
 }
 
 export function DTypeFlipFlopWithClear(props: DiagramNodeProps) {
-  return <Shape {...D_TYPE_FLIP_FLOP_WITH_CLEAR} {...props} />
+  return (
+    <Shape
+      {...D_TYPE_FLIP_FLOP_WITH_CLEAR}
+      {...props}
+      _style={extendStyle(D_TYPE_FLIP_FLOP_WITH_CLEAR, props)}
+    />
+  )
 }

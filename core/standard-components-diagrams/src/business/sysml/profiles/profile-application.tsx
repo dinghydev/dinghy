@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROFILE_APPLICATION = {
   _style: {
@@ -9,5 +9,11 @@ export const PROFILE_APPLICATION = {
 }
 
 export function ProfileApplication(props: DiagramNodeProps) {
-  return <Dependency {...PROFILE_APPLICATION} {...props} />
+  return (
+    <Dependency
+      {...PROFILE_APPLICATION}
+      {...props}
+      _style={extendStyle(PROFILE_APPLICATION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTEXTUAL_ACTION_BAR = {
   _style:
@@ -9,5 +9,11 @@ export const CONTEXTUAL_ACTION_BAR = {
 }
 
 export function ContextualActionBar(props: DiagramNodeProps) {
-  return <Shape {...CONTEXTUAL_ACTION_BAR} {...props} />
+  return (
+    <Shape
+      {...CONTEXTUAL_ACTION_BAR}
+      {...props}
+      _style={extendStyle(CONTEXTUAL_ACTION_BAR, props)}
+    />
+  )
 }

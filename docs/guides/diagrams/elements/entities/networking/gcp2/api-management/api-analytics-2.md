@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApiAnalytics2 } from '@reactiac/standard-components-diagrams/gcp2ApiManagement'
+import { ApiAnalytics2 } from '@diac/standard-components-diagrams/gcp2ApiManagement'
 
 <ApiAnalytics2/>
 ```

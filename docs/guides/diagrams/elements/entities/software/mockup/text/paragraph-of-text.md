@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ParagraphOfText } from '@reactiac/standard-components-diagrams/mockupText'
+import { ParagraphOfText } from '@diac/standard-components-diagrams/mockupText'
 
 <ParagraphOfText/>
 ```

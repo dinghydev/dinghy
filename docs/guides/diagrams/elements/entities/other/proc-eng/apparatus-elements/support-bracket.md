@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SupportBracket } from '@reactiac/standard-components-diagrams/procEngApparatusElements'
+import { SupportBracket } from '@diac/standard-components-diagrams/procEngApparatusElements'
 
 <SupportBracket/>
 ```

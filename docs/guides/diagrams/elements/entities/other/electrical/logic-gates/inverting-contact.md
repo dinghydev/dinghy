@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InvertingContact } from '@reactiac/standard-components-diagrams/electricalLogicGates'
+import { InvertingContact } from '@diac/standard-components-diagrams/electricalLogicGates'
 
 <InvertingContact/>
 ```

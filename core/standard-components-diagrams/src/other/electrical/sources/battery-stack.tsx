@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BATTERY_STACK = {
   _style:
@@ -9,5 +9,11 @@ export const BATTERY_STACK = {
 }
 
 export function BatteryStack(props: DiagramNodeProps) {
-  return <Shape {...BATTERY_STACK} {...props} />
+  return (
+    <Shape
+      {...BATTERY_STACK}
+      {...props}
+      _style={extendStyle(BATTERY_STACK, props)}
+    />
+  )
 }

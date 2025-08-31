@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { TransactionExpanded } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { TransactionExpanded } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <TransactionExpanded/>
 ```

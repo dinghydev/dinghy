@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SANITARY_DISPOSAL_STATION = {
   _style:
@@ -9,5 +9,11 @@ export const SANITARY_DISPOSAL_STATION = {
 }
 
 export function SanitaryDisposalStation(props: DiagramNodeProps) {
-  return <Shape {...SANITARY_DISPOSAL_STATION} {...props} />
+  return (
+    <Shape
+      {...SANITARY_DISPOSAL_STATION}
+      {...props}
+      _style={extendStyle(SANITARY_DISPOSAL_STATION, props)}
+    />
+  )
 }

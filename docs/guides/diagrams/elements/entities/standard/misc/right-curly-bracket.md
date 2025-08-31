@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RightCurlyBracket } from '@reactiac/standard-components-diagrams/misc'
+import { RightCurlyBracket } from '@diac/standard-components-diagrams/misc'
 
 <RightCurlyBracket/>
 ```

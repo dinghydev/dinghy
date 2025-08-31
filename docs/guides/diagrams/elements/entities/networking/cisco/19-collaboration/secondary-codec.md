@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SecondaryCodec } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { SecondaryCodec } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <SecondaryCodec/>
 ```

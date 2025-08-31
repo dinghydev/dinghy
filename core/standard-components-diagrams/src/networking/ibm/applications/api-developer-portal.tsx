@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const API_DEVELOPER_PORTAL = {
   _style:
@@ -9,5 +9,11 @@ export const API_DEVELOPER_PORTAL = {
 }
 
 export function ApiDeveloperPortal(props: DiagramNodeProps) {
-  return <Shape {...API_DEVELOPER_PORTAL} {...props} />
+  return (
+    <Shape
+      {...API_DEVELOPER_PORTAL}
+      {...props}
+      _style={extendStyle(API_DEVELOPER_PORTAL, props)}
+    />
+  )
 }

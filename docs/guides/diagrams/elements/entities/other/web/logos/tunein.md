@@ -5,15 +5,15 @@
 ```
 {
   _style: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.tunein',
-  _width: 70,
-  _height: 70,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Tunein } from '@reactiac/standard-components-diagrams/webLogos'
+import { Tunein } from '@diac/standard-components-diagrams/webLogos'
 
 <Tunein/>
 ```

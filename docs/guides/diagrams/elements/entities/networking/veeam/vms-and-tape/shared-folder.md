@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SharedFolder } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { SharedFolder } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <SharedFolder/>
 ```

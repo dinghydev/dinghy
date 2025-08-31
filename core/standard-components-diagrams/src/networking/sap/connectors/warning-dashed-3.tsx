@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WARNING_DASHED_3 = {
   _style:
@@ -9,5 +9,11 @@ export const WARNING_DASHED_3 = {
 }
 
 export function WarningDashed3(props: DiagramNodeProps) {
-  return <Shape {...WARNING_DASHED_3} {...props} />
+  return (
+    <Shape
+      {...WARNING_DASHED_3}
+      {...props}
+      _style={extendStyle(WARNING_DASHED_3, props)}
+    />
+  )
 }

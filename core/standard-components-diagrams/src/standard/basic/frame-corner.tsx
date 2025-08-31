@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FRAME_CORNER = {
   _style:
@@ -9,5 +9,11 @@ export const FRAME_CORNER = {
 }
 
 export function FrameCorner(props: DiagramNodeProps) {
-  return <Shape {...FRAME_CORNER} {...props} />
+  return (
+    <Shape
+      {...FRAME_CORNER}
+      {...props}
+      _style={extendStyle(FRAME_CORNER, props)}
+    />
+  )
 }

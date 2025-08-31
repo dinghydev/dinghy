@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_2921_INTEGRATED_SERVICES_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_2921_INTEGRATED_SERVICES_ROUTER = {
 }
 
 export function Cisco2921IntegratedServicesRouter(props: DiagramNodeProps) {
-  return <Shape {...CISCO_2921_INTEGRATED_SERVICES_ROUTER} {...props} />
+  return (
+    <Shape
+      {...CISCO_2921_INTEGRATED_SERVICES_ROUTER}
+      {...props}
+      _style={extendStyle(CISCO_2921_INTEGRATED_SERVICES_ROUTER, props)}
+    />
+  )
 }

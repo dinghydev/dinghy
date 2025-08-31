@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12210_ADSORBER_FILTER = {
   _style:
@@ -9,5 +9,11 @@ export const X12210_ADSORBER_FILTER = {
 }
 
 export function X12210AdsorberFilter(props: DiagramNodeProps) {
-  return <Shape {...X12210_ADSORBER_FILTER} {...props} />
+  return (
+    <Shape
+      {...X12210_ADSORBER_FILTER}
+      {...props}
+      _style={extendStyle(X12210_ADSORBER_FILTER, props)}
+    />
+  )
 }

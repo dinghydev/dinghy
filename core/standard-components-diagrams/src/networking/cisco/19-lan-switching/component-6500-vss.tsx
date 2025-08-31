@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_6500_VSS = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_6500_VSS = {
 }
 
 export function Component6500Vss(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_6500_VSS} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_6500_VSS}
+      {...props}
+      _style={extendStyle(COMPONENT_6500_VSS, props)}
+    />
+  )
 }

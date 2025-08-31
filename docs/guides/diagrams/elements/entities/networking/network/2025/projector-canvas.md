@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProjectorCanvas } from '@reactiac/standard-components-diagrams/network2'
+import { ProjectorCanvas } from '@diac/standard-components-diagrams/network2'
 
 <ProjectorCanvas/>
 ```

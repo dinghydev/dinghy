@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOADING_ARM = {
   _style:
@@ -9,5 +9,11 @@ export const LOADING_ARM = {
 }
 
 export function LoadingArm(props: DiagramNodeProps) {
-  return <Shape {...LOADING_ARM} {...props} />
+  return (
+    <Shape
+      {...LOADING_ARM}
+      {...props}
+      _style={extendStyle(LOADING_ARM, props)}
+    />
+  )
 }

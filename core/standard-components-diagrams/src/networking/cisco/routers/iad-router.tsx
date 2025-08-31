@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IAD_ROUTER = {
   _style:
@@ -9,5 +9,7 @@ export const IAD_ROUTER = {
 }
 
 export function IadRouter(props: DiagramNodeProps) {
-  return <Shape {...IAD_ROUTER} {...props} />
+  return (
+    <Shape {...IAD_ROUTER} {...props} _style={extendStyle(IAD_ROUTER, props)} />
+  )
 }

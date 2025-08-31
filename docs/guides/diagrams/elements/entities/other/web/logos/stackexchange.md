@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stackexchange } from '@reactiac/standard-components-diagrams/webLogos'
+import { Stackexchange } from '@diac/standard-components-diagrams/webLogos'
 
 <Stackexchange/>
 ```

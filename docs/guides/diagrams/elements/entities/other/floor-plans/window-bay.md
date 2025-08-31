@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WindowBay } from '@reactiac/standard-components-diagrams/floorPlans'
+import { WindowBay } from '@diac/standard-components-diagrams/floorPlans'
 
 <WindowBay/>
 ```

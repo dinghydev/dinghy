@@ -14,7 +14,7 @@ Tables
 ## Usage
 
 ```
-import { AutomlTables } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AutomlTables } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AutomlTables/>
 ```

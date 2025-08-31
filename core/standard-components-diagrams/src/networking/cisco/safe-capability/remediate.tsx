@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REMEDIATE = {
   _style:
@@ -9,5 +9,7 @@ export const REMEDIATE = {
 }
 
 export function Remediate(props: DiagramNodeProps) {
-  return <Shape {...REMEDIATE} {...props} />
+  return (
+    <Shape {...REMEDIATE} {...props} _style={extendStyle(REMEDIATE, props)} />
+  )
 }

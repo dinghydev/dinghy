@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudDeploymentManager } from '@reactiac/standard-components-diagrams/gcpIconsManagementTools'
+import { CloudDeploymentManager } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
 
 <CloudDeploymentManager/>
 ```

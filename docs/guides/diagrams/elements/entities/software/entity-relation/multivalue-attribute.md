@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultivalueAttribute } from '@reactiac/standard-components-diagrams/entityRelation'
+import { MultivalueAttribute } from '@diac/standard-components-diagrams/entityRelation'
 
 <MultivalueAttribute/>
 ```

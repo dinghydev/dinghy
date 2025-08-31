@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FileKey } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { FileKey } from '@diac/standard-components-diagrams/officeConcepts'
 
 <FileKey/>
 ```

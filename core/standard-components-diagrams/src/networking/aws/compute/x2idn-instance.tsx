@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X2IDN_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const X2IDN_INSTANCE = {
 }
 
 export function X2idnInstance(props: DiagramNodeProps) {
-  return <Shape {...X2IDN_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...X2IDN_INSTANCE}
+      {...props}
+      _style={extendStyle(X2IDN_INSTANCE, props)}
+    />
+  )
 }

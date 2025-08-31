@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CAPTCHA = {
   _style:
@@ -9,5 +9,5 @@ export const CAPTCHA = {
 }
 
 export function Captcha(props: DiagramNodeProps) {
-  return <Shape {...CAPTCHA} {...props} />
+  return <Shape {...CAPTCHA} {...props} _style={extendStyle(CAPTCHA, props)} />
 }

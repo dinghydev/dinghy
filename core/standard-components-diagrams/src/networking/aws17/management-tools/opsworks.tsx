@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPSWORKS = {
   _style:
@@ -9,5 +9,7 @@ export const OPSWORKS = {
 }
 
 export function Opsworks(props: DiagramNodeProps) {
-  return <Shape {...OPSWORKS} {...props} />
+  return (
+    <Shape {...OPSWORKS} {...props} _style={extendStyle(OPSWORKS, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETWORK_INTERFACE_CARD = {
   _style:
@@ -9,5 +9,11 @@ export const NETWORK_INTERFACE_CARD = {
 }
 
 export function NetworkInterfaceCard(props: DiagramNodeProps) {
-  return <Shape {...NETWORK_INTERFACE_CARD} {...props} />
+  return (
+    <Shape
+      {...NETWORK_INTERFACE_CARD}
+      {...props}
+      _style={extendStyle(NETWORK_INTERFACE_CARD, props)}
+    />
+  )
 }

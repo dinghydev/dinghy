@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SYNCHRONIZE_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const SYNCHRONIZE_HIGHLIGHT = {
 }
 
 export function SynchronizeHighlight(props: DiagramNodeProps) {
-  return <Shape {...SYNCHRONIZE_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...SYNCHRONIZE_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(SYNCHRONIZE_HIGHLIGHT, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOTORIZED_SWITCH_3P = {
   _style:
@@ -9,5 +9,11 @@ export const MOTORIZED_SWITCH_3P = {
 }
 
 export function MotorizedSwitch3p(props: DiagramNodeProps) {
-  return <Shape {...MOTORIZED_SWITCH_3P} {...props} />
+  return (
+    <Shape
+      {...MOTORIZED_SWITCH_3P}
+      {...props}
+      _style={extendStyle(MOTORIZED_SWITCH_3P, props)}
+    />
+  )
 }

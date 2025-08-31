@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_2_CONDUCTOR_PLUG = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_2_CONDUCTOR_PLUG = {
 }
 
 export function Component2ConductorPlug(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_2_CONDUCTOR_PLUG} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_2_CONDUCTOR_PLUG}
+      {...props}
+      _style={extendStyle(COMPONENT_2_CONDUCTOR_PLUG, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOAD_BALANCING_ROUTING = {
   _style:
@@ -9,5 +9,11 @@ export const LOAD_BALANCING_ROUTING = {
 }
 
 export function LoadBalancingRouting(props: DiagramNodeProps) {
-  return <Shape {...LOAD_BALANCING_ROUTING} {...props} />
+  return (
+    <Shape
+      {...LOAD_BALANCING_ROUTING}
+      {...props}
+      _style={extendStyle(LOAD_BALANCING_ROUTING, props)}
+    />
+  )
 }

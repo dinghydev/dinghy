@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FireTv } from '@reactiac/standard-components-diagrams/awsInternetOfThings'
+import { FireTv } from '@diac/standard-components-diagrams/awsInternetOfThings'
 
 <FireTv/>
 ```

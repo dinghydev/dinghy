@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION = {
   _style:
@@ -9,5 +9,11 @@ export const INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION = {
 }
 
 export function InterchangeableDiscOpenDiscInFunction(props: DiagramNodeProps) {
-  return <Shape {...INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION} {...props} />
+  return (
+    <Shape
+      {...INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION}
+      {...props}
+      _style={extendStyle(INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION, props)}
+    />
+  )
 }

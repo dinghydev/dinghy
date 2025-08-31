@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HdinsightClusters } from '@reactiac/standard-components-diagrams/caeAnalyticsService'
+import { HdinsightClusters } from '@diac/standard-components-diagrams/caeAnalyticsService'
 
 <HdinsightClusters/>
 ```

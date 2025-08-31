@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROLE_LOAD_TESTING_CONTROLLER = {
   _style:
@@ -9,5 +9,11 @@ export const ROLE_LOAD_TESTING_CONTROLLER = {
 }
 
 export function RoleLoadTestingController(props: DiagramNodeProps) {
-  return <Shape {...ROLE_LOAD_TESTING_CONTROLLER} {...props} />
+  return (
+    <Shape
+      {...ROLE_LOAD_TESTING_CONTROLLER}
+      {...props}
+      _style={extendStyle(ROLE_LOAD_TESTING_CONTROLLER, props)}
+    />
+  )
 }

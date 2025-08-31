@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STICKY_NOTE = {
   _style:
@@ -9,5 +9,11 @@ export const STICKY_NOTE = {
 }
 
 export function StickyNote(props: DiagramNodeProps) {
-  return <Shape {...STICKY_NOTE} {...props} />
+  return (
+    <Shape
+      {...STICKY_NOTE}
+      {...props}
+      _style={extendStyle(STICKY_NOTE, props)}
+    />
+  )
 }

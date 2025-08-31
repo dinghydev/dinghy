@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Yoolink } from '@reactiac/standard-components-diagrams/webIcons'
+import { Yoolink } from '@diac/standard-components-diagrams/webIcons'
 
 <Yoolink/>
 ```

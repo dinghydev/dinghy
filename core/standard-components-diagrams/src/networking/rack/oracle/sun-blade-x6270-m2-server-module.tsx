@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUN_BLADE_X6270_M2_SERVER_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const SUN_BLADE_X6270_M2_SERVER_MODULE = {
 }
 
 export function SunBladeX6270M2ServerModule(props: DiagramNodeProps) {
-  return <Shape {...SUN_BLADE_X6270_M2_SERVER_MODULE} {...props} />
+  return (
+    <Shape
+      {...SUN_BLADE_X6270_M2_SERVER_MODULE}
+      {...props}
+      _style={extendStyle(SUN_BLADE_X6270_M2_SERVER_MODULE, props)}
+    />
+  )
 }

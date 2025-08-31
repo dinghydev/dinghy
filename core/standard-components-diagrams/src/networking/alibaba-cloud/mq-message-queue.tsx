@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MQ_MESSAGE_QUEUE = {
   _style:
@@ -9,5 +9,11 @@ export const MQ_MESSAGE_QUEUE = {
 }
 
 export function MqMessageQueue(props: DiagramNodeProps) {
-  return <Shape {...MQ_MESSAGE_QUEUE} {...props} />
+  return (
+    <Shape
+      {...MQ_MESSAGE_QUEUE}
+      {...props}
+      _style={extendStyle(MQ_MESSAGE_QUEUE, props)}
+    />
+  )
 }

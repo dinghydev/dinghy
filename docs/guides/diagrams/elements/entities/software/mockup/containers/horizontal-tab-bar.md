@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalTabBar } from '@reactiac/standard-components-diagrams/mockupContainers'
+import { HorizontalTabBar } from '@diac/standard-components-diagrams/mockupContainers'
 
 <HorizontalTabBar/>
 ```

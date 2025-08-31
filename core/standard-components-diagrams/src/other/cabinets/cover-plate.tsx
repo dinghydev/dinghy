@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COVER_PLATE = {
   _style:
@@ -9,5 +9,11 @@ export const COVER_PLATE = {
 }
 
 export function CoverPlate(props: DiagramNodeProps) {
-  return <Shape {...COVER_PLATE} {...props} />
+  return (
+    <Shape
+      {...COVER_PLATE}
+      {...props}
+      _style={extendStyle(COVER_PLATE, props)}
+    />
+  )
 }

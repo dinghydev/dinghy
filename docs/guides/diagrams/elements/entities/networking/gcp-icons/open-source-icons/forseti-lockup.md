@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ForsetiLockup } from '@reactiac/standard-components-diagrams/gcpIconsOpenSourceIcons'
+import { ForsetiLockup } from '@diac/standard-components-diagrams/gcpIconsOpenSourceIcons'
 
 <ForsetiLockup/>
 ```

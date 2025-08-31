@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TERMINATE_NODE = {
   _style: 'shape=mxgraph.sysml.x;',
@@ -8,5 +8,11 @@ export const TERMINATE_NODE = {
 }
 
 export function TerminateNode(props: DiagramNodeProps) {
-  return <Shape {...TERMINATE_NODE} {...props} />
+  return (
+    <Shape
+      {...TERMINATE_NODE}
+      {...props}
+      _style={extendStyle(TERMINATE_NODE, props)}
+    />
+  )
 }

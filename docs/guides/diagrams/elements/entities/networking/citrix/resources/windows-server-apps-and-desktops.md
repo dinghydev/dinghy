@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WindowsServerAppsAndDesktops } from '@reactiac/standard-components-diagrams/citrixResources'
+import { WindowsServerAppsAndDesktops } from '@diac/standard-components-diagrams/citrixResources'
 
 <WindowsServerAppsAndDesktops/>
 ```

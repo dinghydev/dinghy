@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GOOGLE_PLAY = {
   _style:
@@ -9,5 +9,11 @@ export const GOOGLE_PLAY = {
 }
 
 export function GooglePlay(props: DiagramNodeProps) {
-  return <Shape {...GOOGLE_PLAY} {...props} />
+  return (
+    <Shape
+      {...GOOGLE_PLAY}
+      {...props}
+      _style={extendStyle(GOOGLE_PLAY, props)}
+    />
+  )
 }

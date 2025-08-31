@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISCRETE_SLIDER_NORMAL_DARK = {
   _style:
@@ -9,5 +9,11 @@ export const DISCRETE_SLIDER_NORMAL_DARK = {
 }
 
 export function DiscreteSliderNormalDark(props: DiagramNodeProps) {
-  return <Shape {...DISCRETE_SLIDER_NORMAL_DARK} {...props} />
+  return (
+    <Shape
+      {...DISCRETE_SLIDER_NORMAL_DARK}
+      {...props}
+      _style={extendStyle(DISCRETE_SLIDER_NORMAL_DARK, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9857A_ADV_SVCS_V2_ZL_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const J9857A_ADV_SVCS_V2_ZL_MODULE = {
 }
 
 export function J9857aAdvSvcsV2ZlModule(props: DiagramNodeProps) {
-  return <Shape {...J9857A_ADV_SVCS_V2_ZL_MODULE} {...props} />
+  return (
+    <Shape
+      {...J9857A_ADV_SVCS_V2_ZL_MODULE}
+      {...props}
+      _style={extendStyle(J9857A_ADV_SVCS_V2_ZL_MODULE, props)}
+    />
+  )
 }

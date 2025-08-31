@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SINGLE_EXECUTION = {
   _style:
@@ -9,5 +9,11 @@ export const SINGLE_EXECUTION = {
 }
 
 export function SingleExecution(props: DiagramNodeProps) {
-  return <Shape {...SINGLE_EXECUTION} {...props} />
+  return (
+    <Shape
+      {...SINGLE_EXECUTION}
+      {...props}
+      _style={extendStyle(SINGLE_EXECUTION, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataSet } from '@reactiac/standard-components-diagrams/awsInternetOfThings'
+import { DataSet } from '@diac/standard-components-diagrams/awsInternetOfThings'
 
 <DataSet/>
 ```

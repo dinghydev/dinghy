@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SnowballImportExport } from '@reactiac/standard-components-diagrams/awsStorage'
+import { SnowballImportExport } from '@diac/standard-components-diagrams/awsStorage'
 
 <SnowballImportExport/>
 ```

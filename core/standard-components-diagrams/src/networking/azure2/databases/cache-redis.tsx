@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CACHE_REDIS = {
   _style:
@@ -9,5 +9,11 @@ export const CACHE_REDIS = {
 }
 
 export function CacheRedis(props: DiagramNodeProps) {
-  return <Shape {...CACHE_REDIS} {...props} />
+  return (
+    <Shape
+      {...CACHE_REDIS}
+      {...props}
+      _style={extendStyle(CACHE_REDIS, props)}
+    />
+  )
 }

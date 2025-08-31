@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_SERVICES_CONFIGURATION_FILE = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_SERVICES_CONFIGURATION_FILE = {
 }
 
 export function CloudServicesConfigurationFile(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_SERVICES_CONFIGURATION_FILE} {...props} />
+  return (
+    <Shape
+      {...CLOUD_SERVICES_CONFIGURATION_FILE}
+      {...props}
+      _style={extendStyle(CLOUD_SERVICES_CONFIGURATION_FILE, props)}
+    />
+  )
 }

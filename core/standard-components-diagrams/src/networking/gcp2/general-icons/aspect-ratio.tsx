@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASPECT_RATIO = {
   _style:
@@ -9,5 +9,11 @@ export const ASPECT_RATIO = {
 }
 
 export function AspectRatio(props: DiagramNodeProps) {
-  return <Shape {...ASPECT_RATIO} {...props} />
+  return (
+    <Shape
+      {...ASPECT_RATIO}
+      {...props}
+      _style={extendStyle(ASPECT_RATIO, props)}
+    />
+  )
 }

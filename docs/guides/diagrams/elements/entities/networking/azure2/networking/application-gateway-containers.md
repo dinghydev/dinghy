@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApplicationGatewayContainers } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { ApplicationGatewayContainers } from '@diac/standard-components-diagrams/azure2Networking'
 
 <ApplicationGatewayContainers/>
 ```

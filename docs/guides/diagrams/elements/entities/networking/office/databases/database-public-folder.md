@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabasePublicFolder } from '@reactiac/standard-components-diagrams/officeDatabases'
+import { DatabasePublicFolder } from '@diac/standard-components-diagrams/officeDatabases'
 
 <DatabasePublicFolder/>
 ```

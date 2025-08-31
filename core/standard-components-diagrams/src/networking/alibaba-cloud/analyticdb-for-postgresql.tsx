@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANALYTICDB_FOR_POSTGRESQL = {
   _style:
@@ -9,5 +9,11 @@ export const ANALYTICDB_FOR_POSTGRESQL = {
 }
 
 export function AnalyticdbForPostgresql(props: DiagramNodeProps) {
-  return <Shape {...ANALYTICDB_FOR_POSTGRESQL} {...props} />
+  return (
+    <Shape
+      {...ANALYTICDB_FOR_POSTGRESQL}
+      {...props}
+      _style={extendStyle(ANALYTICDB_FOR_POSTGRESQL, props)}
+    />
+  )
 }

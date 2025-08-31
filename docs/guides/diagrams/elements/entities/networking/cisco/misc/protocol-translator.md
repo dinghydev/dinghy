@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProtocolTranslator } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { ProtocolTranslator } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <ProtocolTranslator/>
 ```

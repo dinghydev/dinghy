@@ -14,7 +14,7 @@ Monetization
 ## Usage
 
 ```
-import { ApiMonetization } from '@reactiac/standard-components-diagrams/gcp2IconsApiManagement'
+import { ApiMonetization } from '@diac/standard-components-diagrams/gcp2IconsApiManagement'
 
 <ApiMonetization/>
 ```

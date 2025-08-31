@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Edmodo } from '@reactiac/standard-components-diagrams/webLogos'
+import { Edmodo } from '@diac/standard-components-diagrams/webLogos'
 
 <Edmodo/>
 ```

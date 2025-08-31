@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HSM_HARDWARE_SECURITY_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const HSM_HARDWARE_SECURITY_MODULE = {
 }
 
 export function HsmHardwareSecurityModule(props: DiagramNodeProps) {
-  return <Shape {...HSM_HARDWARE_SECURITY_MODULE} {...props} />
+  return (
+    <Shape
+      {...HSM_HARDWARE_SECURITY_MODULE}
+      {...props}
+      _style={extendStyle(HSM_HARDWARE_SECURITY_MODULE, props)}
+    />
+  )
 }

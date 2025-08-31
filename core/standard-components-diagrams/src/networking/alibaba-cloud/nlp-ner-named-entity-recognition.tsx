@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLP_NER_NAMED_ENTITY_RECOGNITION = {
   _style:
@@ -9,5 +9,11 @@ export const NLP_NER_NAMED_ENTITY_RECOGNITION = {
 }
 
 export function NlpNerNamedEntityRecognition(props: DiagramNodeProps) {
-  return <Shape {...NLP_NER_NAMED_ENTITY_RECOGNITION} {...props} />
+  return (
+    <Shape
+      {...NLP_NER_NAMED_ENTITY_RECOGNITION}
+      {...props}
+      _style={extendStyle(NLP_NER_NAMED_ENTITY_RECOGNITION, props)}
+    />
+  )
 }

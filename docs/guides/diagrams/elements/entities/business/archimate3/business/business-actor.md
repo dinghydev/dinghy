@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BusinessActor } from '@reactiac/standard-components-diagrams/archimate3Business'
+import { BusinessActor } from '@diac/standard-components-diagrams/archimate3Business'
 
 <BusinessActor/>
 ```

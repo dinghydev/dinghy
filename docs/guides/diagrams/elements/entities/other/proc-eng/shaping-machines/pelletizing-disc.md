@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PelletizingDisc } from '@reactiac/standard-components-diagrams/procEngShapingMachines'
+import { PelletizingDisc } from '@diac/standard-components-diagrams/procEngShapingMachines'
 
 <PelletizingDisc/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stopwatch } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { Stopwatch } from '@diac/standard-components-diagrams/ios7Icons'
 
 <Stopwatch/>
 ```

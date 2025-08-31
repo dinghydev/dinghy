@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OrificePlate } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { OrificePlate } from '@diac/standard-components-diagrams/procEngFittings'
 
 <OrificePlate/>
 ```

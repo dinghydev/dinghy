@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXCHANGE_ON_PREMISES_ACCESS = {
   _style:
@@ -9,5 +9,11 @@ export const EXCHANGE_ON_PREMISES_ACCESS = {
 }
 
 export function ExchangeOnPremisesAccess(props: DiagramNodeProps) {
-  return <Shape {...EXCHANGE_ON_PREMISES_ACCESS} {...props} />
+  return (
+    <Shape
+      {...EXCHANGE_ON_PREMISES_ACCESS}
+      {...props}
+      _style={extendStyle(EXCHANGE_ON_PREMISES_ACCESS, props)}
+    />
+  )
 }

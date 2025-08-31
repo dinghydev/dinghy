@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BackDraftDamper } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { BackDraftDamper } from '@diac/standard-components-diagrams/procEngMisc'
 
 <BackDraftDamper/>
 ```

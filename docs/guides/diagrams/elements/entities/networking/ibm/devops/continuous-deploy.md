@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContinuousDeploy } from '@reactiac/standard-components-diagrams/ibmDevops'
+import { ContinuousDeploy } from '@diac/standard-components-diagrams/ibmDevops'
 
 <ContinuousDeploy/>
 ```

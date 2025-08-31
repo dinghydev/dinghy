@@ -14,7 +14,7 @@ performance
 ## Usage
 
 ```
-import { ChecklistPerformance } from '@reactiac/standard-components-diagrams/aws18ManagementTools'
+import { ChecklistPerformance } from '@diac/standard-components-diagrams/aws18ManagementTools'
 
 <ChecklistPerformance/>
 ```

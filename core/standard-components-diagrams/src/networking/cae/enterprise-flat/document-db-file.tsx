@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOCUMENT_DB_FILE = {
   _style:
@@ -9,5 +9,11 @@ export const DOCUMENT_DB_FILE = {
 }
 
 export function DocumentDbFile(props: DiagramNodeProps) {
-  return <Shape {...DOCUMENT_DB_FILE} {...props} />
+  return (
+    <Shape
+      {...DOCUMENT_DB_FILE}
+      {...props}
+      _style={extendStyle(DOCUMENT_DB_FILE, props)}
+    />
+  )
 }

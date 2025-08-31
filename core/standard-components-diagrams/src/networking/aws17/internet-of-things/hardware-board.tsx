@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HARDWARE_BOARD = {
   _style:
@@ -9,5 +9,11 @@ export const HARDWARE_BOARD = {
 }
 
 export function HardwareBoard(props: DiagramNodeProps) {
-  return <Shape {...HARDWARE_BOARD} {...props} />
+  return (
+    <Shape
+      {...HARDWARE_BOARD}
+      {...props}
+      _style={extendStyle(HARDWARE_BOARD, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CitrixEnterpriseBrowser } from '@reactiac/standard-components-diagrams/citrixResources'
+import { CitrixEnterpriseBrowser } from '@diac/standard-components-diagrams/citrixResources'
 
 <CitrixEnterpriseBrowser/>
 ```

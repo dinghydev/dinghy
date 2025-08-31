@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BlockDefinitionDiagram } from '@reactiac/standard-components-diagrams/sysmlBlocks'
+import { BlockDefinitionDiagram } from '@diac/standard-components-diagrams/sysmlBlocks'
 
 <BlockDefinitionDiagram/>
 ```

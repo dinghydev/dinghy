@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TWO_WAY_ARROW_VERTICAL = {
   _style:
@@ -9,5 +9,11 @@ export const TWO_WAY_ARROW_VERTICAL = {
 }
 
 export function TwoWayArrowVertical(props: DiagramNodeProps) {
-  return <Shape {...TWO_WAY_ARROW_VERTICAL} {...props} />
+  return (
+    <Shape
+      {...TWO_WAY_ARROW_VERTICAL}
+      {...props}
+      _style={extendStyle(TWO_WAY_ARROW_VERTICAL, props)}
+    />
+  )
 }

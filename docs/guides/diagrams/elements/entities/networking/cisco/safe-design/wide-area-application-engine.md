@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WideAreaApplicationEngine } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { WideAreaApplicationEngine } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <WideAreaApplicationEngine/>
 ```

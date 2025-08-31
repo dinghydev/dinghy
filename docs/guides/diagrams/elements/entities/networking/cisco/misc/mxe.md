@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mxe } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Mxe } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Mxe/>
 ```

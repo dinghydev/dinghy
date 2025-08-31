@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPENWHISK = {
   _style:
@@ -9,5 +9,7 @@ export const OPENWHISK = {
 }
 
 export function Openwhisk(props: DiagramNodeProps) {
-  return <Shape {...OPENWHISK} {...props} />
+  return (
+    <Shape {...OPENWHISK} {...props} _style={extendStyle(OPENWHISK, props)} />
+  )
 }

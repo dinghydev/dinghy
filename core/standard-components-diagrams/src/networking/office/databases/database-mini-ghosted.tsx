@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATABASE_MINI_GHOSTED = {
   _style:
@@ -9,5 +9,11 @@ export const DATABASE_MINI_GHOSTED = {
 }
 
 export function DatabaseMiniGhosted(props: DiagramNodeProps) {
-  return <Shape {...DATABASE_MINI_GHOSTED} {...props} />
+  return (
+    <Shape
+      {...DATABASE_MINI_GHOSTED}
+      {...props}
+      _style={extendStyle(DATABASE_MINI_GHOSTED, props)}
+    />
+  )
 }

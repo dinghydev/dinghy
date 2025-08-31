@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MySites } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { MySites } from '@diac/standard-components-diagrams/activeDirectory'
 
 <MySites/>
 ```

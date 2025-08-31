@@ -1,13 +1,13 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STABLE = {
   _style:
     'shape=mxgraph.signs.animals.stable;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
-  _width: 98,
-  _height: 98,
+  _width: 60,
+  _height: 60,
 }
 
 export function Stable(props: DiagramNodeProps) {
-  return <Shape {...STABLE} {...props} />
+  return <Shape {...STABLE} {...props} _style={extendStyle(STABLE, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FaceRecognition } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { FaceRecognition } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <FaceRecognition/>
 ```

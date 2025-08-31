@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CddiFddi } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { CddiFddi } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <CddiFddi/>
 ```

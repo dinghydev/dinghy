@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dipole } from '@reactiac/standard-components-diagrams/electricalAudio'
+import { Dipole } from '@diac/standard-components-diagrams/electricalAudio'
 
 <Dipole/>
 ```

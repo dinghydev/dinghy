@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BACK_DRAFT_DAMPER = {
   _style:
@@ -9,5 +9,11 @@ export const BACK_DRAFT_DAMPER = {
 }
 
 export function BackDraftDamper(props: DiagramNodeProps) {
-  return <Shape {...BACK_DRAFT_DAMPER} {...props} />
+  return (
+    <Shape
+      {...BACK_DRAFT_DAMPER}
+      {...props}
+      _style={extendStyle(BACK_DRAFT_DAMPER, props)}
+    />
+  )
 }

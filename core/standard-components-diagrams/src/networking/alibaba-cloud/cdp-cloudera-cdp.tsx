@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CDP_CLOUDERA_CDP = {
   _style:
@@ -9,5 +9,11 @@ export const CDP_CLOUDERA_CDP = {
 }
 
 export function CdpClouderaCdp(props: DiagramNodeProps) {
-  return <Shape {...CDP_CLOUDERA_CDP} {...props} />
+  return (
+    <Shape
+      {...CDP_CLOUDERA_CDP}
+      {...props}
+      _style={extendStyle(CDP_CLOUDERA_CDP, props)}
+    />
+  )
 }

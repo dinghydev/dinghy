@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VISTA_TERMINAL = {
   _style:
@@ -9,5 +9,11 @@ export const VISTA_TERMINAL = {
 }
 
 export function VistaTerminal(props: DiagramNodeProps) {
-  return <Shape {...VISTA_TERMINAL} {...props} />
+  return (
+    <Shape
+      {...VISTA_TERMINAL}
+      {...props}
+      _style={extendStyle(VISTA_TERMINAL, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Subject } from '@reactiac/standard-components-diagrams/sysmlUsecases'
+import { Subject } from '@diac/standard-components-diagrams/sysmlUsecases'
 
 <Subject/>
 ```

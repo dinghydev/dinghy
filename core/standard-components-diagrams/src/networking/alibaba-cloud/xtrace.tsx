@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XTRACE = {
   _style:
@@ -9,5 +9,5 @@ export const XTRACE = {
 }
 
 export function Xtrace(props: DiagramNodeProps) {
-  return <Shape {...XTRACE} {...props} />
+  return <Shape {...XTRACE} {...props} _style={extendStyle(XTRACE, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SqlReporting } from '@reactiac/standard-components-diagrams/azure'
+import { SqlReporting } from '@diac/standard-components-diagrams/azure'
 
 <SqlReporting/>
 ```

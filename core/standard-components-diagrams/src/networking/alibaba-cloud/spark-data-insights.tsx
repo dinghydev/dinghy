@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPARK_DATA_INSIGHTS = {
   _style:
@@ -9,5 +9,11 @@ export const SPARK_DATA_INSIGHTS = {
 }
 
 export function SparkDataInsights(props: DiagramNodeProps) {
-  return <Shape {...SPARK_DATA_INSIGHTS} {...props} />
+  return (
+    <Shape
+      {...SPARK_DATA_INSIGHTS}
+      {...props}
+      _style={extendStyle(SPARK_DATA_INSIGHTS, props)}
+    />
+  )
 }

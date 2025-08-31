@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POWEREDGE_M1000E_ENCLOSURE = {
   _style:
@@ -9,5 +9,11 @@ export const POWEREDGE_M1000E_ENCLOSURE = {
 }
 
 export function PoweredgeM1000eEnclosure(props: DiagramNodeProps) {
-  return <Shape {...POWEREDGE_M1000E_ENCLOSURE} {...props} />
+  return (
+    <Shape
+      {...POWEREDGE_M1000E_ENCLOSURE}
+      {...props}
+      _style={extendStyle(POWEREDGE_M1000E_ENCLOSURE, props)}
+    />
+  )
 }

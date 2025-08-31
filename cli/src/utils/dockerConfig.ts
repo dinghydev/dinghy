@@ -8,13 +8,10 @@ import {
 } from './projectVersions.ts'
 const debug = Debug('dockerConfig')
 
-export const configEngineRepoPublicEcr =
-  'public.ecr.aws/f2v6q7q7/reactiac/reactiac'
-
-export const configEngineRepoDefault = 'reactiac/reactiac'
+export const configEngineRepoDefault = 'diacdev/diac'
 
 export const configGetEngineRepo = () => {
-  return configGet(['reactiac', 'engine', 'repo']) || configEngineRepoDefault
+  return configGet(['diac', 'engine', 'repo']) || configEngineRepoDefault
 }
 
 const cliArgsVersion = () => {
@@ -30,7 +27,7 @@ const cliArgsVersion = () => {
 
 export const configGetEngineVersion = () => {
   let version = cliArgsVersion() ||
-    configGet(['reactiac', 'engine', 'version'])
+    configGet(['diac', 'engine', 'version'])
   if (!version || !version.includes('-')) {
     debug('none locked engine version detected, resolving', version)
     if (version && Deno.build.standalone) {
@@ -46,7 +43,7 @@ export const configGetEngineVersion = () => {
 }
 
 export const configGetEngineImage = () => {
-  let image = configGet(['reactiac', 'engine', 'image'])
+  let image = configGet(['diac', 'engine', 'image'])
   if (!image) {
     image = `${configGetEngineRepo()}:${configGetEngineVersion()}`
   }

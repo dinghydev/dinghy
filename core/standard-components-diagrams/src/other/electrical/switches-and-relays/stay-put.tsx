@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STAY_PUT = {
   _style:
@@ -9,5 +9,7 @@ export const STAY_PUT = {
 }
 
 export function StayPut(props: DiagramNodeProps) {
-  return <Shape {...STAY_PUT} {...props} />
+  return (
+    <Shape {...STAY_PUT} {...props} _style={extendStyle(STAY_PUT, props)} />
+  )
 }

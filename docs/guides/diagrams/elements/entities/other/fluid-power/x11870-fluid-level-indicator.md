@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11870FluidLevelIndicator } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11870FluidLevelIndicator } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11870FluidLevelIndicator/>
 ```

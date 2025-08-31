@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALIBABA_CLOUD_LOGO = {
   _style:
@@ -9,5 +9,11 @@ export const ALIBABA_CLOUD_LOGO = {
 }
 
 export function AlibabaCloudLogo(props: DiagramNodeProps) {
-  return <Shape {...ALIBABA_CLOUD_LOGO} {...props} />
+  return (
+    <Shape
+      {...ALIBABA_CLOUD_LOGO}
+      {...props}
+      _style={extendStyle(ALIBABA_CLOUD_LOGO, props)}
+    />
+  )
 }

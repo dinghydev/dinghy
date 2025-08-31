@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Privacy } from '@reactiac/standard-components-diagrams/salesforcePlatform'
+import { Privacy } from '@diac/standard-components-diagrams/salesforcePlatform'
 
 <Privacy/>
 ```

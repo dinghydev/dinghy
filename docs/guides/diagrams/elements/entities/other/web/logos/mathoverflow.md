@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Mathoverflow } from '@reactiac/standard-components-diagrams/webLogos'
+import { Mathoverflow } from '@diac/standard-components-diagrams/webLogos'
 
 <Mathoverflow/>
 ```

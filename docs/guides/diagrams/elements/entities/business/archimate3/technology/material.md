@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Material } from '@reactiac/standard-components-diagrams/archimate3Technology'
+import { Material } from '@diac/standard-components-diagrams/archimate3Technology'
 
 <Material/>
 ```

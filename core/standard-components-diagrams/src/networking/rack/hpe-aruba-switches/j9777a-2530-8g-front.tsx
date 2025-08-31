@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9777A_2530_8G_FRONT = {
   _style:
@@ -9,5 +9,11 @@ export const J9777A_2530_8G_FRONT = {
 }
 
 export function J9777a25308gFront(props: DiagramNodeProps) {
-  return <Shape {...J9777A_2530_8G_FRONT} {...props} />
+  return (
+    <Shape
+      {...J9777A_2530_8G_FRONT}
+      {...props}
+      _style={extendStyle(J9777A_2530_8G_FRONT, props)}
+    />
+  )
 }

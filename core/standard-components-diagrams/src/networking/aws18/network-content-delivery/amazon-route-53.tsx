@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_ROUTE_53 = {
   _style:
@@ -9,5 +9,11 @@ export const AMAZON_ROUTE_53 = {
 }
 
 export function AmazonRoute53(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_ROUTE_53} {...props} />
+  return (
+    <Shape
+      {...AMAZON_ROUTE_53}
+      {...props}
+      _style={extendStyle(AMAZON_ROUTE_53, props)}
+    />
+  )
 }

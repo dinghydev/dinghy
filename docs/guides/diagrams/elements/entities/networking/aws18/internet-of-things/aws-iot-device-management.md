@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsIotDeviceManagement } from '@reactiac/standard-components-diagrams/aws18InternetOfThings'
+import { AwsIotDeviceManagement } from '@diac/standard-components-diagrams/aws18InternetOfThings'
 
 <AwsIotDeviceManagement/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEREOTYPE_EDGE = {
   _style:
@@ -9,5 +9,11 @@ export const STEREOTYPE_EDGE = {
 }
 
 export function StereotypeEdge(props: DiagramNodeProps) {
-  return <Shape {...STEREOTYPE_EDGE} {...props} />
+  return (
+    <Shape
+      {...STEREOTYPE_EDGE}
+      {...props}
+      _style={extendStyle(STEREOTYPE_EDGE, props)}
+    />
+  )
 }

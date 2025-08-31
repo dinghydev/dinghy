@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ONLINE_BACKUP = {
   _style:
@@ -9,5 +9,11 @@ export const ONLINE_BACKUP = {
 }
 
 export function OnlineBackup(props: DiagramNodeProps) {
-  return <Shape {...ONLINE_BACKUP} {...props} />
+  return (
+    <Shape
+      {...ONLINE_BACKUP}
+      {...props}
+      _style={extendStyle(ONLINE_BACKUP, props)}
+    />
+  )
 }

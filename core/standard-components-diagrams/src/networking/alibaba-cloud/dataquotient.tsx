@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATAQUOTIENT = {
   _style:
@@ -9,5 +9,11 @@ export const DATAQUOTIENT = {
 }
 
 export function Dataquotient(props: DiagramNodeProps) {
-  return <Shape {...DATAQUOTIENT} {...props} />
+  return (
+    <Shape
+      {...DATAQUOTIENT}
+      {...props}
+      _style={extendStyle(DATAQUOTIENT, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BackupSupportForAmazonFsxForNetappOntap } from '@reactiac/standard-components-diagrams/awsStorage'
+import { BackupSupportForAmazonFsxForNetappOntap } from '@diac/standard-components-diagrams/awsStorage'
 
 <BackupSupportForAmazonFsxForNetappOntap/>
 ```

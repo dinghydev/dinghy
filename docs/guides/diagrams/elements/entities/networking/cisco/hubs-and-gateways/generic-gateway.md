@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GenericGateway } from '@reactiac/standard-components-diagrams/ciscoHubsAndGateways'
+import { GenericGateway } from '@diac/standard-components-diagrams/ciscoHubsAndGateways'
 
 <GenericGateway/>
 ```

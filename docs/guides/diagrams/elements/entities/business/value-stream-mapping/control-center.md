@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.control_center;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { ControlCenter } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { ControlCenter } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <ControlCenter/>
 ```

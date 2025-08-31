@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=collate;whiteSpace=wrap;html=1;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Collate } from '@reactiac/standard-components-diagrams/advanced'
+import { Collate } from '@diac/standard-components-diagrams/advanced'
 
 <Collate/>
 ```

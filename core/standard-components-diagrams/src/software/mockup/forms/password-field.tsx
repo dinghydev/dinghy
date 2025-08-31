@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PASSWORD_FIELD = {
   _style:
@@ -9,5 +9,11 @@ export const PASSWORD_FIELD = {
 }
 
 export function PasswordField(props: DiagramNodeProps) {
-  return <Shape {...PASSWORD_FIELD} {...props} />
+  return (
+    <Shape
+      {...PASSWORD_FIELD}
+      {...props}
+      _style={extendStyle(PASSWORD_FIELD, props)}
+    />
+  )
 }

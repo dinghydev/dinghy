@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BATCHED_KANBAN = {
   _style:
@@ -9,5 +9,11 @@ export const BATCHED_KANBAN = {
 }
 
 export function BatchedKanban(props: DiagramNodeProps) {
-  return <Shape {...BATCHED_KANBAN} {...props} />
+  return (
+    <Shape
+      {...BATCHED_KANBAN}
+      {...props}
+      _style={extendStyle(BATCHED_KANBAN, props)}
+    />
+  )
 }

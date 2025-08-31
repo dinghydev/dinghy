@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LinearDiscussion } from '@reactiac/standard-components-diagrams/atlassian'
+import { LinearDiscussion } from '@diac/standard-components-diagrams/atlassian'
 
 <LinearDiscussion/>
 ```

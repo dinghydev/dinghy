@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const API_CONNECTIONS = {
   _style:
@@ -9,5 +9,11 @@ export const API_CONNECTIONS = {
 }
 
 export function ApiConnections(props: DiagramNodeProps) {
-  return <Shape {...API_CONNECTIONS} {...props} />
+  return (
+    <Shape
+      {...API_CONNECTIONS}
+      {...props}
+      _style={extendStyle(API_CONNECTIONS, props)}
+    />
+  )
 }

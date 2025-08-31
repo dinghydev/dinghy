@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLEXIBLE_PIPE = {
   _style:
@@ -9,5 +9,11 @@ export const FLEXIBLE_PIPE = {
 }
 
 export function FlexiblePipe(props: DiagramNodeProps) {
-  return <Shape {...FLEXIBLE_PIPE} {...props} />
+  return (
+    <Shape
+      {...FLEXIBLE_PIPE}
+      {...props}
+      _style={extendStyle(FLEXIBLE_PIPE, props)}
+    />
+  )
 }

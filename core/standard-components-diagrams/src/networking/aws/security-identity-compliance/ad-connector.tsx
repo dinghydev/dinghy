@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AD_CONNECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const AD_CONNECTOR = {
 }
 
 export function AdConnector(props: DiagramNodeProps) {
-  return <Shape {...AD_CONNECTOR} {...props} />
+  return (
+    <Shape
+      {...AD_CONNECTOR}
+      {...props}
+      _style={extendStyle(AD_CONNECTOR, props)}
+    />
+  )
 }

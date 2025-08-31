@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Event_Grid.svg;strokeColor=none;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { EventGridDomainsAndSubscriptions } from '@reactiac/standard-components-diagrams/caeIntegrationService'
+import { EventGridDomainsAndSubscriptions } from '@diac/standard-components-diagrams/caeIntegrationService'
 
 <EventGridDomainsAndSubscriptions/>
 ```

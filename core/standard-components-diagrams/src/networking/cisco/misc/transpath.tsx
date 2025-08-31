@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSPATH = {
   _style:
@@ -9,5 +9,7 @@ export const TRANSPATH = {
 }
 
 export function Transpath(props: DiagramNodeProps) {
-  return <Shape {...TRANSPATH} {...props} />
+  return (
+    <Shape {...TRANSPATH} {...props} _style={extendStyle(TRANSPATH, props)} />
+  )
 }

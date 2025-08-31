@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEPPER = {
   _style: 'shape=rect;strokeColor=none;fillColor=#ffffff;',
@@ -8,5 +8,5 @@ export const STEPPER = {
 }
 
 export function Stepper(props: DiagramNodeProps) {
-  return <Shape {...STEPPER} {...props} />
+  return <Shape {...STEPPER} {...props} _style={extendStyle(STEPPER, props)} />
 }

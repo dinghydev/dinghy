@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POS_PRINTER = {
   _style:
@@ -9,5 +9,11 @@ export const POS_PRINTER = {
 }
 
 export function PosPrinter(props: DiagramNodeProps) {
-  return <Shape {...POS_PRINTER} {...props} />
+  return (
+    <Shape
+      {...POS_PRINTER}
+      {...props}
+      _style={extendStyle(POS_PRINTER, props)}
+    />
+  )
 }

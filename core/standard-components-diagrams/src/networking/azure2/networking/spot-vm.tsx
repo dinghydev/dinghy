@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPOT_VM = {
   _style:
@@ -9,5 +9,5 @@ export const SPOT_VM = {
 }
 
 export function SpotVm(props: DiagramNodeProps) {
-  return <Shape {...SPOT_VM} {...props} />
+  return <Shape {...SPOT_VM} {...props} _style={extendStyle(SPOT_VM, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONSENSUS = {
   _style:
@@ -9,5 +9,7 @@ export const CONSENSUS = {
 }
 
 export function Consensus(props: DiagramNodeProps) {
-  return <Shape {...CONSENSUS} {...props} />
+  return (
+    <Shape {...CONSENSUS} {...props} _style={extendStyle(CONSENSUS, props)} />
+  )
 }

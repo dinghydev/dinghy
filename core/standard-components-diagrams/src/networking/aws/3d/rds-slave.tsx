@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RDS_SLAVE = {
   _style:
@@ -9,5 +9,7 @@ export const RDS_SLAVE = {
 }
 
 export function RdsSlave(props: DiagramNodeProps) {
-  return <Shape {...RDS_SLAVE} {...props} />
+  return (
+    <Shape {...RDS_SLAVE} {...props} _style={extendStyle(RDS_SLAVE, props)} />
+  )
 }

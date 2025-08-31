@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalFormLabelSizing3 } from '@reactiac/standard-components-diagrams/bootstrap'
+import { HorizontalFormLabelSizing3 } from '@diac/standard-components-diagrams/bootstrap'
 
 <HorizontalFormLabelSizing3/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Smartcard } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { Smartcard } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <Smartcard/>
 ```

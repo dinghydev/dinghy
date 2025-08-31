@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MISSION_LANDING_ZONE = {
   _style:
@@ -9,5 +9,11 @@ export const MISSION_LANDING_ZONE = {
 }
 
 export function MissionLandingZone(props: DiagramNodeProps) {
-  return <Shape {...MISSION_LANDING_ZONE} {...props} />
+  return (
+    <Shape
+      {...MISSION_LANDING_ZONE}
+      {...props}
+      _style={extendStyle(MISSION_LANDING_ZONE, props)}
+    />
+  )
 }

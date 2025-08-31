@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Vkontakte } from '@reactiac/standard-components-diagrams/webIcons'
+import { Vkontakte } from '@diac/standard-components-diagrams/webIcons'
 
 <Vkontakte/>
 ```

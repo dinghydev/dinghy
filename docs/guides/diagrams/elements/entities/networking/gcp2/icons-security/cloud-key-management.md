@@ -14,7 +14,7 @@ Management
 ## Usage
 
 ```
-import { CloudKeyManagement } from '@reactiac/standard-components-diagrams/gcp2IconsSecurity'
+import { CloudKeyManagement } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
 
 <CloudKeyManagement/>
 ```

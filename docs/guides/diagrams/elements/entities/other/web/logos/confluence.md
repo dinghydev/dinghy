@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Confluence } from '@reactiac/standard-components-diagrams/webLogos'
+import { Confluence } from '@diac/standard-components-diagrams/webLogos'
 
 <Confluence/>
 ```

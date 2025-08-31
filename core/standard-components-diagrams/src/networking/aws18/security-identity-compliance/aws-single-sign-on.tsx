@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_SINGLE_SIGN_ON = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_SINGLE_SIGN_ON = {
 }
 
 export function AwsSingleSignOn(props: DiagramNodeProps) {
-  return <Shape {...AWS_SINGLE_SIGN_ON} {...props} />
+  return (
+    <Shape
+      {...AWS_SINGLE_SIGN_ON}
+      {...props}
+      _style={extendStyle(AWS_SINGLE_SIGN_ON, props)}
+    />
+  )
 }

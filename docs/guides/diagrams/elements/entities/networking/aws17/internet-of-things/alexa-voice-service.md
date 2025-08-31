@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AlexaVoiceService } from '@reactiac/standard-components-diagrams/aws17InternetOfThings'
+import { AlexaVoiceService } from '@diac/standard-components-diagrams/aws17InternetOfThings'
 
 <AlexaVoiceService/>
 ```

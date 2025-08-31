@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataMigrationWizard } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { DataMigrationWizard } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <DataMigrationWizard/>
 ```

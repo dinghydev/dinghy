@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stumpedia } from '@reactiac/standard-components-diagrams/webLogos'
+import { Stumpedia } from '@diac/standard-components-diagrams/webLogos'
 
 <Stumpedia/>
 ```

@@ -4,11 +4,11 @@ import {
   ResolvableNumberSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { Shape } from '@reactiac/base-components'
+import { Shape } from '@diac/base-components'
 
 export const AwsRoute53RecordInputSchema = z.object({
   zone_id: ResolvableStringSchema.optional(),

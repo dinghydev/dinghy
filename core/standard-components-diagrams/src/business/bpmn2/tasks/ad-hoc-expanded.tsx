@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AD_HOC_EXPANDED = {
   _style: {
@@ -9,5 +9,11 @@ export const AD_HOC_EXPANDED = {
 }
 
 export function AdHocExpanded(props: DiagramNodeProps) {
-  return <Shape {...AD_HOC_EXPANDED} {...props} />
+  return (
+    <Shape
+      {...AD_HOC_EXPANDED}
+      {...props}
+      _style={extendStyle(AD_HOC_EXPANDED, props)}
+    />
+  )
 }

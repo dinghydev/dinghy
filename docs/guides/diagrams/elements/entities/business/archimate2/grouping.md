@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Grouping } from '@reactiac/standard-components-diagrams/archimate2'
+import { Grouping } from '@diac/standard-components-diagrams/archimate2'
 
 <Grouping/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SimpleDialog } from '@reactiac/standard-components-diagrams/gmdlDialogs'
+import { SimpleDialog } from '@diac/standard-components-diagrams/gmdlDialogs'
 
 <SimpleDialog/>
 ```

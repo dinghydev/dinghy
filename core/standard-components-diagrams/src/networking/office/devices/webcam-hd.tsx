@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEBCAM_HD = {
   _style:
@@ -9,5 +9,7 @@ export const WEBCAM_HD = {
 }
 
 export function WebcamHd(props: DiagramNodeProps) {
-  return <Shape {...WEBCAM_HD} {...props} />
+  return (
+    <Shape {...WEBCAM_HD} {...props} _style={extendStyle(WEBCAM_HD, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHAREPOINT_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const SHAREPOINT_SERVER = {
 }
 
 export function SharepointServer(props: DiagramNodeProps) {
-  return <Shape {...SHAREPOINT_SERVER} {...props} />
+  return (
+    <Shape
+      {...SHAREPOINT_SERVER}
+      {...props}
+      _style={extendStyle(SHAREPOINT_SERVER, props)}
+    />
+  )
 }

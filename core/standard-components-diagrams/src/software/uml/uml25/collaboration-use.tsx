@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLLABORATION_USE = {
   _style: {
@@ -9,5 +9,11 @@ export const COLLABORATION_USE = {
 }
 
 export function CollaborationUse(props: DiagramNodeProps) {
-  return <Dependency {...COLLABORATION_USE} {...props} />
+  return (
+    <Dependency
+      {...COLLABORATION_USE}
+      {...props}
+      _style={extendStyle(COLLABORATION_USE, props)}
+    />
+  )
 }

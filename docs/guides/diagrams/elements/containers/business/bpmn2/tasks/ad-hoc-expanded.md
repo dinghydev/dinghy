@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { AdHocExpanded } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { AdHocExpanded } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <AdHocExpanded/>
 ```

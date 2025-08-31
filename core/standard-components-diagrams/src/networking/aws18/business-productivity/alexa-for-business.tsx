@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALEXA_FOR_BUSINESS = {
   _style:
@@ -9,5 +9,11 @@ export const ALEXA_FOR_BUSINESS = {
 }
 
 export function AlexaForBusiness(props: DiagramNodeProps) {
-  return <Shape {...ALEXA_FOR_BUSINESS} {...props} />
+  return (
+    <Shape
+      {...ALEXA_FOR_BUSINESS}
+      {...props}
+      _style={extendStyle(ALEXA_FOR_BUSINESS, props)}
+    />
+  )
 }

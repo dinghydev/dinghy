@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCHEDULED_BACKUPS = {
   _style:
@@ -9,5 +9,11 @@ export const SCHEDULED_BACKUPS = {
 }
 
 export function ScheduledBackups(props: DiagramNodeProps) {
-  return <Shape {...SCHEDULED_BACKUPS} {...props} />
+  return (
+    <Shape
+      {...SCHEDULED_BACKUPS}
+      {...props}
+      _style={extendStyle(SCHEDULED_BACKUPS, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NavigationBar2 } from '@reactiac/standard-components-diagrams/android'
+import { NavigationBar2 } from '@diac/standard-components-diagrams/android'
 
 <NavigationBar2/>
 ```

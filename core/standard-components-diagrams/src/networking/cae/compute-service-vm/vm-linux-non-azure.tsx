@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VM_LINUX_NON_AZURE = {
   _style:
@@ -9,5 +9,11 @@ export const VM_LINUX_NON_AZURE = {
 }
 
 export function VmLinuxNonAzure(props: DiagramNodeProps) {
-  return <Shape {...VM_LINUX_NON_AZURE} {...props} />
+  return (
+    <Shape
+      {...VM_LINUX_NON_AZURE}
+      {...props}
+      _style={extendStyle(VM_LINUX_NON_AZURE, props)}
+    />
+  )
 }

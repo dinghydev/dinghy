@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUTER_IN_BUILDING = {
   _style:
@@ -9,5 +9,11 @@ export const ROUTER_IN_BUILDING = {
 }
 
 export function RouterInBuilding(props: DiagramNodeProps) {
-  return <Shape {...ROUTER_IN_BUILDING} {...props} />
+  return (
+    <Shape
+      {...ROUTER_IN_BUILDING}
+      {...props}
+      _style={extendStyle(ROUTER_IN_BUILDING, props)}
+    />
+  )
 }

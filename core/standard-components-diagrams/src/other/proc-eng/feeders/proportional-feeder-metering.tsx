@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROPORTIONAL_FEEDER_METERING = {
   _style:
@@ -9,5 +9,11 @@ export const PROPORTIONAL_FEEDER_METERING = {
 }
 
 export function ProportionalFeederMetering(props: DiagramNodeProps) {
-  return <Shape {...PROPORTIONAL_FEEDER_METERING} {...props} />
+  return (
+    <Shape
+      {...PROPORTIONAL_FEEDER_METERING}
+      {...props}
+      _style={extendStyle(PROPORTIONAL_FEEDER_METERING, props)}
+    />
+  )
 }

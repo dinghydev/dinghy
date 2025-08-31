@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IMAGE_VERSIONS = {
   _style:
@@ -9,5 +9,11 @@ export const IMAGE_VERSIONS = {
 }
 
 export function ImageVersions(props: DiagramNodeProps) {
-  return <Shape {...IMAGE_VERSIONS} {...props} />
+  return (
+    <Shape
+      {...IMAGE_VERSIONS}
+      {...props}
+      _style={extendStyle(IMAGE_VERSIONS, props)}
+    />
+  )
 }

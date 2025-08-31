@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SeparatorElectrostaticPrecipitatorWet } from '@reactiac/standard-components-diagrams/procEngSeparators'
+import { SeparatorElectrostaticPrecipitatorWet } from '@diac/standard-components-diagrams/procEngSeparators'
 
 <SeparatorElectrostaticPrecipitatorWet/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EccentricReducer } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { EccentricReducer } from '@diac/standard-components-diagrams/procEngPiping'
 
 <EccentricReducer/>
 ```

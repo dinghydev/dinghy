@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VISUAL_RECOGNITION = {
   _style:
@@ -9,5 +9,11 @@ export const VISUAL_RECOGNITION = {
 }
 
 export function VisualRecognition(props: DiagramNodeProps) {
-  return <Shape {...VISUAL_RECOGNITION} {...props} />
+  return (
+    <Shape
+      {...VISUAL_RECOGNITION}
+      {...props}
+      _style={extendStyle(VISUAL_RECOGNITION, props)}
+    />
+  )
 }

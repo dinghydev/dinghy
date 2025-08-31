@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_EKS = {
   _style:
@@ -9,5 +9,7 @@ export const AMAZON_EKS = {
 }
 
 export function AmazonEks(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_EKS} {...props} />
+  return (
+    <Shape {...AMAZON_EKS} {...props} _style={extendStyle(AMAZON_EKS, props)} />
+  )
 }

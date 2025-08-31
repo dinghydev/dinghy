@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MERCURY_SWITCH_2 = {
   _style:
@@ -9,5 +9,11 @@ export const MERCURY_SWITCH_2 = {
 }
 
 export function MercurySwitch2(props: DiagramNodeProps) {
-  return <Shape {...MERCURY_SWITCH_2} {...props} />
+  return (
+    <Shape
+      {...MERCURY_SWITCH_2}
+      {...props}
+      _style={extendStyle(MERCURY_SWITCH_2, props)}
+    />
+  )
 }

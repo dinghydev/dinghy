@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ReciprocatingCompressor2 } from '@reactiac/standard-components-diagrams/procEngCompressors'
+import { ReciprocatingCompressor2 } from '@diac/standard-components-diagrams/procEngCompressors'
 
 <ReciprocatingCompressor2/>
 ```

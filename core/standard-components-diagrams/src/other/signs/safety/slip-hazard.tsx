@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SLIP_HAZARD = {
   _style:
@@ -9,5 +9,11 @@ export const SLIP_HAZARD = {
 }
 
 export function SlipHazard(props: DiagramNodeProps) {
-  return <Shape {...SLIP_HAZARD} {...props} />
+  return (
+    <Shape
+      {...SLIP_HAZARD}
+      {...props}
+      _style={extendStyle(SLIP_HAZARD, props)}
+    />
+  )
 }

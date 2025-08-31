@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GuestAgentCustomization } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { GuestAgentCustomization } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <GuestAgentCustomization/>
 ```

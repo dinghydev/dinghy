@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NOR_IEC = {
   _style:
@@ -9,5 +9,5 @@ export const NOR_IEC = {
 }
 
 export function NorIec(props: DiagramNodeProps) {
-  return <Shape {...NOR_IEC} {...props} />
+  return <Shape {...NOR_IEC} {...props} _style={extendStyle(NOR_IEC, props)} />
 }

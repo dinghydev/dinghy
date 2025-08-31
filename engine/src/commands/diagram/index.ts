@@ -3,8 +3,8 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '@reactiac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL, runCommand } from '@reactiac/cli'
+} from '@diac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL, runCommand } from '@diac/cli'
 import Debug from 'debug'
 import png from './png.ts'
 import render from '../render/index.ts'

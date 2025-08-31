@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Citeulike } from '@reactiac/standard-components-diagrams/webLogos'
+import { Citeulike } from '@diac/standard-components-diagrams/webLogos'
 
 <Citeulike/>
 ```

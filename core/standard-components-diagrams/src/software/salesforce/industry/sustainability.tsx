@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUSTAINABILITY = {
   _style:
@@ -9,5 +9,11 @@ export const SUSTAINABILITY = {
 }
 
 export function Sustainability(props: DiagramNodeProps) {
-  return <Shape {...SUSTAINABILITY} {...props} />
+  return (
+    <Shape
+      {...SUSTAINABILITY}
+      {...props}
+      _style={extendStyle(SUSTAINABILITY, props)}
+    />
+  )
 }

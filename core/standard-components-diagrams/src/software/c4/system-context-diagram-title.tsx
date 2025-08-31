@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SYSTEM_CONTEXT_DIAGRAM_TITLE = {
   _style:
@@ -9,5 +9,11 @@ export const SYSTEM_CONTEXT_DIAGRAM_TITLE = {
 }
 
 export function SystemContextDiagramTitle(props: DiagramNodeProps) {
-  return <Shape {...SYSTEM_CONTEXT_DIAGRAM_TITLE} {...props} />
+  return (
+    <Shape
+      {...SYSTEM_CONTEXT_DIAGRAM_TITLE}
+      {...props}
+      _style={extendStyle(SYSTEM_CONTEXT_DIAGRAM_TITLE, props)}
+    />
+  )
 }

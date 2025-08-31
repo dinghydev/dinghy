@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const APIGEE_API_PLATFORM = {
   _style:
@@ -9,5 +9,11 @@ export const APIGEE_API_PLATFORM = {
 }
 
 export function ApigeeApiPlatform(props: DiagramNodeProps) {
-  return <Shape {...APIGEE_API_PLATFORM} {...props} />
+  return (
+    <Shape
+      {...APIGEE_API_PLATFORM}
+      {...props}
+      _style={extendStyle(APIGEE_API_PLATFORM, props)}
+    />
+  )
 }

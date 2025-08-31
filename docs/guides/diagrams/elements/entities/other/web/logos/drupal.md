@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Drupal } from '@reactiac/standard-components-diagrams/webLogos'
+import { Drupal } from '@diac/standard-components-diagrams/webLogos'
 
 <Drupal/>
 ```

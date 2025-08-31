@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultipleFlagMessage } from '@reactiac/standard-components-diagrams/atlassian'
+import { MultipleFlagMessage } from '@diac/standard-components-diagrams/atlassian'
 
 <MultipleFlagMessage/>
 ```

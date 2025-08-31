@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualMachinesClassic } from '@reactiac/standard-components-diagrams/azure2Compute'
+import { VirtualMachinesClassic } from '@diac/standard-components-diagrams/azure2Compute'
 
 <VirtualMachinesClassic/>
 ```

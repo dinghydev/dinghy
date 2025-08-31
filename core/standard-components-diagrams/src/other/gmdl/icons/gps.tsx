@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GPS = {
   _style:
@@ -9,5 +9,5 @@ export const GPS = {
 }
 
 export function Gps(props: DiagramNodeProps) {
-  return <Shape {...GPS} {...props} />
+  return <Shape {...GPS} {...props} _style={extendStyle(GPS, props)} />
 }

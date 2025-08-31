@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARCHIVE = {
   _style:
@@ -9,5 +9,5 @@ export const ARCHIVE = {
 }
 
 export function Archive(props: DiagramNodeProps) {
-  return <Shape {...ARCHIVE} {...props} />
+  return <Shape {...ARCHIVE} {...props} _style={extendStyle(ARCHIVE, props)} />
 }

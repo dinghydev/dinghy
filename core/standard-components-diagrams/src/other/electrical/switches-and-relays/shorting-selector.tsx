@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHORTING_SELECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const SHORTING_SELECTOR = {
 }
 
 export function ShortingSelector(props: DiagramNodeProps) {
-  return <Shape {...SHORTING_SELECTOR} {...props} />
+  return (
+    <Shape
+      {...SHORTING_SELECTOR}
+      {...props}
+      _style={extendStyle(SHORTING_SELECTOR, props)}
+    />
+  )
 }

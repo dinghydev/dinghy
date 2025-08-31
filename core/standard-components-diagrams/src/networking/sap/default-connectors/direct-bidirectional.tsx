@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIRECT_BIDIRECTIONAL = {
   _style:
@@ -9,5 +9,11 @@ export const DIRECT_BIDIRECTIONAL = {
 }
 
 export function DirectBidirectional(props: DiagramNodeProps) {
-  return <Shape {...DIRECT_BIDIRECTIONAL} {...props} />
+  return (
+    <Shape
+      {...DIRECT_BIDIRECTIONAL}
+      {...props}
+      _style={extendStyle(DIRECT_BIDIRECTIONAL, props)}
+    />
+  )
 }

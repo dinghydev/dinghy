@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROADMAP_HORIZONTAL_11 = {
   _style: 'fillColor=#dddddd;rounded=0;strokeColor=none;',
@@ -8,5 +8,11 @@ export const ROADMAP_HORIZONTAL_11 = {
 }
 
 export function RoadmapHorizontal11(props: DiagramNodeProps) {
-  return <Shape {...ROADMAP_HORIZONTAL_11} {...props} />
+  return (
+    <Shape
+      {...ROADMAP_HORIZONTAL_11}
+      {...props}
+      _style={extendStyle(ROADMAP_HORIZONTAL_11, props)}
+    />
+  )
 }

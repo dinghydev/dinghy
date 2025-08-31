@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_UCS_C22_M3_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_UCS_C22_M3_SERVER = {
 }
 
 export function CiscoUcsC22M3Server(props: DiagramNodeProps) {
-  return <Shape {...CISCO_UCS_C22_M3_SERVER} {...props} />
+  return (
+    <Shape
+      {...CISCO_UCS_C22_M3_SERVER}
+      {...props}
+      _style={extendStyle(CISCO_UCS_C22_M3_SERVER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATACENTER_SERVER_STORAGE_UNIT_LARGE = {
   _style:
@@ -9,5 +9,11 @@ export const DATACENTER_SERVER_STORAGE_UNIT_LARGE = {
 }
 
 export function DatacenterServerStorageUnitLarge(props: DiagramNodeProps) {
-  return <Shape {...DATACENTER_SERVER_STORAGE_UNIT_LARGE} {...props} />
+  return (
+    <Shape
+      {...DATACENTER_SERVER_STORAGE_UNIT_LARGE}
+      {...props}
+      _style={extendStyle(DATACENTER_SERVER_STORAGE_UNIT_LARGE, props)}
+    />
+  )
 }

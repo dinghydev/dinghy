@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OrificeQuickChange } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { OrificeQuickChange } from '@diac/standard-components-diagrams/procEngPiping'
 
 <OrificeQuickChange/>
 ```

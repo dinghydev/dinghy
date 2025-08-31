@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureLoadBalancer } from '@reactiac/standard-components-diagrams/azure'
+import { AzureLoadBalancer } from '@diac/standard-components-diagrams/azure'
 
 <AzureLoadBalancer/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXTRUDER_SCREW = {
   _style:
@@ -9,5 +9,11 @@ export const EXTRUDER_SCREW = {
 }
 
 export function ExtruderScrew(props: DiagramNodeProps) {
-  return <Shape {...EXTRUDER_SCREW} {...props} />
+  return (
+    <Shape
+      {...EXTRUDER_SCREW}
+      {...props}
+      _style={extendStyle(EXTRUDER_SCREW, props)}
+    />
+  )
 }

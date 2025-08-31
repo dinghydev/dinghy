@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CpuSocket } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { CpuSocket } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <CpuSocket/>
 ```

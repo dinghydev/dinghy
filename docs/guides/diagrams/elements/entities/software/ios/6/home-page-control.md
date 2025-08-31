@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HomePageControl } from '@reactiac/standard-components-diagrams/ios6'
+import { HomePageControl } from '@diac/standard-components-diagrams/ios6'
 
 <HomePageControl/>
 ```

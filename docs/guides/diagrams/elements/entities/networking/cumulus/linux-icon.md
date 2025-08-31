@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;fontSize=12;verticalAlign=top;fontColor=#364149;shadow=0;dashed=0;image=img/lib/cumulus/cumulus_linux_icon.svg;strokeColor=none;',
-  _width: 96,
-  _height: 96,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { LinuxIcon } from '@reactiac/standard-components-diagrams/cumulus'
+import { LinuxIcon } from '@diac/standard-components-diagrams/cumulus'
 
 <LinuxIcon/>
 ```

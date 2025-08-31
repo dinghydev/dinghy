@@ -2,7 +2,7 @@ import {
   IacNodeProps,
   ResolvableNumberSchema,
   ResolvableStringSchema,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 import { aws4 } from '../../standard-components-diagrams/src/index.ts'
 
 import { awsProps } from './index.ts'

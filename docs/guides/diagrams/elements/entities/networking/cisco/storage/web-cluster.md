@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WebCluster } from '@reactiac/standard-components-diagrams/ciscoStorage'
+import { WebCluster } from '@diac/standard-components-diagrams/ciscoStorage'
 
 <WebCluster/>
 ```

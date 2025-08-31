@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OrientationLock } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { OrientationLock } from '@diac/standard-components-diagrams/ios7Icons'
 
 <OrientationLock/>
 ```

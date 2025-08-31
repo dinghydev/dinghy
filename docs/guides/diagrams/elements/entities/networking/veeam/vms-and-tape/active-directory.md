@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ActiveDirectory } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { ActiveDirectory } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <ActiveDirectory/>
 ```

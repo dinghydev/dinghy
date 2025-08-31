@@ -1,6 +1,6 @@
-import type { CommandArgs, CommandOptions } from '@reactiac/cli'
+import type { CommandArgs, CommandOptions } from '@diac/cli'
 
-import { hostAppHome } from '@reactiac/cli'
+import { hostAppHome } from '@diac/cli'
 import { deepMerge } from '../../../../cli/src/utils/index.ts'
 import { existsSync } from '@std/fs/exists'
 import Debug from 'debug'

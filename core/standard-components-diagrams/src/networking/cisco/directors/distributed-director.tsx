@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISTRIBUTED_DIRECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const DISTRIBUTED_DIRECTOR = {
 }
 
 export function DistributedDirector(props: DiagramNodeProps) {
-  return <Shape {...DISTRIBUTED_DIRECTOR} {...props} />
+  return (
+    <Shape
+      {...DISTRIBUTED_DIRECTOR}
+      {...props}
+      _style={extendStyle(DISTRIBUTED_DIRECTOR, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SchottkyDiode } from '@reactiac/standard-components-diagrams/electricalDiodes'
+import { SchottkyDiode } from '@diac/standard-components-diagrams/electricalDiodes'
 
 <SchottkyDiode/>
 ```

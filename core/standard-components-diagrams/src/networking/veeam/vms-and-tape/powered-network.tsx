@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POWERED_NETWORK = {
   _style:
@@ -9,5 +9,11 @@ export const POWERED_NETWORK = {
 }
 
 export function PoweredNetwork(props: DiagramNodeProps) {
-  return <Shape {...POWERED_NETWORK} {...props} />
+  return (
+    <Shape
+      {...POWERED_NETWORK}
+      {...props}
+      _style={extendStyle(POWERED_NETWORK, props)}
+    />
+  )
 }

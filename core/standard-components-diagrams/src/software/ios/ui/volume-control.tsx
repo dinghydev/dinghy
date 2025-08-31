@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOLUME_CONTROL = {
   _style:
@@ -9,5 +9,11 @@ export const VOLUME_CONTROL = {
 }
 
 export function VolumeControl(props: DiagramNodeProps) {
-  return <Shape {...VOLUME_CONTROL} {...props} />
+  return (
+    <Shape
+      {...VOLUME_CONTROL}
+      {...props}
+      _style={extendStyle(VOLUME_CONTROL, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTION_DIALOG = {
   _style: 'shape=rect;fillColor=#a0a0a0;strokeColor=none;shadow=0;',
@@ -8,5 +8,11 @@ export const ACTION_DIALOG = {
 }
 
 export function ActionDialog(props: DiagramNodeProps) {
-  return <Shape {...ACTION_DIALOG} {...props} />
+  return (
+    <Shape
+      {...ACTION_DIALOG}
+      {...props}
+      _style={extendStyle(ACTION_DIALOG, props)}
+    />
+  )
 }

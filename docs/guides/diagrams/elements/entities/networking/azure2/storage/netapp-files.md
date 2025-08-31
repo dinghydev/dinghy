@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetappFiles } from '@reactiac/standard-components-diagrams/azure2Storage'
+import { NetappFiles } from '@diac/standard-components-diagrams/azure2Storage'
 
 <NetappFiles/>
 ```

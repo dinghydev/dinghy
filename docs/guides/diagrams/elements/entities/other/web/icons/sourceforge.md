@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sourceforge } from '@reactiac/standard-components-diagrams/webIcons'
+import { Sourceforge } from '@diac/standard-components-diagrams/webIcons'
 
 <Sourceforge/>
 ```

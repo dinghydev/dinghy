@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Operator } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { Operator } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <Operator/>
 ```

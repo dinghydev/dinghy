@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLICKR = {
   _style:
@@ -9,5 +9,5 @@ export const FLICKR = {
 }
 
 export function Flickr(props: DiagramNodeProps) {
-  return <Shape {...FLICKR} {...props} />
+  return <Shape {...FLICKR} {...props} _style={extendStyle(FLICKR, props)} />
 }

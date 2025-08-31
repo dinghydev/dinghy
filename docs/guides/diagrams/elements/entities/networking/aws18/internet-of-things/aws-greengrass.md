@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsGreengrass } from '@reactiac/standard-components-diagrams/aws18InternetOfThings'
+import { AwsGreengrass } from '@diac/standard-components-diagrams/aws18InternetOfThings'
 
 <AwsGreengrass/>
 ```

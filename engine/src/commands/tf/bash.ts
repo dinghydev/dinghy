@@ -1,9 +1,9 @@
-import type { CommandArgs, CommandContext, Commands } from '@reactiac/cli'
-import { OPTIONS_SYMBOL, ReactiacError, RUN_SYMBOL } from '@reactiac/cli'
+import type { CommandArgs, CommandContext, Commands } from '@diac/cli'
+import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@diac/cli'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
-import { requireStacksConfig } from '@reactiac/cli'
+import { requireStacksConfig } from '@diac/cli'
 import { subCommandArgs } from '../../utils/subCommandArgs.ts'
 import { existsSync } from '@std/fs/exists'
 
@@ -26,11 +26,11 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     }
   })
   if (!firstStage) {
-    throw new ReactiacError('No stack/stage found')
+    throw new DiacError('No stack/stage found')
   }
   const stagePath = `${args.output}/${firstStage.id}`
   if (!existsSync(stagePath)) {
-    throw new ReactiacError(
+    throw new DiacError(
       `Stage folder ${args.output} not exist. Run render or tf operation first`,
     )
   }

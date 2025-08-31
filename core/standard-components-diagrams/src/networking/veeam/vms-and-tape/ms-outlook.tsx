@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MS_OUTLOOK = {
   _style:
@@ -9,5 +9,7 @@ export const MS_OUTLOOK = {
 }
 
 export function MsOutlook(props: DiagramNodeProps) {
-  return <Shape {...MS_OUTLOOK} {...props} />
+  return (
+    <Shape {...MS_OUTLOOK} {...props} _style={extendStyle(MS_OUTLOOK, props)} />
+  )
 }

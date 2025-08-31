@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROJECTOR_CANVAS = {
   _style:
@@ -9,5 +9,11 @@ export const PROJECTOR_CANVAS = {
 }
 
 export function ProjectorCanvas(props: DiagramNodeProps) {
-  return <Shape {...PROJECTOR_CANVAS} {...props} />
+  return (
+    <Shape
+      {...PROJECTOR_CANVAS}
+      {...props}
+      _style={extendStyle(PROJECTOR_CANVAS, props)}
+    />
+  )
 }

@@ -1,4 +1,4 @@
-import { Stack } from "@reactiac/base-components";
+import { Stack } from "@diac/base-components";
 import {
   Client,
   Waf,

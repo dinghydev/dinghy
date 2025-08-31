@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EnvelopeWrapper } from '@reactiac/standard-components-diagrams/eipMessageTransformation'
+import { EnvelopeWrapper } from '@diac/standard-components-diagrams/eipMessageTransformation'
 
 <EnvelopeWrapper/>
 ```

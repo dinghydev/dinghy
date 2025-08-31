@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PMOS_WITH_BULK = {
   _style:
@@ -9,5 +9,11 @@ export const PMOS_WITH_BULK = {
 }
 
 export function PmosWithBulk(props: DiagramNodeProps) {
-  return <Shape {...PMOS_WITH_BULK} {...props} />
+  return (
+    <Shape
+      {...PMOS_WITH_BULK}
+      {...props}
+      _style={extendStyle(PMOS_WITH_BULK, props)}
+    />
+  )
 }

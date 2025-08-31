@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARAMETER_3 = {
   _style: 'triangle;html=1;direction=north;',
@@ -8,5 +8,11 @@ export const PARAMETER_3 = {
 }
 
 export function Parameter3(props: DiagramNodeProps) {
-  return <Shape {...PARAMETER_3} {...props} />
+  return (
+    <Shape
+      {...PARAMETER_3}
+      {...props}
+      _style={extendStyle(PARAMETER_3, props)}
+    />
+  )
 }

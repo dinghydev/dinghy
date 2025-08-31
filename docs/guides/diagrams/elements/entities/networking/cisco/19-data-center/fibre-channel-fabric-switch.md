@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FibreChannelFabricSwitch } from '@reactiac/standard-components-diagrams/cisco19DataCenter'
+import { FibreChannelFabricSwitch } from '@diac/standard-components-diagrams/cisco19DataCenter'
 
 <FibreChannelFabricSwitch/>
 ```

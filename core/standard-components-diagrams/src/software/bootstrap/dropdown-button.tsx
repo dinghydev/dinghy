@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DROPDOWN_BUTTON = {
   _style:
@@ -9,5 +9,11 @@ export const DROPDOWN_BUTTON = {
 }
 
 export function DropdownButton(props: DiagramNodeProps) {
-  return <Shape {...DROPDOWN_BUTTON} {...props} />
+  return (
+    <Shape
+      {...DROPDOWN_BUTTON}
+      {...props}
+      _style={extendStyle(DROPDOWN_BUTTON, props)}
+    />
+  )
 }

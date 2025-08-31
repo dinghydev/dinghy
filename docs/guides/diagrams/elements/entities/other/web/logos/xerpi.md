@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Xerpi } from '@reactiac/standard-components-diagrams/webLogos'
+import { Xerpi } from '@diac/standard-components-diagrams/webLogos'
 
 <Xerpi/>
 ```

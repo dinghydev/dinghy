@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS = {
   _style:
@@ -15,6 +15,10 @@ export function SingleAndMultiSessionWindowsAndLinuxDesktops(
     <Shape
       {...SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS}
       {...props}
+      _style={extendStyle(
+        SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS,
+        props,
+      )}
     />
   )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StreamingDistribution } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { StreamingDistribution } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <StreamingDistribution/>
 ```

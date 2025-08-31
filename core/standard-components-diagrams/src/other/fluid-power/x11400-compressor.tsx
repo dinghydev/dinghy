@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11400_COMPRESSOR = {
   _style:
@@ -9,5 +9,11 @@ export const X11400_COMPRESSOR = {
 }
 
 export function X11400Compressor(props: DiagramNodeProps) {
-  return <Shape {...X11400_COMPRESSOR} {...props} />
+  return (
+    <Shape
+      {...X11400_COMPRESSOR}
+      {...props}
+      _style={extendStyle(X11400_COMPRESSOR, props)}
+    />
+  )
 }

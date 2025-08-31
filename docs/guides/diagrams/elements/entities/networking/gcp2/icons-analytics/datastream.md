@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Datastream } from '@reactiac/standard-components-diagrams/gcp2IconsAnalytics'
+import { Datastream } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
 
 <Datastream/>
 ```

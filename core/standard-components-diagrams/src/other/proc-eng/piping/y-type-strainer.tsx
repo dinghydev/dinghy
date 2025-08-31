@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const Y_TYPE_STRAINER = {
   _style:
@@ -9,5 +9,11 @@ export const Y_TYPE_STRAINER = {
 }
 
 export function YTypeStrainer(props: DiagramNodeProps) {
-  return <Shape {...Y_TYPE_STRAINER} {...props} />
+  return (
+    <Shape
+      {...Y_TYPE_STRAINER}
+      {...props}
+      _style={extendStyle(Y_TYPE_STRAINER, props)}
+    />
+  )
 }

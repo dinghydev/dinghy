@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TimeSynchronization } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { TimeSynchronization } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <TimeSynchronization/>
 ```

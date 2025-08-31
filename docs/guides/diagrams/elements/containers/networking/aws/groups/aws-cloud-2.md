@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { AwsCloud2 } from '@reactiac/standard-components-diagrams/awsGroups'
+import { AwsCloud2 } from '@diac/standard-components-diagrams/awsGroups'
 
 <AwsCloud2/>
 ```

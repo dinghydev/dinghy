@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OracleServer } from '@reactiac/standard-components-diagrams/aws3d'
+import { OracleServer } from '@diac/standard-components-diagrams/aws3d'
 
 <OracleServer/>
 ```

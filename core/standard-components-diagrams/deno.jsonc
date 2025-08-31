@@ -1,5 +1,5 @@
 {
-  "name": "@reactiac/standard-components-diagrams",
+  "name": "@diac/standard-components-diagrams",
   "exports": {
     // Category: Standard
     "./advanced": "./src/standard/advanced/index.ts",
@@ -17,6 +17,7 @@
     "./clipartPeople": "./src/standard/clipart/people/index.ts",
     "./clipartTelecommunication": "./src/standard/clipart/telecommunication/index.ts",
     "./clipartVarious": "./src/standard/clipart/various/index.ts",
+
     // Category: Software
     "./activeDirectory": "./src/software/active-directory/index.ts",
     "./android": "./src/software/android/index.ts",
@@ -47,6 +48,7 @@
     // Sub Category: Uml
     "./uml": "./src/software/uml/uml/index.ts",
     "./uml25": "./src/software/uml/uml25/index.ts",
+
     // Category: Networking
     "./alibabaCloud": "./src/networking/alibaba-cloud/index.ts",
     "./azure": "./src/networking/azure/index.ts",
@@ -394,6 +396,7 @@
     "./veeam2Software": "./src/networking/veeam2/software/index.ts",
     "./veeam2States": "./src/networking/veeam2/states/index.ts",
     "./veeam2Storage": "./src/networking/veeam2/storage/index.ts",
+
     // Category: Business
     "./archimate2": "./src/business/archimate2/index.ts",
     "./valueStreamMapping": "./src/business/value-stream-mapping/index.ts",
@@ -425,6 +428,7 @@
     "./sysmlStateMachines": "./src/business/sysml/state-machines/index.ts",
     "./sysmlStereotypes": "./src/business/sysml/stereotypes/index.ts",
     "./sysmlUsecases": "./src/business/sysml/usecases/index.ts",
+
     // Category: Other
     "./cabinets": "./src/other/cabinets/index.ts",
     "./floorPlans": "./src/other/floor-plans/index.ts",
@@ -516,6 +520,7 @@
     // Sub Category: Web
     "./webIcons": "./src/other/web/icons/index.ts",
     "./webLogos": "./src/other/web/logos/index.ts",
+
     "./sequenceDiagram": "./src/composites/sequence-diagram/index.ts",
     ".": "./src/index.ts"
   }

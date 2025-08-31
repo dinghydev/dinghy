@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PN_DIODE = {
   _style:
@@ -9,5 +9,7 @@ export const PN_DIODE = {
 }
 
 export function PnDiode(props: DiagramNodeProps) {
-  return <Shape {...PN_DIODE} {...props} />
+  return (
+    <Shape {...PN_DIODE} {...props} _style={extendStyle(PN_DIODE, props)} />
+  )
 }

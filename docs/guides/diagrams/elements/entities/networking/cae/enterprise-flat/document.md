@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Document } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { Document } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <Document/>
 ```

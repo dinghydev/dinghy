@@ -14,7 +14,7 @@ Private Cloud
 ## Usage
 
 ```
-import { VirtualPrivateCloud } from '@reactiac/standard-components-diagrams/gcp2IconsNetworking'
+import { VirtualPrivateCloud } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
 
 <VirtualPrivateCloud/>
 ```

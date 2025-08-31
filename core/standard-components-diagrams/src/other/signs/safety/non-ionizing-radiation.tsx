@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NON_IONIZING_RADIATION = {
   _style:
@@ -9,5 +9,11 @@ export const NON_IONIZING_RADIATION = {
 }
 
 export function NonIonizingRadiation(props: DiagramNodeProps) {
-  return <Shape {...NON_IONIZING_RADIATION} {...props} />
+  return (
+    <Shape
+      {...NON_IONIZING_RADIATION}
+      {...props}
+      _style={extendStyle(NON_IONIZING_RADIATION, props)}
+    />
+  )
 }

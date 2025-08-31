@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AUDIO_CONFERENCING_APPLICATION = {
   _style:
@@ -9,5 +9,11 @@ export const AUDIO_CONFERENCING_APPLICATION = {
 }
 
 export function AudioConferencingApplication(props: DiagramNodeProps) {
-  return <Shape {...AUDIO_CONFERENCING_APPLICATION} {...props} />
+  return (
+    <Shape
+      {...AUDIO_CONFERENCING_APPLICATION}
+      {...props}
+      _style={extendStyle(AUDIO_CONFERENCING_APPLICATION, props)}
+    />
+  )
 }

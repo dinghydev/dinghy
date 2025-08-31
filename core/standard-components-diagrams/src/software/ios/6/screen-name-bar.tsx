@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCREEN_NAME_BAR = {
   _style:
@@ -9,5 +9,11 @@ export const SCREEN_NAME_BAR = {
 }
 
 export function ScreenNameBar(props: DiagramNodeProps) {
-  return <Shape {...SCREEN_NAME_BAR} {...props} />
+  return (
+    <Shape
+      {...SCREEN_NAME_BAR}
+      {...props}
+      _style={extendStyle(SCREEN_NAME_BAR, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Diskette } from '@reactiac/standard-components-diagrams/ciscoStorage'
+import { Diskette } from '@diac/standard-components-diagrams/ciscoStorage'
 
 <Diskette/>
 ```

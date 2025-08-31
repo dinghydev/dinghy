@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLUTO = {
   _style:
@@ -9,5 +9,5 @@ export const PLUTO = {
 }
 
 export function Pluto(props: DiagramNodeProps) {
-  return <Shape {...PLUTO} {...props} />
+  return <Shape {...PLUTO} {...props} _style={extendStyle(PLUTO, props)} />
 }

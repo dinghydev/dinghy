@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WRITABLE_VOLUME = {
   _style:
@@ -9,5 +9,11 @@ export const WRITABLE_VOLUME = {
 }
 
 export function WritableVolume(props: DiagramNodeProps) {
-  return <Shape {...WRITABLE_VOLUME} {...props} />
+  return (
+    <Shape
+      {...WRITABLE_VOLUME}
+      {...props}
+      _style={extendStyle(WRITABLE_VOLUME, props)}
+    />
+  )
 }

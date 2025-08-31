@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Policy } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { Policy } from '@diac/standard-components-diagrams/officeSecurity'
 
 <Policy/>
 ```

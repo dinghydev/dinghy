@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatazoneBusinessDataCatalog } from '@reactiac/standard-components-diagrams/awsAnalytics'
+import { DatazoneBusinessDataCatalog } from '@diac/standard-components-diagrams/awsAnalytics'
 
 <DatazoneBusinessDataCatalog/>
 ```

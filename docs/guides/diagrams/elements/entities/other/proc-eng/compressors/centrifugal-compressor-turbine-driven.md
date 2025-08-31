@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CentrifugalCompressorTurbineDriven } from '@reactiac/standard-components-diagrams/procEngCompressors'
+import { CentrifugalCompressorTurbineDriven } from '@diac/standard-components-diagrams/procEngCompressors'
 
 <CentrifugalCompressorTurbineDriven/>
 ```

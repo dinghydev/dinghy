@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MetamodelReference } from '@reactiac/standard-components-diagrams/sysmlProfiles'
+import { MetamodelReference } from '@diac/standard-components-diagrams/sysmlProfiles'
 
 <MetamodelReference/>
 ```

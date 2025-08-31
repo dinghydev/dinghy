@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LimitSwitchOff } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { LimitSwitchOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <LimitSwitchOff/>
 ```

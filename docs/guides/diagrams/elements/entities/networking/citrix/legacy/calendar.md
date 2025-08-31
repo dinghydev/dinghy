@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Calendar } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { Calendar } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <Calendar/>
 ```

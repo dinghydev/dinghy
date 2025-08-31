@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RSIMGANALYS = {
   _style:
@@ -9,5 +9,11 @@ export const RSIMGANALYS = {
 }
 
 export function Rsimganalys(props: DiagramNodeProps) {
-  return <Shape {...RSIMGANALYS} {...props} />
+  return (
+    <Shape
+      {...RSIMGANALYS}
+      {...props}
+      _style={extendStyle(RSIMGANALYS, props)}
+    />
+  )
 }

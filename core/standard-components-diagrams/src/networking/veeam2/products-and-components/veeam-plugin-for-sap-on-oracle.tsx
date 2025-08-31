@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VEEAM_PLUGIN_FOR_SAP_ON_ORACLE = {
   _style:
@@ -9,5 +9,11 @@ export const VEEAM_PLUGIN_FOR_SAP_ON_ORACLE = {
 }
 
 export function VeeamPluginForSapOnOracle(props: DiagramNodeProps) {
-  return <Shape {...VEEAM_PLUGIN_FOR_SAP_ON_ORACLE} {...props} />
+  return (
+    <Shape
+      {...VEEAM_PLUGIN_FOR_SAP_ON_ORACLE}
+      {...props}
+      _style={extendStyle(VEEAM_PLUGIN_FOR_SAP_ON_ORACLE, props)}
+    />
+  )
 }

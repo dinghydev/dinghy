@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GOOGLE_HANGOUT = {
   _style:
@@ -9,5 +9,11 @@ export const GOOGLE_HANGOUT = {
 }
 
 export function GoogleHangout(props: DiagramNodeProps) {
-  return <Shape {...GOOGLE_HANGOUT} {...props} />
+  return (
+    <Shape
+      {...GOOGLE_HANGOUT}
+      {...props}
+      _style={extendStyle(GOOGLE_HANGOUT, props)}
+    />
+  )
 }

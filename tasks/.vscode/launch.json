@@ -10,7 +10,7 @@
       "type": "node",
       "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
       "env": {
-        "AWS_PROFILE": "reactiac"
+        "AWS_PROFILE": "diac"
       },
       "console": "integratedTerminal"
     },

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RECTANGULAR_CALLOUT = {
   _style:
@@ -9,5 +9,11 @@ export const RECTANGULAR_CALLOUT = {
 }
 
 export function RectangularCallout(props: DiagramNodeProps) {
-  return <Shape {...RECTANGULAR_CALLOUT} {...props} />
+  return (
+    <Shape
+      {...RECTANGULAR_CALLOUT}
+      {...props}
+      _style={extendStyle(RECTANGULAR_CALLOUT, props)}
+    />
+  )
 }

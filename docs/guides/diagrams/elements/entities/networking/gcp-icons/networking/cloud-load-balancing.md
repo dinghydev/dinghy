@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudLoadBalancing } from '@reactiac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudLoadBalancing } from '@diac/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudLoadBalancing/>
 ```

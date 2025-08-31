@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Peering } from '@reactiac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { Peering } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <Peering/>
 ```

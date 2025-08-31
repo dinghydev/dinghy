@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLLISION_SAP = {
   _style:
@@ -9,5 +9,11 @@ export const COLLISION_SAP = {
 }
 
 export function CollisionSap(props: DiagramNodeProps) {
-  return <Shape {...COLLISION_SAP} {...props} />
+  return (
+    <Shape
+      {...COLLISION_SAP}
+      {...props}
+      _style={extendStyle(COLLISION_SAP, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MPS_APSARAVIDEO_MEDIA_PROCESSING = {
   _style:
@@ -9,5 +9,11 @@ export const MPS_APSARAVIDEO_MEDIA_PROCESSING = {
 }
 
 export function MpsApsaravideoMediaProcessing(props: DiagramNodeProps) {
-  return <Shape {...MPS_APSARAVIDEO_MEDIA_PROCESSING} {...props} />
+  return (
+    <Shape
+      {...MPS_APSARAVIDEO_MEDIA_PROCESSING}
+      {...props}
+      _style={extendStyle(MPS_APSARAVIDEO_MEDIA_PROCESSING, props)}
+    />
+  )
 }

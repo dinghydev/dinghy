@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPEN_SOURCE_TOOLS = {
   _style:
@@ -9,5 +9,11 @@ export const OPEN_SOURCE_TOOLS = {
 }
 
 export function OpenSourceTools(props: DiagramNodeProps) {
-  return <Shape {...OPEN_SOURCE_TOOLS} {...props} />
+  return (
+    <Shape
+      {...OPEN_SOURCE_TOOLS}
+      {...props}
+      _style={extendStyle(OPEN_SOURCE_TOOLS, props)}
+    />
+  )
 }

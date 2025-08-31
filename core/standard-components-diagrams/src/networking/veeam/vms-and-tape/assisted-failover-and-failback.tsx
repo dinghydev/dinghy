@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASSISTED_FAILOVER_AND_FAILBACK = {
   _style:
@@ -9,5 +9,11 @@ export const ASSISTED_FAILOVER_AND_FAILBACK = {
 }
 
 export function AssistedFailoverAndFailback(props: DiagramNodeProps) {
-  return <Shape {...ASSISTED_FAILOVER_AND_FAILBACK} {...props} />
+  return (
+    <Shape
+      {...ASSISTED_FAILOVER_AND_FAILBACK}
+      {...props}
+      _style={extendStyle(ASSISTED_FAILOVER_AND_FAILBACK, props)}
+    />
+  )
 }

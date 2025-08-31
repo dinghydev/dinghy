@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component1ClickFailoverOrchestration } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { Component1ClickFailoverOrchestration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <Component1ClickFailoverOrchestration/>
 ```

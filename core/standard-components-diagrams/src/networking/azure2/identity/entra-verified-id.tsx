@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENTRA_VERIFIED_ID = {
   _style:
@@ -9,5 +9,11 @@ export const ENTRA_VERIFIED_ID = {
 }
 
 export function EntraVerifiedId(props: DiagramNodeProps) {
-  return <Shape {...ENTRA_VERIFIED_ID} {...props} />
+  return (
+    <Shape
+      {...ENTRA_VERIFIED_ID}
+      {...props}
+      _style={extendStyle(ENTRA_VERIFIED_ID, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EventHubClusters } from '@reactiac/standard-components-diagrams/azure2Iot'
+import { EventHubClusters } from '@diac/standard-components-diagrams/azure2Iot'
 
 <EventHubClusters/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROXY_APPLIANCE = {
   _style:
@@ -9,5 +9,11 @@ export const PROXY_APPLIANCE = {
 }
 
 export function ProxyAppliance(props: DiagramNodeProps) {
-  return <Shape {...PROXY_APPLIANCE} {...props} />
+  return (
+    <Shape
+      {...PROXY_APPLIANCE}
+      {...props}
+      _style={extendStyle(PROXY_APPLIANCE, props)}
+    />
+  )
 }

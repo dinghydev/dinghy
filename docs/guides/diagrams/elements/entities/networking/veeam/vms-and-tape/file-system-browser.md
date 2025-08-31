@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FileSystemBrowser } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { FileSystemBrowser } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <FileSystemBrowser/>
 ```

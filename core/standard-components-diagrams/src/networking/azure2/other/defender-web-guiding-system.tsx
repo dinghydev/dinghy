@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEFENDER_WEB_GUIDING_SYSTEM = {
   _style:
@@ -9,5 +9,11 @@ export const DEFENDER_WEB_GUIDING_SYSTEM = {
 }
 
 export function DefenderWebGuidingSystem(props: DiagramNodeProps) {
-  return <Shape {...DEFENDER_WEB_GUIDING_SYSTEM} {...props} />
+  return (
+    <Shape
+      {...DEFENDER_WEB_GUIDING_SYSTEM}
+      {...props}
+      _style={extendStyle(DEFENDER_WEB_GUIDING_SYSTEM, props)}
+    />
+  )
 }

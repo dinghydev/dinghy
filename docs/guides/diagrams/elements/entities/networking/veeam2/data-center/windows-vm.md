@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WindowsVm } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { WindowsVm } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <WindowsVm/>
 ```

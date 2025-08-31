@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOST_MESSAGE = {
   _style: {
@@ -9,5 +9,11 @@ export const LOST_MESSAGE = {
 }
 
 export function LostMessage(props: DiagramNodeProps) {
-  return <Dependency {...LOST_MESSAGE} {...props} />
+  return (
+    <Dependency
+      {...LOST_MESSAGE}
+      {...props}
+      _style={extendStyle(LOST_MESSAGE, props)}
+    />
+  )
 }

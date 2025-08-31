@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContainerRegistry } from '@reactiac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { ContainerRegistry } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <ContainerRegistry/>
 ```

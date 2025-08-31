@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DecisionNode2 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { DecisionNode2 } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <DecisionNode2/>
 ```

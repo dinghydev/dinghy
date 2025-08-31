@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButtonDisabledBright } from '@reactiac/standard-components-diagrams/android'
+import { ButtonDisabledBright } from '@diac/standard-components-diagrams/android'
 
 <ButtonDisabledBright/>
 ```

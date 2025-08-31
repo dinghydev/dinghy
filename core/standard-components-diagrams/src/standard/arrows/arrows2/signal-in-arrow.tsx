@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SIGNAL_IN_ARROW = {
   _style:
@@ -9,5 +9,11 @@ export const SIGNAL_IN_ARROW = {
 }
 
 export function SignalInArrow(props: DiagramNodeProps) {
-  return <Shape {...SIGNAL_IN_ARROW} {...props} />
+  return (
+    <Shape
+      {...SIGNAL_IN_ARROW}
+      {...props}
+      _style={extendStyle(SIGNAL_IN_ARROW, props)}
+    />
+  )
 }

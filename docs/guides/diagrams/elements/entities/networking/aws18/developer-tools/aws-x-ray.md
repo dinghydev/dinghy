@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsXRay } from '@reactiac/standard-components-diagrams/aws18DeveloperTools'
+import { AwsXRay } from '@diac/standard-components-diagrams/aws18DeveloperTools'
 
 <AwsXRay/>
 ```

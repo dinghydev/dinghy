@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RollingBin } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { RollingBin } from '@diac/standard-components-diagrams/procEngMisc'
 
 <RollingBin/>
 ```

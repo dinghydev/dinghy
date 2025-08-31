@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AI_PLATFORM = {
   _style:
@@ -9,5 +9,11 @@ export const AI_PLATFORM = {
 }
 
 export function AiPlatform(props: DiagramNodeProps) {
-  return <Shape {...AI_PLATFORM} {...props} />
+  return (
+    <Shape
+      {...AI_PLATFORM}
+      {...props}
+      _style={extendStyle(AI_PLATFORM, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KeyPermissions } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { KeyPermissions } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <KeyPermissions/>
 ```

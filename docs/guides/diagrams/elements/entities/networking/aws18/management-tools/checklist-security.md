@@ -14,7 +14,7 @@ security
 ## Usage
 
 ```
-import { ChecklistSecurity } from '@reactiac/standard-components-diagrams/aws18ManagementTools'
+import { ChecklistSecurity } from '@diac/standard-components-diagrams/aws18ManagementTools'
 
 <ChecklistSecurity/>
 ```

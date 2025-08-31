@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXTEND = {
   _style: {
@@ -9,5 +9,7 @@ export const EXTEND = {
 }
 
 export function Extend(props: DiagramNodeProps) {
-  return <Dependency {...EXTEND} {...props} />
+  return (
+    <Dependency {...EXTEND} {...props} _style={extendStyle(EXTEND, props)} />
+  )
 }

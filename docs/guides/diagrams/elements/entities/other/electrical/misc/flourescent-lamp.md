@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FlourescentLamp } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { FlourescentLamp } from '@diac/standard-components-diagrams/electricalMisc'
 
 <FlourescentLamp/>
 ```

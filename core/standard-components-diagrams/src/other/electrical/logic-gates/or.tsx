@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OR = {
   _style:
@@ -9,5 +9,5 @@ export const OR = {
 }
 
 export function Or(props: DiagramNodeProps) {
-  return <Shape {...OR} {...props} />
+  return <Shape {...OR} {...props} _style={extendStyle(OR, props)} />
 }

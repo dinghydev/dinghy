@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IP_ADDRESS_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const IP_ADDRESS_MANAGER = {
 }
 
 export function IpAddressManager(props: DiagramNodeProps) {
-  return <Shape {...IP_ADDRESS_MANAGER} {...props} />
+  return (
+    <Shape
+      {...IP_ADDRESS_MANAGER}
+      {...props}
+      _style={extendStyle(IP_ADDRESS_MANAGER, props)}
+    />
+  )
 }

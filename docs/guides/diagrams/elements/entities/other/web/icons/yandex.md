@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Yandex } from '@reactiac/standard-components-diagrams/webIcons'
+import { Yandex } from '@diac/standard-components-diagrams/webIcons'
 
 <Yandex/>
 ```

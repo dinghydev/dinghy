@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SurvivableBranchAppliance } from '@reactiac/standard-components-diagrams/officeServers'
+import { SurvivableBranchAppliance } from '@diac/standard-components-diagrams/officeServers'
 
 <SurvivableBranchAppliance/>
 ```

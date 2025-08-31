@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MPS_DNA = {
   _style:
@@ -9,5 +9,5 @@ export const MPS_DNA = {
 }
 
 export function MpsDna(props: DiagramNodeProps) {
-  return <Shape {...MPS_DNA} {...props} />
+  return <Shape {...MPS_DNA} {...props} _style={extendStyle(MPS_DNA, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ListGroupHorizontal } from '@reactiac/standard-components-diagrams/bootstrap'
+import { ListGroupHorizontal } from '@diac/standard-components-diagrams/bootstrap'
 
 <ListGroupHorizontal/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WorkspacesSecureBrowser } from '@reactiac/standard-components-diagrams/awsEndUserComputing'
+import { WorkspacesSecureBrowser } from '@diac/standard-components-diagrams/awsEndUserComputing'
 
 <WorkspacesSecureBrowser/>
 ```

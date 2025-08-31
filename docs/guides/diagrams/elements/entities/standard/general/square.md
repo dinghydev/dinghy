@@ -5,15 +5,15 @@
 ```
 {
   _style: 'whiteSpace=wrap;html=1;aspect=fixed;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Square } from '@reactiac/standard-components-diagrams/general'
+import { Square } from '@diac/standard-components-diagrams/general'
 
 <Square/>
 ```

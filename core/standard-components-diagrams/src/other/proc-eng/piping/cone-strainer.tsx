@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONE_STRAINER = {
   _style:
@@ -9,5 +9,11 @@ export const CONE_STRAINER = {
 }
 
 export function ConeStrainer(props: DiagramNodeProps) {
-  return <Shape {...CONE_STRAINER} {...props} />
+  return (
+    <Shape
+      {...CONE_STRAINER}
+      {...props}
+      _style={extendStyle(CONE_STRAINER, props)}
+    />
+  )
 }

@@ -1,12 +1,12 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CIRCLE = {
   _style: 'ellipse;whiteSpace=wrap;html=1;aspect=fixed;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 
 export function Circle(props: DiagramNodeProps) {
-  return <Shape {...CIRCLE} {...props} />
+  return <Shape {...CIRCLE} {...props} _style={extendStyle(CIRCLE, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DgDatabaseGateway } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { DgDatabaseGateway } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <DgDatabaseGateway/>
 ```

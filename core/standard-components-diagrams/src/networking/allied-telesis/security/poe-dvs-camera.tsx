@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POE_DVS_CAMERA = {
   _style:
@@ -9,5 +9,11 @@ export const POE_DVS_CAMERA = {
 }
 
 export function PoeDvsCamera(props: DiagramNodeProps) {
-  return <Shape {...POE_DVS_CAMERA} {...props} />
+  return (
+    <Shape
+      {...POE_DVS_CAMERA}
+      {...props}
+      _style={extendStyle(POE_DVS_CAMERA, props)}
+    />
+  )
 }

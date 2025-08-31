@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING = {
   _style:
@@ -9,5 +9,11 @@ export const EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING = {
 }
 
 export function EhpcElasticHighPerformanceComputing(props: DiagramNodeProps) {
-  return <Shape {...EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING} {...props} />
+  return (
+    <Shape
+      {...EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING}
+      {...props}
+      _style={extendStyle(EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CUSTOMER_LOCKBOX = {
   _style:
@@ -9,5 +9,11 @@ export const CUSTOMER_LOCKBOX = {
 }
 
 export function CustomerLockbox(props: DiagramNodeProps) {
-  return <Shape {...CUSTOMER_LOCKBOX} {...props} />
+  return (
+    <Shape
+      {...CUSTOMER_LOCKBOX}
+      {...props}
+      _style={extendStyle(CUSTOMER_LOCKBOX, props)}
+    />
+  )
 }

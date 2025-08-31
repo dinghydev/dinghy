@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARUBA_MOBILITY_MASTER_1K_FRONT = {
   _style:
@@ -9,5 +9,11 @@ export const ARUBA_MOBILITY_MASTER_1K_FRONT = {
 }
 
 export function ArubaMobilityMaster1kFront(props: DiagramNodeProps) {
-  return <Shape {...ARUBA_MOBILITY_MASTER_1K_FRONT} {...props} />
+  return (
+    <Shape
+      {...ARUBA_MOBILITY_MASTER_1K_FRONT}
+      {...props}
+      _style={extendStyle(ARUBA_MOBILITY_MASTER_1K_FRONT, props)}
+    />
+  )
 }

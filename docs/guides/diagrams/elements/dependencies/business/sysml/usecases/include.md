@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Include } from '@reactiac/standard-components-diagrams/sysmlUsecases'
+import { Include } from '@diac/standard-components-diagrams/sysmlUsecases'
 
 <Include/>
 ```

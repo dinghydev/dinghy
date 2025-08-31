@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Plug } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { Plug } from '@diac/standard-components-diagrams/procEngPiping'
 
 <Plug/>
 ```

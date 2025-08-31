@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_EC2 = {
   _style:
@@ -9,5 +9,7 @@ export const AMAZON_EC2 = {
 }
 
 export function AmazonEc2(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_EC2} {...props} />
+  return (
+    <Shape {...AMAZON_EC2} {...props} _style={extendStyle(AMAZON_EC2, props)} />
+  )
 }

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.signs.animals.no_dogs;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
-  _width: 98,
-  _height: 98,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { NoDogs } from '@reactiac/standard-components-diagrams/signsAnimals'
+import { NoDogs } from '@diac/standard-components-diagrams/signsAnimals'
 
 <NoDogs/>
 ```

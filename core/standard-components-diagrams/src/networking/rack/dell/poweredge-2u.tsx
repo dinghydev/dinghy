@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POWEREDGE_2U = {
   _style:
@@ -9,5 +9,11 @@ export const POWEREDGE_2U = {
 }
 
 export function Poweredge2u(props: DiagramNodeProps) {
-  return <Shape {...POWEREDGE_2U} {...props} />
+  return (
+    <Shape
+      {...POWEREDGE_2U}
+      {...props}
+      _style={extendStyle(POWEREDGE_2U, props)}
+    />
+  )
 }

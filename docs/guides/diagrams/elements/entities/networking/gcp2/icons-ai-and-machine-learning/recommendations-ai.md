@@ -14,7 +14,7 @@ AI
 ## Usage
 
 ```
-import { RecommendationsAi } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { RecommendationsAi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <RecommendationsAi/>
 ```

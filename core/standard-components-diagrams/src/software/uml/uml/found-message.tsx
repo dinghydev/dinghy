@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FOUND_MESSAGE = {
   _style:
@@ -9,5 +9,11 @@ export const FOUND_MESSAGE = {
 }
 
 export function FoundMessage(props: DiagramNodeProps) {
-  return <Shape {...FOUND_MESSAGE} {...props} />
+  return (
+    <Shape
+      {...FOUND_MESSAGE}
+      {...props}
+      _style={extendStyle(FOUND_MESSAGE, props)}
+    />
+  )
 }

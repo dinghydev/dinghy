@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { OnPremise } from '@reactiac/standard-components-diagrams/aws18GroupsLight'
+import { OnPremise } from '@diac/standard-components-diagrams/aws18GroupsLight'
 
 <OnPremise/>
 ```

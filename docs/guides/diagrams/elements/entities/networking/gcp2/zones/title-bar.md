@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TitleBar } from '@reactiac/standard-components-diagrams/gcp2Zones'
+import { TitleBar } from '@diac/standard-components-diagrams/gcp2Zones'
 
 <TitleBar/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X10150SolenoidCoil } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X10150SolenoidCoil } from '@diac/standard-components-diagrams/fluidPower'
 
 <X10150SolenoidCoil/>
 ```

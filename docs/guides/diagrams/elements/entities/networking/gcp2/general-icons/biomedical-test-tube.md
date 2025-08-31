@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BiomedicalTestTube } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { BiomedicalTestTube } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <BiomedicalTestTube/>
 ```

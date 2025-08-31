@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Subnet } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { Subnet } from '@diac/standard-components-diagrams/azure2Networking'
 
 <Subnet/>
 ```

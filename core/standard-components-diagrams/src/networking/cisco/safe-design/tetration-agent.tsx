@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TETRATION_AGENT = {
   _style:
@@ -9,5 +9,11 @@ export const TETRATION_AGENT = {
 }
 
 export function TetrationAgent(props: DiagramNodeProps) {
-  return <Shape {...TETRATION_AGENT} {...props} />
+  return (
+    <Shape
+      {...TETRATION_AGENT}
+      {...props}
+      _style={extendStyle(TETRATION_AGENT, props)}
+    />
+  )
 }

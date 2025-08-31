@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Openshift } from '@reactiac/standard-components-diagrams/ibmCloudContainers'
+import { Openshift } from '@diac/standard-components-diagrams/ibmCloudContainers'
 
 <Openshift/>
 ```

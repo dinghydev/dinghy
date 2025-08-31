@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HDI_AKS_CLUSTER = {
   _style:
@@ -9,5 +9,11 @@ export const HDI_AKS_CLUSTER = {
 }
 
 export function HdiAksCluster(props: DiagramNodeProps) {
-  return <Shape {...HDI_AKS_CLUSTER} {...props} />
+  return (
+    <Shape
+      {...HDI_AKS_CLUSTER}
+      {...props}
+      _style={extendStyle(HDI_AKS_CLUSTER, props)}
+    />
+  )
 }

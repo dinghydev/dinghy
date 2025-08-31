@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE = {
   _style:
@@ -11,5 +11,11 @@ export const ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE = {
 export function ArmsApplicationRealTimeMonitoringService(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE} {...props} />
+  return (
+    <Shape
+      {...ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE}
+      {...props}
+      _style={extendStyle(ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE, props)}
+    />
+  )
 }

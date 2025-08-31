@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SslTlsOffloading } from '@reactiac/standard-components-diagrams/citrixNetscaler'
+import { SslTlsOffloading } from '@diac/standard-components-diagrams/citrixNetscaler'
 
 <SslTlsOffloading/>
 ```

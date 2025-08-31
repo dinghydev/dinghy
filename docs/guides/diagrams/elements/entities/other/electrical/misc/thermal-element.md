@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ThermalElement } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { ThermalElement } from '@diac/standard-components-diagrams/electricalMisc'
 
 <ThermalElement/>
 ```

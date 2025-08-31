@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticNetworkInterface } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { ElasticNetworkInterface } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <ElasticNetworkInterface/>
 ```

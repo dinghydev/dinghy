@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Many } from '@reactiac/standard-components-diagrams/entityRelation'
+import { Many } from '@diac/standard-components-diagrams/entityRelation'
 
 <Many/>
 ```

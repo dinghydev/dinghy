@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MIGRATE_FOR_COMPUTE_ENGINE = {
   _style:
@@ -9,5 +9,11 @@ export const MIGRATE_FOR_COMPUTE_ENGINE = {
 }
 
 export function MigrateForComputeEngine(props: DiagramNodeProps) {
-  return <Shape {...MIGRATE_FOR_COMPUTE_ENGINE} {...props} />
+  return (
+    <Shape
+      {...MIGRATE_FOR_COMPUTE_ENGINE}
+      {...props}
+      _style={extendStyle(MIGRATE_FOR_COMPUTE_ENGINE, props)}
+    />
+  )
 }

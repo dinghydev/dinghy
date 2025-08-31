@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHAREFILE = {
   _style:
@@ -9,5 +9,7 @@ export const SHAREFILE = {
 }
 
 export function Sharefile(props: DiagramNodeProps) {
-  return <Shape {...SHAREFILE} {...props} />
+  return (
+    <Shape {...SHAREFILE} {...props} _style={extendStyle(SHAREFILE, props)} />
+  )
 }

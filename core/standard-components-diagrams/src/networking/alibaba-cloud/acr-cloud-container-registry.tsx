@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACR_CLOUD_CONTAINER_REGISTRY = {
   _style:
@@ -9,5 +9,11 @@ export const ACR_CLOUD_CONTAINER_REGISTRY = {
 }
 
 export function AcrCloudContainerRegistry(props: DiagramNodeProps) {
-  return <Shape {...ACR_CLOUD_CONTAINER_REGISTRY} {...props} />
+  return (
+    <Shape
+      {...ACR_CLOUD_CONTAINER_REGISTRY}
+      {...props}
+      _style={extendStyle(ACR_CLOUD_CONTAINER_REGISTRY, props)}
+    />
+  )
 }

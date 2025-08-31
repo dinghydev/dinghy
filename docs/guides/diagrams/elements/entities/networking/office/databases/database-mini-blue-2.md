@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabaseMiniBlue2 } from '@reactiac/standard-components-diagrams/officeDatabases'
+import { DatabaseMiniBlue2 } from '@diac/standard-components-diagrams/officeDatabases'
 
 <DatabaseMiniBlue2/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const END_TO_END_ENCRYPTION = {
   _style:
@@ -9,5 +9,11 @@ export const END_TO_END_ENCRYPTION = {
 }
 
 export function EndToEndEncryption(props: DiagramNodeProps) {
-  return <Shape {...END_TO_END_ENCRYPTION} {...props} />
+  return (
+    <Shape
+      {...END_TO_END_ENCRYPTION}
+      {...props}
+      _style={extendStyle(END_TO_END_ENCRYPTION, props)}
+    />
+  )
 }

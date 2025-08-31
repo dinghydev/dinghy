@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MfaToken } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { MfaToken } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <MfaToken/>
 ```

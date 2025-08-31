@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContactBadgeFocused } from '@reactiac/standard-components-diagrams/android'
+import { ContactBadgeFocused } from '@diac/standard-components-diagrams/android'
 
 <ContactBadgeFocused/>
 ```

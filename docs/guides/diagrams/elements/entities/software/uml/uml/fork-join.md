@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ForkJoin } from '@reactiac/standard-components-diagrams/uml'
+import { ForkJoin } from '@diac/standard-components-diagrams/uml'
 
 <ForkJoin/>
 ```

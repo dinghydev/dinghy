@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RadioTower } from '@reactiac/standard-components-diagrams/network'
+import { RadioTower } from '@diac/standard-components-diagrams/network'
 
 <RadioTower/>
 ```

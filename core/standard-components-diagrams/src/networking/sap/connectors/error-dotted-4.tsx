@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ERROR_DOTTED_4 = {
   _style:
@@ -9,5 +9,11 @@ export const ERROR_DOTTED_4 = {
 }
 
 export function ErrorDotted4(props: DiagramNodeProps) {
-  return <Shape {...ERROR_DOTTED_4} {...props} />
+  return (
+    <Shape
+      {...ERROR_DOTTED_4}
+      {...props}
+      _style={extendStyle(ERROR_DOTTED_4, props)}
+    />
+  )
 }

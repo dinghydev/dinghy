@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12370_AIR_RESERVOIR = {
   _style:
@@ -9,5 +9,11 @@ export const X12370_AIR_RESERVOIR = {
 }
 
 export function X12370AirReservoir(props: DiagramNodeProps) {
-  return <Shape {...X12370_AIR_RESERVOIR} {...props} />
+  return (
+    <Shape
+      {...X12370_AIR_RESERVOIR}
+      {...props}
+      _style={extendStyle(X12370_AIR_RESERVOIR, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LDAP = {
   _style:
@@ -9,5 +9,5 @@ export const LDAP = {
 }
 
 export function Ldap(props: DiagramNodeProps) {
-  return <Shape {...LDAP} {...props} />
+  return <Shape {...LDAP} {...props} _style={extendStyle(LDAP, props)} />
 }

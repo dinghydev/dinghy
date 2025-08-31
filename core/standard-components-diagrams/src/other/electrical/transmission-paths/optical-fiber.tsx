@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPTICAL_FIBER = {
   _style:
@@ -9,5 +9,11 @@ export const OPTICAL_FIBER = {
 }
 
 export function OpticalFiber(props: DiagramNodeProps) {
-  return <Shape {...OPTICAL_FIBER} {...props} />
+  return (
+    <Shape
+      {...OPTICAL_FIBER}
+      {...props}
+      _style={extendStyle(OPTICAL_FIBER, props)}
+    />
+  )
 }

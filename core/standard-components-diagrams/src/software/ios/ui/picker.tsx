@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PICKER = {
   _style:
@@ -9,5 +9,5 @@ export const PICKER = {
 }
 
 export function Picker(props: DiagramNodeProps) {
-  return <Shape {...PICKER} {...props} />
+  return <Shape {...PICKER} {...props} _style={extendStyle(PICKER, props)} />
 }

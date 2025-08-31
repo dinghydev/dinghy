@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApiConnections } from '@reactiac/standard-components-diagrams/azure2Web'
+import { ApiConnections } from '@diac/standard-components-diagrams/azure2Web'
 
 <ApiConnections/>
 ```

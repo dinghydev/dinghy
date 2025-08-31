@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LocalPreAndPostconditions } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { LocalPreAndPostconditions } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <LocalPreAndPostconditions/>
 ```

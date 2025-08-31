@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_RECTANGLE = {
   _style: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_rect',
@@ -8,5 +8,11 @@ export const CLOUD_RECTANGLE = {
 }
 
 export function CloudRectangle(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_RECTANGLE} {...props} />
+  return (
+    <Shape
+      {...CLOUD_RECTANGLE}
+      {...props}
+      _style={extendStyle(CLOUD_RECTANGLE, props)}
+    />
+  )
 }

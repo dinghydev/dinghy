@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Scoopit } from '@reactiac/standard-components-diagrams/webLogos'
+import { Scoopit } from '@diac/standard-components-diagrams/webLogos'
 
 <Scoopit/>
 ```

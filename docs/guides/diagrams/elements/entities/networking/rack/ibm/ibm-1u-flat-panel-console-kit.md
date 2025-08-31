@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ibm1uFlatPanelConsoleKit } from '@reactiac/standard-components-diagrams/rackIbm'
+import { Ibm1uFlatPanelConsoleKit } from '@diac/standard-components-diagrams/rackIbm'
 
 <Ibm1uFlatPanelConsoleKit/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WI_FI_TAG = {
   _style:
@@ -9,5 +9,7 @@ export const WI_FI_TAG = {
 }
 
 export function WiFiTag(props: DiagramNodeProps) {
-  return <Shape {...WI_FI_TAG} {...props} />
+  return (
+    <Shape {...WI_FI_TAG} {...props} _style={extendStyle(WI_FI_TAG, props)} />
+  )
 }

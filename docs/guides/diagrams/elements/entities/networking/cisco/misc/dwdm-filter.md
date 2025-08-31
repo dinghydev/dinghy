@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DwdmFilter } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { DwdmFilter } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <DwdmFilter/>
 ```

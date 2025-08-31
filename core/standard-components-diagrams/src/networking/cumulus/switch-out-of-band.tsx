@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SWITCH_OUT_OF_BAND = {
   _style:
@@ -9,5 +9,11 @@ export const SWITCH_OUT_OF_BAND = {
 }
 
 export function SwitchOutOfBand(props: DiagramNodeProps) {
-  return <Shape {...SWITCH_OUT_OF_BAND} {...props} />
+  return (
+    <Shape
+      {...SWITCH_OUT_OF_BAND}
+      {...props}
+      _style={extendStyle(SWITCH_OUT_OF_BAND, props)}
+    />
+  )
 }

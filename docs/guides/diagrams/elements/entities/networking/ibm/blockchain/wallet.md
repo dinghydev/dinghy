@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Wallet } from '@reactiac/standard-components-diagrams/ibmBlockchain'
+import { Wallet } from '@diac/standard-components-diagrams/ibmBlockchain'
 
 <Wallet/>
 ```

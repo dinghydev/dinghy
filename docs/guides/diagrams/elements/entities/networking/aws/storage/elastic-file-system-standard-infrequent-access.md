@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticFileSystemStandardInfrequentAccess } from '@reactiac/standard-components-diagrams/awsStorage'
+import { ElasticFileSystemStandardInfrequentAccess } from '@diac/standard-components-diagrams/awsStorage'
 
 <ElasticFileSystemStandardInfrequentAccess/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChipWithTextAndIcon } from '@reactiac/standard-components-diagrams/gmdlChips'
+import { ChipWithTextAndIcon } from '@diac/standard-components-diagrams/gmdlChips'
 
 <ChipWithTextAndIcon/>
 ```

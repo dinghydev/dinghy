@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FoundMessage2 } from '@reactiac/standard-components-diagrams/uml'
+import { FoundMessage2 } from '@diac/standard-components-diagrams/uml'
 
 <FoundMessage2/>
 ```

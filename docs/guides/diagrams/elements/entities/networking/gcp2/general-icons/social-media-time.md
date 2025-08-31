@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SocialMediaTime } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { SocialMediaTime } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <SocialMediaTime/>
 ```

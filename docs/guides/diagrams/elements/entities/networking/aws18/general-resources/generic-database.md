@@ -14,7 +14,7 @@ database
 ## Usage
 
 ```
-import { GenericDatabase } from '@reactiac/standard-components-diagrams/aws18GeneralResources'
+import { GenericDatabase } from '@diac/standard-components-diagrams/aws18GeneralResources'
 
 <GenericDatabase/>
 ```

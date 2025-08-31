@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Hdd } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { Hdd } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <Hdd/>
 ```

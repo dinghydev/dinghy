@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CORE_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const CORE_SWITCH = {
 }
 
 export function CoreSwitch(props: DiagramNodeProps) {
-  return <Shape {...CORE_SWITCH} {...props} />
+  return (
+    <Shape
+      {...CORE_SWITCH}
+      {...props}
+      _style={extendStyle(CORE_SWITCH, props)}
+    />
+  )
 }

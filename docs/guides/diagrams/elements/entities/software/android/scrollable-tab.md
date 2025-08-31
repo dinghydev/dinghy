@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScrollableTab } from '@reactiac/standard-components-diagrams/android'
+import { ScrollableTab } from '@diac/standard-components-diagrams/android'
 
 <ScrollableTab/>
 ```

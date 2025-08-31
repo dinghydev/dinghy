@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANTI_VIRUS = {
   _style:
@@ -9,5 +9,7 @@ export const ANTI_VIRUS = {
 }
 
 export function AntiVirus(props: DiagramNodeProps) {
-  return <Shape {...ANTI_VIRUS} {...props} />
+  return (
+    <Shape {...ANTI_VIRUS} {...props} _style={extendStyle(ANTI_VIRUS, props)} />
+  )
 }

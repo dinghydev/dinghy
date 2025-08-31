@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NUMBER_PAD = {
   _style:
@@ -9,5 +9,7 @@ export const NUMBER_PAD = {
 }
 
 export function NumberPad(props: DiagramNodeProps) {
-  return <Shape {...NUMBER_PAD} {...props} />
+  return (
+    <Shape {...NUMBER_PAD} {...props} _style={extendStyle(NUMBER_PAD, props)} />
+  )
 }

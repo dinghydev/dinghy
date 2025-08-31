@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOCK_BUTTON = {
   _style:
@@ -9,5 +9,11 @@ export const LOCK_BUTTON = {
 }
 
 export function LockButton(props: DiagramNodeProps) {
-  return <Shape {...LOCK_BUTTON} {...props} />
+  return (
+    <Shape
+      {...LOCK_BUTTON}
+      {...props}
+      _style={extendStyle(LOCK_BUTTON, props)}
+    />
+  )
 }

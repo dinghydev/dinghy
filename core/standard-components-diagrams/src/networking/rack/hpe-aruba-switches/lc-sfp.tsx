@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LC_SFP = {
   _style:
@@ -9,5 +9,5 @@ export const LC_SFP = {
 }
 
 export function LcSfp(props: DiagramNodeProps) {
-  return <Shape {...LC_SFP} {...props} />
+  return <Shape {...LC_SFP} {...props} _style={extendStyle(LC_SFP, props)} />
 }

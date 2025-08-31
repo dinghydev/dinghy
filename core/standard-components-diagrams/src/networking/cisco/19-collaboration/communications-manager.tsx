@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMMUNICATIONS_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const COMMUNICATIONS_MANAGER = {
 }
 
 export function CommunicationsManager(props: DiagramNodeProps) {
-  return <Shape {...COMMUNICATIONS_MANAGER} {...props} />
+  return (
+    <Shape
+      {...COMMUNICATIONS_MANAGER}
+      {...props}
+      _style={extendStyle(COMMUNICATIONS_MANAGER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GROUPING = {
   _style: 'swimlane;html=1;fillColor=#ffffff;whiteSpace=wrap',
@@ -8,5 +8,7 @@ export const GROUPING = {
 }
 
 export function Grouping(props: DiagramNodeProps) {
-  return <Shape {...GROUPING} {...props} />
+  return (
+    <Shape {...GROUPING} {...props} _style={extendStyle(GROUPING, props)} />
+  )
 }

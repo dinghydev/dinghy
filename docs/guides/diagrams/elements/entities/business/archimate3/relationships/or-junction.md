@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OrJunction } from '@reactiac/standard-components-diagrams/archimate3Relationships'
+import { OrJunction } from '@diac/standard-components-diagrams/archimate3Relationships'
 
 <OrJunction/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLOBE_ERROR = {
   _style:
@@ -9,5 +9,11 @@ export const GLOBE_ERROR = {
 }
 
 export function GlobeError(props: DiagramNodeProps) {
-  return <Shape {...GLOBE_ERROR} {...props} />
+  return (
+    <Shape
+      {...GLOBE_ERROR}
+      {...props}
+      _style={extendStyle(GLOBE_ERROR, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Avs } from '@reactiac/standard-components-diagrams/azure2VmwareSolution'
+import { Avs } from '@diac/standard-components-diagrams/azure2VmwareSolution'
 
 <Avs/>
 ```

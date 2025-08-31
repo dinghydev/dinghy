@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_UCS_6296UP_FABRIC_INTERCONNECT = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_UCS_6296UP_FABRIC_INTERCONNECT = {
 }
 
 export function CiscoUcs6296upFabricInterconnect(props: DiagramNodeProps) {
-  return <Shape {...CISCO_UCS_6296UP_FABRIC_INTERCONNECT} {...props} />
+  return (
+    <Shape
+      {...CISCO_UCS_6296UP_FABRIC_INTERCONNECT}
+      {...props}
+      _style={extendStyle(CISCO_UCS_6296UP_FABRIC_INTERCONNECT, props)}
+    />
+  )
 }

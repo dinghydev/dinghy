@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StartupTask } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { StartupTask } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <StartupTask/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Worxweb } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { Worxweb } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <Worxweb/>
 ```

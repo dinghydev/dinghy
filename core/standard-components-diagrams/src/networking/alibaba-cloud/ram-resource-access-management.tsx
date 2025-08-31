@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RAM_RESOURCE_ACCESS_MANAGEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const RAM_RESOURCE_ACCESS_MANAGEMENT = {
 }
 
 export function RamResourceAccessManagement(props: DiagramNodeProps) {
-  return <Shape {...RAM_RESOURCE_ACCESS_MANAGEMENT} {...props} />
+  return (
+    <Shape
+      {...RAM_RESOURCE_ACCESS_MANAGEMENT}
+      {...props}
+      _style={extendStyle(RAM_RESOURCE_ACCESS_MANAGEMENT, props)}
+    />
+  )
 }

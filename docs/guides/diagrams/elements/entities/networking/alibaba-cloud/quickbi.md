@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Quickbi } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Quickbi } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Quickbi/>
 ```

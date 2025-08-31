@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOURCE_PULSE = {
   _style:
@@ -9,5 +9,11 @@ export const SOURCE_PULSE = {
 }
 
 export function SourcePulse(props: DiagramNodeProps) {
-  return <Shape {...SOURCE_PULSE} {...props} />
+  return (
+    <Shape
+      {...SOURCE_PULSE}
+      {...props}
+      _style={extendStyle(SOURCE_PULSE, props)}
+    />
+  )
 }

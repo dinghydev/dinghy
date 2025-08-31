@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultipleProcessStartStateMultiState } from '@reactiac/standard-components-diagrams/dataFlowDiagram'
+import { MultipleProcessStartStateMultiState } from '@diac/standard-components-diagrams/dataFlowDiagram'
 
 <MultipleProcessStartStateMultiState/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FTP = {
   _style:
@@ -9,5 +9,5 @@ export const FTP = {
 }
 
 export function Ftp(props: DiagramNodeProps) {
-  return <Shape {...FTP} {...props} />
+  return <Shape {...FTP} {...props} _style={extendStyle(FTP, props)} />
 }

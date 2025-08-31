@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPARC_ENTERPRISE_M4000_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const SPARC_ENTERPRISE_M4000_SERVER = {
 }
 
 export function SparcEnterpriseM4000Server(props: DiagramNodeProps) {
-  return <Shape {...SPARC_ENTERPRISE_M4000_SERVER} {...props} />
+  return (
+    <Shape
+      {...SPARC_ENTERPRISE_M4000_SERVER}
+      {...props}
+      _style={extendStyle(SPARC_ENTERPRISE_M4000_SERVER, props)}
+    />
+  )
 }

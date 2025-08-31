@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Paypal } from '@reactiac/standard-components-diagrams/webLogos'
+import { Paypal } from '@diac/standard-components-diagrams/webLogos'
 
 <Paypal/>
 ```

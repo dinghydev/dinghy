@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MulticellBatteryTapped } from '@reactiac/standard-components-diagrams/electricalSources'
+import { MulticellBatteryTapped } from '@diac/standard-components-diagrams/electricalSources'
 
 <MulticellBatteryTapped/>
 ```

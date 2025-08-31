@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPLIT_DOMAIN_USER = {
   _style:
@@ -9,5 +9,11 @@ export const SPLIT_DOMAIN_USER = {
 }
 
 export function SplitDomainUser(props: DiagramNodeProps) {
-  return <Shape {...SPLIT_DOMAIN_USER} {...props} />
+  return (
+    <Shape
+      {...SPLIT_DOMAIN_USER}
+      {...props}
+      _style={extendStyle(SPLIT_DOMAIN_USER, props)}
+    />
+  )
 }

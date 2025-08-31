@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATAPROC = {
   _style:
@@ -9,5 +9,7 @@ export const DATAPROC = {
 }
 
 export function Dataproc(props: DiagramNodeProps) {
-  return <Shape {...DATAPROC} {...props} />
+  return (
+    <Shape {...DATAPROC} {...props} _style={extendStyle(DATAPROC, props)} />
+  )
 }

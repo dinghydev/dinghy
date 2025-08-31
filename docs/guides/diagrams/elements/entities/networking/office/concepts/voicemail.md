@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Voicemail } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { Voicemail } from '@diac/standard-components-diagrams/officeConcepts'
 
 <Voicemail/>
 ```

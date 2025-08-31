@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TimePicker } from '@reactiac/standard-components-diagrams/gmdlPickers'
+import { TimePicker } from '@diac/standard-components-diagrams/gmdlPickers'
 
 <TimePicker/>
 ```

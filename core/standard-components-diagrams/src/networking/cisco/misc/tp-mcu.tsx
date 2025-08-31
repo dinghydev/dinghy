@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TP_MCU = {
   _style:
@@ -9,5 +9,5 @@ export const TP_MCU = {
 }
 
 export function TpMcu(props: DiagramNodeProps) {
-  return <Shape {...TP_MCU} {...props} />
+  return <Shape {...TP_MCU} {...props} _style={extendStyle(TP_MCU, props)} />
 }

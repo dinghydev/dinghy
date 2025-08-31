@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROP_AGITATOR = {
   _style:
@@ -9,5 +9,11 @@ export const PROP_AGITATOR = {
 }
 
 export function PropAgitator(props: DiagramNodeProps) {
-  return <Shape {...PROP_AGITATOR} {...props} />
+  return (
+    <Shape
+      {...PROP_AGITATOR}
+      {...props}
+      _style={extendStyle(PROP_AGITATOR, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VPC_NETWORK_ACCESS_ANALYZER = {
   _style:
@@ -9,5 +9,11 @@ export const VPC_NETWORK_ACCESS_ANALYZER = {
 }
 
 export function VpcNetworkAccessAnalyzer(props: DiagramNodeProps) {
-  return <Shape {...VPC_NETWORK_ACCESS_ANALYZER} {...props} />
+  return (
+    <Shape
+      {...VPC_NETWORK_ACCESS_ANALYZER}
+      {...props}
+      _style={extendStyle(VPC_NETWORK_ACCESS_ANALYZER, props)}
+    />
+  )
 }

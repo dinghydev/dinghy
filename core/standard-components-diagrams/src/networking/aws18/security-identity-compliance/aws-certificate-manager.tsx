@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_CERTIFICATE_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_CERTIFICATE_MANAGER = {
 }
 
 export function AwsCertificateManager(props: DiagramNodeProps) {
-  return <Shape {...AWS_CERTIFICATE_MANAGER} {...props} />
+  return (
+    <Shape
+      {...AWS_CERTIFICATE_MANAGER}
+      {...props}
+      _style={extendStyle(AWS_CERTIFICATE_MANAGER, props)}
+    />
+  )
 }

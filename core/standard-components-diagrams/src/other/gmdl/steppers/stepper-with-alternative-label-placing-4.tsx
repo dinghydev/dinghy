@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEPPER_WITH_ALTERNATIVE_LABEL_PLACING_4 = {
   _style:
@@ -9,5 +9,11 @@ export const STEPPER_WITH_ALTERNATIVE_LABEL_PLACING_4 = {
 }
 
 export function StepperWithAlternativeLabelPlacing4(props: DiagramNodeProps) {
-  return <Shape {...STEPPER_WITH_ALTERNATIVE_LABEL_PLACING_4} {...props} />
+  return (
+    <Shape
+      {...STEPPER_WITH_ALTERNATIVE_LABEL_PLACING_4}
+      {...props}
+      _style={extendStyle(STEPPER_WITH_ALTERNATIVE_LABEL_PLACING_4, props)}
+    />
+  )
 }

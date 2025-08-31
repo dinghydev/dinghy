@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIRELESS_LOCATION_APPLIANCE = {
   _style:
@@ -9,5 +9,11 @@ export const WIRELESS_LOCATION_APPLIANCE = {
 }
 
 export function WirelessLocationAppliance(props: DiagramNodeProps) {
-  return <Shape {...WIRELESS_LOCATION_APPLIANCE} {...props} />
+  return (
+    <Shape
+      {...WIRELESS_LOCATION_APPLIANCE}
+      {...props}
+      _style={extendStyle(WIRELESS_LOCATION_APPLIANCE, props)}
+    />
+  )
 }

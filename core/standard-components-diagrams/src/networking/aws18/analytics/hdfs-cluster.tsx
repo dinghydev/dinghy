@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HDFS_CLUSTER = {
   _style:
@@ -9,5 +9,11 @@ export const HDFS_CLUSTER = {
 }
 
 export function HdfsCluster(props: DiagramNodeProps) {
-  return <Shape {...HDFS_CLUSTER} {...props} />
+  return (
+    <Shape
+      {...HDFS_CLUSTER}
+      {...props}
+      _style={extendStyle(HDFS_CLUSTER, props)}
+    />
+  )
 }

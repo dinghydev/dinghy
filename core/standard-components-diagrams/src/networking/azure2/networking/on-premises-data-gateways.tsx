@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ON_PREMISES_DATA_GATEWAYS = {
   _style:
@@ -9,5 +9,11 @@ export const ON_PREMISES_DATA_GATEWAYS = {
 }
 
 export function OnPremisesDataGateways(props: DiagramNodeProps) {
-  return <Shape {...ON_PREMISES_DATA_GATEWAYS} {...props} />
+  return (
+    <Shape
+      {...ON_PREMISES_DATA_GATEWAYS}
+      {...props}
+      _style={extendStyle(ON_PREMISES_DATA_GATEWAYS, props)}
+    />
+  )
 }

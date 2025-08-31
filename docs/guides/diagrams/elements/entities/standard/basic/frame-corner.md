@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FrameCorner } from '@reactiac/standard-components-diagrams/basic'
+import { FrameCorner } from '@diac/standard-components-diagrams/basic'
 
 <FrameCorner/>
 ```

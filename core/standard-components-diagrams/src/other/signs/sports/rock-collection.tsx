@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROCK_COLLECTION = {
   _style:
@@ -9,5 +9,11 @@ export const ROCK_COLLECTION = {
 }
 
 export function RockCollection(props: DiagramNodeProps) {
-  return <Shape {...ROCK_COLLECTION} {...props} />
+  return (
+    <Shape
+      {...ROCK_COLLECTION}
+      {...props}
+      _style={extendStyle(ROCK_COLLECTION, props)}
+    />
+  )
 }

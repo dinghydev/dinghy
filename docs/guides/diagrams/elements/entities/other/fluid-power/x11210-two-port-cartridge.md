@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11210TwoPortCartridge } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11210TwoPortCartridge } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11210TwoPortCartridge/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticWebHosting } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { ElasticWebHosting } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <ElasticWebHosting/>
 ```

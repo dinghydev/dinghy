@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VSAN = {
   _style:
@@ -9,5 +9,5 @@ export const VSAN = {
 }
 
 export function Vsan(props: DiagramNodeProps) {
-  return <Shape {...VSAN} {...props} />
+  return <Shape {...VSAN} {...props} _style={extendStyle(VSAN, props)} />
 }

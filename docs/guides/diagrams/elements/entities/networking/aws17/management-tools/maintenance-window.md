@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MaintenanceWindow } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { MaintenanceWindow } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <MaintenanceWindow/>
 ```

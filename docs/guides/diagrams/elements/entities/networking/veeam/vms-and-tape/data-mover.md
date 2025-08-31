@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataMover } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { DataMover } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <DataMover/>
 ```

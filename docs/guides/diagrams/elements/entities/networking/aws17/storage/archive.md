@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Archive } from '@reactiac/standard-components-diagrams/aws17Storage'
+import { Archive } from '@diac/standard-components-diagrams/aws17Storage'
 
 <Archive/>
 ```

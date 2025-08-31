@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Funp } from '@reactiac/standard-components-diagrams/webLogos'
+import { Funp } from '@diac/standard-components-diagrams/webLogos'
 
 <Funp/>
 ```

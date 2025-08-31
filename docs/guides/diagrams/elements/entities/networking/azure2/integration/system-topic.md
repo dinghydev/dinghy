@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SystemTopic } from '@reactiac/standard-components-diagrams/azure2Integration'
+import { SystemTopic } from '@diac/standard-components-diagrams/azure2Integration'
 
 <SystemTopic/>
 ```

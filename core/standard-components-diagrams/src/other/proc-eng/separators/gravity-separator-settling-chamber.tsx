@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GRAVITY_SEPARATOR_SETTLING_CHAMBER = {
   _style:
@@ -9,5 +9,11 @@ export const GRAVITY_SEPARATOR_SETTLING_CHAMBER = {
 }
 
 export function GravitySeparatorSettlingChamber(props: DiagramNodeProps) {
-  return <Shape {...GRAVITY_SEPARATOR_SETTLING_CHAMBER} {...props} />
+  return (
+    <Shape
+      {...GRAVITY_SEPARATOR_SETTLING_CHAMBER}
+      {...props}
+      _style={extendStyle(GRAVITY_SEPARATOR_SETTLING_CHAMBER, props)}
+    />
+  )
 }

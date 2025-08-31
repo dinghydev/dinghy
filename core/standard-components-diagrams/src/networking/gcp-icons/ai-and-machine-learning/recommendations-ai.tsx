@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RECOMMENDATIONS_AI = {
   _style:
@@ -9,5 +9,11 @@ export const RECOMMENDATIONS_AI = {
 }
 
 export function RecommendationsAi(props: DiagramNodeProps) {
-  return <Shape {...RECOMMENDATIONS_AI} {...props} />
+  return (
+    <Shape
+      {...RECOMMENDATIONS_AI}
+      {...props}
+      _style={extendStyle(RECOMMENDATIONS_AI, props)}
+    />
+  )
 }

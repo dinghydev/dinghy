@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLOBE_SUCCESS = {
   _style:
@@ -9,5 +9,11 @@ export const GLOBE_SUCCESS = {
 }
 
 export function GlobeSuccess(props: DiagramNodeProps) {
-  return <Shape {...GLOBE_SUCCESS} {...props} />
+  return (
+    <Shape
+      {...GLOBE_SUCCESS}
+      {...props}
+      _style={extendStyle(GLOBE_SUCCESS, props)}
+    />
+  )
 }

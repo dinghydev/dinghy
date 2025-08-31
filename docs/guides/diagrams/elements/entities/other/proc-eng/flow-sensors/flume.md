@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;align=center;outlineConnect=0;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.flow_sensors.flume;pointerEvents=1;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Flume } from '@reactiac/standard-components-diagrams/procEngFlowSensors'
+import { Flume } from '@diac/standard-components-diagrams/procEngFlowSensors'
 
 <Flume/>
 ```

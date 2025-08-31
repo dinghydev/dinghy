@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IdePlugins } from '@reactiac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { IdePlugins } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <IdePlugins/>
 ```

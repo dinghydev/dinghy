@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PythonBoto } from '@reactiac/standard-components-diagrams/aws17Sdk'
+import { PythonBoto } from '@diac/standard-components-diagrams/aws17Sdk'
 
 <PythonBoto/>
 ```

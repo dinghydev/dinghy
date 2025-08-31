@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUBMACHINE_STATE = {
   _style: 'shape=mxgraph.sysml.submState;whiteSpace=wrap;align=center;',
@@ -8,5 +8,11 @@ export const SUBMACHINE_STATE = {
 }
 
 export function SubmachineState(props: DiagramNodeProps) {
-  return <Shape {...SUBMACHINE_STATE} {...props} />
+  return (
+    <Shape
+      {...SUBMACHINE_STATE}
+      {...props}
+      _style={extendStyle(SUBMACHINE_STATE, props)}
+    />
+  )
 }

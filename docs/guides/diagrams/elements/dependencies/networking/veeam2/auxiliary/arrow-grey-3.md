@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ArrowGrey3 } from '@reactiac/standard-components-diagrams/veeam2Auxiliary'
+import { ArrowGrey3 } from '@diac/standard-components-diagrams/veeam2Auxiliary'
 
 <ArrowGrey3/>
 ```

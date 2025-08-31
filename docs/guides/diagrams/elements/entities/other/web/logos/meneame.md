@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Meneame } from '@reactiac/standard-components-diagrams/webLogos'
+import { Meneame } from '@diac/standard-components-diagrams/webLogos'
 
 <Meneame/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COREGION = {
   _style: 'html=1;shape=mxgraph.sysml.coregion;strokeWidth=3;',
@@ -8,5 +8,7 @@ export const COREGION = {
 }
 
 export function Coregion(props: DiagramNodeProps) {
-  return <Shape {...COREGION} {...props} />
+  return (
+    <Shape {...COREGION} {...props} _style={extendStyle(COREGION, props)} />
+  )
 }

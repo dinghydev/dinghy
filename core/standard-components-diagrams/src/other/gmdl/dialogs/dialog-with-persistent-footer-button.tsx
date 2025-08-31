@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIALOG_WITH_PERSISTENT_FOOTER_BUTTON = {
   _style: 'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;',
@@ -8,5 +8,11 @@ export const DIALOG_WITH_PERSISTENT_FOOTER_BUTTON = {
 }
 
 export function DialogWithPersistentFooterButton(props: DiagramNodeProps) {
-  return <Shape {...DIALOG_WITH_PERSISTENT_FOOTER_BUTTON} {...props} />
+  return (
+    <Shape
+      {...DIALOG_WITH_PERSISTENT_FOOTER_BUTTON}
+      {...props}
+      _style={extendStyle(DIALOG_WITH_PERSISTENT_FOOTER_BUTTON, props)}
+    />
+  )
 }

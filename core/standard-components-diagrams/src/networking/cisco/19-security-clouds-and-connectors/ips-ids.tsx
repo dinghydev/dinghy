@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IPS_IDS = {
   _style:
@@ -9,5 +9,5 @@ export const IPS_IDS = {
 }
 
 export function IpsIds(props: DiagramNodeProps) {
-  return <Shape {...IPS_IDS} {...props} />
+  return <Shape {...IPS_IDS} {...props} _style={extendStyle(IPS_IDS, props)} />
 }

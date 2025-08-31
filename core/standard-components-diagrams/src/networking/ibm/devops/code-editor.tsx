@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CODE_EDITOR = {
   _style:
@@ -9,5 +9,11 @@ export const CODE_EDITOR = {
 }
 
 export function CodeEditor(props: DiagramNodeProps) {
-  return <Shape {...CODE_EDITOR} {...props} />
+  return (
+    <Shape
+      {...CODE_EDITOR}
+      {...props}
+      _style={extendStyle(CODE_EDITOR, props)}
+    />
+  )
 }

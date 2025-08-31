@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CORNER_ROUNDED_RECTANGLE = {
   _style:
@@ -9,5 +9,11 @@ export const CORNER_ROUNDED_RECTANGLE = {
 }
 
 export function CornerRoundedRectangle(props: DiagramNodeProps) {
-  return <Shape {...CORNER_ROUNDED_RECTANGLE} {...props} />
+  return (
+    <Shape
+      {...CORNER_ROUNDED_RECTANGLE}
+      {...props}
+      _style={extendStyle(CORNER_ROUNDED_RECTANGLE, props)}
+    />
+  )
 }

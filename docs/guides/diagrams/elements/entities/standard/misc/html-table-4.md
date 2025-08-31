@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HtmlTable4 } from '@reactiac/standard-components-diagrams/misc'
+import { HtmlTable4 } from '@diac/standard-components-diagrams/misc'
 
 <HtmlTable4/>
 ```

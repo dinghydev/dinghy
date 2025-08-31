@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;image=img/lib/atlassian/Jira_Logo.svg;html=1;strokeColor=none;',
-  _width: 72,
-  _height: 72,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Jira } from '@reactiac/standard-components-diagrams/webLogos'
+import { Jira } from '@diac/standard-components-diagrams/webLogos'
 
 <Jira/>
 ```

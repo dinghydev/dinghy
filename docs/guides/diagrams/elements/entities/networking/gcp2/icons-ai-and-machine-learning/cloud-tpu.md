@@ -14,7 +14,7 @@ TPU
 ## Usage
 
 ```
-import { CloudTpu } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { CloudTpu } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <CloudTpu/>
 ```

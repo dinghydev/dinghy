@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PageNavigation } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { PageNavigation } from '@diac/standard-components-diagrams/ios7Icons'
 
 <PageNavigation/>
 ```

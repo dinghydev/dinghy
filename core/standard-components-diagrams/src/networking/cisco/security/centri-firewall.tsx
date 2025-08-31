@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CENTRI_FIREWALL = {
   _style:
@@ -9,5 +9,11 @@ export const CENTRI_FIREWALL = {
 }
 
 export function CentriFirewall(props: DiagramNodeProps) {
-  return <Shape {...CENTRI_FIREWALL} {...props} />
+  return (
+    <Shape
+      {...CENTRI_FIREWALL}
+      {...props}
+      _style={extendStyle(CENTRI_FIREWALL, props)}
+    />
+  )
 }

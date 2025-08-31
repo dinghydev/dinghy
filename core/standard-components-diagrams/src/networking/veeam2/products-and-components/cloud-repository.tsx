@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_REPOSITORY = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_REPOSITORY = {
 }
 
 export function CloudRepository(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_REPOSITORY} {...props} />
+  return (
+    <Shape
+      {...CLOUD_REPOSITORY}
+      {...props}
+      _style={extendStyle(CLOUD_REPOSITORY, props)}
+    />
+  )
 }

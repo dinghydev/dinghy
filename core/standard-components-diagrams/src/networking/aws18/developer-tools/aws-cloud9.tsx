@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_CLOUD9 = {
   _style:
@@ -9,5 +9,7 @@ export const AWS_CLOUD9 = {
 }
 
 export function AwsCloud9(props: DiagramNodeProps) {
-  return <Shape {...AWS_CLOUD9} {...props} />
+  return (
+    <Shape {...AWS_CLOUD9} {...props} _style={extendStyle(AWS_CLOUD9, props)} />
+  )
 }

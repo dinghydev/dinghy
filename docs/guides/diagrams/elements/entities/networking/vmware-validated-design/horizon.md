@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Horizon } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { Horizon } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <Horizon/>
 ```

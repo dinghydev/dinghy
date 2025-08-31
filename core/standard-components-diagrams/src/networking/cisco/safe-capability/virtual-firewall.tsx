@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIRTUAL_FIREWALL = {
   _style:
@@ -9,5 +9,11 @@ export const VIRTUAL_FIREWALL = {
 }
 
 export function VirtualFirewall(props: DiagramNodeProps) {
-  return <Shape {...VIRTUAL_FIREWALL} {...props} />
+  return (
+    <Shape
+      {...VIRTUAL_FIREWALL}
+      {...props}
+      _style={extendStyle(VIRTUAL_FIREWALL, props)}
+    />
+  )
 }

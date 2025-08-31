@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLACIER_FLEXIBLE_RETRIEVAL = {
   _style:
@@ -9,5 +9,11 @@ export const GLACIER_FLEXIBLE_RETRIEVAL = {
 }
 
 export function GlacierFlexibleRetrieval(props: DiagramNodeProps) {
-  return <Shape {...GLACIER_FLEXIBLE_RETRIEVAL} {...props} />
+  return (
+    <Shape
+      {...GLACIER_FLEXIBLE_RETRIEVAL}
+      {...props}
+      _style={extendStyle(GLACIER_FLEXIBLE_RETRIEVAL, props)}
+    />
+  )
 }

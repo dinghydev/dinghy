@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FRAUD_DETECTION = {
   _style:
@@ -9,5 +9,11 @@ export const FRAUD_DETECTION = {
 }
 
 export function FraudDetection(props: DiagramNodeProps) {
-  return <Shape {...FRAUD_DETECTION} {...props} />
+  return (
+    <Shape
+      {...FRAUD_DETECTION}
+      {...props}
+      _style={extendStyle(FRAUD_DETECTION, props)}
+    />
+  )
 }

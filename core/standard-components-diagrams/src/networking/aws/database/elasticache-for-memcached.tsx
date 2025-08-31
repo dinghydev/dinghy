@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTICACHE_FOR_MEMCACHED = {
   _style:
@@ -9,5 +9,11 @@ export const ELASTICACHE_FOR_MEMCACHED = {
 }
 
 export function ElasticacheForMemcached(props: DiagramNodeProps) {
-  return <Shape {...ELASTICACHE_FOR_MEMCACHED} {...props} />
+  return (
+    <Shape
+      {...ELASTICACHE_FOR_MEMCACHED}
+      {...props}
+      _style={extendStyle(ELASTICACHE_FOR_MEMCACHED, props)}
+    />
+  )
 }

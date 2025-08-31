@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OUTLOOK_USER = {
   _style:
@@ -9,5 +9,11 @@ export const OUTLOOK_USER = {
 }
 
 export function OutlookUser(props: DiagramNodeProps) {
-  return <Shape {...OUTLOOK_USER} {...props} />
+  return (
+    <Shape
+      {...OUTLOOK_USER}
+      {...props}
+      _style={extendStyle(OUTLOOK_USER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANNOTATION = {
   _style:
@@ -9,5 +9,7 @@ export const ANNOTATION = {
 }
 
 export function Annotation(props: DiagramNodeProps) {
-  return <Shape {...ANNOTATION} {...props} />
+  return (
+    <Shape {...ANNOTATION} {...props} _style={extendStyle(ANNOTATION, props)} />
+  )
 }

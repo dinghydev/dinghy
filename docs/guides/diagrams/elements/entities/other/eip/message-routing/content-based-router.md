@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentBasedRouter } from '@reactiac/standard-components-diagrams/eipMessageRouting'
+import { ContentBasedRouter } from '@diac/standard-components-diagrams/eipMessageRouting'
 
 <ContentBasedRouter/>
 ```

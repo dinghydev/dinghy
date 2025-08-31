@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Xor } from '@reactiac/standard-components-diagrams/electricalLogicGates'
+import { Xor } from '@diac/standard-components-diagrams/electricalLogicGates'
 
 <Xor/>
 ```

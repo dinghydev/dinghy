@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATE_PICKER_LANDSCAPE_DARK = {
   _style:
@@ -9,5 +9,11 @@ export const DATE_PICKER_LANDSCAPE_DARK = {
 }
 
 export function DatePickerLandscapeDark(props: DiagramNodeProps) {
-  return <Shape {...DATE_PICKER_LANDSCAPE_DARK} {...props} />
+  return (
+    <Shape
+      {...DATE_PICKER_LANDSCAPE_DARK}
+      {...props}
+      _style={extendStyle(DATE_PICKER_LANDSCAPE_DARK, props)}
+    />
+  )
 }

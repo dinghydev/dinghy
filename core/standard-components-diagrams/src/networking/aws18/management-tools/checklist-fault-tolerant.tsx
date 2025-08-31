@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHECKLIST_FAULT_TOLERANT = {
   _style:
@@ -9,5 +9,11 @@ export const CHECKLIST_FAULT_TOLERANT = {
 }
 
 export function ChecklistFaultTolerant(props: DiagramNodeProps) {
-  return <Shape {...CHECKLIST_FAULT_TOLERANT} {...props} />
+  return (
+    <Shape
+      {...CHECKLIST_FAULT_TOLERANT}
+      {...props}
+      _style={extendStyle(CHECKLIST_FAULT_TOLERANT, props)}
+    />
+  )
 }

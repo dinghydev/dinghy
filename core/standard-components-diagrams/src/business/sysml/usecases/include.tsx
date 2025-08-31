@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INCLUDE = {
   _style: {
@@ -9,5 +9,7 @@ export const INCLUDE = {
 }
 
 export function Include(props: DiagramNodeProps) {
-  return <Dependency {...INCLUDE} {...props} />
+  return (
+    <Dependency {...INCLUDE} {...props} _style={extendStyle(INCLUDE, props)} />
+  )
 }

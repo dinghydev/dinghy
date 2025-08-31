@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RecoveryServicesVaults } from '@reactiac/standard-components-diagrams/caeMigrateService'
+import { RecoveryServicesVaults } from '@diac/standard-components-diagrams/caeMigrateService'
 
 <RecoveryServicesVaults/>
 ```

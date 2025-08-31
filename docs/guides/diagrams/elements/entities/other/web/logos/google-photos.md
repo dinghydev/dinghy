@@ -5,15 +5,15 @@
 ```
 {
   _style: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.google_photos',
-  _width: 87.2,
-  _height: 87.2,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { GooglePhotos } from '@reactiac/standard-components-diagrams/webLogos'
+import { GooglePhotos } from '@diac/standard-components-diagrams/webLogos'
 
 <GooglePhotos/>
 ```

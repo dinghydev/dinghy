@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOCAL_PRE_AND_POSTCONDITIONS = {
   _style:
@@ -9,5 +9,11 @@ export const LOCAL_PRE_AND_POSTCONDITIONS = {
 }
 
 export function LocalPreAndPostconditions(props: DiagramNodeProps) {
-  return <Shape {...LOCAL_PRE_AND_POSTCONDITIONS} {...props} />
+  return (
+    <Shape
+      {...LOCAL_PRE_AND_POSTCONDITIONS}
+      {...props}
+      _style={extendStyle(LOCAL_PRE_AND_POSTCONDITIONS, props)}
+    />
+  )
 }

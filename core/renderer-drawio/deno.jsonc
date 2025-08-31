@@ -1,5 +1,5 @@
 {
-  "name": "@reactiac/renderer-drawio",
+  "name": "@diac/renderer-drawio",
   "exports": {
     ".": "./src/index.ts"
   },

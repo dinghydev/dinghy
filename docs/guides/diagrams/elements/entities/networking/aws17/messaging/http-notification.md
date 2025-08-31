@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HttpNotification } from '@reactiac/standard-components-diagrams/aws17Messaging'
+import { HttpNotification } from '@diac/standard-components-diagrams/aws17Messaging'
 
 <HttpNotification/>
 ```

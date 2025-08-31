@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SQL_DATASYNC = {
   _style:
@@ -9,5 +9,11 @@ export const SQL_DATASYNC = {
 }
 
 export function SqlDatasync(props: DiagramNodeProps) {
-  return <Shape {...SQL_DATASYNC} {...props} />
+  return (
+    <Shape
+      {...SQL_DATASYNC}
+      {...props}
+      _style={extendStyle(SQL_DATASYNC, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTI_SELECT_WITH_AVATARS = {
   _style: 'rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;arcSize=1',
@@ -8,5 +8,11 @@ export const MULTI_SELECT_WITH_AVATARS = {
 }
 
 export function MultiSelectWithAvatars(props: DiagramNodeProps) {
-  return <Shape {...MULTI_SELECT_WITH_AVATARS} {...props} />
+  return (
+    <Shape
+      {...MULTI_SELECT_WITH_AVATARS}
+      {...props}
+      _style={extendStyle(MULTI_SELECT_WITH_AVATARS, props)}
+    />
+  )
 }

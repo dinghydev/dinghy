@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ipv6Gateway } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Ipv6Gateway } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Ipv6Gateway/>
 ```

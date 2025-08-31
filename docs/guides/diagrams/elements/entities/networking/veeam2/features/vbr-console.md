@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VbrConsole } from '@reactiac/standard-components-diagrams/veeam2Features'
+import { VbrConsole } from '@diac/standard-components-diagrams/veeam2Features'
 
 <VbrConsole/>
 ```

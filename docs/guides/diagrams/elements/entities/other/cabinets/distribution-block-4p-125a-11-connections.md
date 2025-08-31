@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DistributionBlock4p125a11Connections } from '@reactiac/standard-components-diagrams/cabinets'
+import { DistributionBlock4p125a11Connections } from '@diac/standard-components-diagrams/cabinets'
 
 <DistributionBlock4p125a11Connections/>
 ```

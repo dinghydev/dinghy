@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeadLetterChannel } from '@reactiac/standard-components-diagrams/eipMessagingChannels'
+import { DeadLetterChannel } from '@diac/standard-components-diagrams/eipMessagingChannels'
 
 <DeadLetterChannel/>
 ```

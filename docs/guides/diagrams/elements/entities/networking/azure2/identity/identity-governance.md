@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Identity_Governance.svg;strokeColor=none;',
-  _width: 64,
-  _height: 64,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { IdentityGovernance } from '@reactiac/standard-components-diagrams/azure2Identity'
+import { IdentityGovernance } from '@diac/standard-components-diagrams/azure2Identity'
 
 <IdentityGovernance/>
 ```

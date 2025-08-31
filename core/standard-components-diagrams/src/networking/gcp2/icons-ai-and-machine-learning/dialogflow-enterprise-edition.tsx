@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIALOGFLOW_ENTERPRISE_EDITION = {
   _style:
@@ -9,5 +9,11 @@ export const DIALOGFLOW_ENTERPRISE_EDITION = {
 }
 
 export function DialogflowEnterpriseEdition(props: DiagramNodeProps) {
-  return <Shape {...DIALOGFLOW_ENTERPRISE_EDITION} {...props} />
+  return (
+    <Shape
+      {...DIALOGFLOW_ENTERPRISE_EDITION}
+      {...props}
+      _style={extendStyle(DIALOGFLOW_ENTERPRISE_EDITION, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CreditCard } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { CreditCard } from '@diac/standard-components-diagrams/ios7Icons'
 
 <CreditCard/>
 ```

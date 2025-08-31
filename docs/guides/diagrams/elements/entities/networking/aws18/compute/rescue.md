@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Rescue } from '@reactiac/standard-components-diagrams/aws18Compute'
+import { Rescue } from '@diac/standard-components-diagrams/aws18Compute'
 
 <Rescue/>
 ```

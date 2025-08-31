@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CODEPIPELINE = {
   _style:
@@ -9,5 +9,11 @@ export const CODEPIPELINE = {
 }
 
 export function Codepipeline(props: DiagramNodeProps) {
-  return <Shape {...CODEPIPELINE} {...props} />
+  return (
+    <Shape
+      {...CODEPIPELINE}
+      {...props}
+      _style={extendStyle(CODEPIPELINE, props)}
+    />
+  )
 }

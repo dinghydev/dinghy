@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ebay } from '@reactiac/standard-components-diagrams/webIcons'
+import { Ebay } from '@diac/standard-components-diagrams/webIcons'
 
 <Ebay/>
 ```

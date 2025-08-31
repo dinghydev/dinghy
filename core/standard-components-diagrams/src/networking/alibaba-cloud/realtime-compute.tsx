@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REALTIME_COMPUTE = {
   _style:
@@ -9,5 +9,11 @@ export const REALTIME_COMPUTE = {
 }
 
 export function RealtimeCompute(props: DiagramNodeProps) {
-  return <Shape {...REALTIME_COMPUTE} {...props} />
+  return (
+    <Shape
+      {...REALTIME_COMPUTE}
+      {...props}
+      _style={extendStyle(REALTIME_COMPUTE, props)}
+    />
+  )
 }

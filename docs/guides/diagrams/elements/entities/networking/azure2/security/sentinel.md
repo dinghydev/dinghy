@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sentinel } from '@reactiac/standard-components-diagrams/azure2Security'
+import { Sentinel } from '@diac/standard-components-diagrams/azure2Security'
 
 <Sentinel/>
 ```

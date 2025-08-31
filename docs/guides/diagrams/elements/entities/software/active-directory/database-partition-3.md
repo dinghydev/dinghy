@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabasePartition3 } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { DatabasePartition3 } from '@diac/standard-components-diagrams/activeDirectory'
 
 <DatabasePartition3/>
 ```

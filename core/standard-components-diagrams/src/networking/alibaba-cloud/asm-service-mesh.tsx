@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASM_SERVICE_MESH = {
   _style:
@@ -9,5 +9,11 @@ export const ASM_SERVICE_MESH = {
 }
 
 export function AsmServiceMesh(props: DiagramNodeProps) {
-  return <Shape {...ASM_SERVICE_MESH} {...props} />
+  return (
+    <Shape
+      {...ASM_SERVICE_MESH}
+      {...props}
+      _style={extendStyle(ASM_SERVICE_MESH, props)}
+    />
+  )
 }

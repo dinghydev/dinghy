@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CELL_PHONE_ANDROID_PROPORTIONAL = {
   _style:
@@ -9,5 +9,11 @@ export const CELL_PHONE_ANDROID_PROPORTIONAL = {
 }
 
 export function CellPhoneAndroidProportional(props: DiagramNodeProps) {
-  return <Shape {...CELL_PHONE_ANDROID_PROPORTIONAL} {...props} />
+  return (
+    <Shape
+      {...CELL_PHONE_ANDROID_PROPORTIONAL}
+      {...props}
+      _style={extendStyle(CELL_PHONE_ANDROID_PROPORTIONAL, props)}
+    />
+  )
 }

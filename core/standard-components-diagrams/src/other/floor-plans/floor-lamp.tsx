@@ -1,13 +1,15 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLOOR_LAMP = {
   _style:
     'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.floor_lamp;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function FloorLamp(props: DiagramNodeProps) {
-  return <Shape {...FLOOR_LAMP} {...props} />
+  return (
+    <Shape {...FLOOR_LAMP} {...props} _style={extendStyle(FLOOR_LAMP, props)} />
+  )
 }

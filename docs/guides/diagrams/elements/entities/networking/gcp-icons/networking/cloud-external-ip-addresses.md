@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudExternalIpAddresses } from '@reactiac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudExternalIpAddresses } from '@diac/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudExternalIpAddresses/>
 ```

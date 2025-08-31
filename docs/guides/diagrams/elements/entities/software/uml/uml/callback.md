@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Callback } from '@reactiac/standard-components-diagrams/uml'
+import { Callback } from '@diac/standard-components-diagrams/uml'
 
 <Callback/>
 ```

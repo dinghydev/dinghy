@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDENT_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const INDENT_HIGHLIGHT = {
 }
 
 export function IndentHighlight(props: DiagramNodeProps) {
-  return <Shape {...INDENT_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...INDENT_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(INDENT_HIGHLIGHT, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONDITION = {
   _style:
@@ -9,5 +9,7 @@ export const CONDITION = {
 }
 
 export function Condition(props: DiagramNodeProps) {
-  return <Shape {...CONDITION} {...props} />
+  return (
+    <Shape {...CONDITION} {...props} _style={extendStyle(CONDITION, props)} />
+  )
 }

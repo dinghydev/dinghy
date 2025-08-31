@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HalfCircle } from '@reactiac/standard-components-diagrams/basic'
+import { HalfCircle } from '@diac/standard-components-diagrams/basic'
 
 <HalfCircle/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDANT = {
   _style:
@@ -9,5 +9,7 @@ export const CLOUDANT = {
 }
 
 export function Cloudant(props: DiagramNodeProps) {
-  return <Shape {...CLOUDANT} {...props} />
+  return (
+    <Shape {...CLOUDANT} {...props} _style={extendStyle(CLOUDANT, props)} />
+  )
 }

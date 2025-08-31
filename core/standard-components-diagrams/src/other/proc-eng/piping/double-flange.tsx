@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOUBLE_FLANGE = {
   _style:
@@ -9,5 +9,11 @@ export const DOUBLE_FLANGE = {
 }
 
 export function DoubleFlange(props: DiagramNodeProps) {
-  return <Shape {...DOUBLE_FLANGE} {...props} />
+  return (
+    <Shape
+      {...DOUBLE_FLANGE}
+      {...props}
+      _style={extendStyle(DOUBLE_FLANGE, props)}
+    />
+  )
 }

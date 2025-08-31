@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NURSE_MAN_BLACK = {
   _style:
     'image;html=1;image=img/lib/clip_art/people/Nurse_Man_Black_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 
 export function NurseManBlack(props: DiagramNodeProps) {
-  return <Shape {...NURSE_MAN_BLACK} {...props} />
+  return (
+    <Shape
+      {...NURSE_MAN_BLACK}
+      {...props}
+      _style={extendStyle(NURSE_MAN_BLACK, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BiggerSapBoxWithMultipleLayers } from '@reactiac/standard-components-diagrams/sapComponents'
+import { BiggerSapBoxWithMultipleLayers } from '@diac/standard-components-diagrams/sapComponents'
 
 <BiggerSapBoxWithMultipleLayers/>
 ```

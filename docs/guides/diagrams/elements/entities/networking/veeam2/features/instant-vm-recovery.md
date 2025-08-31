@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InstantVmRecovery } from '@reactiac/standard-components-diagrams/veeam2Features'
+import { InstantVmRecovery } from '@diac/standard-components-diagrams/veeam2Features'
 
 <InstantVmRecovery/>
 ```

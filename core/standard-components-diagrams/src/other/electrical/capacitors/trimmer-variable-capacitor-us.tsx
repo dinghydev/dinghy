@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRIMMER_VARIABLE_CAPACITOR_US = {
   _style:
@@ -9,5 +9,11 @@ export const TRIMMER_VARIABLE_CAPACITOR_US = {
 }
 
 export function TrimmerVariableCapacitorUs(props: DiagramNodeProps) {
-  return <Shape {...TRIMMER_VARIABLE_CAPACITOR_US} {...props} />
+  return (
+    <Shape
+      {...TRIMMER_VARIABLE_CAPACITOR_US}
+      {...props}
+      _style={extendStyle(TRIMMER_VARIABLE_CAPACITOR_US, props)}
+    />
+  )
 }

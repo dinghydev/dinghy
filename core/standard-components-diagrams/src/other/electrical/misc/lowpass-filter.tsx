@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOWPASS_FILTER = {
   _style:
@@ -9,5 +9,11 @@ export const LOWPASS_FILTER = {
 }
 
 export function LowpassFilter(props: DiagramNodeProps) {
-  return <Shape {...LOWPASS_FILTER} {...props} />
+  return (
+    <Shape
+      {...LOWPASS_FILTER}
+      {...props}
+      _style={extendStyle(LOWPASS_FILTER, props)}
+    />
+  )
 }

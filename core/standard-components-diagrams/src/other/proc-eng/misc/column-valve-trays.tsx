@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLUMN_VALVE_TRAYS = {
   _style:
@@ -9,5 +9,11 @@ export const COLUMN_VALVE_TRAYS = {
 }
 
 export function ColumnValveTrays(props: DiagramNodeProps) {
-  return <Shape {...COLUMN_VALVE_TRAYS} {...props} />
+  return (
+    <Shape
+      {...COLUMN_VALVE_TRAYS}
+      {...props}
+      _style={extendStyle(COLUMN_VALVE_TRAYS, props)}
+    />
+  )
 }

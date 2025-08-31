@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOCK_UNPROTECTED_BLUE = {
   _style:
@@ -9,5 +9,11 @@ export const LOCK_UNPROTECTED_BLUE = {
 }
 
 export function LockUnprotectedBlue(props: DiagramNodeProps) {
-  return <Shape {...LOCK_UNPROTECTED_BLUE} {...props} />
+  return (
+    <Shape
+      {...LOCK_UNPROTECTED_BLUE}
+      {...props}
+      _style={extendStyle(LOCK_UNPROTECTED_BLUE, props)}
+    />
+  )
 }

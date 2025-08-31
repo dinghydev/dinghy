@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { S3ObjectLambda } from '@reactiac/standard-components-diagrams/awsStorage'
+import { S3ObjectLambda } from '@diac/standard-components-diagrams/awsStorage'
 
 <S3ObjectLambda/>
 ```

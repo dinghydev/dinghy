@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOUBLE_ELLIPSE = {
   _style: 'ellipse;shape=doubleEllipse;whiteSpace=wrap;html=1;',
@@ -8,5 +8,11 @@ export const DOUBLE_ELLIPSE = {
 }
 
 export function DoubleEllipse(props: DiagramNodeProps) {
-  return <Shape {...DOUBLE_ELLIPSE} {...props} />
+  return (
+    <Shape
+      {...DOUBLE_ELLIPSE}
+      {...props}
+      _style={extendStyle(DOUBLE_ELLIPSE, props)}
+    />
+  )
 }

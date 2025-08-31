@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MacClient } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { MacClient } from '@diac/standard-components-diagrams/activeDirectory'
 
 <MacClient/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Piop } from '@reactiac/standard-components-diagrams/aws17Database'
+import { Piop } from '@diac/standard-components-diagrams/aws17Database'
 
 <Piop/>
 ```

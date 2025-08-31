@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BELT_SKIMMER = {
   _style:
@@ -9,5 +9,11 @@ export const BELT_SKIMMER = {
 }
 
 export function BeltSkimmer(props: DiagramNodeProps) {
-  return <Shape {...BELT_SKIMMER} {...props} />
+  return (
+    <Shape
+      {...BELT_SKIMMER}
+      {...props}
+      _style={extendStyle(BELT_SKIMMER, props)}
+    />
+  )
 }

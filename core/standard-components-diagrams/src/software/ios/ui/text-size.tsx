@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEXT_SIZE = {
   _style:
@@ -9,5 +9,7 @@ export const TEXT_SIZE = {
 }
 
 export function TextSize(props: DiagramNodeProps) {
-  return <Shape {...TEXT_SIZE} {...props} />
+  return (
+    <Shape {...TEXT_SIZE} {...props} _style={extendStyle(TEXT_SIZE, props)} />
+  )
 }

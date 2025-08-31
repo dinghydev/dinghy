@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SplitDomainUser } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { SplitDomainUser } from '@diac/standard-components-diagrams/officeSecurity'
 
 <SplitDomainUser/>
 ```

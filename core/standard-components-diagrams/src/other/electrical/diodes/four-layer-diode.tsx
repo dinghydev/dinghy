@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FOUR_LAYER_DIODE = {
   _style:
@@ -9,5 +9,11 @@ export const FOUR_LAYER_DIODE = {
 }
 
 export function FourLayerDiode(props: DiagramNodeProps) {
-  return <Shape {...FOUR_LAYER_DIODE} {...props} />
+  return (
+    <Shape
+      {...FOUR_LAYER_DIODE}
+      {...props}
+      _style={extendStyle(FOUR_LAYER_DIODE, props)}
+    />
+  )
 }

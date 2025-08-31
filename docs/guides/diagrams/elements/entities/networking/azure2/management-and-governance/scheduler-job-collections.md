@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SchedulerJobCollections } from '@reactiac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { SchedulerJobCollections } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <SchedulerJobCollections/>
 ```

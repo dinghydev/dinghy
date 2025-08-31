@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CardGroup } from '@reactiac/standard-components-diagrams/bootstrap'
+import { CardGroup } from '@diac/standard-components-diagrams/bootstrap'
 
 <CardGroup/>
 ```

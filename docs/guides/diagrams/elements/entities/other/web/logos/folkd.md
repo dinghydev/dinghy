@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Folkd } from '@reactiac/standard-components-diagrams/webLogos'
+import { Folkd } from '@diac/standard-components-diagrams/webLogos'
 
 <Folkd/>
 ```

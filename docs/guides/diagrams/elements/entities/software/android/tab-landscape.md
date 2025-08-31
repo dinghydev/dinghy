@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TabLandscape } from '@reactiac/standard-components-diagrams/android'
+import { TabLandscape } from '@diac/standard-components-diagrams/android'
 
 <TabLandscape/>
 ```

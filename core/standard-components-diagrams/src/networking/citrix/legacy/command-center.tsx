@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMMAND_CENTER = {
   _style:
@@ -9,5 +9,11 @@ export const COMMAND_CENTER = {
 }
 
 export function CommandCenter(props: DiagramNodeProps) {
-  return <Shape {...COMMAND_CENTER} {...props} />
+  return (
+    <Shape
+      {...COMMAND_CENTER}
+      {...props}
+      _style={extendStyle(COMMAND_CENTER, props)}
+    />
+  )
 }

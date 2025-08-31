@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WebsiteGeneric } from '@reactiac/standard-components-diagrams/azure'
+import { WebsiteGeneric } from '@diac/standard-components-diagrams/azure'
 
 <WebsiteGeneric/>
 ```

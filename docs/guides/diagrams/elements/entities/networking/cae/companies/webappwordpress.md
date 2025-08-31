@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Webappwordpress } from '@reactiac/standard-components-diagrams/caeCompanies'
+import { Webappwordpress } from '@diac/standard-components-diagrams/caeCompanies'
 
 <Webappwordpress/>
 ```

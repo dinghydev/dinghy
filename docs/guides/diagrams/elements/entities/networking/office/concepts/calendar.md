@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Calendar } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { Calendar } from '@diac/standard-components-diagrams/officeConcepts'
 
 <Calendar/>
 ```

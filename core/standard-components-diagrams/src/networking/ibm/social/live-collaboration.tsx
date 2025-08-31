@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIVE_COLLABORATION = {
   _style:
@@ -9,5 +9,11 @@ export const LIVE_COLLABORATION = {
 }
 
 export function LiveCollaboration(props: DiagramNodeProps) {
-  return <Shape {...LIVE_COLLABORATION} {...props} />
+  return (
+    <Shape
+      {...LIVE_COLLABORATION}
+      {...props}
+      _style={extendStyle(LIVE_COLLABORATION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHECKBOX_ON_DISABLED_LIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const CHECKBOX_ON_DISABLED_LIGHT = {
 }
 
 export function CheckboxOnDisabledLight(props: DiagramNodeProps) {
-  return <Shape {...CHECKBOX_ON_DISABLED_LIGHT} {...props} />
+  return (
+    <Shape
+      {...CHECKBOX_ON_DISABLED_LIGHT}
+      {...props}
+      _style={extendStyle(CHECKBOX_ON_DISABLED_LIGHT, props)}
+    />
+  )
 }

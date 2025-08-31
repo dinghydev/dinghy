@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NOT_IEC = {
   _style:
@@ -9,5 +9,5 @@ export const NOT_IEC = {
 }
 
 export function NotIec(props: DiagramNodeProps) {
-  return <Shape {...NOT_IEC} {...props} />
+  return <Shape {...NOT_IEC} {...props} _style={extendStyle(NOT_IEC, props)} />
 }

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;strokeColor=none;shape=rect;fillColor=#9933cc;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Color4 } from '@reactiac/standard-components-diagrams/android'
+import { Color4 } from '@diac/standard-components-diagrams/android'
 
 <Color4/>
 ```

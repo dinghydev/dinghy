@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VMWARE_HYPER_V_HOST = {
   _style:
@@ -9,5 +9,11 @@ export const VMWARE_HYPER_V_HOST = {
 }
 
 export function VmwareHyperVHost(props: DiagramNodeProps) {
-  return <Shape {...VMWARE_HYPER_V_HOST} {...props} />
+  return (
+    <Shape
+      {...VMWARE_HYPER_V_HOST}
+      {...props}
+      _style={extendStyle(VMWARE_HYPER_V_HOST, props)}
+    />
+  )
 }

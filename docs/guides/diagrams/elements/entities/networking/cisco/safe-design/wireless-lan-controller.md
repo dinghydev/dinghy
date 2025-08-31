@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WirelessLanController } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { WirelessLanController } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <WirelessLanController/>
 ```

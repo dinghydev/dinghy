@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StorageAccountsClassic } from '@reactiac/standard-components-diagrams/azure2Storage'
+import { StorageAccountsClassic } from '@diac/standard-components-diagrams/azure2Storage'
 
 <StorageAccountsClassic/>
 ```

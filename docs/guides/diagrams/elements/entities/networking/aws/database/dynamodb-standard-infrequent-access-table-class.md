@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DynamodbStandardInfrequentAccessTableClass } from '@reactiac/standard-components-diagrams/awsDatabase'
+import { DynamodbStandardInfrequentAccessTableClass } from '@diac/standard-components-diagrams/awsDatabase'
 
 <DynamodbStandardInfrequentAccessTableClass/>
 ```

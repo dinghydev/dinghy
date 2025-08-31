@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL = {
   _style:
@@ -9,5 +9,11 @@ export const INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL = {
 }
 
 export function IntegratedBlockAndBleedValveManual(props: DiagramNodeProps) {
-  return <Shape {...INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL} {...props} />
+  return (
+    <Shape
+      {...INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL}
+      {...props}
+      _style={extendStyle(INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL, props)}
+    />
+  )
 }

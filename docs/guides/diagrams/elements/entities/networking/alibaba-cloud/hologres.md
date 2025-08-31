@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Hologres } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Hologres } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Hologres/>
 ```

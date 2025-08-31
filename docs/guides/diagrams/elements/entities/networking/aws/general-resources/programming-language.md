@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProgrammingLanguage } from '@reactiac/standard-components-diagrams/awsGeneralResources'
+import { ProgrammingLanguage } from '@diac/standard-components-diagrams/awsGeneralResources'
 
 <ProgrammingLanguage/>
 ```

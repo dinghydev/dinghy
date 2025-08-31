@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_7_SEGMENT_DISPLAY_WITH_DP = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_7_SEGMENT_DISPLAY_WITH_DP = {
 }
 
 export function Component7SegmentDisplayWithDp(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_7_SEGMENT_DISPLAY_WITH_DP} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_7_SEGMENT_DISPLAY_WITH_DP}
+      {...props}
+      _style={extendStyle(COMPONENT_7_SEGMENT_DISPLAY_WITH_DP, props)}
+    />
+  )
 }

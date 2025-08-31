@@ -14,7 +14,7 @@ Network
 ## Usage
 
 ```
-import { CloudNetwork } from '@reactiac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudNetwork } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudNetwork/>
 ```

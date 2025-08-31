@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOBILE_STEP_TEXT = {
   _style: 'dashed=0;shape=rect;fillColor=#BDBDBD;strokeColor=none;',
@@ -8,5 +8,11 @@ export const MOBILE_STEP_TEXT = {
 }
 
 export function MobileStepText(props: DiagramNodeProps) {
-  return <Shape {...MOBILE_STEP_TEXT} {...props} />
+  return (
+    <Shape
+      {...MOBILE_STEP_TEXT}
+      {...props}
+      _style={extendStyle(MOBILE_STEP_TEXT, props)}
+    />
+  )
 }

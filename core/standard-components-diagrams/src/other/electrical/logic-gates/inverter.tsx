@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INVERTER = {
   _style:
@@ -9,5 +9,7 @@ export const INVERTER = {
 }
 
 export function Inverter(props: DiagramNodeProps) {
-  return <Shape {...INVERTER} {...props} />
+  return (
+    <Shape {...INVERTER} {...props} _style={extendStyle(INVERTER, props)} />
+  )
 }

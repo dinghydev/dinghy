@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureMediaServices } from '@reactiac/standard-components-diagrams/caeWebService'
+import { AzureMediaServices } from '@diac/standard-components-diagrams/caeWebService'
 
 <AzureMediaServices/>
 ```

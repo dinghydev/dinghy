@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KubernetesServices } from '@reactiac/standard-components-diagrams/azure2Containers'
+import { KubernetesServices } from '@diac/standard-components-diagrams/azure2Containers'
 
 <KubernetesServices/>
 ```

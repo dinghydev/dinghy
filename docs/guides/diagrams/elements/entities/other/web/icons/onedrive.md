@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Onedrive } from '@reactiac/standard-components-diagrams/webIcons'
+import { Onedrive } from '@diac/standard-components-diagrams/webIcons'
 
 <Onedrive/>
 ```

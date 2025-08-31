@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudDataflow } from '@reactiac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { CloudDataflow } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <CloudDataflow/>
 ```

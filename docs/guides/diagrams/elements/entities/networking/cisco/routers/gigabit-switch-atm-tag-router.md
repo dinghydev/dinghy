@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.cisco.routers.gigabit_switch_atm_tag_router;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
-  _width: 78,
-  _height: 78,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { GigabitSwitchAtmTagRouter } from '@reactiac/standard-components-diagrams/ciscoRouters'
+import { GigabitSwitchAtmTagRouter } from '@diac/standard-components-diagrams/ciscoRouters'
 
 <GigabitSwitchAtmTagRouter/>
 ```

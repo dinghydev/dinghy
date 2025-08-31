@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SYSTEM_SCOPE_BOUNDARY = {
   _style:
@@ -9,5 +9,11 @@ export const SYSTEM_SCOPE_BOUNDARY = {
 }
 
 export function SystemScopeBoundary(props: DiagramNodeProps) {
-  return <Shape {...SYSTEM_SCOPE_BOUNDARY} {...props} />
+  return (
+    <Shape
+      {...SYSTEM_SCOPE_BOUNDARY}
+      {...props}
+      _style={extendStyle(SYSTEM_SCOPE_BOUNDARY, props)}
+    />
+  )
 }

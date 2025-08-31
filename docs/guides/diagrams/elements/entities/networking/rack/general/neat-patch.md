@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NeatPatch } from '@reactiac/standard-components-diagrams/rackGeneral'
+import { NeatPatch } from '@diac/standard-components-diagrams/rackGeneral'
 
 <NeatPatch/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MERGE_NODE_3 = {
   _style:
@@ -9,5 +9,11 @@ export const MERGE_NODE_3 = {
 }
 
 export function MergeNode3(props: DiagramNodeProps) {
-  return <Shape {...MERGE_NODE_3} {...props} />
+  return (
+    <Shape
+      {...MERGE_NODE_3}
+      {...props}
+      _style={extendStyle(MERGE_NODE_3, props)}
+    />
+  )
 }

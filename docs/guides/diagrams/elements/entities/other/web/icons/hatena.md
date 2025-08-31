@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Hatena } from '@reactiac/standard-components-diagrams/webIcons'
+import { Hatena } from '@diac/standard-components-diagrams/webIcons'
 
 <Hatena/>
 ```

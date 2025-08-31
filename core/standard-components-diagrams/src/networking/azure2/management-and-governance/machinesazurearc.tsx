@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MACHINESAZUREARC = {
   _style:
@@ -9,5 +9,11 @@ export const MACHINESAZUREARC = {
 }
 
 export function Machinesazurearc(props: DiagramNodeProps) {
-  return <Shape {...MACHINESAZUREARC} {...props} />
+  return (
+    <Shape
+      {...MACHINESAZUREARC}
+      {...props}
+      _style={extendStyle(MACHINESAZUREARC, props)}
+    />
+  )
 }

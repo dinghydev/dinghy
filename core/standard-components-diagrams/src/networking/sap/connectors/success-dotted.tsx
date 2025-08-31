@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUCCESS_DOTTED = {
   _style:
@@ -9,5 +9,11 @@ export const SUCCESS_DOTTED = {
 }
 
 export function SuccessDotted(props: DiagramNodeProps) {
-  return <Shape {...SUCCESS_DOTTED} {...props} />
+  return (
+    <Shape
+      {...SUCCESS_DOTTED}
+      {...props}
+      _style={extendStyle(SUCCESS_DOTTED, props)}
+    />
+  )
 }

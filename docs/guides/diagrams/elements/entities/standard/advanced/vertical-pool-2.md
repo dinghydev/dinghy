@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VerticalPool2 } from '@reactiac/standard-components-diagrams/advanced'
+import { VerticalPool2 } from '@diac/standard-components-diagrams/advanced'
 
 <VerticalPool2/>
 ```

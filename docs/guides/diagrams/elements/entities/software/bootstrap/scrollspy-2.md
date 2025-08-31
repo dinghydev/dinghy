@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Scrollspy2 } from '@reactiac/standard-components-diagrams/bootstrap'
+import { Scrollspy2 } from '@diac/standard-components-diagrams/bootstrap'
 
 <Scrollspy2/>
 ```

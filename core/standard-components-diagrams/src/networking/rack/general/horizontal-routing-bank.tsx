@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_ROUTING_BANK = {
   _style:
@@ -9,5 +9,11 @@ export const HORIZONTAL_ROUTING_BANK = {
 }
 
 export function HorizontalRoutingBank(props: DiagramNodeProps) {
-  return <Shape {...HORIZONTAL_ROUTING_BANK} {...props} />
+  return (
+    <Shape
+      {...HORIZONTAL_ROUTING_BANK}
+      {...props}
+      _style={extendStyle(HORIZONTAL_ROUTING_BANK, props)}
+    />
+  )
 }

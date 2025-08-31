@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/telecommunication/Signal_tower_off_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { SignaltowerOff } from '@reactiac/standard-components-diagrams/clipartTelecommunication'
+import { SignaltowerOff } from '@diac/standard-components-diagrams/clipartTelecommunication'
 
 <SignaltowerOff/>
 ```

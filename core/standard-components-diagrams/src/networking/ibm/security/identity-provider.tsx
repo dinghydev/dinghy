@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IDENTITY_PROVIDER = {
   _style:
@@ -9,5 +9,11 @@ export const IDENTITY_PROVIDER = {
 }
 
 export function IdentityProvider(props: DiagramNodeProps) {
-  return <Shape {...IDENTITY_PROVIDER} {...props} />
+  return (
+    <Shape
+      {...IDENTITY_PROVIDER}
+      {...props}
+      _style={extendStyle(IDENTITY_PROVIDER, props)}
+    />
+  )
 }

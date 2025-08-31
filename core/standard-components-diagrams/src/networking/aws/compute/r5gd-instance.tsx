@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const R5GD_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const R5GD_INSTANCE = {
 }
 
 export function R5gdInstance(props: DiagramNodeProps) {
-  return <Shape {...R5GD_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...R5GD_INSTANCE}
+      {...props}
+      _style={extendStyle(R5GD_INSTANCE, props)}
+    />
+  )
 }

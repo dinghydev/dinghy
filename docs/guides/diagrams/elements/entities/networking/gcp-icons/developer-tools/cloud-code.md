@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudCode } from '@reactiac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { CloudCode } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <CloudCode/>
 ```

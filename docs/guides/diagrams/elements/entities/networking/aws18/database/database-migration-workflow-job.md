@@ -15,7 +15,7 @@ workflow/job
 ## Usage
 
 ```
-import { DatabaseMigrationWorkflowJob } from '@reactiac/standard-components-diagrams/aws18Database'
+import { DatabaseMigrationWorkflowJob } from '@diac/standard-components-diagrams/aws18Database'
 
 <DatabaseMigrationWorkflowJob/>
 ```

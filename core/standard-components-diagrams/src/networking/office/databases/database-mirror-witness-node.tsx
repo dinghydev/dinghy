@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATABASE_MIRROR_WITNESS_NODE = {
   _style:
@@ -9,5 +9,11 @@ export const DATABASE_MIRROR_WITNESS_NODE = {
 }
 
 export function DatabaseMirrorWitnessNode(props: DiagramNodeProps) {
-  return <Shape {...DATABASE_MIRROR_WITNESS_NODE} {...props} />
+  return (
+    <Shape
+      {...DATABASE_MIRROR_WITNESS_NODE}
+      {...props}
+      _style={extendStyle(DATABASE_MIRROR_WITNESS_NODE, props)}
+    />
+  )
 }

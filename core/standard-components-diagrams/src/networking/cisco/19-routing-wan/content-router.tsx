@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTENT_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const CONTENT_ROUTER = {
 }
 
 export function ContentRouter(props: DiagramNodeProps) {
-  return <Shape {...CONTENT_ROUTER} {...props} />
+  return (
+    <Shape
+      {...CONTENT_ROUTER}
+      {...props}
+      _style={extendStyle(CONTENT_ROUTER, props)}
+    />
+  )
 }

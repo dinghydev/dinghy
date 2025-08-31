@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTENT_TYPE = {
   _style:
@@ -9,5 +9,11 @@ export const CONTENT_TYPE = {
 }
 
 export function ContentType(props: DiagramNodeProps) {
-  return <Shape {...CONTENT_TYPE} {...props} />
+  return (
+    <Shape
+      {...CONTENT_TYPE}
+      {...props}
+      _style={extendStyle(CONTENT_TYPE, props)}
+    />
+  )
 }

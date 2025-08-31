@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FullMsIntegration } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { FullMsIntegration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <FullMsIntegration/>
 ```

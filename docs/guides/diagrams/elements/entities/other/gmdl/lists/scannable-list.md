@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScannableList } from '@reactiac/standard-components-diagrams/gmdlLists'
+import { ScannableList } from '@diac/standard-components-diagrams/gmdlLists'
 
 <ScannableList/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASSOCIATION = {
   _style: 'fontStyle=1;whiteSpace=wrap;html=1;',
@@ -8,5 +8,11 @@ export const ASSOCIATION = {
 }
 
 export function Association(props: DiagramNodeProps) {
-  return <Shape {...ASSOCIATION} {...props} />
+  return (
+    <Shape
+      {...ASSOCIATION}
+      {...props}
+      _style={extendStyle(ASSOCIATION, props)}
+    />
+  )
 }

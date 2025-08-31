@@ -14,7 +14,7 @@ Data Studio
 ## Usage
 
 ```
-import { GoogleDataStudio } from '@reactiac/standard-components-diagrams/gcp2IconsAnalytics'
+import { GoogleDataStudio } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
 
 <GoogleDataStudio/>
 ```

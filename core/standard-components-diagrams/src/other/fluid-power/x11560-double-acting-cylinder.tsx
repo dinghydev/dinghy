@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11560_DOUBLE_ACTING_CYLINDER = {
   _style:
@@ -9,5 +9,11 @@ export const X11560_DOUBLE_ACTING_CYLINDER = {
 }
 
 export function X11560DoubleActingCylinder(props: DiagramNodeProps) {
-  return <Shape {...X11560_DOUBLE_ACTING_CYLINDER} {...props} />
+  return (
+    <Shape
+      {...X11560_DOUBLE_ACTING_CYLINDER}
+      {...props}
+      _style={extendStyle(X11560_DOUBLE_ACTING_CYLINDER, props)}
+    />
+  )
 }

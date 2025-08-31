@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const APSARA_FILE_STORAGE_FOR_HDFS = {
   _style:
@@ -9,5 +9,11 @@ export const APSARA_FILE_STORAGE_FOR_HDFS = {
 }
 
 export function ApsaraFileStorageForHdfs(props: DiagramNodeProps) {
-  return <Shape {...APSARA_FILE_STORAGE_FOR_HDFS} {...props} />
+  return (
+    <Shape
+      {...APSARA_FILE_STORAGE_FOR_HDFS}
+      {...props}
+      _style={extendStyle(APSARA_FILE_STORAGE_FOR_HDFS, props)}
+    />
+  )
 }

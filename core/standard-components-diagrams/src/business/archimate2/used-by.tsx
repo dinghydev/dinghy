@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const USED_BY = {
   _style: {
@@ -9,5 +9,7 @@ export const USED_BY = {
 }
 
 export function UsedBy(props: DiagramNodeProps) {
-  return <Dependency {...USED_BY} {...props} />
+  return (
+    <Dependency {...USED_BY} {...props} _style={extendStyle(USED_BY, props)} />
+  )
 }

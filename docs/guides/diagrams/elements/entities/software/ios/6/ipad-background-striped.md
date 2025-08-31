@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IpadBackgroundStriped } from '@reactiac/standard-components-diagrams/ios6'
+import { IpadBackgroundStriped } from '@diac/standard-components-diagrams/ios6'
 
 <IpadBackgroundStriped/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CiscoSecurityManager } from '@reactiac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { CiscoSecurityManager } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <CiscoSecurityManager/>
 ```

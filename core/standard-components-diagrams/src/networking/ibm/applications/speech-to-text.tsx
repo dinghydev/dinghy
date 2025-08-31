@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPEECH_TO_TEXT = {
   _style:
@@ -9,5 +9,11 @@ export const SPEECH_TO_TEXT = {
 }
 
 export function SpeechToText(props: DiagramNodeProps) {
-  return <Shape {...SPEECH_TO_TEXT} {...props} />
+  return (
+    <Shape
+      {...SPEECH_TO_TEXT}
+      {...props}
+      _style={extendStyle(SPEECH_TO_TEXT, props)}
+    />
+  )
 }

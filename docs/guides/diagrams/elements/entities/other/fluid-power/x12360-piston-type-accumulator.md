@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X12360PistonTypeAccumulator } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X12360PistonTypeAccumulator } from '@diac/standard-components-diagrams/fluidPower'
 
 <X12360PistonTypeAccumulator/>
 ```

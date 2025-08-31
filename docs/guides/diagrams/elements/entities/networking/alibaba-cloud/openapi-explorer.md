@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OpenapiExplorer } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { OpenapiExplorer } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <OpenapiExplorer/>
 ```

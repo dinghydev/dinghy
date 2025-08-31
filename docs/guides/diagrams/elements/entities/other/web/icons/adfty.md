@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Adfty } from '@reactiac/standard-components-diagrams/webIcons'
+import { Adfty } from '@diac/standard-components-diagrams/webIcons'
 
 <Adfty/>
 ```

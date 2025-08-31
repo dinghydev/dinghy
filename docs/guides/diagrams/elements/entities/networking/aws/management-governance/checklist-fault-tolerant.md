@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChecklistFaultTolerant } from '@reactiac/standard-components-diagrams/awsManagementGovernance'
+import { ChecklistFaultTolerant } from '@diac/standard-components-diagrams/awsManagementGovernance'
 
 <ChecklistFaultTolerant/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SprayNozzle } from '@reactiac/standard-components-diagrams/procEngFeeders'
+import { SprayNozzle } from '@diac/standard-components-diagrams/procEngFeeders'
 
 <SprayNozzle/>
 ```

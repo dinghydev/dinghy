@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pound } from '@reactiac/standard-components-diagrams/signsTravel'
+import { Pound } from '@diac/standard-components-diagrams/signsTravel'
 
 <Pound/>
 ```

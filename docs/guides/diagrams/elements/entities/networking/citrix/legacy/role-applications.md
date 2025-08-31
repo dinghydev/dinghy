@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RoleApplications } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { RoleApplications } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <RoleApplications/>
 ```

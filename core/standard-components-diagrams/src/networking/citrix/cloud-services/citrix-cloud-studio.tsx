@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CITRIX_CLOUD_STUDIO = {
   _style:
@@ -9,5 +9,11 @@ export const CITRIX_CLOUD_STUDIO = {
 }
 
 export function CitrixCloudStudio(props: DiagramNodeProps) {
-  return <Shape {...CITRIX_CLOUD_STUDIO} {...props} />
+  return (
+    <Shape
+      {...CITRIX_CLOUD_STUDIO}
+      {...props}
+      _style={extendStyle(CITRIX_CLOUD_STUDIO, props)}
+    />
+  )
 }

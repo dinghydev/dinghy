@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Gateway } from '@reactiac/standard-components-diagrams/gcp2ServiceCards'
+import { Gateway } from '@diac/standard-components-diagrams/gcp2ServiceCards'
 
 <Gateway/>
 ```

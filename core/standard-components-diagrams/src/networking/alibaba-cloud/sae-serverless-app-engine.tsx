@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAE_SERVERLESS_APP_ENGINE = {
   _style:
@@ -9,5 +9,11 @@ export const SAE_SERVERLESS_APP_ENGINE = {
 }
 
 export function SaeServerlessAppEngine(props: DiagramNodeProps) {
-  return <Shape {...SAE_SERVERLESS_APP_ENGINE} {...props} />
+  return (
+    <Shape
+      {...SAE_SERVERLESS_APP_ENGINE}
+      {...props}
+      _style={extendStyle(SAE_SERVERLESS_APP_ENGINE, props)}
+    />
+  )
 }

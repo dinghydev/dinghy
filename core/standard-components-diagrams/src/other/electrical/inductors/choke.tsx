@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHOKE = {
   _style:
@@ -9,5 +9,5 @@ export const CHOKE = {
 }
 
 export function Choke(props: DiagramNodeProps) {
-  return <Shape {...CHOKE} {...props} />
+  return <Shape {...CHOKE} {...props} _style={extendStyle(CHOKE, props)} />
 }

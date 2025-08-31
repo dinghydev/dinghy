@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPERATIONS_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const OPERATIONS_MANAGER = {
 }
 
 export function OperationsManager(props: DiagramNodeProps) {
-  return <Shape {...OPERATIONS_MANAGER} {...props} />
+  return (
+    <Shape
+      {...OPERATIONS_MANAGER}
+      {...props}
+      _style={extendStyle(OPERATIONS_MANAGER, props)}
+    />
+  )
 }

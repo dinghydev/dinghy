@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADDRESS_PURIFICATION = {
   _style:
@@ -9,5 +9,11 @@ export const ADDRESS_PURIFICATION = {
 }
 
 export function AddressPurification(props: DiagramNodeProps) {
-  return <Shape {...ADDRESS_PURIFICATION} {...props} />
+  return (
+    <Shape
+      {...ADDRESS_PURIFICATION}
+      {...props}
+      _style={extendStyle(ADDRESS_PURIFICATION, props)}
+    />
+  )
 }

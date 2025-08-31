@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMPLIFY_STUDIO = {
   _style:
@@ -9,5 +9,11 @@ export const AMPLIFY_STUDIO = {
 }
 
 export function AmplifyStudio(props: DiagramNodeProps) {
-  return <Shape {...AMPLIFY_STUDIO} {...props} />
+  return (
+    <Shape
+      {...AMPLIFY_STUDIO}
+      {...props}
+      _style={extendStyle(AMPLIFY_STUDIO, props)}
+    />
+  )
 }

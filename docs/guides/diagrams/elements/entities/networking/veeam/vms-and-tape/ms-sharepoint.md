@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MsSharepoint } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { MsSharepoint } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <MsSharepoint/>
 ```

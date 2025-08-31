@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11950_TIME_CONTROLLER = {
   _style:
@@ -9,5 +9,11 @@ export const X11950_TIME_CONTROLLER = {
 }
 
 export function X11950TimeController(props: DiagramNodeProps) {
-  return <Shape {...X11950_TIME_CONTROLLER} {...props} />
+  return (
+    <Shape
+      {...X11950_TIME_CONTROLLER}
+      {...props}
+      _style={extendStyle(X11950_TIME_CONTROLLER, props)}
+    />
+  )
 }

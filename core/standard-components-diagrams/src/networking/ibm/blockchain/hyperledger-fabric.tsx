@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HYPERLEDGER_FABRIC = {
   _style:
@@ -9,5 +9,11 @@ export const HYPERLEDGER_FABRIC = {
 }
 
 export function HyperledgerFabric(props: DiagramNodeProps) {
-  return <Shape {...HYPERLEDGER_FABRIC} {...props} />
+  return (
+    <Shape
+      {...HYPERLEDGER_FABRIC}
+      {...props}
+      _style={extendStyle(HYPERLEDGER_FABRIC, props)}
+    />
+  )
 }

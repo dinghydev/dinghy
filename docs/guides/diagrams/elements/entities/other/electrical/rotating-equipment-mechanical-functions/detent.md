@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Detent } from '@reactiac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { Detent } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <Detent/>
 ```

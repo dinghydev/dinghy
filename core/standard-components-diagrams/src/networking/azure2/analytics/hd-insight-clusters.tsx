@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HD_INSIGHT_CLUSTERS = {
   _style:
@@ -9,5 +9,11 @@ export const HD_INSIGHT_CLUSTERS = {
 }
 
 export function HdInsightClusters(props: DiagramNodeProps) {
-  return <Shape {...HD_INSIGHT_CLUSTERS} {...props} />
+  return (
+    <Shape
+      {...HD_INSIGHT_CLUSTERS}
+      {...props}
+      _style={extendStyle(HD_INSIGHT_CLUSTERS, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const S3_MULTI_REGION_ACCESS_POINTS = {
   _style:
@@ -9,5 +9,11 @@ export const S3_MULTI_REGION_ACCESS_POINTS = {
 }
 
 export function S3MultiRegionAccessPoints(props: DiagramNodeProps) {
-  return <Shape {...S3_MULTI_REGION_ACCESS_POINTS} {...props} />
+  return (
+    <Shape
+      {...S3_MULTI_REGION_ACCESS_POINTS}
+      {...props}
+      _style={extendStyle(S3_MULTI_REGION_ACCESS_POINTS, props)}
+    />
+  )
 }

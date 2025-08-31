@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLOBAL_ADDRESS_LIST = {
   _style:
@@ -9,5 +9,11 @@ export const GLOBAL_ADDRESS_LIST = {
 }
 
 export function GlobalAddressList(props: DiagramNodeProps) {
-  return <Shape {...GLOBAL_ADDRESS_LIST} {...props} />
+  return (
+    <Shape
+      {...GLOBAL_ADDRESS_LIST}
+      {...props}
+      _style={extendStyle(GLOBAL_ADDRESS_LIST, props)}
+    />
+  )
 }

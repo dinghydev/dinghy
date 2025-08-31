@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BiDirectionalAssociation } from '@reactiac/standard-components-diagrams/bpmn2General'
+import { BiDirectionalAssociation } from '@diac/standard-components-diagrams/bpmn2General'
 
 <BiDirectionalAssociation/>
 ```

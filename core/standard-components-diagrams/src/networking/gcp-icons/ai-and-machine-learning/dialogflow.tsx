@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIALOGFLOW = {
   _style:
@@ -9,5 +9,7 @@ export const DIALOGFLOW = {
 }
 
 export function Dialogflow(props: DiagramNodeProps) {
-  return <Shape {...DIALOGFLOW} {...props} />
+  return (
+    <Shape {...DIALOGFLOW} {...props} _style={extendStyle(DIALOGFLOW, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Webappumbraco } from '@reactiac/standard-components-diagrams/caeCompanies'
+import { Webappumbraco } from '@diac/standard-components-diagrams/caeCompanies'
 
 <Webappumbraco/>
 ```

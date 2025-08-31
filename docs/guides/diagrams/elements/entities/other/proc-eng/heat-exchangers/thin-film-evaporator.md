@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ThinFilmEvaporator } from '@reactiac/standard-components-diagrams/procEngHeatExchangers'
+import { ThinFilmEvaporator } from '@diac/standard-components-diagrams/procEngHeatExchangers'
 
 <ThinFilmEvaporator/>
 ```

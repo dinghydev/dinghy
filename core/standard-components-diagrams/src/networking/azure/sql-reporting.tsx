@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SQL_REPORTING = {
   _style:
@@ -9,5 +9,11 @@ export const SQL_REPORTING = {
 }
 
 export function SqlReporting(props: DiagramNodeProps) {
-  return <Shape {...SQL_REPORTING} {...props} />
+  return (
+    <Shape
+      {...SQL_REPORTING}
+      {...props}
+      _style={extendStyle(SQL_REPORTING, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEVICE_UPDATE_IOT_HUB = {
   _style:
@@ -9,5 +9,11 @@ export const DEVICE_UPDATE_IOT_HUB = {
 }
 
 export function DeviceUpdateIotHub(props: DiagramNodeProps) {
-  return <Shape {...DEVICE_UPDATE_IOT_HUB} {...props} />
+  return (
+    <Shape
+      {...DEVICE_UPDATE_IOT_HUB}
+      {...props}
+      _style={extendStyle(DEVICE_UPDATE_IOT_HUB, props)}
+    />
+  )
 }

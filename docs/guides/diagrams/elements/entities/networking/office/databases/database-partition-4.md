@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatabasePartition4 } from '@reactiac/standard-components-diagrams/officeDatabases'
+import { DatabasePartition4 } from '@diac/standard-components-diagrams/officeDatabases'
 
 <DatabasePartition4/>
 ```

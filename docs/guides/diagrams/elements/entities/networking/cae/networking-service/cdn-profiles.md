@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CdnProfiles } from '@reactiac/standard-components-diagrams/caeNetworkingService'
+import { CdnProfiles } from '@diac/standard-components-diagrams/caeNetworkingService'
 
 <CdnProfiles/>
 ```

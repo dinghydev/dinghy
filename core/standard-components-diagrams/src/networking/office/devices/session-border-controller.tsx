@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SESSION_BORDER_CONTROLLER = {
   _style:
@@ -9,5 +9,11 @@ export const SESSION_BORDER_CONTROLLER = {
 }
 
 export function SessionBorderController(props: DiagramNodeProps) {
-  return <Shape {...SESSION_BORDER_CONTROLLER} {...props} />
+  return (
+    <Shape
+      {...SESSION_BORDER_CONTROLLER}
+      {...props}
+      _style={extendStyle(SESSION_BORDER_CONTROLLER, props)}
+    />
+  )
 }

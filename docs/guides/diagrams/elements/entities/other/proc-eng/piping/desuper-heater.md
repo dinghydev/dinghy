@@ -5,15 +5,15 @@
 ```
 {
   _style: 'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.piping.desuper_heater;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { DesuperHeater } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { DesuperHeater } from '@diac/standard-components-diagrams/procEngPiping'
 
 <DesuperHeater/>
 ```

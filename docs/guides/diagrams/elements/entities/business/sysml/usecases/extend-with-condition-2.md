@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExtendWithCondition2 } from '@reactiac/standard-components-diagrams/sysmlUsecases'
+import { ExtendWithCondition2 } from '@diac/standard-components-diagrams/sysmlUsecases'
 
 <ExtendWithCondition2/>
 ```

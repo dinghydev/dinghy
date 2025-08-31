@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUTTON_DARK = {
   _style:
@@ -9,5 +9,11 @@ export const BUTTON_DARK = {
 }
 
 export function ButtonDark(props: DiagramNodeProps) {
-  return <Shape {...BUTTON_DARK} {...props} />
+  return (
+    <Shape
+      {...BUTTON_DARK}
+      {...props}
+      _style={extendStyle(BUTTON_DARK, props)}
+    />
+  )
 }

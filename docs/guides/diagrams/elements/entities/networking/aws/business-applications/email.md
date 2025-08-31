@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Email } from '@reactiac/standard-components-diagrams/awsBusinessApplications'
+import { Email } from '@diac/standard-components-diagrams/awsBusinessApplications'
 
 <Email/>
 ```

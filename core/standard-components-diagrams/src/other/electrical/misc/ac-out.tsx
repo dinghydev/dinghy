@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AC_OUT = {
   _style:
@@ -9,5 +9,5 @@ export const AC_OUT = {
 }
 
 export function AcOut(props: DiagramNodeProps) {
-  return <Shape {...AC_OUT} {...props} />
+  return <Shape {...AC_OUT} {...props} _style={extendStyle(AC_OUT, props)} />
 }

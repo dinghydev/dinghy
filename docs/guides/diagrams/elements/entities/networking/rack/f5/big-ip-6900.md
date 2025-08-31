@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BigIp6900 } from '@reactiac/standard-components-diagrams/rackF5'
+import { BigIp6900 } from '@diac/standard-components-diagrams/rackF5'
 
 <BigIp6900/>
 ```

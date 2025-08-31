@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_DEEP_LEARNING_AMIS = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_DEEP_LEARNING_AMIS = {
 }
 
 export function AwsDeepLearningAmis(props: DiagramNodeProps) {
-  return <Shape {...AWS_DEEP_LEARNING_AMIS} {...props} />
+  return (
+    <Shape
+      {...AWS_DEEP_LEARNING_AMIS}
+      {...props}
+      _style={extendStyle(AWS_DEEP_LEARNING_AMIS, props)}
+    />
+  )
 }

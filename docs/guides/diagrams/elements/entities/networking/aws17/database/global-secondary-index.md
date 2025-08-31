@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GlobalSecondaryIndex } from '@reactiac/standard-components-diagrams/aws17Database'
+import { GlobalSecondaryIndex } from '@diac/standard-components-diagrams/aws17Database'
 
 <GlobalSecondaryIndex/>
 ```

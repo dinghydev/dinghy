@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOICE_MAIL_PREVIEW = {
   _style:
@@ -9,5 +9,11 @@ export const VOICE_MAIL_PREVIEW = {
 }
 
 export function VoiceMailPreview(props: DiagramNodeProps) {
-  return <Shape {...VOICE_MAIL_PREVIEW} {...props} />
+  return (
+    <Shape
+      {...VOICE_MAIL_PREVIEW}
+      {...props}
+      _style={extendStyle(VOICE_MAIL_PREVIEW, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EYE_WASH = {
   _style:
@@ -9,5 +9,7 @@ export const EYE_WASH = {
 }
 
 export function EyeWash(props: DiagramNodeProps) {
-  return <Shape {...EYE_WASH} {...props} />
+  return (
+    <Shape {...EYE_WASH} {...props} _style={extendStyle(EYE_WASH, props)} />
+  )
 }

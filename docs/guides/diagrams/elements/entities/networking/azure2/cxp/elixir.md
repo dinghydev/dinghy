@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Elixir } from '@reactiac/standard-components-diagrams/azure2Cxp'
+import { Elixir } from '@diac/standard-components-diagrams/azure2Cxp'
 
 <Elixir/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Aggregator } from '@reactiac/standard-components-diagrams/eipMessageRouting'
+import { Aggregator } from '@diac/standard-components-diagrams/eipMessageRouting'
 
 <Aggregator/>
 ```

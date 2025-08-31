@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const THREAT_ACTOR_LABEL = {
   _style:
@@ -9,5 +9,11 @@ export const THREAT_ACTOR_LABEL = {
 }
 
 export function ThreatActorLabel(props: DiagramNodeProps) {
-  return <Shape {...THREAT_ACTOR_LABEL} {...props} />
+  return (
+    <Shape
+      {...THREAT_ACTOR_LABEL}
+      {...props}
+      _style={extendStyle(THREAT_ACTOR_LABEL, props)}
+    />
+  )
 }

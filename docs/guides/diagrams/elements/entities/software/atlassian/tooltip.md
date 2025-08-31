@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Tooltip } from '@reactiac/standard-components-diagrams/atlassian'
+import { Tooltip } from '@diac/standard-components-diagrams/atlassian'
 
 <Tooltip/>
 ```

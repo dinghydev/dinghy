@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApplicationLoadBalancer } from '@reactiac/standard-components-diagrams/aws17Compute'
+import { ApplicationLoadBalancer } from '@diac/standard-components-diagrams/aws17Compute'
 
 <ApplicationLoadBalancer/>
 ```

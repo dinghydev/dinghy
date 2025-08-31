@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASSOCIATIVE_ENTITY = {
   _style: 'shape=associativeEntity;whiteSpace=wrap;html=1;align=center;',
@@ -8,5 +8,11 @@ export const ASSOCIATIVE_ENTITY = {
 }
 
 export function AssociativeEntity(props: DiagramNodeProps) {
-  return <Shape {...ASSOCIATIVE_ENTITY} {...props} />
+  return (
+    <Shape
+      {...ASSOCIATIVE_ENTITY}
+      {...props}
+      _style={extendStyle(ASSOCIATIVE_ENTITY, props)}
+    />
+  )
 }

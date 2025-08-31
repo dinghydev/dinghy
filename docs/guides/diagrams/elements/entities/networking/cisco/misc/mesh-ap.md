@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MeshAp } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { MeshAp } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <MeshAp/>
 ```

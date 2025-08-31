@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Kms } from '@reactiac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { Kms } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <Kms/>
 ```

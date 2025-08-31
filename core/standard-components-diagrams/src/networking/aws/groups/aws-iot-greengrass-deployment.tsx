@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_IOT_GREENGRASS_DEPLOYMENT = {
   _style: {
@@ -13,5 +13,11 @@ export const AWS_IOT_GREENGRASS_DEPLOYMENT = {
 }
 
 export function AwsIotGreengrassDeployment(props: DiagramNodeProps) {
-  return <Shape {...AWS_IOT_GREENGRASS_DEPLOYMENT} {...props} />
+  return (
+    <Shape
+      {...AWS_IOT_GREENGRASS_DEPLOYMENT}
+      {...props}
+      _style={extendStyle(AWS_IOT_GREENGRASS_DEPLOYMENT, props)}
+    />
+  )
 }

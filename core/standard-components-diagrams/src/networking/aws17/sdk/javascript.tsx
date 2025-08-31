@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JAVASCRIPT = {
   _style:
@@ -9,5 +9,7 @@ export const JAVASCRIPT = {
 }
 
 export function Javascript(props: DiagramNodeProps) {
-  return <Shape {...JAVASCRIPT} {...props} />
+  return (
+    <Shape {...JAVASCRIPT} {...props} _style={extendStyle(JAVASCRIPT, props)} />
+  )
 }

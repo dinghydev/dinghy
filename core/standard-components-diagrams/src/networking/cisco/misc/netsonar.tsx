@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETSONAR = {
   _style:
@@ -9,5 +9,7 @@ export const NETSONAR = {
 }
 
 export function Netsonar(props: DiagramNodeProps) {
-  return <Shape {...NETSONAR} {...props} />
+  return (
+    <Shape {...NETSONAR} {...props} _style={extendStyle(NETSONAR, props)} />
+  )
 }

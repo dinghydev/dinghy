@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNSPECIFIED = {
   _style: {
@@ -8,5 +8,11 @@ export const UNSPECIFIED = {
 }
 
 export function Unspecified(props: DiagramNodeProps) {
-  return <Dependency {...UNSPECIFIED} {...props} />
+  return (
+    <Dependency
+      {...UNSPECIFIED}
+      {...props}
+      _style={extendStyle(UNSPECIFIED, props)}
+    />
+  )
 }

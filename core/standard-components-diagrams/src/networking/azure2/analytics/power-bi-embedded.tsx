@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POWER_BI_EMBEDDED = {
   _style:
@@ -9,5 +9,11 @@ export const POWER_BI_EMBEDDED = {
 }
 
 export function PowerBiEmbedded(props: DiagramNodeProps) {
-  return <Shape {...POWER_BI_EMBEDDED} {...props} />
+  return (
+    <Shape
+      {...POWER_BI_EMBEDDED}
+      {...props}
+      _style={extendStyle(POWER_BI_EMBEDDED, props)}
+    />
+  )
 }

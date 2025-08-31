@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dialogflow } from '@reactiac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { Dialogflow } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <Dialogflow/>
 ```

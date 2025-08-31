@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RoundedRectangle } from '@reactiac/standard-components-diagrams/general'
+import { RoundedRectangle } from '@diac/standard-components-diagrams/general'
 
 <RoundedRectangle/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OnDemandSandbox } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { OnDemandSandbox } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <OnDemandSandbox/>
 ```

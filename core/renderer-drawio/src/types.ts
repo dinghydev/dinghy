@@ -3,7 +3,7 @@ import type {
   DiagramNodeProps,
   NodeTree,
   Props,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 import z from 'zod'
 
 export type DrawioRenderOptions = {

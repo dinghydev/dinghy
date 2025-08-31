@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORKSPACE_ENVIRONMENT_MANAGEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const WORKSPACE_ENVIRONMENT_MANAGEMENT = {
 }
 
 export function WorkspaceEnvironmentManagement(props: DiagramNodeProps) {
-  return <Shape {...WORKSPACE_ENVIRONMENT_MANAGEMENT} {...props} />
+  return (
+    <Shape
+      {...WORKSPACE_ENVIRONMENT_MANAGEMENT}
+      {...props}
+      _style={extendStyle(WORKSPACE_ENVIRONMENT_MANAGEMENT, props)}
+    />
+  )
 }

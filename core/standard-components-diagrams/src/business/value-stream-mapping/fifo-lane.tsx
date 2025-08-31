@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIFO_LANE = {
   _style:
@@ -9,5 +9,7 @@ export const FIFO_LANE = {
 }
 
 export function FifoLane(props: DiagramNodeProps) {
-  return <Shape {...FIFO_LANE} {...props} />
+  return (
+    <Shape {...FIFO_LANE} {...props} _style={extendStyle(FIFO_LANE, props)} />
+  )
 }

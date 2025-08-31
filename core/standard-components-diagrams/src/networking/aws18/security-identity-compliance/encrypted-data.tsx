@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENCRYPTED_DATA = {
   _style:
@@ -9,5 +9,11 @@ export const ENCRYPTED_DATA = {
 }
 
 export function EncryptedData(props: DiagramNodeProps) {
-  return <Shape {...ENCRYPTED_DATA} {...props} />
+  return (
+    <Shape
+      {...ENCRYPTED_DATA}
+      {...props}
+      _style={extendStyle(ENCRYPTED_DATA, props)}
+    />
+  )
 }

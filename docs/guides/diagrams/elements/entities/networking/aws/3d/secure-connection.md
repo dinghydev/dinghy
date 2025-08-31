@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SecureConnection } from '@reactiac/standard-components-diagrams/aws3d'
+import { SecureConnection } from '@diac/standard-components-diagrams/aws3d'
 
 <SecureConnection/>
 ```

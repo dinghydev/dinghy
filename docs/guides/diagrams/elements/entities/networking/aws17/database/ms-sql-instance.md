@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MsSqlInstance } from '@reactiac/standard-components-diagrams/aws17Database'
+import { MsSqlInstance } from '@diac/standard-components-diagrams/aws17Database'
 
 <MsSqlInstance/>
 ```

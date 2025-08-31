@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TransportRule } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { TransportRule } from '@diac/standard-components-diagrams/officeCommunications'
 
 <TransportRule/>
 ```

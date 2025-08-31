@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CableGroup } from '@reactiac/standard-components-diagrams/electricalTransmissionPaths'
+import { CableGroup } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
 
 <CableGroup/>
 ```

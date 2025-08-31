@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOG_STREAMING = {
   _style:
@@ -9,5 +9,11 @@ export const LOG_STREAMING = {
 }
 
 export function LogStreaming(props: DiagramNodeProps) {
-  return <Shape {...LOG_STREAMING} {...props} />
+  return (
+    <Shape
+      {...LOG_STREAMING}
+      {...props}
+      _style={extendStyle(LOG_STREAMING, props)}
+    />
+  )
 }

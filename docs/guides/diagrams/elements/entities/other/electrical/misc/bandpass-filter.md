@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BandpassFilter } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { BandpassFilter } from '@diac/standard-components-diagrams/electricalMisc'
 
 <BandpassFilter/>
 ```

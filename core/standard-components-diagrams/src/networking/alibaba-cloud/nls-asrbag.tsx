@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLS_ASRBAG = {
   _style:
@@ -9,5 +9,7 @@ export const NLS_ASRBAG = {
 }
 
 export function NlsAsrbag(props: DiagramNodeProps) {
-  return <Shape {...NLS_ASRBAG} {...props} />
+  return (
+    <Shape {...NLS_ASRBAG} {...props} _style={extendStyle(NLS_ASRBAG, props)} />
+  )
 }

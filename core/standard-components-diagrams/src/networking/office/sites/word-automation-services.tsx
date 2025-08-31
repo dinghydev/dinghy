@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORD_AUTOMATION_SERVICES = {
   _style:
@@ -9,5 +9,11 @@ export const WORD_AUTOMATION_SERVICES = {
 }
 
 export function WordAutomationServices(props: DiagramNodeProps) {
-  return <Shape {...WORD_AUTOMATION_SERVICES} {...props} />
+  return (
+    <Shape
+      {...WORD_AUTOMATION_SERVICES}
+      {...props}
+      _style={extendStyle(WORD_AUTOMATION_SERVICES, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_CONNECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_CONNECTOR = {
 }
 
 export function CloudConnector(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_CONNECTOR} {...props} />
+  return (
+    <Shape
+      {...CLOUD_CONNECTOR}
+      {...props}
+      _style={extendStyle(CLOUD_CONNECTOR, props)}
+    />
+  )
 }

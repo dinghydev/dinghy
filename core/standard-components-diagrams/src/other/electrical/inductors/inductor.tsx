@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDUCTOR = {
   _style:
@@ -9,5 +9,7 @@ export const INDUCTOR = {
 }
 
 export function Inductor(props: DiagramNodeProps) {
-  return <Shape {...INDUCTOR} {...props} />
+  return (
+    <Shape {...INDUCTOR} {...props} _style={extendStyle(INDUCTOR, props)} />
+  )
 }

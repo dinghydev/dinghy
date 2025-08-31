@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VoltageRegulator } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { VoltageRegulator } from '@diac/standard-components-diagrams/electricalMisc'
 
 <VoltageRegulator/>
 ```

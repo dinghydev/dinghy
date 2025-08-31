@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PIX_FIREWALL = {
   _style:
@@ -9,5 +9,11 @@ export const PIX_FIREWALL = {
 }
 
 export function PixFirewall(props: DiagramNodeProps) {
-  return <Shape {...PIX_FIREWALL} {...props} />
+  return (
+    <Shape
+      {...PIX_FIREWALL}
+      {...props}
+      _style={extendStyle(PIX_FIREWALL, props)}
+    />
+  )
 }

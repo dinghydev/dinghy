@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PopoverOnTop } from '@reactiac/standard-components-diagrams/bootstrap'
+import { PopoverOnTop } from '@diac/standard-components-diagrams/bootstrap'
 
 <PopoverOnTop/>
 ```

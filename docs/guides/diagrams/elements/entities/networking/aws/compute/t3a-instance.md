@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { T3aInstance } from '@reactiac/standard-components-diagrams/awsCompute'
+import { T3aInstance } from '@diac/standard-components-diagrams/awsCompute'
 
 <T3aInstance/>
 ```

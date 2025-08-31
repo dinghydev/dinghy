@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CATALYST_SWITCH_STACK = {
   _style:
@@ -9,5 +9,11 @@ export const CATALYST_SWITCH_STACK = {
 }
 
 export function CatalystSwitchStack(props: DiagramNodeProps) {
-  return <Shape {...CATALYST_SWITCH_STACK} {...props} />
+  return (
+    <Shape
+      {...CATALYST_SWITCH_STACK}
+      {...props}
+      _style={extendStyle(CATALYST_SWITCH_STACK, props)}
+    />
+  )
 }

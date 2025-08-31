@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DataLake } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { DataLake } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <DataLake/>
 ```

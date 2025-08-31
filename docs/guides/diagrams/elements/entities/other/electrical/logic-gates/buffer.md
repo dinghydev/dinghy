@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Buffer } from '@reactiac/standard-components-diagrams/electricalLogicGates'
+import { Buffer } from '@diac/standard-components-diagrams/electricalLogicGates'
 
 <Buffer/>
 ```

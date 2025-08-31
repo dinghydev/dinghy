@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REDSHIFT_STREAMING_INGESTION = {
   _style:
@@ -9,5 +9,11 @@ export const REDSHIFT_STREAMING_INGESTION = {
 }
 
 export function RedshiftStreamingIngestion(props: DiagramNodeProps) {
-  return <Shape {...REDSHIFT_STREAMING_INGESTION} {...props} />
+  return (
+    <Shape
+      {...REDSHIFT_STREAMING_INGESTION}
+      {...props}
+      _style={extendStyle(REDSHIFT_STREAMING_INGESTION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CDN_CONTENT_DISTRIBUTION_NETWORK = {
   _style:
@@ -9,5 +9,11 @@ export const CDN_CONTENT_DISTRIBUTION_NETWORK = {
 }
 
 export function CdnContentDistributionNetwork(props: DiagramNodeProps) {
-  return <Shape {...CDN_CONTENT_DISTRIBUTION_NETWORK} {...props} />
+  return (
+    <Shape
+      {...CDN_CONTENT_DISTRIBUTION_NETWORK}
+      {...props}
+      _style={extendStyle(CDN_CONTENT_DISTRIBUTION_NETWORK, props)}
+    />
+  )
 }

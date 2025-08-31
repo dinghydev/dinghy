@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CIRCULAR_DIAL = {
   _style:
@@ -9,5 +9,11 @@ export const CIRCULAR_DIAL = {
 }
 
 export function CircularDial(props: DiagramNodeProps) {
-  return <Shape {...CIRCULAR_DIAL} {...props} />
+  return (
+    <Shape
+      {...CIRCULAR_DIAL}
+      {...props}
+      _style={extendStyle(CIRCULAR_DIAL, props)}
+    />
+  )
 }

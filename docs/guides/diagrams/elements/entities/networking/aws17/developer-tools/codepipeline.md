@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Codepipeline } from '@reactiac/standard-components-diagrams/aws17DeveloperTools'
+import { Codepipeline } from '@diac/standard-components-diagrams/aws17DeveloperTools'
 
 <Codepipeline/>
 ```

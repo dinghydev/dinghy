@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudsimpleVirtualMachines } from '@reactiac/standard-components-diagrams/caeOtherCategoryService'
+import { CloudsimpleVirtualMachines } from '@diac/standard-components-diagrams/caeOtherCategoryService'
 
 <CloudsimpleVirtualMachines/>
 ```

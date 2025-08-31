@@ -1,4 +1,4 @@
-import type { Props } from '@reactiac/base-components'
+import type { Props } from '@diac/base-components'
 
 export const _shape = (shape: string | Props) =>
   typeof shape === 'string'

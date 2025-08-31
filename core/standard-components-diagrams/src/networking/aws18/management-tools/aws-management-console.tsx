@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_MANAGEMENT_CONSOLE = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_MANAGEMENT_CONSOLE = {
 }
 
 export function AwsManagementConsole(props: DiagramNodeProps) {
-  return <Shape {...AWS_MANAGEMENT_CONSOLE} {...props} />
+  return (
+    <Shape
+      {...AWS_MANAGEMENT_CONSOLE}
+      {...props}
+      _style={extendStyle(AWS_MANAGEMENT_CONSOLE, props)}
+    />
+  )
 }

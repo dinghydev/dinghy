@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentType } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { ContentType } from '@diac/standard-components-diagrams/officeConcepts'
 
 <ContentType/>
 ```

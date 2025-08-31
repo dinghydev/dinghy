@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Fiji } from '@reactiac/standard-components-diagrams/azure2Other'
+import { Fiji } from '@diac/standard-components-diagrams/azure2Other'
 
 <Fiji/>
 ```

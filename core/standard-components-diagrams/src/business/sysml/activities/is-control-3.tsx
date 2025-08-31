@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IS_CONTROL_3 = {
   _style:
@@ -9,5 +9,11 @@ export const IS_CONTROL_3 = {
 }
 
 export function IsControl3(props: DiagramNodeProps) {
-  return <Shape {...IS_CONTROL_3} {...props} />
+  return (
+    <Shape
+      {...IS_CONTROL_3}
+      {...props}
+      _style={extendStyle(IS_CONTROL_3, props)}
+    />
+  )
 }

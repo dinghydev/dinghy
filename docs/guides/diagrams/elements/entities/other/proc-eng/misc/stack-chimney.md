@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StackChimney } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { StackChimney } from '@diac/standard-components-diagrams/procEngMisc'
 
 <StackChimney/>
 ```

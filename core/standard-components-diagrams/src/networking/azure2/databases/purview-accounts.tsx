@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PURVIEW_ACCOUNTS = {
   _style:
@@ -9,5 +9,11 @@ export const PURVIEW_ACCOUNTS = {
 }
 
 export function PurviewAccounts(props: DiagramNodeProps) {
-  return <Shape {...PURVIEW_ACCOUNTS} {...props} />
+  return (
+    <Shape
+      {...PURVIEW_ACCOUNTS}
+      {...props}
+      _style={extendStyle(PURVIEW_ACCOUNTS, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FuseOff } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { FuseOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <FuseOff/>
 ```

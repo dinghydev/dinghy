@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BubbleChart } from '@reactiac/standard-components-diagrams/mockupGraphics'
+import { BubbleChart } from '@diac/standard-components-diagrams/mockupGraphics'
 
 <BubbleChart/>
 ```

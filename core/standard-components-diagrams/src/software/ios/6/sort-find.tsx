@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SORT_FIND = {
   _style:
@@ -9,5 +9,7 @@ export const SORT_FIND = {
 }
 
 export function SortFind(props: DiagramNodeProps) {
-  return <Shape {...SORT_FIND} {...props} />
+  return (
+    <Shape {...SORT_FIND} {...props} _style={extendStyle(SORT_FIND, props)} />
+  )
 }

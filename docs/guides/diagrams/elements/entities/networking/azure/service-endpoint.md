@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ServiceEndpoint } from '@reactiac/standard-components-diagrams/azure'
+import { ServiceEndpoint } from '@diac/standard-components-diagrams/azure'
 
 <ServiceEndpoint/>
 ```

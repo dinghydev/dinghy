@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LEGACY_CLOUD = {
   _style:
@@ -9,5 +9,11 @@ export const LEGACY_CLOUD = {
 }
 
 export function LegacyCloud(props: DiagramNodeProps) {
-  return <Shape {...LEGACY_CLOUD} {...props} />
+  return (
+    <Shape
+      {...LEGACY_CLOUD}
+      {...props}
+      _style={extendStyle(LEGACY_CLOUD, props)}
+    />
+  )
 }

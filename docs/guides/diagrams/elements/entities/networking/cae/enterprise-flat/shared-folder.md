@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SharedFolder } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { SharedFolder } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <SharedFolder/>
 ```

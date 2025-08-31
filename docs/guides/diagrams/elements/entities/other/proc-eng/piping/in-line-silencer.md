@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InLineSilencer } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { InLineSilencer } from '@diac/standard-components-diagrams/procEngPiping'
 
 <InLineSilencer/>
 ```

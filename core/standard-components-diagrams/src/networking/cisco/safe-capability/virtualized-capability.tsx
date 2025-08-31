@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIRTUALIZED_CAPABILITY = {
   _style:
@@ -9,5 +9,11 @@ export const VIRTUALIZED_CAPABILITY = {
 }
 
 export function VirtualizedCapability(props: DiagramNodeProps) {
-  return <Shape {...VIRTUALIZED_CAPABILITY} {...props} />
+  return (
+    <Shape
+      {...VIRTUALIZED_CAPABILITY}
+      {...props}
+      _style={extendStyle(VIRTUALIZED_CAPABILITY, props)}
+    />
+  )
 }

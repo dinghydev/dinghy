@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sitejot } from '@reactiac/standard-components-diagrams/webLogos'
+import { Sitejot } from '@diac/standard-components-diagrams/webLogos'
 
 <Sitejot/>
 ```

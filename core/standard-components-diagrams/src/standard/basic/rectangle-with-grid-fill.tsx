@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RECTANGLE_WITH_GRID_FILL = {
   _style:
@@ -9,5 +9,11 @@ export const RECTANGLE_WITH_GRID_FILL = {
 }
 
 export function RectangleWithGridFill(props: DiagramNodeProps) {
-  return <Shape {...RECTANGLE_WITH_GRID_FILL} {...props} />
+  return (
+    <Shape
+      {...RECTANGLE_WITH_GRID_FILL}
+      {...props}
+      _style={extendStyle(RECTANGLE_WITH_GRID_FILL, props)}
+    />
+  )
 }

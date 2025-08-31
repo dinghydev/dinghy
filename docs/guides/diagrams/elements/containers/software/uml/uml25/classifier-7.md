@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { Classifier7 } from '@reactiac/standard-components-diagrams/uml25'
+import { Classifier7 } from '@diac/standard-components-diagrams/uml25'
 
 <Classifier7/>
 ```

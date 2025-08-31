@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DefaultNumber2 } from '@reactiac/standard-components-diagrams/sapNumbers'
+import { DefaultNumber2 } from '@diac/standard-components-diagrams/sapNumbers'
 
 <DefaultNumber2/>
 ```

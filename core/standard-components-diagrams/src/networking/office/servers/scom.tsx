@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCOM = {
   _style:
@@ -9,5 +9,5 @@ export const SCOM = {
 }
 
 export function Scom(props: DiagramNodeProps) {
-  return <Shape {...SCOM} {...props} />
+  return <Shape {...SCOM} {...props} _style={extendStyle(SCOM, props)} />
 }

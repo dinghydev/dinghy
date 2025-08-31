@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HDR_HYBRID_DISASTER_RECOVERY = {
   _style:
@@ -9,5 +9,11 @@ export const HDR_HYBRID_DISASTER_RECOVERY = {
 }
 
 export function HdrHybridDisasterRecovery(props: DiagramNodeProps) {
-  return <Shape {...HDR_HYBRID_DISASTER_RECOVERY} {...props} />
+  return (
+    <Shape
+      {...HDR_HYBRID_DISASTER_RECOVERY}
+      {...props}
+      _style={extendStyle(HDR_HYBRID_DISASTER_RECOVERY, props)}
+    />
+  )
 }

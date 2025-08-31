@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLOB_PAGE = {
   _style:
@@ -9,5 +9,7 @@ export const BLOB_PAGE = {
 }
 
 export function BlobPage(props: DiagramNodeProps) {
-  return <Shape {...BLOB_PAGE} {...props} />
+  return (
+    <Shape {...BLOB_PAGE} {...props} _style={extendStyle(BLOB_PAGE, props)} />
+  )
 }

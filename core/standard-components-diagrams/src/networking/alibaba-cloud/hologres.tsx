@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HOLOGRES = {
   _style:
@@ -9,5 +9,7 @@ export const HOLOGRES = {
 }
 
 export function Hologres(props: DiagramNodeProps) {
-  return <Shape {...HOLOGRES} {...props} />
+  return (
+    <Shape {...HOLOGRES} {...props} _style={extendStyle(HOLOGRES, props)} />
+  )
 }

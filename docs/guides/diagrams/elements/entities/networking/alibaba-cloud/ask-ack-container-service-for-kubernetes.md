@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AskAckContainerServiceForKubernetes } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { AskAckContainerServiceForKubernetes } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <AskAckContainerServiceForKubernetes/>
 ```

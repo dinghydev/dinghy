@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ArubaClearpassC2000Rear } from '@reactiac/standard-components-diagrams/rackHpeArubaSwitches'
+import { ArubaClearpassC2000Rear } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
 
 <ArubaClearpassC2000Rear/>
 ```

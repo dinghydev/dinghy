@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CSAS_CLOUD_SECURITY_ACCESS_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const CSAS_CLOUD_SECURITY_ACCESS_SERVICE = {
 }
 
 export function CsasCloudSecurityAccessService(props: DiagramNodeProps) {
-  return <Shape {...CSAS_CLOUD_SECURITY_ACCESS_SERVICE} {...props} />
+  return (
+    <Shape
+      {...CSAS_CLOUD_SECURITY_ACCESS_SERVICE}
+      {...props}
+      _style={extendStyle(CSAS_CLOUD_SECURITY_ACCESS_SERVICE, props)}
+    />
+  )
 }

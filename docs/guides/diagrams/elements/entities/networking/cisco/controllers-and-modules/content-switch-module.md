@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentSwitchModule } from '@reactiac/standard-components-diagrams/ciscoControllersAndModules'
+import { ContentSwitchModule } from '@diac/standard-components-diagrams/ciscoControllersAndModules'
 
 <ContentSwitchModule/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CmpCloudMobilePush } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { CmpCloudMobilePush } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <CmpCloudMobilePush/>
 ```

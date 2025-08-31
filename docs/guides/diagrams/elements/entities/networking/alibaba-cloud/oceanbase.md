@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Oceanbase } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Oceanbase } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Oceanbase/>
 ```

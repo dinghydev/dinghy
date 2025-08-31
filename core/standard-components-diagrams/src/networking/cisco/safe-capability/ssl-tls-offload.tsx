@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SSL_TLS_OFFLOAD = {
   _style:
@@ -9,5 +9,11 @@ export const SSL_TLS_OFFLOAD = {
 }
 
 export function SslTlsOffload(props: DiagramNodeProps) {
-  return <Shape {...SSL_TLS_OFFLOAD} {...props} />
+  return (
+    <Shape
+      {...SSL_TLS_OFFLOAD}
+      {...props}
+      _style={extendStyle(SSL_TLS_OFFLOAD, props)}
+    />
+  )
 }

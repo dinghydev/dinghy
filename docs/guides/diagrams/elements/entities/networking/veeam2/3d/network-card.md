@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NetworkCard } from '@reactiac/standard-components-diagrams/veeam23d'
+import { NetworkCard } from '@diac/standard-components-diagrams/veeam23d'
 
 <NetworkCard/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SshKeys } from '@reactiac/standard-components-diagrams/azure2Other'
+import { SshKeys } from '@diac/standard-components-diagrams/azure2Other'
 
 <SshKeys/>
 ```

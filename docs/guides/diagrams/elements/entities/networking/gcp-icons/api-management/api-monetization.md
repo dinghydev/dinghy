@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApiMonetization } from '@reactiac/standard-components-diagrams/gcpIconsApiManagement'
+import { ApiMonetization } from '@diac/standard-components-diagrams/gcpIconsApiManagement'
 
 <ApiMonetization/>
 ```

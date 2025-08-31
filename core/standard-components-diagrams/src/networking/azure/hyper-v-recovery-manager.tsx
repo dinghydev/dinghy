@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HYPER_V_RECOVERY_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const HYPER_V_RECOVERY_MANAGER = {
 }
 
 export function HyperVRecoveryManager(props: DiagramNodeProps) {
-  return <Shape {...HYPER_V_RECOVERY_MANAGER} {...props} />
+  return (
+    <Shape
+      {...HYPER_V_RECOVERY_MANAGER}
+      {...props}
+      _style={extendStyle(HYPER_V_RECOVERY_MANAGER, props)}
+    />
+  )
 }

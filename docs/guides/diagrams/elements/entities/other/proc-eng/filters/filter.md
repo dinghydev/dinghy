@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.filters.filter;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Filter } from '@reactiac/standard-components-diagrams/procEngFilters'
+import { Filter } from '@diac/standard-components-diagrams/procEngFilters'
 
 <Filter/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RoleGroup } from '@reactiac/standard-components-diagrams/officeUsers'
+import { RoleGroup } from '@diac/standard-components-diagrams/officeUsers'
 
 <RoleGroup/>
 ```

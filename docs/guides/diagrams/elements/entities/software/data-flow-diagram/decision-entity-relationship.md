@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DecisionEntityRelationship } from '@reactiac/standard-components-diagrams/dataFlowDiagram'
+import { DecisionEntityRelationship } from '@diac/standard-components-diagrams/dataFlowDiagram'
 
 <DecisionEntityRelationship/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TTypeFlipFlop } from '@reactiac/standard-components-diagrams/electricalLogicGates'
+import { TTypeFlipFlop } from '@diac/standard-components-diagrams/electricalLogicGates'
 
 <TTypeFlipFlop/>
 ```

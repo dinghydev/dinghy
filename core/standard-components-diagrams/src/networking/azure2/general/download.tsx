@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOWNLOAD = {
   _style:
@@ -9,5 +9,7 @@ export const DOWNLOAD = {
 }
 
 export function Download(props: DiagramNodeProps) {
-  return <Shape {...DOWNLOAD} {...props} />
+  return (
+    <Shape {...DOWNLOAD} {...props} _style={extendStyle(DOWNLOAD, props)} />
+  )
 }

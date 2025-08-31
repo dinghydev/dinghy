@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MYSQL = {
   _style:
@@ -9,5 +9,5 @@ export const MYSQL = {
 }
 
 export function Mysql(props: DiagramNodeProps) {
-  return <Shape {...MYSQL} {...props} />
+  return <Shape {...MYSQL} {...props} _style={extendStyle(MYSQL, props)} />
 }

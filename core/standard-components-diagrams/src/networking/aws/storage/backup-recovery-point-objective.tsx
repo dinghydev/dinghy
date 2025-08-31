@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BACKUP_RECOVERY_POINT_OBJECTIVE = {
   _style:
@@ -9,5 +9,11 @@ export const BACKUP_RECOVERY_POINT_OBJECTIVE = {
 }
 
 export function BackupRecoveryPointObjective(props: DiagramNodeProps) {
-  return <Shape {...BACKUP_RECOVERY_POINT_OBJECTIVE} {...props} />
+  return (
+    <Shape
+      {...BACKUP_RECOVERY_POINT_OBJECTIVE}
+      {...props}
+      _style={extendStyle(BACKUP_RECOVERY_POINT_OBJECTIVE, props)}
+    />
+  )
 }

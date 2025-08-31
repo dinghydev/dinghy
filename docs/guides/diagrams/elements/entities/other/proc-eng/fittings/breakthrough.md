@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Breakthrough } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { Breakthrough } from '@diac/standard-components-diagrams/procEngFittings'
 
 <Breakthrough/>
 ```

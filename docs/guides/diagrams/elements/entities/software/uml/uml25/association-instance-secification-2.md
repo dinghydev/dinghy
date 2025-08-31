@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AssociationInstanceSecification2 } from '@reactiac/standard-components-diagrams/uml25'
+import { AssociationInstanceSecification2 } from '@diac/standard-components-diagrams/uml25'
 
 <AssociationInstanceSecification2/>
 ```

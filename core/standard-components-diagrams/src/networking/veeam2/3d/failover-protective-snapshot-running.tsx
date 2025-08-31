@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FAILOVER_PROTECTIVE_SNAPSHOT_RUNNING = {
   _style:
@@ -9,5 +9,11 @@ export const FAILOVER_PROTECTIVE_SNAPSHOT_RUNNING = {
 }
 
 export function FailoverProtectiveSnapshotRunning(props: DiagramNodeProps) {
-  return <Shape {...FAILOVER_PROTECTIVE_SNAPSHOT_RUNNING} {...props} />
+  return (
+    <Shape
+      {...FAILOVER_PROTECTIVE_SNAPSHOT_RUNNING}
+      {...props}
+      _style={extendStyle(FAILOVER_PROTECTIVE_SNAPSHOT_RUNNING, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FNF_SERVERLESS_FUNCTION_FLOW = {
   _style:
@@ -9,5 +9,11 @@ export const FNF_SERVERLESS_FUNCTION_FLOW = {
 }
 
 export function FnfServerlessFunctionFlow(props: DiagramNodeProps) {
-  return <Shape {...FNF_SERVERLESS_FUNCTION_FLOW} {...props} />
+  return (
+    <Shape
+      {...FNF_SERVERLESS_FUNCTION_FLOW}
+      {...props}
+      _style={extendStyle(FNF_SERVERLESS_FUNCTION_FLOW, props)}
+    />
+  )
 }

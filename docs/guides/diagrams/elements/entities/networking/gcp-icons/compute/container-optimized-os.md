@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContainerOptimizedOs } from '@reactiac/standard-components-diagrams/gcpIconsCompute'
+import { ContainerOptimizedOs } from '@diac/standard-components-diagrams/gcpIconsCompute'
 
 <ContainerOptimizedOs/>
 ```

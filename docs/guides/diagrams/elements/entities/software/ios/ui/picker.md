@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Picker } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { Picker } from '@diac/standard-components-diagrams/ios7Ui'
 
 <Picker/>
 ```

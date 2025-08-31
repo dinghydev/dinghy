@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Transpath } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Transpath } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Transpath/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Spinner } from '@reactiac/standard-components-diagrams/mockupForms'
+import { Spinner } from '@diac/standard-components-diagrams/mockupForms'
 
 <Spinner/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureStorsimpleDeviceManagers } from '@reactiac/standard-components-diagrams/caeIntegrationService'
+import { AzureStorsimpleDeviceManagers } from '@diac/standard-components-diagrams/caeIntegrationService'
 
 <AzureStorsimpleDeviceManagers/>
 ```

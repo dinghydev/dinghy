@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHARED_DASHBOARD = {
   _style:
@@ -9,5 +9,11 @@ export const SHARED_DASHBOARD = {
 }
 
 export function SharedDashboard(props: DiagramNodeProps) {
-  return <Shape {...SHARED_DASHBOARD} {...props} />
+  return (
+    <Shape
+      {...SHARED_DASHBOARD}
+      {...props}
+      _style={extendStyle(SHARED_DASHBOARD, props)}
+    />
+  )
 }

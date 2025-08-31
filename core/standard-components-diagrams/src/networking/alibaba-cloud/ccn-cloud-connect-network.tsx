@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CCN_CLOUD_CONNECT_NETWORK = {
   _style:
@@ -9,5 +9,11 @@ export const CCN_CLOUD_CONNECT_NETWORK = {
 }
 
 export function CcnCloudConnectNetwork(props: DiagramNodeProps) {
-  return <Shape {...CCN_CLOUD_CONNECT_NETWORK} {...props} />
+  return (
+    <Shape
+      {...CCN_CLOUD_CONNECT_NETWORK}
+      {...props}
+      _style={extendStyle(CCN_CLOUD_CONNECT_NETWORK, props)}
+    />
+  )
 }

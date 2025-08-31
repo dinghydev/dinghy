@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BLADE_SERVER_2 = {
   _style:
@@ -9,5 +9,11 @@ export const BLADE_SERVER_2 = {
 }
 
 export function BladeServer2(props: DiagramNodeProps) {
-  return <Shape {...BLADE_SERVER_2} {...props} />
+  return (
+    <Shape
+      {...BLADE_SERVER_2}
+      {...props}
+      _style={extendStyle(BLADE_SERVER_2, props)}
+    />
+  )
 }

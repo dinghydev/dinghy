@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sap } from '@reactiac/standard-components-diagrams/sapBrandNames'
+import { Sap } from '@diac/standard-components-diagrams/sapBrandNames'
 
 <Sap/>
 ```

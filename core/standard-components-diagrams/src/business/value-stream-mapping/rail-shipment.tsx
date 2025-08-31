@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RAIL_SHIPMENT = {
   _style:
@@ -9,5 +9,11 @@ export const RAIL_SHIPMENT = {
 }
 
 export function RailShipment(props: DiagramNodeProps) {
-  return <Shape {...RAIL_SHIPMENT} {...props} />
+  return (
+    <Shape
+      {...RAIL_SHIPMENT}
+      {...props}
+      _style={extendStyle(RAIL_SHIPMENT, props)}
+    />
+  )
 }

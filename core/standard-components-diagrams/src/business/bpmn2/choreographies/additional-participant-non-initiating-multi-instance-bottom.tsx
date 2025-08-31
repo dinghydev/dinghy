@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADDITIONAL_PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_BOTTOM = {
   _style:
@@ -15,6 +15,10 @@ export function AdditionalParticipantNonInitiatingMultiInstanceBottom(
     <Shape
       {...ADDITIONAL_PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_BOTTOM}
       {...props}
+      _style={extendStyle(
+        ADDITIONAL_PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_BOTTOM,
+        props,
+      )}
     />
   )
 }

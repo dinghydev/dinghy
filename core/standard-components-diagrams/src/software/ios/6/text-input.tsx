@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEXT_INPUT = {
   _style:
@@ -9,5 +9,7 @@ export const TEXT_INPUT = {
 }
 
 export function TextInput(props: DiagramNodeProps) {
-  return <Shape {...TEXT_INPUT} {...props} />
+  return (
+    <Shape {...TEXT_INPUT} {...props} _style={extendStyle(TEXT_INPUT, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KeyManagementService } from '@reactiac/standard-components-diagrams/gcpIconsSecurity'
+import { KeyManagementService } from '@diac/standard-components-diagrams/gcpIconsSecurity'
 
 <KeyManagementService/>
 ```

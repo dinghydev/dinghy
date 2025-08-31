@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bccluster } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Bccluster } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Bccluster/>
 ```

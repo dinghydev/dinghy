@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NEPTUNE = {
   _style:
@@ -9,5 +9,5 @@ export const NEPTUNE = {
 }
 
 export function Neptune(props: DiagramNodeProps) {
-  return <Shape {...NEPTUNE} {...props} />
+  return <Shape {...NEPTUNE} {...props} _style={extendStyle(NEPTUNE, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RdpRemotingFile } from '@reactiac/standard-components-diagrams/azure'
+import { RdpRemotingFile } from '@diac/standard-components-diagrams/azure'
 
 <RdpRemotingFile/>
 ```

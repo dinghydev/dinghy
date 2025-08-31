@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VAPP_STARTED = {
   _style:
@@ -9,5 +9,11 @@ export const VAPP_STARTED = {
 }
 
 export function VappStarted(props: DiagramNodeProps) {
-  return <Shape {...VAPP_STARTED} {...props} />
+  return (
+    <Shape
+      {...VAPP_STARTED}
+      {...props}
+      _style={extendStyle(VAPP_STARTED, props)}
+    />
+  )
 }

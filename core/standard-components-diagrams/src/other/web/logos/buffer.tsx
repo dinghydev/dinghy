@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUFFER = {
   _style:
@@ -9,5 +9,5 @@ export const BUFFER = {
 }
 
 export function Buffer(props: DiagramNodeProps) {
-  return <Shape {...BUFFER} {...props} />
+  return <Shape {...BUFFER} {...props} _style={extendStyle(BUFFER, props)} />
 }

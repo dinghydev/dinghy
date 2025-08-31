@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLO_DC_ON_PREMISES = {
   _style:
@@ -9,5 +9,11 @@ export const COLO_DC_ON_PREMISES = {
 }
 
 export function ColoDcOnPremises(props: DiagramNodeProps) {
-  return <Shape {...COLO_DC_ON_PREMISES} {...props} />
+  return (
+    <Shape
+      {...COLO_DC_ON_PREMISES}
+      {...props}
+      _style={extendStyle(COLO_DC_ON_PREMISES, props)}
+    />
+  )
 }

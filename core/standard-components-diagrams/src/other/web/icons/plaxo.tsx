@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLAXO = {
   _style:
@@ -9,5 +9,5 @@ export const PLAXO = {
 }
 
 export function Plaxo(props: DiagramNodeProps) {
-  return <Shape {...PLAXO} {...props} />
+  return <Shape {...PLAXO} {...props} _style={extendStyle(PLAXO, props)} />
 }

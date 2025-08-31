@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StorageCluster } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { StorageCluster } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <StorageCluster/>
 ```

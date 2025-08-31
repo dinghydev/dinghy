@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ResistorAdjustableContact } from '@reactiac/standard-components-diagrams/electricalResistors'
+import { ResistorAdjustableContact } from '@diac/standard-components-diagrams/electricalResistors'
 
 <ResistorAdjustableContact/>
 ```

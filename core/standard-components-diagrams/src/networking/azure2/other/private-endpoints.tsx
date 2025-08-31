@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRIVATE_ENDPOINTS = {
   _style:
@@ -9,5 +9,11 @@ export const PRIVATE_ENDPOINTS = {
 }
 
 export function PrivateEndpoints(props: DiagramNodeProps) {
-  return <Shape {...PRIVATE_ENDPOINTS} {...props} />
+  return (
+    <Shape
+      {...PRIVATE_ENDPOINTS}
+      {...props}
+      _style={extendStyle(PRIVATE_ENDPOINTS, props)}
+    />
+  )
 }

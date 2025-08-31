@@ -1,4 +1,4 @@
-import * as base from '@reactiac/base-components'
+import * as base from '@diac/base-components'
 import type {
   DrawioContext,
   DrawioNodeProps,

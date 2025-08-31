@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUTTON_ICON_AND_LABEL = {
   _style:
@@ -9,5 +9,11 @@ export const BUTTON_ICON_AND_LABEL = {
 }
 
 export function ButtonIconAndLabel(props: DiagramNodeProps) {
-  return <Shape {...BUTTON_ICON_AND_LABEL} {...props} />
+  return (
+    <Shape
+      {...BUTTON_ICON_AND_LABEL}
+      {...props}
+      _style={extendStyle(BUTTON_ICON_AND_LABEL, props)}
+    />
+  )
 }

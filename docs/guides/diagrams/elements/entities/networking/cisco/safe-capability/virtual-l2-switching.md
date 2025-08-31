@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualL2Switching } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { VirtualL2Switching } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <VirtualL2Switching/>
 ```

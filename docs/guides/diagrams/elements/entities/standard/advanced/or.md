@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=orEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Or } from '@reactiac/standard-components-diagrams/advanced'
+import { Or } from '@diac/standard-components-diagrams/advanced'
 
 <Or/>
 ```

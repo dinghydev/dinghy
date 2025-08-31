@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalNavigation } from '@reactiac/standard-components-diagrams/bootstrap'
+import { HorizontalNavigation } from '@diac/standard-components-diagrams/bootstrap'
 
 <HorizontalNavigation/>
 ```

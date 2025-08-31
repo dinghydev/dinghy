@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TransactionManager } from '@reactiac/standard-components-diagrams/ibmBlockchain'
+import { TransactionManager } from '@diac/standard-components-diagrams/ibmBlockchain'
 
 <TransactionManager/>
 ```

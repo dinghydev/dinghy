@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLAYBACK_CONTROLS = {
   _style:
@@ -9,5 +9,11 @@ export const PLAYBACK_CONTROLS = {
 }
 
 export function PlaybackControls(props: DiagramNodeProps) {
-  return <Shape {...PLAYBACK_CONTROLS} {...props} />
+  return (
+    <Shape
+      {...PLAYBACK_CONTROLS}
+      {...props}
+      _style={extendStyle(PLAYBACK_CONTROLS, props)}
+    />
+  )
 }

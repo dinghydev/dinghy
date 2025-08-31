@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SystemController } from '@reactiac/standard-components-diagrams/ciscoControllersAndModules'
+import { SystemController } from '@diac/standard-components-diagrams/ciscoControllersAndModules'
 
 <SystemController/>
 ```

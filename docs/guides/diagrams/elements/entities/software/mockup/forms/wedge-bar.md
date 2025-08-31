@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WedgeBar } from '@reactiac/standard-components-diagrams/mockupForms'
+import { WedgeBar } from '@diac/standard-components-diagrams/mockupForms'
 
 <WedgeBar/>
 ```

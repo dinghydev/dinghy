@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsIdentityAndAccessManagement } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsIdentityAndAccessManagement } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsIdentityAndAccessManagement/>
 ```

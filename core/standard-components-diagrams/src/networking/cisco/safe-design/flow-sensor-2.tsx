@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLOW_SENSOR_2 = {
   _style:
@@ -9,5 +9,11 @@ export const FLOW_SENSOR_2 = {
 }
 
 export function FlowSensor2(props: DiagramNodeProps) {
-  return <Shape {...FLOW_SENSOR_2} {...props} />
+  return (
+    <Shape
+      {...FLOW_SENSOR_2}
+      {...props}
+      _style={extendStyle(FLOW_SENSOR_2, props)}
+    />
+  )
 }

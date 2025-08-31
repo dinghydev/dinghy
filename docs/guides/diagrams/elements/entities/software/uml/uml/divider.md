@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Divider } from '@reactiac/standard-components-diagrams/uml'
+import { Divider } from '@diac/standard-components-diagrams/uml'
 
 <Divider/>
 ```

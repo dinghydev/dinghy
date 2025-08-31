@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Browser } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { Browser } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <Browser/>
 ```

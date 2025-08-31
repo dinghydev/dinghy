@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WINDOW_GLIDER = {
   _style:
@@ -9,5 +9,11 @@ export const WINDOW_GLIDER = {
 }
 
 export function WindowGlider(props: DiagramNodeProps) {
-  return <Shape {...WINDOW_GLIDER} {...props} />
+  return (
+    <Shape
+      {...WINDOW_GLIDER}
+      {...props}
+      _style={extendStyle(WINDOW_GLIDER, props)}
+    />
+  )
 }

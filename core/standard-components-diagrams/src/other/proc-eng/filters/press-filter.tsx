@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRESS_FILTER = {
   _style:
@@ -9,5 +9,11 @@ export const PRESS_FILTER = {
 }
 
 export function PressFilter(props: DiagramNodeProps) {
-  return <Shape {...PRESS_FILTER} {...props} />
+  return (
+    <Shape
+      {...PRESS_FILTER}
+      {...props}
+      _style={extendStyle(PRESS_FILTER, props)}
+    />
+  )
 }

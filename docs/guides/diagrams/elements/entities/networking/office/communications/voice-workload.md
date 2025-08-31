@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VoiceWorkload } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { VoiceWorkload } from '@diac/standard-components-diagrams/officeCommunications'
 
 <VoiceWorkload/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ATTRIBUTE = {
   _style: 'ellipse;whiteSpace=wrap;html=1;align=center;',
@@ -8,5 +8,7 @@ export const ATTRIBUTE = {
 }
 
 export function Attribute(props: DiagramNodeProps) {
-  return <Shape {...ATTRIBUTE} {...props} />
+  return (
+    <Shape {...ATTRIBUTE} {...props} _style={extendStyle(ATTRIBUTE, props)} />
+  )
 }

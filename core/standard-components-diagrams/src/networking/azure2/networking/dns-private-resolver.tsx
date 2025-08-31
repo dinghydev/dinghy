@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DNS_PRIVATE_RESOLVER = {
   _style:
@@ -9,5 +9,11 @@ export const DNS_PRIVATE_RESOLVER = {
 }
 
 export function DnsPrivateResolver(props: DiagramNodeProps) {
-  return <Shape {...DNS_PRIVATE_RESOLVER} {...props} />
+  return (
+    <Shape
+      {...DNS_PRIVATE_RESOLVER}
+      {...props}
+      _style={extendStyle(DNS_PRIVATE_RESOLVER, props)}
+    />
+  )
 }

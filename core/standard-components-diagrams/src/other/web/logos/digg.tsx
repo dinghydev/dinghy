@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIGG = {
   _style:
@@ -9,5 +9,5 @@ export const DIGG = {
 }
 
 export function Digg(props: DiagramNodeProps) {
-  return <Shape {...DIGG} {...props} />
+  return <Shape {...DIGG} {...props} _style={extendStyle(DIGG, props)} />
 }

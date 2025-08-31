@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TapeWritingDevice } from '@reactiac/standard-components-diagrams/veeam2Storage'
+import { TapeWritingDevice } from '@diac/standard-components-diagrams/veeam2Storage'
 
 <TapeWritingDevice/>
 ```

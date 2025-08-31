@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GKE_ON_PREM = {
   _style:
@@ -9,5 +9,11 @@ export const GKE_ON_PREM = {
 }
 
 export function GkeOnPrem(props: DiagramNodeProps) {
-  return <Shape {...GKE_ON_PREM} {...props} />
+  return (
+    <Shape
+      {...GKE_ON_PREM}
+      {...props}
+      _style={extendStyle(GKE_ON_PREM, props)}
+    />
+  )
 }

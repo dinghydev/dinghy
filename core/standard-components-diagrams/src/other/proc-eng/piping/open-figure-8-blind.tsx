@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPEN_FIGURE_8_BLIND = {
   _style:
@@ -9,5 +9,11 @@ export const OPEN_FIGURE_8_BLIND = {
 }
 
 export function OpenFigure8Blind(props: DiagramNodeProps) {
-  return <Shape {...OPEN_FIGURE_8_BLIND} {...props} />
+  return (
+    <Shape
+      {...OPEN_FIGURE_8_BLIND}
+      {...props}
+      _style={extendStyle(OPEN_FIGURE_8_BLIND, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FrameTopaz } from '@reactiac/standard-components-diagrams/veeam2Auxiliary'
+import { FrameTopaz } from '@diac/standard-components-diagrams/veeam2Auxiliary'
 
 <FrameTopaz/>
 ```

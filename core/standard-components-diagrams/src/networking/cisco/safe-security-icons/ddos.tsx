@@ -1,13 +1,13 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DDOS = {
   _style:
     'verticalLabelPosition=bottom;sketch=0;html=1;fillColor=#282828;strokeColor=none;verticalAlign=top;pointerEvents=1;align=center;shape=mxgraph.cisco_safe.security_icons.ddos;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function Ddos(props: DiagramNodeProps) {
-  return <Shape {...DDOS} {...props} />
+  return <Shape {...DDOS} {...props} _style={extendStyle(DDOS, props)} />
 }

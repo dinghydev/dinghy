@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRIGGERING = {
   _style: {
@@ -9,5 +9,11 @@ export const TRIGGERING = {
 }
 
 export function Triggering(props: DiagramNodeProps) {
-  return <Dependency {...TRIGGERING} {...props} />
+  return (
+    <Dependency
+      {...TRIGGERING}
+      {...props}
+      _style={extendStyle(TRIGGERING, props)}
+    />
+  )
 }

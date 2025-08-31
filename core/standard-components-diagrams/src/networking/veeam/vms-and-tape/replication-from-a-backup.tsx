@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REPLICATION_FROM_A_BACKUP = {
   _style:
@@ -9,5 +9,11 @@ export const REPLICATION_FROM_A_BACKUP = {
 }
 
 export function ReplicationFromABackup(props: DiagramNodeProps) {
-  return <Shape {...REPLICATION_FROM_A_BACKUP} {...props} />
+  return (
+    <Shape
+      {...REPLICATION_FROM_A_BACKUP}
+      {...props}
+      _style={extendStyle(REPLICATION_FROM_A_BACKUP, props)}
+    />
+  )
 }

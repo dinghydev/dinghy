@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COAXIAL_OUTSIDE_CONDUCTOR = {
   _style:
@@ -9,5 +9,11 @@ export const COAXIAL_OUTSIDE_CONDUCTOR = {
 }
 
 export function CoaxialOutsideConductor(props: DiagramNodeProps) {
-  return <Shape {...COAXIAL_OUTSIDE_CONDUCTOR} {...props} />
+  return (
+    <Shape
+      {...COAXIAL_OUTSIDE_CONDUCTOR}
+      {...props}
+      _style={extendStyle(COAXIAL_OUTSIDE_CONDUCTOR, props)}
+    />
+  )
 }

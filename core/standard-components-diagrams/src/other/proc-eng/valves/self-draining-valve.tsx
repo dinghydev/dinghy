@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SELF_DRAINING_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const SELF_DRAINING_VALVE = {
 }
 
 export function SelfDrainingValve(props: DiagramNodeProps) {
-  return <Shape {...SELF_DRAINING_VALVE} {...props} />
+  return (
+    <Shape
+      {...SELF_DRAINING_VALVE}
+      {...props}
+      _style={extendStyle(SELF_DRAINING_VALVE, props)}
+    />
+  )
 }

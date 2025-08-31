@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/clip_art/computers/iPad_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Ipad } from '@reactiac/standard-components-diagrams/clipartComputer'
+import { Ipad } from '@diac/standard-components-diagrams/clipartComputer'
 
 <Ipad/>
 ```

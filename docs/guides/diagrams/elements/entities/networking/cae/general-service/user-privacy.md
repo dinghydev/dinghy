@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UserPrivacy } from '@reactiac/standard-components-diagrams/caeGeneralService'
+import { UserPrivacy } from '@diac/standard-components-diagrams/caeGeneralService'
 
 <UserPrivacy/>
 ```

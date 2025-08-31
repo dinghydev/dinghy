@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ICE_SKATING = {
   _style:
@@ -9,5 +9,11 @@ export const ICE_SKATING = {
 }
 
 export function IceSkating(props: DiagramNodeProps) {
-  return <Shape {...ICE_SKATING} {...props} />
+  return (
+    <Shape
+      {...ICE_SKATING}
+      {...props}
+      _style={extendStyle(ICE_SKATING, props)}
+    />
+  )
 }

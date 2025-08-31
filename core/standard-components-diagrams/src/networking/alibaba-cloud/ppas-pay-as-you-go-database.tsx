@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PPAS_PAY_AS_YOU_GO_DATABASE = {
   _style:
@@ -9,5 +9,11 @@ export const PPAS_PAY_AS_YOU_GO_DATABASE = {
 }
 
 export function PpasPayAsYouGoDatabase(props: DiagramNodeProps) {
-  return <Shape {...PPAS_PAY_AS_YOU_GO_DATABASE} {...props} />
+  return (
+    <Shape
+      {...PPAS_PAY_AS_YOU_GO_DATABASE}
+      {...props}
+      _style={extendStyle(PPAS_PAY_AS_YOU_GO_DATABASE, props)}
+    />
+  )
 }

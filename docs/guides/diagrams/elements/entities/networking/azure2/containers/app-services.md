@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/containers/App_Services.svg;strokeColor=none;',
-  _width: 64,
-  _height: 64,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { AppServices } from '@reactiac/standard-components-diagrams/azure2Containers'
+import { AppServices } from '@diac/standard-components-diagrams/azure2Containers'
 
 <AppServices/>
 ```

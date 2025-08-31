@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WordAutomationServices } from '@reactiac/standard-components-diagrams/officeSites'
+import { WordAutomationServices } from '@diac/standard-components-diagrams/officeSites'
 
 <WordAutomationServices/>
 ```

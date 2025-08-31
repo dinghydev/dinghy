@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RequiredInterface } from '@reactiac/standard-components-diagrams/uml'
+import { RequiredInterface } from '@diac/standard-components-diagrams/uml'
 
 <RequiredInterface/>
 ```

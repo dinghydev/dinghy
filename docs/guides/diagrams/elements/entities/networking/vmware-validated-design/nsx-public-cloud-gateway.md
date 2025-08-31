@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NsxPublicCloudGateway } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { NsxPublicCloudGateway } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <NsxPublicCloudGateway/>
 ```

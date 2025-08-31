@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TransferAppliance } from '@reactiac/standard-components-diagrams/gcp2DataTransfer'
+import { TransferAppliance } from '@diac/standard-components-diagrams/gcp2DataTransfer'
 
 <TransferAppliance/>
 ```

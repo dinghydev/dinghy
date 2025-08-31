@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEVOPS_STARTER = {
   _style:
@@ -9,5 +9,11 @@ export const DEVOPS_STARTER = {
 }
 
 export function DevopsStarter(props: DiagramNodeProps) {
-  return <Shape {...DEVOPS_STARTER} {...props} />
+  return (
+    <Shape
+      {...DEVOPS_STARTER}
+      {...props}
+      _style={extendStyle(DEVOPS_STARTER, props)}
+    />
+  )
 }

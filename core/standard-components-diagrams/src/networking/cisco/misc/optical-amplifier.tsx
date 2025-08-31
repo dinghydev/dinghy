@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPTICAL_AMPLIFIER = {
   _style:
@@ -9,5 +9,11 @@ export const OPTICAL_AMPLIFIER = {
 }
 
 export function OpticalAmplifier(props: DiagramNodeProps) {
-  return <Shape {...OPTICAL_AMPLIFIER} {...props} />
+  return (
+    <Shape
+      {...OPTICAL_AMPLIFIER}
+      {...props}
+      _style={extendStyle(OPTICAL_AMPLIFIER, props)}
+    />
+  )
 }

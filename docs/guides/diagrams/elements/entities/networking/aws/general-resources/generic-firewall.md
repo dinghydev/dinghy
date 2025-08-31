@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GenericFirewall } from '@reactiac/standard-components-diagrams/awsGeneralResources'
+import { GenericFirewall } from '@diac/standard-components-diagrams/awsGeneralResources'
 
 <GenericFirewall/>
 ```

@@ -1,4 +1,4 @@
-import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
+import { useTypedNode, useTypedNodes } from '@diac/base-components'
 import {
   AwsSubnet,
   type AwsSubnetInputProps,

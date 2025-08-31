@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COREGION_2 = {
   _style: 'shape=ellipse;html=1;fillColor=strokeColor;',
@@ -8,5 +8,7 @@ export const COREGION_2 = {
 }
 
 export function Coregion2(props: DiagramNodeProps) {
-  return <Shape {...COREGION_2} {...props} />
+  return (
+    <Shape {...COREGION_2} {...props} _style={extendStyle(COREGION_2, props)} />
+  )
 }

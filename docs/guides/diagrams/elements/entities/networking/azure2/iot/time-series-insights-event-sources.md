@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TimeSeriesInsightsEventSources } from '@reactiac/standard-components-diagrams/azure2Iot'
+import { TimeSeriesInsightsEventSources } from '@diac/standard-components-diagrams/azure2Iot'
 
 <TimeSeriesInsightsEventSources/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Soundcloud } from '@reactiac/standard-components-diagrams/webIcons'
+import { Soundcloud } from '@diac/standard-components-diagrams/webIcons'
 
 <Soundcloud/>
 ```

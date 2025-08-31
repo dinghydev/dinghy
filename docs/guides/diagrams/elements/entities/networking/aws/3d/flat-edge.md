@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FlatEdge } from '@reactiac/standard-components-diagrams/aws3d'
+import { FlatEdge } from '@diac/standard-components-diagrams/aws3d'
 
 <FlatEdge/>
 ```

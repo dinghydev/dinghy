@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BIOMEDICAL_TEST_TUBE = {
   _style:
@@ -9,5 +9,11 @@ export const BIOMEDICAL_TEST_TUBE = {
 }
 
 export function BiomedicalTestTube(props: DiagramNodeProps) {
-  return <Shape {...BIOMEDICAL_TEST_TUBE} {...props} />
+  return (
+    <Shape
+      {...BIOMEDICAL_TEST_TUBE}
+      {...props}
+      _style={extendStyle(BIOMEDICAL_TEST_TUBE, props)}
+    />
+  )
 }

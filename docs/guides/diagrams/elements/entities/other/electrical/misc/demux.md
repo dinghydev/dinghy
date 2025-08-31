@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Demux } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { Demux } from '@diac/standard-components-diagrams/electricalMisc'
 
 <Demux/>
 ```

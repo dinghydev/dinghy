@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BING = {
   _style:
@@ -9,5 +9,5 @@ export const BING = {
 }
 
 export function Bing(props: DiagramNodeProps) {
-  return <Shape {...BING} {...props} />
+  return <Shape {...BING} {...props} _style={extendStyle(BING, props)} />
 }

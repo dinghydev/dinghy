@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StreamAnalyticsJobs } from '@reactiac/standard-components-diagrams/azure2Analytics'
+import { StreamAnalyticsJobs } from '@diac/standard-components-diagrams/azure2Analytics'
 
 <StreamAnalyticsJobs/>
 ```

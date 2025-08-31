@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PORT_COMPARTMENT_NOTATION = {
   _style:
@@ -9,5 +9,11 @@ export const PORT_COMPARTMENT_NOTATION = {
 }
 
 export function PortCompartmentNotation(props: DiagramNodeProps) {
-  return <Shape {...PORT_COMPARTMENT_NOTATION} {...props} />
+  return (
+    <Shape
+      {...PORT_COMPARTMENT_NOTATION}
+      {...props}
+      _style={extendStyle(PORT_COMPARTMENT_NOTATION, props)}
+    />
+  )
 }

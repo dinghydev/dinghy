@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dns } from '@reactiac/standard-components-diagrams/veeam2General'
+import { Dns } from '@diac/standard-components-diagrams/veeam2General'
 
 <Dns/>
 ```

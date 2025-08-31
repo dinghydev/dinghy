@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PushArrow } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { PushArrow } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <PushArrow/>
 ```

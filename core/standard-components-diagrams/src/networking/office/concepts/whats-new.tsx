@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WHATS_NEW = {
   _style:
@@ -9,5 +9,7 @@ export const WHATS_NEW = {
 }
 
 export function WhatsNew(props: DiagramNodeProps) {
-  return <Shape {...WHATS_NEW} {...props} />
+  return (
+    <Shape {...WHATS_NEW} {...props} _style={extendStyle(WHATS_NEW, props)} />
+  )
 }

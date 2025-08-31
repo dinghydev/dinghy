@@ -5,15 +5,15 @@
 ```
 {
   _style: 'sketch=0;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.databases.database_availability_group;',
-  _width: 59,
-  _height: 59,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { DatabaseAvailabilityGroup } from '@reactiac/standard-components-diagrams/officeDatabases'
+import { DatabaseAvailabilityGroup } from '@diac/standard-components-diagrams/officeDatabases'
 
 <DatabaseAvailabilityGroup/>
 ```

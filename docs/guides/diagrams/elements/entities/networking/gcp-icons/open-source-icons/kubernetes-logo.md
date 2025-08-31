@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KubernetesLogo } from '@reactiac/standard-components-diagrams/gcpIconsOpenSourceIcons'
+import { KubernetesLogo } from '@diac/standard-components-diagrams/gcpIconsOpenSourceIcons'
 
 <KubernetesLogo/>
 ```

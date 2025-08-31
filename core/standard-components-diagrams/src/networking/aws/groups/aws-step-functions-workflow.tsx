@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_STEP_FUNCTIONS_WORKFLOW = {
   _style: {
@@ -13,5 +13,11 @@ export const AWS_STEP_FUNCTIONS_WORKFLOW = {
 }
 
 export function AwsStepFunctionsWorkflow(props: DiagramNodeProps) {
-  return <Shape {...AWS_STEP_FUNCTIONS_WORKFLOW} {...props} />
+  return (
+    <Shape
+      {...AWS_STEP_FUNCTIONS_WORKFLOW}
+      {...props}
+      _style={extendStyle(AWS_STEP_FUNCTIONS_WORKFLOW, props)}
+    />
+  )
 }

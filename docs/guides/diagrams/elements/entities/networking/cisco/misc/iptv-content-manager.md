@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IptvContentManager } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { IptvContentManager } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <IptvContentManager/>
 ```

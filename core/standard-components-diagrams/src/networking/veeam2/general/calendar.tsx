@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CALENDAR = {
   _style:
@@ -9,5 +9,7 @@ export const CALENDAR = {
 }
 
 export function Calendar(props: DiagramNodeProps) {
-  return <Shape {...CALENDAR} {...props} />
+  return (
+    <Shape {...CALENDAR} {...props} _style={extendStyle(CALENDAR, props)} />
+  )
 }

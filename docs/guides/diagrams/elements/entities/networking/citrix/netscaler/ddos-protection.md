@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DdosProtection } from '@reactiac/standard-components-diagrams/citrixNetscaler'
+import { DdosProtection } from '@diac/standard-components-diagrams/citrixNetscaler'
 
 <DdosProtection/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EIP_ELASTIC_IP_ADDRESS = {
   _style:
@@ -9,5 +9,11 @@ export const EIP_ELASTIC_IP_ADDRESS = {
 }
 
 export function EipElasticIpAddress(props: DiagramNodeProps) {
-  return <Shape {...EIP_ELASTIC_IP_ADDRESS} {...props} />
+  return (
+    <Shape
+      {...EIP_ELASTIC_IP_ADDRESS}
+      {...props}
+      _style={extendStyle(EIP_ELASTIC_IP_ADDRESS, props)}
+    />
+  )
 }

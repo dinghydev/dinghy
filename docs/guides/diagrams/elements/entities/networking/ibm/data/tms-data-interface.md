@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TmsDataInterface } from '@reactiac/standard-components-diagrams/ibmData'
+import { TmsDataInterface } from '@diac/standard-components-diagrams/ibmData'
 
 <TmsDataInterface/>
 ```

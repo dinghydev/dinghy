@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ontology } from '@reactiac/standard-components-diagrams/ibmApplications'
+import { Ontology } from '@diac/standard-components-diagrams/ibmApplications'
 
 <Ontology/>
 ```

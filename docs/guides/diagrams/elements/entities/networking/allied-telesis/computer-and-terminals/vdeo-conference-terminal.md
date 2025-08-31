@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VdeoConferenceTerminal } from '@reactiac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { VdeoConferenceTerminal } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <VdeoConferenceTerminal/>
 ```

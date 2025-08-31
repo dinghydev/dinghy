@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM = {
   _style:
@@ -11,5 +11,11 @@ export const CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM = {
 export function CiscoOns15310MaSdhMultiservicePlatform(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM} {...props} />
+  return (
+    <Shape
+      {...CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM}
+      {...props}
+      _style={extendStyle(CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM, props)}
+    />
+  )
 }

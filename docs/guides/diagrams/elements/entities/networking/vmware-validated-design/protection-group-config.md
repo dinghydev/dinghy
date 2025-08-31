@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProtectionGroupConfig } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { ProtectionGroupConfig } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <ProtectionGroupConfig/>
 ```

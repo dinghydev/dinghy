@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApiGateway } from '@reactiac/standard-components-diagrams/aws17ApplicationServices'
+import { ApiGateway } from '@diac/standard-components-diagrams/aws17ApplicationServices'
 
 <ApiGateway/>
 ```

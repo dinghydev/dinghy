@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VcloudDirector } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { VcloudDirector } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <VcloudDirector/>
 ```

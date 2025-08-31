@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bbsm } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Bbsm } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Bbsm/>
 ```

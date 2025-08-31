@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VEEAM_AGENT_FOR_ORACLE_SOLARIS = {
   _style:
@@ -9,5 +9,11 @@ export const VEEAM_AGENT_FOR_ORACLE_SOLARIS = {
 }
 
 export function VeeamAgentForOracleSolaris(props: DiagramNodeProps) {
-  return <Shape {...VEEAM_AGENT_FOR_ORACLE_SOLARIS} {...props} />
+  return (
+    <Shape
+      {...VEEAM_AGENT_FOR_ORACLE_SOLARIS}
+      {...props}
+      _style={extendStyle(VEEAM_AGENT_FOR_ORACLE_SOLARIS, props)}
+    />
+  )
 }

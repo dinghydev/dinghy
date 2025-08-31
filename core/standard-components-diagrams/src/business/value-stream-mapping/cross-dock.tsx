@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CROSS_DOCK = {
   _style:
@@ -9,5 +9,7 @@ export const CROSS_DOCK = {
 }
 
 export function CrossDock(props: DiagramNodeProps) {
-  return <Shape {...CROSS_DOCK} {...props} />
+  return (
+    <Shape {...CROSS_DOCK} {...props} _style={extendStyle(CROSS_DOCK, props)} />
+  )
 }

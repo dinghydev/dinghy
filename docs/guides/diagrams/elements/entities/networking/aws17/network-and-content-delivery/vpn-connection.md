@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VpnConnection } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { VpnConnection } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <VpnConnection/>
 ```

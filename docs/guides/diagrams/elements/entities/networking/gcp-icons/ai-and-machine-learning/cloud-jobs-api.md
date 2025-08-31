@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudJobsApi } from '@reactiac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { CloudJobsApi } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <CloudJobsApi/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IndicatorFunction } from '@reactiac/standard-components-diagrams/procEngInstruments'
+import { IndicatorFunction } from '@diac/standard-components-diagrams/procEngInstruments'
 
 <IndicatorFunction/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FRONT_DOOR_AND_CDN_PROFILES = {
   _style:
@@ -9,5 +9,11 @@ export const FRONT_DOOR_AND_CDN_PROFILES = {
 }
 
 export function FrontDoorAndCdnProfiles(props: DiagramNodeProps) {
-  return <Shape {...FRONT_DOOR_AND_CDN_PROFILES} {...props} />
+  return (
+    <Shape
+      {...FRONT_DOOR_AND_CDN_PROFILES}
+      {...props}
+      _style={extendStyle(FRONT_DOOR_AND_CDN_PROFILES, props)}
+    />
+  )
 }

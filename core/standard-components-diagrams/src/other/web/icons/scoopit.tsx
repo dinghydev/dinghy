@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCOOPIT = {
   _style:
@@ -9,5 +9,5 @@ export const SCOOPIT = {
 }
 
 export function Scoopit(props: DiagramNodeProps) {
-  return <Shape {...SCOOPIT} {...props} />
+  return <Shape {...SCOOPIT} {...props} _style={extendStyle(SCOOPIT, props)} />
 }

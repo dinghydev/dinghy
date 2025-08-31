@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Xtrace } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Xtrace } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Xtrace/>
 ```

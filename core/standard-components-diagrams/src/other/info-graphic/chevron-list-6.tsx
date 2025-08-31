@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHEVRON_LIST_6 = {
   _style:
@@ -9,5 +9,11 @@ export const CHEVRON_LIST_6 = {
 }
 
 export function ChevronList6(props: DiagramNodeProps) {
-  return <Shape {...CHEVRON_LIST_6} {...props} />
+  return (
+    <Shape
+      {...CHEVRON_LIST_6}
+      {...props}
+      _style={extendStyle(CHEVRON_LIST_6, props)}
+    />
+  )
 }

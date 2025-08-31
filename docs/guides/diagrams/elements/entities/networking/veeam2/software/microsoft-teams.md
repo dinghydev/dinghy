@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MicrosoftTeams } from '@reactiac/standard-components-diagrams/veeam2Software'
+import { MicrosoftTeams } from '@diac/standard-components-diagrams/veeam2Software'
 
 <MicrosoftTeams/>
 ```

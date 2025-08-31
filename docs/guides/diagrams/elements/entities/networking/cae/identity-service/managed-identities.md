@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManagedIdentities } from '@reactiac/standard-components-diagrams/caeIdentityService'
+import { ManagedIdentities } from '@diac/standard-components-diagrams/caeIdentityService'
 
 <ManagedIdentities/>
 ```

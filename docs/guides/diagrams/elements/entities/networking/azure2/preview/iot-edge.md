@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IotEdge } from '@reactiac/standard-components-diagrams/azure2Preview'
+import { IotEdge } from '@diac/standard-components-diagrams/azure2Preview'
 
 <IotEdge/>
 ```

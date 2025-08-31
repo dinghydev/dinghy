@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { XenappServer } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { XenappServer } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <XenappServer/>
 ```

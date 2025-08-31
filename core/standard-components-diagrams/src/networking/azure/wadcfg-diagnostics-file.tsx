@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WADCFG_DIAGNOSTICS_FILE = {
   _style:
@@ -9,5 +9,11 @@ export const WADCFG_DIAGNOSTICS_FILE = {
 }
 
 export function WadcfgDiagnosticsFile(props: DiagramNodeProps) {
-  return <Shape {...WADCFG_DIAGNOSTICS_FILE} {...props} />
+  return (
+    <Shape
+      {...WADCFG_DIAGNOSTICS_FILE}
+      {...props}
+      _style={extendStyle(WADCFG_DIAGNOSTICS_FILE, props)}
+    />
+  )
 }

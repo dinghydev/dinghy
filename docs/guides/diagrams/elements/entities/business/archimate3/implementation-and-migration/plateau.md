@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Plateau } from '@reactiac/standard-components-diagrams/archimate3ImplementationAndMigration'
+import { Plateau } from '@diac/standard-components-diagrams/archimate3ImplementationAndMigration'
 
 <Plateau/>
 ```

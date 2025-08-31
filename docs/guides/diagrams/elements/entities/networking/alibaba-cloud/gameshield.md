@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Gameshield } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Gameshield } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Gameshield/>
 ```

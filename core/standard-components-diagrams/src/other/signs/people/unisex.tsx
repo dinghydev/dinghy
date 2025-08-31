@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNISEX = {
   _style:
@@ -9,5 +9,5 @@ export const UNISEX = {
 }
 
 export function Unisex(props: DiagramNodeProps) {
-  return <Shape {...UNISEX} {...props} />
+  return <Shape {...UNISEX} {...props} _style={extendStyle(UNISEX, props)} />
 }

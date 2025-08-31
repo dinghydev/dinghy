@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Lifeline2 } from '@reactiac/standard-components-diagrams/sysmlInteractions'
+import { Lifeline2 } from '@diac/standard-components-diagrams/sysmlInteractions'
 
 <Lifeline2/>
 ```

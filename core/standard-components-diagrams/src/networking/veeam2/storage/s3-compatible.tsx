@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const S3_COMPATIBLE = {
   _style:
@@ -9,5 +9,11 @@ export const S3_COMPATIBLE = {
 }
 
 export function S3Compatible(props: DiagramNodeProps) {
-  return <Shape {...S3_COMPATIBLE} {...props} />
+  return (
+    <Shape
+      {...S3_COMPATIBLE}
+      {...props}
+      _style={extendStyle(S3_COMPATIBLE, props)}
+    />
+  )
 }

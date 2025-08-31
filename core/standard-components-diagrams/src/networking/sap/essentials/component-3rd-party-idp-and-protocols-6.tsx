@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_6 = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_6 = {
 }
 
 export function Component3rdPartyIdpAndProtocols6(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_6} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_6}
+      {...props}
+      _style={extendStyle(COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_6, props)}
+    />
+  )
 }

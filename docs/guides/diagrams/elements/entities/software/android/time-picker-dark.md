@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TimePickerDark } from '@reactiac/standard-components-diagrams/android'
+import { TimePickerDark } from '@diac/standard-components-diagrams/android'
 
 <TimePickerDark/>
 ```

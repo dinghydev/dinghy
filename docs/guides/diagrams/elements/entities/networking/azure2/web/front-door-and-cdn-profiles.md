@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FrontDoorAndCdnProfiles } from '@reactiac/standard-components-diagrams/azure2Web'
+import { FrontDoorAndCdnProfiles } from '@diac/standard-components-diagrams/azure2Web'
 
 <FrontDoorAndCdnProfiles/>
 ```

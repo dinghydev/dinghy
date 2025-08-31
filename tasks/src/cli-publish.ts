@@ -1,5 +1,5 @@
 import { execa } from 'execa'
-import { walk } from 'jsr:@std/fs'
+import { walk } from 'jsr:@std/fs@1.0.15'
 import { projectVersionRelease } from '../../cli/src/utils/projectVersions.ts'
 import { projectRoot } from '../../cli/src/utils/projectRoot.ts'
 
@@ -7,7 +7,7 @@ const cliSrcFolder = `${projectRoot}/cli`
 const cliOutputFolder = `${projectRoot}/build/cli`
 
 const distDownload = `${cliOutputFolder}/download`
-const s3DownloadPath = 's3://reactiac-website-play-v1/download'
+const s3DownloadPath = 's3://diac-website-play-v1/download'
 // const cacheControlVersioned = 's-maxage=86400,must-revalidate'
 const cacheControlVersioned = 's-maxage=60,must-revalidate'
 const cacheControlLatest = 's-maxage=60,must-revalidate'

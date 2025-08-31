@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FUNNEL = {
   _style:
@@ -9,5 +9,5 @@ export const FUNNEL = {
 }
 
 export function Funnel(props: DiagramNodeProps) {
-  return <Shape {...FUNNEL} {...props} />
+  return <Shape {...FUNNEL} {...props} _style={extendStyle(FUNNEL, props)} />
 }

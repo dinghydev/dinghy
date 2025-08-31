@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRODUCTION_SITE = {
   _style:
@@ -9,5 +9,11 @@ export const PRODUCTION_SITE = {
 }
 
 export function ProductionSite(props: DiagramNodeProps) {
-  return <Shape {...PRODUCTION_SITE} {...props} />
+  return (
+    <Shape
+      {...PRODUCTION_SITE}
+      {...props}
+      _style={extendStyle(PRODUCTION_SITE, props)}
+    />
+  )
 }

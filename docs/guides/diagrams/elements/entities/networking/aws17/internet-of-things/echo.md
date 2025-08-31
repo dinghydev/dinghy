@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Echo } from '@reactiac/standard-components-diagrams/aws17InternetOfThings'
+import { Echo } from '@diac/standard-components-diagrams/aws17InternetOfThings'
 
 <Echo/>
 ```

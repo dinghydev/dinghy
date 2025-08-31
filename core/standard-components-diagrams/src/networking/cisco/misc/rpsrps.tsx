@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RPSRPS = {
   _style:
@@ -9,5 +9,5 @@ export const RPSRPS = {
 }
 
 export function Rpsrps(props: DiagramNodeProps) {
-  return <Shape {...RPSRPS} {...props} />
+  return <Shape {...RPSRPS} {...props} _style={extendStyle(RPSRPS, props)} />
 }

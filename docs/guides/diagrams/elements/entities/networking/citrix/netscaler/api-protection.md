@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApiProtection } from '@reactiac/standard-components-diagrams/citrixNetscaler'
+import { ApiProtection } from '@diac/standard-components-diagrams/citrixNetscaler'
 
 <ApiProtection/>
 ```

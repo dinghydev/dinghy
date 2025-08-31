@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const F_M_2_CONDUCTOR_3 = {
   _style:
@@ -9,5 +9,11 @@ export const F_M_2_CONDUCTOR_3 = {
 }
 
 export function FM2Conductor3(props: DiagramNodeProps) {
-  return <Shape {...F_M_2_CONDUCTOR_3} {...props} />
+  return (
+    <Shape
+      {...F_M_2_CONDUCTOR_3}
+      {...props}
+      _style={extendStyle(F_M_2_CONDUCTOR_3, props)}
+    />
+  )
 }

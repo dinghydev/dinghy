@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CITRIX_LICENSE_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const CITRIX_LICENSE_SERVER = {
 }
 
 export function CitrixLicenseServer(props: DiagramNodeProps) {
-  return <Shape {...CITRIX_LICENSE_SERVER} {...props} />
+  return (
+    <Shape
+      {...CITRIX_LICENSE_SERVER}
+      {...props}
+      _style={extendStyle(CITRIX_LICENSE_SERVER, props)}
+    />
+  )
 }

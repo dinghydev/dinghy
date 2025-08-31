@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VloadBalancer } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { VloadBalancer } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <VloadBalancer/>
 ```

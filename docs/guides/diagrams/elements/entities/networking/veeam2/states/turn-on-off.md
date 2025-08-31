@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TurnOnOff } from '@reactiac/standard-components-diagrams/veeam2States'
+import { TurnOnOff } from '@diac/standard-components-diagrams/veeam2States'
 
 <TurnOnOff/>
 ```

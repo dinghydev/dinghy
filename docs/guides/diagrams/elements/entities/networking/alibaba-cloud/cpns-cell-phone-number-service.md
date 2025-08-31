@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CpnsCellPhoneNumberService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { CpnsCellPhoneNumberService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <CpnsCellPhoneNumberService/>
 ```

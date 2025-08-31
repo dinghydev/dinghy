@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MERCURY = {
   _style:
@@ -9,5 +9,5 @@ export const MERCURY = {
 }
 
 export function Mercury(props: DiagramNodeProps) {
-  return <Shape {...MERCURY} {...props} />
+  return <Shape {...MERCURY} {...props} _style={extendStyle(MERCURY, props)} />
 }

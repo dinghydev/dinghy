@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POTENTIOMETER = {
   _style:
@@ -9,5 +9,11 @@ export const POTENTIOMETER = {
 }
 
 export function Potentiometer(props: DiagramNodeProps) {
-  return <Shape {...POTENTIOMETER} {...props} />
+  return (
+    <Shape
+      {...POTENTIOMETER}
+      {...props}
+      _style={extendStyle(POTENTIOMETER, props)}
+    />
+  )
 }

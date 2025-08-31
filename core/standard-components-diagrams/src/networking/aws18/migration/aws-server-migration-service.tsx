@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_SERVER_MIGRATION_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_SERVER_MIGRATION_SERVICE = {
 }
 
 export function AwsServerMigrationService(props: DiagramNodeProps) {
-  return <Shape {...AWS_SERVER_MIGRATION_SERVICE} {...props} />
+  return (
+    <Shape
+      {...AWS_SERVER_MIGRATION_SERVICE}
+      {...props}
+      _style={extendStyle(AWS_SERVER_MIGRATION_SERVICE, props)}
+    />
+  )
 }

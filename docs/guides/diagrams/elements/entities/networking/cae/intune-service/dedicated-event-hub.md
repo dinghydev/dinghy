@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DedicatedEventHub } from '@reactiac/standard-components-diagrams/caeIntuneService'
+import { DedicatedEventHub } from '@diac/standard-components-diagrams/caeIntuneService'
 
 <DedicatedEventHub/>
 ```

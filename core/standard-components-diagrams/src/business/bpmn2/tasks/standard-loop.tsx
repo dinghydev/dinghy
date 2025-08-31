@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STANDARD_LOOP = {
   _style: {
@@ -9,5 +9,11 @@ export const STANDARD_LOOP = {
 }
 
 export function StandardLoop(props: DiagramNodeProps) {
-  return <Shape {...STANDARD_LOOP} {...props} />
+  return (
+    <Shape
+      {...STANDARD_LOOP}
+      {...props}
+      _style={extendStyle(STANDARD_LOOP, props)}
+    />
+  )
 }

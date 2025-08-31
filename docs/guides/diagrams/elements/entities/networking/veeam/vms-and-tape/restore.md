@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Restore } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { Restore } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <Restore/>
 ```

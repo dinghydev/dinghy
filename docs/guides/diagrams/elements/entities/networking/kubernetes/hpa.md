@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Hpa } from '@reactiac/standard-components-diagrams/kubernetes'
+import { Hpa } from '@diac/standard-components-diagrams/kubernetes'
 
 <Hpa/>
 ```

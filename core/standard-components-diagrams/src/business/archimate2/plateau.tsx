@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLATEAU = {
   _style:
@@ -9,5 +9,5 @@ export const PLATEAU = {
 }
 
 export function Plateau(props: DiagramNodeProps) {
-  return <Shape {...PLATEAU} {...props} />
+  return <Shape {...PLATEAU} {...props} _style={extendStyle(PLATEAU, props)} />
 }

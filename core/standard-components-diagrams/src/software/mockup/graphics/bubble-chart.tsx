@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUBBLE_CHART = {
   _style:
@@ -9,5 +9,11 @@ export const BUBBLE_CHART = {
 }
 
 export function BubbleChart(props: DiagramNodeProps) {
-  return <Shape {...BUBBLE_CHART} {...props} />
+  return (
+    <Shape
+      {...BUBBLE_CHART}
+      {...props}
+      _style={extendStyle(BUBBLE_CHART, props)}
+    />
+  )
 }

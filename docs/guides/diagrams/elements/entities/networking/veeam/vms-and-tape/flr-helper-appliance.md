@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FlrHelperAppliance } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { FlrHelperAppliance } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <FlrHelperAppliance/>
 ```

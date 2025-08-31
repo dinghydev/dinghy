@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RsLatch } from '@reactiac/standard-components-diagrams/electricalLogicGates'
+import { RsLatch } from '@diac/standard-components-diagrams/electricalLogicGates'
 
 <RsLatch/>
 ```

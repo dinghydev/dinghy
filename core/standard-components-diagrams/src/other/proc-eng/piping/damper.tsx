@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DAMPER = {
   _style:
@@ -9,5 +9,5 @@ export const DAMPER = {
 }
 
 export function Damper(props: DiagramNodeProps) {
-  return <Shape {...DAMPER} {...props} />
+  return <Shape {...DAMPER} {...props} _style={extendStyle(DAMPER, props)} />
 }

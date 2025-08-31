@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATA_LAKE_STORE_GEN1 = {
   _style:
@@ -9,5 +9,11 @@ export const DATA_LAKE_STORE_GEN1 = {
 }
 
 export function DataLakeStoreGen1(props: DiagramNodeProps) {
-  return <Shape {...DATA_LAKE_STORE_GEN1} {...props} />
+  return (
+    <Shape
+      {...DATA_LAKE_STORE_GEN1}
+      {...props}
+      _style={extendStyle(DATA_LAKE_STORE_GEN1, props)}
+    />
+  )
 }

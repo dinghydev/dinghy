@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTELLISWITCH_STACK = {
   _style:
@@ -9,5 +9,11 @@ export const INTELLISWITCH_STACK = {
 }
 
 export function IntelliswitchStack(props: DiagramNodeProps) {
-  return <Shape {...INTELLISWITCH_STACK} {...props} />
+  return (
+    <Shape
+      {...INTELLISWITCH_STACK}
+      {...props}
+      _style={extendStyle(INTELLISWITCH_STACK, props)}
+    />
+  )
 }

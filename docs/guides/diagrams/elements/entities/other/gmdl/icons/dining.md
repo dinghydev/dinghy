@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dining } from '@reactiac/standard-components-diagrams/gmdlIcons'
+import { Dining } from '@diac/standard-components-diagrams/gmdlIcons'
 
 <Dining/>
 ```

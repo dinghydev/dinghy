@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARX_4000 = {
   _style:
@@ -9,5 +9,7 @@ export const ARX_4000 = {
 }
 
 export function Arx4000(props: DiagramNodeProps) {
-  return <Shape {...ARX_4000} {...props} />
+  return (
+    <Shape {...ARX_4000} {...props} _style={extendStyle(ARX_4000, props)} />
+  )
 }

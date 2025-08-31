@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AUTOML_VIDEO_INTELLIGENCE = {
   _style:
@@ -9,5 +9,11 @@ export const AUTOML_VIDEO_INTELLIGENCE = {
 }
 
 export function AutomlVideoIntelligence(props: DiagramNodeProps) {
-  return <Shape {...AUTOML_VIDEO_INTELLIGENCE} {...props} />
+  return (
+    <Shape
+      {...AUTOML_VIDEO_INTELLIGENCE}
+      {...props}
+      _style={extendStyle(AUTOML_VIDEO_INTELLIGENCE, props)}
+    />
+  )
 }

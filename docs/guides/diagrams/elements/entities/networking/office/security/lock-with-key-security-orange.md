@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LockWithKeySecurityOrange } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { LockWithKeySecurityOrange } from '@diac/standard-components-diagrams/officeSecurity'
 
 <LockWithKeySecurityOrange/>
 ```

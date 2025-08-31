@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ORTHOGONAL_TRIANGLE = {
   _style:
@@ -9,5 +9,11 @@ export const ORTHOGONAL_TRIANGLE = {
 }
 
 export function OrthogonalTriangle(props: DiagramNodeProps) {
-  return <Shape {...ORTHOGONAL_TRIANGLE} {...props} />
+  return (
+    <Shape
+      {...ORTHOGONAL_TRIANGLE}
+      {...props}
+      _style={extendStyle(ORTHOGONAL_TRIANGLE, props)}
+    />
+  )
 }

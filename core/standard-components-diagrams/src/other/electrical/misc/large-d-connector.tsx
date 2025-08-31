@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LARGE_D_CONNECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const LARGE_D_CONNECTOR = {
 }
 
 export function LargeDConnector(props: DiagramNodeProps) {
-  return <Shape {...LARGE_D_CONNECTOR} {...props} />
+  return (
+    <Shape
+      {...LARGE_D_CONNECTOR}
+      {...props}
+      _style={extendStyle(LARGE_D_CONNECTOR, props)}
+    />
+  )
 }

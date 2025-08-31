@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BigData } from '@reactiac/standard-components-diagrams/network2'
+import { BigData } from '@diac/standard-components-diagrams/network2'
 
 <BigData/>
 ```

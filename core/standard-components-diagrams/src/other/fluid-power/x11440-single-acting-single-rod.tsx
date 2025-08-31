@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11440_SINGLE_ACTING_SINGLE_ROD = {
   _style:
@@ -9,5 +9,11 @@ export const X11440_SINGLE_ACTING_SINGLE_ROD = {
 }
 
 export function X11440SingleActingSingleRod(props: DiagramNodeProps) {
-  return <Shape {...X11440_SINGLE_ACTING_SINGLE_ROD} {...props} />
+  return (
+    <Shape
+      {...X11440_SINGLE_ACTING_SINGLE_ROD}
+      {...props}
+      _style={extendStyle(X11440_SINGLE_ACTING_SINGLE_ROD, props)}
+    />
+  )
 }

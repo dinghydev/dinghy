@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProgressTracker } from '@reactiac/standard-components-diagrams/atlassian'
+import { ProgressTracker } from '@diac/standard-components-diagrams/atlassian'
 
 <ProgressTracker/>
 ```

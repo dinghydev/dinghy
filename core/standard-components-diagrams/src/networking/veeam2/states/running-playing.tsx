@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RUNNING_PLAYING = {
   _style:
@@ -9,5 +9,11 @@ export const RUNNING_PLAYING = {
 }
 
 export function RunningPlaying(props: DiagramNodeProps) {
-  return <Shape {...RUNNING_PLAYING} {...props} />
+  return (
+    <Shape
+      {...RUNNING_PLAYING}
+      {...props}
+      _style={extendStyle(RUNNING_PLAYING, props)}
+    />
+  )
 }

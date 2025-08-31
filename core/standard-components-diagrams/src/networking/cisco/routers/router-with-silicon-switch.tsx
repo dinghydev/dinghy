@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUTER_WITH_SILICON_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const ROUTER_WITH_SILICON_SWITCH = {
 }
 
 export function RouterWithSiliconSwitch(props: DiagramNodeProps) {
-  return <Shape {...ROUTER_WITH_SILICON_SWITCH} {...props} />
+  return (
+    <Shape
+      {...ROUTER_WITH_SILICON_SWITCH}
+      {...props}
+      _style={extendStyle(ROUTER_WITH_SILICON_SWITCH, props)}
+    />
+  )
 }

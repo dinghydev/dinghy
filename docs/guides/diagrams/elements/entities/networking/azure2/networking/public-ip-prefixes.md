@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PublicIpPrefixes } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { PublicIpPrefixes } from '@diac/standard-components-diagrams/azure2Networking'
 
 <PublicIpPrefixes/>
 ```

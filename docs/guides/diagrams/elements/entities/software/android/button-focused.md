@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButtonFocused } from '@reactiac/standard-components-diagrams/android'
+import { ButtonFocused } from '@diac/standard-components-diagrams/android'
 
 <ButtonFocused/>
 ```

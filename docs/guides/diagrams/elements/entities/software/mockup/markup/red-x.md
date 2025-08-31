@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RedX } from '@reactiac/standard-components-diagrams/mockupMarkup'
+import { RedX } from '@diac/standard-components-diagrams/mockupMarkup'
 
 <RedX/>
 ```

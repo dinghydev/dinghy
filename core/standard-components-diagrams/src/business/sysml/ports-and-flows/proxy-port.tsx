@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROXY_PORT = {
   _style:
@@ -9,5 +9,7 @@ export const PROXY_PORT = {
 }
 
 export function ProxyPort(props: DiagramNodeProps) {
-  return <Shape {...PROXY_PORT} {...props} />
+  return (
+    <Shape {...PROXY_PORT} {...props} _style={extendStyle(PROXY_PORT, props)} />
+  )
 }

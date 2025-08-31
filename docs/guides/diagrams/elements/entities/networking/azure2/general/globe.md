@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Globe } from '@reactiac/standard-components-diagrams/azure2General'
+import { Globe } from '@diac/standard-components-diagrams/azure2General'
 
 <Globe/>
 ```

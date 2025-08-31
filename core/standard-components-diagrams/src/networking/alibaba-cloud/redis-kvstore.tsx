@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REDIS_KVSTORE = {
   _style:
@@ -9,5 +9,11 @@ export const REDIS_KVSTORE = {
 }
 
 export function RedisKvstore(props: DiagramNodeProps) {
-  return <Shape {...REDIS_KVSTORE} {...props} />
+  return (
+    <Shape
+      {...REDIS_KVSTORE}
+      {...props}
+      _style={extendStyle(REDIS_KVSTORE, props)}
+    />
+  )
 }

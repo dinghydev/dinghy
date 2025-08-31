@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const THIRD_PARTY_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const THIRD_PARTY_HIGHLIGHT = {
 }
 
 export function ThirdPartyHighlight(props: DiagramNodeProps) {
-  return <Shape {...THIRD_PARTY_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...THIRD_PARTY_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(THIRD_PARTY_HIGHLIGHT, props)}
+    />
+  )
 }

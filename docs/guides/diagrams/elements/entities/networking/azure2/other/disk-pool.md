@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiskPool } from '@reactiac/standard-components-diagrams/azure2Other'
+import { DiskPool } from '@diac/standard-components-diagrams/azure2Other'
 
 <DiskPool/>
 ```

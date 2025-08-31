@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PC_ROUTERCARD = {
   _style:
@@ -9,5 +9,11 @@ export const PC_ROUTERCARD = {
 }
 
 export function PcRoutercard(props: DiagramNodeProps) {
-  return <Shape {...PC_ROUTERCARD} {...props} />
+  return (
+    <Shape
+      {...PC_ROUTERCARD}
+      {...props}
+      _style={extendStyle(PC_ROUTERCARD, props)}
+    />
+  )
 }

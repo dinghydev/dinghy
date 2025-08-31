@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MachineLearningServiceWorkspaces } from '@reactiac/standard-components-diagrams/caeAiAndMlService'
+import { MachineLearningServiceWorkspaces } from '@diac/standard-components-diagrams/caeAiAndMlService'
 
 <MachineLearningServiceWorkspaces/>
 ```

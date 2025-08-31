@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Stride } from '@reactiac/standard-components-diagrams/webLogos'
+import { Stride } from '@diac/standard-components-diagrams/webLogos'
 
 <Stride/>
 ```

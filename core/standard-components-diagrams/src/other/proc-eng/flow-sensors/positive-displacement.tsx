@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POSITIVE_DISPLACEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const POSITIVE_DISPLACEMENT = {
 }
 
 export function PositiveDisplacement(props: DiagramNodeProps) {
-  return <Shape {...POSITIVE_DISPLACEMENT} {...props} />
+  return (
+    <Shape
+      {...POSITIVE_DISPLACEMENT}
+      {...props}
+      _style={extendStyle(POSITIVE_DISPLACEMENT, props)}
+    />
+  )
 }

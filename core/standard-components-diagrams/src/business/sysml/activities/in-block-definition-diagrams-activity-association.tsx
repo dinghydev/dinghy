@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION = {
   _style:
@@ -12,6 +12,13 @@ export function InBlockDefinitionDiagramsActivityAssociation(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION} {...props} />
+    <Shape
+      {...IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION}
+      {...props}
+      _style={extendStyle(
+        IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION,
+        props,
+      )}
+    />
   )
 }

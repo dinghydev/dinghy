@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VSPC_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const VSPC_SERVER = {
 }
 
 export function VspcServer(props: DiagramNodeProps) {
-  return <Shape {...VSPC_SERVER} {...props} />
+  return (
+    <Shape
+      {...VSPC_SERVER}
+      {...props}
+      _style={extendStyle(VSPC_SERVER, props)}
+    />
+  )
 }

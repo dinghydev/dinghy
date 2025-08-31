@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ibm1754LocalConsoleManager } from '@reactiac/standard-components-diagrams/rackIbm'
+import { Ibm1754LocalConsoleManager } from '@diac/standard-components-diagrams/rackIbm'
 
 <Ibm1754LocalConsoleManager/>
 ```

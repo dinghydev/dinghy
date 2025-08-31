@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EVENT_SUB_PROCESS_EXPANDED = {
   _style:
@@ -9,5 +9,11 @@ export const EVENT_SUB_PROCESS_EXPANDED = {
 }
 
 export function EventSubProcessExpanded(props: DiagramNodeProps) {
-  return <Shape {...EVENT_SUB_PROCESS_EXPANDED} {...props} />
+  return (
+    <Shape
+      {...EVENT_SUB_PROCESS_EXPANDED}
+      {...props}
+      _style={extendStyle(EVENT_SUB_PROCESS_EXPANDED, props)}
+    />
+  )
 }

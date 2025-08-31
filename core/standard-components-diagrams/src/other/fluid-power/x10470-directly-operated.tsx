@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10470_DIRECTLY_OPERATED = {
   _style:
@@ -9,5 +9,11 @@ export const X10470_DIRECTLY_OPERATED = {
 }
 
 export function X10470DirectlyOperated(props: DiagramNodeProps) {
-  return <Shape {...X10470_DIRECTLY_OPERATED} {...props} />
+  return (
+    <Shape
+      {...X10470_DIRECTLY_OPERATED}
+      {...props}
+      _style={extendStyle(X10470_DIRECTLY_OPERATED, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RANGE_INPUT = {
   _style:
@@ -9,5 +9,11 @@ export const RANGE_INPUT = {
 }
 
 export function RangeInput(props: DiagramNodeProps) {
-  return <Shape {...RANGE_INPUT} {...props} />
+  return (
+    <Shape
+      {...RANGE_INPUT}
+      {...props}
+      _style={extendStyle(RANGE_INPUT, props)}
+    />
+  )
 }

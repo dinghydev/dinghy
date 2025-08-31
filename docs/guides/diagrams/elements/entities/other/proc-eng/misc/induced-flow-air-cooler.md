@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InducedFlowAirCooler } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { InducedFlowAirCooler } from '@diac/standard-components-diagrams/procEngMisc'
 
 <InducedFlowAirCooler/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GRID_LAYOUT = {
   _style:
@@ -9,5 +9,11 @@ export const GRID_LAYOUT = {
 }
 
 export function GridLayout(props: DiagramNodeProps) {
-  return <Shape {...GRID_LAYOUT} {...props} />
+  return (
+    <Shape
+      {...GRID_LAYOUT}
+      {...props}
+      _style={extendStyle(GRID_LAYOUT, props)}
+    />
+  )
 }

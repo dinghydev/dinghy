@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NAM_VIRTUAL_SERVICE_BLADE = {
   _style:
@@ -9,5 +9,11 @@ export const NAM_VIRTUAL_SERVICE_BLADE = {
 }
 
 export function NamVirtualServiceBlade(props: DiagramNodeProps) {
-  return <Shape {...NAM_VIRTUAL_SERVICE_BLADE} {...props} />
+  return (
+    <Shape
+      {...NAM_VIRTUAL_SERVICE_BLADE}
+      {...props}
+      _style={extendStyle(NAM_VIRTUAL_SERVICE_BLADE, props)}
+    />
+  )
 }

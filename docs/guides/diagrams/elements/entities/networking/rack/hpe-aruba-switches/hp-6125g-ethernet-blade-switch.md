@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Hp6125gEthernetBladeSwitch } from '@reactiac/standard-components-diagrams/rackHpeArubaSwitches'
+import { Hp6125gEthernetBladeSwitch } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
 
 <Hp6125gEthernetBladeSwitch/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL076A_HPE_ARUBA_3810M_40_PORT_GT_POE_8_PORT_1_2_5_5_10GBASE_T_POE_1_SLOT_SWITCH_REAR =
   {
@@ -16,6 +16,10 @@ export function Jl076aHpeAruba3810m40PortGtPoe8Port125510gbaseTPoe1SlotSwitchRea
     <Shape
       {...JL076A_HPE_ARUBA_3810M_40_PORT_GT_POE_8_PORT_1_2_5_5_10GBASE_T_POE_1_SLOT_SWITCH_REAR}
       {...props}
+      _style={extendStyle(
+        JL076A_HPE_ARUBA_3810M_40_PORT_GT_POE_8_PORT_1_2_5_5_10GBASE_T_POE_1_SLOT_SWITCH_REAR,
+        props,
+      )}
     />
   )
 }

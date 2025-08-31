@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EipElasticIpAddress } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { EipElasticIpAddress } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <EipElasticIpAddress/>
 ```

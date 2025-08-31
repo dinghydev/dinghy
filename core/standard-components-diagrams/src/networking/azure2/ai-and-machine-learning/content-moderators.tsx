@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTENT_MODERATORS = {
   _style:
@@ -9,5 +9,11 @@ export const CONTENT_MODERATORS = {
 }
 
 export function ContentModerators(props: DiagramNodeProps) {
-  return <Shape {...CONTENT_MODERATORS} {...props} />
+  return (
+    <Shape
+      {...CONTENT_MODERATORS}
+      {...props}
+      _style={extendStyle(CONTENT_MODERATORS, props)}
+    />
+  )
 }

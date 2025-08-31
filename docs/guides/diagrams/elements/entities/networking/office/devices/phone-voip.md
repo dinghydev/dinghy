@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PhoneVoip } from '@reactiac/standard-components-diagrams/officeDevices'
+import { PhoneVoip } from '@diac/standard-components-diagrams/officeDevices'
 
 <PhoneVoip/>
 ```

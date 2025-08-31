@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Phishing } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { Phishing } from '@diac/standard-components-diagrams/officeConcepts'
 
 <Phishing/>
 ```

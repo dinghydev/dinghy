@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIRING_HUB = {
   _style:
@@ -9,5 +9,7 @@ export const WIRING_HUB = {
 }
 
 export function WiringHub(props: DiagramNodeProps) {
-  return <Shape {...WIRING_HUB} {...props} />
+  return (
+    <Shape {...WIRING_HUB} {...props} _style={extendStyle(WIRING_HUB, props)} />
+  )
 }

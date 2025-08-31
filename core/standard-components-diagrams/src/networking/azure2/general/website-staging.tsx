@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEBSITE_STAGING = {
   _style:
@@ -9,5 +9,11 @@ export const WEBSITE_STAGING = {
 }
 
 export function WebsiteStaging(props: DiagramNodeProps) {
-  return <Shape {...WEBSITE_STAGING} {...props} />
+  return (
+    <Shape
+      {...WEBSITE_STAGING}
+      {...props}
+      _style={extendStyle(WEBSITE_STAGING, props)}
+    />
+  )
 }

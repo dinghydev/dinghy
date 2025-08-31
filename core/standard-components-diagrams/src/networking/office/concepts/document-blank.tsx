@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOCUMENT_BLANK = {
   _style:
@@ -9,5 +9,11 @@ export const DOCUMENT_BLANK = {
 }
 
 export function DocumentBlank(props: DiagramNodeProps) {
-  return <Shape {...DOCUMENT_BLANK} {...props} />
+  return (
+    <Shape
+      {...DOCUMENT_BLANK}
+      {...props}
+      _style={extendStyle(DOCUMENT_BLANK, props)}
+    />
+  )
 }

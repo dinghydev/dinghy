@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAINFRAME_MODERNIZATION_RUNTIME = {
   _style:
@@ -9,5 +9,11 @@ export const MAINFRAME_MODERNIZATION_RUNTIME = {
 }
 
 export function MainframeModernizationRuntime(props: DiagramNodeProps) {
-  return <Shape {...MAINFRAME_MODERNIZATION_RUNTIME} {...props} />
+  return (
+    <Shape
+      {...MAINFRAME_MODERNIZATION_RUNTIME}
+      {...props}
+      _style={extendStyle(MAINFRAME_MODERNIZATION_RUNTIME, props)}
+    />
+  )
 }

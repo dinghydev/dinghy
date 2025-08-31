@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalRoutingBank } from '@reactiac/standard-components-diagrams/rackGeneral'
+import { HorizontalRoutingBank } from '@diac/standard-components-diagrams/rackGeneral'
 
 <HorizontalRoutingBank/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROGRESS_SCRUBBER_FOCUSED = {
   _style:
@@ -9,5 +9,11 @@ export const PROGRESS_SCRUBBER_FOCUSED = {
 }
 
 export function ProgressScrubberFocused(props: DiagramNodeProps) {
-  return <Shape {...PROGRESS_SCRUBBER_FOCUSED} {...props} />
+  return (
+    <Shape
+      {...PROGRESS_SCRUBBER_FOCUSED}
+      {...props}
+      _style={extendStyle(PROGRESS_SCRUBBER_FOCUSED, props)}
+    />
+  )
 }

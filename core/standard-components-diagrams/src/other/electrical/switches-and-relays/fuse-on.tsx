@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FUSE_ON = {
   _style:
@@ -9,5 +9,5 @@ export const FUSE_ON = {
 }
 
 export function FuseOn(props: DiagramNodeProps) {
-  return <Shape {...FUSE_ON} {...props} />
+  return <Shape {...FUSE_ON} {...props} _style={extendStyle(FUSE_ON, props)} />
 }

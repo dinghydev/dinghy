@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION = {
 }
 
 export function Component1ClickFailoverOrchestration(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION}
+      {...props}
+      _style={extendStyle(COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION, props)}
+    />
+  )
 }

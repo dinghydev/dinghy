@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VM_STARTED = {
   _style:
@@ -9,5 +9,7 @@ export const VM_STARTED = {
 }
 
 export function VmStarted(props: DiagramNodeProps) {
-  return <Shape {...VM_STARTED} {...props} />
+  return (
+    <Shape {...VM_STARTED} {...props} _style={extendStyle(VM_STARTED, props)} />
+  )
 }

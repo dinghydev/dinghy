@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsCostExplorer } from '@reactiac/standard-components-diagrams/aws18CostManagement'
+import { AwsCostExplorer } from '@diac/standard-components-diagrams/aws18CostManagement'
 
 <AwsCostExplorer/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEPARATOR_WET_SCRUBBER = {
   _style:
@@ -9,5 +9,11 @@ export const SEPARATOR_WET_SCRUBBER = {
 }
 
 export function SeparatorWetScrubber(props: DiagramNodeProps) {
-  return <Shape {...SEPARATOR_WET_SCRUBBER} {...props} />
+  return (
+    <Shape
+      {...SEPARATOR_WET_SCRUBBER}
+      {...props}
+      _style={extendStyle(SEPARATOR_WET_SCRUBBER, props)}
+    />
+  )
 }

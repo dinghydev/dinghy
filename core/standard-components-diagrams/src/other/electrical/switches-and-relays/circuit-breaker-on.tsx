@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CIRCUIT_BREAKER_ON = {
   _style:
@@ -9,5 +9,11 @@ export const CIRCUIT_BREAKER_ON = {
 }
 
 export function CircuitBreakerOn(props: DiagramNodeProps) {
-  return <Shape {...CIRCUIT_BREAKER_ON} {...props} />
+  return (
+    <Shape
+      {...CIRCUIT_BREAKER_ON}
+      {...props}
+      _style={extendStyle(CIRCUIT_BREAKER_ON, props)}
+    />
+  )
 }

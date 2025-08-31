@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POINT_OF_PRESENCE = {
   _style: {
@@ -12,5 +12,11 @@ export const POINT_OF_PRESENCE = {
 }
 
 export function PointOfPresence(props: DiagramNodeProps) {
-  return <Shape {...POINT_OF_PRESENCE} {...props} />
+  return (
+    <Shape
+      {...POINT_OF_PRESENCE}
+      {...props}
+      _style={extendStyle(POINT_OF_PRESENCE, props)}
+    />
+  )
 }

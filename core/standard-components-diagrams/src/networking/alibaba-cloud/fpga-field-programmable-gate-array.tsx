@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY = {
   _style:
@@ -9,5 +9,11 @@ export const FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY = {
 }
 
 export function FpgaFieldProgrammableGateArray(props: DiagramNodeProps) {
-  return <Shape {...FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY} {...props} />
+  return (
+    <Shape
+      {...FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY}
+      {...props}
+      _style={extendStyle(FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIGHTSAIL = {
   _style:
@@ -9,5 +9,7 @@ export const LIGHTSAIL = {
 }
 
 export function Lightsail(props: DiagramNodeProps) {
-  return <Shape {...LIGHTSAIL} {...props} />
+  return (
+    <Shape {...LIGHTSAIL} {...props} _style={extendStyle(LIGHTSAIL, props)} />
+  )
 }

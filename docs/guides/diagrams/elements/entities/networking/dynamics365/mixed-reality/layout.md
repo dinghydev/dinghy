@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Layout } from '@reactiac/standard-components-diagrams/dynamics365MixedReality'
+import { Layout } from '@diac/standard-components-diagrams/dynamics365MixedReality'
 
 <Layout/>
 ```

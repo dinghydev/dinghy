@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETSCALER_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const NETSCALER_GATEWAY = {
 }
 
 export function NetscalerGateway(props: DiagramNodeProps) {
-  return <Shape {...NETSCALER_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...NETSCALER_GATEWAY}
+      {...props}
+      _style={extendStyle(NETSCALER_GATEWAY, props)}
+    />
+  )
 }

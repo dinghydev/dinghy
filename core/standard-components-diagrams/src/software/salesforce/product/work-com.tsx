@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORK_COM = {
   _style:
@@ -9,5 +9,7 @@ export const WORK_COM = {
 }
 
 export function WorkCom(props: DiagramNodeProps) {
-  return <Shape {...WORK_COM} {...props} />
+  return (
+    <Shape {...WORK_COM} {...props} _style={extendStyle(WORK_COM, props)} />
+  )
 }

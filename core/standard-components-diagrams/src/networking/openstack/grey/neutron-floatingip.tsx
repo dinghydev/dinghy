@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NEUTRON_FLOATINGIP = {
   _style:
     'fillColor=#808080;aspect=fixed;sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;outlineConnect=0;verticalAlign=top;align=center;shape=mxgraph.openstack.neutron_floatingip;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function NeutronFloatingip(props: DiagramNodeProps) {
-  return <Shape {...NEUTRON_FLOATINGIP} {...props} />
+  return (
+    <Shape
+      {...NEUTRON_FLOATINGIP}
+      {...props}
+      _style={extendStyle(NEUTRON_FLOATINGIP, props)}
+    />
+  )
 }

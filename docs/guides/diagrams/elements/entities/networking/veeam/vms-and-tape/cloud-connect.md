@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudConnect } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { CloudConnect } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <CloudConnect/>
 ```

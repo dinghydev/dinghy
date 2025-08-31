@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PageControl } from '@reactiac/standard-components-diagrams/mockupNavigation'
+import { PageControl } from '@diac/standard-components-diagrams/mockupNavigation'
 
 <PageControl/>
 ```

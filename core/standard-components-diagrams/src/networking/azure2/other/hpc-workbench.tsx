@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HPC_WORKBENCH = {
   _style:
@@ -9,5 +9,11 @@ export const HPC_WORKBENCH = {
 }
 
 export function HpcWorkbench(props: DiagramNodeProps) {
-  return <Shape {...HPC_WORKBENCH} {...props} />
+  return (
+    <Shape
+      {...HPC_WORKBENCH}
+      {...props}
+      _style={extendStyle(HPC_WORKBENCH, props)}
+    />
+  )
 }

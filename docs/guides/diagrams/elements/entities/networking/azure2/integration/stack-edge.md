@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StackEdge } from '@reactiac/standard-components-diagrams/azure2Integration'
+import { StackEdge } from '@diac/standard-components-diagrams/azure2Integration'
 
 <StackEdge/>
 ```

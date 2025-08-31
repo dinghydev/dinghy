@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsCodecommit } from '@reactiac/standard-components-diagrams/aws18DeveloperTools'
+import { AwsCodecommit } from '@diac/standard-components-diagrams/aws18DeveloperTools'
 
 <AwsCodecommit/>
 ```

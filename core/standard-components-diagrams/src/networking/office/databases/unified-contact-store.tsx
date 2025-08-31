@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNIFIED_CONTACT_STORE = {
   _style:
@@ -9,5 +9,11 @@ export const UNIFIED_CONTACT_STORE = {
 }
 
 export function UnifiedContactStore(props: DiagramNodeProps) {
-  return <Shape {...UNIFIED_CONTACT_STORE} {...props} />
+  return (
+    <Shape
+      {...UNIFIED_CONTACT_STORE}
+      {...props}
+      _style={extendStyle(UNIFIED_CONTACT_STORE, props)}
+    />
+  )
 }

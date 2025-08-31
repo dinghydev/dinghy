@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Group } from '@reactiac/standard-components-diagrams/mockupContainers'
+import { Group } from '@diac/standard-components-diagrams/mockupContainers'
 
 <Group/>
 ```

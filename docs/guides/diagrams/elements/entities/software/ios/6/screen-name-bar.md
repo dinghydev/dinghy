@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScreenNameBar } from '@reactiac/standard-components-diagrams/ios6'
+import { ScreenNameBar } from '@diac/standard-components-diagrams/ios6'
 
 <ScreenNameBar/>
 ```

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.smiley',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Smiley } from '@reactiac/standard-components-diagrams/basic'
+import { Smiley } from '@diac/standard-components-diagrams/basic'
 
 <Smiley/>
 ```

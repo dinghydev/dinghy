@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RUN_COMMAND = {
   _style:
@@ -9,5 +9,11 @@ export const RUN_COMMAND = {
 }
 
 export function RunCommand(props: DiagramNodeProps) {
-  return <Shape {...RUN_COMMAND} {...props} />
+  return (
+    <Shape
+      {...RUN_COMMAND}
+      {...props}
+      _style={extendStyle(RUN_COMMAND, props)}
+    />
+  )
 }

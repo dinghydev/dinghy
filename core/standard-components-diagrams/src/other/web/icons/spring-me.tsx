@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPRING_ME = {
   _style:
@@ -9,5 +9,7 @@ export const SPRING_ME = {
 }
 
 export function SpringMe(props: DiagramNodeProps) {
-  return <Shape {...SPRING_ME} {...props} />
+  return (
+    <Shape {...SPRING_ME} {...props} _style={extendStyle(SPRING_ME, props)} />
+  )
 }

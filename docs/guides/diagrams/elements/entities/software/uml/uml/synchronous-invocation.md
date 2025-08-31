@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SynchronousInvocation } from '@reactiac/standard-components-diagrams/uml'
+import { SynchronousInvocation } from '@diac/standard-components-diagrams/uml'
 
 <SynchronousInvocation/>
 ```

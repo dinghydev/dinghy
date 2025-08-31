@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PoweredgeM820 } from '@reactiac/standard-components-diagrams/rackDell'
+import { PoweredgeM820 } from '@diac/standard-components-diagrams/rackDell'
 
 <PoweredgeM820/>
 ```

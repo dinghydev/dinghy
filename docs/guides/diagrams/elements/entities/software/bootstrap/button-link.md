@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButtonLink } from '@reactiac/standard-components-diagrams/bootstrap'
+import { ButtonLink } from '@diac/standard-components-diagrams/bootstrap'
 
 <ButtonLink/>
 ```

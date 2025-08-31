@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANDROGENOUS_PERSON = {
   _style:
@@ -9,5 +9,11 @@ export const ANDROGENOUS_PERSON = {
 }
 
 export function AndrogenousPerson(props: DiagramNodeProps) {
-  return <Shape {...ANDROGENOUS_PERSON} {...props} />
+  return (
+    <Shape
+      {...ANDROGENOUS_PERSON}
+      {...props}
+      _style={extendStyle(ANDROGENOUS_PERSON, props)}
+    />
+  )
 }

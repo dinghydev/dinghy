@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OutlookUser } from '@reactiac/standard-components-diagrams/officeUsers'
+import { OutlookUser } from '@diac/standard-components-diagrams/officeUsers'
 
 <OutlookUser/>
 ```

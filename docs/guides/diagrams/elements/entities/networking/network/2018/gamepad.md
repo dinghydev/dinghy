@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Gamepad } from '@reactiac/standard-components-diagrams/network'
+import { Gamepad } from '@diac/standard-components-diagrams/network'
 
 <Gamepad/>
 ```

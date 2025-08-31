@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STAKEHOLDER = {
   _style:
@@ -9,5 +9,11 @@ export const STAKEHOLDER = {
 }
 
 export function Stakeholder(props: DiagramNodeProps) {
-  return <Shape {...STAKEHOLDER} {...props} />
+  return (
+    <Shape
+      {...STAKEHOLDER}
+      {...props}
+      _style={extendStyle(STAKEHOLDER, props)}
+    />
+  )
 }

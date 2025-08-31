@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_SHARED_ASSOCIATION =
   {
@@ -16,6 +16,10 @@ export function AssociationConnectorInstanceSpecificationPropertyConnectorEndSha
     <Dependency
       {...ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_SHARED_ASSOCIATION}
       {...props}
+      _style={extendStyle(
+        ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_SHARED_ASSOCIATION,
+        props,
+      )}
     />
   )
 }

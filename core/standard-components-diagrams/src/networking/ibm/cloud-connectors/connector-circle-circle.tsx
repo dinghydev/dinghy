@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONNECTOR_CIRCLE_CIRCLE = {
   _style: {
@@ -9,5 +9,11 @@ export const CONNECTOR_CIRCLE_CIRCLE = {
 }
 
 export function ConnectorCircleCircle(props: DiagramNodeProps) {
-  return <Dependency {...CONNECTOR_CIRCLE_CIRCLE} {...props} />
+  return (
+    <Dependency
+      {...CONNECTOR_CIRCLE_CIRCLE}
+      {...props}
+      _style={extendStyle(CONNECTOR_CIRCLE_CIRCLE, props)}
+    />
+  )
 }

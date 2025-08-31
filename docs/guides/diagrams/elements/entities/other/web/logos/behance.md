@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Behance } from '@reactiac/standard-components-diagrams/webLogos'
+import { Behance } from '@diac/standard-components-diagrams/webLogos'
 
 <Behance/>
 ```

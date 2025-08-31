@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TANK_CONICAL_ROOF_AND_BOTTOM = {
   _style:
@@ -9,5 +9,11 @@ export const TANK_CONICAL_ROOF_AND_BOTTOM = {
 }
 
 export function TankConicalRoofAndBottom(props: DiagramNodeProps) {
-  return <Shape {...TANK_CONICAL_ROOF_AND_BOTTOM} {...props} />
+  return (
+    <Shape
+      {...TANK_CONICAL_ROOF_AND_BOTTOM}
+      {...props}
+      _style={extendStyle(TANK_CONICAL_ROOF_AND_BOTTOM, props)}
+    />
+  )
 }

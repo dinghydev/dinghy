@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SocketConnectionNozzle } from '@reactiac/standard-components-diagrams/procEngApparatusElements'
+import { SocketConnectionNozzle } from '@diac/standard-components-diagrams/procEngApparatusElements'
 
 <SocketConnectionNozzle/>
 ```

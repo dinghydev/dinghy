@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VeeamBackupChainMetadata } from '@reactiac/standard-components-diagrams/veeam2Storage'
+import { VeeamBackupChainMetadata } from '@diac/standard-components-diagrams/veeam2Storage'
 
 <VeeamBackupChainMetadata/>
 ```

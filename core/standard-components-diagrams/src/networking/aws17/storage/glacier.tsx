@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GLACIER = {
   _style:
@@ -9,5 +9,5 @@ export const GLACIER = {
 }
 
 export function Glacier(props: DiagramNodeProps) {
-  return <Shape {...GLACIER} {...props} />
+  return <Shape {...GLACIER} {...props} _style={extendStyle(GLACIER, props)} />
 }

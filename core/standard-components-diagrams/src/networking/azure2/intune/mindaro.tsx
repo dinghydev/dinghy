@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MINDARO = {
   _style:
@@ -9,5 +9,5 @@ export const MINDARO = {
 }
 
 export function Mindaro(props: DiagramNodeProps) {
-  return <Shape {...MINDARO} {...props} />
+  return <Shape {...MINDARO} {...props} _style={extendStyle(MINDARO, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLP_KE_KEYWORD_EXTRACTION = {
   _style:
@@ -9,5 +9,11 @@ export const NLP_KE_KEYWORD_EXTRACTION = {
 }
 
 export function NlpKeKeywordExtraction(props: DiagramNodeProps) {
-  return <Shape {...NLP_KE_KEYWORD_EXTRACTION} {...props} />
+  return (
+    <Shape
+      {...NLP_KE_KEYWORD_EXTRACTION}
+      {...props}
+      _style={extendStyle(NLP_KE_KEYWORD_EXTRACTION, props)}
+    />
+  )
 }

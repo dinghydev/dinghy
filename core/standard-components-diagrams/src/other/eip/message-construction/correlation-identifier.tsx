@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CORRELATION_IDENTIFIER = {
   _style:
@@ -9,5 +9,11 @@ export const CORRELATION_IDENTIFIER = {
 }
 
 export function CorrelationIdentifier(props: DiagramNodeProps) {
-  return <Shape {...CORRELATION_IDENTIFIER} {...props} />
+  return (
+    <Shape
+      {...CORRELATION_IDENTIFIER}
+      {...props}
+      _style={extendStyle(CORRELATION_IDENTIFIER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEXT_ANNOTATION = {
   _style:
@@ -9,5 +9,11 @@ export const TEXT_ANNOTATION = {
 }
 
 export function TextAnnotation(props: DiagramNodeProps) {
-  return <Shape {...TEXT_ANNOTATION} {...props} />
+  return (
+    <Shape
+      {...TEXT_ANNOTATION}
+      {...props}
+      _style={extendStyle(TEXT_ANNOTATION, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BarWithCallout } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { BarWithCallout } from '@diac/standard-components-diagrams/infoGraphic'
 
 <BarWithCallout/>
 ```

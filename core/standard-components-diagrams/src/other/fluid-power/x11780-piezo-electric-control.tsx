@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11780_PIEZO_ELECTRIC_CONTROL = {
   _style:
@@ -9,5 +9,11 @@ export const X11780_PIEZO_ELECTRIC_CONTROL = {
 }
 
 export function X11780PiezoElectricControl(props: DiagramNodeProps) {
-  return <Shape {...X11780_PIEZO_ELECTRIC_CONTROL} {...props} />
+  return (
+    <Shape
+      {...X11780_PIEZO_ELECTRIC_CONTROL}
+      {...props}
+      _style={extendStyle(X11780_PIEZO_ELECTRIC_CONTROL, props)}
+    />
+  )
 }

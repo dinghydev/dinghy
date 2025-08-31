@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRUSTEND_COMPUTING = {
   _style:
@@ -9,5 +9,11 @@ export const TRUSTEND_COMPUTING = {
 }
 
 export function TrustendComputing(props: DiagramNodeProps) {
-  return <Shape {...TRUSTEND_COMPUTING} {...props} />
+  return (
+    <Shape
+      {...TRUSTEND_COMPUTING}
+      {...props}
+      _style={extendStyle(TRUSTEND_COMPUTING, props)}
+    />
+  )
 }

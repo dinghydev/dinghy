@@ -1,5 +1,5 @@
 {
-  "name": "@reactiac/standard-components-tf-aws",
+  "name": "@diac/standard-components-tf-aws",
   "exports": {
     ".": "./src/index.ts",
     "./s3": "./src/s3/index.ts",

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ModalDialogError } from '@reactiac/standard-components-diagrams/atlassian'
+import { ModalDialogError } from '@diac/standard-components-diagrams/atlassian'
 
 <ModalDialogError/>
 ```

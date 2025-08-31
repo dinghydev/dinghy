@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NORMALIZER = {
   _style:
@@ -9,5 +9,7 @@ export const NORMALIZER = {
 }
 
 export function Normalizer(props: DiagramNodeProps) {
-  return <Shape {...NORMALIZER} {...props} />
+  return (
+    <Shape {...NORMALIZER} {...props} _style={extendStyle(NORMALIZER, props)} />
+  )
 }

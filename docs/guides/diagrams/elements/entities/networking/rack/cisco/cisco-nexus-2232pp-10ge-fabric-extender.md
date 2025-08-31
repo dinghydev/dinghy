@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CiscoNexus2232pp10geFabricExtender } from '@reactiac/standard-components-diagrams/rackCisco'
+import { CiscoNexus2232pp10geFabricExtender } from '@diac/standard-components-diagrams/rackCisco'
 
 <CiscoNexus2232pp10geFabricExtender/>
 ```

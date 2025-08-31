@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExtruderPiston } from '@reactiac/standard-components-diagrams/procEngShapingMachines'
+import { ExtruderPiston } from '@diac/standard-components-diagrams/procEngShapingMachines'
 
 <ExtruderPiston/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudVpn } from '@reactiac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudVpn } from '@diac/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudVpn/>
 ```

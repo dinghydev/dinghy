@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Swf } from '@reactiac/standard-components-diagrams/aws17ApplicationServices'
+import { Swf } from '@diac/standard-components-diagrams/aws17ApplicationServices'
 
 <Swf/>
 ```

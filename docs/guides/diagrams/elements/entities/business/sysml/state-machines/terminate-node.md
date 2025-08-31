@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TerminateNode } from '@reactiac/standard-components-diagrams/sysmlStateMachines'
+import { TerminateNode } from '@diac/standard-components-diagrams/sysmlStateMachines'
 
 <TerminateNode/>
 ```

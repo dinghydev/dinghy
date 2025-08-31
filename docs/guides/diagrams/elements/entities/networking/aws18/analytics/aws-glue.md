@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsGlue } from '@reactiac/standard-components-diagrams/aws18Analytics'
+import { AwsGlue } from '@diac/standard-components-diagrams/aws18Analytics'
 
 <AwsGlue/>
 ```

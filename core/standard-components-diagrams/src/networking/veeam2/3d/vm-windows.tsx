@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VM_WINDOWS = {
   _style:
@@ -9,5 +9,7 @@ export const VM_WINDOWS = {
 }
 
 export function VmWindows(props: DiagramNodeProps) {
-  return <Shape {...VM_WINDOWS} {...props} />
+  return (
+    <Shape {...VM_WINDOWS} {...props} _style={extendStyle(VM_WINDOWS, props)} />
+  )
 }

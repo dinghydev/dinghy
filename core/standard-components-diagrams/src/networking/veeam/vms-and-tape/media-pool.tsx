@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MEDIA_POOL = {
   _style:
@@ -9,5 +9,7 @@ export const MEDIA_POOL = {
 }
 
 export function MediaPool(props: DiagramNodeProps) {
-  return <Shape {...MEDIA_POOL} {...props} />
+  return (
+    <Shape {...MEDIA_POOL} {...props} _style={extendStyle(MEDIA_POOL, props)} />
+  )
 }

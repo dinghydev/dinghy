@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExpressrouteCircuits } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { ExpressrouteCircuits } from '@diac/standard-components-diagrams/azure2Networking'
 
 <ExpressrouteCircuits/>
 ```

@@ -1,9 +1,9 @@
-import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
+import { IacNodeProps, ResolvableStringSchema } from '@diac/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { useTypedNode, useTypedNodes } from '@reactiac/base-components'
-import { SecretsManager } from '@reactiac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { useTypedNode, useTypedNodes } from '@diac/base-components'
+import { SecretsManager } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 export const DataAwsSecretsmanagerSecretInputSchema = z.object({
   name: ResolvableStringSchema.optional(),

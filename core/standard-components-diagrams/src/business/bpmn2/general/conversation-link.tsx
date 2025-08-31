@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONVERSATION_LINK = {
   _style: {
@@ -8,5 +8,11 @@ export const CONVERSATION_LINK = {
 }
 
 export function ConversationLink(props: DiagramNodeProps) {
-  return <Dependency {...CONVERSATION_LINK} {...props} />
+  return (
+    <Dependency
+      {...CONVERSATION_LINK}
+      {...props}
+      _style={extendStyle(CONVERSATION_LINK, props)}
+    />
+  )
 }

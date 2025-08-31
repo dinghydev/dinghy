@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ORIENTATION_LOCK = {
   _style:
@@ -9,5 +9,11 @@ export const ORIENTATION_LOCK = {
 }
 
 export function OrientationLock(props: DiagramNodeProps) {
-  return <Shape {...ORIENTATION_LOCK} {...props} />
+  return (
+    <Shape
+      {...ORIENTATION_LOCK}
+      {...props}
+      _style={extendStyle(ORIENTATION_LOCK, props)}
+    />
+  )
 }

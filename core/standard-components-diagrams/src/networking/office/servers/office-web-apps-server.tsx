@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OFFICE_WEB_APPS_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const OFFICE_WEB_APPS_SERVER = {
 }
 
 export function OfficeWebAppsServer(props: DiagramNodeProps) {
-  return <Shape {...OFFICE_WEB_APPS_SERVER} {...props} />
+  return (
+    <Shape
+      {...OFFICE_WEB_APPS_SERVER}
+      {...props}
+      _style={extendStyle(OFFICE_WEB_APPS_SERVER, props)}
+    />
+  )
 }

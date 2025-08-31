@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LAST_FM = {
   _style:
@@ -9,5 +9,5 @@ export const LAST_FM = {
 }
 
 export function LastFm(props: DiagramNodeProps) {
-  return <Shape {...LAST_FM} {...props} />
+  return <Shape {...LAST_FM} {...props} _style={extendStyle(LAST_FM, props)} />
 }

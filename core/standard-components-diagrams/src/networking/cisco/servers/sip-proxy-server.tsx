@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SIP_PROXY_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const SIP_PROXY_SERVER = {
 }
 
 export function SipProxyServer(props: DiagramNodeProps) {
-  return <Shape {...SIP_PROXY_SERVER} {...props} />
+  return (
+    <Shape
+      {...SIP_PROXY_SERVER}
+      {...props}
+      _style={extendStyle(SIP_PROXY_SERVER, props)}
+    />
+  )
 }

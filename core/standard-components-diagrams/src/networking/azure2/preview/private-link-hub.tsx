@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRIVATE_LINK_HUB = {
   _style:
@@ -9,5 +9,11 @@ export const PRIVATE_LINK_HUB = {
 }
 
 export function PrivateLinkHub(props: DiagramNodeProps) {
-  return <Shape {...PRIVATE_LINK_HUB} {...props} />
+  return (
+    <Shape
+      {...PRIVATE_LINK_HUB}
+      {...props}
+      _style={extendStyle(PRIVATE_LINK_HUB, props)}
+    />
+  )
 }

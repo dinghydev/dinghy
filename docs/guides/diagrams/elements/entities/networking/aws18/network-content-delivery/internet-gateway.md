@@ -14,7 +14,7 @@ gateway
 ## Usage
 
 ```
-import { InternetGateway } from '@reactiac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { InternetGateway } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <InternetGateway/>
 ```

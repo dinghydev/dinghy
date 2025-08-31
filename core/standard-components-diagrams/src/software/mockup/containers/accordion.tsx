@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACCORDION = {
   _style:
@@ -9,5 +9,7 @@ export const ACCORDION = {
 }
 
 export function Accordion(props: DiagramNodeProps) {
-  return <Shape {...ACCORDION} {...props} />
+  return (
+    <Shape {...ACCORDION} {...props} _style={extendStyle(ACCORDION, props)} />
+  )
 }

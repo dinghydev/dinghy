@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SWITCH_48_PORT_L2_POE = {
   _style:
@@ -9,5 +9,11 @@ export const SWITCH_48_PORT_L2_POE = {
 }
 
 export function Switch48PortL2Poe(props: DiagramNodeProps) {
-  return <Shape {...SWITCH_48_PORT_L2_POE} {...props} />
+  return (
+    <Shape
+      {...SWITCH_48_PORT_L2_POE}
+      {...props}
+      _style={extendStyle(SWITCH_48_PORT_L2_POE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ApplicationManager } from '@reactiac/standard-components-diagrams/awsManagementGovernance'
+import { ApplicationManager } from '@diac/standard-components-diagrams/awsManagementGovernance'
 
 <ApplicationManager/>
 ```

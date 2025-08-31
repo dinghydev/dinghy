@@ -1,5 +1,5 @@
 import * as fs from '@std/fs'
-import { basename, resolve } from '@std/path'
+import { basename, resolve } from 'jsr:@std/path@1.0.8'
 import { walkSync } from '@std/fs'
 import * as yaml from '@std/yaml'
 import { parseArgs } from '@std/cli'
@@ -15,45 +15,43 @@ const resolveHome = () => {
   }
 }
 
-export const reactiacRc: Record<string, string> = {}
+export const diacRc: Record<string, string> = {}
 export const isInsideContainer = Deno.env.get('HOST_USER_HOME') !== undefined
 export const hostAppHome = Deno.env.get('HOST_APP_HOME') || resolveHome()
-export const appHomeMount = `/reactiac/engine/workspace/${
-  basename(hostAppHome)
-}`
+export const appHomeMount = `/diac/engine/workspace/${basename(hostAppHome)}`
 export const containerAppHome = isInsideContainer ? appHomeMount : resolveHome()
-export const reactiacHome = Deno.env.get('REACTIAC_HOME') ||
-  `${Deno.env.get('HOME')}/.reactiac`
+export const diacHome = Deno.env.get('DIAC_HOME') ||
+  `${Deno.env.get('HOME')}/.diac`
 
-export const reactiacAppConfig: any = {}
-export const reactiacRcFiles: string[] = [
-  `${containerAppHome}/.reactiacrc.local`,
-  `${containerAppHome}/.reactiacrc`,
-  `${reactiacHome}rc`,
+export const diacAppConfig: any = {}
+export const diacRcFiles: string[] = [
+  `${containerAppHome}/.diacrc.local`,
+  `${containerAppHome}/.diacrc`,
+  `${diacHome}rc`,
 ]
-export const reactiacConfigFile = `${hostAppHome}/iac.yaml`
+export const diacConfigFile = `${hostAppHome}/diac.yaml`
 
 export async function loadGlobalConfig() {
-  debug('reactiac home %s', reactiacHome)
+  debug('diac home %s', diacHome)
   debug('app home %s', containerAppHome)
   debug('exec path %s', Deno.execPath())
-  for (const file of reactiacRcFiles) {
+  for (const file of diacRcFiles) {
     await loadEnvFile(file)
   }
 
-  if (!fs.existsSync(reactiacConfigFile)) {
+  if (!fs.existsSync(diacConfigFile)) {
     return
   }
 
-  const config = yaml.parse(Deno.readTextFileSync(reactiacConfigFile))
+  const config = yaml.parse(Deno.readTextFileSync(diacConfigFile))
   if (config) {
-    Object.assign(reactiacAppConfig, config)
+    Object.assign(diacAppConfig, config)
     loadEnvFromConfig()
   }
 }
 
 function loadFiles(basePaths: string[]) {
-  reactiacAppConfig.files ??= {}
+  diacAppConfig.files ??= {}
   for (const basePath of basePaths) {
     if (!fs.existsSync(basePath)) {
       continue
@@ -71,7 +69,7 @@ function loadFiles(basePaths: string[]) {
         )
         const fileName = objectPath.pop() as string
         objectPath.push('files')
-        let current = reactiacAppConfig.files
+        let current = diacAppConfig.files
         objectPath.map((path) => {
           current[path] ??= {}
           current = current[path]
@@ -83,10 +81,11 @@ function loadFiles(basePaths: string[]) {
 }
 
 function loadApps() {
-  reactiacAppConfig.apps ??= {}
+  diacAppConfig.apps ??= {}
   for (const dirEntry of Deno.readDirSync(hostAppHome)) {
     if (dirEntry.name.endsWith('.tsx')) {
-      reactiacAppConfig.apps[dirEntry.name.replace('.tsx', '')] = dirEntry.name
+      diacAppConfig.apps[dirEntry.name.replace('.tsx', '').toLowerCase()] =
+        dirEntry.name
       debug('discovered app: %s', dirEntry.name)
     }
   }
@@ -98,7 +97,7 @@ export const configGet = (paths: string[]) => {
   if (current !== undefined) {
     debug('use env %s=*', envVar)
   } else {
-    current = reactiacAppConfig
+    current = diacAppConfig
     for (const path of paths) {
       if (!current || typeof current !== 'object') {
         break
@@ -113,7 +112,7 @@ export const configGet = (paths: string[]) => {
 }
 
 function loadEnvFromConfig() {
-  const envs = reactiacAppConfig.reactiac?.envs
+  const envs = diacAppConfig.diac?.envs
   if (!envs) {
     return
   }
@@ -121,8 +120,8 @@ function loadEnvFromConfig() {
     if (Deno.env.get(k) === undefined) {
       const value = String(v)
       Deno.env.set(k, value)
-      reactiacRc[k] = value
-      debug('loaded %s=* from iac.yaml', k)
+      diacRc[k] = value
+      debug('loaded %s=* from diac.yaml', k)
     }
   }
 }
@@ -132,12 +131,6 @@ async function loadEnvFile(path: string) {
     return
   }
 
-  // console.log("util");
-  // console.log(util);
-  // const env = util.parseEnv(Deno.readTextFileSync(path));
-  // console.log("env");
-  // console.log(env);
-
   for (const line of Deno.readTextFileSync(path).split(/\r?\n/)) {
     const index = line.indexOf('=')
     if (index > 0 && !line.startsWith('#')) {
@@ -145,7 +138,7 @@ async function loadEnvFile(path: string) {
       const v = line.slice(index + 1).trim()
       if (Deno.env.get(k) === undefined) {
         Deno.env.set(k, v)
-        reactiacRc[k] = v
+        diacRc[k] = v
         debug('loaded %s=* from %s', k, path)
       }
     }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTION_BAR_LANDSCAPE = {
   _style:
@@ -9,5 +9,11 @@ export const ACTION_BAR_LANDSCAPE = {
 }
 
 export function ActionBarLandscape(props: DiagramNodeProps) {
-  return <Shape {...ACTION_BAR_LANDSCAPE} {...props} />
+  return (
+    <Shape
+      {...ACTION_BAR_LANDSCAPE}
+      {...props}
+      _style={extendStyle(ACTION_BAR_LANDSCAPE, props)}
+    />
+  )
 }

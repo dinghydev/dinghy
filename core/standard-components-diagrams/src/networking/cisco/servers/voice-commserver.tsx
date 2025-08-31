@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VOICE_COMMSERVER = {
   _style:
@@ -9,5 +9,11 @@ export const VOICE_COMMSERVER = {
 }
 
 export function VoiceCommserver(props: DiagramNodeProps) {
-  return <Shape {...VOICE_COMMSERVER} {...props} />
+  return (
+    <Shape
+      {...VOICE_COMMSERVER}
+      {...props}
+      _style={extendStyle(VOICE_COMMSERVER, props)}
+    />
+  )
 }

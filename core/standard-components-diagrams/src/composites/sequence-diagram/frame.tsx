@@ -1,4 +1,4 @@
-import { DiagramNodeProps, Shape } from '@reactiac/base-components'
+import { DiagramNodeProps, Shape } from '@diac/base-components'
 
 export type FrameProps = {
   _width: number

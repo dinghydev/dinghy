@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INSTANT_VM_RECOVERY = {
   _style:
@@ -9,5 +9,11 @@ export const INSTANT_VM_RECOVERY = {
 }
 
 export function InstantVmRecovery(props: DiagramNodeProps) {
-  return <Shape {...INSTANT_VM_RECOVERY} {...props} />
+  return (
+    <Shape
+      {...INSTANT_VM_RECOVERY}
+      {...props}
+      _style={extendStyle(INSTANT_VM_RECOVERY, props)}
+    />
+  )
 }

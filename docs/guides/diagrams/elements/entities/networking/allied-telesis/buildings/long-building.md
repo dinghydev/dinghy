@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LongBuilding } from '@reactiac/standard-components-diagrams/alliedTelesisBuildings'
+import { LongBuilding } from '@diac/standard-components-diagrams/alliedTelesisBuildings'
 
 <LongBuilding/>
 ```

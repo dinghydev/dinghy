@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SERVICE_CATALOG_MANAGED_APPLICATION_DEFINITIONS = {
   _style:
@@ -12,6 +12,13 @@ export function ServiceCatalogManagedApplicationDefinitions(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...SERVICE_CATALOG_MANAGED_APPLICATION_DEFINITIONS} {...props} />
+    <Shape
+      {...SERVICE_CATALOG_MANAGED_APPLICATION_DEFINITIONS}
+      {...props}
+      _style={extendStyle(
+        SERVICE_CATALOG_MANAGED_APPLICATION_DEFINITIONS,
+        props,
+      )}
+    />
   )
 }

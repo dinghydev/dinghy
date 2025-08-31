@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DETECTOR = {
   _style:
@@ -9,5 +9,7 @@ export const DETECTOR = {
 }
 
 export function Detector(props: DiagramNodeProps) {
-  return <Shape {...DETECTOR} {...props} />
+  return (
+    <Shape {...DETECTOR} {...props} _style={extendStyle(DETECTOR, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BBSM = {
   _style:
@@ -9,5 +9,5 @@ export const BBSM = {
 }
 
 export function Bbsm(props: DiagramNodeProps) {
-  return <Shape {...BBSM} {...props} />
+  return <Shape {...BBSM} {...props} _style={extendStyle(BBSM, props)} />
 }

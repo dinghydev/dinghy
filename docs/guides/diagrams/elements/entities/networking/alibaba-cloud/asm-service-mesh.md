@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AsmServiceMesh } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { AsmServiceMesh } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <AsmServiceMesh/>
 ```

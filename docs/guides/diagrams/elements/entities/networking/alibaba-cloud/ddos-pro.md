@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DdosPro } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { DdosPro } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <DdosPro/>
 ```

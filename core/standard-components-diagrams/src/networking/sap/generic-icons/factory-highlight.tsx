@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FACTORY_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const FACTORY_HIGHLIGHT = {
 }
 
 export function FactoryHighlight(props: DiagramNodeProps) {
-  return <Shape {...FACTORY_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...FACTORY_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(FACTORY_HIGHLIGHT, props)}
+    />
+  )
 }

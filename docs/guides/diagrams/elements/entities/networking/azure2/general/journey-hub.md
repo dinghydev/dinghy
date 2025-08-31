@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { JourneyHub } from '@reactiac/standard-components-diagrams/azure2General'
+import { JourneyHub } from '@diac/standard-components-diagrams/azure2General'
 
 <JourneyHub/>
 ```

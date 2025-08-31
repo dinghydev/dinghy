@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Wakoopa } from '@reactiac/standard-components-diagrams/webLogos'
+import { Wakoopa } from '@diac/standard-components-diagrams/webLogos'
 
 <Wakoopa/>
 ```

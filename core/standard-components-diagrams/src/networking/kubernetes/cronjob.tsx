@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CRONJOB = {
   _style:
@@ -9,5 +9,5 @@ export const CRONJOB = {
 }
 
 export function Cronjob(props: DiagramNodeProps) {
-  return <Shape {...CRONJOB} {...props} />
+  return <Shape {...CRONJOB} {...props} _style={extendStyle(CRONJOB, props)} />
 }

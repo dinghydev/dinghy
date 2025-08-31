@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SETTLING_TANK = {
   _style:
@@ -9,5 +9,11 @@ export const SETTLING_TANK = {
 }
 
 export function SettlingTank(props: DiagramNodeProps) {
-  return <Shape {...SETTLING_TANK} {...props} />
+  return (
+    <Shape
+      {...SETTLING_TANK}
+      {...props}
+      _style={extendStyle(SETTLING_TANK, props)}
+    />
+  )
 }

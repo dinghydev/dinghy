@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNORDERED_LIST = {
   _style:
@@ -9,5 +9,11 @@ export const UNORDERED_LIST = {
 }
 
 export function UnorderedList(props: DiagramNodeProps) {
-  return <Shape {...UNORDERED_LIST} {...props} />
+  return (
+    <Shape
+      {...UNORDERED_LIST}
+      {...props}
+      _style={extendStyle(UNORDERED_LIST, props)}
+    />
+  )
 }

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.vpn_gateway;',
-  _width: 54.900000000000006,
-  _height: 54.900000000000006,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { VpnGateway } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { VpnGateway } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <VpnGateway/>
 ```

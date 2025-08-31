@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChargebackAndBillingCapabilities } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { ChargebackAndBillingCapabilities } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <ChargebackAndBillingCapabilities/>
 ```

@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { EnterpriseNetwork } from '@reactiac/standard-components-diagrams/ibmBoxes'
+import { EnterpriseNetwork } from '@diac/standard-components-diagrams/ibmBoxes'
 
 <EnterpriseNetwork/>
 ```

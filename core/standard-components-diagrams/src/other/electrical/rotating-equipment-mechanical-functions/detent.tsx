@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DETENT = {
   _style:
@@ -9,5 +9,5 @@ export const DETENT = {
 }
 
 export function Detent(props: DiagramNodeProps) {
-  return <Shape {...DETENT} {...props} />
+  return <Shape {...DETENT} {...props} _style={extendStyle(DETENT, props)} />
 }

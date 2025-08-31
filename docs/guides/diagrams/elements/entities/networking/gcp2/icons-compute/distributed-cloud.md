@@ -14,7 +14,7 @@ Cloud
 ## Usage
 
 ```
-import { DistributedCloud } from '@reactiac/standard-components-diagrams/gcp2IconsCompute'
+import { DistributedCloud } from '@diac/standard-components-diagrams/gcp2IconsCompute'
 
 <DistributedCloud/>
 ```

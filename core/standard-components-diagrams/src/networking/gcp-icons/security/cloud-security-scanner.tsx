@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_SECURITY_SCANNER = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_SECURITY_SCANNER = {
 }
 
 export function CloudSecurityScanner(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_SECURITY_SCANNER} {...props} />
+  return (
+    <Shape
+      {...CLOUD_SECURITY_SCANNER}
+      {...props}
+      _style={extendStyle(CLOUD_SECURITY_SCANNER, props)}
+    />
+  )
 }

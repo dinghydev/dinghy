@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTIC_NETWORK_ADAPTER = {
   _style:
@@ -9,5 +9,11 @@ export const ELASTIC_NETWORK_ADAPTER = {
 }
 
 export function ElasticNetworkAdapter(props: DiagramNodeProps) {
-  return <Shape {...ELASTIC_NETWORK_ADAPTER} {...props} />
+  return (
+    <Shape
+      {...ELASTIC_NETWORK_ADAPTER}
+      {...props}
+      _style={extendStyle(ELASTIC_NETWORK_ADAPTER, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROUTER_UTM = {
   _style:
@@ -9,5 +9,7 @@ export const ROUTER_UTM = {
 }
 
 export function RouterUtm(props: DiagramNodeProps) {
-  return <Shape {...ROUTER_UTM} {...props} />
+  return (
+    <Shape {...ROUTER_UTM} {...props} _style={extendStyle(ROUTER_UTM, props)} />
+  )
 }

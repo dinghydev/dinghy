@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=internalStorage;whiteSpace=wrap;html=1;dx=15;dy=15;rounded=1;arcSize=8;strokeWidth=2;',
-  _width: 70,
-  _height: 70,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { InternalStorage } from '@reactiac/standard-components-diagrams/flowchart'
+import { InternalStorage } from '@diac/standard-components-diagrams/flowchart'
 
 <InternalStorage/>
 ```

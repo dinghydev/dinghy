@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const YELP = {
   _style:
@@ -9,5 +9,5 @@ export const YELP = {
 }
 
 export function Yelp(props: DiagramNodeProps) {
-  return <Shape {...YELP} {...props} />
+  return <Shape {...YELP} {...props} _style={extendStyle(YELP, props)} />
 }

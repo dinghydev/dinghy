@@ -14,7 +14,7 @@ Catalog
 ## Usage
 
 ```
-import { DataCatalog } from '@reactiac/standard-components-diagrams/gcp2IconsAnalytics'
+import { DataCatalog } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
 
 <DataCatalog/>
 ```

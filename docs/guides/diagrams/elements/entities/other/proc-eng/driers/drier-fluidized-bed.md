@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DrierFluidizedBed } from '@reactiac/standard-components-diagrams/procEngDriers'
+import { DrierFluidizedBed } from '@diac/standard-components-diagrams/procEngDriers'
 
 <DrierFluidizedBed/>
 ```

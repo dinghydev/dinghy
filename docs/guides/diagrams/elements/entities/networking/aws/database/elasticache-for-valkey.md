@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticacheForValkey } from '@reactiac/standard-components-diagrams/awsDatabase'
+import { ElasticacheForValkey } from '@diac/standard-components-diagrams/awsDatabase'
 
 <ElasticacheForValkey/>
 ```

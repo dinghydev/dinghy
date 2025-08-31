@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PathControl } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { PathControl } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <PathControl/>
 ```

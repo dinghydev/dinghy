@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AlexaSkill } from '@reactiac/standard-components-diagrams/aws17InternetOfThings'
+import { AlexaSkill } from '@diac/standard-components-diagrams/aws17InternetOfThings'
 
 <AlexaSkill/>
 ```

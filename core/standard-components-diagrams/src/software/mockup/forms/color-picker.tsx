@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLOR_PICKER = {
   _style:
@@ -9,5 +9,11 @@ export const COLOR_PICKER = {
 }
 
 export function ColorPicker(props: DiagramNodeProps) {
-  return <Shape {...COLOR_PICKER} {...props} />
+  return (
+    <Shape
+      {...COLOR_PICKER}
+      {...props}
+      _style={extendStyle(COLOR_PICKER, props)}
+    />
+  )
 }

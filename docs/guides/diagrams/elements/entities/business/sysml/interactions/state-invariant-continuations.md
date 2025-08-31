@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StateInvariantContinuations } from '@reactiac/standard-components-diagrams/sysmlInteractions'
+import { StateInvariantContinuations } from '@diac/standard-components-diagrams/sysmlInteractions'
 
 <StateInvariantContinuations/>
 ```

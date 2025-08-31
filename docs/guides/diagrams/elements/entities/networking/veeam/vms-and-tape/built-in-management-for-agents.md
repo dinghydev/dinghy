@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BuiltInManagementForAgents } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { BuiltInManagementForAgents } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <BuiltInManagementForAgents/>
 ```

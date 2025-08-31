@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISCOVERY_SEARCH_MAILBOX = {
   _style:
@@ -9,5 +9,11 @@ export const DISCOVERY_SEARCH_MAILBOX = {
 }
 
 export function DiscoverySearchMailbox(props: DiagramNodeProps) {
-  return <Shape {...DISCOVERY_SEARCH_MAILBOX} {...props} />
+  return (
+    <Shape
+      {...DISCOVERY_SEARCH_MAILBOX}
+      {...props}
+      _style={extendStyle(DISCOVERY_SEARCH_MAILBOX, props)}
+    />
+  )
 }

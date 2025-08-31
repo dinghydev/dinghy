@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EdgeGateway } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { EdgeGateway } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <EdgeGateway/>
 ```

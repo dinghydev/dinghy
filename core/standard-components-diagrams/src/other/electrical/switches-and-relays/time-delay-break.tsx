@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TIME_DELAY_BREAK = {
   _style:
@@ -9,5 +9,11 @@ export const TIME_DELAY_BREAK = {
 }
 
 export function TimeDelayBreak(props: DiagramNodeProps) {
-  return <Shape {...TIME_DELAY_BREAK} {...props} />
+  return (
+    <Shape
+      {...TIME_DELAY_BREAK}
+      {...props}
+      _style={extendStyle(TIME_DELAY_BREAK, props)}
+    />
+  )
 }

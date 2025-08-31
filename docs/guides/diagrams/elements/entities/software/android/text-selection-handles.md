@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TextSelectionHandles } from '@reactiac/standard-components-diagrams/android'
+import { TextSelectionHandles } from '@diac/standard-components-diagrams/android'
 
 <TextSelectionHandles/>
 ```

@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_ELBOW = {
   _style: {
@@ -9,5 +9,11 @@ export const HORIZONTAL_ELBOW = {
 }
 
 export function HorizontalElbow(props: DiagramNodeProps) {
-  return <Dependency {...HORIZONTAL_ELBOW} {...props} />
+  return (
+    <Dependency
+      {...HORIZONTAL_ELBOW}
+      {...props}
+      _style={extendStyle(HORIZONTAL_ELBOW, props)}
+    />
+  )
 }

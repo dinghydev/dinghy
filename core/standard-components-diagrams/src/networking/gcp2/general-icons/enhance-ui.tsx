@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENHANCE_UI = {
   _style:
@@ -9,5 +9,7 @@ export const ENHANCE_UI = {
 }
 
 export function EnhanceUi(props: DiagramNodeProps) {
-  return <Shape {...ENHANCE_UI} {...props} />
+  return (
+    <Shape {...ENHANCE_UI} {...props} _style={extendStyle(ENHANCE_UI, props)} />
+  )
 }

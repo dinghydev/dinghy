@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureDatabaseForMysqlServers } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { AzureDatabaseForMysqlServers } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <AzureDatabaseForMysqlServers/>
 ```

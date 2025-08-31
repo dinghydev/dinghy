@@ -1,12 +1,12 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEE = {
   _style: 'shape=tee;whiteSpace=wrap;html=1;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 
 export function Tee(props: DiagramNodeProps) {
-  return <Shape {...TEE} {...props} />
+  return <Shape {...TEE} {...props} _style={extendStyle(TEE, props)} />
 }

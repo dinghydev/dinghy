@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACCESS_CONTROL_USING_TRUSTSEC = {
   _style:
@@ -9,5 +9,11 @@ export const ACCESS_CONTROL_USING_TRUSTSEC = {
 }
 
 export function AccessControlUsingTrustsec(props: DiagramNodeProps) {
-  return <Shape {...ACCESS_CONTROL_USING_TRUSTSEC} {...props} />
+  return (
+    <Shape
+      {...ACCESS_CONTROL_USING_TRUSTSEC}
+      {...props}
+      _style={extendStyle(ACCESS_CONTROL_USING_TRUSTSEC, props)}
+    />
+  )
 }

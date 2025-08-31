@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DDOS_DIP = {
   _style:
@@ -9,5 +9,7 @@ export const DDOS_DIP = {
 }
 
 export function DdosDip(props: DiagramNodeProps) {
-  return <Shape {...DDOS_DIP} {...props} />
+  return (
+    <Shape {...DDOS_DIP} {...props} _style={extendStyle(DDOS_DIP, props)} />
+  )
 }

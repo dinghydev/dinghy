@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANTI_SPAM = {
   _style:
@@ -9,5 +9,7 @@ export const ANTI_SPAM = {
 }
 
 export function AntiSpam(props: DiagramNodeProps) {
-  return <Shape {...ANTI_SPAM} {...props} />
+  return (
+    <Shape {...ANTI_SPAM} {...props} _style={extendStyle(ANTI_SPAM, props)} />
+  )
 }

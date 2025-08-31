@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InputOutput } from '@reactiac/standard-components-diagrams/azure2General'
+import { InputOutput } from '@diac/standard-components-diagrams/azure2General'
 
 <InputOutput/>
 ```

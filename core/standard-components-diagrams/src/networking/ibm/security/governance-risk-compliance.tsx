@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GOVERNANCE_RISK_COMPLIANCE = {
   _style:
@@ -9,5 +9,11 @@ export const GOVERNANCE_RISK_COMPLIANCE = {
 }
 
 export function GovernanceRiskCompliance(props: DiagramNodeProps) {
-  return <Shape {...GOVERNANCE_RISK_COMPLIANCE} {...props} />
+  return (
+    <Shape
+      {...GOVERNANCE_RISK_COMPLIANCE}
+      {...props}
+      _style={extendStyle(GOVERNANCE_RISK_COMPLIANCE, props)}
+    />
+  )
 }

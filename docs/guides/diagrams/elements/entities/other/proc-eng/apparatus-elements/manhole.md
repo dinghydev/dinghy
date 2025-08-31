@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.pid.apparatus_elements.manhole;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Manhole } from '@reactiac/standard-components-diagrams/procEngApparatusElements'
+import { Manhole } from '@diac/standard-components-diagrams/procEngApparatusElements'
 
 <Manhole/>
 ```

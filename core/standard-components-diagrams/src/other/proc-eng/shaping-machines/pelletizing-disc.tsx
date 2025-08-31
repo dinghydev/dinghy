@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PELLETIZING_DISC = {
   _style:
@@ -9,5 +9,11 @@ export const PELLETIZING_DISC = {
 }
 
 export function PelletizingDisc(props: DiagramNodeProps) {
-  return <Shape {...PELLETIZING_DISC} {...props} />
+  return (
+    <Shape
+      {...PELLETIZING_DISC}
+      {...props}
+      _style={extendStyle(PELLETIZING_DISC, props)}
+    />
+  )
 }

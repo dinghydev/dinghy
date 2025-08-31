@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContactBadgePressed } from '@reactiac/standard-components-diagrams/android'
+import { ContactBadgePressed } from '@diac/standard-components-diagrams/android'
 
 <ContactBadgePressed/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LoadBalancerGeneric } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { LoadBalancerGeneric } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <LoadBalancerGeneric/>
 ```

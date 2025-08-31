@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Polly } from '@reactiac/standard-components-diagrams/aws17ArtificialIntelligence'
+import { Polly } from '@diac/standard-components-diagrams/aws17ArtificialIntelligence'
 
 <Polly/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12350_GAS_BOTTLE = {
   _style:
@@ -9,5 +9,11 @@ export const X12350_GAS_BOTTLE = {
 }
 
 export function X12350GasBottle(props: DiagramNodeProps) {
-  return <Shape {...X12350_GAS_BOTTLE} {...props} />
+  return (
+    <Shape
+      {...X12350_GAS_BOTTLE}
+      {...props}
+      _style={extendStyle(X12350_GAS_BOTTLE, props)}
+    />
+  )
 }

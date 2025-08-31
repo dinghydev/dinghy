@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Shared_Image_Galleries.svg;strokeColor=none;',
-  _width: 64,
-  _height: 64,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { SharedImageGalleries } from '@reactiac/standard-components-diagrams/azure2Compute'
+import { SharedImageGalleries } from '@diac/standard-components-diagrams/azure2Compute'
 
 <SharedImageGalleries/>
 ```

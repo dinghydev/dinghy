@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WashingMachine } from '@reactiac/standard-components-diagrams/signsTech'
+import { WashingMachine } from '@diac/standard-components-diagrams/signsTech'
 
 <WashingMachine/>
 ```

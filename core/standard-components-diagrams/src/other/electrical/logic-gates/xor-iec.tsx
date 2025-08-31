@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XOR_IEC = {
   _style:
@@ -9,5 +9,5 @@ export const XOR_IEC = {
 }
 
 export function XorIec(props: DiagramNodeProps) {
-  return <Shape {...XOR_IEC} {...props} />
+  return <Shape {...XOR_IEC} {...props} _style={extendStyle(XOR_IEC, props)} />
 }

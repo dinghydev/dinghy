@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const L2_L3_NETWORK = {
   _style:
@@ -9,5 +9,11 @@ export const L2_L3_NETWORK = {
 }
 
 export function L2L3Network(props: DiagramNodeProps) {
-  return <Shape {...L2_L3_NETWORK} {...props} />
+  return (
+    <Shape
+      {...L2_L3_NETWORK}
+      {...props}
+      _style={extendStyle(L2_L3_NETWORK, props)}
+    />
+  )
 }

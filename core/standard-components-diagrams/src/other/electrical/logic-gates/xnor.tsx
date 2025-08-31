@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XNOR = {
   _style:
@@ -9,5 +9,5 @@ export const XNOR = {
 }
 
 export function Xnor(props: DiagramNodeProps) {
-  return <Shape {...XNOR} {...props} />
+  return <Shape {...XNOR} {...props} _style={extendStyle(XNOR, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ASSISTIVE_LISTENING_SYSTEM = {
   _style:
@@ -9,5 +9,11 @@ export const ASSISTIVE_LISTENING_SYSTEM = {
 }
 
 export function AssistiveListeningSystem(props: DiagramNodeProps) {
-  return <Shape {...ASSISTIVE_LISTENING_SYSTEM} {...props} />
+  return (
+    <Shape
+      {...ASSISTIVE_LISTENING_SYSTEM}
+      {...props}
+      _style={extendStyle(ASSISTIVE_LISTENING_SYSTEM, props)}
+    />
+  )
 }

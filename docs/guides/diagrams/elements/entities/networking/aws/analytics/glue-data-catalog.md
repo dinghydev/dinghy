@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GlueDataCatalog } from '@reactiac/standard-components-diagrams/awsAnalytics'
+import { GlueDataCatalog } from '@diac/standard-components-diagrams/awsAnalytics'
 
 <GlueDataCatalog/>
 ```

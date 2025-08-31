@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InductionVoltageRegulator } from '@reactiac/standard-components-diagrams/electricalInductors'
+import { InductionVoltageRegulator } from '@diac/standard-components-diagrams/electricalInductors'
 
 <InductionVoltageRegulator/>
 ```

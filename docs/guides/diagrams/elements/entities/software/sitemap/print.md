@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Print } from '@reactiac/standard-components-diagrams/sitemap'
+import { Print } from '@diac/standard-components-diagrams/sitemap'
 
 <Print/>
 ```

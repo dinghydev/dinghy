@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectConnect } from '@reactiac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { DirectConnect } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <DirectConnect/>
 ```

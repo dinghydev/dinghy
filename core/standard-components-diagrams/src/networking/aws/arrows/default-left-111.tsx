@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEFAULT_LEFT_111 = {
   _style: {
@@ -9,5 +9,11 @@ export const DEFAULT_LEFT_111 = {
 }
 
 export function DefaultLeft111(props: DiagramNodeProps) {
-  return <Dependency {...DEFAULT_LEFT_111} {...props} />
+  return (
+    <Dependency
+      {...DEFAULT_LEFT_111}
+      {...props}
+      _style={extendStyle(DEFAULT_LEFT_111, props)}
+    />
+  )
 }

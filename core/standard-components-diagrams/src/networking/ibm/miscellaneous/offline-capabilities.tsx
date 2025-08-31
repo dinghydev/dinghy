@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OFFLINE_CAPABILITIES = {
   _style:
@@ -9,5 +9,11 @@ export const OFFLINE_CAPABILITIES = {
 }
 
 export function OfflineCapabilities(props: DiagramNodeProps) {
-  return <Shape {...OFFLINE_CAPABILITIES} {...props} />
+  return (
+    <Shape
+      {...OFFLINE_CAPABILITIES}
+      {...props}
+      _style={extendStyle(OFFLINE_CAPABILITIES, props)}
+    />
+  )
 }

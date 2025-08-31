@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Host_Pools.svg;strokeColor=none;',
-  _width: 68,
-  _height: 68,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { HostPools } from '@reactiac/standard-components-diagrams/azure2Compute'
+import { HostPools } from '@diac/standard-components-diagrams/azure2Compute'
 
 <HostPools/>
 ```

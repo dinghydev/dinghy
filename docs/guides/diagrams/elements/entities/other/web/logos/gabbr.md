@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Gabbr } from '@reactiac/standard-components-diagrams/webLogos'
+import { Gabbr } from '@diac/standard-components-diagrams/webLogos'
 
 <Gabbr/>
 ```

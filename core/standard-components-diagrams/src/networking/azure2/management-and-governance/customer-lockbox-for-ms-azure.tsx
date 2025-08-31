@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CUSTOMER_LOCKBOX_FOR_MS_AZURE = {
   _style:
@@ -9,5 +9,11 @@ export const CUSTOMER_LOCKBOX_FOR_MS_AZURE = {
 }
 
 export function CustomerLockboxForMsAzure(props: DiagramNodeProps) {
-  return <Shape {...CUSTOMER_LOCKBOX_FOR_MS_AZURE} {...props} />
+  return (
+    <Shape
+      {...CUSTOMER_LOCKBOX_FOR_MS_AZURE}
+      {...props}
+      _style={extendStyle(CUSTOMER_LOCKBOX_FOR_MS_AZURE, props)}
+    />
+  )
 }

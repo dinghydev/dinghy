@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11330_VARIABLE_DISPLACEMENT_HYDRAULIC = {
   _style:
@@ -9,5 +9,11 @@ export const X11330_VARIABLE_DISPLACEMENT_HYDRAULIC = {
 }
 
 export function X11330VariableDisplacementHydraulic(props: DiagramNodeProps) {
-  return <Shape {...X11330_VARIABLE_DISPLACEMENT_HYDRAULIC} {...props} />
+  return (
+    <Shape
+      {...X11330_VARIABLE_DISPLACEMENT_HYDRAULIC}
+      {...props}
+      _style={extendStyle(X11330_VARIABLE_DISPLACEMENT_HYDRAULIC, props)}
+    />
+  )
 }

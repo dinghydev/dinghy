@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATABOX_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const DATABOX_GATEWAY = {
 }
 
 export function DataboxGateway(props: DiagramNodeProps) {
-  return <Shape {...DATABOX_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...DATABOX_GATEWAY}
+      {...props}
+      _style={extendStyle(DATABOX_GATEWAY, props)}
+    />
+  )
 }

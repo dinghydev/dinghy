@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POWERPLATFORM = {
   _style:
@@ -9,5 +9,11 @@ export const POWERPLATFORM = {
 }
 
 export function Powerplatform(props: DiagramNodeProps) {
-  return <Shape {...POWERPLATFORM} {...props} />
+  return (
+    <Shape
+      {...POWERPLATFORM}
+      {...props}
+      _style={extendStyle(POWERPLATFORM, props)}
+    />
+  )
 }

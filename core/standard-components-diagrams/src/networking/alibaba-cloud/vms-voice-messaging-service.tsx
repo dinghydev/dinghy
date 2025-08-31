@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VMS_VOICE_MESSAGING_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const VMS_VOICE_MESSAGING_SERVICE = {
 }
 
 export function VmsVoiceMessagingService(props: DiagramNodeProps) {
-  return <Shape {...VMS_VOICE_MESSAGING_SERVICE} {...props} />
+  return (
+    <Shape
+      {...VMS_VOICE_MESSAGING_SERVICE}
+      {...props}
+      _style={extendStyle(VMS_VOICE_MESSAGING_SERVICE, props)}
+    />
+  )
 }

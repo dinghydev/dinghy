@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StepBar } from '@reactiac/standard-components-diagrams/mockupNavigation'
+import { StepBar } from '@diac/standard-components-diagrams/mockupNavigation'
 
 <StepBar/>
 ```

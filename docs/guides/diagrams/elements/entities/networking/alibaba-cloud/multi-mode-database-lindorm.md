@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultiModeDatabaseLindorm } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { MultiModeDatabaseLindorm } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <MultiModeDatabaseLindorm/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEB_APPLICATION_FIREWALL = {
   _style:
@@ -9,5 +9,11 @@ export const WEB_APPLICATION_FIREWALL = {
 }
 
 export function WebApplicationFirewall(props: DiagramNodeProps) {
-  return <Shape {...WEB_APPLICATION_FIREWALL} {...props} />
+  return (
+    <Shape
+      {...WEB_APPLICATION_FIREWALL}
+      {...props}
+      _style={extendStyle(WEB_APPLICATION_FIREWALL, props)}
+    />
+  )
 }

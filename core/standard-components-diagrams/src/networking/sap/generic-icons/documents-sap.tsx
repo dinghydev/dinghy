@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOCUMENTS_SAP = {
   _style:
@@ -9,5 +9,11 @@ export const DOCUMENTS_SAP = {
 }
 
 export function DocumentsSap(props: DiagramNodeProps) {
-  return <Shape {...DOCUMENTS_SAP} {...props} />
+  return (
+    <Shape
+      {...DOCUMENTS_SAP}
+      {...props}
+      _style={extendStyle(DOCUMENTS_SAP, props)}
+    />
+  )
 }

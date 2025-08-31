@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSACTION_COLLAPSED = {
   _style: {
@@ -9,5 +9,11 @@ export const TRANSACTION_COLLAPSED = {
 }
 
 export function TransactionCollapsed(props: DiagramNodeProps) {
-  return <Shape {...TRANSACTION_COLLAPSED} {...props} />
+  return (
+    <Shape
+      {...TRANSACTION_COLLAPSED}
+      {...props}
+      _style={extendStyle(TRANSACTION_COLLAPSED, props)}
+    />
+  )
 }

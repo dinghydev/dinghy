@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PbxSwitch } from '@reactiac/standard-components-diagrams/ciscoSwitches'
+import { PbxSwitch } from '@diac/standard-components-diagrams/ciscoSwitches'
 
 <PbxSwitch/>
 ```

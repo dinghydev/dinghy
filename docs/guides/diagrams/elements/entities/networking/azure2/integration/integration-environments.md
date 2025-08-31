@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IntegrationEnvironments } from '@reactiac/standard-components-diagrams/azure2Integration'
+import { IntegrationEnvironments } from '@diac/standard-components-diagrams/azure2Integration'
 
 <IntegrationEnvironments/>
 ```

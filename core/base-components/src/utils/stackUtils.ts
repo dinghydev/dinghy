@@ -43,11 +43,11 @@ const parseStackFromId = (stackId: string): StackType => {
   return {
     id: stackId,
     name: name || undefined,
-    env: stackId === DEFAULT_ENV ? undefined : segments.slice(split).join('-'),
+    env: segments.slice(split).join('-'),
   }
 }
 
-export const DEFAULT_ENV = 'iac'
+export const DEFAULT_APP = 'app'
 export const DEFAULT_STAGE = 'main'
 export const DEFAULT_VIEW = 'overview'
 
@@ -84,7 +84,7 @@ const populateStackDefaultItems = (stack: Props, renderOptions: any) => {
   populateNamedItems(stack, 'views', DEFAULT_VIEW)
   if (!stack.app) {
     stack.app = renderOptions.apps[stack.id as string] ||
-      renderOptions.apps['iac.tsx'] ||
+      renderOptions.apps[DEFAULT_APP] ||
       Object.values(renderOptions.apps)[0]
   }
   return stack
@@ -155,7 +155,7 @@ export const parseStacks = (
   }
   Object.entries(renderOptions.apps).map(([appId, appFile]) => {
     if (!stacks[appId]) {
-      if (appId === 'iac' && renderOptions.stacks) {
+      if (appId === DEFAULT_APP && renderOptions.stacks) {
         return
       }
       if (

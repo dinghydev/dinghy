@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANGLE_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const ANGLE_VALVE = {
 }
 
 export function AngleValve(props: DiagramNodeProps) {
-  return <Shape {...ANGLE_VALVE} {...props} />
+  return (
+    <Shape
+      {...ANGLE_VALVE}
+      {...props}
+      _style={extendStyle(ANGLE_VALVE, props)}
+    />
+  )
 }

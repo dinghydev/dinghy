@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENTITY_2 = {
   _style: 'whiteSpace=wrap;html=1;align=center;',
@@ -8,5 +8,7 @@ export const ENTITY_2 = {
 }
 
 export function Entity2(props: DiagramNodeProps) {
-  return <Shape {...ENTITY_2} {...props} />
+  return (
+    <Shape {...ENTITY_2} {...props} _style={extendStyle(ENTITY_2, props)} />
+  )
 }

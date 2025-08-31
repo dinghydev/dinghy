@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENCRYPTION_OFFLOAD = {
   _style:
@@ -9,5 +9,11 @@ export const ENCRYPTION_OFFLOAD = {
 }
 
 export function EncryptionOffload(props: DiagramNodeProps) {
-  return <Shape {...ENCRYPTION_OFFLOAD} {...props} />
+  return (
+    <Shape
+      {...ENCRYPTION_OFFLOAD}
+      {...props}
+      _style={extendStyle(ENCRYPTION_OFFLOAD, props)}
+    />
+  )
 }

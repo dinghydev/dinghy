@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WAF_BAD_BOT = {
   _style:
@@ -9,5 +9,11 @@ export const WAF_BAD_BOT = {
 }
 
 export function WafBadBot(props: DiagramNodeProps) {
-  return <Shape {...WAF_BAD_BOT} {...props} />
+  return (
+    <Shape
+      {...WAF_BAD_BOT}
+      {...props}
+      _style={extendStyle(WAF_BAD_BOT, props)}
+    />
+  )
 }

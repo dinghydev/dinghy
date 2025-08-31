@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bus2 } from '@reactiac/standard-components-diagrams/network'
+import { Bus2 } from '@diac/standard-components-diagrams/network'
 
 <Bus2/>
 ```

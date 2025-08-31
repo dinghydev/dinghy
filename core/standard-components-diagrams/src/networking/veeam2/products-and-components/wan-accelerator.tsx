@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WAN_ACCELERATOR = {
   _style:
@@ -9,5 +9,11 @@ export const WAN_ACCELERATOR = {
 }
 
 export function WanAccelerator(props: DiagramNodeProps) {
-  return <Shape {...WAN_ACCELERATOR} {...props} />
+  return (
+    <Shape
+      {...WAN_ACCELERATOR}
+      {...props}
+      _style={extendStyle(WAN_ACCELERATOR, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Damper } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { Damper } from '@diac/standard-components-diagrams/procEngPiping'
 
 <Damper/>
 ```

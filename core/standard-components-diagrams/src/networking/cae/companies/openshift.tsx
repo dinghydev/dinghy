@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPENSHIFT = {
   _style:
@@ -9,5 +9,7 @@ export const OPENSHIFT = {
 }
 
 export function Openshift(props: DiagramNodeProps) {
-  return <Shape {...OPENSHIFT} {...props} />
+  return (
+    <Shape {...OPENSHIFT} {...props} _style={extendStyle(OPENSHIFT, props)} />
+  )
 }

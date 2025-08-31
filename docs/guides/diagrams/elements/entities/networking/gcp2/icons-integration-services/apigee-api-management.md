@@ -14,7 +14,7 @@ Management
 ## Usage
 
 ```
-import { ApigeeApiManagement } from '@reactiac/standard-components-diagrams/gcp2IconsIntegrationServices'
+import { ApigeeApiManagement } from '@diac/standard-components-diagrams/gcp2IconsIntegrationServices'
 
 <ApigeeApiManagement/>
 ```

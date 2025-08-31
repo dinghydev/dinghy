@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DURATION_CONSTRAINT_3 = {
   _style:
@@ -9,5 +9,11 @@ export const DURATION_CONSTRAINT_3 = {
 }
 
 export function DurationConstraint3(props: DiagramNodeProps) {
-  return <Shape {...DURATION_CONSTRAINT_3} {...props} />
+  return (
+    <Shape
+      {...DURATION_CONSTRAINT_3}
+      {...props}
+      _style={extendStyle(DURATION_CONSTRAINT_3, props)}
+    />
+  )
 }

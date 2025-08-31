@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WorkflowService } from '@reactiac/standard-components-diagrams/aws3d'
+import { WorkflowService } from '@diac/standard-components-diagrams/aws3d'
 
 <WorkflowService/>
 ```

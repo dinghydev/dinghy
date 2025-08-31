@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAGNIFYING_GLASS = {
   _style:
@@ -9,5 +9,11 @@ export const MAGNIFYING_GLASS = {
 }
 
 export function MagnifyingGlass(props: DiagramNodeProps) {
-  return <Shape {...MAGNIFYING_GLASS} {...props} />
+  return (
+    <Shape
+      {...MAGNIFYING_GLASS}
+      {...props}
+      _style={extendStyle(MAGNIFYING_GLASS, props)}
+    />
+  )
 }

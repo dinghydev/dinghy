@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SINGLE_LINE_TEXT_FIELD = {
   _style: 'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;',
@@ -8,5 +8,11 @@ export const SINGLE_LINE_TEXT_FIELD = {
 }
 
 export function SingleLineTextField(props: DiagramNodeProps) {
-  return <Shape {...SINGLE_LINE_TEXT_FIELD} {...props} />
+  return (
+    <Shape
+      {...SINGLE_LINE_TEXT_FIELD}
+      {...props}
+      _style={extendStyle(SINGLE_LINE_TEXT_FIELD, props)}
+    />
+  )
 }

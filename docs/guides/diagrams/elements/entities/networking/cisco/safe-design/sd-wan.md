@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SdWan } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { SdWan } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <SdWan/>
 ```

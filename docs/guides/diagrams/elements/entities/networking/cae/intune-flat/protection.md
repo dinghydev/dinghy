@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Protection } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { Protection } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <Protection/>
 ```

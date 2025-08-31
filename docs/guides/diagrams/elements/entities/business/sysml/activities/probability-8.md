@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Probability8 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { Probability8 } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <Probability8/>
 ```

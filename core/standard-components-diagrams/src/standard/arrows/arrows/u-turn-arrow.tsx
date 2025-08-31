@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const U_TURN_ARROW = {
   _style:
@@ -9,5 +9,11 @@ export const U_TURN_ARROW = {
 }
 
 export function UTurnArrow(props: DiagramNodeProps) {
-  return <Shape {...U_TURN_ARROW} {...props} />
+  return (
+    <Shape
+      {...U_TURN_ARROW}
+      {...props}
+      _style={extendStyle(U_TURN_ARROW, props)}
+    />
+  )
 }

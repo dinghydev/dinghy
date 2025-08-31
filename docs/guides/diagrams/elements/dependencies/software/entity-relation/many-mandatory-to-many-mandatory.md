@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManyMandatoryToManyMandatory } from '@reactiac/standard-components-diagrams/entityRelation'
+import { ManyMandatoryToManyMandatory } from '@diac/standard-components-diagrams/entityRelation'
 
 <ManyMandatoryToManyMandatory/>
 ```

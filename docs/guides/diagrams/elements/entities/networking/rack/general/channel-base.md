@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChannelBase } from '@reactiac/standard-components-diagrams/rackGeneral'
+import { ChannelBase } from '@diac/standard-components-diagrams/rackGeneral'
 
 <ChannelBase/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9989A_12_PORT_10_100_1000BASE_T_POE_AND_12_PORT_1GBE_SFP_WITH_MACSEC_V3_ZL2_MODULE =
   {
@@ -16,6 +16,10 @@ export function J9989a12Port101001000baseTPoeAnd12Port1gbeSfpWithMacsecV3Zl2Modu
     <Shape
       {...J9989A_12_PORT_10_100_1000BASE_T_POE_AND_12_PORT_1GBE_SFP_WITH_MACSEC_V3_ZL2_MODULE}
       {...props}
+      _style={extendStyle(
+        J9989A_12_PORT_10_100_1000BASE_T_POE_AND_12_PORT_1GBE_SFP_WITH_MACSEC_V3_ZL2_MODULE,
+        props,
+      )}
     />
   )
 }

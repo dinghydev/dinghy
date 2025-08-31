@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TAPE_EJECT = {
   _style:
@@ -9,5 +9,7 @@ export const TAPE_EJECT = {
 }
 
 export function TapeEject(props: DiagramNodeProps) {
-  return <Shape {...TAPE_EJECT} {...props} />
+  return (
+    <Shape {...TAPE_EJECT} {...props} _style={extendStyle(TAPE_EJECT, props)} />
+  )
 }

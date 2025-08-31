@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IBM_1754_LOCAL_CONSOLE_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const IBM_1754_LOCAL_CONSOLE_MANAGER = {
 }
 
 export function Ibm1754LocalConsoleManager(props: DiagramNodeProps) {
-  return <Shape {...IBM_1754_LOCAL_CONSOLE_MANAGER} {...props} />
+  return (
+    <Shape
+      {...IBM_1754_LOCAL_CONSOLE_MANAGER}
+      {...props}
+      _style={extendStyle(IBM_1754_LOCAL_CONSOLE_MANAGER, props)}
+    />
+  )
 }

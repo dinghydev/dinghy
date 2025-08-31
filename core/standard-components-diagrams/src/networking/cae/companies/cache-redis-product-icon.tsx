@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CACHE_REDIS_PRODUCT_ICON = {
   _style:
@@ -9,5 +9,11 @@ export const CACHE_REDIS_PRODUCT_ICON = {
 }
 
 export function CacheRedisProductIcon(props: DiagramNodeProps) {
-  return <Shape {...CACHE_REDIS_PRODUCT_ICON} {...props} />
+  return (
+    <Shape
+      {...CACHE_REDIS_PRODUCT_ICON}
+      {...props}
+      _style={extendStyle(CACHE_REDIS_PRODUCT_ICON, props)}
+    />
+  )
 }

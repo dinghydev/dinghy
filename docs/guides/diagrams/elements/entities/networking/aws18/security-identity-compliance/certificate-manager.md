@@ -14,7 +14,7 @@ manager
 ## Usage
 
 ```
-import { CertificateManager } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { CertificateManager } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <CertificateManager/>
 ```

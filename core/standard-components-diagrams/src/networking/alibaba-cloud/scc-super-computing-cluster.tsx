@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCC_SUPER_COMPUTING_CLUSTER = {
   _style:
@@ -9,5 +9,11 @@ export const SCC_SUPER_COMPUTING_CLUSTER = {
 }
 
 export function SccSuperComputingCluster(props: DiagramNodeProps) {
-  return <Shape {...SCC_SUPER_COMPUTING_CLUSTER} {...props} />
+  return (
+    <Shape
+      {...SCC_SUPER_COMPUTING_CLUSTER}
+      {...props}
+      _style={extendStyle(SCC_SUPER_COMPUTING_CLUSTER, props)}
+    />
+  )
 }

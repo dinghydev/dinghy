@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bigquery } from '@reactiac/standard-components-diagrams/gcpIconsDataAnalytics'
+import { Bigquery } from '@diac/standard-components-diagrams/gcpIconsDataAnalytics'
 
 <Bigquery/>
 ```

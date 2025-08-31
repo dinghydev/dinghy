@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SINGLE_FLANGE = {
   _style:
@@ -9,5 +9,11 @@ export const SINGLE_FLANGE = {
 }
 
 export function SingleFlange(props: DiagramNodeProps) {
-  return <Shape {...SINGLE_FLANGE} {...props} />
+  return (
+    <Shape
+      {...SINGLE_FLANGE}
+      {...props}
+      _style={extendStyle(SINGLE_FLANGE, props)}
+    />
+  )
 }

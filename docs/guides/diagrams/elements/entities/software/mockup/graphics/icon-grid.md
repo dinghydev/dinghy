@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IconGrid } from '@reactiac/standard-components-diagrams/mockupGraphics'
+import { IconGrid } from '@diac/standard-components-diagrams/mockupGraphics'
 
 <IconGrid/>
 ```

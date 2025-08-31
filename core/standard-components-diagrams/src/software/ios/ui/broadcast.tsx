@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BROADCAST = {
   _style:
@@ -9,5 +9,7 @@ export const BROADCAST = {
 }
 
 export function Broadcast(props: DiagramNodeProps) {
-  return <Shape {...BROADCAST} {...props} />
+  return (
+    <Shape {...BROADCAST} {...props} _style={extendStyle(BROADCAST, props)} />
+  )
 }

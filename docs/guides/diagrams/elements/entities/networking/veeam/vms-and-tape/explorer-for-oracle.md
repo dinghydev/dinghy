@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExplorerForOracle } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { ExplorerForOracle } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <ExplorerForOracle/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETVOUZ = {
   _style:
@@ -9,5 +9,5 @@ export const NETVOUZ = {
 }
 
 export function Netvouz(props: DiagramNodeProps) {
-  return <Shape {...NETVOUZ} {...props} />
+  return <Shape {...NETVOUZ} {...props} _style={extendStyle(NETVOUZ, props)} />
 }

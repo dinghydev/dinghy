@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPOSED_MESSAGE_PROCESSOR = {
   _style:
@@ -9,5 +9,11 @@ export const COMPOSED_MESSAGE_PROCESSOR = {
 }
 
 export function ComposedMessageProcessor(props: DiagramNodeProps) {
-  return <Shape {...COMPOSED_MESSAGE_PROCESSOR} {...props} />
+  return (
+    <Shape
+      {...COMPOSED_MESSAGE_PROCESSOR}
+      {...props}
+      _style={extendStyle(COMPOSED_MESSAGE_PROCESSOR, props)}
+    />
+  )
 }

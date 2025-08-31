@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const URL_BAR = {
   _style:
@@ -9,5 +9,5 @@ export const URL_BAR = {
 }
 
 export function UrlBar(props: DiagramNodeProps) {
-  return <Shape {...URL_BAR} {...props} />
+  return <Shape {...URL_BAR} {...props} _style={extendStyle(URL_BAR, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HEROKU = {
   _style:
@@ -9,5 +9,5 @@ export const HEROKU = {
 }
 
 export function Heroku(props: DiagramNodeProps) {
-  return <Shape {...HEROKU} {...props} />
+  return <Shape {...HEROKU} {...props} _style={extendStyle(HEROKU, props)} />
 }

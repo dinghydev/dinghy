@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsServerMigrationService } from '@reactiac/standard-components-diagrams/aws18Migration'
+import { AwsServerMigrationService } from '@diac/standard-components-diagrams/aws18Migration'
 
 <AwsServerMigrationService/>
 ```

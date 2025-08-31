@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PICNIC_SHELTER = {
   _style:
@@ -9,5 +9,11 @@ export const PICNIC_SHELTER = {
 }
 
 export function PicnicShelter(props: DiagramNodeProps) {
-  return <Shape {...PICNIC_SHELTER} {...props} />
+  return (
+    <Shape
+      {...PICNIC_SHELTER}
+      {...props}
+      _style={extendStyle(PICNIC_SHELTER, props)}
+    />
+  )
 }

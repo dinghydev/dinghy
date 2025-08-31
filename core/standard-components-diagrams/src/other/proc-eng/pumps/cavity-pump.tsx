@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CAVITY_PUMP = {
   _style:
@@ -9,5 +9,11 @@ export const CAVITY_PUMP = {
 }
 
 export function CavityPump(props: DiagramNodeProps) {
-  return <Shape {...CAVITY_PUMP} {...props} />
+  return (
+    <Shape
+      {...CAVITY_PUMP}
+      {...props}
+      _style={extendStyle(CAVITY_PUMP, props)}
+    />
+  )
 }

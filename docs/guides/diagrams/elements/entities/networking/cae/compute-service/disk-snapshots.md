@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiskSnapshots } from '@reactiac/standard-components-diagrams/caeComputeService'
+import { DiskSnapshots } from '@diac/standard-components-diagrams/caeComputeService'
 
 <DiskSnapshots/>
 ```

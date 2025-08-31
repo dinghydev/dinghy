@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultipleElectrolyticCapacitorCommonNegative } from '@reactiac/standard-components-diagrams/electricalCapacitors'
+import { MultipleElectrolyticCapacitorCommonNegative } from '@diac/standard-components-diagrams/electricalCapacitors'
 
 <MultipleElectrolyticCapacitorCommonNegative/>
 ```

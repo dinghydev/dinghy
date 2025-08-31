@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SingleFlange } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { SingleFlange } from '@diac/standard-components-diagrams/procEngFittings'
 
 <SingleFlange/>
 ```

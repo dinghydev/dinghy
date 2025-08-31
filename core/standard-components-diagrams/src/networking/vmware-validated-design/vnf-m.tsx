@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VNF_M = {
   _style:
@@ -9,5 +9,5 @@ export const VNF_M = {
 }
 
 export function VnfM(props: DiagramNodeProps) {
-  return <Shape {...VNF_M} {...props} />
+  return <Shape {...VNF_M} {...props} _style={extendStyle(VNF_M, props)} />
 }

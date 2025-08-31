@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BrowserWindow } from '@reactiac/standard-components-diagrams/mockupContainers'
+import { BrowserWindow } from '@diac/standard-components-diagrams/mockupContainers'
 
 <BrowserWindow/>
 ```

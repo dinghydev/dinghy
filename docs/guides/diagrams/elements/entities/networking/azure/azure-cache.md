@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureCache } from '@reactiac/standard-components-diagrams/azure'
+import { AzureCache } from '@diac/standard-components-diagrams/azure'
 
 <AzureCache/>
 ```

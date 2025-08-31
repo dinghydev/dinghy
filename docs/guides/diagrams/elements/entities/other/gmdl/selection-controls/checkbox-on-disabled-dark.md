@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CheckboxOnDisabledDark } from '@reactiac/standard-components-diagrams/gmdlSelectionControls'
+import { CheckboxOnDisabledDark } from '@diac/standard-components-diagrams/gmdlSelectionControls'
 
 <CheckboxOnDisabledDark/>
 ```

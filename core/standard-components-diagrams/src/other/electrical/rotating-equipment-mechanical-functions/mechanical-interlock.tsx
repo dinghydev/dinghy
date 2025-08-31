@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MECHANICAL_INTERLOCK = {
   _style:
@@ -9,5 +9,11 @@ export const MECHANICAL_INTERLOCK = {
 }
 
 export function MechanicalInterlock(props: DiagramNodeProps) {
-  return <Shape {...MECHANICAL_INTERLOCK} {...props} />
+  return (
+    <Shape
+      {...MECHANICAL_INTERLOCK}
+      {...props}
+      _style={extendStyle(MECHANICAL_INTERLOCK, props)}
+    />
+  )
 }

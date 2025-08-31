@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EventDrivenConsumer } from '@reactiac/standard-components-diagrams/eipMessagingEndpoints'
+import { EventDrivenConsumer } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
 
 <EventDrivenConsumer/>
 ```

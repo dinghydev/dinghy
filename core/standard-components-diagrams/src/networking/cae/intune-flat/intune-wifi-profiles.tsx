@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTUNE_WIFI_PROFILES = {
   _style:
@@ -9,5 +9,11 @@ export const INTUNE_WIFI_PROFILES = {
 }
 
 export function IntuneWifiProfiles(props: DiagramNodeProps) {
-  return <Shape {...INTUNE_WIFI_PROFILES} {...props} />
+  return (
+    <Shape
+      {...INTUNE_WIFI_PROFILES}
+      {...props}
+      _style={extendStyle(INTUNE_WIFI_PROFILES, props)}
+    />
+  )
 }

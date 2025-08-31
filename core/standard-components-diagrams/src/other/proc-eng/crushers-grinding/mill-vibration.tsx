@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MILL_VIBRATION = {
   _style:
@@ -9,5 +9,11 @@ export const MILL_VIBRATION = {
 }
 
 export function MillVibration(props: DiagramNodeProps) {
-  return <Shape {...MILL_VIBRATION} {...props} />
+  return (
+    <Shape
+      {...MILL_VIBRATION}
+      {...props}
+      _style={extendStyle(MILL_VIBRATION, props)}
+    />
+  )
 }

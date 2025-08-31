@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PUSH_NOTIFICATIONS = {
   _style:
@@ -9,5 +9,11 @@ export const PUSH_NOTIFICATIONS = {
 }
 
 export function PushNotifications(props: DiagramNodeProps) {
-  return <Shape {...PUSH_NOTIFICATIONS} {...props} />
+  return (
+    <Shape
+      {...PUSH_NOTIFICATIONS}
+      {...props}
+      _style={extendStyle(PUSH_NOTIFICATIONS, props)}
+    />
+  )
 }

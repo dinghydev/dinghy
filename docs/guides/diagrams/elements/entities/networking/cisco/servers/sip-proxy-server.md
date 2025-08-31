@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SipProxyServer } from '@reactiac/standard-components-diagrams/ciscoServers'
+import { SipProxyServer } from '@diac/standard-components-diagrams/ciscoServers'
 
 <SipProxyServer/>
 ```

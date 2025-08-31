@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAS_SITUATIONAL_AWARENESS = {
   _style:
@@ -9,5 +9,11 @@ export const SAS_SITUATIONAL_AWARENESS = {
 }
 
 export function SasSituationalAwareness(props: DiagramNodeProps) {
-  return <Shape {...SAS_SITUATIONAL_AWARENESS} {...props} />
+  return (
+    <Shape
+      {...SAS_SITUATIONAL_AWARENESS}
+      {...props}
+      _style={extendStyle(SAS_SITUATIONAL_AWARENESS, props)}
+    />
+  )
 }

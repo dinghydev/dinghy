@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BjtNpn } from '@reactiac/standard-components-diagrams/electricalTransistors'
+import { BjtNpn } from '@diac/standard-components-diagrams/electricalTransistors'
 
 <BjtNpn/>
 ```

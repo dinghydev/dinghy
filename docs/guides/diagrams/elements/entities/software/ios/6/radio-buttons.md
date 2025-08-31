@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RadioButtons } from '@reactiac/standard-components-diagrams/ios6'
+import { RadioButtons } from '@diac/standard-components-diagrams/ios6'
 
 <RadioButtons/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SlsSimpleLogService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { SlsSimpleLogService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <SlsSimpleLogService/>
 ```

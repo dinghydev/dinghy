@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RouteFilters } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { RouteFilters } from '@diac/standard-components-diagrams/azure2Networking'
 
 <RouteFilters/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BuiltInWanAcceleration } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { BuiltInWanAcceleration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <BuiltInWanAcceleration/>
 ```

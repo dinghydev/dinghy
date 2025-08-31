@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OVAL_CALLOUT = {
   _style: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.oval_callout',
@@ -8,5 +8,11 @@ export const OVAL_CALLOUT = {
 }
 
 export function OvalCallout(props: DiagramNodeProps) {
-  return <Shape {...OVAL_CALLOUT} {...props} />
+  return (
+    <Shape
+      {...OVAL_CALLOUT}
+      {...props}
+      _style={extendStyle(OVAL_CALLOUT, props)}
+    />
+  )
 }

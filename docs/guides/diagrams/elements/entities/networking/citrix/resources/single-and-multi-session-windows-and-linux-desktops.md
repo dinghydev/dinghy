@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SingleAndMultiSessionWindowsAndLinuxDesktops } from '@reactiac/standard-components-diagrams/citrixResources'
+import { SingleAndMultiSessionWindowsAndLinuxDesktops } from '@diac/standard-components-diagrams/citrixResources'
 
 <SingleAndMultiSessionWindowsAndLinuxDesktops/>
 ```

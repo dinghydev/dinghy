@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UPS_ENTERPRISE = {
   _style:
     'fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.ups_enterprise;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 
 export function UpsEnterprise(props: DiagramNodeProps) {
-  return <Shape {...UPS_ENTERPRISE} {...props} />
+  return (
+    <Shape
+      {...UPS_ENTERPRISE}
+      {...props}
+      _style={extendStyle(UPS_ENTERPRISE, props)}
+    />
+  )
 }

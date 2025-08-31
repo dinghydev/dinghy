@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Connotea } from '@reactiac/standard-components-diagrams/webLogos'
+import { Connotea } from '@diac/standard-components-diagrams/webLogos'
 
 <Connotea/>
 ```

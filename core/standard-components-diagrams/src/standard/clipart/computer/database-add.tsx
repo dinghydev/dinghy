@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATABASE_ADD = {
   _style:
     'image;html=1;image=img/lib/clip_art/computers/Database_Add_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 
 export function DatabaseAdd(props: DiagramNodeProps) {
-  return <Shape {...DATABASE_ADD} {...props} />
+  return (
+    <Shape
+      {...DATABASE_ADD}
+      {...props}
+      _style={extendStyle(DATABASE_ADD, props)}
+    />
+  )
 }

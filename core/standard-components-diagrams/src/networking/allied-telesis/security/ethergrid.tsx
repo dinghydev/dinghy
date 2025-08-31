@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ETHERGRID = {
   _style:
@@ -9,5 +9,7 @@ export const ETHERGRID = {
 }
 
 export function Ethergrid(props: DiagramNodeProps) {
-  return <Shape {...ETHERGRID} {...props} />
+  return (
+    <Shape {...ETHERGRID} {...props} _style={extendStyle(ETHERGRID, props)} />
+  )
 }

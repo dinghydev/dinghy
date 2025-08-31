@@ -30,7 +30,7 @@
           parent="page"
           />
         <mxCell
-          style="align=center;strokeColor=none;verticalAlign=top;aspect=fixed" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
           id="web_app_webapp" 
           parent="root" 
           value="Web App" 
@@ -39,13 +39,13 @@
           <mxGeometry
             as="geometry" 
             width="480" 
-            height="360" 
+            height="330" 
             x="0" 
             y="0"
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="client" 
           parent="web_app_webapp" 
           value="Client" 
@@ -60,7 +60,7 @@
             />
           </mxCell>
         <mxCell
-          style="align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;verticalAlign=top;aspect=fixed" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="cloud" 
           parent="web_app_webapp" 
           value="Cloud" 
@@ -69,13 +69,13 @@
           <mxGeometry
             as="geometry" 
             width="330" 
-            height="300" 
+            height="270" 
             x="120" 
             y="30"
             />
           </mxCell>
         <mxCell
-          style="align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;verticalAlign=top;aspect=fixed" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="public_subnet_publicsubnet" 
           parent="cloud" 
           value="Public Subnet" 
@@ -84,13 +84,13 @@
           <mxGeometry
             as="geometry" 
             width="120" 
-            height="240" 
+            height="210" 
             x="30" 
             y="30"
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="load_balancer_loadbalancer" 
           parent="public_subnet_publicsubnet" 
           value="Load Balancer" 
@@ -105,7 +105,7 @@
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="firewall" 
           parent="public_subnet_publicsubnet" 
           value="Firewall" 
@@ -116,11 +116,11 @@
             width="60" 
             height="60" 
             x="30" 
-            y="150"
+            y="120"
             />
           </mxCell>
         <mxCell
-          style="align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;verticalAlign=top;aspect=fixed" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="private_subnet_privatesubnet" 
           parent="cloud" 
           value="Private Subnet" 
@@ -129,13 +129,13 @@
           <mxGeometry
             as="geometry" 
             width="120" 
-            height="240" 
+            height="210" 
             x="180" 
             y="30"
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="application" 
           parent="private_subnet_privatesubnet" 
           value="Application" 
@@ -150,7 +150,7 @@
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="postgres" 
           parent="private_subnet_privatesubnet" 
           value="Postgres" 
@@ -161,7 +161,7 @@
             width="60" 
             height="60" 
             x="30" 
-            y="150"
+            y="120"
             />
           </mxCell>
         <mxCell
@@ -170,7 +170,7 @@
           target="load_balancer_loadbalancer" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=block;endFill=1"
+          style="edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 
@@ -196,7 +196,7 @@
           target="firewall" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=block;endFill=1"
+          style="edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 
@@ -207,11 +207,11 @@
               >
               <mxPoint
                 x="210" 
-                y="180"
+                y="165"
                 />
               <mxPoint
                 x="210" 
-                y="180"
+                y="165"
                 />
               </Array>
             </mxGeometry>
@@ -222,7 +222,7 @@
           target="application" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=block;endFill=1"
+          style="edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 
@@ -248,7 +248,7 @@
           target="postgres" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=block;endFill=1"
+          style="edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 
@@ -259,11 +259,11 @@
               >
               <mxPoint
                 x="360" 
-                y="180"
+                y="165"
                 />
               <mxPoint
                 x="360" 
-                y="180"
+                y="165"
                 />
               </Array>
             </mxGeometry>

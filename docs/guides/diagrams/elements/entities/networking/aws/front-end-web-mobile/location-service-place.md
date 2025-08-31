@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LocationServicePlace } from '@reactiac/standard-components-diagrams/awsFrontEndWebMobile'
+import { LocationServicePlace } from '@diac/standard-components-diagrams/awsFrontEndWebMobile'
 
 <LocationServicePlace/>
 ```

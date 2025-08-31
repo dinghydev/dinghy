@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GEARING = {
   _style:
@@ -9,5 +9,5 @@ export const GEARING = {
 }
 
 export function Gearing(props: DiagramNodeProps) {
-  return <Shape {...GEARING} {...props} />
+  return <Shape {...GEARING} {...props} _style={extendStyle(GEARING, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOH_SERVER = {
   _style:
@@ -9,5 +9,7 @@ export const MOH_SERVER = {
 }
 
 export function MohServer(props: DiagramNodeProps) {
-  return <Shape {...MOH_SERVER} {...props} />
+  return (
+    <Shape {...MOH_SERVER} {...props} _style={extendStyle(MOH_SERVER, props)} />
+  )
 }

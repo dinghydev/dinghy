@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GET_STARTED = {
   _style:
@@ -9,5 +9,11 @@ export const GET_STARTED = {
 }
 
 export function GetStarted(props: DiagramNodeProps) {
-  return <Shape {...GET_STARTED} {...props} />
+  return (
+    <Shape
+      {...GET_STARTED}
+      {...props}
+      _style={extendStyle(GET_STARTED, props)}
+    />
+  )
 }

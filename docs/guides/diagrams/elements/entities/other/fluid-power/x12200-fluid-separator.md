@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X12200FluidSeparator } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X12200FluidSeparator } from '@diac/standard-components-diagrams/fluidPower'
 
 <X12200FluidSeparator/>
 ```

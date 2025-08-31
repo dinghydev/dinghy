@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SuccessSap } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { SuccessSap } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <SuccessSap/>
 ```

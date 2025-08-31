@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SLEEPING_SHELTER = {
   _style:
@@ -9,5 +9,11 @@ export const SLEEPING_SHELTER = {
 }
 
 export function SleepingShelter(props: DiagramNodeProps) {
-  return <Shape {...SLEEPING_SHELTER} {...props} />
+  return (
+    <Shape
+      {...SLEEPING_SHELTER}
+      {...props}
+      _style={extendStyle(SLEEPING_SHELTER, props)}
+    />
+  )
 }

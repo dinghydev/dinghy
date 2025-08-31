@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL669_ARUBA_6300M_FAN_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const JL669_ARUBA_6300M_FAN_MODULE = {
 }
 
 export function Jl669Aruba6300mFanModule(props: DiagramNodeProps) {
-  return <Shape {...JL669_ARUBA_6300M_FAN_MODULE} {...props} />
+  return (
+    <Shape
+      {...JL669_ARUBA_6300M_FAN_MODULE}
+      {...props}
+      _style={extendStyle(JL669_ARUBA_6300M_FAN_MODULE, props)}
+    />
+  )
 }

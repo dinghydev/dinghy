@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SQL_VM = {
   _style:
@@ -9,5 +9,5 @@ export const SQL_VM = {
 }
 
 export function SqlVm(props: DiagramNodeProps) {
-  return <Shape {...SQL_VM} {...props} />
+  return <Shape {...SQL_VM} {...props} _style={extendStyle(SQL_VM, props)} />
 }

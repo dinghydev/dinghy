@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SSIS_LIFT_AND_SHIFT_IR = {
   _style:
@@ -9,5 +9,11 @@ export const SSIS_LIFT_AND_SHIFT_IR = {
 }
 
 export function SsisLiftAndShiftIr(props: DiagramNodeProps) {
-  return <Shape {...SSIS_LIFT_AND_SHIFT_IR} {...props} />
+  return (
+    <Shape
+      {...SSIS_LIFT_AND_SHIFT_IR}
+      {...props}
+      _style={extendStyle(SSIS_LIFT_AND_SHIFT_IR, props)}
+    />
+  )
 }

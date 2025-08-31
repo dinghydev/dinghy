@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CellPhone } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { CellPhone } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <CellPhone/>
 ```

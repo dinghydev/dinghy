@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11760_PRESSURE_CONVERTER = {
   _style:
@@ -9,5 +9,11 @@ export const X11760_PRESSURE_CONVERTER = {
 }
 
 export function X11760PressureConverter(props: DiagramNodeProps) {
-  return <Shape {...X11760_PRESSURE_CONVERTER} {...props} />
+  return (
+    <Shape
+      {...X11760_PRESSURE_CONVERTER}
+      {...props}
+      _style={extendStyle(X11760_PRESSURE_CONVERTER, props)}
+    />
+  )
 }

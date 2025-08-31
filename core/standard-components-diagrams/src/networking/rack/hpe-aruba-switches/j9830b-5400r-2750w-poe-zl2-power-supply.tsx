@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const J9830B_5400R_2750W_POE_ZL2_POWER_SUPPLY = {
   _style:
@@ -9,5 +9,11 @@ export const J9830B_5400R_2750W_POE_ZL2_POWER_SUPPLY = {
 }
 
 export function J9830b5400r2750wPoeZl2PowerSupply(props: DiagramNodeProps) {
-  return <Shape {...J9830B_5400R_2750W_POE_ZL2_POWER_SUPPLY} {...props} />
+  return (
+    <Shape
+      {...J9830B_5400R_2750W_POE_ZL2_POWER_SUPPLY}
+      {...props}
+      _style={extendStyle(J9830B_5400R_2750W_POE_ZL2_POWER_SUPPLY, props)}
+    />
+  )
 }

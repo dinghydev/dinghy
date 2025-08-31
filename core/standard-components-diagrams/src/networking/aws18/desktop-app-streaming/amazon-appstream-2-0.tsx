@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_APPSTREAM_2_0 = {
   _style:
@@ -9,5 +9,11 @@ export const AMAZON_APPSTREAM_2_0 = {
 }
 
 export function AmazonAppstream20(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_APPSTREAM_2_0} {...props} />
+  return (
+    <Shape
+      {...AMAZON_APPSTREAM_2_0}
+      {...props}
+      _style={extendStyle(AMAZON_APPSTREAM_2_0, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BIN = {
   _style:
@@ -9,5 +9,5 @@ export const BIN = {
 }
 
 export function Bin(props: DiagramNodeProps) {
-  return <Shape {...BIN} {...props} />
+  return <Shape {...BIN} {...props} _style={extendStyle(BIN, props)} />
 }

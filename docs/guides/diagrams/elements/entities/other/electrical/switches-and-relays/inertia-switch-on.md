@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InertiaSwitchOn } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { InertiaSwitchOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <InertiaSwitchOn/>
 ```

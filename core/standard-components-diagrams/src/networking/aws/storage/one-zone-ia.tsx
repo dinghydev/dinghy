@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ONE_ZONE_IA = {
   _style:
@@ -9,5 +9,11 @@ export const ONE_ZONE_IA = {
 }
 
 export function OneZoneIa(props: DiagramNodeProps) {
-  return <Shape {...ONE_ZONE_IA} {...props} />
+  return (
+    <Shape
+      {...ONE_ZONE_IA}
+      {...props}
+      _style={extendStyle(ONE_ZONE_IA, props)}
+    />
+  )
 }

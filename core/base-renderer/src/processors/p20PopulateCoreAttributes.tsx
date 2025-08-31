@@ -4,7 +4,7 @@ import {
   type NodeTree,
   toId,
   toName,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 import type { HostContainer } from '../types.ts'
 
 const defaultTags = (

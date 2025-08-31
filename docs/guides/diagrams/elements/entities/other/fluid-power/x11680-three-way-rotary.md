@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11680ThreeWayRotary } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11680ThreeWayRotary } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11680ThreeWayRotary/>
 ```

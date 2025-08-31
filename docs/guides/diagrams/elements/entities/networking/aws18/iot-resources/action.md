@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Action } from '@reactiac/standard-components-diagrams/aws18IotResources'
+import { Action } from '@diac/standard-components-diagrams/aws18IotResources'
 
 <Action/>
 ```

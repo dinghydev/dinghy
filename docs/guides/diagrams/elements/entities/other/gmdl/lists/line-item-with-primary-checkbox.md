@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LineItemWithPrimaryCheckbox } from '@reactiac/standard-components-diagrams/gmdlLists'
+import { LineItemWithPrimaryCheckbox } from '@diac/standard-components-diagrams/gmdlLists'
 
 <LineItemWithPrimaryCheckbox/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MICROSOFT_SQL_DB = {
   _style:
@@ -9,5 +9,11 @@ export const MICROSOFT_SQL_DB = {
 }
 
 export function MicrosoftSqlDb(props: DiagramNodeProps) {
-  return <Shape {...MICROSOFT_SQL_DB} {...props} />
+  return (
+    <Shape
+      {...MICROSOFT_SQL_DB}
+      {...props}
+      _style={extendStyle(MICROSOFT_SQL_DB, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ESCALATOR_DOWN = {
   _style:
@@ -9,5 +9,11 @@ export const ESCALATOR_DOWN = {
 }
 
 export function EscalatorDown(props: DiagramNodeProps) {
-  return <Shape {...ESCALATOR_DOWN} {...props} />
+  return (
+    <Shape
+      {...ESCALATOR_DOWN}
+      {...props}
+      _style={extendStyle(ESCALATOR_DOWN, props)}
+    />
+  )
 }

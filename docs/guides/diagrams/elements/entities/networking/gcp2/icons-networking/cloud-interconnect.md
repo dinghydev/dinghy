@@ -14,7 +14,7 @@ Interconnect
 ## Usage
 
 ```
-import { CloudInterconnect } from '@reactiac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudInterconnect } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudInterconnect/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BIOMETRIC_READER = {
   _style:
@@ -9,5 +9,11 @@ export const BIOMETRIC_READER = {
 }
 
 export function BiometricReader(props: DiagramNodeProps) {
-  return <Shape {...BIOMETRIC_READER} {...props} />
+  return (
+    <Shape
+      {...BIOMETRIC_READER}
+      {...props}
+      _style={extendStyle(BIOMETRIC_READER, props)}
+    />
+  )
 }

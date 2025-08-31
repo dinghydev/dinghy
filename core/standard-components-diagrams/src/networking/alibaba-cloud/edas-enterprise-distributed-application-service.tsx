@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE = {
   _style:
@@ -12,6 +12,13 @@ export function EdasEnterpriseDistributedApplicationService(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE} {...props} />
+    <Shape
+      {...EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE}
+      {...props}
+      _style={extendStyle(
+        EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE,
+        props,
+      )}
+    />
   )
 }

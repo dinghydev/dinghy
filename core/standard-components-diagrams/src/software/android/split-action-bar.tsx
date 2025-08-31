@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPLIT_ACTION_BAR = {
   _style:
@@ -9,5 +9,11 @@ export const SPLIT_ACTION_BAR = {
 }
 
 export function SplitActionBar(props: DiagramNodeProps) {
-  return <Shape {...SPLIT_ACTION_BAR} {...props} />
+  return (
+    <Shape
+      {...SPLIT_ACTION_BAR}
+      {...props}
+      _style={extendStyle(SPLIT_ACTION_BAR, props)}
+    />
+  )
 }

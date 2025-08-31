@@ -5,15 +5,15 @@
 ```
 {
   _style: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.delay_element',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { DelayElement } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { DelayElement } from '@diac/standard-components-diagrams/electricalMisc'
 
 <DelayElement/>
 ```

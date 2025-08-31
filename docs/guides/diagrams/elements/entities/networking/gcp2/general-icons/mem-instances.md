@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MemInstances } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { MemInstances } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <MemInstances/>
 ```

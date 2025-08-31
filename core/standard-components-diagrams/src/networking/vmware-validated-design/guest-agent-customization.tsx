@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GUEST_AGENT_CUSTOMIZATION = {
   _style:
@@ -9,5 +9,11 @@ export const GUEST_AGENT_CUSTOMIZATION = {
 }
 
 export function GuestAgentCustomization(props: DiagramNodeProps) {
-  return <Shape {...GUEST_AGENT_CUSTOMIZATION} {...props} />
+  return (
+    <Shape
+      {...GUEST_AGENT_CUSTOMIZATION}
+      {...props}
+      _style={extendStyle(GUEST_AGENT_CUSTOMIZATION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LEFT_SHARP_EDGED_HEAD_ARROW = {
   _style:
@@ -9,5 +9,11 @@ export const LEFT_SHARP_EDGED_HEAD_ARROW = {
 }
 
 export function LeftSharpEdgedHeadArrow(props: DiagramNodeProps) {
-  return <Shape {...LEFT_SHARP_EDGED_HEAD_ARROW} {...props} />
+  return (
+    <Shape
+      {...LEFT_SHARP_EDGED_HEAD_ARROW}
+      {...props}
+      _style={extendStyle(LEFT_SHARP_EDGED_HEAD_ARROW, props)}
+    />
+  )
 }

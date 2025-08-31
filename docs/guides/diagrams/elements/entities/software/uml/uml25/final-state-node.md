@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FinalStateNode } from '@reactiac/standard-components-diagrams/uml25'
+import { FinalStateNode } from '@diac/standard-components-diagrams/uml25'
 
 <FinalStateNode/>
 ```

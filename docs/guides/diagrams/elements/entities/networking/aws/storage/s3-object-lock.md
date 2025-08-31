@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { S3ObjectLock } from '@reactiac/standard-components-diagrams/awsStorage'
+import { S3ObjectLock } from '@diac/standard-components-diagrams/awsStorage'
 
 <S3ObjectLock/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JQUERY = {
   _style:
@@ -9,5 +9,5 @@ export const JQUERY = {
 }
 
 export function Jquery(props: DiagramNodeProps) {
-  return <Shape {...JQUERY} {...props} />
+  return <Shape {...JQUERY} {...props} _style={extendStyle(JQUERY, props)} />
 }

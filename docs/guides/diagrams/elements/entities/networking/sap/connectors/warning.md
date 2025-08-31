@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Warning } from '@reactiac/standard-components-diagrams/sapConnectors'
+import { Warning } from '@diac/standard-components-diagrams/sapConnectors'
 
 <Warning/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cronjob } from '@reactiac/standard-components-diagrams/kubernetes'
+import { Cronjob } from '@diac/standard-components-diagrams/kubernetes'
 
 <Cronjob/>
 ```

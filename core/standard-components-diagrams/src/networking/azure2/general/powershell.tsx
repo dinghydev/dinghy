@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POWERSHELL = {
   _style:
@@ -9,5 +9,7 @@ export const POWERSHELL = {
 }
 
 export function Powershell(props: DiagramNodeProps) {
-  return <Shape {...POWERSHELL} {...props} />
+  return (
+    <Shape {...POWERSHELL} {...props} _style={extendStyle(POWERSHELL, props)} />
+  )
 }

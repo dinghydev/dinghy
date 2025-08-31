@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CheckboxOffFocusedOrPressedLight } from '@reactiac/standard-components-diagrams/gmdlSelectionControls'
+import { CheckboxOffFocusedOrPressedLight } from '@diac/standard-components-diagrams/gmdlSelectionControls'
 
 <CheckboxOffFocusedOrPressedLight/>
 ```

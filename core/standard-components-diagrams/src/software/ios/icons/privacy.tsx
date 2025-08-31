@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRIVACY = {
   _style:
@@ -9,5 +9,5 @@ export const PRIVACY = {
 }
 
 export function Privacy(props: DiagramNodeProps) {
-  return <Shape {...PRIVACY} {...props} />
+  return <Shape {...PRIVACY} {...props} _style={extendStyle(PRIVACY, props)} />
 }

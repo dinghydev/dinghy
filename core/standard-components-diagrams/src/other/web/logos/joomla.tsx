@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JOOMLA = {
   _style:
@@ -9,5 +9,5 @@ export const JOOMLA = {
 }
 
 export function Joomla(props: DiagramNodeProps) {
-  return <Shape {...JOOMLA} {...props} />
+  return <Shape {...JOOMLA} {...props} _style={extendStyle(JOOMLA, props)} />
 }

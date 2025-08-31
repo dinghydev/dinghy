@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ColumnFixedBed } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { ColumnFixedBed } from '@diac/standard-components-diagrams/procEngMisc'
 
 <ColumnFixedBed/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOBILE_ACCESS_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const MOBILE_ACCESS_ROUTER = {
 }
 
 export function MobileAccessRouter(props: DiagramNodeProps) {
-  return <Shape {...MOBILE_ACCESS_ROUTER} {...props} />
+  return (
+    <Shape
+      {...MOBILE_ACCESS_ROUTER}
+      {...props}
+      _style={extendStyle(MOBILE_ACCESS_ROUTER, props)}
+    />
+  )
 }

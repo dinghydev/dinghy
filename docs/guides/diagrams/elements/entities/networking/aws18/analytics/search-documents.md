@@ -14,7 +14,7 @@ documents
 ## Usage
 
 ```
-import { SearchDocuments } from '@reactiac/standard-components-diagrams/aws18Analytics'
+import { SearchDocuments } from '@diac/standard-components-diagrams/aws18Analytics'
 
 <SearchDocuments/>
 ```

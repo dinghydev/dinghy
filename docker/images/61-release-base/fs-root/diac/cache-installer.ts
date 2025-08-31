@@ -1,4 +1,4 @@
-// deno run -A docker/images/61-release-base/fs-root/reactiac/cache-installer.ts
+// deno run -A docker/images/61-release-base/fs-root/diac/cache-installer.ts
 async function runCwdCommand(cwd: string, args: string[]) {
   const command = new Deno.Command(Deno.execPath(), {
     args,
@@ -22,7 +22,7 @@ for (const folder of ["engine"]) {
   const unlockedPackages = allPackages.filter((p) => p.includes("@*"));
   if (unlockedPackages.length > 0) {
     console.warn(`Unlocked packages found ${unlockedPackages.join(", ")}`);
-    // throw new Error(`Unlocked packages found ${unlockedPackages.join(', ')}`)
+    // throw new Error(`Unlocked packages found ${unlockedPackages.join(", ")}`);
   }
 
   const packages = allPackages
@@ -51,7 +51,7 @@ for (const folder of ["engine"]) {
   `,
   );
   Deno.writeTextFileSync(
-    "deno.jsonc",
+    `${folder}/deno.jsonc`,
     `{
   "compilerOptions": {
     "noImplicitAny": true,
@@ -66,7 +66,11 @@ for (const folder of ["engine"]) {
     ]
   },
   "imports": {
-  ${packages.map((p) => `"${p[0]}": "${p[1]}"`).join(",\n")}
+  ${
+      packages.map((p) => `"${p[0]}": "${p[1].replaceAll("\^", "")}"`).join(
+        ",\n",
+      )
+    }
   }
 }
   `,

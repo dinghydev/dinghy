@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CommandLine } from '@reactiac/standard-components-diagrams/veeam2General'
+import { CommandLine } from '@diac/standard-components-diagrams/veeam2General'
 
 <CommandLine/>
 ```

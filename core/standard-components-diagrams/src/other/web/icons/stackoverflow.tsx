@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STACKOVERFLOW = {
   _style:
@@ -9,5 +9,11 @@ export const STACKOVERFLOW = {
 }
 
 export function Stackoverflow(props: DiagramNodeProps) {
-  return <Shape {...STACKOVERFLOW} {...props} />
+  return (
+    <Shape
+      {...STACKOVERFLOW}
+      {...props}
+      _style={extendStyle(STACKOVERFLOW, props)}
+    />
+  )
 }

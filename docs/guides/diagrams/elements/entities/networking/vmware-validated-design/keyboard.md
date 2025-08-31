@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Keyboard } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { Keyboard } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <Keyboard/>
 ```

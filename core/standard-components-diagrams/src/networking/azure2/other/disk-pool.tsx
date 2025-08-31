@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISK_POOL = {
   _style:
@@ -9,5 +9,7 @@ export const DISK_POOL = {
 }
 
 export function DiskPool(props: DiagramNodeProps) {
-  return <Shape {...DISK_POOL} {...props} />
+  return (
+    <Shape {...DISK_POOL} {...props} _style={extendStyle(DISK_POOL, props)} />
+  )
 }

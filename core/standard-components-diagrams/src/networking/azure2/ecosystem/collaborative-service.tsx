@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COLLABORATIVE_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const COLLABORATIVE_SERVICE = {
 }
 
 export function CollaborativeService(props: DiagramNodeProps) {
-  return <Shape {...COLLABORATIVE_SERVICE} {...props} />
+  return (
+    <Shape
+      {...COLLABORATIVE_SERVICE}
+      {...props}
+      _style={extendStyle(COLLABORATIVE_SERVICE, props)}
+    />
+  )
 }

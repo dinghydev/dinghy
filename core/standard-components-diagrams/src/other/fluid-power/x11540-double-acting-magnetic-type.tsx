@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11540_DOUBLE_ACTING_MAGNETIC_TYPE = {
   _style:
@@ -9,5 +9,11 @@ export const X11540_DOUBLE_ACTING_MAGNETIC_TYPE = {
 }
 
 export function X11540DoubleActingMagneticType(props: DiagramNodeProps) {
-  return <Shape {...X11540_DOUBLE_ACTING_MAGNETIC_TYPE} {...props} />
+  return (
+    <Shape
+      {...X11540_DOUBLE_ACTING_MAGNETIC_TYPE}
+      {...props}
+      _style={extendStyle(X11540_DOUBLE_ACTING_MAGNETIC_TYPE, props)}
+    />
+  )
 }

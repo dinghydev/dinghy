@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INSTANCE_WITH_CLOUDWATCH = {
   _style:
@@ -9,5 +9,11 @@ export const INSTANCE_WITH_CLOUDWATCH = {
 }
 
 export function InstanceWithCloudwatch(props: DiagramNodeProps) {
-  return <Shape {...INSTANCE_WITH_CLOUDWATCH} {...props} />
+  return (
+    <Shape
+      {...INSTANCE_WITH_CLOUDWATCH}
+      {...props}
+      _style={extendStyle(INSTANCE_WITH_CLOUDWATCH, props)}
+    />
+  )
 }

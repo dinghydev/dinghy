@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MessageSequence } from '@reactiac/standard-components-diagrams/eipMessageConstruction'
+import { MessageSequence } from '@diac/standard-components-diagrams/eipMessageConstruction'
 
 <MessageSequence/>
 ```

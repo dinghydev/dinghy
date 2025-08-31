@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TSUNAMI = {
   _style:
@@ -9,5 +9,5 @@ export const TSUNAMI = {
 }
 
 export function Tsunami(props: DiagramNodeProps) {
-  return <Shape {...TSUNAMI} {...props} />
+  return <Shape {...TSUNAMI} {...props} _style={extendStyle(TSUNAMI, props)} />
 }

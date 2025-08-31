@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRIAD_ARROW = {
   _style:
@@ -9,5 +9,11 @@ export const TRIAD_ARROW = {
 }
 
 export function TriadArrow(props: DiagramNodeProps) {
-  return <Shape {...TRIAD_ARROW} {...props} />
+  return (
+    <Shape
+      {...TRIAD_ARROW}
+      {...props}
+      _style={extendStyle(TRIAD_ARROW, props)}
+    />
+  )
 }

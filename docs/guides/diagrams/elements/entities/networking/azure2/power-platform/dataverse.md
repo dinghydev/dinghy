@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Dataverse } from '@reactiac/standard-components-diagrams/azure2PowerPlatform'
+import { Dataverse } from '@diac/standard-components-diagrams/azure2PowerPlatform'
 
 <Dataverse/>
 ```

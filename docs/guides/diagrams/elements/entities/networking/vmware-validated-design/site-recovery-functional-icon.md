@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SiteRecoveryFunctionalIcon } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { SiteRecoveryFunctionalIcon } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <SiteRecoveryFunctionalIcon/>
 ```

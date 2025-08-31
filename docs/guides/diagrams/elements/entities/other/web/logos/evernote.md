@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Evernote } from '@reactiac/standard-components-diagrams/webLogos'
+import { Evernote } from '@diac/standard-components-diagrams/webLogos'
 
 <Evernote/>
 ```

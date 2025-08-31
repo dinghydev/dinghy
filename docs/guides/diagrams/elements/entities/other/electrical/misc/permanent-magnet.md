@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PermanentMagnet } from '@reactiac/standard-components-diagrams/electricalMisc'
+import { PermanentMagnet } from '@diac/standard-components-diagrams/electricalMisc'
 
 <PermanentMagnet/>
 ```

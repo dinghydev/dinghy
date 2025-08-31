@@ -9,7 +9,7 @@
     "jsr:@std/yaml@1.0.5": "1.0.5",
     "npm:@aws-sdk/client-s3@3.802.0": "3.802.0",
     "npm:@aws-sdk/lib-storage@3.802.0": "3.802.0_@aws-sdk+client-s3@3.802.0",
-    "npm:@inquirer/confirm@5.1.9": "5.1.9_@types+node@22.14.0",
+    "npm:@inquirer/confirm@5.1.9": "5.1.9",
     "npm:@types/node@*": "22.14.0",
     "npm:@types/node@22.14.0": "22.14.0",
     "npm:@types/react@19.1.0": "19.1.0",
@@ -574,45 +574,31 @@
         "tslib"
       ]
     },
-    "@inquirer/confirm@5.1.9_@types+node@22.14.0": {
+    "@inquirer/confirm@5.1.9": {
       "integrity": "sha512-NgQCnHqFTjF7Ys2fsqK2WtnA8X1kHyInyG+nMIuHowVTIgIuS10T4AznI/PvbqSpJqjCUqNBlKGh1v3bwLFL4w==",
       "dependencies": [
         "@inquirer/core",
-        "@inquirer/type",
-        "@types/node"
-      ],
-      "optionalPeers": [
-        "@types/node"
+        "@inquirer/type"
       ]
     },
-    "@inquirer/core@10.1.10_@types+node@22.14.0": {
+    "@inquirer/core@10.1.10": {
       "integrity": "sha512-roDaKeY1PYY0aCqhRmXihrHjoSW2A00pV3Ke5fTpMCkzcGF64R8e0lw3dK+eLEHwS4vB5RnW1wuQmvzoRul8Mw==",
       "dependencies": [
         "@inquirer/figures",
         "@inquirer/type",
-        "@types/node",
         "ansi-escapes",
         "cli-width",
         "mute-stream",
         "signal-exit",
         "wrap-ansi",
         "yoctocolors-cjs"
-      ],
-      "optionalPeers": [
-        "@types/node"
       ]
     },
     "@inquirer/figures@1.0.11": {
       "integrity": "sha512-eOg92lvrn/aRUqbxRyvpEWnrvRuTYRifixHkYVpJiygTgVSBIHDqLh0SrMQXkafvULg3ck11V7xvR+zcgvpHFw=="
     },
-    "@inquirer/type@3.0.6_@types+node@22.14.0": {
-      "integrity": "sha512-/mKVCtVpyBu3IDarv0G+59KC4stsD5mDsGpYh+GKs1NZT88Jh52+cuoA1AtLk2Q0r/quNl+1cSUyLRHBFeD0XA==",
-      "dependencies": [
-        "@types/node"
-      ],
-      "optionalPeers": [
-        "@types/node"
-      ]
+    "@inquirer/type@3.0.6": {
+      "integrity": "sha512-/mKVCtVpyBu3IDarv0G+59KC4stsD5mDsGpYh+GKs1NZT88Jh52+cuoA1AtLk2Q0r/quNl+1cSUyLRHBFeD0XA=="
     },
     "@sec-ant/readable-stream@0.4.1": {
       "integrity": "sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg=="
@@ -1442,7 +1428,9 @@
       "npm:debug@4.4.0",
       "npm:ejs@3.1.10",
       "npm:execa@9.5.2",
+      "npm:html-entities@2.6.0",
       "npm:react-dom@19.1.0",
+      "npm:react-reconciler@0.31.0",
       "npm:react@19.1.0",
       "npm:zod@3.24.2"
     ]

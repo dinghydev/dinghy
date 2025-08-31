@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETFLOW_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const NETFLOW_ROUTER = {
 }
 
 export function NetflowRouter(props: DiagramNodeProps) {
-  return <Shape {...NETFLOW_ROUTER} {...props} />
+  return (
+    <Shape
+      {...NETFLOW_ROUTER}
+      {...props}
+      _style={extendStyle(NETFLOW_ROUTER, props)}
+    />
+  )
 }

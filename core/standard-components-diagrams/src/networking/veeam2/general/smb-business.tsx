@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SMB_BUSINESS = {
   _style:
@@ -9,5 +9,11 @@ export const SMB_BUSINESS = {
 }
 
 export function SmbBusiness(props: DiagramNodeProps) {
-  return <Shape {...SMB_BUSINESS} {...props} />
+  return (
+    <Shape
+      {...SMB_BUSINESS}
+      {...props}
+      _style={extendStyle(SMB_BUSINESS, props)}
+    />
+  )
 }

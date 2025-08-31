@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OPTIONAL_PRIMARY_PATH = {
   _style: {
@@ -9,5 +9,11 @@ export const OPTIONAL_PRIMARY_PATH = {
 }
 
 export function OptionalPrimaryPath(props: DiagramNodeProps) {
-  return <Dependency {...OPTIONAL_PRIMARY_PATH} {...props} />
+  return (
+    <Dependency
+      {...OPTIONAL_PRIMARY_PATH}
+      {...props}
+      _style={extendStyle(OPTIONAL_PRIMARY_PATH, props)}
+    />
+  )
 }

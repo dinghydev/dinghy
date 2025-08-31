@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERNET_STREAMER = {
   _style:
@@ -9,5 +9,11 @@ export const INTERNET_STREAMER = {
 }
 
 export function InternetStreamer(props: DiagramNodeProps) {
-  return <Shape {...INTERNET_STREAMER} {...props} />
+  return (
+    <Shape
+      {...INTERNET_STREAMER}
+      {...props}
+      _style={extendStyle(INTERNET_STREAMER, props)}
+    />
+  )
 }

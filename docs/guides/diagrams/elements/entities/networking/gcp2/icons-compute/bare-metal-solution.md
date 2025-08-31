@@ -14,7 +14,7 @@ Solution
 ## Usage
 
 ```
-import { BareMetalSolution } from '@reactiac/standard-components-diagrams/gcp2IconsCompute'
+import { BareMetalSolution } from '@diac/standard-components-diagrams/gcp2IconsCompute'
 
 <BareMetalSolution/>
 ```

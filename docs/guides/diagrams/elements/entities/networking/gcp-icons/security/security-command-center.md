@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SecurityCommandCenter } from '@reactiac/standard-components-diagrams/gcpIconsSecurity'
+import { SecurityCommandCenter } from '@diac/standard-components-diagrams/gcpIconsSecurity'
 
 <SecurityCommandCenter/>
 ```

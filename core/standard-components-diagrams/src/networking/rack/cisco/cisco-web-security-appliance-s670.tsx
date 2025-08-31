@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_WEB_SECURITY_APPLIANCE_S670 = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_WEB_SECURITY_APPLIANCE_S670 = {
 }
 
 export function CiscoWebSecurityApplianceS670(props: DiagramNodeProps) {
-  return <Shape {...CISCO_WEB_SECURITY_APPLIANCE_S670} {...props} />
+  return (
+    <Shape
+      {...CISCO_WEB_SECURITY_APPLIANCE_S670}
+      {...props}
+      _style={extendStyle(CISCO_WEB_SECURITY_APPLIANCE_S670, props)}
+    />
+  )
 }

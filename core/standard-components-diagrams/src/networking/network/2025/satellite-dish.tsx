@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SATELLITE_DISH = {
   _style:
@@ -9,5 +9,11 @@ export const SATELLITE_DISH = {
 }
 
 export function SatelliteDish(props: DiagramNodeProps) {
-  return <Shape {...SATELLITE_DISH} {...props} />
+  return (
+    <Shape
+      {...SATELLITE_DISH}
+      {...props}
+      _style={extendStyle(SATELLITE_DISH, props)}
+    />
+  )
 }

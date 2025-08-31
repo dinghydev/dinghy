@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MapleLeaf } from '@reactiac/standard-components-diagrams/signsNature'
+import { MapleLeaf } from '@diac/standard-components-diagrams/signsNature'
 
 <MapleLeaf/>
 ```

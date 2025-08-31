@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FRIENDFEED = {
   _style:
@@ -9,5 +9,7 @@ export const FRIENDFEED = {
 }
 
 export function Friendfeed(props: DiagramNodeProps) {
-  return <Shape {...FRIENDFEED} {...props} />
+  return (
+    <Shape {...FRIENDFEED} {...props} _style={extendStyle(FRIENDFEED, props)} />
+  )
 }

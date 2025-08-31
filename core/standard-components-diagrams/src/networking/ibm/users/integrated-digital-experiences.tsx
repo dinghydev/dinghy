@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTEGRATED_DIGITAL_EXPERIENCES = {
   _style:
@@ -9,5 +9,11 @@ export const INTEGRATED_DIGITAL_EXPERIENCES = {
 }
 
 export function IntegratedDigitalExperiences(props: DiagramNodeProps) {
-  return <Shape {...INTEGRATED_DIGITAL_EXPERIENCES} {...props} />
+  return (
+    <Shape
+      {...INTEGRATED_DIGITAL_EXPERIENCES}
+      {...props}
+      _style={extendStyle(INTEGRATED_DIGITAL_EXPERIENCES, props)}
+    />
+  )
 }

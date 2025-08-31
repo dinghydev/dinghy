@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { Legend } from '@reactiac/standard-components-diagrams/c4'
+import { Legend } from '@diac/standard-components-diagrams/c4'
 
 <Legend/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ANDROID = {
   _style:
@@ -9,5 +9,5 @@ export const ANDROID = {
 }
 
 export function Android(props: DiagramNodeProps) {
-  return <Shape {...ANDROID} {...props} />
+  return <Shape {...ANDROID} {...props} _style={extendStyle(ANDROID, props)} />
 }

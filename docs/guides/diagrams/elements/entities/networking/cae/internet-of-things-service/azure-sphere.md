@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AzureSphere } from '@reactiac/standard-components-diagrams/caeInternetOfThingsService'
+import { AzureSphere } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
 
 <AzureSphere/>
 ```

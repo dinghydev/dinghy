@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOGICAL_CONNECTOR = {
   _style: {
@@ -9,5 +9,11 @@ export const LOGICAL_CONNECTOR = {
 }
 
 export function LogicalConnector(props: DiagramNodeProps) {
-  return <Dependency {...LOGICAL_CONNECTOR} {...props} />
+  return (
+    <Dependency
+      {...LOGICAL_CONNECTOR}
+      {...props}
+      _style={extendStyle(LOGICAL_CONNECTOR, props)}
+    />
+  )
 }

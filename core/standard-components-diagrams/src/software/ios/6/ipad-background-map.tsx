@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IPAD_BACKGROUND_MAP = {
   _style:
@@ -9,5 +9,11 @@ export const IPAD_BACKGROUND_MAP = {
 }
 
 export function IpadBackgroundMap(props: DiagramNodeProps) {
-  return <Shape {...IPAD_BACKGROUND_MAP} {...props} />
+  return (
+    <Shape
+      {...IPAD_BACKGROUND_MAP}
+      {...props}
+      _style={extendStyle(IPAD_BACKGROUND_MAP, props)}
+    />
+  )
 }

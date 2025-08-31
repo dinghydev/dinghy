@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CrossDock } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { CrossDock } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <CrossDock/>
 ```

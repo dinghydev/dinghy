@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VBR_CONFIGURATION_BACKUP = {
   _style:
@@ -9,5 +9,11 @@ export const VBR_CONFIGURATION_BACKUP = {
 }
 
 export function VbrConfigurationBackup(props: DiagramNodeProps) {
-  return <Shape {...VBR_CONFIGURATION_BACKUP} {...props} />
+  return (
+    <Shape
+      {...VBR_CONFIGURATION_BACKUP}
+      {...props}
+      _style={extendStyle(VBR_CONFIGURATION_BACKUP, props)}
+    />
+  )
 }

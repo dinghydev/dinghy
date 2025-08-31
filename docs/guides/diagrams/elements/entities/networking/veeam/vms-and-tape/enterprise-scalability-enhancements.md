@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EnterpriseScalabilityEnhancements } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { EnterpriseScalabilityEnhancements } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <EnterpriseScalabilityEnhancements/>
 ```

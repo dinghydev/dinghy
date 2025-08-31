@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEVOPS_GURU_INSIGHTS = {
   _style:
@@ -9,5 +9,11 @@ export const DEVOPS_GURU_INSIGHTS = {
 }
 
 export function DevopsGuruInsights(props: DiagramNodeProps) {
-  return <Shape {...DEVOPS_GURU_INSIGHTS} {...props} />
+  return (
+    <Shape
+      {...DEVOPS_GURU_INSIGHTS}
+      {...props}
+      _style={extendStyle(DEVOPS_GURU_INSIGHTS, props)}
+    />
+  )
 }

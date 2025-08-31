@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PhonePolycom } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { PhonePolycom } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <PhonePolycom/>
 ```

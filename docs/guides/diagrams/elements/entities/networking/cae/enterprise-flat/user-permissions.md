@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UserPermissions } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { UserPermissions } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <UserPermissions/>
 ```

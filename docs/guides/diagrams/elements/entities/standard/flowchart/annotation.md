@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Annotation } from '@reactiac/standard-components-diagrams/flowchart'
+import { Annotation } from '@diac/standard-components-diagrams/flowchart'
 
 <Annotation/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EndpointWhite } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { EndpointWhite } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <EndpointWhite/>
 ```

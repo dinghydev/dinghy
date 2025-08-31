@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LINE_CONCENTRATOR = {
   _style:
@@ -9,5 +9,11 @@ export const LINE_CONCENTRATOR = {
 }
 
 export function LineConcentrator(props: DiagramNodeProps) {
-  return <Shape {...LINE_CONCENTRATOR} {...props} />
+  return (
+    <Shape
+      {...LINE_CONCENTRATOR}
+      {...props}
+      _style={extendStyle(LINE_CONCENTRATOR, props)}
+    />
+  )
 }

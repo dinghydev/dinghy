@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTIPLE_PROCESS_START_STATE_MULTI_STATE = {
   _style:
@@ -9,5 +9,11 @@ export const MULTIPLE_PROCESS_START_STATE_MULTI_STATE = {
 }
 
 export function MultipleProcessStartStateMultiState(props: DiagramNodeProps) {
-  return <Shape {...MULTIPLE_PROCESS_START_STATE_MULTI_STATE} {...props} />
+  return (
+    <Shape
+      {...MULTIPLE_PROCESS_START_STATE_MULTI_STATE}
+      {...props}
+      _style={extendStyle(MULTIPLE_PROCESS_START_STATE_MULTI_STATE, props)}
+    />
+  )
 }

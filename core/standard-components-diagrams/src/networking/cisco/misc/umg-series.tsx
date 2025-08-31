@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UMG_SERIES = {
   _style:
@@ -9,5 +9,7 @@ export const UMG_SERIES = {
 }
 
 export function UmgSeries(props: DiagramNodeProps) {
-  return <Shape {...UMG_SERIES} {...props} />
+  return (
+    <Shape {...UMG_SERIES} {...props} _style={extendStyle(UMG_SERIES, props)} />
+  )
 }

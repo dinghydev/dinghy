@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.floor_lamp;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { FloorLamp } from '@reactiac/standard-components-diagrams/floorPlans'
+import { FloorLamp } from '@diac/standard-components-diagrams/floorPlans'
 
 <FloorLamp/>
 ```

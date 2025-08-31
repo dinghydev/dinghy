@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GenericDatabase } from '@reactiac/standard-components-diagrams/awsGeneralResources'
+import { GenericDatabase } from '@diac/standard-components-diagrams/awsGeneralResources'
 
 <GenericDatabase/>
 ```

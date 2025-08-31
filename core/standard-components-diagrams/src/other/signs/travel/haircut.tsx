@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HAIRCUT = {
   _style:
@@ -9,5 +9,5 @@ export const HAIRCUT = {
 }
 
 export function Haircut(props: DiagramNodeProps) {
-  return <Shape {...HAIRCUT} {...props} />
+  return <Shape {...HAIRCUT} {...props} _style={extendStyle(HAIRCUT, props)} />
 }

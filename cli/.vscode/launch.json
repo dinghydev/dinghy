@@ -9,16 +9,16 @@
       ],
       "program": "src/index.ts",
       "env": {
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        // "REACTIAC_ENGINE_VERSION": "latest",
+        // "APP_HOME": "${workspaceFolder}/../diac-sites"
+        // "DIAC_ENGINE_VERSION": "latest",
         "AWS_PROFILE": "default",
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/examples/web/1-shape"
-        // "APP_HOME": "${workspaceFolder}/examples/web/5-data"
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
+        // "APP_HOME": "${workspaceFolder}/../../diac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"

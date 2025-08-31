@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHOICE_PSEUDO_STATE_3 = {
   _style:
@@ -9,5 +9,11 @@ export const CHOICE_PSEUDO_STATE_3 = {
 }
 
 export function ChoicePseudoState3(props: DiagramNodeProps) {
-  return <Shape {...CHOICE_PSEUDO_STATE_3} {...props} />
+  return (
+    <Shape
+      {...CHOICE_PSEUDO_STATE_3}
+      {...props}
+      _style={extendStyle(CHOICE_PSEUDO_STATE_3, props)}
+    />
+  )
 }

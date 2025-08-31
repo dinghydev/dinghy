@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { ConditionalEventSubProcessInterruptingCollapsed } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { ConditionalEventSubProcessInterruptingCollapsed } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <ConditionalEventSubProcessInterruptingCollapsed/>
 ```

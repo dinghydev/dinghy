@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INVALID_MESSAGE_CHANNEL = {
   _style:
@@ -9,5 +9,11 @@ export const INVALID_MESSAGE_CHANNEL = {
 }
 
 export function InvalidMessageChannel(props: DiagramNodeProps) {
-  return <Shape {...INVALID_MESSAGE_CHANNEL} {...props} />
+  return (
+    <Shape
+      {...INVALID_MESSAGE_CHANNEL}
+      {...props}
+      _style={extendStyle(INVALID_MESSAGE_CHANNEL, props)}
+    />
+  )
 }

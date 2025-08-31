@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONFERENCE_ANNOUNCEMENT_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const CONFERENCE_ANNOUNCEMENT_SERVICE = {
 }
 
 export function ConferenceAnnouncementService(props: DiagramNodeProps) {
-  return <Shape {...CONFERENCE_ANNOUNCEMENT_SERVICE} {...props} />
+  return (
+    <Shape
+      {...CONFERENCE_ANNOUNCEMENT_SERVICE}
+      {...props}
+      _style={extendStyle(CONFERENCE_ANNOUNCEMENT_SERVICE, props)}
+    />
+  )
 }

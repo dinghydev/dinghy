@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FormattingToolbar1 } from '@reactiac/standard-components-diagrams/mockupForms'
+import { FormattingToolbar1 } from '@diac/standard-components-diagrams/mockupForms'
 
 <FormattingToolbar1/>
 ```

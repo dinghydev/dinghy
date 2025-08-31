@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IntuneManagedApp } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { IntuneManagedApp } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <IntuneManagedApp/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BASTIONS = {
   _style:
@@ -9,5 +9,7 @@ export const BASTIONS = {
 }
 
 export function Bastions(props: DiagramNodeProps) {
-  return <Shape {...BASTIONS} {...props} />
+  return (
+    <Shape {...BASTIONS} {...props} _style={extendStyle(BASTIONS, props)} />
+  )
 }

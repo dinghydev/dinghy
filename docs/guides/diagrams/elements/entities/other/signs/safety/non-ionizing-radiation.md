@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NonIonizingRadiation } from '@reactiac/standard-components-diagrams/signsSafety'
+import { NonIonizingRadiation } from '@diac/standard-components-diagrams/signsSafety'
 
 <NonIonizingRadiation/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RE_RECOMMENDATION_ENGINE = {
   _style:
@@ -9,5 +9,11 @@ export const RE_RECOMMENDATION_ENGINE = {
 }
 
 export function ReRecommendationEngine(props: DiagramNodeProps) {
-  return <Shape {...RE_RECOMMENDATION_ENGINE} {...props} />
+  return (
+    <Shape
+      {...RE_RECOMMENDATION_ENGINE}
+      {...props}
+      _style={extendStyle(RE_RECOMMENDATION_ENGINE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FieldService } from '@reactiac/standard-components-diagrams/dynamics365App'
+import { FieldService } from '@diac/standard-components-diagrams/dynamics365App'
 
 <FieldService/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VwlanController } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { VwlanController } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <VwlanController/>
 ```

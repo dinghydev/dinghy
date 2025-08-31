@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BASKET_CANCEL = {
   _style:
@@ -9,5 +9,11 @@ export const BASKET_CANCEL = {
 }
 
 export function BasketCancel(props: DiagramNodeProps) {
-  return <Shape {...BASKET_CANCEL} {...props} />
+  return (
+    <Shape
+      {...BASKET_CANCEL}
+      {...props}
+      _style={extendStyle(BASKET_CANCEL, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ReplicationFromABackup } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { ReplicationFromABackup } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <ReplicationFromABackup/>
 ```

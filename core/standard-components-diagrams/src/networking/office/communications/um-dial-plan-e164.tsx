@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UM_DIAL_PLAN_E164 = {
   _style:
@@ -9,5 +9,11 @@ export const UM_DIAL_PLAN_E164 = {
 }
 
 export function UmDialPlanE164(props: DiagramNodeProps) {
-  return <Shape {...UM_DIAL_PLAN_E164} {...props} />
+  return (
+    <Shape
+      {...UM_DIAL_PLAN_E164}
+      {...props}
+      _style={extendStyle(UM_DIAL_PLAN_E164, props)}
+    />
+  )
 }

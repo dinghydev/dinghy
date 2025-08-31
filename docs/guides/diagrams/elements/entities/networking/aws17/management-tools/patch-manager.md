@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PatchManager } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { PatchManager } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <PatchManager/>
 ```

@@ -14,7 +14,7 @@ Connectors
 ## Usage
 
 ```
-import { IntegrationConnectors } from '@reactiac/standard-components-diagrams/gcp2IconsIntegrationServices'
+import { IntegrationConnectors } from '@diac/standard-components-diagrams/gcp2IconsIntegrationServices'
 
 <IntegrationConnectors/>
 ```

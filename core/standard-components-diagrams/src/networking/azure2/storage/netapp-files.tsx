@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETAPP_FILES = {
   _style:
@@ -9,5 +9,11 @@ export const NETAPP_FILES = {
 }
 
 export function NetappFiles(props: DiagramNodeProps) {
-  return <Shape {...NETAPP_FILES} {...props} />
+  return (
+    <Shape
+      {...NETAPP_FILES}
+      {...props}
+      _style={extendStyle(NETAPP_FILES, props)}
+    />
+  )
 }

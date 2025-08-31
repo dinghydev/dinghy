@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VwebSecurity } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { VwebSecurity } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <VwebSecurity/>
 ```

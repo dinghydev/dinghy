@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DropboxCodeSource } from '@reactiac/standard-components-diagrams/azure'
+import { DropboxCodeSource } from '@diac/standard-components-diagrams/azure'
 
 <DropboxCodeSource/>
 ```

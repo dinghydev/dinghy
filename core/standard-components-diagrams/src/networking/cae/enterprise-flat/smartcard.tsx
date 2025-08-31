@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SMARTCARD = {
   _style:
@@ -9,5 +9,7 @@ export const SMARTCARD = {
 }
 
 export function Smartcard(props: DiagramNodeProps) {
-  return <Shape {...SMARTCARD} {...props} />
+  return (
+    <Shape {...SMARTCARD} {...props} _style={extendStyle(SMARTCARD, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TOOLKIT_FOR_WINDOWS_POWERSHELL = {
   _style:
@@ -9,5 +9,11 @@ export const TOOLKIT_FOR_WINDOWS_POWERSHELL = {
 }
 
 export function ToolkitForWindowsPowershell(props: DiagramNodeProps) {
-  return <Shape {...TOOLKIT_FOR_WINDOWS_POWERSHELL} {...props} />
+  return (
+    <Shape
+      {...TOOLKIT_FOR_WINDOWS_POWERSHELL}
+      {...props}
+      _style={extendStyle(TOOLKIT_FOR_WINDOWS_POWERSHELL, props)}
+    />
+  )
 }

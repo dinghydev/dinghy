@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CasSslCentralAuthenticationService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { CasSslCentralAuthenticationService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <CasSslCentralAuthenticationService/>
 ```

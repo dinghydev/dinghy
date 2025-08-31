@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALERT_BOX = {
   _style:
@@ -9,5 +9,7 @@ export const ALERT_BOX = {
 }
 
 export function AlertBox(props: DiagramNodeProps) {
-  return <Shape {...ALERT_BOX} {...props} />
+  return (
+    <Shape {...ALERT_BOX} {...props} _style={extendStyle(ALERT_BOX, props)} />
+  )
 }

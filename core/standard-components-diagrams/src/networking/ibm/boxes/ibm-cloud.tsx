@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IBM_CLOUD = {
   _style: {
@@ -12,5 +12,7 @@ export const IBM_CLOUD = {
 }
 
 export function IbmCloud(props: DiagramNodeProps) {
-  return <Shape {...IBM_CLOUD} {...props} />
+  return (
+    <Shape {...IBM_CLOUD} {...props} _style={extendStyle(IBM_CLOUD, props)} />
+  )
 }

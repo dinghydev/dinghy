@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BTP_BASIC_LAYER = {
   _style:
@@ -9,5 +9,11 @@ export const BTP_BASIC_LAYER = {
 }
 
 export function BtpBasicLayer(props: DiagramNodeProps) {
-  return <Shape {...BTP_BASIC_LAYER} {...props} />
+  return (
+    <Shape
+      {...BTP_BASIC_LAYER}
+      {...props}
+      _style={extendStyle(BTP_BASIC_LAYER, props)}
+    />
+  )
 }

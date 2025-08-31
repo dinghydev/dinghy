@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HAIRPIN_EXCHANGER = {
   _style:
@@ -9,5 +9,11 @@ export const HAIRPIN_EXCHANGER = {
 }
 
 export function HairpinExchanger(props: DiagramNodeProps) {
-  return <Shape {...HAIRPIN_EXCHANGER} {...props} />
+  return (
+    <Shape
+      {...HAIRPIN_EXCHANGER}
+      {...props}
+      _style={extendStyle(HAIRPIN_EXCHANGER, props)}
+    />
+  )
 }

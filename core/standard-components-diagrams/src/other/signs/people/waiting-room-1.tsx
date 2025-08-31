@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WAITING_ROOM_1 = {
   _style:
@@ -9,5 +9,11 @@ export const WAITING_ROOM_1 = {
 }
 
 export function WaitingRoom1(props: DiagramNodeProps) {
-  return <Shape {...WAITING_ROOM_1} {...props} />
+  return (
+    <Shape
+      {...WAITING_ROOM_1}
+      {...props}
+      _style={extendStyle(WAITING_ROOM_1, props)}
+    />
+  )
 }

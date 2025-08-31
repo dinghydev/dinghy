@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VertexAi } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { VertexAi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <VertexAi/>
 ```

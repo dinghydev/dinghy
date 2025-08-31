@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OpenBulkStorage } from '@reactiac/standard-components-diagrams/procEngVessels'
+import { OpenBulkStorage } from '@diac/standard-components-diagrams/procEngVessels'
 
 <OpenBulkStorage/>
 ```

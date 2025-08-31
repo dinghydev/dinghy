@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VerticalLine } from '@reactiac/standard-components-diagrams/mockupMarkup'
+import { VerticalLine } from '@diac/standard-components-diagrams/mockupMarkup'
 
 <VerticalLine/>
 ```

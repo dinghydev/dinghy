@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiagonalSnipRectangle } from '@reactiac/standard-components-diagrams/basic'
+import { DiagonalSnipRectangle } from '@diac/standard-components-diagrams/basic'
 
 <DiagonalSnipRectangle/>
 ```

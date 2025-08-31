@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RestartHighlight } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { RestartHighlight } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <RestartHighlight/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WallHorizontal } from '@reactiac/standard-components-diagrams/floorPlans'
+import { WallHorizontal } from '@diac/standard-components-diagrams/floorPlans'
 
 <WallHorizontal/>
 ```

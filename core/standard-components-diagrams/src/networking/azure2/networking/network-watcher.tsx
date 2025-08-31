@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETWORK_WATCHER = {
   _style:
     'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Network_Watcher.svg;strokeColor=none;',
-  _width: 64,
-  _height: 64,
+  _width: 60,
+  _height: 60,
 }
 
 export function NetworkWatcher(props: DiagramNodeProps) {
-  return <Shape {...NETWORK_WATCHER} {...props} />
+  return (
+    <Shape
+      {...NETWORK_WATCHER}
+      {...props}
+      _style={extendStyle(NETWORK_WATCHER, props)}
+    />
+  )
 }

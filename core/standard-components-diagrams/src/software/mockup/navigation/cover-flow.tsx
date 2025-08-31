@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COVER_FLOW = {
   _style:
@@ -9,5 +9,7 @@ export const COVER_FLOW = {
 }
 
 export function CoverFlow(props: DiagramNodeProps) {
-  return <Shape {...COVER_FLOW} {...props} />
+  return (
+    <Shape {...COVER_FLOW} {...props} _style={extendStyle(COVER_FLOW, props)} />
+  )
 }

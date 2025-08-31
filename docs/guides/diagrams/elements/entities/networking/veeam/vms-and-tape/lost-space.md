@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LostSpace } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { LostSpace } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <LostSpace/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsSts } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsSts } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsSts/>
 ```

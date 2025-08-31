@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10930_PRESSURE_CONTROL_AND = {
   _style:
@@ -9,5 +9,11 @@ export const X10930_PRESSURE_CONTROL_AND = {
 }
 
 export function X10930PressureControlAnd(props: DiagramNodeProps) {
-  return <Shape {...X10930_PRESSURE_CONTROL_AND} {...props} />
+  return (
+    <Shape
+      {...X10930_PRESSURE_CONTROL_AND}
+      {...props}
+      _style={extendStyle(X10930_PRESSURE_CONTROL_AND, props)}
+    />
+  )
 }

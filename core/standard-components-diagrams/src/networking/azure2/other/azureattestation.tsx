@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZUREATTESTATION = {
   _style:
@@ -9,5 +9,11 @@ export const AZUREATTESTATION = {
 }
 
 export function Azureattestation(props: DiagramNodeProps) {
-  return <Shape {...AZUREATTESTATION} {...props} />
+  return (
+    <Shape
+      {...AZUREATTESTATION}
+      {...props}
+      _style={extendStyle(AZUREATTESTATION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HATENA = {
   _style:
@@ -9,5 +9,5 @@ export const HATENA = {
 }
 
 export function Hatena(props: DiagramNodeProps) {
-  return <Shape {...HATENA} {...props} />
+  return <Shape {...HATENA} {...props} _style={extendStyle(HATENA, props)} />
 }

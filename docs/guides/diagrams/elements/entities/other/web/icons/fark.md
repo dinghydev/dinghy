@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Fark } from '@reactiac/standard-components-diagrams/webIcons'
+import { Fark } from '@diac/standard-components-diagrams/webIcons'
 
 <Fark/>
 ```

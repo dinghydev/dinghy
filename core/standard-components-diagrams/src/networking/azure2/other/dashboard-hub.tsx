@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DASHBOARD_HUB = {
   _style:
@@ -9,5 +9,11 @@ export const DASHBOARD_HUB = {
 }
 
 export function DashboardHub(props: DiagramNodeProps) {
-  return <Shape {...DASHBOARD_HUB} {...props} />
+  return (
+    <Shape
+      {...DASHBOARD_HUB}
+      {...props}
+      _style={extendStyle(DASHBOARD_HUB, props)}
+    />
+  )
 }

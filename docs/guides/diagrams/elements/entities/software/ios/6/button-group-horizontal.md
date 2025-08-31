@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButtonGroupHorizontal } from '@reactiac/standard-components-diagrams/ios6'
+import { ButtonGroupHorizontal } from '@diac/standard-components-diagrams/ios6'
 
 <ButtonGroupHorizontal/>
 ```

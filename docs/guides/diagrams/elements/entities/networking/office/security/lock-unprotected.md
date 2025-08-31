@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LockUnprotected } from '@reactiac/standard-components-diagrams/officeSecurity'
+import { LockUnprotected } from '@diac/standard-components-diagrams/officeSecurity'
 
 <LockUnprotected/>
 ```

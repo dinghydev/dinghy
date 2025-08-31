@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLASSIC_INFRASTRUCTURE = {
   _style: {
@@ -12,5 +12,11 @@ export const CLASSIC_INFRASTRUCTURE = {
 }
 
 export function ClassicInfrastructure(props: DiagramNodeProps) {
-  return <Shape {...CLASSIC_INFRASTRUCTURE} {...props} />
+  return (
+    <Shape
+      {...CLASSIC_INFRASTRUCTURE}
+      {...props}
+      _style={extendStyle(CLASSIC_INFRASTRUCTURE, props)}
+    />
+  )
 }

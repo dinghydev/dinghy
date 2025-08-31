@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IPTC = {
   _style:
@@ -9,5 +9,5 @@ export const IPTC = {
 }
 
 export function Iptc(props: DiagramNodeProps) {
-  return <Shape {...IPTC} {...props} />
+  return <Shape {...IPTC} {...props} _style={extendStyle(IPTC, props)} />
 }

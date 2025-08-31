@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCALE_OUT_REPOSITORY = {
   _style:
@@ -9,5 +9,11 @@ export const SCALE_OUT_REPOSITORY = {
 }
 
 export function ScaleOutRepository(props: DiagramNodeProps) {
-  return <Shape {...SCALE_OUT_REPOSITORY} {...props} />
+  return (
+    <Shape
+      {...SCALE_OUT_REPOSITORY}
+      {...props}
+      _style={extendStyle(SCALE_OUT_REPOSITORY, props)}
+    />
+  )
 }

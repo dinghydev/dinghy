@@ -4,12 +4,12 @@ import {
   ResolvableRecordSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { useTypedNode } from '@reactiac/base-components'
-import { Ec2InstanceContents } from '@reactiac/standard-components-diagrams/awsGroups'
+import { useTypedNode } from '@diac/base-components'
+import { Ec2InstanceContents } from '@diac/standard-components-diagrams/awsGroups'
 
 export const AwsInstanceInputSchema = z.object({
   ami: ResolvableStringSchema.optional(),

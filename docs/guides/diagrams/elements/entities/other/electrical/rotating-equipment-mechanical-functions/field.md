@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Field } from '@reactiac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { Field } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <Field/>
 ```

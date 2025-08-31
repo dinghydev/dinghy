@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SITE_RECOVERY_FUNCTIONAL_ICON = {
   _style:
@@ -9,5 +9,11 @@ export const SITE_RECOVERY_FUNCTIONAL_ICON = {
 }
 
 export function SiteRecoveryFunctionalIcon(props: DiagramNodeProps) {
-  return <Shape {...SITE_RECOVERY_FUNCTIONAL_ICON} {...props} />
+  return (
+    <Shape
+      {...SITE_RECOVERY_FUNCTIONAL_ICON}
+      {...props}
+      _style={extendStyle(SITE_RECOVERY_FUNCTIONAL_ICON, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEPARATOR_ELECTROMAGNETIC = {
   _style:
@@ -9,5 +9,11 @@ export const SEPARATOR_ELECTROMAGNETIC = {
 }
 
 export function SeparatorElectromagnetic(props: DiagramNodeProps) {
-  return <Shape {...SEPARATOR_ELECTROMAGNETIC} {...props} />
+  return (
+    <Shape
+      {...SEPARATOR_ELECTROMAGNETIC}
+      {...props}
+      _style={extendStyle(SEPARATOR_ELECTROMAGNETIC, props)}
+    />
+  )
 }

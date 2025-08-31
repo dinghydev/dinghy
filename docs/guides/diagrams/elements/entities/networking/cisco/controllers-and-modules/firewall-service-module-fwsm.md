@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FirewallServiceModuleFwsm } from '@reactiac/standard-components-diagrams/ciscoControllersAndModules'
+import { FirewallServiceModuleFwsm } from '@diac/standard-components-diagrams/ciscoControllersAndModules'
 
 <FirewallServiceModuleFwsm/>
 ```

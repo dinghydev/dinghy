@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATABASE_CUBE_BLUE = {
   _style:
@@ -9,5 +9,11 @@ export const DATABASE_CUBE_BLUE = {
 }
 
 export function DatabaseCubeBlue(props: DiagramNodeProps) {
-  return <Shape {...DATABASE_CUBE_BLUE} {...props} />
+  return (
+    <Shape
+      {...DATABASE_CUBE_BLUE}
+      {...props}
+      _style={extendStyle(DATABASE_CUBE_BLUE, props)}
+    />
+  )
 }

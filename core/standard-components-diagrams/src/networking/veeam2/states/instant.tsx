@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INSTANT = {
   _style:
@@ -9,5 +9,5 @@ export const INSTANT = {
 }
 
 export function Instant(props: DiagramNodeProps) {
-  return <Shape {...INSTANT} {...props} />
+  return <Shape {...INSTANT} {...props} _style={extendStyle(INSTANT, props)} />
 }

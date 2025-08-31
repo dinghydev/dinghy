@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { TableWithTitle2 } from '@reactiac/standard-components-diagrams/misc'
+import { TableWithTitle2 } from '@diac/standard-components-diagrams/misc'
 
 <TableWithTitle2/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TemplateSignature } from '@reactiac/standard-components-diagrams/uml25'
+import { TemplateSignature } from '@diac/standard-components-diagrams/uml25'
 
 <TemplateSignature/>
 ```

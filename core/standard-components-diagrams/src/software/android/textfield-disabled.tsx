@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TEXTFIELD_DISABLED = {
   _style:
@@ -9,5 +9,11 @@ export const TEXTFIELD_DISABLED = {
 }
 
 export function TextfieldDisabled(props: DiagramNodeProps) {
-  return <Shape {...TEXTFIELD_DISABLED} {...props} />
+  return (
+    <Shape
+      {...TEXTFIELD_DISABLED}
+      {...props}
+      _style={extendStyle(TEXTFIELD_DISABLED, props)}
+    />
+  )
 }

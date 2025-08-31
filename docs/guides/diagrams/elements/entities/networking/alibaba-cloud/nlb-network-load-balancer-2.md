@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NlbNetworkLoadBalancer2 } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { NlbNetworkLoadBalancer2 } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <NlbNetworkLoadBalancer2/>
 ```

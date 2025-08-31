@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualNetworkClassic } from '@reactiac/standard-components-diagrams/caeNetworkingService'
+import { VirtualNetworkClassic } from '@diac/standard-components-diagrams/caeNetworkingService'
 
 <VirtualNetworkClassic/>
 ```

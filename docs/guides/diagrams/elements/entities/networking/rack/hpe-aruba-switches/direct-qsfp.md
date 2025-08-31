@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectQsfp } from '@reactiac/standard-components-diagrams/rackHpeArubaSwitches'
+import { DirectQsfp } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
 
 <DirectQsfp/>
 ```

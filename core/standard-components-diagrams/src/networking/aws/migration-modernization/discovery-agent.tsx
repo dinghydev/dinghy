@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISCOVERY_AGENT = {
   _style:
@@ -9,5 +9,11 @@ export const DISCOVERY_AGENT = {
 }
 
 export function DiscoveryAgent(props: DiagramNodeProps) {
-  return <Shape {...DISCOVERY_AGENT} {...props} />
+  return (
+    <Shape
+      {...DISCOVERY_AGENT}
+      {...props}
+      _style={extendStyle(DISCOVERY_AGENT, props)}
+    />
+  )
 }

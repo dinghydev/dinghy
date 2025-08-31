@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TECHNOLOGY_INTERFACE = {
   _style:
@@ -9,5 +9,11 @@ export const TECHNOLOGY_INTERFACE = {
 }
 
 export function TechnologyInterface(props: DiagramNodeProps) {
-  return <Shape {...TECHNOLOGY_INTERFACE} {...props} />
+  return (
+    <Shape
+      {...TECHNOLOGY_INTERFACE}
+      {...props}
+      _style={extendStyle(TECHNOLOGY_INTERFACE, props)}
+    />
+  )
 }

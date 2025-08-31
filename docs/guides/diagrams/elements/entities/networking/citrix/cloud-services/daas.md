@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Daas } from '@reactiac/standard-components-diagrams/citrixCloudServices'
+import { Daas } from '@diac/standard-components-diagrams/citrixCloudServices'
 
 <Daas/>
 ```

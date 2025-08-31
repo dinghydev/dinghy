@@ -9,7 +9,7 @@ forEachWorkspace(async (name, srcPath, targetPath, denoJsonc) => {
   await emptyDir(targetPath)
 
   const dependencies: any = {}
-  if (name === '@reactiac/workspace') {
+  if (name === '@diac/workspace') {
     return
   }
   if (denoJsonc.imports) {
@@ -44,11 +44,11 @@ forEachWorkspace(async (name, srcPath, targetPath, denoJsonc) => {
       dependencies,
     },
     postBuild() {
-      if (name === '@reactiac/base-renderer') {
-        dependencies['@reactiac/base-components'] = projectVersionRelease()
-      } else if (name === '@reactiac/renderer-json') {
-        dependencies['@reactiac/base-components'] = projectVersionRelease()
-        dependencies['@reactiac/base-renderer'] = projectVersionRelease()
+      if (name === '@diac/base-renderer') {
+        dependencies['@diac/base-components'] = projectVersionRelease()
+      } else if (name === '@diac/renderer-json') {
+        dependencies['@diac/base-components'] = projectVersionRelease()
+        dependencies['@diac/base-renderer'] = projectVersionRelease()
       }
       const packageJson = JSON.parse(
         Deno.readTextFileSync(`${targetPath}/package.json`),

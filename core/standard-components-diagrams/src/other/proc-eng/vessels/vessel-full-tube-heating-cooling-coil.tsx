@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VESSEL_FULL_TUBE_HEATING_COOLING_COIL = {
   _style:
@@ -9,5 +9,11 @@ export const VESSEL_FULL_TUBE_HEATING_COOLING_COIL = {
 }
 
 export function VesselFullTubeHeatingCoolingCoil(props: DiagramNodeProps) {
-  return <Shape {...VESSEL_FULL_TUBE_HEATING_COOLING_COIL} {...props} />
+  return (
+    <Shape
+      {...VESSEL_FULL_TUBE_HEATING_COOLING_COIL}
+      {...props}
+      _style={extendStyle(VESSEL_FULL_TUBE_HEATING_COOLING_COIL, props)}
+    />
+  )
 }

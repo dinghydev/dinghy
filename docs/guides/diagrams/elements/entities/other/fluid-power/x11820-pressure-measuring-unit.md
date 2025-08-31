@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11820PressureMeasuringUnit } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11820PressureMeasuringUnit } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11820PressureMeasuringUnit/>
 ```

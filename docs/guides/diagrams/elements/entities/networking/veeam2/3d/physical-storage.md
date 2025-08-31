@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PhysicalStorage } from '@reactiac/standard-components-diagrams/veeam23d'
+import { PhysicalStorage } from '@diac/standard-components-diagrams/veeam23d'
 
 <PhysicalStorage/>
 ```

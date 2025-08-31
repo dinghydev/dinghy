@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AgitatorCrossBeam } from '@reactiac/standard-components-diagrams/procEngAgitators'
+import { AgitatorCrossBeam } from '@diac/standard-components-diagrams/procEngAgitators'
 
 <AgitatorCrossBeam/>
 ```

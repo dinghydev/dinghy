@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMMAND_LINE = {
   _style:
@@ -9,5 +9,11 @@ export const COMMAND_LINE = {
 }
 
 export function CommandLine(props: DiagramNodeProps) {
-  return <Shape {...COMMAND_LINE} {...props} />
+  return (
+    <Shape
+      {...COMMAND_LINE}
+      {...props}
+      _style={extendStyle(COMMAND_LINE, props)}
+    />
+  )
 }

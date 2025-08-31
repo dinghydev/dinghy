@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeviceHistory } from '@reactiac/standard-components-diagrams/caeIntuneFlat'
+import { DeviceHistory } from '@diac/standard-components-diagrams/caeIntuneFlat'
 
 <DeviceHistory/>
 ```

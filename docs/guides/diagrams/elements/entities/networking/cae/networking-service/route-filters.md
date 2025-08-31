@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RouteFilters } from '@reactiac/standard-components-diagrams/caeNetworkingService'
+import { RouteFilters } from '@diac/standard-components-diagrams/caeNetworkingService'
 
 <RouteFilters/>
 ```

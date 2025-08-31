@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OR_JUNCTION = {
   _style:
@@ -9,5 +9,11 @@ export const OR_JUNCTION = {
 }
 
 export function OrJunction(props: DiagramNodeProps) {
-  return <Shape {...OR_JUNCTION} {...props} />
+  return (
+    <Shape
+      {...OR_JUNCTION}
+      {...props}
+      _style={extendStyle(OR_JUNCTION, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COPIER = {
   _style:
@@ -9,5 +9,5 @@ export const COPIER = {
 }
 
 export function Copier(props: DiagramNodeProps) {
-  return <Shape {...COPIER} {...props} />
+  return <Shape {...COPIER} {...props} _style={extendStyle(COPIER, props)} />
 }

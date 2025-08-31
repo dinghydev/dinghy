@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsMarketplace } from '@reactiac/standard-components-diagrams/aws18ManagementTools'
+import { AwsMarketplace } from '@diac/standard-components-diagrams/aws18ManagementTools'
 
 <AwsMarketplace/>
 ```

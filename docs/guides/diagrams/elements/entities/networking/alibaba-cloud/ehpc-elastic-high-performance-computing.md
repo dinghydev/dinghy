@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EhpcElasticHighPerformanceComputing } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { EhpcElasticHighPerformanceComputing } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <EhpcElasticHighPerformanceComputing/>
 ```

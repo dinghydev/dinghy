@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GatewayServer } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { GatewayServer } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <GatewayServer/>
 ```

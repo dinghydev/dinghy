@@ -1,17 +1,12 @@
-import type { CommandArgs, CommandContext, Commands } from '@reactiac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@reactiac/cli'
+import type { CommandArgs, CommandContext, Commands } from '@diac/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
 import { rendererMapping } from './renderMapping.ts'
 
-import {
-  containerAppHome,
-  execCmd,
-  isCi,
-  reactiacAppConfig,
-} from '@reactiac/cli'
-import { deepMerge, doWithStacks } from '@reactiac/base-components'
+import { containerAppHome, execCmd, isCi, diacAppConfig } from '@diac/cli'
+import { deepMerge, doWithStacks } from '@diac/base-components'
 import chalk from 'chalk'
 import Debug from 'debug'
-import { requireStacksConfig } from '@reactiac/cli'
+import { requireStacksConfig } from '@diac/cli'
 import { renderOptions } from '../../utils/renderOptions.ts'
 const debug = Debug('render')
 
@@ -30,7 +25,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
 
   debug('render started at %O', new Date())
 
-  const options: any = deepMerge({}, reactiacAppConfig)
+  const options: any = deepMerge({}, diacAppConfig)
   if (args['tf-generateImport']) {
     options.tf ??= {}
     options.tf.generateImport = true

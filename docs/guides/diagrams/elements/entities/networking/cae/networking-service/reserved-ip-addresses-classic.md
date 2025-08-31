@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ReservedIpAddressesClassic } from '@reactiac/standard-components-diagrams/caeNetworkingService'
+import { ReservedIpAddressesClassic } from '@diac/standard-components-diagrams/caeNetworkingService'
 
 <ReservedIpAddressesClassic/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VeeamSapphire2 } from '@reactiac/standard-components-diagrams/veeam2Auxiliary'
+import { VeeamSapphire2 } from '@diac/standard-components-diagrams/veeam2Auxiliary'
 
 <VeeamSapphire2/>
 ```

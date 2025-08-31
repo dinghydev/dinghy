@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Camera } from '@reactiac/standard-components-diagrams/awsGeneralResources'
+import { Camera } from '@diac/standard-components-diagrams/awsGeneralResources'
 
 <Camera/>
 ```

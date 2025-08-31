@@ -5,7 +5,7 @@ import type {
   NodeTree,
   Props,
   StackType,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 
 export type TfRenderOptions = {
   tf: {

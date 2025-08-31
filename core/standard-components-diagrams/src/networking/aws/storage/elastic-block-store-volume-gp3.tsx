@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTIC_BLOCK_STORE_VOLUME_GP3 = {
   _style:
@@ -9,5 +9,11 @@ export const ELASTIC_BLOCK_STORE_VOLUME_GP3 = {
 }
 
 export function ElasticBlockStoreVolumeGp3(props: DiagramNodeProps) {
-  return <Shape {...ELASTIC_BLOCK_STORE_VOLUME_GP3} {...props} />
+  return (
+    <Shape
+      {...ELASTIC_BLOCK_STORE_VOLUME_GP3}
+      {...props}
+      _style={extendStyle(ELASTIC_BLOCK_STORE_VOLUME_GP3, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SwasSimpleApplicationServer } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { SwasSimpleApplicationServer } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <SwasSimpleApplicationServer/>
 ```

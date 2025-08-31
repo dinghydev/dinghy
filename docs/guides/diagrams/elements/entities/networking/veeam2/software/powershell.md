@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Powershell } from '@reactiac/standard-components-diagrams/veeam2Software'
+import { Powershell } from '@diac/standard-components-diagrams/veeam2Software'
 
 <Powershell/>
 ```

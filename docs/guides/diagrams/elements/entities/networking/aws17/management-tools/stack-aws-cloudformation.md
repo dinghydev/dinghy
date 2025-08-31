@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StackAwsCloudformation } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { StackAwsCloudformation } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <StackAwsCloudformation/>
 ```

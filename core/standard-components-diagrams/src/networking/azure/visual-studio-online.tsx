@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VISUAL_STUDIO_ONLINE = {
   _style:
@@ -9,5 +9,11 @@ export const VISUAL_STUDIO_ONLINE = {
 }
 
 export function VisualStudioOnline(props: DiagramNodeProps) {
-  return <Shape {...VISUAL_STUDIO_ONLINE} {...props} />
+  return (
+    <Shape
+      {...VISUAL_STUDIO_ONLINE}
+      {...props}
+      _style={extendStyle(VISUAL_STUDIO_ONLINE, props)}
+    />
+  )
 }

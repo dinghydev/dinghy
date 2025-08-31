@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OVERTIME = {
   _style:
@@ -9,5 +9,7 @@ export const OVERTIME = {
 }
 
 export function Overtime(props: DiagramNodeProps) {
-  return <Shape {...OVERTIME} {...props} />
+  return (
+    <Shape {...OVERTIME} {...props} _style={extendStyle(OVERTIME, props)} />
+  )
 }

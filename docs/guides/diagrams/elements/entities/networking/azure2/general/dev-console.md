@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DevConsole } from '@reactiac/standard-components-diagrams/azure2General'
+import { DevConsole } from '@diac/standard-components-diagrams/azure2General'
 
 <DevConsole/>
 ```

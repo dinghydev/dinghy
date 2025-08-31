@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { Interaction2 } from '@reactiac/standard-components-diagrams/uml25'
+import { Interaction2 } from '@diac/standard-components-diagrams/uml25'
 
 <Interaction2/>
 ```

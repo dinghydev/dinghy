@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const YAMMER = {
   _style:
@@ -9,5 +9,5 @@ export const YAMMER = {
 }
 
 export function Yammer(props: DiagramNodeProps) {
-  return <Shape {...YAMMER} {...props} />
+  return <Shape {...YAMMER} {...props} _style={extendStyle(YAMMER, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOT_BADGE = {
   _style: 'shape=ellipse;fillColor=#0065FF;strokeColor=none;html=1;sketch=0;',
@@ -8,5 +8,7 @@ export const DOT_BADGE = {
 }
 
 export function DotBadge(props: DiagramNodeProps) {
-  return <Shape {...DOT_BADGE} {...props} />
+  return (
+    <Shape {...DOT_BADGE} {...props} _style={extendStyle(DOT_BADGE, props)} />
+  )
 }

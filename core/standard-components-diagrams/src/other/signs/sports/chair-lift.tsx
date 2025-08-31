@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHAIR_LIFT = {
   _style:
@@ -9,5 +9,7 @@ export const CHAIR_LIFT = {
 }
 
 export function ChairLift(props: DiagramNodeProps) {
-  return <Shape {...CHAIR_LIFT} {...props} />
+  return (
+    <Shape {...CHAIR_LIFT} {...props} _style={extendStyle(CHAIR_LIFT, props)} />
+  )
 }

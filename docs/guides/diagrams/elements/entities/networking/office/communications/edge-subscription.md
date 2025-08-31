@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EdgeSubscription } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { EdgeSubscription } from '@diac/standard-components-diagrams/officeCommunications'
 
 <EdgeSubscription/>
 ```

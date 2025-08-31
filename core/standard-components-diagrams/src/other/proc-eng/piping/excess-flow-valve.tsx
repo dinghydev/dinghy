@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXCESS_FLOW_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const EXCESS_FLOW_VALVE = {
 }
 
 export function ExcessFlowValve(props: DiagramNodeProps) {
-  return <Shape {...EXCESS_FLOW_VALVE} {...props} />
+  return (
+    <Shape
+      {...EXCESS_FLOW_VALVE}
+      {...props}
+      _style={extendStyle(EXCESS_FLOW_VALVE, props)}
+    />
+  )
 }

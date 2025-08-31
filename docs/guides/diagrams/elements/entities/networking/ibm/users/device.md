@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Device } from '@reactiac/standard-components-diagrams/ibmUsers'
+import { Device } from '@diac/standard-components-diagrams/ibmUsers'
 
 <Device/>
 ```

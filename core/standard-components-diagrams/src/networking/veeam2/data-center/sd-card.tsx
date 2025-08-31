@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SD_CARD = {
   _style:
@@ -9,5 +9,5 @@ export const SD_CARD = {
 }
 
 export function SdCard(props: DiagramNodeProps) {
-  return <Shape {...SD_CARD} {...props} />
+  return <Shape {...SD_CARD} {...props} _style={extendStyle(SD_CARD, props)} />
 }

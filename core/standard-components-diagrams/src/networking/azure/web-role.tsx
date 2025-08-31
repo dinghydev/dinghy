@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEB_ROLE = {
   _style:
@@ -9,5 +9,7 @@ export const WEB_ROLE = {
 }
 
 export function WebRole(props: DiagramNodeProps) {
-  return <Shape {...WEB_ROLE} {...props} />
+  return (
+    <Shape {...WEB_ROLE} {...props} _style={extendStyle(WEB_ROLE, props)} />
+  )
 }

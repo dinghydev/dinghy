@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KEY_VAULTS = {
   _style:
@@ -9,5 +9,7 @@ export const KEY_VAULTS = {
 }
 
 export function KeyVaults(props: DiagramNodeProps) {
-  return <Shape {...KEY_VAULTS} {...props} />
+  return (
+    <Shape {...KEY_VAULTS} {...props} _style={extendStyle(KEY_VAULTS, props)} />
+  )
 }

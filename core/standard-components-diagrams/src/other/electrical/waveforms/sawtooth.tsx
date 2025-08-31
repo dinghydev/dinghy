@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAWTOOTH = {
   _style:
@@ -9,5 +9,7 @@ export const SAWTOOTH = {
 }
 
 export function Sawtooth(props: DiagramNodeProps) {
-  return <Shape {...SAWTOOTH} {...props} />
+  return (
+    <Shape {...SAWTOOTH} {...props} _style={extendStyle(SAWTOOTH, props)} />
+  )
 }

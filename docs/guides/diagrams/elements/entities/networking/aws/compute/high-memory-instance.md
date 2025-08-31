@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HighMemoryInstance } from '@reactiac/standard-components-diagrams/awsCompute'
+import { HighMemoryInstance } from '@diac/standard-components-diagrams/awsCompute'
 
 <HighMemoryInstance/>
 ```

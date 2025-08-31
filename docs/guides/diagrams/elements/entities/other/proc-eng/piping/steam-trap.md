@@ -5,15 +5,15 @@
 ```
 {
   _style: 'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.piping.steam_trap;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { SteamTrap } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { SteamTrap } from '@diac/standard-components-diagrams/procEngPiping'
 
 <SteamTrap/>
 ```

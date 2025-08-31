@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOCKED_HIGHLIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const LOCKED_HIGHLIGHT = {
 }
 
 export function LockedHighlight(props: DiagramNodeProps) {
-  return <Shape {...LOCKED_HIGHLIGHT} {...props} />
+  return (
+    <Shape
+      {...LOCKED_HIGHLIGHT}
+      {...props}
+      _style={extendStyle(LOCKED_HIGHLIGHT, props)}
+    />
+  )
 }

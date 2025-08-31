@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InternetHollow } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { InternetHollow } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <InternetHollow/>
 ```

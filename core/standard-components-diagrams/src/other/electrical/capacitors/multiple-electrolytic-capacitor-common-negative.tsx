@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_NEGATIVE = {
   _style:
@@ -12,6 +12,13 @@ export function MultipleElectrolyticCapacitorCommonNegative(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_NEGATIVE} {...props} />
+    <Shape
+      {...MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_NEGATIVE}
+      {...props}
+      _style={extendStyle(
+        MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_NEGATIVE,
+        props,
+      )}
+    />
   )
 }

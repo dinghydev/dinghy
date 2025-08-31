@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TERMINATOR = {
   _style:
@@ -9,5 +9,7 @@ export const TERMINATOR = {
 }
 
 export function Terminator(props: DiagramNodeProps) {
-  return <Shape {...TERMINATOR} {...props} />
+  return (
+    <Shape {...TERMINATOR} {...props} _style={extendStyle(TERMINATOR, props)} />
+  )
 }

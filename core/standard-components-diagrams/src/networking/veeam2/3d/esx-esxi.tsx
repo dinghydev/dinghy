@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ESX_ESXI = {
   _style:
@@ -9,5 +9,7 @@ export const ESX_ESXI = {
 }
 
 export function EsxEsxi(props: DiagramNodeProps) {
-  return <Shape {...ESX_ESXI} {...props} />
+  return (
+    <Shape {...ESX_ESXI} {...props} _style={extendStyle(ESX_ESXI, props)} />
+  )
 }

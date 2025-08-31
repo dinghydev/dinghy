@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAP_NAVIGATOR = {
   _style:
@@ -9,5 +9,11 @@ export const MAP_NAVIGATOR = {
 }
 
 export function MapNavigator(props: DiagramNodeProps) {
-  return <Shape {...MAP_NAVIGATOR} {...props} />
+  return (
+    <Shape
+      {...MAP_NAVIGATOR}
+      {...props}
+      _style={extendStyle(MAP_NAVIGATOR, props)}
+    />
+  )
 }

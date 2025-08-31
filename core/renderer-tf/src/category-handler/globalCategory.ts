@@ -1,4 +1,4 @@
-import * as base from '@reactiac/base-components'
+import * as base from '@diac/base-components'
 import { requiredSchema } from './index.ts'
 import type { TfRenderOptions } from '../types.ts'
 

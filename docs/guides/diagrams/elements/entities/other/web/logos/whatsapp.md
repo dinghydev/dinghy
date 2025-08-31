@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Whatsapp } from '@reactiac/standard-components-diagrams/webLogos'
+import { Whatsapp } from '@diac/standard-components-diagrams/webLogos'
 
 <Whatsapp/>
 ```

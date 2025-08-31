@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.pid.feeders.proportional_feeder;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { ProportionalFeeder } from '@reactiac/standard-components-diagrams/procEngFeeders'
+import { ProportionalFeeder } from '@diac/standard-components-diagrams/procEngFeeders'
 
 <ProportionalFeeder/>
 ```

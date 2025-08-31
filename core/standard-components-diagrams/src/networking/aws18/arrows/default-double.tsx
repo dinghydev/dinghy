@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DEFAULT_DOUBLE = {
   _style: {
@@ -9,5 +9,11 @@ export const DEFAULT_DOUBLE = {
 }
 
 export function DefaultDouble(props: DiagramNodeProps) {
-  return <Dependency {...DEFAULT_DOUBLE} {...props} />
+  return (
+    <Dependency
+      {...DEFAULT_DOUBLE}
+      {...props}
+      _style={extendStyle(DEFAULT_DOUBLE, props)}
+    />
+  )
 }

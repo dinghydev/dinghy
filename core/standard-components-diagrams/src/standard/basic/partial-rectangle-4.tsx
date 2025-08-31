@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARTIAL_RECTANGLE_4 = {
   _style:
@@ -9,5 +9,11 @@ export const PARTIAL_RECTANGLE_4 = {
 }
 
 export function PartialRectangle4(props: DiagramNodeProps) {
-  return <Shape {...PARTIAL_RECTANGLE_4} {...props} />
+  return (
+    <Shape
+      {...PARTIAL_RECTANGLE_4}
+      {...props}
+      _style={extendStyle(PARTIAL_RECTANGLE_4, props)}
+    />
+  )
 }

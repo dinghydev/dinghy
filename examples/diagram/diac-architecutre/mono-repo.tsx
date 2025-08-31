@@ -1,4 +1,4 @@
-import { Dependency, Shape } from "@reactiac/base-components";
+import { Dependency, Shape } from "@diac/base-components";
 
 export function App() {
   return (
@@ -34,7 +34,7 @@ export function App() {
 
 const MonoRepo = (props: any) => (
   <Shape
-    _title="ReactIAC Mono Repo Projects"
+    _title="DIaC Mono Repo Projects"
     {...props}
   />
 );

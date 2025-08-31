@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=note;size=20;whiteSpace=wrap;html=1;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Note } from '@reactiac/standard-components-diagrams/entityRelation'
+import { Note } from '@diac/standard-components-diagrams/entityRelation'
 
 <Note/>
 ```

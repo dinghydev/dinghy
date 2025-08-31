@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ResourcePool } from '@reactiac/standard-components-diagrams/veeam3d'
+import { ResourcePool } from '@diac/standard-components-diagrams/veeam3d'
 
 <ResourcePool/>
 ```

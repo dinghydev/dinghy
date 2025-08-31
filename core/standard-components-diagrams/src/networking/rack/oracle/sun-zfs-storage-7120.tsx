@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUN_ZFS_STORAGE_7120 = {
   _style:
@@ -9,5 +9,11 @@ export const SUN_ZFS_STORAGE_7120 = {
 }
 
 export function SunZfsStorage7120(props: DiagramNodeProps) {
-  return <Shape {...SUN_ZFS_STORAGE_7120} {...props} />
+  return (
+    <Shape
+      {...SUN_ZFS_STORAGE_7120}
+      {...props}
+      _style={extendStyle(SUN_ZFS_STORAGE_7120, props)}
+    />
+  )
 }

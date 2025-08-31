@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SQUARE_WAVE = {
   _style:
@@ -9,5 +9,11 @@ export const SQUARE_WAVE = {
 }
 
 export function SquareWave(props: DiagramNodeProps) {
-  return <Shape {...SQUARE_WAVE} {...props} />
+  return (
+    <Shape
+      {...SQUARE_WAVE}
+      {...props}
+      _style={extendStyle(SQUARE_WAVE, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SubtleToggle } from '@reactiac/standard-components-diagrams/atlassian'
+import { SubtleToggle } from '@diac/standard-components-diagrams/atlassian'
 
 <SubtleToggle/>
 ```

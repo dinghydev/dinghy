@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PrivateLinkHub } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { PrivateLinkHub } from '@diac/standard-components-diagrams/azure2Networking'
 
 <PrivateLinkHub/>
 ```

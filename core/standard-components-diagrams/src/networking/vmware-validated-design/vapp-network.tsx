@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VAPP_NETWORK = {
   _style:
@@ -9,5 +9,11 @@ export const VAPP_NETWORK = {
 }
 
 export function VappNetwork(props: DiagramNodeProps) {
-  return <Shape {...VAPP_NETWORK} {...props} />
+  return (
+    <Shape
+      {...VAPP_NETWORK}
+      {...props}
+      _style={extendStyle(VAPP_NETWORK, props)}
+    />
+  )
 }

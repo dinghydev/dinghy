@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BREAK_CONTACT = {
   _style:
@@ -9,5 +9,11 @@ export const BREAK_CONTACT = {
 }
 
 export function BreakContact(props: DiagramNodeProps) {
-  return <Shape {...BREAK_CONTACT} {...props} />
+  return (
+    <Shape
+      {...BREAK_CONTACT}
+      {...props}
+      _style={extendStyle(BREAK_CONTACT, props)}
+    />
+  )
 }

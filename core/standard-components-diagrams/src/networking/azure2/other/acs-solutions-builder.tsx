@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACS_SOLUTIONS_BUILDER = {
   _style:
@@ -9,5 +9,11 @@ export const ACS_SOLUTIONS_BUILDER = {
 }
 
 export function AcsSolutionsBuilder(props: DiagramNodeProps) {
-  return <Shape {...ACS_SOLUTIONS_BUILDER} {...props} />
+  return (
+    <Shape
+      {...ACS_SOLUTIONS_BUILDER}
+      {...props}
+      _style={extendStyle(ACS_SOLUTIONS_BUILDER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Jbod } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Jbod } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Jbod/>
 ```

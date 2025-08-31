@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HardDrive } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { HardDrive } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <HardDrive/>
 ```

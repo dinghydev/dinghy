@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CUSTOM_AZURE_AD_ROLES = {
   _style:
     'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Custom_Azure_AD_Roles.svg;strokeColor=none;',
-  _width: 68,
-  _height: 68,
+  _width: 60,
+  _height: 60,
 }
 
 export function CustomAzureAdRoles(props: DiagramNodeProps) {
-  return <Shape {...CUSTOM_AZURE_AD_ROLES} {...props} />
+  return (
+    <Shape
+      {...CUSTOM_AZURE_AD_ROLES}
+      {...props}
+      _style={extendStyle(CUSTOM_AZURE_AD_ROLES, props)}
+    />
+  )
 }

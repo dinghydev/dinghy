@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RouterUtm } from '@reactiac/standard-components-diagrams/alliedTelesisSecurity'
+import { RouterUtm } from '@diac/standard-components-diagrams/alliedTelesisSecurity'
 
 <RouterUtm/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROTATION = {
   _style:
@@ -9,5 +9,7 @@ export const ROTATION = {
 }
 
 export function Rotation(props: DiagramNodeProps) {
-  return <Shape {...ROTATION} {...props} />
+  return (
+    <Shape {...ROTATION} {...props} _style={extendStyle(ROTATION, props)} />
+  )
 }

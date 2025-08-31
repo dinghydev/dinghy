@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SECTION_HEADER_PRESSED = {
   _style:
@@ -9,5 +9,11 @@ export const SECTION_HEADER_PRESSED = {
 }
 
 export function SectionHeaderPressed(props: DiagramNodeProps) {
-  return <Shape {...SECTION_HEADER_PRESSED} {...props} />
+  return (
+    <Shape
+      {...SECTION_HEADER_PRESSED}
+      {...props}
+      _style={extendStyle(SECTION_HEADER_PRESSED, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Reddit } from '@reactiac/standard-components-diagrams/webIcons'
+import { Reddit } from '@diac/standard-components-diagrams/webIcons'
 
 <Reddit/>
 ```

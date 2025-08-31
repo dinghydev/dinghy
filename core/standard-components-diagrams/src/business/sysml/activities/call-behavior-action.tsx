@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CALL_BEHAVIOR_ACTION = {
   _style: 'html=1;shape=mxgraph.sysml.callBehAct;whiteSpace=wrap;align=center;',
@@ -8,5 +8,11 @@ export const CALL_BEHAVIOR_ACTION = {
 }
 
 export function CallBehaviorAction(props: DiagramNodeProps) {
-  return <Shape {...CALL_BEHAVIOR_ACTION} {...props} />
+  return (
+    <Shape
+      {...CALL_BEHAVIOR_ACTION}
+      {...props}
+      _style={extendStyle(CALL_BEHAVIOR_ACTION, props)}
+    />
+  )
 }

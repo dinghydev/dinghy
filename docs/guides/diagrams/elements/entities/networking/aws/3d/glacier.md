@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Glacier } from '@reactiac/standard-components-diagrams/aws3d'
+import { Glacier } from '@diac/standard-components-diagrams/aws3d'
 
 <Glacier/>
 ```

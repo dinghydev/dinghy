@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTIONABLE_INSIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const ACTIONABLE_INSIGHT = {
 }
 
 export function ActionableInsight(props: DiagramNodeProps) {
-  return <Shape {...ACTIONABLE_INSIGHT} {...props} />
+  return (
+    <Shape
+      {...ACTIONABLE_INSIGHT}
+      {...props}
+      _style={extendStyle(ACTIONABLE_INSIGHT, props)}
+    />
+  )
 }

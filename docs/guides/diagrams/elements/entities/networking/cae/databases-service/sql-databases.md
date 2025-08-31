@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SqlDatabases } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { SqlDatabases } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <SqlDatabases/>
 ```

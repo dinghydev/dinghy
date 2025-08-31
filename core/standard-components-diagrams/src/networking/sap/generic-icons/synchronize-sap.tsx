@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SYNCHRONIZE_SAP = {
   _style:
@@ -9,5 +9,11 @@ export const SYNCHRONIZE_SAP = {
 }
 
 export function SynchronizeSap(props: DiagramNodeProps) {
-  return <Shape {...SYNCHRONIZE_SAP} {...props} />
+  return (
+    <Shape
+      {...SYNCHRONIZE_SAP}
+      {...props}
+      _style={extendStyle(SYNCHRONIZE_SAP, props)}
+    />
+  )
 }

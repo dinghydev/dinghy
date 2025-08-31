@@ -5,15 +5,15 @@
 ```
 {
   _style: 'image;html=1;image=img/lib/atlassian/Atlassian_Logo.svg;strokeColor=none;',
-  _width: 66,
-  _height: 66,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { Atlassian } from '@reactiac/standard-components-diagrams/atlassian'
+import { Atlassian } from '@diac/standard-components-diagrams/atlassian'
 
 <Atlassian/>
 ```

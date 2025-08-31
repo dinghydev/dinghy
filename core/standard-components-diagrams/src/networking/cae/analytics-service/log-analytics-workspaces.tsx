@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOG_ANALYTICS_WORKSPACES = {
   _style:
     'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Log_Analytics_Workspaces.svg;strokeColor=none;',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 
 export function LogAnalyticsWorkspaces(props: DiagramNodeProps) {
-  return <Shape {...LOG_ANALYTICS_WORKSPACES} {...props} />
+  return (
+    <Shape
+      {...LOG_ANALYTICS_WORKSPACES}
+      {...props}
+      _style={extendStyle(LOG_ANALYTICS_WORKSPACES, props)}
+    />
+  )
 }

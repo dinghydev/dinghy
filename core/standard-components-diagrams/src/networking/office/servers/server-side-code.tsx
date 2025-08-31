@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SERVER_SIDE_CODE = {
   _style:
@@ -9,5 +9,11 @@ export const SERVER_SIDE_CODE = {
 }
 
 export function ServerSideCode(props: DiagramNodeProps) {
-  return <Shape {...SERVER_SIDE_CODE} {...props} />
+  return (
+    <Shape
+      {...SERVER_SIDE_CODE}
+      {...props}
+      _style={extendStyle(SERVER_SIDE_CODE, props)}
+    />
+  )
 }

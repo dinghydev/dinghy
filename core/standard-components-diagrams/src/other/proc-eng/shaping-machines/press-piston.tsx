@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRESS_PISTON = {
   _style:
@@ -9,5 +9,11 @@ export const PRESS_PISTON = {
 }
 
 export function PressPiston(props: DiagramNodeProps) {
-  return <Shape {...PRESS_PISTON} {...props} />
+  return (
+    <Shape
+      {...PRESS_PISTON}
+      {...props}
+      _style={extendStyle(PRESS_PISTON, props)}
+    />
+  )
 }

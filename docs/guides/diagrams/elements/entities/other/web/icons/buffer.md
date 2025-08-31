@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Buffer } from '@reactiac/standard-components-diagrams/webIcons'
+import { Buffer } from '@diac/standard-components-diagrams/webIcons'
 
 <Buffer/>
 ```

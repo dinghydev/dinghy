@@ -1,13 +1,13 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ATHENA = {
   _style:
     'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.athena;fillColor=#F58534;gradientColor=none;',
-  _width: 76.5,
-  _height: 76.5,
+  _width: 60,
+  _height: 60,
 }
 
 export function Athena(props: DiagramNodeProps) {
-  return <Shape {...ATHENA} {...props} />
+  return <Shape {...ATHENA} {...props} _style={extendStyle(ATHENA, props)} />
 }

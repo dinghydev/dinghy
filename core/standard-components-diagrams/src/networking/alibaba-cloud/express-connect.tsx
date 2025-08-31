@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXPRESS_CONNECT = {
   _style:
@@ -9,5 +9,11 @@ export const EXPRESS_CONNECT = {
 }
 
 export function ExpressConnect(props: DiagramNodeProps) {
-  return <Shape {...EXPRESS_CONNECT} {...props} />
+  return (
+    <Shape
+      {...EXPRESS_CONNECT}
+      {...props}
+      _style={extendStyle(EXPRESS_CONNECT, props)}
+    />
+  )
 }

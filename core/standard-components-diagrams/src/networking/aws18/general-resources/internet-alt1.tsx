@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERNET_ALT1 = {
   _style:
@@ -9,5 +9,11 @@ export const INTERNET_ALT1 = {
 }
 
 export function InternetAlt1(props: DiagramNodeProps) {
-  return <Shape {...INTERNET_ALT1} {...props} />
+  return (
+    <Shape
+      {...INTERNET_ALT1}
+      {...props}
+      _style={extendStyle(INTERNET_ALT1, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WavelengthRouter } from '@reactiac/standard-components-diagrams/ciscoRouters'
+import { WavelengthRouter } from '@diac/standard-components-diagrams/ciscoRouters'
 
 <WavelengthRouter/>
 ```

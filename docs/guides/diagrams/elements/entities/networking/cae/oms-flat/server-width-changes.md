@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ServerWidthChanges } from '@reactiac/standard-components-diagrams/caeOmsFlat'
+import { ServerWidthChanges } from '@diac/standard-components-diagrams/caeOmsFlat'
 
 <ServerWidthChanges/>
 ```

@@ -1,7 +1,7 @@
-import { IacNodeProps, ResolvableStringSchema } from '@reactiac/base-components'
+import { IacNodeProps, ResolvableStringSchema } from '@diac/base-components'
 import z from 'zod'
 import { AwsRoute53Zone } from './AwsRoute53Zone.tsx'
-import { useTypedNode } from '@reactiac/base-components'
+import { useTypedNode } from '@diac/base-components'
 
 export const DataAwsRoute53ZoneInputSchema = z.object({
   name: ResolvableStringSchema.optional(),

@@ -14,7 +14,7 @@ library
 ## Usage
 
 ```
-import { VirtualTapeLibrary } from '@reactiac/standard-components-diagrams/aws18Storage'
+import { VirtualTapeLibrary } from '@diac/standard-components-diagrams/aws18Storage'
 
 <VirtualTapeLibrary/>
 ```

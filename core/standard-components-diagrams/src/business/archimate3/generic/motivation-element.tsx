@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOTIVATION_ELEMENT = {
   _style:
@@ -9,5 +9,11 @@ export const MOTIVATION_ELEMENT = {
 }
 
 export function MotivationElement(props: DiagramNodeProps) {
-  return <Shape {...MOTIVATION_ELEMENT} {...props} />
+  return (
+    <Shape
+      {...MOTIVATION_ELEMENT}
+      {...props}
+      _style={extendStyle(MOTIVATION_ELEMENT, props)}
+    />
+  )
 }

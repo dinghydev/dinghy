@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DERIVED_ATTRIBUTE = {
   _style: 'ellipse;whiteSpace=wrap;html=1;align=center;dashed=1;',
@@ -8,5 +8,11 @@ export const DERIVED_ATTRIBUTE = {
 }
 
 export function DerivedAttribute(props: DiagramNodeProps) {
-  return <Shape {...DERIVED_ATTRIBUTE} {...props} />
+  return (
+    <Shape
+      {...DERIVED_ATTRIBUTE}
+      {...props}
+      _style={extendStyle(DERIVED_ATTRIBUTE, props)}
+    />
+  )
 }

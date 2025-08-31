@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X12100CoalescingFilter } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X12100CoalescingFilter } from '@diac/standard-components-diagrams/fluidPower'
 
 <X12100CoalescingFilter/>
 ```

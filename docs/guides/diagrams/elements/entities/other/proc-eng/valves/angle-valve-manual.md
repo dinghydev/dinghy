@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AngleValveManual } from '@reactiac/standard-components-diagrams/procEngValves'
+import { AngleValveManual } from '@diac/standard-components-diagrams/procEngValves'
 
 <AngleValveManual/>
 ```

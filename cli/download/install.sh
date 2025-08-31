@@ -2,14 +2,14 @@
 set -e
 
 if ! command -v unzip >/dev/null && ! command -v 7z >/dev/null; then
-	echo "Error: either unzip or 7z is required to install reactiac (see: https://github.com/denoland/deno_install#either-unzip-or-7z-is-required )." 1>&2
+	echo "Error: either unzip or 7z is required to install diac (see: https://github.com/denoland/deno_install#either-unzip-or-7z-is-required )." 1>&2
 	exit 1
 fi
 
-reactiac_home="${REACTIAC_HOME:-$HOME/.reactiac}"
+diac_home="${DIAC_HOME:-$HOME/.diac}"
 
-install_reactiac() {
-	
+install_diac() {
+
 	#if [ "$OS" = "Windows_NT" ]; then
 	#	target="x86_64-pc-windows-msvc"
 	#else
@@ -21,17 +21,17 @@ install_reactiac() {
 		esac
 	#fi
 
-	reactiac_version="${REACTIAC_VERSION:-RELEASE_VERSION}"
+	diac_version="${DIAC_VERSION:-RELEASE_VERSION}"
 
-	reactiac_uri="https://play.reactiac.dev/download/versions/${reactiac_version}/reactiac-${target}.zip"
-	bin_dir="$reactiac_home/bin"
-	exe="$bin_dir/reactiac"
+	diac_uri="https://play.diac.dev/download/versions/${diac_version}/diac-${target}.zip"
+	bin_dir="$diac_home/bin"
+	exe="$bin_dir/diac"
 
 	if [ ! -d "$bin_dir" ]; then
 		mkdir -p "$bin_dir"
 	fi
 
-	curl --fail --location --progress-bar --output "$exe.zip" "$reactiac_uri"
+	curl --fail --location --progress-bar --output "$exe.zip" "$diac_uri"
 	if command -v unzip >/dev/null; then
 		unzip -d "$bin_dir" -o "$exe.zip"
 	else
@@ -43,12 +43,12 @@ install_reactiac() {
 }
 
 
-if ! command -v reactiac >/dev/null || [ -z "$INIT_PROJECT" ]; then
-	install_reactiac
+if ! command -v diac >/dev/null || [ -z "$INIT_PROJECT" ]; then
+	install_diac
 fi
 
 set +e
-$reactiac_home/bin/reactiac postinstall
+$diac_home/bin/diac postinstall
 
 echo ""
-echo "Stuck? Email us at hello@reactiac.dev"
+echo "Stuck? Email us at hello@diac.dev"

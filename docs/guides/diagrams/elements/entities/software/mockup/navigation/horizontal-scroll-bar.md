@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HorizontalScrollBar } from '@reactiac/standard-components-diagrams/mockupNavigation'
+import { HorizontalScrollBar } from '@diac/standard-components-diagrams/mockupNavigation'
 
 <HorizontalScrollBar/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StackedCheckboxes } from '@reactiac/standard-components-diagrams/bootstrap'
+import { StackedCheckboxes } from '@diac/standard-components-diagrams/bootstrap'
 
 <StackedCheckboxes/>
 ```

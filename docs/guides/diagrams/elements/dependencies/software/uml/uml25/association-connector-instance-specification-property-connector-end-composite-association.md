@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AssociationConnectorInstanceSpecificationPropertyConnectorEndCompositeAssociation } from '@reactiac/standard-components-diagrams/uml25'
+import { AssociationConnectorInstanceSpecificationPropertyConnectorEndCompositeAssociation } from '@diac/standard-components-diagrams/uml25'
 
 <AssociationConnectorInstanceSpecificationPropertyConnectorEndCompositeAssociation/>
 ```

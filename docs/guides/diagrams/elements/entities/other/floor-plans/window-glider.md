@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WindowGlider } from '@reactiac/standard-components-diagrams/floorPlans'
+import { WindowGlider } from '@diac/standard-components-diagrams/floorPlans'
 
 <WindowGlider/>
 ```

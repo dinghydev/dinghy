@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CallManager } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { CallManager } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <CallManager/>
 ```

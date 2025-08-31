@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONTENT_TRANSFORMATION_ENGINE_CTE = {
   _style:
@@ -9,5 +9,11 @@ export const CONTENT_TRANSFORMATION_ENGINE_CTE = {
 }
 
 export function ContentTransformationEngineCte(props: DiagramNodeProps) {
-  return <Shape {...CONTENT_TRANSFORMATION_ENGINE_CTE} {...props} />
+  return (
+    <Shape
+      {...CONTENT_TRANSFORMATION_ENGINE_CTE}
+      {...props}
+      _style={extendStyle(CONTENT_TRANSFORMATION_ENGINE_CTE, props)}
+    />
+  )
 }

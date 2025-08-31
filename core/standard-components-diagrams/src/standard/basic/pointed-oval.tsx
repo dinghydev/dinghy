@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POINTED_OVAL = {
   _style: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.pointed_oval',
@@ -8,5 +8,11 @@ export const POINTED_OVAL = {
 }
 
 export function PointedOval(props: DiagramNodeProps) {
-  return <Shape {...POINTED_OVAL} {...props} />
+  return (
+    <Shape
+      {...POINTED_OVAL}
+      {...props}
+      _style={extendStyle(POINTED_OVAL, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UsbDrive } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { UsbDrive } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <UsbDrive/>
 ```

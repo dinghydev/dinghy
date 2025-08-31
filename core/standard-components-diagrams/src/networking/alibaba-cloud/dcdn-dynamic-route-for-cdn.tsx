@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DCDN_DYNAMIC_ROUTE_FOR_CDN = {
   _style:
@@ -9,5 +9,11 @@ export const DCDN_DYNAMIC_ROUTE_FOR_CDN = {
 }
 
 export function DcdnDynamicRouteForCdn(props: DiagramNodeProps) {
-  return <Shape {...DCDN_DYNAMIC_ROUTE_FOR_CDN} {...props} />
+  return (
+    <Shape
+      {...DCDN_DYNAMIC_ROUTE_FOR_CDN}
+      {...props}
+      _style={extendStyle(DCDN_DYNAMIC_ROUTE_FOR_CDN, props)}
+    />
+  )
 }

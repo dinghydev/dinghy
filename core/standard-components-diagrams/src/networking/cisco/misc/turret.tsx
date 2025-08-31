@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TURRET = {
   _style:
@@ -9,5 +9,5 @@ export const TURRET = {
 }
 
 export function Turret(props: DiagramNodeProps) {
-  return <Shape {...TURRET} {...props} />
+  return <Shape {...TURRET} {...props} _style={extendStyle(TURRET, props)} />
 }

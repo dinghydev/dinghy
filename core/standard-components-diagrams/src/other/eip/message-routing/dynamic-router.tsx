@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DYNAMIC_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const DYNAMIC_ROUTER = {
 }
 
 export function DynamicRouter(props: DiagramNodeProps) {
-  return <Shape {...DYNAMIC_ROUTER} {...props} />
+  return (
+    <Shape
+      {...DYNAMIC_ROUTER}
+      {...props}
+      _style={extendStyle(DYNAMIC_ROUTER, props)}
+    />
+  )
 }

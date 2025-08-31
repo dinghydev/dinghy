@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AND_IEC = {
   _style:
@@ -9,5 +9,5 @@ export const AND_IEC = {
 }
 
 export function AndIec(props: DiagramNodeProps) {
-  return <Shape {...AND_IEC} {...props} />
+  return <Shape {...AND_IEC} {...props} _style={extendStyle(AND_IEC, props)} />
 }

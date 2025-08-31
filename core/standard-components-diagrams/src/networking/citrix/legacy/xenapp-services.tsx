@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const XENAPP_SERVICES = {
   _style:
@@ -9,5 +9,11 @@ export const XENAPP_SERVICES = {
 }
 
 export function XenappServices(props: DiagramNodeProps) {
-  return <Shape {...XENAPP_SERVICES} {...props} />
+  return (
+    <Shape
+      {...XENAPP_SERVICES}
+      {...props}
+      _style={extendStyle(XENAPP_SERVICES, props)}
+    />
+  )
 }

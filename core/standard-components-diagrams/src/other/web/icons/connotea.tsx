@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONNOTEA = {
   _style:
@@ -9,5 +9,7 @@ export const CONNOTEA = {
 }
 
 export function Connotea(props: DiagramNodeProps) {
-  return <Shape {...CONNOTEA} {...props} />
+  return (
+    <Shape {...CONNOTEA} {...props} _style={extendStyle(CONNOTEA, props)} />
+  )
 }

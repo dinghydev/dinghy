@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATAPREP = {
   _style:
@@ -9,5 +9,7 @@ export const DATAPREP = {
 }
 
 export function Dataprep(props: DiagramNodeProps) {
-  return <Shape {...DATAPREP} {...props} />
+  return (
+    <Shape {...DATAPREP} {...props} _style={extendStyle(DATAPREP, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DistributedDenialOfServiceProtection } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { DistributedDenialOfServiceProtection } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <DistributedDenialOfServiceProtection/>
 ```

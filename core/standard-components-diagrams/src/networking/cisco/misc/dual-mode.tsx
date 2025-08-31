@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DUAL_MODE = {
   _style:
@@ -9,5 +9,7 @@ export const DUAL_MODE = {
 }
 
 export function DualMode(props: DiagramNodeProps) {
-  return <Shape {...DUAL_MODE} {...props} />
+  return (
+    <Shape {...DUAL_MODE} {...props} _style={extendStyle(DUAL_MODE, props)} />
+  )
 }

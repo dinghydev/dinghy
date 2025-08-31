@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOADING_CIRCLE = {
   _style:
@@ -9,5 +9,11 @@ export const LOADING_CIRCLE = {
 }
 
 export function LoadingCircle(props: DiagramNodeProps) {
-  return <Shape {...LOADING_CIRCLE} {...props} />
+  return (
+    <Shape
+      {...LOADING_CIRCLE}
+      {...props}
+      _style={extendStyle(LOADING_CIRCLE, props)}
+    />
+  )
 }

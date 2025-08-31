@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PhysicalSwitch } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { PhysicalSwitch } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <PhysicalSwitch/>
 ```

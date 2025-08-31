@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VEEAM_FULL_BACKUP = {
   _style:
@@ -9,5 +9,11 @@ export const VEEAM_FULL_BACKUP = {
 }
 
 export function VeeamFullBackup(props: DiagramNodeProps) {
-  return <Shape {...VEEAM_FULL_BACKUP} {...props} />
+  return (
+    <Shape
+      {...VEEAM_FULL_BACKUP}
+      {...props}
+      _style={extendStyle(VEEAM_FULL_BACKUP, props)}
+    />
+  )
 }

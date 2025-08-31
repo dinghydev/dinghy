@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Gauge } from '@reactiac/standard-components-diagrams/ios7Icons'
+import { Gauge } from '@diac/standard-components-diagrams/ios7Icons'
 
 <Gauge/>
 ```

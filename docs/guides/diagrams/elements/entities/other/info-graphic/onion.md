@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Onion } from '@reactiac/standard-components-diagrams/infoGraphic'
+import { Onion } from '@diac/standard-components-diagrams/infoGraphic'
 
 <Onion/>
 ```

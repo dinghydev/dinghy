@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXIT_POINT_FLOW_FINAL_NODE = {
   _style:
@@ -9,5 +9,11 @@ export const EXIT_POINT_FLOW_FINAL_NODE = {
 }
 
 export function ExitPointFlowFinalNode(props: DiagramNodeProps) {
-  return <Shape {...EXIT_POINT_FLOW_FINAL_NODE} {...props} />
+  return (
+    <Shape
+      {...EXIT_POINT_FLOW_FINAL_NODE}
+      {...props}
+      _style={extendStyle(EXIT_POINT_FLOW_FINAL_NODE, props)}
+    />
+  )
 }

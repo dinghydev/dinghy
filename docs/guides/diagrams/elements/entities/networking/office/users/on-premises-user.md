@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OnPremisesUser } from '@reactiac/standard-components-diagrams/officeUsers'
+import { OnPremisesUser } from '@diac/standard-components-diagrams/officeUsers'
 
 <OnPremisesUser/>
 ```

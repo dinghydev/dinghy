@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TUNNEL_CONNECTOR = {
   _style: {
@@ -9,5 +9,11 @@ export const TUNNEL_CONNECTOR = {
 }
 
 export function TunnelConnector(props: DiagramNodeProps) {
-  return <Dependency {...TUNNEL_CONNECTOR} {...props} />
+  return (
+    <Dependency
+      {...TUNNEL_CONNECTOR}
+      {...props}
+      _style={extendStyle(TUNNEL_CONNECTOR, props)}
+    />
+  )
 }

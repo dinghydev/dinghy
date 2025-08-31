@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDAP = {
   _style:
@@ -9,5 +9,5 @@ export const CLOUDAP = {
 }
 
 export function Cloudap(props: DiagramNodeProps) {
-  return <Shape {...CLOUDAP} {...props} />
+  return <Shape {...CLOUDAP} {...props} _style={extendStyle(CLOUDAP, props)} />
 }

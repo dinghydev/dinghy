@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ORACLE = {
   _style:
@@ -9,5 +9,5 @@ export const ORACLE = {
 }
 
 export function Oracle(props: DiagramNodeProps) {
-  return <Shape {...ORACLE} {...props} />
+  return <Shape {...ORACLE} {...props} _style={extendStyle(ORACLE, props)} />
 }

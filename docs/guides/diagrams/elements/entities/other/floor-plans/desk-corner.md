@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeskCorner } from '@reactiac/standard-components-diagrams/floorPlans'
+import { DeskCorner } from '@diac/standard-components-diagrams/floorPlans'
 
 <DeskCorner/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BehaviorAction } from '@reactiac/standard-components-diagrams/uml25'
+import { BehaviorAction } from '@diac/standard-components-diagrams/uml25'
 
 <BehaviorAction/>
 ```

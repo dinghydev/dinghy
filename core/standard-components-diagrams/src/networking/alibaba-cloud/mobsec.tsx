@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOBSEC = {
   _style:
@@ -9,5 +9,5 @@ export const MOBSEC = {
 }
 
 export function Mobsec(props: DiagramNodeProps) {
-  return <Shape {...MOBSEC} {...props} />
+  return <Shape {...MOBSEC} {...props} _style={extendStyle(MOBSEC, props)} />
 }

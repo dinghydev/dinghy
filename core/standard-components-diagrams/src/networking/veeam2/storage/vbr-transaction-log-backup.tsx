@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VBR_TRANSACTION_LOG_BACKUP = {
   _style:
@@ -9,5 +9,11 @@ export const VBR_TRANSACTION_LOG_BACKUP = {
 }
 
 export function VbrTransactionLogBackup(props: DiagramNodeProps) {
-  return <Shape {...VBR_TRANSACTION_LOG_BACKUP} {...props} />
+  return (
+    <Shape
+      {...VBR_TRANSACTION_LOG_BACKUP}
+      {...props}
+      _style={extendStyle(VBR_TRANSACTION_LOG_BACKUP, props)}
+    />
+  )
 }

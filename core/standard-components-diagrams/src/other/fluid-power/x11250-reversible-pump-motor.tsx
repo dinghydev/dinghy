@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11250_REVERSIBLE_PUMP_MOTOR = {
   _style:
@@ -9,5 +9,11 @@ export const X11250_REVERSIBLE_PUMP_MOTOR = {
 }
 
 export function X11250ReversiblePumpMotor(props: DiagramNodeProps) {
-  return <Shape {...X11250_REVERSIBLE_PUMP_MOTOR} {...props} />
+  return (
+    <Shape
+      {...X11250_REVERSIBLE_PUMP_MOTOR}
+      {...props}
+      _style={extendStyle(X11250_REVERSIBLE_PUMP_MOTOR, props)}
+    />
+  )
 }

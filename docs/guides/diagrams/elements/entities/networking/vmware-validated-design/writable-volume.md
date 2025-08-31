@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WritableVolume } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { WritableVolume } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <WritableVolume/>
 ```

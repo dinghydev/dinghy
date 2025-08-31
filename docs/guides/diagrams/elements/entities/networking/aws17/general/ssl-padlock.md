@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SslPadlock } from '@reactiac/standard-components-diagrams/aws17General'
+import { SslPadlock } from '@diac/standard-components-diagrams/aws17General'
 
 <SslPadlock/>
 ```

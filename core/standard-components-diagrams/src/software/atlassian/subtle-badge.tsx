@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUBTLE_BADGE = {
   _style:
@@ -9,5 +9,11 @@ export const SUBTLE_BADGE = {
 }
 
 export function SubtleBadge(props: DiagramNodeProps) {
-  return <Shape {...SUBTLE_BADGE} {...props} />
+  return (
+    <Shape
+      {...SUBTLE_BADGE}
+      {...props}
+      _style={extendStyle(SUBTLE_BADGE, props)}
+    />
+  )
 }

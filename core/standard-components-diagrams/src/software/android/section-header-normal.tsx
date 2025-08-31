@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SECTION_HEADER_NORMAL = {
   _style:
@@ -9,5 +9,11 @@ export const SECTION_HEADER_NORMAL = {
 }
 
 export function SectionHeaderNormal(props: DiagramNodeProps) {
-  return <Shape {...SECTION_HEADER_NORMAL} {...props} />
+  return (
+    <Shape
+      {...SECTION_HEADER_NORMAL}
+      {...props}
+      _style={extendStyle(SECTION_HEADER_NORMAL, props)}
+    />
+  )
 }

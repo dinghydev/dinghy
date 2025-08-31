@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IRON_CORE = {
   _style:
@@ -9,5 +9,7 @@ export const IRON_CORE = {
 }
 
 export function IronCore(props: DiagramNodeProps) {
-  return <Shape {...IRON_CORE} {...props} />
+  return (
+    <Shape {...IRON_CORE} {...props} _style={extendStyle(IRON_CORE, props)} />
+  )
 }

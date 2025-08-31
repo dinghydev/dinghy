@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Linkedin } from '@reactiac/standard-components-diagrams/webIcons'
+import { Linkedin } from '@diac/standard-components-diagrams/webIcons'
 
 <Linkedin/>
 ```

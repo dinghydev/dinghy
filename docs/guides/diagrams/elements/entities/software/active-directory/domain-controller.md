@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DomainController } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { DomainController } from '@diac/standard-components-diagrams/activeDirectory'
 
 <DomainController/>
 ```

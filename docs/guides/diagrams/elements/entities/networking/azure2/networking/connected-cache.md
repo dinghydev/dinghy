@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConnectedCache } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { ConnectedCache } from '@diac/standard-components-diagrams/azure2Networking'
 
 <ConnectedCache/>
 ```

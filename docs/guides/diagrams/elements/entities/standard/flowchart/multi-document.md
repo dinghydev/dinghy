@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultiDocument } from '@reactiac/standard-components-diagrams/flowchart'
+import { MultiDocument } from '@diac/standard-components-diagrams/flowchart'
 
 <MultiDocument/>
 ```

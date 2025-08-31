@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POD = {
   _style:
@@ -9,5 +9,5 @@ export const POD = {
 }
 
 export function Pod(props: DiagramNodeProps) {
-  return <Shape {...POD} {...props} />
+  return <Shape {...POD} {...props} _style={extendStyle(POD, props)} />
 }

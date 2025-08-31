@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MicrosoftScvmm } from '@reactiac/standard-components-diagrams/veeam2Software'
+import { MicrosoftScvmm } from '@diac/standard-components-diagrams/veeam2Software'
 
 <MicrosoftScvmm/>
 ```

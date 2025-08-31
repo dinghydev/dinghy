@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TURBINE_AGITATOR = {
   _style:
@@ -9,5 +9,11 @@ export const TURBINE_AGITATOR = {
 }
 
 export function TurbineAgitator(props: DiagramNodeProps) {
-  return <Shape {...TURBINE_AGITATOR} {...props} />
+  return (
+    <Shape
+      {...TURBINE_AGITATOR}
+      {...props}
+      _style={extendStyle(TURBINE_AGITATOR, props)}
+    />
+  )
 }

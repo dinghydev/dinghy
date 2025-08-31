@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MindBodyGreen } from '@reactiac/standard-components-diagrams/webLogos'
+import { MindBodyGreen } from '@diac/standard-components-diagrams/webLogos'
 
 <MindBodyGreen/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualClusters } from '@reactiac/standard-components-diagrams/caeDatabasesService'
+import { VirtualClusters } from '@diac/standard-components-diagrams/caeDatabasesService'
 
 <VirtualClusters/>
 ```

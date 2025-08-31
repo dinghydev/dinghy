@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REGION = {
   _style: {
@@ -13,5 +13,5 @@ export const REGION = {
 }
 
 export function Region(props: DiagramNodeProps) {
-  return <Shape {...REGION} {...props} />
+  return <Shape {...REGION} {...props} _style={extendStyle(REGION, props)} />
 }

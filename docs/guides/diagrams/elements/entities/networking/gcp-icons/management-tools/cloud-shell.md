@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudShell } from '@reactiac/standard-components-diagrams/gcpIconsManagementTools'
+import { CloudShell } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
 
 <CloudShell/>
 ```

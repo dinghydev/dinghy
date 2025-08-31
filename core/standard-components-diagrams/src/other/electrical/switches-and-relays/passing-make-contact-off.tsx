@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PASSING_MAKE_CONTACT_OFF = {
   _style:
@@ -9,5 +9,11 @@ export const PASSING_MAKE_CONTACT_OFF = {
 }
 
 export function PassingMakeContactOff(props: DiagramNodeProps) {
-  return <Shape {...PASSING_MAKE_CONTACT_OFF} {...props} />
+  return (
+    <Shape
+      {...PASSING_MAKE_CONTACT_OFF}
+      {...props}
+      _style={extendStyle(PASSING_MAKE_CONTACT_OFF, props)}
+    />
+  )
 }

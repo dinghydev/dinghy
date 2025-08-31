@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DatacenterServerRackTor } from '@reactiac/standard-components-diagrams/alliedTelesisStorage'
+import { DatacenterServerRackTor } from '@diac/standard-components-diagrams/alliedTelesisStorage'
 
 <DatacenterServerRackTor/>
 ```

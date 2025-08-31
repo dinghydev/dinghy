@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsDeviceFarm } from '@reactiac/standard-components-diagrams/aws18MobileServices'
+import { AwsDeviceFarm } from '@diac/standard-components-diagrams/aws18MobileServices'
 
 <AwsDeviceFarm/>
 ```

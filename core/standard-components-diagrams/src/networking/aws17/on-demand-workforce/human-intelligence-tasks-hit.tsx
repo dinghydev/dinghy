@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HUMAN_INTELLIGENCE_TASKS_HIT = {
   _style:
@@ -9,5 +9,11 @@ export const HUMAN_INTELLIGENCE_TASKS_HIT = {
 }
 
 export function HumanIntelligenceTasksHit(props: DiagramNodeProps) {
-  return <Shape {...HUMAN_INTELLIGENCE_TASKS_HIT} {...props} />
+  return (
+    <Shape
+      {...HUMAN_INTELLIGENCE_TASKS_HIT}
+      {...props}
+      _style={extendStyle(HUMAN_INTELLIGENCE_TASKS_HIT, props)}
+    />
+  )
 }

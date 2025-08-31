@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POPOVER = {
   _style:
@@ -9,5 +9,5 @@ export const POPOVER = {
 }
 
 export function Popover(props: DiagramNodeProps) {
-  return <Shape {...POPOVER} {...props} />
+  return <Shape {...POPOVER} {...props} _style={extendStyle(POPOVER, props)} />
 }

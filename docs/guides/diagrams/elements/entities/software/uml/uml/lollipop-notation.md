@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LollipopNotation } from '@reactiac/standard-components-diagrams/uml'
+import { LollipopNotation } from '@diac/standard-components-diagrams/uml'
 
 <LollipopNotation/>
 ```

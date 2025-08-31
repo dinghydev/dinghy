@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JUMBOTRON = {
   _style:
@@ -9,5 +9,7 @@ export const JUMBOTRON = {
 }
 
 export function Jumbotron(props: DiagramNodeProps) {
-  return <Shape {...JUMBOTRON} {...props} />
+  return (
+    <Shape {...JUMBOTRON} {...props} _style={extendStyle(JUMBOTRON, props)} />
+  )
 }

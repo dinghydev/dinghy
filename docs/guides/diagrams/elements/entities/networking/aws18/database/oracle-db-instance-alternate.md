@@ -15,7 +15,7 @@ alternate
 ## Usage
 
 ```
-import { OracleDbInstanceAlternate } from '@reactiac/standard-components-diagrams/aws18Database'
+import { OracleDbInstanceAlternate } from '@diac/standard-components-diagrams/aws18Database'
 
 <OracleDbInstanceAlternate/>
 ```

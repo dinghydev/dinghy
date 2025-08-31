@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATA_ENCRYPTION_KEY = {
   _style:
@@ -9,5 +9,11 @@ export const DATA_ENCRYPTION_KEY = {
 }
 
 export function DataEncryptionKey(props: DiagramNodeProps) {
-  return <Shape {...DATA_ENCRYPTION_KEY} {...props} />
+  return (
+    <Shape
+      {...DATA_ENCRYPTION_KEY}
+      {...props}
+      _style={extendStyle(DATA_ENCRYPTION_KEY, props)}
+    />
+  )
 }

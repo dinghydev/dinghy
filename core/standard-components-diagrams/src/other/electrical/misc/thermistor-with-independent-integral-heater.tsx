@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER = {
   _style:
@@ -11,5 +11,11 @@ export const THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER = {
 export function ThermistorWithIndependentIntegralHeater(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER} {...props} />
+  return (
+    <Shape
+      {...THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER}
+      {...props}
+      _style={extendStyle(THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER, props)}
+    />
+  )
 }

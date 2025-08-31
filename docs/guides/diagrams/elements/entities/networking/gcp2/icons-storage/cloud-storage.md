@@ -14,7 +14,7 @@ Storage
 ## Usage
 
 ```
-import { CloudStorage } from '@reactiac/standard-components-diagrams/gcp2IconsStorage'
+import { CloudStorage } from '@diac/standard-components-diagrams/gcp2IconsStorage'
 
 <CloudStorage/>
 ```

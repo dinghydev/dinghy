@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SHAPING_MACHINE_HORIZONTAL = {
   _style:
@@ -9,5 +9,11 @@ export const SHAPING_MACHINE_HORIZONTAL = {
 }
 
 export function ShapingMachineHorizontal(props: DiagramNodeProps) {
-  return <Shape {...SHAPING_MACHINE_HORIZONTAL} {...props} />
+  return (
+    <Shape
+      {...SHAPING_MACHINE_HORIZONTAL}
+      {...props}
+      _style={extendStyle(SHAPING_MACHINE_HORIZONTAL, props)}
+    />
+  )
 }

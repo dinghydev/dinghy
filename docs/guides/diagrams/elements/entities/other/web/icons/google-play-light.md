@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GooglePlayLight } from '@reactiac/standard-components-diagrams/webIcons'
+import { GooglePlayLight } from '@diac/standard-components-diagrams/webIcons'
 
 <GooglePlayLight/>
 ```

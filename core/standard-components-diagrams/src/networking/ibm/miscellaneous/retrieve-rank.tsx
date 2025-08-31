@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RETRIEVE_RANK = {
   _style:
@@ -9,5 +9,11 @@ export const RETRIEVE_RANK = {
 }
 
 export function RetrieveRank(props: DiagramNodeProps) {
-  return <Shape {...RETRIEVE_RANK} {...props} />
+  return (
+    <Shape
+      {...RETRIEVE_RANK}
+      {...props}
+      _style={extendStyle(RETRIEVE_RANK, props)}
+    />
+  )
 }

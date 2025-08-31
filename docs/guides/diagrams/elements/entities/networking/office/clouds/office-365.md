@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Office365 } from '@reactiac/standard-components-diagrams/officeClouds'
+import { Office365 } from '@diac/standard-components-diagrams/officeClouds'
 
 <Office365/>
 ```

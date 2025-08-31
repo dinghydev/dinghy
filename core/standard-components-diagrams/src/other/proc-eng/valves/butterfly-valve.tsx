@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUTTERFLY_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const BUTTERFLY_VALVE = {
 }
 
 export function ButterflyValve(props: DiagramNodeProps) {
-  return <Shape {...BUTTERFLY_VALVE} {...props} />
+  return (
+    <Shape
+      {...BUTTERFLY_VALVE}
+      {...props}
+      _style={extendStyle(BUTTERFLY_VALVE, props)}
+    />
+  )
 }

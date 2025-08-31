@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PanelWiringSystem25x40mmVertical } from '@reactiac/standard-components-diagrams/cabinets'
+import { PanelWiringSystem25x40mmVertical } from '@diac/standard-components-diagrams/cabinets'
 
 <PanelWiringSystem25x40mmVertical/>
 ```

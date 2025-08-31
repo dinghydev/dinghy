@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StickyNote } from '@reactiac/standard-components-diagrams/mockupText'
+import { StickyNote } from '@diac/standard-components-diagrams/mockupText'
 
 <StickyNote/>
 ```

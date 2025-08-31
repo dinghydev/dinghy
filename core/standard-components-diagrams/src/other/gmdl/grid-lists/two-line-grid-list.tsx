@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TWO_LINE_GRID_LIST = {
   _style: 'dashed=0;shape=rect;fillColor=#000000;strokeColor=none;',
@@ -8,5 +8,11 @@ export const TWO_LINE_GRID_LIST = {
 }
 
 export function TwoLineGridList(props: DiagramNodeProps) {
-  return <Shape {...TWO_LINE_GRID_LIST} {...props} />
+  return (
+    <Shape
+      {...TWO_LINE_GRID_LIST}
+      {...props}
+      _style={extendStyle(TWO_LINE_GRID_LIST, props)}
+    />
+  )
 }

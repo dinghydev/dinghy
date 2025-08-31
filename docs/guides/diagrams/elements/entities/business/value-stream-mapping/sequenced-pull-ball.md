@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SequencedPullBall } from '@reactiac/standard-components-diagrams/valueStreamMapping'
+import { SequencedPullBall } from '@diac/standard-components-diagrams/valueStreamMapping'
 
 <SequencedPullBall/>
 ```

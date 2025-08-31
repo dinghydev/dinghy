@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VEEAM_PLUGIN_FOR_ORACLE_RMAN = {
   _style:
@@ -9,5 +9,11 @@ export const VEEAM_PLUGIN_FOR_ORACLE_RMAN = {
 }
 
 export function VeeamPluginForOracleRman(props: DiagramNodeProps) {
-  return <Shape {...VEEAM_PLUGIN_FOR_ORACLE_RMAN} {...props} />
+  return (
+    <Shape
+      {...VEEAM_PLUGIN_FOR_ORACLE_RMAN}
+      {...props}
+      _style={extendStyle(VEEAM_PLUGIN_FOR_ORACLE_RMAN, props)}
+    />
+  )
 }

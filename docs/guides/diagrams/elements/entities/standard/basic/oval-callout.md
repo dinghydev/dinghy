@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OvalCallout } from '@reactiac/standard-components-diagrams/basic'
+import { OvalCallout } from '@diac/standard-components-diagrams/basic'
 
 <OvalCallout/>
 ```

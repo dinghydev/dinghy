@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INVERTING_CONTACT = {
   _style:
@@ -9,5 +9,11 @@ export const INVERTING_CONTACT = {
 }
 
 export function InvertingContact(props: DiagramNodeProps) {
-  return <Shape {...INVERTING_CONTACT} {...props} />
+  return (
+    <Shape
+      {...INVERTING_CONTACT}
+      {...props}
+      _style={extendStyle(INVERTING_CONTACT, props)}
+    />
+  )
 }

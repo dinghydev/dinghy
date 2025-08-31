@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualSwitch } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { VirtualSwitch } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <VirtualSwitch/>
 ```

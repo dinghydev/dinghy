@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Feedburner } from '@reactiac/standard-components-diagrams/webIcons'
+import { Feedburner } from '@diac/standard-components-diagrams/webIcons'
 
 <Feedburner/>
 ```

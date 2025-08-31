@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CardWithSegmentedButtons } from '@reactiac/standard-components-diagrams/gmdlCards'
+import { CardWithSegmentedButtons } from '@diac/standard-components-diagrams/gmdlCards'
 
 <CardWithSegmentedButtons/>
 ```

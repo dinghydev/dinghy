@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const USB_DRIVE = {
   _style:
@@ -9,5 +9,7 @@ export const USB_DRIVE = {
 }
 
 export function UsbDrive(props: DiagramNodeProps) {
-  return <Shape {...USB_DRIVE} {...props} />
+  return (
+    <Shape {...USB_DRIVE} {...props} _style={extendStyle(USB_DRIVE, props)} />
+  )
 }

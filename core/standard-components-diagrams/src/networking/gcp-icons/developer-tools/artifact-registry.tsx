@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARTIFACT_REGISTRY = {
   _style:
@@ -9,5 +9,11 @@ export const ARTIFACT_REGISTRY = {
 }
 
 export function ArtifactRegistry(props: DiagramNodeProps) {
-  return <Shape {...ARTIFACT_REGISTRY} {...props} />
+  return (
+    <Shape
+      {...ARTIFACT_REGISTRY}
+      {...props}
+      _style={extendStyle(ARTIFACT_REGISTRY, props)}
+    />
+  )
 }

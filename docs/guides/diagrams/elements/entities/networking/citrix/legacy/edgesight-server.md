@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EdgesightServer } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { EdgesightServer } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <EdgesightServer/>
 ```

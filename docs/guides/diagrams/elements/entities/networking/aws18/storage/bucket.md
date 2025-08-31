@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Bucket } from '@reactiac/standard-components-diagrams/aws18Storage'
+import { Bucket } from '@diac/standard-components-diagrams/aws18Storage'
 
 <Bucket/>
 ```

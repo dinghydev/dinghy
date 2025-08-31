@@ -5,15 +5,15 @@
 ```
 {
   _style: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.wallU;fillColor=strokeColor;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { WallU } from '@reactiac/standard-components-diagrams/floorPlans'
+import { WallU } from '@diac/standard-components-diagrams/floorPlans'
 
 <WallU/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProxyServer } from '@reactiac/standard-components-diagrams/network'
+import { ProxyServer } from '@diac/standard-components-diagrams/network'
 
 <ProxyServer/>
 ```

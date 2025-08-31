@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticacheForMemcached } from '@reactiac/standard-components-diagrams/awsDatabase'
+import { ElasticacheForMemcached } from '@diac/standard-components-diagrams/awsDatabase'
 
 <ElasticacheForMemcached/>
 ```

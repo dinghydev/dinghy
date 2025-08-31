@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXPRESS_ROUTE_TRAFFIC_COLLECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const EXPRESS_ROUTE_TRAFFIC_COLLECTOR = {
 }
 
 export function ExpressRouteTrafficCollector(props: DiagramNodeProps) {
-  return <Shape {...EXPRESS_ROUTE_TRAFFIC_COLLECTOR} {...props} />
+  return (
+    <Shape
+      {...EXPRESS_ROUTE_TRAFFIC_COLLECTOR}
+      {...props}
+      _style={extendStyle(EXPRESS_ROUTE_TRAFFIC_COLLECTOR, props)}
+    />
+  )
 }

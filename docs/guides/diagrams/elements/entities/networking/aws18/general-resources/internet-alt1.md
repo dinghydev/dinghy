@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InternetAlt1 } from '@reactiac/standard-components-diagrams/aws18GeneralResources'
+import { InternetAlt1 } from '@diac/standard-components-diagrams/aws18GeneralResources'
 
 <InternetAlt1/>
 ```

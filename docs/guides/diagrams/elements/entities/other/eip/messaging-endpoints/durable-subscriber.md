@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DurableSubscriber } from '@reactiac/standard-components-diagrams/eipMessagingEndpoints'
+import { DurableSubscriber } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
 
 <DurableSubscriber/>
 ```

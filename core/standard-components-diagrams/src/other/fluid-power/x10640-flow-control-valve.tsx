@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10640_FLOW_CONTROL_VALVE = {
   _style:
@@ -9,5 +9,11 @@ export const X10640_FLOW_CONTROL_VALVE = {
 }
 
 export function X10640FlowControlValve(props: DiagramNodeProps) {
-  return <Shape {...X10640_FLOW_CONTROL_VALVE} {...props} />
+  return (
+    <Shape
+      {...X10640_FLOW_CONTROL_VALVE}
+      {...props}
+      _style={extendStyle(X10640_FLOW_CONTROL_VALVE, props)}
+    />
+  )
 }

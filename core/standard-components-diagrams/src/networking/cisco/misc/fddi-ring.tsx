@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FDDI_RING = {
   _style:
@@ -9,5 +9,7 @@ export const FDDI_RING = {
 }
 
 export function FddiRing(props: DiagramNodeProps) {
-  return <Shape {...FDDI_RING} {...props} />
+  return (
+    <Shape {...FDDI_RING} {...props} _style={extendStyle(FDDI_RING, props)} />
+  )
 }

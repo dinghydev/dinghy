@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACI_CONTROLLER = {
   _style:
@@ -9,5 +9,11 @@ export const ACI_CONTROLLER = {
 }
 
 export function AciController(props: DiagramNodeProps) {
-  return <Shape {...ACI_CONTROLLER} {...props} />
+  return (
+    <Shape
+      {...ACI_CONTROLLER}
+      {...props}
+      _style={extendStyle(ACI_CONTROLLER, props)}
+    />
+  )
 }

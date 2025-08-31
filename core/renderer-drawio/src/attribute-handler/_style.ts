@@ -1,38 +1,72 @@
-import type { Props } from '@reactiac/base-components'
+import type { Props } from '@diac/base-components'
 
-const parseStyle = (style: string | Props) => {
-  const attributes: Record<string, string> = {}
-  if (typeof style === 'string') {
-    style.split(';').map((attr) => {
-      if (attr) {
-        const [key, value] = attr.split('=')
-        attributes[key] = value
-      }
-    })
-  } else if (typeof style === 'object') {
-    return style as Props
+const STYLE_CATEGORIES = ['entity', 'group', 'dependency', 'element']
+
+const handleStringStyle = (
+  style: any,
+  stringStyle: string,
+) => {
+  if (stringStyle.includes('waf')) {
+    // debugger
   }
-  return attributes
+  stringStyle.split(';').map((attr) => {
+    if (attr) {
+      const [key, value] = attr.split('=')
+      style[key] = value
+    }
+  })
 }
 
-export const _style = (style: string | Props) => {
+const parseStyle = (
+  attributes: any,
+  style: string | Props,
+) => {
   if (typeof style === 'string') {
-    return ({
-      element: {
-        style: parseStyle(style),
-      },
+    handleStringStyle(attributes.element.style, style)
+  } else if (typeof style === 'object') {
+    Object.entries(style).map(([key, value]) => {
+      if (!STYLE_CATEGORIES.includes(key)) {
+        attributes.element.style[key] = value as string
+      }
     })
+    STYLE_CATEGORIES.map((type) => {
+      const value = style[type]
+      if (value) {
+        if (typeof value === 'string') {
+          handleStringStyle(attributes[type].style, value)
+        } else {
+          Object.entries(value).map(([key, value]) => {
+            attributes[type].style[key] = value as string
+          })
+        }
+      }
+    })
+  } else {
+    throw new Error(`Style is not string or object:[${style}]`)
   }
+}
 
-  return ({
+export const _style = (style: any) => {
+  const attributes = {
+    element: {
+      style: {},
+    },
     entity: {
-      style: parseStyle(style.entity as Props),
+      style: {},
     },
     group: {
-      style: parseStyle(style.group as Props),
+      style: {},
     },
     dependency: {
-      style: parseStyle(style.dependency as Props),
+      style: {},
     },
-  })
+  }
+  if (Array.isArray(style)) {
+    style.map((item) => {
+      parseStyle(attributes, item)
+    })
+  } else {
+    parseStyle(attributes, style)
+  }
+  return attributes
 }

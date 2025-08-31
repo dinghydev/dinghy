@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Connection } from '@reactiac/standard-components-diagrams/caeWebService'
+import { Connection } from '@diac/standard-components-diagrams/caeWebService'
 
 <Connection/>
 ```

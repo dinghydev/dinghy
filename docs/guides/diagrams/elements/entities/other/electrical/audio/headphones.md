@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Headphones } from '@reactiac/standard-components-diagrams/electricalAudio'
+import { Headphones } from '@diac/standard-components-diagrams/electricalAudio'
 
 <Headphones/>
 ```

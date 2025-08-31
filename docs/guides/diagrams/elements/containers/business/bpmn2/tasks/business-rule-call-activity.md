@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { BusinessRuleCallActivity } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { BusinessRuleCallActivity } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <BusinessRuleCallActivity/>
 ```

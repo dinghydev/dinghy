@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL = {
   _style:
@@ -11,5 +11,11 @@ export const TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL = {
 export function TrustedLanguageExtensionsForPostgresql(
   props: DiagramNodeProps,
 ) {
-  return <Shape {...TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL} {...props} />
+  return (
+    <Shape
+      {...TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL}
+      {...props}
+      _style={extendStyle(TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL, props)}
+    />
+  )
 }

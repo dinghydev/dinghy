@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FilledEdge } from '@reactiac/standard-components-diagrams/misc'
+import { FilledEdge } from '@diac/standard-components-diagrams/misc'
 
 <FilledEdge/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DAAS_MONITOR = {
   _style:
@@ -9,5 +9,11 @@ export const DAAS_MONITOR = {
 }
 
 export function DaasMonitor(props: DiagramNodeProps) {
-  return <Shape {...DAAS_MONITOR} {...props} />
+  return (
+    <Shape
+      {...DAAS_MONITOR}
+      {...props}
+      _style={extendStyle(DAAS_MONITOR, props)}
+    />
+  )
 }

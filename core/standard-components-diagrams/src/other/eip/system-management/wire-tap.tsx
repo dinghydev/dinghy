@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WIRE_TAP = {
   _style:
@@ -9,5 +9,7 @@ export const WIRE_TAP = {
 }
 
 export function WireTap(props: DiagramNodeProps) {
-  return <Shape {...WIRE_TAP} {...props} />
+  return (
+    <Shape {...WIRE_TAP} {...props} _style={extendStyle(WIRE_TAP, props)} />
+  )
 }

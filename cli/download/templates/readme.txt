@@ -1,37 +1,37 @@
-# PROJECT_NAME_PLACE_HOLDER - A ReactIAC Project
+# PROJECT_NAME_PLACE_HOLDER - A DIaC Project
 
 ## Local Development
 
-### Install ReactIAC Cli
+### Install DIaC Cli
 
 Need only once if not already done:
 
-    curl -fsSL https://play.reactiac.dev/download/install.sh | sh
+    curl -fsSL https://play.diac.dev/download/install.sh | sh
 
 ### To develop with devcontainer
 
-    reactiac devcontainer
+    diac devcontainer
 
 ### To render all output fomrats
 
-    reactiac render
+    diac render
 
 ### To render drawio diagram and generate png
 
-    reactiac diagram
+    diac diagram
 
 ### To perform tf actions
 
-    reactiac tf init
-    reactiac tf plan
-    reactiac tf apply
+    diac tf init
+    diac tf plan
+    diac tf apply
 
 ### Combined tf action
 
-    reactiac tf diff
+    diac tf diff
 
 Which does following:
-1. render --format tf 
+1. render --format tf
 2. tf init
 3. tf plan
 4. Additional CICD notification and manual job triggering

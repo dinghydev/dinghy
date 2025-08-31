@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DnsPrivatezone } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { DnsPrivatezone } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <DnsPrivatezone/>
 ```

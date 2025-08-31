@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Queue } from '@reactiac/standard-components-diagrams/awsApplicationIntegration'
+import { Queue } from '@diac/standard-components-diagrams/awsApplicationIntegration'
 
 <Queue/>
 ```

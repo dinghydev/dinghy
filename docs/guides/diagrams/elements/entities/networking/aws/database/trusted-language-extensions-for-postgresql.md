@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TrustedLanguageExtensionsForPostgresql } from '@reactiac/standard-components-diagrams/awsDatabase'
+import { TrustedLanguageExtensionsForPostgresql } from '@diac/standard-components-diagrams/awsDatabase'
 
 <TrustedLanguageExtensionsForPostgresql/>
 ```

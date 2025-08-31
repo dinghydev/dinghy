@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BACKUP_ENTERPRISE_MANAGER_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const BACKUP_ENTERPRISE_MANAGER_SERVER = {
 }
 
 export function BackupEnterpriseManagerServer(props: DiagramNodeProps) {
-  return <Shape {...BACKUP_ENTERPRISE_MANAGER_SERVER} {...props} />
+  return (
+    <Shape
+      {...BACKUP_ENTERPRISE_MANAGER_SERVER}
+      {...props}
+      _style={extendStyle(BACKUP_ENTERPRISE_MANAGER_SERVER, props)}
+    />
+  )
 }

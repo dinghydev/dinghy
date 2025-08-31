@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DeviceProfiling } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { DeviceProfiling } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <DeviceProfiling/>
 ```

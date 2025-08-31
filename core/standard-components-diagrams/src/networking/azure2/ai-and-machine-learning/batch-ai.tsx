@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BATCH_AI = {
   _style:
@@ -9,5 +9,7 @@ export const BATCH_AI = {
 }
 
 export function BatchAi(props: DiagramNodeProps) {
-  return <Shape {...BATCH_AI} {...props} />
+  return (
+    <Shape {...BATCH_AI} {...props} _style={extendStyle(BATCH_AI, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Startlap } from '@reactiac/standard-components-diagrams/webIcons'
+import { Startlap } from '@diac/standard-components-diagrams/webIcons'
 
 <Startlap/>
 ```

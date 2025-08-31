@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SLIDER_CLICK = {
   _style:
@@ -9,5 +9,11 @@ export const SLIDER_CLICK = {
 }
 
 export function SliderClick(props: DiagramNodeProps) {
-  return <Shape {...SLIDER_CLICK} {...props} />
+  return (
+    <Shape
+      {...SLIDER_CLICK}
+      {...props}
+      _style={extendStyle(SLIDER_CLICK, props)}
+    />
+  )
 }

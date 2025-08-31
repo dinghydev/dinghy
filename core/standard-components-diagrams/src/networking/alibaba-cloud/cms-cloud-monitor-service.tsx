@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CMS_CLOUD_MONITOR_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const CMS_CLOUD_MONITOR_SERVICE = {
 }
 
 export function CmsCloudMonitorService(props: DiagramNodeProps) {
-  return <Shape {...CMS_CLOUD_MONITOR_SERVICE} {...props} />
+  return (
+    <Shape
+      {...CMS_CLOUD_MONITOR_SERVICE}
+      {...props}
+      _style={extendStyle(CMS_CLOUD_MONITOR_SERVICE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INSTAPAPER = {
   _style:
@@ -9,5 +9,7 @@ export const INSTAPAPER = {
 }
 
 export function Instapaper(props: DiagramNodeProps) {
-  return <Shape {...INSTAPAPER} {...props} />
+  return (
+    <Shape {...INSTAPAPER} {...props} _style={extendStyle(INSTAPAPER, props)} />
+  )
 }

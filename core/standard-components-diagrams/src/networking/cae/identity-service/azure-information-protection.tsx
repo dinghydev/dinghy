@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_INFORMATION_PROTECTION = {
   _style:
@@ -9,5 +9,11 @@ export const AZURE_INFORMATION_PROTECTION = {
 }
 
 export function AzureInformationProtection(props: DiagramNodeProps) {
-  return <Shape {...AZURE_INFORMATION_PROTECTION} {...props} />
+  return (
+    <Shape
+      {...AZURE_INFORMATION_PROTECTION}
+      {...props}
+      _style={extendStyle(AZURE_INFORMATION_PROTECTION, props)}
+    />
+  )
 }

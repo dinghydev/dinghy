@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RekognitionVideo } from '@reactiac/standard-components-diagrams/awsArtificialIntelligence'
+import { RekognitionVideo } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
 
 <RekognitionVideo/>
 ```

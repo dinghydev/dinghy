@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Resequencer } from '@reactiac/standard-components-diagrams/eipMessageRouting'
+import { Resequencer } from '@diac/standard-components-diagrams/eipMessageRouting'
 
 <Resequencer/>
 ```

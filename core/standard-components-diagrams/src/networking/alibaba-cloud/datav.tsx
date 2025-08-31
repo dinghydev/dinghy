@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATAV = {
   _style:
@@ -9,5 +9,5 @@ export const DATAV = {
 }
 
 export function Datav(props: DiagramNodeProps) {
-  return <Shape {...DATAV} {...props} />
+  return <Shape {...DATAV} {...props} _style={extendStyle(DATAV, props)} />
 }

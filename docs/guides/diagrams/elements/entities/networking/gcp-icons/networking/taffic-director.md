@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TafficDirector } from '@reactiac/standard-components-diagrams/gcpIconsNetworking'
+import { TafficDirector } from '@diac/standard-components-diagrams/gcpIconsNetworking'
 
 <TafficDirector/>
 ```

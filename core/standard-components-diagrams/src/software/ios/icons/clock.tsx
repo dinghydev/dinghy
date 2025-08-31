@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOCK = {
   _style:
@@ -9,5 +9,5 @@ export const CLOCK = {
 }
 
 export function Clock(props: DiagramNodeProps) {
-  return <Shape {...CLOCK} {...props} />
+  return <Shape {...CLOCK} {...props} _style={extendStyle(CLOCK, props)} />
 }

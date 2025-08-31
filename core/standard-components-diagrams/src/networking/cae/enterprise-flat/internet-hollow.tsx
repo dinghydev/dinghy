@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERNET_HOLLOW = {
   _style:
@@ -9,5 +9,11 @@ export const INTERNET_HOLLOW = {
 }
 
 export function InternetHollow(props: DiagramNodeProps) {
-  return <Shape {...INTERNET_HOLLOW} {...props} />
+  return (
+    <Shape
+      {...INTERNET_HOLLOW}
+      {...props}
+      _style={extendStyle(INTERNET_HOLLOW, props)}
+    />
+  )
 }

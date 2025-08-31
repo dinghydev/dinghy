@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MESSAGE_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED = {
   _style: {
@@ -15,6 +15,10 @@ export function MessageEventSubProcessNonInterruptingCollapsed(
     <Shape
       {...MESSAGE_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED}
       {...props}
+      _style={extendStyle(
+        MESSAGE_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED,
+        props,
+      )}
     />
   )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ORACLE_RMAN = {
   _style:
@@ -9,5 +9,11 @@ export const ORACLE_RMAN = {
 }
 
 export function OracleRman(props: DiagramNodeProps) {
-  return <Shape {...ORACLE_RMAN} {...props} />
+  return (
+    <Shape
+      {...ORACLE_RMAN}
+      {...props}
+      _style={extendStyle(ORACLE_RMAN, props)}
+    />
+  )
 }

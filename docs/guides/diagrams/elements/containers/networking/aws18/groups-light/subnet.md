@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { Subnet } from '@reactiac/standard-components-diagrams/aws18GroupsLight'
+import { Subnet } from '@diac/standard-components-diagrams/aws18GroupsLight'
 
 <Subnet/>
 ```

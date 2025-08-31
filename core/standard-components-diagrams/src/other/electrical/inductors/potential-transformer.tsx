@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const POTENTIAL_TRANSFORMER = {
   _style:
@@ -9,5 +9,11 @@ export const POTENTIAL_TRANSFORMER = {
 }
 
 export function PotentialTransformer(props: DiagramNodeProps) {
-  return <Shape {...POTENTIAL_TRANSFORMER} {...props} />
+  return (
+    <Shape
+      {...POTENTIAL_TRANSFORMER}
+      {...props}
+      _style={extendStyle(POTENTIAL_TRANSFORMER, props)}
+    />
+  )
 }

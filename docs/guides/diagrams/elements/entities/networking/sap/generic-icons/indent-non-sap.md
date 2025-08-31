@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IndentNonSap } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { IndentNonSap } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <IndentNonSap/>
 ```

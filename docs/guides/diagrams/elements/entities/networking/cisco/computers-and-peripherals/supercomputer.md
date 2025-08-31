@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Supercomputer } from '@reactiac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { Supercomputer } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <Supercomputer/>
 ```

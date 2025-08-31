@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VM_KERNEL = {
   _style:
@@ -9,5 +9,7 @@ export const VM_KERNEL = {
 }
 
 export function VmKernel(props: DiagramNodeProps) {
-  return <Shape {...VM_KERNEL} {...props} />
+  return (
+    <Shape {...VM_KERNEL} {...props} _style={extendStyle(VM_KERNEL, props)} />
+  )
 }

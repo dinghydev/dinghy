@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RemoteAccess } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { RemoteAccess } from '@diac/standard-components-diagrams/officeConcepts'
 
 <RemoteAccess/>
 ```

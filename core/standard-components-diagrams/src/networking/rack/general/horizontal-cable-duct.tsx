@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_CABLE_DUCT = {
   _style:
@@ -9,5 +9,11 @@ export const HORIZONTAL_CABLE_DUCT = {
 }
 
 export function HorizontalCableDuct(props: DiagramNodeProps) {
-  return <Shape {...HORIZONTAL_CABLE_DUCT} {...props} />
+  return (
+    <Shape
+      {...HORIZONTAL_CABLE_DUCT}
+      {...props}
+      _style={extendStyle(HORIZONTAL_CABLE_DUCT, props)}
+    />
+  )
 }

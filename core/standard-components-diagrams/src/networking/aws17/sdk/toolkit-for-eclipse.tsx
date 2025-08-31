@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TOOLKIT_FOR_ECLIPSE = {
   _style:
@@ -9,5 +9,11 @@ export const TOOLKIT_FOR_ECLIPSE = {
 }
 
 export function ToolkitForEclipse(props: DiagramNodeProps) {
-  return <Shape {...TOOLKIT_FOR_ECLIPSE} {...props} />
+  return (
+    <Shape
+      {...TOOLKIT_FOR_ECLIPSE}
+      {...props}
+      _style={extendStyle(TOOLKIT_FOR_ECLIPSE, props)}
+    />
+  )
 }

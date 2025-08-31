@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTION_WITH_PARAMETERS = {
   _style:
@@ -9,5 +9,11 @@ export const ACTION_WITH_PARAMETERS = {
 }
 
 export function ActionWithParameters(props: DiagramNodeProps) {
-  return <Shape {...ACTION_WITH_PARAMETERS} {...props} />
+  return (
+    <Shape
+      {...ACTION_WITH_PARAMETERS}
+      {...props}
+      _style={extendStyle(ACTION_WITH_PARAMETERS, props)}
+    />
+  )
 }

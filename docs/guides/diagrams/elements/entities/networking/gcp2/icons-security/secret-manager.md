@@ -14,7 +14,7 @@ Manager
 ## Usage
 
 ```
-import { SecretManager } from '@reactiac/standard-components-diagrams/gcp2IconsSecurity'
+import { SecretManager } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
 
 <SecretManager/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OvergroundEnclosure } from '@reactiac/standard-components-diagrams/electricalTransmissionPaths'
+import { OvergroundEnclosure } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
 
 <OvergroundEnclosure/>
 ```

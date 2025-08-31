@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_TRUSTED_ADVISOR = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_TRUSTED_ADVISOR = {
 }
 
 export function AwsTrustedAdvisor(props: DiagramNodeProps) {
-  return <Shape {...AWS_TRUSTED_ADVISOR} {...props} />
+  return (
+    <Shape
+      {...AWS_TRUSTED_ADVISOR}
+      {...props}
+      _style={extendStyle(AWS_TRUSTED_ADVISOR, props)}
+    />
+  )
 }

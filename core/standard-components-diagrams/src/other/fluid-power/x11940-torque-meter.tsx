@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11940_TORQUE_METER = {
   _style:
@@ -9,5 +9,11 @@ export const X11940_TORQUE_METER = {
 }
 
 export function X11940TorqueMeter(props: DiagramNodeProps) {
-  return <Shape {...X11940_TORQUE_METER} {...props} />
+  return (
+    <Shape
+      {...X11940_TORQUE_METER}
+      {...props}
+      _style={extendStyle(X11940_TORQUE_METER, props)}
+    />
+  )
 }

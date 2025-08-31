@@ -14,7 +14,7 @@ CDN
 ## Usage
 
 ```
-import { CloudCdn } from '@reactiac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudCdn } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudCdn/>
 ```

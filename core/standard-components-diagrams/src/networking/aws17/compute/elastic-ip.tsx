@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTIC_IP = {
   _style:
@@ -9,5 +9,7 @@ export const ELASTIC_IP = {
 }
 
 export function ElasticIp(props: DiagramNodeProps) {
-  return <Shape {...ELASTIC_IP} {...props} />
+  return (
+    <Shape {...ELASTIC_IP} {...props} _style={extendStyle(ELASTIC_IP, props)} />
+  )
 }

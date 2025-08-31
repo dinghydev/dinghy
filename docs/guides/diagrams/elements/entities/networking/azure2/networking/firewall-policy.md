@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FirewallPolicy } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { FirewallPolicy } from '@diac/standard-components-diagrams/azure2Networking'
 
 <FirewallPolicy/>
 ```

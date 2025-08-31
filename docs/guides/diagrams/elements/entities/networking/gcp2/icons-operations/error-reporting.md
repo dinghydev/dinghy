@@ -14,7 +14,7 @@ Reporting
 ## Usage
 
 ```
-import { ErrorReporting } from '@reactiac/standard-components-diagrams/gcp2IconsOperations'
+import { ErrorReporting } from '@diac/standard-components-diagrams/gcp2IconsOperations'
 
 <ErrorReporting/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Looker } from '@reactiac/standard-components-diagrams/gcp2IconsAnalytics'
+import { Looker } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
 
 <Looker/>
 ```

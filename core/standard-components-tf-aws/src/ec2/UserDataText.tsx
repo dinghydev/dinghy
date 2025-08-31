@@ -5,7 +5,7 @@ import {
   Shape,
   useTypedNode,
   useTypedNodes,
-} from '@reactiac/base-components'
+} from '@diac/base-components'
 
 export const UserDataTextInputSchema = z.object({
   content: ResolvableStringSchema.optional(),

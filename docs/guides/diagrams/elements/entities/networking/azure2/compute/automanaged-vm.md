@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AutomanagedVm } from '@reactiac/standard-components-diagrams/azure2Compute'
+import { AutomanagedVm } from '@diac/standard-components-diagrams/azure2Compute'
 
 <AutomanagedVm/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TimeDelayBreak } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { TimeDelayBreak } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <TimeDelayBreak/>
 ```

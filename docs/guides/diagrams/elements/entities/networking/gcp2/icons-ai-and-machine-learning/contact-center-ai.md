@@ -14,7 +14,7 @@ Center AI
 ## Usage
 
 ```
-import { ContactCenterAi } from '@reactiac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { ContactCenterAi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <ContactCenterAi/>
 ```

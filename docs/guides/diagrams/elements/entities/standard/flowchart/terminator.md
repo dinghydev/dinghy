@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Terminator } from '@reactiac/standard-components-diagrams/flowchart'
+import { Terminator } from '@diac/standard-components-diagrams/flowchart'
 
 <Terminator/>
 ```

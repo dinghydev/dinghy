@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RadioButtonOffHoverDark } from '@reactiac/standard-components-diagrams/gmdlSelectionControls'
+import { RadioButtonOffHoverDark } from '@diac/standard-components-diagrams/gmdlSelectionControls'
 
 <RadioButtonOffHoverDark/>
 ```

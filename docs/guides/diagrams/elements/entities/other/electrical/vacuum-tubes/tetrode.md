@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Tetrode } from '@reactiac/standard-components-diagrams/electricalVacuumTubes'
+import { Tetrode } from '@diac/standard-components-diagrams/electricalVacuumTubes'
 
 <Tetrode/>
 ```

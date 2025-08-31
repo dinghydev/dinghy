@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SIGN_LANGUAGE = {
   _style:
@@ -9,5 +9,11 @@ export const SIGN_LANGUAGE = {
 }
 
 export function SignLanguage(props: DiagramNodeProps) {
-  return <Shape {...SIGN_LANGUAGE} {...props} />
+  return (
+    <Shape
+      {...SIGN_LANGUAGE}
+      {...props}
+      _style={extendStyle(SIGN_LANGUAGE, props)}
+    />
+  )
 }

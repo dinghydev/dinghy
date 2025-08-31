@@ -1,7 +1,7 @@
 import { projectVersionRelease } from './projectVersions.ts'
 
-const URL_ERROR_REPORT = 'https://error.reactiac.dev/report'
-const URL_USAGE_REPORT = 'https://usage.reactiac.dev/report'
+const URL_ERROR_REPORT = 'https://error.diac.dev/report'
+const URL_USAGE_REPORT = 'https://usage.diac.dev/report'
 
 function addSimpleCommands(params: URLSearchParams) {
   const args = Deno.args
@@ -32,26 +32,27 @@ function addSimpleCommands(params: URLSearchParams) {
 }
 
 export async function sendReport(msTaken: number, error?: any) {
+  const url = error ? URL_ERROR_REPORT : URL_USAGE_REPORT
+  const params = new URLSearchParams()
+  const cliVersion = Deno.env.get('DIAC_CLI_VERSION')
+  if (cliVersion) {
+    params.set('cli', cliVersion)
+  }
+  params.set('version', projectVersionRelease())
+  params.set('arch', Deno.build.arch)
+  params.set('os', Deno.build.os)
+  params.set('ms', msTaken.toString())
+  addSimpleCommands(params)
+  if (error) {
+    params.set('error', error.message)
+    params.set('stack', error.stack)
+  }
+
+  const urlWithParams = `${url}?${params.toString()}`.substring(0, 1024)
   try {
-    const url = error ? URL_ERROR_REPORT : URL_USAGE_REPORT
-    const params = new URLSearchParams()
-    const cliVersion = Deno.env.get('REACTIAC_CLI_VERSION')
-    if (cliVersion) {
-      params.set('cli', cliVersion)
-    }
-    params.set('version', projectVersionRelease())
-    params.set('arch', Deno.build.arch)
-    params.set('os', Deno.build.os)
-    params.set('ms', msTaken.toString())
-    addSimpleCommands(params)
-    if (error) {
-      params.set('error', error.message)
-      params.set('stack', error.stack)
-    }
-    const urlWithParams = `${url}?${params.toString()}`.substring(0, 1024)
     await fetch(urlWithParams)
   } catch {
-    // ignore even it fails
+    // ignore even if it fails
   }
 }
 
@@ -60,7 +61,7 @@ export const reportResult = async (msTaken: number, error?: any) => {
     await sendReport(msTaken, error)
   } else {
     const usageReportDisabled = Boolean(
-      Deno.env.get('REACTIAC_USAGE_REPORT_DISABLED'),
+      Deno.env.get('DIAC_USAGE_REPORT_DISABLED'),
     )
     if (!usageReportDisabled) {
       sendReport(msTaken)

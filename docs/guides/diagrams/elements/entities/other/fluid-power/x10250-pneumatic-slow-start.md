@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X10250PneumaticSlowStart } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X10250PneumaticSlowStart } from '@diac/standard-components-diagrams/fluidPower'
 
 <X10250PneumaticSlowStart/>
 ```

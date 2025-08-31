@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10720_PILOT_OPERATED_NON_RETURN = {
   _style:
@@ -9,5 +9,11 @@ export const X10720_PILOT_OPERATED_NON_RETURN = {
 }
 
 export function X10720PilotOperatedNonReturn(props: DiagramNodeProps) {
-  return <Shape {...X10720_PILOT_OPERATED_NON_RETURN} {...props} />
+  return (
+    <Shape
+      {...X10720_PILOT_OPERATED_NON_RETURN}
+      {...props}
+      _style={extendStyle(X10720_PILOT_OPERATED_NON_RETURN, props)}
+    />
+  )
 }

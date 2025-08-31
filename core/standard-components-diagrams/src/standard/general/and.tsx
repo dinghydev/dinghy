@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AND = {
   _style: 'shape=or;whiteSpace=wrap;html=1;',
@@ -8,5 +8,5 @@ export const AND = {
 }
 
 export function And(props: DiagramNodeProps) {
-  return <Shape {...AND} {...props} />
+  return <Shape {...AND} {...props} _style={extendStyle(AND, props)} />
 }

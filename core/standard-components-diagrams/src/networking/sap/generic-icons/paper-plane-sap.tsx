@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PAPER_PLANE_SAP = {
   _style:
@@ -9,5 +9,11 @@ export const PAPER_PLANE_SAP = {
 }
 
 export function PaperPlaneSap(props: DiagramNodeProps) {
-  return <Shape {...PAPER_PLANE_SAP} {...props} />
+  return (
+    <Shape
+      {...PAPER_PLANE_SAP}
+      {...props}
+      _style={extendStyle(PAPER_PLANE_SAP, props)}
+    />
+  )
 }

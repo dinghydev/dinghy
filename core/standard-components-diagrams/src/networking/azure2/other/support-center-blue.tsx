@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUPPORT_CENTER_BLUE = {
   _style:
@@ -9,5 +9,11 @@ export const SUPPORT_CENTER_BLUE = {
 }
 
 export function SupportCenterBlue(props: DiagramNodeProps) {
-  return <Shape {...SUPPORT_CENTER_BLUE} {...props} />
+  return (
+    <Shape
+      {...SUPPORT_CENTER_BLUE}
+      {...props}
+      _style={extendStyle(SUPPORT_CENTER_BLUE, props)}
+    />
+  )
 }

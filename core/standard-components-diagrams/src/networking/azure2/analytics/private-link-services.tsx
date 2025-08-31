@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PRIVATE_LINK_SERVICES = {
   _style:
@@ -9,5 +9,11 @@ export const PRIVATE_LINK_SERVICES = {
 }
 
 export function PrivateLinkServices(props: DiagramNodeProps) {
-  return <Shape {...PRIVATE_LINK_SERVICES} {...props} />
+  return (
+    <Shape
+      {...PRIVATE_LINK_SERVICES}
+      {...props}
+      _style={extendStyle(PRIVATE_LINK_SERVICES, props)}
+    />
+  )
 }

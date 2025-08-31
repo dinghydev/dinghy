@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BoundaryObject } from '@reactiac/standard-components-diagrams/uml'
+import { BoundaryObject } from '@diac/standard-components-diagrams/uml'
 
 <BoundaryObject/>
 ```

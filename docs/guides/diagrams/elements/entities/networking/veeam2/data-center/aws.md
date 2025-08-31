@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Aws } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { Aws } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <Aws/>
 ```

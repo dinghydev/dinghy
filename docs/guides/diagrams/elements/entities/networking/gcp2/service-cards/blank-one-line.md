@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BlankOneLine } from '@reactiac/standard-components-diagrams/gcp2ServiceCards'
+import { BlankOneLine } from '@diac/standard-components-diagrams/gcp2ServiceCards'
 
 <BlankOneLine/>
 ```

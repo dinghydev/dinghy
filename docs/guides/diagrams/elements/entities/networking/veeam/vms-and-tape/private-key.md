@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PrivateKey } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { PrivateKey } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <PrivateKey/>
 ```

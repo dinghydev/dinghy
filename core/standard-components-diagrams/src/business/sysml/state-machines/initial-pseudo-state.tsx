@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INITIAL_PSEUDO_STATE = {
   _style:
@@ -9,5 +9,11 @@ export const INITIAL_PSEUDO_STATE = {
 }
 
 export function InitialPseudoState(props: DiagramNodeProps) {
-  return <Shape {...INITIAL_PSEUDO_STATE} {...props} />
+  return (
+    <Shape
+      {...INITIAL_PSEUDO_STATE}
+      {...props}
+      _style={extendStyle(INITIAL_PSEUDO_STATE, props)}
+    />
+  )
 }

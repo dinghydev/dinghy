@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CddcCloudDatabaseDedicatedCluster } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { CddcCloudDatabaseDedicatedCluster } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <CddcCloudDatabaseDedicatedCluster/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CRUSHER = {
   _style:
@@ -9,5 +9,5 @@ export const CRUSHER = {
 }
 
 export function Crusher(props: DiagramNodeProps) {
-  return <Shape {...CRUSHER} {...props} />
+  return <Shape {...CRUSHER} {...props} _style={extendStyle(CRUSHER, props)} />
 }

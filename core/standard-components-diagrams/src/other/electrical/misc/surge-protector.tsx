@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SURGE_PROTECTOR = {
   _style:
@@ -9,5 +9,11 @@ export const SURGE_PROTECTOR = {
 }
 
 export function SurgeProtector(props: DiagramNodeProps) {
-  return <Shape {...SURGE_PROTECTOR} {...props} />
+  return (
+    <Shape
+      {...SURGE_PROTECTOR}
+      {...props}
+      _style={extendStyle(SURGE_PROTECTOR, props)}
+    />
+  )
 }

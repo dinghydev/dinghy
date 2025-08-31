@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOZENGE_TOOLTIP = {
   _style:
@@ -9,5 +9,11 @@ export const LOZENGE_TOOLTIP = {
 }
 
 export function LozengeTooltip(props: DiagramNodeProps) {
-  return <Shape {...LOZENGE_TOOLTIP} {...props} />
+  return (
+    <Shape
+      {...LOZENGE_TOOLTIP}
+      {...props}
+      _style={extendStyle(LOZENGE_TOOLTIP, props)}
+    />
+  )
 }

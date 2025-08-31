@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATA_LOSS_PREVENTION_API = {
   _style:
@@ -9,5 +9,11 @@ export const DATA_LOSS_PREVENTION_API = {
 }
 
 export function DataLossPreventionApi(props: DiagramNodeProps) {
-  return <Shape {...DATA_LOSS_PREVENTION_API} {...props} />
+  return (
+    <Shape
+      {...DATA_LOSS_PREVENTION_API}
+      {...props}
+      _style={extendStyle(DATA_LOSS_PREVENTION_API, props)}
+    />
+  )
 }

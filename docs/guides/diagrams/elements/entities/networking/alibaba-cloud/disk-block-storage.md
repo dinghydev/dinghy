@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DiskBlockStorage } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { DiskBlockStorage } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <DiskBlockStorage/>
 ```

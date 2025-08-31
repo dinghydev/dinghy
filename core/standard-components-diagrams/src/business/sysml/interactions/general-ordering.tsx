@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GENERAL_ORDERING = {
   _style: {
@@ -9,5 +9,11 @@ export const GENERAL_ORDERING = {
 }
 
 export function GeneralOrdering(props: DiagramNodeProps) {
-  return <Dependency {...GENERAL_ORDERING} {...props} />
+  return (
+    <Dependency
+      {...GENERAL_ORDERING}
+      {...props}
+      _style={extendStyle(GENERAL_ORDERING, props)}
+    />
+  )
 }

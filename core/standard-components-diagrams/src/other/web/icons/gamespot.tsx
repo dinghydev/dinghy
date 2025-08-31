@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GAMESPOT = {
   _style:
@@ -9,5 +9,7 @@ export const GAMESPOT = {
 }
 
 export function Gamespot(props: DiagramNodeProps) {
-  return <Shape {...GAMESPOT} {...props} />
+  return (
+    <Shape {...GAMESPOT} {...props} _style={extendStyle(GAMESPOT, props)} />
+  )
 }

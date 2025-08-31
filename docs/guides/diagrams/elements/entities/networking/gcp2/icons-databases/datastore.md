@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Datastore } from '@reactiac/standard-components-diagrams/gcp2IconsDatabases'
+import { Datastore } from '@diac/standard-components-diagrams/gcp2IconsDatabases'
 
 <Datastore/>
 ```

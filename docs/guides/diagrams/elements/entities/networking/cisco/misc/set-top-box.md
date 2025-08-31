@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SetTopBox } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { SetTopBox } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <SetTopBox/>
 ```

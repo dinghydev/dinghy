@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DashedConnectorDoubleArrow } from '@reactiac/standard-components-diagrams/ibmConnectors'
+import { DashedConnectorDoubleArrow } from '@diac/standard-components-diagrams/ibmConnectors'
 
 <DashedConnectorDoubleArrow/>
 ```

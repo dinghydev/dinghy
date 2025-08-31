@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LINE_ITEM_WITH_PRIMARY_CHECKBOX = {
   _style:
@@ -9,5 +9,11 @@ export const LINE_ITEM_WITH_PRIMARY_CHECKBOX = {
 }
 
 export function LineItemWithPrimaryCheckbox(props: DiagramNodeProps) {
-  return <Shape {...LINE_ITEM_WITH_PRIMARY_CHECKBOX} {...props} />
+  return (
+    <Shape
+      {...LINE_ITEM_WITH_PRIMARY_CHECKBOX}
+      {...props}
+      _style={extendStyle(LINE_ITEM_WITH_PRIMARY_CHECKBOX, props)}
+    />
+  )
 }

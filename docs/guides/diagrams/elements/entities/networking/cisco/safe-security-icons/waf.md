@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Waf } from '@reactiac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { Waf } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <Waf/>
 ```

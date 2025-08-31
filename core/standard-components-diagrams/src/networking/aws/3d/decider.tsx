@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DECIDER = {
   _style:
@@ -9,5 +9,5 @@ export const DECIDER = {
 }
 
 export function Decider(props: DiagramNodeProps) {
-  return <Shape {...DECIDER} {...props} />
+  return <Shape {...DECIDER} {...props} _style={extendStyle(DECIDER, props)} />
 }

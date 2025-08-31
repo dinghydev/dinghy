@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HighVoltage2 } from '@reactiac/standard-components-diagrams/signsSafety'
+import { HighVoltage2 } from '@diac/standard-components-diagrams/signsSafety'
 
 <HighVoltage2/>
 ```

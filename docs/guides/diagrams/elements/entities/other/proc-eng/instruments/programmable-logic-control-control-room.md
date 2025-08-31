@@ -5,15 +5,15 @@
 ```
 {
   _style: 'html=1;outlineConnect=0;align=center;dashed=0;aspect=fixed;shape=mxgraph.pid2inst.progLogCont;mounting=room',
-  _width: 50,
-  _height: 50,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { ProgrammableLogicControlControlRoom } from '@reactiac/standard-components-diagrams/procEngInstruments'
+import { ProgrammableLogicControlControlRoom } from '@diac/standard-components-diagrams/procEngInstruments'
 
 <ProgrammableLogicControlControlRoom/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOCATION_SERVICE_ROUTES = {
   _style:
@@ -9,5 +9,11 @@ export const LOCATION_SERVICE_ROUTES = {
 }
 
 export function LocationServiceRoutes(props: DiagramNodeProps) {
-  return <Shape {...LOCATION_SERVICE_ROUTES} {...props} />
+  return (
+    <Shape
+      {...LOCATION_SERVICE_ROUTES}
+      {...props}
+      _style={extendStyle(LOCATION_SERVICE_ROUTES, props)}
+    />
+  )
 }

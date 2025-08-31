@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KNEADER = {
   _style:
@@ -9,5 +9,5 @@ export const KNEADER = {
 }
 
 export function Kneader(props: DiagramNodeProps) {
-  return <Shape {...KNEADER} {...props} />
+  return <Shape {...KNEADER} {...props} _style={extendStyle(KNEADER, props)} />
 }

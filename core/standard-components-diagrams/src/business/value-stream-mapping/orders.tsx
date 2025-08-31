@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ORDERS = {
   _style:
@@ -9,5 +9,5 @@ export const ORDERS = {
 }
 
 export function Orders(props: DiagramNodeProps) {
-  return <Shape {...ORDERS} {...props} />
+  return <Shape {...ORDERS} {...props} _style={extendStyle(ORDERS, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VmImages } from '@reactiac/standard-components-diagrams/caeComputeService'
+import { VmImages } from '@diac/standard-components-diagrams/caeComputeService'
 
 <VmImages/>
 ```

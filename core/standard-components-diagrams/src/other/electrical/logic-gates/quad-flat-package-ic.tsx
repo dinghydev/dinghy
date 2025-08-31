@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const QUAD_FLAT_PACKAGE_IC = {
   _style:
@@ -9,5 +9,11 @@ export const QUAD_FLAT_PACKAGE_IC = {
 }
 
 export function QuadFlatPackageIc(props: DiagramNodeProps) {
-  return <Shape {...QUAD_FLAT_PACKAGE_IC} {...props} />
+  return (
+    <Shape
+      {...QUAD_FLAT_PACKAGE_IC}
+      {...props}
+      _style={extendStyle(QUAD_FLAT_PACKAGE_IC, props)}
+    />
+  )
 }

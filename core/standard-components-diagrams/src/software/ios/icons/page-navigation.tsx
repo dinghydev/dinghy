@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PAGE_NAVIGATION = {
   _style:
@@ -9,5 +9,11 @@ export const PAGE_NAVIGATION = {
 }
 
 export function PageNavigation(props: DiagramNodeProps) {
-  return <Shape {...PAGE_NAVIGATION} {...props} />
+  return (
+    <Shape
+      {...PAGE_NAVIGATION}
+      {...props}
+      _style={extendStyle(PAGE_NAVIGATION, props)}
+    />
+  )
 }

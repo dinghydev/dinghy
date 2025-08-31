@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JL086A_ARUBA_6300M_PSU_MODULE = {
   _style:
@@ -9,5 +9,11 @@ export const JL086A_ARUBA_6300M_PSU_MODULE = {
 }
 
 export function Jl086aAruba6300mPsuModule(props: DiagramNodeProps) {
-  return <Shape {...JL086A_ARUBA_6300M_PSU_MODULE} {...props} />
+  return (
+    <Shape
+      {...JL086A_ARUBA_6300M_PSU_MODULE}
+      {...props}
+      _style={extendStyle(JL086A_ARUBA_6300M_PSU_MODULE, props)}
+    />
+  )
 }

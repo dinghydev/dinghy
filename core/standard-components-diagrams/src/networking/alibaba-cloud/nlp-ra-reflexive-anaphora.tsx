@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NLP_RA_REFLEXIVE_ANAPHORA = {
   _style:
@@ -9,5 +9,11 @@ export const NLP_RA_REFLEXIVE_ANAPHORA = {
 }
 
 export function NlpRaReflexiveAnaphora(props: DiagramNodeProps) {
-  return <Shape {...NLP_RA_REFLEXIVE_ANAPHORA} {...props} />
+  return (
+    <Shape
+      {...NLP_RA_REFLEXIVE_ANAPHORA}
+      {...props}
+      _style={extendStyle(NLP_RA_REFLEXIVE_ANAPHORA, props)}
+    />
+  )
 }

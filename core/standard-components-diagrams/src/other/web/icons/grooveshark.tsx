@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GROOVESHARK = {
   _style:
@@ -9,5 +9,11 @@ export const GROOVESHARK = {
 }
 
 export function Grooveshark(props: DiagramNodeProps) {
-  return <Shape {...GROOVESHARK} {...props} />
+  return (
+    <Shape
+      {...GROOVESHARK}
+      {...props}
+      _style={extendStyle(GROOVESHARK, props)}
+    />
+  )
 }

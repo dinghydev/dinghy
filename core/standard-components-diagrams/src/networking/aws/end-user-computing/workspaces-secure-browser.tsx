@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORKSPACES_SECURE_BROWSER = {
   _style:
@@ -9,5 +9,11 @@ export const WORKSPACES_SECURE_BROWSER = {
 }
 
 export function WorkspacesSecureBrowser(props: DiagramNodeProps) {
-  return <Shape {...WORKSPACES_SECURE_BROWSER} {...props} />
+  return (
+    <Shape
+      {...WORKSPACES_SECURE_BROWSER}
+      {...props}
+      _style={extendStyle(WORKSPACES_SECURE_BROWSER, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StopState } from '@reactiac/standard-components-diagrams/dataFlowDiagram'
+import { StopState } from '@diac/standard-components-diagrams/dataFlowDiagram'
 
 <StopState/>
 ```

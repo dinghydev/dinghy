@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ButtonSubtle } from '@reactiac/standard-components-diagrams/atlassian'
+import { ButtonSubtle } from '@diac/standard-components-diagrams/atlassian'
 
 <ButtonSubtle/>
 ```

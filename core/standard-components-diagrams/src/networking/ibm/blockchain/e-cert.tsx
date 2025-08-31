@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const E_CERT = {
   _style:
@@ -9,5 +9,5 @@ export const E_CERT = {
 }
 
 export function ECert(props: DiagramNodeProps) {
-  return <Shape {...E_CERT} {...props} />
+  return <Shape {...E_CERT} {...props} _style={extendStyle(E_CERT, props)} />
 }

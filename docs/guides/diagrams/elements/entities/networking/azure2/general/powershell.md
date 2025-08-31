@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Powershell } from '@reactiac/standard-components-diagrams/azure2General'
+import { Powershell } from '@diac/standard-components-diagrams/azure2General'
 
 <Powershell/>
 ```

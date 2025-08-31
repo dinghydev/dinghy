@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TDM_ROUTER = {
   _style:
@@ -9,5 +9,7 @@ export const TDM_ROUTER = {
 }
 
 export function TdmRouter(props: DiagramNodeProps) {
-  return <Shape {...TDM_ROUTER} {...props} />
+  return (
+    <Shape {...TDM_ROUTER} {...props} _style={extendStyle(TDM_ROUTER, props)} />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_NETWORK_ACCESS_CONTROL = {
   _style:
@@ -9,5 +9,11 @@ export const CISCO_NETWORK_ACCESS_CONTROL = {
 }
 
 export function CiscoNetworkAccessControl(props: DiagramNodeProps) {
-  return <Shape {...CISCO_NETWORK_ACCESS_CONTROL} {...props} />
+  return (
+    <Shape
+      {...CISCO_NETWORK_ACCESS_CONTROL}
+      {...props}
+      _style={extendStyle(CISCO_NETWORK_ACCESS_CONTROL, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12300_TEMPERATURE_REGULATOR = {
   _style:
@@ -9,5 +9,11 @@ export const X12300_TEMPERATURE_REGULATOR = {
 }
 
 export function X12300TemperatureRegulator(props: DiagramNodeProps) {
-  return <Shape {...X12300_TEMPERATURE_REGULATOR} {...props} />
+  return (
+    <Shape
+      {...X12300_TEMPERATURE_REGULATOR}
+      {...props}
+      _style={extendStyle(X12300_TEMPERATURE_REGULATOR, props)}
+    />
+  )
 }

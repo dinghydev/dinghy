@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Textbox } from '@reactiac/standard-components-diagrams/general'
+import { Textbox } from '@diac/standard-components-diagrams/general'
 
 <Textbox/>
 ```

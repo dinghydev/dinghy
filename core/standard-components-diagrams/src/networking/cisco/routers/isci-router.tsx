@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ISCI_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const ISCI_ROUTER = {
 }
 
 export function IsciRouter(props: DiagramNodeProps) {
-  return <Shape {...ISCI_ROUTER} {...props} />
+  return (
+    <Shape
+      {...ISCI_ROUTER}
+      {...props}
+      _style={extendStyle(ISCI_ROUTER, props)}
+    />
+  )
 }

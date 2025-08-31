@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MosfetNoBulkP } from '@reactiac/standard-components-diagrams/electricalTransistors'
+import { MosfetNoBulkP } from '@diac/standard-components-diagrams/electricalTransistors'
 
 <MosfetNoBulkP/>
 ```

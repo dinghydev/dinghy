@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHEMICAL_WEAPON = {
   _style:
@@ -9,5 +9,11 @@ export const CHEMICAL_WEAPON = {
 }
 
 export function ChemicalWeapon(props: DiagramNodeProps) {
-  return <Shape {...CHEMICAL_WEAPON} {...props} />
+  return (
+    <Shape
+      {...CHEMICAL_WEAPON}
+      {...props}
+      _style={extendStyle(CHEMICAL_WEAPON, props)}
+    />
+  )
 }

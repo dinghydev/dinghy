@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BAR_GRAPH_26 = {
   _style:
@@ -9,5 +9,11 @@ export const BAR_GRAPH_26 = {
 }
 
 export function BarGraph26(props: DiagramNodeProps) {
-  return <Shape {...BAR_GRAPH_26} {...props} />
+  return (
+    <Shape
+      {...BAR_GRAPH_26}
+      {...props}
+      _style={extendStyle(BAR_GRAPH_26, props)}
+    />
+  )
 }

@@ -1,13 +1,19 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FUJITSU_TABLET = {
   _style:
     'image;html=1;image=img/lib/clip_art/computers/Fujitsu_Tablet_128x128.pngstrokeColor=none;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 
 export function FujitsuTablet(props: DiagramNodeProps) {
-  return <Shape {...FUJITSU_TABLET} {...props} />
+  return (
+    <Shape
+      {...FUJITSU_TABLET}
+      {...props}
+      _style={extendStyle(FUJITSU_TABLET, props)}
+    />
+  )
 }

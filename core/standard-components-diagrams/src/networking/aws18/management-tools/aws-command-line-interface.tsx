@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_COMMAND_LINE_INTERFACE = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_COMMAND_LINE_INTERFACE = {
 }
 
 export function AwsCommandLineInterface(props: DiagramNodeProps) {
-  return <Shape {...AWS_COMMAND_LINE_INTERFACE} {...props} />
+  return (
+    <Shape
+      {...AWS_COMMAND_LINE_INTERFACE}
+      {...props}
+      _style={extendStyle(AWS_COMMAND_LINE_INTERFACE, props)}
+    />
+  )
 }

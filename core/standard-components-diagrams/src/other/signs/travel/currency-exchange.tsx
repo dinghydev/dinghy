@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CURRENCY_EXCHANGE = {
   _style:
@@ -9,5 +9,11 @@ export const CURRENCY_EXCHANGE = {
 }
 
 export function CurrencyExchange(props: DiagramNodeProps) {
-  return <Shape {...CURRENCY_EXCHANGE} {...props} />
+  return (
+    <Shape
+      {...CURRENCY_EXCHANGE}
+      {...props}
+      _style={extendStyle(CURRENCY_EXCHANGE, props)}
+    />
+  )
 }

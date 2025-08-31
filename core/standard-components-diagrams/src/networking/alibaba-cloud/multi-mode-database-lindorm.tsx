@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MULTI_MODE_DATABASE_LINDORM = {
   _style:
@@ -9,5 +9,11 @@ export const MULTI_MODE_DATABASE_LINDORM = {
 }
 
 export function MultiModeDatabaseLindorm(props: DiagramNodeProps) {
-  return <Shape {...MULTI_MODE_DATABASE_LINDORM} {...props} />
+  return (
+    <Shape
+      {...MULTI_MODE_DATABASE_LINDORM}
+      {...props}
+      _style={extendStyle(MULTI_MODE_DATABASE_LINDORM, props)}
+    />
+  )
 }

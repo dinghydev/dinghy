@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ModalTitle } from '@reactiac/standard-components-diagrams/bootstrap'
+import { ModalTitle } from '@diac/standard-components-diagrams/bootstrap'
 
 <ModalTitle/>
 ```

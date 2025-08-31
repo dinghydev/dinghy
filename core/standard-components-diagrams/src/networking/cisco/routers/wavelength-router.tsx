@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WAVELENGTH_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const WAVELENGTH_ROUTER = {
 }
 
 export function WavelengthRouter(props: DiagramNodeProps) {
-  return <Shape {...WAVELENGTH_ROUTER} {...props} />
+  return (
+    <Shape
+      {...WAVELENGTH_ROUTER}
+      {...props}
+      _style={extendStyle(WAVELENGTH_ROUTER, props)}
+    />
+  )
 }

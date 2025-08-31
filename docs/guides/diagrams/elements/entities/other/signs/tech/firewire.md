@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Firewire } from '@reactiac/standard-components-diagrams/signsTech'
+import { Firewire } from '@diac/standard-components-diagrams/signsTech'
 
 <Firewire/>
 ```

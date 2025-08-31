@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PUSHBUTTON_OFF = {
   _style:
@@ -9,5 +9,11 @@ export const PUSHBUTTON_OFF = {
 }
 
 export function PushbuttonOff(props: DiagramNodeProps) {
-  return <Shape {...PUSHBUTTON_OFF} {...props} />
+  return (
+    <Shape
+      {...PUSHBUTTON_OFF}
+      {...props}
+      _style={extendStyle(PUSHBUTTON_OFF, props)}
+    />
+  )
 }

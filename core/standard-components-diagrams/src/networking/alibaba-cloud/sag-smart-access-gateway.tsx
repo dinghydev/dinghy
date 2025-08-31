@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SAG_SMART_ACCESS_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const SAG_SMART_ACCESS_GATEWAY = {
 }
 
 export function SagSmartAccessGateway(props: DiagramNodeProps) {
-  return <Shape {...SAG_SMART_ACCESS_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...SAG_SMART_ACCESS_GATEWAY}
+      {...props}
+      _style={extendStyle(SAG_SMART_ACCESS_GATEWAY, props)}
+    />
+  )
 }

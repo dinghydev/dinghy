@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SingleExecution } from '@reactiac/standard-components-diagrams/uml25'
+import { SingleExecution } from '@diac/standard-components-diagrams/uml25'
 
 <SingleExecution/>
 ```

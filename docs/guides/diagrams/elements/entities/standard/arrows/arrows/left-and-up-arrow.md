@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.arrows.left_and_up_arrow;html=1;verticalLabelPosition=bottom;verticalAlign=top;strokeWidth=2;strokeColor=#000000;',
-  _width: 96,
-  _height: 96,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { LeftAndUpArrow } from '@reactiac/standard-components-diagrams/arrows'
+import { LeftAndUpArrow } from '@diac/standard-components-diagrams/arrows'
 
 <LeftAndUpArrow/>
 ```

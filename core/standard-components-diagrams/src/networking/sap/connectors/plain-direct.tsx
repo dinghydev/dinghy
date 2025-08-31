@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PLAIN_DIRECT = {
   _style:
@@ -9,5 +9,11 @@ export const PLAIN_DIRECT = {
 }
 
 export function PlainDirect(props: DiagramNodeProps) {
-  return <Shape {...PLAIN_DIRECT} {...props} />
+  return (
+    <Shape
+      {...PLAIN_DIRECT}
+      {...props}
+      _style={extendStyle(PLAIN_DIRECT, props)}
+    />
+  )
 }

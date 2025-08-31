@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Palletizer } from '@reactiac/standard-components-diagrams/procEngMisc'
+import { Palletizer } from '@diac/standard-components-diagrams/procEngMisc'
 
 <Palletizer/>
 ```

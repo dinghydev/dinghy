@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticBlockStoreAmazonDataLifecycleManager } from '@reactiac/standard-components-diagrams/awsStorage'
+import { ElasticBlockStoreAmazonDataLifecycleManager } from '@diac/standard-components-diagrams/awsStorage'
 
 <ElasticBlockStoreAmazonDataLifecycleManager/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VMWARE_VSPHERE = {
   _style:
@@ -9,5 +9,11 @@ export const VMWARE_VSPHERE = {
 }
 
 export function VmwareVsphere(props: DiagramNodeProps) {
-  return <Shape {...VMWARE_VSPHERE} {...props} />
+  return (
+    <Shape
+      {...VMWARE_VSPHERE}
+      {...props}
+      _style={extendStyle(VMWARE_VSPHERE, props)}
+    />
+  )
 }

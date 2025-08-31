@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALLOCATION_DERIVED_PROPERTIES_COMMENT_2 = {
   _style: 'shape=rect;fontStyle=1;whiteSpace=wrap;align=center;',
@@ -8,5 +8,11 @@ export const ALLOCATION_DERIVED_PROPERTIES_COMMENT_2 = {
 }
 
 export function AllocationDerivedPropertiesComment2(props: DiagramNodeProps) {
-  return <Shape {...ALLOCATION_DERIVED_PROPERTIES_COMMENT_2} {...props} />
+  return (
+    <Shape
+      {...ALLOCATION_DERIVED_PROPERTIES_COMMENT_2}
+      {...props}
+      _style={extendStyle(ALLOCATION_DERIVED_PROPERTIES_COMMENT_2, props)}
+    />
+  )
 }

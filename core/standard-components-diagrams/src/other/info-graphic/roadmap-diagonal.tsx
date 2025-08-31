@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROADMAP_DIAGONAL = {
   _style:
@@ -9,5 +9,11 @@ export const ROADMAP_DIAGONAL = {
 }
 
 export function RoadmapDiagonal(props: DiagramNodeProps) {
-  return <Shape {...ROADMAP_DIAGONAL} {...props} />
+  return (
+    <Shape
+      {...ROADMAP_DIAGONAL}
+      {...props}
+      _style={extendStyle(ROADMAP_DIAGONAL, props)}
+    />
+  )
 }

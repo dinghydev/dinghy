@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CDDI_FDDI = {
   _style:
@@ -9,5 +9,7 @@ export const CDDI_FDDI = {
 }
 
 export function CddiFddi(props: DiagramNodeProps) {
-  return <Shape {...CDDI_FDDI} {...props} />
+  return (
+    <Shape {...CDDI_FDDI} {...props} _style={extendStyle(CDDI_FDDI, props)} />
+  )
 }

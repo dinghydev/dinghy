@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10150_SOLENOID_COIL = {
   _style:
@@ -9,5 +9,11 @@ export const X10150_SOLENOID_COIL = {
 }
 
 export function X10150SolenoidCoil(props: DiagramNodeProps) {
-  return <Shape {...X10150_SOLENOID_COIL} {...props} />
+  return (
+    <Shape
+      {...X10150_SOLENOID_COIL}
+      {...props}
+      _style={extendStyle(X10150_SOLENOID_COIL, props)}
+    />
+  )
 }

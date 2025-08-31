@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProcessManager } from '@reactiac/standard-components-diagrams/eipMessageRouting'
+import { ProcessManager } from '@diac/standard-components-diagrams/eipMessageRouting'
 
 <ProcessManager/>
 ```

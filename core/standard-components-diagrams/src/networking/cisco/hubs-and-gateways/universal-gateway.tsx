@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNIVERSAL_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const UNIVERSAL_GATEWAY = {
 }
 
 export function UniversalGateway(props: DiagramNodeProps) {
-  return <Shape {...UNIVERSAL_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...UNIVERSAL_GATEWAY}
+      {...props}
+      _style={extendStyle(UNIVERSAL_GATEWAY, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTIC_JOB_AGENTS = {
   _style:
@@ -9,5 +9,11 @@ export const ELASTIC_JOB_AGENTS = {
 }
 
 export function ElasticJobAgents(props: DiagramNodeProps) {
-  return <Shape {...ELASTIC_JOB_AGENTS} {...props} />
+  return (
+    <Shape
+      {...ELASTIC_JOB_AGENTS}
+      {...props}
+      _style={extendStyle(ELASTIC_JOB_AGENTS, props)}
+    />
+  )
 }

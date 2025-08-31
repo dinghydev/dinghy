@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const METRICS_ADVISOR = {
   _style:
@@ -9,5 +9,11 @@ export const METRICS_ADVISOR = {
 }
 
 export function MetricsAdvisor(props: DiagramNodeProps) {
-  return <Shape {...METRICS_ADVISOR} {...props} />
+  return (
+    <Shape
+      {...METRICS_ADVISOR}
+      {...props}
+      _style={extendStyle(METRICS_ADVISOR, props)}
+    />
+  )
 }

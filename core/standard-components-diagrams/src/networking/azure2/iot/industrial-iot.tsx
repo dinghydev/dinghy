@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDUSTRIAL_IOT = {
   _style:
@@ -9,5 +9,11 @@ export const INDUSTRIAL_IOT = {
 }
 
 export function IndustrialIot(props: DiagramNodeProps) {
-  return <Shape {...INDUSTRIAL_IOT} {...props} />
+  return (
+    <Shape
+      {...INDUSTRIAL_IOT}
+      {...props}
+      _style={extendStyle(INDUSTRIAL_IOT, props)}
+    />
+  )
 }

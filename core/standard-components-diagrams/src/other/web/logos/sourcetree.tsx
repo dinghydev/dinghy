@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOURCETREE = {
   _style:
@@ -9,5 +9,7 @@ export const SOURCETREE = {
 }
 
 export function Sourcetree(props: DiagramNodeProps) {
-  return <Shape {...SOURCETREE} {...props} />
+  return (
+    <Shape {...SOURCETREE} {...props} _style={extendStyle(SOURCETREE, props)} />
+  )
 }

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=lineEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;',
-  _width: 80,
-  _height: 80,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { EllipseWithHorizontalDivider } from '@reactiac/standard-components-diagrams/advanced'
+import { EllipseWithHorizontalDivider } from '@diac/standard-components-diagrams/advanced'
 
 <EllipseWithHorizontalDivider/>
 ```

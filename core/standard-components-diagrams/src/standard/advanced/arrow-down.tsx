@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARROW_DOWN = {
   _style: 'shape=singleArrow;direction=south;whiteSpace=wrap;html=1;',
@@ -8,5 +8,7 @@ export const ARROW_DOWN = {
 }
 
 export function ArrowDown(props: DiagramNodeProps) {
-  return <Shape {...ARROW_DOWN} {...props} />
+  return (
+    <Shape {...ARROW_DOWN} {...props} _style={extendStyle(ARROW_DOWN, props)} />
+  )
 }

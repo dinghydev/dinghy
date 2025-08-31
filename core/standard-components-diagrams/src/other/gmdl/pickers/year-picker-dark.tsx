@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const YEAR_PICKER_DARK = {
   _style: 'shape=rect;fillColor=#424242;strokeColor=none;shadow=1;',
@@ -8,5 +8,11 @@ export const YEAR_PICKER_DARK = {
 }
 
 export function YearPickerDark(props: DiagramNodeProps) {
-  return <Shape {...YEAR_PICKER_DARK} {...props} />
+  return (
+    <Shape
+      {...YEAR_PICKER_DARK}
+      {...props}
+      _style={extendStyle(YEAR_PICKER_DARK, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DefenderHmi } from '@reactiac/standard-components-diagrams/azure2Other'
+import { DefenderHmi } from '@diac/standard-components-diagrams/azure2Other'
 
 <DefenderHmi/>
 ```

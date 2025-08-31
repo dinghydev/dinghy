@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WarningDotted3 } from '@reactiac/standard-components-diagrams/sapConnectors'
+import { WarningDotted3 } from '@diac/standard-components-diagrams/sapConnectors'
 
 <WarningDotted3/>
 ```

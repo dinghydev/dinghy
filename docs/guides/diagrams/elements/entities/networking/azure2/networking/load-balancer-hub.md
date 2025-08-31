@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LoadBalancerHub } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { LoadBalancerHub } from '@diac/standard-components-diagrams/azure2Networking'
 
 <LoadBalancerHub/>
 ```

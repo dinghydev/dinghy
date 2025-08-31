@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OobRmp } from '@reactiac/standard-components-diagrams/cumulus'
+import { OobRmp } from '@diac/standard-components-diagrams/cumulus'
 
 <OobRmp/>
 ```

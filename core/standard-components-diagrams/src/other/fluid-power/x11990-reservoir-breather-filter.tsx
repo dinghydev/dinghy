@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11990_RESERVOIR_BREATHER_FILTER = {
   _style:
@@ -9,5 +9,11 @@ export const X11990_RESERVOIR_BREATHER_FILTER = {
 }
 
 export function X11990ReservoirBreatherFilter(props: DiagramNodeProps) {
-  return <Shape {...X11990_RESERVOIR_BREATHER_FILTER} {...props} />
+  return (
+    <Shape
+      {...X11990_RESERVOIR_BREATHER_FILTER}
+      {...props}
+      _style={extendStyle(X11990_RESERVOIR_BREATHER_FILTER, props)}
+    />
+  )
 }

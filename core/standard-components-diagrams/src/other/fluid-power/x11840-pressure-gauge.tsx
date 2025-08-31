@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11840_PRESSURE_GAUGE = {
   _style:
@@ -9,5 +9,11 @@ export const X11840_PRESSURE_GAUGE = {
 }
 
 export function X11840PressureGauge(props: DiagramNodeProps) {
-  return <Shape {...X11840_PRESSURE_GAUGE} {...props} />
+  return (
+    <Shape
+      {...X11840_PRESSURE_GAUGE}
+      {...props}
+      _style={extendStyle(X11840_PRESSURE_GAUGE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BRAKET_CHANDELIER = {
   _style:
@@ -9,5 +9,11 @@ export const BRAKET_CHANDELIER = {
 }
 
 export function BraketChandelier(props: DiagramNodeProps) {
-  return <Shape {...BRAKET_CHANDELIER} {...props} />
+  return (
+    <Shape
+      {...BRAKET_CHANDELIER}
+      {...props}
+      _style={extendStyle(BRAKET_CHANDELIER, props)}
+    />
+  )
 }

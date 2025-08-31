@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIREWALL_SERVICE_MODULE_FWSM = {
   _style:
@@ -9,5 +9,11 @@ export const FIREWALL_SERVICE_MODULE_FWSM = {
 }
 
 export function FirewallServiceModuleFwsm(props: DiagramNodeProps) {
-  return <Shape {...FIREWALL_SERVICE_MODULE_FWSM} {...props} />
+  return (
+    <Shape
+      {...FIREWALL_SERVICE_MODULE_FWSM}
+      {...props}
+      _style={extendStyle(FIREWALL_SERVICE_MODULE_FWSM, props)}
+    />
+  )
 }

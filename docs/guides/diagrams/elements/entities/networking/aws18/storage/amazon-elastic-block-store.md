@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonElasticBlockStore } from '@reactiac/standard-components-diagrams/aws18Storage'
+import { AmazonElasticBlockStore } from '@diac/standard-components-diagrams/aws18Storage'
 
 <AmazonElasticBlockStore/>
 ```

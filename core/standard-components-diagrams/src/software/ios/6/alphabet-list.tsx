@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALPHABET_LIST = {
   _style:
@@ -9,5 +9,11 @@ export const ALPHABET_LIST = {
 }
 
 export function AlphabetList(props: DiagramNodeProps) {
-  return <Shape {...ALPHABET_LIST} {...props} />
+  return (
+    <Shape
+      {...ALPHABET_LIST}
+      {...props}
+      _style={extendStyle(ALPHABET_LIST, props)}
+    />
+  )
 }

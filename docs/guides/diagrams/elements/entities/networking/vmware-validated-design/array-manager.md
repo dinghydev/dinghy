@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ArrayManager } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { ArrayManager } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <ArrayManager/>
 ```

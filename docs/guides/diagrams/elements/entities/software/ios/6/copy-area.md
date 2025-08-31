@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CopyArea } from '@reactiac/standard-components-diagrams/ios6'
+import { CopyArea } from '@diac/standard-components-diagrams/ios6'
 
 <CopyArea/>
 ```

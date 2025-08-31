@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTELLIGENT_TIERING = {
   _style:
@@ -9,5 +9,11 @@ export const INTELLIGENT_TIERING = {
 }
 
 export function IntelligentTiering(props: DiagramNodeProps) {
-  return <Shape {...INTELLIGENT_TIERING} {...props} />
+  return (
+    <Shape
+      {...INTELLIGENT_TIERING}
+      {...props}
+      _style={extendStyle(INTELLIGENT_TIERING, props)}
+    />
+  )
 }

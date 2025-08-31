@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TunnelStraight } from '@reactiac/standard-components-diagrams/officeServers'
+import { TunnelStraight } from '@diac/standard-components-diagrams/officeServers'
 
 <TunnelStraight/>
 ```

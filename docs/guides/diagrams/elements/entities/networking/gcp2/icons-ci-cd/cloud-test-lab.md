@@ -14,7 +14,7 @@ Test Lab
 ## Usage
 
 ```
-import { CloudTestLab } from '@reactiac/standard-components-diagrams/gcp2IconsCiCd'
+import { CloudTestLab } from '@diac/standard-components-diagrams/gcp2IconsCiCd'
 
 <CloudTestLab/>
 ```

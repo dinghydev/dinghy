@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SCHEDULER_JOB_COLLECTIONS = {
   _style:
@@ -9,5 +9,11 @@ export const SCHEDULER_JOB_COLLECTIONS = {
 }
 
 export function SchedulerJobCollections(props: DiagramNodeProps) {
-  return <Shape {...SCHEDULER_JOB_COLLECTIONS} {...props} />
+  return (
+    <Shape
+      {...SCHEDULER_JOB_COLLECTIONS}
+      {...props}
+      _style={extendStyle(SCHEDULER_JOB_COLLECTIONS, props)}
+    />
+  )
 }

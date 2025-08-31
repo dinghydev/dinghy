@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10010_CONTROL_MECHANISM = {
   _style:
@@ -9,5 +9,11 @@ export const X10010_CONTROL_MECHANISM = {
 }
 
 export function X10010ControlMechanism(props: DiagramNodeProps) {
-  return <Shape {...X10010_CONTROL_MECHANISM} {...props} />
+  return (
+    <Shape
+      {...X10010_CONTROL_MECHANISM}
+      {...props}
+      _style={extendStyle(X10010_CONTROL_MECHANISM, props)}
+    />
+  )
 }

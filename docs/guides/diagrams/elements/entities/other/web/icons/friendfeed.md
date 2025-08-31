@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Friendfeed } from '@reactiac/standard-components-diagrams/webIcons'
+import { Friendfeed } from '@diac/standard-components-diagrams/webIcons'
 
 <Friendfeed/>
 ```

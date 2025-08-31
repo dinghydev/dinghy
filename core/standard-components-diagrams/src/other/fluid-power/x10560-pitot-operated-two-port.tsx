@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10560_PITOT_OPERATED_TWO_PORT = {
   _style:
@@ -9,5 +9,11 @@ export const X10560_PITOT_OPERATED_TWO_PORT = {
 }
 
 export function X10560PitotOperatedTwoPort(props: DiagramNodeProps) {
-  return <Shape {...X10560_PITOT_OPERATED_TWO_PORT} {...props} />
+  return (
+    <Shape
+      {...X10560_PITOT_OPERATED_TWO_PORT}
+      {...props}
+      _style={extendStyle(X10560_PITOT_OPERATED_TWO_PORT, props)}
+    />
+  )
 }

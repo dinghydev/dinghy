@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ProxyAppliance } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { ProxyAppliance } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <ProxyAppliance/>
 ```

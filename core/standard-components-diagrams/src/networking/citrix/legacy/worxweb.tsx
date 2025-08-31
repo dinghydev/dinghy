@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORXWEB = {
   _style:
@@ -9,5 +9,5 @@ export const WORXWEB = {
 }
 
 export function Worxweb(props: DiagramNodeProps) {
-  return <Shape {...WORXWEB} {...props} />
+  return <Shape {...WORXWEB} {...props} _style={extendStyle(WORXWEB, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const QUALITY_PROBLEM = {
   _style:
@@ -9,5 +9,11 @@ export const QUALITY_PROBLEM = {
 }
 
 export function QualityProblem(props: DiagramNodeProps) {
-  return <Shape {...QUALITY_PROBLEM} {...props} />
+  return (
+    <Shape
+      {...QUALITY_PROBLEM}
+      {...props}
+      _style={extendStyle(QUALITY_PROBLEM, props)}
+    />
+  )
 }

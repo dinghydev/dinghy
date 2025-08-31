@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AudioConferencingApplication } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { AudioConferencingApplication } from '@diac/standard-components-diagrams/officeCommunications'
 
 <AudioConferencingApplication/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PINPOINT_JOURNEY = {
   _style:
@@ -9,5 +9,11 @@ export const PINPOINT_JOURNEY = {
 }
 
 export function PinpointJourney(props: DiagramNodeProps) {
-  return <Shape {...PINPOINT_JOURNEY} {...props} />
+  return (
+    <Shape
+      {...PINPOINT_JOURNEY}
+      {...props}
+      _style={extendStyle(PINPOINT_JOURNEY, props)}
+    />
+  )
 }

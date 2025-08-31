@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CircuitBreakerOff } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { CircuitBreakerOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <CircuitBreakerOff/>
 ```

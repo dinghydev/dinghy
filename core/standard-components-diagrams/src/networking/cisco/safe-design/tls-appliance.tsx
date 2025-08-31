@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TLS_APPLIANCE = {
   _style:
@@ -9,5 +9,11 @@ export const TLS_APPLIANCE = {
 }
 
 export function TlsAppliance(props: DiagramNodeProps) {
-  return <Shape {...TLS_APPLIANCE} {...props} />
+  return (
+    <Shape
+      {...TLS_APPLIANCE}
+      {...props}
+      _style={extendStyle(TLS_APPLIANCE, props)}
+    />
+  )
 }

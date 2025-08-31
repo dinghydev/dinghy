@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GOOGLE = {
   _style:
@@ -9,5 +9,5 @@ export const GOOGLE = {
 }
 
 export function Google(props: DiagramNodeProps) {
-  return <Shape {...GOOGLE} {...props} />
+  return <Shape {...GOOGLE} {...props} _style={extendStyle(GOOGLE, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Markers } from '@reactiac/standard-components-diagrams/gcp2Zones'
+import { Markers } from '@diac/standard-components-diagrams/gcp2Zones'
 
 <Markers/>
 ```

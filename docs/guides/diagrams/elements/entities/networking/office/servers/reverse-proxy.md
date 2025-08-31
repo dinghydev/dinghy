@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ReverseProxy } from '@reactiac/standard-components-diagrams/officeServers'
+import { ReverseProxy } from '@diac/standard-components-diagrams/officeServers'
 
 <ReverseProxy/>
 ```

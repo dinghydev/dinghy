@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SelectiveConsumer } from '@reactiac/standard-components-diagrams/eipMessagingEndpoints'
+import { SelectiveConsumer } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
 
 <SelectiveConsumer/>
 ```

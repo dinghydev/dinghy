@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FormRecognizers } from '@reactiac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { FormRecognizers } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <FormRecognizers/>
 ```

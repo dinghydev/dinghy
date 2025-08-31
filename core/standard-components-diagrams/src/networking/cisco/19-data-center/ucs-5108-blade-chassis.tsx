@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UCS_5108_BLADE_CHASSIS = {
   _style:
@@ -9,5 +9,11 @@ export const UCS_5108_BLADE_CHASSIS = {
 }
 
 export function Ucs5108BladeChassis(props: DiagramNodeProps) {
-  return <Shape {...UCS_5108_BLADE_CHASSIS} {...props} />
+  return (
+    <Shape
+      {...UCS_5108_BLADE_CHASSIS}
+      {...props}
+      _style={extendStyle(UCS_5108_BLADE_CHASSIS, props)}
+    />
+  )
 }

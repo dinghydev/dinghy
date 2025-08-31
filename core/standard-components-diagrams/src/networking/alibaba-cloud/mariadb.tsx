@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MARIADB = {
   _style:
@@ -9,5 +9,5 @@ export const MARIADB = {
 }
 
 export function Mariadb(props: DiagramNodeProps) {
-  return <Shape {...MARIADB} {...props} />
+  return <Shape {...MARIADB} {...props} _style={extendStyle(MARIADB, props)} />
 }

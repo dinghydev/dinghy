@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AD_RISKY_SIGNINS = {
   _style:
@@ -9,5 +9,11 @@ export const AD_RISKY_SIGNINS = {
 }
 
 export function AdRiskySignins(props: DiagramNodeProps) {
-  return <Shape {...AD_RISKY_SIGNINS} {...props} />
+  return (
+    <Shape
+      {...AD_RISKY_SIGNINS}
+      {...props}
+      _style={extendStyle(AD_RISKY_SIGNINS, props)}
+    />
+  )
 }

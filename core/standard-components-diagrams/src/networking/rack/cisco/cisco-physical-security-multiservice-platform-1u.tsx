@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U = {
   _style:
@@ -12,6 +12,13 @@ export function CiscoPhysicalSecurityMultiservicePlatform1u(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U} {...props} />
+    <Shape
+      {...CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U}
+      {...props}
+      _style={extendStyle(
+        CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U,
+        props,
+      )}
+    />
   )
 }

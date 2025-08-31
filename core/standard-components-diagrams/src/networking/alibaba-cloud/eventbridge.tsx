@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EVENTBRIDGE = {
   _style:
@@ -9,5 +9,11 @@ export const EVENTBRIDGE = {
 }
 
 export function Eventbridge(props: DiagramNodeProps) {
-  return <Shape {...EVENTBRIDGE} {...props} />
+  return (
+    <Shape
+      {...EVENTBRIDGE}
+      {...props}
+      _style={extendStyle(EVENTBRIDGE, props)}
+    />
+  )
 }

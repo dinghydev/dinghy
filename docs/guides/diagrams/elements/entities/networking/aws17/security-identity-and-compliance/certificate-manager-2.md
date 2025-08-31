@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CertificateManager2 } from '@reactiac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { CertificateManager2 } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <CertificateManager2/>
 ```

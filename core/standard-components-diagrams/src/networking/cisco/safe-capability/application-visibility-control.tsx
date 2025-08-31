@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const APPLICATION_VISIBILITY_CONTROL = {
   _style:
@@ -9,5 +9,11 @@ export const APPLICATION_VISIBILITY_CONTROL = {
 }
 
 export function ApplicationVisibilityControl(props: DiagramNodeProps) {
-  return <Shape {...APPLICATION_VISIBILITY_CONTROL} {...props} />
+  return (
+    <Shape
+      {...APPLICATION_VISIBILITY_CONTROL}
+      {...props}
+      _style={extendStyle(APPLICATION_VISIBILITY_CONTROL, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_FIREWALL_MANAGER = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_FIREWALL_MANAGER = {
 }
 
 export function AwsFirewallManager(props: DiagramNodeProps) {
-  return <Shape {...AWS_FIREWALL_MANAGER} {...props} />
+  return (
+    <Shape
+      {...AWS_FIREWALL_MANAGER}
+      {...props}
+      _style={extendStyle(AWS_FIREWALL_MANAGER, props)}
+    />
+  )
 }

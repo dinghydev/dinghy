@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AUTOML_NATURAL_LANGUAGE = {
   _style:
@@ -9,5 +9,11 @@ export const AUTOML_NATURAL_LANGUAGE = {
 }
 
 export function AutomlNaturalLanguage(props: DiagramNodeProps) {
-  return <Shape {...AUTOML_NATURAL_LANGUAGE} {...props} />
+  return (
+    <Shape
+      {...AUTOML_NATURAL_LANGUAGE}
+      {...props}
+      _style={extendStyle(AUTOML_NATURAL_LANGUAGE, props)}
+    />
+  )
 }

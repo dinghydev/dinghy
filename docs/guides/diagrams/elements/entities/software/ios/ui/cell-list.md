@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CellList } from '@reactiac/standard-components-diagrams/ios7Ui'
+import { CellList } from '@diac/standard-components-diagrams/ios7Ui'
 
 <CellList/>
 ```

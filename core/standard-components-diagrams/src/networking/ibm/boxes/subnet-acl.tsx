@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUBNET_ACL = {
   _style: {
@@ -13,5 +13,7 @@ export const SUBNET_ACL = {
 }
 
 export function SubnetAcl(props: DiagramNodeProps) {
-  return <Shape {...SUBNET_ACL} {...props} />
+  return (
+    <Shape {...SUBNET_ACL} {...props} _style={extendStyle(SUBNET_ACL, props)} />
+  )
 }

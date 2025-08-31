@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CHRONICLE = {
   _style:
@@ -9,5 +9,7 @@ export const CHRONICLE = {
 }
 
 export function Chronicle(props: DiagramNodeProps) {
-  return <Shape {...CHRONICLE} {...props} />
+  return (
+    <Shape {...CHRONICLE} {...props} _style={extendStyle(CHRONICLE, props)} />
+  )
 }

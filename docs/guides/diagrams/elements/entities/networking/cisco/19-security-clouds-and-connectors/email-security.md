@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EmailSecurity } from '@reactiac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { EmailSecurity } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <EmailSecurity/>
 ```

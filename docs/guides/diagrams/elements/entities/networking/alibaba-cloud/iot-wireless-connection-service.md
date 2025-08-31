@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IotWirelessConnectionService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { IotWirelessConnectionService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <IotWirelessConnectionService/>
 ```

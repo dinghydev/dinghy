@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Sourcetree } from '@reactiac/standard-components-diagrams/atlassian'
+import { Sourcetree } from '@diac/standard-components-diagrams/atlassian'
 
 <Sourcetree/>
 ```

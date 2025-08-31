@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CorrelationIdentifier2 } from '@reactiac/standard-components-diagrams/eipMessageConstruction'
+import { CorrelationIdentifier2 } from '@diac/standard-components-diagrams/eipMessageConstruction'
 
 <CorrelationIdentifier2/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Actor } from '@reactiac/standard-components-diagrams/sysmlUsecases'
+import { Actor } from '@diac/standard-components-diagrams/sysmlUsecases'
 
 <Actor/>
 ```

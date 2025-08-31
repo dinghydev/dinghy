@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KEYBOARD_LETTERS = {
   _style:
@@ -9,5 +9,11 @@ export const KEYBOARD_LETTERS = {
 }
 
 export function KeyboardLetters(props: DiagramNodeProps) {
-  return <Shape {...KEYBOARD_LETTERS} {...props} />
+  return (
+    <Shape
+      {...KEYBOARD_LETTERS}
+      {...props}
+      _style={extendStyle(KEYBOARD_LETTERS, props)}
+    />
+  )
 }

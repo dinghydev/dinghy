@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ThermostatOn } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { ThermostatOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <ThermostatOn/>
 ```

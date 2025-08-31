@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Worxenroll } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { Worxenroll } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <Worxenroll/>
 ```

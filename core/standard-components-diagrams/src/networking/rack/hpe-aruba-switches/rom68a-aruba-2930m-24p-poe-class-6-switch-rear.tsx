@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROM68A_ARUBA_2930M_24P_POE_CLASS_6_SWITCH_REAR = {
   _style:
@@ -12,6 +12,13 @@ export function Rom68aAruba2930m24pPoeClass6SwitchRear(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...ROM68A_ARUBA_2930M_24P_POE_CLASS_6_SWITCH_REAR} {...props} />
+    <Shape
+      {...ROM68A_ARUBA_2930M_24P_POE_CLASS_6_SWITCH_REAR}
+      {...props}
+      _style={extendStyle(
+        ROM68A_ARUBA_2930M_24P_POE_CLASS_6_SWITCH_REAR,
+        props,
+      )}
+    />
   )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AVATAR_DO_NOT_DISTURB = {
   _style:
@@ -9,5 +9,11 @@ export const AVATAR_DO_NOT_DISTURB = {
 }
 
 export function AvatarDoNotDisturb(props: DiagramNodeProps) {
-  return <Shape {...AVATAR_DO_NOT_DISTURB} {...props} />
+  return (
+    <Shape
+      {...AVATAR_DO_NOT_DISTURB}
+      {...props}
+      _style={extendStyle(AVATAR_DO_NOT_DISTURB, props)}
+    />
+  )
 }

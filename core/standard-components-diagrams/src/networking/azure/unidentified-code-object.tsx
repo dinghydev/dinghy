@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNIDENTIFIED_CODE_OBJECT = {
   _style:
@@ -9,5 +9,11 @@ export const UNIDENTIFIED_CODE_OBJECT = {
 }
 
 export function UnidentifiedCodeObject(props: DiagramNodeProps) {
-  return <Shape {...UNIDENTIFIED_CODE_OBJECT} {...props} />
+  return (
+    <Shape
+      {...UNIDENTIFIED_CODE_OBJECT}
+      {...props}
+      _style={extendStyle(UNIDENTIFIED_CODE_OBJECT, props)}
+    />
+  )
 }

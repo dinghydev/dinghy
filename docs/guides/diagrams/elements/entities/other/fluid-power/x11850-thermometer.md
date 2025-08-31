@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11850Thermometer } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11850Thermometer } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11850Thermometer/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const GAS_COMPRESSOR = {
   _style:
@@ -9,5 +9,11 @@ export const GAS_COMPRESSOR = {
 }
 
 export function GasCompressor(props: DiagramNodeProps) {
-  return <Shape {...GAS_COMPRESSOR} {...props} />
+  return (
+    <Shape
+      {...GAS_COMPRESSOR}
+      {...props}
+      _style={extendStyle(GAS_COMPRESSOR, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOOP_LIMIT = {
   _style: 'shape=loopLimit;whiteSpace=wrap;html=1;',
@@ -8,5 +8,7 @@ export const LOOP_LIMIT = {
 }
 
 export function LoopLimit(props: DiagramNodeProps) {
-  return <Shape {...LOOP_LIMIT} {...props} />
+  return (
+    <Shape {...LOOP_LIMIT} {...props} _style={extendStyle(LOOP_LIMIT, props)} />
+  )
 }

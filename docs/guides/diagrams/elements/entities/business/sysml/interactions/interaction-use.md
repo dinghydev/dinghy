@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InteractionUse } from '@reactiac/standard-components-diagrams/sysmlInteractions'
+import { InteractionUse } from '@diac/standard-components-diagrams/sysmlInteractions'
 
 <InteractionUse/>
 ```

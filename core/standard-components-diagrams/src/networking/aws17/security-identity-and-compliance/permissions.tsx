@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PERMISSIONS = {
   _style:
@@ -9,5 +9,11 @@ export const PERMISSIONS = {
 }
 
 export function Permissions(props: DiagramNodeProps) {
-  return <Shape {...PERMISSIONS} {...props} />
+  return (
+    <Shape
+      {...PERMISSIONS}
+      {...props}
+      _style={extendStyle(PERMISSIONS, props)}
+    />
+  )
 }

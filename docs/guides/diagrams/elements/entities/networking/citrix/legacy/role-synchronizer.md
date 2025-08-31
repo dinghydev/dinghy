@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RoleSynchronizer } from '@reactiac/standard-components-diagrams/citrixLegacy'
+import { RoleSynchronizer } from '@diac/standard-components-diagrams/citrixLegacy'
 
 <RoleSynchronizer/>
 ```

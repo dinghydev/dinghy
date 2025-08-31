@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Powerfx } from '@reactiac/standard-components-diagrams/azure2PowerPlatform'
+import { Powerfx } from '@diac/standard-components-diagrams/azure2PowerPlatform'
 
 <Powerfx/>
 ```

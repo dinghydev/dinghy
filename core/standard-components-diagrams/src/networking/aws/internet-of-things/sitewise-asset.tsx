@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SITEWISE_ASSET = {
   _style:
@@ -9,5 +9,11 @@ export const SITEWISE_ASSET = {
 }
 
 export function SitewiseAsset(props: DiagramNodeProps) {
-  return <Shape {...SITEWISE_ASSET} {...props} />
+  return (
+    <Shape
+      {...SITEWISE_ASSET}
+      {...props}
+      _style={extendStyle(SITEWISE_ASSET, props)}
+    />
+  )
 }

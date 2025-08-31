@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOURCE_STEP_ON = {
   _style:
@@ -9,5 +9,11 @@ export const SOURCE_STEP_ON = {
 }
 
 export function SourceStepOn(props: DiagramNodeProps) {
-  return <Shape {...SOURCE_STEP_ON} {...props} />
+  return (
+    <Shape
+      {...SOURCE_STEP_ON}
+      {...props}
+      _style={extendStyle(SOURCE_STEP_ON, props)}
+    />
+  )
 }

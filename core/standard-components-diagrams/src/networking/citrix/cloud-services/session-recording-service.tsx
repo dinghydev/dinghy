@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SESSION_RECORDING_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const SESSION_RECORDING_SERVICE = {
 }
 
 export function SessionRecordingService(props: DiagramNodeProps) {
-  return <Shape {...SESSION_RECORDING_SERVICE} {...props} />
+  return (
+    <Shape
+      {...SESSION_RECORDING_SERVICE}
+      {...props}
+      _style={extendStyle(SESSION_RECORDING_SERVICE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSFER_APPLIANCE = {
   _style:
@@ -9,5 +9,11 @@ export const TRANSFER_APPLIANCE = {
 }
 
 export function TransferAppliance(props: DiagramNodeProps) {
-  return <Shape {...TRANSFER_APPLIANCE} {...props} />
+  return (
+    <Shape
+      {...TRANSFER_APPLIANCE}
+      {...props}
+      _style={extendStyle(TRANSFER_APPLIANCE, props)}
+    />
+  )
 }

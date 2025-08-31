@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScsiController } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { ScsiController } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <ScsiController/>
 ```

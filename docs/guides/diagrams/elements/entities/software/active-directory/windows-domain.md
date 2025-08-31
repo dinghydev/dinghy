@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WindowsDomain } from '@reactiac/standard-components-diagrams/activeDirectory'
+import { WindowsDomain } from '@diac/standard-components-diagrams/activeDirectory'
 
 <WindowsDomain/>
 ```

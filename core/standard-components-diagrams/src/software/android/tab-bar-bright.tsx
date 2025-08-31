@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TAB_BAR_BRIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const TAB_BAR_BRIGHT = {
 }
 
 export function TabBarBright(props: DiagramNodeProps) {
-  return <Shape {...TAB_BAR_BRIGHT} {...props} />
+  return (
+    <Shape
+      {...TAB_BAR_BRIGHT}
+      {...props}
+      _style={extendStyle(TAB_BAR_BRIGHT, props)}
+    />
+  )
 }

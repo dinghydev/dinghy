@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component2PositionSwitch2 } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { Component2PositionSwitch2 } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <Component2PositionSwitch2/>
 ```

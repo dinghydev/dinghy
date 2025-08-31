@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AwsS3 } from '@reactiac/standard-components-diagrams/veeam2Storage'
+import { AwsS3 } from '@diac/standard-components-diagrams/veeam2Storage'
 
 <AwsS3/>
 ```

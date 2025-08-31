@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISCONNECTED_MAILBOX = {
   _style:
@@ -9,5 +9,11 @@ export const DISCONNECTED_MAILBOX = {
 }
 
 export function DisconnectedMailbox(props: DiagramNodeProps) {
-  return <Shape {...DISCONNECTED_MAILBOX} {...props} />
+  return (
+    <Shape
+      {...DISCONNECTED_MAILBOX}
+      {...props}
+      _style={extendStyle(DISCONNECTED_MAILBOX, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DvsSurveillanceMonitor } from '@reactiac/standard-components-diagrams/alliedTelesisSecurity'
+import { DvsSurveillanceMonitor } from '@diac/standard-components-diagrams/alliedTelesisSecurity'
 
 <DvsSurveillanceMonitor/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12000_FILTER_WITH = {
   _style:
@@ -9,5 +9,11 @@ export const X12000_FILTER_WITH = {
 }
 
 export function X12000FilterWith(props: DiagramNodeProps) {
-  return <Shape {...X12000_FILTER_WITH} {...props} />
+  return (
+    <Shape
+      {...X12000_FILTER_WITH}
+      {...props}
+      _style={extendStyle(X12000_FILTER_WITH, props)}
+    />
+  )
 }

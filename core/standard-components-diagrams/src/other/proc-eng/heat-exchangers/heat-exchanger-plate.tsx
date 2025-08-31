@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HEAT_EXCHANGER_PLATE = {
   _style:
@@ -9,5 +9,11 @@ export const HEAT_EXCHANGER_PLATE = {
 }
 
 export function HeatExchangerPlate(props: DiagramNodeProps) {
-  return <Shape {...HEAT_EXCHANGER_PLATE} {...props} />
+  return (
+    <Shape
+      {...HEAT_EXCHANGER_PLATE}
+      {...props}
+      _style={extendStyle(HEAT_EXCHANGER_PLATE, props)}
+    />
+  )
 }

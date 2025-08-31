@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACI_LEAF_SWITCH = {
   _style:
@@ -9,5 +9,11 @@ export const ACI_LEAF_SWITCH = {
 }
 
 export function AciLeafSwitch(props: DiagramNodeProps) {
-  return <Shape {...ACI_LEAF_SWITCH} {...props} />
+  return (
+    <Shape
+      {...ACI_LEAF_SWITCH}
+      {...props}
+      _style={extendStyle(ACI_LEAF_SWITCH, props)}
+    />
+  )
 }

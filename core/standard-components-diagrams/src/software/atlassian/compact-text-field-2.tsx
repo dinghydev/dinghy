@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPACT_TEXT_FIELD_2 = {
   _style:
@@ -9,5 +9,11 @@ export const COMPACT_TEXT_FIELD_2 = {
 }
 
 export function CompactTextField2(props: DiagramNodeProps) {
-  return <Shape {...COMPACT_TEXT_FIELD_2} {...props} />
+  return (
+    <Shape
+      {...COMPACT_TEXT_FIELD_2}
+      {...props}
+      _style={extendStyle(COMPACT_TEXT_FIELD_2, props)}
+    />
+  )
 }

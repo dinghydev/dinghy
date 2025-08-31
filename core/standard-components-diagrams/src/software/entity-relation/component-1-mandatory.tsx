@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_1_MANDATORY = {
   _style: {
@@ -9,5 +9,11 @@ export const COMPONENT_1_MANDATORY = {
 }
 
 export function Component1Mandatory(props: DiagramNodeProps) {
-  return <Dependency {...COMPONENT_1_MANDATORY} {...props} />
+  return (
+    <Dependency
+      {...COMPONENT_1_MANDATORY}
+      {...props}
+      _style={extendStyle(COMPONENT_1_MANDATORY, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SOLIDIFIER_OPEN = {
   _style:
@@ -9,5 +9,11 @@ export const SOLIDIFIER_OPEN = {
 }
 
 export function SolidifierOpen(props: DiagramNodeProps) {
-  return <Shape {...SOLIDIFIER_OPEN} {...props} />
+  return (
+    <Shape
+      {...SOLIDIFIER_OPEN}
+      {...props}
+      _style={extendStyle(SOLIDIFIER_OPEN, props)}
+    />
+  )
 }

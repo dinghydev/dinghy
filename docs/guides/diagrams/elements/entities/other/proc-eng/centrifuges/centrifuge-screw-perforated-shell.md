@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CentrifugeScrewPerforatedShell } from '@reactiac/standard-components-diagrams/procEngCentrifuges'
+import { CentrifugeScrewPerforatedShell } from '@diac/standard-components-diagrams/procEngCentrifuges'
 
 <CentrifugeScrewPerforatedShell/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ON_PAGE_REFERENCE = {
   _style:
@@ -9,5 +9,11 @@ export const ON_PAGE_REFERENCE = {
 }
 
 export function OnPageReference(props: DiagramNodeProps) {
-  return <Shape {...ON_PAGE_REFERENCE} {...props} />
+  return (
+    <Shape
+      {...ON_PAGE_REFERENCE}
+      {...props}
+      _style={extendStyle(ON_PAGE_REFERENCE, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HYBRID_CENTER = {
   _style:
@@ -9,5 +9,11 @@ export const HYBRID_CENTER = {
 }
 
 export function HybridCenter(props: DiagramNodeProps) {
-  return <Shape {...HYBRID_CENTER} {...props} />
+  return (
+    <Shape
+      {...HYBRID_CENTER}
+      {...props}
+      _style={extendStyle(HYBRID_CENTER, props)}
+    />
+  )
 }

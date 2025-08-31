@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BlockingDevice } from '@reactiac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { BlockingDevice } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <BlockingDevice/>
 ```

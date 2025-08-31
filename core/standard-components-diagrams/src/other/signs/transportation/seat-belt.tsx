@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SEAT_BELT = {
   _style:
@@ -9,5 +9,7 @@ export const SEAT_BELT = {
 }
 
 export function SeatBelt(props: DiagramNodeProps) {
-  return <Shape {...SEAT_BELT} {...props} />
+  return (
+    <Shape {...SEAT_BELT} {...props} _style={extendStyle(SEAT_BELT, props)} />
+  )
 }

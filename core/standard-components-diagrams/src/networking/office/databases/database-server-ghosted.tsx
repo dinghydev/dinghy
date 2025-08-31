@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATABASE_SERVER_GHOSTED = {
   _style:
@@ -9,5 +9,11 @@ export const DATABASE_SERVER_GHOSTED = {
 }
 
 export function DatabaseServerGhosted(props: DiagramNodeProps) {
-  return <Shape {...DATABASE_SERVER_GHOSTED} {...props} />
+  return (
+    <Shape
+      {...DATABASE_SERVER_GHOSTED}
+      {...props}
+      _style={extendStyle(DATABASE_SERVER_GHOSTED, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LogicalFirewall } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { LogicalFirewall } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <LogicalFirewall/>
 ```

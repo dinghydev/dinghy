@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UcmaApplication } from '@reactiac/standard-components-diagrams/officeCommunications'
+import { UcmaApplication } from '@diac/standard-components-diagrams/officeCommunications'
 
 <UcmaApplication/>
 ```

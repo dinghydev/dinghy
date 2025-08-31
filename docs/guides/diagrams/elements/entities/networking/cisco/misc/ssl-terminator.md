@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SslTerminator } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { SslTerminator } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <SslTerminator/>
 ```

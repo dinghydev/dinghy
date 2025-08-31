@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TemperatureActuatedOff } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { TemperatureActuatedOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <TemperatureActuatedOff/>
 ```

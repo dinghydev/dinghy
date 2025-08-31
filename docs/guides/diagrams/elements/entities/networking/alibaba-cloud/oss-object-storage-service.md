@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OssObjectStorageService } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { OssObjectStorageService } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <OssObjectStorageService/>
 ```

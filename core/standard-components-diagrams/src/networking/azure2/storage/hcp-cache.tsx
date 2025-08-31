@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HCP_CACHE = {
   _style:
@@ -9,5 +9,7 @@ export const HCP_CACHE = {
 }
 
 export function HcpCache(props: DiagramNodeProps) {
-  return <Shape {...HCP_CACHE} {...props} />
+  return (
+    <Shape {...HCP_CACHE} {...props} _style={extendStyle(HCP_CACHE, props)} />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { JiraCore } from '@reactiac/standard-components-diagrams/webLogos'
+import { JiraCore } from '@diac/standard-components-diagrams/webLogos'
 
 <JiraCore/>
 ```

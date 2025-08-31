@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const P_CHANNEL_JFET = {
   _style:
@@ -9,5 +9,11 @@ export const P_CHANNEL_JFET = {
 }
 
 export function PChannelJfet(props: DiagramNodeProps) {
-  return <Shape {...P_CHANNEL_JFET} {...props} />
+  return (
+    <Shape
+      {...P_CHANNEL_JFET}
+      {...props}
+      _style={extendStyle(P_CHANNEL_JFET, props)}
+    />
+  )
 }

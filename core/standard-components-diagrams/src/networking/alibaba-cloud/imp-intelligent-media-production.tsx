@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IMP_INTELLIGENT_MEDIA_PRODUCTION = {
   _style:
@@ -9,5 +9,11 @@ export const IMP_INTELLIGENT_MEDIA_PRODUCTION = {
 }
 
 export function ImpIntelligentMediaProduction(props: DiagramNodeProps) {
-  return <Shape {...IMP_INTELLIGENT_MEDIA_PRODUCTION} {...props} />
+  return (
+    <Shape
+      {...IMP_INTELLIGENT_MEDIA_PRODUCTION}
+      {...props}
+      _style={extendStyle(IMP_INTELLIGENT_MEDIA_PRODUCTION, props)}
+    />
+  )
 }

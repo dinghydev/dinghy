@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SapOnPremiseSolutionBox } from '@reactiac/standard-components-diagrams/sapEssentials'
+import { SapOnPremiseSolutionBox } from '@diac/standard-components-diagrams/sapEssentials'
 
 <SapOnPremiseSolutionBox/>
 ```

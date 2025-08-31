@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DDH_DEDICATED_HOST = {
   _style:
@@ -9,5 +9,11 @@ export const DDH_DEDICATED_HOST = {
 }
 
 export function DdhDedicatedHost(props: DiagramNodeProps) {
-  return <Shape {...DDH_DEDICATED_HOST} {...props} />
+  return (
+    <Shape
+      {...DDH_DEDICATED_HOST}
+      {...props}
+      _style={extendStyle(DDH_DEDICATED_HOST, props)}
+    />
+  )
 }

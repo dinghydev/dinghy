@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIRTUAL_WAN_HUB = {
   _style:
@@ -9,5 +9,11 @@ export const VIRTUAL_WAN_HUB = {
 }
 
 export function VirtualWanHub(props: DiagramNodeProps) {
-  return <Shape {...VIRTUAL_WAN_HUB} {...props} />
+  return (
+    <Shape
+      {...VIRTUAL_WAN_HUB}
+      {...props}
+      _style={extendStyle(VIRTUAL_WAN_HUB, props)}
+    />
+  )
 }

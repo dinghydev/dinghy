@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WORKSPACE_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const WORKSPACE_GATEWAY = {
 }
 
 export function WorkspaceGateway(props: DiagramNodeProps) {
-  return <Shape {...WORKSPACE_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...WORKSPACE_GATEWAY}
+      {...props}
+      _style={extendStyle(WORKSPACE_GATEWAY, props)}
+    />
+  )
 }

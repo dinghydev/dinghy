@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SWAS_SIMPLE_APPLICATION_SERVER = {
   _style:
@@ -9,5 +9,11 @@ export const SWAS_SIMPLE_APPLICATION_SERVER = {
 }
 
 export function SwasSimpleApplicationServer(props: DiagramNodeProps) {
-  return <Shape {...SWAS_SIMPLE_APPLICATION_SERVER} {...props} />
+  return (
+    <Shape
+      {...SWAS_SIMPLE_APPLICATION_SERVER}
+      {...props}
+      _style={extendStyle(SWAS_SIMPLE_APPLICATION_SERVER, props)}
+    />
+  )
 }

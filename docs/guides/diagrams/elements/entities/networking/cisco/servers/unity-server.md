@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UnityServer } from '@reactiac/standard-components-diagrams/ciscoServers'
+import { UnityServer } from '@diac/standard-components-diagrams/ciscoServers'
 
 <UnityServer/>
 ```

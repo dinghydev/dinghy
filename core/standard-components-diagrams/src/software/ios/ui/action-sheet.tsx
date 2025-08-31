@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTION_SHEET = {
   _style:
@@ -9,5 +9,11 @@ export const ACTION_SHEET = {
 }
 
 export function ActionSheet(props: DiagramNodeProps) {
-  return <Shape {...ACTION_SHEET} {...props} />
+  return (
+    <Shape
+      {...ACTION_SHEET}
+      {...props}
+      _style={extendStyle(ACTION_SHEET, props)}
+    />
+  )
 }

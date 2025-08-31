@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Edge } from '@reactiac/standard-components-diagrams/aws3d'
+import { Edge } from '@diac/standard-components-diagrams/aws3d'
 
 <Edge/>
 ```

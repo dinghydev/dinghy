@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FRAGILE = {
   _style:
@@ -9,5 +9,5 @@ export const FRAGILE = {
 }
 
 export function Fragile(props: DiagramNodeProps) {
-  return <Shape {...FRAGILE} {...props} />
+  return <Shape {...FRAGILE} {...props} _style={extendStyle(FRAGILE, props)} />
 }

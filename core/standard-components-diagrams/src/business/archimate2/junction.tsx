@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const JUNCTION = {
   _style:
@@ -9,5 +9,7 @@ export const JUNCTION = {
 }
 
 export function Junction(props: DiagramNodeProps) {
-  return <Shape {...JUNCTION} {...props} />
+  return (
+    <Shape {...JUNCTION} {...props} _style={extendStyle(JUNCTION, props)} />
+  )
 }

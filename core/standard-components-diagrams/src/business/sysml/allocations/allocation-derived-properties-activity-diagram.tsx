@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM = {
   _style:
@@ -12,6 +12,13 @@ export function AllocationDerivedPropertiesActivityDiagram(
   props: DiagramNodeProps,
 ) {
   return (
-    <Shape {...ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM} {...props} />
+    <Shape
+      {...ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM}
+      {...props}
+      _style={extendStyle(
+        ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM,
+        props,
+      )}
+    />
   )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ChecklistSecurity } from '@reactiac/standard-components-diagrams/aws17ManagementTools'
+import { ChecklistSecurity } from '@diac/standard-components-diagrams/aws17ManagementTools'
 
 <ChecklistSecurity/>
 ```

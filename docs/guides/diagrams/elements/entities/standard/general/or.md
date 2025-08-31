@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Or } from '@reactiac/standard-components-diagrams/general'
+import { Or } from '@diac/standard-components-diagrams/general'
 
 <Or/>
 ```

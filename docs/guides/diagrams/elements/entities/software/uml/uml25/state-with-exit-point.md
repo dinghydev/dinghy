@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StateWithExitPoint } from '@reactiac/standard-components-diagrams/uml25'
+import { StateWithExitPoint } from '@diac/standard-components-diagrams/uml25'
 
 <StateWithExitPoint/>
 ```

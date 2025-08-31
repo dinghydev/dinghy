@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ADFTY = {
   _style:
@@ -9,5 +9,5 @@ export const ADFTY = {
 }
 
 export function Adfty(props: DiagramNodeProps) {
-  return <Shape {...ADFTY} {...props} />
+  return <Shape {...ADFTY} {...props} _style={extendStyle(ADFTY, props)} />
 }

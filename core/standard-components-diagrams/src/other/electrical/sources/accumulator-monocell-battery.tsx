@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACCUMULATOR_MONOCELL_BATTERY = {
   _style:
@@ -9,5 +9,11 @@ export const ACCUMULATOR_MONOCELL_BATTERY = {
 }
 
 export function AccumulatorMonocellBattery(props: DiagramNodeProps) {
-  return <Shape {...ACCUMULATOR_MONOCELL_BATTERY} {...props} />
+  return (
+    <Shape
+      {...ACCUMULATOR_MONOCELL_BATTERY}
+      {...props}
+      _style={extendStyle(ACCUMULATOR_MONOCELL_BATTERY, props)}
+    />
+  )
 }

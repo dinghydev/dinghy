@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FEDERATION_TRUST = {
   _style:
@@ -9,5 +9,11 @@ export const FEDERATION_TRUST = {
 }
 
 export function FederationTrust(props: DiagramNodeProps) {
-  return <Shape {...FEDERATION_TRUST} {...props} />
+  return (
+    <Shape
+      {...FEDERATION_TRUST}
+      {...props}
+      _style={extendStyle(FEDERATION_TRUST, props)}
+    />
+  )
 }

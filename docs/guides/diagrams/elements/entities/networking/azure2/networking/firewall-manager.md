@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FirewallManager } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { FirewallManager } from '@diac/standard-components-diagrams/azure2Networking'
 
 <FirewallManager/>
 ```

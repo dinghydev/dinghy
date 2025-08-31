@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CONDITIONAL_SEQUENCE_FLOW = {
   _style: {
@@ -9,5 +9,11 @@ export const CONDITIONAL_SEQUENCE_FLOW = {
 }
 
 export function ConditionalSequenceFlow(props: DiagramNodeProps) {
-  return <Dependency {...CONDITIONAL_SEQUENCE_FLOW} {...props} />
+  return (
+    <Dependency
+      {...CONDITIONAL_SEQUENCE_FLOW}
+      {...props}
+      _style={extendStyle(CONDITIONAL_SEQUENCE_FLOW, props)}
+    />
+  )
 }

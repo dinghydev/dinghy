@@ -14,7 +14,7 @@ Compute Engine
 ## Usage
 
 ```
-import { MigrateForComputeEngine } from '@reactiac/standard-components-diagrams/gcp2IconsMigration'
+import { MigrateForComputeEngine } from '@diac/standard-components-diagrams/gcp2IconsMigration'
 
 <MigrateForComputeEngine/>
 ```

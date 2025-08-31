@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MultiTenancy } from '@reactiac/standard-components-diagrams/azure2Azure2Stack'
+import { MultiTenancy } from '@diac/standard-components-diagrams/azure2Azure2Stack'
 
 <MultiTenancy/>
 ```

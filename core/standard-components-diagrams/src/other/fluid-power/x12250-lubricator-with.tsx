@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12250_LUBRICATOR_WITH = {
   _style:
@@ -9,5 +9,11 @@ export const X12250_LUBRICATOR_WITH = {
 }
 
 export function X12250LubricatorWith(props: DiagramNodeProps) {
-  return <Shape {...X12250_LUBRICATOR_WITH} {...props} />
+  return (
+    <Shape
+      {...X12250_LUBRICATOR_WITH}
+      {...props}
+      _style={extendStyle(X12250_LUBRICATOR_WITH, props)}
+    />
+  )
 }

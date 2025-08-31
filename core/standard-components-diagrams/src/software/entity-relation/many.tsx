@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MANY = {
   _style: {
@@ -9,5 +9,5 @@ export const MANY = {
 }
 
 export function Many(props: DiagramNodeProps) {
-  return <Dependency {...MANY} {...props} />
+  return <Dependency {...MANY} {...props} _style={extendStyle(MANY, props)} />
 }

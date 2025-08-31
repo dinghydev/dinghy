@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NEON_LAMP = {
   _style:
@@ -9,5 +9,7 @@ export const NEON_LAMP = {
 }
 
 export function NeonLamp(props: DiagramNodeProps) {
-  return <Shape {...NEON_LAMP} {...props} />
+  return (
+    <Shape {...NEON_LAMP} {...props} _style={extendStyle(NEON_LAMP, props)} />
+  )
 }

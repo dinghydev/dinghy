@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X12160_AIR_CONDITIONING = {
   _style:
@@ -9,5 +9,11 @@ export const X12160_AIR_CONDITIONING = {
 }
 
 export function X12160AirConditioning(props: DiagramNodeProps) {
-  return <Shape {...X12160_AIR_CONDITIONING} {...props} />
+  return (
+    <Shape
+      {...X12160_AIR_CONDITIONING}
+      {...props}
+      _style={extendStyle(X12160_AIR_CONDITIONING, props)}
+    />
+  )
 }

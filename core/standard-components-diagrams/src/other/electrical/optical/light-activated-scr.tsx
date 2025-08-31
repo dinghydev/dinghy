@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIGHT_ACTIVATED_SCR = {
   _style:
@@ -9,5 +9,11 @@ export const LIGHT_ACTIVATED_SCR = {
 }
 
 export function LightActivatedScr(props: DiagramNodeProps) {
-  return <Shape {...LIGHT_ACTIVATED_SCR} {...props} />
+  return (
+    <Shape
+      {...LIGHT_ACTIVATED_SCR}
+      {...props}
+      _style={extendStyle(LIGHT_ACTIVATED_SCR, props)}
+    />
+  )
 }

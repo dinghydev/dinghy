@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PEERING_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const PEERING_SERVICE = {
 }
 
 export function PeeringService(props: DiagramNodeProps) {
-  return <Shape {...PEERING_SERVICE} {...props} />
+  return (
+    <Shape
+      {...PEERING_SERVICE}
+      {...props}
+      _style={extendStyle(PEERING_SERVICE, props)}
+    />
+  )
 }

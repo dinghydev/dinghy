@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LATCHING_DEVICE = {
   _style:
@@ -9,5 +9,11 @@ export const LATCHING_DEVICE = {
 }
 
 export function LatchingDevice(props: DiagramNodeProps) {
-  return <Shape {...LATCHING_DEVICE} {...props} />
+  return (
+    <Shape
+      {...LATCHING_DEVICE}
+      {...props}
+      _style={extendStyle(LATCHING_DEVICE, props)}
+    />
+  )
 }

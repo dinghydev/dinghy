@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DIVING = {
   _style:
@@ -9,5 +9,5 @@ export const DIVING = {
 }
 
 export function Diving(props: DiagramNodeProps) {
-  return <Shape {...DIVING} {...props} />
+  return <Shape {...DIVING} {...props} _style={extendStyle(DIVING, props)} />
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CompactTextField2 } from '@reactiac/standard-components-diagrams/atlassian'
+import { CompactTextField2 } from '@diac/standard-components-diagrams/atlassian'
 
 <CompactTextField2/>
 ```

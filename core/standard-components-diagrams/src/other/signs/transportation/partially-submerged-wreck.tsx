@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PARTIALLY_SUBMERGED_WRECK = {
   _style:
@@ -9,5 +9,11 @@ export const PARTIALLY_SUBMERGED_WRECK = {
 }
 
 export function PartiallySubmergedWreck(props: DiagramNodeProps) {
-  return <Shape {...PARTIALLY_SUBMERGED_WRECK} {...props} />
+  return (
+    <Shape
+      {...PARTIALLY_SUBMERGED_WRECK}
+      {...props}
+      _style={extendStyle(PARTIALLY_SUBMERGED_WRECK, props)}
+    />
+  )
 }

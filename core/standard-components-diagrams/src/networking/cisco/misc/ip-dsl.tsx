@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IP_DSL = {
   _style:
@@ -9,5 +9,5 @@ export const IP_DSL = {
 }
 
 export function IpDsl(props: DiagramNodeProps) {
-  return <Shape {...IP_DSL} {...props} />
+  return <Shape {...IP_DSL} {...props} _style={extendStyle(IP_DSL, props)} />
 }

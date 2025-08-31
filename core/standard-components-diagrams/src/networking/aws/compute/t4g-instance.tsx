@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const T4G_INSTANCE = {
   _style:
@@ -9,5 +9,11 @@ export const T4G_INSTANCE = {
 }
 
 export function T4gInstance(props: DiagramNodeProps) {
-  return <Shape {...T4G_INSTANCE} {...props} />
+  return (
+    <Shape
+      {...T4G_INSTANCE}
+      {...props}
+      _style={extendStyle(T4G_INSTANCE, props)}
+    />
+  )
 }

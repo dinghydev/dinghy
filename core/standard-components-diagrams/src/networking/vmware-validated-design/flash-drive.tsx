@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FLASH_DRIVE = {
   _style:
@@ -9,5 +9,11 @@ export const FLASH_DRIVE = {
 }
 
 export function FlashDrive(props: DiagramNodeProps) {
-  return <Shape {...FLASH_DRIVE} {...props} />
+  return (
+    <Shape
+      {...FLASH_DRIVE}
+      {...props}
+      _style={extendStyle(FLASH_DRIVE, props)}
+    />
+  )
 }

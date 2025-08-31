@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AppWithChanges } from '@reactiac/standard-components-diagrams/caeOmsFlat'
+import { AppWithChanges } from '@diac/standard-components-diagrams/caeOmsFlat'
 
 <AppWithChanges/>
 ```

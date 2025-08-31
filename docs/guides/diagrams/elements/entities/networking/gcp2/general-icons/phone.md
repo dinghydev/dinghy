@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Phone } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { Phone } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <Phone/>
 ```

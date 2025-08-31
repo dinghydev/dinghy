@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { EfsShare } from '@reactiac/standard-components-diagrams/aws17Storage'
+import { EfsShare } from '@diac/standard-components-diagrams/aws17Storage'
 
 <EfsShare/>
 ```

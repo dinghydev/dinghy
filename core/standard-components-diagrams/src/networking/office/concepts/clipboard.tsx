@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLIPBOARD = {
   _style:
@@ -9,5 +9,7 @@ export const CLIPBOARD = {
 }
 
 export function Clipboard(props: DiagramNodeProps) {
-  return <Shape {...CLIPBOARD} {...props} />
+  return (
+    <Shape {...CLIPBOARD} {...props} _style={extendStyle(CLIPBOARD, props)} />
+  )
 }

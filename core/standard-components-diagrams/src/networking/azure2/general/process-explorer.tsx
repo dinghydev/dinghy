@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PROCESS_EXPLORER = {
   _style:
@@ -9,5 +9,11 @@ export const PROCESS_EXPLORER = {
 }
 
 export function ProcessExplorer(props: DiagramNodeProps) {
-  return <Shape {...PROCESS_EXPLORER} {...props} />
+  return (
+    <Shape
+      {...PROCESS_EXPLORER}
+      {...props}
+      _style={extendStyle(PROCESS_EXPLORER, props)}
+    />
+  )
 }

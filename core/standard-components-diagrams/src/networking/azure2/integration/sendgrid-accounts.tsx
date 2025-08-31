@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SENDGRID_ACCOUNTS = {
   _style:
@@ -9,5 +9,11 @@ export const SENDGRID_ACCOUNTS = {
 }
 
 export function SendgridAccounts(props: DiagramNodeProps) {
-  return <Shape {...SENDGRID_ACCOUNTS} {...props} />
+  return (
+    <Shape
+      {...SENDGRID_ACCOUNTS}
+      {...props}
+      _style={extendStyle(SENDGRID_ACCOUNTS, props)}
+    />
+  )
 }

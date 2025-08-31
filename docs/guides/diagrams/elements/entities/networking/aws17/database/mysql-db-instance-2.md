@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MysqlDbInstance2 } from '@reactiac/standard-components-diagrams/aws17Database'
+import { MysqlDbInstance2 } from '@diac/standard-components-diagrams/aws17Database'
 
 <MysqlDbInstance2/>
 ```

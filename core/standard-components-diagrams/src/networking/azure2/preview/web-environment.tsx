@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const WEB_ENVIRONMENT = {
   _style:
@@ -9,5 +9,11 @@ export const WEB_ENVIRONMENT = {
 }
 
 export function WebEnvironment(props: DiagramNodeProps) {
-  return <Shape {...WEB_ENVIRONMENT} {...props} />
+  return (
+    <Shape
+      {...WEB_ENVIRONMENT}
+      {...props}
+      _style={extendStyle(WEB_ENVIRONMENT, props)}
+    />
+  )
 }

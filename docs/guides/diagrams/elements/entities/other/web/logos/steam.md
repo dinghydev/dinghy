@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Steam } from '@reactiac/standard-components-diagrams/webLogos'
+import { Steam } from '@diac/standard-components-diagrams/webLogos'
 
 <Steam/>
 ```

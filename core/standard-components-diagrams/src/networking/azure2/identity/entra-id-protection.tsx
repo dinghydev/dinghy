@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ENTRA_ID_PROTECTION = {
   _style:
@@ -9,5 +9,11 @@ export const ENTRA_ID_PROTECTION = {
 }
 
 export function EntraIdProtection(props: DiagramNodeProps) {
-  return <Shape {...ENTRA_ID_PROTECTION} {...props} />
+  return (
+    <Shape
+      {...ENTRA_ID_PROTECTION}
+      {...props}
+      _style={extendStyle(ENTRA_ID_PROTECTION, props)}
+    />
+  )
 }

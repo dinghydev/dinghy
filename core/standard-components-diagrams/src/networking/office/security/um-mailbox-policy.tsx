@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UM_MAILBOX_POLICY = {
   _style:
@@ -9,5 +9,11 @@ export const UM_MAILBOX_POLICY = {
 }
 
 export function UmMailboxPolicy(props: DiagramNodeProps) {
-  return <Shape {...UM_MAILBOX_POLICY} {...props} />
+  return (
+    <Shape
+      {...UM_MAILBOX_POLICY}
+      {...props}
+      _style={extendStyle(UM_MAILBOX_POLICY, props)}
+    />
+  )
 }

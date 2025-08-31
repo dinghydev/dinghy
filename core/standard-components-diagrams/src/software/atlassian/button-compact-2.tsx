@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BUTTON_COMPACT_2 = {
   _style: 'shape=ellipse;fillColor=#596780;strokeColor=none;html=1;sketch=0;',
@@ -8,5 +8,11 @@ export const BUTTON_COMPACT_2 = {
 }
 
 export function ButtonCompact2(props: DiagramNodeProps) {
-  return <Shape {...BUTTON_COMPACT_2} {...props} />
+  return (
+    <Shape
+      {...BUTTON_COMPACT_2}
+      {...props}
+      _style={extendStyle(BUTTON_COMPACT_2, props)}
+    />
+  )
 }

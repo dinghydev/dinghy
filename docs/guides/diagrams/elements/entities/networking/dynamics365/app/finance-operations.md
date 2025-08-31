@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FinanceOperations } from '@reactiac/standard-components-diagrams/dynamics365App'
+import { FinanceOperations } from '@diac/standard-components-diagrams/dynamics365App'
 
 <FinanceOperations/>
 ```

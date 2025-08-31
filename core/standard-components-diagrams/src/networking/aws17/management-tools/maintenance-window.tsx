@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MAINTENANCE_WINDOW = {
   _style:
@@ -9,5 +9,11 @@ export const MAINTENANCE_WINDOW = {
 }
 
 export function MaintenanceWindow(props: DiagramNodeProps) {
-  return <Shape {...MAINTENANCE_WINDOW} {...props} />
+  return (
+    <Shape
+      {...MAINTENANCE_WINDOW}
+      {...props}
+      _style={extendStyle(MAINTENANCE_WINDOW, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VmTurnOnOff } from '@reactiac/standard-components-diagrams/veeam2DataCenter'
+import { VmTurnOnOff } from '@diac/standard-components-diagrams/veeam2DataCenter'
 
 <VmTurnOnOff/>
 ```

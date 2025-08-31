@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LOOP = {
   _style: 'html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.loop',
@@ -8,5 +8,5 @@ export const LOOP = {
 }
 
 export function Loop(props: DiagramNodeProps) {
-  return <Shape {...LOOP} {...props} />
+  return <Shape {...LOOP} {...props} _style={extendStyle(LOOP, props)} />
 }

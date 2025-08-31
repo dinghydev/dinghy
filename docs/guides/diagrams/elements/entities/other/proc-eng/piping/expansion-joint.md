@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExpansionJoint } from '@reactiac/standard-components-diagrams/procEngPiping'
+import { ExpansionJoint } from '@diac/standard-components-diagrams/procEngPiping'
 
 <ExpansionJoint/>
 ```

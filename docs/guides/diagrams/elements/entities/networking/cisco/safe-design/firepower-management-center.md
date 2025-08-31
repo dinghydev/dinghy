@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FirepowerManagementCenter } from '@reactiac/standard-components-diagrams/ciscoSafeDesign'
+import { FirepowerManagementCenter } from '@diac/standard-components-diagrams/ciscoSafeDesign'
 
 <FirepowerManagementCenter/>
 ```

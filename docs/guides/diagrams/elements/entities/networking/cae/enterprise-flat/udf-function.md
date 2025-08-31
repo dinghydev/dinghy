@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UdfFunction } from '@reactiac/standard-components-diagrams/caeEnterpriseFlat'
+import { UdfFunction } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
 
 <UdfFunction/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_CONNECTED_INSIGHT = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_CONNECTED_INSIGHT = {
 }
 
 export function CloudConnectedInsight(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_CONNECTED_INSIGHT} {...props} />
+  return (
+    <Shape
+      {...CLOUD_CONNECTED_INSIGHT}
+      {...props}
+      _style={extendStyle(CLOUD_CONNECTED_INSIGHT, props)}
+    />
+  )
 }

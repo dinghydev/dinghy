@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConnectorGrey2 } from '@reactiac/standard-components-diagrams/veeam2Auxiliary'
+import { ConnectorGrey2 } from '@diac/standard-components-diagrams/veeam2Auxiliary'
 
 <ConnectorGrey2/>
 ```

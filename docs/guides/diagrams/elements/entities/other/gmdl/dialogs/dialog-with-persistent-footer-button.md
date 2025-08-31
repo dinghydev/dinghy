@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DialogWithPersistentFooterButton } from '@reactiac/standard-components-diagrams/gmdlDialogs'
+import { DialogWithPersistentFooterButton } from '@diac/standard-components-diagrams/gmdlDialogs'
 
 <DialogWithPersistentFooterButton/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InformationDataCarrierSopStopState } from '@reactiac/standard-components-diagrams/dataFlowDiagram'
+import { InformationDataCarrierSopStopState } from '@diac/standard-components-diagrams/dataFlowDiagram'
 
 <InformationDataCarrierSopStopState/>
 ```

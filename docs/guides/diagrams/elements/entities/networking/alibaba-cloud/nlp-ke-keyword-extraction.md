@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NlpKeKeywordExtraction } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { NlpKeKeywordExtraction } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <NlpKeKeywordExtraction/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STACK_EDGE = {
   _style:
@@ -9,5 +9,7 @@ export const STACK_EDGE = {
 }
 
 export function StackEdge(props: DiagramNodeProps) {
-  return <Shape {...STACK_EDGE} {...props} />
+  return (
+    <Shape {...STACK_EDGE} {...props} _style={extendStyle(STACK_EDGE, props)} />
+  )
 }

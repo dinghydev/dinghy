@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ServiceDiscoveryConfiguration } from '@reactiac/standard-components-diagrams/ibmInfrastructure'
+import { ServiceDiscoveryConfiguration } from '@diac/standard-components-diagrams/ibmInfrastructure'
 
 <ServiceDiscoveryConfiguration/>
 ```

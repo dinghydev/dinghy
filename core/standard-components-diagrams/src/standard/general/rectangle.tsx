@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RECTANGLE = {
   _style: 'rounded=0;whiteSpace=wrap;html=1;',
@@ -8,5 +8,7 @@ export const RECTANGLE = {
 }
 
 export function Rectangle(props: DiagramNodeProps) {
-  return <Shape {...RECTANGLE} {...props} />
+  return (
+    <Shape {...RECTANGLE} {...props} _style={extendStyle(RECTANGLE, props)} />
+  )
 }

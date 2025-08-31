@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ColumnChart } from '@reactiac/standard-components-diagrams/mockupGraphics'
+import { ColumnChart } from '@diac/standard-components-diagrams/mockupGraphics'
 
 <ColumnChart/>
 ```

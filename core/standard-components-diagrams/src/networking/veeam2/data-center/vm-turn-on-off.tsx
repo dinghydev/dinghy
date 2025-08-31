@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VM_TURN_ON_OFF = {
   _style:
@@ -9,5 +9,11 @@ export const VM_TURN_ON_OFF = {
 }
 
 export function VmTurnOnOff(props: DiagramNodeProps) {
-  return <Shape {...VM_TURN_ON_OFF} {...props} />
+  return (
+    <Shape
+      {...VM_TURN_ON_OFF}
+      {...props}
+      _style={extendStyle(VM_TURN_ON_OFF, props)}
+    />
+  )
 }

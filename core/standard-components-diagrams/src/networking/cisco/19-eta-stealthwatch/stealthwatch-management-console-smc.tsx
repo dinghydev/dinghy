@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEALTHWATCH_MANAGEMENT_CONSOLE_SMC = {
   _style:
@@ -9,5 +9,11 @@ export const STEALTHWATCH_MANAGEMENT_CONSOLE_SMC = {
 }
 
 export function StealthwatchManagementConsoleSmc(props: DiagramNodeProps) {
-  return <Shape {...STEALTHWATCH_MANAGEMENT_CONSOLE_SMC} {...props} />
+  return (
+    <Shape
+      {...STEALTHWATCH_MANAGEMENT_CONSOLE_SMC}
+      {...props}
+      _style={extendStyle(STEALTHWATCH_MANAGEMENT_CONSOLE_SMC, props)}
+    />
+  )
 }

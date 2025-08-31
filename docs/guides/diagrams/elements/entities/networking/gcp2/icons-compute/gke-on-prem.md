@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GkeOnPrem } from '@reactiac/standard-components-diagrams/gcp2IconsCompute'
+import { GkeOnPrem } from '@diac/standard-components-diagrams/gcp2IconsCompute'
 
 <GkeOnPrem/>
 ```

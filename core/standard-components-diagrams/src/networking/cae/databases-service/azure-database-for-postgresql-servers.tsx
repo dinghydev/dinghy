@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AZURE_DATABASE_FOR_POSTGRESQL_SERVERS = {
   _style:
@@ -9,5 +9,11 @@ export const AZURE_DATABASE_FOR_POSTGRESQL_SERVERS = {
 }
 
 export function AzureDatabaseForPostgresqlServers(props: DiagramNodeProps) {
-  return <Shape {...AZURE_DATABASE_FOR_POSTGRESQL_SERVERS} {...props} />
+  return (
+    <Shape
+      {...AZURE_DATABASE_FOR_POSTGRESQL_SERVERS}
+      {...props}
+      _style={extendStyle(AZURE_DATABASE_FOR_POSTGRESQL_SERVERS, props)}
+    />
+  )
 }

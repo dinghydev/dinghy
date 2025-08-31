@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PostgreSqlInstance } from '@reactiac/standard-components-diagrams/aws17Database'
+import { PostgreSqlInstance } from '@diac/standard-components-diagrams/aws17Database'
 
 <PostgreSqlInstance/>
 ```

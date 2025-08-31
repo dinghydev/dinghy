@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATA_SHARES = {
   _style:
@@ -9,5 +9,11 @@ export const DATA_SHARES = {
 }
 
 export function DataShares(props: DiagramNodeProps) {
-  return <Shape {...DATA_SHARES} {...props} />
+  return (
+    <Shape
+      {...DATA_SHARES}
+      {...props}
+      _style={extendStyle(DATA_SHARES, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IOTID_IDENTITY = {
   _style:
@@ -9,5 +9,11 @@ export const IOTID_IDENTITY = {
 }
 
 export function IotidIdentity(props: DiagramNodeProps) {
-  return <Shape {...IOTID_IDENTITY} {...props} />
+  return (
+    <Shape
+      {...IOTID_IDENTITY}
+      {...props}
+      _style={extendStyle(IOTID_IDENTITY, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ModifiersHighMemoryMachine } from '@reactiac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { ModifiersHighMemoryMachine } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <ModifiersHighMemoryMachine/>
 ```

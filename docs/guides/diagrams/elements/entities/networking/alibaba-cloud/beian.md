@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Beian } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Beian } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Beian/>
 ```

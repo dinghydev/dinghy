@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SONICO = {
   _style:
@@ -9,5 +9,5 @@ export const SONICO = {
 }
 
 export function Sonico(props: DiagramNodeProps) {
-  return <Shape {...SONICO} {...props} />
+  return <Shape {...SONICO} {...props} _style={extendStyle(SONICO, props)} />
 }

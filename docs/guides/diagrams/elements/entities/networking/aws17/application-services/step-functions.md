@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StepFunctions } from '@reactiac/standard-components-diagrams/aws17ApplicationServices'
+import { StepFunctions } from '@diac/standard-components-diagrams/aws17ApplicationServices'
 
 <StepFunctions/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DESIGNFLOAT = {
   _style:
@@ -9,5 +9,11 @@ export const DESIGNFLOAT = {
 }
 
 export function Designfloat(props: DiagramNodeProps) {
-  return <Shape {...DESIGNFLOAT} {...props} />
+  return (
+    <Shape
+      {...DESIGNFLOAT}
+      {...props}
+      _style={extendStyle(DESIGNFLOAT, props)}
+    />
+  )
 }

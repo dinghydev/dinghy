@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPONENT_6_POINT_STAR = {
   _style:
@@ -9,5 +9,11 @@ export const COMPONENT_6_POINT_STAR = {
 }
 
 export function Component6PointStar(props: DiagramNodeProps) {
-  return <Shape {...COMPONENT_6_POINT_STAR} {...props} />
+  return (
+    <Shape
+      {...COMPONENT_6_POINT_STAR}
+      {...props}
+      _style={extendStyle(COMPONENT_6_POINT_STAR, props)}
+    />
+  )
 }

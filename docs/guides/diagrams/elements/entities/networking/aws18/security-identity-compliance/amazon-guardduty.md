@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AmazonGuardduty } from '@reactiac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AmazonGuardduty } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AmazonGuardduty/>
 ```

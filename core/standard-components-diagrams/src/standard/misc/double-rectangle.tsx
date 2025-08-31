@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOUBLE_RECTANGLE = {
   _style: 'shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;',
@@ -8,5 +8,11 @@ export const DOUBLE_RECTANGLE = {
 }
 
 export function DoubleRectangle(props: DiagramNodeProps) {
-  return <Shape {...DOUBLE_RECTANGLE} {...props} />
+  return (
+    <Shape
+      {...DOUBLE_RECTANGLE}
+      {...props}
+      _style={extendStyle(DOUBLE_RECTANGLE, props)}
+    />
+  )
 }

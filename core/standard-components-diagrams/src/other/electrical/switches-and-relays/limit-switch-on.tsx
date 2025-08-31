@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIMIT_SWITCH_ON = {
   _style:
@@ -9,5 +9,11 @@ export const LIMIT_SWITCH_ON = {
 }
 
 export function LimitSwitchOn(props: DiagramNodeProps) {
-  return <Shape {...LIMIT_SWITCH_ON} {...props} />
+  return (
+    <Shape
+      {...LIMIT_SWITCH_ON}
+      {...props}
+      _style={extendStyle(LIMIT_SWITCH_ON, props)}
+    />
+  )
 }

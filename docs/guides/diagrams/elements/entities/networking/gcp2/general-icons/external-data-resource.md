@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ExternalDataResource } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { ExternalDataResource } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <ExternalDataResource/>
 ```

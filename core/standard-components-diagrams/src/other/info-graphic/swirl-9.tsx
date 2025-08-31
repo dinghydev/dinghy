@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SWIRL_9 = {
   _style:
@@ -9,5 +9,5 @@ export const SWIRL_9 = {
 }
 
 export function Swirl9(props: DiagramNodeProps) {
-  return <Shape {...SWIRL_9} {...props} />
+  return <Shape {...SWIRL_9} {...props} _style={extendStyle(SWIRL_9, props)} />
 }

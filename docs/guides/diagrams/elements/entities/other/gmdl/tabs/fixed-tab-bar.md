@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FixedTabBar } from '@reactiac/standard-components-diagrams/gmdlTabs'
+import { FixedTabBar } from '@diac/standard-components-diagrams/gmdlTabs'
 
 <FixedTabBar/>
 ```

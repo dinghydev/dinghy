@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { RouteTables } from '@reactiac/standard-components-diagrams/azure2Networking'
+import { RouteTables } from '@diac/standard-components-diagrams/azure2Networking'
 
 <RouteTables/>
 ```

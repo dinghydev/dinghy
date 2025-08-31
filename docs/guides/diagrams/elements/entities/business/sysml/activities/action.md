@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Action } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { Action } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <Action/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RECOVERY_SERVICES_VAULTS = {
   _style:
@@ -9,5 +9,11 @@ export const RECOVERY_SERVICES_VAULTS = {
 }
 
 export function RecoveryServicesVaults(props: DiagramNodeProps) {
-  return <Shape {...RECOVERY_SERVICES_VAULTS} {...props} />
+  return (
+    <Shape
+      {...RECOVERY_SERVICES_VAULTS}
+      {...props}
+      _style={extendStyle(RECOVERY_SERVICES_VAULTS, props)}
+    />
+  )
 }

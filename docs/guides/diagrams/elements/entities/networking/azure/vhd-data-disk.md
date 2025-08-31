@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VhdDataDisk } from '@reactiac/standard-components-diagrams/azure'
+import { VhdDataDisk } from '@diac/standard-components-diagrams/azure'
 
 <VhdDataDisk/>
 ```

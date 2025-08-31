@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CURRENT_LOCATION = {
   _style:
@@ -9,5 +9,11 @@ export const CURRENT_LOCATION = {
 }
 
 export function CurrentLocation(props: DiagramNodeProps) {
-  return <Shape {...CURRENT_LOCATION} {...props} />
+  return (
+    <Shape
+      {...CURRENT_LOCATION}
+      {...props}
+      _style={extendStyle(CURRENT_LOCATION, props)}
+    />
+  )
 }

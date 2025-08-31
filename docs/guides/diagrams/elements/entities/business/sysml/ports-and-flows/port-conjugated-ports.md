@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PortConjugatedPorts } from '@reactiac/standard-components-diagrams/sysmlPortsAndFlows'
+import { PortConjugatedPorts } from '@diac/standard-components-diagrams/sysmlPortsAndFlows'
 
 <PortConjugatedPorts/>
 ```

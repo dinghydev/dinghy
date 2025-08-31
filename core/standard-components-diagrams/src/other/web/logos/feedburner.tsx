@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FEEDBURNER = {
   _style:
@@ -9,5 +9,7 @@ export const FEEDBURNER = {
 }
 
 export function Feedburner(props: DiagramNodeProps) {
-  return <Shape {...FEEDBURNER} {...props} />
+  return (
+    <Shape {...FEEDBURNER} {...props} _style={extendStyle(FEEDBURNER, props)} />
+  )
 }

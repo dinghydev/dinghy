@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Cloud5 } from '@reactiac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { Cloud5 } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <Cloud5/>
 ```

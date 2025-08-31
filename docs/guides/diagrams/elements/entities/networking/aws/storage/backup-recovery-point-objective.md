@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BackupRecoveryPointObjective } from '@reactiac/standard-components-diagrams/awsStorage'
+import { BackupRecoveryPointObjective } from '@diac/standard-components-diagrams/awsStorage'
 
 <BackupRecoveryPointObjective/>
 ```

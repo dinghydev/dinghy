@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BADGE_INFO = {
   _style:
@@ -9,5 +9,7 @@ export const BADGE_INFO = {
 }
 
 export function BadgeInfo(props: DiagramNodeProps) {
-  return <Shape {...BADGE_INFO} {...props} />
+  return (
+    <Shape {...BADGE_INFO} {...props} _style={extendStyle(BADGE_INFO, props)} />
+  )
 }

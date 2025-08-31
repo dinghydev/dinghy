@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LastFm } from '@reactiac/standard-components-diagrams/webLogos'
+import { LastFm } from '@diac/standard-components-diagrams/webLogos'
 
 <LastFm/>
 ```

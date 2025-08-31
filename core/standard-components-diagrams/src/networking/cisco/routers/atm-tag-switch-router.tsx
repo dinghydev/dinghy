@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ATM_TAG_SWITCH_ROUTER = {
   _style:
@@ -9,5 +9,11 @@ export const ATM_TAG_SWITCH_ROUTER = {
 }
 
 export function AtmTagSwitchRouter(props: DiagramNodeProps) {
-  return <Shape {...ATM_TAG_SWITCH_ROUTER} {...props} />
+  return (
+    <Shape
+      {...ATM_TAG_SWITCH_ROUTER}
+      {...props}
+      _style={extendStyle(ATM_TAG_SWITCH_ROUTER, props)}
+    />
+  )
 }

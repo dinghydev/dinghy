@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Router } from '@reactiac/standard-components-diagrams/ibmVpc'
+import { Router } from '@diac/standard-components-diagrams/ibmVpc'
 
 <Router/>
 ```

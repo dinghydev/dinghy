@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MATRIX_3X3_2 = {
   _style:
@@ -9,5 +9,11 @@ export const MATRIX_3X3_2 = {
 }
 
 export function Matrix3x32(props: DiagramNodeProps) {
-  return <Shape {...MATRIX_3X3_2} {...props} />
+  return (
+    <Shape
+      {...MATRIX_3X3_2}
+      {...props}
+      _style={extendStyle(MATRIX_3X3_2, props)}
+    />
+  )
 }

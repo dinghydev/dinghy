@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Unit } from '@reactiac/standard-components-diagrams/sysmlBlocks'
+import { Unit } from '@diac/standard-components-diagrams/sysmlBlocks'
 
 <Unit/>
 ```

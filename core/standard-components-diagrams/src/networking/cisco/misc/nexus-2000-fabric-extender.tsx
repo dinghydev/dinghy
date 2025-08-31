@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NEXUS_2000_FABRIC_EXTENDER = {
   _style:
@@ -9,5 +9,11 @@ export const NEXUS_2000_FABRIC_EXTENDER = {
 }
 
 export function Nexus2000FabricExtender(props: DiagramNodeProps) {
-  return <Shape {...NEXUS_2000_FABRIC_EXTENDER} {...props} />
+  return (
+    <Shape
+      {...NEXUS_2000_FABRIC_EXTENDER}
+      {...props}
+      _style={extendStyle(NEXUS_2000_FABRIC_EXTENDER, props)}
+    />
+  )
 }

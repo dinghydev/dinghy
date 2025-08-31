@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const OVER_THE_AIR_UPDATE = {
   _style:
@@ -9,5 +9,11 @@ export const OVER_THE_AIR_UPDATE = {
 }
 
 export function OverTheAirUpdate(props: DiagramNodeProps) {
-  return <Shape {...OVER_THE_AIR_UPDATE} {...props} />
+  return (
+    <Shape
+      {...OVER_THE_AIR_UPDATE}
+      {...props}
+      _style={extendStyle(OVER_THE_AIR_UPDATE, props)}
+    />
+  )
 }

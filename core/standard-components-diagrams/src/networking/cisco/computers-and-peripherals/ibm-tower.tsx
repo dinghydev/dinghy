@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const IBM_TOWER = {
   _style:
@@ -9,5 +9,7 @@ export const IBM_TOWER = {
 }
 
 export function IbmTower(props: DiagramNodeProps) {
-  return <Shape {...IBM_TOWER} {...props} />
+  return (
+    <Shape {...IBM_TOWER} {...props} _style={extendStyle(IBM_TOWER, props)} />
+  )
 }

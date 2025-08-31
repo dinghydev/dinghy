@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PMC = {
   _style:
@@ -9,5 +9,5 @@ export const PMC = {
 }
 
 export function Pmc(props: DiagramNodeProps) {
-  return <Shape {...PMC} {...props} />
+  return <Shape {...PMC} {...props} _style={extendStyle(PMC, props)} />
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EXPANSION_JOINT = {
   _style:
@@ -9,5 +9,11 @@ export const EXPANSION_JOINT = {
 }
 
 export function ExpansionJoint(props: DiagramNodeProps) {
-  return <Shape {...EXPANSION_JOINT} {...props} />
+  return (
+    <Shape
+      {...EXPANSION_JOINT}
+      {...props}
+      _style={extendStyle(EXPANSION_JOINT, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Viddler } from '@reactiac/standard-components-diagrams/webIcons'
+import { Viddler } from '@diac/standard-components-diagrams/webIcons'
 
 <Viddler/>
 ```

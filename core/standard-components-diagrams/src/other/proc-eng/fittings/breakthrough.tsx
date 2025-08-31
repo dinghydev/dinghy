@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BREAKTHROUGH = {
   _style:
@@ -9,5 +9,11 @@ export const BREAKTHROUGH = {
 }
 
 export function Breakthrough(props: DiagramNodeProps) {
-  return <Shape {...BREAKTHROUGH} {...props} />
+  return (
+    <Shape
+      {...BREAKTHROUGH}
+      {...props}
+      _style={extendStyle(BREAKTHROUGH, props)}
+    />
+  )
 }

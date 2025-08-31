@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PULSATION_DAMPENER = {
   _style:
@@ -9,5 +9,11 @@ export const PULSATION_DAMPENER = {
 }
 
 export function PulsationDampener(props: DiagramNodeProps) {
-  return <Shape {...PULSATION_DAMPENER} {...props} />
+  return (
+    <Shape
+      {...PULSATION_DAMPENER}
+      {...props}
+      _style={extendStyle(PULSATION_DAMPENER, props)}
+    />
+  )
 }

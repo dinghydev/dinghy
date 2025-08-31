@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LIMED_SPRUCE = {
   _style:
@@ -9,5 +9,11 @@ export const LIMED_SPRUCE = {
 }
 
 export function LimedSpruce(props: DiagramNodeProps) {
-  return <Shape {...LIMED_SPRUCE} {...props} />
+  return (
+    <Shape
+      {...LIMED_SPRUCE}
+      {...props}
+      _style={extendStyle(LIMED_SPRUCE, props)}
+    />
+  )
 }

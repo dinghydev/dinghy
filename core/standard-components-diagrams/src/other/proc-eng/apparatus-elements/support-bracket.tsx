@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUPPORT_BRACKET = {
   _style:
@@ -9,5 +9,11 @@ export const SUPPORT_BRACKET = {
 }
 
 export function SupportBracket(props: DiagramNodeProps) {
-  return <Shape {...SUPPORT_BRACKET} {...props} />
+  return (
+    <Shape
+      {...SUPPORT_BRACKET}
+      {...props}
+      _style={extendStyle(SUPPORT_BRACKET, props)}
+    />
+  )
 }

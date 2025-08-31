@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_TRANSLATE = {
   _style:
@@ -9,5 +9,11 @@ export const AMAZON_TRANSLATE = {
 }
 
 export function AmazonTranslate(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_TRANSLATE} {...props} />
+  return (
+    <Shape
+      {...AMAZON_TRANSLATE}
+      {...props}
+      _style={extendStyle(AMAZON_TRANSLATE, props)}
+    />
+  )
 }

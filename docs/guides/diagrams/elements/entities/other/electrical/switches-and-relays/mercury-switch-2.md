@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MercurySwitch2 } from '@reactiac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { MercurySwitch2 } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <MercurySwitch2/>
 ```

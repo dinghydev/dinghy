@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HcsHgwHybridCloudStorageArray } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { HcsHgwHybridCloudStorageArray } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <HcsHgwHybridCloudStorageArray/>
 ```

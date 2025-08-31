@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X10810_ELECTRO_HYDRAULIC_LINEAR = {
   _style:
@@ -9,5 +9,11 @@ export const X10810_ELECTRO_HYDRAULIC_LINEAR = {
 }
 
 export function X10810ElectroHydraulicLinear(props: DiagramNodeProps) {
-  return <Shape {...X10810_ELECTRO_HYDRAULIC_LINEAR} {...props} />
+  return (
+    <Shape
+      {...X10810_ELECTRO_HYDRAULIC_LINEAR}
+      {...props}
+      _style={extendStyle(X10810_ELECTRO_HYDRAULIC_LINEAR, props)}
+    />
+  )
 }

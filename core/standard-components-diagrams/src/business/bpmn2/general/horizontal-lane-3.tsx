@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const HORIZONTAL_LANE_3 = {
   _style:
@@ -9,5 +9,11 @@ export const HORIZONTAL_LANE_3 = {
 }
 
 export function HorizontalLane3(props: DiagramNodeProps) {
-  return <Shape {...HORIZONTAL_LANE_3} {...props} />
+  return (
+    <Shape
+      {...HORIZONTAL_LANE_3}
+      {...props}
+      _style={extendStyle(HORIZONTAL_LANE_3, props)}
+    />
+  )
 }

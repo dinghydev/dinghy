@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INFORMATION_DATA_CARRIER_SOP_STOP_STATE = {
   _style: 'triangle;whiteSpace=wrap;html=1;dashed=0;direction=south;',
@@ -8,5 +8,11 @@ export const INFORMATION_DATA_CARRIER_SOP_STOP_STATE = {
 }
 
 export function InformationDataCarrierSopStopState(props: DiagramNodeProps) {
-  return <Shape {...INFORMATION_DATA_CARRIER_SOP_STOP_STATE} {...props} />
+  return (
+    <Shape
+      {...INFORMATION_DATA_CARRIER_SOP_STOP_STATE}
+      {...props}
+      _style={extendStyle(INFORMATION_DATA_CARRIER_SOP_STOP_STATE, props)}
+    />
+  )
 }

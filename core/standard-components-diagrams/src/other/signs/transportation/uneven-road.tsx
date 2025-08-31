@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UNEVEN_ROAD = {
   _style:
@@ -9,5 +9,11 @@ export const UNEVEN_ROAD = {
 }
 
 export function UnevenRoad(props: DiagramNodeProps) {
-  return <Shape {...UNEVEN_ROAD} {...props} />
+  return (
+    <Shape
+      {...UNEVEN_ROAD}
+      {...props}
+      _style={extendStyle(UNEVEN_ROAD, props)}
+    />
+  )
 }

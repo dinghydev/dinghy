@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INTERRUPTIBLE_ACTIVITY_REGION_2 = {
   _style:
@@ -9,5 +9,11 @@ export const INTERRUPTIBLE_ACTIVITY_REGION_2 = {
 }
 
 export function InterruptibleActivityRegion2(props: DiagramNodeProps) {
-  return <Shape {...INTERRUPTIBLE_ACTIVITY_REGION_2} {...props} />
+  return (
+    <Shape
+      {...INTERRUPTIBLE_ACTIVITY_REGION_2}
+      {...props}
+      _style={extendStyle(INTERRUPTIBLE_ACTIVITY_REGION_2, props)}
+    />
+  )
 }

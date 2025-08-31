@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const MOOSE = {
   _style:
@@ -9,5 +9,5 @@ export const MOOSE = {
 }
 
 export function Moose(props: DiagramNodeProps) {
-  return <Shape {...MOOSE} {...props} />
+  return <Shape {...MOOSE} {...props} _style={extendStyle(MOOSE, props)} />
 }

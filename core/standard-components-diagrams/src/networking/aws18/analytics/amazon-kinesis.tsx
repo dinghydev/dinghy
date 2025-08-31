@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AMAZON_KINESIS = {
   _style:
@@ -9,5 +9,11 @@ export const AMAZON_KINESIS = {
 }
 
 export function AmazonKinesis(props: DiagramNodeProps) {
-  return <Shape {...AMAZON_KINESIS} {...props} />
+  return (
+    <Shape
+      {...AMAZON_KINESIS}
+      {...props}
+      _style={extendStyle(AMAZON_KINESIS, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { NamVirtualServiceBlade } from '@reactiac/standard-components-diagrams/cisco19NetworkManagement'
+import { NamVirtualServiceBlade } from '@diac/standard-components-diagrams/cisco19NetworkManagement'
 
 <NamVirtualServiceBlade/>
 ```

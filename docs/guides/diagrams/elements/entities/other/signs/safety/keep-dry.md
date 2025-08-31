@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KeepDry } from '@reactiac/standard-components-diagrams/signsSafety'
+import { KeepDry } from '@diac/standard-components-diagrams/signsSafety'
 
 <KeepDry/>
 ```

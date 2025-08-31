@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FsxFileGateway } from '@reactiac/standard-components-diagrams/awsStorage'
+import { FsxFileGateway } from '@diac/standard-components-diagrams/awsStorage'
 
 <FsxFileGateway/>
 ```

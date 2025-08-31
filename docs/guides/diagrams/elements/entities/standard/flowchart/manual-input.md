@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManualInput } from '@reactiac/standard-components-diagrams/flowchart'
+import { ManualInput } from '@diac/standard-components-diagrams/flowchart'
 
 <ManualInput/>
 ```

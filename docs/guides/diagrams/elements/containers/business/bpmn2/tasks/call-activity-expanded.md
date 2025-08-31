@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { CallActivityExpanded } from '@reactiac/standard-components-diagrams/bpmn2Tasks'
+import { CallActivityExpanded } from '@diac/standard-components-diagrams/bpmn2Tasks'
 
 <CallActivityExpanded/>
 ```

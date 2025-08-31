@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Roundtable } from '@reactiac/standard-components-diagrams/officeDevices'
+import { Roundtable } from '@diac/standard-components-diagrams/officeDevices'
 
 <Roundtable/>
 ```

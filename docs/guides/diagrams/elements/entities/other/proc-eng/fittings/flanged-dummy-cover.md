@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FlangedDummyCover } from '@reactiac/standard-components-diagrams/procEngFittings'
+import { FlangedDummyCover } from '@diac/standard-components-diagrams/procEngFittings'
 
 <FlangedDummyCover/>
 ```

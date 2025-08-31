@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ElasticTranscoder } from '@reactiac/standard-components-diagrams/aws17ApplicationServices'
+import { ElasticTranscoder } from '@diac/standard-components-diagrams/aws17ApplicationServices'
 
 <ElasticTranscoder/>
 ```

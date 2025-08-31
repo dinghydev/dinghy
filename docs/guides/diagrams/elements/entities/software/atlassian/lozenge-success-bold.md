@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LozengeSuccessBold } from '@reactiac/standard-components-diagrams/atlassian'
+import { LozengeSuccessBold } from '@diac/standard-components-diagrams/atlassian'
 
 <LozengeSuccessBold/>
 ```

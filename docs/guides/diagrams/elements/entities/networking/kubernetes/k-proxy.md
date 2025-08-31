@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { KProxy } from '@reactiac/standard-components-diagrams/kubernetes'
+import { KProxy } from '@diac/standard-components-diagrams/kubernetes'
 
 <KProxy/>
 ```

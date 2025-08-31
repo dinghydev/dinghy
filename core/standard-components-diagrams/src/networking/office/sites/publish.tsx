@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const PUBLISH = {
   _style:
@@ -9,5 +9,5 @@ export const PUBLISH = {
 }
 
 export function Publish(props: DiagramNodeProps) {
-  return <Shape {...PUBLISH} {...props} />
+  return <Shape {...PUBLISH} {...props} _style={extendStyle(PUBLISH, props)} />
 }

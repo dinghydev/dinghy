@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUDDIRECTORY = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUDDIRECTORY = {
 }
 
 export function Clouddirectory(props: DiagramNodeProps) {
-  return <Shape {...CLOUDDIRECTORY} {...props} />
+  return (
+    <Shape
+      {...CLOUDDIRECTORY}
+      {...props}
+      _style={extendStyle(CLOUDDIRECTORY, props)}
+    />
+  )
 }

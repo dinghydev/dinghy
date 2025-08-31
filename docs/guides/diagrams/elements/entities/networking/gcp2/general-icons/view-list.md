@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ViewList } from '@reactiac/standard-components-diagrams/gcp2GeneralIcons'
+import { ViewList } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
 
 <ViewList/>
 ```

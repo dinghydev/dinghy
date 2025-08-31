@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AutomlVideoIntelligence } from '@reactiac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { AutomlVideoIntelligence } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <AutomlVideoIntelligence/>
 ```

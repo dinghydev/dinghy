@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BOOKMARKS_FR = {
   _style:
@@ -9,5 +9,11 @@ export const BOOKMARKS_FR = {
 }
 
 export function BookmarksFr(props: DiagramNodeProps) {
-  return <Shape {...BOOKMARKS_FR} {...props} />
+  return (
+    <Shape
+      {...BOOKMARKS_FR}
+      {...props}
+      _style={extendStyle(BOOKMARKS_FR, props)}
+    />
+  )
 }

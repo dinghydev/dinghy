@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Ldap } from '@reactiac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { Ldap } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <Ldap/>
 ```

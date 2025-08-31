@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VIRTUAL_5 = {
   _style: {
@@ -9,5 +9,11 @@ export const VIRTUAL_5 = {
 }
 
 export function Virtual5(props: DiagramNodeProps) {
-  return <Dependency {...VIRTUAL_5} {...props} />
+  return (
+    <Dependency
+      {...VIRTUAL_5}
+      {...props}
+      _style={extendStyle(VIRTUAL_5, props)}
+    />
+  )
 }

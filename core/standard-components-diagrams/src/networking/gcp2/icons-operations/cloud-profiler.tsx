@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const CLOUD_PROFILER = {
   _style:
@@ -9,5 +9,11 @@ export const CLOUD_PROFILER = {
 }
 
 export function CloudProfiler(props: DiagramNodeProps) {
-  return <Shape {...CLOUD_PROFILER} {...props} />
+  return (
+    <Shape
+      {...CLOUD_PROFILER}
+      {...props}
+      _style={extendStyle(CLOUD_PROFILER, props)}
+    />
+  )
 }

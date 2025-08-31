@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SPATIAL_ANCHOR = {
   _style:
@@ -9,5 +9,11 @@ export const SPATIAL_ANCHOR = {
 }
 
 export function SpatialAnchor(props: DiagramNodeProps) {
-  return <Shape {...SPATIAL_ANCHOR} {...props} />
+  return (
+    <Shape
+      {...SPATIAL_ANCHOR}
+      {...props}
+      _style={extendStyle(SPATIAL_ANCHOR, props)}
+    />
+  )
 }

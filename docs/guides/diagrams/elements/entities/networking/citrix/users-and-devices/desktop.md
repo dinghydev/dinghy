@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Desktop } from '@reactiac/standard-components-diagrams/citrixUsersAndDevices'
+import { Desktop } from '@diac/standard-components-diagrams/citrixUsersAndDevices'
 
 <Desktop/>
 ```

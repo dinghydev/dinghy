@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Newsvine } from '@reactiac/standard-components-diagrams/webLogos'
+import { Newsvine } from '@diac/standard-components-diagrams/webLogos'
 
 <Newsvine/>
 ```

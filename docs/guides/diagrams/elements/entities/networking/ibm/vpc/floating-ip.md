@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FloatingIp } from '@reactiac/standard-components-diagrams/ibmVpc'
+import { FloatingIp } from '@diac/standard-components-diagrams/ibmVpc'
 
 <FloatingIp/>
 ```

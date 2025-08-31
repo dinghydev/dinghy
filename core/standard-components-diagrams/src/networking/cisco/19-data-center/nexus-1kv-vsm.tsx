@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NEXUS_1KV_VSM = {
   _style:
@@ -9,5 +9,11 @@ export const NEXUS_1KV_VSM = {
 }
 
 export function Nexus1kvVsm(props: DiagramNodeProps) {
-  return <Shape {...NEXUS_1KV_VSM} {...props} />
+  return (
+    <Shape
+      {...NEXUS_1KV_VSM}
+      {...props}
+      _style={extendStyle(NEXUS_1KV_VSM, props)}
+    />
+  )
 }

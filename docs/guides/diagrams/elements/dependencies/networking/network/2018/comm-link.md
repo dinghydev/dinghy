@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CommLink } from '@reactiac/standard-components-diagrams/network'
+import { CommLink } from '@diac/standard-components-diagrams/network'
 
 <CommLink/>
 ```

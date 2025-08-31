@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const VERIFICATION_SERVICE = {
   _style:
@@ -9,5 +9,11 @@ export const VERIFICATION_SERVICE = {
 }
 
 export function VerificationService(props: DiagramNodeProps) {
-  return <Shape {...VERIFICATION_SERVICE} {...props} />
+  return (
+    <Shape
+      {...VERIFICATION_SERVICE}
+      {...props}
+      _style={extendStyle(VERIFICATION_SERVICE, props)}
+    />
+  )
 }

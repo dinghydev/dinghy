@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const INDIRECT_ELBOW = {
   _style:
@@ -9,5 +9,11 @@ export const INDIRECT_ELBOW = {
 }
 
 export function IndirectElbow(props: DiagramNodeProps) {
-  return <Shape {...INDIRECT_ELBOW} {...props} />
+  return (
+    <Shape
+      {...INDIRECT_ELBOW}
+      {...props}
+      _style={extendStyle(INDIRECT_ELBOW, props)}
+    />
+  )
 }

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SapHanaOnAzure } from '@reactiac/standard-components-diagrams/caeComputeService'
+import { SapHanaOnAzure } from '@diac/standard-components-diagrams/caeComputeService'
 
 <SapHanaOnAzure/>
 ```

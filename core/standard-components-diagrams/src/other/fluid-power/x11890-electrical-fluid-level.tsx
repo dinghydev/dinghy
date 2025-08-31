@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const X11890_ELECTRICAL_FLUID_LEVEL = {
   _style:
@@ -9,5 +9,11 @@ export const X11890_ELECTRICAL_FLUID_LEVEL = {
 }
 
 export function X11890ElectricalFluidLevel(props: DiagramNodeProps) {
-  return <Shape {...X11890_ELECTRICAL_FLUID_LEVEL} {...props} />
+  return (
+    <Shape
+      {...X11890_ELECTRICAL_FLUID_LEVEL}
+      {...props}
+      _style={extendStyle(X11890_ELECTRICAL_FLUID_LEVEL, props)}
+    />
+  )
 }

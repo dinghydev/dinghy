@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SQL_MANAGED_INSTANCES = {
   _style:
@@ -9,5 +9,11 @@ export const SQL_MANAGED_INSTANCES = {
 }
 
 export function SqlManagedInstances(props: DiagramNodeProps) {
-  return <Shape {...SQL_MANAGED_INSTANCES} {...props} />
+  return (
+    <Shape
+      {...SQL_MANAGED_INSTANCES}
+      {...props}
+      _style={extendStyle(SQL_MANAGED_INSTANCES, props)}
+    />
+  )
 }

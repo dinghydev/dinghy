@@ -14,7 +14,7 @@ Engine
 ## Usage
 
 ```
-import { ComputeEngine } from '@reactiac/standard-components-diagrams/gcp2IconsCompute'
+import { ComputeEngine } from '@diac/standard-components-diagrams/gcp2IconsCompute'
 
 <ComputeEngine/>
 ```

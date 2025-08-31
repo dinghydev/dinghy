@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSITION = {
   _style: {
@@ -9,5 +9,11 @@ export const TRANSITION = {
 }
 
 export function Transition(props: DiagramNodeProps) {
-  return <Dependency {...TRANSITION} {...props} />
+  return (
+    <Dependency
+      {...TRANSITION}
+      {...props}
+      _style={extendStyle(TRANSITION, props)}
+    />
+  )
 }

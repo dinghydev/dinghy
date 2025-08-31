@@ -1,5 +1,5 @@
-import { Dependency } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { Dependency, extendStyle } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ACTIVITY = {
   _style: {
@@ -8,5 +8,11 @@ export const ACTIVITY = {
 }
 
 export function Activity(props: DiagramNodeProps) {
-  return <Dependency {...ACTIVITY} {...props} />
+  return (
+    <Dependency
+      {...ACTIVITY}
+      {...props}
+      _style={extendStyle(ACTIVITY, props)}
+    />
+  )
 }

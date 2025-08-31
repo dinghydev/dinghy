@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HelpText4 } from '@reactiac/standard-components-diagrams/bootstrap'
+import { HelpText4 } from '@diac/standard-components-diagrams/bootstrap'
 
 <HelpText4/>
 ```

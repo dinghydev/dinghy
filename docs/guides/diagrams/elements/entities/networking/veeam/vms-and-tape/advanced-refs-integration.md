@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { AdvancedRefsIntegration } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { AdvancedRefsIntegration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <AdvancedRefsIntegration/>
 ```

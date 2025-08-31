@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SynchronizeHighlight } from '@reactiac/standard-components-diagrams/sapGenericIcons'
+import { SynchronizeHighlight } from '@diac/standard-components-diagrams/sapGenericIcons'
 
 <SynchronizeHighlight/>
 ```

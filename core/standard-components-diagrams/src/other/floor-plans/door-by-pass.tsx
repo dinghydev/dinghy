@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DOOR_BY_PASS = {
   _style:
@@ -9,5 +9,11 @@ export const DOOR_BY_PASS = {
 }
 
 export function DoorByPass(props: DiagramNodeProps) {
-  return <Shape {...DOOR_BY_PASS} {...props} />
+  return (
+    <Shape
+      {...DOOR_BY_PASS}
+      {...props}
+      _style={extendStyle(DOOR_BY_PASS, props)}
+    />
+  )
 }

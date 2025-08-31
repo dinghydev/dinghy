@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BIG_IP_89X0 = {
   _style:
@@ -9,5 +9,11 @@ export const BIG_IP_89X0 = {
 }
 
 export function BigIp89x0(props: DiagramNodeProps) {
-  return <Shape {...BIG_IP_89X0} {...props} />
+  return (
+    <Shape
+      {...BIG_IP_89X0}
+      {...props}
+      _style={extendStyle(BIG_IP_89X0, props)}
+    />
+  )
 }

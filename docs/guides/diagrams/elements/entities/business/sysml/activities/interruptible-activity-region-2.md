@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InterruptibleActivityRegion2 } from '@reactiac/standard-components-diagrams/sysmlActivities'
+import { InterruptibleActivityRegion2 } from '@diac/standard-components-diagrams/sysmlActivities'
 
 <InterruptibleActivityRegion2/>
 ```

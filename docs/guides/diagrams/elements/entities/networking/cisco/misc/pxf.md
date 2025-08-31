@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Pxf } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { Pxf } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <Pxf/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const LEFT_CURLY_BRACKET = {
   _style:
@@ -9,5 +9,11 @@ export const LEFT_CURLY_BRACKET = {
 }
 
 export function LeftCurlyBracket(props: DiagramNodeProps) {
-  return <Shape {...LEFT_CURLY_BRACKET} {...props} />
+  return (
+    <Shape
+      {...LEFT_CURLY_BRACKET}
+      {...props}
+      _style={extendStyle(LEFT_CURLY_BRACKET, props)}
+    />
+  )
 }

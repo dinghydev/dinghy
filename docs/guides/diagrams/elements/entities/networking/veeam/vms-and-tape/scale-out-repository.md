@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ScaleOutRepository } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { ScaleOutRepository } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <ScaleOutRepository/>
 ```

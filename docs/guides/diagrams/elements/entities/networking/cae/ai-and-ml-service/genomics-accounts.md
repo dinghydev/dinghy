@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GenomicsAccounts } from '@reactiac/standard-components-diagrams/caeAiAndMlService'
+import { GenomicsAccounts } from '@diac/standard-components-diagrams/caeAiAndMlService'
 
 <GenomicsAccounts/>
 ```

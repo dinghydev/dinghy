@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11230VariableDisplacementPump } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11230VariableDisplacementPump } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11230VariableDisplacementPump/>
 ```

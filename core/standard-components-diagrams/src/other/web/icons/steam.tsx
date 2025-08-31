@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const STEAM = {
   _style:
@@ -9,5 +9,5 @@ export const STEAM = {
 }
 
 export function Steam(props: DiagramNodeProps) {
-  return <Shape {...STEAM} {...props} />
+  return <Shape {...STEAM} {...props} _style={extendStyle(STEAM, props)} />
 }

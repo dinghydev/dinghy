@@ -22,10 +22,10 @@ export async function runEngineCommand(context: CommandContext) {
   try {
     await runDockerCmd(
       hostAppHome,
-      { REACTIAC_CLI_VERSION: projectVersionRelease() },
+      { DIAC_CLI_VERSION: projectVersionRelease() },
       [],
       [
-        'reactiac',
+        'diac',
         ...collectEngineArgs(context.originalArgs),
       ],
       configGetEngineImage(),

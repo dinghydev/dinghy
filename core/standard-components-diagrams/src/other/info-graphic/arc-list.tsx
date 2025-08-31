@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ARC_LIST = {
   _style:
@@ -9,5 +9,7 @@ export const ARC_LIST = {
 }
 
 export function ArcList(props: DiagramNodeProps) {
-  return <Shape {...ARC_LIST} {...props} />
+  return (
+    <Shape {...ARC_LIST} {...props} _style={extendStyle(ARC_LIST, props)} />
+  )
 }

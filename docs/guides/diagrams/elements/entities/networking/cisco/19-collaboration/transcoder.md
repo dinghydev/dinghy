@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Transcoder } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { Transcoder } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <Transcoder/>
 ```

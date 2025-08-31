@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ContentFilter } from '@reactiac/standard-components-diagrams/eipMessageTransformation'
+import { ContentFilter } from '@diac/standard-components-diagrams/eipMessageTransformation'
 
 <ContentFilter/>
 ```

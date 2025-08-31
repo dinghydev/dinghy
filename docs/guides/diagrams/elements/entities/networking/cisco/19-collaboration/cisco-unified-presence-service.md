@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CiscoUnifiedPresenceService } from '@reactiac/standard-components-diagrams/cisco19Collaboration'
+import { CiscoUnifiedPresenceService } from '@diac/standard-components-diagrams/cisco19Collaboration'
 
 <CiscoUnifiedPresenceService/>
 ```

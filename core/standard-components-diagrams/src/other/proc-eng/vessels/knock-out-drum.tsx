@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const KNOCK_OUT_DRUM = {
   _style:
@@ -9,5 +9,11 @@ export const KNOCK_OUT_DRUM = {
 }
 
 export function KnockOutDrum(props: DiagramNodeProps) {
-  return <Shape {...KNOCK_OUT_DRUM} {...props} />
+  return (
+    <Shape
+      {...KNOCK_OUT_DRUM}
+      {...props}
+      _style={extendStyle(KNOCK_OUT_DRUM, props)}
+    />
+  )
 }

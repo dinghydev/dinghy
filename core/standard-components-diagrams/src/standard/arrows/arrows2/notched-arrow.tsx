@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NOTCHED_ARROW = {
   _style:
@@ -9,5 +9,11 @@ export const NOTCHED_ARROW = {
 }
 
 export function NotchedArrow(props: DiagramNodeProps) {
-  return <Shape {...NOTCHED_ARROW} {...props} />
+  return (
+    <Shape
+      {...NOTCHED_ARROW}
+      {...props}
+      _style={extendStyle(NOTCHED_ARROW, props)}
+    />
+  )
 }

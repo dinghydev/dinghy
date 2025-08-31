@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { TensorflowLogo } from '@reactiac/standard-components-diagrams/gcpIconsOpenSourceIcons'
+import { TensorflowLogo } from '@diac/standard-components-diagrams/gcpIconsOpenSourceIcons'
 
 <TensorflowLogo/>
 ```

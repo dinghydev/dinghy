@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const NETQ_AGENT = {
   _style:
@@ -9,5 +9,7 @@ export const NETQ_AGENT = {
 }
 
 export function NetqAgent(props: DiagramNodeProps) {
-  return <Shape {...NETQ_AGENT} {...props} />
+  return (
+    <Shape {...NETQ_AGENT} {...props} _style={extendStyle(NETQ_AGENT, props)} />
+  )
 }

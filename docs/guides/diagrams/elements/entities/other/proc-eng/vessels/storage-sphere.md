@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { StorageSphere } from '@reactiac/standard-components-diagrams/procEngVessels'
+import { StorageSphere } from '@diac/standard-components-diagrams/procEngVessels'
 
 <StorageSphere/>
 ```

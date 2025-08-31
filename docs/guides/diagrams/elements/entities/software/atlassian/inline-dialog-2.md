@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { InlineDialog2 } from '@reactiac/standard-components-diagrams/atlassian'
+import { InlineDialog2 } from '@diac/standard-components-diagrams/atlassian'
 
 <InlineDialog2/>
 ```

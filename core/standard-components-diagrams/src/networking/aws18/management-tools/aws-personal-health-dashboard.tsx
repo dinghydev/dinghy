@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const AWS_PERSONAL_HEALTH_DASHBOARD = {
   _style:
@@ -9,5 +9,11 @@ export const AWS_PERSONAL_HEALTH_DASHBOARD = {
 }
 
 export function AwsPersonalHealthDashboard(props: DiagramNodeProps) {
-  return <Shape {...AWS_PERSONAL_HEALTH_DASHBOARD} {...props} />
+  return (
+    <Shape
+      {...AWS_PERSONAL_HEALTH_DASHBOARD}
+      {...props}
+      _style={extendStyle(AWS_PERSONAL_HEALTH_DASHBOARD, props)}
+    />
+  )
 }

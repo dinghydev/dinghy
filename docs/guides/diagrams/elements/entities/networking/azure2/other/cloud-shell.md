@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CloudShell } from '@reactiac/standard-components-diagrams/azure2Other'
+import { CloudShell } from '@diac/standard-components-diagrams/azure2Other'
 
 <CloudShell/>
 ```

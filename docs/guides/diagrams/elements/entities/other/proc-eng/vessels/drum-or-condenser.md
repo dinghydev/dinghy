@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DrumOrCondenser } from '@reactiac/standard-components-diagrams/procEngVessels'
+import { DrumOrCondenser } from '@diac/standard-components-diagrams/procEngVessels'
 
 <DrumOrCondenser/>
 ```

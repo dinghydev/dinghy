@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { X11580PressureIntensifier } from '@reactiac/standard-components-diagrams/fluidPower'
+import { X11580PressureIntensifier } from '@diac/standard-components-diagrams/fluidPower'
 
 <X11580PressureIntensifier/>
 ```

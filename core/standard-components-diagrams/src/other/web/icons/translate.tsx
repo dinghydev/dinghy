@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TRANSLATE = {
   _style:
@@ -9,5 +9,7 @@ export const TRANSLATE = {
 }
 
 export function Translate(props: DiagramNodeProps) {
-  return <Shape {...TRANSLATE} {...props} />
+  return (
+    <Shape {...TRANSLATE} {...props} _style={extendStyle(TRANSLATE, props)} />
+  )
 }

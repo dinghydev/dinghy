@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MagnifyingGlass } from '@reactiac/standard-components-diagrams/veeamVmsAndTape'
+import { MagnifyingGlass } from '@diac/standard-components-diagrams/veeamVmsAndTape'
 
 <MagnifyingGlass/>
 ```

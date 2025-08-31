@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const TIME_EVENT_TRIGGER = {
   _style: 'shape=collate;html=1;',
@@ -8,5 +8,11 @@ export const TIME_EVENT_TRIGGER = {
 }
 
 export function TimeEventTrigger(props: DiagramNodeProps) {
-  return <Shape {...TIME_EVENT_TRIGGER} {...props} />
+  return (
+    <Shape
+      {...TIME_EVENT_TRIGGER}
+      {...props}
+      _style={extendStyle(TIME_EVENT_TRIGGER, props)}
+    />
+  )
 }

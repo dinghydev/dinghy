@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATAPREP_BY_TRIFACTA = {
   _style:
@@ -9,5 +9,11 @@ export const DATAPREP_BY_TRIFACTA = {
 }
 
 export function DataprepByTrifacta(props: DiagramNodeProps) {
-  return <Shape {...DATAPREP_BY_TRIFACTA} {...props} />
+  return (
+    <Shape
+      {...DATAPREP_BY_TRIFACTA}
+      {...props}
+      _style={extendStyle(DATAPREP_BY_TRIFACTA, props)}
+    />
+  )
 }

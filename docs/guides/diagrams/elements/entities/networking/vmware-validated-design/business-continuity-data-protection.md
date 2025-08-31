@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BusinessContinuityDataProtection } from '@reactiac/standard-components-diagrams/vmwareValidatedDesign'
+import { BusinessContinuityDataProtection } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
 
 <BusinessContinuityDataProtection/>
 ```

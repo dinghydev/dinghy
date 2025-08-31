@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const REED_SWITCH_OFF = {
   _style:
@@ -9,5 +9,11 @@ export const REED_SWITCH_OFF = {
 }
 
 export function ReedSwitchOff(props: DiagramNodeProps) {
-  return <Shape {...REED_SWITCH_OFF} {...props} />
+  return (
+    <Shape
+      {...REED_SWITCH_OFF}
+      {...props}
+      _style={extendStyle(REED_SWITCH_OFF, props)}
+    />
+  )
 }

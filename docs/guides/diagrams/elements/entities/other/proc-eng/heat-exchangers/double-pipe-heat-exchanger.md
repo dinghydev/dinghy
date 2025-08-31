@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DoublePipeHeatExchanger } from '@reactiac/standard-components-diagrams/procEngHeatExchangers'
+import { DoublePipeHeatExchanger } from '@diac/standard-components-diagrams/procEngHeatExchangers'
 
 <DoublePipeHeatExchanger/>
 ```

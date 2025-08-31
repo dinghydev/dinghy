@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const COMPETING_CONSUMERS = {
   _style:
@@ -9,5 +9,11 @@ export const COMPETING_CONSUMERS = {
 }
 
 export function CompetingConsumers(props: DiagramNodeProps) {
-  return <Shape {...COMPETING_CONSUMERS} {...props} />
+  return (
+    <Shape
+      {...COMPETING_CONSUMERS}
+      {...props}
+      _style={extendStyle(COMPETING_CONSUMERS, props)}
+    />
+  )
 }

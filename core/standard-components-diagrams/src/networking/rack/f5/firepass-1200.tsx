@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const FIREPASS_1200 = {
   _style:
@@ -9,5 +9,11 @@ export const FIREPASS_1200 = {
 }
 
 export function Firepass1200(props: DiagramNodeProps) {
-  return <Shape {...FIREPASS_1200} {...props} />
+  return (
+    <Shape
+      {...FIREPASS_1200}
+      {...props}
+      _style={extendStyle(FIREPASS_1200, props)}
+    />
+  )
 }

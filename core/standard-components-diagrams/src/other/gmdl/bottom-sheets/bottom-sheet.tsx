@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const BOTTOM_SHEET = {
   _style:
@@ -9,5 +9,11 @@ export const BOTTOM_SHEET = {
 }
 
 export function BottomSheet(props: DiagramNodeProps) {
-  return <Shape {...BOTTOM_SHEET} {...props} />
+  return (
+    <Shape
+      {...BOTTOM_SHEET}
+      {...props}
+      _style={extendStyle(BOTTOM_SHEET, props)}
+    />
+  )
 }

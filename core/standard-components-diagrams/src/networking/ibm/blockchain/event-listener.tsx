@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const EVENT_LISTENER = {
   _style:
@@ -9,5 +9,11 @@ export const EVENT_LISTENER = {
 }
 
 export function EventListener(props: DiagramNodeProps) {
-  return <Shape {...EVENT_LISTENER} {...props} />
+  return (
+    <Shape
+      {...EVENT_LISTENER}
+      {...props}
+      _style={extendStyle(EVENT_LISTENER, props)}
+    />
+  )
 }

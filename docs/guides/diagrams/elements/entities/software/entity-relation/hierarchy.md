@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Hierarchy } from '@reactiac/standard-components-diagrams/entityRelation'
+import { Hierarchy } from '@diac/standard-components-diagrams/entityRelation'
 
 <Hierarchy/>
 ```

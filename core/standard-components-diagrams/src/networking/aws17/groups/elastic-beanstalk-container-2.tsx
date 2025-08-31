@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ELASTIC_BEANSTALK_CONTAINER_2 = {
   _style: {
@@ -12,5 +12,11 @@ export const ELASTIC_BEANSTALK_CONTAINER_2 = {
 }
 
 export function ElasticBeanstalkContainer2(props: DiagramNodeProps) {
-  return <Shape {...ELASTIC_BEANSTALK_CONTAINER_2} {...props} />
+  return (
+    <Shape
+      {...ELASTIC_BEANSTALK_CONTAINER_2}
+      {...props}
+      _style={extendStyle(ELASTIC_BEANSTALK_CONTAINER_2, props)}
+    />
+  )
 }

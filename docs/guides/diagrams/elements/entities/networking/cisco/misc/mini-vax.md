@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MiniVax } from '@reactiac/standard-components-diagrams/ciscoMisc'
+import { MiniVax } from '@diac/standard-components-diagrams/ciscoMisc'
 
 <MiniVax/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { HpcWorkbench } from '@reactiac/standard-components-diagrams/azure2Other'
+import { HpcWorkbench } from '@diac/standard-components-diagrams/azure2Other'
 
 <HpcWorkbench/>
 ```

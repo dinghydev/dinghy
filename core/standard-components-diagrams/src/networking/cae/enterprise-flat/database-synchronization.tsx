@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DATABASE_SYNCHRONIZATION = {
   _style:
@@ -9,5 +9,11 @@ export const DATABASE_SYNCHRONIZATION = {
 }
 
 export function DatabaseSynchronization(props: DiagramNodeProps) {
-  return <Shape {...DATABASE_SYNCHRONIZATION} {...props} />
+  return (
+    <Shape
+      {...DATABASE_SYNCHRONIZATION}
+      {...props}
+      _style={extendStyle(DATABASE_SYNCHRONIZATION, props)}
+    />
+  )
 }

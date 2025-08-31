@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const RECIPROCATING_COMPRESSOR = {
   _style:
@@ -9,5 +9,11 @@ export const RECIPROCATING_COMPRESSOR = {
 }
 
 export function ReciprocatingCompressor(props: DiagramNodeProps) {
-  return <Shape {...RECIPROCATING_COMPRESSOR} {...props} />
+  return (
+    <Shape
+      {...RECIPROCATING_COMPRESSOR}
+      {...props}
+      _style={extendStyle(RECIPROCATING_COMPRESSOR, props)}
+    />
+  )
 }

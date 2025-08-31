@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ATHENA_DATA_SOURCE_CONNECTORS = {
   _style:
@@ -9,5 +9,11 @@ export const ATHENA_DATA_SOURCE_CONNECTORS = {
 }
 
 export function AthenaDataSourceConnectors(props: DiagramNodeProps) {
-  return <Shape {...ATHENA_DATA_SOURCE_CONNECTORS} {...props} />
+  return (
+    <Shape
+      {...ATHENA_DATA_SOURCE_CONNECTORS}
+      {...props}
+      _style={extendStyle(ATHENA_DATA_SOURCE_CONNECTORS, props)}
+    />
+  )
 }

@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const DISK_ENCRYPTION = {
   _style:
@@ -9,5 +9,11 @@ export const DISK_ENCRYPTION = {
 }
 
 export function DiskEncryption(props: DiagramNodeProps) {
-  return <Shape {...DISK_ENCRYPTION} {...props} />
+  return (
+    <Shape
+      {...DISK_ENCRYPTION}
+      {...props}
+      _style={extendStyle(DISK_ENCRYPTION, props)}
+    />
+  )
 }

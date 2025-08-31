@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const SUN_SERVER_X2_4 = {
   _style:
@@ -9,5 +9,11 @@ export const SUN_SERVER_X2_4 = {
 }
 
 export function SunServerX24(props: DiagramNodeProps) {
-  return <Shape {...SUN_SERVER_X2_4} {...props} />
+  return (
+    <Shape
+      {...SUN_SERVER_X2_4}
+      {...props}
+      _style={extendStyle(SUN_SERVER_X2_4, props)}
+    />
+  )
 }

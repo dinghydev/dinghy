@@ -5,10 +5,10 @@
       "name": "render",
       "args": [
         "render",
-        "platform-staging",
-        "--format",
+        // "platform-staging",
+        // "--format",
         // "all",
-        "tf"
+        // "tf"
         // "--tf-generateImport",
         // "--diagram-saveView",
         // "--stage",
@@ -27,10 +27,12 @@
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/2-components"
+        "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
         // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "${workspaceFolder}/../diac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
+        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
@@ -47,60 +49,37 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "diagram",
+      "name": "render diagram",
       "args": [
-        "diagram",
-        // "--version",
-        // "latest",
-        // "./sits.tsx",
-        "--debug"
-        // "-h"
+        "render",
+        // "platform-staging",
+        "--format",
+        "diagram"
+        // "--tf-generateImport",
+        // "--diagram-saveView",
+        // "--stage",
+        // "main",
+        // "--view",
+        // "overview",
+        // "--format",
+        // "tf",
+        // "--output",
+        // ".",
+        // "--debug",
+        // "-h",
       ],
       "program": "src/index.ts",
       "env": {
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/../examples/diagram/reactiac-architecutre"
         // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
-        // "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
-        // "APP_HOME": "${workspaceFolder}/../examples/web/code-gen"
-        // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/elements"
-        "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/data"
-        // "APP_HOME": "${workspaceFolder}/../examples/diagram/ecs"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/2-components"
+        "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
         // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "${workspaceFolder}/../diac-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
-        // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
-        // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait"
-      ],
-      "attachSimplePort": 0,
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "diagram png",
-      "args": [
-        "diagram",
-        "png",
-        "--debug"
-        // "-h"
-      ],
-      "program": "src/index.ts",
-      "env": {
-        // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
-        // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
-        // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/runtime/architecture"
         // "APP_HOME": "${env:HOME}/andopen/src/engineering-guides/devops/observability/files"
       },
@@ -127,7 +106,7 @@
       "env": {
         "DEBUG": "10",
         // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "${workspaceFolder}/../diac-sites"
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
@@ -155,7 +134,7 @@
       "env": {
         "DEBUG": "10",
         // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "${workspaceFolder}/../diac-sites"
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
@@ -189,7 +168,7 @@
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "${workspaceFolder}/../diac-sites"
       },
       "type": "node",
       "request": "launch",
@@ -220,7 +199,7 @@
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        // "APP_HOME": "${workspaceFolder}/../reactiac-sites"
+        // "APP_HOME": "${workspaceFolder}/../diac-sites"
       },
       "type": "node",
       "request": "launch",

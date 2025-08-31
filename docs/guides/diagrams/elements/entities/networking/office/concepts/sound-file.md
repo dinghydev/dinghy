@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { SoundFile } from '@reactiac/standard-components-diagrams/officeConcepts'
+import { SoundFile } from '@diac/standard-components-diagrams/officeConcepts'
 
 <SoundFile/>
 ```

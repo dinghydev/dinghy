@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VirtualPrivateNetwork } from '@reactiac/standard-components-diagrams/ciscoSafeCapability'
+import { VirtualPrivateNetwork } from '@diac/standard-components-diagrams/ciscoSafeCapability'
 
 <VirtualPrivateNetwork/>
 ```

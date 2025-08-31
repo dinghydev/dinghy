@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UnorderedList } from '@reactiac/standard-components-diagrams/misc'
+import { UnorderedList } from '@diac/standard-components-diagrams/misc'
 
 <UnorderedList/>
 ```

@@ -5,15 +5,15 @@
 ```
 {
   _style: 'shape=mxgraph.pid.heat_exchangers.heat_exchanger_(spiral);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
-  _width: 100,
-  _height: 100,
+  _width: 60,
+  _height: 60,
 }
 ```
 
 ## Usage
 
 ```
-import { HeatExchangerSpiral } from '@reactiac/standard-components-diagrams/procEngHeatExchangers'
+import { HeatExchangerSpiral } from '@diac/standard-components-diagrams/procEngHeatExchangers'
 
 <HeatExchangerSpiral/>
 ```

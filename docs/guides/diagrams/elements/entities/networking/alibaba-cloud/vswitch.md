@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Vswitch } from '@reactiac/standard-components-diagrams/alibabaCloud'
+import { Vswitch } from '@diac/standard-components-diagrams/alibabaCloud'
 
 <Vswitch/>
 ```

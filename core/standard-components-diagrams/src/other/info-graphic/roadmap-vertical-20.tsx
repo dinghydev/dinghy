@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const ROADMAP_VERTICAL_20 = {
   _style:
@@ -9,5 +9,11 @@ export const ROADMAP_VERTICAL_20 = {
 }
 
 export function RoadmapVertical20(props: DiagramNodeProps) {
-  return <Shape {...ROADMAP_VERTICAL_20} {...props} />
+  return (
+    <Shape
+      {...ROADMAP_VERTICAL_20}
+      {...props}
+      _style={extendStyle(ROADMAP_VERTICAL_20, props)}
+    />
+  )
 }

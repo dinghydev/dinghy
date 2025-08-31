@@ -1,5 +1,5 @@
-import { Shape } from '@reactiac/base-components'
-import type { DiagramNodeProps } from '@reactiac/base-components'
+import { extendStyle, Shape } from '@diac/base-components'
+import type { DiagramNodeProps } from '@diac/base-components'
 
 export const UM_IP_GATEWAY = {
   _style:
@@ -9,5 +9,11 @@ export const UM_IP_GATEWAY = {
 }
 
 export function UmIpGateway(props: DiagramNodeProps) {
-  return <Shape {...UM_IP_GATEWAY} {...props} />
+  return (
+    <Shape
+      {...UM_IP_GATEWAY}
+      {...props}
+      _style={extendStyle(UM_IP_GATEWAY, props)}
+    />
+  )
 }

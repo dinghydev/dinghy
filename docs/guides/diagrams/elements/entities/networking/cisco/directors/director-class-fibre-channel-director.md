@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectorClassFibreChannelDirector } from '@reactiac/standard-components-diagrams/ciscoDirectors'
+import { DirectorClassFibreChannelDirector } from '@diac/standard-components-diagrams/ciscoDirectors'
 
 <DirectorClassFibreChannelDirector/>
 ```
