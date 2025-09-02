@@ -6,8 +6,8 @@ export const MASTER_CALLOUT = {
     entity:
       'shape=note;html=1;size=15;align=left;spacingLeft=5;whiteSpace=wrap;align=center;',
   },
-  _width: 0,
-  _height: 60,
+  _original_width: 0,
+  _original_height: 60,
 }
 
 export function MasterCallout(props: DiagramNodeProps) {

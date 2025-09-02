@@ -6,8 +6,8 @@ export const LOAD_BALANCERS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Load_Balancers.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 72,
+  _original_height: 72,
 }
 
 export function LoadBalancers(props: DiagramNodeProps) {

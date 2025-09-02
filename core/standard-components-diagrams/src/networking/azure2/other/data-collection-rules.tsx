@@ -6,8 +6,8 @@ export const DATA_COLLECTION_RULES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Data_Collection_Rules.svg;strokeColor=none;',
   },
-  _width: 66.60000000000001,
-  _height: 68,
+  _original_width: 66.60000000000001,
+  _original_height: 68,
 }
 
 export function DataCollectionRules(props: DiagramNodeProps) {

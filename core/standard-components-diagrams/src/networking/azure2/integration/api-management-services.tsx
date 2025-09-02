@@ -6,8 +6,8 @@ export const API_MANAGEMENT_SERVICES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/integration/API_Management_Services.svg;strokeColor=none;',
   },
-  _width: 65,
-  _height: 60,
+  _original_width: 65,
+  _original_height: 60,
 }
 
 export function ApiManagementServices(props: DiagramNodeProps) {

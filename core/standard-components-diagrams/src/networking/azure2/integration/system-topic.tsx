@@ -6,8 +6,8 @@ export const SYSTEM_TOPIC = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/integration/System_Topic.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 60,
+  _original_width: 68,
+  _original_height: 60,
 }
 
 export function SystemTopic(props: DiagramNodeProps) {

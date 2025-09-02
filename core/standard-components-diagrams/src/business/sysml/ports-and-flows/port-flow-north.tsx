@@ -5,8 +5,8 @@ export const PORT_FLOW_NORTH = {
   _style: {
     entity: 'html=1;shape=mxgraph.sysml.port;sysMLPortType=flowN;',
   },
-  _width: 20,
-  _height: 20,
+  _original_width: 20,
+  _original_height: 20,
 }
 
 export function PortFlowNorth(props: DiagramNodeProps) {

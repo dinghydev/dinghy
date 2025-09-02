@@ -6,8 +6,8 @@ export const CENTRIFUGAL_PUMP_2 = {
     entity:
       'shape=mxgraph.pid.pumps.centrifugal_pump_2;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 62,
-  _height: 77,
+  _original_width: 62,
+  _original_height: 77,
 }
 
 export function CentrifugalPump2(props: DiagramNodeProps) {

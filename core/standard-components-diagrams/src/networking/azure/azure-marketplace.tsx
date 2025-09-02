@@ -6,8 +6,8 @@ export const AZURE_MARKETPLACE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_marketplace;',
   },
-  _width: 40,
-  _height: 50,
+  _original_width: 40,
+  _original_height: 50,
 }
 
 export function AzureMarketplace(props: DiagramNodeProps) {

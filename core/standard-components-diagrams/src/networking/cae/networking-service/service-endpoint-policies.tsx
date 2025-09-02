@@ -6,8 +6,8 @@ export const SERVICE_ENDPOINT_POLICIES = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Service_Endpoint_Policies.svg;strokeColor=none;',
   },
-  _width: 49,
-  _height: 50,
+  _original_width: 49,
+  _original_height: 50,
 }
 
 export function ServiceEndpointPolicies(props: DiagramNodeProps) {

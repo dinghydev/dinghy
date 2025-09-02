@@ -6,8 +6,8 @@ export const SATURATING_TRANSFORMER = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.saturating_transformer;',
   },
-  _width: 200,
-  _height: 150,
+  _original_width: 200,
+  _original_height: 150,
 }
 
 export function SaturatingTransformer(props: DiagramNodeProps) {

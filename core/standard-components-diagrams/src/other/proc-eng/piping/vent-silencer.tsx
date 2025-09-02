@@ -6,8 +6,8 @@ export const VENT_SILENCER = {
     entity:
       'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.piping.vent_silencer;',
   },
-  _width: 20,
-  _height: 80,
+  _original_width: 20,
+  _original_height: 80,
 }
 
 export function VentSilencer(props: DiagramNodeProps) {

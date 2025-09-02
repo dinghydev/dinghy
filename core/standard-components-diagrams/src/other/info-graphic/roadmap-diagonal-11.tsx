@@ -6,8 +6,8 @@ export const ROADMAP_DIAGONAL_11 = {
     entity:
       'rounded=1;strokeColor=none;fillColor=#EEEEEE;align=center;arcSize=12;verticalAlign=top;whiteSpace=wrap;html=1;fontSize=12;spacing=3;shadow=0;',
   },
-  _width: 10,
-  _height: 330,
+  _original_width: 10,
+  _original_height: 330,
 }
 
 export function RoadmapDiagonal11(props: DiagramNodeProps) {

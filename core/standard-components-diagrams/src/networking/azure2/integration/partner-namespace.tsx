@@ -6,8 +6,8 @@ export const PARTNER_NAMESPACE = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/integration/Partner_Namespace.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 60.8,
+  _original_width: 68,
+  _original_height: 60.8,
 }
 
 export function PartnerNamespace(props: DiagramNodeProps) {

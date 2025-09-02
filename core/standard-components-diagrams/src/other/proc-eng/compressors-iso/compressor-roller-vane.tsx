@@ -6,8 +6,8 @@ export const COMPRESSOR_ROLLER_VANE = {
     entity:
       'shape=mxgraph.pid.compressors_-_iso.compressor_(roller_vane);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function CompressorRollerVane(props: DiagramNodeProps) {

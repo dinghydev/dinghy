@@ -6,8 +6,8 @@ export const ROLLER_CONVEYOR = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.roller_conveyor;',
   },
-  _width: 160,
-  _height: 20,
+  _original_width: 160,
+  _original_height: 20,
 }
 
 export function RollerConveyor(props: DiagramNodeProps) {

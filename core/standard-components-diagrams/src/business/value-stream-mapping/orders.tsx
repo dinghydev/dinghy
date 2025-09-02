@@ -6,8 +6,8 @@ export const ORDERS = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.orders;overflow=fill;',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function Orders(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const SAML_OIDC_2 = {
     entity:
       'rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;strokeColor=#188918;fontFamily=Helvetica;fontColor=default;targetPerimeterSpacing=15;endSize=4;startSize=4;endArrow=none;endFill=0;strokeWidth=1.5;startArrow=none;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;',
   },
-  _width: 1,
-  _height: 100,
+  _original_width: 1,
+  _original_height: 100,
 }
 
 export function SamlOidc2(props: DiagramNodeProps) {

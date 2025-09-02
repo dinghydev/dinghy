@@ -6,8 +6,8 @@ export const INTUNE_APP_PROTECTION = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Intune_App_Protection.svg;strokeColor=none;',
   },
-  _width: 50,
-  _height: 40,
+  _original_width: 50,
+  _original_height: 40,
 }
 
 export function IntuneAppProtection(props: DiagramNodeProps) {

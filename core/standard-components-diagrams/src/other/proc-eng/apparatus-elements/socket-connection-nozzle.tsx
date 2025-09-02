@@ -6,8 +6,8 @@ export const SOCKET_CONNECTION_NOZZLE = {
     entity:
       'shape=mxgraph.pid.apparatus_elements.socket,_connection_nozzle;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 30,
-  _height: 40,
+  _original_width: 30,
+  _original_height: 40,
 }
 
 export function SocketConnectionNozzle(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const SERVICE_BUS_RELAY = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.service_bus_relay;pointerEvents=1;',
   },
-  _width: 40,
-  _height: 50,
+  _original_width: 40,
+  _original_height: 50,
 }
 
 export function ServiceBusRelay(props: DiagramNodeProps) {

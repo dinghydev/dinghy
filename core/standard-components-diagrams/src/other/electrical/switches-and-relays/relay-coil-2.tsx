@@ -6,8 +6,8 @@ export const RELAY_COIL_2 = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.relay_coil_2;',
   },
-  _width: 100,
-  _height: 70,
+  _original_width: 100,
+  _original_height: 70,
 }
 
 export function RelayCoil2(props: DiagramNodeProps) {

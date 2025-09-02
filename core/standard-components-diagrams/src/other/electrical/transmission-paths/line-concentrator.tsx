@@ -6,8 +6,8 @@ export const LINE_CONCENTRATOR = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.line_concentrator;',
   },
-  _width: 130,
-  _height: 130,
+  _original_width: 130,
+  _original_height: 130,
 }
 
 export function LineConcentrator(props: DiagramNodeProps) {

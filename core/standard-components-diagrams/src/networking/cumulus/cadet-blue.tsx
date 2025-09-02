@@ -5,8 +5,8 @@ export const CADET_BLUE = {
   _style: {
     entity: 'fillColor=#AEB8C3;strokeColor=none;whiteSpace=wrap;html=1;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function CadetBlue(props: DiagramNodeProps) {

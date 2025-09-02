@@ -6,8 +6,8 @@ export const MAKE_CONTACT = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.make_contact;',
   },
-  _width: 75,
-  _height: 16,
+  _original_width: 75,
+  _original_height: 16,
 }
 
 export function MakeContact(props: DiagramNodeProps) {

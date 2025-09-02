@@ -6,8 +6,8 @@ export const INSPECTION = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.inspection;',
   },
-  _width: 70,
-  _height: 65,
+  _original_width: 70,
+  _original_height: 65,
 }
 
 export function Inspection(props: DiagramNodeProps) {

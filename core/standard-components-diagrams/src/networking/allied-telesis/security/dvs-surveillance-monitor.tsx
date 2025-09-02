@@ -6,8 +6,8 @@ export const DVS_SURVEILLANCE_MONITOR = {
     entity:
       'image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/security/DVS_Surveillance_Monitor.svg;strokeColor=none;',
   },
-  _width: 42,
-  _height: 60,
+  _original_width: 42,
+  _original_height: 60,
 }
 
 export function DvsSurveillanceMonitor(props: DiagramNodeProps) {

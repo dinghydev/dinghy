@@ -6,8 +6,8 @@ export const COMMUNICATION_NETWORK_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#AFFFAF;shape=mxgraph.archimate3.network;',
   },
-  _width: 65,
-  _height: 50,
+  _original_width: 65,
+  _original_height: 50,
 }
 
 export function CommunicationNetwork2(props: DiagramNodeProps) {

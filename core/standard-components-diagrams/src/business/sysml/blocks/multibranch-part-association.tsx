@@ -6,8 +6,8 @@ export const MULTIBRANCH_PART_ASSOCIATION = {
     entity:
       'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;fontFamily=Helvetica;fontSize=11;fontColor=default;',
   },
-  _width: 250,
-  _height: 50,
+  _original_width: 250,
+  _original_height: 50,
 }
 
 export function MultibranchPartAssociation(props: DiagramNodeProps) {

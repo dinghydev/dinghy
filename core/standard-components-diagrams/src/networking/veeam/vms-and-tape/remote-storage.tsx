@@ -6,8 +6,8 @@ export const REMOTE_STORAGE = {
     entity:
       'shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.remote_storage;',
   },
-  _width: 46.4,
-  _height: 46.4,
+  _original_width: 46.4,
+  _original_height: 46.4,
 }
 
 export function RemoteStorage(props: DiagramNodeProps) {

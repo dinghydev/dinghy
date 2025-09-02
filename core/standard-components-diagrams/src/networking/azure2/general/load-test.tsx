@@ -6,8 +6,8 @@ export const LOAD_TEST = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Load_Test.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 66,
+  _original_width: 68,
+  _original_height: 66,
 }
 
 export function LoadTest(props: DiagramNodeProps) {

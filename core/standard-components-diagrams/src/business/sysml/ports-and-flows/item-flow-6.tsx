@@ -6,8 +6,8 @@ export const ITEM_FLOW_6 = {
     entity:
       'edgeStyle=none;html=1;align=left;verticalAlign=top;endArrow=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;',
   },
-  _width: 2,
-  _height: 370,
+  _original_width: 2,
+  _original_height: 370,
 }
 
 export function ItemFlow6(props: DiagramNodeProps) {

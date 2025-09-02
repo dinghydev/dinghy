@@ -6,8 +6,8 @@ export const SQL_DATABASE_SQL_AZURE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.sql_database_sql_azure;',
   },
-  _width: 47.5,
-  _height: 50,
+  _original_width: 47.5,
+  _original_height: 50,
 }
 
 export function SqlDatabaseSqlAzure(props: DiagramNodeProps) {

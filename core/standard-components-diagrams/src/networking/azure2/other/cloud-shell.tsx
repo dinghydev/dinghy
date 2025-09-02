@@ -6,8 +6,8 @@ export const CLOUD_SHELL = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Azure_Cloud_Shell.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 47.199999999999996,
+  _original_width: 68,
+  _original_height: 47.199999999999996,
 }
 
 export function CloudShell(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const DATABOT = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.databot;',
   },
-  _width: 45.3,
-  _height: 52.2,
+  _original_width: 45.3,
+  _original_height: 52.2,
 }
 
 export function Databot(props: DiagramNodeProps) {

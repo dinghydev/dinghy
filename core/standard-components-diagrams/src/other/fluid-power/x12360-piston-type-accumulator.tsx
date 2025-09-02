@@ -6,8 +6,8 @@ export const X12360_PISTON_TYPE_ACCUMULATOR = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x12360;points=[[0.17,1,0]]',
   },
-  _width: 108.88,
-  _height: 111.84,
+  _original_width: 108.88,
+  _original_height: 111.84,
 }
 
 export function X12360PistonTypeAccumulator(props: DiagramNodeProps) {

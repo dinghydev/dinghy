@@ -6,8 +6,8 @@ export const LINEAR_COUPLER = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.linear_coupler;',
   },
-  _width: 80,
-  _height: 20,
+  _original_width: 80,
+  _original_height: 20,
 }
 
 export function LinearCoupler(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const VERTICAL_POOL_2 = {
     entity:
       'swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;horizontal=0;horizontalStack=1;whiteSpace=wrap;',
   },
-  _width: 380,
-  _height: 480,
+  _original_width: 380,
+  _original_height: 480,
 }
 
 export function VerticalPool2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const PLUG = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.plug;',
   },
-  _width: 10,
-  _height: 10,
+  _original_width: 10,
+  _original_height: 10,
 }
 
 export function Plug(props: DiagramNodeProps) {

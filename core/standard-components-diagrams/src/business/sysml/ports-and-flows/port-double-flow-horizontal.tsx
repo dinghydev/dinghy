@@ -5,8 +5,8 @@ export const PORT_DOUBLE_FLOW_HORIZONTAL = {
   _style: {
     entity: 'html=1;shape=mxgraph.sysml.port;sysMLPortType=doubleH;',
   },
-  _width: 20,
-  _height: 20,
+  _original_width: 20,
+  _original_height: 20,
 }
 
 export function PortDoubleFlowHorizontal(props: DiagramNodeProps) {

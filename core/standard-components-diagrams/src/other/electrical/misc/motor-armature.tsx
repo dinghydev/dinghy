@@ -6,8 +6,8 @@ export const MOTOR_ARMATURE = {
     entity:
       'shape=mxgraph.electrical.electro-mechanical.motor_2;html=1;shadow=0;dashed=0;align=center;fontSize=30;strokeWidth=1;',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function MotorArmature(props: DiagramNodeProps) {

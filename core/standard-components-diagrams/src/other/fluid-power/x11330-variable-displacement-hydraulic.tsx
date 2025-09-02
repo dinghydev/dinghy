@@ -6,8 +6,8 @@ export const X11330_VARIABLE_DISPLACEMENT_HYDRAULIC = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11330;points=[[0.575,0,0],[0.575,1,0],[0.79,0.93,0]]',
   },
-  _width: 176.78,
-  _height: 205.22,
+  _original_width: 176.78,
+  _original_height: 205.22,
 }
 
 export function X11330VariableDisplacementHydraulic(props: DiagramNodeProps) {

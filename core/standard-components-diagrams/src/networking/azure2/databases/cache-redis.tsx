@@ -6,8 +6,8 @@ export const CACHE_REDIS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Cache_Redis.svg;strokeColor=none;',
   },
-  _width: 64,
-  _height: 52,
+  _original_width: 64,
+  _original_height: 52,
 }
 
 export function CacheRedis(props: DiagramNodeProps) {

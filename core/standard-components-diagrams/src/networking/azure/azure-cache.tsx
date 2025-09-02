@@ -6,8 +6,8 @@ export const AZURE_CACHE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_cache;',
   },
-  _width: 45,
-  _height: 50,
+  _original_width: 45,
+  _original_height: 50,
 }
 
 export function AzureCache(props: DiagramNodeProps) {

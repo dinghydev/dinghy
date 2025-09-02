@@ -6,8 +6,8 @@ export const LOCAL_NETWORK_GATEWAYS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Local_Network_Gateways.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 68,
+  _original_height: 68,
 }
 
 export function LocalNetworkGateways(props: DiagramNodeProps) {

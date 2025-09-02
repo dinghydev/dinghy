@@ -6,8 +6,8 @@ export const ORIFICE_QUICK_CHANGE = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.orifice_(quick_change);',
   },
-  _width: 10,
-  _height: 50,
+  _original_width: 10,
+  _original_height: 50,
 }
 
 export function OrificeQuickChange(props: DiagramNodeProps) {

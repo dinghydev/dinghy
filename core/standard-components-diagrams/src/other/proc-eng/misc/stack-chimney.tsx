@@ -6,8 +6,8 @@ export const STACK_CHIMNEY = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.stack,_chimney;',
   },
-  _width: 60,
-  _height: 100,
+  _original_width: 60,
+  _original_height: 100,
 }
 
 export function StackChimney(props: DiagramNodeProps) {

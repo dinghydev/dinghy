@@ -6,8 +6,8 @@ export const USER_RESOURCE = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/User_Resource.svg;strokeColor=none;',
   },
-  _width: 48,
-  _height: 50,
+  _original_width: 48,
+  _original_height: 50,
 }
 
 export function UserResource(props: DiagramNodeProps) {

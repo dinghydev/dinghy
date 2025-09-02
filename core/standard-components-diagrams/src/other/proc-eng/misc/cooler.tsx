@@ -6,8 +6,8 @@ export const COOLER = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.cooler;',
   },
-  _width: 85,
-  _height: 90,
+  _original_width: 85,
+  _original_height: 90,
 }
 
 export function Cooler(props: DiagramNodeProps) {

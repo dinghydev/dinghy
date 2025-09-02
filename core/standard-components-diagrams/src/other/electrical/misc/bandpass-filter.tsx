@@ -6,8 +6,8 @@ export const BANDPASS_FILTER = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.bandpass_filter;',
   },
-  _width: 52,
-  _height: 46,
+  _original_width: 52,
+  _original_height: 46,
 }
 
 export function BandpassFilter(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const STEAM_TRAP = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.steam_trap2;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 53,
+  _original_height: 53,
 }
 
 export function SteamTrap(props: DiagramNodeProps) {

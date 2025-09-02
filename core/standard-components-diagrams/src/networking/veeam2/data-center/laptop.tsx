@@ -6,8 +6,8 @@ export const LAPTOP = {
     entity:
       'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#005F4B;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam2.laptop;',
   },
-  _width: 48,
-  _height: 28.000000000000004,
+  _original_width: 48,
+  _original_height: 28.000000000000004,
 }
 
 export function Laptop(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const ROUTER_WITH_SILICON_SWITCH = {
     entity:
       'shape=mxgraph.cisco.routers.router_with_silicon_switch;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _width: 72,
-  _height: 48,
+  _original_width: 72,
+  _original_height: 48,
 }
 
 export function RouterWithSiliconSwitch(props: DiagramNodeProps) {

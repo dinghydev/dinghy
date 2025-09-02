@@ -6,8 +6,8 @@ export const ON_DEMAND_SANDBOX = {
     entity:
       'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#DF8C42;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam2.on_demand_sandbox;',
   },
-  _width: 34,
-  _height: 34,
+  _original_width: 34,
+  _original_height: 34,
 }
 
 export function OnDemandSandbox(props: DiagramNodeProps) {

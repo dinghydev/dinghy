@@ -6,8 +6,8 @@ export const ACTIVITY_PARTITION_2 = {
     entity:
       'shape=rect;html=1;rounded=1;strokeWidth=2;verticalAlign=top;whiteSpace=wrap;align=center;',
   },
-  _width: 140,
-  _height: 50,
+  _original_width: 140,
+  _original_height: 50,
 }
 
 export function ActivityPartition2(props: DiagramNodeProps) {

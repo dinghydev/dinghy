@@ -6,8 +6,8 @@ export const VM_SAVED_STATE = {
     entity:
       'shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.vm_saved_state;',
   },
-  _width: 58,
-  _height: 48,
+  _original_width: 58,
+  _original_height: 48,
 }
 
 export function VmSavedState(props: DiagramNodeProps) {

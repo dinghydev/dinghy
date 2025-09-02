@@ -6,8 +6,8 @@ export const CONNECTOR_PROPERTY = {
     entity:
       'shape=rect;html=1;overflow=fill;whiteSpace=wrap;	recursiveResize=0;',
   },
-  _width: 0,
-  _height: 250,
+  _original_width: 0,
+  _original_height: 250,
 }
 
 export function ConnectorProperty(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const LIGHT_BULB = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.light_bulb;',
   },
-  _width: 60,
-  _height: 50,
+  _original_width: 60,
+  _original_height: 50,
 }
 
 export function LightBulb(props: DiagramNodeProps) {

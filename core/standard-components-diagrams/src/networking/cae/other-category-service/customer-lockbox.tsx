@@ -6,8 +6,8 @@ export const CUSTOMER_LOCKBOX = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Customer_Lockbox.svg;strokeColor=none;',
   },
-  _width: 47,
-  _height: 50,
+  _original_width: 47,
+  _original_height: 50,
 }
 
 export function CustomerLockbox(props: DiagramNodeProps) {

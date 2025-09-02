@@ -6,8 +6,8 @@ export const TERMINAL_2 = {
     entity:
       'verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;strokeWidth=1;shape=ellipse;fontSize=50;fontStyle=1;perimeter=ellipsePerimeter;whiteSpace=wrap;',
   },
-  _width: 130,
-  _height: 130,
+  _original_width: 130,
+  _original_height: 130,
 }
 
 export function Terminal2(props: DiagramNodeProps) {

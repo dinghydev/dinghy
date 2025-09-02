@@ -6,8 +6,8 @@ export const COUPLING = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.coupling;',
   },
-  _width: 50,
-  _height: 100,
+  _original_width: 50,
+  _original_height: 100,
 }
 
 export function Coupling(props: DiagramNodeProps) {

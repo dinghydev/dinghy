@@ -6,8 +6,8 @@ export const FERRITE_CORE = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.ferrite_core;',
   },
-  _width: 64,
-  _height: 4,
+  _original_width: 64,
+  _original_height: 4,
 }
 
 export function FerriteCore(props: DiagramNodeProps) {

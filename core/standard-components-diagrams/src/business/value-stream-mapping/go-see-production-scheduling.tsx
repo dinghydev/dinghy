@@ -6,8 +6,8 @@ export const GO_SEE_PRODUCTION_SCHEDULING = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.go_see_production_scheduling;pointerEvents=1;',
   },
-  _width: 92,
-  _height: 60,
+  _original_width: 92,
+  _original_height: 60,
 }
 
 export function GoSeeProductionScheduling(props: DiagramNodeProps) {

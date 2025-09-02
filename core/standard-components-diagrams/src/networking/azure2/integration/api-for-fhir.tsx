@@ -6,8 +6,8 @@ export const API_FOR_FHIR = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/integration/Azure_API_for_FHIR.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 65.2,
+  _original_width: 68,
+  _original_height: 65.2,
 }
 
 export function ApiForFhir(props: DiagramNodeProps) {

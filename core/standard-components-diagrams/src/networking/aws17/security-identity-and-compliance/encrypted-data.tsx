@@ -6,8 +6,8 @@ export const ENCRYPTED_DATA = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.encrypted_data;fillColor=#7D7C7C;gradientColor=none;',
   },
-  _width: 43.5,
-  _height: 55.5,
+  _original_width: 43.5,
+  _original_height: 55.5,
 }
 
 export function EncryptedData(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const INTERFACE_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#EBEBEB;shape=mxgraph.archimate3.interface;',
   },
-  _width: 70,
-  _height: 35,
+  _original_width: 70,
+  _original_height: 35,
 }
 
 export function Interface2(props: DiagramNodeProps) {

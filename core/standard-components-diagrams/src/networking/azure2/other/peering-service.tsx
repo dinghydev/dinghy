@@ -6,8 +6,8 @@ export const PEERING_SERVICE = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Peering_Service.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 69,
+  _original_width: 68,
+  _original_height: 69,
 }
 
 export function PeeringService(props: DiagramNodeProps) {

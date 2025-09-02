@@ -6,8 +6,8 @@ export const ATTRIBUTE = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.attribute;fillColor=#2E73B8;gradientColor=none;',
   },
-  _width: 63,
-  _height: 66,
+  _original_width: 63,
+  _original_height: 66,
 }
 
 export function Attribute(props: DiagramNodeProps) {

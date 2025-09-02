@@ -6,8 +6,8 @@ export const ROLE_LOAD_TESTING_CONTROLLER = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.role_load_testing_controller;',
   },
-  _width: 24,
-  _height: 24,
+  _original_width: 24,
+  _original_height: 24,
 }
 
 export function RoleLoadTestingController(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const LOOP_ANTENNA_2 = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.loop_antenna',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function LoopAntenna2(props: DiagramNodeProps) {

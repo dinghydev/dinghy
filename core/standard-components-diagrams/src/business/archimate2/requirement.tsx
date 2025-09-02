@@ -6,8 +6,8 @@ export const REQUIREMENT = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ccccff;shape=mxgraph.archimate.motiv;motivType=req',
   },
-  _width: 100,
-  _height: 75,
+  _original_width: 100,
+  _original_height: 75,
 }
 
 export function Requirement(props: DiagramNodeProps) {

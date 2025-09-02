@@ -6,8 +6,8 @@ export const IN_LINE_STATIC_MIXER = {
     entity:
       'shape=mxgraph.pid.mixers.in-line_static_mixer;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function InLineStaticMixer(props: DiagramNodeProps) {

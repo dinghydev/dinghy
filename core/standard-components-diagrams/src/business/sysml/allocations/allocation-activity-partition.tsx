@@ -6,8 +6,8 @@ export const ALLOCATION_ACTIVITY_PARTITION = {
     entity:
       'shape=rect;html=1;overflow=fill;whiteSpace=wrap;align=center;verticalAlign=top;',
   },
-  _width: 0,
-  _height: 160,
+  _original_width: 0,
+  _original_height: 160,
 }
 
 export function AllocationActivityPartition(props: DiagramNodeProps) {

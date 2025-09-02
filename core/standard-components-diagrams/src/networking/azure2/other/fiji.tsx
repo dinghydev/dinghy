@@ -6,8 +6,8 @@ export const FIJI = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Fiji.svg;strokeColor=none;',
   },
-  _width: 54,
-  _height: 68,
+  _original_width: 54,
+  _original_height: 68,
 }
 
 export function Fiji(props: DiagramNodeProps) {

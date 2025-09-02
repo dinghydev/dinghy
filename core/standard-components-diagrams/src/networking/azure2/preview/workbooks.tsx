@@ -6,8 +6,8 @@ export const WORKBOOKS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/preview/Azure_Workbooks.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 72,
+  _original_height: 72,
 }
 
 export function Workbooks(props: DiagramNodeProps) {

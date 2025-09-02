@@ -6,8 +6,8 @@ export const CAPABILITY_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#F5DEAA;shape=mxgraph.archimate3.capability;',
   },
-  _width: 40,
-  _height: 40,
+  _original_width: 40,
+  _original_height: 40,
 }
 
 export function Capability2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const TABLET = {
     entity:
       'image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/computer_and_terminals/Tablet.svg;strokeColor=none;',
   },
-  _width: 27,
-  _height: 57,
+  _original_width: 27,
+  _original_height: 57,
 }
 
 export function Tablet(props: DiagramNodeProps) {

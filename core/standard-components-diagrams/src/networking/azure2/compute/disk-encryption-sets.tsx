@@ -6,8 +6,8 @@ export const DISK_ENCRYPTION_SETS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Disk_Encryption_Sets.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 68,
+  _original_height: 68,
 }
 
 export function DiskEncryptionSets(props: DiagramNodeProps) {

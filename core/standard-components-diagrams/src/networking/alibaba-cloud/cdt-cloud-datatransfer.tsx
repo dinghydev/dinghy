@@ -6,8 +6,8 @@ export const CDT_CLOUD_DATATRANSFER = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.cdt_cloud_datatransfer;',
   },
-  _width: 50.099999999999994,
-  _height: 42.3,
+  _original_width: 50.099999999999994,
+  _original_height: 42.3,
 }
 
 export function CdtCloudDatatransfer(props: DiagramNodeProps) {

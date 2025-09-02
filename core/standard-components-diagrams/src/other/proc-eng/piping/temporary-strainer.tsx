@@ -6,8 +6,8 @@ export const TEMPORARY_STRAINER = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.temporary_strainer;',
   },
-  _width: 30,
-  _height: 30,
+  _original_width: 30,
+  _original_height: 30,
 }
 
 export function TemporaryStrainer(props: DiagramNodeProps) {

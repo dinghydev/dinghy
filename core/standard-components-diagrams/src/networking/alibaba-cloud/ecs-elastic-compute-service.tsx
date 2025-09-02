@@ -6,8 +6,8 @@ export const ECS_ELASTIC_COMPUTE_SERVICE = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.ecs_elastic_compute_service;',
   },
-  _width: 48.6,
-  _height: 45.3,
+  _original_width: 48.6,
+  _original_height: 45.3,
 }
 
 export function EcsElasticComputeService(props: DiagramNodeProps) {

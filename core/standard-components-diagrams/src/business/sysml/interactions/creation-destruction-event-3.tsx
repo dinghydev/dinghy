@@ -5,8 +5,8 @@ export const CREATION_DESTRUCTION_EVENT_3 = {
   _style: {
     entity: 'edgeStyle=none;dashed=1;endArrow=none;html=1;rounded=0;',
   },
-  _width: 5,
-  _height: 220,
+  _original_width: 5,
+  _original_height: 220,
 }
 
 export function CreationDestructionEvent3(props: DiagramNodeProps) {

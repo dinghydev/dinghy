@@ -6,8 +6,8 @@ export const RESERVED_CAPACITY = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Reserved_Capacity.svg;strokeColor=none;',
   },
-  _width: 57.99999999999999,
-  _height: 68,
+  _original_width: 57.99999999999999,
+  _original_height: 68,
 }
 
 export function ReservedCapacity(props: DiagramNodeProps) {

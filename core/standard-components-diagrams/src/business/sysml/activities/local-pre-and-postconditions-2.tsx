@@ -6,8 +6,8 @@ export const LOCAL_PRE_AND_POSTCONDITIONS_2 = {
     entity:
       'shape=rect;html=1;rounded=1;strokeWidth=2;whiteSpace=wrap;align=center;',
   },
-  _width: 1,
-  _height: 180,
+  _original_width: 1,
+  _original_height: 180,
 }
 
 export function LocalPreAndPostconditions2(props: DiagramNodeProps) {

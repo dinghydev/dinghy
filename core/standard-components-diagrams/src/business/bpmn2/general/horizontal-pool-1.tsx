@@ -6,8 +6,8 @@ export const HORIZONTAL_POOL_1 = {
     entity:
       'swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;whiteSpace=wrap;',
   },
-  _width: 480,
-  _height: 380,
+  _original_width: 480,
+  _original_height: 380,
 }
 
 export function HorizontalPool1(props: DiagramNodeProps) {

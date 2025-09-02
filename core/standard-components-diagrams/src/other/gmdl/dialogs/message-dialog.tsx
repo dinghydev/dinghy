@@ -6,8 +6,8 @@ export const MESSAGE_DIALOG = {
     entity:
       'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;whiteSpace=wrap;html=1;',
   },
-  _width: 480,
-  _height: 480,
+  _original_width: 480,
+  _original_height: 480,
 }
 
 export function MessageDialog(props: DiagramNodeProps) {

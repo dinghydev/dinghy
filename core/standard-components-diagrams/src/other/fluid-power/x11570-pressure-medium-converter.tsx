@@ -6,8 +6,8 @@ export const X11570_PRESSURE_MEDIUM_CONVERTER = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11570;points=[[0.027,1,0],[0.477,1,0]]',
   },
-  _width: 164.9,
-  _height: 104.24,
+  _original_width: 164.9,
+  _original_height: 104.24,
 }
 
 export function X11570PressureMediumConverter(props: DiagramNodeProps) {

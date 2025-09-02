@@ -6,8 +6,8 @@ export const FLAME_ARRESTOR_EXPLOSION_PROOF = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.flame_arrestor_(explosion-proof);',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function FlameArrestorExplosionProof(props: DiagramNodeProps) {

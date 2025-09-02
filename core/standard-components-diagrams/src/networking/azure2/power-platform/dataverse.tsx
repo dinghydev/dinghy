@@ -6,8 +6,8 @@ export const DATAVERSE = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/power_platform/Dataverse.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 52.400000000000006,
+  _original_width: 68,
+  _original_height: 52.400000000000006,
 }
 
 export function Dataverse(props: DiagramNodeProps) {

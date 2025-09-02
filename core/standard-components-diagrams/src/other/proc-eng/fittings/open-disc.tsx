@@ -6,8 +6,8 @@ export const OPEN_DISC = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.open_disc;',
   },
-  _width: 40,
-  _height: 140,
+  _original_width: 40,
+  _original_height: 140,
 }
 
 export function OpenDisc(props: DiagramNodeProps) {

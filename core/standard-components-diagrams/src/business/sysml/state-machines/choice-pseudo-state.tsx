@@ -6,8 +6,8 @@ export const CHOICE_PSEUDO_STATE = {
     entity:
       'shape=rhombus;html=1;labelPosition=right;align=left;verticalAlign=middle',
   },
-  _width: 150,
-  _height: 100,
+  _original_width: 150,
+  _original_height: 100,
 }
 
 export function ChoicePseudoState(props: DiagramNodeProps) {

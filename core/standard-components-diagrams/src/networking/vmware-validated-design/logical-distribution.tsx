@@ -6,8 +6,8 @@ export const LOGICAL_DISTRIBUTION = {
     entity:
       'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#434445;aspect=fixed;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.vvd.logical_distribution;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function LogicalDistribution(props: DiagramNodeProps) {

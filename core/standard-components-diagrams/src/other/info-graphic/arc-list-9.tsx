@@ -6,8 +6,8 @@ export const ARC_LIST_9 = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.arc;fillColor=none;strokeColor=#F2931E;startAngle=0.91;endAngle=0.17;strokeWidth=16;',
   },
-  _width: 6,
-  _height: 200,
+  _original_width: 6,
+  _original_height: 200,
 }
 
 export function ArcList9(props: DiagramNodeProps) {

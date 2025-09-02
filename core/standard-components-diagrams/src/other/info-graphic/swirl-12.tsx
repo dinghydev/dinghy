@@ -6,8 +6,8 @@ export const SWIRL_12 = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.partConcEllipse;fillColor=#AE4132;strokeColor=none;startAngle=0;endAngle=0.5;arcWidth=0.43;shadow=0;fontSize=7;fontColor=#FFFFFF;align=left;',
   },
-  _width: 5,
-  _height: 215,
+  _original_width: 5,
+  _original_height: 215,
 }
 
 export function Swirl12(props: DiagramNodeProps) {

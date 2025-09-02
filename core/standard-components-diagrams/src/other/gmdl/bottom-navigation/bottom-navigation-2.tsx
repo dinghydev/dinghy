@@ -6,8 +6,8 @@ export const BOTTOM_NAVIGATION_2 = {
     entity:
       'dashed=0;align=center;fontSize=12;shape=rect;fillColor=#00796B;strokeColor=none;shadow=0;hachureGap=4;pointerEvents=0;fontFamily=Helvetica;',
   },
-  _width: 358,
-  _height: 48,
+  _original_width: 358,
+  _original_height: 48,
 }
 
 export function BottomNavigation2(props: DiagramNodeProps) {

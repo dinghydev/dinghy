@@ -6,8 +6,8 @@ export const TOOLKIT_FOR_VISUAL_STUDIO = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.toolkit_for_visual_studio;fillColor=#53B1CB;gradientColor=none;',
   },
-  _width: 70.5,
-  _height: 78,
+  _original_width: 70.5,
+  _original_height: 78,
 }
 
 export function ToolkitForVisualStudio(props: DiagramNodeProps) {

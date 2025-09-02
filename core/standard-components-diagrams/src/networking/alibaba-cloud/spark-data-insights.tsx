@@ -6,8 +6,8 @@ export const SPARK_DATA_INSIGHTS = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.spark_data_insights;',
   },
-  _width: 46.2,
-  _height: 50.099999999999994,
+  _original_width: 46.2,
+  _original_height: 50.099999999999994,
 }
 
 export function SparkDataInsights(props: DiagramNodeProps) {

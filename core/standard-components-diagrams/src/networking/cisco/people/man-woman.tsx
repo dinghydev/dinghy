@@ -6,8 +6,8 @@ export const MAN_WOMAN = {
     entity:
       'shape=mxgraph.cisco.people.man_woman;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _width: 106,
-  _height: 155,
+  _original_width: 106,
+  _original_height: 155,
 }
 
 export function ManWoman(props: DiagramNodeProps) {

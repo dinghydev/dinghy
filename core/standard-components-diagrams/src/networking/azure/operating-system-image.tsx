@@ -6,8 +6,8 @@ export const OPERATING_SYSTEM_IMAGE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.operating_system_image;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function OperatingSystemImage(props: DiagramNodeProps) {

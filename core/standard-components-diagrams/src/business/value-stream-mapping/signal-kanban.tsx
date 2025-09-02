@@ -6,8 +6,8 @@ export const SIGNAL_KANBAN = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.signal_kanban;overflow=fill;',
   },
-  _width: 100,
-  _height: 90,
+  _original_width: 100,
+  _original_height: 90,
 }
 
 export function SignalKanban(props: DiagramNodeProps) {

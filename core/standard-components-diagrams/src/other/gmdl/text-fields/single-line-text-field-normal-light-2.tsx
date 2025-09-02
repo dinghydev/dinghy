@@ -6,8 +6,8 @@ export const SINGLE_LINE_TEXT_FIELD_NORMAL_LIGHT_2 = {
     entity:
       'text;fontColor=#1F9BFD;fontSize=12;verticalAlign=middle;strokeColor=none;fillColor=none;whiteSpace=wrap;html=1;',
   },
-  _width: 0,
-  _height: 55,
+  _original_width: 0,
+  _original_height: 55,
 }
 
 export function SingleLineTextFieldNormalLight2(props: DiagramNodeProps) {

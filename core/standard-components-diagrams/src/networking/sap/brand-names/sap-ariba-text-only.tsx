@@ -6,8 +6,8 @@ export const SAP_ARIBA_TEXT_ONLY = {
     entity:
       'text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;fontColor=#1A2733;fontFamily=Helvetica;fontStyle=1',
   },
-  _width: 120,
-  _height: 30,
+  _original_width: 120,
+  _original_height: 30,
 }
 
 export function SapAribaTextOnly(props: DiagramNodeProps) {

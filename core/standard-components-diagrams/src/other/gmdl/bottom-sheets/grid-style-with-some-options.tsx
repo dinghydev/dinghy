@@ -6,8 +6,8 @@ export const GRID_STYLE_WITH_SOME_OPTIONS = {
     entity:
       'dashed=0;align=center;fontSize=12;shape=rect;fillColor=#ffffff;strokeColor=none;',
   },
-  _width: 358,
-  _height: 642,
+  _original_width: 358,
+  _original_height: 642,
 }
 
 export function GridStyleWithSomeOptions(props: DiagramNodeProps) {

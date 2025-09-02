@@ -6,8 +6,8 @@ export const BLOCK_DEFINITION_DIAGRAM = {
     entity:
       'html=1;shape=mxgraph.sysml.package;labelX=120;align=left;spacingLeft=10;overflow=fill;recursiveResize=0;',
   },
-  _width: 0,
-  _height: 100,
+  _original_width: 0,
+  _original_height: 100,
 }
 
 export function BlockDefinitionDiagram(props: DiagramNodeProps) {

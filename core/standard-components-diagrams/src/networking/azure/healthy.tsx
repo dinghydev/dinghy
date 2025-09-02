@@ -6,8 +6,8 @@ export const HEALTHY = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.healthy;',
   },
-  _width: 50,
-  _height: 45,
+  _original_width: 50,
+  _original_height: 45,
 }
 
 export function Healthy(props: DiagramNodeProps) {

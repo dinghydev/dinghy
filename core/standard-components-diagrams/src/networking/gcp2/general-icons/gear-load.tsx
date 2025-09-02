@@ -6,8 +6,8 @@ export const GEAR_LOAD = {
     entity:
       'sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;fillColor=#3B8DF1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.gear_load',
   },
-  _width: 100,
-  _height: 92,
+  _original_width: 100,
+  _original_height: 92,
 }
 
 export function GearLoad(props: DiagramNodeProps) {

@@ -5,8 +5,8 @@ export const TWO_LINE_GRID_LIST = {
   _style: {
     entity: 'dashed=0;shape=rect;fillColor=#000000;strokeColor=none;',
   },
-  _width: 358,
-  _height: 642,
+  _original_width: 358,
+  _original_height: 642,
 }
 
 export function TwoLineGridList(props: DiagramNodeProps) {

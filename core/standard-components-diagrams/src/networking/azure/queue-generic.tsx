@@ -6,8 +6,8 @@ export const QUEUE_GENERIC = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.queue_generic;pointerEvents=1;',
   },
-  _width: 50,
-  _height: 15,
+  _original_width: 50,
+  _original_height: 15,
 }
 
 export function QueueGeneric(props: DiagramNodeProps) {

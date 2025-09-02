@@ -6,8 +6,8 @@ export const ITEM_FLOW_NORTH_IN = {
     entity:
       'html=1;shape=mxgraph.sysml.itemFlow;fontStyle=1;flowDir=n;flowType=in;whiteSpace=wrap;align=center;',
   },
-  _width: 200,
-  _height: 80,
+  _original_width: 200,
+  _original_height: 80,
 }
 
 export function ItemFlowNorthIn(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const SHORTING_SELECTOR = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.shortingSelectorSwitch2;elSwitchState=1;',
   },
-  _width: 60,
-  _height: 66,
+  _original_width: 60,
+  _original_height: 66,
 }
 
 export function ShortingSelector(props: DiagramNodeProps) {

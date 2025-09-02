@@ -6,8 +6,8 @@ export const DYNAMICS_365 = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/Dynamics365.svg;strokeColor=none;',
   },
-  _width: 50.12,
-  _height: 68,
+  _original_width: 50.12,
+  _original_height: 68,
 }
 
 export function Dynamics365(props: DiagramNodeProps) {

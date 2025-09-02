@@ -6,8 +6,8 @@ export const PERMISSIONS = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.permissions_2;fillColor=#D2D3D3;gradientColor=none;',
   },
-  _width: 46.5,
-  _height: 63,
+  _original_width: 46.5,
+  _original_height: 63,
 }
 
 export function Permissions(props: DiagramNodeProps) {

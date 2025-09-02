@@ -6,8 +6,8 @@ export const ICON13 = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;html=1;fillColor=#282828;strokeColor=none;verticalAlign=top;pointerEvents=1;align=center;shape=mxgraph.cisco_safe.business_icons.icon13;',
   },
-  _width: 50,
-  _height: 28.000000000000004,
+  _original_width: 50,
+  _original_height: 28.000000000000004,
 }
 
 export function Icon13(props: DiagramNodeProps) {

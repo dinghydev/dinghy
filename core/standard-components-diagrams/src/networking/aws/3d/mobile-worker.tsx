@@ -6,8 +6,8 @@ export const MOBILE_WORKER = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=1;align=center;outlineConnect=0;dashed=0;outlineConnect=0;shape=mxgraph.aws3d.mobile_worker;aspect=fixed;strokeColor=none;fillColor=#777777;',
   },
-  _width: 36,
-  _height: 90,
+  _original_width: 36,
+  _original_height: 90,
 }
 
 export function MobileWorker(props: DiagramNodeProps) {

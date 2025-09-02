@@ -6,8 +6,8 @@ export const SERVICE_BUS_TOPICS_AND_SUBSCRIPTIONS = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.service_bus_topics_and_subscriptions;pointerEvents=1;',
   },
-  _width: 45,
-  _height: 50,
+  _original_width: 45,
+  _original_height: 50,
 }
 
 export function ServiceBusTopicsAndSubscriptions(props: DiagramNodeProps) {

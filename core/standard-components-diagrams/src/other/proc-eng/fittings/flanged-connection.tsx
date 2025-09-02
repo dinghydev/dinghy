@@ -6,8 +6,8 @@ export const FLANGED_CONNECTION = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.flanged_connection;',
   },
-  _width: 20,
-  _height: 50,
+  _original_width: 20,
+  _original_height: 50,
 }
 
 export function FlangedConnection(props: DiagramNodeProps) {

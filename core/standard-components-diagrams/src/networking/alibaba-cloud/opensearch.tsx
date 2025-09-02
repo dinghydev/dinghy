@@ -6,8 +6,8 @@ export const OPENSEARCH = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.opensearch;',
   },
-  _width: 60.3,
-  _height: 60,
+  _original_width: 60.3,
+  _original_height: 60,
 }
 
 export function Opensearch(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const CONCENTRIC_REDUCER = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.concentric_reducer;',
   },
-  _width: 20,
-  _height: 20,
+  _original_width: 20,
+  _original_height: 20,
 }
 
 export function ConcentricReducer(props: DiagramNodeProps) {

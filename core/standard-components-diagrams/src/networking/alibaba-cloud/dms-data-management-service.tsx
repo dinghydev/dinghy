@@ -6,8 +6,8 @@ export const DMS_DATA_MANAGEMENT_SERVICE = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.dms_data_management_service;',
   },
-  _width: 45.9,
-  _height: 47.400000000000006,
+  _original_width: 45.9,
+  _original_height: 47.400000000000006,
 }
 
 export function DmsDataManagementService(props: DiagramNodeProps) {

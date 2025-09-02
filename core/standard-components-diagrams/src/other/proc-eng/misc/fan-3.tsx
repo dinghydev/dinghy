@@ -6,8 +6,8 @@ export const FAN_3 = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.fan;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function Fan3(props: DiagramNodeProps) {

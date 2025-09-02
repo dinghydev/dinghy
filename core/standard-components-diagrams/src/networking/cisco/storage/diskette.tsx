@@ -6,8 +6,8 @@ export const DISKETTE = {
     entity:
       'shape=mxgraph.cisco.storage.diskette;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _width: 51,
-  _height: 50,
+  _original_width: 51,
+  _original_height: 50,
 }
 
 export function Diskette(props: DiagramNodeProps) {

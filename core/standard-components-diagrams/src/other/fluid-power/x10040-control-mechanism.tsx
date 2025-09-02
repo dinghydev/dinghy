@@ -6,8 +6,8 @@ export const X10040_CONTROL_MECHANISM = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10040;points=[[1,0.6,0]]',
   },
-  _width: 18.7,
-  _height: 26.36,
+  _original_width: 18.7,
+  _original_height: 26.36,
 }
 
 export function X10040ControlMechanism(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const BUZZER = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.buzzer;',
   },
-  _width: 45,
-  _height: 60,
+  _original_width: 45,
+  _original_height: 60,
 }
 
 export function Buzzer(props: DiagramNodeProps) {

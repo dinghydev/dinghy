@@ -6,8 +6,8 @@ export const PROJECT_SERVICE_AUTOMATION = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/ProjectServiceAutomation.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 63.480000000000004,
+  _original_width: 68,
+  _original_height: 63.480000000000004,
 }
 
 export function ProjectServiceAutomation(props: DiagramNodeProps) {

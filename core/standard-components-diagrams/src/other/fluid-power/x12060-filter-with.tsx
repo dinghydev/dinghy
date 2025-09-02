@@ -6,8 +6,8 @@ export const X12060_FILTER_WITH = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x12060;points=[[0.34,0,0],[0.34,1,0]]',
   },
-  _width: 246.26,
-  _height: 147,
+  _original_width: 246.26,
+  _original_height: 147,
 }
 
 export function X12060FilterWith(props: DiagramNodeProps) {

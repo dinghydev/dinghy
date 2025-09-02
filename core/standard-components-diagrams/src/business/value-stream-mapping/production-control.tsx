@@ -6,8 +6,8 @@ export const PRODUCTION_CONTROL = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.schedule;whiteSpace=wrap;align=center;',
   },
-  _width: 100,
-  _height: 70,
+  _original_width: 100,
+  _original_height: 70,
 }
 
 export function ProductionControl(props: DiagramNodeProps) {

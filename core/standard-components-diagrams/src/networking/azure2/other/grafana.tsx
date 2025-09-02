@@ -6,8 +6,8 @@ export const GRAFANA = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Grafana.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 52.800000000000004,
+  _original_width: 68,
+  _original_height: 52.800000000000004,
 }
 
 export function Grafana(props: DiagramNodeProps) {

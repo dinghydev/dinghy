@@ -6,8 +6,8 @@ export const ITEM_FLOW_EAST_OUT = {
     entity:
       'html=1;shape=mxgraph.sysml.itemFlow;fontStyle=1;flowDir=e;flowType=out;whiteSpace=wrap;align=center;',
   },
-  _width: 200,
-  _height: 80,
+  _original_width: 200,
+  _original_height: 80,
 }
 
 export function ItemFlowEastOut(props: DiagramNodeProps) {

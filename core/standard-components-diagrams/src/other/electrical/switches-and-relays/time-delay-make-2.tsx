@@ -6,8 +6,8 @@ export const TIME_DELAY_MAKE_2 = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.timeDelaySwitch2;elSwitchState=off;',
   },
-  _width: 75,
-  _height: 36,
+  _original_width: 75,
+  _original_height: 36,
 }
 
 export function TimeDelayMake2(props: DiagramNodeProps) {

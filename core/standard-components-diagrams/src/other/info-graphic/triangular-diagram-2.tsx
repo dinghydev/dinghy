@@ -6,8 +6,8 @@ export const TRIANGULAR_DIAGRAM_2 = {
     entity:
       'triangle;whiteSpace=wrap;html=1;shadow=0;strokeColor=#FFFFFF;strokeWidth=6;fillColor=#F2931E;fontSize=16;fontColor=#FFFFFF;align=center;direction=north;fontStyle=1',
   },
-  _width: 1,
-  _height: 360,
+  _original_width: 1,
+  _original_height: 360,
 }
 
 export function TriangularDiagram2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const CONTAINER_INSTANCES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/containers/Container_Instances.svg;strokeColor=none;',
   },
-  _width: 64,
-  _height: 69,
+  _original_width: 64,
+  _original_height: 69,
 }
 
 export function ContainerInstances(props: DiagramNodeProps) {

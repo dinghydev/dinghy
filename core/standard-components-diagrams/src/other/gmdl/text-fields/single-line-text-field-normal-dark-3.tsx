@@ -6,8 +6,8 @@ export const SINGLE_LINE_TEXT_FIELD_NORMAL_DARK_3 = {
     entity:
       'text;fontColor=#cccccc;fontSize=16;verticalAlign=middle;strokeColor=none;fillColor=none;whiteSpace=wrap;html=1;',
   },
-  _width: 1,
-  _height: 55,
+  _original_width: 1,
+  _original_height: 55,
 }
 
 export function SingleLineTextFieldNormalDark3(props: DiagramNodeProps) {

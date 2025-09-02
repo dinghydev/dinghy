@@ -6,8 +6,8 @@ export const ELASTIC_BEANSTALK = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=1;align=center;outlineConnect=0;dashed=0;outlineConnect=0;shape=mxgraph.aws3d.elasticBeanstalk;fillColor=#ECECEC;strokeColor=#5E5E5E;aspect=fixed;',
   },
-  _width: 182,
-  _height: 140,
+  _original_width: 182,
+  _original_height: 140,
 }
 
 export function ElasticBeanstalk(props: DiagramNodeProps) {

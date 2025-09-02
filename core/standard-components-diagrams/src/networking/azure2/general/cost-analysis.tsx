@@ -6,8 +6,8 @@ export const COST_ANALYSIS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Cost_Analysis.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 70,
+  _original_width: 60,
+  _original_height: 70,
 }
 
 export function CostAnalysis(props: DiagramNodeProps) {

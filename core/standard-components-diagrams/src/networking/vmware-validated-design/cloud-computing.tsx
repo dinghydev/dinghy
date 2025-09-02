@@ -6,8 +6,8 @@ export const CLOUD_COMPUTING = {
     entity:
       'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;aspect=fixed;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.vvd.cloud_computing;fillColor=#066A90;',
   },
-  _width: 50,
-  _height: 32,
+  _original_width: 50,
+  _original_height: 32,
 }
 
 export function CloudComputing(props: DiagramNodeProps) {

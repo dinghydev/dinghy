@@ -6,8 +6,8 @@ export const BOILER_DOME = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.boiler_(dome);',
   },
-  _width: 100,
-  _height: 120,
+  _original_width: 100,
+  _original_height: 120,
 }
 
 export function BoilerDome(props: DiagramNodeProps) {

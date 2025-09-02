@@ -6,8 +6,8 @@ export const DNS_ZONES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/DNS_Zones.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 64,
+  _original_height: 64,
 }
 
 export function DnsZones(props: DiagramNodeProps) {

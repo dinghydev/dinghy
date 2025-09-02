@@ -6,8 +6,8 @@ export const TERMINAL_3_PHASE = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.terminal_3_phase;pointerEvents=1;',
   },
-  _width: 43,
-  _height: 10,
+  _original_width: 43,
+  _original_height: 10,
 }
 
 export function Terminal3Phase(props: DiagramNodeProps) {

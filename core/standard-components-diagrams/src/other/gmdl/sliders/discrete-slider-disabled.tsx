@@ -6,8 +6,8 @@ export const DISCRETE_SLIDER_DISABLED = {
     entity:
       'dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.gmdl.sliderDisabled2;strokeColor=#b0b0b0;strokeWidth=2;fillColor=#b0b0b0;handleSize=6;shadow=0;hPos=0;html=1;',
   },
-  _width: 200,
-  _height: 20,
+  _original_width: 200,
+  _original_height: 20,
 }
 
 export function DiscreteSliderDisabled(props: DiagramNodeProps) {

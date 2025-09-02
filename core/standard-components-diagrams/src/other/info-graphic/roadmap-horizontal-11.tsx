@@ -5,8 +5,8 @@ export const ROADMAP_HORIZONTAL_11 = {
   _style: {
     entity: 'fillColor=#dddddd;rounded=0;strokeColor=none;',
   },
-  _width: 0,
-  _height: 210,
+  _original_width: 0,
+  _original_height: 210,
 }
 
 export function RoadmapHorizontal11(props: DiagramNodeProps) {

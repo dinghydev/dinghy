@@ -6,8 +6,8 @@ export const GIT_REPOSITORY = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.git_repository;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function GitRepository(props: DiagramNodeProps) {

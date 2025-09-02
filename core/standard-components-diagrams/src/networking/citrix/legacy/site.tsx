@@ -6,8 +6,8 @@ export const SITE = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.site;',
   },
-  _width: 107,
-  _height: 101,
+  _original_width: 107,
+  _original_height: 101,
 }
 
 export function Site(props: DiagramNodeProps) {

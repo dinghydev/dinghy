@@ -6,8 +6,8 @@ export const RESOURCE_GROUP_LIST = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Resource_Group_List.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 67,
+  _original_width: 68,
+  _original_height: 67,
 }
 
 export function ResourceGroupList(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const LINE_ITEM_WITH_PRIMARY_CHECKBOX = {
     entity:
       'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=none;verticalLabelPosition=middle;align=left;verticalAlign=middle;fontSize=15;spacingLeft=72;whiteSpace=wrap;html=1;',
   },
-  _width: 358,
-  _height: 56,
+  _original_width: 358,
+  _original_height: 56,
 }
 
 export function LineItemWithPrimaryCheckbox(props: DiagramNodeProps) {

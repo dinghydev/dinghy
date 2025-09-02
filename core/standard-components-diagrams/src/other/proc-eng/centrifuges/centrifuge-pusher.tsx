@@ -6,8 +6,8 @@ export const CENTRIFUGE_PUSHER = {
     entity:
       'shape=mxgraph.pid.centrifuges.centrifuge_(pusher);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 110,
-  _height: 100,
+  _original_width: 110,
+  _original_height: 100,
 }
 
 export function CentrifugePusher(props: DiagramNodeProps) {

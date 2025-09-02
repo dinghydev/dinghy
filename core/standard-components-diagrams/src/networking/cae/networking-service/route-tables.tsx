@@ -6,8 +6,8 @@ export const ROUTE_TABLES = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/UserDefinedRoute.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function RouteTables(props: DiagramNodeProps) {

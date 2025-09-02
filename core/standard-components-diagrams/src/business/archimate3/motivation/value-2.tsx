@@ -5,8 +5,8 @@ export const VALUE_2 = {
   _style: {
     entity: 'shape=ellipse;html=1;whiteSpace=wrap;fillColor=#CCCCFF;',
   },
-  _width: 70,
-  _height: 35,
+  _original_width: 70,
+  _original_height: 35,
 }
 
 export function Value2(props: DiagramNodeProps) {

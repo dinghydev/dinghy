@@ -6,8 +6,8 @@ export const EVENT_TIME_BASED = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.event_time_based;fillColor=#759C3E;gradientColor=none;',
   },
-  _width: 63,
-  _height: 82.5,
+  _original_width: 63,
+  _original_height: 82.5,
 }
 
 export function EventTimeBased(props: DiagramNodeProps) {

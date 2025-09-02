@@ -6,8 +6,8 @@ export const INTELLIGENT_ORDER_MANAGEMENT = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/IntelligentOrderManagement.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 68,
+  _original_height: 68,
 }
 
 export function IntelligentOrderManagement(props: DiagramNodeProps) {

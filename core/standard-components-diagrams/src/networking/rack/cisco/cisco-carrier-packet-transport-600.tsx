@@ -6,8 +6,8 @@ export const CISCO_CARRIER_PACKET_TRANSPORT_600 = {
     entity:
       'shape=mxgraph.rack.cisco.cisco_carrier_packet_transport_600;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _width: 161,
-  _height: 89,
+  _original_width: 161,
+  _original_height: 89,
 }
 
 export function CiscoCarrierPacketTransport600(props: DiagramNodeProps) {

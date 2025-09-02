@@ -6,8 +6,8 @@ export const UNKNOWN_TAPE = {
     entity:
       'shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.unknown_tape;',
   },
-  _width: 67.2,
-  _height: 62.4,
+  _original_width: 67.2,
+  _original_height: 62.4,
 }
 
 export function UnknownTape(props: DiagramNodeProps) {

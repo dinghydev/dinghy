@@ -6,8 +6,8 @@ export const MESSAGE_EXPIRATION = {
     entity:
       'strokeWidth=3;outlineConnect=0;dashed=0;align=center;fontSize=8;shape=mxgraph.eip.messExp;html=1;verticalLabelPosition=bottom;verticalAlign=top',
   },
-  _width: 48,
-  _height: 48,
+  _original_width: 48,
+  _original_height: 48,
 }
 
 export function MessageExpiration(props: DiagramNodeProps) {

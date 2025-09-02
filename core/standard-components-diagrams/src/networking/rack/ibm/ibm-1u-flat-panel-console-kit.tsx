@@ -6,8 +6,8 @@ export const IBM_1U_FLAT_PANEL_CONSOLE_KIT = {
     entity:
       'shape=mxgraph.rack.ibm.ibm_1u_flat_panel_console_kit;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _width: 161,
-  _height: 15,
+  _original_width: 161,
+  _original_height: 15,
 }
 
 export function Ibm1uFlatPanelConsoleKit(props: DiagramNodeProps) {

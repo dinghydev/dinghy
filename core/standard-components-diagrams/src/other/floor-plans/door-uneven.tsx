@@ -6,8 +6,8 @@ export const DOOR_UNEVEN = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.doorUneven;dx=0.5;',
   },
-  _width: 160,
-  _height: 85,
+  _original_width: 160,
+  _original_height: 85,
 }
 
 export function DoorUneven(props: DiagramNodeProps) {

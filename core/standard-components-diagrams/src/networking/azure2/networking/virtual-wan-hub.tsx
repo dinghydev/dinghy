@@ -6,8 +6,8 @@ export const VIRTUAL_WAN_HUB = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Virtual_WAN_Hub.svg;strokeColor=none;',
   },
-  _width: 65,
-  _height: 64,
+  _original_width: 65,
+  _original_height: 64,
 }
 
 export function VirtualWanHub(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const J9831A_5406R_ZL2_SWITCH_FAN_TRAY = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.j9831a_5406r_zl2_switch_fan_tray;',
   },
-  _width: 15,
-  _height: 53,
+  _original_width: 15,
+  _original_height: 53,
 }
 
 export function J9831a5406rZl2SwitchFanTray(props: DiagramNodeProps) {

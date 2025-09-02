@@ -6,8 +6,8 @@ export const CHEVRON_LIST_3 = {
     entity:
       'shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#10739E;strokeColor=none;fontSize=17;fontColor=#FFFFFF;fontStyle=1;align=center;rounded=0;',
   },
-  _width: 0,
-  _height: 420,
+  _original_width: 0,
+  _original_height: 420,
 }
 
 export function ChevronList3(props: DiagramNodeProps) {

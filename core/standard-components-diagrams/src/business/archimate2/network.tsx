@@ -6,8 +6,8 @@ export const NETWORK = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ff99;shape=mxgraph.archimate.application;appType=network',
   },
-  _width: 100,
-  _height: 75,
+  _original_width: 100,
+  _original_height: 75,
 }
 
 export function Network(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const TENANT_STATUS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Tenant_Status.svg;strokeColor=none;',
   },
-  _width: 46,
-  _height: 50,
+  _original_width: 46,
+  _original_height: 50,
 }
 
 export function TenantStatus(props: DiagramNodeProps) {

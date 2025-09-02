@@ -6,8 +6,8 @@ export const DATABASE = {
     entity:
       'sketch=0;shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.database;',
   },
-  _width: 58,
-  _height: 62,
+  _original_width: 58,
+  _original_height: 62,
 }
 
 export function Database(props: DiagramNodeProps) {

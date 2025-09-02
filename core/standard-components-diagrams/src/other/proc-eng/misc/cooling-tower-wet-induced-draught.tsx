@@ -6,8 +6,8 @@ export const COOLING_TOWER_WET_INDUCED_DRAUGHT = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.cooling_tower_(wet,_induced_draught);',
   },
-  _width: 100,
-  _height: 120,
+  _original_width: 100,
+  _original_height: 120,
 }
 
 export function CoolingTowerWetInducedDraught(props: DiagramNodeProps) {

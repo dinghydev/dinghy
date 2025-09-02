@@ -6,8 +6,8 @@ export const SUMP_PUMP = {
     entity:
       'shape=mxgraph.pid.pumps.sump_pump;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 103,
-  _height: 186,
+  _original_width: 103,
+  _original_height: 186,
 }
 
 export function SumpPump(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const LIQUID_FILTER_BAG_CANDLE_CARTRIDGE = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.filters.liquid_Filter_(bag,_candle,_cartridge);',
   },
-  _width: 50,
-  _height: 100,
+  _original_width: 50,
+  _original_height: 100,
 }
 
 export function LiquidFilterBagCandleCartridge(props: DiagramNodeProps) {

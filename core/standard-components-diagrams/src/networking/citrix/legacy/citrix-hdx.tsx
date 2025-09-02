@@ -6,8 +6,8 @@ export const CITRIX_HDX = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.citrix_hdx;',
   },
-  _width: 77.5,
-  _height: 41,
+  _original_width: 77.5,
+  _original_height: 41,
 }
 
 export function CitrixHdx(props: DiagramNodeProps) {

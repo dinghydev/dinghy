@@ -6,8 +6,8 @@ export const METRICS_ADVISOR = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Metrics_Advisor.svg;strokeColor=none;',
   },
-  _width: 54.800000000000004,
-  _height: 68,
+  _original_width: 54.800000000000004,
+  _original_height: 68,
 }
 
 export function MetricsAdvisor(props: DiagramNodeProps) {

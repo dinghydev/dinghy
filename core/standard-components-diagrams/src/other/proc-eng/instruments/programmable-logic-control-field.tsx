@@ -6,8 +6,8 @@ export const PROGRAMMABLE_LOGIC_CONTROL_FIELD = {
     entity:
       'html=1;outlineConnect=0;align=center;dashed=0;aspect=fixed;shape=mxgraph.pid2inst.progLogCont;mounting=field',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function ProgrammableLogicControlField(props: DiagramNodeProps) {

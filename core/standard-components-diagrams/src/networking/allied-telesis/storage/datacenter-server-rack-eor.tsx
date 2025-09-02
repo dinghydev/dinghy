@@ -6,8 +6,8 @@ export const DATACENTER_SERVER_RACK_EOR = {
     entity:
       'image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/storage/Datacenter_Server_Rack_EoR.svg;strokeColor=none;',
   },
-  _width: 85.8,
-  _height: 173.4,
+  _original_width: 85.8,
+  _original_height: 173.4,
 }
 
 export function DatacenterServerRackEor(props: DiagramNodeProps) {

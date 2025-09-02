@@ -6,8 +6,8 @@ export const NODE = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#AFFFAF;shape=mxgraph.archimate3.application;appType=node;archiType=square;',
   },
-  _width: 150,
-  _height: 75,
+  _original_width: 150,
+  _original_height: 75,
 }
 
 export function Node(props: DiagramNodeProps) {

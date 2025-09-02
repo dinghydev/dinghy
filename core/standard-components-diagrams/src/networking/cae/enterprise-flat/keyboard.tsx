@@ -6,8 +6,8 @@ export const KEYBOARD = {
     entity:
       'sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.keyboard',
   },
-  _width: 50,
-  _height: 30,
+  _original_width: 50,
+  _original_height: 30,
 }
 
 export function Keyboard(props: DiagramNodeProps) {

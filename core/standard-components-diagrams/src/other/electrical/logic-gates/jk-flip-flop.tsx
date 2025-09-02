@@ -6,8 +6,8 @@ export const JK_FLIP_FLOP = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.jk_flip-flop;',
   },
-  _width: 100,
-  _height: 80,
+  _original_width: 100,
+  _original_height: 80,
 }
 
 export function JkFlipFlop(props: DiagramNodeProps) {

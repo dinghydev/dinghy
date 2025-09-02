@@ -6,8 +6,8 @@ export const SCVMM_MANAGEMENT_SERVERS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/SCVMM_Management_Servers.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 67.72,
+  _original_width: 68,
+  _original_height: 67.72,
 }
 
 export function ScvmmManagementServers(props: DiagramNodeProps) {

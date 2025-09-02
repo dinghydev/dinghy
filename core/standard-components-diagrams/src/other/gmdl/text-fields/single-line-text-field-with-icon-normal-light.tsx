@@ -5,8 +5,8 @@ export const SINGLE_LINE_TEXT_FIELD_WITH_ICON_NORMAL_LIGHT = {
   _style: {
     entity: 'shape=rect;strokeColor=none;fillColor=none;',
   },
-  _width: 346,
-  _height: 35,
+  _original_width: 346,
+  _original_height: 35,
 }
 
 export function SingleLineTextFieldWithIconNormalLight(

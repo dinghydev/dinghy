@@ -6,8 +6,8 @@ export const BARE_METAL_INFRASTRUCTURE = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Bare_Metal_Infrastructure.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 64,
+  _original_width: 68,
+  _original_height: 64,
 }
 
 export function BareMetalInfrastructure(props: DiagramNodeProps) {

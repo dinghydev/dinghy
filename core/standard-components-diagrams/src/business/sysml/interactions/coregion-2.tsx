@@ -5,8 +5,8 @@ export const COREGION_2 = {
   _style: {
     entity: 'shape=ellipse;html=1;fillColor=strokeColor;',
   },
-  _width: 2,
-  _height: 220,
+  _original_width: 2,
+  _original_height: 220,
 }
 
 export function Coregion2(props: DiagramNodeProps) {

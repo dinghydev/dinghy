@@ -6,8 +6,8 @@ export const BLOCK_NAMESPACE_CONTAINMENT = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;endSize=12;endArrow=sysMLPackCont;elbow=horizontal;rounded=0;align=left;verticalAlign=middle',
   },
-  _width: 1,
-  _height: 70,
+  _original_width: 1,
+  _original_height: 70,
 }
 
 export function BlockNamespaceContainment(props: DiagramNodeProps) {

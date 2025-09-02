@@ -6,8 +6,8 @@ export const GAS_FLOW_ACTUATED_OFF = {
     entity:
       'html=1;shape=mxgraph.electrical.electro-mechanical.gasFlowActuatedSwitch;aspect=fixed;elSwitchState=off;',
   },
-  _width: 75,
-  _height: 32,
+  _original_width: 75,
+  _original_height: 32,
 }
 
 export function GasFlowActuatedOff(props: DiagramNodeProps) {

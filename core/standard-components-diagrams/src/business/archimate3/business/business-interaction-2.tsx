@@ -6,8 +6,8 @@ export const BUSINESS_INTERACTION_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.interaction;',
   },
-  _width: 40,
-  _height: 40,
+  _original_width: 40,
+  _original_height: 40,
 }
 
 export function BusinessInteraction2(props: DiagramNodeProps) {

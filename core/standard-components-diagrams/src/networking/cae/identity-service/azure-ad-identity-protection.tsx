@@ -6,8 +6,8 @@ export const AZURE_AD_IDENTITY_PROTECTION = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_AD_Identity_Protection.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function AzureAdIdentityProtection(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const AGITATOR_ANCHOR = {
     entity:
       'shape=mxgraph.pid.agitators.agitator_(anchor);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 80,
-  _height: 120,
+  _original_width: 80,
+  _original_height: 120,
 }
 
 export function AgitatorAnchor(props: DiagramNodeProps) {

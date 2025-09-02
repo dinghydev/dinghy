@@ -6,8 +6,8 @@ export const NOR_IEC = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.iec_logic_gates.nor_2;',
   },
-  _width: 66,
-  _height: 80,
+  _original_width: 66,
+  _original_height: 80,
 }
 
 export function NorIec(props: DiagramNodeProps) {

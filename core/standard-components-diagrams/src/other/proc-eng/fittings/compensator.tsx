@@ -6,8 +6,8 @@ export const COMPENSATOR = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.compensator;',
   },
-  _width: 40,
-  _height: 80,
+  _original_width: 40,
+  _original_height: 80,
 }
 
 export function Compensator(props: DiagramNodeProps) {

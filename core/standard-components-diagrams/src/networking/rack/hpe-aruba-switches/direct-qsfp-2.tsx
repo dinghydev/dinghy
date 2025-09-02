@@ -6,8 +6,8 @@ export const DIRECT_QSFP_2 = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.direct_qsfp;',
   },
-  _width: 11,
-  _height: 5.7,
+  _original_width: 11,
+  _original_height: 5.7,
 }
 
 export function DirectQsfp2(props: DiagramNodeProps) {

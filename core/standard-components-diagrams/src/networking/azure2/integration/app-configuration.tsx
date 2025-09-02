@@ -6,8 +6,8 @@ export const APP_CONFIGURATION = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/integration/App_Configuration.svg;strokeColor=none;',
   },
-  _width: 64,
-  _height: 68,
+  _original_width: 64,
+  _original_height: 68,
 }
 
 export function AppConfiguration(props: DiagramNodeProps) {

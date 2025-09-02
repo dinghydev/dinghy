@@ -6,8 +6,8 @@ export const GA_GLOBAL_ACCELERATOR = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.ga_global_accelerator;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 54.900000000000006,
+  _original_height: 54.900000000000006,
 }
 
 export function GaGlobalAccelerator(props: DiagramNodeProps) {

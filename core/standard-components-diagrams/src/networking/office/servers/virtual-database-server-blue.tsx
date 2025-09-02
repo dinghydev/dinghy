@@ -6,8 +6,8 @@ export const VIRTUAL_DATABASE_SERVER_BLUE = {
     entity:
       'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.virtual_database_server;fillColor=#2072B8;',
   },
-  _width: 41,
-  _height: 56,
+  _original_width: 41,
+  _original_height: 56,
 }
 
 export function VirtualDatabaseServerBlue(props: DiagramNodeProps) {

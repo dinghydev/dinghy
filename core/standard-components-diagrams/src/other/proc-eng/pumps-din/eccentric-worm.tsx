@@ -6,8 +6,8 @@ export const ECCENTRIC_WORM = {
     entity:
       'shape=mxgraph.pid.pumps_-_din.eccentric_worm;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function EccentricWorm(props: DiagramNodeProps) {

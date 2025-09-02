@@ -6,8 +6,8 @@ export const BUSINESS_OBJECT = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=passive;archiType=square;',
   },
-  _width: 150,
-  _height: 75,
+  _original_width: 150,
+  _original_height: 75,
 }
 
 export function BusinessObject(props: DiagramNodeProps) {

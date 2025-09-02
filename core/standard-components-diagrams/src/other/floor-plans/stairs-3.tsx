@@ -6,8 +6,8 @@ export const STAIRS_3 = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.stairsRest;',
   },
-  _width: 300,
-  _height: 200,
+  _original_width: 300,
+  _original_height: 200,
 }
 
 export function Stairs3(props: DiagramNodeProps) {

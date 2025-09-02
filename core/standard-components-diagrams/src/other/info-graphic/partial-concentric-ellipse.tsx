@@ -6,8 +6,8 @@ export const PARTIAL_CONCENTRIC_ELLIPSE = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.partConcEllipse;fillColor=#10739E;strokeColor=none;startAngle=0.25;endAngle=0.1;arcWidth=0.5;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function PartialConcentricEllipse(props: DiagramNodeProps) {

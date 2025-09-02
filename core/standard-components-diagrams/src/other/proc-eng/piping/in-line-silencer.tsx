@@ -6,8 +6,8 @@ export const IN_LINE_SILENCER = {
     entity:
       'html=1;dashed=0;outlineConnect=0;align=center;shape=mxgraph.pid.piping.in-line_silencer;',
   },
-  _width: 50,
-  _height: 20,
+  _original_width: 50,
+  _original_height: 20,
 }
 
 export function InLineSilencer(props: DiagramNodeProps) {

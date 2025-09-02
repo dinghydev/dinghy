@@ -6,8 +6,8 @@ export const VAPP_STARTED = {
     entity:
       'shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.vapp_started;',
   },
-  _width: 92,
-  _height: 62,
+  _original_width: 92,
+  _original_height: 62,
 }
 
 export function VappStarted(props: DiagramNodeProps) {

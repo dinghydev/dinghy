@@ -6,8 +6,8 @@ export const LOAD_LEVELING = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.load_leveling;',
   },
-  _width: 100,
-  _height: 30,
+  _original_width: 100,
+  _original_height: 30,
 }
 
 export function LoadLeveling(props: DiagramNodeProps) {

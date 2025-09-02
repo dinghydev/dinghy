@@ -6,8 +6,8 @@ export const DEFENDER_PNEUMATIC_DEVICE = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Defender_Pneumatic_Device.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 55.800000000000004,
+  _original_width: 68,
+  _original_height: 55.800000000000004,
 }
 
 export function DefenderPneumaticDevice(props: DiagramNodeProps) {

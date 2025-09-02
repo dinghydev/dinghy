@@ -6,8 +6,8 @@ export const BTP_BASE_LAYER = {
     entity:
       'rounded=1;whiteSpace=wrap;html=1;strokeColor=#0070F2;fillColor=#EBF8FF;arcSize=32;absoluteArcSize=1;strokeWidth=1.5;',
   },
-  _width: 0,
-  _height: 250,
+  _original_width: 0,
+  _original_height: 250,
 }
 
 export function BtpBaseLayer(props: DiagramNodeProps) {

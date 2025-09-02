@@ -6,8 +6,8 @@ export const ANALYSIS_SERVICES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/analytics/Analysis_Services.svg;strokeColor=none;',
   },
-  _width: 63,
-  _height: 48,
+  _original_width: 63,
+  _original_height: 48,
 }
 
 export function AnalysisServices(props: DiagramNodeProps) {

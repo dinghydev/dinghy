@@ -6,8 +6,8 @@ export const APP_SERVICE_DOMAINS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/app_services/App_Service_Domains.svg;strokeColor=none;',
   },
-  _width: 65,
-  _height: 52,
+  _original_width: 65,
+  _original_height: 52,
 }
 
 export function AppServiceDomains(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const SYSTEM_SOFTWARE_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#AFFFAF;shape=mxgraph.archimate3.sysSw;',
   },
-  _width: 40,
-  _height: 40,
+  _original_width: 40,
+  _original_height: 40,
 }
 
 export function SystemSoftware2(props: DiagramNodeProps) {

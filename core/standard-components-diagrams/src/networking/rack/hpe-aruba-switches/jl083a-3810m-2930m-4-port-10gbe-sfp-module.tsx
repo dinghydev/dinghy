@@ -6,8 +6,8 @@ export const JL083A_3810M_2930M_4_PORT_10GBE_SFP_MODULE = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl083a_3810m_2930m_4_port_10gbe_sfpplus_module;',
   },
-  _width: 41,
-  _height: 15,
+  _original_width: 41,
+  _original_height: 15,
 }
 
 export function Jl083a3810m2930m4Port10gbeSfpModule(props: DiagramNodeProps) {

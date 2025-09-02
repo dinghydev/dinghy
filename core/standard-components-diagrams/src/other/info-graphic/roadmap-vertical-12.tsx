@@ -6,8 +6,8 @@ export const ROADMAP_VERTICAL_12 = {
     entity:
       'verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.infographic.circularCallout2;dy=15;strokeColor=#AE4132;labelPosition=center;align=center;fontColor=#10739E;fontStyle=1;fontSize=24;shadow=0;direction=north;',
   },
-  _width: 5,
-  _height: 510,
+  _original_width: 5,
+  _original_height: 510,
 }
 
 export function RoadmapVertical12(props: DiagramNodeProps) {

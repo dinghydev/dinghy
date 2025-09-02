@@ -6,8 +6,8 @@ export const CLOUD_BASED = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;html=1;fillColor=#282828;strokeColor=none;verticalAlign=top;pointerEvents=1;align=center;shape=mxgraph.cisco_safe.security_icons.cloud_based;',
   },
-  _width: 50,
-  _height: 31.5,
+  _original_width: 50,
+  _original_height: 31.5,
 }
 
 export function CloudBased(props: DiagramNodeProps) {

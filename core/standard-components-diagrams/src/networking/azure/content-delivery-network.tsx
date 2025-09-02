@@ -6,8 +6,8 @@ export const CONTENT_DELIVERY_NETWORK = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.content_delivery_network;',
   },
-  _width: 50,
-  _height: 32.5,
+  _original_width: 50,
+  _original_height: 32.5,
 }
 
 export function ContentDeliveryNetwork(props: DiagramNodeProps) {

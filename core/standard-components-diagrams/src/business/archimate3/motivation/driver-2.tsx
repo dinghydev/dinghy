@@ -6,8 +6,8 @@ export const DRIVER_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#CCCCFF;shape=mxgraph.archimate3.driver;',
   },
-  _width: 40,
-  _height: 40,
+  _original_width: 40,
+  _original_height: 40,
 }
 
 export function Driver2(props: DiagramNodeProps) {

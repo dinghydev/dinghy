@@ -6,8 +6,8 @@ export const DATABASE_SERVER = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.database_server;',
   },
-  _width: 80,
-  _height: 90,
+  _original_width: 80,
+  _original_height: 90,
 }
 
 export function DatabaseServer(props: DiagramNodeProps) {

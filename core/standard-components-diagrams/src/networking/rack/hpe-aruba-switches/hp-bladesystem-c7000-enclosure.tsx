@@ -6,8 +6,8 @@ export const HP_BLADESYSTEM_C7000_ENCLOSURE = {
     entity:
       'shape=mxgraph.rack.hp.hp_bladesystem_c7000_enclosure;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _width: 161,
-  _height: 141,
+  _original_width: 161,
+  _original_height: 141,
 }
 
 export function HpBladesystemC7000Enclosure(props: DiagramNodeProps) {

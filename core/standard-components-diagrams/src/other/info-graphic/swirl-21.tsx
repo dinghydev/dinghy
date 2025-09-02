@@ -6,8 +6,8 @@ export const SWIRL_21 = {
     entity:
       'ellipse;whiteSpace=wrap;html=1;aspect=fixed;shadow=0;strokeColor=none;fillColor=#AE4132;fontSize=17;fontColor=#FFFFFF;align=center;fontStyle=1;rounded=0;',
   },
-  _width: 14,
-  _height: 215,
+  _original_width: 14,
+  _original_height: 215,
 }
 
 export function Swirl21(props: DiagramNodeProps) {

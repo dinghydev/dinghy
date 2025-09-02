@@ -6,8 +6,8 @@ export const JOIN_NODE = {
     entity:
       'shape=rect;html=1;fillColor=strokeColor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;',
   },
-  _width: 200,
-  _height: 80,
+  _original_width: 200,
+  _original_height: 80,
 }
 
 export function JoinNode(props: DiagramNodeProps) {

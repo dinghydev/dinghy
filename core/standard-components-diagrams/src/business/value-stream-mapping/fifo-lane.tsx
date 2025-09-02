@@ -6,8 +6,8 @@ export const FIFO_LANE = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.fifo_lane;overflow=fill;verticalAlign=top;align=center;',
   },
-  _width: 100,
-  _height: 50,
+  _original_width: 100,
+  _original_height: 50,
 }
 
 export function FifoLane(props: DiagramNodeProps) {

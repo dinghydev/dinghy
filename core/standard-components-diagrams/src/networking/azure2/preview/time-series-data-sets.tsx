@@ -6,8 +6,8 @@ export const TIME_SERIES_DATA_SETS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/preview/Time_Series_Data_Sets.svg;strokeColor=none;',
   },
-  _width: 48,
-  _height: 64,
+  _original_width: 48,
+  _original_height: 64,
 }
 
 export function TimeSeriesDataSets(props: DiagramNodeProps) {

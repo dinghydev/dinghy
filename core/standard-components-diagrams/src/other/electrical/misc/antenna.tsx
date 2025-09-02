@@ -6,8 +6,8 @@ export const ANTENNA = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.radio.aerial_-_antenna_1;',
   },
-  _width: 80,
-  _height: 100,
+  _original_width: 80,
+  _original_height: 100,
 }
 
 export function Antenna(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const MULTICELL_BATTERY_TAPPED = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;fillColor=strokeColor;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.electrical.miscellaneous.multicell_battery_tapped;',
   },
-  _width: 100,
-  _height: 70,
+  _original_width: 100,
+  _original_height: 70,
 }
 
 export function MulticellBatteryTapped(props: DiagramNodeProps) {

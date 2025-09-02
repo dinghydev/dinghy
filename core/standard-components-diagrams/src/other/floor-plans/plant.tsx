@@ -6,8 +6,8 @@ export const PLANT = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.plant;',
   },
-  _width: 47,
-  _height: 51,
+  _original_width: 47,
+  _original_height: 51,
 }
 
 export function Plant(props: DiagramNodeProps) {

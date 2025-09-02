@@ -6,8 +6,8 @@ export const TOKEN = {
     entity:
       'shape=mxgraph.cisco.misc.token;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _width: 59,
-  _height: 61,
+  _original_width: 59,
+  _original_height: 61,
 }
 
 export function Token(props: DiagramNodeProps) {

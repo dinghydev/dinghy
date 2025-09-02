@@ -6,8 +6,8 @@ export const PUBLIC_IP_ADDRESSES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Public_IP_Addresses.svg;strokeColor=none;',
   },
-  _width: 65,
-  _height: 52,
+  _original_width: 65,
+  _original_height: 52,
 }
 
 export function PublicIpAddresses(props: DiagramNodeProps) {

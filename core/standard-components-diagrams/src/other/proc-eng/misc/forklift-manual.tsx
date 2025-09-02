@@ -6,8 +6,8 @@ export const FORKLIFT_MANUAL = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.forklift_(manual);',
   },
-  _width: 140,
-  _height: 100,
+  _original_width: 140,
+  _original_height: 100,
 }
 
 export function ForkliftManual(props: DiagramNodeProps) {

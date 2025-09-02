@@ -6,8 +6,8 @@ export const DISCRETE_INSTRUMENT_CONTROL_ROOM = {
     entity:
       'html=1;outlineConnect=0;align=center;dashed=0;aspect=fixed;shape=mxgraph.pid2inst.discInst;mounting=room',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function DiscreteInstrumentControlRoom(props: DiagramNodeProps) {

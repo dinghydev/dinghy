@@ -6,8 +6,8 @@ export const POWER_BI_EMBEDDED = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/analytics/Power_BI_Embedded.svg;strokeColor=none;',
   },
-  _width: 51,
-  _height: 68,
+  _original_width: 51,
+  _original_height: 68,
 }
 
 export function PowerBiEmbedded(props: DiagramNodeProps) {

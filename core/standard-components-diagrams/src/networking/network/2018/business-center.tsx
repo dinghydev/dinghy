@@ -6,8 +6,8 @@ export const BUSINESS_CENTER = {
     entity:
       'fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.business_center;',
   },
-  _width: 90,
-  _height: 100,
+  _original_width: 90,
+  _original_height: 100,
 }
 
 export function BusinessCenter(props: DiagramNodeProps) {

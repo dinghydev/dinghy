@@ -6,8 +6,8 @@ export const STATE_MACHINE = {
     entity:
       'shape=mxgraph.sysml.stateMachine;verticalAlign=top;whiteSpace=wrap;align=center;',
   },
-  _width: 0,
-  _height: 120,
+  _original_width: 0,
+  _original_height: 120,
 }
 
 export function StateMachine(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const USER_GROUP = {
     entity:
       'shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.group;',
   },
-  _width: 53.6,
-  _height: 60.4,
+  _original_width: 53.6,
+  _original_height: 60.4,
 }
 
 export function UserGroup(props: DiagramNodeProps) {

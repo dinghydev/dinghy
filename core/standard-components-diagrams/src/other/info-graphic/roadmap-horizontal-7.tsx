@@ -6,8 +6,8 @@ export const ROADMAP_HORIZONTAL_7 = {
     entity:
       'shape=ellipse;strokeWidth=6;strokeColor=#F2931E;fontSize=15;html=1;whiteSpace=wrap;fontStyle=1;fontColor=#F2931E;',
   },
-  _width: 6,
-  _height: 300,
+  _original_width: 6,
+  _original_height: 300,
 }
 
 export function RoadmapHorizontal7(props: DiagramNodeProps) {

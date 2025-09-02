@@ -6,8 +6,8 @@ export const FRAME_GREY_2 = {
     entity:
       'rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d3d3d3;strokeWidth=2;',
   },
-  _width: 150,
-  _height: 110.00000000000001,
+  _original_width: 150,
+  _original_height: 110.00000000000001,
 }
 
 export function FrameGrey2(props: DiagramNodeProps) {

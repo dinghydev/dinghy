@@ -6,8 +6,8 @@ export const CENTRIFUGAL_COMPRESSOR_TURBINE_DRIVEN = {
     entity:
       'shape=mxgraph.pid.compressors.centrifugal_compressor_-_turbine_driven;dashed=0;fontSize=8;html=1;overflow=fill;',
   },
-  _width: 100,
-  _height: 70,
+  _original_width: 100,
+  _original_height: 70,
 }
 
 export function CentrifugalCompressorTurbineDriven(props: DiagramNodeProps) {

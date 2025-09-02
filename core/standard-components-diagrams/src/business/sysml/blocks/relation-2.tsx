@@ -6,8 +6,8 @@ export const RELATION_2 = {
     entity:
       'verticalAlign=bottom;html=1;endArrow=none;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;',
   },
-  _width: 160,
-  _height: 0,
+  _original_width: 160,
+  _original_height: 0,
 }
 
 export function Relation2(props: DiagramNodeProps) {

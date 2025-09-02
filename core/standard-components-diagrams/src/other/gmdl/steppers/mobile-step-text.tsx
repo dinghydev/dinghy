@@ -5,8 +5,8 @@ export const MOBILE_STEP_TEXT = {
   _style: {
     entity: 'dashed=0;shape=rect;fillColor=#BDBDBD;strokeColor=none;',
   },
-  _width: 358,
-  _height: 642,
+  _original_width: 358,
+  _original_height: 642,
 }
 
 export function MobileStepText(props: DiagramNodeProps) {

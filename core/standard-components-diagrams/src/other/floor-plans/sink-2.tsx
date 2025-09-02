@@ -6,8 +6,8 @@ export const SINK_2 = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.sink_22;',
   },
-  _width: 40,
-  _height: 35,
+  _original_width: 40,
+  _original_height: 35,
 }
 
 export function Sink2(props: DiagramNodeProps) {

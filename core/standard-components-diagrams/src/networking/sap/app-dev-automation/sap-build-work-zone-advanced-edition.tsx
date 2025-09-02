@@ -6,8 +6,8 @@ export const SAP_BUILD_WORK_ZONE_ADVANCED_EDITION = {
     entity:
       'shape=mxgraph.sap.icon;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeWidth=1;strokeColor=#D5DADD;fillColor=#EDEFF0;gradientColor=#FCFCFC;gradientDirection=west;aspect=fixed;SAPIcon=SAP_Build_Work_Zone_-_Advanced_Edition',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function SapBuildWorkZoneAdvancedEdition(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const ADDRESS_BOOK_POLICIES = {
     entity:
       'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.security.address_book_policies;',
   },
-  _width: 55,
-  _height: 53,
+  _original_width: 55,
+  _original_height: 53,
 }
 
 export function AddressBookPolicies(props: DiagramNodeProps) {

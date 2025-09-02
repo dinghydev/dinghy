@@ -6,8 +6,8 @@ export const ALLOCATION_GENERAL_2 = {
     entity:
       'rounded=0;html=1;verticalAlign=top;labelBackgroundColor=none;endArrow=open;dashed=1;endSize=12;',
   },
-  _width: 2,
-  _height: 60,
+  _original_width: 2,
+  _original_height: 60,
 }
 
 export function AllocationGeneral2(props: DiagramNodeProps) {

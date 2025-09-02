@@ -6,8 +6,8 @@ export const PERSONAL_COMPUTER_WITH_SERVER = {
     entity:
       'image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/computer_and_terminals/Personal_Computer_with_Server.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 62.400000000000006,
+  _original_height: 62.400000000000006,
 }
 
 export function PersonalComputerWithServer(props: DiagramNodeProps) {

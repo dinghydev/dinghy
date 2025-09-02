@@ -6,8 +6,8 @@ export const CDN_PROFILES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/CDN_Profiles.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 40,
+  _original_width: 68,
+  _original_height: 40,
 }
 
 export function CdnProfiles(props: DiagramNodeProps) {

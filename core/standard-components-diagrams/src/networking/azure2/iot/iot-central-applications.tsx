@@ -6,8 +6,8 @@ export const IOT_CENTRAL_APPLICATIONS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/iot/IoT_Central_Applications.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 69,
+  _original_width: 60,
+  _original_height: 69,
 }
 
 export function IotCentralApplications(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const TRIANGLE_GRAPH_3 = {
     entity:
       'verticalLabelPosition=middle;verticalAlign=bottom;html=1;whiteSpace=wrap;shape=mxgraph.infographic.shadedTriangle;fillColor=#AE4132;strokeColor=none;fontSize=10;labelPosition=center;align=center;fontColor=#FFFFFF;fontStyle=1;shadow=0;',
   },
-  _width: 2,
-  _height: 140,
+  _original_width: 2,
+  _original_height: 140,
 }
 
 export function TriangleGraph3(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const CITRIX_FEDERATED_AUTHENTICATION_SERVICE = {
     entity:
       'sketch=0;verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;fillColor=#000000;align=center;outlineConnect=0;pointerEvents=1;shape=mxgraph.citrix2.citrix_federated_authentication_service;',
   },
-  _width: 50,
-  _height: 35.275,
+  _original_width: 50,
+  _original_height: 35.275,
 }
 
 export function CitrixFederatedAuthenticationService(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const SWAP = {
     entity:
       'sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;fillColor=#3B8DF1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.swap',
   },
-  _width: 100,
-  _height: 51,
+  _original_width: 100,
+  _original_height: 51,
 }
 
 export function Swap(props: DiagramNodeProps) {

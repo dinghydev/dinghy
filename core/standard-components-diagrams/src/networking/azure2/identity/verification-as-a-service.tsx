@@ -6,8 +6,8 @@ export const VERIFICATION_AS_A_SERVICE = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Verification_As_A_Service.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 68,
+  _original_height: 68,
 }
 
 export function VerificationAsAService(props: DiagramNodeProps) {

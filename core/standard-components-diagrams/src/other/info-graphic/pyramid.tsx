@@ -6,8 +6,8 @@ export const PYRAMID = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.infographic.shadedPyramid;fillColor=#10739E;strokeColor=none;',
   },
-  _width: 60,
-  _height: 100,
+  _original_width: 60,
+  _original_height: 100,
 }
 
 export function Pyramid(props: DiagramNodeProps) {

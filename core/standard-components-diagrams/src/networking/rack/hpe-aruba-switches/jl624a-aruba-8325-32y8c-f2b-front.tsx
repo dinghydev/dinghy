@@ -6,8 +6,8 @@ export const JL624A_ARUBA_8325_32Y8C_F2B_FRONT = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl624a_aruba_8325_32y8c_f2b_front;',
   },
-  _width: 142,
-  _height: 15,
+  _original_width: 142,
+  _original_height: 15,
 }
 
 export function Jl624aAruba832532y8cF2bFront(props: DiagramNodeProps) {

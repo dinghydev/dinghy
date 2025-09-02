@@ -6,8 +6,8 @@ export const BJT_NPN_2 = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transistors.npn_transistor_5;',
   },
-  _width: 64,
-  _height: 100,
+  _original_width: 64,
+  _original_height: 100,
 }
 
 export function BjtNpn2(props: DiagramNodeProps) {

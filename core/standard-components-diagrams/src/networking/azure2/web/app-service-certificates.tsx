@@ -6,8 +6,8 @@ export const APP_SERVICE_CERTIFICATES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/app_services/App_Service_Certificates.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 62,
+  _original_width: 68,
+  _original_height: 62,
 }
 
 export function AppServiceCertificates(props: DiagramNodeProps) {

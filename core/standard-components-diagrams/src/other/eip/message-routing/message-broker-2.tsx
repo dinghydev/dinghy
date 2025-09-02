@@ -6,8 +6,8 @@ export const MESSAGE_BROKER_2 = {
     entity:
       'strokeWidth=2;dashed=0;align=center;fontSize=8;shape=rect;fillColor=#c0f5a9;strokeColor=#000000;',
   },
-  _width: 6,
-  _height: 90,
+  _original_width: 6,
+  _original_height: 90,
 }
 
 export function MessageBroker2(props: DiagramNodeProps) {

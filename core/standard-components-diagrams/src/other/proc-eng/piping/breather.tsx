@@ -6,8 +6,8 @@ export const BREATHER = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.breather;',
   },
-  _width: 50,
-  _height: 30,
+  _original_width: 50,
+  _original_height: 30,
 }
 
 export function Breather(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const RANGE_1 = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.range_1;',
   },
-  _width: 50,
-  _height: 62,
+  _original_width: 50,
+  _original_height: 62,
 }
 
 export function Range1(props: DiagramNodeProps) {

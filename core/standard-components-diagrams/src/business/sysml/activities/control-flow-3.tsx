@@ -6,8 +6,8 @@ export const CONTROL_FLOW_3 = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;elbow=horizontal;endArrow=open;labelBackgroundColor=none;dashed=1;endSize=12;',
   },
-  _width: 2,
-  _height: 60,
+  _original_width: 2,
+  _original_height: 60,
 }
 
 export function ControlFlow3(props: DiagramNodeProps) {

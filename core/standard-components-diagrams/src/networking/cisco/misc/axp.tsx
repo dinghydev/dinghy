@@ -6,8 +6,8 @@ export const AXP = {
     entity:
       'shape=mxgraph.cisco.misc.axp;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _width: 78,
-  _height: 74,
+  _original_width: 78,
+  _original_height: 74,
 }
 
 export function Axp(props: DiagramNodeProps) {

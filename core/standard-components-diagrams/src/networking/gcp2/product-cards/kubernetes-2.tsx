@@ -6,8 +6,8 @@ export const KUBERNETES_2 = {
     entity:
       'shape=mxgraph.gcp2.doubleRect;fillColor=#ffffff;strokeColor=#dddddd;shadow=1;strokeWidth=1;',
   },
-  _width: 0,
-  _height: 68,
+  _original_width: 0,
+  _original_height: 68,
 }
 
 export function Kubernetes2(props: DiagramNodeProps) {

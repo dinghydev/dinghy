@@ -6,8 +6,8 @@ export const FOUR_LAYER_DIODE = {
     entity:
       'pointerEvents=1;fillColor=strokeColor;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.diodes.four_layer_diode;',
   },
-  _width: 100,
-  _height: 80,
+  _original_width: 100,
+  _original_height: 80,
 }
 
 export function FourLayerDiode(props: DiagramNodeProps) {

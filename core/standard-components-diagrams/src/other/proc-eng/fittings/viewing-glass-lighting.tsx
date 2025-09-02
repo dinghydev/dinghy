@@ -6,8 +6,8 @@ export const VIEWING_GLASS_LIGHTING = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.viewing_glass_(lighting);',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function ViewingGlassLighting(props: DiagramNodeProps) {

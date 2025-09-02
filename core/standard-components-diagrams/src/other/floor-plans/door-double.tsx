@@ -6,8 +6,8 @@ export const DOOR_DOUBLE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.doorDouble;aspect=fixed;',
   },
-  _width: 160,
-  _height: 85,
+  _original_width: 160,
+  _original_height: 85,
 }
 
 export function DoorDouble(props: DiagramNodeProps) {

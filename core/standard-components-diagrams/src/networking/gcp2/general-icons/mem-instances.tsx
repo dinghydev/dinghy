@@ -6,8 +6,8 @@ export const MEM_INSTANCES = {
     entity:
       'sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;fillColor=#3B8DF1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.mem_instances',
   },
-  _width: 100,
-  _height: 87,
+  _original_width: 100,
+  _original_height: 87,
 }
 
 export function MemInstances(props: DiagramNodeProps) {

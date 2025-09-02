@@ -6,8 +6,8 @@ export const TABLE = {
     entity:
       'shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.table;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50.8,
+  _original_height: 50.8,
 }
 
 export function Table(props: DiagramNodeProps) {

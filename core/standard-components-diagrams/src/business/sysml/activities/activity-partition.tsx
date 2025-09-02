@@ -6,8 +6,8 @@ export const ACTIVITY_PARTITION = {
     entity:
       'html=1;shape=mxgraph.sysml.actPart;strokeWidth=3;verticalAlign=top;rotation=-90;whiteSpace=wrap;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function ActivityPartition(props: DiagramNodeProps) {

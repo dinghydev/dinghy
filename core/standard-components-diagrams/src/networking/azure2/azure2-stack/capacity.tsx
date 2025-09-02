@@ -6,8 +6,8 @@ export const CAPACITY = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/azure_stack/Capacity.svg;strokeColor=none;',
   },
-  _width: 63,
-  _height: 68,
+  _original_width: 63,
+  _original_height: 68,
 }
 
 export function Capacity(props: DiagramNodeProps) {

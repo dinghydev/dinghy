@@ -6,8 +6,8 @@ export const IS_CONTROL_3 = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;elbow=vertical;endArrow=open;rounded=0;verticalAlign=bottom;entryX=0;entryY=0.5;endSize=12;',
   },
-  _width: 2,
-  _height: 60,
+  _original_width: 2,
+  _original_height: 60,
 }
 
 export function IsControl3(props: DiagramNodeProps) {

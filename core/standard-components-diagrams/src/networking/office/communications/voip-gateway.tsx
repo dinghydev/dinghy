@@ -6,8 +6,8 @@ export const VOIP_GATEWAY = {
     entity:
       'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.communications.voip_gateway;',
   },
-  _width: 51,
-  _height: 15,
+  _original_width: 51,
+  _original_height: 15,
 }
 
 export function VoipGateway(props: DiagramNodeProps) {

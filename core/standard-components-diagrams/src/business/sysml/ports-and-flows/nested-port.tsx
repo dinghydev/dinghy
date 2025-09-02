@@ -6,8 +6,8 @@ export const NESTED_PORT = {
     entity:
       'html=1;shape=mxgraph.sysml.nestedPort;fontStyle=1;whiteSpace=wrap;align=center;',
   },
-  _width: 160,
-  _height: 60,
+  _original_width: 160,
+  _original_height: 60,
 }
 
 export function NestedPort(props: DiagramNodeProps) {

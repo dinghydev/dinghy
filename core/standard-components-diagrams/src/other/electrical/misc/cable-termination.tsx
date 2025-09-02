@@ -6,8 +6,8 @@ export const CABLE_TERMINATION = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.cable_termination',
   },
-  _width: 100,
-  _height: 50,
+  _original_width: 100,
+  _original_height: 50,
 }
 
 export function CableTermination(props: DiagramNodeProps) {

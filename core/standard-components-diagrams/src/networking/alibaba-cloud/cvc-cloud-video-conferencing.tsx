@@ -6,8 +6,8 @@ export const CVC_CLOUD_VIDEO_CONFERENCING = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.cvc_cloud_video_conferencing;',
   },
-  _width: 39.900000000000006,
-  _height: 54.6,
+  _original_width: 39.900000000000006,
+  _original_height: 54.6,
 }
 
 export function CvcCloudVideoConferencing(props: DiagramNodeProps) {

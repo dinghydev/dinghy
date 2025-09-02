@@ -6,8 +6,8 @@ export const DC_OS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/DC_OS.svg;strokeColor=none;',
   },
-  _width: 40,
-  _height: 50,
+  _original_width: 40,
+  _original_height: 50,
 }
 
 export function DcOs(props: DiagramNodeProps) {

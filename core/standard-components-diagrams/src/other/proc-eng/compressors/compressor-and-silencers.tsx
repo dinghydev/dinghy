@@ -6,8 +6,8 @@ export const COMPRESSOR_AND_SILENCERS = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.compressors.compressor_and_silencers;pointerEvents=1',
   },
-  _width: 90,
-  _height: 80,
+  _original_width: 90,
+  _original_height: 80,
 }
 
 export function CompressorAndSilencers(props: DiagramNodeProps) {

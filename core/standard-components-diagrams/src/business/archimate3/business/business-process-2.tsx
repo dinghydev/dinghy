@@ -6,8 +6,8 @@ export const BUSINESS_PROCESS_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.process;',
   },
-  _width: 60,
-  _height: 30,
+  _original_width: 60,
+  _original_height: 30,
 }
 
 export function BusinessProcess2(props: DiagramNodeProps) {

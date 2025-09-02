@@ -6,8 +6,8 @@ export const PLUGIN_RELAY = {
     entity:
       'verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.plugin_relay_1;',
   },
-  _width: 3,
-  _height: 40,
+  _original_width: 3,
+  _original_height: 40,
 }
 
 export function PluginRelay(props: DiagramNodeProps) {

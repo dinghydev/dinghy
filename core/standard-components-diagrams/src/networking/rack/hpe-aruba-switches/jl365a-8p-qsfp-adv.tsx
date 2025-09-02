@@ -6,8 +6,8 @@ export const JL365A_8P_QSFP_ADV = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl365a_8p_qsfpplus_adv;',
   },
-  _width: 14,
-  _height: 107,
+  _original_width: 14,
+  _original_height: 107,
 }
 
 export function Jl365a8pQsfpAdv(props: DiagramNodeProps) {

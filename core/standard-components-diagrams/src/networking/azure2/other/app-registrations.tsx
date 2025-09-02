@@ -6,8 +6,8 @@ export const APP_REGISTRATIONS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/App_Registrations.svg;strokeColor=none;',
   },
-  _width: 66.92,
-  _height: 68,
+  _original_width: 66.92,
+  _original_height: 68,
 }
 
 export function AppRegistrations(props: DiagramNodeProps) {

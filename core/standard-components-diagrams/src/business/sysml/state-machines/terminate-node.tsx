@@ -5,8 +5,8 @@ export const TERMINATE_NODE = {
   _style: {
     entity: 'shape=mxgraph.sysml.x;',
   },
-  _width: 40,
-  _height: 40,
+  _original_width: 40,
+  _original_height: 40,
 }
 
 export function TerminateNode(props: DiagramNodeProps) {

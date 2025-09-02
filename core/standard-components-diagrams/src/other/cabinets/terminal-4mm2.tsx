@@ -6,8 +6,8 @@ export const TERMINAL_4MM2 = {
     entity:
       'verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.terminal_4mm2;',
   },
-  _width: 2.5,
-  _height: 25,
+  _original_width: 2.5,
+  _original_height: 25,
 }
 
 export function Terminal4mm2(props: DiagramNodeProps) {

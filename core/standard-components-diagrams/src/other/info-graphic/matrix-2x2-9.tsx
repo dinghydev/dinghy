@@ -6,8 +6,8 @@ export const MATRIX_2X2_9 = {
     entity:
       'shape=mxgraph.basic.three_corner_round_rect;dx=18;flipH=1;flipV=1;html=1;fillColor=#AE4132;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;',
   },
-  _width: 2,
-  _height: 240,
+  _original_width: 2,
+  _original_height: 240,
 }
 
 export function Matrix2x29(props: DiagramNodeProps) {

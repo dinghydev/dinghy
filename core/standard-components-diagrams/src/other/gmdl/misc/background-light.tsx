@@ -5,8 +5,8 @@ export const BACKGROUND_LIGHT = {
   _style: {
     entity: 'shape=rect;fillColor=#eeeeee;strokeColor=none;',
   },
-  _width: 358,
-  _height: 642,
+  _original_width: 358,
+  _original_height: 642,
 }
 
 export function BackgroundLight(props: DiagramNodeProps) {

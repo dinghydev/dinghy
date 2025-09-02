@@ -6,8 +6,8 @@ export const STORAGE_ACCOUNTS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Storage_Accounts.svg;strokeColor=none;',
   },
-  _width: 50,
-  _height: 45,
+  _original_width: 50,
+  _original_height: 45,
 }
 
 export function StorageAccounts(props: DiagramNodeProps) {

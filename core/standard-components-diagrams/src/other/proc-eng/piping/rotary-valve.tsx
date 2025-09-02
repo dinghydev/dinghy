@@ -6,8 +6,8 @@ export const ROTARY_VALVE = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.rotary_valve;pointerEvents=1;',
   },
-  _width: 50,
-  _height: 20,
+  _original_width: 50,
+  _original_height: 20,
 }
 
 export function RotaryValve(props: DiagramNodeProps) {

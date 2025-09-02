@@ -6,8 +6,8 @@ export const CHIME = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.chime;fillColor=#03B5BB;gradientColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 99,
+  _original_height: 99,
 }
 
 export function Chime(props: DiagramNodeProps) {

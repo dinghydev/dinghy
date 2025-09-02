@@ -6,8 +6,8 @@ export const WORKCELL = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.work_cell;pointerEvents=1;',
   },
-  _width: 70,
-  _height: 60,
+  _original_width: 70,
+  _original_height: 60,
 }
 
 export function Workcell(props: DiagramNodeProps) {

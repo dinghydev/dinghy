@@ -6,8 +6,8 @@ export const MOSFET_NO_BULK_P = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.mosfets1.mosfet_p_no_bulk;',
   },
-  _width: 95,
-  _height: 100,
+  _original_width: 95,
+  _original_height: 100,
 }
 
 export function MosfetNoBulkP(props: DiagramNodeProps) {

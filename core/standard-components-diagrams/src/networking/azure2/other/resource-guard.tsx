@@ -6,8 +6,8 @@ export const RESOURCE_GUARD = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Resource_Guard.svg;strokeColor=none;',
   },
-  _width: 56.64,
-  _height: 68,
+  _original_width: 56.64,
+  _original_height: 68,
 }
 
 export function ResourceGuard(props: DiagramNodeProps) {

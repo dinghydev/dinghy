@@ -6,8 +6,8 @@ export const BLOCKCHAIN_APPLICATIONS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/blockchain/Blockchain_Applications.svg;strokeColor=none;',
   },
-  _width: 48.4,
-  _height: 68,
+  _original_width: 48.4,
+  _original_height: 68,
 }
 
 export function BlockchainApplications(props: DiagramNodeProps) {

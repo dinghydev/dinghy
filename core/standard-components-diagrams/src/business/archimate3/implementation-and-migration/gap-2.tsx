@@ -6,8 +6,8 @@ export const GAP_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#FFE0E0;shape=mxgraph.archimate3.gapIcon;',
   },
-  _width: 55,
-  _height: 40,
+  _original_width: 55,
+  _original_height: 40,
 }
 
 export function Gap2(props: DiagramNodeProps) {

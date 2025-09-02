@@ -6,8 +6,8 @@ export const AD_DOMAIN_SERVICES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Azure_AD_Domain_Services.svg;strokeColor=none;',
   },
-  _width: 70,
-  _height: 64,
+  _original_width: 70,
+  _original_height: 64,
 }
 
 export function AdDomainServices(props: DiagramNodeProps) {

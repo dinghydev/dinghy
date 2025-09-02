@@ -6,8 +6,8 @@ export const EXHAUST_HEAD = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.exhaust_head;',
   },
-  _width: 50,
-  _height: 40,
+  _original_width: 50,
+  _original_height: 40,
 }
 
 export function ExhaustHead(props: DiagramNodeProps) {

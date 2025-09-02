@@ -6,8 +6,8 @@ export const SILENCER = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.silencer;',
   },
-  _width: 100,
-  _height: 30,
+  _original_width: 100,
+  _original_height: 30,
 }
 
 export function Silencer(props: DiagramNodeProps) {

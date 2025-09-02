@@ -6,8 +6,8 @@ export const APPLICATION_COMPONENT = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate.application;appType=comp',
   },
-  _width: 100,
-  _height: 75,
+  _original_width: 100,
+  _original_height: 75,
 }
 
 export function ApplicationComponent(props: DiagramNodeProps) {

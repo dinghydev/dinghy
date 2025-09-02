@@ -6,8 +6,8 @@ export const NETWORK_INTERFACE_CARD = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/NetworkInterfaceCard.svg;strokeColor=none;',
   },
-  _width: 44,
-  _height: 50,
+  _original_width: 44,
+  _original_height: 50,
 }
 
 export function NetworkInterfaceCard(props: DiagramNodeProps) {

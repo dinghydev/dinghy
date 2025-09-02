@@ -6,8 +6,8 @@ export const OPTICAL_FIBER = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.optical_fiber2;',
   },
-  _width: 130,
-  _height: 80,
+  _original_width: 130,
+  _original_height: 80,
 }
 
 export function OpticalFiber(props: DiagramNodeProps) {

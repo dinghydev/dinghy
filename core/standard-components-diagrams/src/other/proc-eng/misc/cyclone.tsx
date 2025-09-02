@@ -6,8 +6,8 @@ export const CYCLONE = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.cyclone;',
   },
-  _width: 100,
-  _height: 80,
+  _original_width: 100,
+  _original_height: 80,
 }
 
 export function Cyclone(props: DiagramNodeProps) {

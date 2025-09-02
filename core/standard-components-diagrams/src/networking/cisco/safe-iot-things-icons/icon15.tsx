@@ -6,8 +6,8 @@ export const ICON15 = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;html=1;fillColor=#282828;strokeColor=none;verticalAlign=top;pointerEvents=1;align=center;shape=mxgraph.cisco_safe.iot_things_icons.icon15;',
   },
-  _width: 50,
-  _height: 32.5,
+  _original_width: 50,
+  _original_height: 32.5,
 }
 
 export function Icon15(props: DiagramNodeProps) {

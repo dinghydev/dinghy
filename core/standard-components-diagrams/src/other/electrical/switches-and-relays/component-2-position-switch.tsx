@@ -6,8 +6,8 @@ export const COMPONENT_2_POSITION_SWITCH = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.twoPositionSwitch2;elSwitchState=1;',
   },
-  _width: 75,
-  _height: 70,
+  _original_width: 75,
+  _original_height: 70,
 }
 
 export function Component2PositionSwitch(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const AND_JUNCTION = {
     entity:
       'ellipse;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;fillColor=strokeColor',
   },
-  _width: 10,
-  _height: 10,
+  _original_width: 10,
+  _original_height: 10,
 }
 
 export function AndJunction(props: DiagramNodeProps) {

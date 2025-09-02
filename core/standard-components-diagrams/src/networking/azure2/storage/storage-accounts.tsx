@@ -6,8 +6,8 @@ export const STORAGE_ACCOUNTS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/storage/Storage_Accounts.svg;strokeColor=none;',
   },
-  _width: 65,
-  _height: 52,
+  _original_width: 65,
+  _original_height: 52,
 }
 
 export function StorageAccounts(props: DiagramNodeProps) {

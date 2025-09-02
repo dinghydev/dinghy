@@ -6,8 +6,8 @@ export const CLOUDFRONT = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=1;align=center;outlineConnect=0;dashed=0;outlineConnect=0;shape=mxgraph.aws3d.cloudfront;fillColor=#ECECEC;strokeColor=#5E5E5E;aspect=fixed;',
   },
-  _width: 103.8,
-  _height: 169.79999999999998,
+  _original_width: 103.8,
+  _original_height: 169.79999999999998,
 }
 
 export function Cloudfront(props: DiagramNodeProps) {

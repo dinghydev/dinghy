@@ -6,8 +6,8 @@ export const APP_SERVICE_DOMAINS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/CustomDomain.svg;strokeColor=none;',
   },
-  _width: 50,
-  _height: 42,
+  _original_width: 50,
+  _original_height: 42,
 }
 
 export function AppServiceDomains(props: DiagramNodeProps) {

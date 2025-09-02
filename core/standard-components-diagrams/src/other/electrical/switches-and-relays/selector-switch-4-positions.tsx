@@ -6,8 +6,8 @@ export const SELECTOR_SWITCH_4_POSITIONS = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.selectorSwitch4Position2;elSwitchState=1;',
   },
-  _width: 75,
-  _height: 66,
+  _original_width: 75,
+  _original_height: 66,
 }
 
 export function SelectorSwitch4Positions(props: DiagramNodeProps) {

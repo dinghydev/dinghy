@@ -6,8 +6,8 @@ export const FIELD_SERVICE = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/FieldService.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 63.75999999999999,
+  _original_width: 68,
+  _original_height: 63.75999999999999,
 }
 
 export function FieldService(props: DiagramNodeProps) {

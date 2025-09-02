@@ -6,8 +6,8 @@ export const IP_GROUPS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/IP_Groups.svg;strokeColor=none;',
   },
-  _width: 67,
-  _height: 52,
+  _original_width: 67,
+  _original_height: 52,
 }
 
 export function IpGroups(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const COOLING_TOWER_DRY_FORCED_DRAUGHT = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.cooling_tower_(dry,_forced_draught);',
   },
-  _width: 100,
-  _height: 120,
+  _original_width: 100,
+  _original_height: 120,
 }
 
 export function CoolingTowerDryForcedDraught(props: DiagramNodeProps) {

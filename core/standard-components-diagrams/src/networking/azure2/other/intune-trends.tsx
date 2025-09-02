@@ -6,8 +6,8 @@ export const INTUNE_TRENDS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Intune_Trends.svg;strokeColor=none;',
   },
-  _width: 56.8,
-  _height: 68,
+  _original_width: 56.8,
+  _original_height: 68,
 }
 
 export function IntuneTrends(props: DiagramNodeProps) {

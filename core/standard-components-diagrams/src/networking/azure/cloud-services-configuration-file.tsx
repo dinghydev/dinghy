@@ -6,8 +6,8 @@ export const CLOUD_SERVICES_CONFIGURATION_FILE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.cloud_services_configuration_file;pointerEvents=1;',
   },
-  _width: 47.5,
-  _height: 50,
+  _original_width: 47.5,
+  _original_height: 50,
 }
 
 export function CloudServicesConfigurationFile(props: DiagramNodeProps) {

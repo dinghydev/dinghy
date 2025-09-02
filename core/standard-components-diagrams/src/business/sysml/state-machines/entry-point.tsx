@@ -6,8 +6,8 @@ export const ENTRY_POINT = {
     entity:
       'ellipse;html=1;labelPosition=left;verticalLabelPosition=bottom;spacingBottom=10;align=right;verticalAlign=bottom;resizable=0;',
   },
-  _width: 20,
-  _height: 20,
+  _original_width: 20,
+  _original_height: 20,
 }
 
 export function EntryPoint(props: DiagramNodeProps) {

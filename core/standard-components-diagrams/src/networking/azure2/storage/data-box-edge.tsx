@@ -6,8 +6,8 @@ export const DATA_BOX_EDGE = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/storage/Data_Box_Edge.svg;strokeColor=none;',
   },
-  _width: 67,
-  _height: 48,
+  _original_width: 67,
+  _original_height: 48,
 }
 
 export function DataBoxEdge(props: DiagramNodeProps) {

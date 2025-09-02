@@ -6,8 +6,8 @@ export const CONVEYOR_2 = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.conveyor2;',
   },
-  _width: 200,
-  _height: 60,
+  _original_width: 200,
+  _original_height: 60,
 }
 
 export function Conveyor2(props: DiagramNodeProps) {

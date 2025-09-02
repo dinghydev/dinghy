@@ -5,8 +5,8 @@ export const FLOW_DIRECTION_2 = {
   _style: {
     entity: 'shape=triangle;fillColor=strokeColor;direction=south;',
   },
-  _width: 10,
-  _height: 10,
+  _original_width: 10,
+  _original_height: 10,
 }
 
 export function FlowDirection2(props: DiagramNodeProps) {

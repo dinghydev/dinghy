@@ -5,8 +5,8 @@ export const ENERGY_JELLOW = {
   _style: {
     entity: 'fillColor=#FFC82E;strokeColor=none;whiteSpace=wrap;html=1;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function EnergyJellow(props: DiagramNodeProps) {

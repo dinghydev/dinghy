@@ -6,8 +6,8 @@ export const ANNOTATION = {
     entity:
       'html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;',
   },
-  _width: 50,
-  _height: 100,
+  _original_width: 50,
+  _original_height: 100,
 }
 
 export function Annotation(props: DiagramNodeProps) {

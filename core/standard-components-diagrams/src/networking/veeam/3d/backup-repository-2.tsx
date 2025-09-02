@@ -6,8 +6,8 @@ export const BACKUP_REPOSITORY_2 = {
     entity:
       'shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.backup_repository_2;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 62,
+  _original_height: 62,
 }
 
 export function BackupRepository2(props: DiagramNodeProps) {

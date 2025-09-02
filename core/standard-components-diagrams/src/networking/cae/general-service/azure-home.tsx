@@ -6,8 +6,8 @@ export const AZURE_HOME = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_Home.svg;strokeColor=none;',
   },
-  _width: 50,
-  _height: 40,
+  _original_width: 50,
+  _original_height: 40,
 }
 
 export function AzureHome(props: DiagramNodeProps) {

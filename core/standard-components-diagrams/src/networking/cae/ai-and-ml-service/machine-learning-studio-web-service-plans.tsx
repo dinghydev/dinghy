@@ -6,8 +6,8 @@ export const MACHINE_LEARNING_STUDIO_WEB_SERVICE_PLANS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Machine_Learning_Studio_Web_Service_Plans.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function MachineLearningStudioWebServicePlans(props: DiagramNodeProps) {

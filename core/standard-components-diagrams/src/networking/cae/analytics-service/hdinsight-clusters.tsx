@@ -6,8 +6,8 @@ export const HDINSIGHT_CLUSTERS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/HDInsightClusters.svg;strokeColor=none;',
   },
-  _width: 50,
-  _height: 49,
+  _original_width: 50,
+  _original_height: 49,
 }
 
 export function HdinsightClusters(props: DiagramNodeProps) {

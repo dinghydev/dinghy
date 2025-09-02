@@ -6,8 +6,8 @@ export const VOICE_ATM_SWITCH = {
     entity:
       'shape=mxgraph.cisco.switches.voice_atm_switch;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _width: 54,
-  _height: 56,
+  _original_width: 54,
+  _original_height: 56,
 }
 
 export function VoiceAtmSwitch(props: DiagramNodeProps) {

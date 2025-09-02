@@ -6,8 +6,8 @@ export const SUPPORT_RING = {
     entity:
       'shape=mxgraph.pid.apparatus_elements.support_ring;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 100,
-  _height: 25,
+  _original_width: 100,
+  _original_height: 25,
 }
 
 export function SupportRing(props: DiagramNodeProps) {

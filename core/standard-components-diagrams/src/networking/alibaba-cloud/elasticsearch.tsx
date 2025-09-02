@@ -6,8 +6,8 @@ export const ELASTICSEARCH = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.elasticsearch;',
   },
-  _width: 45.9,
-  _height: 50.099999999999994,
+  _original_width: 45.9,
+  _original_height: 50.099999999999994,
 }
 
 export function Elasticsearch(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const SURGE_PROTECTION_4P = {
     entity:
       'verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.surge_protection_4p;',
   },
-  _width: 36,
-  _height: 50,
+  _original_width: 36,
+  _original_height: 50,
 }
 
 export function SurgeProtection4p(props: DiagramNodeProps) {

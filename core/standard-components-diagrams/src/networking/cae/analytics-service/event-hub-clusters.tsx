@@ -6,8 +6,8 @@ export const EVENT_HUB_CLUSTERS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Event_Hub_Clusters.svg;strokeColor=none;',
   },
-  _width: 50,
-  _height: 48,
+  _original_width: 50,
+  _original_height: 48,
 }
 
 export function EventHubClusters(props: DiagramNodeProps) {

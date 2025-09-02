@@ -6,8 +6,8 @@ export const AZURE_OPERATOR_SERVICE_MANAGER = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/hybrid_multicloud/Azure_Operator_Service_Manager.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 68,
+  _original_height: 68,
 }
 
 export function AzureOperatorServiceManager(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const COMPRESSOR_EJECTOR = {
     entity:
       'shape=mxgraph.pid.compressors_-_iso.compressor_(ejector);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function CompressorEjector(props: DiagramNodeProps) {

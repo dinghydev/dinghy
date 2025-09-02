@@ -6,8 +6,8 @@ export const VM_APPLICATION_DEFINITION = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/VM_Application_Definition.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 62.8,
+  _original_width: 68,
+  _original_height: 62.8,
 }
 
 export function VmApplicationDefinition(props: DiagramNodeProps) {

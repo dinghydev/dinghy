@@ -6,8 +6,8 @@ export const SERVICE_FABRIC_CLUSTERS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Service_Fabric_Clusters.svg;strokeColor=none;',
   },
-  _width: 67,
-  _height: 64,
+  _original_width: 67,
+  _original_height: 64,
 }
 
 export function ServiceFabricClusters(props: DiagramNodeProps) {

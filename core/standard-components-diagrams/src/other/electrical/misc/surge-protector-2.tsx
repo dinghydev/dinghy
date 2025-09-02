@@ -6,8 +6,8 @@ export const SURGE_PROTECTOR_2 = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.surge_protector_2;',
   },
-  _width: 70,
-  _height: 24,
+  _original_width: 70,
+  _original_height: 24,
 }
 
 export function SurgeProtector2(props: DiagramNodeProps) {

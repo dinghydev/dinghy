@@ -5,8 +5,8 @@ export const NEON_CARROT = {
   _style: {
     entity: 'fillColor=#FFA12D;strokeColor=none;whiteSpace=wrap;html=1;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function NeonCarrot(props: DiagramNodeProps) {

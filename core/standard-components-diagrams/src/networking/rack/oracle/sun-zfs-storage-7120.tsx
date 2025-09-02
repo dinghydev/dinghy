@@ -6,8 +6,8 @@ export const SUN_ZFS_STORAGE_7120 = {
     entity:
       'shape=mxgraph.rack.oracle.sun_zfs_storage_7120;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _width: 161,
-  _height: 30,
+  _original_width: 161,
+  _original_height: 30,
 }
 
 export function SunZfsStorage7120(props: DiagramNodeProps) {

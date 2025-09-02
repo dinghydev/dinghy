@@ -6,8 +6,8 @@ export const TIME_SERIES_INSIGHTS_EVENT_SOURCES = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/iot/Time_Series_Insights_Event_Sources.svg;strokeColor=none;',
   },
-  _width: 67,
-  _height: 68,
+  _original_width: 67,
+  _original_height: 68,
 }
 
 export function TimeSeriesInsightsEventSources(props: DiagramNodeProps) {

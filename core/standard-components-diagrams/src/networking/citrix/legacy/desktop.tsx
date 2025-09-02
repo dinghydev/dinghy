@@ -6,8 +6,8 @@ export const DESKTOP = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.desktop;',
   },
-  _width: 89,
-  _height: 98,
+  _original_width: 89,
+  _original_height: 98,
 }
 
 export function Desktop(props: DiagramNodeProps) {

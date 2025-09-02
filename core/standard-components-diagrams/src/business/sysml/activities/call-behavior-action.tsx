@@ -6,8 +6,8 @@ export const CALL_BEHAVIOR_ACTION = {
     entity:
       'html=1;shape=mxgraph.sysml.callBehAct;whiteSpace=wrap;align=center;',
   },
-  _width: 160,
-  _height: 80,
+  _original_width: 160,
+  _original_height: 80,
 }
 
 export function CallBehaviorAction(props: DiagramNodeProps) {

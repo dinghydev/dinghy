@@ -6,8 +6,8 @@ export const MATERIAL_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#AFFFAF;shape=mxgraph.archimate3.material;',
   },
-  _width: 60,
-  _height: 50,
+  _original_width: 60,
+  _original_height: 50,
 }
 
 export function Material2(props: DiagramNodeProps) {

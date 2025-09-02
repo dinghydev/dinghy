@@ -6,8 +6,8 @@ export const CRUSHING_GRINDING_MACHINE = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.crushers_grinding.crushing,_grinding_machine;',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function CrushingGrindingMachine(props: DiagramNodeProps) {

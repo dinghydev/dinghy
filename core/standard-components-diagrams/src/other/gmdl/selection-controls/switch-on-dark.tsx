@@ -6,8 +6,8 @@ export const SWITCH_ON_DARK = {
     entity:
       'dashed=0;labelPosition=right;align=left;shape=mxgraph.gmdl.switch;aspect=fixed;switchState=on;strokeColor=none;fillColor=#80CBC4;sketch=0;html=1;',
   },
-  _width: 0,
-  _height: 20,
+  _original_width: 0,
+  _original_height: 20,
 }
 
 export function SwitchOnDark(props: DiagramNodeProps) {

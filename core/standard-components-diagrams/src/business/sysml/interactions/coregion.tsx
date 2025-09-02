@@ -5,8 +5,8 @@ export const COREGION = {
   _style: {
     entity: 'html=1;shape=mxgraph.sysml.coregion;strokeWidth=3;',
   },
-  _width: 1,
-  _height: 220,
+  _original_width: 1,
+  _original_height: 220,
 }
 
 export function Coregion(props: DiagramNodeProps) {

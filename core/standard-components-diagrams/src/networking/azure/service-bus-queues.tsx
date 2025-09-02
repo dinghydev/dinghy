@@ -6,8 +6,8 @@ export const SERVICE_BUS_QUEUES = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.service_bus_queues;pointerEvents=1;',
   },
-  _width: 42.5,
-  _height: 50,
+  _original_width: 42.5,
+  _original_height: 50,
 }
 
 export function ServiceBusQueues(props: DiagramNodeProps) {

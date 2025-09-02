@@ -6,8 +6,8 @@ export const SHADOW = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.shadow;fillColor=#5294CF;gradientColor=none;',
   },
-  _width: 85.5,
-  _height: 91.5,
+  _original_width: 85.5,
+  _original_height: 91.5,
 }
 
 export function Shadow(props: DiagramNodeProps) {

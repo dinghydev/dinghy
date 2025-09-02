@@ -5,8 +5,8 @@ export const REQUIREMENT_CONTAINMENT_RELATIONSHIP = {
   _style: {
     entity: 'shape=rect;html=1;whiteSpace=wrap;align=center;',
   },
-  _width: 300,
-  _height: 180,
+  _original_width: 300,
+  _original_height: 180,
 }
 
 export function RequirementContainmentRelationship(props: DiagramNodeProps) {

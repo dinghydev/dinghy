@@ -6,8 +6,8 @@ export const IMAGE_VERSIONS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Image_Versions.svg;strokeColor=none;',
   },
-  _width: 67,
-  _height: 64,
+  _original_width: 67,
+  _original_height: 64,
 }
 
 export function ImageVersions(props: DiagramNodeProps) {

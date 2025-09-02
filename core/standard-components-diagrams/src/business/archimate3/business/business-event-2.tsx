@@ -6,8 +6,8 @@ export const BUSINESS_EVENT_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.event;',
   },
-  _width: 60,
-  _height: 35,
+  _original_width: 60,
+  _original_height: 35,
 }
 
 export function BusinessEvent2(props: DiagramNodeProps) {

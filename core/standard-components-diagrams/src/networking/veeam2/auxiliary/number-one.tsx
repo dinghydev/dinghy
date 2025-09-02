@@ -6,8 +6,8 @@ export const NUMBER_ONE = {
     entity:
       'ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fontFamily=Tahoma;spacingBottom=4;spacingRight=2;strokeColor=#d3d3d3;',
   },
-  _width: 20,
-  _height: 20,
+  _original_width: 20,
+  _original_height: 20,
 }
 
 export function NumberOne(props: DiagramNodeProps) {

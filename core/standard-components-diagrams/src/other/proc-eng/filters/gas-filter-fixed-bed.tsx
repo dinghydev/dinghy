@@ -6,8 +6,8 @@ export const GAS_FILTER_FIXED_BED = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.filters.gas_filter_(fixed_bed);',
   },
-  _width: 50,
-  _height: 100,
+  _original_width: 50,
+  _original_height: 100,
 }
 
 export function GasFilterFixedBed(props: DiagramNodeProps) {

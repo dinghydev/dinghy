@@ -6,8 +6,8 @@ export const GALVANOMETER = {
     entity:
       'perimeter=ellipsePerimeter;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.instruments.galvanometer;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 90,
+  _original_height: 90,
 }
 
 export function Galvanometer(props: DiagramNodeProps) {

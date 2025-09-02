@@ -6,8 +6,8 @@ export const D_TYPE_RS_FLIP_FLOP = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.d_type_rs_flip-flop;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function DTypeRsFlipFlop(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const PYRAMID_STEP = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.infographic.pyramidStep;fillColor=#10739E;strokeColor=none;',
   },
-  _width: 60,
-  _height: 100,
+  _original_width: 60,
+  _original_height: 100,
 }
 
 export function PyramidStep(props: DiagramNodeProps) {

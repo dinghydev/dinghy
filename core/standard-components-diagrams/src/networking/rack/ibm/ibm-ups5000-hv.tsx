@@ -6,8 +6,8 @@ export const IBM_UPS5000_HV = {
     entity:
       'shape=mxgraph.rack.ibm.ibm_ups5000_hv;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _width: 161,
-  _height: 45,
+  _original_width: 161,
+  _original_height: 45,
 }
 
 export function IbmUps5000Hv(props: DiagramNodeProps) {

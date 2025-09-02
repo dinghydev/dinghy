@@ -6,8 +6,8 @@ export const TOPIC = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.topic;fillColor=#5294CF;gradientColor=none;',
   },
-  _width: 49.5,
-  _height: 66,
+  _original_width: 49.5,
+  _original_height: 66,
 }
 
 export function Topic(props: DiagramNodeProps) {

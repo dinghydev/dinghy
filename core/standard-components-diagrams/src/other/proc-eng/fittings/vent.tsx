@@ -6,8 +6,8 @@ export const VENT = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.vent;',
   },
-  _width: 80,
-  _height: 140,
+  _original_width: 80,
+  _original_height: 140,
 }
 
 export function Vent(props: DiagramNodeProps) {

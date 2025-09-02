@@ -5,8 +5,8 @@ export const CHANGE_GRAPH = {
   _style: {
     entity: 'fillColor=#10739E;strokeColor=none;',
   },
-  _width: 0,
-  _height: 130,
+  _original_width: 0,
+  _original_height: 130,
 }
 
 export function ChangeGraph(props: DiagramNodeProps) {

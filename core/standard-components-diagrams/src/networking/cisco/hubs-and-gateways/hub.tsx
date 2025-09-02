@@ -6,8 +6,8 @@ export const HUB = {
     entity:
       'shape=mxgraph.cisco.hubs_and_gateways.hub;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _width: 66,
-  _height: 58,
+  _original_width: 66,
+  _original_height: 58,
 }
 
 export function Hub(props: DiagramNodeProps) {

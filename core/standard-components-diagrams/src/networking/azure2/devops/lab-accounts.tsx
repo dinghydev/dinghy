@@ -6,8 +6,8 @@ export const LAB_ACCOUNTS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/devops/Lab_Accounts.svg;strokeColor=none;',
   },
-  _width: 65.16,
-  _height: 68,
+  _original_width: 65.16,
+  _original_height: 68,
 }
 
 export function LabAccounts(props: DiagramNodeProps) {

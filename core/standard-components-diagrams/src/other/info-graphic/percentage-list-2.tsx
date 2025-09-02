@@ -6,8 +6,8 @@ export const PERCENTAGE_LIST_2 = {
     entity:
       'whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#B1DDF0;strokeColor=none;',
   },
-  _width: 1,
-  _height: 190,
+  _original_width: 1,
+  _original_height: 190,
 }
 
 export function PercentageList2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const GENERATOR_AC = {
     entity:
       'dashed=0;outlineConnect=0;align=center;html=1;shape=mxgraph.pid.engines.generator_(ac);fontSize=45;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function GeneratorAc(props: DiagramNodeProps) {

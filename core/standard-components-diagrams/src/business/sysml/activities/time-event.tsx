@@ -6,8 +6,8 @@ export const TIME_EVENT = {
     entity:
       'html=1;shape=mxgraph.sysml.timeEvent;strokeWidth=2;verticalLabelPosition=bottom;verticalAlignment=top;',
   },
-  _width: 35,
-  _height: 40,
+  _original_width: 35,
+  _original_height: 40,
 }
 
 export function TimeEvent(props: DiagramNodeProps) {

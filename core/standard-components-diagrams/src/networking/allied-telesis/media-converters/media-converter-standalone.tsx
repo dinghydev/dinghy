@@ -6,8 +6,8 @@ export const MEDIA_CONVERTER_STANDALONE = {
     entity:
       'image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/media_converters/Media_Converter_Standalone.svg;strokeColor=none;',
   },
-  _width: 45.6,
-  _height: 37.2,
+  _original_width: 45.6,
+  _original_height: 37.2,
 }
 
 export function MediaConverterStandalone(props: DiagramNodeProps) {

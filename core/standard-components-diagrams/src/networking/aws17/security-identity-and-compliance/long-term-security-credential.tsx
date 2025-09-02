@@ -6,8 +6,8 @@ export const LONG_TERM_SECURITY_CREDENTIAL = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.long_term_security_credential;fillColor=#ffffff;gradientColor=none;',
   },
-  _width: 60,
-  _height: 48,
+  _original_width: 60,
+  _original_height: 48,
 }
 
 export function LongTermSecurityCredential(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const X11850_THERMOMETER = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11850;points=[[0.5,1,0]]',
   },
-  _width: 37.34,
-  _height: 56.18,
+  _original_width: 37.34,
+  _original_height: 56.18,
 }
 
 export function X11850Thermometer(props: DiagramNodeProps) {

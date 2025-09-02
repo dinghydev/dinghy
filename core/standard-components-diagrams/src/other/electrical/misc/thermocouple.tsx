@@ -6,8 +6,8 @@ export const THERMOCOUPLE = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.thermocouple;',
   },
-  _width: 80,
-  _height: 81,
+  _original_width: 80,
+  _original_height: 81,
 }
 
 export function Thermocouple(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const PROBABILITY_3 = {
     entity:
       'shape=rhombus;html=1;whiteSpace=wrap;verticalLabelPosition=bottom;verticalAlignment=top;',
   },
-  _width: 350,
-  _height: 80,
+  _original_width: 350,
+  _original_height: 80,
 }
 
 export function Probability3(props: DiagramNodeProps) {

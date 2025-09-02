@@ -6,8 +6,8 @@ export const GENOMICS_ACCOUNTS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Genomics_Accounts.svg;strokeColor=none;',
   },
-  _width: 26,
-  _height: 50,
+  _original_width: 26,
+  _original_height: 50,
 }
 
 export function GenomicsAccounts(props: DiagramNodeProps) {

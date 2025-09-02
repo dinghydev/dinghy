@@ -6,8 +6,8 @@ export const ELASTIC_JOB_AGENTS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Elastic_Job_Agents.svg;strokeColor=none;',
   },
-  _width: 42,
-  _height: 50,
+  _original_width: 42,
+  _original_height: 50,
 }
 
 export function ElasticJobAgents(props: DiagramNodeProps) {

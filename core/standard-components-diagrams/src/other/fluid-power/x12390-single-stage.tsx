@@ -6,8 +6,8 @@ export const X12390_SINGLE_STAGE = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x12390;points=[[0,0.18,0],[1,0.18,0],[0.5,1,0]]',
   },
-  _width: 112.26,
-  _height: 102.36,
+  _original_width: 112.26,
+  _original_height: 102.36,
 }
 
 export function X12390SingleStage(props: DiagramNodeProps) {

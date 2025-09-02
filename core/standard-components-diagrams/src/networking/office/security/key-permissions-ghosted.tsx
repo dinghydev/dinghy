@@ -6,8 +6,8 @@ export const KEY_PERMISSIONS_GHOSTED = {
     entity:
       'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.security.key_permissions;fillColor=#CCCBCB;',
   },
-  _width: 25,
-  _height: 53,
+  _original_width: 25,
+  _original_height: 53,
 }
 
 export function KeyPermissionsGhosted(props: DiagramNodeProps) {

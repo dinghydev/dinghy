@@ -6,8 +6,8 @@ export const SOCIAL_MEDIA_TIME = {
     entity:
       'sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;fillColor=#3B8DF1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.social_media_time',
   },
-  _width: 97,
-  _height: 100,
+  _original_width: 97,
+  _original_height: 100,
 }
 
 export function SocialMediaTime(props: DiagramNodeProps) {

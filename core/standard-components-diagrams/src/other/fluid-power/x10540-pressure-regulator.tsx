@@ -6,8 +6,8 @@ export const X10540_PRESSURE_REGULATOR = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10540;points=[[0.35,0,0],[0.35,1,0]]',
   },
-  _width: 79.18,
-  _height: 75.54,
+  _original_width: 79.18,
+  _original_height: 75.54,
 }
 
 export function X10540PressureRegulator(props: DiagramNodeProps) {

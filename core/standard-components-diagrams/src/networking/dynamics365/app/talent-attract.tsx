@@ -6,8 +6,8 @@ export const TALENT_ATTRACT = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/dynamics365/TalentAttract.svg;strokeColor=none;',
   },
-  _width: 55.24,
-  _height: 68,
+  _original_width: 55.24,
+  _original_height: 68,
 }
 
 export function TalentAttract(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const MEDIA_SERVICE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.media_service;pointerEvents=1;',
   },
-  _width: 45,
-  _height: 50,
+  _original_width: 45,
+  _original_height: 50,
 }
 
 export function MediaService(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const PROFILE = {
     entity:
       'shape=folder;tabWidth=80;tabHeight=20;tabPosition=left;html=1;whiteSpace=wrap;align=center;',
   },
-  _width: 160,
-  _height: 100,
+  _original_width: 160,
+  _original_height: 100,
 }
 
 export function Profile(props: DiagramNodeProps) {

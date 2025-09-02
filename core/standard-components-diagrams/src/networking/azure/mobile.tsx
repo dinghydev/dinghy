@@ -6,8 +6,8 @@ export const MOBILE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.mobile;pointerEvents=1;',
   },
-  _width: 35,
-  _height: 50,
+  _original_width: 35,
+  _original_height: 50,
 }
 
 export function Mobile(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const BUG = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Bug.svg;strokeColor=none;',
   },
-  _width: 59,
-  _height: 64,
+  _original_width: 59,
+  _original_height: 64,
 }
 
 export function Bug(props: DiagramNodeProps) {

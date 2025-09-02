@@ -6,8 +6,8 @@ export const WEBSITE_GENERIC = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.website_generic;pointerEvents=1;',
   },
-  _width: 50,
-  _height: 42.5,
+  _original_width: 50,
+  _original_height: 42.5,
 }
 
 export function WebsiteGeneric(props: DiagramNodeProps) {

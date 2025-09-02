@@ -6,8 +6,8 @@ export const INDUSTRIAL_MEDIA_CONVERTER = {
     entity:
       'image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/media_converters/Industrial_Media_Converter.svg;strokeColor=none;',
   },
-  _width: 30,
-  _height: 57,
+  _original_width: 30,
+  _original_height: 57,
 }
 
 export function IndustrialMediaConverter(props: DiagramNodeProps) {

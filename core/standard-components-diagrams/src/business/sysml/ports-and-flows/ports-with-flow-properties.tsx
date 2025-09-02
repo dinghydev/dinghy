@@ -6,8 +6,8 @@ export const PORTS_WITH_FLOW_PROPERTIES = {
     entity:
       'html=1;shape=mxgraph.sysml.port3;fontStyle=1;whiteSpace=wrap;align=center;',
   },
-  _width: 160,
-  _height: 80,
+  _original_width: 160,
+  _original_height: 80,
 }
 
 export function PortsWithFlowProperties(props: DiagramNodeProps) {

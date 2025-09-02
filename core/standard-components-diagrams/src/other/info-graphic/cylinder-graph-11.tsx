@@ -6,8 +6,8 @@ export const CYLINDER_GRAPH_11 = {
     entity:
       'rounded=0;whiteSpace=wrap;shadow=0;strokeColor=none;strokeWidth=6;fillColor=none;fontSize=12;align=right;html=1;',
   },
-  _width: 10,
-  _height: 430,
+  _original_width: 10,
+  _original_height: 430,
 }
 
 export function CylinderGraph11(props: DiagramNodeProps) {

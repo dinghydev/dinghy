@@ -6,8 +6,8 @@ export const CUSTOM_IP_PREFIX = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Custom_IP_Prefix.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 68,
+  _original_height: 68,
 }
 
 export function CustomIpPrefix(props: DiagramNodeProps) {

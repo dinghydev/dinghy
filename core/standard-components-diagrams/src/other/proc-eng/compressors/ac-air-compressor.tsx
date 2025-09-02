@@ -6,8 +6,8 @@ export const AC_AIR_COMPRESSOR = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.compressors.ac_air_compressor',
   },
-  _width: 100,
-  _height: 65,
+  _original_width: 100,
+  _original_height: 65,
 }
 
 export function AcAirCompressor(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const CISCO_BLADE_SWITCH_3030 = {
     entity:
       'shape=mxgraph.rack.cisco.cisco_blade_switch_3030;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _width: 19,
-  _height: 72,
+  _original_width: 19,
+  _original_height: 72,
 }
 
 export function CiscoBladeSwitch3030(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const ANGLED_LIST_5 = {
     entity:
       'shape=mxgraph.infographic.parallelogram;dx=5;html=1;whiteSpace=wrap;fillColor=#AE4132;strokeColor=none;shadow=0;fontSize=17;fontColor=#FFFFFF;align=center;fontStyle=1;',
   },
-  _width: 4,
-  _height: 170,
+  _original_width: 4,
+  _original_height: 170,
 }
 
 export function AngledList5(props: DiagramNodeProps) {

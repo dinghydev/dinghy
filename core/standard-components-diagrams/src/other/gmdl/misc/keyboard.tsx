@@ -6,8 +6,8 @@ export const KEYBOARD = {
     entity:
       'dashed=0;shape=rect;fillColor=#263238;strokeColor=none;aspect=fixed;',
   },
-  _width: 358,
-  _height: 224,
+  _original_width: 358,
+  _original_height: 224,
 }
 
 export function Keyboard(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const SOLIDIFIER_CLOSED = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.separators.solidifier_(closed);',
   },
-  _width: 80,
-  _height: 120,
+  _original_width: 80,
+  _original_height: 120,
 }
 
 export function SolidifierClosed(props: DiagramNodeProps) {

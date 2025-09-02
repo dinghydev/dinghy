@@ -6,8 +6,8 @@ export const FINAL_STATE = {
     entity:
       'shape=mxgraph.sysml.actFinal;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;',
   },
-  _width: 40,
-  _height: 40,
+  _original_width: 40,
+  _original_height: 40,
 }
 
 export function FinalState(props: DiagramNodeProps) {

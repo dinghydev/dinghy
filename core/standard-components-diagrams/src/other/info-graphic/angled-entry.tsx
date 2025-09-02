@@ -6,8 +6,8 @@ export const ANGLED_ENTRY = {
     entity:
       'shape=mxgraph.infographic.parallelogram;dx=5;html=1;fillColor=#10739E;strokeColor=none;shadow=0;fontSize=17;fontColor=#FFFFFF;align=center;fontStyle=1;whiteSpace=wrap;',
   },
-  _width: 0,
-  _height: 30,
+  _original_width: 0,
+  _original_height: 30,
 }
 
 export function AngledEntry(props: DiagramNodeProps) {

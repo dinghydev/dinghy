@@ -6,8 +6,8 @@ export const TEST_POINT = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.testPoint;',
   },
-  _width: 60,
-  _height: 130,
+  _original_width: 60,
+  _original_height: 130,
 }
 
 export function TestPoint(props: DiagramNodeProps) {

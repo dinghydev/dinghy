@@ -6,8 +6,8 @@ export const ACTIVE_DIRECTORY = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Azure_Active_Directory.svg;strokeColor=none;',
   },
-  _width: 70,
-  _height: 64,
+  _original_width: 70,
+  _original_height: 64,
 }
 
 export function ActiveDirectory(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const DOOR_REVOLVING = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.doorRevolving;aspect=fixed;',
   },
-  _width: 80,
-  _height: 85,
+  _original_width: 80,
+  _original_height: 85,
 }
 
 export function DoorRevolving(props: DiagramNodeProps) {

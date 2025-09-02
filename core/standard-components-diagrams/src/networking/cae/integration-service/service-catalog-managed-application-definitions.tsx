@@ -6,8 +6,8 @@ export const SERVICE_CATALOG_MANAGED_APPLICATION_DEFINITIONS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Service_Catalog_Managed_Application_Definitions.svg;strokeColor=none;',
   },
-  _width: 47,
-  _height: 50,
+  _original_width: 47,
+  _original_height: 50,
 }
 
 export function ServiceCatalogManagedApplicationDefinitions(

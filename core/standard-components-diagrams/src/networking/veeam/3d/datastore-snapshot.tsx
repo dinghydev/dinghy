@@ -6,8 +6,8 @@ export const DATASTORE_SNAPSHOT = {
     entity:
       'shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.datastore_snapshot;',
   },
-  _width: 54,
-  _height: 34,
+  _original_width: 54,
+  _original_height: 34,
 }
 
 export function DatastoreSnapshot(props: DiagramNodeProps) {

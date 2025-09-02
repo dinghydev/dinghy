@@ -6,8 +6,8 @@ export const R0X36A_ARUBA_6400_3000W_PS_W_C20 = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.r0x36a_aruba_6400_3000w_ps_w_c20;',
   },
-  _width: 41,
-  _height: 20,
+  _original_width: 41,
+  _original_height: 20,
 }
 
 export function R0x36aAruba64003000wPsWC20(props: DiagramNodeProps) {

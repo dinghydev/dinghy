@@ -6,8 +6,8 @@ export const DASHBOARD_2 = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Dashboard2.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 48,
+  _original_width: 68,
+  _original_height: 48,
 }
 
 export function Dashboard2(props: DiagramNodeProps) {

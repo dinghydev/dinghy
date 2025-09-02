@@ -5,8 +5,8 @@ export const EXTEND_WITH_CONDITION = {
   _style: {
     entity: 'shape=note;size=15;spacingLeft=5;align=left;whiteSpace=wrap;',
   },
-  _width: 250,
-  _height: 80,
+  _original_width: 250,
+  _original_height: 80,
 }
 
 export function ExtendWithCondition(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const MULTIBRANCH_SHARED_ASSOCIATION_2 = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;elbow=horizontal;align=right;verticalAlign=bottom;endArrow=none;rounded=0;labelBackgroundColor=none;',
   },
-  _width: 1,
-  _height: 50,
+  _original_width: 1,
+  _original_height: 50,
 }
 
 export function MultibranchSharedAssociation2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const CONSTRAINT_TEXTUAL_NOTE_2 = {
     entity:
       'verticalAlign=bottom;html=1;endArrow=none;edgeStyle=none;labelBackgroundColor=none;fontSize=10;strokeWidth=2;',
   },
-  _width: 160,
-  _height: 0,
+  _original_width: 160,
+  _original_height: 0,
 }
 
 export function ConstraintTextualNote2(props: DiagramNodeProps) {

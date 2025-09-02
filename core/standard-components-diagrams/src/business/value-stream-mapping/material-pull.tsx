@@ -6,8 +6,8 @@ export const MATERIAL_PULL = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.physical_pull;pointerEvents=1;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function MaterialPull(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const TIME_PICKER = {
     entity:
       'shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;aspect=fixed;',
   },
-  _width: 328,
-  _height: 484,
+  _original_width: 328,
+  _original_height: 484,
 }
 
 export function TimePicker(props: DiagramNodeProps) {

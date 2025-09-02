@@ -6,8 +6,8 @@ export const DISCRETE_INSTRUMENT_LOCAL_PANEL = {
     entity:
       'html=1;outlineConnect=0;align=center;dashed=0;aspect=fixed;shape=mxgraph.pid2inst.discInst;mounting=local',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 50,
 }
 
 export function DiscreteInstrumentLocalPanel(props: DiagramNodeProps) {

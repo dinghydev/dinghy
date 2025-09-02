@@ -6,8 +6,8 @@ export const TEMPLATE_SPECS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Template_Specs.svg;strokeColor=none;',
   },
-  _width: 56.99999999999999,
-  _height: 68,
+  _original_width: 56.99999999999999,
+  _original_height: 68,
 }
 
 export function TemplateSpecs(props: DiagramNodeProps) {
