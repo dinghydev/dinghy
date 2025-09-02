@@ -7,8 +7,8 @@
   _style: { 
     entity: 'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.contextual_action_bar;fillColor=#002E3E;sketch=0;',
   },
-  _width: 0,
-  _height: 30,
+  _original_width: 0,
+  _original_height: 30,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=requiredInterface;html=1;verticalLabelPosition=bottom;sketch=0;',
   },
-  _width: 10,
-  _height: 20,
+  _original_width: 10,
+  _original_height: 20,
 }
 ```
 

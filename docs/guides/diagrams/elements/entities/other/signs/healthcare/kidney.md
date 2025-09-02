@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.signs.healthcare.kidney;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 71,
-  _height: 98,
+  _original_width: 71,
+  _original_height: 98,
 }
 ```
 

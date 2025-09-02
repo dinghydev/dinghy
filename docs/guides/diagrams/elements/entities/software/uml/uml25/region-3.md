@@ -7,8 +7,8 @@
   _style: { 
     entity: 'text;align=left;',
   },
-  _width: 2,
-  _height: 100,
+  _original_width: 2,
+  _original_height: 100,
 }
 ```
 

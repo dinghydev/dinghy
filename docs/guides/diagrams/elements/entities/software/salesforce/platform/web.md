@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.web;',
   },
-  _width: 60,
-  _height: 47.400000000000006,
+  _original_width: 60,
+  _original_height: 47.400000000000006,
 }
 ```
 

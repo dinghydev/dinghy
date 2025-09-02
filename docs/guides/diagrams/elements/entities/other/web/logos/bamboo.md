@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;image=img/lib/atlassian/Bamboo_Logo.svg;html=1;strokeColor=none;',
   },
-  _width: 64,
-  _height: 74,
+  _original_width: 64,
+  _original_height: 74,
 }
 ```
 

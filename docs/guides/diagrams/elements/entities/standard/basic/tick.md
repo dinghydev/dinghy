@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.tick',
   },
-  _width: 85,
-  _height: 100,
+  _original_width: 85,
+  _original_height: 100,
 }
 ```
 

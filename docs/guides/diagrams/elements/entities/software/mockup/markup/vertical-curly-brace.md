@@ -7,8 +7,8 @@
   _style: { 
     entity: 'labelPosition=right;align=left;strokeWidth=1;shape=mxgraph.mockup.markup.curlyBrace;html=1;shadow=0;dashed=0;strokeColor=#999999;direction=north;',
   },
-  _width: 20,
-  _height: 100,
+  _original_width: 20,
+  _original_height: 100,
 }
 ```
 

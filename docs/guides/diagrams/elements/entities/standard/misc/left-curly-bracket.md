@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;',
   },
-  _width: 20,
-  _height: 120,
+  _original_width: 20,
+  _original_height: 120,
 }
 ```
 

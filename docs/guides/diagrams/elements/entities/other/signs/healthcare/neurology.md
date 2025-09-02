@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.signs.healthcare.neurology;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 84,
-  _height: 98,
+  _original_width: 84,
+  _original_height: 98,
 }
 ```
 

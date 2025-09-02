@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.signs.food.food_truck;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 98,
-  _height: 50,
+  _original_width: 98,
+  _original_height: 50,
 }
 ```
 

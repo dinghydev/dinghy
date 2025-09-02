@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.pid.vessels.vessel_(full-tube_heating-cooling_coil);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 120,
-  _height: 70,
+  _original_width: 120,
+  _original_height: 70,
 }
 ```
 

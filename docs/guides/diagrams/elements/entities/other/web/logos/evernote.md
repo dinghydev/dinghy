@@ -7,8 +7,8 @@
   _style: { 
     entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.evernote;fillColor=#3F3F3F',
   },
-  _width: 63.400000000000006,
-  _height: 75.2,
+  _original_width: 63.400000000000006,
+  _original_height: 75.2,
 }
 ```
 

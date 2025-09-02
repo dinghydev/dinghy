@@ -7,8 +7,8 @@
   _style: { 
     entity: 'rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=halfCircle;endFill=0;endSize=6;strokeWidth=1;sketch=0;',
   },
-  _width: 40,
-  _height: 10,
+  _original_width: 40,
+  _original_height: 10,
 }
 ```
 

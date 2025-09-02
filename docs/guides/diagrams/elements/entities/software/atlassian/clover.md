@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;html=1;image=img/lib/atlassian/Clover_Logo.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 71,
+  _original_height: 71,
 }
 ```
 

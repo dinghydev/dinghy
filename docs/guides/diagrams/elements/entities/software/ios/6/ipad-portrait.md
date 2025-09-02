@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.ios.iPad;bgStyle=bgGreen;fillColor=#aaaaaa;sketch=0;',
   },
-  _width: 484.99999999999994,
-  _height: 625,
+  _original_width: 484.99999999999994,
+  _original_height: 625,
 }
 ```
 

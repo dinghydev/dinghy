@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;shadow=0;dashed=0;shape=mxgraph.basic.arc;startAngle=0.25;endAngle=1;strokeWidth=4;strokeColor=#1CA5B8;',
   },
-  _width: 30,
-  _height: 30,
+  _original_width: 30,
+  _original_height: 30,
 }
 ```
 

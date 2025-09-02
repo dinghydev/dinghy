@@ -7,8 +7,8 @@
   _style: { 
     entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.twitter;fillColor=#1DA1F2;strokeColor=none',
   },
-  _width: 80,
-  _height: 70,
+  _original_width: 80,
+  _original_height: 70,
 }
 ```
 

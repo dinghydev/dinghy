@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=crossbar;whiteSpace=wrap;html=1;rounded=1;direction=south;',
   },
-  _width: 20,
-  _height: 120,
+  _original_width: 20,
+  _original_height: 120,
 }
 ```
 

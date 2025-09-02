@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.ios7.icons.user;fillColor=#ffffff;strokeColor=#253858',
   },
-  _width: 470,
-  _height: 125,
+  _original_width: 470,
+  _original_height: 125,
 }
 ```
 

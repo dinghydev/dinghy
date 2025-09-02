@@ -7,8 +7,8 @@
   _style: { 
     entity: 'swimlane;',
   },
-  _width: 200,
-  _height: 200,
+  _original_width: 200,
+  _original_height: 200,
 }
 ```
 

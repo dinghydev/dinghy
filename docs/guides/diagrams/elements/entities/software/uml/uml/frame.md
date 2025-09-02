@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;',
   },
-  _width: 300,
-  _height: 200,
+  _original_width: 300,
+  _original_height: 200,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.signs.tech.telephone_5;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 36,
-  _height: 98,
+  _original_width: 36,
+  _original_height: 98,
 }
 ```
 

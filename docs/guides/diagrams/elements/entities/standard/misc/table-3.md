@@ -7,8 +7,8 @@
   _style: { 
     entity: 'childLayout=tableLayout;recursiveResize=0;shadow=0;fillColor=none;strokeColor=#C0C0C0;',
   },
-  _width: 180,
-  _height: 140,
+  _original_width: 180,
+  _original_height: 140,
 }
 ```
 

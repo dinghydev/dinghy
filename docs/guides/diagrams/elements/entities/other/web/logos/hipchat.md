@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;image=img/lib/atlassian/Hipchat_Logo.svg;html=1;strokeColor=none;',
   },
-  _width: 66,
-  _height: 62,
+  _original_width: 66,
+  _original_height: 62,
 }
 ```
 

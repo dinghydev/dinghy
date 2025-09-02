@@ -7,8 +7,8 @@
   _style: { 
     entity: 'triangle;aspect=fixed;fillColor=strokeColor;',
   },
-  _width: 0,
-  _height: 22,
+  _original_width: 0,
+  _original_height: 22,
 }
 ```
 

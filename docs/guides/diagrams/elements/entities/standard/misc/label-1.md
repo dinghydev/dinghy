@@ -7,8 +7,8 @@
   _style: { 
     entity: 'label;whiteSpace=wrap;html=1;image=img/clipart/Gear_128x128.png',
   },
-  _width: 140,
-  _height: 60,
+  _original_width: 140,
+  _original_height: 60,
 }
 ```
 

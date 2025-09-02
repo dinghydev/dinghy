@@ -7,8 +7,8 @@
   _style: { 
     entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.google_drive',
   },
-  _width: 66.4,
-  _height: 58,
+  _original_width: 66.4,
+  _original_height: 58,
 }
 ```
 

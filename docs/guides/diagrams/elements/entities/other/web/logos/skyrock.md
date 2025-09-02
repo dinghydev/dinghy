@@ -7,8 +7,8 @@
   _style: { 
     entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.skyrock;fillColor=#009AFF;strokeColor=none',
   },
-  _width: 67.8,
-  _height: 70.4,
+  _original_width: 67.8,
+  _original_height: 70.4,
 }
 ```
 

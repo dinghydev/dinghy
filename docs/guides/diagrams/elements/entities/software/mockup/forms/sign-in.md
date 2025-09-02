@@ -7,8 +7,8 @@
   _style: { 
     entity: 'strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.rrect;rSize=0;strokeColor=#999999;fillColor=#ffffff;',
   },
-  _width: 200,
-  _height: 300,
+  _original_width: 200,
+  _original_height: 300,
 }
 ```
 

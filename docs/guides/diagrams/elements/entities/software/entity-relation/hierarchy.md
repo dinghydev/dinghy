@@ -7,8 +7,8 @@
   _style: { 
     entity: 'rounded=1;absoluteArcSize=1;html=1;arcSize=10;',
   },
-  _width: 0,
-  _height: 100,
+  _original_width: 0,
+  _original_height: 100,
 }
 ```
 

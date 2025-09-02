@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.flowchart.or;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 70,
+  _original_height: 70,
 }
 ```
 

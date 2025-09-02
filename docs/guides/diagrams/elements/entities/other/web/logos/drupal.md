@@ -7,8 +7,8 @@
   _style: { 
     entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.drupal',
   },
-  _width: 60.6,
-  _height: 69,
+  _original_width: 60.6,
+  _original_height: 69,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=requiredInterface;html=1;verticalLabelPosition=bottom;dashed=1;strokeColor=#FF3333;strokeWidth=2;fillColor=none;fontColor=#FF3333;align=center;verticalAlign=top;labelPosition=center;',
   },
-  _width: 20,
-  _height: 330,
+  _original_width: 20,
+  _original_height: 330,
 }
 ```
 

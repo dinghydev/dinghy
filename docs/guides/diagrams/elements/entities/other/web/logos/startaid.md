@@ -7,8 +7,8 @@
   _style: { 
     entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.startaid;fillColor=#409FCF;strokeColor=none',
   },
-  _width: 41.2,
-  _height: 42.6,
+  _original_width: 41.2,
+  _original_height: 42.6,
 }
 ```
 

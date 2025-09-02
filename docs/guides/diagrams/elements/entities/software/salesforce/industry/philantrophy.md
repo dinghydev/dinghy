@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.philantrophy;',
   },
-  _width: 49.8,
-  _height: 60,
+  _original_width: 49.8,
+  _original_height: 60,
 }
 ```
 

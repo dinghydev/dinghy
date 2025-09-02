@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=sumEllipse;perimeter=ellipsePerimeter;html=1;backgroundOutline=1;',
   },
-  _width: 30,
-  _height: 30,
+  _original_width: 30,
+  _original_height: 30,
 }
 ```
 

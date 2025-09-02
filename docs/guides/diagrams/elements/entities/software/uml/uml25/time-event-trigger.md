@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=collate;html=1;',
   },
-  _width: 40,
-  _height: 40,
+  _original_width: 40,
+  _original_height: 40,
 }
 ```
 

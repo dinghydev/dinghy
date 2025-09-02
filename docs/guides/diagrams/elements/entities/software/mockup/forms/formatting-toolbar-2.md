@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.menus_and_buttons.font_style_selector_2;',
   },
-  _width: 235,
-  _height: 31,
+  _original_width: 235,
+  _original_height: 31,
 }
 ```
 

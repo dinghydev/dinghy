@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.pid.vessels.induced-draft_cooling_tower;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 98,
-  _height: 70,
+  _original_width: 98,
+  _original_height: 70,
 }
 ```
 

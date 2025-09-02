@@ -7,8 +7,8 @@
   _style: { 
     entity: 'strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.navigation.anchor;fontSize=24;fontColor=#aaaaaa;fontStyle=1;',
   },
-  _width: 1,
-  _height: 30,
+  _original_width: 1,
+  _original_height: 30,
 }
 ```
 

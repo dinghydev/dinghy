@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=actor;whiteSpace=wrap;html=1;',
   },
-  _width: 40,
-  _height: 60,
+  _original_width: 40,
+  _original_height: 60,
 }
 ```
 

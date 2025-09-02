@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;',
   },
-  _width: 30,
-  _height: 30,
+  _original_width: 30,
+  _original_height: 30,
 }
 ```
 

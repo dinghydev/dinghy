@@ -7,8 +7,8 @@
   _style: { 
     entity: 'ellipse;shape=umlControl;whiteSpace=wrap;html=1;',
   },
-  _width: 70,
-  _height: 80,
+  _original_width: 70,
+  _original_height: 80,
 }
 ```
 

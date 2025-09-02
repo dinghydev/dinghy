@@ -7,8 +7,8 @@
   _style: { 
     entity: 'strokeWidth=2;html=1;shape=mxgraph.flowchart.multi-document;whiteSpace=wrap;',
   },
-  _width: 88,
-  _height: 60,
+  _original_width: 88,
+  _original_height: 60,
 }
 ```
 

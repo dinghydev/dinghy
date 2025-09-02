@@ -7,8 +7,8 @@
   _style: { 
     entity: 'line;strokeWidth=4;html=1;perimeter=backbonePerimeter;points=[];outlineConnect=0;',
   },
-  _width: 160,
-  _height: 10,
+  _original_width: 160,
+  _original_height: 10,
 }
 ```
 

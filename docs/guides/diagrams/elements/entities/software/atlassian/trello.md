@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;html=1;image=img/lib/atlassian/Trello_Logo.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 70,
+  _original_height: 70,
 }
 ```
 

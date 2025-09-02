@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;html=1;image=img/lib/atlassian/Jira_Software_Logo.svg;strokeColor=none;',
   },
-  _width: 74,
-  _height: 76,
+  _original_width: 74,
+  _original_height: 76,
 }
 ```
 

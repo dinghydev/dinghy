@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=partialRectangle;html=1;top=1;align=left;dashed=1;',
   },
-  _width: 200,
-  _height: 20,
+  _original_width: 200,
+  _original_height: 20,
 }
 ```
 

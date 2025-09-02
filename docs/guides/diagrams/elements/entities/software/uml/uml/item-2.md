@@ -7,8 +7,8 @@
   _style: { 
     entity: 'label;fontStyle=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;overflow=hidden;spacingLeft=28;spacingRight=4;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;imageWidth=16;imageHeight=16;whiteSpace=wrap;html=1;image=img/clipart/Gear_128x128.png',
   },
-  _width: 0,
-  _height: 26,
+  _original_width: 0,
+  _original_height: 26,
 }
 ```
 

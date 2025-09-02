@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;image=img/lib/atlassian/Confluence_Logo.svg;html=1;strokeColor=none;',
   },
-  _width: 63,
-  _height: 57,
+  _original_width: 63,
+  _original_height: 57,
 }
 ```
 

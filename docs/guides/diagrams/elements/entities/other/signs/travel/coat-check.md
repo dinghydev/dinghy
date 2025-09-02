@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.signs.travel.coat_check;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 100,
-  _height: 71,
+  _original_width: 100,
+  _original_height: 71,
 }
 ```
 

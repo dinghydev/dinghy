@@ -7,8 +7,8 @@
   _style: { 
     entity: 'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.scrollbars2;fillColor=#999999;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 56,
+  _original_height: 56,
 }
 ```
 

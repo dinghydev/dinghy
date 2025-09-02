@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.signs.sports.hang_gliding;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 66,
+  _original_width: 99,
+  _original_height: 66,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;points=[];perimeter=orthogonalPerimeter;fillColor=strokeColor;',
   },
-  _width: 5,
-  _height: 80,
+  _original_width: 5,
+  _original_height: 80,
 }
 ```
 

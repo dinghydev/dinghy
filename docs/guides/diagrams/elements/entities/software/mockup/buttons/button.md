@@ -7,8 +7,8 @@
   _style: { 
     entity: 'strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;',
   },
-  _width: 150,
-  _height: 50,
+  _original_width: 150,
+  _original_height: 50,
 }
 ```
 

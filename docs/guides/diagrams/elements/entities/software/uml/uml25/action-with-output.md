@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.uml25.action;html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;spacingRight=10;whiteSpace=wrap;',
   },
-  _width: 0,
-  _height: 60,
+  _original_width: 0,
+  _original_height: 60,
 }
 ```
 

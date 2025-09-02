@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;html=1;image=img/lib/atlassian/Fisheye_Logo.svg;strokeColor=none;',
   },
-  _width: 71,
-  _height: 59,
+  _original_width: 71,
+  _original_height: 59,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.pointed_oval',
   },
-  _width: 50,
-  _height: 100,
+  _original_width: 50,
+  _original_height: 100,
 }
 ```
 

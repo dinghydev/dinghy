@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.arrows.notched_signal-in_arrow;html=1;verticalLabelPosition=bottom;verticalAlign=top;strokeWidth=2;strokeColor=#000000;',
   },
-  _width: 96,
-  _height: 30,
+  _original_width: 96,
+  _original_height: 30,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.pid.vessels.drum_or_condenser;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 91,
-  _height: 30,
+  _original_width: 91,
+  _original_height: 30,
 }
 ```
 

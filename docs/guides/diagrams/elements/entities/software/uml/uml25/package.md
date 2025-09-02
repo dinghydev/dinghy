@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;whiteSpace=wrap;',
   },
-  _width: 150,
-  _height: 80,
+  _original_width: 150,
+  _original_height: 80,
 }
 ```
 

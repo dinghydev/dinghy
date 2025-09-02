@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.signs.healthcare.wheelchair_accessible_3;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 76,
-  _height: 99,
+  _original_width: 76,
+  _original_height: 99,
 }
 ```
 

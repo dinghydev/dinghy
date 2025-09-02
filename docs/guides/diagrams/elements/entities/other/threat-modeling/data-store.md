@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=none;',
   },
-  _width: 120,
-  _height: 80,
+  _original_width: 120,
+  _original_height: 80,
 }
 ```
 

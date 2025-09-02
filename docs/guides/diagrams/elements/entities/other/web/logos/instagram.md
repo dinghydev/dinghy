@@ -7,8 +7,8 @@
   _style: { 
     entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.instagram;fillColor=#6FC0E4;gradientColor=#1E305B',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 72.2,
+  _original_height: 72.2,
 }
 ```
 

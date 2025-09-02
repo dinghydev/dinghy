@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=#0085FC;strokeColor=none;align=center;spacing=15;fontSize=14;fontColor=#ffffff;',
   },
-  _width: 3,
-  _height: 30,
+  _original_width: 3,
+  _original_height: 30,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.archive',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 60,
+  _original_height: 60,
 }
 ```
 

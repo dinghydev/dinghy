@@ -7,8 +7,8 @@
   _style: { 
     entity: 'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iTextInput;strokeColor=#444444;buttonText=;fontSize=8;whiteSpace=wrap;align=left;',
   },
-  _width: 43.5,
-  _height: 15,
+  _original_width: 43.5,
+  _original_height: 15,
 }
 ```
 
