@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Virtual_Machines_Classic.svg;strokeColor=none;',
   },
-  _width: 69,
-  _height: 64,
+  _original_width: 69,
+  _original_height: 64,
 }
 ```
 

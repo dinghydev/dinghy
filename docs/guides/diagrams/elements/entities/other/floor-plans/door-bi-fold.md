@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.doorBifold;dx=0.3;',
   },
-  _width: 160,
-  _height: 40,
+  _original_width: 160,
+  _original_height: 40,
 }
 ```
 

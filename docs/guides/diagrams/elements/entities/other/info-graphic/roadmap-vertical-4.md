@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;direction=south;fillColor=#AE4132;strokeColor=none;rounded=0;',
   },
-  _width: 2,
-  _height: 400,
+  _original_width: 2,
+  _original_height: 400,
 }
 ```
 

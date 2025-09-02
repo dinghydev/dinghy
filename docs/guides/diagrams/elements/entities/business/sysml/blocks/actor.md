@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;',
   },
-  _width: 30,
-  _height: 60,
+  _original_width: 30,
+  _original_height: 60,
 }
 ```
 

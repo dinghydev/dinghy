@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.pid.agitators.agitator_(propeller);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 92,
-  _height: 132,
+  _original_width: 92,
+  _original_height: 132,
 }
 ```
 

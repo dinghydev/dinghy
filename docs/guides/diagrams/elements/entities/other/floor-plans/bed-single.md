@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.bed_single;',
   },
-  _width: 100,
-  _height: 180,
+  _original_width: 100,
+  _original_height: 180,
 }
 ```
 

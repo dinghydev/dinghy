@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;shape=mxgraph.infographic.pyramidStep;fillColor=#2F5B7C;strokeColor=none;shadow=0;',
   },
-  _width: 5,
-  _height: 95,
+  _original_width: 5,
+  _original_height: 95,
 }
 ```
 

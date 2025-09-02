@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.partConcEllipse;startAngle=0.25;endAngle=0.75;arcWidth=0.25;fillColor=#15AA96;strokeColor=none;',
   },
-  _width: 4,
-  _height: 300,
+  _original_width: 4,
+  _original_height: 300,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'swimlane;startSize=20;whiteSpace=wrap;html=1;',
   },
-  _width: 120,
-  _height: 320,
+  _original_width: 120,
+  _original_height: 320,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.co-ax;',
   },
-  _width: 40,
-  _height: 60,
+  _original_width: 40,
+  _original_height: 60,
 }
 ```
 

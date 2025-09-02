@@ -7,8 +7,8 @@
   _style: { 
     entity: 'swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;whiteSpace=wrap;',
   },
-  _width: 360,
-  _height: 480,
+  _original_width: 360,
+  _original_height: 480,
 }
 ```
 

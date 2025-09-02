@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.compressors.centrifugal_compressor',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 70,
+  _original_height: 70,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.rack.oracle.sun_blade_x6270_m2_server_module;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _width: 19,
-  _height: 121,
+  _original_width: 19,
+  _original_height: 121,
 }
 ```
 

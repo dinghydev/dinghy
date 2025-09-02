@@ -7,8 +7,8 @@
   _style: { 
     entity: 'edgeStyle=elbowEdgeStyle;html=1;elbow=vertical;align=left;verticalAlign=bottom;endArrow=diamondThin;rounded=0;endFill=0;endSize=12;labelBackgroundColor=none;',
   },
-  _width: 3,
-  _height: 50,
+  _original_width: 3,
+  _original_height: 50,
 }
 ```
 

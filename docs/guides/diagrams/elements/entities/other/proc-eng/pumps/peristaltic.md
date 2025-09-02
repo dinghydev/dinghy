@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.pid.pumps.peristaltic;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 60,
-  _height: 69,
+  _original_width: 60,
+  _original_height: 69,
 }
 ```
 

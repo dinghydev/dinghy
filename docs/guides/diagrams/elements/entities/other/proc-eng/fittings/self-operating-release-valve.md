@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.self-operating_release_valve2;',
   },
-  _width: 105,
-  _height: 105,
+  _original_width: 105,
+  _original_height: 105,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#FCE7CD;strokeColor=none;',
   },
-  _width: 4,
-  _height: 190,
+  _original_width: 4,
+  _original_height: 190,
 }
 ```
 

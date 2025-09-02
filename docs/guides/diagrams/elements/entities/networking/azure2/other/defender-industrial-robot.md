@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Defender_Industrial_Robot.svg;strokeColor=none;',
   },
-  _width: 51.080000000000005,
-  _height: 68,
+  _original_width: 51.080000000000005,
+  _original_height: 68,
 }
 ```
 

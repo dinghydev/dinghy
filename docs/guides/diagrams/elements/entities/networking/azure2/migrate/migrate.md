@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/migrate/Azure_Migrate.svg;strokeColor=none;',
   },
-  _width: 72,
-  _height: 44,
+  _original_width: 72,
+  _original_height: 44,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.security.token;',
   },
-  _width: 41,
-  _height: 52,
+  _original_width: 41,
+  _original_height: 52,
 }
 ```
 

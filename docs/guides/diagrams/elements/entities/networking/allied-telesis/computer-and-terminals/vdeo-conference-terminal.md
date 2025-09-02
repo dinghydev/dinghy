@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/computer_and_terminals/Vdeo_Conference_Terminal.svg;strokeColor=none;',
   },
-  _width: 31.8,
-  _height: 45,
+  _original_width: 31.8,
+  _original_height: 45,
 }
 ```
 

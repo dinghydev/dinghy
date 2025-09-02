@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;fillColor=#AE4132;strokeColor=none;shadow=1;',
   },
-  _width: 6,
-  _height: 590,
+  _original_width: 6,
+  _original_height: 590,
 }
 ```
 

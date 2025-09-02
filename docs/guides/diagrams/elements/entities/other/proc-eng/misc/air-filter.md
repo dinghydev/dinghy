@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.air_filter;',
   },
-  _width: 40,
-  _height: 65,
+  _original_width: 40,
+  _original_height: 65,
 }
 ```
 

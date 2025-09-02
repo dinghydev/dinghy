@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl669_aruba_6300m_fan_module;',
   },
-  _width: 41,
-  _height: 13,
+  _original_width: 41,
+  _original_height: 13,
 }
 ```
 

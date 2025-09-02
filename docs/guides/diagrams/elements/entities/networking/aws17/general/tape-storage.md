@@ -7,8 +7,8 @@
   _style: { 
     entity: 'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.tape_storage;fillColor=#7D7C7C;gradientColor=none;',
   },
-  _width: 75,
-  _height: 39,
+  _original_width: 75,
+  _original_height: 39,
 }
 ```
 

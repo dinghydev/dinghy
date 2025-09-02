@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.branch_repeater;',
   },
-  _width: 100,
-  _height: 39,
+  _original_width: 100,
+  _original_height: 39,
 }
 ```
 

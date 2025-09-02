@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;shape=mxgraph.electrical.electro-mechanical.safetyInterlockSwitch;aspect=fixed;elSwitchState=off;',
   },
-  _width: 75,
-  _height: 45,
+  _original_width: 75,
+  _original_height: 45,
 }
 ```
 

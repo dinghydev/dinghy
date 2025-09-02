@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Backup_Vault.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 57.96,
+  _original_width: 68,
+  _original_height: 57.96,
 }
 ```
 

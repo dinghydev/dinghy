@@ -7,8 +7,8 @@
   _style: { 
     entity: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.cloud_shield;',
   },
-  _width: 45.6,
-  _height: 48.9,
+  _original_width: 45.6,
+  _original_height: 48.9,
 }
 ```
 

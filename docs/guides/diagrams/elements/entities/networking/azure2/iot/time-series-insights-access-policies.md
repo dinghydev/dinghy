@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/internet_of_things/Time_Series_Insights_Access_Policies.svg;strokeColor=none;',
   },
-  _width: 42,
-  _height: 68,
+  _original_width: 42,
+  _original_height: 68,
 }
 ```
 

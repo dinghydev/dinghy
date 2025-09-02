@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.separators.gravity_separator,_settling_chamber2;',
   },
-  _width: 80,
-  _height: 120,
+  _original_width: 80,
+  _original_height: 120,
 }
 ```
 

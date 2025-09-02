@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.j9996a_2_port_40gbe_qsfpplus_with_macsec_v3_zl2_module;',
   },
-  _width: 75,
-  _height: 15,
+  _original_width: 75,
+  _original_height: 15,
 }
 ```
 

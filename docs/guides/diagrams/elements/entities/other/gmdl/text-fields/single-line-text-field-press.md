@@ -7,8 +7,8 @@
   _style: { 
     entity: 'text;fontColor=#808080;fontSize=16;verticalAlign=middle;strokeColor=none;fillColor=none;opacity=50;whiteSpace=wrap;html=1;',
   },
-  _width: 0,
-  _height: 35,
+  _original_width: 0,
+  _original_height: 35,
 }
 ```
 

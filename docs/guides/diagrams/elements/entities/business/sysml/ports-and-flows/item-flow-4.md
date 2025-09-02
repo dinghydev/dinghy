@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;shape=mxgraph.sysml.itemFlow;fontStyle=1;flowDir=e;flowType=none;spacingRight=20;whiteSpace=wrap;align=center;',
   },
-  _width: 0,
-  _height: 370,
+  _original_width: 0,
+  _original_height: 370,
 }
 ```
 

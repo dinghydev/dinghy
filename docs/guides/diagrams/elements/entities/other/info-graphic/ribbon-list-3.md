@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shadow=0;dashed=0;html=1;strokeColor=none;shape=mxgraph.mscae.intune.user_group;fontSize=15;fontColor=#FFFFFF;align=left;',
   },
-  _width: 2,
-  _height: 590,
+  _original_width: 2,
+  _original_height: 590,
 }
 ```
 

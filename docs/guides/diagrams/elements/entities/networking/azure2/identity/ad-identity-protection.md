@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Azure_AD_Identity_Protection.svg;strokeColor=none;',
   },
-  _width: 68,
-  _height: 62,
+  _original_width: 68,
+  _original_height: 62,
 }
 ```
 

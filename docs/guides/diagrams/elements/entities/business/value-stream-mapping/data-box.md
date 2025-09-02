@@ -7,8 +7,8 @@
   _style: { 
     entity: 'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.data_box;html=1;',
   },
-  _width: 60,
-  _height: 100,
+  _original_width: 60,
+  _original_height: 100,
 }
 ```
 

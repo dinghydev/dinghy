@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/azure_stack/Infrastructure_Backup.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 69,
+  _original_width: 60,
+  _original_height: 69,
 }
 ```
 

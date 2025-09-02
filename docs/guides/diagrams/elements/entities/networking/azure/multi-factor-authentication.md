@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.multi_factor_authentication;pointerEvents=1;',
   },
-  _width: 25,
-  _height: 50,
+  _original_width: 25,
+  _original_height: 50,
 }
 ```
 

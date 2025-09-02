@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/security/Detonation.svg;strokeColor=none;',
   },
-  _width: 66,
-  _height: 68,
+  _original_width: 66,
+  _original_height: 68,
 }
 ```
 

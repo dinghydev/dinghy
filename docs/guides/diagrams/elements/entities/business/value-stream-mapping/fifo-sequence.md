@@ -7,8 +7,8 @@
   _style: { 
     entity: 'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.fifo_sequence_flow;pointerEvents=1;fontStyle=0;fontSize=20;align=center;',
   },
-  _width: 100,
-  _height: 50,
+  _original_width: 100,
+  _original_height: 50,
 }
 ```
 

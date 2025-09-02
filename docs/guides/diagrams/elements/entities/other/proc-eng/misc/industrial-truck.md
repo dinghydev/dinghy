@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.industrial_truck;pointerEvents=1;',
   },
-  _width: 120,
-  _height: 20,
+  _original_width: 120,
+  _original_height: 20,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.pid.pumps.vacuum_pump;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 99,
-  _height: 49,
+  _original_width: 99,
+  _original_height: 49,
 }
 ```
 

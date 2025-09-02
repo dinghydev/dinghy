@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl370a_aruba_8400_fan_for_x731_fan_tray;',
   },
-  _width: 20,
-  _height: 23,
+  _original_width: 20,
+  _original_height: 23,
 }
 ```
 

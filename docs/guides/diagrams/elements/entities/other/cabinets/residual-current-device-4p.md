@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.residual_current_device_4p;',
   },
-  _width: 36,
-  _height: 50,
+  _original_width: 36,
+  _original_height: 50,
 }
 ```
 

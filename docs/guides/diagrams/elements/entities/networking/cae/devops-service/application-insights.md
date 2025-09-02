@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Application_Insights.svg;strokeColor=none;',
   },
-  _width: 32,
-  _height: 50,
+  _original_width: 32,
+  _original_height: 50,
 }
 ```
 

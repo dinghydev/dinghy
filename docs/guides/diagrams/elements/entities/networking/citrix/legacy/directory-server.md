@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.directory_server;',
   },
-  _width: 65,
-  _height: 88.5,
+  _original_width: 65,
+  _original_height: 88.5,
 }
 ```
 

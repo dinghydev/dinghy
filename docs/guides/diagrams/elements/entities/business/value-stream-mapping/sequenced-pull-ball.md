@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.sequenced_pull_ball;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 60,
+  _original_height: 60,
 }
 ```
 

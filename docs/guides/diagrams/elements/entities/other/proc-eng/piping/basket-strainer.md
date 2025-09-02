@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.basket_strainer;',
   },
-  _width: 50,
-  _height: 45,
+  _original_width: 50,
+  _original_height: 45,
 }
 ```
 

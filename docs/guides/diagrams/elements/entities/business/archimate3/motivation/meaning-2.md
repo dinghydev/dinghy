@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.basic.cloud_callout;html=1;whiteSpace=wrap;fillColor=#CCCCFF;',
   },
-  _width: 70,
-  _height: 45,
+  _original_width: 70,
+  _original_height: 45,
 }
 ```
 

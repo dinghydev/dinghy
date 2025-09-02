@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.rack.cisco.cisco_ons_15310-ma_sdh_multiservice_platform;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _width: 86,
-  _height: 89,
+  _original_width: 86,
+  _original_height: 89,
 }
 ```
 

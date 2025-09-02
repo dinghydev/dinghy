@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.tape_library;',
   },
-  _width: 62,
-  _height: 74,
+  _original_width: 62,
+  _original_height: 74,
 }
 ```
 

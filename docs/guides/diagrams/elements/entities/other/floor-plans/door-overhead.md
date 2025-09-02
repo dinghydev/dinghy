@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.doorOverhead;',
   },
-  _width: 104,
-  _height: 30,
+  _original_width: 104,
+  _original_height: 30,
 }
 ```
 

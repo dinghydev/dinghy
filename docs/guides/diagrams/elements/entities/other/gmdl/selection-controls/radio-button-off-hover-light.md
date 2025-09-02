@@ -7,8 +7,8 @@
   _style: { 
     entity: 'dashed=0;labelPosition=right;align=left;shape=mxgraph.gmdl.radiobutton;strokeColor=#666666;fillColor=none;strokeWidth=2;aspect=fixed;sketch=0;html=1;',
   },
-  _width: 0,
-  _height: 16,
+  _original_width: 0,
+  _original_height: 16,
 }
 ```
 

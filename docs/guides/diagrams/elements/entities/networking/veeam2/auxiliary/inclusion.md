@@ -7,8 +7,8 @@
   _style: { 
     entity: 'triangle;whiteSpace=wrap;html=1;gradientColor=#D3D3D3;strokeColor=none;gradientDirection=east;',
   },
-  _width: 40,
-  _height: 160,
+  _original_width: 40,
+  _original_height: 160,
 }
 ```
 

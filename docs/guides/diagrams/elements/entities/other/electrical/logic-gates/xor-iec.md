@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.iec_logic_gates.xor;',
   },
-  _width: 60,
-  _height: 80,
+  _original_width: 60,
+  _original_height: 80,
 }
 ```
 

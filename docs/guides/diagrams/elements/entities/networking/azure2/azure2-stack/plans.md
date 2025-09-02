@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/azure_stack/Plans.svg;strokeColor=none;',
   },
-  _width: 52,
-  _height: 64,
+  _original_width: 52,
+  _original_height: 64,
 }
 ```
 

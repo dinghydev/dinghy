@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.chair;shadow=0;',
   },
-  _width: 0,
-  _height: 120,
+  _original_width: 0,
+  _original_height: 120,
 }
 ```
 

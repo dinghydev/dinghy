@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Process_Explorer.svg;strokeColor=none;',
   },
-  _width: 70,
-  _height: 68,
+  _original_width: 70,
+  _original_height: 68,
 }
 ```
 

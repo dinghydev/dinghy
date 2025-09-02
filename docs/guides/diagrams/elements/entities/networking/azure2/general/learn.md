@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Learn.svg;strokeColor=none;',
   },
-  _width: 48,
-  _height: 70,
+  _original_width: 48,
+  _original_height: 70,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalAlign=bottom;pointerEvents=1;dashed=0;shape=mxgraph.pid.piping.removable_spool;html=1;overflow=fill;',
   },
-  _width: 50,
-  _height: 30,
+  _original_width: 50,
+  _original_height: 30,
 }
 ```
 

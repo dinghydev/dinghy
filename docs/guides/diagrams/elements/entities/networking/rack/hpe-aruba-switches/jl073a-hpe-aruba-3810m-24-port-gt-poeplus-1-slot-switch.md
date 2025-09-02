@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl073a_hpe_aruba_3810m_24_port_gt_poeplus_1_slot_switch;',
   },
-  _width: 142,
-  _height: 15,
+  _original_width: 142,
+  _original_height: 15,
 }
 ```
 

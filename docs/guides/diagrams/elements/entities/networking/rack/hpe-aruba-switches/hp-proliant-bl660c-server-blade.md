@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.rack.hp.hp_proliant_bl660c_server_blade;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _width: 19,
-  _height: 121,
+  _original_width: 19,
+  _original_height: 121,
 }
 ```
 

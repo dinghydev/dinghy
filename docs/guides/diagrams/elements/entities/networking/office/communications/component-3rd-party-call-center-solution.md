@@ -7,8 +7,8 @@
   _style: { 
     entity: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.communications.3rd_party_call_center_solution;',
   },
-  _width: 98,
-  _height: 101,
+  _original_width: 98,
+  _original_height: 101,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=rhombus;html=1;verticalLabelPosition=top;verticalAlignment=bottom;',
   },
-  _width: 200,
-  _height: 80,
+  _original_width: 200,
+  _original_height: 80,
 }
 ```
 

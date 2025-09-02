@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.direct_sfp;',
   },
-  _width: 11,
-  _height: 8,
+  _original_width: 11,
+  _original_height: 8,
 }
 ```
 

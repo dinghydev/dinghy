@@ -7,8 +7,8 @@
   _style: { 
     entity: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.ask_ack_container_service_for_kubernetes;',
   },
-  _width: 44.7,
-  _height: 51.3,
+  _original_width: 44.7,
+  _original_height: 51.3,
 }
 ```
 

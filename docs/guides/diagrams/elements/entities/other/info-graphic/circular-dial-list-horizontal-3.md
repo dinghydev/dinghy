@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.donut;dx=10;strokeColor=none;fillColor=#F08E81;fontSize=12;fontColor=#AE4132;align=center;fontStyle=1;',
   },
-  _width: 2,
-  _height: 100,
+  _original_width: 2,
+  _original_height: 100,
 }
 ```
 

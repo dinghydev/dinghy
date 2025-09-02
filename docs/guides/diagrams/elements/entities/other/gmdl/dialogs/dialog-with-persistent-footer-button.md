@@ -7,8 +7,8 @@
   _style: { 
     entity: 'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;',
   },
-  _width: 280,
-  _height: 472,
+  _original_width: 280,
+  _original_height: 472,
 }
 ```
 

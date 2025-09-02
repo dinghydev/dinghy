@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl325a_2930m_2_port_stacking_module;',
   },
-  _width: 23,
-  _height: 10,
+  _original_width: 23,
+  _original_height: 10,
 }
 ```
 

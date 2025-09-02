@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#FFE0E0;shape=mxgraph.archimate3.deliverable;',
   },
-  _width: 60,
-  _height: 35,
+  _original_width: 60,
+  _original_height: 35,
 }
 ```
 

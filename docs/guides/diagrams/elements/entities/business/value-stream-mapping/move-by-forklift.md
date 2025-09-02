@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.move_by_forklift;',
   },
-  _width: 92,
-  _height: 100,
+  _original_width: 92,
+  _original_height: 100,
 }
 ```
 

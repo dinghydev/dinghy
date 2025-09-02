@@ -7,8 +7,8 @@
   _style: { 
     entity: 'sketch=0;verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;fillColor=#000000;align=center;outlineConnect=0;pointerEvents=1;shape=mxgraph.citrix2.single_and_multi_session_windows_and_linux_desktops;',
   },
-  _width: 48.85,
-  _height: 50,
+  _original_width: 48.85,
+  _original_height: 50,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.jl261a_aruba_2930f_24g_poeplus_4sfp_switch;',
   },
-  _width: 142,
-  _height: 15,
+  _original_width: 142,
+  _original_height: 15,
 }
 ```
 

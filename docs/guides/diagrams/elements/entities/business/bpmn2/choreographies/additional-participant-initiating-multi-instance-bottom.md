@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.bpmn.task2;part=1;taskMarker=abstract;rectStyle=square;verticalAlign=top;isLoopMultiParallel=1;whiteSpace=wrap;html=1;',
   },
-  _width: 120,
-  _height: 40,
+  _original_width: 120,
+  _original_height: 40,
 }
 ```
 

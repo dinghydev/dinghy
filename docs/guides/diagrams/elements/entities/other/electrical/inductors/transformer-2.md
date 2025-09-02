@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.electrical.signal_sources.current_source;',
   },
-  _width: 40,
-  _height: 60,
+  _original_width: 40,
+  _original_height: 60,
 }
 ```
 

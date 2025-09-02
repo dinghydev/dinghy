@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.bitbucket_code_source;',
   },
-  _width: 42.5,
-  _height: 50,
+  _original_width: 42.5,
+  _original_height: 50,
 }
 ```
 

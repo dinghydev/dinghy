@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.injector;',
   },
-  _width: 80,
-  _height: 40,
+  _original_width: 80,
+  _original_height: 40,
 }
 ```
 

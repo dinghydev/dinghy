@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Media_Encoding.svg;strokeColor=none;',
   },
-  _width: 43,
-  _height: 50,
+  _original_width: 43,
+  _original_height: 50,
 }
 ```
 

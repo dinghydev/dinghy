@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10750;points=[[0.355,0,0],[0,0.75,0]]',
   },
-  _width: 156.94,
-  _height: 74.66,
+  _original_width: 156.94,
+  _original_height: 74.66,
 }
 ```
 

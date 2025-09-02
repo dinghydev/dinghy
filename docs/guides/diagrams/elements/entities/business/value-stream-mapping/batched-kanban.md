@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.batched_kanban;',
   },
-  _width: 200,
-  _height: 80,
+  _original_width: 200,
+  _original_height: 80,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.rot_mech.detent;pointerEvents=1;',
   },
-  _width: 100,
-  _height: 8,
+  _original_width: 100,
+  _original_height: 8,
 }
 ```
 

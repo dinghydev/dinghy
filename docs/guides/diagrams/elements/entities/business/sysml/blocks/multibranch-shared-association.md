@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;',
   },
-  _width: 250,
-  _height: 50,
+  _original_width: 250,
+  _original_height: 50,
 }
 ```
 

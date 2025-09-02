@@ -7,8 +7,8 @@
   _style: { 
     entity: 'edgeStyle=none;dashed=1;html=1;endArrow=none;',
   },
-  _width: 2,
-  _height: 250,
+  _original_width: 2,
+  _original_height: 250,
 }
 ```
 

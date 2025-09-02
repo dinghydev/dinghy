@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.pid.feeders.feeder_(rotary_table);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 104,
-  _height: 100,
+  _original_width: 104,
+  _original_height: 100,
 }
 ```
 

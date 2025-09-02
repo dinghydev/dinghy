@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalAlign=bottom;html=1;endArrow=open;endSize=12;edgeStyle=orthogonalEdgeStyle;',
   },
-  _width: 2,
-  _height: 30,
+  _original_width: 2,
+  _original_height: 30,
 }
 ```
 

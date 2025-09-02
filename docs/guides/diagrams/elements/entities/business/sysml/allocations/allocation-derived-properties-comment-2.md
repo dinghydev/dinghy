@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=rect;fontStyle=1;whiteSpace=wrap;align=center;',
   },
-  _width: 1,
-  _height: 140,
+  _original_width: 1,
+  _original_height: 140,
 }
 ```
 

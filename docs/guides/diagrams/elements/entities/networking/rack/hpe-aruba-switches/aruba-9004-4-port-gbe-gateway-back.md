@@ -7,8 +7,8 @@
   _style: { 
     entity: 'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.gateways_controllers.aruba_9004_4_port_gbe_gateway_front;',
   },
-  _width: 71,
-  _height: 15,
+  _original_width: 71,
+  _original_height: 15,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.aerator_with_sparger;',
   },
-  _width: 35,
-  _height: 100,
+  _original_width: 35,
+  _original_height: 100,
 }
 ```
 

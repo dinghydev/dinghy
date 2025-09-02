@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;fillColor=strokeColor;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.electrical.miscellaneous.surge_protector;',
   },
-  _width: 70,
-  _height: 20,
+  _original_width: 70,
+  _original_height: 20,
 }
 ```
 

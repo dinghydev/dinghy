@@ -7,8 +7,8 @@
   _style: { 
     entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.induction_voltage_regulator;',
   },
-  _width: 160,
-  _height: 210,
+  _original_width: 160,
+  _original_height: 210,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'shape=mxgraph.cisco.servers.www_server;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _width: 66,
-  _height: 67,
+  _original_width: 66,
+  _original_height: 67,
 }
 ```
 

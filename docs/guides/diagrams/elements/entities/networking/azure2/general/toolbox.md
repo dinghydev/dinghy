@@ -7,8 +7,8 @@
   _style: { 
     entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Toolbox.svg;strokeColor=none;',
   },
-  _width: 64,
-  _height: 56.00000000000001,
+  _original_width: 64,
+  _original_height: 56.00000000000001,
 }
 ```
 

@@ -7,8 +7,8 @@
   _style: { 
     entity: 'verticalLabelPosition=middle;verticalAlign=middle;html=1;fillColor=none;strokeColor=none;fontSize=15;fontColor=#AE4132;align=center;fontStyle=1;',
   },
-  _width: 7,
-  _height: 260,
+  _original_width: 7,
+  _original_height: 260,
 }
 ```
 
