@@ -6,8 +6,8 @@ export const INDETERMINATE_PROGRESS_BAR = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.indeterminate_progress_bar;strokeColor=#33B5E5;pointerEvents=1',
   },
-  _width: 149,
-  _height: 5,
+  _original_width: 149,
+  _original_height: 5,
 }
 
 export function IndeterminateProgressBar(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const DATA = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.data;',
   },
-  _width: 48.6,
-  _height: 60,
+  _original_width: 48.6,
+  _original_height: 60,
 }
 
 export function Data(props: DiagramNodeProps) {

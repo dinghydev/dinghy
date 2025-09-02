@@ -6,8 +6,8 @@ export const BEND_ARROW_ROUNDED = {
     entity:
       'html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.bendArrow;dy=15;dx=38;notch=0;arrowHead=55;rounded=1;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function BendArrowRounded(props: DiagramNodeProps) {

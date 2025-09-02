@@ -6,8 +6,8 @@ export const FISHEYE = {
     entity:
       'image;image=img/lib/atlassian/Fisheye_Logo.svg;html=1;strokeColor=none;',
   },
-  _width: 71,
-  _height: 59,
+  _original_width: 71,
+  _original_height: 59,
 }
 
 export function Fisheye(props: DiagramNodeProps) {

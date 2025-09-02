@@ -6,8 +6,8 @@ export const CONSUMER_GOODS = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.consumer_goods;',
   },
-  _width: 54,
-  _height: 60,
+  _original_width: 54,
+  _original_height: 60,
 }
 
 export function ConsumerGoods(props: DiagramNodeProps) {

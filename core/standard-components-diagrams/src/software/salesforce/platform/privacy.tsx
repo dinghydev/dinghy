@@ -6,8 +6,8 @@ export const PRIVACY = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.privacy;',
   },
-  _width: 46.2,
-  _height: 60,
+  _original_width: 46.2,
+  _original_height: 60,
 }
 
 export function Privacy(props: DiagramNodeProps) {

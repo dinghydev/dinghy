@@ -5,8 +5,8 @@ export const DATA_STORE_2 = {
   _style: {
     entity: 'html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;',
   },
-  _width: 100,
-  _height: 30,
+  _original_width: 100,
+  _original_height: 30,
 }
 
 export function DataStore2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const DRINKING_WATER_1 = {
     entity:
       'shape=mxgraph.signs.food.drinking_water_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 84,
-  _height: 98,
+  _original_width: 84,
+  _original_height: 98,
 }
 
 export function DrinkingWater1(props: DiagramNodeProps) {

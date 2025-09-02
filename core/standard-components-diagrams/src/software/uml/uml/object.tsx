@@ -5,8 +5,8 @@ export const OBJECT = {
   _style: {
     entity: 'html=1;whiteSpace=wrap;',
   },
-  _width: 110,
-  _height: 50,
+  _original_width: 110,
+  _original_height: 50,
 }
 
 export function Object(props: DiagramNodeProps) {

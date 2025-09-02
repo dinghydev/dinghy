@@ -6,8 +6,8 @@ export const GATE_VALVE_PILOT = {
     entity:
       'verticalLabelPosition=bottom;align=center;html=1;verticalAlign=top;pointerEvents=1;dashed=0;shape=mxgraph.pid2valves.valve;valveType=gate;actuator=pilot',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function GateValvePilot(props: DiagramNodeProps) {

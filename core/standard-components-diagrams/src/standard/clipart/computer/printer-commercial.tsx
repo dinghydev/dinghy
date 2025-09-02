@@ -6,8 +6,8 @@ export const PRINTER_COMMERCIAL = {
     entity:
       'image;html=1;image=img/lib/clip_art/computers/Printer_Commercial_128x128.pngstrokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 80,
+  _original_height: 80,
 }
 
 export function PrinterCommercial(props: DiagramNodeProps) {

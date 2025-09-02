@@ -6,8 +6,8 @@ export const SEAL = {
     entity:
       'shape=mxgraph.signs.animals.seal;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 100,
-  _height: 92,
+  _original_width: 100,
+  _original_height: 92,
 }
 
 export function Seal(props: DiagramNodeProps) {

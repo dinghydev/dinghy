@@ -6,8 +6,8 @@ export const FRESHBUMP = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.freshbump;fillColor=#C2D952;strokeColor=none',
   },
-  _width: 71.2,
-  _height: 76,
+  _original_width: 71.2,
+  _original_height: 76,
 }
 
 export function Freshbump(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const BUTTON_ICON_AND_LABEL = {
     entity:
       'rounded=1;align=left;fillColor=#F1F2F4;strokeColor=none;html=1;fontColor=#596780;fontSize=12;spacingLeft=26;',
   },
-  _width: 0,
-  _height: 33,
+  _original_width: 0,
+  _original_height: 33,
 }
 
 export function ButtonIconAndLabel(props: DiagramNodeProps) {

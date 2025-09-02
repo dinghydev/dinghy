@@ -6,8 +6,8 @@ export const LOZENGE_MOVED_SUBTLE = {
     entity:
       'dashed=0;html=1;rounded=1;strokeColor=#FFAB00;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#42526E',
   },
-  _width: 60,
-  _height: 20,
+  _original_width: 60,
+  _original_height: 20,
 }
 
 export function LozengeMovedSubtle(props: DiagramNodeProps) {

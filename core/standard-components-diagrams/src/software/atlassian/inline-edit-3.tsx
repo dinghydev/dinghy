@@ -6,8 +6,8 @@ export const INLINE_EDIT_3 = {
     entity:
       'rounded=1;arcSize=3;fillColor=#ffffff;strokeColor=#DFE1E5;strokeWidth=1;shadow=1;sketch=1;hachureGap=4;pointerEvents=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;',
   },
-  _width: 2,
-  _height: 55,
+  _original_width: 2,
+  _original_height: 55,
 }
 
 export function InlineEdit3(props: DiagramNodeProps) {

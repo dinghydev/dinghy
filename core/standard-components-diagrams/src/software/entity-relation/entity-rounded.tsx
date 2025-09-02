@@ -5,8 +5,8 @@ export const ENTITY_ROUNDED = {
   _style: {
     entity: 'rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;',
   },
-  _width: 100,
-  _height: 40,
+  _original_width: 100,
+  _original_height: 40,
 }
 
 export function EntityRounded(props: DiagramNodeProps) {

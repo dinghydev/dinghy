@@ -6,8 +6,8 @@ export const BUTTON_PRIMARY = {
     entity:
       'rounded=1;fillColor=#0057D8;align=center;strokeColor=none;html=1;whiteSpace=wrap;fontColor=#ffffff;fontSize=12;sketch=0;',
   },
-  _width: 0,
-  _height: 33,
+  _original_width: 0,
+  _original_height: 33,
 }
 
 export function ButtonPrimary(props: DiagramNodeProps) {

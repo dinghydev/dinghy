@@ -6,8 +6,8 @@ export const HOTEL_INFORMATION = {
     entity:
       'shape=mxgraph.signs.travel.hotel_information;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 94,
-  _height: 99,
+  _original_width: 94,
+  _original_height: 99,
 }
 
 export function HotelInformation(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const NON_PROFIT = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.non_profit;',
   },
-  _width: 60,
-  _height: 55.800000000000004,
+  _original_width: 60,
+  _original_height: 55.800000000000004,
 }
 
 export function NonProfit(props: DiagramNodeProps) {

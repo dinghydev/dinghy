@@ -6,8 +6,8 @@ export const TRUCK_4 = {
     entity:
       'shape=mxgraph.signs.transportation.truck_4;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 33,
+  _original_width: 99,
+  _original_height: 33,
 }
 
 export function Truck4(props: DiagramNodeProps) {

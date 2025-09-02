@@ -6,8 +6,8 @@ export const CARDIOLOGY = {
     entity:
       'shape=mxgraph.signs.healthcare.cardiology;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 98,
-  _height: 97,
+  _original_width: 98,
+  _original_height: 97,
 }
 
 export function Cardiology(props: DiagramNodeProps) {

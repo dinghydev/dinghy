@@ -6,8 +6,8 @@ export const DRINKING_FOUNTAIN = {
     entity:
       'shape=mxgraph.signs.travel.drinking_fountain;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 82,
-  _height: 101,
+  _original_width: 82,
+  _original_height: 101,
 }
 
 export function DrinkingFountain(props: DiagramNodeProps) {

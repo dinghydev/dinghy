@@ -5,8 +5,8 @@ export const BOUNDARY_OBJECT = {
   _style: {
     entity: 'shape=umlBoundary;whiteSpace=wrap;html=1;',
   },
-  _width: 100,
-  _height: 80,
+  _original_width: 100,
+  _original_height: 80,
 }
 
 export function BoundaryObject(props: DiagramNodeProps) {

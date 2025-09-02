@@ -6,8 +6,8 @@ export const TEXT_INSERTION_POINT = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.text_insertion_point;',
   },
-  _width: 20,
-  _height: 30,
+  _original_width: 20,
+  _original_height: 30,
 }
 
 export function TextInsertionPoint(props: DiagramNodeProps) {

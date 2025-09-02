@@ -5,8 +5,8 @@ export const PENTAGON = {
   _style: {
     entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon',
   },
-  _width: 100,
-  _height: 90,
+  _original_width: 100,
+  _original_height: 90,
 }
 
 export function Pentagon(props: DiagramNodeProps) {

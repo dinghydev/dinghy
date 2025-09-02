@@ -6,8 +6,8 @@ export const CAMPER_1 = {
     entity:
       'shape=mxgraph.signs.sports.camper_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 79,
+  _original_width: 99,
+  _original_height: 79,
 }
 
 export function Camper1(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const LIGHTHOUSE_2 = {
     entity:
       'shape=mxgraph.signs.transportation.lighthouse_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 55,
-  _height: 98,
+  _original_width: 55,
+  _original_height: 98,
 }
 
 export function Lighthouse2(props: DiagramNodeProps) {

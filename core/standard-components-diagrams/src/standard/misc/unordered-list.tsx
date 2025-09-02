@@ -6,8 +6,8 @@ export const UNORDERED_LIST = {
     entity:
       'text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;',
   },
-  _width: 100,
-  _height: 80,
+  _original_width: 100,
+  _original_height: 80,
 }
 
 export function UnorderedList(props: DiagramNodeProps) {

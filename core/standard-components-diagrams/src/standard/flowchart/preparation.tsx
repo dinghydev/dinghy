@@ -6,8 +6,8 @@ export const PREPARATION = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=hexagon;perimeter=hexagonPerimeter2;arcSize=6;size=0.27;',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function Preparation(props: DiagramNodeProps) {

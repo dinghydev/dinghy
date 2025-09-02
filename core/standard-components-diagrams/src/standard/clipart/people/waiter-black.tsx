@@ -6,8 +6,8 @@ export const WAITER_BLACK = {
     entity:
       'image;html=1;image=img/lib/clip_art/people/Waiter_Black_128x128.pngstrokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 80,
+  _original_height: 80,
 }
 
 export function WaiterBlack(props: DiagramNodeProps) {

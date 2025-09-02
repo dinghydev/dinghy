@@ -6,8 +6,8 @@ export const CARD = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function Card(props: DiagramNodeProps) {

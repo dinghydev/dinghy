@@ -6,8 +6,8 @@ export const COMMUNICATIONS = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.communications;',
   },
-  _width: 47.400000000000006,
-  _height: 60,
+  _original_width: 47.400000000000006,
+  _original_height: 60,
 }
 
 export function Communications(props: DiagramNodeProps) {

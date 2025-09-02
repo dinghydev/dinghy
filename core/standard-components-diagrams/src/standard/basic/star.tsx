@@ -6,8 +6,8 @@ export const STAR = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.star',
   },
-  _width: 100,
-  _height: 95,
+  _original_width: 100,
+  _original_height: 95,
 }
 
 export function Star(props: DiagramNodeProps) {

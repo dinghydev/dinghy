@@ -6,8 +6,8 @@ export const CITEULIKE = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.citeulike;fillColor=#698139',
   },
-  _width: 75.60000000000001,
-  _height: 36,
+  _original_width: 75.60000000000001,
+  _original_height: 36,
 }
 
 export function Citeulike(props: DiagramNodeProps) {

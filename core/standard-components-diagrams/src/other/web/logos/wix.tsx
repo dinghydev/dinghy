@@ -6,8 +6,8 @@ export const WIX = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.wix;strokeColor=#dddddd',
   },
-  _width: 74,
-  _height: 61.6,
+  _original_width: 74,
+  _original_height: 61.6,
 }
 
 export function Wix(props: DiagramNodeProps) {

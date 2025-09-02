@@ -6,8 +6,8 @@ export const DESIGNFLOAT = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.designfloat;strokeColor=none',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 72,
+  _original_height: 72,
 }
 
 export function Designfloat(props: DiagramNodeProps) {

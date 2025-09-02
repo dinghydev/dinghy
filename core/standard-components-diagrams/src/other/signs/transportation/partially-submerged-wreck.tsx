@@ -6,8 +6,8 @@ export const PARTIALLY_SUBMERGED_WRECK = {
     entity:
       'shape=mxgraph.signs.transportation.partially_submerged_wreck;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 98,
-  _height: 76,
+  _original_width: 98,
+  _original_height: 76,
 }
 
 export function PartiallySubmergedWreck(props: DiagramNodeProps) {

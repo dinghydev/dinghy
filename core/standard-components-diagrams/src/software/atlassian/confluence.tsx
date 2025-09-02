@@ -6,8 +6,8 @@ export const CONFLUENCE = {
     entity:
       'image;html=1;image=img/lib/atlassian/Confluence_Logo.svg;strokeColor=none;',
   },
-  _width: 63,
-  _height: 57,
+  _original_width: 63,
+  _original_height: 57,
 }
 
 export function Confluence(props: DiagramNodeProps) {

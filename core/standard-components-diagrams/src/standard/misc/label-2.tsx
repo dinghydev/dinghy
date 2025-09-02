@@ -6,8 +6,8 @@ export const LABEL_2 = {
     entity:
       'label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png',
   },
-  _width: 120,
-  _height: 80,
+  _original_width: 120,
+  _original_height: 80,
 }
 
 export function Label2(props: DiagramNodeProps) {

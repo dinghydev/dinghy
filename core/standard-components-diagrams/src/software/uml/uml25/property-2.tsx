@@ -5,8 +5,8 @@ export const PROPERTY_2 = {
   _style: {
     entity: 'fontStyle=0;dashed=1;html=1;whiteSpace=wrap;',
   },
-  _width: 140,
-  _height: 30,
+  _original_width: 140,
+  _original_height: 30,
 }
 
 export function Property2(props: DiagramNodeProps) {

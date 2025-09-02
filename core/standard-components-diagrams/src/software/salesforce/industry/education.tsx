@@ -6,8 +6,8 @@ export const EDUCATION = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.education;',
   },
-  _width: 60,
-  _height: 40.2,
+  _original_width: 60,
+  _original_height: 40.2,
 }
 
 export function Education(props: DiagramNodeProps) {

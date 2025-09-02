@@ -6,8 +6,8 @@ export const EXPANSION = {
     entity:
       'html=1;dashed=1;rounded=1;absoluteArcSize=1;arcSize=20;verticalAlign=top;align=left;spacingTop=20;spacingLeft=20;whiteSpace=wrap;',
   },
-  _width: 300,
-  _height: 300,
+  _original_width: 300,
+  _original_height: 300,
 }
 
 export function Expansion(props: DiagramNodeProps) {

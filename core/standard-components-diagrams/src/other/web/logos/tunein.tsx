@@ -6,8 +6,8 @@ export const TUNEIN = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.tunein',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 70,
+  _original_height: 70,
 }
 
 export function Tunein(props: DiagramNodeProps) {

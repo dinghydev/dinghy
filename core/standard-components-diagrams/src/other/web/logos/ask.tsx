@@ -6,8 +6,8 @@ export const ASK = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.ask;fillColor=#D22028;strokeColor=none',
   },
-  _width: 68.60000000000001,
-  _height: 50.6,
+  _original_width: 68.60000000000001,
+  _original_height: 50.6,
 }
 
 export function Ask(props: DiagramNodeProps) {

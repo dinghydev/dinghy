@@ -5,8 +5,8 @@ export const ENTRY_POINT = {
   _style: {
     entity: 'ellipse;',
   },
-  _width: 30,
-  _height: 30,
+  _original_width: 30,
+  _original_height: 30,
 }
 
 export function EntryPoint(props: DiagramNodeProps) {

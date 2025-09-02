@@ -6,8 +6,8 @@ export const JIRA_SOFTWARE = {
     entity:
       'image;image=img/lib/atlassian/Jira_Software_Logo.svg;html=1;strokeColor=none;',
   },
-  _width: 74,
-  _height: 76,
+  _original_width: 74,
+  _original_height: 76,
 }
 
 export function JiraSoftware(props: DiagramNodeProps) {

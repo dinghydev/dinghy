@@ -6,8 +6,8 @@ export const DIIGO = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.diigo;fillColor=#2973D2;strokeColor=none',
   },
-  _width: 61.2,
-  _height: 68.8,
+  _original_width: 61.2,
+  _original_height: 68.8,
 }
 
 export function Diigo(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const NAVBAR_BLUE = {
     entity:
       'html=1;shadow=0;dashed=0;fillColor=#0085FC;strokeColor=none;fontSize=16;fontColor=#ffffff;align=left;spacing=15;',
   },
-  _width: 0,
-  _height: 60,
+  _original_width: 0,
+  _original_height: 60,
 }
 
 export function NavbarBlue(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const DIRECT_DATA = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.flowchart.direct_data;whiteSpace=wrap;',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function DirectData(props: DiagramNodeProps) {

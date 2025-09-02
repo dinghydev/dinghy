@@ -6,8 +6,8 @@ export const BARBER_SHOP = {
     entity:
       'shape=mxgraph.signs.travel.barber_shop;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 93,
-  _height: 100,
+  _original_width: 93,
+  _original_height: 100,
 }
 
 export function BarberShop(props: DiagramNodeProps) {

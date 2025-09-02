@@ -6,8 +6,8 @@ export const PIGGY_BANK = {
     entity:
       'image;html=1;image=img/lib/clip_art/finance/Piggy_Bank_128x128.pngstrokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 80,
+  _original_height: 80,
 }
 
 export function PiggyBank(props: DiagramNodeProps) {

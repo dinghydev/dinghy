@@ -6,8 +6,8 @@ export const ESCALATOR_UP = {
     entity:
       'shape=mxgraph.signs.travel.escalator_up;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 90,
+  _original_width: 99,
+  _original_height: 90,
 }
 
 export function EscalatorUp(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const CHAT = {
     entity:
       'html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.chat;',
   },
-  _width: 30,
-  _height: 18,
+  _original_width: 30,
+  _original_height: 18,
 }
 
 export function Chat(props: DiagramNodeProps) {

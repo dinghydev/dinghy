@@ -6,8 +6,8 @@ export const DIGG = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.digg',
   },
-  _width: 58,
-  _height: 56,
+  _original_width: 58,
+  _original_height: 56,
 }
 
 export function Digg(props: DiagramNodeProps) {

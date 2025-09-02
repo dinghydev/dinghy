@@ -5,8 +5,8 @@ export const CROSS = {
   _style: {
     entity: 'shape=cross;whiteSpace=wrap;html=1;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 80,
+  _original_height: 80,
 }
 
 export function Cross(props: DiagramNodeProps) {

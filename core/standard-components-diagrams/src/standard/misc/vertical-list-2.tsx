@@ -6,8 +6,8 @@ export const VERTICAL_LIST_2 = {
     entity:
       'text;html=1;strokeColor=none;fillColor=none;whiteSpace=wrap;align=center;verticalAlign=middle;fontColor=#0000EE;fontStyle=4;',
   },
-  _width: 0,
-  _height: 40,
+  _original_width: 0,
+  _original_height: 40,
 }
 
 export function VerticalList2(props: DiagramNodeProps) {

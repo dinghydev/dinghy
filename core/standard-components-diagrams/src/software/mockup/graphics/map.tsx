@@ -6,8 +6,8 @@ export const MAP = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.misc.map;',
   },
-  _width: 250,
-  _height: 250,
+  _original_width: 250,
+  _original_height: 250,
 }
 
 export function Map(props: DiagramNodeProps) {

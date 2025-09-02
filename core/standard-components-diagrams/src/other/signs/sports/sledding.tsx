@@ -6,8 +6,8 @@ export const SLEDDING = {
     entity:
       'shape=mxgraph.signs.sports.sledding;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 98,
-  _height: 86,
+  _original_width: 98,
+  _original_height: 86,
 }
 
 export function Sledding(props: DiagramNodeProps) {

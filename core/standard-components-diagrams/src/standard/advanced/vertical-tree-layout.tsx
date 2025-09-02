@@ -6,8 +6,8 @@ export const VERTICAL_TREE_LAYOUT = {
     entity:
       'swimlane;startSize=20;horizontal=1;childLayout=treeLayout;horizontalTree=0;sortEdges=1;resizable=0;containerType=tree;fontSize=12;',
   },
-  _width: 280,
-  _height: 190,
+  _original_width: 280,
+  _original_height: 190,
 }
 
 export function VerticalTreeLayout(props: DiagramNodeProps) {

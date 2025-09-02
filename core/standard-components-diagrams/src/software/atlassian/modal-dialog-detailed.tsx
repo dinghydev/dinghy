@@ -6,8 +6,8 @@ export const MODAL_DIALOG_DETAILED = {
     entity:
       'html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=12;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top',
   },
-  _width: 330,
-  _height: 210,
+  _original_width: 330,
+  _original_height: 210,
 }
 
 export function ModalDialogDetailed(props: DiagramNodeProps) {

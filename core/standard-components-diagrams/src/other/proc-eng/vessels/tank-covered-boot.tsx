@@ -6,8 +6,8 @@ export const TANK_COVERED_BOOT = {
     entity:
       'shape=mxgraph.pid.vessels.tank_(covered,_boot);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 100,
-  _height: 85,
+  _original_width: 100,
+  _original_height: 85,
 }
 
 export function TankCoveredBoot(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const GENETICS = {
     entity:
       'shape=mxgraph.signs.healthcare.genetics;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 98,
-  _height: 99,
+  _original_width: 98,
+  _original_height: 99,
 }
 
 export function Genetics(props: DiagramNodeProps) {

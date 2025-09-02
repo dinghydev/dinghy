@@ -6,8 +6,8 @@ export const WRITER = {
     entity:
       'image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/writer.svg;strokeColor=none;',
   },
-  _width: 48,
-  _height: 50,
+  _original_width: 48,
+  _original_height: 50,
 }
 
 export function Writer(props: DiagramNodeProps) {

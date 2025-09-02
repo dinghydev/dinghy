@@ -6,8 +6,8 @@ export const ASSOCIATION_INSTANCE_SECIFICATION_2 = {
     entity:
       'endArrow=none;html=1;rounded=0;align=center;verticalAlign=bottom;labelBackgroundColor=none;',
   },
-  _width: 1,
-  _height: 22,
+  _original_width: 1,
+  _original_height: 22,
 }
 
 export function AssociationInstanceSecification2(props: DiagramNodeProps) {

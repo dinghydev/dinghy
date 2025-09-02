@@ -6,8 +6,8 @@ export const MESSAGE = {
     entity:
       'shape=message;html=1;html=1;outlineConnect=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
   },
-  _width: 60,
-  _height: 40,
+  _original_width: 60,
+  _original_height: 40,
 }
 
 export function Message(props: DiagramNodeProps) {

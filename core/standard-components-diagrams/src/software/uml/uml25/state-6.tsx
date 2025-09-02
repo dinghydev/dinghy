@@ -6,8 +6,8 @@ export const STATE_6 = {
     entity:
       'html=1;align=center;verticalAlign=middle;rounded=1;absoluteArcSize=1;arcSize=10;dashed=1;whiteSpace=wrap;',
   },
-  _width: 140,
-  _height: 40,
+  _original_width: 140,
+  _original_height: 40,
 }
 
 export function State6(props: DiagramNodeProps) {

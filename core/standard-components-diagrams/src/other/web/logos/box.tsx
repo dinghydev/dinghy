@@ -6,8 +6,8 @@ export const BOX = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.box;fillColor=#2771B9;strokeColor=none',
   },
-  _width: 44.6,
-  _height: 64.2,
+  _original_width: 44.6,
+  _original_height: 64.2,
 }
 
 export function Box(props: DiagramNodeProps) {

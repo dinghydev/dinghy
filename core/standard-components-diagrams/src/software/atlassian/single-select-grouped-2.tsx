@@ -6,8 +6,8 @@ export const SINGLE_SELECT_GROUPED_2 = {
     entity:
       'rounded=1;arcSize=9;fillColor=#ffffff;strokeColor=#4C9AFF;html=1;strokeWidth=2;spacingLeft=5;fontColor=#000000;align=left',
   },
-  _width: 1,
-  _height: 260,
+  _original_width: 1,
+  _original_height: 260,
 }
 
 export function SingleSelectGrouped2(props: DiagramNodeProps) {

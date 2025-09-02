@@ -6,8 +6,8 @@ export const OBTUSE_TRIANGLE = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.obtuse_triangle;dx=0.25;',
   },
-  _width: 100,
-  _height: 70,
+  _original_width: 100,
+  _original_height: 70,
 }
 
 export function ObtuseTriangle(props: DiagramNodeProps) {

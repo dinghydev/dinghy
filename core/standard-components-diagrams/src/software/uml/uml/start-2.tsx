@@ -6,8 +6,8 @@ export const START_2 = {
     entity:
       'edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;',
   },
-  _width: 1,
-  _height: 90,
+  _original_width: 1,
+  _original_height: 90,
 }
 
 export function Start2(props: DiagramNodeProps) {

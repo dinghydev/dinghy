@@ -6,8 +6,8 @@ export const SEND_SIGNAL_ACTION = {
     entity:
       'html=1;shape=mxgraph.infographic.ribbonSimple;notch1=0;notch2=20;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;whiteSpace=wrap;',
   },
-  _width: 160,
-  _height: 40,
+  _original_width: 160,
+  _original_height: 40,
 }
 
 export function SendSignalAction(props: DiagramNodeProps) {

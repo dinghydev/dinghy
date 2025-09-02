@@ -6,8 +6,8 @@ export const TABLE_4 = {
     entity:
       'childLayout=tableLayout;recursiveResize=0;shadow=0;fillColor=none;',
   },
-  _width: 180,
-  _height: 140,
+  _original_width: 180,
+  _original_height: 140,
 }
 
 export function Table4(props: DiagramNodeProps) {

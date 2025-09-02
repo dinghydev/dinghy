@@ -6,8 +6,8 @@ export const FIELD_SERVICE = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.field_service;',
   },
-  _width: 45,
-  _height: 60,
+  _original_width: 45,
+  _original_height: 60,
 }
 
 export function FieldService(props: DiagramNodeProps) {

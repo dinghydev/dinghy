@@ -6,8 +6,8 @@ export const PRINT_SERVER_WIRELESS = {
     entity:
       'image;html=1;image=img/lib/clip_art/networking/Print_Server_Wireless_128x128.pngstrokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 80,
+  _original_height: 80,
 }
 
 export function PrintServerWireless(props: DiagramNodeProps) {

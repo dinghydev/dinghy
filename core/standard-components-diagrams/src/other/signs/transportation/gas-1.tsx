@@ -6,8 +6,8 @@ export const GAS_1 = {
     entity:
       'shape=mxgraph.signs.transportation.gas_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 63,
-  _height: 98,
+  _original_width: 63,
+  _original_height: 98,
 }
 
 export function Gas1(props: DiagramNodeProps) {

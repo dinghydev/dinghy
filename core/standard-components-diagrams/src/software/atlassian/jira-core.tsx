@@ -6,8 +6,8 @@ export const JIRA_CORE = {
     entity:
       'image;html=1;image=img/lib/atlassian/Jira_Core_Logo.svg;strokeColor=none;',
   },
-  _width: 55,
-  _height: 66,
+  _original_width: 55,
+  _original_height: 66,
 }
 
 export function JiraCore(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const ATLASSIAN = {
     entity:
       'image;html=1;image=img/lib/atlassian/Atlassian_Logo.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 66,
+  _original_height: 66,
 }
 
 export function Atlassian(props: DiagramNodeProps) {

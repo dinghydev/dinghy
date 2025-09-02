@@ -5,8 +5,8 @@ export const EXTERNAL_ENTITY = {
   _style: {
     entity: 'html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.externalEntity',
   },
-  _width: 0,
-  _height: 100,
+  _original_width: 0,
+  _original_height: 100,
 }
 
 export function ExternalEntity(props: DiagramNodeProps) {

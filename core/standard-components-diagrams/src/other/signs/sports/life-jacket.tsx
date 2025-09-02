@@ -6,8 +6,8 @@ export const LIFE_JACKET = {
     entity:
       'shape=mxgraph.signs.sports.life_jacket;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 100,
-  _height: 99,
+  _original_width: 100,
+  _original_height: 99,
 }
 
 export function LifeJacket(props: DiagramNodeProps) {

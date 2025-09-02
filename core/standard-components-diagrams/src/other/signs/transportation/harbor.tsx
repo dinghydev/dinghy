@@ -6,8 +6,8 @@ export const HARBOR = {
     entity:
       'shape=mxgraph.signs.transportation.harbor;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 98,
-  _height: 90,
+  _original_width: 98,
+  _original_height: 90,
 }
 
 export function Harbor(props: DiagramNodeProps) {

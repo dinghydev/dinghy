@@ -6,8 +6,8 @@ export const YELP = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.yelp;fillColor=#C41200;strokeColor=none',
   },
-  _width: 63.400000000000006,
-  _height: 83,
+  _original_width: 63.400000000000006,
+  _original_height: 83,
 }
 
 export function Yelp(props: DiagramNodeProps) {

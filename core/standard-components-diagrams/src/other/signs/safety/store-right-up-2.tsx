@@ -6,8 +6,8 @@ export const STORE_RIGHT_UP_2 = {
     entity:
       'shape=mxgraph.signs.safety.store_right_up_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 98,
+  _original_height: 98,
 }
 
 export function StoreRightUp2(props: DiagramNodeProps) {

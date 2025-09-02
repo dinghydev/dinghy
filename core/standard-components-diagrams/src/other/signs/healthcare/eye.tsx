@@ -6,8 +6,8 @@ export const EYE = {
     entity:
       'shape=mxgraph.signs.healthcare.eye;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 55,
+  _original_width: 99,
+  _original_height: 55,
 }
 
 export function Eye(props: DiagramNodeProps) {

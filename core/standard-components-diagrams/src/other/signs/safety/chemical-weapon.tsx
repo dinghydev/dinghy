@@ -6,8 +6,8 @@ export const CHEMICAL_WEAPON = {
     entity:
       'shape=mxgraph.signs.safety.chemical_weapon;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 98,
+  _original_width: 99,
+  _original_height: 98,
 }
 
 export function ChemicalWeapon(props: DiagramNodeProps) {

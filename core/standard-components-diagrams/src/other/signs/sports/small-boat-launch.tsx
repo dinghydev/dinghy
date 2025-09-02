@@ -6,8 +6,8 @@ export const SMALL_BOAT_LAUNCH = {
     entity:
       'shape=mxgraph.signs.sports.small_boat_launch;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 100,
-  _height: 93,
+  _original_width: 100,
+  _original_height: 93,
 }
 
 export function SmallBoatLaunch(props: DiagramNodeProps) {

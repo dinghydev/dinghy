@@ -6,8 +6,8 @@ export const MORE_2 = {
     entity:
       'html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=2;shape=mxgraph.ios7.misc.more_2;strokeColor=#a0a0a0;',
   },
-  _width: 6,
-  _height: 8,
+  _original_width: 6,
+  _original_height: 8,
 }
 
 export function More2(props: DiagramNodeProps) {

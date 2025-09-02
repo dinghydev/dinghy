@@ -6,8 +6,8 @@ export const BUDDYMARKS = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.buddymarks',
   },
-  _width: 79.4,
-  _height: 57,
+  _original_width: 79.4,
+  _original_height: 57,
 }
 
 export function Buddymarks(props: DiagramNodeProps) {

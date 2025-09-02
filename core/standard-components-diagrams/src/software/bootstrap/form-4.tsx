@@ -6,8 +6,8 @@ export const FORM_4 = {
     entity:
       'html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=2;fillColor=#EDEDED;strokeColor=#999999;align=left;fontSize=14;fontColor=#000000;labelPosition=right;verticalLabelPosition=middle;verticalAlign=middle;spacingLeft=5;spacingTop=-2;gradientColor=#DEDEDE;',
   },
-  _width: 5,
-  _height: 500,
+  _original_width: 5,
+  _original_height: 500,
 }
 
 export function Form4(props: DiagramNodeProps) {

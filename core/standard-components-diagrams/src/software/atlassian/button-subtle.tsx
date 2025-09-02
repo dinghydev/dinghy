@@ -6,8 +6,8 @@ export const BUTTON_SUBTLE = {
     entity:
       'rounded=1;align=left;fillColor=none;strokeColor=none;html=1;fontColor=#596780;fontSize=12;spacingLeft=26;',
   },
-  _width: 0,
-  _height: 33,
+  _original_width: 0,
+  _original_height: 33,
 }
 
 export function ButtonSubtle(props: DiagramNodeProps) {

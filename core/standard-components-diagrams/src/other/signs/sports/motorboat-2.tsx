@@ -6,8 +6,8 @@ export const MOTORBOAT_2 = {
     entity:
       'shape=mxgraph.signs.sports.motorboat_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 36,
+  _original_width: 99,
+  _original_height: 36,
 }
 
 export function Motorboat2(props: DiagramNodeProps) {

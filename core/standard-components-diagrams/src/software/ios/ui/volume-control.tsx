@@ -6,8 +6,8 @@ export const VOLUME_CONTROL = {
     entity:
       'shape=rect;strokeColor=none;fillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
   },
-  _width: 160,
-  _height: 14,
+  _original_width: 160,
+  _original_height: 14,
 }
 
 export function VolumeControl(props: DiagramNodeProps) {

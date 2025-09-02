@@ -5,8 +5,8 @@ export const SEARCH_BOX_2 = {
   _style: {
     entity: 'shape=rect;fillColor=#F6F6F6;strokeColor=none;',
   },
-  _width: 0,
-  _height: 20,
+  _original_width: 0,
+  _original_height: 20,
 }
 
 export function SearchBox2(props: DiagramNodeProps) {

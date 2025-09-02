@@ -5,8 +5,8 @@ export const FINAL_STATE_NODE = {
   _style: {
     entity: 'ellipse;html=1;shape=endState;fillColor=strokeColor;',
   },
-  _width: 30,
-  _height: 30,
+  _original_width: 30,
+  _original_height: 30,
 }
 
 export function FinalStateNode(props: DiagramNodeProps) {

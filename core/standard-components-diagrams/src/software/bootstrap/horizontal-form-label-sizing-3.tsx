@@ -6,8 +6,8 @@ export const HORIZONTAL_FORM_LABEL_SIZING_3 = {
     entity:
       'fillColor=none;strokeColor=none;align=left;fontSize=16;fontColor=#212529;',
   },
-  _width: 4,
-  _height: 110,
+  _original_width: 4,
+  _original_height: 110,
 }
 
 export function HorizontalFormLabelSizing3(props: DiagramNodeProps) {

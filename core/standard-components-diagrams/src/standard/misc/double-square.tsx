@@ -5,8 +5,8 @@ export const DOUBLE_SQUARE = {
   _style: {
     entity: 'shape=ext;double=1;whiteSpace=wrap;html=1;aspect=fixed;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 80,
+  _original_height: 80,
 }
 
 export function DoubleSquare(props: DiagramNodeProps) {

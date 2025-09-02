@@ -6,8 +6,8 @@ export const AUTOMOTIVE = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.automotive;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 60,
+  _original_height: 60,
 }
 
 export function Automotive(props: DiagramNodeProps) {

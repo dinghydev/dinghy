@@ -6,8 +6,8 @@ export const WEDGE_BAR = {
     entity:
       'strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.uRect;fontSize=17;fontColor=#666666;align=left;spacingLeft=5;strokeColor=#666666;',
   },
-  _width: 0,
-  _height: 30,
+  _original_width: 0,
+  _original_height: 30,
 }
 
 export function WedgeBar(props: DiagramNodeProps) {

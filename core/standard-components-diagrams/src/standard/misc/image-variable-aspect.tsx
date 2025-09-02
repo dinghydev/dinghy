@@ -6,8 +6,8 @@ export const IMAGE_VARIABLE_ASPECT = {
     entity:
       'shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;image=img/clipart/Gear_128x128.pngstrokeColor=none;',
   },
-  _width: 50,
-  _height: 60,
+  _original_width: 50,
+  _original_height: 60,
 }
 
 export function ImageVariableAspect(props: DiagramNodeProps) {

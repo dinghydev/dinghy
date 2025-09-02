@@ -6,8 +6,8 @@ export const IPAD_LANDSCAPE = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.ios.iPad;direction=north;bgStyle=bgGreen;fillColor=#aaaaaa;sketch=0;',
   },
-  _width: 625,
-  _height: 484.99999999999994,
+  _original_width: 625,
+  _original_height: 484.99999999999994,
 }
 
 export function IpadLandscape(props: DiagramNodeProps) {

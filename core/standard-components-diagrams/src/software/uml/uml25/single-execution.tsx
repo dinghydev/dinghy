@@ -6,8 +6,8 @@ export const SINGLE_EXECUTION = {
     entity:
       'html=1;align=right;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=50;dashed=0;spacingTop=10;spacingRight=30;whiteSpace=wrap;',
   },
-  _width: 300,
-  _height: 160,
+  _original_width: 300,
+  _original_height: 160,
 }
 
 export function SingleExecution(props: DiagramNodeProps) {

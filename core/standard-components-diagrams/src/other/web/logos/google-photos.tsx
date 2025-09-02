@@ -6,8 +6,8 @@ export const GOOGLE_PHOTOS = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.google_photos',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 87.2,
+  _original_height: 87.2,
 }
 
 export function GooglePhotos(props: DiagramNodeProps) {

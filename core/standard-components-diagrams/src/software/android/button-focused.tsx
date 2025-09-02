@@ -6,8 +6,8 @@ export const BUTTON_FOCUSED = {
     entity:
       'rounded=1;html=1;shadow=0;dashed=0;whiteSpace=wrap;fontSize=10;fillColor=#666666;align=center;strokeColor=#999999;fontColor=#ffffff;',
   },
-  _width: 105.5,
-  _height: 16.88,
+  _original_width: 105.5,
+  _original_height: 16.88,
 }
 
 export function ButtonFocused(props: DiagramNodeProps) {

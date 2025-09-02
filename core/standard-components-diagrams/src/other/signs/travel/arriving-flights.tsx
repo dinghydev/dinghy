@@ -6,8 +6,8 @@ export const ARRIVING_FLIGHTS = {
     entity:
       'shape=mxgraph.signs.travel.arriving_flights;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 74,
-  _height: 102,
+  _original_width: 74,
+  _original_height: 102,
 }
 
 export function ArrivingFlights(props: DiagramNodeProps) {

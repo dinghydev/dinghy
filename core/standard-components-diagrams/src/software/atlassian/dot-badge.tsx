@@ -5,8 +5,8 @@ export const DOT_BADGE = {
   _style: {
     entity: 'shape=ellipse;fillColor=#0065FF;strokeColor=none;html=1;sketch=0;',
   },
-  _width: 10,
-  _height: 10,
+  _original_width: 10,
+  _original_height: 10,
 }
 
 export function DotBadge(props: DiagramNodeProps) {

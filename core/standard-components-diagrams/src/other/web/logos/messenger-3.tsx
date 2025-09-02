@@ -6,8 +6,8 @@ export const MESSENGER_3 = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.messenger_3;fillColor=#437BBD;strokeColor=#dddddd',
   },
-  _width: 64.4,
-  _height: 64.8,
+  _original_width: 64.4,
+  _original_height: 64.8,
 }
 
 export function Messenger3(props: DiagramNodeProps) {

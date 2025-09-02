@@ -6,8 +6,8 @@ export const DATABASE_SERVER = {
     entity:
       'image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/database_server.svg;strokeColor=none;',
   },
-  _width: 41,
-  _height: 50,
+  _original_width: 41,
+  _original_height: 50,
 }
 
 export function DatabaseServer(props: DiagramNodeProps) {

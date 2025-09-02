@@ -6,8 +6,8 @@ export const TRACTOR_2 = {
     entity:
       'shape=mxgraph.signs.transportation.tractor_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 75,
+  _original_width: 99,
+  _original_height: 75,
 }
 
 export function Tractor2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const ENERGY_2 = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.energy2;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 60,
+  _original_height: 60,
 }
 
 export function Energy2(props: DiagramNodeProps) {

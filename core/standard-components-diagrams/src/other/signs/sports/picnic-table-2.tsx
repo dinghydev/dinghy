@@ -6,8 +6,8 @@ export const PICNIC_TABLE_2 = {
     entity:
       'shape=mxgraph.signs.sports.picnic_table_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 87,
+  _original_width: 99,
+  _original_height: 87,
 }
 
 export function PicnicTable2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const LOADING_CIRCLE = {
     entity:
       'html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=2;shape=mxgraph.ios7.misc.loading_circle;',
   },
-  _width: 40,
-  _height: 40,
+  _original_width: 40,
+  _original_height: 40,
 }
 
 export function LoadingCircle(props: DiagramNodeProps) {

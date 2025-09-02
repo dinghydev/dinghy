@@ -6,8 +6,8 @@ export const SUN_3 = {
     entity:
       'shape=mxgraph.signs.nature.sun_3;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 98,
+  _original_height: 98,
 }
 
 export function Sun3(props: DiagramNodeProps) {

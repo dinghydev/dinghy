@@ -6,8 +6,8 @@ export const DRIVING_TOUR = {
     entity:
       'shape=mxgraph.signs.travel.driving_tour;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 92,
-  _height: 99,
+  _original_width: 92,
+  _original_height: 99,
 }
 
 export function DrivingTour(props: DiagramNodeProps) {

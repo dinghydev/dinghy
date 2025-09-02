@@ -6,8 +6,8 @@ export const QUICK_CONTACT = {
     entity:
       'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.quick_contact;sketch=0;',
   },
-  _width: 0,
-  _height: 165,
+  _original_width: 0,
+  _original_height: 165,
 }
 
 export function QuickContact(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const COMPONENT_6_POINT_STAR = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.6_point_star',
   },
-  _width: 100,
-  _height: 90,
+  _original_width: 100,
+  _original_height: 90,
 }
 
 export function Component6PointStar(props: DiagramNodeProps) {

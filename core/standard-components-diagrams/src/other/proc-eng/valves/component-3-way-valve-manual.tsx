@@ -6,8 +6,8 @@ export const COMPONENT_3_WAY_VALVE_MANUAL = {
     entity:
       'verticalLabelPosition=bottom;align=center;html=1;verticalAlign=top;pointerEvents=1;dashed=0;shape=mxgraph.pid2valves.valve;valveType=threeWay;actuator=man',
   },
-  _width: 100,
-  _height: 120,
+  _original_width: 100,
+  _original_height: 120,
 }
 
 export function Component3WayValveManual(props: DiagramNodeProps) {

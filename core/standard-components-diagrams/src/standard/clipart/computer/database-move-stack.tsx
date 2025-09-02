@@ -6,8 +6,8 @@ export const DATABASE_MOVE_STACK = {
     entity:
       'image;html=1;image=img/lib/clip_art/computers/Database_Move_Stack_128x128.pngstrokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 80,
+  _original_height: 80,
 }
 
 export function DatabaseMoveStack(props: DiagramNodeProps) {

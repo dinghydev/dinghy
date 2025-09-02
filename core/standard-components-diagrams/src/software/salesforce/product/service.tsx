@@ -6,8 +6,8 @@ export const SERVICE = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.service;',
   },
-  _width: 60,
-  _height: 49.199999999999996,
+  _original_width: 60,
+  _original_height: 49.199999999999996,
 }
 
 export function Service(props: DiagramNodeProps) {

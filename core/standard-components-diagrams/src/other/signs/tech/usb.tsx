@@ -6,8 +6,8 @@ export const USB = {
     entity:
       'shape=mxgraph.signs.tech.usb;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 43,
-  _height: 98,
+  _original_width: 43,
+  _original_height: 98,
 }
 
 export function Usb(props: DiagramNodeProps) {

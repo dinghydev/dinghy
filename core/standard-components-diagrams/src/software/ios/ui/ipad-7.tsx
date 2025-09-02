@@ -6,8 +6,8 @@ export const IPAD_7 = {
     entity:
       'html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.ios7.misc.ipad7inch;strokeColor=#c0c0c0;',
   },
-  _width: 366,
-  _height: 549,
+  _original_width: 366,
+  _original_height: 549,
 }
 
 export function Ipad7(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const HEALTH = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.health;',
   },
-  _width: 60,
-  _height: 50.4,
+  _original_width: 60,
+  _original_height: 50.4,
 }
 
 export function Health(props: DiagramNodeProps) {

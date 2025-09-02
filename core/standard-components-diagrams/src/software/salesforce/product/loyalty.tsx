@@ -6,8 +6,8 @@ export const LOYALTY = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.loyalty;',
   },
-  _width: 60,
-  _height: 40.800000000000004,
+  _original_width: 60,
+  _original_height: 40.800000000000004,
 }
 
 export function Loyalty(props: DiagramNodeProps) {

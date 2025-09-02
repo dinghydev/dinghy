@@ -6,8 +6,8 @@ export const BITBUCKET = {
     entity:
       'image;html=1;image=img/lib/atlassian/Bitbucket_Logo.svg;strokeColor=none;',
   },
-  _width: 57,
-  _height: 50,
+  _original_width: 57,
+  _original_height: 50,
 }
 
 export function Bitbucket(props: DiagramNodeProps) {

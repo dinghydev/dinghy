@@ -6,8 +6,8 @@ export const DECISION = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 100,
 }
 
 export function Decision(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const COMMERCE = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.commerce;',
   },
-  _width: 60,
-  _height: 52.8,
+  _original_width: 60,
+  _original_height: 52.8,
 }
 
 export function Commerce(props: DiagramNodeProps) {

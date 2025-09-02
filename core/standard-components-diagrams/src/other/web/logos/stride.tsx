@@ -6,8 +6,8 @@ export const STRIDE = {
     entity:
       'image;image=img/lib/atlassian/Stride_Logo.svg;html=1;strokeColor=none;',
   },
-  _width: 69,
-  _height: 57,
+  _original_width: 69,
+  _original_height: 57,
 }
 
 export function Stride(props: DiagramNodeProps) {

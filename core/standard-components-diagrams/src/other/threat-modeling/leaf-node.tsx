@@ -6,8 +6,8 @@ export const LEAF_NODE = {
     entity:
       'rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;',
   },
-  _width: 120,
-  _height: 80,
+  _original_width: 120,
+  _original_height: 80,
 }
 
 export function LeafNode(props: DiagramNodeProps) {

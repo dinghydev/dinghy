@@ -6,8 +6,8 @@ export const REGISTRATION = {
     entity:
       'shape=mxgraph.signs.healthcare.registration;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 96,
-  _height: 98,
+  _original_width: 96,
+  _original_height: 98,
 }
 
 export function Registration(props: DiagramNodeProps) {

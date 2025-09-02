@@ -6,8 +6,8 @@ export const OFF_PAGE_REFERENCE = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=offPageConnector;rounded=0;size=0.5;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 60,
+  _original_height: 60,
 }
 
 export function OffPageReference(props: DiagramNodeProps) {

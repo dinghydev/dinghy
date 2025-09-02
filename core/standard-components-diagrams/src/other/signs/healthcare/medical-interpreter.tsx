@@ -6,8 +6,8 @@ export const MEDICAL_INTERPRETER = {
     entity:
       'shape=mxgraph.signs.healthcare.medical_interpreter;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 85,
+  _original_width: 99,
+  _original_height: 85,
 }
 
 export function MedicalInterpreter(props: DiagramNodeProps) {

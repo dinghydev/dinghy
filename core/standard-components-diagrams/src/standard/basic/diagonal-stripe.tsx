@@ -6,8 +6,8 @@ export const DIAGONAL_STRIPE = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.diag_stripe;dx=10;',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function DiagonalStripe(props: DiagramNodeProps) {

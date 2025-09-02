@@ -6,8 +6,8 @@ export const JACKETED_MIXING_VESSEL = {
     entity:
       'shape=mxgraph.pid.vessels.jacketed_mixing_vessel;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 100,
-  _height: 174,
+  _original_width: 100,
+  _original_height: 174,
 }
 
 export function JacketedMixingVessel(props: DiagramNodeProps) {

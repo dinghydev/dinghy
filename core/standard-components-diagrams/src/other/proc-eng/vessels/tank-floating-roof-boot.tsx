@@ -6,8 +6,8 @@ export const TANK_FLOATING_ROOF_BOOT = {
     entity:
       'shape=mxgraph.pid.vessels.tank_(floating_roof,_boot);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 100,
-  _height: 80,
+  _original_width: 100,
+  _original_height: 80,
 }
 
 export function TankFloatingRoofBoot(props: DiagramNodeProps) {

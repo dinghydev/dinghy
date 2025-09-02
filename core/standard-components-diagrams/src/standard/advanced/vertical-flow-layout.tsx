@@ -6,8 +6,8 @@ export const VERTICAL_FLOW_LAYOUT = {
     entity:
       'swimlane;startSize=20;horizontal=1;childLayout=flowLayout;flowOrientation=north;resizable=0;interRankCellSpacing=50;containerType=tree;fontSize=12;',
   },
-  _width: 0,
-  _height: 280,
+  _original_width: 0,
+  _original_height: 280,
 }
 
 export function VerticalFlowLayout(props: DiagramNodeProps) {

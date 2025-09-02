@@ -6,8 +6,8 @@ export const HORIZONTAL_NAVIGATION = {
     entity:
       'swimlane;shape=mxgraph.bootstrap.anchor;strokeColor=none;fillColor=none;fontColor=#0085FC;fontStyle=0;childLayout=stackLayout;horizontal=0;startSize=0;horizontalStack=1;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;',
   },
-  _width: 0,
-  _height: 30,
+  _original_width: 0,
+  _original_height: 30,
 }
 
 export function HorizontalNavigation(props: DiagramNodeProps) {

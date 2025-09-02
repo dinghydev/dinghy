@@ -6,8 +6,8 @@ export const HORIZONTAL_FLOW_LAYOUT = {
     entity:
       'swimlane;html=1;startSize=20;horizontal=0;childLayout=flowLayout;flowOrientation=west;resizable=0;interRankCellSpacing=50;containerType=tree;fontSize=12;',
   },
-  _width: 0,
-  _height: 150,
+  _original_width: 0,
+  _original_height: 150,
 }
 
 export function HorizontalFlowLayout(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const ANCHOR_4 = {
     entity:
       'shape=mxgraph.signs.transportation.anchor_4;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 98,
+  _original_height: 98,
 }
 
 export function Anchor4(props: DiagramNodeProps) {

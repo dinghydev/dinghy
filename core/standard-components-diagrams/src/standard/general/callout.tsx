@@ -5,8 +5,8 @@ export const CALLOUT = {
   _style: {
     entity: 'shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;',
   },
-  _width: 120,
-  _height: 80,
+  _original_width: 120,
+  _original_height: 80,
 }
 
 export function Callout(props: DiagramNodeProps) {

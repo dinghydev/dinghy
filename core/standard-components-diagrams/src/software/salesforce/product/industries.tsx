@@ -6,8 +6,8 @@ export const INDUSTRIES = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.industries;',
   },
-  _width: 53.4,
-  _height: 60,
+  _original_width: 53.4,
+  _original_height: 60,
 }
 
 export function Industries(props: DiagramNodeProps) {

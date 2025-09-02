@@ -6,8 +6,8 @@ export const BROWSER_WINDOW = {
     entity:
       'strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;strokeColor2=#008cff;strokeColor3=#c4c4c4;mainText=,;recursiveResize=0;',
   },
-  _width: 0,
-  _height: 380,
+  _original_width: 0,
+  _original_height: 380,
 }
 
 export function BrowserWindow(props: DiagramNodeProps) {

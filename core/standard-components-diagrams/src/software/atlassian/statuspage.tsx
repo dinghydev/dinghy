@@ -6,8 +6,8 @@ export const STATUSPAGE = {
     entity:
       'image;html=1;image=img/lib/atlassian/Statuspage_Logo.svg;strokeColor=none;',
   },
-  _width: 75,
-  _height: 52,
+  _original_width: 75,
+  _original_height: 52,
 }
 
 export function Statuspage(props: DiagramNodeProps) {

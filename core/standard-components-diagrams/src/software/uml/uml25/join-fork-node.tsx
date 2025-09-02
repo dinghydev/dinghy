@@ -6,8 +6,8 @@ export const JOIN_FORK_NODE = {
     entity:
       'html=1;points=[];perimeter=orthogonalPerimeter;fillColor=strokeColor;',
   },
-  _width: 5,
-  _height: 80,
+  _original_width: 5,
+  _original_height: 80,
 }
 
 export function JoinForkNode(props: DiagramNodeProps) {

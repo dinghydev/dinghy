@@ -5,8 +5,8 @@ export const LOUD_CALLOUT = {
   _style: {
     entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.loud_callout',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function LoudCallout(props: DiagramNodeProps) {

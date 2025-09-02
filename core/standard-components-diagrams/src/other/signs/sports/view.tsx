@@ -6,8 +6,8 @@ export const VIEW = {
     entity:
       'shape=mxgraph.signs.sports.view;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 87,
-  _height: 98,
+  _original_width: 87,
+  _original_height: 98,
 }
 
 export function View(props: DiagramNodeProps) {

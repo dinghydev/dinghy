@@ -6,8 +6,8 @@ export const VIADEO = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.viadeo',
   },
-  _width: 73.4,
-  _height: 84,
+  _original_width: 73.4,
+  _original_height: 84,
 }
 
 export function Viadeo(props: DiagramNodeProps) {

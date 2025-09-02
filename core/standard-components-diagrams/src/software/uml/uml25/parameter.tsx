@@ -5,8 +5,8 @@ export const PARAMETER = {
   _style: {
     entity: 'html=1;',
   },
-  _width: 0,
-  _height: 40,
+  _original_width: 0,
+  _original_height: 40,
 }
 
 export function Parameter(props: DiagramNodeProps) {

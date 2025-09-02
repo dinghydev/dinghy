@@ -6,8 +6,8 @@ export const U_TURN_UP_ARROW = {
     entity:
       'shape=mxgraph.arrows.u_turn_up_arrow;html=1;verticalLabelPosition=bottom;verticalAlign=top;strokeWidth=2;strokeColor=#000000;',
   },
-  _width: 97,
-  _height: 62,
+  _original_width: 97,
+  _original_height: 62,
 }
 
 export function UTurnUpArrow(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const TRIAD_ARROW = {
     entity:
       'shape=mxgraph.arrows.triad_arrow;html=1;verticalLabelPosition=bottom;verticalAlign=top;strokeWidth=2;strokeColor=#000000;',
   },
-  _width: 97,
-  _height: 68,
+  _original_width: 97,
+  _original_height: 68,
 }
 
 export function TriadArrow(props: DiagramNodeProps) {

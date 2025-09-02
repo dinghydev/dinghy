@@ -5,8 +5,8 @@ export const ACTION_WITH_OUTPUT_2 = {
   _style: {
     entity: 'text;verticalAlign=middle;align=left;html=1;',
   },
-  _width: 1,
-  _height: 60,
+  _original_width: 1,
+  _original_height: 60,
 }
 
 export function ActionWithOutput2(props: DiagramNodeProps) {

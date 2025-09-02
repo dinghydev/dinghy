@@ -6,8 +6,8 @@ export const DECISION_ENTITY_RELATIONSHIP = {
     entity:
       'shape=rhombus;html=1;dashed=0;whiteSpace=wrap;perimeter=rhombusPerimeter;',
   },
-  _width: 60,
-  _height: 50,
+  _original_width: 60,
+  _original_height: 50,
 }
 
 export function DecisionEntityRelationship(props: DiagramNodeProps) {

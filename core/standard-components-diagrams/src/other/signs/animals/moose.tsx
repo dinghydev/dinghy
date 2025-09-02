@@ -6,8 +6,8 @@ export const MOOSE = {
     entity:
       'shape=mxgraph.signs.animals.moose;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 98,
-  _height: 65,
+  _original_width: 98,
+  _original_height: 65,
 }
 
 export function Moose(props: DiagramNodeProps) {

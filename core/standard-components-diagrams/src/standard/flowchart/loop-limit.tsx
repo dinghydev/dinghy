@@ -6,8 +6,8 @@ export const LOOP_LIMIT = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.flowchart.loop_limit;whiteSpace=wrap;',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function LoopLimit(props: DiagramNodeProps) {

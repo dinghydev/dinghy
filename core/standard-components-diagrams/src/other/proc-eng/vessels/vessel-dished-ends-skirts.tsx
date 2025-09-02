@@ -6,8 +6,8 @@ export const VESSEL_DISHED_ENDS_SKIRTS = {
     entity:
       'shape=mxgraph.pid.vessels.vessel_(dished_ends,_skirts);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _width: 40,
-  _height: 122,
+  _original_width: 40,
+  _original_height: 122,
 }
 
 export function VesselDishedEndsSkirts(props: DiagramNodeProps) {

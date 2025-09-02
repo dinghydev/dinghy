@@ -6,8 +6,8 @@ export const COFFEE = {
     entity:
       'shape=mxgraph.signs.food.coffee;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 98,
-  _height: 61,
+  _original_width: 98,
+  _original_height: 61,
 }
 
 export function Coffee(props: DiagramNodeProps) {

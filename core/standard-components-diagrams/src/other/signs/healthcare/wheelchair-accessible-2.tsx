@@ -6,8 +6,8 @@ export const WHEELCHAIR_ACCESSIBLE_2 = {
     entity:
       'shape=mxgraph.signs.healthcare.wheelchair_accessible_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 87,
-  _height: 98,
+  _original_width: 87,
+  _original_height: 98,
 }
 
 export function WheelchairAccessible2(props: DiagramNodeProps) {

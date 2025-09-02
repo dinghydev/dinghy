@@ -6,8 +6,8 @@ export const MAN_2 = {
     entity:
       'shape=mxgraph.signs.people.man_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 36,
-  _height: 99,
+  _original_width: 36,
+  _original_height: 99,
 }
 
 export function Man2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const BUILDERS = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.builders;',
   },
-  _width: 55.2,
-  _height: 60,
+  _original_width: 55.2,
+  _original_height: 60,
 }
 
 export function Builders(props: DiagramNodeProps) {

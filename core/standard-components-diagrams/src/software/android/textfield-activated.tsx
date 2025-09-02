@@ -6,8 +6,8 @@ export const TEXTFIELD_ACTIVATED = {
     entity:
       'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.textfield;align=center;strokeColor=#33b5e5;pointerEvents=1',
   },
-  _width: 174,
-  _height: 30,
+  _original_width: 174,
+  _original_height: 30,
 }
 
 export function TextfieldActivated(props: DiagramNodeProps) {

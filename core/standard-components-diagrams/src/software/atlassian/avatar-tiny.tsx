@@ -6,8 +6,8 @@ export const AVATAR_TINY = {
     entity:
       'shape=ellipse;fillColor=#FF5630;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=1;html=1;sketch=0;',
   },
-  _width: 16,
-  _height: 16,
+  _original_width: 16,
+  _original_height: 16,
 }
 
 export function AvatarTiny(props: DiagramNodeProps) {

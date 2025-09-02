@@ -6,8 +6,8 @@ export const PEDESTRIAN = {
     entity:
       'shape=mxgraph.signs.people.pedestrian;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 80,
-  _height: 99,
+  _original_width: 80,
+  _original_height: 99,
 }
 
 export function Pedestrian(props: DiagramNodeProps) {

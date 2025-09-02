@@ -6,8 +6,8 @@ export const INFORMATION_DATA_CARRIER_SOP = {
     entity:
       'shape=document;whiteSpace=wrap;html=1;boundedLbl=1;dashed=0;flipH=1;',
   },
-  _width: 100,
-  _height: 70,
+  _original_width: 100,
+  _original_height: 70,
 }
 
 export function InformationDataCarrierSop(props: DiagramNodeProps) {

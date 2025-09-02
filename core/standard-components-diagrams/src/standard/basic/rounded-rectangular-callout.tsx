@@ -6,8 +6,8 @@ export const ROUNDED_RECTANGULAR_CALLOUT = {
     entity:
       'whiteSpace=wrap;html=1;shape=mxgraph.basic.roundRectCallout;dx=30;dy=15;size=5;boundedLbl=1;',
   },
-  _width: 100,
-  _height: 60,
+  _original_width: 100,
+  _original_height: 60,
 }
 
 export function RoundedRectangularCallout(props: DiagramNodeProps) {

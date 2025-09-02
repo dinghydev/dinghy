@@ -6,8 +6,8 @@ export const HIGH_VOLTAGE_2 = {
     entity:
       'shape=mxgraph.signs.safety.high_voltage_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 40,
-  _height: 99,
+  _original_width: 40,
+  _original_height: 99,
 }
 
 export function HighVoltage2(props: DiagramNodeProps) {

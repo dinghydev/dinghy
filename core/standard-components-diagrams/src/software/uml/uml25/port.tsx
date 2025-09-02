@@ -6,8 +6,8 @@ export const PORT = {
     entity:
       'fontStyle=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=2;',
   },
-  _width: 30,
-  _height: 30,
+  _original_width: 30,
+  _original_height: 30,
 }
 
 export function Port(props: DiagramNodeProps) {

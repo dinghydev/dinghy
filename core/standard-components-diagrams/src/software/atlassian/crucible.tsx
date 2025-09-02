@@ -6,8 +6,8 @@ export const CRUCIBLE = {
     entity:
       'image;html=1;image=img/lib/atlassian/Crucible_Logo.svg;strokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 61,
+  _original_height: 61,
 }
 
 export function Crucible(props: DiagramNodeProps) {

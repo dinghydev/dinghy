@@ -6,8 +6,8 @@ export const RECTANGLE_SKETCH = {
     entity:
       'rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillWeight=4;hachureGap=8;hachureAngle=45;fillColor=#1ba1e2;sketch=1;',
   },
-  _width: 120,
-  _height: 60,
+  _original_width: 120,
+  _original_height: 60,
 }
 
 export function RectangleSketch(props: DiagramNodeProps) {

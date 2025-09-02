@@ -6,8 +6,8 @@ export const IDENTI_CA = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.webicons.identi.ca;gradientColor=#DFDEDE',
   },
-  _width: 102.4,
-  _height: 102.4,
+  _original_width: 102.4,
+  _original_height: 102.4,
 }
 
 export function IdentiCa(props: DiagramNodeProps) {

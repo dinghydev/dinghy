@@ -5,8 +5,8 @@ export const ICON = {
   _style: {
     entity: 'ellipse;html=1;whiteSpace=wrap;',
   },
-  _width: 50,
-  _height: 25,
+  _original_width: 50,
+  _original_height: 25,
 }
 
 export function Icon(props: DiagramNodeProps) {

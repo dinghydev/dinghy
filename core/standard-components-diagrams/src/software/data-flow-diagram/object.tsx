@@ -5,8 +5,8 @@ export const OBJECT = {
   _style: {
     entity: 'shape=cloud;whiteSpace=wrap;html=1;',
   },
-  _width: 120,
-  _height: 120,
+  _original_width: 120,
+  _original_height: 120,
 }
 
 export function Object(props: DiagramNodeProps) {

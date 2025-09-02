@@ -6,8 +6,8 @@ export const CLOUD_SERVER_PRIVATE = {
     entity:
       'image;html=1;image=img/lib/clip_art/networking/Cloud_Server_Private_128x128.pngstrokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 80,
+  _original_height: 80,
 }
 
 export function CloudServerPrivate(props: DiagramNodeProps) {

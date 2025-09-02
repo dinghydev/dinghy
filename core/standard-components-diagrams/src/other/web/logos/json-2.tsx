@@ -6,8 +6,8 @@ export const JSON_2 = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.json_2',
   },
-  _width: 80.4,
-  _height: 25.200000000000003,
+  _original_width: 80.4,
+  _original_height: 25.200000000000003,
 }
 
 export function Json2(props: DiagramNodeProps) {

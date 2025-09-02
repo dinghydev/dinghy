@@ -6,8 +6,8 @@ export const BOOK_AND_SOUVENIR_SHOP = {
     entity:
       'shape=mxgraph.signs.travel.book_and_souvenir_shop;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 98,
-  _height: 92,
+  _original_width: 98,
+  _original_height: 92,
 }
 
 export function BookAndSouvenirShop(props: DiagramNodeProps) {

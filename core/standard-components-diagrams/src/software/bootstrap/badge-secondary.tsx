@@ -6,8 +6,8 @@ export const BADGE_SECONDARY = {
     entity:
       'html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#6C767D;fontColor=#FFFFFF;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=0;fontStyle=1;fontSize=14;spacing=5;',
   },
-  _width: 80,
-  _height: 20,
+  _original_width: 80,
+  _original_height: 20,
 }
 
 export function BadgeSecondary(props: DiagramNodeProps) {

@@ -5,8 +5,8 @@ export const CHOICE_MERGE_NODE_DECISION_NODE = {
   _style: {
     entity: 'rhombus;',
   },
-  _width: 30,
-  _height: 30,
+  _original_width: 30,
+  _original_height: 30,
 }
 
 export function ChoiceMergeNodeDecisionNode(props: DiagramNodeProps) {

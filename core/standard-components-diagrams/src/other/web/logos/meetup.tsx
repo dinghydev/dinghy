@@ -6,8 +6,8 @@ export const MEETUP = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.meetup;fillColor=#413E3E;strokeColor=none',
   },
-  _width: 74.8,
-  _height: 30,
+  _original_width: 74.8,
+  _original_height: 30,
 }
 
 export function Meetup(props: DiagramNodeProps) {

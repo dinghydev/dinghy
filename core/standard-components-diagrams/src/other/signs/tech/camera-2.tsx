@@ -6,8 +6,8 @@ export const CAMERA_2 = {
     entity:
       'shape=mxgraph.signs.tech.camera_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 99,
-  _height: 72,
+  _original_width: 99,
+  _original_height: 72,
 }
 
 export function Camera2(props: DiagramNodeProps) {

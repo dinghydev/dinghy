@@ -5,8 +5,8 @@ export const INFORMATION_ITEM = {
   _style: {
     entity: 'align=left;spacingLeft=10;html=1;dashed=0;whiteSpace=wrap;',
   },
-  _width: 0,
-  _height: 50,
+  _original_width: 0,
+  _original_height: 50,
 }
 
 export function InformationItem(props: DiagramNodeProps) {

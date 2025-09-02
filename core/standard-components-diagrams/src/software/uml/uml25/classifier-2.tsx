@@ -6,8 +6,8 @@ export const CLASSIFIER_2 = {
     entity:
       'shape=process2;fixedSize=1;size=5;fontStyle=1;html=1;whiteSpace=wrap;',
   },
-  _width: 140,
-  _height: 40,
+  _original_width: 140,
+  _original_height: 40,
 }
 
 export function Classifier2(props: DiagramNodeProps) {

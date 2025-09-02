@@ -6,8 +6,8 @@ export const GOVERNMENT = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.government;',
   },
-  _width: 51.6,
-  _height: 60,
+  _original_width: 51.6,
+  _original_height: 60,
 }
 
 export function Government(props: DiagramNodeProps) {

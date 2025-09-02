@@ -6,8 +6,8 @@ export const AUTOMATION = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.automation;',
   },
-  _width: 60,
-  _height: 58.199999999999996,
+  _original_width: 60,
+  _original_height: 58.199999999999996,
 }
 
 export function Automation(props: DiagramNodeProps) {

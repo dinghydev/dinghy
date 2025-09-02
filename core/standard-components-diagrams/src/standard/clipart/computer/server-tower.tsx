@@ -6,8 +6,8 @@ export const SERVER_TOWER = {
     entity:
       'image;html=1;image=img/lib/clip_art/computers/Server_Tower_128x128.pngstrokeColor=none;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 80,
+  _original_height: 80,
 }
 
 export function ServerTower(props: DiagramNodeProps) {

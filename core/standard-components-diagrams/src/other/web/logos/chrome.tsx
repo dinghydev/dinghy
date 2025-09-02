@@ -6,8 +6,8 @@ export const CHROME = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.chrome',
   },
-  _width: 74.8,
-  _height: 75.4,
+  _original_width: 74.8,
+  _original_height: 75.4,
 }
 
 export function Chrome(props: DiagramNodeProps) {

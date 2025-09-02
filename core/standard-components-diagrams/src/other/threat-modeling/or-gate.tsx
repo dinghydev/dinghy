@@ -6,8 +6,8 @@ export const OR_GATE = {
     entity:
       'shape=xor;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;direction=north;',
   },
-  _width: 120,
-  _height: 80,
+  _original_width: 120,
+  _original_height: 80,
 }
 
 export function OrGate(props: DiagramNodeProps) {

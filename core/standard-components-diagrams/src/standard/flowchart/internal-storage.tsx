@@ -6,8 +6,8 @@ export const INTERNAL_STORAGE = {
     entity:
       'shape=internalStorage;whiteSpace=wrap;html=1;dx=15;dy=15;rounded=1;arcSize=8;strokeWidth=2;',
   },
-  _width: 60,
-  _height: 60,
+  _original_width: 70,
+  _original_height: 70,
 }
 
 export function InternalStorage(props: DiagramNodeProps) {

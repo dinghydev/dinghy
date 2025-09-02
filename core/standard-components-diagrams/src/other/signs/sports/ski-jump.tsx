@@ -6,8 +6,8 @@ export const SKI_JUMP = {
     entity:
       'shape=mxgraph.signs.sports.ski_jump;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _width: 93,
-  _height: 98,
+  _original_width: 93,
+  _original_height: 98,
 }
 
 export function SkiJump(props: DiagramNodeProps) {
