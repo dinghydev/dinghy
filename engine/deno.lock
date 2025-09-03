@@ -1433,6 +1433,58 @@
       "npm:react-reconciler@0.31.0",
       "npm:react@19.1.0",
       "npm:zod@3.24.2"
-    ]
+    ],
+    "links": {
+      "jsr:@diac/base-components@0.0.1": {
+        "dependencies": [
+          "npm:debug@4.4.0",
+          "npm:react@19.1.0",
+          "npm:zod@3.24.2"
+        ]
+      },
+      "jsr:@diac/base-renderer": {
+        "dependencies": [
+          "npm:debug@4.4.0",
+          "npm:react-dom@19.1.0",
+          "npm:react-reconciler@0.31.0"
+        ]
+      },
+      "jsr:@diac/cli": {
+        "dependencies": [
+          "jsr:@std/cli@1.0.14",
+          "jsr:@std/fs@1.0.15",
+          "jsr:@std/path@1.0.8",
+          "jsr:@std/yaml@1.0.5",
+          "npm:@aws-sdk/client-s3@3.802.0",
+          "npm:@aws-sdk/lib-storage@3.802.0",
+          "npm:@inquirer/confirm@5.1.9",
+          "npm:@types/node@22.14.0",
+          "npm:chalk@5.4.1",
+          "npm:dayjs@1.11.13",
+          "npm:debug@4.4.0",
+          "npm:ejs@3.1.10",
+          "npm:execa@9.5.2",
+          "npm:zod@3.24.2"
+        ]
+      },
+      "jsr:@diac/renderer-drawio": {
+        "dependencies": [
+          "npm:debug@4.4.0",
+          "npm:html-entities@2.6.0"
+        ]
+      },
+      "jsr:@diac/renderer-json": {},
+      "jsr:@diac/renderer-tf": {
+        "dependencies": [
+          "npm:debug@4.4.0"
+        ]
+      },
+      "jsr:@diac/standard-components-diagrams": {},
+      "jsr:@diac/standard-components-tf-aws": {
+        "dependencies": [
+          "npm:debug@4.4.0"
+        ]
+      }
+    }
   }
 }
