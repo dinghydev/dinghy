@@ -124,12 +124,8 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
 
     if (node._props._diagram.flags.isDirectionVertical) {
       if (child._props._diagram.state.height > 0) {
-        childY = childY + child._props._diagram.dimension.margin.top +
-          child._props._diagram.state.height +
-          child._props._diagram.dimension.margin.bottom
-        height = height + child._props._diagram.dimension.margin.top +
-          child._props._diagram.state.height +
-          child._props._diagram.dimension.margin.bottom
+        childY = childY + child._props._diagram.state.height
+        height = height + child._props._diagram.state.height
         width = Math.max(
           width,
           child._props._diagram.state.width,
@@ -137,12 +133,8 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
       }
     } else {
       if (child._props._diagram.state.width > 0) {
-        childX = childX + child._props._diagram.dimension.margin.left +
-          child._props._diagram.state.width +
-          child._props._diagram.dimension.margin.right
-        width = width + child._props._diagram.dimension.margin.left +
-          child._props._diagram.state.width +
-          child._props._diagram.dimension.margin.right
+        childX = childX + child._props._diagram.state.width
+        width = width + child._props._diagram.state.width
         height = Math.max(
           height,
           child._props._diagram.state.height,
@@ -203,7 +195,7 @@ const resolveDimensions = (node: DrawioNodeTree, x: number, y: number) => {
   node._props._diagram.state.height = node._props._diagram.geometry.height +
     node._props._diagram.dimension.margin.top +
     node._props._diagram.dimension.margin.bottom
-  if (node._props._diagram.isTextOutside) {
+  if (node._props._diagram.flags.isTextOutside) {
     node._props._diagram.state.height = node._props._diagram.state.height +
       node._props._diagram.dimension.textHeight
   }

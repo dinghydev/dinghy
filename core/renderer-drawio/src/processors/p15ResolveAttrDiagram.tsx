@@ -43,7 +43,7 @@ const defaultDiagramOptions: base.Props = {
   dimension: {
     boxWidth: 60,
     boxHeight: 60,
-    textHeight: 10,
+    textHeight: 20,
     padding: {
       top: 15,
       bottom: 15,
@@ -97,9 +97,6 @@ function resolve(_props: DrawioNodeProps, options: DrawioRenderOptions) {
     configs.push(drawioConfig._diagram)
   }
   _props._diagram = {} as DrawioProps
-  if (_props._id === 'firewall') {
-    debugger
-  }
   configs.map((c) => base.deepMerge(_props._diagram, c))
 
   _props._node._children.map((c: DrawioNodeTree) => resolve(c._props, options))

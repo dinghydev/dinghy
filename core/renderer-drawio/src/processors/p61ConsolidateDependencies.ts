@@ -93,9 +93,7 @@ const populateAbs = ({ dependencies }: DrawioContext) => {
         selected._props._diagram.state.absLeft = absLeft(selected)
         selected._props._diagram.state.absRight =
           selected._props._diagram.state.absLeft +
-          selected._props._diagram.state.width -
-          selected._props._diagram.dimension.margin.left -
-          selected._props._diagram.dimension.margin.right
+          selected._props._diagram.geometry.width
         selected._props._diagram.state.absCenterX =
           (selected._props._diagram.state.absLeft +
             selected._props._diagram.state.absRight) / 2
@@ -103,9 +101,7 @@ const populateAbs = ({ dependencies }: DrawioContext) => {
         selected._props._diagram.state.absTop = absTop(selected)
         selected._props._diagram.state.absBottom =
           selected._props._diagram.state.absTop +
-          selected._props._diagram.state.height -
-          selected._props._diagram.dimension.margin.top -
-          selected._props._diagram.dimension.margin.bottom
+          selected._props._diagram.geometry.height
         selected._props._diagram.state.absCenterY =
           (selected._props._diagram.state.absTop +
             selected._props._diagram.state.absBottom) / 2

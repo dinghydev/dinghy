@@ -6,9 +6,6 @@ function mergeElement({ _props }: DrawioNodeTree) {
   const shapeAttributes = _diagram.flags.isEntity
     ? _diagram.entity
     : _diagram.group
-  if (_props._id === 'firewall') {
-    debugger
-  }
   if (shapeAttributes) {
     const { geometry, ...element } = shapeAttributes
     if (geometry) {

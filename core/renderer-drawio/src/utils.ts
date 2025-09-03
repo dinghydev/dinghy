@@ -15,11 +15,11 @@ export const absTop = (node: DrawioNodeTree): number => {
 }
 
 export const absBottom = (node: DrawioNodeTree) => {
-  return absTop(node) + node._props._diagram.state.height
+  return absTop(node) + node._props._diagram.geometry.height
 }
 
 export const absRight = (node: DrawioNodeTree) => {
-  return absLeft(node) + node._props._diagram.state.width
+  return absLeft(node) + node._props._diagram.geometry.width
 }
 
 const collectParents = (

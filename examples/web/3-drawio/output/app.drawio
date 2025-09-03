@@ -38,8 +38,8 @@
           >
           <mxGeometry
             as="geometry" 
-            width="631.5" 
-            height="414" 
+            width="480" 
+            height="370" 
             x="0" 
             y="0"
             />
@@ -52,11 +52,11 @@
           vertex="1"
           >
           <mxGeometry
-            width="78" 
-            height="76" 
             as="geometry" 
+            width="60" 
+            height="60" 
             x="30" 
-            y="94"
+            y="90"
             />
           </mxCell>
         <mxCell
@@ -68,9 +68,9 @@
           >
           <mxGeometry
             as="geometry" 
-            width="403.5" 
-            height="354" 
-            x="168" 
+            width="330" 
+            height="310" 
+            x="120" 
             y="30"
             />
           </mxCell>
@@ -84,7 +84,7 @@
           <mxGeometry
             as="geometry" 
             width="120" 
-            height="294" 
+            height="250" 
             x="30" 
             y="30"
             />
@@ -97,11 +97,11 @@
           vertex="1"
           >
           <mxGeometry
+            as="geometry" 
             width="60" 
             height="60" 
-            as="geometry" 
             x="30" 
-            y="42"
+            y="30"
             />
           </mxCell>
         <mxCell
@@ -112,11 +112,11 @@
           vertex="1"
           >
           <mxGeometry
+            as="geometry" 
             width="60" 
             height="60" 
-            as="geometry" 
             x="30" 
-            y="162"
+            y="140"
             />
           </mxCell>
         <mxCell
@@ -128,9 +128,9 @@
           >
           <mxGeometry
             as="geometry" 
-            width="133.5" 
-            height="294" 
-            x="210" 
+            width="120" 
+            height="250" 
+            x="180" 
             y="30"
             />
           </mxCell>
@@ -142,9 +142,9 @@
           vertex="1"
           >
           <mxGeometry
-            width="73.5" 
-            height="84" 
             as="geometry" 
+            width="60" 
+            height="60" 
             x="30" 
             y="30"
             />
@@ -157,11 +157,11 @@
           vertex="1"
           >
           <mxGeometry
+            as="geometry" 
             width="60" 
             height="60" 
-            as="geometry" 
-            x="36.75" 
-            y="174"
+            x="30" 
+            y="140"
             />
           </mxCell>
         <mxCell
@@ -180,12 +180,12 @@
               as="points"
               >
               <mxPoint
-                x="168" 
-                y="132"
+                x="135" 
+                y="120"
                 />
               <mxPoint
-                x="168" 
-                y="132"
+                x="135" 
+                y="120"
                 />
               </Array>
             </mxGeometry>
@@ -206,12 +206,12 @@
               as="points"
               >
               <mxPoint
-                x="258" 
-                y="192"
+                x="210" 
+                y="175"
                 />
               <mxPoint
-                x="258" 
-                y="192"
+                x="210" 
+                y="175"
                 />
               </Array>
             </mxGeometry>
@@ -232,12 +232,12 @@
               as="points"
               >
               <mxPoint
-                x="348" 
-                y="132"
+                x="285" 
+                y="120"
                 />
               <mxPoint
-                x="348" 
-                y="132"
+                x="285" 
+                y="120"
                 />
               </Array>
             </mxGeometry>
@@ -258,12 +258,12 @@
               as="points"
               >
               <mxPoint
-                x="444.75" 
-                y="204"
+                x="360" 
+                y="175"
                 />
               <mxPoint
-                x="444.75" 
-                y="204"
+                x="360" 
+                y="175"
                 />
               </Array>
             </mxGeometry>
