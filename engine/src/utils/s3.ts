@@ -6,7 +6,7 @@
 
 import Debug from 'debug'
 import { sleep } from './timeUtils.ts'
-import { hostAppHome } from '../../../cli/src/utils/loadConfig.ts'
+import { hostAppHome } from '@diac/cli'
 import { runTfImageCmd } from '../commands/tf/runTfImageCmd.ts'
 const debug = Debug('aws:s3')
 

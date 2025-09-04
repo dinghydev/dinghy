@@ -1,6 +1,4 @@
 export * from './cmd.ts'
-export * from '../../../core/base-components/src/utils/deepMerge.ts'
-export * from '../../../core/base-components/src/utils/stackUtils.ts'
 export * from './gitUtils.ts'
 export * from './parseOptions.ts'
 export * from './s3.ts'

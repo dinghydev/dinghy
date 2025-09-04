@@ -1,12 +1,12 @@
-import { setupDebug } from '../../../../../cli/src/utils/setupDebug.ts'
-import { hostAppHome } from '../../../../../cli/src/utils/loadConfig.ts'
-import { parseOptions } from '../../../../../cli/src/utils/parseOptions.ts'
+import { setupDebug } from '@diac/cli'
+import { hostAppHome } from '@diac/cli'
+import { parseOptions } from '@diac/cli'
 import Debug from 'debug'
-import { loadTfJsonFile } from '../../../../../cli/src/utils/loadTfJsonFile.ts'
+import { loadTfJsonFile } from '@diac/cli'
 import { parseResources } from './parseResources.ts'
 import { generateApp } from './generateApp.ts'
 import { createModel } from './createModel.ts'
-import { tfGenerateOptions } from '../../../../../cli/src/utils/tfGenerateOptions.ts'
+import { tfGenerateOptions } from '@diac/cli'
 import { existsSync } from '@std/fs/exists'
 import {
   CommandArgs,
@@ -14,7 +14,7 @@ import {
   Commands,
   OPTIONS_SYMBOL,
   RUN_SYMBOL,
-} from '../../../../../cli/src/types.ts'
+} from '@diac/cli'
 const debug = Debug('tf-generate')
 try {
   setupDebug()

@@ -6,8 +6,8 @@ import type {
 } from '@diac/cli'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
 import tf from './index.ts'
-import { runCommand } from '../../../../cli/src/utils/runCommand.ts'
-import { hostAppHome, diacAppConfig, requireStacksConfig } from '@diac/cli'
+import { runCommand } from '@diac/cli'
+import { diacAppConfig, hostAppHome, requireStacksConfig } from '@diac/cli'
 import { doWithStacks } from '../../utils/index.ts'
 import {
   attachChangeToMR,

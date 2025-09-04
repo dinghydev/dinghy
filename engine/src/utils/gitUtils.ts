@@ -3,7 +3,7 @@ import Debug from 'debug'
 import { dublinTimeNow } from './timeUtils.ts'
 import { temporaryStorageGetFile, temporaryStorageSaveFile } from './s3.ts'
 import { commitVersion } from './commitVersion.ts'
-import { hostAppHome } from '../../../cli/src/utils/loadConfig.ts'
+import { hostAppHome } from '@diac/cli'
 const debug = Debug('gitUtils')
 export const mrId = () => Deno.env.get('CI_MERGE_REQUEST_IID')
 

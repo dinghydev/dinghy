@@ -11,7 +11,7 @@ import apply from './apply.ts'
 // import generate from "./generate/index.ts";
 import normalise from './normalise.ts'
 import diff from './diff.ts'
-import { showHelp } from '../../../../cli/src/utils/showHelp.ts'
+import { showHelp } from '@diac/cli'
 import up from './up.ts'
 import bash from './bash.ts'
 const options: CommandOptions = {

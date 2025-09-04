@@ -1,6 +1,6 @@
 import { execa } from 'execa'
 import Debug from 'debug'
-import { containerAppHome } from '../../../cli/src/utils/loadConfig.ts'
+import { containerAppHome } from '@diac/cli'
 Debug.formatters.a = (v) => {
   return `[${v.join(' ')}]`
 }

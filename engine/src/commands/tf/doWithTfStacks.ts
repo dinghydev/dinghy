@@ -1,7 +1,7 @@
 import type { CommandArgs } from '@diac/cli'
 import { parseTfOptions } from './tfOptions.ts'
 import { diacAppConfig } from '@diac/cli'
-import { doWithStacks } from '../../../../cli/src/utils/index.ts'
+import { doWithStacks } from '@diac/cli'
 
 export const doWithTfStacks = async (
   args: CommandArgs,

@@ -1,6 +1,6 @@
-import { renderJson } from '../../../../core/renderer-json/src/index.ts'
-import { renderDrawio } from '../../../../core/renderer-drawio/src/index.ts'
-import { renderTf } from '../../../../core/renderer-tf/src/index.ts'
+import { renderJson } from '@diac/renderer-json'
+import { renderDrawio } from '@diac/renderer-drawio'
+import { renderTf } from '@diac/renderer-tf'
 import { dirname, resolve } from 'jsr:@std/path@1.0.8'
 import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
@@ -12,7 +12,7 @@ import {
   deepMerge,
   toTitle,
 } from '@diac/base-components'
-import { runCommand } from '../../../../cli/src/utils/runCommand.ts'
+import { runCommand } from '@diac/cli'
 import png from '../diagram/png.ts'
 import { OPTIONS_SYMBOL } from '@diac/cli'
 const debug = Debug('rendererMapping')
