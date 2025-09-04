@@ -8,7 +8,7 @@ import type {
 } from '../types.ts'
 import { handleAttributes } from '../attribute-handler/index.ts'
 
-const defaultDiagramOptions: base.Props = {
+export const defaultDiagramOptions = {
   flags: {
     isDirectionVertical: false,
   },
@@ -59,7 +59,7 @@ const defaultDiagramOptions: base.Props = {
   },
 }
 
-const defaultDependencyProps: base.Props = {
+export const defaultDependencyProps: any = {
   dependency: {
     id: (node: base.NodeTree) => node._props._id,
     source: (node: DrawioNodeTree) =>

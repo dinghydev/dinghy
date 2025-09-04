@@ -1,7 +1,6 @@
-import { Rows, Shape } from "@diac/base-components";
+import { Shape } from "@diac/base-components";
 import {
     Activation,
-    Frame,
     Message,
     Participant,
 } from "@diac/standard-components-diagrams/sequenceDiagram";

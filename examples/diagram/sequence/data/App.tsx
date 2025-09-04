@@ -1,4 +1,3 @@
-import { Shape } from "@diac/base-components";
 import {
     SequenceDiagram,
 } from "@diac/standard-components-diagrams/sequenceDiagram";

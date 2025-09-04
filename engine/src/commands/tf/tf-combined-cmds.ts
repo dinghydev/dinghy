@@ -4,11 +4,10 @@ import type {
   CommandContext,
   CommandOptions,
 } from '@diac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
+import { doWithStacks, OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
 import tf from './index.ts'
 import { runCommand } from '@diac/cli'
 import { diacAppConfig, hostAppHome, requireStacksConfig } from '@diac/cli'
-import { doWithStacks } from '../../utils/index.ts'
 import {
   attachChangeToMR,
   isCi,

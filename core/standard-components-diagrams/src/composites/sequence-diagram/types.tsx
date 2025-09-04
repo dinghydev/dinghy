@@ -3,6 +3,7 @@ import { DiagramNodeProps } from '@diac/base-components'
 import { ActivationProps } from './activation.tsx'
 import { MessageProps } from './message.tsx'
 import { FrameProps } from './frame.tsx'
+import { defaultDiagramOptions } from '@diac/renderer-drawio'
 
 export const ParticipantSchema = z.object({
   title: z.string().optional(),
@@ -25,7 +26,7 @@ export const InteractionSchema = z.object({
 })
 
 export const SizeSchema = z.object({
-  participant: z.number().default(60),
+  participant: z.number().default(defaultDiagramOptions.dimension.boxWidth),
   paddingTimeline: z.number().default(16),
   paddingBetweenMessages: z.number().default(50),
   paddingBetweenParticipants: z.number().default(50),
@@ -40,7 +41,7 @@ export const SequenceDiagramSchema = z.object({
   messages: MessageSchema.array().optional(),
   interactions: InteractionSchema.array().default([]),
   size: SizeSchema.default({
-    participant: 60,
+    participant: defaultDiagramOptions.dimension.boxWidth,
     paddingTimeline: 15,
     paddingBetweenMessages: 15,
     paddingBetweenParticipants: 150,

@@ -1,4 +1,5 @@
 import { type DiagramNodeProps, Rows, Shape } from '@diac/base-components'
+import { defaultDiagramOptions } from '@diac/renderer-drawio'
 
 type ParticipantProps = {
   _width: number
@@ -22,9 +23,9 @@ export function Participant(
 ) {
   const hasIcon = !!icon
   const Icon = icon || Shape
-  const dashedLineHeight =
-    (hasIcon ? lifelineHeight : lifelineHeight + paddingY * 2) +
-    paddingY
+  const dashedLineHeight = hasIcon
+    ? lifelineHeight
+    : lifelineHeight + defaultDiagramOptions.dimension.textHeight + paddingY / 2
   return (
     <Rows>
       <Icon
@@ -33,7 +34,7 @@ export function Participant(
             margin: {
               left: paddingX / 2,
               right: paddingX / 2,
-              bottom: hasIcon ? paddingY : 0,
+              bottom: hasIcon ? paddingY / 2 : 0,
             },
           },
         }}
@@ -45,7 +46,7 @@ export function Participant(
         _diagram={{
           dimension: {
             margin: {
-              top: hasIcon ? paddingY : 0,
+              top: 0,
             },
           },
         }}
@@ -53,7 +54,7 @@ export function Participant(
       />
       <Rows
         _x={paddingX / 2 + props._width / 2}
-        _y={paddingY * 4 + props._height}
+        _y={paddingY * 3 + props._height}
       >
         {children}
       </Rows>
