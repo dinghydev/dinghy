@@ -31,6 +31,7 @@
   "imports": {
     // ENGINE ONLY DEPENDENCIES
     "@inquirer/confirm": "npm:@inquirer/confirm@5.1.9",
+    "@std/async": "jsr:@std/async@1.0.14",
     // CLI AND CORE DEPENDENCIES
     "@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@3.802.0",
     "@aws-sdk/lib-storage": "npm:@aws-sdk/lib-storage@3.802.0",

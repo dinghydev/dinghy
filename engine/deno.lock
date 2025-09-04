@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/async@1.0.14": "1.0.14",
     "jsr:@std/cli@1.0.14": "1.0.14",
     "jsr:@std/fs@*": "1.0.15",
     "jsr:@std/fs@1.0.15": "1.0.15",
@@ -26,6 +27,9 @@
     "npm:zod@3.24.2": "3.24.2"
   },
   "jsr": {
+    "@std/async@1.0.14": {
+      "integrity": "62e954a418652c704d37563a3e54a37d4cf0268a9dcaeac1660cc652880b5326"
+    },
     "@std/cli@1.0.14": {
       "integrity": "b09ee9921cd476c0e08185ed2bfce682d45ecf4654f26c31b4aa244a2c5c024e"
     },
@@ -1414,6 +1418,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@std/async@1.0.14",
       "jsr:@std/cli@1.0.14",
       "jsr:@std/fs@1.0.15",
       "jsr:@std/path@1.0.8",

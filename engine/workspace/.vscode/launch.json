@@ -5,11 +5,10 @@
       "name": "render",
       "args": [
         "render",
-        // "platform-staging",
         // "development",
         // "production",
         // "--tf-generateImport",
-        // "true",
+        // "--watch",
         // "-h",
         // "--debug",
       ],
@@ -48,7 +47,6 @@
       "name": "diagram",
       "args": [
         "diagram",
-        // "platform-staging",
         // "development",
         // "production",
         // "-h",
@@ -124,7 +122,6 @@
         // "development",
         // "production",
         // "--tf-generateImport",
-        // "true",
         // "development",
         // "production",
         // "-h",

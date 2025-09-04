@@ -2,8 +2,10 @@ export const renderOptions = {
   collect: ['format', 'view', 'stage'],
   boolean: [
     'tf-generateImport',
+    'diagram-png',
     'diagram-createMd',
     'diagram-saveView',
+    'watch',
     'debug',
   ],
   string: ['output'],
@@ -13,11 +15,14 @@ export const renderOptions = {
     view: 'Views to render',
     stage: 'Stages to render',
     'tf-generateImport': 'Generate import statements for tf',
+    'diagram-png': 'Generate png file for diagram',
     'diagram-createMd': 'Create markdown file for diagram',
     'diagram-saveView': 'Save view to stack-info.json',
+    watch: 'Re-render when changes of yaml/ts/tsx files detected',
   },
   default: {
     'diagram-createMd': true,
+    'diagram-png': true,
   },
   arguments: {
     stack: {

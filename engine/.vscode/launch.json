@@ -49,12 +49,12 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "render diagram",
+      "name": "render diagram watch",
       "args": [
         "render",
         // "platform-staging",
         "--format",
-        "diagram"
+        "diagram",
         // "--tf-generateImport",
         // "--diagram-saveView",
         // "--stage",
@@ -65,7 +65,8 @@
         // "tf",
         // "--output",
         // ".",
-        // "--debug",
+        "--watch",
+        "--debug",
         // "-h",
       ],
       "program": "src/index.ts",

@@ -1,16 +1,91 @@
 import type { CommandArgs, CommandContext, Commands } from '@diac/cli'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
 import { rendererMapping } from './renderMapping.ts'
+import { debounce } from '@std/async/debounce'
 
-import { containerAppHome, execCmd, isCi, diacAppConfig } from '@diac/cli'
+import { containerAppHome, diacAppConfig, execCmd, isCi } from '@diac/cli'
 import { deepMerge, doWithStacks } from '@diac/base-components'
 import chalk from 'chalk'
 import Debug from 'debug'
-import { requireStacksConfig } from '@diac/cli'
-import { renderOptions } from '../../utils/renderOptions.ts'
+import { renderOptions, requireStacksConfig } from '@diac/cli'
+import { execa } from 'execa'
 const debug = Debug('render')
 
+const WATCH_FILE_TYPES = ['ts', 'tsx', 'yaml']
+
+const renderAndWatch = async (context: CommandContext, _args: CommandArgs) => {
+  const renderInNewProcess = async (changes?: string[]) => {
+    try {
+      const noneWatchArgs = context.originalArgs.filter((arg) =>
+        arg !== '--watch'
+      )
+      await execa('deno', [
+        'run',
+        '-A',
+        'src/index.ts',
+        ...noneWatchArgs,
+      ], {
+        stdio: 'inherit',
+        shell: true,
+      })
+    } catch (err) {
+      if (changes) {
+        console.error('Render failed for changes:', changes)
+      } else {
+        console.error('Initial render failed')
+      }
+      debug('Render failed error %O', err)
+    }
+    console.log('Watch ts/tsx changes from [%s] ...', containerAppHome)
+  }
+
+  await renderInNewProcess()
+
+  // Queue lock
+  let running = false
+  let queued: (() => void) | null = null
+
+  // Wrapped executor
+  async function renderExclusive(changes: string[]) {
+    if (running) {
+      // overwrite any previously queued call
+      queued = () => renderExclusive(changes)
+      return
+    }
+
+    running = true
+    await renderInNewProcess(changes)
+    running = false
+
+    // If something was queued, run it next
+    if (queued) {
+      const next = queued
+      queued = null
+      next()
+    }
+  }
+
+  // Debounced version: waits 300ms after the *last* trigger
+  const triggerRender = debounce((event: Deno.FsEvent) => {
+    debug('Detected %s in watched files: %O', event.kind, event.paths)
+    renderExclusive(event.paths)
+  }, 300)
+
+  for await (const event of Deno.watchFs(containerAppHome)) {
+    const changes = event.paths.filter((p) =>
+      WATCH_FILE_TYPES.includes(p.split('.').pop()!)
+    )
+    if (changes.length > 0) {
+      triggerRender(event)
+    }
+  }
+}
+
 const run = async (context: CommandContext, args: CommandArgs) => {
+  if (args.watch) {
+    await renderAndWatch(context, args)
+  }
+
   requireStacksConfig()
   const loadApp = async (renderOptions: any) => {
     const appFullPath = `${containerAppHome}/${renderOptions.stack.app}`
