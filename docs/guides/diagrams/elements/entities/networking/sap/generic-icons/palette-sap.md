@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PaletteSap } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { PaletteSap } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <PaletteSap/>
 ```

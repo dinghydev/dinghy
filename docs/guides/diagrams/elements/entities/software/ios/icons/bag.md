@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bag } from '@diac/standard-components-diagrams/ios7Icons'
+import { Bag } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Bag/>
 ```

@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@diac/base-components'
+import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import { aws4 } from '../../standard-components-diagrams/src/index.ts'
 import { awsProps } from './index.ts'
 import z from 'zod'

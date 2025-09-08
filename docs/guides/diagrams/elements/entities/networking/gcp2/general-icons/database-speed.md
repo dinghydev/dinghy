@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseSpeed } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { DatabaseSpeed } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <DatabaseSpeed/>
 ```

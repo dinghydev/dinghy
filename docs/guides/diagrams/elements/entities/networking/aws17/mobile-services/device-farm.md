@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceFarm } from '@diac/standard-components-diagrams/aws17MobileServices'
+import { DeviceFarm } from '@dinghy/standard-components-diagrams/aws17MobileServices'
 
 <DeviceFarm/>
 ```

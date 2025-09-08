@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogicInaccessible } from '@diac/standard-components-diagrams/procEngInstruments'
+import { LogicInaccessible } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <LogicInaccessible/>
 ```

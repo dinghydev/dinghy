@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobileAccessRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { MobileAccessRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <MobileAccessRouter/>
 ```

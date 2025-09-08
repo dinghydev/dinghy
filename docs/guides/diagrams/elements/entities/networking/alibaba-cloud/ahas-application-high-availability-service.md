@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AhasApplicationHighAvailabilityService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { AhasApplicationHighAvailabilityService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <AhasApplicationHighAvailabilityService/>
 ```

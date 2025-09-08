@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UpcUnifiedPersonalCommunicator } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { UpcUnifiedPersonalCommunicator } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <UpcUnifiedPersonalCommunicator/>
 ```

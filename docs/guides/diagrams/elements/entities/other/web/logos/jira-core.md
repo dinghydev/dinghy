@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { JiraCore } from '@diac/standard-components-diagrams/webLogos'
+import { JiraCore } from '@dinghy/standard-components-diagrams/webLogos'
 
 <JiraCore/>
 ```

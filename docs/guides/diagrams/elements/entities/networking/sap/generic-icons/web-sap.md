@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebSap } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { WebSap } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <WebSap/>
 ```

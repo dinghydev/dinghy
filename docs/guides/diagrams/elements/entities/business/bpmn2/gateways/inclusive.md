@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Inclusive } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { Inclusive } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <Inclusive/>
 ```

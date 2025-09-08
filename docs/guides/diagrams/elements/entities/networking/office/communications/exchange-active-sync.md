@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExchangeActiveSync } from '@diac/standard-components-diagrams/officeCommunications'
+import { ExchangeActiveSync } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <ExchangeActiveSync/>
 ```

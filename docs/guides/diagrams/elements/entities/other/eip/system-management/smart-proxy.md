@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SmartProxy } from '@diac/standard-components-diagrams/eipSystemManagement'
+import { SmartProxy } from '@dinghy/standard-components-diagrams/eipSystemManagement'
 
 <SmartProxy/>
 ```

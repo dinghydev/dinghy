@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DashedWire } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
+import { DashedWire } from '@dinghy/standard-components-diagrams/electricalTransmissionPaths'
 
 <DashedWire/>
 ```

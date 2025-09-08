@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudRectangle } from '@diac/standard-components-diagrams/basic'
+import { CloudRectangle } from '@dinghy/standard-components-diagrams/basic'
 
 <CloudRectangle/>
 ```

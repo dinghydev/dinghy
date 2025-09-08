@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PieChart } from '@diac/standard-components-diagrams/ios7Icons'
+import { PieChart } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <PieChart/>
 ```

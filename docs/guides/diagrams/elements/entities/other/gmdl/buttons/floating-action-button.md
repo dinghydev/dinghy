@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FloatingActionButton } from '@diac/standard-components-diagrams/gmdlButtons'
+import { FloatingActionButton } from '@dinghy/standard-components-diagrams/gmdlButtons'
 
 <FloatingActionButton/>
 ```

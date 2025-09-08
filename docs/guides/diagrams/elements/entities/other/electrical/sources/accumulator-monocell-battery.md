@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AccumulatorMonocellBattery } from '@diac/standard-components-diagrams/electricalSources'
+import { AccumulatorMonocellBattery } from '@dinghy/standard-components-diagrams/electricalSources'
 
 <AccumulatorMonocellBattery/>
 ```

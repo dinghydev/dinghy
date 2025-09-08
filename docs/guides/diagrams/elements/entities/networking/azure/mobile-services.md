@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobileServices } from '@diac/standard-components-diagrams/azure'
+import { MobileServices } from '@dinghy/standard-components-diagrams/azure'
 
 <MobileServices/>
 ```

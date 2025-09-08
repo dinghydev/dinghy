@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Simulator } from '@diac/standard-components-diagrams/aws17InternetOfThings'
+import { Simulator } from '@dinghy/standard-components-diagrams/aws17InternetOfThings'
 
 <Simulator/>
 ```

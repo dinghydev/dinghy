@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResidualCurrentDevice4p } from '@diac/standard-components-diagrams/cabinets'
+import { ResidualCurrentDevice4p } from '@dinghy/standard-components-diagrams/cabinets'
 
 <ResidualCurrentDevice4p/>
 ```

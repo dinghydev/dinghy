@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimePicker } from '@diac/standard-components-diagrams/gmdlPickers'
+import { TimePicker } from '@dinghy/standard-components-diagrams/gmdlPickers'
 
 <TimePicker/>
 ```

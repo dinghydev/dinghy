@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SslTlsOffloading } from '@diac/standard-components-diagrams/citrixNetscaler'
+import { SslTlsOffloading } from '@dinghy/standard-components-diagrams/citrixNetscaler'
 
 <SslTlsOffloading/>
 ```

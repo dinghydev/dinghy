@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeepDry } from '@diac/standard-components-diagrams/signsSafety'
+import { KeepDry } from '@dinghy/standard-components-diagrams/signsSafety'
 
 <KeepDry/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SeparatorVenturiScrubber } from '@diac/standard-components-diagrams/procEngSeparators'
+import { SeparatorVenturiScrubber } from '@dinghy/standard-components-diagrams/procEngSeparators'
 
 <SeparatorVenturiScrubber/>
 ```

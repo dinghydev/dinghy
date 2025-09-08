@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureInstance } from '@diac/standard-components-diagrams/azure'
+import { AzureInstance } from '@dinghy/standard-components-diagrams/azure'
 
 <AzureInstance/>
 ```

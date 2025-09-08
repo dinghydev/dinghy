@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AsmServiceMesh } from '@diac/standard-components-diagrams/alibabaCloud'
+import { AsmServiceMesh } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <AsmServiceMesh/>
 ```

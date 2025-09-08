@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cognito } from '@diac/standard-components-diagrams/aws17MobileServices'
+import { Cognito } from '@dinghy/standard-components-diagrams/aws17MobileServices'
 
 <Cognito/>
 ```

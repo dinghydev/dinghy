@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoadmapHorizontal5 } from '@diac/standard-components-diagrams/infoGraphic'
+import { RoadmapHorizontal5 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <RoadmapHorizontal5/>
 ```

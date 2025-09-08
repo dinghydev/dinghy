@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonQuicksight } from '@diac/standard-components-diagrams/aws18Analytics'
+import { AmazonQuicksight } from '@dinghy/standard-components-diagrams/aws18Analytics'
 
 <AmazonQuicksight/>
 ```

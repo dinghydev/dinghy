@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Certificate } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Certificate } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Certificate/>
 ```

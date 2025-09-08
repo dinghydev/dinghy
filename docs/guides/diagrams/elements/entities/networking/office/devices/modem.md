@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Modem } from '@diac/standard-components-diagrams/officeDevices'
+import { Modem } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <Modem/>
 ```

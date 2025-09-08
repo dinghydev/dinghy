@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SiteRecovery } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { SiteRecovery } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <SiteRecovery/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Software } from '@diac/standard-components-diagrams/clipartComputer'
+import { Software } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <Software/>
 ```

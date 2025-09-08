@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Headphones } from '@diac/standard-components-diagrams/electricalAudio'
+import { Headphones } from '@dinghy/standard-components-diagrams/electricalAudio'
 
 <Headphones/>
 ```

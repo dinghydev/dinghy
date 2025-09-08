@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WafBot } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { WafBot } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <WafBot/>
 ```

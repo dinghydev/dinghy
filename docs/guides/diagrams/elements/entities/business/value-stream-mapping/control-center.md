@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ControlCenter } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { ControlCenter } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <ControlCenter/>
 ```

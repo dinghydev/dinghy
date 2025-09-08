@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalSplitter } from '@diac/standard-components-diagrams/mockupForms'
+import { HorizontalSplitter } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <HorizontalSplitter/>
 ```

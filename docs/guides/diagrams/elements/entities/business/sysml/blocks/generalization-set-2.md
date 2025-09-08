@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GeneralizationSet2 } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { GeneralizationSet2 } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <GeneralizationSet2/>
 ```

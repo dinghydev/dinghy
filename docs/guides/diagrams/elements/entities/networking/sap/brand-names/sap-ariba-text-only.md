@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapAribaTextOnly } from '@diac/standard-components-diagrams/sapBrandNames'
+import { SapAribaTextOnly } from '@dinghy/standard-components-diagrams/sapBrandNames'
 
 <SapAribaTextOnly/>
 ```

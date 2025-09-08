@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CddcCloudDatabaseDedicatedCluster } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CddcCloudDatabaseDedicatedCluster } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CddcCloudDatabaseDedicatedCluster/>
 ```

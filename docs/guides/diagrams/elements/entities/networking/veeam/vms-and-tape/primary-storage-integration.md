@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PrimaryStorageIntegration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { PrimaryStorageIntegration } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <PrimaryStorageIntegration/>
 ```

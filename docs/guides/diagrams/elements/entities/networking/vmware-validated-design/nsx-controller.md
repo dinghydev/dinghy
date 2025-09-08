@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NsxController } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { NsxController } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <NsxController/>
 ```

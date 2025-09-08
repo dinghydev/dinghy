@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EssElasticScalingService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { EssElasticScalingService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <EssElasticScalingService/>
 ```

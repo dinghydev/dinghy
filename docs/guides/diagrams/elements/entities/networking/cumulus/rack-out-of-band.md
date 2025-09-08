@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RackOutOfBand } from '@diac/standard-components-diagrams/cumulus'
+import { RackOutOfBand } from '@dinghy/standard-components-diagrams/cumulus'
 
 <RackOutOfBand/>
 ```

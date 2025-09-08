@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Protopage } from '@diac/standard-components-diagrams/webIcons'
+import { Protopage } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Protopage/>
 ```

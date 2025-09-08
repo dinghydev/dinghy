@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThinFilmEvaporator } from '@diac/standard-components-diagrams/procEngHeatExchangers'
+import { ThinFilmEvaporator } from '@dinghy/standard-components-diagrams/procEngHeatExchangers'
 
 <ThinFilmEvaporator/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OpenDouble } from '@diac/standard-components-diagrams/aws18Arrows'
+import { OpenDouble } from '@dinghy/standard-components-diagrams/aws18Arrows'
 
 <OpenDouble/>
 ```

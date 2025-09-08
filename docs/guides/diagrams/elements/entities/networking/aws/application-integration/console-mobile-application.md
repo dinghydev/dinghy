@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConsoleMobileApplication } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { ConsoleMobileApplication } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <ConsoleMobileApplication/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bank } from '@diac/standard-components-diagrams/aws18IotThings'
+import { Bank } from '@dinghy/standard-components-diagrams/aws18IotThings'
 
 <Bank/>
 ```

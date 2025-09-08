@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Translate } from '@diac/standard-components-diagrams/webIcons'
+import { Translate } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Translate/>
 ```

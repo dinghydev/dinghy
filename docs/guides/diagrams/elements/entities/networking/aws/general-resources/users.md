@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Users } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Users } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Users/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgrammableSwitch } from '@diac/standard-components-diagrams/ciscoSwitches'
+import { ProgrammableSwitch } from '@dinghy/standard-components-diagrams/ciscoSwitches'
 
 <ProgrammableSwitch/>
 ```

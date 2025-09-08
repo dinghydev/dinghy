@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArcList7 } from '@diac/standard-components-diagrams/infoGraphic'
+import { ArcList7 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <ArcList7/>
 ```

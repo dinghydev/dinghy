@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ratemux } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Ratemux } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Ratemux/>
 ```

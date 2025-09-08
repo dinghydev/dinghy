@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudwatchMetricsInsights } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { CloudwatchMetricsInsights } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <CloudwatchMetricsInsights/>
 ```

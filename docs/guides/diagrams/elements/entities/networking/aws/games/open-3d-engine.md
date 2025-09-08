@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Open3dEngine } from '@diac/standard-components-diagrams/awsGames'
+import { Open3dEngine } from '@dinghy/standard-components-diagrams/awsGames'
 
 <Open3dEngine/>
 ```

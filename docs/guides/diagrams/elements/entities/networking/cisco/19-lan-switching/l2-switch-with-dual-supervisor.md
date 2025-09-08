@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { L2SwitchWithDualSupervisor } from '@diac/standard-components-diagrams/cisco19LanSwitching'
+import { L2SwitchWithDualSupervisor } from '@dinghy/standard-components-diagrams/cisco19LanSwitching'
 
 <L2SwitchWithDualSupervisor/>
 ```

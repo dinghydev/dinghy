@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Connection } from '@diac/standard-components-diagrams/caeWebService'
+import { Connection } from '@dinghy/standard-components-diagrams/caeWebService'
 
 <Connection/>
 ```

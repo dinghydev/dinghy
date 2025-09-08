@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReservedIpAddressesClassic } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { ReservedIpAddressesClassic } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <ReservedIpAddressesClassic/>
 ```

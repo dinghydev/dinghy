@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetraCp3270AtcaBladeServer } from '@diac/standard-components-diagrams/rackOracle'
+import { NetraCp3270AtcaBladeServer } from '@dinghy/standard-components-diagrams/rackOracle'
 
 <NetraCp3270AtcaBladeServer/>
 ```

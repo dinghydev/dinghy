@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EndpointConcentrator2 } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { EndpointConcentrator2 } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <EndpointConcentrator2/>
 ```

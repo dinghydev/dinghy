@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Yahoo } from '@diac/standard-components-diagrams/webLogos'
+import { Yahoo } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Yahoo/>
 ```

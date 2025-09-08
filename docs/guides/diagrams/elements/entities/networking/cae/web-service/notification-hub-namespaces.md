@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NotificationHubNamespaces } from '@diac/standard-components-diagrams/caeWebService'
+import { NotificationHubNamespaces } from '@dinghy/standard-components-diagrams/caeWebService'
 
 <NotificationHubNamespaces/>
 ```

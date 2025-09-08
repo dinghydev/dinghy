@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Blogmarks } from '@diac/standard-components-diagrams/webIcons'
+import { Blogmarks } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Blogmarks/>
 ```

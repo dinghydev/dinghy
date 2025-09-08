@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Drupal } from '@diac/standard-components-diagrams/webLogos'
+import { Drupal } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Drupal/>
 ```

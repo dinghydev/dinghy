@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Shuffle } from '@diac/standard-components-diagrams/ios7Icons'
+import { Shuffle } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Shuffle/>
 ```

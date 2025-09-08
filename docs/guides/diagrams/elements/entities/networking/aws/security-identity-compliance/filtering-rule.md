@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FilteringRule } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { FilteringRule } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <FilteringRule/>
 ```

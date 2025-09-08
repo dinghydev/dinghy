@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebBrowser } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { WebBrowser } from '@dinghy/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <WebBrowser/>
 ```

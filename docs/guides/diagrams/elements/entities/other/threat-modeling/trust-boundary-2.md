@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrustBoundary2 } from '@diac/standard-components-diagrams/threatModeling'
+import { TrustBoundary2 } from '@dinghy/standard-components-diagrams/threatModeling'
 
 <TrustBoundary2/>
 ```

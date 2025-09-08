@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Detonation } from '@diac/standard-components-diagrams/azure2Other'
+import { Detonation } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Detonation/>
 ```

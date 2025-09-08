@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NasBackup } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { NasBackup } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <NasBackup/>
 ```

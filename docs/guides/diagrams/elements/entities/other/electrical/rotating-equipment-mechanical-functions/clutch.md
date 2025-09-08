@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Clutch } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { Clutch } from '@dinghy/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <Clutch/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DesignateZone } from '@diac/standard-components-diagrams/openstackGreen'
+import { DesignateZone } from '@dinghy/standard-components-diagrams/openstackGreen'
 
 <DesignateZone/>
 ```

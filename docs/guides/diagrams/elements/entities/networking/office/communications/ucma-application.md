@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UcmaApplication } from '@diac/standard-components-diagrams/officeCommunications'
+import { UcmaApplication } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <UcmaApplication/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Privatelink } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Privatelink } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Privatelink/>
 ```

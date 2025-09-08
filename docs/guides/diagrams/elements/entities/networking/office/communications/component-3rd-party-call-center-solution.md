@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component3rdPartyCallCenterSolution } from '@diac/standard-components-diagrams/officeCommunications'
+import { Component3rdPartyCallCenterSolution } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <Component3rdPartyCallCenterSolution/>
 ```

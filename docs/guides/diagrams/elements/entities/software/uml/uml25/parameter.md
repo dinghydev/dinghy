@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Parameter } from '@diac/standard-components-diagrams/uml25'
+import { Parameter } from '@dinghy/standard-components-diagrams/uml25'
 
 <Parameter/>
 ```

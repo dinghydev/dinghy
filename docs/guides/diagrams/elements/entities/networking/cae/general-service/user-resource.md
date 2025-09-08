@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserResource } from '@diac/standard-components-diagrams/caeGeneralService'
+import { UserResource } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <UserResource/>
 ```

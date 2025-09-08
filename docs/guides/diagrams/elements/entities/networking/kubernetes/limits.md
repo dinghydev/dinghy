@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Limits } from '@diac/standard-components-diagrams/kubernetes'
+import { Limits } from '@dinghy/standard-components-diagrams/kubernetes'
 
 <Limits/>
 ```

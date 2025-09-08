@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Alerts } from '@diac/standard-components-diagrams/caeOmsFlat'
+import { Alerts } from '@dinghy/standard-components-diagrams/caeOmsFlat'
 
 <Alerts/>
 ```

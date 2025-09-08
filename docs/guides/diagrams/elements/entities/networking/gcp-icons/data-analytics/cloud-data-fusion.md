@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudDataFusion } from '@diac/standard-components-diagrams/gcpIconsDataAnalytics'
+import { CloudDataFusion } from '@dinghy/standard-components-diagrams/gcpIconsDataAnalytics'
 
 <CloudDataFusion/>
 ```

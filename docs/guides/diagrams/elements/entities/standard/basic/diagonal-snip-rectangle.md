@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiagonalSnipRectangle } from '@diac/standard-components-diagrams/basic'
+import { DiagonalSnipRectangle } from '@dinghy/standard-components-diagrams/basic'
 
 <DiagonalSnipRectangle/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Router } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Router } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Router/>
 ```

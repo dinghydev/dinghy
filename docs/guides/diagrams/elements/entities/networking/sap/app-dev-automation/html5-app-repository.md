@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Html5AppRepository } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { Html5AppRepository } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <Html5AppRepository/>
 ```

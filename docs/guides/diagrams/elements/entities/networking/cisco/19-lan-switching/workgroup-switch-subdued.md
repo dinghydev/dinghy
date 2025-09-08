@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkgroupSwitchSubdued } from '@diac/standard-components-diagrams/cisco19LanSwitching'
+import { WorkgroupSwitchSubdued } from '@dinghy/standard-components-diagrams/cisco19LanSwitching'
 
 <WorkgroupSwitchSubdued/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Clover } from '@diac/standard-components-diagrams/webLogos'
+import { Clover } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Clover/>
 ```

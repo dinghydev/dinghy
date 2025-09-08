@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LocalNetworkGateways } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { LocalNetworkGateways } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <LocalNetworkGateways/>
 ```

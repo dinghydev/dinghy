@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const NETRA_CP3260_ATCA_BLADE_SERVER = {
   _style: {

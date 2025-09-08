@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Operator } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { Operator } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <Operator/>
 ```

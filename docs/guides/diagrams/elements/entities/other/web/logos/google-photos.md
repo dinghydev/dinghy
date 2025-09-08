@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GooglePhotos } from '@diac/standard-components-diagrams/webLogos'
+import { GooglePhotos } from '@dinghy/standard-components-diagrams/webLogos'
 
 <GooglePhotos/>
 ```

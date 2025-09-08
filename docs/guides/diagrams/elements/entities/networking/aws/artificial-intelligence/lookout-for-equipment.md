@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LookoutForEquipment } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { LookoutForEquipment } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <LookoutForEquipment/>
 ```

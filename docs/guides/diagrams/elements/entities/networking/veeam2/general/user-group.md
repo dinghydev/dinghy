@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserGroup } from '@diac/standard-components-diagrams/veeam2General'
+import { UserGroup } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <UserGroup/>
 ```

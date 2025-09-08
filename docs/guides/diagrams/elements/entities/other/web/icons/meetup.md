@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Meetup } from '@diac/standard-components-diagrams/webIcons'
+import { Meetup } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Meetup/>
 ```

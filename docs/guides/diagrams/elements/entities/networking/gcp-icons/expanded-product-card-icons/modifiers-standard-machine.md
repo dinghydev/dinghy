@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ModifiersStandardMachine } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { ModifiersStandardMachine } from '@dinghy/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <ModifiersStandardMachine/>
 ```

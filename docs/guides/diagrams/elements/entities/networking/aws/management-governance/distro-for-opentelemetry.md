@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DistroForOpentelemetry } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { DistroForOpentelemetry } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <DistroForOpentelemetry/>
 ```

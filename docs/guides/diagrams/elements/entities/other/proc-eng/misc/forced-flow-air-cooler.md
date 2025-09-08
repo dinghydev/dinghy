@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ForcedFlowAirCooler } from '@diac/standard-components-diagrams/procEngMisc'
+import { ForcedFlowAirCooler } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <ForcedFlowAirCooler/>
 ```

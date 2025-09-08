@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Conform } from '@diac/standard-components-diagrams/sysmlModelElements'
+import { Conform } from '@dinghy/standard-components-diagrams/sysmlModelElements'
 
 <Conform/>
 ```

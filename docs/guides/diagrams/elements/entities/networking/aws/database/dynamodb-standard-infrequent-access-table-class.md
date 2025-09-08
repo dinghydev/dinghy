@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DynamodbStandardInfrequentAccessTableClass } from '@diac/standard-components-diagrams/awsDatabase'
+import { DynamodbStandardInfrequentAccessTableClass } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <DynamodbStandardInfrequentAccessTableClass/>
 ```

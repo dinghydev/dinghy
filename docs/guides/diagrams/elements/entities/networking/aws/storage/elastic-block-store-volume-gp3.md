@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticBlockStoreVolumeGp3 } from '@diac/standard-components-diagrams/awsStorage'
+import { ElasticBlockStoreVolumeGp3 } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <ElasticBlockStoreVolumeGp3/>
 ```

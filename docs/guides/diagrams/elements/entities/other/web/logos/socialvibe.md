@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Socialvibe } from '@diac/standard-components-diagrams/webLogos'
+import { Socialvibe } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Socialvibe/>
 ```

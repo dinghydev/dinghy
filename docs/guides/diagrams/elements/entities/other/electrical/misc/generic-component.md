@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GenericComponent } from '@diac/standard-components-diagrams/electricalMisc'
+import { GenericComponent } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <GenericComponent/>
 ```

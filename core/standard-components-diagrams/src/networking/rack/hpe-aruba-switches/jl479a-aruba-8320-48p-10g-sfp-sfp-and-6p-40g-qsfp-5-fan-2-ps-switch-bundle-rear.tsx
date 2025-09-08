@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const JL479A_ARUBA_8320_48P_10G_SFP_SFP_AND_6P_40G_QSFP_5_FAN_2_PS_SWITCH_BUNDLE_REAR =
   {

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedWorkflowsForApacheAirflow } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { ManagedWorkflowsForApacheAirflow } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <ManagedWorkflowsForApacheAirflow/>
 ```

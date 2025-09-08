@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlpAddress } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlpAddress } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlpAddress/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { G4dnInstance } from '@diac/standard-components-diagrams/awsCompute'
+import { G4dnInstance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <G4dnInstance/>
 ```

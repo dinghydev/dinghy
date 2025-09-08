@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AcOut } from '@diac/standard-components-diagrams/electricalMisc'
+import { AcOut } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <AcOut/>
 ```

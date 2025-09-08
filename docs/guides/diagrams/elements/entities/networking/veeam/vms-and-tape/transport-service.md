@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TransportService } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { TransportService } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <TransportService/>
 ```

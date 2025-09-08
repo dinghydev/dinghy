@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FuseObsolete } from '@diac/standard-components-diagrams/electricalMisc'
+import { FuseObsolete } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <FuseObsolete/>
 ```

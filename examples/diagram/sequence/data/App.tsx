@@ -1,12 +1,12 @@
 import {
     SequenceDiagram,
-} from "@diac/standard-components-diagrams/sequenceDiagram";
+} from "@dinghy/standard-components-diagrams/sequenceDiagram";
 
 import {
     Client,
     // Servers,
     User,
-} from "@diac/standard-components-diagrams/awsGeneralResources";
+} from "@dinghy/standard-components-diagrams/awsGeneralResources";
 
 const sequenceDiagram = {
     title: "Sequence Diagram from data",

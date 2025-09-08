@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CompanyOwner } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { CompanyOwner } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <CompanyOwner/>
 ```

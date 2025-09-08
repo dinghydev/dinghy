@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImplementationEvent } from '@diac/standard-components-diagrams/archimate3ImplementationAndMigration'
+import { ImplementationEvent } from '@dinghy/standard-components-diagrams/archimate3ImplementationAndMigration'
 
 <ImplementationEvent/>
 ```

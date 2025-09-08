@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeriveDependency } from '@diac/standard-components-diagrams/sysmlRequirements'
+import { DeriveDependency } from '@dinghy/standard-components-diagrams/sysmlRequirements'
 
 <DeriveDependency/>
 ```

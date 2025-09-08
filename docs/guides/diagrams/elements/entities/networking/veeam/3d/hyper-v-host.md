@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HyperVHost } from '@diac/standard-components-diagrams/veeam3d'
+import { HyperVHost } from '@dinghy/standard-components-diagrams/veeam3d'
 
 <HyperVHost/>
 ```

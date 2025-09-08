@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Privatelink } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Privatelink } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Privatelink/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerDirectory } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { ServerDirectory } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <ServerDirectory/>
 ```

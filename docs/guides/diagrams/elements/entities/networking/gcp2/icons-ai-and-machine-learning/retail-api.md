@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RetailApi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { RetailApi } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <RetailApi/>
 ```

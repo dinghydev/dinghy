@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadBalancing } from '@diac/standard-components-diagrams/citrixNetscaler'
+import { LoadBalancing } from '@dinghy/standard-components-diagrams/citrixNetscaler'
 
 <LoadBalancing/>
 ```

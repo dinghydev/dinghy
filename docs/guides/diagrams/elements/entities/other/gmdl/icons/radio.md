@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Radio } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Radio } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Radio/>
 ```

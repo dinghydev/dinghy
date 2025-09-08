@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SunNetworkQdrInfinibandGatewaySwitch } from '@diac/standard-components-diagrams/rackOracle'
+import { SunNetworkQdrInfinibandGatewaySwitch } from '@dinghy/standard-components-diagrams/rackOracle'
 
 <SunNetworkQdrInfinibandGatewaySwitch/>
 ```

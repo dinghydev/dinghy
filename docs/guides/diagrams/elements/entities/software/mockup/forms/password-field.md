@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PasswordField } from '@diac/standard-components-diagrams/mockupForms'
+import { PasswordField } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <PasswordField/>
 ```

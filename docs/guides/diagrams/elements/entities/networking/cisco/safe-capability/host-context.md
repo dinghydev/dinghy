@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HostContext } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { HostContext } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <HostContext/>
 ```

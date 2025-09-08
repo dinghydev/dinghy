@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11990ReservoirBreatherFilter } from '@diac/standard-components-diagrams/fluidPower'
+import { X11990ReservoirBreatherFilter } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11990ReservoirBreatherFilter/>
 ```

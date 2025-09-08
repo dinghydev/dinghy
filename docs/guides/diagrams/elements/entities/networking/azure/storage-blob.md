@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageBlob } from '@diac/standard-components-diagrams/azure'
+import { StorageBlob } from '@dinghy/standard-components-diagrams/azure'
 
 <StorageBlob/>
 ```

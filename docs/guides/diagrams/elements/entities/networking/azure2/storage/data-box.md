@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataBox } from '@diac/standard-components-diagrams/azure2Storage'
+import { DataBox } from '@dinghy/standard-components-diagrams/azure2Storage'
 
 <DataBox/>
 ```

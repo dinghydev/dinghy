@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Anthos } from '@diac/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
+import { Anthos } from '@dinghy/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
 
 <Anthos/>
 ```

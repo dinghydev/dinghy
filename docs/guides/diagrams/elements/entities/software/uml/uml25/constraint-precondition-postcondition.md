@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConstraintPreconditionPostcondition } from '@diac/standard-components-diagrams/uml25'
+import { ConstraintPreconditionPostcondition } from '@dinghy/standard-components-diagrams/uml25'
 
 <ConstraintPreconditionPostcondition/>
 ```

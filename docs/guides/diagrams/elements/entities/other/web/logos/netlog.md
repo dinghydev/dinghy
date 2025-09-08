@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Netlog } from '@diac/standard-components-diagrams/webLogos'
+import { Netlog } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Netlog/>
 ```

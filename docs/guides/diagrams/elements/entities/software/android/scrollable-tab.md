@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScrollableTab } from '@diac/standard-components-diagrams/android'
+import { ScrollableTab } from '@dinghy/standard-components-diagrams/android'
 
 <ScrollableTab/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Axp } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Axp } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Axp/>
 ```

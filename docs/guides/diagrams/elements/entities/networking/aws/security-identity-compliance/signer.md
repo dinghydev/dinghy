@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Signer } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { Signer } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <Signer/>
 ```

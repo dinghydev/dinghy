@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EdgeSubscription } from '@diac/standard-components-diagrams/officeCommunications'
+import { EdgeSubscription } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <EdgeSubscription/>
 ```

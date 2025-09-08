@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RfModem } from '@diac/standard-components-diagrams/ciscoModemsAndPhones'
+import { RfModem } from '@dinghy/standard-components-diagrams/ciscoModemsAndPhones'
 
 <RfModem/>
 ```

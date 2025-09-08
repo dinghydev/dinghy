@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Snowcone } from '@diac/standard-components-diagrams/awsStorage'
+import { Snowcone } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <Snowcone/>
 ```

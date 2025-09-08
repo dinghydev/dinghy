@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpaqueAction } from '@diac/standard-components-diagrams/uml25'
+import { OpaqueAction } from '@dinghy/standard-components-diagrams/uml25'
 
 <OpaqueAction/>
 ```

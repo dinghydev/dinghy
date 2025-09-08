@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11790OpticalIndicator } from '@diac/standard-components-diagrams/fluidPower'
+import { X11790OpticalIndicator } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11790OpticalIndicator/>
 ```

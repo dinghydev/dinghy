@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TurnOnOff } from '@diac/standard-components-diagrams/veeam2States'
+import { TurnOnOff } from '@dinghy/standard-components-diagrams/veeam2States'
 
 <TurnOnOff/>
 ```

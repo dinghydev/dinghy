@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PersonalComputer } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { PersonalComputer } from '@dinghy/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <PersonalComputer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkProxy } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { NetworkProxy } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <NetworkProxy/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DirectLink } from '@diac/standard-components-diagrams/ibmVpc'
+import { DirectLink } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <DirectLink/>
 ```

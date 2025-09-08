@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlServerInstance } from '@diac/standard-components-diagrams/awsDatabase'
+import { SqlServerInstance } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <SqlServerInstance/>
 ```

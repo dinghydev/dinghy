@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FinanceGovernment } from '@diac/standard-components-diagrams/citrixLocations'
+import { FinanceGovernment } from '@dinghy/standard-components-diagrams/citrixLocations'
 
 <FinanceGovernment/>
 ```

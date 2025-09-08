@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VoicemailPreview } from '@diac/standard-components-diagrams/officeConcepts'
+import { VoicemailPreview } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <VoicemailPreview/>
 ```

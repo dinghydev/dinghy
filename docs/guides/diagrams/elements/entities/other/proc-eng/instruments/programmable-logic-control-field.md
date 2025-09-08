@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgrammableLogicControlField } from '@diac/standard-components-diagrams/procEngInstruments'
+import { ProgrammableLogicControlField } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <ProgrammableLogicControlField/>
 ```

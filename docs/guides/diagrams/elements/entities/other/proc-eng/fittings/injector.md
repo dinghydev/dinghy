@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Injector } from '@diac/standard-components-diagrams/procEngFittings'
+import { Injector } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <Injector/>
 ```

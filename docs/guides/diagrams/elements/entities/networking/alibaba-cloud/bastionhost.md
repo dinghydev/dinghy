@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bastionhost } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Bastionhost } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Bastionhost/>
 ```

@@ -3,9 +3,9 @@ import {
   type Item,
   type NodeTree,
   type Props,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 import { handleCategory } from './category-handler/index.ts'
-import type { HostContainer, Output } from '@diac/base-renderer'
+import type { HostContainer, Output } from '@dinghy/base-renderer'
 import type { TfRenderOptions } from './types.ts'
 
 const isStageMatch = (stage: Item, currentStage?: any): boolean => {

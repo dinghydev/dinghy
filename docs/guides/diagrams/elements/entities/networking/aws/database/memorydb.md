@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Memorydb } from '@diac/standard-components-diagrams/awsDatabase'
+import { Memorydb } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <Memorydb/>
 ```

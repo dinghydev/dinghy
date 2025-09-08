@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExistingEnterpriseSystems } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { ExistingEnterpriseSystems } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <ExistingEnterpriseSystems/>
 ```

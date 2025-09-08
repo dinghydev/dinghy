@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ToolkitForWindowsPowershell } from '@diac/standard-components-diagrams/aws17Sdk'
+import { ToolkitForWindowsPowershell } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <ToolkitForWindowsPowershell/>
 ```

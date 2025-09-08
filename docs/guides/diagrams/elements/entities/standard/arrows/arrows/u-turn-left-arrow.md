@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UTurnLeftArrow } from '@diac/standard-components-diagrams/arrows'
+import { UTurnLeftArrow } from '@dinghy/standard-components-diagrams/arrows'
 
 <UTurnLeftArrow/>
 ```

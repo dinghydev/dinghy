@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventGridTopics } from '@diac/standard-components-diagrams/caeIntegrationService'
+import { EventGridTopics } from '@dinghy/standard-components-diagrams/caeIntegrationService'
 
 <EventGridTopics/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AccessPointOutdoor } from '@diac/standard-components-diagrams/alliedTelesisWireless'
+import { AccessPointOutdoor } from '@dinghy/standard-components-diagrams/alliedTelesisWireless'
 
 <AccessPointOutdoor/>
 ```

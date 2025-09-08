@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dopplr } from '@diac/standard-components-diagrams/webLogos'
+import { Dopplr } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Dopplr/>
 ```

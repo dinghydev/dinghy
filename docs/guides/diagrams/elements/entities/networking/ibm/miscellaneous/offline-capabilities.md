@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OfflineCapabilities } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { OfflineCapabilities } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <OfflineCapabilities/>
 ```

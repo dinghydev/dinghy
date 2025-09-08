@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerticalButtonBar } from '@diac/standard-components-diagrams/mockupButtons'
+import { VerticalButtonBar } from '@dinghy/standard-components-diagrams/mockupButtons'
 
 <VerticalButtonBar/>
 ```

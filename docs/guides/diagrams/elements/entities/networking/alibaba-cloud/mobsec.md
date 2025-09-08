@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mobsec } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Mobsec } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Mobsec/>
 ```

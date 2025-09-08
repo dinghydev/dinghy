@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IsciRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { IsciRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <IsciRouter/>
 ```

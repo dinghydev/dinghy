@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentSafety } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { ContentSafety } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <ContentSafety/>
 ```

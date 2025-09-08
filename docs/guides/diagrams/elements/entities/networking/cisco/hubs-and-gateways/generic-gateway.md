@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GenericGateway } from '@diac/standard-components-diagrams/ciscoHubsAndGateways'
+import { GenericGateway } from '@dinghy/standard-components-diagrams/ciscoHubsAndGateways'
 
 <GenericGateway/>
 ```

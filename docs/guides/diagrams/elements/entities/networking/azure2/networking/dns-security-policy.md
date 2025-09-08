@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DnsSecurityPolicy } from '@diac/standard-components-diagrams/azure2Networking'
+import { DnsSecurityPolicy } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <DnsSecurityPolicy/>
 ```

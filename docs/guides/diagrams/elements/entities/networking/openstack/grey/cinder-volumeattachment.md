@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CinderVolumeattachment } from '@diac/standard-components-diagrams/openstackGrey'
+import { CinderVolumeattachment } from '@dinghy/standard-components-diagrams/openstackGrey'
 
 <CinderVolumeattachment/>
 ```

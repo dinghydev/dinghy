@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataLake } from '@diac/standard-components-diagrams/awsAnalytics'
+import { DataLake } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <DataLake/>
 ```

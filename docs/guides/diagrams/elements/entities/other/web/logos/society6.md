@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Society6 } from '@diac/standard-components-diagrams/webLogos'
+import { Society6 } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Society6/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FormRecognizers } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { FormRecognizers } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <FormRecognizers/>
 ```

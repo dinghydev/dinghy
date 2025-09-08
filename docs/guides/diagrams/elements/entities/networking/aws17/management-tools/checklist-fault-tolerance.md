@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChecklistFaultTolerance } from '@diac/standard-components-diagrams/aws17ManagementTools'
+import { ChecklistFaultTolerance } from '@dinghy/standard-components-diagrams/aws17ManagementTools'
 
 <ChecklistFaultTolerance/>
 ```

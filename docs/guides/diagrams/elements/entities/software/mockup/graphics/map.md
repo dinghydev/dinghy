@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Map } from '@diac/standard-components-diagrams/mockupGraphics'
+import { Map } from '@dinghy/standard-components-diagrams/mockupGraphics'
 
 <Map/>
 ```

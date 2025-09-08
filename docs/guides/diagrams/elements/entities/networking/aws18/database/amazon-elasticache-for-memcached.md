@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonElasticacheForMemcached } from '@diac/standard-components-diagrams/aws18Database'
+import { AmazonElasticacheForMemcached } from '@dinghy/standard-components-diagrams/aws18Database'
 
 <AmazonElasticacheForMemcached/>
 ```

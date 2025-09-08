@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Adfty } from '@diac/standard-components-diagrams/webIcons'
+import { Adfty } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Adfty/>
 ```

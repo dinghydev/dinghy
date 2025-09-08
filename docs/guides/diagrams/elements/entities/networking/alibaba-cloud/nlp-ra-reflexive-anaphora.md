@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlpRaReflexiveAnaphora } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlpRaReflexiveAnaphora } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlpRaReflexiveAnaphora/>
 ```

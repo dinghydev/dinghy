@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OfficeTable2 } from '@diac/standard-components-diagrams/floorPlans'
+import { OfficeTable2 } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <OfficeTable2/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ComputerFunctionLocalPanel } from '@diac/standard-components-diagrams/procEngInstruments'
+import { ComputerFunctionLocalPanel } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <ComputerFunctionLocalPanel/>
 ```

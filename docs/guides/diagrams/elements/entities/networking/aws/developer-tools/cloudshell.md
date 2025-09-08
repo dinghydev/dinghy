@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloudshell } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { Cloudshell } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <Cloudshell/>
 ```

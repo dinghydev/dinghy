@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AbsMember } from '@diac/standard-components-diagrams/azure2Blockchain'
+import { AbsMember } from '@dinghy/standard-components-diagrams/azure2Blockchain'
 
 <AbsMember/>
 ```

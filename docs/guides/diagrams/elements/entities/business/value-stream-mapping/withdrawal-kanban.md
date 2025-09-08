@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WithdrawalKanban } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { WithdrawalKanban } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <WithdrawalKanban/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpcNetworkAccessAnalyzer } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { VpcNetworkAccessAnalyzer } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <VpcNetworkAccessAnalyzer/>
 ```

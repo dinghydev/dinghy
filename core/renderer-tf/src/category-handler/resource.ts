@@ -1,4 +1,4 @@
-import type { NodeTree, Props } from '@diac/base-components'
+import type { NodeTree, Props } from '@dinghy/base-components'
 import { resourceOrData } from './resourceOrData.ts'
 import type { TfRenderOptions } from '../types.ts'
 

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AsicProcessor } from '@diac/standard-components-diagrams/ciscoMisc'
+import { AsicProcessor } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <AsicProcessor/>
 ```

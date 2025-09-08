@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CodeEditor } from '@diac/standard-components-diagrams/ibmDevops'
+import { CodeEditor } from '@dinghy/standard-components-diagrams/ibmDevops'
 
 <CodeEditor/>
 ```

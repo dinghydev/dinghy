@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Autoscale } from '@diac/standard-components-diagrams/azure'
+import { Autoscale } from '@dinghy/standard-components-diagrams/azure'
 
 <Autoscale/>
 ```

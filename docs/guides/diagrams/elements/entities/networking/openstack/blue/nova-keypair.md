@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NovaKeypair } from '@diac/standard-components-diagrams/openstackBlue'
+import { NovaKeypair } from '@dinghy/standard-components-diagrams/openstackBlue'
 
 <NovaKeypair/>
 ```

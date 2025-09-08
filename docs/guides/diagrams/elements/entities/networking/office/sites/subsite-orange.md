@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SubsiteOrange } from '@diac/standard-components-diagrams/officeSites'
+import { SubsiteOrange } from '@dinghy/standard-components-diagrams/officeSites'
 
 <SubsiteOrange/>
 ```

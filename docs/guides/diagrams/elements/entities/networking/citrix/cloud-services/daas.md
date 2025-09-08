@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Daas } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { Daas } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <Daas/>
 ```

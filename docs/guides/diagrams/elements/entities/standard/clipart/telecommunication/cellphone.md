@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cellphone } from '@diac/standard-components-diagrams/clipartTelecommunication'
+import { Cellphone } from '@dinghy/standard-components-diagrams/clipartTelecommunication'
 
 <Cellphone/>
 ```

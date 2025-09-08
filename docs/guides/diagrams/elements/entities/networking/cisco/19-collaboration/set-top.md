@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SetTop } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { SetTop } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <SetTop/>
 ```

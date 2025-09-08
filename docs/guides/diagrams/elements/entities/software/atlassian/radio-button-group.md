@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RadioButtonGroup } from '@diac/standard-components-diagrams/atlassian'
+import { RadioButtonGroup } from '@dinghy/standard-components-diagrams/atlassian'
 
 <RadioButtonGroup/>
 ```

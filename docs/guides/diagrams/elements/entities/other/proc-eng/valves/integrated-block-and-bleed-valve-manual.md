@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IntegratedBlockAndBleedValveManual } from '@diac/standard-components-diagrams/procEngValves'
+import { IntegratedBlockAndBleedValveManual } from '@dinghy/standard-components-diagrams/procEngValves'
 
 <IntegratedBlockAndBleedValveManual/>
 ```

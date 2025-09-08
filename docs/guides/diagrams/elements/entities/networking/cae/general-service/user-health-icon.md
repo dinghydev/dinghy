@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserHealthIcon } from '@diac/standard-components-diagrams/caeGeneralService'
+import { UserHealthIcon } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <UserHealthIcon/>
 ```

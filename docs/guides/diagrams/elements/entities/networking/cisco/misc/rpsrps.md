@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rpsrps } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Rpsrps } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Rpsrps/>
 ```

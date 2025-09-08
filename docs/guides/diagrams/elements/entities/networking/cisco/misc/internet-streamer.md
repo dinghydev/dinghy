@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternetStreamer } from '@diac/standard-components-diagrams/ciscoMisc'
+import { InternetStreamer } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <InternetStreamer/>
 ```

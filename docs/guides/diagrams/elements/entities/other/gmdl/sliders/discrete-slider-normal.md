@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiscreteSliderNormal } from '@diac/standard-components-diagrams/gmdlSliders'
+import { DiscreteSliderNormal } from '@dinghy/standard-components-diagrams/gmdlSliders'
 
 <DiscreteSliderNormal/>
 ```

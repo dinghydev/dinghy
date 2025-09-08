@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsFargate } from '@diac/standard-components-diagrams/aws18Compute'
+import { AwsFargate } from '@dinghy/standard-components-diagrams/aws18Compute'
 
 <AwsFargate/>
 ```

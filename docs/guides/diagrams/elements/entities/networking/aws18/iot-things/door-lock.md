@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DoorLock } from '@diac/standard-components-diagrams/aws18IotThings'
+import { DoorLock } from '@dinghy/standard-components-diagrams/aws18IotThings'
 
 <DoorLock/>
 ```

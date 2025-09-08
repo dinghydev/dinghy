@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiverterValve } from '@diac/standard-components-diagrams/procEngPiping'
+import { DiverterValve } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <DiverterValve/>
 ```

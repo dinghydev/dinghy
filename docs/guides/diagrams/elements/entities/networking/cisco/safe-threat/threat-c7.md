@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThreatC7 } from '@diac/standard-components-diagrams/ciscoSafeThreat'
+import { ThreatC7 } from '@dinghy/standard-components-diagrams/ciscoSafeThreat'
 
 <ThreatC7/>
 ```

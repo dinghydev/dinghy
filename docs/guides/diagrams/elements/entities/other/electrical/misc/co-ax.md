@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CoAx } from '@diac/standard-components-diagrams/electricalMisc'
+import { CoAx } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <CoAx/>
 ```

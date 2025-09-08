@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Idrsservice } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Idrsservice } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Idrsservice/>
 ```

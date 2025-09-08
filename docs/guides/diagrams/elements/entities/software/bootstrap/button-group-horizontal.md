@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonGroupHorizontal } from '@diac/standard-components-diagrams/bootstrap'
+import { ButtonGroupHorizontal } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ButtonGroupHorizontal/>
 ```

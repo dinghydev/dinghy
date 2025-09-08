@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { L3Modular } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { L3Modular } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <L3Modular/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rtos } from '@diac/standard-components-diagrams/azure2Other'
+import { Rtos } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Rtos/>
 ```

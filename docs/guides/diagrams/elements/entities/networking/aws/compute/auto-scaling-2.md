@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AutoScaling2 } from '@diac/standard-components-diagrams/awsCompute'
+import { AutoScaling2 } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <AutoScaling2/>
 ```

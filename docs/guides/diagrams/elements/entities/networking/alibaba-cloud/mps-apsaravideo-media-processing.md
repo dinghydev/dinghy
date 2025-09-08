@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MpsApsaravideoMediaProcessing } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MpsApsaravideoMediaProcessing } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MpsApsaravideoMediaProcessing/>
 ```

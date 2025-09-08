@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ebs } from '@diac/standard-components-diagrams/aws3d'
+import { Ebs } from '@dinghy/standard-components-diagrams/aws3d'
 
 <Ebs/>
 ```

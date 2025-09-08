@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Task } from '@diac/standard-components-diagrams/awsContainers'
+import { Task } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <Task/>
 ```

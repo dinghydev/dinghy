@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Time } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Time } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Time/>
 ```

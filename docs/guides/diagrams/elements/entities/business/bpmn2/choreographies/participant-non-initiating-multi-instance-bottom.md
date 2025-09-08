@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParticipantNonInitiatingMultiInstanceBottom } from '@diac/standard-components-diagrams/bpmn2Choreographies'
+import { ParticipantNonInitiatingMultiInstanceBottom } from '@dinghy/standard-components-diagrams/bpmn2Choreographies'
 
 <ParticipantNonInitiatingMultiInstanceBottom/>
 ```

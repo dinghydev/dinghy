@@ -16,7 +16,7 @@ Warehouse
 ## Usage
 
 ```
-import { DocumentAiWarehouse } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { DocumentAiWarehouse } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <DocumentAiWarehouse/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EndpointAnalytics } from '@diac/standard-components-diagrams/azure2Analytics'
+import { EndpointAnalytics } from '@dinghy/standard-components-diagrams/azure2Analytics'
 
 <EndpointAnalytics/>
 ```

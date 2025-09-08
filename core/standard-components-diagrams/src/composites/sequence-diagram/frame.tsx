@@ -1,4 +1,4 @@
-import { DiagramNodeProps, Shape } from '@diac/base-components'
+import { DiagramNodeProps, Shape } from '@dinghy/base-components'
 
 export type FrameProps = {
   _width: number

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureAlert } from '@diac/standard-components-diagrams/azure'
+import { AzureAlert } from '@dinghy/standard-components-diagrams/azure'
 
 <AzureAlert/>
 ```

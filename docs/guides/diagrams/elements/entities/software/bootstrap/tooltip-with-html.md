@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TooltipWithHtml } from '@diac/standard-components-diagrams/bootstrap'
+import { TooltipWithHtml } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <TooltipWithHtml/>
 ```

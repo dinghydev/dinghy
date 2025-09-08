@@ -5,7 +5,7 @@ import {
   Shape,
   useTypedNode,
   useTypedNodes,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 export const UserDataTextInputSchema = z.object({
   content: ResolvableStringSchema.optional(),

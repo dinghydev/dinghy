@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SectionHeaderFocused } from '@diac/standard-components-diagrams/android'
+import { SectionHeaderFocused } from '@dinghy/standard-components-diagrams/android'
 
 <SectionHeaderFocused/>
 ```

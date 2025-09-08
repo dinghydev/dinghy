@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Internet3 } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Internet3 } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Internet3/>
 ```

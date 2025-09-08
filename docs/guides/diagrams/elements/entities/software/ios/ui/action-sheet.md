@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActionSheet } from '@diac/standard-components-diagrams/ios7Ui'
+import { ActionSheet } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <ActionSheet/>
 ```

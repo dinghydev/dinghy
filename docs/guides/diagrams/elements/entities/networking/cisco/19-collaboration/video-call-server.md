@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VideoCallServer } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { VideoCallServer } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <VideoCallServer/>
 ```

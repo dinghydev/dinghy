@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MediaServices } from '@diac/standard-components-diagrams/awsMediaServices'
+import { MediaServices } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <MediaServices/>
 ```

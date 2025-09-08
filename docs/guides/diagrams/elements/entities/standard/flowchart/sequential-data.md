@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SequentialData } from '@diac/standard-components-diagrams/flowchart'
+import { SequentialData } from '@dinghy/standard-components-diagrams/flowchart'
 
 <SequentialData/>
 ```

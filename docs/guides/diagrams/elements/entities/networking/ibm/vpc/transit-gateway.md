@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TransitGateway } from '@diac/standard-components-diagrams/ibmVpc'
+import { TransitGateway } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <TransitGateway/>
 ```

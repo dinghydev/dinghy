@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActiveDirectoryFederationServicesServerBlue } from '@diac/standard-components-diagrams/officeServers'
+import { ActiveDirectoryFederationServicesServerBlue } from '@dinghy/standard-components-diagrams/officeServers'
 
 <ActiveDirectoryFederationServicesServerBlue/>
 ```

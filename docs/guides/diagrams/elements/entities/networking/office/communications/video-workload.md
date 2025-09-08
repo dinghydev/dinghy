@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VideoWorkload } from '@diac/standard-components-diagrams/officeCommunications'
+import { VideoWorkload } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <VideoWorkload/>
 ```

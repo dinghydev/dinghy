@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const R0X45A_ARUBA_6400_12P_40G_100G_QSFP28_MODULE = {
   _style: {

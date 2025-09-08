@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VcsVisualComputingService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { VcsVisualComputingService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <VcsVisualComputingService/>
 ```

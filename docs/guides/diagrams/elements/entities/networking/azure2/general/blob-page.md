@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlobPage } from '@diac/standard-components-diagrams/azure2General'
+import { BlobPage } from '@dinghy/standard-components-diagrams/azure2General'
 
 <BlobPage/>
 ```

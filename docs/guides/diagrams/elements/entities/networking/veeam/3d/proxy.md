@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Proxy } from '@diac/standard-components-diagrams/veeam3d'
+import { Proxy } from '@dinghy/standard-components-diagrams/veeam3d'
 
 <Proxy/>
 ```

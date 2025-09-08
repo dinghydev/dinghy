@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MsDefenderEasm } from '@diac/standard-components-diagrams/azure2Security'
+import { MsDefenderEasm } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <MsDefenderEasm/>
 ```

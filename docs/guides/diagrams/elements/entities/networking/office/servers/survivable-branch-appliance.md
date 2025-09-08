@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SurvivableBranchAppliance } from '@diac/standard-components-diagrams/officeServers'
+import { SurvivableBranchAppliance } from '@dinghy/standard-components-diagrams/officeServers'
 
 <SurvivableBranchAppliance/>
 ```

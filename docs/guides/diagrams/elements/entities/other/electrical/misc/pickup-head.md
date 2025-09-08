@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PickupHead } from '@diac/standard-components-diagrams/electricalMisc'
+import { PickupHead } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <PickupHead/>
 ```

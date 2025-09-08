@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sitewise } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Sitewise } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Sitewise/>
 ```

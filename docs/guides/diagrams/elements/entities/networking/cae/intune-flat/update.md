@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Update } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { Update } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <Update/>
 ```

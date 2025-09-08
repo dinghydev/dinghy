@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { LoopAndCompensation } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { LoopAndCompensation } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <LoopAndCompensation/>
 ```

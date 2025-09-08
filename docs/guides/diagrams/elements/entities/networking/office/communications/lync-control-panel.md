@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LyncControlPanel } from '@diac/standard-components-diagrams/officeCommunications'
+import { LyncControlPanel } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <LyncControlPanel/>
 ```

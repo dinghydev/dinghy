@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QuickMigration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { QuickMigration } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <QuickMigration/>
 ```

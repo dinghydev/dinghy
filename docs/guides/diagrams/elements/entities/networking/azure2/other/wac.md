@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wac } from '@diac/standard-components-diagrams/azure2Other'
+import { Wac } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Wac/>
 ```

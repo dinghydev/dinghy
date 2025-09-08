@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExternalDataResource } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { ExternalDataResource } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <ExternalDataResource/>
 ```

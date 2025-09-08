@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimerBoundaryNonInterrupting } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { TimerBoundaryNonInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <TimerBoundaryNonInterrupting/>
 ```

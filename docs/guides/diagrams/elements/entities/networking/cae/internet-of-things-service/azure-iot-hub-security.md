@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureIotHubSecurity } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
+import { AzureIotHubSecurity } from '@dinghy/standard-components-diagrams/caeInternetOfThingsService'
 
 <AzureIotHubSecurity/>
 ```

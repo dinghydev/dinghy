@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataboxGateway } from '@diac/standard-components-diagrams/azure2Migrate'
+import { DataboxGateway } from '@dinghy/standard-components-diagrams/azure2Migrate'
 
 <DataboxGateway/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScriptFile } from '@diac/standard-components-diagrams/azure'
+import { ScriptFile } from '@dinghy/standard-components-diagrams/azure'
 
 <ScriptFile/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EllipseWithVerticalDivider } from '@diac/standard-components-diagrams/advanced'
+import { EllipseWithVerticalDivider } from '@dinghy/standard-components-diagrams/advanced'
 
 <EllipseWithVerticalDivider/>
 ```

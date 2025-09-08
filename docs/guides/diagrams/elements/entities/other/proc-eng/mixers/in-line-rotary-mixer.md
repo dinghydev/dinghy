@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InLineRotaryMixer } from '@diac/standard-components-diagrams/procEngMixers'
+import { InLineRotaryMixer } from '@dinghy/standard-components-diagrams/procEngMixers'
 
 <InLineRotaryMixer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Computer } from '@diac/standard-components-diagrams/azure'
+import { Computer } from '@dinghy/standard-components-diagrams/azure'
 
 <Computer/>
 ```

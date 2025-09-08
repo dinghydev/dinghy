@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadBalancer } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { LoadBalancer } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <LoadBalancer/>
 ```

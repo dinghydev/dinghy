@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MessageFlow } from '@diac/standard-components-diagrams/bpmn2General'
+import { MessageFlow } from '@dinghy/standard-components-diagrams/bpmn2General'
 
 <MessageFlow/>
 ```

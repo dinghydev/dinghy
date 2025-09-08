@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloudsearch } from '@diac/standard-components-diagrams/awsAnalytics'
+import { Cloudsearch } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <Cloudsearch/>
 ```

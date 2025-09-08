@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualizedCapability } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { VirtualizedCapability } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <VirtualizedCapability/>
 ```

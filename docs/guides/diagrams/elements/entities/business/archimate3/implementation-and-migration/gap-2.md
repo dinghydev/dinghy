@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gap2 } from '@diac/standard-components-diagrams/archimate3ImplementationAndMigration'
+import { Gap2 } from '@dinghy/standard-components-diagrams/archimate3ImplementationAndMigration'
 
 <Gap2/>
 ```

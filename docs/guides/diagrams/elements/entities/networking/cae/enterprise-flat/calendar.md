@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Calendar } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Calendar } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Calendar/>
 ```

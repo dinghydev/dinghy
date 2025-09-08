@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedBlockchain } from '@diac/standard-components-diagrams/awsBlockchain'
+import { ManagedBlockchain } from '@dinghy/standard-components-diagrams/awsBlockchain'
 
 <ManagedBlockchain/>
 ```

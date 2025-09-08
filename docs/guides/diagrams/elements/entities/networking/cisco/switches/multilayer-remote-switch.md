@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultilayerRemoteSwitch } from '@diac/standard-components-diagrams/ciscoSwitches'
+import { MultilayerRemoteSwitch } from '@dinghy/standard-components-diagrams/ciscoSwitches'
 
 <MultilayerRemoteSwitch/>
 ```

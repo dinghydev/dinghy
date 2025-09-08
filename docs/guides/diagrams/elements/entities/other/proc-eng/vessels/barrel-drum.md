@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BarrelDrum } from '@diac/standard-components-diagrams/procEngVessels'
+import { BarrelDrum } from '@dinghy/standard-components-diagrams/procEngVessels'
 
 <BarrelDrum/>
 ```

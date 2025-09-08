@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapBtpCloudFoundryRuntime } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapBtpCloudFoundryRuntime } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapBtpCloudFoundryRuntime/>
 ```

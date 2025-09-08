@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentEngineCacheDirector } from '@diac/standard-components-diagrams/ciscoDirectors'
+import { ContentEngineCacheDirector } from '@dinghy/standard-components-diagrams/ciscoDirectors'
 
 <ContentEngineCacheDirector/>
 ```

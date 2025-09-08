@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouterWithSiliconSwitch } from '@diac/standard-components-diagrams/ciscoRouters'
+import { RouterWithSiliconSwitch } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <RouterWithSiliconSwitch/>
 ```

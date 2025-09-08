@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FormattedButton } from '@diac/standard-components-diagrams/mockupButtons'
+import { FormattedButton } from '@dinghy/standard-components-diagrams/mockupButtons'
 
 <FormattedButton/>
 ```

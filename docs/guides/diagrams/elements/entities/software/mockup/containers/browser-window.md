@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BrowserWindow } from '@diac/standard-components-diagrams/mockupContainers'
+import { BrowserWindow } from '@dinghy/standard-components-diagrams/mockupContainers'
 
 <BrowserWindow/>
 ```

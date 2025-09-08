@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ebooks } from '@diac/standard-components-diagrams/azure2Intune'
+import { Ebooks } from '@dinghy/standard-components-diagrams/azure2Intune'
 
 <Ebooks/>
 ```

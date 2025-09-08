@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bridge } from '@diac/standard-components-diagrams/citrixNetworking'
+import { Bridge } from '@dinghy/standard-components-diagrams/citrixNetworking'
 
 <Bridge/>
 ```

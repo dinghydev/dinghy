@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkspacesFamily } from '@diac/standard-components-diagrams/awsEndUserComputing'
+import { WorkspacesFamily } from '@dinghy/standard-components-diagrams/awsEndUserComputing'
 
 <WorkspacesFamily/>
 ```

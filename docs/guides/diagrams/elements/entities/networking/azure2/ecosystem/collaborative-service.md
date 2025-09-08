@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CollaborativeService } from '@diac/standard-components-diagrams/azure2Ecosystem'
+import { CollaborativeService } from '@dinghy/standard-components-diagrams/azure2Ecosystem'
 
 <CollaborativeService/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LocalMoveRequest } from '@diac/standard-components-diagrams/officeCommunications'
+import { LocalMoveRequest } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <LocalMoveRequest/>
 ```

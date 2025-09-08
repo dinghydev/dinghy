@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Trust } from '@diac/standard-components-diagrams/sapAnnotationsAndInterfaces'
+import { Trust } from '@dinghy/standard-components-diagrams/sapAnnotationsAndInterfaces'
 
 <Trust/>
 ```

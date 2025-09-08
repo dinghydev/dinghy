@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Counter } from '@diac/standard-components-diagrams/azure2General'
+import { Counter } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Counter/>
 ```

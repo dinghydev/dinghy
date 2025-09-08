@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OracleRman } from '@diac/standard-components-diagrams/veeam2Software'
+import { OracleRman } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <OracleRman/>
 ```

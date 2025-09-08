@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataAccess } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { DataAccess } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <DataAccess/>
 ```

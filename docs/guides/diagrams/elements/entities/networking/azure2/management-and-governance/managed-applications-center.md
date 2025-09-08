@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedApplicationsCenter } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { ManagedApplicationsCenter } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <ManagedApplicationsCenter/>
 ```

@@ -1,4 +1,4 @@
-import * as base from '@diac/base-components'
+import * as base from '@dinghy/base-components'
 import type {
   DrawioContext,
   DrawioNodeProps,

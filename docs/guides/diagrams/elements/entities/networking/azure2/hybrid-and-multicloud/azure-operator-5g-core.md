@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureOperator5gCore } from '@diac/standard-components-diagrams/azure2HybridAndMulticloud'
+import { AzureOperator5gCore } from '@dinghy/standard-components-diagrams/azure2HybridAndMulticloud'
 
 <AzureOperator5gCore/>
 ```

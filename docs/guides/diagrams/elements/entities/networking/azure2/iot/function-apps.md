@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FunctionApps } from '@diac/standard-components-diagrams/azure2Iot'
+import { FunctionApps } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <FunctionApps/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImportGeneric } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { ImportGeneric } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <ImportGeneric/>
 ```

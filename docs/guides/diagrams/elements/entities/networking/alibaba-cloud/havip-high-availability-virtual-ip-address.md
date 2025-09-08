@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HavipHighAvailabilityVirtualIpAddress } from '@diac/standard-components-diagrams/alibabaCloud'
+import { HavipHighAvailabilityVirtualIpAddress } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <HavipHighAvailabilityVirtualIpAddress/>
 ```

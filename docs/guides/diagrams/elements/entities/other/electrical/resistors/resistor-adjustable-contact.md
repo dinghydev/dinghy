@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResistorAdjustableContact } from '@diac/standard-components-diagrams/electricalResistors'
+import { ResistorAdjustableContact } from '@dinghy/standard-components-diagrams/electricalResistors'
 
 <ResistorAdjustableContact/>
 ```

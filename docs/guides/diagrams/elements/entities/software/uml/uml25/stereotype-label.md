@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StereotypeLabel } from '@diac/standard-components-diagrams/uml25'
+import { StereotypeLabel } from '@dinghy/standard-components-diagrams/uml25'
 
 <StereotypeLabel/>
 ```

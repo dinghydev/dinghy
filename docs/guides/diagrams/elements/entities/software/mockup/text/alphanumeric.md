@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Alphanumeric } from '@diac/standard-components-diagrams/mockupText'
+import { Alphanumeric } from '@dinghy/standard-components-diagrams/mockupText'
 
 <Alphanumeric/>
 ```

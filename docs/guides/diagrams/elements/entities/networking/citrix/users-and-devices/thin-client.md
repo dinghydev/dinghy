@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThinClient } from '@diac/standard-components-diagrams/citrixUsersAndDevices'
+import { ThinClient } from '@dinghy/standard-components-diagrams/citrixUsersAndDevices'
 
 <ThinClient/>
 ```

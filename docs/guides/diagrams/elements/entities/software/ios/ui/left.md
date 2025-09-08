@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Left } from '@diac/standard-components-diagrams/ios7Ui'
+import { Left } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <Left/>
 ```

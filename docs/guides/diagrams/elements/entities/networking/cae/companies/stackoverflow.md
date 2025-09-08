@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stackoverflow } from '@diac/standard-components-diagrams/caeCompanies'
+import { Stackoverflow } from '@dinghy/standard-components-diagrams/caeCompanies'
 
 <Stackoverflow/>
 ```

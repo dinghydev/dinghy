@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Terminator } from '@diac/standard-components-diagrams/flowchart'
+import { Terminator } from '@dinghy/standard-components-diagrams/flowchart'
 
 <Terminator/>
 ```

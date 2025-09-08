@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThermalElement } from '@diac/standard-components-diagrams/electricalMisc'
+import { ThermalElement } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <ThermalElement/>
 ```

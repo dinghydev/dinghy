@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Google } from '@diac/standard-components-diagrams/webLogos'
+import { Google } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Google/>
 ```

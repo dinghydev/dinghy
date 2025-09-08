@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const J9991A_20_PORT_10_100_1000BASE_T_POE_AND_4_PORT_1_2_5_5_10GBASE_T_POE_WITH_MACSEC_V3_ZL2_MODULE =
   {

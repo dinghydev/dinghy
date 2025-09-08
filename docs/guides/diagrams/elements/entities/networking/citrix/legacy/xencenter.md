@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Xencenter } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Xencenter } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Xencenter/>
 ```

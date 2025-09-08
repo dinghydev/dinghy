@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MaterialPull } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { MaterialPull } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <MaterialPull/>
 ```

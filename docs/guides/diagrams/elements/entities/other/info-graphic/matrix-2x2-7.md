@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Matrix2x27 } from '@diac/standard-components-diagrams/infoGraphic'
+import { Matrix2x27 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <Matrix2x27/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TermsAndConditions } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { TermsAndConditions } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <TermsAndConditions/>
 ```

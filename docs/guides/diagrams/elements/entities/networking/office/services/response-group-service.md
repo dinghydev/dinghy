@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResponseGroupService } from '@diac/standard-components-diagrams/officeServices'
+import { ResponseGroupService } from '@dinghy/standard-components-diagrams/officeServices'
 
 <ResponseGroupService/>
 ```

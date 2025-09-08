@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PersistentDisk } from '@diac/standard-components-diagrams/gcpIconsStorage'
+import { PersistentDisk } from '@dinghy/standard-components-diagrams/gcpIconsStorage'
 
 <PersistentDisk/>
 ```

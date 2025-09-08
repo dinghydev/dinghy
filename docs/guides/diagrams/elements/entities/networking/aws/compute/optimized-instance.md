@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OptimizedInstance } from '@diac/standard-components-diagrams/awsCompute'
+import { OptimizedInstance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <OptimizedInstance/>
 ```

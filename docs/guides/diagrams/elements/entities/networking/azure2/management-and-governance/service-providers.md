@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceProviders } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { ServiceProviders } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <ServiceProviders/>
 ```

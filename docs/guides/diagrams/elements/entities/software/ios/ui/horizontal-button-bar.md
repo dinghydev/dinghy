@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalButtonBar } from '@diac/standard-components-diagrams/ios7Ui'
+import { HorizontalButtonBar } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <HorizontalButtonBar/>
 ```

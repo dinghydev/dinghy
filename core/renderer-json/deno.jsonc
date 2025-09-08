@@ -1,5 +1,5 @@
 {
-  "name": "@diac/renderer-json",
+  "name": "@dinghy/renderer-json",
   "exports": {
     ".": "./src/index.ts"
   },

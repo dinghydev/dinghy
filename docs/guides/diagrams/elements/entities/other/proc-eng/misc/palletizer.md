@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Palletizer } from '@diac/standard-components-diagrams/procEngMisc'
+import { Palletizer } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <Palletizer/>
 ```

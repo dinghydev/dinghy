@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dcv } from '@diac/standard-components-diagrams/awsCompute'
+import { Dcv } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Dcv/>
 ```

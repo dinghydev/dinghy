@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TaskList } from '@diac/standard-components-diagrams/veeam2General'
+import { TaskList } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <TaskList/>
 ```

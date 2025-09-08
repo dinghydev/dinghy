@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PowerStrip } from '@diac/standard-components-diagrams/rackDell'
+import { PowerStrip } from '@dinghy/standard-components-diagrams/rackDell'
 
 <PowerStrip/>
 ```

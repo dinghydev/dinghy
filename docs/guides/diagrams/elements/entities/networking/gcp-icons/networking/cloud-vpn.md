@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudVpn } from '@diac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudVpn } from '@dinghy/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudVpn/>
 ```

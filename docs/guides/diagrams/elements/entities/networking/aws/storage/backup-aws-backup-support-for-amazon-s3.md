@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackupAwsBackupSupportForAmazonS3 } from '@diac/standard-components-diagrams/awsStorage'
+import { BackupAwsBackupSupportForAmazonS3 } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <BackupAwsBackupSupportForAmazonS3/>
 ```

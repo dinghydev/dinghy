@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DuplexStrainer } from '@diac/standard-components-diagrams/procEngPiping'
+import { DuplexStrainer } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <DuplexStrainer/>
 ```

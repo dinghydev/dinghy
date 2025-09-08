@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tetrode } from '@diac/standard-components-diagrams/electricalVacuumTubes'
+import { Tetrode } from '@dinghy/standard-components-diagrams/electricalVacuumTubes'
 
 <Tetrode/>
 ```

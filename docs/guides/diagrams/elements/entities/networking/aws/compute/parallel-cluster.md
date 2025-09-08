@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParallelCluster } from '@diac/standard-components-diagrams/awsCompute'
+import { ParallelCluster } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <ParallelCluster/>
 ```

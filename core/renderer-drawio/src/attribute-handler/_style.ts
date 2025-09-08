@@ -1,4 +1,4 @@
-import type { Props } from '@diac/base-components'
+import type { Props } from '@dinghy/base-components'
 
 const STYLE_CATEGORIES = ['entity', 'group', 'dependency', 'element']
 

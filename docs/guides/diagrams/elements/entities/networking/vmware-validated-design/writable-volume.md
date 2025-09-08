@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WritableVolume } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { WritableVolume } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <WritableVolume/>
 ```

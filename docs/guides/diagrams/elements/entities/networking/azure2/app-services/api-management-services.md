@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiManagementServices } from '@diac/standard-components-diagrams/azure2AppServices'
+import { ApiManagementServices } from '@dinghy/standard-components-diagrams/azure2AppServices'
 
 <ApiManagementServices/>
 ```

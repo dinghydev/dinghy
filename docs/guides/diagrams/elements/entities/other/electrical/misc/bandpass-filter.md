@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BandpassFilter } from '@diac/standard-components-diagrams/electricalMisc'
+import { BandpassFilter } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <BandpassFilter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FoundMessage } from '@diac/standard-components-diagrams/uml'
+import { FoundMessage } from '@dinghy/standard-components-diagrams/uml'
 
 <FoundMessage/>
 ```

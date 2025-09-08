@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BranchOffice } from '@diac/standard-components-diagrams/ciscoBuildings'
+import { BranchOffice } from '@dinghy/standard-components-diagrams/ciscoBuildings'
 
 <BranchOffice/>
 ```

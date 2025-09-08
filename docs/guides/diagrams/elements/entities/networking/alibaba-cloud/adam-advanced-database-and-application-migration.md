@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdamAdvancedDatabaseAndApplicationMigration } from '@diac/standard-components-diagrams/alibabaCloud'
+import { AdamAdvancedDatabaseAndApplicationMigration } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <AdamAdvancedDatabaseAndApplicationMigration/>
 ```

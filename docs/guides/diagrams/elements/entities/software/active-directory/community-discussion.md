@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CommunityDiscussion } from '@diac/standard-components-diagrams/activeDirectory'
+import { CommunityDiscussion } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <CommunityDiscussion/>
 ```

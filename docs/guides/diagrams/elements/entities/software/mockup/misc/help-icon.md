@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HelpIcon } from '@diac/standard-components-diagrams/mockupMisc'
+import { HelpIcon } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <HelpIcon/>
 ```

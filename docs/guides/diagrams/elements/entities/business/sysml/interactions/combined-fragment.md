@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CombinedFragment } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { CombinedFragment } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <CombinedFragment/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonGuardduty } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AmazonGuardduty } from '@dinghy/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AmazonGuardduty/>
 ```

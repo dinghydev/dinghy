@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiscreteInstrumentField } from '@diac/standard-components-diagrams/procEngInstruments'
+import { DiscreteInstrumentField } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <DiscreteInstrumentField/>
 ```

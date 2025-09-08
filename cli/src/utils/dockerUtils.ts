@@ -3,7 +3,7 @@ import { dirname, resolve } from 'jsr:@std/path@1.0.8'
 import {
   appHomeMount,
   containerAppHome,
-  diacRc,
+  dinghyRc,
   hostAppHome,
   isInsideContainer,
 } from './loadConfig.ts'
@@ -48,7 +48,7 @@ export const getDockerHostPath = (path: string) =>
 
 export function getDockerEnvs(appEnvs: Env = {}) {
   const envs = deepMerge({}, Deno.env.toObject())
-  deepMerge(envs, diacRc)
+  deepMerge(envs, dinghyRc)
   const whiteListEnvs = Object.entries(envs).filter(([key]) =>
     !DOCKER_EXCLUDED_ENVS.includes(key)
   ).reduce((acc, [key, value]) => {

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3Bucket } from '@diac/standard-components-diagrams/aws3d'
+import { S3Bucket } from '@dinghy/standard-components-diagrams/aws3d'
 
 <S3Bucket/>
 ```

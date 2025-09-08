@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Playfire } from '@diac/standard-components-diagrams/webIcons'
+import { Playfire } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Playfire/>
 ```

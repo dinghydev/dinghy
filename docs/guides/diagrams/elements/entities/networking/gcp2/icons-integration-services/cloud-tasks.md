@@ -16,7 +16,7 @@ Tasks
 ## Usage
 
 ```
-import { CloudTasks } from '@diac/standard-components-diagrams/gcp2IconsIntegrationServices'
+import { CloudTasks } from '@dinghy/standard-components-diagrams/gcp2IconsIntegrationServices'
 
 <CloudTasks/>
 ```

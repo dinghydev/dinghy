@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InformationProtection } from '@diac/standard-components-diagrams/azure2Identity'
+import { InformationProtection } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <InformationProtection/>
 ```

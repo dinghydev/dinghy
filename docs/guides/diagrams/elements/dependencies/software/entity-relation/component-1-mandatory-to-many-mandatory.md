@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component1MandatoryToManyMandatory } from '@diac/standard-components-diagrams/entityRelation'
+import { Component1MandatoryToManyMandatory } from '@dinghy/standard-components-diagrams/entityRelation'
 
 <Component1MandatoryToManyMandatory/>
 ```

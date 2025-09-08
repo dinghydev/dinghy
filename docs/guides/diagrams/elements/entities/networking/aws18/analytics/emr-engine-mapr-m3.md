@@ -16,7 +16,7 @@ MapR M3
 ## Usage
 
 ```
-import { EmrEngineMaprM3 } from '@diac/standard-components-diagrams/aws18Analytics'
+import { EmrEngineMaprM3 } from '@dinghy/standard-components-diagrams/aws18Analytics'
 
 <EmrEngineMaprM3/>
 ```

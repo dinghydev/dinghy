@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PremiumNetworkTier } from '@diac/standard-components-diagrams/gcpIconsNetworking'
+import { PremiumNetworkTier } from '@dinghy/standard-components-diagrams/gcpIconsNetworking'
 
 <PremiumNetworkTier/>
 ```

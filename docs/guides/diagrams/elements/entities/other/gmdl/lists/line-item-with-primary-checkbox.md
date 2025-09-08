@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LineItemWithPrimaryCheckbox } from '@diac/standard-components-diagrams/gmdlLists'
+import { LineItemWithPrimaryCheckbox } from '@dinghy/standard-components-diagrams/gmdlLists'
 
 <LineItemWithPrimaryCheckbox/>
 ```

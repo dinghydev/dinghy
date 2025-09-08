@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VoiceAssistant } from '@diac/standard-components-diagrams/dynamics365MixedReality'
+import { VoiceAssistant } from '@dinghy/standard-components-diagrams/dynamics365MixedReality'
 
 <VoiceAssistant/>
 ```

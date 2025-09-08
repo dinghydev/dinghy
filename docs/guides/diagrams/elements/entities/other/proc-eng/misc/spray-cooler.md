@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SprayCooler } from '@diac/standard-components-diagrams/procEngMisc'
+import { SprayCooler } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <SprayCooler/>
 ```

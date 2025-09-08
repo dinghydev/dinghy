@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudRack } from '@diac/standard-components-diagrams/clipartNetworking'
+import { CloudRack } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <CloudRack/>
 ```

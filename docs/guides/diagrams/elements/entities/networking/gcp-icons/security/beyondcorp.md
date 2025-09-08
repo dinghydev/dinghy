@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Beyondcorp } from '@diac/standard-components-diagrams/gcpIconsSecurity'
+import { Beyondcorp } from '@dinghy/standard-components-diagrams/gcpIconsSecurity'
 
 <Beyondcorp/>
 ```

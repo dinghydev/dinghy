@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExcessFlowValve } from '@diac/standard-components-diagrams/procEngPiping'
+import { ExcessFlowValve } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <ExcessFlowValve/>
 ```

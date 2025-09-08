@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VolumeControl } from '@diac/standard-components-diagrams/ios7Ui'
+import { VolumeControl } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <VolumeControl/>
 ```

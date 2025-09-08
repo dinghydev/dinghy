@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdePlugins } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { IdePlugins } from '@dinghy/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <IdePlugins/>
 ```

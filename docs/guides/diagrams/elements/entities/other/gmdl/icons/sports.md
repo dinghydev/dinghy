@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sports } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Sports } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Sports/>
 ```

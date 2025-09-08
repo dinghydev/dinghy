@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapAiLaunchpad } from '@diac/standard-components-diagrams/sapAi'
+import { SapAiLaunchpad } from '@dinghy/standard-components-diagrams/sapAi'
 
 <SapAiLaunchpad/>
 ```

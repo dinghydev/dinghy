@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Webex } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { Webex } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <Webex/>
 ```

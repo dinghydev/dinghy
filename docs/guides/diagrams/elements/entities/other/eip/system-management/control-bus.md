@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ControlBus } from '@diac/standard-components-diagrams/eipSystemManagement'
+import { ControlBus } from '@dinghy/standard-components-diagrams/eipSystemManagement'
 
 <ControlBus/>
 ```

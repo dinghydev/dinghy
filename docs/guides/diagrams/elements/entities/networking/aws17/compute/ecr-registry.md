@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EcrRegistry } from '@diac/standard-components-diagrams/aws17Compute'
+import { EcrRegistry } from '@dinghy/standard-components-diagrams/aws17Compute'
 
 <EcrRegistry/>
 ```

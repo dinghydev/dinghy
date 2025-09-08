@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cat5eRackMountPatchPanel24Ports } from '@diac/standard-components-diagrams/rackGeneral'
+import { Cat5eRackMountPatchPanel24Ports } from '@dinghy/standard-components-diagrams/rackGeneral'
 
 <Cat5eRackMountPatchPanel24Ports/>
 ```

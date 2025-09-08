@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Terminal3Phase } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
+import { Terminal3Phase } from '@dinghy/standard-components-diagrams/electricalTransmissionPaths'
 
 <Terminal3Phase/>
 ```

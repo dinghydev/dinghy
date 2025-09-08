@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PrintServer } from '@diac/standard-components-diagrams/clipartNetworking'
+import { PrintServer } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <PrintServer/>
 ```

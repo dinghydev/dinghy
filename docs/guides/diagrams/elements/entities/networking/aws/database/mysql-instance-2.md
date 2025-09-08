@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MysqlInstance2 } from '@diac/standard-components-diagrams/awsDatabase'
+import { MysqlInstance2 } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <MysqlInstance2/>
 ```

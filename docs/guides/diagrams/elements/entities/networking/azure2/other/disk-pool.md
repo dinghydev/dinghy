@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiskPool } from '@diac/standard-components-diagrams/azure2Other'
+import { DiskPool } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DiskPool/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackupAuditManager } from '@diac/standard-components-diagrams/awsStorage'
+import { BackupAuditManager } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <BackupAuditManager/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FabricInterconnect } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { FabricInterconnect } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <FabricInterconnect/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DynamicRouter } from '@diac/standard-components-diagrams/eipMessageRouting'
+import { DynamicRouter } from '@dinghy/standard-components-diagrams/eipMessageRouting'
 
 <DynamicRouter/>
 ```

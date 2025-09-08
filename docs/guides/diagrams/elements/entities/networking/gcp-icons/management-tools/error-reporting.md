@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ErrorReporting } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
+import { ErrorReporting } from '@dinghy/standard-components-diagrams/gcpIconsManagementTools'
 
 <ErrorReporting/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobileStreamer } from '@diac/standard-components-diagrams/ciscoMisc'
+import { MobileStreamer } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <MobileStreamer/>
 ```

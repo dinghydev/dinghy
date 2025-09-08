@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhysicalEntity } from '@diac/standard-components-diagrams/ibmUsers'
+import { PhysicalEntity } from '@dinghy/standard-components-diagrams/ibmUsers'
 
 <PhysicalEntity/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloudproc } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Cloudproc } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Cloudproc/>
 ```

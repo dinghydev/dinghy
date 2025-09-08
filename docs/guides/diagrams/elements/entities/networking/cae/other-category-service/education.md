@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Education } from '@diac/standard-components-diagrams/caeOtherCategoryService'
+import { Education } from '@dinghy/standard-components-diagrams/caeOtherCategoryService'
 
 <Education/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Workspaces } from '@diac/standard-components-diagrams/azure2Compute'
+import { Workspaces } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <Workspaces/>
 ```

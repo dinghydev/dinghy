@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wireguard } from '@diac/standard-components-diagrams/veeam2Software'
+import { Wireguard } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <Wireguard/>
 ```

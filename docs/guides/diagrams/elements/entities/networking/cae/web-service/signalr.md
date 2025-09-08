@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Signalr } from '@diac/standard-components-diagrams/caeWebService'
+import { Signalr } from '@dinghy/standard-components-diagrams/caeWebService'
 
 <Signalr/>
 ```

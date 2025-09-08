@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebServices } from '@diac/standard-components-diagrams/officeConcepts'
+import { WebServices } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <WebServices/>
 ```

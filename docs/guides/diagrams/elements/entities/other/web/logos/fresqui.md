@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fresqui } from '@diac/standard-components-diagrams/webLogos'
+import { Fresqui } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Fresqui/>
 ```

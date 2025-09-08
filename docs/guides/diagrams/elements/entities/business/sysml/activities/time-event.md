@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimeEvent } from '@diac/standard-components-diagrams/sysmlActivities'
+import { TimeEvent } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <TimeEvent/>
 ```

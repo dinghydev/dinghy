@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResourceGuard } from '@diac/standard-components-diagrams/azure2Other'
+import { ResourceGuard } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ResourceGuard/>
 ```

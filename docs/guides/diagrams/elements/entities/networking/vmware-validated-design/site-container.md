@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SiteContainer } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { SiteContainer } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <SiteContainer/>
 ```

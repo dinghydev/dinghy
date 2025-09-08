@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rule } from '@diac/standard-components-diagrams/aws18IotResources'
+import { Rule } from '@dinghy/standard-components-diagrams/aws18IotResources'
 
 <Rule/>
 ```

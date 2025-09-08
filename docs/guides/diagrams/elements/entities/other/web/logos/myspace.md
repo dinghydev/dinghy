@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Myspace } from '@diac/standard-components-diagrams/webLogos'
+import { Myspace } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Myspace/>
 ```

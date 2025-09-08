@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Toolkit } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Toolkit } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Toolkit/>
 ```

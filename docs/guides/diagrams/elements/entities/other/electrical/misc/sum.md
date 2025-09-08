@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sum } from '@diac/standard-components-diagrams/electricalMisc'
+import { Sum } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <Sum/>
 ```

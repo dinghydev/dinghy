@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DropdownButton9 } from '@diac/standard-components-diagrams/bootstrap'
+import { DropdownButton9 } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <DropdownButton9/>
 ```

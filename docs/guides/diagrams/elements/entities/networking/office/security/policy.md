@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Policy } from '@diac/standard-components-diagrams/officeSecurity'
+import { Policy } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <Policy/>
 ```

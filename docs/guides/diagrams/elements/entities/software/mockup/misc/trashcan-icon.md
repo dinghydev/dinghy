@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrashcanIcon } from '@diac/standard-components-diagrams/mockupMisc'
+import { TrashcanIcon } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <TrashcanIcon/>
 ```

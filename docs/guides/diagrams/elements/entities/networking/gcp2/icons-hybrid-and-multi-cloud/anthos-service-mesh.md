@@ -16,7 +16,7 @@ Mesh
 ## Usage
 
 ```
-import { AnthosServiceMesh } from '@diac/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
+import { AnthosServiceMesh } from '@dinghy/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
 
 <AnthosServiceMesh/>
 ```

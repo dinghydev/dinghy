@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OptionalSecondaryPath } from '@diac/standard-components-diagrams/gcp2Paths'
+import { OptionalSecondaryPath } from '@dinghy/standard-components-diagrams/gcp2Paths'
 
 <OptionalSecondaryPath/>
 ```

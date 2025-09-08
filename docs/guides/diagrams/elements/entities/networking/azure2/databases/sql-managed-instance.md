@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlManagedInstance } from '@diac/standard-components-diagrams/azure2Databases'
+import { SqlManagedInstance } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <SqlManagedInstance/>
 ```

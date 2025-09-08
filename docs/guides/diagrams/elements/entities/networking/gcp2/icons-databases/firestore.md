@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Firestore } from '@diac/standard-components-diagrams/gcp2IconsDatabases'
+import { Firestore } from '@dinghy/standard-components-diagrams/gcp2IconsDatabases'
 
 <Firestore/>
 ```

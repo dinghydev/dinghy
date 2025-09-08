@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BusinessProcessTracking } from '@diac/standard-components-diagrams/azure2Other'
+import { BusinessProcessTracking } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <BusinessProcessTracking/>
 ```

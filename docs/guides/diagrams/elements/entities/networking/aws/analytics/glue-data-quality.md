@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlueDataQuality } from '@diac/standard-components-diagrams/awsAnalytics'
+import { GlueDataQuality } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <GlueDataQuality/>
 ```

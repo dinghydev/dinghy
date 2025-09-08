@@ -17,7 +17,7 @@ interface
 ## Usage
 
 ```
-import { ElasticNetworkInterface } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { ElasticNetworkInterface } from '@dinghy/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <ElasticNetworkInterface/>
 ```

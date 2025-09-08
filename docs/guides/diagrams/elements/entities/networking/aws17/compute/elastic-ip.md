@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticIp } from '@diac/standard-components-diagrams/aws17Compute'
+import { ElasticIp } from '@dinghy/standard-components-diagrams/aws17Compute'
 
 <ElasticIp/>
 ```

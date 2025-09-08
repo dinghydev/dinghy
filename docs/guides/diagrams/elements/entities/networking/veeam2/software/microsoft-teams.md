@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MicrosoftTeams } from '@diac/standard-components-diagrams/veeam2Software'
+import { MicrosoftTeams } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <MicrosoftTeams/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NotificationHubNamespaces } from '@diac/standard-components-diagrams/azure2Web'
+import { NotificationHubNamespaces } from '@dinghy/standard-components-diagrams/azure2Web'
 
 <NotificationHubNamespaces/>
 ```

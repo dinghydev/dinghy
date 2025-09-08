@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImageRecognition } from '@diac/standard-components-diagrams/alibabaCloud'
+import { ImageRecognition } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <ImageRecognition/>
 ```

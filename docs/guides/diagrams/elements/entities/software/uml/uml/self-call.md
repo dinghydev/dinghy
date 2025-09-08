@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SelfCall } from '@diac/standard-components-diagrams/uml'
+import { SelfCall } from '@dinghy/standard-components-diagrams/uml'
 
 <SelfCall/>
 ```

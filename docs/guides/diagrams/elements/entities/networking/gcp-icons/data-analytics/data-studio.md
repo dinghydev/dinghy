@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataStudio } from '@diac/standard-components-diagrams/gcpIconsDataAnalytics'
+import { DataStudio } from '@dinghy/standard-components-diagrams/gcpIconsDataAnalytics'
 
 <DataStudio/>
 ```

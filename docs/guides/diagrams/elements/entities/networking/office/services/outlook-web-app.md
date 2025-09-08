@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OutlookWebApp } from '@diac/standard-components-diagrams/officeServices'
+import { OutlookWebApp } from '@dinghy/standard-components-diagrams/officeServices'
 
 <OutlookWebApp/>
 ```

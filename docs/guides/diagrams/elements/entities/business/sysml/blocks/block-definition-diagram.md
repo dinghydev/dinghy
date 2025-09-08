@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlockDefinitionDiagram } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { BlockDefinitionDiagram } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <BlockDefinitionDiagram/>
 ```

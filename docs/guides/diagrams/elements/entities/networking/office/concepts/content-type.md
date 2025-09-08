@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentType } from '@diac/standard-components-diagrams/officeConcepts'
+import { ContentType } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <ContentType/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseCycle } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { DatabaseCycle } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <DatabaseCycle/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VbrConsole } from '@diac/standard-components-diagrams/veeam2Features'
+import { VbrConsole } from '@dinghy/standard-components-diagrams/veeam2Features'
 
 <VbrConsole/>
 ```

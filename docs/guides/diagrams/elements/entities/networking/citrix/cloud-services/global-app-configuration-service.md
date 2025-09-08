@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlobalAppConfigurationService } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { GlobalAppConfigurationService } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <GlobalAppConfigurationService/>
 ```

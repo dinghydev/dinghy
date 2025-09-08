@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AllocationDerivedPropertiesInternalBlockDiagram } from '@diac/standard-components-diagrams/sysmlAllocations'
+import { AllocationDerivedPropertiesInternalBlockDiagram } from '@dinghy/standard-components-diagrams/sysmlAllocations'
 
 <AllocationDerivedPropertiesInternalBlockDiagram/>
 ```

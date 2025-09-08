@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EnvelopeMessage } from '@diac/standard-components-diagrams/ios7Icons'
+import { EnvelopeMessage } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <EnvelopeMessage/>
 ```

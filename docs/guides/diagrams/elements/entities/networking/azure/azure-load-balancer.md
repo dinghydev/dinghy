@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureLoadBalancer } from '@diac/standard-components-diagrams/azure'
+import { AzureLoadBalancer } from '@dinghy/standard-components-diagrams/azure'
 
 <AzureLoadBalancer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FraudDetector } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { FraudDetector } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <FraudDetector/>
 ```

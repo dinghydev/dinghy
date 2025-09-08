@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Nevada } from '@diac/standard-components-diagrams/cumulus'
+import { Nevada } from '@dinghy/standard-components-diagrams/cumulus'
 
 <Nevada/>
 ```

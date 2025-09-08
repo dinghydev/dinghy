@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FullBleedDividers } from '@diac/standard-components-diagrams/gmdlDividers'
+import { FullBleedDividers } from '@dinghy/standard-components-diagrams/gmdlDividers'
 
 <FullBleedDividers/>
 ```

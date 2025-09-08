@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ssd } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Ssd } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Ssd/>
 ```

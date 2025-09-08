@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lex } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Lex } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Lex/>
 ```

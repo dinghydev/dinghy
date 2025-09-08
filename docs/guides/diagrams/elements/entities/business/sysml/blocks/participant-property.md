@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParticipantProperty } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { ParticipantProperty } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <ParticipantProperty/>
 ```

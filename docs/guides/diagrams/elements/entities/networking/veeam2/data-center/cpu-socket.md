@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CpuSocket } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { CpuSocket } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <CpuSocket/>
 ```

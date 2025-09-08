@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3ExpressOneZone } from '@diac/standard-components-diagrams/awsStorage'
+import { S3ExpressOneZone } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <S3ExpressOneZone/>
 ```

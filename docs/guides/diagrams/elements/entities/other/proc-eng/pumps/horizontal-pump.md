@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalPump } from '@diac/standard-components-diagrams/procEngPumps'
+import { HorizontalPump } from '@dinghy/standard-components-diagrams/procEngPumps'
 
 <HorizontalPump/>
 ```

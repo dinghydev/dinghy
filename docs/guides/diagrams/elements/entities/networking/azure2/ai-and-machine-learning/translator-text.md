@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TranslatorText } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { TranslatorText } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <TranslatorText/>
 ```

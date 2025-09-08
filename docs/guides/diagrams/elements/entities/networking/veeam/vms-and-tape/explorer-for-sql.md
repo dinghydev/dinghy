@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExplorerForSql } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { ExplorerForSql } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <ExplorerForSql/>
 ```

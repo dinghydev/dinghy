@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AgitatorCrossBeam } from '@diac/standard-components-diagrams/procEngAgitators'
+import { AgitatorCrossBeam } from '@dinghy/standard-components-diagrams/procEngAgitators'
 
 <AgitatorCrossBeam/>
 ```

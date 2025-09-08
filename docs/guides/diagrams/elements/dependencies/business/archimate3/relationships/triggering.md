@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Triggering } from '@diac/standard-components-diagrams/archimate3Relationships'
+import { Triggering } from '@dinghy/standard-components-diagrams/archimate3Relationships'
 
 <Triggering/>
 ```

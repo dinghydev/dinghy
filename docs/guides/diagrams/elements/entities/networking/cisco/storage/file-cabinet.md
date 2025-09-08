@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileCabinet } from '@diac/standard-components-diagrams/ciscoStorage'
+import { FileCabinet } from '@dinghy/standard-components-diagrams/ciscoStorage'
 
 <FileCabinet/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Desktop } from '@diac/standard-components-diagrams/awsIllustrations'
+import { Desktop } from '@dinghy/standard-components-diagrams/awsIllustrations'
 
 <Desktop/>
 ```

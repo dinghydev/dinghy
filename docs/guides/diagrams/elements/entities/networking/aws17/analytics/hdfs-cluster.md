@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HdfsCluster } from '@diac/standard-components-diagrams/aws17Analytics'
+import { HdfsCluster } from '@dinghy/standard-components-diagrams/aws17Analytics'
 
 <HdfsCluster/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActionableInsight } from '@diac/standard-components-diagrams/ibmApplications'
+import { ActionableInsight } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <ActionableInsight/>
 ```

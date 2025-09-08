@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerMigrationService } from '@diac/standard-components-diagrams/aws17Migration'
+import { ServerMigrationService } from '@dinghy/standard-components-diagrams/aws17Migration'
 
 <ServerMigrationService/>
 ```

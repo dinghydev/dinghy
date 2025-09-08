@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gauge } from '@diac/standard-components-diagrams/mockupGraphics'
+import { Gauge } from '@dinghy/standard-components-diagrams/mockupGraphics'
 
 <Gauge/>
 ```

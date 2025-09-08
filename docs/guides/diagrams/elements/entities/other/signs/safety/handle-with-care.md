@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HandleWithCare } from '@diac/standard-components-diagrams/signsSafety'
+import { HandleWithCare } from '@dinghy/standard-components-diagrams/signsSafety'
 
 <HandleWithCare/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentModerators } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { ContentModerators } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <ContentModerators/>
 ```

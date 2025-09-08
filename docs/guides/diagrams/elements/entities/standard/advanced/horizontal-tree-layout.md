@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalTreeLayout } from '@diac/standard-components-diagrams/advanced'
+import { HorizontalTreeLayout } from '@dinghy/standard-components-diagrams/advanced'
 
 <HorizontalTreeLayout/>
 ```

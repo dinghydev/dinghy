@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NasFiler } from '@diac/standard-components-diagrams/network2'
+import { NasFiler } from '@dinghy/standard-components-diagrams/network2'
 
 <NasFiler/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LollipopNotation } from '@diac/standard-components-diagrams/uml'
+import { LollipopNotation } from '@dinghy/standard-components-diagrams/uml'
 
 <LollipopNotation/>
 ```

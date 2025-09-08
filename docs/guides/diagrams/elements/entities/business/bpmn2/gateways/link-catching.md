@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LinkCatching } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { LinkCatching } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <LinkCatching/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudSdk } from '@diac/standard-components-diagrams/gcp2CiCd'
+import { CloudSdk } from '@dinghy/standard-components-diagrams/gcp2CiCd'
 
 <CloudSdk/>
 ```

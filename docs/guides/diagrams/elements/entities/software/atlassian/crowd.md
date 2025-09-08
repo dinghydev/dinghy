@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Crowd } from '@diac/standard-components-diagrams/atlassian'
+import { Crowd } from '@dinghy/standard-components-diagrams/atlassian'
 
 <Crowd/>
 ```

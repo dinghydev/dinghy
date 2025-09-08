@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LanToLan } from '@diac/standard-components-diagrams/ciscoMisc'
+import { LanToLan } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <LanToLan/>
 ```

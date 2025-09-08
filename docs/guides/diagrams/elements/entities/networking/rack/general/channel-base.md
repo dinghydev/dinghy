@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChannelBase } from '@diac/standard-components-diagrams/rackGeneral'
+import { ChannelBase } from '@dinghy/standard-components-diagrams/rackGeneral'
 
 <ChannelBase/>
 ```

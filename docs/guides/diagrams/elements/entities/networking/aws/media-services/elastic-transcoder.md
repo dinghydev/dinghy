@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticTranscoder } from '@diac/standard-components-diagrams/awsMediaServices'
+import { ElasticTranscoder } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <ElasticTranscoder/>
 ```

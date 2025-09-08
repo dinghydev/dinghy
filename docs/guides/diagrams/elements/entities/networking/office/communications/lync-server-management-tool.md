@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LyncServerManagementTool } from '@diac/standard-components-diagrams/officeCommunications'
+import { LyncServerManagementTool } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <LyncServerManagementTool/>
 ```

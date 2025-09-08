@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Marketplace } from '@diac/standard-components-diagrams/caeGeneralService'
+import { Marketplace } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <Marketplace/>
 ```

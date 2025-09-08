@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataSet } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { DataSet } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <DataSet/>
 ```

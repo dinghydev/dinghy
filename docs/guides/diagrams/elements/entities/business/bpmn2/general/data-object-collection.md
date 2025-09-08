@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataObjectCollection } from '@diac/standard-components-diagrams/bpmn2General'
+import { DataObjectCollection } from '@dinghy/standard-components-diagrams/bpmn2General'
 
 <DataObjectCollection/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Applens } from '@diac/standard-components-diagrams/azure2Ecosystem'
+import { Applens } from '@dinghy/standard-components-diagrams/azure2Ecosystem'
 
 <Applens/>
 ```

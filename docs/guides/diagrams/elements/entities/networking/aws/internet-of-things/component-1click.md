@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component1click } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Component1click } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Component1click/>
 ```

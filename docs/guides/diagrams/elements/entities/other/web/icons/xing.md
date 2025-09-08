@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Xing } from '@diac/standard-components-diagrams/webIcons'
+import { Xing } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Xing/>
 ```

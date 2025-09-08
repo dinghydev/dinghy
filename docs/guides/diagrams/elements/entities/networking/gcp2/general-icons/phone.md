@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Phone } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Phone } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Phone/>
 ```

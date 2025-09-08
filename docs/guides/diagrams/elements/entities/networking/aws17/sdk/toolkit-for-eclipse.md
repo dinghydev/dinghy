@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ToolkitForEclipse } from '@diac/standard-components-diagrams/aws17Sdk'
+import { ToolkitForEclipse } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <ToolkitForEclipse/>
 ```

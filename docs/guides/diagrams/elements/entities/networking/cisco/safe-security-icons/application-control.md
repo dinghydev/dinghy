@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationControl } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { ApplicationControl } from '@dinghy/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <ApplicationControl/>
 ```

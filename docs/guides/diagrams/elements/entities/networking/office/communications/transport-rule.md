@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TransportRule } from '@diac/standard-components-diagrams/officeCommunications'
+import { TransportRule } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <TransportRule/>
 ```

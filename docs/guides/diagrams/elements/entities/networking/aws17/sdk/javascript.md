@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Javascript } from '@diac/standard-components-diagrams/aws17Sdk'
+import { Javascript } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <Javascript/>
 ```

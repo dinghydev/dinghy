@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActivityParameterNode } from '@diac/standard-components-diagrams/sysmlActivities'
+import { ActivityParameterNode } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <ActivityParameterNode/>
 ```

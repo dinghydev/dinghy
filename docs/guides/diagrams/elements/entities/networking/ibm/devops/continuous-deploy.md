@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContinuousDeploy } from '@diac/standard-components-diagrams/ibmDevops'
+import { ContinuousDeploy } from '@dinghy/standard-components-diagrams/ibmDevops'
 
 <ContinuousDeploy/>
 ```

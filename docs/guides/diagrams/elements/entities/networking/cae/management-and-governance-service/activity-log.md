@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActivityLog } from '@diac/standard-components-diagrams/caeManagementAndGovernanceService'
+import { ActivityLog } from '@dinghy/standard-components-diagrams/caeManagementAndGovernanceService'
 
 <ActivityLog/>
 ```

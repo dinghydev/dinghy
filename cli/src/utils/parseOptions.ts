@@ -10,7 +10,7 @@ const loadDefaultFromEnv = (spec: any, envPrefix: string[]) => {
 
   for (const optionType of OPTIONS_TYPES) {
     for (const option of spec[optionType] || []) {
-      let value: any = configGet(['diac', ...envPrefix, option])
+      let value: any = configGet(['dinghy', ...envPrefix, option])
       if (value !== undefined) {
         if (optionType === 'boolean') {
           value = Boolean(value)
@@ -42,7 +42,7 @@ export const parseOptions = (
   if (spec.arguments) {
     Object.entries(spec.arguments).map(([name, argSpec], index) => {
       let value = options._[index] ||
-        configGet(['diac', ...envPrefix, name])
+        configGet(['dinghy', ...envPrefix, name])
       if ((argSpec as any).required && value === undefined) {
         throw new Error(`Argument [${name.toLocaleUpperCase()}] is required`)
       }
@@ -63,7 +63,7 @@ export const parseOptions = (
   }
 
   if (!options.output) {
-    options.output = configGet(['diac', 'output']) || 'output'
+    options.output = configGet(['dinghy', 'output']) || 'output'
   }
 
   debug('parsed options %O', options)

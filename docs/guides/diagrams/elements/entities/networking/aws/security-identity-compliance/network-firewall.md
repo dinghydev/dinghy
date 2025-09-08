@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkFirewall } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { NetworkFirewall } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <NetworkFirewall/>
 ```

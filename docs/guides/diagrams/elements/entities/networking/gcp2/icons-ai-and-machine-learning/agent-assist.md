@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AgentAssist } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AgentAssist } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AgentAssist/>
 ```

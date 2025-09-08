@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Profiler } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
+import { Profiler } from '@dinghy/standard-components-diagrams/gcpIconsManagementTools'
 
 <Profiler/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternetServices } from '@diac/standard-components-diagrams/ibmVpc'
+import { InternetServices } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <InternetServices/>
 ```

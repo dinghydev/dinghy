@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoleServices } from '@diac/standard-components-diagrams/citrixLegacy'
+import { RoleServices } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <RoleServices/>
 ```

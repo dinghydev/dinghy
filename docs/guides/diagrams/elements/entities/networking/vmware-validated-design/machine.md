@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Machine } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Machine } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Machine/>
 ```

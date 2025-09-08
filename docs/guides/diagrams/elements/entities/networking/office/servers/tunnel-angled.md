@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TunnelAngled } from '@diac/standard-components-diagrams/officeServers'
+import { TunnelAngled } from '@dinghy/standard-components-diagrams/officeServers'
 
 <TunnelAngled/>
 ```

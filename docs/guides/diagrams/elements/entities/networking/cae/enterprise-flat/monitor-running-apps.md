@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MonitorRunningApps } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { MonitorRunningApps } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <MonitorRunningApps/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SignaltowerOn } from '@diac/standard-components-diagrams/clipartTelecommunication'
+import { SignaltowerOn } from '@dinghy/standard-components-diagrams/clipartTelecommunication'
 
 <SignaltowerOn/>
 ```

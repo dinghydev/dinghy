@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Viber } from '@diac/standard-components-diagrams/webIcons'
+import { Viber } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Viber/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExchangeMailboxServer } from '@diac/standard-components-diagrams/officeServers'
+import { ExchangeMailboxServer } from '@dinghy/standard-components-diagrams/officeServers'
 
 <ExchangeMailboxServer/>
 ```

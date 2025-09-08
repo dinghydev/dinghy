@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RotaryPiston } from '@diac/standard-components-diagrams/procEngPumpsDin'
+import { RotaryPiston } from '@dinghy/standard-components-diagrams/procEngPumpsDin'
 
 <RotaryPiston/>
 ```

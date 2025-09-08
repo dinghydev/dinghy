@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileKey } from '@diac/standard-components-diagrams/officeConcepts'
+import { FileKey } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <FileKey/>
 ```

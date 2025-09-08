@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EMapreduce } from '@diac/standard-components-diagrams/alibabaCloud'
+import { EMapreduce } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <EMapreduce/>
 ```

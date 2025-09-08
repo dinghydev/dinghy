@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const J9987A_24_PORT_10_100_1000BASE_T_WITH_MACSEC_V3_ZL2_MODULE = {
   _style: {

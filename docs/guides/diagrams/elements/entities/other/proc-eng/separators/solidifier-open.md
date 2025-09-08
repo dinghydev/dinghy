@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SolidifierOpen } from '@diac/standard-components-diagrams/procEngSeparators'
+import { SolidifierOpen } from '@dinghy/standard-components-diagrams/procEngSeparators'
 
 <SolidifierOpen/>
 ```

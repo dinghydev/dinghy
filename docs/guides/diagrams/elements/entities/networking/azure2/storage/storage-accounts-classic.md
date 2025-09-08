@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageAccountsClassic } from '@diac/standard-components-diagrams/azure2Storage'
+import { StorageAccountsClassic } from '@dinghy/standard-components-diagrams/azure2Storage'
 
 <StorageAccountsClassic/>
 ```

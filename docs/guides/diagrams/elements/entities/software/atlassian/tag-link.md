@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TagLink } from '@diac/standard-components-diagrams/atlassian'
+import { TagLink } from '@dinghy/standard-components-diagrams/atlassian'
 
 <TagLink/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PermissionsSap } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { PermissionsSap } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <PermissionsSap/>
 ```

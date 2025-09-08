@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Genomics } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { Genomics } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <Genomics/>
 ```

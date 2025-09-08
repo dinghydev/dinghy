@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WavelengthRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { WavelengthRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <WavelengthRouter/>
 ```

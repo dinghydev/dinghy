@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureBoards } from '@diac/standard-components-diagrams/caeDevopsService'
+import { AzureBoards } from '@dinghy/standard-components-diagrams/caeDevopsService'
 
 <AzureBoards/>
 ```

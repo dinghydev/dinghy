@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobileHotfix } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MobileHotfix } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MobileHotfix/>
 ```

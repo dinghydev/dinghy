@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Box } from '@diac/standard-components-diagrams/webIcons'
+import { Box } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Box/>
 ```

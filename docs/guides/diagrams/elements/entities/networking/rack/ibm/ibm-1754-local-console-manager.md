@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ibm1754LocalConsoleManager } from '@diac/standard-components-diagrams/rackIbm'
+import { Ibm1754LocalConsoleManager } from '@dinghy/standard-components-diagrams/rackIbm'
 
 <Ibm1754LocalConsoleManager/>
 ```

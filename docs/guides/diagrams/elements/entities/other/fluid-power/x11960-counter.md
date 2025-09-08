@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11960Counter } from '@diac/standard-components-diagrams/fluidPower'
+import { X11960Counter } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11960Counter/>
 ```

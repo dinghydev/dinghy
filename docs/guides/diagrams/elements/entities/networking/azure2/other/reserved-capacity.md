@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReservedCapacity } from '@diac/standard-components-diagrams/azure2Other'
+import { ReservedCapacity } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ReservedCapacity/>
 ```

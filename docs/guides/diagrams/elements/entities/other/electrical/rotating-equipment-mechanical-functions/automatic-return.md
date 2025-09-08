@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AutomaticReturn } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { AutomaticReturn } from '@dinghy/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <AutomaticReturn/>
 ```

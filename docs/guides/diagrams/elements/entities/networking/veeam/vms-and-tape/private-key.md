@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PrivateKey } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { PrivateKey } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <PrivateKey/>
 ```

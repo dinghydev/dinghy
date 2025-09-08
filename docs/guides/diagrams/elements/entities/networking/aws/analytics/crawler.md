@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Crawler } from '@diac/standard-components-diagrams/awsAnalytics'
+import { Crawler } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <Crawler/>
 ```

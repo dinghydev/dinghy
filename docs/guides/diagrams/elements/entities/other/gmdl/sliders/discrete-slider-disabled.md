@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiscreteSliderDisabled } from '@diac/standard-components-diagrams/gmdlSliders'
+import { DiscreteSliderDisabled } from '@dinghy/standard-components-diagrams/gmdlSliders'
 
 <DiscreteSliderDisabled/>
 ```

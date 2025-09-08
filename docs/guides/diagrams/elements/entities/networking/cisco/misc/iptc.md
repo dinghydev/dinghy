@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Iptc } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Iptc } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Iptc/>
 ```

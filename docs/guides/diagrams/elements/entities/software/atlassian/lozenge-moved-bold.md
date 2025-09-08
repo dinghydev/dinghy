@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LozengeMovedBold } from '@diac/standard-components-diagrams/atlassian'
+import { LozengeMovedBold } from '@dinghy/standard-components-diagrams/atlassian'
 
 <LozengeMovedBold/>
 ```

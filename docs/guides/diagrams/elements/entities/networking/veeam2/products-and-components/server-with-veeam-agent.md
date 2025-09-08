@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerWithVeeamAgent } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { ServerWithVeeamAgent } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <ServerWithVeeamAgent/>
 ```

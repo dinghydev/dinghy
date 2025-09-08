@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InvalidMessageChannel } from '@diac/standard-components-diagrams/eipMessagingChannels'
+import { InvalidMessageChannel } from '@dinghy/standard-components-diagrams/eipMessagingChannels'
 
 <InvalidMessageChannel/>
 ```

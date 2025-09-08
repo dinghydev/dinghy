@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { CollaborationUse } from '@diac/standard-components-diagrams/uml25'
+import { CollaborationUse } from '@dinghy/standard-components-diagrams/uml25'
 
 <CollaborationUse/>
 ```

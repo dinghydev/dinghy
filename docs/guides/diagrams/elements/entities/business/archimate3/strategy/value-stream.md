@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ValueStream } from '@diac/standard-components-diagrams/archimate3Strategy'
+import { ValueStream } from '@dinghy/standard-components-diagrams/archimate3Strategy'
 
 <ValueStream/>
 ```

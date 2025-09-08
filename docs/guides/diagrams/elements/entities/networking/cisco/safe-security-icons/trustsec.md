@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Trustsec } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { Trustsec } from '@dinghy/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <Trustsec/>
 ```

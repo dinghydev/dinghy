@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WatcherNode } from '@diac/standard-components-diagrams/officeCommunications'
+import { WatcherNode } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <WatcherNode/>
 ```

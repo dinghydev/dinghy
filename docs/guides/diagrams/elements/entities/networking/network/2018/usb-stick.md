@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UsbStick } from '@diac/standard-components-diagrams/network'
+import { UsbStick } from '@dinghy/standard-components-diagrams/network'
 
 <UsbStick/>
 ```

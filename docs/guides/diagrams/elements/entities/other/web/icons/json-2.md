@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Json2 } from '@diac/standard-components-diagrams/webIcons'
+import { Json2 } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Json2/>
 ```

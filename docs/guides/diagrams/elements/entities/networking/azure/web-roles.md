@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebRoles } from '@diac/standard-components-diagrams/azure'
+import { WebRoles } from '@dinghy/standard-components-diagrams/azure'
 
 <WebRoles/>
 ```

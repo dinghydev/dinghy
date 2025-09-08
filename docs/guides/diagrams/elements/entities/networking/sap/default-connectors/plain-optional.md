@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlainOptional } from '@diac/standard-components-diagrams/sapDefaultConnectors'
+import { PlainOptional } from '@dinghy/standard-components-diagrams/sapDefaultConnectors'
 
 <PlainOptional/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Token } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Token } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Token/>
 ```

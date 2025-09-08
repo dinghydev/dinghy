@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EnhanceUi2 } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { EnhanceUi2 } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <EnhanceUi2/>
 ```

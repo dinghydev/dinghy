@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CitrixSessionRecordingServer } from '@diac/standard-components-diagrams/citrixComponents'
+import { CitrixSessionRecordingServer } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <CitrixSessionRecordingServer/>
 ```

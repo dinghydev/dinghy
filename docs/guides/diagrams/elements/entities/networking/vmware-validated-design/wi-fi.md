@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WiFi } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { WiFi } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <WiFi/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TapeMediaPool } from '@diac/standard-components-diagrams/veeam2Storage'
+import { TapeMediaPool } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <TapeMediaPool/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReedSwitchOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { ReedSwitchOff } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <ReedSwitchOff/>
 ```

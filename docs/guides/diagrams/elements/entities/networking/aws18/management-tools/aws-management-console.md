@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsManagementConsole } from '@diac/standard-components-diagrams/aws18ManagementTools'
+import { AwsManagementConsole } from '@dinghy/standard-components-diagrams/aws18ManagementTools'
 
 <AwsManagementConsole/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedServiceForApacheFlink } from '@diac/standard-components-diagrams/awsAnalytics'
+import { ManagedServiceForApacheFlink } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <ManagedServiceForApacheFlink/>
 ```

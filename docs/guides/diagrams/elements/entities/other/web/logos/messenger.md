@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Messenger } from '@diac/standard-components-diagrams/webLogos'
+import { Messenger } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Messenger/>
 ```

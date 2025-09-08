@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloudfront } from '@diac/standard-components-diagrams/aws3d'
+import { Cloudfront } from '@dinghy/standard-components-diagrams/aws3d'
 
 <Cloudfront/>
 ```

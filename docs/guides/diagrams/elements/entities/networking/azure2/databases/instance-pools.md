@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InstancePools } from '@diac/standard-components-diagrams/azure2Databases'
+import { InstancePools } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <InstancePools/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoomMailbox } from '@diac/standard-components-diagrams/officeCommunications'
+import { RoomMailbox } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <RoomMailbox/>
 ```

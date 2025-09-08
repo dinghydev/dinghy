@@ -1,4 +1,4 @@
-import { Shape } from "@diac/base-components";
+import { Shape } from "@dinghy/base-components";
 
 const WebApp = (props: any) => <Shape {...props} />;
 

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdobePdf } from '@diac/standard-components-diagrams/webIcons'
+import { AdobePdf } from '@dinghy/standard-components-diagrams/webIcons'
 
 <AdobePdf/>
 ```

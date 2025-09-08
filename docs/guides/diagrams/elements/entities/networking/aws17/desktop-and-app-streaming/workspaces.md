@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Workspaces } from '@diac/standard-components-diagrams/aws17DesktopAndAppStreaming'
+import { Workspaces } from '@dinghy/standard-components-diagrams/aws17DesktopAndAppStreaming'
 
 <Workspaces/>
 ```

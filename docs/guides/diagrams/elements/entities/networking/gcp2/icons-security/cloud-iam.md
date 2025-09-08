@@ -16,7 +16,7 @@ IAM
 ## Usage
 
 ```
-import { CloudIam } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
+import { CloudIam } from '@dinghy/standard-components-diagrams/gcp2IconsSecurity'
 
 <CloudIam/>
 ```

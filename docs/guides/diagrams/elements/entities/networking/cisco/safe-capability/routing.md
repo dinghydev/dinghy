@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Routing } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { Routing } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <Routing/>
 ```

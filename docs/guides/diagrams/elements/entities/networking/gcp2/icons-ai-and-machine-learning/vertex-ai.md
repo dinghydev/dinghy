@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VertexAi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { VertexAi } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <VertexAi/>
 ```

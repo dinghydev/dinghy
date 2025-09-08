@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OracleDatabase } from '@diac/standard-components-diagrams/azure2Databases'
+import { OracleDatabase } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <OracleDatabase/>
 ```

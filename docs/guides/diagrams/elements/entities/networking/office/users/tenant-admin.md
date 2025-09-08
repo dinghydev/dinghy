@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TenantAdmin } from '@diac/standard-components-diagrams/officeUsers'
+import { TenantAdmin } from '@dinghy/standard-components-diagrams/officeUsers'
 
 <TenantAdmin/>
 ```

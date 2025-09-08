@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultiTenancy } from '@diac/standard-components-diagrams/azure2Azure2Stack'
+import { MultiTenancy } from '@dinghy/standard-components-diagrams/azure2Azure2Stack'
 
 <MultiTenancy/>
 ```

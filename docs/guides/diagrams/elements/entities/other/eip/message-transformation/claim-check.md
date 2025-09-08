@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ClaimCheck } from '@diac/standard-components-diagrams/eipMessageTransformation'
+import { ClaimCheck } from '@dinghy/standard-components-diagrams/eipMessageTransformation'
 
 <ClaimCheck/>
 ```

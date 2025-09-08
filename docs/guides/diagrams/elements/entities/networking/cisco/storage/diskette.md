@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Diskette } from '@diac/standard-components-diagrams/ciscoStorage'
+import { Diskette } from '@dinghy/standard-components-diagrams/ciscoStorage'
 
 <Diskette/>
 ```

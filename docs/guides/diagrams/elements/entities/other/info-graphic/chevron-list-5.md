@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChevronList5 } from '@diac/standard-components-diagrams/infoGraphic'
+import { ChevronList5 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <ChevronList5/>
 ```

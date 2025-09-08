@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SendgridAccounts } from '@diac/standard-components-diagrams/caeIntegrationService'
+import { SendgridAccounts } from '@dinghy/standard-components-diagrams/caeIntegrationService'
 
 <SendgridAccounts/>
 ```

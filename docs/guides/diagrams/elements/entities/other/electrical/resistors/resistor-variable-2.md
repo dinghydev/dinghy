@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResistorVariable2 } from '@diac/standard-components-diagrams/electricalResistors'
+import { ResistorVariable2 } from '@dinghy/standard-components-diagrams/electricalResistors'
 
 <ResistorVariable2/>
 ```

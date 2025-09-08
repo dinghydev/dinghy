@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bluemix } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { Bluemix } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <Bluemix/>
 ```

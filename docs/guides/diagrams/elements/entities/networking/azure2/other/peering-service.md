@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PeeringService } from '@diac/standard-components-diagrams/azure2Other'
+import { PeeringService } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <PeeringService/>
 ```

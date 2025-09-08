@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vimeo } from '@diac/standard-components-diagrams/webIcons'
+import { Vimeo } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Vimeo/>
 ```

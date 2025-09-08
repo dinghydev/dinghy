@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerWithRouter } from '@diac/standard-components-diagrams/ciscoServers'
+import { ServerWithRouter } from '@dinghy/standard-components-diagrams/ciscoServers'
 
 <ServerWithRouter/>
 ```

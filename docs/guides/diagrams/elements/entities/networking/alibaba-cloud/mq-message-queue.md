@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MqMessageQueue } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MqMessageQueue } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MqMessageQueue/>
 ```

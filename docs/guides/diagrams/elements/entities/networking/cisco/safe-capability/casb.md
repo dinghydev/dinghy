@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Casb } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { Casb } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <Casb/>
 ```

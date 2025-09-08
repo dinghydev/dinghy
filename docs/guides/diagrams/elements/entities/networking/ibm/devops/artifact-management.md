@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArtifactManagement } from '@diac/standard-components-diagrams/ibmDevops'
+import { ArtifactManagement } from '@dinghy/standard-components-diagrams/ibmDevops'
 
 <ArtifactManagement/>
 ```

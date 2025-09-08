@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualMachine } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { VirtualMachine } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <VirtualMachine/>
 ```

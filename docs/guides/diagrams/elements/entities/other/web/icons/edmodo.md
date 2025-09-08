@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Edmodo } from '@diac/standard-components-diagrams/webIcons'
+import { Edmodo } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Edmodo/>
 ```

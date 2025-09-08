@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InBlockDefinitionDiagramsActivityAssociation } from '@diac/standard-components-diagrams/sysmlActivities'
+import { InBlockDefinitionDiagramsActivityAssociation } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <InBlockDefinitionDiagramsActivityAssociation/>
 ```

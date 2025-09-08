@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Nova } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Nova } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Nova/>
 ```

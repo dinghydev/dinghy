@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlatTv } from '@diac/standard-components-diagrams/floorPlans'
+import { FlatTv } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <FlatTv/>
 ```

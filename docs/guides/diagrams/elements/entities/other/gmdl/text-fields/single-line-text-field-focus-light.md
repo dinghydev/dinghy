@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SingleLineTextFieldFocusLight } from '@diac/standard-components-diagrams/gmdlTextFields'
+import { SingleLineTextFieldFocusLight } from '@dinghy/standard-components-diagrams/gmdlTextFields'
 
 <SingleLineTextFieldFocusLight/>
 ```

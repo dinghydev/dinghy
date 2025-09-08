@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouteFilters } from '@diac/standard-components-diagrams/azure2Networking'
+import { RouteFilters } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <RouteFilters/>
 ```

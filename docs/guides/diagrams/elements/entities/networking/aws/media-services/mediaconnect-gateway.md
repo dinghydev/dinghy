@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MediaconnectGateway } from '@diac/standard-components-diagrams/awsMediaServices'
+import { MediaconnectGateway } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <MediaconnectGateway/>
 ```

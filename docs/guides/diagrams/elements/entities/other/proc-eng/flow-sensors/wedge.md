@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wedge } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Wedge } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Wedge/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lock } from '@diac/standard-components-diagrams/ciscoSecurity'
+import { Lock } from '@dinghy/standard-components-diagrams/ciscoSecurity'
 
 <Lock/>
 ```

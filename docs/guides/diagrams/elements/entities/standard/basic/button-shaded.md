@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonShaded } from '@diac/standard-components-diagrams/basic'
+import { ButtonShaded } from '@dinghy/standard-components-diagrams/basic'
 
 <ButtonShaded/>
 ```

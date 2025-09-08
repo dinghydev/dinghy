@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RotaryScreen } from '@diac/standard-components-diagrams/procEngMisc'
+import { RotaryScreen } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <RotaryScreen/>
 ```

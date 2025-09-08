@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Unlocked } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Unlocked } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Unlocked/>
 ```

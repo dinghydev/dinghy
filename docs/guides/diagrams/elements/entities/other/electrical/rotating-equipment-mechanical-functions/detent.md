@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Detent } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { Detent } from '@dinghy/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <Detent/>
 ```

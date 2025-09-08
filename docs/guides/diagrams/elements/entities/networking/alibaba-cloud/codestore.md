@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Codestore } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Codestore } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Codestore/>
 ```

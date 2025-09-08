@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EntityObject } from '@diac/standard-components-diagrams/uml'
+import { EntityObject } from '@dinghy/standard-components-diagrams/uml'
 
 <EntityObject/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ComputeGalleries } from '@diac/standard-components-diagrams/azure2Other'
+import { ComputeGalleries } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ComputeGalleries/>
 ```

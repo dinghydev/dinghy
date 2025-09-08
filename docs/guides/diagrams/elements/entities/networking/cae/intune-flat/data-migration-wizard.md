@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataMigrationWizard } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { DataMigrationWizard } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <DataMigrationWizard/>
 ```

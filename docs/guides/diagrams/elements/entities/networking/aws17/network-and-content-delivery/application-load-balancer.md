@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationLoadBalancer } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { ApplicationLoadBalancer } from '@dinghy/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <ApplicationLoadBalancer/>
 ```

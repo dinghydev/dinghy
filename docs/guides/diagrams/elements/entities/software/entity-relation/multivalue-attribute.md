@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultivalueAttribute } from '@diac/standard-components-diagrams/entityRelation'
+import { MultivalueAttribute } from '@dinghy/standard-components-diagrams/entityRelation'
 
 <MultivalueAttribute/>
 ```

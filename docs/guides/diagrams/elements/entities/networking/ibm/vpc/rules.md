@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rules } from '@diac/standard-components-diagrams/ibmVpc'
+import { Rules } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <Rules/>
 ```

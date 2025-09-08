@@ -16,7 +16,7 @@ Containers
 ## Usage
 
 ```
-import { MigrateToContainers } from '@diac/standard-components-diagrams/gcp2IconsMigration'
+import { MigrateToContainers } from '@dinghy/standard-components-diagrams/gcp2IconsMigration'
 
 <MigrateToContainers/>
 ```

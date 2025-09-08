@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RemoteMoveRequest } from '@diac/standard-components-diagrams/officeCommunications'
+import { RemoteMoveRequest } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <RemoteMoveRequest/>
 ```

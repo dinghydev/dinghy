@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScreenNameBar } from '@diac/standard-components-diagrams/ios6'
+import { ScreenNameBar } from '@dinghy/standard-components-diagrams/ios6'
 
 <ScreenNameBar/>
 ```

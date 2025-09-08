@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseMirrorWitnessNode } from '@diac/standard-components-diagrams/officeDatabases'
+import { DatabaseMirrorWitnessNode } from '@dinghy/standard-components-diagrams/officeDatabases'
 
 <DatabaseMirrorWitnessNode/>
 ```

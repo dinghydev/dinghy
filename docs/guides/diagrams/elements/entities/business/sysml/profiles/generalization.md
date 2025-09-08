@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Generalization } from '@diac/standard-components-diagrams/sysmlProfiles'
+import { Generalization } from '@dinghy/standard-components-diagrams/sysmlProfiles'
 
 <Generalization/>
 ```

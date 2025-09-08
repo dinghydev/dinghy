@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vpn } from '@diac/standard-components-diagrams/veeam2General'
+import { Vpn } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <Vpn/>
 ```

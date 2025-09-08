@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MillPulverizer } from '@diac/standard-components-diagrams/procEngCrushersGrinding'
+import { MillPulverizer } from '@dinghy/standard-components-diagrams/procEngCrushersGrinding'
 
 <MillPulverizer/>
 ```

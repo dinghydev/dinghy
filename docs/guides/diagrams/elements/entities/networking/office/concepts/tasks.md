@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tasks } from '@diac/standard-components-diagrams/officeConcepts'
+import { Tasks } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Tasks/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CacheRedisProductIcon } from '@diac/standard-components-diagrams/caeCompanies'
+import { CacheRedisProductIcon } from '@dinghy/standard-components-diagrams/caeCompanies'
 
 <CacheRedisProductIcon/>
 ```

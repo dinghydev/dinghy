@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Buffer } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { Buffer } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <Buffer/>
 ```

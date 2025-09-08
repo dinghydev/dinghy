@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vswitch } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Vswitch } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Vswitch/>
 ```

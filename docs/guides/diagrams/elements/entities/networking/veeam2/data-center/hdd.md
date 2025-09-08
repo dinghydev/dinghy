@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hdd } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { Hdd } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <Hdd/>
 ```

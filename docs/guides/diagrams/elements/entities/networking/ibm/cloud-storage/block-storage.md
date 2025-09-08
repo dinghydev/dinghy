@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlockStorage } from '@diac/standard-components-diagrams/ibmCloudStorage'
+import { BlockStorage } from '@dinghy/standard-components-diagrams/ibmCloudStorage'
 
 <BlockStorage/>
 ```

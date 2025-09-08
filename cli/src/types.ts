@@ -48,18 +48,18 @@ export type CommandContext = {
   options: CommandOptions
 }
 
-export class DiacError extends Error {
+export class DinghyError extends Error {
   code?: string
   constructor(message: string, code?: string) {
     super(message)
     this.name = 'DiacError'
     this.code = code
-    Object.setPrototypeOf(this, DiacError.prototype)
+    Object.setPrototypeOf(this, DinghyError.prototype)
   }
 }
 
-export const throwDiacError = (message: string, code?: string) => {
-  throw new DiacError(message, code)
+export const throwDinghyError = (message: string, code?: string) => {
+  throw new DinghyError(message, code)
 }
 
 export const HANDLED_ERROR_EXIT_CODE = 66

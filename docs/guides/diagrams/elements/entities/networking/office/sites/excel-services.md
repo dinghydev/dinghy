@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExcelServices } from '@diac/standard-components-diagrams/officeSites'
+import { ExcelServices } from '@dinghy/standard-components-diagrams/officeSites'
 
 <ExcelServices/>
 ```

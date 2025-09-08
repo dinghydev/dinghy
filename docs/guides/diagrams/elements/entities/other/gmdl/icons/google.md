@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Google } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Google } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Google/>
 ```

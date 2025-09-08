@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoPhysicalSecurity4uStorage } from '@diac/standard-components-diagrams/rackCisco'
+import { CiscoPhysicalSecurity4uStorage } from '@dinghy/standard-components-diagrams/rackCisco'
 
 <CiscoPhysicalSecurity4uStorage/>
 ```

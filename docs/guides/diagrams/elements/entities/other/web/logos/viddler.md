@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Viddler } from '@diac/standard-components-diagrams/webLogos'
+import { Viddler } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Viddler/>
 ```

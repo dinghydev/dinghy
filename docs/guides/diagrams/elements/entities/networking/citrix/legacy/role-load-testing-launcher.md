@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoleLoadTestingLauncher } from '@diac/standard-components-diagrams/citrixLegacy'
+import { RoleLoadTestingLauncher } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <RoleLoadTestingLauncher/>
 ```

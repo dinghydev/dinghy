@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OperationLogClassic } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { OperationLogClassic } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <OperationLogClassic/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataExchange } from '@diac/standard-components-diagrams/awsAnalytics'
+import { DataExchange } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <DataExchange/>
 ```

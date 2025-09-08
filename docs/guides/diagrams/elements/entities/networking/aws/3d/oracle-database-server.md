@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OracleDatabaseServer } from '@diac/standard-components-diagrams/aws3d'
+import { OracleDatabaseServer } from '@dinghy/standard-components-diagrams/aws3d'
 
 <OracleDatabaseServer/>
 ```

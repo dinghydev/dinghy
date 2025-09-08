@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Delayed } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Delayed } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Delayed/>
 ```

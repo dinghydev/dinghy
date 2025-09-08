@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LowpassFilter } from '@diac/standard-components-diagrams/electricalMisc'
+import { LowpassFilter } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <LowpassFilter/>
 ```

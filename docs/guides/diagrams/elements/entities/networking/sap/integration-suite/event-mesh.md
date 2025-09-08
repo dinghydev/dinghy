@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventMesh } from '@diac/standard-components-diagrams/sapIntegrationSuite'
+import { EventMesh } from '@dinghy/standard-components-diagrams/sapIntegrationSuite'
 
 <EventMesh/>
 ```

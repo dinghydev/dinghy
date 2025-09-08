@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LimitSwitchOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { LimitSwitchOn } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <LimitSwitchOn/>
 ```

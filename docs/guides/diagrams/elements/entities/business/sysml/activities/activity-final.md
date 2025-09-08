@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActivityFinal } from '@diac/standard-components-diagrams/sysmlActivities'
+import { ActivityFinal } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <ActivityFinal/>
 ```

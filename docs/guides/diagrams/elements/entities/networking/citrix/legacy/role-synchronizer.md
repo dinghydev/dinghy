@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoleSynchronizer } from '@diac/standard-components-diagrams/citrixLegacy'
+import { RoleSynchronizer } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <RoleSynchronizer/>
 ```

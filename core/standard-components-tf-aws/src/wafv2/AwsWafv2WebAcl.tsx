@@ -3,12 +3,12 @@ import {
   ResolvableRecordSchema,
   ResolvableStringSchema,
   useTypedNode,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 
 import z from 'zod'
-import { Waf } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { Waf } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 export const InputSchema = z.object({
   name: ResolvableStringSchema.optional(),

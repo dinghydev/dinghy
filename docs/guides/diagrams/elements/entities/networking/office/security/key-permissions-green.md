@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeyPermissionsGreen } from '@diac/standard-components-diagrams/officeSecurity'
+import { KeyPermissionsGreen } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <KeyPermissionsGreen/>
 ```

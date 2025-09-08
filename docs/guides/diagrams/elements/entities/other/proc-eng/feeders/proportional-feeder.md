@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProportionalFeeder } from '@diac/standard-components-diagrams/procEngFeeders'
+import { ProportionalFeeder } from '@dinghy/standard-components-diagrams/procEngFeeders'
 
 <ProportionalFeeder/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BeltSkimmer } from '@diac/standard-components-diagrams/procEngMisc'
+import { BeltSkimmer } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <BeltSkimmer/>
 ```

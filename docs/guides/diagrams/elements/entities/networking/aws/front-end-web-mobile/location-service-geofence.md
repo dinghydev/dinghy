@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LocationServiceGeofence } from '@diac/standard-components-diagrams/awsFrontEndWebMobile'
+import { LocationServiceGeofence } from '@dinghy/standard-components-diagrams/awsFrontEndWebMobile'
 
 <LocationServiceGeofence/>
 ```

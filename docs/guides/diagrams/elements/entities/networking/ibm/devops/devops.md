@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Devops } from '@diac/standard-components-diagrams/ibmDevops'
+import { Devops } from '@dinghy/standard-components-diagrams/ibmDevops'
 
 <Devops/>
 ```

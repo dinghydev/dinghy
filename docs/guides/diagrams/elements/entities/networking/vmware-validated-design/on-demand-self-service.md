@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnDemandSelfService } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { OnDemandSelfService } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <OnDemandSelfService/>
 ```

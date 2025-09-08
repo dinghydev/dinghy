@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapEventBrokerForSapCloudApplications } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapEventBrokerForSapCloudApplications } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapEventBrokerForSapCloudApplications/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AlexaEnabledDevice } from '@diac/standard-components-diagrams/aws17InternetOfThings'
+import { AlexaEnabledDevice } from '@dinghy/standard-components-diagrams/aws17InternetOfThings'
 
 <AlexaEnabledDevice/>
 ```

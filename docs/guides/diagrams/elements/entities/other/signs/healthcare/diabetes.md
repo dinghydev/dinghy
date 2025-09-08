@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Diabetes } from '@diac/standard-components-diagrams/signsHealthcare'
+import { Diabetes } from '@dinghy/standard-components-diagrams/signsHealthcare'
 
 <Diabetes/>
 ```

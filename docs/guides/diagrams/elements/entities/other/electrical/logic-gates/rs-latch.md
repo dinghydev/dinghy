@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RsLatch } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { RsLatch } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <RsLatch/>
 ```

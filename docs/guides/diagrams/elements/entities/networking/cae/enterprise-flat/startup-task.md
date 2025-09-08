@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StartupTask } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { StartupTask } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <StartupTask/>
 ```

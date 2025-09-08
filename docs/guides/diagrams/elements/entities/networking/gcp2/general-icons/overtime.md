@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Overtime } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Overtime } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Overtime/>
 ```

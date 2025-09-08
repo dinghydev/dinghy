@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MediaPool } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { MediaPool } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <MediaPool/>
 ```

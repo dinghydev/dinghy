@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BestPractices } from '@diac/standard-components-diagrams/officeConcepts'
+import { BestPractices } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <BestPractices/>
 ```

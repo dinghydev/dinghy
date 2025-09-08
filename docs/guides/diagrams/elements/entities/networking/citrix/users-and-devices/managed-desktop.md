@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedDesktop } from '@diac/standard-components-diagrams/citrixUsersAndDevices'
+import { ManagedDesktop } from '@dinghy/standard-components-diagrams/citrixUsersAndDevices'
 
 <ManagedDesktop/>
 ```

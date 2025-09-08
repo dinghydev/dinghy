@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InlineMessage3 } from '@diac/standard-components-diagrams/atlassian'
+import { InlineMessage3 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <InlineMessage3/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component3rdPartyIdpAndProtocols6 } from '@diac/standard-components-diagrams/sapEssentials'
+import { Component3rdPartyIdpAndProtocols6 } from '@dinghy/standard-components-diagrams/sapEssentials'
 
 <Component3rdPartyIdpAndProtocols6/>
 ```

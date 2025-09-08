@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InitialNode } from '@diac/standard-components-diagrams/sysmlActivities'
+import { InitialNode } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <InitialNode/>
 ```

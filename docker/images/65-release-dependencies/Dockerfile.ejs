@@ -1,9 +1,9 @@
 ARG BUILD_ARCH=arm64
 FROM <%= DOCKER_IMAGE_RELEASE_BASE_TAG %>-linux-$BUILD_ARCH
 
-COPY . /diac
+COPY . /dinghy
 
-RUN cd /diac && \
+RUN cd /dinghy && \
     . /root/.bashrc && \
     deno run -A cache-installer.ts && \
     rm -rf xdeno.* xcache-installer.ts engine/xpackages-to-cache.ts xengine/deno.jsonc

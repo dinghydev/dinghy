@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IndustrialMediaConverterPoe } from '@diac/standard-components-diagrams/alliedTelesisMediaConverters'
+import { IndustrialMediaConverterPoe } from '@dinghy/standard-components-diagrams/alliedTelesisMediaConverters'
 
 <IndustrialMediaConverterPoe/>
 ```

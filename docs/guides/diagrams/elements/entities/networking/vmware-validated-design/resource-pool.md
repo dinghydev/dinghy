@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResourcePool } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { ResourcePool } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <ResourcePool/>
 ```

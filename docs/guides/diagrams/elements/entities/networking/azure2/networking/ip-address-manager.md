@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpAddressManager } from '@diac/standard-components-diagrams/azure2Networking'
+import { IpAddressManager } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <IpAddressManager/>
 ```

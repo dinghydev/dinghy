@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X12310ReclassifierWith } from '@diac/standard-components-diagrams/fluidPower'
+import { X12310ReclassifierWith } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X12310ReclassifierWith/>
 ```

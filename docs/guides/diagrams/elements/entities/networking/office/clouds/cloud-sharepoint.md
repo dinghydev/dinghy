@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudSharepoint } from '@diac/standard-components-diagrams/officeClouds'
+import { CloudSharepoint } from '@dinghy/standard-components-diagrams/officeClouds'
 
 <CloudSharepoint/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlpWsWordSegmentation } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlpWsWordSegmentation } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlpWsWordSegmentation/>
 ```

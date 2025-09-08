@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { XmppService } from '@diac/standard-components-diagrams/officeCommunications'
+import { XmppService } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <XmppService/>
 ```

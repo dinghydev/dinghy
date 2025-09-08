@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextField } from '@diac/standard-components-diagrams/atlassian'
+import { TextField } from '@dinghy/standard-components-diagrams/atlassian'
 
 <TextField/>
 ```

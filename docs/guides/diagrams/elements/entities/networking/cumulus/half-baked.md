@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HalfBaked } from '@diac/standard-components-diagrams/cumulus'
+import { HalfBaked } from '@dinghy/standard-components-diagrams/cumulus'
 
 <HalfBaked/>
 ```

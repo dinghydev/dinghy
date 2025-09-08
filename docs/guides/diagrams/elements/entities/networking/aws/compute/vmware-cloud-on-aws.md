@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmwareCloudOnAws } from '@diac/standard-components-diagrams/awsCompute'
+import { VmwareCloudOnAws } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <VmwareCloudOnAws/>
 ```

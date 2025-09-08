@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RelationalDatabase } from '@diac/standard-components-diagrams/ciscoStorage'
+import { RelationalDatabase } from '@dinghy/standard-components-diagrams/ciscoStorage'
 
 <RelationalDatabase/>
 ```

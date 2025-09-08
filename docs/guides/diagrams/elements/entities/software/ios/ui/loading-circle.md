@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadingCircle } from '@diac/standard-components-diagrams/ios7Ui'
+import { LoadingCircle } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <LoadingCircle/>
 ```

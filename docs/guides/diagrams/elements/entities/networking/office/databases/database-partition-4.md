@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabasePartition4 } from '@diac/standard-components-diagrams/officeDatabases'
+import { DatabasePartition4 } from '@dinghy/standard-components-diagrams/officeDatabases'
 
 <DatabasePartition4/>
 ```

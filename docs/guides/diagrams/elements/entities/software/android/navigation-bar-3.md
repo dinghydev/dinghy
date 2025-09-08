@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NavigationBar3 } from '@diac/standard-components-diagrams/android'
+import { NavigationBar3 } from '@dinghy/standard-components-diagrams/android'
 
 <NavigationBar3/>
 ```

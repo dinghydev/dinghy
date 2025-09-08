@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CostManagementAndBilling } from '@diac/standard-components-diagrams/azure2Migrate'
+import { CostManagementAndBilling } from '@dinghy/standard-components-diagrams/azure2Migrate'
 
 <CostManagementAndBilling/>
 ```

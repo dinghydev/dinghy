@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElevatorBucketZForm } from '@diac/standard-components-diagrams/procEngMisc'
+import { ElevatorBucketZForm } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <ElevatorBucketZForm/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ViewingGlass } from '@diac/standard-components-diagrams/procEngFittings'
+import { ViewingGlass } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <ViewingGlass/>
 ```

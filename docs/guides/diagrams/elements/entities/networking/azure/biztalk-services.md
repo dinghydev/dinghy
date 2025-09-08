@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BiztalkServices } from '@diac/standard-components-diagrams/azure'
+import { BiztalkServices } from '@dinghy/standard-components-diagrams/azure'
 
 <BiztalkServices/>
 ```

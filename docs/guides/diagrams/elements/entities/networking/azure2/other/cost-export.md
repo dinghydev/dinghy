@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CostExport } from '@diac/standard-components-diagrams/azure2Other'
+import { CostExport } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <CostExport/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WaterCooler } from '@diac/standard-components-diagrams/floorPlans'
+import { WaterCooler } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <WaterCooler/>
 ```

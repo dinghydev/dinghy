@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IsuIntelligentSemanticUnderstanding } from '@diac/standard-components-diagrams/alibabaCloud'
+import { IsuIntelligentSemanticUnderstanding } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <IsuIntelligentSemanticUnderstanding/>
 ```

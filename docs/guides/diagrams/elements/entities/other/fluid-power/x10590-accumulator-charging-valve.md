@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X10590AccumulatorChargingValve } from '@diac/standard-components-diagrams/fluidPower'
+import { X10590AccumulatorChargingValve } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X10590AccumulatorChargingValve/>
 ```

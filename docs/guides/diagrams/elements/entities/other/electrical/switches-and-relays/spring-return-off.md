@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpringReturnOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { SpringReturnOff } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <SpringReturnOff/>
 ```

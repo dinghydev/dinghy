@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PurviewAccounts } from '@diac/standard-components-diagrams/azure2Databases'
+import { PurviewAccounts } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <PurviewAccounts/>
 ```

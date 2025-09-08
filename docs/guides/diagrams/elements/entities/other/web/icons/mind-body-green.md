@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MindBodyGreen } from '@diac/standard-components-diagrams/webIcons'
+import { MindBodyGreen } from '@dinghy/standard-components-diagrams/webIcons'
 
 <MindBodyGreen/>
 ```

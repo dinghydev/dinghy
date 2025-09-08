@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KanbanPost } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { KanbanPost } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <KanbanPost/>
 ```

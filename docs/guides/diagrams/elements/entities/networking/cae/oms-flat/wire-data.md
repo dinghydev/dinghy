@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WireData } from '@diac/standard-components-diagrams/caeOmsFlat'
+import { WireData } from '@dinghy/standard-components-diagrams/caeOmsFlat'
 
 <WireData/>
 ```

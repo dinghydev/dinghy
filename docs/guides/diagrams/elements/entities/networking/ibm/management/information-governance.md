@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InformationGovernance } from '@diac/standard-components-diagrams/ibmManagement'
+import { InformationGovernance } from '@dinghy/standard-components-diagrams/ibmManagement'
 
 <InformationGovernance/>
 ```

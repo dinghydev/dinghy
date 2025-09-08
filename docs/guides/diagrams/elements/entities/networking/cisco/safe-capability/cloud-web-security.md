@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudWebSecurity } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { CloudWebSecurity } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <CloudWebSecurity/>
 ```

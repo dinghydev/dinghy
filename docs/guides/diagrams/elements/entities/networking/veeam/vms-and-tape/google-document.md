@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GoogleDocument } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { GoogleDocument } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <GoogleDocument/>
 ```

@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const JL581A_ARUBA_8320_48P_1G_10GBASE_T_AND_6P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE =
   {

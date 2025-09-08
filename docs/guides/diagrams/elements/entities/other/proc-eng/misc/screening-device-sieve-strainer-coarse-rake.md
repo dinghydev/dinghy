@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScreeningDeviceSieveStrainerCoarseRake } from '@diac/standard-components-diagrams/procEngMisc'
+import { ScreeningDeviceSieveStrainerCoarseRake } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <ScreeningDeviceSieveStrainerCoarseRake/>
 ```

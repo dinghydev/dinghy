@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FibreChannelDiskSubsystem } from '@diac/standard-components-diagrams/ciscoStorage'
+import { FibreChannelDiskSubsystem } from '@dinghy/standard-components-diagrams/ciscoStorage'
 
 <FibreChannelDiskSubsystem/>
 ```

@@ -1,4 +1,4 @@
-import type { NodeTree } from '@diac/base-components'
+import type { NodeTree } from '@dinghy/base-components'
 import type { HostContainer } from '../types.ts'
 
 export const p50CollectViewsAndStages = (

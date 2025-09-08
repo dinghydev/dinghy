@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlrHelperAppliance } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { FlrHelperAppliance } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <FlrHelperAppliance/>
 ```

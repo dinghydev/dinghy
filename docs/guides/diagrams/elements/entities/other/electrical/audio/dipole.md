@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dipole } from '@diac/standard-components-diagrams/electricalAudio'
+import { Dipole } from '@dinghy/standard-components-diagrams/electricalAudio'
 
 <Dipole/>
 ```

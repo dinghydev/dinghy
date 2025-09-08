@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Or } from '@diac/standard-components-diagrams/flowchart'
+import { Or } from '@dinghy/standard-components-diagrams/flowchart'
 
 <Or/>
 ```

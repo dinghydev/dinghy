@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DedicatedProcess } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { DedicatedProcess } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <DedicatedProcess/>
 ```

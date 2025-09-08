@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsCloudhsm } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsCloudhsm } from '@dinghy/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsCloudhsm/>
 ```

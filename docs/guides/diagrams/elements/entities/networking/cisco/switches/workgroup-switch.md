@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkgroupSwitch } from '@diac/standard-components-diagrams/ciscoSwitches'
+import { WorkgroupSwitch } from '@dinghy/standard-components-diagrams/ciscoSwitches'
 
 <WorkgroupSwitch/>
 ```

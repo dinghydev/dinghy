@@ -16,7 +16,7 @@ IP Addresses
 ## Usage
 
 ```
-import { CloudExternalIpAddresses } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudExternalIpAddresses } from '@dinghy/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudExternalIpAddresses/>
 ```

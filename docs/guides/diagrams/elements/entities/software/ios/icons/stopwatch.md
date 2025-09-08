@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stopwatch } from '@diac/standard-components-diagrams/ios7Icons'
+import { Stopwatch } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Stopwatch/>
 ```

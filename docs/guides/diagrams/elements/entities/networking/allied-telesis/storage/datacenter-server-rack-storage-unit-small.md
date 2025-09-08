@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatacenterServerRackStorageUnitSmall } from '@diac/standard-components-diagrams/alliedTelesisStorage'
+import { DatacenterServerRackStorageUnitSmall } from '@dinghy/standard-components-diagrams/alliedTelesisStorage'
 
 <DatacenterServerRackStorageUnitSmall/>
 ```

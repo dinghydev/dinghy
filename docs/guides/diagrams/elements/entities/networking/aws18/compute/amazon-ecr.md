@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonEcr } from '@diac/standard-components-diagrams/aws18Compute'
+import { AmazonEcr } from '@dinghy/standard-components-diagrams/aws18Compute'
 
 <AmazonEcr/>
 ```

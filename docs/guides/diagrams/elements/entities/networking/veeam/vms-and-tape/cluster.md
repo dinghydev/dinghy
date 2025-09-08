@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cluster } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Cluster } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Cluster/>
 ```

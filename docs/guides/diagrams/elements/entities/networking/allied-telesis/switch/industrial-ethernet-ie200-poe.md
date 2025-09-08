@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IndustrialEthernetIe200Poe } from '@diac/standard-components-diagrams/alliedTelesisSwitch'
+import { IndustrialEthernetIe200Poe } from '@dinghy/standard-components-diagrams/alliedTelesisSwitch'
 
 <IndustrialEthernetIe200Poe/>
 ```

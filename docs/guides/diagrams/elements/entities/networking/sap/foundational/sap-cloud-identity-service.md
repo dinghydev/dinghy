@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapCloudIdentityService } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapCloudIdentityService } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapCloudIdentityService/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Permissions } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { Permissions } from '@dinghy/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <Permissions/>
 ```

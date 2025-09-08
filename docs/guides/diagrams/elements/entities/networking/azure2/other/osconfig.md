@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Osconfig } from '@diac/standard-components-diagrams/azure2Other'
+import { Osconfig } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Osconfig/>
 ```

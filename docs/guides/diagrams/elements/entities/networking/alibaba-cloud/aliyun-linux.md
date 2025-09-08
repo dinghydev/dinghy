@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AliyunLinux } from '@diac/standard-components-diagrams/alibabaCloud'
+import { AliyunLinux } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <AliyunLinux/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceTicketIntelligence } from '@diac/standard-components-diagrams/sapAi'
+import { ServiceTicketIntelligence } from '@dinghy/standard-components-diagrams/sapAi'
 
 <ServiceTicketIntelligence/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HpVirtualConnectFlex1010d } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
+import { HpVirtualConnectFlex1010d } from '@dinghy/standard-components-diagrams/rackHpeArubaSwitches'
 
 <HpVirtualConnectFlex1010d/>
 ```

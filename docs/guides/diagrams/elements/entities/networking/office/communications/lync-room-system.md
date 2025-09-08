@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LyncRoomSystem } from '@diac/standard-components-diagrams/officeCommunications'
+import { LyncRoomSystem } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <LyncRoomSystem/>
 ```

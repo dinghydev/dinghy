@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmwareVswitch } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { VmwareVswitch } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <VmwareVswitch/>
 ```

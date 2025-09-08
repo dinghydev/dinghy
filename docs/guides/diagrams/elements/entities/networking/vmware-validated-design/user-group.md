@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserGroup } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { UserGroup } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <UserGroup/>
 ```

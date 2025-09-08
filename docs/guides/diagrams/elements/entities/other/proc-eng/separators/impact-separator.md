@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImpactSeparator } from '@diac/standard-components-diagrams/procEngSeparators'
+import { ImpactSeparator } from '@dinghy/standard-components-diagrams/procEngSeparators'
 
 <ImpactSeparator/>
 ```

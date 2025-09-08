@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StateManager } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { StateManager } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <StateManager/>
 ```

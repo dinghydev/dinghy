@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonMq } from '@diac/standard-components-diagrams/aws18ApplicationIntegration'
+import { AmazonMq } from '@dinghy/standard-components-diagrams/aws18ApplicationIntegration'
 
 <AmazonMq/>
 ```

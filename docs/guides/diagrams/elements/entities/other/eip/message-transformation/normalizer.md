@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Normalizer } from '@diac/standard-components-diagrams/eipMessageTransformation'
+import { Normalizer } from '@dinghy/standard-components-diagrams/eipMessageTransformation'
 
 <Normalizer/>
 ```

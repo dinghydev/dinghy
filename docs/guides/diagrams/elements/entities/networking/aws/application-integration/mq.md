@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mq } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { Mq } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <Mq/>
 ```

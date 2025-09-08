@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MapNavigator } from '@diac/standard-components-diagrams/mockupNavigation'
+import { MapNavigator } from '@dinghy/standard-components-diagrams/mockupNavigation'
 
 <MapNavigator/>
 ```

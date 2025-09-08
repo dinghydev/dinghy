@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticsearchService } from '@diac/standard-components-diagrams/aws17Analytics'
+import { ElasticsearchService } from '@dinghy/standard-components-diagrams/aws17Analytics'
 
 <ElasticsearchService/>
 ```

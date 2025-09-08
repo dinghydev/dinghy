@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogicComposer } from '@diac/standard-components-diagrams/alibabaCloud'
+import { LogicComposer } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <LogicComposer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Redis } from '@diac/standard-components-diagrams/aws17Database'
+import { Redis } from '@dinghy/standard-components-diagrams/aws17Database'
 
 <Redis/>
 ```

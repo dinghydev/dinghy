@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrustedApplicationServer } from '@diac/standard-components-diagrams/officeSecurity'
+import { TrustedApplicationServer } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <TrustedApplicationServer/>
 ```

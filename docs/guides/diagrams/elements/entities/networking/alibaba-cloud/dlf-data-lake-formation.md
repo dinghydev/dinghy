@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DlfDataLakeFormation } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DlfDataLakeFormation } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DlfDataLakeFormation/>
 ```

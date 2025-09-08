@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pulse } from '@diac/standard-components-diagrams/electricalWaveforms'
+import { Pulse } from '@dinghy/standard-components-diagrams/electricalWaveforms'
 
 <Pulse/>
 ```

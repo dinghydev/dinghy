@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecureEndpointPc } from '@diac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
+import { SecureEndpointPc } from '@dinghy/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
 
 <SecureEndpointPc/>
 ```

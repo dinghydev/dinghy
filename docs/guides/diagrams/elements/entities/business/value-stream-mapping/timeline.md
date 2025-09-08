@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Timeline } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { Timeline } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <Timeline/>
 ```

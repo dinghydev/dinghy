@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Printer } from '@diac/standard-components-diagrams/network2'
+import { Printer } from '@dinghy/standard-components-diagrams/network2'
 
 <Printer/>
 ```

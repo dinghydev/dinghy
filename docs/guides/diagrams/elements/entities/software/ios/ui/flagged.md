@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Flagged } from '@diac/standard-components-diagrams/ios7Ui'
+import { Flagged } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <Flagged/>
 ```

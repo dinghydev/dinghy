@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonSubtle } from '@diac/standard-components-diagrams/atlassian'
+import { ButtonSubtle } from '@dinghy/standard-components-diagrams/atlassian'
 
 <ButtonSubtle/>
 ```

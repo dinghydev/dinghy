@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceUpdateService } from '@diac/standard-components-diagrams/officeDevices'
+import { DeviceUpdateService } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <DeviceUpdateService/>
 ```

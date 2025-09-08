@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataLossPrevention } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { DataLossPrevention } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <DataLossPrevention/>
 ```

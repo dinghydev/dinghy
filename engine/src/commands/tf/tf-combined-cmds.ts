@@ -3,11 +3,11 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@diac/cli'
-import { doWithStacks, OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
+} from '@dinghy/cli'
+import { doWithStacks, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import tf from './index.ts'
-import { runCommand } from '@diac/cli'
-import { diacAppConfig, hostAppHome, requireStacksConfig } from '@diac/cli'
+import { runCommand } from '@dinghy/cli'
+import { dinghyAppConfig, hostAppHome, requireStacksConfig } from '@dinghy/cli'
 import {
   attachChangeToMR,
   isCi,
@@ -67,7 +67,7 @@ export const createCombinedTfCmds = (
 
     const stacksOptions: any = {}
     await doWithStacks(
-      diacAppConfig,
+      dinghyAppConfig,
       args.stack,
       async (stackOptions: any) => {
         const renderArgs = [

@@ -12,8 +12,8 @@ import { versionDetails } from '../utils/projectVersions.ts'
 import { configGetEngineImage } from '../utils/dockerConfig.ts'
 import {
   hostAppHome,
-  diacHome,
-  diacRcFiles,
+  dinghyHome,
+  dinghyRcFiles,
 } from '../utils/loadConfig.ts'
 
 const options: CommandOptions = {
@@ -29,7 +29,7 @@ type InfoItem = {
 
 const existConfigFiles = () => {
   return [
-    ...diacRcFiles,
+    ...dinghyRcFiles,
     `${hostAppHome}/iac.yaml`,
   ].filter((path) => existsSync(path))
 }
@@ -47,10 +47,10 @@ const binaryVersion = async (bin: string) => {
 
 const run = async (_context: CommandContext, _args: CommandArgs) => {
   const infoItems: InfoItem[] = []
-  infoItems.push({ label: 'DIaC version', value: versionDetails() })
-  infoItems.push({ label: 'DIaC home', value: diacHome })
+  infoItems.push({ label: 'Dinghy version', value: versionDetails() })
+  infoItems.push({ label: 'Dinghy home', value: dinghyHome })
   infoItems.push({
-    label: 'DIaC config files',
+    label: 'Dinghy config files',
     value: existConfigFiles().join(', '),
   })
   infoItems.push({ label: 'Engine image', value: configGetEngineImage() })

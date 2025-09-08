@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonSagemaker } from '@diac/standard-components-diagrams/aws18MachineLearning'
+import { AmazonSagemaker } from '@dinghy/standard-components-diagrams/aws18MachineLearning'
 
 <AmazonSagemaker/>
 ```

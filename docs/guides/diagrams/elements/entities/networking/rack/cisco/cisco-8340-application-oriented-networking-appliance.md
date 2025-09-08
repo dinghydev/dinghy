@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cisco8340ApplicationOrientedNetworkingAppliance } from '@diac/standard-components-diagrams/rackCisco'
+import { Cisco8340ApplicationOrientedNetworkingAppliance } from '@dinghy/standard-components-diagrams/rackCisco'
 
 <Cisco8340ApplicationOrientedNetworkingAppliance/>
 ```

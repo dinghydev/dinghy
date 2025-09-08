@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Datastore } from '@diac/standard-components-diagrams/gcp2IconsDatabases'
+import { Datastore } from '@dinghy/standard-components-diagrams/gcp2IconsDatabases'
 
 <Datastore/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentityDirectory } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { IdentityDirectory } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <IdentityDirectory/>
 ```

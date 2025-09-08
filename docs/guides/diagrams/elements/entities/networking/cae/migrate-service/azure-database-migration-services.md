@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureDatabaseMigrationServices } from '@diac/standard-components-diagrams/caeMigrateService'
+import { AzureDatabaseMigrationServices } from '@dinghy/standard-components-diagrams/caeMigrateService'
 
 <AzureDatabaseMigrationServices/>
 ```

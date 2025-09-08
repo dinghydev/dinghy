@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sharefile } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Sharefile } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Sharefile/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThinkboxFrost } from '@diac/standard-components-diagrams/awsMediaServices'
+import { ThinkboxFrost } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <ThinkboxFrost/>
 ```

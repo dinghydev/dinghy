@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DialogWithPersistentFooterButton } from '@diac/standard-components-diagrams/gmdlDialogs'
+import { DialogWithPersistentFooterButton } from '@dinghy/standard-components-diagrams/gmdlDialogs'
 
 <DialogWithPersistentFooterButton/>
 ```

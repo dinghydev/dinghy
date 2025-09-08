@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DetectedSoftware } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { DetectedSoftware } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <DetectedSoftware/>
 ```

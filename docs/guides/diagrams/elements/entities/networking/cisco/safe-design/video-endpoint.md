@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VideoEndpoint } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { VideoEndpoint } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <VideoEndpoint/>
 ```

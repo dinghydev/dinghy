@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamPluginForSapHana } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamPluginForSapHana } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamPluginForSapHana/>
 ```

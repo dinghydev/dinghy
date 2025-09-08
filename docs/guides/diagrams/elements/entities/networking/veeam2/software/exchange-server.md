@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExchangeServer } from '@diac/standard-components-diagrams/veeam2Software'
+import { ExchangeServer } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <ExchangeServer/>
 ```

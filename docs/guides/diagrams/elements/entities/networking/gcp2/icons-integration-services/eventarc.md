@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Eventarc } from '@diac/standard-components-diagrams/gcp2IconsIntegrationServices'
+import { Eventarc } from '@dinghy/standard-components-diagrams/gcp2IconsIntegrationServices'
 
 <Eventarc/>
 ```

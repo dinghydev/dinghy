@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Forecast } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Forecast } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Forecast/>
 ```

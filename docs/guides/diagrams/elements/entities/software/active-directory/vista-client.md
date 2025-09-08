@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VistaClient } from '@diac/standard-components-diagrams/activeDirectory'
+import { VistaClient } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <VistaClient/>
 ```

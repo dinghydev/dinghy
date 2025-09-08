@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedStreamingForApacheKafka } from '@diac/standard-components-diagrams/awsAnalytics'
+import { ManagedStreamingForApacheKafka } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <ManagedStreamingForApacheKafka/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CallAdmissionControlService } from '@diac/standard-components-diagrams/officeServers'
+import { CallAdmissionControlService } from '@dinghy/standard-components-diagrams/officeServers'
 
 <CallAdmissionControlService/>
 ```

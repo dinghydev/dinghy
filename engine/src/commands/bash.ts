@@ -3,8 +3,8 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@diac/cli'
-import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@diac/cli'
+} from '@dinghy/cli'
+import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@dinghy/cli'
 import { streamCmd } from '../utils/cmd.ts'
 import { subCommandArgs } from '../utils/subCommandArgs.ts'
 

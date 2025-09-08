@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurityManagementSubdued } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { SecurityManagementSubdued } from '@dinghy/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <SecurityManagementSubdued/>
 ```

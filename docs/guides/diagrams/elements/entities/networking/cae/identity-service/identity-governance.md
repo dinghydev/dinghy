@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentityGovernance } from '@diac/standard-components-diagrams/caeIdentityService'
+import { IdentityGovernance } from '@dinghy/standard-components-diagrams/caeIdentityService'
 
 <IdentityGovernance/>
 ```

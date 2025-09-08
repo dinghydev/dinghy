@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ngfw } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { Ngfw } from '@dinghy/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <Ngfw/>
 ```

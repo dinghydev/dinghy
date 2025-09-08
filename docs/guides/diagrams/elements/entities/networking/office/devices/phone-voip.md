@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhoneVoip } from '@diac/standard-components-diagrams/officeDevices'
+import { PhoneVoip } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <PhoneVoip/>
 ```

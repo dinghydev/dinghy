@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GoogleHangout } from '@diac/standard-components-diagrams/webLogos'
+import { GoogleHangout } from '@dinghy/standard-components-diagrams/webLogos'
 
 <GoogleHangout/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IsometricCube } from '@diac/standard-components-diagrams/basic'
+import { IsometricCube } from '@dinghy/standard-components-diagrams/basic'
 
 <IsometricCube/>
 ```

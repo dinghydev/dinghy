@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdvancedRefsIntegration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { AdvancedRefsIntegration } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <AdvancedRefsIntegration/>
 ```

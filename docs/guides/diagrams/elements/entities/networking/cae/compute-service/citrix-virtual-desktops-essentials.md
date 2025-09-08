@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CitrixVirtualDesktopsEssentials } from '@diac/standard-components-diagrams/caeComputeService'
+import { CitrixVirtualDesktopsEssentials } from '@dinghy/standard-components-diagrams/caeComputeService'
 
 <CitrixVirtualDesktopsEssentials/>
 ```

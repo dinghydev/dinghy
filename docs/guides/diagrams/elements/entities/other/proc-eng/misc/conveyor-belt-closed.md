@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConveyorBeltClosed } from '@diac/standard-components-diagrams/procEngMisc'
+import { ConveyorBeltClosed } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <ConveyorBeltClosed/>
 ```

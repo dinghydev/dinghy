@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LinuxIcon } from '@diac/standard-components-diagrams/cumulus'
+import { LinuxIcon } from '@dinghy/standard-components-diagrams/cumulus'
 
 <LinuxIcon/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3FileGateway } from '@diac/standard-components-diagrams/awsStorage'
+import { S3FileGateway } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <S3FileGateway/>
 ```

@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { NumberedRackCabinet } from '@diac/standard-components-diagrams/rackGeneral'
+import { NumberedRackCabinet } from '@dinghy/standard-components-diagrams/rackGeneral'
 
 <NumberedRackCabinet/>
 ```

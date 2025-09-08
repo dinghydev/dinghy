@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MsExchangeItems } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { MsExchangeItems } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <MsExchangeItems/>
 ```

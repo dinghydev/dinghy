@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Breadcrumb3 } from '@diac/standard-components-diagrams/mockupNavigation'
+import { Breadcrumb3 } from '@dinghy/standard-components-diagrams/mockupNavigation'
 
 <Breadcrumb3/>
 ```

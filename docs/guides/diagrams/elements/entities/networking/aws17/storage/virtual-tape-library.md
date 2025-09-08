@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualTapeLibrary } from '@diac/standard-components-diagrams/aws17Storage'
+import { VirtualTapeLibrary } from '@dinghy/standard-components-diagrams/aws17Storage'
 
 <VirtualTapeLibrary/>
 ```

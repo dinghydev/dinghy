@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamExplorerForExchange } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamExplorerForExchange } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamExplorerForExchange/>
 ```

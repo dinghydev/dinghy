@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonSumerian } from '@diac/standard-components-diagrams/aws18ArVr'
+import { AmazonSumerian } from '@dinghy/standard-components-diagrams/aws18ArVr'
 
 <AmazonSumerian/>
 ```

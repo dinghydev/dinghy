@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stakeholder2 } from '@diac/standard-components-diagrams/archimate3Motivation'
+import { Stakeholder2 } from '@dinghy/standard-components-diagrams/archimate3Motivation'
 
 <Stakeholder2/>
 ```

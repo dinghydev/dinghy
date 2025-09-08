@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InlineDialog } from '@diac/standard-components-diagrams/atlassian'
+import { InlineDialog } from '@dinghy/standard-components-diagrams/atlassian'
 
 <InlineDialog/>
 ```

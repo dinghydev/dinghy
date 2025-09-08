@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ec2M1MacInstance } from '@diac/standard-components-diagrams/awsCompute'
+import { Ec2M1MacInstance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Ec2M1MacInstance/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecureMessaging } from '@diac/standard-components-diagrams/officeSecurity'
+import { SecureMessaging } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <SecureMessaging/>
 ```

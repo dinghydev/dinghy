@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SchedulerJobCollections } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { SchedulerJobCollections } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <SchedulerJobCollections/>
 ```

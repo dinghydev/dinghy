@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Target } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Target } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Target/>
 ```

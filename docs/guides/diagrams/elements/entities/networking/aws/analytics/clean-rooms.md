@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CleanRooms } from '@diac/standard-components-diagrams/awsAnalytics'
+import { CleanRooms } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <CleanRooms/>
 ```

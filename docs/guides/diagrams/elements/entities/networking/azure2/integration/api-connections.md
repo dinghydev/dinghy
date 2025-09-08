@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiConnections } from '@diac/standard-components-diagrams/azure2Integration'
+import { ApiConnections } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <ApiConnections/>
 ```

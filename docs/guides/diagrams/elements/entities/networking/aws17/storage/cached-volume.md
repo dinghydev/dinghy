@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CachedVolume } from '@diac/standard-components-diagrams/aws17Storage'
+import { CachedVolume } from '@dinghy/standard-components-diagrams/aws17Storage'
 
 <CachedVolume/>
 ```

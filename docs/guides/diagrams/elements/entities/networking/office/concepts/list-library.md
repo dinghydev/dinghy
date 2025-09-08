@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ListLibrary } from '@diac/standard-components-diagrams/officeConcepts'
+import { ListLibrary } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <ListLibrary/>
 ```

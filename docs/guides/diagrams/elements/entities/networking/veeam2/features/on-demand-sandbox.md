@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnDemandSandbox } from '@diac/standard-components-diagrams/veeam2Features'
+import { OnDemandSandbox } from '@dinghy/standard-components-diagrams/veeam2Features'
 
 <OnDemandSandbox/>
 ```

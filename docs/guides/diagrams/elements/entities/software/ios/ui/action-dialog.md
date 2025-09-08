@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActionDialog } from '@diac/standard-components-diagrams/ios7Ui'
+import { ActionDialog } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <ActionDialog/>
 ```

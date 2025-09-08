@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamServiceProviderConsole } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamServiceProviderConsole } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamServiceProviderConsole/>
 ```

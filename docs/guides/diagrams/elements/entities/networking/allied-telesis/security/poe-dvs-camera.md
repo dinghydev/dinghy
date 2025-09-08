@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PoeDvsCamera } from '@diac/standard-components-diagrams/alliedTelesisSecurity'
+import { PoeDvsCamera } from '@dinghy/standard-components-diagrams/alliedTelesisSecurity'
 
 <PoeDvsCamera/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Privacy } from '@diac/standard-components-diagrams/salesforcePlatform'
+import { Privacy } from '@dinghy/standard-components-diagrams/salesforcePlatform'
 
 <Privacy/>
 ```

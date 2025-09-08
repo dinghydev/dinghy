@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonDanger } from '@diac/standard-components-diagrams/bootstrap'
+import { ButtonDanger } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ButtonDanger/>
 ```

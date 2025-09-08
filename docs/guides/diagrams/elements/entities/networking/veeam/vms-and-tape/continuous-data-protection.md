@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContinuousDataProtection } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { ContinuousDataProtection } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <ContinuousDataProtection/>
 ```

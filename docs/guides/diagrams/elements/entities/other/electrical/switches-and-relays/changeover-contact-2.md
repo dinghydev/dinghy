@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChangeoverContact2 } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { ChangeoverContact2 } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <ChangeoverContact2/>
 ```

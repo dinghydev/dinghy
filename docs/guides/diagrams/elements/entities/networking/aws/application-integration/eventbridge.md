@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Eventbridge } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { Eventbridge } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <Eventbridge/>
 ```

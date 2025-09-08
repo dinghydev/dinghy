@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MotorCircuitBreaker132a } from '@diac/standard-components-diagrams/cabinets'
+import { MotorCircuitBreaker132a } from '@dinghy/standard-components-diagrams/cabinets'
 
 <MotorCircuitBreaker132a/>
 ```

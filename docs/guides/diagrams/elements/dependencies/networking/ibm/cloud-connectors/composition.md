@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Composition } from '@diac/standard-components-diagrams/ibmCloudConnectors'
+import { Composition } from '@dinghy/standard-components-diagrams/ibmCloudConnectors'
 
 <Composition/>
 ```

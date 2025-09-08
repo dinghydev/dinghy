@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IndeterminateSpinner } from '@diac/standard-components-diagrams/android'
+import { IndeterminateSpinner } from '@dinghy/standard-components-diagrams/android'
 
 <IndeterminateSpinner/>
 ```

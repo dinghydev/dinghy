@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticInference } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { ElasticInference } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <ElasticInference/>
 ```

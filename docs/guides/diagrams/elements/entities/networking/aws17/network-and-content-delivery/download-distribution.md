@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DownloadDistribution } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { DownloadDistribution } from '@dinghy/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <DownloadDistribution/>
 ```

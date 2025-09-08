@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileCacheOnPremisesNfsLinkedDatasets } from '@diac/standard-components-diagrams/awsStorage'
+import { FileCacheOnPremisesNfsLinkedDatasets } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <FileCacheOnPremisesNfsLinkedDatasets/>
 ```

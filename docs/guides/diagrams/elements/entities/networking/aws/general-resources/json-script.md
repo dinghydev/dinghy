@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { JsonScript } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { JsonScript } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <JsonScript/>
 ```

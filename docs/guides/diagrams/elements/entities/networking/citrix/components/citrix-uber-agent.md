@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CitrixUberAgent } from '@diac/standard-components-diagrams/citrixComponents'
+import { CitrixUberAgent } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <CitrixUberAgent/>
 ```

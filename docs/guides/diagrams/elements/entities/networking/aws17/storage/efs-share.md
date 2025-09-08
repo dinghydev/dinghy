@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EfsShare } from '@diac/standard-components-diagrams/aws17Storage'
+import { EfsShare } from '@dinghy/standard-components-diagrams/aws17Storage'
 
 <EfsShare/>
 ```

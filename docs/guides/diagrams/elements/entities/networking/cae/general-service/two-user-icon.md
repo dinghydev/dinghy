@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TwoUserIcon } from '@diac/standard-components-diagrams/caeGeneralService'
+import { TwoUserIcon } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <TwoUserIcon/>
 ```

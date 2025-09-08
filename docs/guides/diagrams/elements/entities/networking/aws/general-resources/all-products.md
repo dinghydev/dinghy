@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AllProducts } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { AllProducts } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <AllProducts/>
 ```

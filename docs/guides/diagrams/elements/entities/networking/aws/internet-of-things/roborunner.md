@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Roborunner } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Roborunner } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Roborunner/>
 ```

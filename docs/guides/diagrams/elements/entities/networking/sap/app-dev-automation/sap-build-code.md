@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapBuildCode } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { SapBuildCode } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <SapBuildCode/>
 ```

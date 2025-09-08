@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Jquery } from '@diac/standard-components-diagrams/webLogos'
+import { Jquery } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Jquery/>
 ```

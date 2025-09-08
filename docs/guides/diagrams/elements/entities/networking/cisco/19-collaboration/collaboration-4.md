@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Collaboration4 } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { Collaboration4 } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <Collaboration4/>
 ```

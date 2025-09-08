@@ -1,4 +1,4 @@
-import type { Props } from '@diac/base-components'
+import type { Props } from '@dinghy/base-components'
 
 export const _icon = (icon: string | Props) =>
   typeof icon === 'string'

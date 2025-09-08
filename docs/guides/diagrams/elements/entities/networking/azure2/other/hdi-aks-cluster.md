@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HdiAksCluster } from '@diac/standard-components-diagrams/azure2Other'
+import { HdiAksCluster } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <HdiAksCluster/>
 ```

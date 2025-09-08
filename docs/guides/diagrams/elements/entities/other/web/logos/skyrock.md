@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Skyrock } from '@diac/standard-components-diagrams/webLogos'
+import { Skyrock } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Skyrock/>
 ```

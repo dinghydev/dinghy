@@ -16,7 +16,7 @@ IoT Core
 ## Usage
 
 ```
-import { CloudIotCore } from '@diac/standard-components-diagrams/gcp2IconsInternetOfThings'
+import { CloudIotCore } from '@dinghy/standard-components-diagrams/gcp2IconsInternetOfThings'
 
 <CloudIotCore/>
 ```

@@ -1,11 +1,11 @@
 import {
   type IacNodeProps,
   ResolvableStringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { Shape, useTypedNode } from '@diac/base-components'
+import { Shape, useTypedNode } from '@dinghy/base-components'
 
 export const AwsIamRoleInputSchema = z.object({
   name: ResolvableStringSchema.optional(),

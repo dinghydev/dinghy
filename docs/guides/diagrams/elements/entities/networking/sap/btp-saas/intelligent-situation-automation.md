@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IntelligentSituationAutomation } from '@diac/standard-components-diagrams/sapBtpSaas'
+import { IntelligentSituationAutomation } from '@dinghy/standard-components-diagrams/sapBtpSaas'
 
 <IntelligentSituationAutomation/>
 ```

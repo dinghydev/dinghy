@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonPinpoint } from '@diac/standard-components-diagrams/aws18MobileServices'
+import { AmazonPinpoint } from '@dinghy/standard-components-diagrams/aws18MobileServices'
 
 <AmazonPinpoint/>
 ```

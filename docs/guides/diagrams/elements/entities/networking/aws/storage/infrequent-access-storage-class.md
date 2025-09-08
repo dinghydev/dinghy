@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InfrequentAccessStorageClass } from '@diac/standard-components-diagrams/awsStorage'
+import { InfrequentAccessStorageClass } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <InfrequentAccessStorageClass/>
 ```

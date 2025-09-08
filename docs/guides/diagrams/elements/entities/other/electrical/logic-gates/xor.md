@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Xor } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { Xor } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <Xor/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataStore } from '@diac/standard-components-diagrams/advanced'
+import { DataStore } from '@dinghy/standard-components-diagrams/advanced'
 
 <DataStore/>
 ```

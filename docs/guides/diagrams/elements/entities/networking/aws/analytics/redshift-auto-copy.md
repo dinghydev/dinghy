@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RedshiftAutoCopy } from '@diac/standard-components-diagrams/awsAnalytics'
+import { RedshiftAutoCopy } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <RedshiftAutoCopy/>
 ```

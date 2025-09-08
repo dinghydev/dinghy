@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PubSub } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { PubSub } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <PubSub/>
 ```

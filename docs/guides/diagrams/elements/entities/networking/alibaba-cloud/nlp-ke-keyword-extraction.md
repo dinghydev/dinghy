@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlpKeKeywordExtraction } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlpKeKeywordExtraction } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlpKeKeywordExtraction/>
 ```

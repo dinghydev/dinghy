@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CertificateAuthority } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { CertificateAuthority } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <CertificateAuthority/>
 ```

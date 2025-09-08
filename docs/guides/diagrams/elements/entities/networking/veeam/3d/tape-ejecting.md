@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TapeEjecting } from '@diac/standard-components-diagrams/veeam3d'
+import { TapeEjecting } from '@dinghy/standard-components-diagrams/veeam3d'
 
 <TapeEjecting/>
 ```

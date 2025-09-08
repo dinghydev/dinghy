@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Groups } from '@diac/standard-components-diagrams/azure2Identity'
+import { Groups } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <Groups/>
 ```

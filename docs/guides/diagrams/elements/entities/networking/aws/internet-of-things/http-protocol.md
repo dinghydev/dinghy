@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HttpProtocol } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { HttpProtocol } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <HttpProtocol/>
 ```

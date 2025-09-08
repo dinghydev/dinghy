@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { User1Default } from '@diac/standard-components-diagrams/gcp2Zones'
+import { User1Default } from '@dinghy/standard-components-diagrams/gcp2Zones'
 
 <User1Default/>
 ```

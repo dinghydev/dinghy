@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HealthDashboard } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { HealthDashboard } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <HealthDashboard/>
 ```

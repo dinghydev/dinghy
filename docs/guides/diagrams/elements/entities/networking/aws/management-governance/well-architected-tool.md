@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WellArchitectedTool } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { WellArchitectedTool } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <WellArchitectedTool/>
 ```

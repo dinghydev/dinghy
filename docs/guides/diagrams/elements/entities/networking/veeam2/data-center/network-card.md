@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkCard } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { NetworkCard } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <NetworkCard/>
 ```

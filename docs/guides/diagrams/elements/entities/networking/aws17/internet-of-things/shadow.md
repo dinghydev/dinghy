@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Shadow } from '@diac/standard-components-diagrams/aws17InternetOfThings'
+import { Shadow } from '@dinghy/standard-components-diagrams/aws17InternetOfThings'
 
 <Shadow/>
 ```

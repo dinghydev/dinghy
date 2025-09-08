@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DisabledTextField6 } from '@diac/standard-components-diagrams/atlassian'
+import { DisabledTextField6 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <DisabledTextField6/>
 ```

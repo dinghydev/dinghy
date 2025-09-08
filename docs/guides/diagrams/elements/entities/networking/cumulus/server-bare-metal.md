@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerBareMetal } from '@diac/standard-components-diagrams/cumulus'
+import { ServerBareMetal } from '@dinghy/standard-components-diagrams/cumulus'
 
 <ServerBareMetal/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Audio } from '@diac/standard-components-diagrams/sitemap'
+import { Audio } from '@dinghy/standard-components-diagrams/sitemap'
 
 <Audio/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Key } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Key } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Key/>
 ```

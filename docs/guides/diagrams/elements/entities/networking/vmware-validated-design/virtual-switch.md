@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualSwitch } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { VirtualSwitch } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <VirtualSwitch/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CoverPlate } from '@diac/standard-components-diagrams/cabinets'
+import { CoverPlate } from '@dinghy/standard-components-diagrams/cabinets'
 
 <CoverPlate/>
 ```

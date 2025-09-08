@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Association } from '@diac/standard-components-diagrams/uml25'
+import { Association } from '@dinghy/standard-components-diagrams/uml25'
 
 <Association/>
 ```

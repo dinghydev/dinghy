@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AvailabilitySuite } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { AvailabilitySuite } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <AvailabilitySuite/>
 ```

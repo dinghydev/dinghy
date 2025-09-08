@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConfigRule } from '@diac/standard-components-diagrams/aws17ManagementTools'
+import { ConfigRule } from '@dinghy/standard-components-diagrams/aws17ManagementTools'
 
 <ConfigRule/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualRouter } from '@diac/standard-components-diagrams/azure2Networking'
+import { VirtualRouter } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <VirtualRouter/>
 ```

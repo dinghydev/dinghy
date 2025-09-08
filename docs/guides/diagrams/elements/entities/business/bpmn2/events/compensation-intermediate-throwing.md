@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CompensationIntermediateThrowing } from '@diac/standard-components-diagrams/bpmn2Events'
+import { CompensationIntermediateThrowing } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <CompensationIntermediateThrowing/>
 ```

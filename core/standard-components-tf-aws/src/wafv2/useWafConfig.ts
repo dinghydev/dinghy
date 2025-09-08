@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { loadFilesData, useRenderOptions } from '@diac/base-components'
+import { loadFilesData, useRenderOptions } from '@dinghy/base-components'
 import Debug from 'debug'
 const debug = Debug('useWafConfig')
 

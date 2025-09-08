@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PackageTab } from '@diac/standard-components-diagrams/sysmlModelElements'
+import { PackageTab } from '@dinghy/standard-components-diagrams/sysmlModelElements'
 
 <PackageTab/>
 ```

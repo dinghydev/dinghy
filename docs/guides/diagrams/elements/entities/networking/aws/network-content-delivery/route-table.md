@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouteTable } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { RouteTable } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <RouteTable/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapBuildWorkZoneStandardEdition } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { SapBuildWorkZoneStandardEdition } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <SapBuildWorkZoneStandardEdition/>
 ```

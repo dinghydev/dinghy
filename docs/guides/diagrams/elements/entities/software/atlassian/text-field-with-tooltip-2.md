@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextFieldWithTooltip2 } from '@diac/standard-components-diagrams/atlassian'
+import { TextFieldWithTooltip2 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <TextFieldWithTooltip2/>
 ```

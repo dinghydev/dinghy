@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NoSymbol } from '@diac/standard-components-diagrams/basic'
+import { NoSymbol } from '@dinghy/standard-components-diagrams/basic'
 
 <NoSymbol/>
 ```

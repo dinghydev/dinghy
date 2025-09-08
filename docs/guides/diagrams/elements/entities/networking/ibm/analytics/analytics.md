@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Analytics } from '@diac/standard-components-diagrams/ibmAnalytics'
+import { Analytics } from '@dinghy/standard-components-diagrams/ibmAnalytics'
 
 <Analytics/>
 ```

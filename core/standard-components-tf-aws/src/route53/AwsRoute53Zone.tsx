@@ -1,9 +1,9 @@
-import { IacNodeProps, ResolvableStringSchema } from '@diac/base-components'
+import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { useTypedNode } from '@diac/base-components'
-import { Route53 } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { useTypedNode } from '@dinghy/base-components'
+import { Route53 } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 export const AwsRoute53ZoneInputSchema = z.object({
   name: ResolvableStringSchema.optional(),

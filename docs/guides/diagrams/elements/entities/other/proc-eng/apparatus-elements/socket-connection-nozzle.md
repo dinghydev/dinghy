@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SocketConnectionNozzle } from '@diac/standard-components-diagrams/procEngApparatusElements'
+import { SocketConnectionNozzle } from '@dinghy/standard-components-diagrams/procEngApparatusElements'
 
 <SocketConnectionNozzle/>
 ```

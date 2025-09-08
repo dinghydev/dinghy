@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobileBackend } from '@diac/standard-components-diagrams/ibmInfrastructure'
+import { MobileBackend } from '@dinghy/standard-components-diagrams/ibmInfrastructure'
 
 <MobileBackend/>
 ```

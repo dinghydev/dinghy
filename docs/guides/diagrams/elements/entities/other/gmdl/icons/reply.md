@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Reply } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Reply } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Reply/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X10030PushPullControl } from '@diac/standard-components-diagrams/fluidPower'
+import { X10030PushPullControl } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X10030PushPullControl/>
 ```

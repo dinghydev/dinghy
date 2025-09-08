@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurityIdentityAndCompliance } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { SecurityIdentityAndCompliance } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <SecurityIdentityAndCompliance/>
 ```

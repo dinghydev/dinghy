@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActivityPartition2 } from '@diac/standard-components-diagrams/sysmlActivities'
+import { ActivityPartition2 } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <ActivityPartition2/>
 ```

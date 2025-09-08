@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudInformationPortable } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { CloudInformationPortable } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <CloudInformationPortable/>
 ```

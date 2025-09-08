@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternetGlobe } from '@diac/standard-components-diagrams/activeDirectory'
+import { InternetGlobe } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <InternetGlobe/>
 ```

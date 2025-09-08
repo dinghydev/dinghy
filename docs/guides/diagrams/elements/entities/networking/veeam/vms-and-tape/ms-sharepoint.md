@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MsSharepoint } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { MsSharepoint } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <MsSharepoint/>
 ```

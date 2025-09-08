@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefenderRtu } from '@diac/standard-components-diagrams/azure2Other'
+import { DefenderRtu } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DefenderRtu/>
 ```

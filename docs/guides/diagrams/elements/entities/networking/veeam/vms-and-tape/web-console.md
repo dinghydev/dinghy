@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebConsole } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { WebConsole } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <WebConsole/>
 ```

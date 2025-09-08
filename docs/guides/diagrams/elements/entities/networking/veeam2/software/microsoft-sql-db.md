@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MicrosoftSqlDb } from '@diac/standard-components-diagrams/veeam2Software'
+import { MicrosoftSqlDb } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <MicrosoftSqlDb/>
 ```

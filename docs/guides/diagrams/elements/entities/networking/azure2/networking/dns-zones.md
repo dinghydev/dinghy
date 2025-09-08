@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DnsZones } from '@diac/standard-components-diagrams/azure2Networking'
+import { DnsZones } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <DnsZones/>
 ```

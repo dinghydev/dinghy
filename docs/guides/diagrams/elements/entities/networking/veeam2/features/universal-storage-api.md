@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UniversalStorageApi } from '@diac/standard-components-diagrams/veeam2Features'
+import { UniversalStorageApi } from '@dinghy/standard-components-diagrams/veeam2Features'
 
 <UniversalStorageApi/>
 ```

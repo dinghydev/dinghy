@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Monitor } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Monitor } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Monitor/>
 ```

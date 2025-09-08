@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ListBox } from '@diac/standard-components-diagrams/mockupForms'
+import { ListBox } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <ListBox/>
 ```

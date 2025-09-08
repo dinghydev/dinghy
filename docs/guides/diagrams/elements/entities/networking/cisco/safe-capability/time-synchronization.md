@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimeSynchronization } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { TimeSynchronization } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <TimeSynchronization/>
 ```

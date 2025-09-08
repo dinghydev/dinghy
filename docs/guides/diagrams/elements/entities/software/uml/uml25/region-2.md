@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Region2 } from '@diac/standard-components-diagrams/uml25'
+import { Region2 } from '@dinghy/standard-components-diagrams/uml25'
 
 <Region2/>
 ```

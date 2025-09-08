@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArcKubernetes } from '@diac/standard-components-diagrams/azure2Other'
+import { ArcKubernetes } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ArcKubernetes/>
 ```

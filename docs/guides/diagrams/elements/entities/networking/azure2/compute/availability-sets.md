@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AvailabilitySets } from '@diac/standard-components-diagrams/azure2Compute'
+import { AvailabilitySets } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <AvailabilitySets/>
 ```

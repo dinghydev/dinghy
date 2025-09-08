@@ -1,9 +1,9 @@
 import { toDrawioXml } from './toDrawioXml.ts'
-import type { HostContainer } from '@diac/base-renderer'
+import type { HostContainer } from '@dinghy/base-renderer'
 import { applyProcessors } from './processors/index.ts'
 import type { DrawioRenderOptions } from './types.ts'
-import { RootNode } from '@diac/base-components'
-import { renderNode } from '@diac/base-renderer'
+import { RootNode } from '@dinghy/base-components'
+import { renderNode } from '@dinghy/base-renderer'
 
 export function renderDrawio(
   App: React.FunctionComponent,

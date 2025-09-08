@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeyAccessJustifications } from '@diac/standard-components-diagrams/gcpIconsSecurity'
+import { KeyAccessJustifications } from '@dinghy/standard-components-diagrams/gcpIconsSecurity'
 
 <KeyAccessJustifications/>
 ```

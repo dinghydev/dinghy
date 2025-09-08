@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Subnet } from '@diac/standard-components-diagrams/azure2Networking'
+import { Subnet } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <Subnet/>
 ```

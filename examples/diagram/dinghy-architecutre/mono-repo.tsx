@@ -1,4 +1,4 @@
-import { Dependency, Shape } from "@diac/base-components";
+import { Dependency, Shape } from "@dinghy/base-components";
 
 export function App() {
   return (
@@ -34,7 +34,7 @@ export function App() {
 
 const MonoRepo = (props: any) => (
   <Shape
-    _title="DIaC Mono Repo Projects"
+    _title="Dinghy Mono Repo Projects"
     {...props}
   />
 );

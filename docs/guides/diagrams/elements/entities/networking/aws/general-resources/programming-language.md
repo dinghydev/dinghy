@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgrammingLanguage } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { ProgrammingLanguage } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <ProgrammingLanguage/>
 ```

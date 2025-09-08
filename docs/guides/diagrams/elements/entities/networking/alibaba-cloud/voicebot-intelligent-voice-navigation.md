@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VoicebotIntelligentVoiceNavigation } from '@diac/standard-components-diagrams/alibabaCloud'
+import { VoicebotIntelligentVoiceNavigation } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <VoicebotIntelligentVoiceNavigation/>
 ```

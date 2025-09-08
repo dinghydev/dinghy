@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CmsCloudMonitorService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CmsCloudMonitorService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CmsCloudMonitorService/>
 ```

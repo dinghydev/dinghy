@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GooglePlus } from '@diac/standard-components-diagrams/webIcons'
+import { GooglePlus } from '@dinghy/standard-components-diagrams/webIcons'
 
 <GooglePlus/>
 ```

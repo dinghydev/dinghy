@@ -1,9 +1,9 @@
-import { IacNodeProps, ResolvableStringSchema } from '@diac/base-components'
+import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { useTypedNode } from '@diac/base-components'
-import { Vpc } from '@diac/standard-components-diagrams/awsGroups'
+import { useTypedNode } from '@dinghy/base-components'
+import { Vpc } from '@dinghy/standard-components-diagrams/awsGroups'
 
 export const AwsVpcInputSchema = z.object({
   cidr_block: ResolvableStringSchema.optional(),

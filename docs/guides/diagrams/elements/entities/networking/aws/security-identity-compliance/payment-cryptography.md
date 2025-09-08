@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PaymentCryptography } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { PaymentCryptography } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <PaymentCryptography/>
 ```

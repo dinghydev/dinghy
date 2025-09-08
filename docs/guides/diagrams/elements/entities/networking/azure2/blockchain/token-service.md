@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TokenService } from '@diac/standard-components-diagrams/azure2Blockchain'
+import { TokenService } from '@dinghy/standard-components-diagrams/azure2Blockchain'
 
 <TokenService/>
 ```

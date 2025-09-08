@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Server } from '@diac/standard-components-diagrams/network2'
+import { Server } from '@dinghy/standard-components-diagrams/network2'
 
 <Server/>
 ```

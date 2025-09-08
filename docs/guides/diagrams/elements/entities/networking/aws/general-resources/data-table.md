@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataTable } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { DataTable } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <DataTable/>
 ```

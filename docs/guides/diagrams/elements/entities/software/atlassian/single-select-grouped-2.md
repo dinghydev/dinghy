@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SingleSelectGrouped2 } from '@diac/standard-components-diagrams/atlassian'
+import { SingleSelectGrouped2 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <SingleSelectGrouped2/>
 ```

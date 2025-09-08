@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkgroupSwitchColor } from '@diac/standard-components-diagrams/cisco19LanSwitching'
+import { WorkgroupSwitchColor } from '@dinghy/standard-components-diagrams/cisco19LanSwitching'
 
 <WorkgroupSwitchColor/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Nand } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { Nand } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <Nand/>
 ```

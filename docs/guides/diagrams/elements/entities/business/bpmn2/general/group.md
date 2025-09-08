@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Group } from '@diac/standard-components-diagrams/bpmn2General'
+import { Group } from '@dinghy/standard-components-diagrams/bpmn2General'
 
 <Group/>
 ```

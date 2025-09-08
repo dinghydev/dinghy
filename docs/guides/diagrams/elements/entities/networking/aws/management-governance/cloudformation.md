@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloudformation } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { Cloudformation } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <Cloudformation/>
 ```

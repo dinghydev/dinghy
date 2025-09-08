@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WordAutomationServices } from '@diac/standard-components-diagrams/officeSites'
+import { WordAutomationServices } from '@dinghy/standard-components-diagrams/officeSites'
 
 <WordAutomationServices/>
 ```

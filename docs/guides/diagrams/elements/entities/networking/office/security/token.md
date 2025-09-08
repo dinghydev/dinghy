@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Token } from '@diac/standard-components-diagrams/officeSecurity'
+import { Token } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <Token/>
 ```

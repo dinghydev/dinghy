@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cluster } from '@diac/standard-components-diagrams/aws17Analytics'
+import { Cluster } from '@dinghy/standard-components-diagrams/aws17Analytics'
 
 <Cluster/>
 ```

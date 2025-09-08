@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Quickscroll2 } from '@diac/standard-components-diagrams/android'
+import { Quickscroll2 } from '@dinghy/standard-components-diagrams/android'
 
 <Quickscroll2/>
 ```

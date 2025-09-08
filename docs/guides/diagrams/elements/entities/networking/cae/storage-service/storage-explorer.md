@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageExplorer } from '@diac/standard-components-diagrams/caeStorageService'
+import { StorageExplorer } from '@dinghy/standard-components-diagrams/caeStorageService'
 
 <StorageExplorer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Appnav } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { Appnav } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <Appnav/>
 ```

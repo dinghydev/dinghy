@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NeutronSubnet } from '@diac/standard-components-diagrams/openstackBlue'
+import { NeutronSubnet } from '@dinghy/standard-components-diagrams/openstackBlue'
 
 <NeutronSubnet/>
 ```

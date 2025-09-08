@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Administrator } from '@diac/standard-components-diagrams/officeUsers'
+import { Administrator } from '@dinghy/standard-components-diagrams/officeUsers'
 
 <Administrator/>
 ```

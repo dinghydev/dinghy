@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DirectRestoreToMsAzure } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { DirectRestoreToMsAzure } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <DirectRestoreToMsAzure/>
 ```

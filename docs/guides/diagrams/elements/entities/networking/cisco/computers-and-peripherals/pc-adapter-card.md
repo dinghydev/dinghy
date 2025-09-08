@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PcAdapterCard } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { PcAdapterCard } from '@dinghy/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <PcAdapterCard/>
 ```

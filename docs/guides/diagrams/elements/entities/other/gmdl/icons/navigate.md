@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Navigate } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Navigate } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Navigate/>
 ```

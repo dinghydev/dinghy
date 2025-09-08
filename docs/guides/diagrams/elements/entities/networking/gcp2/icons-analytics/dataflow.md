@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dataflow } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { Dataflow } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <Dataflow/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultipleCatching } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { MultipleCatching } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <MultipleCatching/>
 ```

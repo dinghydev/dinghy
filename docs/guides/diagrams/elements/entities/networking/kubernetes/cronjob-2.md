@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cronjob2 } from '@diac/standard-components-diagrams/kubernetes'
+import { Cronjob2 } from '@dinghy/standard-components-diagrams/kubernetes'
 
 <Cronjob2/>
 ```

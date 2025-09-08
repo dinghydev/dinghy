@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VociemailPreviewPartner } from '@diac/standard-components-diagrams/officeServers'
+import { VociemailPreviewPartner } from '@dinghy/standard-components-diagrams/officeServers'
 
 <VociemailPreviewPartner/>
 ```

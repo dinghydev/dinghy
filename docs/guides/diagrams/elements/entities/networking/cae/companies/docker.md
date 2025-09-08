@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Docker } from '@diac/standard-components-diagrams/caeCompanies'
+import { Docker } from '@dinghy/standard-components-diagrams/caeCompanies'
 
 <Docker/>
 ```

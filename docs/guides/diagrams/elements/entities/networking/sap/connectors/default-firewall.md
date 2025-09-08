@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefaultFirewall } from '@diac/standard-components-diagrams/sapConnectors'
+import { DefaultFirewall } from '@dinghy/standard-components-diagrams/sapConnectors'
 
 <DefaultFirewall/>
 ```

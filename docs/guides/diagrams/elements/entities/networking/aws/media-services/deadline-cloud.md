@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeadlineCloud } from '@diac/standard-components-diagrams/awsMediaServices'
+import { DeadlineCloud } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <DeadlineCloud/>
 ```

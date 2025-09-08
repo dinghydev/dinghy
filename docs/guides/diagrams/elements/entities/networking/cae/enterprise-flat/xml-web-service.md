@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { XmlWebService } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { XmlWebService } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <XmlWebService/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bigquery2 } from '@diac/standard-components-diagrams/gcp2DataAnalytics'
+import { Bigquery2 } from '@dinghy/standard-components-diagrams/gcp2DataAnalytics'
 
 <Bigquery2/>
 ```

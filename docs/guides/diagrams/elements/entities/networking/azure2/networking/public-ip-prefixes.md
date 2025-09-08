@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PublicIpPrefixes } from '@diac/standard-components-diagrams/azure2Networking'
+import { PublicIpPrefixes } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <PublicIpPrefixes/>
 ```

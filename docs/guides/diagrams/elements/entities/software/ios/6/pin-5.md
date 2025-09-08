@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pin5 } from '@diac/standard-components-diagrams/ios6'
+import { Pin5 } from '@dinghy/standard-components-diagrams/ios6'
 
 <Pin5/>
 ```

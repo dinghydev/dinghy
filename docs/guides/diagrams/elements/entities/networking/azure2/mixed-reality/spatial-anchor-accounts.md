@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpatialAnchorAccounts } from '@diac/standard-components-diagrams/azure2MixedReality'
+import { SpatialAnchorAccounts } from '@dinghy/standard-components-diagrams/azure2MixedReality'
 
 <SpatialAnchorAccounts/>
 ```

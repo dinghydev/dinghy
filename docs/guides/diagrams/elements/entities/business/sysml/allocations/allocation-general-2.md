@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AllocationGeneral2 } from '@diac/standard-components-diagrams/sysmlAllocations'
+import { AllocationGeneral2 } from '@dinghy/standard-components-diagrams/sysmlAllocations'
 
 <AllocationGeneral2/>
 ```

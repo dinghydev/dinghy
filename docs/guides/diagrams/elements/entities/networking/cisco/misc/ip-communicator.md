@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpCommunicator } from '@diac/standard-components-diagrams/ciscoMisc'
+import { IpCommunicator } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <IpCommunicator/>
 ```

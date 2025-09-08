@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE = {
   _style: {

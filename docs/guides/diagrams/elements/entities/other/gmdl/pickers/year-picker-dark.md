@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { YearPickerDark } from '@diac/standard-components-diagrams/gmdlPickers'
+import { YearPickerDark } from '@dinghy/standard-components-diagrams/gmdlPickers'
 
 <YearPickerDark/>
 ```

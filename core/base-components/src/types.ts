@@ -66,7 +66,7 @@ export const NodeSchema = z.object({
   key: z.any().optional(),
   ref: z.any().optional(),
 
-  // diac core props
+  // dinghy core props
   title: ResolvableStringSchema.optional(),
   name: ResolvableStringSchema.optional(),
   id: ResolvableStringSchema.optional(),
@@ -74,7 +74,7 @@ export const NodeSchema = z.object({
   _name: ResolvableStringSchema.optional(),
   _id: ResolvableStringSchema.optional(),
 
-  // diac additional props
+  // dinghy additional props
   _level: ResolvableNumberSchema.optional(),
   _tags: ResolvableStringArraySchema.optional(),
   _type: ResolvableStringSchema.optional(),

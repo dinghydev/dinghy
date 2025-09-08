@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PrintIcon } from '@diac/standard-components-diagrams/mockupMisc'
+import { PrintIcon } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <PrintIcon/>
 ```

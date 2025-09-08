@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AuthenticationFailure } from '@diac/standard-components-diagrams/citrixAuthentication'
+import { AuthenticationFailure } from '@dinghy/standard-components-diagrams/citrixAuthentication'
 
 <AuthenticationFailure/>
 ```

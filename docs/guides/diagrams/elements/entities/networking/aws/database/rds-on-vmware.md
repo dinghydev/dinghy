@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdsOnVmware } from '@diac/standard-components-diagrams/awsDatabase'
+import { RdsOnVmware } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <RdsOnVmware/>
 ```

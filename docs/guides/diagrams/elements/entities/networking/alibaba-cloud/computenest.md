@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Computenest } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Computenest } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Computenest/>
 ```

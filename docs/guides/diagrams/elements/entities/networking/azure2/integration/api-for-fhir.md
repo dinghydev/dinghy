@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiForFhir } from '@diac/standard-components-diagrams/azure2Integration'
+import { ApiForFhir } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <ApiForFhir/>
 ```

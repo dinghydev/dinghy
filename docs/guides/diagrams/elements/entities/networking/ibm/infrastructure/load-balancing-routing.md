@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadBalancingRouting } from '@diac/standard-components-diagrams/ibmInfrastructure'
+import { LoadBalancingRouting } from '@dinghy/standard-components-diagrams/ibmInfrastructure'
 
 <LoadBalancingRouting/>
 ```

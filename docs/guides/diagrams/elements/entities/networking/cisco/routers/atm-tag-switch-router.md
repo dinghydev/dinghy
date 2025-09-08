@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AtmTagSwitchRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { AtmTagSwitchRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <AtmTagSwitchRouter/>
 ```

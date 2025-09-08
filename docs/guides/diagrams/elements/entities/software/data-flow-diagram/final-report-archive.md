@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FinalReportArchive } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { FinalReportArchive } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <FinalReportArchive/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vmanage } from '@diac/standard-components-diagrams/cisco19SdWanAndViptela'
+import { Vmanage } from '@dinghy/standard-components-diagrams/cisco19SdWanAndViptela'
 
 <Vmanage/>
 ```

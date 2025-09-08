@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Appflow } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { Appflow } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <Appflow/>
 ```

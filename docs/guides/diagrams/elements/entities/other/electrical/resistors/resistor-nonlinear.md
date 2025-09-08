@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResistorNonlinear } from '@diac/standard-components-diagrams/electricalResistors'
+import { ResistorNonlinear } from '@dinghy/standard-components-diagrams/electricalResistors'
 
 <ResistorNonlinear/>
 ```

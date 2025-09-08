@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProcessExplorer } from '@diac/standard-components-diagrams/azure2General'
+import { ProcessExplorer } from '@dinghy/standard-components-diagrams/azure2General'
 
 <ProcessExplorer/>
 ```

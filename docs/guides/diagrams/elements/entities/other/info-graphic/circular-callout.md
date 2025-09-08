@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CircularCallout } from '@diac/standard-components-diagrams/infoGraphic'
+import { CircularCallout } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <CircularCallout/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rarity } from '@diac/standard-components-diagrams/cumulus'
+import { Rarity } from '@dinghy/standard-components-diagrams/cumulus'
 
 <Rarity/>
 ```

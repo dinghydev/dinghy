@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InterruptibleActivityRegion2 } from '@diac/standard-components-diagrams/sysmlActivities'
+import { InterruptibleActivityRegion2 } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <InterruptibleActivityRegion2/>
 ```

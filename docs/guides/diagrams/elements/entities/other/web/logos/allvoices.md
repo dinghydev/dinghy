@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Allvoices } from '@diac/standard-components-diagrams/webLogos'
+import { Allvoices } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Allvoices/>
 ```

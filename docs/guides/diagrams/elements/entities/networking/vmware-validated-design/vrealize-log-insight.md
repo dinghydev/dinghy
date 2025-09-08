@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VrealizeLogInsight } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { VrealizeLogInsight } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <VrealizeLogInsight/>
 ```

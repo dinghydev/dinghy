@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EntryPoint } from '@diac/standard-components-diagrams/sysmlStateMachines'
+import { EntryPoint } from '@dinghy/standard-components-diagrams/sysmlStateMachines'
 
 <EntryPoint/>
 ```

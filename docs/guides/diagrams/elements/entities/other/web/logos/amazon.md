@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Amazon } from '@diac/standard-components-diagrams/webLogos'
+import { Amazon } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Amazon/>
 ```

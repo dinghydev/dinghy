@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EscalationIntermediateBoundaryThrowing } from '@diac/standard-components-diagrams/bpmn2Events'
+import { EscalationIntermediateBoundaryThrowing } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <EscalationIntermediateBoundaryThrowing/>
 ```

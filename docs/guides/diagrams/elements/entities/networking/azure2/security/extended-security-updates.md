@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExtendedSecurityUpdates } from '@diac/standard-components-diagrams/azure2Security'
+import { ExtendedSecurityUpdates } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <ExtendedSecurityUpdates/>
 ```

@@ -16,7 +16,7 @@ tolerant
 ## Usage
 
 ```
-import { ChecklistFaultTolerant } from '@diac/standard-components-diagrams/aws18ManagementTools'
+import { ChecklistFaultTolerant } from '@dinghy/standard-components-diagrams/aws18ManagementTools'
 
 <ChecklistFaultTolerant/>
 ```

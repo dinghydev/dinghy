@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GeneralStorage } from '@diac/standard-components-diagrams/caeStorageService'
+import { GeneralStorage } from '@dinghy/standard-components-diagrams/caeStorageService'
 
 <GeneralStorage/>
 ```

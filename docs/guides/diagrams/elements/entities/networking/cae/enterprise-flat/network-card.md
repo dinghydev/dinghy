@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkCard } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { NetworkCard } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <NetworkCard/>
 ```

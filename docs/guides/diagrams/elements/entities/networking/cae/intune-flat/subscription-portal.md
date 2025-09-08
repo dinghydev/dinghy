@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SubscriptionPortal } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { SubscriptionPortal } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <SubscriptionPortal/>
 ```

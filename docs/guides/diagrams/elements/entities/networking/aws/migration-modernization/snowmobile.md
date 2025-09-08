@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Snowmobile } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { Snowmobile } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <Snowmobile/>
 ```

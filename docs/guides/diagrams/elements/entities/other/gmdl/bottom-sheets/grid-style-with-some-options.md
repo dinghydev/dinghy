@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GridStyleWithSomeOptions } from '@diac/standard-components-diagrams/gmdlBottomSheets'
+import { GridStyleWithSomeOptions } from '@dinghy/standard-components-diagrams/gmdlBottomSheets'
 
 <GridStyleWithSomeOptions/>
 ```

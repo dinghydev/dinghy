@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouterWithVoice } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { RouterWithVoice } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <RouterWithVoice/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BadgeDanger } from '@diac/standard-components-diagrams/bootstrap'
+import { BadgeDanger } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <BadgeDanger/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Generic } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Generic } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Generic/>
 ```

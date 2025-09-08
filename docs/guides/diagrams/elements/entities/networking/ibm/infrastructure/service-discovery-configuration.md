@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceDiscoveryConfiguration } from '@diac/standard-components-diagrams/ibmInfrastructure'
+import { ServiceDiscoveryConfiguration } from '@dinghy/standard-components-diagrams/ibmInfrastructure'
 
 <ServiceDiscoveryConfiguration/>
 ```

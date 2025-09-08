@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TenantProperties } from '@diac/standard-components-diagrams/azure2Identity'
+import { TenantProperties } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <TenantProperties/>
 ```

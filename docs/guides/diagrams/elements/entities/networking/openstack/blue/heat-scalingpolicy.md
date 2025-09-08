@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HeatScalingpolicy } from '@diac/standard-components-diagrams/openstackBlue'
+import { HeatScalingpolicy } from '@dinghy/standard-components-diagrams/openstackBlue'
 
 <HeatScalingpolicy/>
 ```

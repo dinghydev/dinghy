@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SortFind } from '@diac/standard-components-diagrams/ios6'
+import { SortFind } from '@dinghy/standard-components-diagrams/ios6'
 
 <SortFind/>
 ```

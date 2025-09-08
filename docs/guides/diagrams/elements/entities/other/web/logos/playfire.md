@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Playfire } from '@diac/standard-components-diagrams/webLogos'
+import { Playfire } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Playfire/>
 ```

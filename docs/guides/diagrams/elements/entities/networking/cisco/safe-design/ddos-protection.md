@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DdosProtection } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { DdosProtection } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <DdosProtection/>
 ```

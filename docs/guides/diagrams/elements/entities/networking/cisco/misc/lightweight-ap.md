@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LightweightAp } from '@diac/standard-components-diagrams/ciscoMisc'
+import { LightweightAp } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <LightweightAp/>
 ```

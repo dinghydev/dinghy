@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebService } from '@diac/standard-components-diagrams/citrixLegacy'
+import { WebService } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <WebService/>
 ```

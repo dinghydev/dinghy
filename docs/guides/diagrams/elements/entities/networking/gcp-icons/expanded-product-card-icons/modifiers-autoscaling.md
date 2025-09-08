@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ModifiersAutoscaling } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { ModifiersAutoscaling } from '@dinghy/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <ModifiersAutoscaling/>
 ```

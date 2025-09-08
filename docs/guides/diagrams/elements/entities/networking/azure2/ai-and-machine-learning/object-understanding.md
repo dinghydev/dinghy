@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ObjectUnderstanding } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { ObjectUnderstanding } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <ObjectUnderstanding/>
 ```

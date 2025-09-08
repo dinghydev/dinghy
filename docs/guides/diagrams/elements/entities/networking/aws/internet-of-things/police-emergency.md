@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PoliceEmergency } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { PoliceEmergency } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <PoliceEmergency/>
 ```

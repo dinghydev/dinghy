@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Echo } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Echo } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Echo/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11020CartridgeFor } from '@diac/standard-components-diagrams/fluidPower'
+import { X11020CartridgeFor } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11020CartridgeFor/>
 ```

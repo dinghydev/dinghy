@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UiThemeDesigner } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { UiThemeDesigner } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <UiThemeDesigner/>
 ```

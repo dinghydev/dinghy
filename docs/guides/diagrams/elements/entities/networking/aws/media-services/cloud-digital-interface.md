@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudDigitalInterface } from '@diac/standard-components-diagrams/awsMediaServices'
+import { CloudDigitalInterface } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <CloudDigitalInterface/>
 ```

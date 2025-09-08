@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Object } from '@diac/standard-components-diagrams/aws17Storage'
+import { Object } from '@dinghy/standard-components-diagrams/aws17Storage'
 
 <Object/>
 ```

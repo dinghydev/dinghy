@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OcrOpticalCharacterRecognition } from '@diac/standard-components-diagrams/alibabaCloud'
+import { OcrOpticalCharacterRecognition } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <OcrOpticalCharacterRecognition/>
 ```

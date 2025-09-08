@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OptoCoupler } from '@diac/standard-components-diagrams/electricalOptical'
+import { OptoCoupler } from '@dinghy/standard-components-diagrams/electricalOptical'
 
 <OptoCoupler/>
 ```

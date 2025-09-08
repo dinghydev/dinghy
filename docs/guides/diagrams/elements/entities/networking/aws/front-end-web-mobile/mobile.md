@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mobile } from '@diac/standard-components-diagrams/awsFrontEndWebMobile'
+import { Mobile } from '@dinghy/standard-components-diagrams/awsFrontEndWebMobile'
 
 <Mobile/>
 ```

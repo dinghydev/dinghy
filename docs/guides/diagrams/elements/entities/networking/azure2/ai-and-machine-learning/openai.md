@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Openai } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { Openai } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <Openai/>
 ```

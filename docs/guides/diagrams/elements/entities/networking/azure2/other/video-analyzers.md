@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VideoAnalyzers } from '@diac/standard-components-diagrams/azure2Other'
+import { VideoAnalyzers } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <VideoAnalyzers/>
 ```

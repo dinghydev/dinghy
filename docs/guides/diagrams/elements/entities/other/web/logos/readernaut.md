@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Readernaut } from '@diac/standard-components-diagrams/webLogos'
+import { Readernaut } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Readernaut/>
 ```

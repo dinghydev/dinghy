@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SchottkyDiode } from '@diac/standard-components-diagrams/electricalDiodes'
+import { SchottkyDiode } from '@dinghy/standard-components-diagrams/electricalDiodes'
 
 <SchottkyDiode/>
 ```

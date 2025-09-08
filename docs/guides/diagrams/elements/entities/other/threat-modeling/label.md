@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Label } from '@diac/standard-components-diagrams/threatModeling'
+import { Label } from '@dinghy/standard-components-diagrams/threatModeling'
 
 <Label/>
 ```

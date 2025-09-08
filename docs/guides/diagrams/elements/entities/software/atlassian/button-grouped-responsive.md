@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonGroupedResponsive } from '@diac/standard-components-diagrams/atlassian'
+import { ButtonGroupedResponsive } from '@dinghy/standard-components-diagrams/atlassian'
 
 <ButtonGroupedResponsive/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NexusSwitch } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { NexusSwitch } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <NexusSwitch/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BottomSheet } from '@diac/standard-components-diagrams/gmdlBottomSheets'
+import { BottomSheet } from '@dinghy/standard-components-diagrams/gmdlBottomSheets'
 
 <BottomSheet/>
 ```

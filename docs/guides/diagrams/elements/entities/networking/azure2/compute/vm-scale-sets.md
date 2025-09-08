@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmScaleSets } from '@diac/standard-components-diagrams/azure2Compute'
+import { VmScaleSets } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <VmScaleSets/>
 ```

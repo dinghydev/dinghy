@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Metrics } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Metrics } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Metrics/>
 ```

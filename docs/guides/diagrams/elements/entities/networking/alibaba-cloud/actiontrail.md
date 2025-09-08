@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Actiontrail } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Actiontrail } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Actiontrail/>
 ```

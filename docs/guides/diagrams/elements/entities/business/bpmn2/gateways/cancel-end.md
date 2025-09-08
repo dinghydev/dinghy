@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CancelEnd } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { CancelEnd } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <CancelEnd/>
 ```

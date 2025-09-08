@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GovernanceRiskCompliance } from '@diac/standard-components-diagrams/ibmSecurity'
+import { GovernanceRiskCompliance } from '@dinghy/standard-components-diagrams/ibmSecurity'
 
 <GovernanceRiskCompliance/>
 ```

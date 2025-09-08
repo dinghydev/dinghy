@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonS3 } from '@diac/standard-components-diagrams/aws18Storage'
+import { AmazonS3 } from '@dinghy/standard-components-diagrams/aws18Storage'
 
 <AmazonS3/>
 ```

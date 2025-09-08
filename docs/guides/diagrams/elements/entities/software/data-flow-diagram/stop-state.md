@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StopState } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { StopState } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <StopState/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RedshiftMl } from '@diac/standard-components-diagrams/awsAnalytics'
+import { RedshiftMl } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <RedshiftMl/>
 ```

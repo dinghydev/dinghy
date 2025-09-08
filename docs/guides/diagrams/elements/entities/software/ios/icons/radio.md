@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Radio } from '@diac/standard-components-diagrams/ios7Icons'
+import { Radio } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Radio/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ControlOperator } from '@diac/standard-components-diagrams/sysmlActivities'
+import { ControlOperator } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <ControlOperator/>
 ```

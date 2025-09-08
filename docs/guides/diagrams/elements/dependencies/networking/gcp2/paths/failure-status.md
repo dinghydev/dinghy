@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FailureStatus } from '@diac/standard-components-diagrams/gcp2Paths'
+import { FailureStatus } from '@dinghy/standard-components-diagrams/gcp2Paths'
 
 <FailureStatus/>
 ```

@@ -4,14 +4,14 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '@diac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
+} from '@dinghy/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import Debug from 'debug'
 import { resolve } from '@std/path/resolve'
 import chalk from 'chalk'
-import { runDockerCmd } from '@diac/cli'
-import { configGetDrawioImage } from '@diac/cli'
-import { hostAppHome } from '@diac/cli'
+import { runDockerCmd } from '@dinghy/cli'
+import { configGetDrawioImage } from '@dinghy/cli'
+import { hostAppHome } from '@dinghy/cli'
 const debug = Debug('diagram:png')
 
 const options: CommandOptions = {

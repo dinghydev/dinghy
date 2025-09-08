@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QuantumTechnologies } from '@diac/standard-components-diagrams/awsQuantumTechnologies'
+import { QuantumTechnologies } from '@dinghy/standard-components-diagrams/awsQuantumTechnologies'
 
 <QuantumTechnologies/>
 ```

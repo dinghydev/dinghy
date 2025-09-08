@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdpRemotingFile } from '@diac/standard-components-diagrams/azure'
+import { RdpRemotingFile } from '@dinghy/standard-components-diagrams/azure'
 
 <RdpRemotingFile/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Coriolis } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Coriolis } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Coriolis/>
 ```

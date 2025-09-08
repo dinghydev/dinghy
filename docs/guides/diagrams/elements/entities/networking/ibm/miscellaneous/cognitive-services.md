@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CognitiveServices } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { CognitiveServices } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <CognitiveServices/>
 ```

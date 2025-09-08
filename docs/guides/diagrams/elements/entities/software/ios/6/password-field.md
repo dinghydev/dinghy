@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PasswordField } from '@diac/standard-components-diagrams/ios6'
+import { PasswordField } from '@dinghy/standard-components-diagrams/ios6'
 
 <PasswordField/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudConnectedInsight } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { CloudConnectedInsight } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <CloudConnectedInsight/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AcrCloudContainerRegistry } from '@diac/standard-components-diagrams/alibabaCloud'
+import { AcrCloudContainerRegistry } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <AcrCloudContainerRegistry/>
 ```

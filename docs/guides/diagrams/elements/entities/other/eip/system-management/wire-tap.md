@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WireTap } from '@diac/standard-components-diagrams/eipSystemManagement'
+import { WireTap } from '@dinghy/standard-components-diagrams/eipSystemManagement'
 
 <WireTap/>
 ```

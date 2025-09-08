@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StatusBarPortrait } from '@diac/standard-components-diagrams/android'
+import { StatusBarPortrait } from '@dinghy/standard-components-diagrams/android'
 
 <StatusBarPortrait/>
 ```

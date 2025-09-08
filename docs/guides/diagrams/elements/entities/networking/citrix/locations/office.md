@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Office } from '@diac/standard-components-diagrams/citrixLocations'
+import { Office } from '@dinghy/standard-components-diagrams/citrixLocations'
 
 <Office/>
 ```

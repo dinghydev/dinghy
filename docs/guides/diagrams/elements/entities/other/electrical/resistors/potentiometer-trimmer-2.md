@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PotentiometerTrimmer2 } from '@diac/standard-components-diagrams/electricalResistors'
+import { PotentiometerTrimmer2 } from '@dinghy/standard-components-diagrams/electricalResistors'
 
 <PotentiometerTrimmer2/>
 ```

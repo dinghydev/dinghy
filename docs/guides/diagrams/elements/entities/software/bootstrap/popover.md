@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Popover } from '@diac/standard-components-diagrams/bootstrap'
+import { Popover } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <Popover/>
 ```

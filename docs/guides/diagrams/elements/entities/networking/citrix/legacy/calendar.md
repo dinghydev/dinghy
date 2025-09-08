@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Calendar } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Calendar } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Calendar/>
 ```

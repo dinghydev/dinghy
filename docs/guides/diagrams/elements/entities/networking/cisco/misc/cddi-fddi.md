@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CddiFddi } from '@diac/standard-components-diagrams/ciscoMisc'
+import { CddiFddi } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <CddiFddi/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WeldedConnection } from '@diac/standard-components-diagrams/procEngPiping'
+import { WeldedConnection } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <WeldedConnection/>
 ```

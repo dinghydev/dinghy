@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StackedOwnership } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { StackedOwnership } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <StackedOwnership/>
 ```

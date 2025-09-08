@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RamResourceAccessManagement } from '@diac/standard-components-diagrams/alibabaCloud'
+import { RamResourceAccessManagement } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <RamResourceAccessManagement/>
 ```

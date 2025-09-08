@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseAvailabilityGroup } from '@diac/standard-components-diagrams/officeDatabases'
+import { DatabaseAvailabilityGroup } from '@dinghy/standard-components-diagrams/officeDatabases'
 
 <DatabaseAvailabilityGroup/>
 ```

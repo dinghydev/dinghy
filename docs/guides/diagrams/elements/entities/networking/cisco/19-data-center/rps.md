@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rps } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { Rps } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <Rps/>
 ```

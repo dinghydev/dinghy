@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lifeline } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { Lifeline } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <Lifeline/>
 ```

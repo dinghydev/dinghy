@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContainerRegistries } from '@diac/standard-components-diagrams/azure2Containers'
+import { ContainerRegistries } from '@dinghy/standard-components-diagrams/azure2Containers'
 
 <ContainerRegistries/>
 ```

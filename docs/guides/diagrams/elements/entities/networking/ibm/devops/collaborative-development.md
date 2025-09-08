@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CollaborativeDevelopment } from '@diac/standard-components-diagrams/ibmDevops'
+import { CollaborativeDevelopment } from '@dinghy/standard-components-diagrams/ibmDevops'
 
 <CollaborativeDevelopment/>
 ```

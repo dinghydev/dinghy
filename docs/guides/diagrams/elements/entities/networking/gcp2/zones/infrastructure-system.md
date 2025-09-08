@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InfrastructureSystem } from '@diac/standard-components-diagrams/gcp2Zones'
+import { InfrastructureSystem } from '@dinghy/standard-components-diagrams/gcp2Zones'
 
 <InfrastructureSystem/>
 ```

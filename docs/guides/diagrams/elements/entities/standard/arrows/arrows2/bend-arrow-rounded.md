@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BendArrowRounded } from '@diac/standard-components-diagrams/arrows2'
+import { BendArrowRounded } from '@dinghy/standard-components-diagrams/arrows2'
 
 <BendArrowRounded/>
 ```

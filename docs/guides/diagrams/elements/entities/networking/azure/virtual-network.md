@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualNetwork } from '@diac/standard-components-diagrams/azure'
+import { VirtualNetwork } from '@dinghy/standard-components-diagrams/azure'
 
 <VirtualNetwork/>
 ```

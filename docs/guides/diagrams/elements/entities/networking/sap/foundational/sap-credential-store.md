@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapCredentialStore } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapCredentialStore } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapCredentialStore/>
 ```

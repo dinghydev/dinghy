@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pda } from '@diac/standard-components-diagrams/activeDirectory'
+import { Pda } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <Pda/>
 ```

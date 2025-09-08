@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cross } from '@diac/standard-components-diagrams/advanced'
+import { Cross } from '@dinghy/standard-components-diagrams/advanced'
 
 <Cross/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NavWithListGroup } from '@diac/standard-components-diagrams/bootstrap'
+import { NavWithListGroup } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <NavWithListGroup/>
 ```

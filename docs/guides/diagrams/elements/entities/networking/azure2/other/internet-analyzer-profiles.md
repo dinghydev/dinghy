@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternetAnalyzerProfiles } from '@diac/standard-components-diagrams/azure2Other'
+import { InternetAnalyzerProfiles } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <InternetAnalyzerProfiles/>
 ```

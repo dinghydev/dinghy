@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArrowlessNe } from '@diac/standard-components-diagrams/aws3d'
+import { ArrowlessNe } from '@dinghy/standard-components-diagrams/aws3d'
 
 <ArrowlessNe/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SharedFolder } from '@diac/standard-components-diagrams/veeam2Storage'
+import { SharedFolder } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <SharedFolder/>
 ```

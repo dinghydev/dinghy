@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpinnerNormal } from '@diac/standard-components-diagrams/android'
+import { SpinnerNormal } from '@dinghy/standard-components-diagrams/android'
 
 <SpinnerNormal/>
 ```

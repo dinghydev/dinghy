@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BasketCancel } from '@diac/standard-components-diagrams/ios7Icons'
+import { BasketCancel } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <BasketCancel/>
 ```

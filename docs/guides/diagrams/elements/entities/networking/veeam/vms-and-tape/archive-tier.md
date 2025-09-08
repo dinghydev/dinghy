@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArchiveTier } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { ArchiveTier } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <ArchiveTier/>
 ```

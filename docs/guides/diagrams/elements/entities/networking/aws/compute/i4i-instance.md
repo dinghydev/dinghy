@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { I4iInstance } from '@diac/standard-components-diagrams/awsCompute'
+import { I4iInstance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <I4iInstance/>
 ```

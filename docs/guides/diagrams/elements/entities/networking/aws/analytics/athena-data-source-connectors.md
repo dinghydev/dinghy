@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AthenaDataSourceConnectors } from '@diac/standard-components-diagrams/awsAnalytics'
+import { AthenaDataSourceConnectors } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <AthenaDataSourceConnectors/>
 ```

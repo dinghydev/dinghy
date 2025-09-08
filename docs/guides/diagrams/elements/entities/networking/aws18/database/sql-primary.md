@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlPrimary } from '@diac/standard-components-diagrams/aws18Database'
+import { SqlPrimary } from '@dinghy/standard-components-diagrams/aws18Database'
 
 <SqlPrimary/>
 ```

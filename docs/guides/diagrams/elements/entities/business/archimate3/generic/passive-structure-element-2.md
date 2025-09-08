@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PassiveStructureElement2 } from '@diac/standard-components-diagrams/archimate3Generic'
+import { PassiveStructureElement2 } from '@dinghy/standard-components-diagrams/archimate3Generic'
 
 <PassiveStructureElement2/>
 ```

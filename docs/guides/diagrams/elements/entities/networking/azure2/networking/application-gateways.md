@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationGateways } from '@diac/standard-components-diagrams/azure2Networking'
+import { ApplicationGateways } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <ApplicationGateways/>
 ```

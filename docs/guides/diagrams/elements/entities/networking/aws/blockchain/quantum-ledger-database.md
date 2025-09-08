@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QuantumLedgerDatabase } from '@diac/standard-components-diagrams/awsBlockchain'
+import { QuantumLedgerDatabase } from '@dinghy/standard-components-diagrams/awsBlockchain'
 
 <QuantumLedgerDatabase/>
 ```

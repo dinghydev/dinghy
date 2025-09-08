@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InfrastructureRole } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { InfrastructureRole } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <InfrastructureRole/>
 ```

@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { SecurityGroup } from '@diac/standard-components-diagrams/awsGroups'
+import { SecurityGroup } from '@dinghy/standard-components-diagrams/awsGroups'
 
 <SecurityGroup/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecureRouterColor } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { SecureRouterColor } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <SecureRouterColor/>
 ```

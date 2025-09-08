@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Container3 } from '@diac/standard-components-diagrams/awsContainers'
+import { Container3 } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <Container3/>
 ```

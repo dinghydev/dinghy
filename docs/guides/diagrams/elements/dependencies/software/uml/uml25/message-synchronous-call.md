@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { MessageSynchronousCall } from '@diac/standard-components-diagrams/uml25'
+import { MessageSynchronousCall } from '@dinghy/standard-components-diagrams/uml25'
 
 <MessageSynchronousCall/>
 ```

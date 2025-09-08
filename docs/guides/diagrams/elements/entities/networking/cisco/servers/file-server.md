@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileServer } from '@diac/standard-components-diagrams/ciscoServers'
+import { FileServer } from '@dinghy/standard-components-diagrams/ciscoServers'
 
 <FileServer/>
 ```

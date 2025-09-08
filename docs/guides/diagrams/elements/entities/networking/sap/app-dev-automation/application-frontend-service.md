@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationFrontendService } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { ApplicationFrontendService } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <ApplicationFrontendService/>
 ```

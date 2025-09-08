@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RemoteAccess } from '@diac/standard-components-diagrams/officeConcepts'
+import { RemoteAccess } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <RemoteAccess/>
 ```

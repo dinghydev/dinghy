@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapPkiCertificateService } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapPkiCertificateService } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapPkiCertificateService/>
 ```

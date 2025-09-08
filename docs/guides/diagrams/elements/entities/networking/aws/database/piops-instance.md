@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PiopsInstance } from '@diac/standard-components-diagrams/awsDatabase'
+import { PiopsInstance } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <PiopsInstance/>
 ```

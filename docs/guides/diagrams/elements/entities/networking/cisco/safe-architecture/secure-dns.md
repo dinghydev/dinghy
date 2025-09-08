@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecureDns } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { SecureDns } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <SecureDns/>
 ```

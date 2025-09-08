@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component100basetHub } from '@diac/standard-components-diagrams/ciscoHubsAndGateways'
+import { Component100basetHub } from '@dinghy/standard-components-diagrams/ciscoHubsAndGateways'
 
 <Component100basetHub/>
 ```

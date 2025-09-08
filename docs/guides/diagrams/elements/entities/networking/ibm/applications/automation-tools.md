@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AutomationTools } from '@diac/standard-components-diagrams/ibmApplications'
+import { AutomationTools } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <AutomationTools/>
 ```

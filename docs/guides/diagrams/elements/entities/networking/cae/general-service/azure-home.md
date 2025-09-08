@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureHome } from '@diac/standard-components-diagrams/caeGeneralService'
+import { AzureHome } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <AzureHome/>
 ```

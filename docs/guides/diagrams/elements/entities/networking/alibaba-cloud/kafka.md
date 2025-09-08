@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Kafka } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Kafka } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Kafka/>
 ```

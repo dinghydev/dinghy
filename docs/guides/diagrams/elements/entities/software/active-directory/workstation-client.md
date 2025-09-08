@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkstationClient } from '@diac/standard-components-diagrams/activeDirectory'
+import { WorkstationClient } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <WorkstationClient/>
 ```

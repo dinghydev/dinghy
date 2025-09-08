@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseMini } from '@diac/standard-components-diagrams/officeDatabases'
+import { DatabaseMini } from '@dinghy/standard-components-diagrams/officeDatabases'
 
 <DatabaseMini/>
 ```

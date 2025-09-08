@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VideoInteropServer } from '@diac/standard-components-diagrams/officeServers'
+import { VideoInteropServer } from '@dinghy/standard-components-diagrams/officeServers'
 
 <VideoInteropServer/>
 ```

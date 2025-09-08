@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppServiceCertificates } from '@diac/standard-components-diagrams/caeWebService'
+import { AppServiceCertificates } from '@dinghy/standard-components-diagrams/caeWebService'
 
 <AppServiceCertificates/>
 ```

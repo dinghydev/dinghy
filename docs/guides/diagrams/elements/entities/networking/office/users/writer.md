@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Writer } from '@diac/standard-components-diagrams/officeUsers'
+import { Writer } from '@dinghy/standard-components-diagrams/officeUsers'
 
 <Writer/>
 ```

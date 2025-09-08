@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bedrock } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Bedrock } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Bedrock/>
 ```

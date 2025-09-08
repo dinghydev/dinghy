@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Port } from '@diac/standard-components-diagrams/uml25'
+import { Port } from '@dinghy/standard-components-diagrams/uml25'
 
 <Port/>
 ```

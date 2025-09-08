@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProximityPlacementGroups } from '@diac/standard-components-diagrams/azure2Networking'
+import { ProximityPlacementGroups } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <ProximityPlacementGroups/>
 ```

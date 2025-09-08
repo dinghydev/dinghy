@@ -1,4 +1,4 @@
-import type { NodeTree, Props } from '@diac/base-components'
+import type { NodeTree, Props } from '@dinghy/base-components'
 import { resource } from './resource.ts'
 import { data } from './data.ts'
 import { terraform } from './terraform.ts'

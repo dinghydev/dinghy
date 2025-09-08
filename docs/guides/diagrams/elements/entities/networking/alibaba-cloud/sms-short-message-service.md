@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SmsShortMessageService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { SmsShortMessageService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <SmsShortMessageService/>
 ```

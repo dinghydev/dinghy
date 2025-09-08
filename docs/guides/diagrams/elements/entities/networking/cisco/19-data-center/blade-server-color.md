@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BladeServerColor } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { BladeServerColor } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <BladeServerColor/>
 ```

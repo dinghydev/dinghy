@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Deepracer } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Deepracer } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Deepracer/>
 ```

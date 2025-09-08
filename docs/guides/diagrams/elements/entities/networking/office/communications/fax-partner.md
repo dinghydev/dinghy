@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FaxPartner } from '@diac/standard-components-diagrams/officeCommunications'
+import { FaxPartner } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <FaxPartner/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImageVariableAspect } from '@diac/standard-components-diagrams/misc'
+import { ImageVariableAspect } from '@dinghy/standard-components-diagrams/misc'
 
 <ImageVariableAspect/>
 ```

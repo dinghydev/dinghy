@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BendingArch } from '@diac/standard-components-diagrams/infoGraphic'
+import { BendingArch } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <BendingArch/>
 ```

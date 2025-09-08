@@ -5,13 +5,13 @@ import {
   AwsS3BucketLogging,
   AwsS3BucketOwnershipControls,
 } from '../index.ts'
-import { useTypedNode } from '@diac/base-components'
+import { useTypedNode } from '@dinghy/base-components'
 import type {
   AwsS3BucketInputProps,
   AwsS3BucketOutputProps,
 } from './AwsS3Bucket.tsx'
-import { useStack } from '@diac/base-components'
-import { ResolvableStringSchema } from '@diac/base-components'
+import { useStack } from '@dinghy/base-components'
+import { ResolvableStringSchema } from '@dinghy/base-components'
 import z from 'zod'
 
 export const LogBucketInputSchema = z.object({

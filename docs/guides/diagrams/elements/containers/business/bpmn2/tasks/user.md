@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { User } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { User } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <User/>
 ```

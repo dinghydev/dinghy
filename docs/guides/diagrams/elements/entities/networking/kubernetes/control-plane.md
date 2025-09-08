@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ControlPlane } from '@diac/standard-components-diagrams/kubernetes'
+import { ControlPlane } from '@dinghy/standard-components-diagrams/kubernetes'
 
 <ControlPlane/>
 ```

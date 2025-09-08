@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BiometricReader } from '@diac/standard-components-diagrams/network2'
+import { BiometricReader } from '@dinghy/standard-components-diagrams/network2'
 
 <BiometricReader/>
 ```

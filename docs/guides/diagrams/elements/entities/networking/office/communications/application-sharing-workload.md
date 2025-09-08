@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationSharingWorkload } from '@diac/standard-components-diagrams/officeCommunications'
+import { ApplicationSharingWorkload } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <ApplicationSharingWorkload/>
 ```

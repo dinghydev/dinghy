@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Agent } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { Agent } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <Agent/>
 ```

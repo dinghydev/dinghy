@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppMesh } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { AppMesh } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <AppMesh/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RadicalRed } from '@diac/standard-components-diagrams/cumulus'
+import { RadicalRed } from '@dinghy/standard-components-diagrams/cumulus'
 
 <RadicalRed/>
 ```

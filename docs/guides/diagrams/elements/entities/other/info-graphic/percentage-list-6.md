@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PercentageList6 } from '@diac/standard-components-diagrams/infoGraphic'
+import { PercentageList6 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <PercentageList6/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StackHciSizer } from '@diac/standard-components-diagrams/azure2Iot'
+import { StackHciSizer } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <StackHciSizer/>
 ```

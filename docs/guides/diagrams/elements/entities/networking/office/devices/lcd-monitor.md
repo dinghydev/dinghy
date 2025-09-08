@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LcdMonitor } from '@diac/standard-components-diagrams/officeDevices'
+import { LcdMonitor } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <LcdMonitor/>
 ```

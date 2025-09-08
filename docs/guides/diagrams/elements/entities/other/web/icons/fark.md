@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fark } from '@diac/standard-components-diagrams/webIcons'
+import { Fark } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Fark/>
 ```

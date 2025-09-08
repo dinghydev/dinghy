@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Startaid } from '@diac/standard-components-diagrams/webLogos'
+import { Startaid } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Startaid/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CombustionChamber } from '@diac/standard-components-diagrams/procEngMisc'
+import { CombustionChamber } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <CombustionChamber/>
 ```

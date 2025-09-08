@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CellPhoneAndroidProportional } from '@diac/standard-components-diagrams/officeDevices'
+import { CellPhoneAndroidProportional } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <CellPhoneAndroidProportional/>
 ```

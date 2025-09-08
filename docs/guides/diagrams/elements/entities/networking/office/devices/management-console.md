@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagementConsole } from '@diac/standard-components-diagrams/officeDevices'
+import { ManagementConsole } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <ManagementConsole/>
 ```

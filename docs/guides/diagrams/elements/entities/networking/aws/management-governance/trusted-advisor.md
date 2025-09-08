@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrustedAdvisor } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { TrustedAdvisor } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <TrustedAdvisor/>
 ```

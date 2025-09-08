@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lightbulb } from '@diac/standard-components-diagrams/aws17InternetOfThings'
+import { Lightbulb } from '@dinghy/standard-components-diagrams/aws17InternetOfThings'
 
 <Lightbulb/>
 ```

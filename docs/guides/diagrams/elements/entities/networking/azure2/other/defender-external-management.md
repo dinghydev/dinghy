@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefenderExternalManagement } from '@diac/standard-components-diagrams/azure2Other'
+import { DefenderExternalManagement } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DefenderExternalManagement/>
 ```

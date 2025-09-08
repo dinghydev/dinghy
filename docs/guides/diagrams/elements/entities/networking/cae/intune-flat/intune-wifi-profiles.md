@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IntuneWifiProfiles } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { IntuneWifiProfiles } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <IntuneWifiProfiles/>
 ```

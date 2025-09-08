@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlpTcTextCategorization } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlpTcTextCategorization } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlpTcTextCategorization/>
 ```

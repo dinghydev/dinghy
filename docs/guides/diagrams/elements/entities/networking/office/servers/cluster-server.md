@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ClusterServer } from '@diac/standard-components-diagrams/officeServers'
+import { ClusterServer } from '@dinghy/standard-components-diagrams/officeServers'
 
 <ClusterServer/>
 ```

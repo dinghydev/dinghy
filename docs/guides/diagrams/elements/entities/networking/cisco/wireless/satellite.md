@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Satellite } from '@diac/standard-components-diagrams/ciscoWireless'
+import { Satellite } from '@dinghy/standard-components-diagrams/ciscoWireless'
 
 <Satellite/>
 ```

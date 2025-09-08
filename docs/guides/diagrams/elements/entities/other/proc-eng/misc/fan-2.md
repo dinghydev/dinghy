@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fan2 } from '@diac/standard-components-diagrams/procEngMisc'
+import { Fan2 } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <Fan2/>
 ```

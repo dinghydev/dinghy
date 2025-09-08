@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LandscapePortalForSapS4hanaCloudAbapEnvironment } from '@diac/standard-components-diagrams/sapFoundational'
+import { LandscapePortalForSapS4hanaCloudAbapEnvironment } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <LandscapePortalForSapS4hanaCloudAbapEnvironment/>
 ```

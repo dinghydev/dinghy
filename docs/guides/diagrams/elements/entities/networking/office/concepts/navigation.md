@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Navigation } from '@diac/standard-components-diagrams/officeConcepts'
+import { Navigation } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Navigation/>
 ```

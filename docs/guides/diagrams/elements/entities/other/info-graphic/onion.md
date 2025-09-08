@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Onion } from '@diac/standard-components-diagrams/infoGraphic'
+import { Onion } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <Onion/>
 ```

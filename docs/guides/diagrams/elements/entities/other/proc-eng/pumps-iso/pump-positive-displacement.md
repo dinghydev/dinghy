@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PumpPositiveDisplacement } from '@diac/standard-components-diagrams/procEngPumpsIso'
+import { PumpPositiveDisplacement } from '@dinghy/standard-components-diagrams/procEngPumpsIso'
 
 <PumpPositiveDisplacement/>
 ```

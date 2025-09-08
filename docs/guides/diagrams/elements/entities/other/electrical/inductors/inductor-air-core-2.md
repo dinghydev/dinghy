@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InductorAirCore2 } from '@diac/standard-components-diagrams/electricalInductors'
+import { InductorAirCore2 } from '@dinghy/standard-components-diagrams/electricalInductors'
 
 <InductorAirCore2/>
 ```

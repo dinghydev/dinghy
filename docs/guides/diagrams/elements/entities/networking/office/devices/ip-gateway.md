@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpGateway } from '@diac/standard-components-diagrams/officeDevices'
+import { IpGateway } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <IpGateway/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TriplexInductionVoltageRegulator } from '@diac/standard-components-diagrams/electricalInductors'
+import { TriplexInductionVoltageRegulator } from '@dinghy/standard-components-diagrams/electricalInductors'
 
 <TriplexInductionVoltageRegulator/>
 ```

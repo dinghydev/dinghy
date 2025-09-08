@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DesignateRecordset } from '@diac/standard-components-diagrams/openstackRed'
+import { DesignateRecordset } from '@dinghy/standard-components-diagrams/openstackRed'
 
 <DesignateRecordset/>
 ```

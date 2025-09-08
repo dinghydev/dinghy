@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ClientSoftwareDeploymentWizard } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { ClientSoftwareDeploymentWizard } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <ClientSoftwareDeploymentWizard/>
 ```

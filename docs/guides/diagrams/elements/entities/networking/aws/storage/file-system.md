@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileSystem } from '@diac/standard-components-diagrams/awsStorage'
+import { FileSystem } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <FileSystem/>
 ```

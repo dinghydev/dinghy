@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MsOffice } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { MsOffice } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <MsOffice/>
 ```

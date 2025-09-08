@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Joomla } from '@diac/standard-components-diagrams/webIcons'
+import { Joomla } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Joomla/>
 ```

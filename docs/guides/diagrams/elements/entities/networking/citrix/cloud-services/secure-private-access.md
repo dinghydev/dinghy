@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurePrivateAccess } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { SecurePrivateAccess } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <SecurePrivateAccess/>
 ```

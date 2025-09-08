@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoMeetingplaceExpress } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { CiscoMeetingplaceExpress } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <CiscoMeetingplaceExpress/>
 ```

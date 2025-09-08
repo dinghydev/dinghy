@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimeSeriesInsightsAccessPolicies } from '@diac/standard-components-diagrams/azure2Iot'
+import { TimeSeriesInsightsAccessPolicies } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <TimeSeriesInsightsAccessPolicies/>
 ```

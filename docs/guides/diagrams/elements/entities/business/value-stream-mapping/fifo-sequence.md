@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FifoSequence } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { FifoSequence } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <FifoSequence/>
 ```

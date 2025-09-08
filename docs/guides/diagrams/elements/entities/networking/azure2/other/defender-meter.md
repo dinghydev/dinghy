@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefenderMeter } from '@diac/standard-components-diagrams/azure2Other'
+import { DefenderMeter } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DefenderMeter/>
 ```

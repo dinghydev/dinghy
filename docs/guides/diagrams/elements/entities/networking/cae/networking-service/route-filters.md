@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouteFilters } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { RouteFilters } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <RouteFilters/>
 ```

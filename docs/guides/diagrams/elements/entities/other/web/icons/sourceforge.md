@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sourceforge } from '@diac/standard-components-diagrams/webIcons'
+import { Sourceforge } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Sourceforge/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Access2 } from '@diac/standard-components-diagrams/archimate2'
+import { Access2 } from '@dinghy/standard-components-diagrams/archimate2'
 
 <Access2/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EdgeIntegrationCell } from '@diac/standard-components-diagrams/sapIntegrationSuite'
+import { EdgeIntegrationCell } from '@dinghy/standard-components-diagrams/sapIntegrationSuite'
 
 <EdgeIntegrationCell/>
 ```

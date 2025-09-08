@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeyManagement } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { KeyManagement } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <KeyManagement/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UmIpGateway } from '@diac/standard-components-diagrams/officeCommunications'
+import { UmIpGateway } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <UmIpGateway/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProductionKanban } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { ProductionKanban } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <ProductionKanban/>
 ```

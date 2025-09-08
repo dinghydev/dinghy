@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultiDocument } from '@diac/standard-components-diagrams/flowchart'
+import { MultiDocument } from '@dinghy/standard-components-diagrams/flowchart'
 
 <MultiDocument/>
 ```

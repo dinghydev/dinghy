@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Video } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Video } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Video/>
 ```

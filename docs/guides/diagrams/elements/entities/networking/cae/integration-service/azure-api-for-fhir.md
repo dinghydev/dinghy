@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureApiForFhir } from '@diac/standard-components-diagrams/caeIntegrationService'
+import { AzureApiForFhir } from '@dinghy/standard-components-diagrams/caeIntegrationService'
 
 <AzureApiForFhir/>
 ```

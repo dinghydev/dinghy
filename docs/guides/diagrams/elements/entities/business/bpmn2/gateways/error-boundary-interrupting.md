@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ErrorBoundaryInterrupting } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { ErrorBoundaryInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <ErrorBoundaryInterrupting/>
 ```

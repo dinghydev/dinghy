@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParallelMultipleIntermediateBoundaryInterrupting } from '@diac/standard-components-diagrams/bpmn2Events'
+import { ParallelMultipleIntermediateBoundaryInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <ParallelMultipleIntermediateBoundaryInterrupting/>
 ```

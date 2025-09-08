@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadBalancerPool } from '@diac/standard-components-diagrams/ibmVpc'
+import { LoadBalancerPool } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <LoadBalancerPool/>
 ```

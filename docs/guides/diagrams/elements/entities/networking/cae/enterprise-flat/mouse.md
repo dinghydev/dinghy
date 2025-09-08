@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mouse } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Mouse } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Mouse/>
 ```

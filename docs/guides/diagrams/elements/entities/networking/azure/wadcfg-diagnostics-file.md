@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WadcfgDiagnosticsFile } from '@diac/standard-components-diagrams/azure'
+import { WadcfgDiagnosticsFile } from '@dinghy/standard-components-diagrams/azure'
 
 <WadcfgDiagnosticsFile/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ItsmAdapterForServicenow } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { ItsmAdapterForServicenow } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <ItsmAdapterForServicenow/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConfigAssessment } from '@diac/standard-components-diagrams/caeOmsFlat'
+import { ConfigAssessment } from '@dinghy/standard-components-diagrams/caeOmsFlat'
 
 <ConfigAssessment/>
 ```

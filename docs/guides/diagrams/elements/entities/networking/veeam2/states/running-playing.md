@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RunningPlaying } from '@diac/standard-components-diagrams/veeam2States'
+import { RunningPlaying } from '@dinghy/standard-components-diagrams/veeam2States'
 
 <RunningPlaying/>
 ```

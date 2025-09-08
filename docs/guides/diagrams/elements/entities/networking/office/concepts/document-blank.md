@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DocumentBlank } from '@diac/standard-components-diagrams/officeConcepts'
+import { DocumentBlank } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <DocumentBlank/>
 ```

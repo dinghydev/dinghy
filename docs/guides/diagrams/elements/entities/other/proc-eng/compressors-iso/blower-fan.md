@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlowerFan } from '@diac/standard-components-diagrams/procEngCompressorsIso'
+import { BlowerFan } from '@dinghy/standard-components-diagrams/procEngCompressorsIso'
 
 <BlowerFan/>
 ```

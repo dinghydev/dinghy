@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudBigtable } from '@diac/standard-components-diagrams/gcpIconsDatabases'
+import { CloudBigtable } from '@dinghy/standard-components-diagrams/gcpIconsDatabases'
 
 <CloudBigtable/>
 ```

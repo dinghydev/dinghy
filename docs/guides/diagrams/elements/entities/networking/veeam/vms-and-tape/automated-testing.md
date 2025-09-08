@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AutomatedTesting } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { AutomatedTesting } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <AutomatedTesting/>
 ```

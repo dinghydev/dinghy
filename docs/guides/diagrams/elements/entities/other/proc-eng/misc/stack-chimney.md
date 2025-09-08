@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StackChimney } from '@diac/standard-components-diagrams/procEngMisc'
+import { StackChimney } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <StackChimney/>
 ```

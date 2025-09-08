@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DoubleCircle } from '@diac/standard-components-diagrams/misc'
+import { DoubleCircle } from '@dinghy/standard-components-diagrams/misc'
 
 <DoubleCircle/>
 ```

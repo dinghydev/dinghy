@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Flow } from '@diac/standard-components-diagrams/archimate3Relationships'
+import { Flow } from '@dinghy/standard-components-diagrams/archimate3Relationships'
 
 <Flow/>
 ```

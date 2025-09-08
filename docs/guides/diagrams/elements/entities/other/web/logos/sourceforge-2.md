@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sourceforge2 } from '@diac/standard-components-diagrams/webLogos'
+import { Sourceforge2 } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Sourceforge2/>
 ```

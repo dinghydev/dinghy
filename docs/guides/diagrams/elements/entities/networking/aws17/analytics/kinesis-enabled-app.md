@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KinesisEnabledApp } from '@diac/standard-components-diagrams/aws17Analytics'
+import { KinesisEnabledApp } from '@dinghy/standard-components-diagrams/aws17Analytics'
 
 <KinesisEnabledApp/>
 ```

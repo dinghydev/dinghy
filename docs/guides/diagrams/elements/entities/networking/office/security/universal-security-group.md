@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UniversalSecurityGroup } from '@diac/standard-components-diagrams/officeSecurity'
+import { UniversalSecurityGroup } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <UniversalSecurityGroup/>
 ```

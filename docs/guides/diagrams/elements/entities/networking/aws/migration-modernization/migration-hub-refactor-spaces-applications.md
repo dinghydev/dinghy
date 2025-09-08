@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MigrationHubRefactorSpacesApplications } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { MigrationHubRefactorSpacesApplications } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <MigrationHubRefactorSpacesApplications/>
 ```

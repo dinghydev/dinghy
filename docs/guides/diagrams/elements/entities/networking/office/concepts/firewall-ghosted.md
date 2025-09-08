@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FirewallGhosted } from '@diac/standard-components-diagrams/officeConcepts'
+import { FirewallGhosted } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <FirewallGhosted/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RtcRealTimeCommunication } from '@diac/standard-components-diagrams/alibabaCloud'
+import { RtcRealTimeCommunication } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <RtcRealTimeCommunication/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BubbleChart } from '@diac/standard-components-diagrams/mockupGraphics'
+import { BubbleChart } from '@dinghy/standard-components-diagrams/mockupGraphics'
 
 <BubbleChart/>
 ```

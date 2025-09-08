@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { AuthorizationBoundary } from '@diac/standard-components-diagrams/ibmCloudGroups'
+import { AuthorizationBoundary } from '@dinghy/standard-components-diagrams/ibmCloudGroups'
 
 <AuthorizationBoundary/>
 ```

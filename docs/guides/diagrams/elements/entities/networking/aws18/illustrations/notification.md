@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Notification } from '@diac/standard-components-diagrams/aws18Illustrations'
+import { Notification } from '@dinghy/standard-components-diagrams/aws18Illustrations'
 
 <Notification/>
 ```

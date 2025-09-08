@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11250ReversiblePumpMotor } from '@diac/standard-components-diagrams/fluidPower'
+import { X11250ReversiblePumpMotor } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11250ReversiblePumpMotor/>
 ```

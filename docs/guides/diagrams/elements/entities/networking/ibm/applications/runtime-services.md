@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RuntimeServices } from '@diac/standard-components-diagrams/ibmApplications'
+import { RuntimeServices } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <RuntimeServices/>
 ```

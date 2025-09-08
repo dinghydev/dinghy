@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseMinus } from '@diac/standard-components-diagrams/clipartComputer'
+import { DatabaseMinus } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <DatabaseMinus/>
 ```

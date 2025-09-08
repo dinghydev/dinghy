@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PushbuttonOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { PushbuttonOff } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <PushbuttonOff/>
 ```

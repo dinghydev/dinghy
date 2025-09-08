@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LostSpace } from '@diac/standard-components-diagrams/veeam23d'
+import { LostSpace } from '@dinghy/standard-components-diagrams/veeam23d'
 
 <LostSpace/>
 ```

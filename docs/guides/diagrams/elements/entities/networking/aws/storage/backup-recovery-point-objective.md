@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackupRecoveryPointObjective } from '@diac/standard-components-diagrams/awsStorage'
+import { BackupRecoveryPointObjective } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <BackupRecoveryPointObjective/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OrganizationalUnit } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { OrganizationalUnit } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <OrganizationalUnit/>
 ```

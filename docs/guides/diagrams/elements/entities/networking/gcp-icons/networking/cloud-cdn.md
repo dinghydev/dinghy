@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudCdn } from '@diac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudCdn } from '@dinghy/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudCdn/>
 ```

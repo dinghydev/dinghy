@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BehaviorAction } from '@diac/standard-components-diagrams/uml25'
+import { BehaviorAction } from '@dinghy/standard-components-diagrams/uml25'
 
 <BehaviorAction/>
 ```

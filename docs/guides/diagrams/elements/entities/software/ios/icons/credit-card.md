@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CreditCard } from '@diac/standard-components-diagrams/ios7Icons'
+import { CreditCard } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <CreditCard/>
 ```

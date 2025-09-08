@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdsBlueGreenDeployments } from '@diac/standard-components-diagrams/awsDatabase'
+import { RdsBlueGreenDeployments } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <RdsBlueGreenDeployments/>
 ```

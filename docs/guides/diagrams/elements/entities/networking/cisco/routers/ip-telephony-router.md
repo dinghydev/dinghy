@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpTelephonyRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { IpTelephonyRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <IpTelephonyRouter/>
 ```

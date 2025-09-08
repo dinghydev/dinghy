@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetscalerGateway } from '@diac/standard-components-diagrams/citrixComponents'
+import { NetscalerGateway } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <NetscalerGateway/>
 ```

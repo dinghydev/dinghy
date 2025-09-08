@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Youtube2 } from '@diac/standard-components-diagrams/webLogos'
+import { Youtube2 } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Youtube2/>
 ```

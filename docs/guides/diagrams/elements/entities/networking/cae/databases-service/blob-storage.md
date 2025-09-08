@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlobStorage } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { BlobStorage } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <BlobStorage/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Databricks } from '@diac/standard-components-diagrams/caeCompanies'
+import { Databricks } from '@dinghy/standard-components-diagrams/caeCompanies'
 
 <Databricks/>
 ```

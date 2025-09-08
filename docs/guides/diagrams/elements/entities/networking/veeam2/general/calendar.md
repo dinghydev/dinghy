@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Calendar } from '@diac/standard-components-diagrams/veeam2General'
+import { Calendar } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <Calendar/>
 ```

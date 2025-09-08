@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NodeGenericGhosted } from '@diac/standard-components-diagrams/officeConcepts'
+import { NodeGenericGhosted } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <NodeGenericGhosted/>
 ```

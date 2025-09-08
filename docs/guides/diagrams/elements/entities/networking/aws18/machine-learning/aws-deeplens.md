@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsDeeplens } from '@diac/standard-components-diagrams/aws18MachineLearning'
+import { AwsDeeplens } from '@dinghy/standard-components-diagrams/aws18MachineLearning'
 
 <AwsDeeplens/>
 ```

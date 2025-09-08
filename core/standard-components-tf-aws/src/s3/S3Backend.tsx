@@ -4,8 +4,8 @@ import {
   ResolvableBooleanSchema,
   ResolvableStringSchema,
   useTypedNode,
-} from '@diac/base-components'
-import { useStack } from '@diac/base-components'
+} from '@dinghy/base-components'
+import { useStack } from '@dinghy/base-components'
 import z from 'zod'
 import {
   AwsBackendS3,
@@ -15,7 +15,7 @@ import {
   useAwsRegion,
   useAwsS3Bucket,
 } from '../index.ts'
-import { useRenderOptions } from '@diac/base-components'
+import { useRenderOptions } from '@dinghy/base-components'
 
 export const S3BackendDefaults = z.object({
   bucketName: ResolvableStringSchema.default('tf-state'),

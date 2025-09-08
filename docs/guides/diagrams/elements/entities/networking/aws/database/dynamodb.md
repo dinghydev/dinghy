@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dynamodb } from '@diac/standard-components-diagrams/awsDatabase'
+import { Dynamodb } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <Dynamodb/>
 ```

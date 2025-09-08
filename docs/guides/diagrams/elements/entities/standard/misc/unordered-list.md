@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UnorderedList } from '@diac/standard-components-diagrams/misc'
+import { UnorderedList } from '@dinghy/standard-components-diagrams/misc'
 
 <UnorderedList/>
 ```

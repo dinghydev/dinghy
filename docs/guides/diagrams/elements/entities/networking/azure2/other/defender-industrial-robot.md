@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefenderIndustrialRobot } from '@diac/standard-components-diagrams/azure2Other'
+import { DefenderIndustrialRobot } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DefenderIndustrialRobot/>
 ```

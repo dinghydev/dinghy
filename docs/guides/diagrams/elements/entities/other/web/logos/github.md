@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Github } from '@diac/standard-components-diagrams/webLogos'
+import { Github } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Github/>
 ```

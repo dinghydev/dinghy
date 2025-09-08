@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hatena } from '@diac/standard-components-diagrams/webLogos'
+import { Hatena } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Hatena/>
 ```

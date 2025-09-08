@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MainframeModernizationRuntime } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { MainframeModernizationRuntime } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <MainframeModernizationRuntime/>
 ```

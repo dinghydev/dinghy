@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MenuBar } from '@diac/standard-components-diagrams/mockupForms'
+import { MenuBar } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <MenuBar/>
 ```

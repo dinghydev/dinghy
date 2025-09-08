@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OneZoneIa } from '@diac/standard-components-diagrams/awsStorage'
+import { OneZoneIa } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <OneZoneIa/>
 ```

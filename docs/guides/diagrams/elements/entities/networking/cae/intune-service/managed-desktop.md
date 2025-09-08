@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedDesktop } from '@diac/standard-components-diagrams/caeIntuneService'
+import { ManagedDesktop } from '@dinghy/standard-components-diagrams/caeIntuneService'
 
 <ManagedDesktop/>
 ```

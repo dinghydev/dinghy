@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11270PumpWith } from '@diac/standard-components-diagrams/fluidPower'
+import { X11270PumpWith } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11270PumpWith/>
 ```

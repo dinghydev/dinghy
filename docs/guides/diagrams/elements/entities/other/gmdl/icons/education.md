@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Education } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Education } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Education/>
 ```

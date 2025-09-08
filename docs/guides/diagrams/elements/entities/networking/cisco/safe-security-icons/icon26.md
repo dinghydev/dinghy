@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Icon26 } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { Icon26 } from '@dinghy/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <Icon26/>
 ```

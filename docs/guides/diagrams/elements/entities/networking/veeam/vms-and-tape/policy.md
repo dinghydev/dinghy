@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Policy } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Policy } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Policy/>
 ```

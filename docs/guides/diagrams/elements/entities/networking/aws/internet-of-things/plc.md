@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Plc } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Plc } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Plc/>
 ```

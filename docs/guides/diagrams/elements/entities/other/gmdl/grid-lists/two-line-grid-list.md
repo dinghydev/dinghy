@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TwoLineGridList } from '@diac/standard-components-diagrams/gmdlGridLists'
+import { TwoLineGridList } from '@dinghy/standard-components-diagrams/gmdlGridLists'
 
 <TwoLineGridList/>
 ```

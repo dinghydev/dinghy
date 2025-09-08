@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpsIds } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { IpsIds } from '@dinghy/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <IpsIds/>
 ```

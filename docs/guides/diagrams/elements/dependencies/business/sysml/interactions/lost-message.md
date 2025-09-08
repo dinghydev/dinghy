@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { LostMessage } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { LostMessage } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <LostMessage/>
 ```

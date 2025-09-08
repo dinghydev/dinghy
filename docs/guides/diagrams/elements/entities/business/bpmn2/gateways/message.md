@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Message } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { Message } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <Message/>
 ```

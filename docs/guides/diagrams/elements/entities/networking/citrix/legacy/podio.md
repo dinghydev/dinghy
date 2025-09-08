@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Podio } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Podio } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Podio/>
 ```

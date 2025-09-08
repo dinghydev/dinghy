@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouteTables } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { RouteTables } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <RouteTables/>
 ```

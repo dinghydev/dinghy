@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActionWithOutput2 } from '@diac/standard-components-diagrams/uml25'
+import { ActionWithOutput2 } from '@dinghy/standard-components-diagrams/uml25'
 
 <ActionWithOutput2/>
 ```

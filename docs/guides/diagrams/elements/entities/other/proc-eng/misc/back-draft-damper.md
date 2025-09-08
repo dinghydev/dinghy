@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackDraftDamper } from '@diac/standard-components-diagrams/procEngMisc'
+import { BackDraftDamper } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <BackDraftDamper/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mediator } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Mediator } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Mediator/>
 ```

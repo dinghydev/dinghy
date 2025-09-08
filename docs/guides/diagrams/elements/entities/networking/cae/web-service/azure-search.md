@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureSearch } from '@diac/standard-components-diagrams/caeWebService'
+import { AzureSearch } from '@dinghy/standard-components-diagrams/caeWebService'
 
 <AzureSearch/>
 ```

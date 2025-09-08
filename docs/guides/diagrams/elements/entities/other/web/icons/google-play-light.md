@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GooglePlayLight } from '@diac/standard-components-diagrams/webIcons'
+import { GooglePlayLight } from '@dinghy/standard-components-diagrams/webIcons'
 
 <GooglePlayLight/>
 ```

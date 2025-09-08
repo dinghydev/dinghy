@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { L3Switch } from '@diac/standard-components-diagrams/cisco19LanSwitching'
+import { L3Switch } from '@dinghy/standard-components-diagrams/cisco19LanSwitching'
 
 <L3Switch/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecureConnection } from '@diac/standard-components-diagrams/aws3d'
+import { SecureConnection } from '@dinghy/standard-components-diagrams/aws3d'
 
 <SecureConnection/>
 ```

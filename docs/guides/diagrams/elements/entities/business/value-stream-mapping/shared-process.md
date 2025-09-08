@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SharedProcess } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { SharedProcess } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <SharedProcess/>
 ```

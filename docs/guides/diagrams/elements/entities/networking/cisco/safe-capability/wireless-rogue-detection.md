@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WirelessRogueDetection } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { WirelessRogueDetection } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <WirelessRogueDetection/>
 ```

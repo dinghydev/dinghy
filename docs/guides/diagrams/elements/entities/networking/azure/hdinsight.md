@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hdinsight } from '@diac/standard-components-diagrams/azure'
+import { Hdinsight } from '@dinghy/standard-components-diagrams/azure'
 
 <Hdinsight/>
 ```

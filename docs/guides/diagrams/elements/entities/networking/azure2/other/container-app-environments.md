@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContainerAppEnvironments } from '@diac/standard-components-diagrams/azure2Other'
+import { ContainerAppEnvironments } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ContainerAppEnvironments/>
 ```

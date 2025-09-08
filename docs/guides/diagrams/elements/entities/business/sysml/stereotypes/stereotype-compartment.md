@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StereotypeCompartment } from '@diac/standard-components-diagrams/sysmlStereotypes'
+import { StereotypeCompartment } from '@dinghy/standard-components-diagrams/sysmlStereotypes'
 
 <StereotypeCompartment/>
 ```

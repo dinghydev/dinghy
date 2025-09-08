@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BookmarksFr } from '@diac/standard-components-diagrams/webIcons'
+import { BookmarksFr } from '@dinghy/standard-components-diagrams/webIcons'
 
 <BookmarksFr/>
 ```

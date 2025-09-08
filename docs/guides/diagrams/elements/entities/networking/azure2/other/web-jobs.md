@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebJobs } from '@diac/standard-components-diagrams/azure2Other'
+import { WebJobs } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <WebJobs/>
 ```

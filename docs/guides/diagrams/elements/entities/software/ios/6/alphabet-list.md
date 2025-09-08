@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AlphabetList } from '@diac/standard-components-diagrams/ios6'
+import { AlphabetList } from '@dinghy/standard-components-diagrams/ios6'
 
 <AlphabetList/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimeSeriesDataSets } from '@diac/standard-components-diagrams/azure2Iot'
+import { TimeSeriesDataSets } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <TimeSeriesDataSets/>
 ```

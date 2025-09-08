@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ObjectStorageSupport } from '@diac/standard-components-diagrams/veeam2Features'
+import { ObjectStorageSupport } from '@dinghy/standard-components-diagrams/veeam2Features'
 
 <ObjectStorageSupport/>
 ```

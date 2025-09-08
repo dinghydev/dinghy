@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AllocationActivityPartition } from '@diac/standard-components-diagrams/sysmlAllocations'
+import { AllocationActivityPartition } from '@dinghy/standard-components-diagrams/sysmlAllocations'
 
 <AllocationActivityPartition/>
 ```

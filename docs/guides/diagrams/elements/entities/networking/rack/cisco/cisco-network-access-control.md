@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoNetworkAccessControl } from '@diac/standard-components-diagrams/rackCisco'
+import { CiscoNetworkAccessControl } from '@dinghy/standard-components-diagrams/rackCisco'
 
 <CiscoNetworkAccessControl/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PowerpointAutomationServices } from '@diac/standard-components-diagrams/officeSites'
+import { PowerpointAutomationServices } from '@dinghy/standard-components-diagrams/officeSites'
 
 <PowerpointAutomationServices/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TabletAlternative } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { TabletAlternative } from '@dinghy/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <TabletAlternative/>
 ```

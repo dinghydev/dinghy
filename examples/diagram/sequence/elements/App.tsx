@@ -1,15 +1,15 @@
-import { Shape } from "@diac/base-components";
+import { Shape } from "@dinghy/base-components";
 import {
     Activation,
     Message,
     Participant,
-} from "@diac/standard-components-diagrams/sequenceDiagram";
+} from "@dinghy/standard-components-diagrams/sequenceDiagram";
 
 import {
     Client,
     Servers,
     User,
-} from "@diac/standard-components-diagrams/awsGeneralResources";
+} from "@dinghy/standard-components-diagrams/awsGeneralResources";
 
 export function App() {
     return (

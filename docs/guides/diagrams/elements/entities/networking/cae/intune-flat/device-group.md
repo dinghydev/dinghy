@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceGroup } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { DeviceGroup } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <DeviceGroup/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Registry } from '@diac/standard-components-diagrams/awsContainers'
+import { Registry } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <Registry/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Calculator } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Calculator } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Calculator/>
 ```

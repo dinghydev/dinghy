@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CwhCloudWebHosting } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CwhCloudWebHosting } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CwhCloudWebHosting/>
 ```

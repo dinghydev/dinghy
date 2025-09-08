@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UpgradeServer } from '@diac/standard-components-diagrams/officeConcepts'
+import { UpgradeServer } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <UpgradeServer/>
 ```

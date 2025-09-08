@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GreengrassComponentNucleus } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { GreengrassComponentNucleus } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <GreengrassComponentNucleus/>
 ```

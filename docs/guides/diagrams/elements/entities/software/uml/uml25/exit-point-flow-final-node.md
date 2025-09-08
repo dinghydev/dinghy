@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExitPointFlowFinalNode } from '@diac/standard-components-diagrams/uml25'
+import { ExitPointFlowFinalNode } from '@dinghy/standard-components-diagrams/uml25'
 
 <ExitPointFlowFinalNode/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GeolocationDatabase } from '@diac/standard-components-diagrams/citrixLegacy'
+import { GeolocationDatabase } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <GeolocationDatabase/>
 ```

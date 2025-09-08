@@ -2,11 +2,11 @@ import {
   IacNodeProps,
   ResolvableStringSchema,
   StringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { useTypedNode, useTypedNodes } from '@diac/base-components'
-import { NeutronSubnet } from '@diac/standard-components-diagrams/openstackBlue'
+import { useTypedNode, useTypedNodes } from '@dinghy/base-components'
+import { NeutronSubnet } from '@dinghy/standard-components-diagrams/openstackBlue'
 
 export const AwsSubnetInputSchema = z.object({
   vpc_id: ResolvableStringSchema.optional(),

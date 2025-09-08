@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CostSavings } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { CostSavings } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <CostSavings/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Iq } from '@diac/standard-components-diagrams/awsCustomerEnablement'
+import { Iq } from '@dinghy/standard-components-diagrams/awsCustomerEnablement'
 
 <Iq/>
 ```

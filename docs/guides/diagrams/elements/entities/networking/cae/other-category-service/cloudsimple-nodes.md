@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudsimpleNodes } from '@diac/standard-components-diagrams/caeOtherCategoryService'
+import { CloudsimpleNodes } from '@dinghy/standard-components-diagrams/caeOtherCategoryService'
 
 <CloudsimpleNodes/>
 ```

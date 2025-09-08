@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogAnalyticsWorkspaces } from '@diac/standard-components-diagrams/caeAnalyticsService'
+import { LogAnalyticsWorkspaces } from '@dinghy/standard-components-diagrams/caeAnalyticsService'
 
 <LogAnalyticsWorkspaces/>
 ```

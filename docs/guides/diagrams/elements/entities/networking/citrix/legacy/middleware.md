@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Middleware } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Middleware } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Middleware/>
 ```

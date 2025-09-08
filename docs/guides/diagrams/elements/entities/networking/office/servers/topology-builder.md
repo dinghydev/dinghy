@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TopologyBuilder } from '@diac/standard-components-diagrams/officeServers'
+import { TopologyBuilder } from '@dinghy/standard-components-diagrams/officeServers'
 
 <TopologyBuilder/>
 ```

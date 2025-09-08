@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SslPadlock } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { SslPadlock } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <SslPadlock/>
 ```

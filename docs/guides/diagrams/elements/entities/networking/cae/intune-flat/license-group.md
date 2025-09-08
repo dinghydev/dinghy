@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LicenseGroup } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { LicenseGroup } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <LicenseGroup/>
 ```

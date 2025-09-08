@@ -15,43 +15,43 @@ const resolveHome = () => {
   }
 }
 
-export const diacRc: Record<string, string> = {}
+export const dinghyRc: Record<string, string> = {}
 export const isInsideContainer = Deno.env.get('HOST_USER_HOME') !== undefined
 export const hostAppHome = Deno.env.get('HOST_APP_HOME') || resolveHome()
-export const appHomeMount = `/diac/engine/workspace/${basename(hostAppHome)}`
+export const appHomeMount = `/dinghy/engine/workspace/${basename(hostAppHome)}`
 export const containerAppHome = isInsideContainer ? appHomeMount : resolveHome()
-export const diacHome = Deno.env.get('DIAC_HOME') ||
-  `${Deno.env.get('HOME')}/.diac`
+export const dinghyHome = Deno.env.get('DINGHY_HOME') ||
+  `${Deno.env.get('HOME')}/.dinghy`
 
-export const diacAppConfig: any = {}
-export const diacRcFiles: string[] = [
-  `${containerAppHome}/.diacrc.local`,
-  `${containerAppHome}/.diacrc`,
-  `${diacHome}rc`,
+export const dinghyAppConfig: any = {}
+export const dinghyRcFiles: string[] = [
+  `${containerAppHome}/.dinghyrc.local`,
+  `${containerAppHome}/.dinghyrc`,
+  `${dinghyHome}rc`,
 ]
-export const diacConfigFile = `${hostAppHome}/diac.yaml`
+export const dinghyConfigFile = `${hostAppHome}/dinghy.yaml`
 
 export async function loadGlobalConfig() {
-  debug('diac home %s', diacHome)
+  debug('dinghy home %s', dinghyHome)
   debug('app home %s', containerAppHome)
   debug('exec path %s', Deno.execPath())
-  for (const file of diacRcFiles) {
+  for (const file of dinghyRcFiles) {
     await loadEnvFile(file)
   }
 
-  if (!fs.existsSync(diacConfigFile)) {
+  if (!fs.existsSync(dinghyConfigFile)) {
     return
   }
 
-  const config = yaml.parse(Deno.readTextFileSync(diacConfigFile))
+  const config = yaml.parse(Deno.readTextFileSync(dinghyConfigFile))
   if (config) {
-    Object.assign(diacAppConfig, config)
+    Object.assign(dinghyAppConfig, config)
     loadEnvFromConfig()
   }
 }
 
 function loadFiles(basePaths: string[]) {
-  diacAppConfig.files ??= {}
+  dinghyAppConfig.files ??= {}
   for (const basePath of basePaths) {
     if (!fs.existsSync(basePath)) {
       continue
@@ -69,7 +69,7 @@ function loadFiles(basePaths: string[]) {
         )
         const fileName = objectPath.pop() as string
         objectPath.push('files')
-        let current = diacAppConfig.files
+        let current = dinghyAppConfig.files
         objectPath.map((path) => {
           current[path] ??= {}
           current = current[path]
@@ -81,10 +81,10 @@ function loadFiles(basePaths: string[]) {
 }
 
 function loadApps() {
-  diacAppConfig.apps ??= {}
+  dinghyAppConfig.apps ??= {}
   for (const dirEntry of Deno.readDirSync(hostAppHome)) {
     if (dirEntry.name.endsWith('.tsx')) {
-      diacAppConfig.apps[dirEntry.name.replace('.tsx', '').toLowerCase()] =
+      dinghyAppConfig.apps[dirEntry.name.replace('.tsx', '').toLowerCase()] =
         dirEntry.name
       debug('discovered app: %s', dirEntry.name)
     }
@@ -97,7 +97,7 @@ export const configGet = (paths: string[]) => {
   if (current !== undefined) {
     debug('use env %s=*', envVar)
   } else {
-    current = diacAppConfig
+    current = dinghyAppConfig
     for (const path of paths) {
       if (!current || typeof current !== 'object') {
         break
@@ -112,7 +112,7 @@ export const configGet = (paths: string[]) => {
 }
 
 function loadEnvFromConfig() {
-  const envs = diacAppConfig.diac?.envs
+  const envs = dinghyAppConfig.dinghy?.envs
   if (!envs) {
     return
   }
@@ -120,8 +120,8 @@ function loadEnvFromConfig() {
     if (Deno.env.get(k) === undefined) {
       const value = String(v)
       Deno.env.set(k, value)
-      diacRc[k] = value
-      debug('loaded %s=* from diac.yaml', k)
+      dinghyRc[k] = value
+      debug('loaded %s=* from dinghy.yaml', k)
     }
   }
 }
@@ -138,7 +138,7 @@ async function loadEnvFile(path: string) {
       const v = line.slice(index + 1).trim()
       if (Deno.env.get(k) === undefined) {
         Deno.env.set(k, v)
-        diacRc[k] = v
+        dinghyRc[k] = v
         debug('loaded %s=* from %s', k, path)
       }
     }

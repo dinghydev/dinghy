@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DelayElement } from '@diac/standard-components-diagrams/electricalMisc'
+import { DelayElement } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <DelayElement/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileSync } from '@diac/standard-components-diagrams/ibmSocial'
+import { FileSync } from '@dinghy/standard-components-diagrams/ibmSocial'
 
 <FileSync/>
 ```

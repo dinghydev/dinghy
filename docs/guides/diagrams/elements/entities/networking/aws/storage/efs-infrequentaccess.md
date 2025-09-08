@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EfsInfrequentaccess } from '@diac/standard-components-diagrams/awsStorage'
+import { EfsInfrequentaccess } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <EfsInfrequentaccess/>
 ```

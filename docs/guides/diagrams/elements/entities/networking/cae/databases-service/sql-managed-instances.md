@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlManagedInstances } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { SqlManagedInstances } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <SqlManagedInstances/>
 ```

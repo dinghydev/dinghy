@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ManyOptionalToManyOptional } from '@diac/standard-components-diagrams/entityRelation'
+import { ManyOptionalToManyOptional } from '@dinghy/standard-components-diagrams/entityRelation'
 
 <ManyOptionalToManyOptional/>
 ```

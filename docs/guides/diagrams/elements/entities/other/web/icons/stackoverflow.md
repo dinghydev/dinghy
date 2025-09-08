@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stackoverflow } from '@diac/standard-components-diagrams/webIcons'
+import { Stackoverflow } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Stackoverflow/>
 ```

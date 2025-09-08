@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationAutoscaler } from '@diac/standard-components-diagrams/sapFoundational'
+import { ApplicationAutoscaler } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <ApplicationAutoscaler/>
 ```

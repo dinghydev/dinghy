@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ForwardButton } from '@diac/standard-components-diagrams/ios6'
+import { ForwardButton } from '@dinghy/standard-components-diagrams/ios6'
 
 <ForwardButton/>
 ```

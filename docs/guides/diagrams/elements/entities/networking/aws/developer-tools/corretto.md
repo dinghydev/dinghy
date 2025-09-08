@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Corretto } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { Corretto } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <Corretto/>
 ```

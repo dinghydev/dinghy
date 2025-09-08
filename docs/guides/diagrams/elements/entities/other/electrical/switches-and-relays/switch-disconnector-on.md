@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SwitchDisconnectorOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { SwitchDisconnectorOn } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <SwitchDisconnectorOn/>
 ```

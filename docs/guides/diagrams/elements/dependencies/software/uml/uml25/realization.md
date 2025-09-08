@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Realization } from '@diac/standard-components-diagrams/uml25'
+import { Realization } from '@dinghy/standard-components-diagrams/uml25'
 
 <Realization/>
 ```

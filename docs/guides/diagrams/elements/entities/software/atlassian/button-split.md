@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonSplit } from '@diac/standard-components-diagrams/atlassian'
+import { ButtonSplit } from '@dinghy/standard-components-diagrams/atlassian'
 
 <ButtonSplit/>
 ```

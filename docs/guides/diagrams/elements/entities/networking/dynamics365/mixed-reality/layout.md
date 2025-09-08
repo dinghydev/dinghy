@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Layout } from '@diac/standard-components-diagrams/dynamics365MixedReality'
+import { Layout } from '@dinghy/standard-components-diagrams/dynamics365MixedReality'
 
 <Layout/>
 ```

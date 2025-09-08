@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HomeOffice } from '@diac/standard-components-diagrams/citrixLegacy'
+import { HomeOffice } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <HomeOffice/>
 ```

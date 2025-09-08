@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11660GripperSingleActing } from '@diac/standard-components-diagrams/fluidPower'
+import { X11660GripperSingleActing } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11660GripperSingleActing/>
 ```

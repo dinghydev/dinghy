@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpcVirtualPrivateCloud } from '@diac/standard-components-diagrams/alibabaCloud'
+import { VpcVirtualPrivateCloud } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <VpcVirtualPrivateCloud/>
 ```

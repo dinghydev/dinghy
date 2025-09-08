@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExternalSaasProviders } from '@diac/standard-components-diagrams/gcp2Zones'
+import { ExternalSaasProviders } from '@dinghy/standard-components-diagrams/gcp2Zones'
 
 <ExternalSaasProviders/>
 ```

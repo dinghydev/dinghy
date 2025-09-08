@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlameArrestorDetonationProof } from '@diac/standard-components-diagrams/procEngFittings'
+import { FlameArrestorDetonationProof } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <FlameArrestorDetonationProof/>
 ```

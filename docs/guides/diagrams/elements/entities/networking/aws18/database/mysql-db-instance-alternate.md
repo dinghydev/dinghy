@@ -17,7 +17,7 @@ alternate
 ## Usage
 
 ```
-import { MysqlDbInstanceAlternate } from '@diac/standard-components-diagrams/aws18Database'
+import { MysqlDbInstanceAlternate } from '@dinghy/standard-components-diagrams/aws18Database'
 
 <MysqlDbInstanceAlternate/>
 ```

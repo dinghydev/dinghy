@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SslTlsOffload } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { SslTlsOffload } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <SslTlsOffload/>
 ```

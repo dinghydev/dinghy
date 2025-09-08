@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapDocumentGrounding } from '@diac/standard-components-diagrams/sapAi'
+import { SapDocumentGrounding } from '@dinghy/standard-components-diagrams/sapAi'
 
 <SapDocumentGrounding/>
 ```

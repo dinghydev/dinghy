@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseMariadbServer } from '@diac/standard-components-diagrams/azure2Databases'
+import { DatabaseMariadbServer } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <DatabaseMariadbServer/>
 ```

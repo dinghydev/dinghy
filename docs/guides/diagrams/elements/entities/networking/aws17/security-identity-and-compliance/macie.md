@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Macie } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { Macie } from '@dinghy/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <Macie/>
 ```

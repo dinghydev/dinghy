@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Remediate } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { Remediate } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <Remediate/>
 ```

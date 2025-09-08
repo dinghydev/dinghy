@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgressBar } from '@diac/standard-components-diagrams/android'
+import { ProgressBar } from '@dinghy/standard-components-diagrams/android'
 
 <ProgressBar/>
 ```

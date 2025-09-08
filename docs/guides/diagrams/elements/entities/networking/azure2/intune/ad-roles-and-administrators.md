@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdRolesAndAdministrators } from '@diac/standard-components-diagrams/azure2Intune'
+import { AdRolesAndAdministrators } from '@dinghy/standard-components-diagrams/azure2Intune'
 
 <AdRolesAndAdministrators/>
 ```

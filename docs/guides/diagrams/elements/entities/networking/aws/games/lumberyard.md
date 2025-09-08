@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lumberyard } from '@diac/standard-components-diagrams/awsGames'
+import { Lumberyard } from '@dinghy/standard-components-diagrams/awsGames'
 
 <Lumberyard/>
 ```

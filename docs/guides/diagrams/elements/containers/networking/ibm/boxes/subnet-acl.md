@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { SubnetAcl } from '@diac/standard-components-diagrams/ibmBoxes'
+import { SubnetAcl } from '@dinghy/standard-components-diagrams/ibmBoxes'
 
 <SubnetAcl/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Process } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Process } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Process/>
 ```

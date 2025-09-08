@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkSecurityGroups } from '@diac/standard-components-diagrams/azure2Networking'
+import { NetworkSecurityGroups } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <NetworkSecurityGroups/>
 ```

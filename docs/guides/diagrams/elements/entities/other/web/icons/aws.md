@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Aws } from '@diac/standard-components-diagrams/webIcons'
+import { Aws } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Aws/>
 ```

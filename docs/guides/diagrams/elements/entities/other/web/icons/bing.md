@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bing } from '@diac/standard-components-diagrams/webIcons'
+import { Bing } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Bing/>
 ```

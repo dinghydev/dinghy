@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CoverFlow } from '@diac/standard-components-diagrams/mockupNavigation'
+import { CoverFlow } from '@dinghy/standard-components-diagrams/mockupNavigation'
 
 <CoverFlow/>
 ```

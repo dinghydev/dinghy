@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ing } from '@diac/standard-components-diagrams/kubernetes'
+import { Ing } from '@dinghy/standard-components-diagrams/kubernetes'
 
 <Ing/>
 ```

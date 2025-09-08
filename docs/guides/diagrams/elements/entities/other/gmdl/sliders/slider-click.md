@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SliderClick } from '@diac/standard-components-diagrams/gmdlSliders'
+import { SliderClick } from '@dinghy/standard-components-diagrams/gmdlSliders'
 
 <SliderClick/>
 ```

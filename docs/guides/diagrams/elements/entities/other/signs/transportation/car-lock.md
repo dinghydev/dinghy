@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CarLock } from '@diac/standard-components-diagrams/signsTransportation'
+import { CarLock } from '@dinghy/standard-components-diagrams/signsTransportation'
 
 <CarLock/>
 ```

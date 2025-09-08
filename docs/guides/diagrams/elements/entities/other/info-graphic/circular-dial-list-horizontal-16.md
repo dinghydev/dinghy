@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CircularDialListHorizontal16 } from '@diac/standard-components-diagrams/infoGraphic'
+import { CircularDialListHorizontal16 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <CircularDialListHorizontal16/>
 ```

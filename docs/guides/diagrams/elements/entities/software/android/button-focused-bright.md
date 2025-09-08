@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonFocusedBright } from '@diac/standard-components-diagrams/android'
+import { ButtonFocusedBright } from '@dinghy/standard-components-diagrams/android'
 
 <ButtonFocusedBright/>
 ```

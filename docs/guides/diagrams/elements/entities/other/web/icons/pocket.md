@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pocket } from '@diac/standard-components-diagrams/webIcons'
+import { Pocket } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Pocket/>
 ```

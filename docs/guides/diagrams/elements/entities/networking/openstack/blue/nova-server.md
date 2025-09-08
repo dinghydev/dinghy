@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NovaServer } from '@diac/standard-components-diagrams/openstackBlue'
+import { NovaServer } from '@dinghy/standard-components-diagrams/openstackBlue'
 
 <NovaServer/>
 ```

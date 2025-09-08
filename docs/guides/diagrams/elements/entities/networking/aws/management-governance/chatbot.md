@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Chatbot } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { Chatbot } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <Chatbot/>
 ```

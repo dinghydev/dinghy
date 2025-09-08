@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Metrics } from '@diac/standard-components-diagrams/caeManagementAndGovernanceService'
+import { Metrics } from '@dinghy/standard-components-diagrams/caeManagementAndGovernanceService'
 
 <Metrics/>
 ```

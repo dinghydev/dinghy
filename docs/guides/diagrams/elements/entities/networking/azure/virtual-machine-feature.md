@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualMachineFeature } from '@diac/standard-components-diagrams/azure'
+import { VirtualMachineFeature } from '@dinghy/standard-components-diagrams/azure'
 
 <VirtualMachineFeature/>
 ```

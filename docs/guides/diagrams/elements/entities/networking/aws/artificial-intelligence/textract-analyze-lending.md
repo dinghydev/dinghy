@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextractAnalyzeLending } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { TextractAnalyzeLending } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <TextractAnalyzeLending/>
 ```

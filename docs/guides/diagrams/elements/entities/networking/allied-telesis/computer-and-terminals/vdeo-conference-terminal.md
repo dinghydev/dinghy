@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VdeoConferenceTerminal } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { VdeoConferenceTerminal } from '@dinghy/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <VdeoConferenceTerminal/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DdosServer } from '@diac/standard-components-diagrams/cumulus'
+import { DdosServer } from '@dinghy/standard-components-diagrams/cumulus'
 
 <DdosServer/>
 ```

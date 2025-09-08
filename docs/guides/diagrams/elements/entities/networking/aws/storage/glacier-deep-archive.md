@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlacierDeepArchive } from '@diac/standard-components-diagrams/awsStorage'
+import { GlacierDeepArchive } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <GlacierDeepArchive/>
 ```

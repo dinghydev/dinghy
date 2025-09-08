@@ -16,7 +16,7 @@ Composer
 ## Usage
 
 ```
-import { CloudComposer } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { CloudComposer } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <CloudComposer/>
 ```

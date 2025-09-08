@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SlenderLeftArrow } from '@diac/standard-components-diagrams/arrows'
+import { SlenderLeftArrow } from '@dinghy/standard-components-diagrams/arrows'
 
 <SlenderLeftArrow/>
 ```

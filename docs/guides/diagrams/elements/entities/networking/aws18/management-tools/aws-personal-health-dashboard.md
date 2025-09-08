@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsPersonalHealthDashboard } from '@diac/standard-components-diagrams/aws18ManagementTools'
+import { AwsPersonalHealthDashboard } from '@dinghy/standard-components-diagrams/aws18ManagementTools'
 
 <AwsPersonalHealthDashboard/>
 ```

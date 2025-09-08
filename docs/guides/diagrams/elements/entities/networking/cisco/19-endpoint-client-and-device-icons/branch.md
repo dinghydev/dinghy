@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Branch } from '@diac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
+import { Branch } from '@dinghy/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
 
 <Branch/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DistributionSwitch } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { DistributionSwitch } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <DistributionSwitch/>
 ```

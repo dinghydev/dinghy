@@ -1,4 +1,4 @@
-import type { DisplayStringType } from '@diac/base-components'
+import type { DisplayStringType } from '@dinghy/base-components'
 import type { DrawioRenderOptions } from '../types.ts'
 
 const DISPLAYS = {

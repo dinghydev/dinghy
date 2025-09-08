@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Batchcompute } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Batchcompute } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Batchcompute/>
 ```

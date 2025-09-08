@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FnfServerlessFunctionFlow } from '@diac/standard-components-diagrams/alibabaCloud'
+import { FnfServerlessFunctionFlow } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <FnfServerlessFunctionFlow/>
 ```

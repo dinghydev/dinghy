@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Emr } from '@diac/standard-components-diagrams/awsAnalytics'
+import { Emr } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <Emr/>
 ```

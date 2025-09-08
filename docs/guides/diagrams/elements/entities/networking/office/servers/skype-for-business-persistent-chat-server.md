@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SkypeForBusinessPersistentChatServer } from '@diac/standard-components-diagrams/officeServers'
+import { SkypeForBusinessPersistentChatServer } from '@dinghy/standard-components-diagrams/officeServers'
 
 <SkypeForBusinessPersistentChatServer/>
 ```

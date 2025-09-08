@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ComputerFunctionField } from '@diac/standard-components-diagrams/procEngInstruments'
+import { ComputerFunctionField } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <ComputerFunctionField/>
 ```

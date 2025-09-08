@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActiveDirectory } from '@diac/standard-components-diagrams/caeIdentityService'
+import { ActiveDirectory } from '@dinghy/standard-components-diagrams/caeIdentityService'
 
 <ActiveDirectory/>
 ```

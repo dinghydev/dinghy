@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SignalGenerator } from '@diac/standard-components-diagrams/electricalInstruments'
+import { SignalGenerator } from '@dinghy/standard-components-diagrams/electricalInstruments'
 
 <SignalGenerator/>
 ```

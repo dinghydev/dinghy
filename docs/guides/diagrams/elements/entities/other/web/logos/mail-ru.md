@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MailRu } from '@diac/standard-components-diagrams/webLogos'
+import { MailRu } from '@dinghy/standard-components-diagrams/webLogos'
 
 <MailRu/>
 ```

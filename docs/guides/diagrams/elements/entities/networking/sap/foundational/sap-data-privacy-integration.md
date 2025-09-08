@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapDataPrivacyIntegration } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapDataPrivacyIntegration } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapDataPrivacyIntegration/>
 ```

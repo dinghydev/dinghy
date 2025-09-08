@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudDataflow } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { CloudDataflow } from '@dinghy/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <CloudDataflow/>
 ```

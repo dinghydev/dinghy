@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArrayManager } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { ArrayManager } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <ArrayManager/>
 ```

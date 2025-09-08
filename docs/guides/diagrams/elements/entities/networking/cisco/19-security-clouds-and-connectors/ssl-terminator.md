@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SslTerminator } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { SslTerminator } from '@dinghy/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <SslTerminator/>
 ```

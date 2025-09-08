@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpGroups } from '@diac/standard-components-diagrams/azure2Networking'
+import { IpGroups } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <IpGroups/>
 ```

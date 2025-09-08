@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Association3 } from '@diac/standard-components-diagrams/uml'
+import { Association3 } from '@dinghy/standard-components-diagrams/uml'
 
 <Association3/>
 ```

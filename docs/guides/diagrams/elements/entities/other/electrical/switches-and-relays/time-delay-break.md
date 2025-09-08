@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimeDelayBreak } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { TimeDelayBreak } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <TimeDelayBreak/>
 ```

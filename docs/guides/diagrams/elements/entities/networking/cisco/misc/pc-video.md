@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PcVideo } from '@diac/standard-components-diagrams/ciscoMisc'
+import { PcVideo } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <PcVideo/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Safe } from '@diac/standard-components-diagrams/clipartFinance'
+import { Safe } from '@dinghy/standard-components-diagrams/clipartFinance'
 
 <Safe/>
 ```

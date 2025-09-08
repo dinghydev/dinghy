@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiscreteSliderFocused } from '@diac/standard-components-diagrams/gmdlSliders'
+import { DiscreteSliderFocused } from '@dinghy/standard-components-diagrams/gmdlSliders'
 
 <DiscreteSliderFocused/>
 ```

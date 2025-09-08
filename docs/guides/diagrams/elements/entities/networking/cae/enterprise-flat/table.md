@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Table } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Table } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Table/>
 ```

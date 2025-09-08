@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedDatabase } from '@diac/standard-components-diagrams/azure2Databases'
+import { ManagedDatabase } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <ManagedDatabase/>
 ```

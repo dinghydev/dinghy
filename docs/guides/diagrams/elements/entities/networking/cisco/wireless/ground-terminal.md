@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GroundTerminal } from '@diac/standard-components-diagrams/ciscoWireless'
+import { GroundTerminal } from '@dinghy/standard-components-diagrams/ciscoWireless'
 
 <GroundTerminal/>
 ```

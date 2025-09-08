@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Condition2 } from '@diac/standard-components-diagrams/uml'
+import { Condition2 } from '@dinghy/standard-components-diagrams/uml'
 
 <Condition2/>
 ```

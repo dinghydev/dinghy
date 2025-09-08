@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Personalization2 } from '@diac/standard-components-diagrams/salesforcePlatform'
+import { Personalization2 } from '@dinghy/standard-components-diagrams/salesforcePlatform'
 
 <Personalization2/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11520DoubleActingBandType } from '@diac/standard-components-diagrams/fluidPower'
+import { X11520DoubleActingBandType } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11520DoubleActingBandType/>
 ```

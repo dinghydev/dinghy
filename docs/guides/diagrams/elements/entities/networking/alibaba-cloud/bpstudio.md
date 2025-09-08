@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bpstudio } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Bpstudio } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Bpstudio/>
 ```

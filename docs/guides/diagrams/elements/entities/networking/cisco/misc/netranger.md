@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Netranger } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Netranger } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Netranger/>
 ```

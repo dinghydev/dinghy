@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dataverse } from '@diac/standard-components-diagrams/azure2PowerPlatform'
+import { Dataverse } from '@dinghy/standard-components-diagrams/azure2PowerPlatform'
 
 <Dataverse/>
 ```

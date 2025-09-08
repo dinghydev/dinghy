@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualRouter } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { VirtualRouter } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <VirtualRouter/>
 ```

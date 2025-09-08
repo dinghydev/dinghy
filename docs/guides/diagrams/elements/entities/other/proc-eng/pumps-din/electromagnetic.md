@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Electromagnetic } from '@diac/standard-components-diagrams/procEngPumpsDin'
+import { Electromagnetic } from '@dinghy/standard-components-diagrams/procEngPumpsDin'
 
 <Electromagnetic/>
 ```

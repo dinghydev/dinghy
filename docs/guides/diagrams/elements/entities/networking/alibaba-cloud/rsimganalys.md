@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rsimganalys } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Rsimganalys } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Rsimganalys/>
 ```

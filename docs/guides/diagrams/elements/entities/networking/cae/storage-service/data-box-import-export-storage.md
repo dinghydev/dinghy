@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataBoxImportExportStorage } from '@diac/standard-components-diagrams/caeStorageService'
+import { DataBoxImportExportStorage } from '@dinghy/standard-components-diagrams/caeStorageService'
 
 <DataBoxImportExportStorage/>
 ```

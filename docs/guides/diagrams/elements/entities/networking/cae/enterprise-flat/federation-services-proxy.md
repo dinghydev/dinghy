@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FederationServicesProxy } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { FederationServicesProxy } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <FederationServicesProxy/>
 ```

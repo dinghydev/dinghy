@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CellList } from '@diac/standard-components-diagrams/ios7Ui'
+import { CellList } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <CellList/>
 ```

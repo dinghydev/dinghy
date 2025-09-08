@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CallBehaviorAction } from '@diac/standard-components-diagrams/sysmlActivities'
+import { CallBehaviorAction } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <CallBehaviorAction/>
 ```

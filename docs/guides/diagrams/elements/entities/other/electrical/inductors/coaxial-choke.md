@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CoaxialChoke } from '@diac/standard-components-diagrams/electricalInductors'
+import { CoaxialChoke } from '@dinghy/standard-components-diagrams/electricalInductors'
 
 <CoaxialChoke/>
 ```

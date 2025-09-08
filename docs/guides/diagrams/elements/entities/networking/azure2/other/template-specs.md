@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TemplateSpecs } from '@diac/standard-components-diagrams/azure2Other'
+import { TemplateSpecs } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <TemplateSpecs/>
 ```

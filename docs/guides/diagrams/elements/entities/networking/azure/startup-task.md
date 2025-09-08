@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StartupTask } from '@diac/standard-components-diagrams/azure'
+import { StartupTask } from '@dinghy/standard-components-diagrams/azure'
 
 <StartupTask/>
 ```

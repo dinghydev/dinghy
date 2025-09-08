@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlowFinal } from '@diac/standard-components-diagrams/sysmlActivities'
+import { FlowFinal } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <FlowFinal/>
 ```

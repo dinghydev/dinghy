@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WideAreaApplicationEngine } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { WideAreaApplicationEngine } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <WideAreaApplicationEngine/>
 ```

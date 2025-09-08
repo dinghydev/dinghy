@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Outboundbot } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Outboundbot } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Outboundbot/>
 ```

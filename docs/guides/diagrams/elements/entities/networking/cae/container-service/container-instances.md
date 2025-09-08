@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContainerInstances } from '@diac/standard-components-diagrams/caeContainerService'
+import { ContainerInstances } from '@dinghy/standard-components-diagrams/caeContainerService'
 
 <ContainerInstances/>
 ```

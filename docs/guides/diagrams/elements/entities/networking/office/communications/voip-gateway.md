@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VoipGateway } from '@diac/standard-components-diagrams/officeCommunications'
+import { VoipGateway } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <VoipGateway/>
 ```

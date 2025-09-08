@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VolumeShadowCopy } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { VolumeShadowCopy } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <VolumeShadowCopy/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseRelational } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { DatabaseRelational } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <DatabaseRelational/>
 ```

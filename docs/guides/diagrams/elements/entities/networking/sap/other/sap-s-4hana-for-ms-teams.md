@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapS4hanaForMsTeams } from '@diac/standard-components-diagrams/sapOther'
+import { SapS4hanaForMsTeams } from '@dinghy/standard-components-diagrams/sapOther'
 
 <SapS4hanaForMsTeams/>
 ```

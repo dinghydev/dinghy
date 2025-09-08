@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { StorageRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <StorageRouter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bycicle } from '@diac/standard-components-diagrams/aws18IotThings'
+import { Bycicle } from '@dinghy/standard-components-diagrams/aws18IotThings'
 
 <Bycicle/>
 ```

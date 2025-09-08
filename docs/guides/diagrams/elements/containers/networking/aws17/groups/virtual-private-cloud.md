@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { VirtualPrivateCloud } from '@diac/standard-components-diagrams/aws17Groups'
+import { VirtualPrivateCloud } from '@dinghy/standard-components-diagrams/aws17Groups'
 
 <VirtualPrivateCloud/>
 ```

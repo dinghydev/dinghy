@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Apigateway } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Apigateway } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Apigateway/>
 ```

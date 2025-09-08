@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Consensus } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { Consensus } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <Consensus/>
 ```

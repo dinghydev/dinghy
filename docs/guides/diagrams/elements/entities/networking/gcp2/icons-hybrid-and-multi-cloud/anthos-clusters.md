@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AnthosClusters } from '@diac/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
+import { AnthosClusters } from '@dinghy/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
 
 <AnthosClusters/>
 ```

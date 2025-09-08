@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mongodb } from '@diac/standard-components-diagrams/webIcons'
+import { Mongodb } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Mongodb/>
 ```

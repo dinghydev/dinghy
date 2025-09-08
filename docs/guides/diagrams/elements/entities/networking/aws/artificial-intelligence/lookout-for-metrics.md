@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LookoutForMetrics } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { LookoutForMetrics } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <LookoutForMetrics/>
 ```

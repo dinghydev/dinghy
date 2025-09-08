@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExchangeOnPremisesAccess } from '@diac/standard-components-diagrams/caeIntuneService'
+import { ExchangeOnPremisesAccess } from '@dinghy/standard-components-diagrams/caeIntuneService'
 
 <ExchangeOnPremisesAccess/>
 ```

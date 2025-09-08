@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VrealizeOrchestrator } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { VrealizeOrchestrator } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <VrealizeOrchestrator/>
 ```

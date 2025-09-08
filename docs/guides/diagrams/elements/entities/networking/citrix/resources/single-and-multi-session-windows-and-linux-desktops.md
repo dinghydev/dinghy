@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SingleAndMultiSessionWindowsAndLinuxDesktops } from '@diac/standard-components-diagrams/citrixResources'
+import { SingleAndMultiSessionWindowsAndLinuxDesktops } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <SingleAndMultiSessionWindowsAndLinuxDesktops/>
 ```

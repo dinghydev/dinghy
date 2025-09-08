@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GroundStation } from '@diac/standard-components-diagrams/awsSatellite'
+import { GroundStation } from '@dinghy/standard-components-diagrams/awsSatellite'
 
 <GroundStation/>
 ```

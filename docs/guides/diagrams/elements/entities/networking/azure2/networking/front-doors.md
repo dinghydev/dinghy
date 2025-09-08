@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FrontDoors } from '@diac/standard-components-diagrams/azure2Networking'
+import { FrontDoors } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <FrontDoors/>
 ```

@@ -1,9 +1,9 @@
-import type { CommandArgs, CommandContext, Commands } from '@diac/cli'
-import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@diac/cli'
+import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
+import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@dinghy/cli'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
-import { requireStacksConfig } from '@diac/cli'
+import { requireStacksConfig } from '@dinghy/cli'
 import { subCommandArgs } from '../../utils/subCommandArgs.ts'
 import { existsSync } from '@std/fs/exists'
 

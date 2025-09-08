@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProductionControl } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { ProductionControl } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <ProductionControl/>
 ```

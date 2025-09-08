@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BucketWithObjects } from '@diac/standard-components-diagrams/awsStorage'
+import { BucketWithObjects } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <BucketWithObjects/>
 ```

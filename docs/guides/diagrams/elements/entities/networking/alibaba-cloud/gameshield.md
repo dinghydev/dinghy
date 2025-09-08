@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gameshield } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Gameshield } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Gameshield/>
 ```

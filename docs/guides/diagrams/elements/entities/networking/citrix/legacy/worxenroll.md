@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Worxenroll } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Worxenroll } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Worxenroll/>
 ```

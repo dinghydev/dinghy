@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Meneame } from '@diac/standard-components-diagrams/webLogos'
+import { Meneame } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Meneame/>
 ```

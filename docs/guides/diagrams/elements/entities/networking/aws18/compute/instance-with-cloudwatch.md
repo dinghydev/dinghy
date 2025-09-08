@@ -16,7 +16,7 @@ CloudWatch
 ## Usage
 
 ```
-import { InstanceWithCloudwatch } from '@diac/standard-components-diagrams/aws18Compute'
+import { InstanceWithCloudwatch } from '@dinghy/standard-components-diagrams/aws18Compute'
 
 <InstanceWithCloudwatch/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IntelligentTiering } from '@diac/standard-components-diagrams/awsStorage'
+import { IntelligentTiering } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <IntelligentTiering/>
 ```

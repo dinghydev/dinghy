@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlobalSecondaryIndex } from '@diac/standard-components-diagrams/awsDatabase'
+import { GlobalSecondaryIndex } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <GlobalSecondaryIndex/>
 ```

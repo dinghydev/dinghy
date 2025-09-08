@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReservedInstanceReporting } from '@diac/standard-components-diagrams/awsCloudFinancialManagement'
+import { ReservedInstanceReporting } from '@dinghy/standard-components-diagrams/awsCloudFinancialManagement'
 
 <ReservedInstanceReporting/>
 ```

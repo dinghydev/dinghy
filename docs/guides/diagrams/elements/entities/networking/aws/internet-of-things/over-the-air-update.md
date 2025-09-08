@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OverTheAirUpdate } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { OverTheAirUpdate } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <OverTheAirUpdate/>
 ```

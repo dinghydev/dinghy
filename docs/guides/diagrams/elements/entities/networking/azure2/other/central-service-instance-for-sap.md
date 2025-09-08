@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CentralServiceInstanceForSap } from '@diac/standard-components-diagrams/azure2Other'
+import { CentralServiceInstanceForSap } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <CentralServiceInstanceForSap/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Folders } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Folders } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Folders/>
 ```

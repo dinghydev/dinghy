@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Amplify } from '@diac/standard-components-diagrams/awsFrontEndWebMobile'
+import { Amplify } from '@dinghy/standard-components-diagrams/awsFrontEndWebMobile'
 
 <Amplify/>
 ```

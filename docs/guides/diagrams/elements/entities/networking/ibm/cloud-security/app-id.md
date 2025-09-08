@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppId } from '@diac/standard-components-diagrams/ibmCloudSecurity'
+import { AppId } from '@dinghy/standard-components-diagrams/ibmCloudSecurity'
 
 <AppId/>
 ```

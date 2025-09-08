@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseCube } from '@diac/standard-components-diagrams/officeDatabases'
+import { DatabaseCube } from '@dinghy/standard-components-diagrams/officeDatabases'
 
 <DatabaseCube/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11940TorqueMeter } from '@diac/standard-components-diagrams/fluidPower'
+import { X11940TorqueMeter } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11940TorqueMeter/>
 ```

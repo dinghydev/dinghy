@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Office365 } from '@diac/standard-components-diagrams/officeClouds'
+import { Office365 } from '@dinghy/standard-components-diagrams/officeClouds'
 
 <Office365/>
 ```

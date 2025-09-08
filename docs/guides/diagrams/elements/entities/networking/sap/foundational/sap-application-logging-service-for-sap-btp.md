@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapApplicationLoggingServiceForSapBtp } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapApplicationLoggingServiceForSapBtp } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapApplicationLoggingServiceForSapBtp/>
 ```

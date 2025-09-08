@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Keyboard } from '@diac/standard-components-diagrams/android'
+import { Keyboard } from '@dinghy/standard-components-diagrams/android'
 
 <Keyboard/>
 ```

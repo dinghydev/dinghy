@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FixedTabBar } from '@diac/standard-components-diagrams/gmdlTabs'
+import { FixedTabBar } from '@dinghy/standard-components-diagrams/gmdlTabs'
 
 <FixedTabBar/>
 ```

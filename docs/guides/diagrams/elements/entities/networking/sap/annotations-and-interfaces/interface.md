@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Interface } from '@diac/standard-components-diagrams/sapAnnotationsAndInterfaces'
+import { Interface } from '@dinghy/standard-components-diagrams/sapAnnotationsAndInterfaces'
 
 <Interface/>
 ```

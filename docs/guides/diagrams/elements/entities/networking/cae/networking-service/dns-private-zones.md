@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DnsPrivateZones } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { DnsPrivateZones } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <DnsPrivateZones/>
 ```

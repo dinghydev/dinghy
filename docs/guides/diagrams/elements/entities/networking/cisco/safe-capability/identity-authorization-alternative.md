@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentityAuthorizationAlternative } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { IdentityAuthorizationAlternative } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <IdentityAuthorizationAlternative/>
 ```

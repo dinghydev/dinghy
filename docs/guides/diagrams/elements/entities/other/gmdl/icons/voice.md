@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Voice } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Voice } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Voice/>
 ```

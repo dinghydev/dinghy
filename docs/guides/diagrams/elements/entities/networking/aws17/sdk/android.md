@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Android } from '@diac/standard-components-diagrams/aws17Sdk'
+import { Android } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <Android/>
 ```

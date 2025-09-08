@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RadioButtonOffHoverLight } from '@diac/standard-components-diagrams/gmdlSelectionControls'
+import { RadioButtonOffHoverLight } from '@dinghy/standard-components-diagrams/gmdlSelectionControls'
 
 <RadioButtonOffHoverLight/>
 ```

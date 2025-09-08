@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { ActorLifeline } from '@diac/standard-components-diagrams/uml'
+import { ActorLifeline } from '@dinghy/standard-components-diagrams/uml'
 
 <ActorLifeline/>
 ```

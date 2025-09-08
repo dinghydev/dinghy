@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SocialMedia } from '@diac/standard-components-diagrams/network2'
+import { SocialMedia } from '@dinghy/standard-components-diagrams/network2'
 
 <SocialMedia/>
 ```

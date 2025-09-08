@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProductVisualize } from '@diac/standard-components-diagrams/dynamics365MixedReality'
+import { ProductVisualize } from '@dinghy/standard-components-diagrams/dynamics365MixedReality'
 
 <ProductVisualize/>
 ```

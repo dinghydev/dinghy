@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MsDevBox } from '@diac/standard-components-diagrams/azure2Other'
+import { MsDevBox } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <MsDevBox/>
 ```

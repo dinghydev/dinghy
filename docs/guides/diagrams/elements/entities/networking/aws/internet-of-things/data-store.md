@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataStore } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { DataStore } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <DataStore/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KinesisFirehose } from '@diac/standard-components-diagrams/aws17Analytics'
+import { KinesisFirehose } from '@dinghy/standard-components-diagrams/aws17Analytics'
 
 <KinesisFirehose/>
 ```

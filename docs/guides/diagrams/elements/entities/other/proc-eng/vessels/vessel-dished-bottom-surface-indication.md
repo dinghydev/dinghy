@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VesselDishedBottomSurfaceIndication } from '@diac/standard-components-diagrams/procEngVessels'
+import { VesselDishedBottomSurfaceIndication } from '@dinghy/standard-components-diagrams/procEngVessels'
 
 <VesselDishedBottomSurfaceIndication/>
 ```

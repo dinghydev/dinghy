@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { VerticalList } from '@diac/standard-components-diagrams/misc'
+import { VerticalList } from '@dinghy/standard-components-diagrams/misc'
 
 <VerticalList/>
 ```

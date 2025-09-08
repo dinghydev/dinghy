@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlueElasticViews } from '@diac/standard-components-diagrams/awsAnalytics'
+import { GlueElasticViews } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <GlueElasticViews/>
 ```

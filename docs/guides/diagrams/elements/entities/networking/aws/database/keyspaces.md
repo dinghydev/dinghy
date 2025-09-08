@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Keyspaces } from '@diac/standard-components-diagrams/awsDatabase'
+import { Keyspaces } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <Keyspaces/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RecoveryPlan } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { RecoveryPlan } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <RecoveryPlan/>
 ```

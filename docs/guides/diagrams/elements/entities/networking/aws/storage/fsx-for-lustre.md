@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FsxForLustre } from '@diac/standard-components-diagrams/awsStorage'
+import { FsxForLustre } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <FsxForLustre/>
 ```

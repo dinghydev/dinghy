@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationGateway } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { ApplicationGateway } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <ApplicationGateway/>
 ```

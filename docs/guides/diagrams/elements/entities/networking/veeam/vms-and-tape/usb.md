@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Usb } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Usb } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Usb/>
 ```

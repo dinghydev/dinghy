@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnPageReference } from '@diac/standard-components-diagrams/flowchart'
+import { OnPageReference } from '@dinghy/standard-components-diagrams/flowchart'
 
 <OnPageReference/>
 ```

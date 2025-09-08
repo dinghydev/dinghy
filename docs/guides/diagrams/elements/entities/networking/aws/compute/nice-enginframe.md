@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NiceEnginframe } from '@diac/standard-components-diagrams/awsCompute'
+import { NiceEnginframe } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <NiceEnginframe/>
 ```

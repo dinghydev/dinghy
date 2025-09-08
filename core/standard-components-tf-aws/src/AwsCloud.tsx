@@ -2,12 +2,12 @@ import {
   IacNodeProps,
   IacNodeSchema,
   ResolvableStringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { useTypedNode } from '@diac/base-components'
-import { AwsCloud as AwsCloudDiagram } from '@diac/standard-components-diagrams/awsGroups'
+import { useTypedNode } from '@dinghy/base-components'
+import { AwsCloud as AwsCloudDiagram } from '@dinghy/standard-components-diagrams/awsGroups'
 
 export const AwsCloudInputSchema = IacNodeSchema.extend({
   accountId: ResolvableStringSchema.optional(),

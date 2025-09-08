@@ -16,7 +16,7 @@ Integration
 ## Usage
 
 ```
-import { ApplicationIntegration } from '@diac/standard-components-diagrams/gcp2IconsIntegrationServices'
+import { ApplicationIntegration } from '@dinghy/standard-components-diagrams/gcp2IconsIntegrationServices'
 
 <ApplicationIntegration/>
 ```

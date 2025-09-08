@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebServer } from '@diac/standard-components-diagrams/citrixLegacy'
+import { WebServer } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <WebServer/>
 ```

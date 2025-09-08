@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FullMsIntegration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { FullMsIntegration } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <FullMsIntegration/>
 ```

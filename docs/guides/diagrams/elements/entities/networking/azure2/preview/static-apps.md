@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StaticApps } from '@diac/standard-components-diagrams/azure2Preview'
+import { StaticApps } from '@dinghy/standard-components-diagrams/azure2Preview'
 
 <StaticApps/>
 ```

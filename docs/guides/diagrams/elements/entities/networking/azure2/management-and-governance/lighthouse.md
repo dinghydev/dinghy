@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lighthouse } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { Lighthouse } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <Lighthouse/>
 ```

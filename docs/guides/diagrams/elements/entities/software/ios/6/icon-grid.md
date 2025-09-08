@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IconGrid } from '@diac/standard-components-diagrams/ios6'
+import { IconGrid } from '@dinghy/standard-components-diagrams/ios6'
 
 <IconGrid/>
 ```

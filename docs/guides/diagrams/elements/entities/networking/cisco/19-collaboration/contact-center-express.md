@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContactCenterExpress } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { ContactCenterExpress } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <ContactCenterExpress/>
 ```

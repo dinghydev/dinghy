@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SharedControlDisplayInDcsLocalPanel } from '@diac/standard-components-diagrams/procEngInstruments'
+import { SharedControlDisplayInDcsLocalPanel } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <SharedControlDisplayInDcsLocalPanel/>
 ```

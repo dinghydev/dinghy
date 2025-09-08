@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HomePageControl } from '@diac/standard-components-diagrams/ios6'
+import { HomePageControl } from '@dinghy/standard-components-diagrams/ios6'
 
 <HomePageControl/>
 ```

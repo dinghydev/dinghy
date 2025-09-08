@@ -16,7 +16,7 @@ Translation
 ## Usage
 
 ```
-import { AutomlTranslation } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AutomlTranslation } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AutomlTranslation/>
 ```

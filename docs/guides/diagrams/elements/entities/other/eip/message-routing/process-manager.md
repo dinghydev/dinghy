@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProcessManager } from '@diac/standard-components-diagrams/eipMessageRouting'
+import { ProcessManager } from '@dinghy/standard-components-diagrams/eipMessageRouting'
 
 <ProcessManager/>
 ```

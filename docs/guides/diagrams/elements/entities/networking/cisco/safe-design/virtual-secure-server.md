@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualSecureServer } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { VirtualSecureServer } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <VirtualSecureServer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApigeeSense } from '@diac/standard-components-diagrams/gcpIconsApiManagement'
+import { ApigeeSense } from '@dinghy/standard-components-diagrams/gcpIconsApiManagement'
 
 <ApigeeSense/>
 ```

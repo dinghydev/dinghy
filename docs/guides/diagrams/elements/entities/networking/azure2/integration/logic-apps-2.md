@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogicApps2 } from '@diac/standard-components-diagrams/azure2Integration'
+import { LogicApps2 } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <LogicApps2/>
 ```

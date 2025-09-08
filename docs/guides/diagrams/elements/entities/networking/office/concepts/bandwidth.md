@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bandwidth } from '@diac/standard-components-diagrams/officeConcepts'
+import { Bandwidth } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Bandwidth/>
 ```

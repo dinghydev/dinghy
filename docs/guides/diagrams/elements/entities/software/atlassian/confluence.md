@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Confluence } from '@diac/standard-components-diagrams/atlassian'
+import { Confluence } from '@dinghy/standard-components-diagrams/atlassian'
 
 <Confluence/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Scom } from '@diac/standard-components-diagrams/officeServers'
+import { Scom } from '@dinghy/standard-components-diagrams/officeServers'
 
 <Scom/>
 ```

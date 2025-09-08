@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Apache } from '@diac/standard-components-diagrams/webIcons'
+import { Apache } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Apache/>
 ```

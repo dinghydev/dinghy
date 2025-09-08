@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NotIec } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { NotIec } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <NotIec/>
 ```

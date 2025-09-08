@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudComputing } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { CloudComputing } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <CloudComputing/>
 ```

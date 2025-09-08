@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationServerGhosted } from '@diac/standard-components-diagrams/officeServers'
+import { ApplicationServerGhosted } from '@dinghy/standard-components-diagrams/officeServers'
 
 <ApplicationServerGhosted/>
 ```

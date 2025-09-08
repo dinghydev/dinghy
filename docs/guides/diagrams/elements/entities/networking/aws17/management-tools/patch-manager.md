@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PatchManager } from '@diac/standard-components-diagrams/aws17ManagementTools'
+import { PatchManager } from '@dinghy/standard-components-diagrams/aws17ManagementTools'
 
 <PatchManager/>
 ```

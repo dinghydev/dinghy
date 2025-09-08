@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TapeRecord } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { TapeRecord } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <TapeRecord/>
 ```

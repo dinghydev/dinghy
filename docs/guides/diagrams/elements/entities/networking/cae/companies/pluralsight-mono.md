@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PluralsightMono } from '@diac/standard-components-diagrams/caeCompanies'
+import { PluralsightMono } from '@dinghy/standard-components-diagrams/caeCompanies'
 
 <PluralsightMono/>
 ```

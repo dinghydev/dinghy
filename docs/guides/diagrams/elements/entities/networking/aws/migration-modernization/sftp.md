@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sftp } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { Sftp } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <Sftp/>
 ```

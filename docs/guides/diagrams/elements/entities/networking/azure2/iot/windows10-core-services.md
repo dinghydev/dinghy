@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Windows10CoreServices } from '@diac/standard-components-diagrams/azure2Iot'
+import { Windows10CoreServices } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <Windows10CoreServices/>
 ```

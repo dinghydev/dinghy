@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TenantStatus } from '@diac/standard-components-diagrams/caeOtherCategoryService'
+import { TenantStatus } from '@dinghy/standard-components-diagrams/caeOtherCategoryService'
 
 <TenantStatus/>
 ```

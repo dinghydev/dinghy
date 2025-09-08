@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StackedRadioButtons3 } from '@diac/standard-components-diagrams/bootstrap'
+import { StackedRadioButtons3 } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <StackedRadioButtons3/>
 ```

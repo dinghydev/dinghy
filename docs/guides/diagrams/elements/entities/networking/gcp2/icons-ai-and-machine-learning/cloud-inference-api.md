@@ -16,7 +16,7 @@ Inference API
 ## Usage
 
 ```
-import { CloudInferenceApi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { CloudInferenceApi } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <CloudInferenceApi/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Conditional } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { Conditional } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <Conditional/>
 ```

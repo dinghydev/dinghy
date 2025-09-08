@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerWidthChanges } from '@diac/standard-components-diagrams/caeOmsFlat'
+import { ServerWidthChanges } from '@dinghy/standard-components-diagrams/caeOmsFlat'
 
 <ServerWidthChanges/>
 ```

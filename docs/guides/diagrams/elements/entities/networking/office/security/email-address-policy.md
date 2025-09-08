@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EmailAddressPolicy } from '@diac/standard-components-diagrams/officeSecurity'
+import { EmailAddressPolicy } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <EmailAddressPolicy/>
 ```

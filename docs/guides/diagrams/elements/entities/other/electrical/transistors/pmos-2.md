@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pmos2 } from '@diac/standard-components-diagrams/electricalTransistors'
+import { Pmos2 } from '@dinghy/standard-components-diagrams/electricalTransistors'
 
 <Pmos2/>
 ```

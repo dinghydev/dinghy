@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudShell } from '@diac/standard-components-diagrams/azure2Preview'
+import { CloudShell } from '@dinghy/standard-components-diagrams/azure2Preview'
 
 <CloudShell/>
 ```

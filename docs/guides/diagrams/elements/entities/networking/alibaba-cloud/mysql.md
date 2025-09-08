@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mysql } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Mysql } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Mysql/>
 ```

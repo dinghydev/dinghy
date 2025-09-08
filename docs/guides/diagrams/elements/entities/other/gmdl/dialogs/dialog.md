@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dialog } from '@diac/standard-components-diagrams/gmdlDialogs'
+import { Dialog } from '@dinghy/standard-components-diagrams/gmdlDialogs'
 
 <Dialog/>
 ```

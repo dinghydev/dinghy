@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Nigbt } from '@diac/standard-components-diagrams/electricalTransistors'
+import { Nigbt } from '@dinghy/standard-components-diagrams/electricalTransistors'
 
 <Nigbt/>
 ```

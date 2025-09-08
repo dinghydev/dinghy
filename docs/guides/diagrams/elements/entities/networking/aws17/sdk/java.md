@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Java } from '@diac/standard-components-diagrams/aws17Sdk'
+import { Java } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <Java/>
 ```

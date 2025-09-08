@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Yelp } from '@diac/standard-components-diagrams/webIcons'
+import { Yelp } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Yelp/>
 ```

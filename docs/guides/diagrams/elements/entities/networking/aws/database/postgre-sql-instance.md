@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PostgreSqlInstance } from '@diac/standard-components-diagrams/awsDatabase'
+import { PostgreSqlInstance } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <PostgreSqlInstance/>
 ```

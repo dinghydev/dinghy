@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Inferentia } from '@diac/standard-components-diagrams/awsCompute'
+import { Inferentia } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Inferentia/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GuestAgentCustomization } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { GuestAgentCustomization } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <GuestAgentCustomization/>
 ```

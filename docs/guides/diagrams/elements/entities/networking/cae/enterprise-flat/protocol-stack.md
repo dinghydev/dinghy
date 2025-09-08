@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProtocolStack } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { ProtocolStack } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <ProtocolStack/>
 ```

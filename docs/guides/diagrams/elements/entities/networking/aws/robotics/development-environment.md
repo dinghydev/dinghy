@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DevelopmentEnvironment } from '@diac/standard-components-diagrams/awsRobotics'
+import { DevelopmentEnvironment } from '@dinghy/standard-components-diagrams/awsRobotics'
 
 <DevelopmentEnvironment/>
 ```

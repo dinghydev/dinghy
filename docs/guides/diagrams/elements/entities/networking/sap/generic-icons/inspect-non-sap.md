@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InspectNonSap } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { InspectNonSap } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <InspectNonSap/>
 ```

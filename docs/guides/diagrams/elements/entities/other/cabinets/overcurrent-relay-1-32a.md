@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OvercurrentRelay132a } from '@diac/standard-components-diagrams/cabinets'
+import { OvercurrentRelay132a } from '@dinghy/standard-components-diagrams/cabinets'
 
 <OvercurrentRelay132a/>
 ```

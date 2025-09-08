@@ -147,7 +147,7 @@ const generateUsageSection = (context: CommandContext, sections: Sections) => {
   sections.usage.push({
     name: `  ${
       chalk.white('$')
-    } diac${prefixPlaceholder}${argumentsPlaceholder}${commandPlaceholder}${optionsPlaceholder}`,
+    } dinghy${prefixPlaceholder}${argumentsPlaceholder}${commandPlaceholder}${optionsPlaceholder}`,
   })
 
   if (context.prefix.length === 0) {

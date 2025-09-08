@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloud } from '@diac/standard-components-diagrams/network2'
+import { Cloud } from '@dinghy/standard-components-diagrams/network2'
 
 <Cloud/>
 ```

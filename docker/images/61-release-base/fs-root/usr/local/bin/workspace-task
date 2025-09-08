@@ -6,9 +6,9 @@ task_name="$1"
 shift
 
 deno run \
-  --config /diac/workspace/deno.jsonc \
-  --lock /diac/workspace/deno.lock \
+  --config /dinghy/workspace/deno.jsonc \
+  --lock /dinghy/workspace/deno.lock \
   --allow-all \
    --cached-only \
-  /diac/workspace/tasks/${task_name}/index.ts \
+  /dinghy/workspace/tasks/${task_name}/index.ts \
   "$@"

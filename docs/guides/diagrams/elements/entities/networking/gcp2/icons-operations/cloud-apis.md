@@ -16,7 +16,7 @@ APIs
 ## Usage
 
 ```
-import { CloudApis } from '@diac/standard-components-diagrams/gcp2IconsOperations'
+import { CloudApis } from '@dinghy/standard-components-diagrams/gcp2IconsOperations'
 
 <CloudApis/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HomePageOrange } from '@diac/standard-components-diagrams/officeConcepts'
+import { HomePageOrange } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <HomePageOrange/>
 ```

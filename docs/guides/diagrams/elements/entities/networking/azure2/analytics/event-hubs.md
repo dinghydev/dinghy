@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventHubs } from '@diac/standard-components-diagrams/azure2Analytics'
+import { EventHubs } from '@dinghy/standard-components-diagrams/azure2Analytics'
 
 <EventHubs/>
 ```

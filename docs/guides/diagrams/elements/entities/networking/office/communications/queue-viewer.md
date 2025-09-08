@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QueueViewer } from '@diac/standard-components-diagrams/officeCommunications'
+import { QueueViewer } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <QueueViewer/>
 ```

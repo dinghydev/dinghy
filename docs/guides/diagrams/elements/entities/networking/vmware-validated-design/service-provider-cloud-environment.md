@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceProviderCloudEnvironment } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { ServiceProviderCloudEnvironment } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <ServiceProviderCloudEnvironment/>
 ```

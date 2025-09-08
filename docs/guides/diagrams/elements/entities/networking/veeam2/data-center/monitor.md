@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Monitor } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { Monitor } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <Monitor/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Azurefxtedgefiler } from '@diac/standard-components-diagrams/caeStorageService'
+import { Azurefxtedgefiler } from '@dinghy/standard-components-diagrams/caeStorageService'
 
 <Azurefxtedgefiler/>
 ```

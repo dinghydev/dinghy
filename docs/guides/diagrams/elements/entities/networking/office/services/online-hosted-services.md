@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnlineHostedServices } from '@diac/standard-components-diagrams/officeServices'
+import { OnlineHostedServices } from '@dinghy/standard-components-diagrams/officeServices'
 
 <OnlineHostedServices/>
 ```

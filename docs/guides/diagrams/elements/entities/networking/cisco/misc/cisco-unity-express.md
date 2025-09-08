@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoUnityExpress } from '@diac/standard-components-diagrams/ciscoMisc'
+import { CiscoUnityExpress } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <CiscoUnityExpress/>
 ```

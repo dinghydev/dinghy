@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseGeneric } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { DatabaseGeneric } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <DatabaseGeneric/>
 ```

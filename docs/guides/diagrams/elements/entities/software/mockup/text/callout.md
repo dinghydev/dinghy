@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Callout } from '@diac/standard-components-diagrams/mockupText'
+import { Callout } from '@dinghy/standard-components-diagrams/mockupText'
 
 <Callout/>
 ```

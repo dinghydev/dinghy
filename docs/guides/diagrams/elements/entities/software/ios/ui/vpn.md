@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vpn } from '@diac/standard-components-diagrams/ios7Ui'
+import { Vpn } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <Vpn/>
 ```

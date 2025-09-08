@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhonePolycom } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { PhonePolycom } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <PhonePolycom/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogStreaming } from '@diac/standard-components-diagrams/azure2General'
+import { LogStreaming } from '@dinghy/standard-components-diagrams/azure2General'
 
 <LogStreaming/>
 ```

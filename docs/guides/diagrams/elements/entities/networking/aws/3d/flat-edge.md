@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlatEdge } from '@diac/standard-components-diagrams/aws3d'
+import { FlatEdge } from '@dinghy/standard-components-diagrams/aws3d'
 
 <FlatEdge/>
 ```

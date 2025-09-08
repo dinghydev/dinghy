@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceSecurityWindows } from '@diac/standard-components-diagrams/azure2Intune'
+import { DeviceSecurityWindows } from '@dinghy/standard-components-diagrams/azure2Intune'
 
 <DeviceSecurityWindows/>
 ```

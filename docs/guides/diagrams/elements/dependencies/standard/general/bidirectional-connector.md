@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BidirectionalConnector } from '@diac/standard-components-diagrams/general'
+import { BidirectionalConnector } from '@dinghy/standard-components-diagrams/general'
 
 <BidirectionalConnector/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Spot } from '@diac/standard-components-diagrams/aws3d'
+import { Spot } from '@dinghy/standard-components-diagrams/aws3d'
 
 <Spot/>
 ```

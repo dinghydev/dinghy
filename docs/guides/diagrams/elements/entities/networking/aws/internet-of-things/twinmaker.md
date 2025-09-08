@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Twinmaker } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Twinmaker } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Twinmaker/>
 ```

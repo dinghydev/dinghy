@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BedSingle } from '@diac/standard-components-diagrams/floorPlans'
+import { BedSingle } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <BedSingle/>
 ```

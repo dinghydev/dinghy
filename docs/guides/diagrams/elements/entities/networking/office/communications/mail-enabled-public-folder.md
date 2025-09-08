@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MailEnabledPublicFolder } from '@diac/standard-components-diagrams/officeCommunications'
+import { MailEnabledPublicFolder } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <MailEnabledPublicFolder/>
 ```

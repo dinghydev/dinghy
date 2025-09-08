@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationSecurityGroups } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { ApplicationSecurityGroups } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <ApplicationSecurityGroups/>
 ```

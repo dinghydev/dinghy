@@ -16,7 +16,7 @@ AI Platform
 ## Usage
 
 ```
-import { ContactCenterAiPlatform } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { ContactCenterAiPlatform } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <ContactCenterAiPlatform/>
 ```

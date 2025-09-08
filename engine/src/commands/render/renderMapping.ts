@@ -1,20 +1,20 @@
-import { renderJson } from '@diac/renderer-json'
-import { renderDrawio } from '@diac/renderer-drawio'
-import { renderTf } from '@diac/renderer-tf'
+import { renderJson } from '@dinghy/renderer-json'
+import { renderDrawio } from '@dinghy/renderer-drawio'
+import { renderTf } from '@dinghy/renderer-tf'
 import { dirname, resolve } from 'jsr:@std/path@1.0.8'
 import Debug from 'debug'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
-import { hostAppHome } from '@diac/cli'
+import { hostAppHome } from '@dinghy/cli'
 import {
   createStage,
   createView,
   deepMerge,
   toTitle,
-} from '@diac/base-components'
-import { runCommand } from '@diac/cli'
+} from '@dinghy/base-components'
+import { runCommand } from '@dinghy/cli'
 import png from '../diagram/png.ts'
-import { OPTIONS_SYMBOL } from '@diac/cli'
+import { OPTIONS_SYMBOL } from '@dinghy/cli'
 const debug = Debug('rendererMapping')
 
 const writeFile = async (path: string, content: string) => {

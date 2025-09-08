@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RedshiftDataSharingGovernance } from '@diac/standard-components-diagrams/awsAnalytics'
+import { RedshiftDataSharingGovernance } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <RedshiftDataSharingGovernance/>
 ```

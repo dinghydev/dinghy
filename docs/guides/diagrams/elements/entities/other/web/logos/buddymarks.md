@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Buddymarks } from '@diac/standard-components-diagrams/webLogos'
+import { Buddymarks } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Buddymarks/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChaosStudio } from '@diac/standard-components-diagrams/azure2Other'
+import { ChaosStudio } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ChaosStudio/>
 ```

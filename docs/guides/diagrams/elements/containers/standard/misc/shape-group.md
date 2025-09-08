@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { ShapeGroup } from '@diac/standard-components-diagrams/misc'
+import { ShapeGroup } from '@dinghy/standard-components-diagrams/misc'
 
 <ShapeGroup/>
 ```

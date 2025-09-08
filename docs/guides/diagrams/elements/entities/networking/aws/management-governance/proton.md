@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Proton } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { Proton } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <Proton/>
 ```

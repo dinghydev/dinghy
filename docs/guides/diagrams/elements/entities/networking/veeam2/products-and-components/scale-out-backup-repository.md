@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScaleOutBackupRepository } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { ScaleOutBackupRepository } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <ScaleOutBackupRepository/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11890ElectricalFluidLevel } from '@diac/standard-components-diagrams/fluidPower'
+import { X11890ElectricalFluidLevel } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11890ElectricalFluidLevel/>
 ```

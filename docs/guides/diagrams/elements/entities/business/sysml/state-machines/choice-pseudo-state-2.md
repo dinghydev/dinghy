@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChoicePseudoState2 } from '@diac/standard-components-diagrams/sysmlStateMachines'
+import { ChoicePseudoState2 } from '@dinghy/standard-components-diagrams/sysmlStateMachines'
 
 <ChoicePseudoState2/>
 ```

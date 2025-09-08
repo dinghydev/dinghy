@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonAppstream20 } from '@diac/standard-components-diagrams/aws18DesktopAppStreaming'
+import { AmazonAppstream20 } from '@dinghy/standard-components-diagrams/aws18DesktopAppStreaming'
 
 <AmazonAppstream20/>
 ```

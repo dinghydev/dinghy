@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SimspaceWeaver } from '@diac/standard-components-diagrams/awsCompute'
+import { SimspaceWeaver } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <SimspaceWeaver/>
 ```

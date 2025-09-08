@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouterIcon } from '@diac/standard-components-diagrams/clipartNetworking'
+import { RouterIcon } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <RouterIcon/>
 ```

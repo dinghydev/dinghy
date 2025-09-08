@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RackCabinet } from '@diac/standard-components-diagrams/network2'
+import { RackCabinet } from '@dinghy/standard-components-diagrams/network2'
 
 <RackCabinet/>
 ```

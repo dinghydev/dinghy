@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlotChart } from '@diac/standard-components-diagrams/mockupGraphics'
+import { PlotChart } from '@dinghy/standard-components-diagrams/mockupGraphics'
 
 <PlotChart/>
 ```

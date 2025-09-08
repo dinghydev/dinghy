@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Actuator } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { Actuator } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <Actuator/>
 ```

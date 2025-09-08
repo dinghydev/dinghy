@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GateValveDiaphragm } from '@diac/standard-components-diagrams/procEngValves'
+import { GateValveDiaphragm } from '@dinghy/standard-components-diagrams/procEngValves'
 
 <GateValveDiaphragm/>
 ```

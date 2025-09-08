@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { MultiInstanceSequential } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { MultiInstanceSequential } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <MultiInstanceSequential/>
 ```

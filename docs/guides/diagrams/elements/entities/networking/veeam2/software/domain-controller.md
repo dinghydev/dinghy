@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DomainController } from '@diac/standard-components-diagrams/veeam2Software'
+import { DomainController } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <DomainController/>
 ```

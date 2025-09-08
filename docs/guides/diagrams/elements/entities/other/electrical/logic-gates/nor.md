@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Nor } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { Nor } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <Nor/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureAppServiceMobile } from '@diac/standard-components-diagrams/caeMobileService'
+import { AzureAppServiceMobile } from '@dinghy/standard-components-diagrams/caeMobileService'
 
 <AzureAppServiceMobile/>
 ```

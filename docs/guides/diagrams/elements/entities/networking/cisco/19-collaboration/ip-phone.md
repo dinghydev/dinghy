@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpPhone } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { IpPhone } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <IpPhone/>
 ```

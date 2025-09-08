@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gamepad } from '@diac/standard-components-diagrams/network2'
+import { Gamepad } from '@dinghy/standard-components-diagrams/network2'
 
 <Gamepad/>
 ```

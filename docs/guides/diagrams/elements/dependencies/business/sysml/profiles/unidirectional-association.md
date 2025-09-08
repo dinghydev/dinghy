@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { UnidirectionalAssociation } from '@diac/standard-components-diagrams/sysmlProfiles'
+import { UnidirectionalAssociation } from '@dinghy/standard-components-diagrams/sysmlProfiles'
 
 <UnidirectionalAssociation/>
 ```

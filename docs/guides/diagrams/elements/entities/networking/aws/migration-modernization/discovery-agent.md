@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiscoveryAgent } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { DiscoveryAgent } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <DiscoveryAgent/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OvergroundEnclosure } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
+import { OvergroundEnclosure } from '@dinghy/standard-components-diagrams/electricalTransmissionPaths'
 
 <OvergroundEnclosure/>
 ```

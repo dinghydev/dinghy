@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticBlockStoreAmazonDataLifecycleManager } from '@diac/standard-components-diagrams/awsStorage'
+import { ElasticBlockStoreAmazonDataLifecycleManager } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <ElasticBlockStoreAmazonDataLifecycleManager/>
 ```

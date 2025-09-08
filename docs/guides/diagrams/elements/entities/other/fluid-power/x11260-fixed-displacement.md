@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11260FixedDisplacement } from '@diac/standard-components-diagrams/fluidPower'
+import { X11260FixedDisplacement } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11260FixedDisplacement/>
 ```

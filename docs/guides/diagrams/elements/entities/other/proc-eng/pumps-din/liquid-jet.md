@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LiquidJet } from '@diac/standard-components-diagrams/procEngPumpsDin'
+import { LiquidJet } from '@dinghy/standard-components-diagrams/procEngPumpsDin'
 
 <LiquidJet/>
 ```

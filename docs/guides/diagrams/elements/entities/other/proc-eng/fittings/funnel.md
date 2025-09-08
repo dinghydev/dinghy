@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Funnel } from '@diac/standard-components-diagrams/procEngFittings'
+import { Funnel } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <Funnel/>
 ```

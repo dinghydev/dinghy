@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OosOperationOrchestrationService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { OosOperationOrchestrationService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <OosOperationOrchestrationService/>
 ```

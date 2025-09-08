@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GravitySeparatorSettlingChamber } from '@diac/standard-components-diagrams/procEngSeparators'
+import { GravitySeparatorSettlingChamber } from '@dinghy/standard-components-diagrams/procEngSeparators'
 
 <GravitySeparatorSettlingChamber/>
 ```

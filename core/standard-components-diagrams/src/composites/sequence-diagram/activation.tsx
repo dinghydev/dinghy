@@ -1,4 +1,4 @@
-import { type DiagramNodeProps, Shape } from '@diac/base-components'
+import { type DiagramNodeProps, Shape } from '@dinghy/base-components'
 
 export type ActivationProps = {
   _x: number

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RollingStone } from '@diac/standard-components-diagrams/cumulus'
+import { RollingStone } from '@dinghy/standard-components-diagrams/cumulus'
 
 <RollingStone/>
 ```

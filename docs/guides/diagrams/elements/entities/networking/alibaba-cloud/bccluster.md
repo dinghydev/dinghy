@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bccluster } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Bccluster } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Bccluster/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgressBarStripedBlue } from '@diac/standard-components-diagrams/bootstrap'
+import { ProgressBarStripedBlue } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ProgressBarStripedBlue/>
 ```

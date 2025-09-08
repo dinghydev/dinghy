@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FhirService } from '@diac/standard-components-diagrams/azure2Other'
+import { FhirService } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <FhirService/>
 ```

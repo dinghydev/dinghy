@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SwitchOnLight } from '@diac/standard-components-diagrams/gmdlSelectionControls'
+import { SwitchOnLight } from '@dinghy/standard-components-diagrams/gmdlSelectionControls'
 
 <SwitchOnLight/>
 ```

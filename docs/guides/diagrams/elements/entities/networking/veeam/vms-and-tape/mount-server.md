@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MountServer } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { MountServer } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <MountServer/>
 ```

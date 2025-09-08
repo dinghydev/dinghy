@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrTransitRouter } from '@diac/standard-components-diagrams/alibabaCloud'
+import { TrTransitRouter } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <TrTransitRouter/>
 ```

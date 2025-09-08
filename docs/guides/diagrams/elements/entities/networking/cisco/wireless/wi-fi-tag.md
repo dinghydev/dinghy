@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WiFiTag } from '@diac/standard-components-diagrams/ciscoWireless'
+import { WiFiTag } from '@dinghy/standard-components-diagrams/ciscoWireless'
 
 <WiFiTag/>
 ```

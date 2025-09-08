@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MergeNode3 } from '@diac/standard-components-diagrams/sysmlActivities'
+import { MergeNode3 } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <MergeNode3/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataAttributeRecommendation } from '@diac/standard-components-diagrams/sapAi'
+import { DataAttributeRecommendation } from '@dinghy/standard-components-diagrams/sapAi'
 
 <DataAttributeRecommendation/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NeutronPort } from '@diac/standard-components-diagrams/openstackBlue'
+import { NeutronPort } from '@dinghy/standard-components-diagrams/openstackBlue'
 
 <NeutronPort/>
 ```

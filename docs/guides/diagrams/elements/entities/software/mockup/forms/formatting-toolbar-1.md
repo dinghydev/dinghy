@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FormattingToolbar1 } from '@diac/standard-components-diagrams/mockupForms'
+import { FormattingToolbar1 } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <FormattingToolbar1/>
 ```

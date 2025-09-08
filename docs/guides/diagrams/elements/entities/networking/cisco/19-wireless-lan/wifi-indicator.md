@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WifiIndicator } from '@diac/standard-components-diagrams/cisco19WirelessLan'
+import { WifiIndicator } from '@dinghy/standard-components-diagrams/cisco19WirelessLan'
 
 <WifiIndicator/>
 ```

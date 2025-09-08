@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReturnAddress } from '@diac/standard-components-diagrams/eipMessageConstruction'
+import { ReturnAddress } from '@dinghy/standard-components-diagrams/eipMessageConstruction'
 
 <ReturnAddress/>
 ```

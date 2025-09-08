@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mixer } from '@diac/standard-components-diagrams/procEngVessels'
+import { Mixer } from '@dinghy/standard-components-diagrams/procEngVessels'
 
 <Mixer/>
 ```

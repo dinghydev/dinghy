@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureOperatorServiceManager } from '@diac/standard-components-diagrams/azure2HybridAndMulticloud'
+import { AzureOperatorServiceManager } from '@dinghy/standard-components-diagrams/azure2HybridAndMulticloud'
 
 <AzureOperatorServiceManager/>
 ```

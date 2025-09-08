@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TicketMachine } from '@diac/standard-components-diagrams/signsTravel'
+import { TicketMachine } from '@dinghy/standard-components-diagrams/signsTravel'
 
 <TicketMachine/>
 ```

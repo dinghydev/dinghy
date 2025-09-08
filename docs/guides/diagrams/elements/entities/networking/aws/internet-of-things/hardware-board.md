@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HardwareBoard } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { HardwareBoard } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <HardwareBoard/>
 ```

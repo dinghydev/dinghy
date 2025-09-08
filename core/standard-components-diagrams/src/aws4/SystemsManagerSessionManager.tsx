@@ -1,5 +1,5 @@
-import { Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const SYSTEMS_MANAGER_SESSION_MANAGER = {
   _color: { color: '#E7157B', fill: true },

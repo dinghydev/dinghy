@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ports } from '@diac/standard-components-diagrams/sysmlPortsAndFlows'
+import { Ports } from '@dinghy/standard-components-diagrams/sysmlPortsAndFlows'
 
 <Ports/>
 ```

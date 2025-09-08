@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceManagementTools } from '@diac/standard-components-diagrams/ibmManagement'
+import { ServiceManagementTools } from '@dinghy/standard-components-diagrams/ibmManagement'
 
 <ServiceManagementTools/>
 ```

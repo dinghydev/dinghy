@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GtmGlobalTrafficManager } from '@diac/standard-components-diagrams/alibabaCloud'
+import { GtmGlobalTrafficManager } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <GtmGlobalTrafficManager/>
 ```

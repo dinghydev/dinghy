@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Collate } from '@diac/standard-components-diagrams/flowchart'
+import { Collate } from '@dinghy/standard-components-diagrams/flowchart'
 
 <Collate/>
 ```

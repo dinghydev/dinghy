@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Viewpoint } from '@diac/standard-components-diagrams/sysmlModelElements'
+import { Viewpoint } from '@dinghy/standard-components-diagrams/sysmlModelElements'
 
 <Viewpoint/>
 ```

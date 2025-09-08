@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlugValve } from '@diac/standard-components-diagrams/procEngValves'
+import { PlugValve } from '@dinghy/standard-components-diagrams/procEngValves'
 
 <PlugValve/>
 ```

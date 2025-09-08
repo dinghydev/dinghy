@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebSaasApps } from '@diac/standard-components-diagrams/citrixResources'
+import { WebSaasApps } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <WebSaasApps/>
 ```

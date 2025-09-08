@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RaidController } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { RaidController } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <RaidController/>
 ```

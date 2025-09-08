@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParallelMode } from '@diac/standard-components-diagrams/flowchart'
+import { ParallelMode } from '@dinghy/standard-components-diagrams/flowchart'
 
 <ParallelMode/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Debugger } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
+import { Debugger } from '@dinghy/standard-components-diagrams/gcpIconsManagementTools'
 
 <Debugger/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dataquotient } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Dataquotient } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Dataquotient/>
 ```

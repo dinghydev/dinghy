@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Finspace } from '@diac/standard-components-diagrams/awsAnalytics'
+import { Finspace } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <Finspace/>
 ```

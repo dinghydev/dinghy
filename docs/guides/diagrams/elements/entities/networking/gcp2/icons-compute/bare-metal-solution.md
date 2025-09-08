@@ -16,7 +16,7 @@ Solution
 ## Usage
 
 ```
-import { BareMetalSolution } from '@diac/standard-components-diagrams/gcp2IconsCompute'
+import { BareMetalSolution } from '@dinghy/standard-components-diagrams/gcp2IconsCompute'
 
 <BareMetalSolution/>
 ```

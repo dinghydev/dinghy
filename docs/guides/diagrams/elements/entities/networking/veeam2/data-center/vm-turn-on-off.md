@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmTurnOnOff } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { VmTurnOnOff } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <VmTurnOnOff/>
 ```

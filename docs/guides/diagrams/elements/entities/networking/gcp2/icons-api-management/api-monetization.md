@@ -16,7 +16,7 @@ Monetization
 ## Usage
 
 ```
-import { ApiMonetization } from '@diac/standard-components-diagrams/gcp2IconsApiManagement'
+import { ApiMonetization } from '@dinghy/standard-components-diagrams/gcp2IconsApiManagement'
 
 <ApiMonetization/>
 ```

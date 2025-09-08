@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TTypeFlipFlop } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { TTypeFlipFlop } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <TTypeFlipFlop/>
 ```

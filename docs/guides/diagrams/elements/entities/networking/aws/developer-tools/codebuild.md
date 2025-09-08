@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Codebuild } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { Codebuild } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <Codebuild/>
 ```

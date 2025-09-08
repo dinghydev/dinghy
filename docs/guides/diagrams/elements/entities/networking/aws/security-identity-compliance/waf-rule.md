@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WafRule } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { WafRule } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <WafRule/>
 ```

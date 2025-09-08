@@ -3,11 +3,11 @@ import {
   ResolvableNumberSchema,
   ResolvableStringSchema,
   useTypedNode,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { Shape } from '@diac/base-components'
+import { Shape } from '@dinghy/base-components'
 
 export const InputSchema = z.object({
   name: ResolvableStringSchema.optional(),

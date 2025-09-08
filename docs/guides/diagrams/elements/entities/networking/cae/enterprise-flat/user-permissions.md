@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserPermissions } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { UserPermissions } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <UserPermissions/>
 ```

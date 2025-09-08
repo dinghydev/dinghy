@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefenderCmLocalManager } from '@diac/standard-components-diagrams/azure2Other'
+import { DefenderCmLocalManager } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DefenderCmLocalManager/>
 ```

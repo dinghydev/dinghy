@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentProtection } from '@diac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
+import { ContentProtection } from '@dinghy/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
 
 <ContentProtection/>
 ```

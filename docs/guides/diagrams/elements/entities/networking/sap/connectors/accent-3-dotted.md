@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Accent3Dotted } from '@diac/standard-components-diagrams/sapConnectors'
+import { Accent3Dotted } from '@dinghy/standard-components-diagrams/sapConnectors'
 
 <Accent3Dotted/>
 ```

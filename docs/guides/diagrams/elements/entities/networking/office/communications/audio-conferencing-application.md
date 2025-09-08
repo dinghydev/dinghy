@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AudioConferencingApplication } from '@diac/standard-components-diagrams/officeCommunications'
+import { AudioConferencingApplication } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <AudioConferencingApplication/>
 ```

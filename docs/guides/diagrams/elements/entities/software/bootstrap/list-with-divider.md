@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ListWithDivider } from '@diac/standard-components-diagrams/bootstrap'
+import { ListWithDivider } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ListWithDivider/>
 ```

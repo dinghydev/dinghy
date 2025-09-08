@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Behance } from '@diac/standard-components-diagrams/webIcons'
+import { Behance } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Behance/>
 ```

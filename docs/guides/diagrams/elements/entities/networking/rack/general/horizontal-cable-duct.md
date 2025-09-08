@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalCableDuct } from '@diac/standard-components-diagrams/rackGeneral'
+import { HorizontalCableDuct } from '@dinghy/standard-components-diagrams/rackGeneral'
 
 <HorizontalCableDuct/>
 ```

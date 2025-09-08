@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BraketChandelier } from '@diac/standard-components-diagrams/awsQuantumTechnologies'
+import { BraketChandelier } from '@dinghy/standard-components-diagrams/awsQuantumTechnologies'
 
 <BraketChandelier/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vm } from '@diac/standard-components-diagrams/caeComputeServiceVm'
+import { Vm } from '@dinghy/standard-components-diagrams/caeComputeServiceVm'
 
 <Vm/>
 ```

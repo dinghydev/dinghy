@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackupSupportForAmazonFsxForNetappOntap } from '@diac/standard-components-diagrams/awsStorage'
+import { BackupSupportForAmazonFsxForNetappOntap } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <BackupSupportForAmazonFsxForNetappOntap/>
 ```

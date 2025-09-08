@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rj45Sfp } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
+import { Rj45Sfp } from '@dinghy/standard-components-diagrams/rackHpeArubaSwitches'
 
 <Rj45Sfp/>
 ```

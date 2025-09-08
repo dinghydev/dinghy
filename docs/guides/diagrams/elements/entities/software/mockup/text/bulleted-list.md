@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BulletedList } from '@diac/standard-components-diagrams/mockupText'
+import { BulletedList } from '@dinghy/standard-components-diagrams/mockupText'
 
 <BulletedList/>
 ```

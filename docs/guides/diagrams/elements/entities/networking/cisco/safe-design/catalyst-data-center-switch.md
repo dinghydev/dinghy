@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CatalystDataCenterSwitch } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { CatalystDataCenterSwitch } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <CatalystDataCenterSwitch/>
 ```

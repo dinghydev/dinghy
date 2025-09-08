@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AgentlessCollector } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { AgentlessCollector } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <AgentlessCollector/>
 ```

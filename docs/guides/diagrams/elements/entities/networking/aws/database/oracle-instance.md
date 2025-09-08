@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OracleInstance } from '@diac/standard-components-diagrams/awsDatabase'
+import { OracleInstance } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <OracleInstance/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AfsFraudService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { AfsFraudService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <AfsFraudService/>
 ```

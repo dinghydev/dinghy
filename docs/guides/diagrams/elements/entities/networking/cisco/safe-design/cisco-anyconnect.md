@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoAnyconnect } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { CiscoAnyconnect } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <CiscoAnyconnect/>
 ```

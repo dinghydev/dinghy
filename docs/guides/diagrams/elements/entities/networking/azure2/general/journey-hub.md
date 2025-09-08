@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { JourneyHub } from '@diac/standard-components-diagrams/azure2General'
+import { JourneyHub } from '@dinghy/standard-components-diagrams/azure2General'
 
 <JourneyHub/>
 ```

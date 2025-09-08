@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalPool1 } from '@diac/standard-components-diagrams/advanced'
+import { HorizontalPool1 } from '@dinghy/standard-components-diagrams/advanced'
 
 <HorizontalPool1/>
 ```

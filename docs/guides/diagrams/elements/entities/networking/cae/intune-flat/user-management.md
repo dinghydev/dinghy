@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserManagement } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { UserManagement } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <UserManagement/>
 ```

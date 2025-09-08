@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TensorflowLogo } from '@diac/standard-components-diagrams/gcpIconsOpenSourceIcons'
+import { TensorflowLogo } from '@dinghy/standard-components-diagrams/gcpIconsOpenSourceIcons'
 
 <TensorflowLogo/>
 ```

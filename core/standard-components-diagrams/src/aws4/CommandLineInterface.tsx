@@ -1,5 +1,5 @@
-import { Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const COMMAND_LINE_INTERFACE = {
   _color: { color: '#232F3E', fill: true },

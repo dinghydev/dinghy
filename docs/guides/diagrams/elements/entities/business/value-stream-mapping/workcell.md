@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Workcell } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { Workcell } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <Workcell/>
 ```

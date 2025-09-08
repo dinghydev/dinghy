@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiPolyglotRuntimes } from '@diac/standard-components-diagrams/ibmApplications'
+import { ApiPolyglotRuntimes } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <ApiPolyglotRuntimes/>
 ```

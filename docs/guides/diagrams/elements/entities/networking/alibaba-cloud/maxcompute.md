@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Maxcompute } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Maxcompute } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Maxcompute/>
 ```

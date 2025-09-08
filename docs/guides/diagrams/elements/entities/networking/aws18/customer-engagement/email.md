@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Email } from '@diac/standard-components-diagrams/aws18CustomerEngagement'
+import { Email } from '@dinghy/standard-components-diagrams/aws18CustomerEngagement'
 
 <Email/>
 ```

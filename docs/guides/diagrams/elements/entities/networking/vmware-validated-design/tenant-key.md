@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TenantKey } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { TenantKey } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <TenantKey/>
 ```

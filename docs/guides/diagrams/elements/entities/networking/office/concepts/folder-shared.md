@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FolderShared } from '@diac/standard-components-diagrams/officeConcepts'
+import { FolderShared } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <FolderShared/>
 ```

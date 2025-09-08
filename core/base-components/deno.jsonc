@@ -1,5 +1,5 @@
 {
-  "name": "@diac/base-components",
+  "name": "@dinghy/base-components",
   "version": "0.0.1",
   "exports": {
     ".": "./src/index.ts"

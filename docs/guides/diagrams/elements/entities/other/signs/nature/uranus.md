@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Uranus } from '@diac/standard-components-diagrams/signsNature'
+import { Uranus } from '@dinghy/standard-components-diagrams/signsNature'
 
 <Uranus/>
 ```

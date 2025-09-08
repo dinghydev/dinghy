@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventFeed } from '@diac/standard-components-diagrams/ibmInfrastructure'
+import { EventFeed } from '@dinghy/standard-components-diagrams/ibmInfrastructure'
 
 <EventFeed/>
 ```

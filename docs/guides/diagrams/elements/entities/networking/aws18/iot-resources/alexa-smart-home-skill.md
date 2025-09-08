@@ -16,7 +16,7 @@ home skill
 ## Usage
 
 ```
-import { AlexaSmartHomeSkill } from '@diac/standard-components-diagrams/aws18IotResources'
+import { AlexaSmartHomeSkill } from '@dinghy/standard-components-diagrams/aws18IotResources'
 
 <AlexaSmartHomeSkill/>
 ```

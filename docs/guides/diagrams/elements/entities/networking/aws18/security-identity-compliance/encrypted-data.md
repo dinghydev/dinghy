@@ -16,7 +16,7 @@ data
 ## Usage
 
 ```
-import { EncryptedData } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { EncryptedData } from '@dinghy/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <EncryptedData/>
 ```

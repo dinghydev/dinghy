@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OrificePlate } from '@diac/standard-components-diagrams/procEngFittings'
+import { OrificePlate } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <OrificePlate/>
 ```

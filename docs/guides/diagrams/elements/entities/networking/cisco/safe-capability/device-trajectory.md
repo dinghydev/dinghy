@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceTrajectory } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { DeviceTrajectory } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <DeviceTrajectory/>
 ```

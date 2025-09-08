@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SystemsManagerIncidentManager } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { SystemsManagerIncidentManager } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <SystemsManagerIncidentManager/>
 ```

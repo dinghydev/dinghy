@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TemporarySecurityCredential } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { TemporarySecurityCredential } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <TemporarySecurityCredential/>
 ```

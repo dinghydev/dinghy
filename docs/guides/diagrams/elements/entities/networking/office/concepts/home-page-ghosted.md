@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HomePageGhosted } from '@diac/standard-components-diagrams/officeConcepts'
+import { HomePageGhosted } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <HomePageGhosted/>
 ```

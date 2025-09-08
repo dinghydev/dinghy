@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GdbGraphDatabase } from '@diac/standard-components-diagrams/alibabaCloud'
+import { GdbGraphDatabase } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <GdbGraphDatabase/>
 ```

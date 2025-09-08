@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CHeaderConnector } from '@diac/standard-components-diagrams/electricalMisc'
+import { CHeaderConnector } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <CHeaderConnector/>
 ```

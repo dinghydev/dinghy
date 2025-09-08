@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PredefinedProcess } from '@diac/standard-components-diagrams/flowchart'
+import { PredefinedProcess } from '@dinghy/standard-components-diagrams/flowchart'
 
 <PredefinedProcess/>
 ```

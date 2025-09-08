@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Holowatcher } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Holowatcher } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Holowatcher/>
 ```

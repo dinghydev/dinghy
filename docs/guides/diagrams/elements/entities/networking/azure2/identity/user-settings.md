@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserSettings } from '@diac/standard-components-diagrams/azure2Identity'
+import { UserSettings } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <UserSettings/>
 ```

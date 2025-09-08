@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DinRail } from '@diac/standard-components-diagrams/cabinets'
+import { DinRail } from '@dinghy/standard-components-diagrams/cabinets'
 
 <DinRail/>
 ```

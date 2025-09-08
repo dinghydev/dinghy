@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Region } from '@diac/standard-components-diagrams/sysmlStateMachines'
+import { Region } from '@dinghy/standard-components-diagrams/sysmlStateMachines'
 
 <Region/>
 ```

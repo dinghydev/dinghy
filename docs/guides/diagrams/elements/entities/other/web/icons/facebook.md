@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Facebook } from '@diac/standard-components-diagrams/webIcons'
+import { Facebook } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Facebook/>
 ```

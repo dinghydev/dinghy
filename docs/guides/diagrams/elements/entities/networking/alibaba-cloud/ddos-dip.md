@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DdosDip } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DdosDip } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DdosDip/>
 ```

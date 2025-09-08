@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SdWan } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { SdWan } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <SdWan/>
 ```

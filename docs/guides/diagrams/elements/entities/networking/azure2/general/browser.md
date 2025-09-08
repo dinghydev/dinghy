@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Browser } from '@diac/standard-components-diagrams/azure2General'
+import { Browser } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Browser/>
 ```

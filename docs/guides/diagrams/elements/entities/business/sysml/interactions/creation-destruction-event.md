@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CreationDestructionEvent } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { CreationDestructionEvent } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <CreationDestructionEvent/>
 ```

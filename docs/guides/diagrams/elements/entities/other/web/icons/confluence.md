@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Confluence } from '@diac/standard-components-diagrams/webIcons'
+import { Confluence } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Confluence/>
 ```

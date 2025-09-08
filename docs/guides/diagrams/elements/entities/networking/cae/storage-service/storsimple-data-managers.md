@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorsimpleDataManagers } from '@diac/standard-components-diagrams/caeStorageService'
+import { StorsimpleDataManagers } from '@dinghy/standard-components-diagrams/caeStorageService'
 
 <StorsimpleDataManagers/>
 ```

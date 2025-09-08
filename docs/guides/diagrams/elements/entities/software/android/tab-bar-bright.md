@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TabBarBright } from '@diac/standard-components-diagrams/android'
+import { TabBarBright } from '@dinghy/standard-components-diagrams/android'
 
 <TabBarBright/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamReversedIncrementalBackup } from '@diac/standard-components-diagrams/veeam2Storage'
+import { VeeamReversedIncrementalBackup } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <VeeamReversedIncrementalBackup/>
 ```

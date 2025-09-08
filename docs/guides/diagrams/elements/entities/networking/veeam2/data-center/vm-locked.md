@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmLocked } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { VmLocked } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <VmLocked/>
 ```

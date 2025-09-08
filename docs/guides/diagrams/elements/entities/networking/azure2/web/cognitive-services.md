@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CognitiveServices } from '@diac/standard-components-diagrams/azure2Web'
+import { CognitiveServices } from '@dinghy/standard-components-diagrams/azure2Web'
 
 <CognitiveServices/>
 ```

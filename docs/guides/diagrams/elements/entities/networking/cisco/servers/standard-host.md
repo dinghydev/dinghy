@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StandardHost } from '@diac/standard-components-diagrams/ciscoServers'
+import { StandardHost } from '@dinghy/standard-components-diagrams/ciscoServers'
 
 <StandardHost/>
 ```

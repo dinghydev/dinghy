@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProtectionGroupConfig } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { ProtectionGroupConfig } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <ProtectionGroupConfig/>
 ```

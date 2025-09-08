@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Globe } from '@diac/standard-components-diagrams/veeam2General'
+import { Globe } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <Globe/>
 ```

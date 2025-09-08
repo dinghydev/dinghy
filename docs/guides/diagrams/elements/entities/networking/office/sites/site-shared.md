@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SiteShared } from '@diac/standard-components-diagrams/officeSites'
+import { SiteShared } from '@dinghy/standard-components-diagrams/officeSites'
 
 <SiteShared/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11480SingleActingDiaphragm } from '@diac/standard-components-diagrams/fluidPower'
+import { X11480SingleActingDiaphragm } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11480SingleActingDiaphragm/>
 ```

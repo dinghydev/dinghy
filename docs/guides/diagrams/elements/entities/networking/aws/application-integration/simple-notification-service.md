@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SimpleNotificationService } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { SimpleNotificationService } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <SimpleNotificationService/>
 ```

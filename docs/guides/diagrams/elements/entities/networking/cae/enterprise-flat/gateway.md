@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gateway } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Gateway } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Gateway/>
 ```

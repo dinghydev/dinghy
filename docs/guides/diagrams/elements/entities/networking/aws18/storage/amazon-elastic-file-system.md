@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonElasticFileSystem } from '@diac/standard-components-diagrams/aws18Storage'
+import { AmazonElasticFileSystem } from '@dinghy/standard-components-diagrams/aws18Storage'
 
 <AmazonElasticFileSystem/>
 ```

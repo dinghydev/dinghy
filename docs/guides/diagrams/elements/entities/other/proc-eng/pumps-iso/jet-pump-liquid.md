@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { JetPumpLiquid } from '@diac/standard-components-diagrams/procEngPumpsIso'
+import { JetPumpLiquid } from '@dinghy/standard-components-diagrams/procEngPumpsIso'
 
 <JetPumpLiquid/>
 ```

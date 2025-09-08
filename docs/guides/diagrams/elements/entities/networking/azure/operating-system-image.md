@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OperatingSystemImage } from '@diac/standard-components-diagrams/azure'
+import { OperatingSystemImage } from '@dinghy/standard-components-diagrams/azure'
 
 <OperatingSystemImage/>
 ```

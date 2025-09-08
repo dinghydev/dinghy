@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UmAutoAttendant } from '@diac/standard-components-diagrams/officeCommunications'
+import { UmAutoAttendant } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <UmAutoAttendant/>
 ```

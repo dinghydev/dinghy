@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonSns } from '@diac/standard-components-diagrams/aws18ApplicationIntegration'
+import { AmazonSns } from '@dinghy/standard-components-diagrams/aws18ApplicationIntegration'
 
 <AmazonSns/>
 ```

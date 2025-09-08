@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Policy } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { Policy } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <Policy/>
 ```

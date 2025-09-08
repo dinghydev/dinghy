@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Chrome } from '@diac/standard-components-diagrams/webLogos'
+import { Chrome } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Chrome/>
 ```

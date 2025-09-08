@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AddOn } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AddOn } from '@dinghy/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AddOn/>
 ```

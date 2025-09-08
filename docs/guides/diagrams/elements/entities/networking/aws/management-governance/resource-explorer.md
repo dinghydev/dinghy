@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResourceExplorer } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ResourceExplorer } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ResourceExplorer/>
 ```

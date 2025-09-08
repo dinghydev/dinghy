@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CodeplexCodeSource } from '@diac/standard-components-diagrams/azure'
+import { CodeplexCodeSource } from '@dinghy/standard-components-diagrams/azure'
 
 <CodeplexCodeSource/>
 ```

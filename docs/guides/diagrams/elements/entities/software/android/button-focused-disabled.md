@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonFocusedDisabled } from '@diac/standard-components-diagrams/android'
+import { ButtonFocusedDisabled } from '@dinghy/standard-components-diagrams/android'
 
 <ButtonFocusedDisabled/>
 ```

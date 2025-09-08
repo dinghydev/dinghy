@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AccessPoint } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { AccessPoint } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <AccessPoint/>
 ```

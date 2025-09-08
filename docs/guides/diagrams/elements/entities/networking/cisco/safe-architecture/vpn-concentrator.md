@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpnConcentrator } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { VpnConcentrator } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <VpnConcentrator/>
 ```

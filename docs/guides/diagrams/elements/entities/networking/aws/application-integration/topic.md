@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Topic } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { Topic } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <Topic/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamAgentForOracleSolaris } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamAgentForOracleSolaris } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamAgentForOracleSolaris/>
 ```

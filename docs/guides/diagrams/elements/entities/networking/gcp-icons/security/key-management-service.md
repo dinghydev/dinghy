@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeyManagementService } from '@diac/standard-components-diagrams/gcpIconsSecurity'
+import { KeyManagementService } from '@dinghy/standard-components-diagrams/gcpIconsSecurity'
 
 <KeyManagementService/>
 ```

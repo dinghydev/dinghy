@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Plurk } from '@diac/standard-components-diagrams/webIcons'
+import { Plurk } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Plurk/>
 ```

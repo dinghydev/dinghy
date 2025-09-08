@@ -9,8 +9,8 @@ const cliOutputFolder = `${projectRoot}/build/cli`
 const outputFolder = `${cliOutputFolder}/${arch}`
 const zipsFolder = `${cliOutputFolder}/zips`
 
-const outputFile = `${outputFolder}/diac`
-const zipFile = `${zipsFolder}/diac-${arch}.zip`
+const outputFile = `${outputFolder}/dinghy`
+const zipFile = `${zipsFolder}/dinghy-${arch}.zip`
 
 await Deno.mkdir(outputFolder, { recursive: true })
 await Deno.mkdir(zipsFolder, { recursive: true })

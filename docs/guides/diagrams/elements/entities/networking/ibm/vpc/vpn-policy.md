@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpnPolicy } from '@diac/standard-components-diagrams/ibmVpc'
+import { VpnPolicy } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <VpnPolicy/>
 ```

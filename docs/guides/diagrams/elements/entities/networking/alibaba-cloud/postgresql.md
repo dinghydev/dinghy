@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Postgresql } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Postgresql } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Postgresql/>
 ```

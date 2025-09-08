@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Browser } from '@diac/standard-components-diagrams/ibmUsers'
+import { Browser } from '@dinghy/standard-components-diagrams/ibmUsers'
 
 <Browser/>
 ```

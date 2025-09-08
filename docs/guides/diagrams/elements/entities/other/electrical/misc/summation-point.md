@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SummationPoint } from '@diac/standard-components-diagrams/electricalMisc'
+import { SummationPoint } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <SummationPoint/>
 ```

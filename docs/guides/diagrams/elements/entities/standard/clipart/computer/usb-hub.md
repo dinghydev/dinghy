@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UsbHub } from '@diac/standard-components-diagrams/clipartComputer'
+import { UsbHub } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <UsbHub/>
 ```

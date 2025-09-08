@@ -16,7 +16,7 @@ device
 ## Usage
 
 ```
-import { AlexaEnabledDevice } from '@diac/standard-components-diagrams/aws18IotResources'
+import { AlexaEnabledDevice } from '@dinghy/standard-components-diagrams/aws18IotResources'
 
 <AlexaEnabledDevice/>
 ```

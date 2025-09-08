@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SetTopBox } from '@diac/standard-components-diagrams/ciscoMisc'
+import { SetTopBox } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <SetTopBox/>
 ```

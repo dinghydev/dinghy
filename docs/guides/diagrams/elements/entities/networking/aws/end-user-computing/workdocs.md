@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Workdocs } from '@diac/standard-components-diagrams/awsEndUserComputing'
+import { Workdocs } from '@dinghy/standard-components-diagrams/awsEndUserComputing'
 
 <Workdocs/>
 ```

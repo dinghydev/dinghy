@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FeederRotaryTable } from '@diac/standard-components-diagrams/procEngFeeders'
+import { FeederRotaryTable } from '@dinghy/standard-components-diagrams/procEngFeeders'
 
 <FeederRotaryTable/>
 ```

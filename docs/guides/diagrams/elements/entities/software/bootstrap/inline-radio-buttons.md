@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InlineRadioButtons } from '@diac/standard-components-diagrams/bootstrap'
+import { InlineRadioButtons } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <InlineRadioButtons/>
 ```

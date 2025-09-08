@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VisualStudioOnline } from '@diac/standard-components-diagrams/azure'
+import { VisualStudioOnline } from '@dinghy/standard-components-diagrams/azure'
 
 <VisualStudioOnline/>
 ```

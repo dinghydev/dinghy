@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CommLinkIcon } from '@diac/standard-components-diagrams/network'
+import { CommLinkIcon } from '@dinghy/standard-components-diagrams/network'
 
 <CommLinkIcon/>
 ```

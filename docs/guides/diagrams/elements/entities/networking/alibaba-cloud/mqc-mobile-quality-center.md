@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MqcMobileQualityCenter } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MqcMobileQualityCenter } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MqcMobileQualityCenter/>
 ```

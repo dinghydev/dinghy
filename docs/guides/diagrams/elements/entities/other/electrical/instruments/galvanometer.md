@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Galvanometer } from '@diac/standard-components-diagrams/electricalInstruments'
+import { Galvanometer } from '@dinghy/standard-components-diagrams/electricalInstruments'
 
 <Galvanometer/>
 ```

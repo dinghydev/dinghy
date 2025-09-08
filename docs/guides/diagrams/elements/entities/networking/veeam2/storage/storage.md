@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Storage } from '@diac/standard-components-diagrams/veeam2Storage'
+import { Storage } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <Storage/>
 ```

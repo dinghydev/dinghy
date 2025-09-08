@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { Highlight } from '@diac/standard-components-diagrams/aws18GroupsLight'
+import { Highlight } from '@dinghy/standard-components-diagrams/aws18GroupsLight'
 
 <Highlight/>
 ```

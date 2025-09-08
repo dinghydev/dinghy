@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Parallel } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { Parallel } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <Parallel/>
 ```

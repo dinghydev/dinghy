@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IotInternetOfThingsPlatform } from '@diac/standard-components-diagrams/alibabaCloud'
+import { IotInternetOfThingsPlatform } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <IotInternetOfThingsPlatform/>
 ```

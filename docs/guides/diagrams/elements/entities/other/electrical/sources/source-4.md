@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Source4 } from '@diac/standard-components-diagrams/electricalSources'
+import { Source4 } from '@dinghy/standard-components-diagrams/electricalSources'
 
 <Source4/>
 ```

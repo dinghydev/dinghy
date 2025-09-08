@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Microphone } from '@diac/standard-components-diagrams/officeDevices'
+import { Microphone } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <Microphone/>
 ```

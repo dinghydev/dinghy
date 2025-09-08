@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProtectivePaletteCovering } from '@diac/standard-components-diagrams/procEngMisc'
+import { ProtectivePaletteCovering } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <ProtectivePaletteCovering/>
 ```

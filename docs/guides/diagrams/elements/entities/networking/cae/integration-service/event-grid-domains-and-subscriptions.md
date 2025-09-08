@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventGridDomainsAndSubscriptions } from '@diac/standard-components-diagrams/caeIntegrationService'
+import { EventGridDomainsAndSubscriptions } from '@dinghy/standard-components-diagrams/caeIntegrationService'
 
 <EventGridDomainsAndSubscriptions/>
 ```

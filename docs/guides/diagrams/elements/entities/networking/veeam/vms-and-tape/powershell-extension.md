@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PowershellExtension } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { PowershellExtension } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <PowershellExtension/>
 ```

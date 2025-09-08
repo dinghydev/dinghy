@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MpsDna } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MpsDna } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MpsDna/>
 ```

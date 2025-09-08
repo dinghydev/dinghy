@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CommandCenter } from '@diac/standard-components-diagrams/citrixLegacy'
+import { CommandCenter } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <CommandCenter/>
 ```

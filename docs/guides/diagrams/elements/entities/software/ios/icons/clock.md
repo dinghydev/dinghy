@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Clock } from '@diac/standard-components-diagrams/ios7Icons'
+import { Clock } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Clock/>
 ```

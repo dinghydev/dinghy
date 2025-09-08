@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InducedDraftCoolingTower } from '@diac/standard-components-diagrams/procEngVessels'
+import { InducedDraftCoolingTower } from '@dinghy/standard-components-diagrams/procEngVessels'
 
 <InducedDraftCoolingTower/>
 ```

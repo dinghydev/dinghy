@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureInformationProtection } from '@diac/standard-components-diagrams/caeIdentityService'
+import { AzureInformationProtection } from '@dinghy/standard-components-diagrams/caeIdentityService'
 
 <AzureInformationProtection/>
 ```

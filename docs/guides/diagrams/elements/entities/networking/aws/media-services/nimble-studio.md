@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NimbleStudio } from '@diac/standard-components-diagrams/awsMediaServices'
+import { NimbleStudio } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <NimbleStudio/>
 ```

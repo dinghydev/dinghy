@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Key } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Key } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Key/>
 ```

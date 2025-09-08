@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HairpinExchanger } from '@diac/standard-components-diagrams/procEngHeatExchangers'
+import { HairpinExchanger } from '@dinghy/standard-components-diagrams/procEngHeatExchangers'
 
 <HairpinExchanger/>
 ```

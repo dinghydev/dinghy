@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoSecurityManager } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { CiscoSecurityManager } from '@dinghy/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <CiscoSecurityManager/>
 ```

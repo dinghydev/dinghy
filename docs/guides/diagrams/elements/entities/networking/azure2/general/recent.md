@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Recent } from '@diac/standard-components-diagrams/azure2General'
+import { Recent } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Recent/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ShadowTesting } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { ShadowTesting } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <ShadowTesting/>
 ```

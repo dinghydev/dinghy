@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LicenseManager } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { LicenseManager } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <LicenseManager/>
 ```

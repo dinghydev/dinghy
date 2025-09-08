@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Resequencer } from '@diac/standard-components-diagrams/eipMessageRouting'
+import { Resequencer } from '@dinghy/standard-components-diagrams/eipMessageRouting'
 
 <Resequencer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AssociationInstanceSecification } from '@diac/standard-components-diagrams/uml25'
+import { AssociationInstanceSecification } from '@dinghy/standard-components-diagrams/uml25'
 
 <AssociationInstanceSecification/>
 ```

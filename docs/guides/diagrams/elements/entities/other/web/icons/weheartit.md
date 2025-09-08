@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Weheartit } from '@diac/standard-components-diagrams/webIcons'
+import { Weheartit } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Weheartit/>
 ```

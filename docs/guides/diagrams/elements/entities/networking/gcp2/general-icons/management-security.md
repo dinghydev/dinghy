@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagementSecurity } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { ManagementSecurity } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <ManagementSecurity/>
 ```

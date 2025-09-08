@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppServicePlans } from '@diac/standard-components-diagrams/caeWebService'
+import { AppServicePlans } from '@dinghy/standard-components-diagrams/caeWebService'
 
 <AppServicePlans/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FilledEdge } from '@diac/standard-components-diagrams/misc'
+import { FilledEdge } from '@dinghy/standard-components-diagrams/misc'
 
 <FilledEdge/>
 ```

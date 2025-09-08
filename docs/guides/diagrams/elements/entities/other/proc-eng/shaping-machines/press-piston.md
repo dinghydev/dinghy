@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PressPiston } from '@diac/standard-components-diagrams/procEngShapingMachines'
+import { PressPiston } from '@dinghy/standard-components-diagrams/procEngShapingMachines'
 
 <PressPiston/>
 ```

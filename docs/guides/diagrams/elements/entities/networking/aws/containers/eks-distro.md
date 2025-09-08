@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EksDistro } from '@diac/standard-components-diagrams/awsContainers'
+import { EksDistro } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <EksDistro/>
 ```

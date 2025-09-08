@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AksAutomatic } from '@diac/standard-components-diagrams/azure2Other'
+import { AksAutomatic } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <AksAutomatic/>
 ```

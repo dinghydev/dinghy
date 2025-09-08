@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TdmRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { TdmRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <TdmRouter/>
 ```

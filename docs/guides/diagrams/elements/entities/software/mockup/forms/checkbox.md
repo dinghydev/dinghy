@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Checkbox } from '@diac/standard-components-diagrams/mockupForms'
+import { Checkbox } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <Checkbox/>
 ```

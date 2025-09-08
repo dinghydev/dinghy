@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApigeeApiPlatform } from '@diac/standard-components-diagrams/gcpIconsApiManagement'
+import { ApigeeApiPlatform } from '@dinghy/standard-components-diagrams/gcpIconsApiManagement'
 
 <ApigeeApiPlatform/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ModifiersPreemptableVm } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { ModifiersPreemptableVm } from '@dinghy/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <ModifiersPreemptableVm/>
 ```

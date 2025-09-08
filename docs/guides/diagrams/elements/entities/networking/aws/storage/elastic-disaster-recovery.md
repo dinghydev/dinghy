@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticDisasterRecovery } from '@diac/standard-components-diagrams/awsStorage'
+import { ElasticDisasterRecovery } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <ElasticDisasterRecovery/>
 ```

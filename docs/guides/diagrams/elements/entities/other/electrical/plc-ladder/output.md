@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Output } from '@diac/standard-components-diagrams/electricalPlcLadder'
+import { Output } from '@dinghy/standard-components-diagrams/electricalPlcLadder'
 
 <Output/>
 ```

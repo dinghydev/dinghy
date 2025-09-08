@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { EscalationEventSubProcessInterruptingCollapsed } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { EscalationEventSubProcessInterruptingCollapsed } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <EscalationEventSubProcessInterruptingCollapsed/>
 ```

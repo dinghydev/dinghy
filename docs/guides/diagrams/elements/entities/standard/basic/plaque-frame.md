@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlaqueFrame } from '@diac/standard-components-diagrams/basic'
+import { PlaqueFrame } from '@dinghy/standard-components-diagrams/basic'
 
 <PlaqueFrame/>
 ```

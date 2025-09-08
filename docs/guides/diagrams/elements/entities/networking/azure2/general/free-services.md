@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FreeServices } from '@diac/standard-components-diagrams/azure2General'
+import { FreeServices } from '@dinghy/standard-components-diagrams/azure2General'
 
 <FreeServices/>
 ```

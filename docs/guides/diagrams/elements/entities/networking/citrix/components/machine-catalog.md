@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MachineCatalog } from '@diac/standard-components-diagrams/citrixComponents'
+import { MachineCatalog } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <MachineCatalog/>
 ```

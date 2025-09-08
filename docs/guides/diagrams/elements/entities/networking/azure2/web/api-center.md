@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiCenter } from '@diac/standard-components-diagrams/azure2Web'
+import { ApiCenter } from '@dinghy/standard-components-diagrams/azure2Web'
 
 <ApiCenter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Delay } from '@diac/standard-components-diagrams/flowchart'
+import { Delay } from '@dinghy/standard-components-diagrams/flowchart'
 
 <Delay/>
 ```

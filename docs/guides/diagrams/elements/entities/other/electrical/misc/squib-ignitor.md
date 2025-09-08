@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SquibIgnitor } from '@diac/standard-components-diagrams/electricalMisc'
+import { SquibIgnitor } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <SquibIgnitor/>
 ```

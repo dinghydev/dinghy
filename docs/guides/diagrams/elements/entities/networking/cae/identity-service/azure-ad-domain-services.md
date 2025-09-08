@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureAdDomainServices } from '@diac/standard-components-diagrams/caeIdentityService'
+import { AzureAdDomainServices } from '@dinghy/standard-components-diagrams/caeIdentityService'
 
 <AzureAdDomainServices/>
 ```

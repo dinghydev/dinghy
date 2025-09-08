@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CheckboxWithoutLabel } from '@diac/standard-components-diagrams/bootstrap'
+import { CheckboxWithoutLabel } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <CheckboxWithoutLabel/>
 ```

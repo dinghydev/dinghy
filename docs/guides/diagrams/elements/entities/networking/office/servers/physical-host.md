@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhysicalHost } from '@diac/standard-components-diagrams/officeServers'
+import { PhysicalHost } from '@dinghy/standard-components-diagrams/officeServers'
 
 <PhysicalHost/>
 ```

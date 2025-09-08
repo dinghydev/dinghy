@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HybridCenter } from '@diac/standard-components-diagrams/azure2Ecosystem'
+import { HybridCenter } from '@dinghy/standard-components-diagrams/azure2Ecosystem'
 
 <HybridCenter/>
 ```

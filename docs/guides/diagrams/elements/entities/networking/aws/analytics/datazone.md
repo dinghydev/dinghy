@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Datazone } from '@diac/standard-components-diagrams/awsAnalytics'
+import { Datazone } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <Datazone/>
 ```

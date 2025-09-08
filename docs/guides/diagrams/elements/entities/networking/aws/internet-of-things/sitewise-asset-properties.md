@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SitewiseAssetProperties } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { SitewiseAssetProperties } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <SitewiseAssetProperties/>
 ```

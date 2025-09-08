@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NamVirtualServiceBlade } from '@diac/standard-components-diagrams/cisco19NetworkManagement'
+import { NamVirtualServiceBlade } from '@dinghy/standard-components-diagrams/cisco19NetworkManagement'
 
 <NamVirtualServiceBlade/>
 ```

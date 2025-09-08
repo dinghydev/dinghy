@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OrificeQuickChange } from '@diac/standard-components-diagrams/procEngPiping'
+import { OrificeQuickChange } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <OrificeQuickChange/>
 ```

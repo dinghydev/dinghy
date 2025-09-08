@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgrammableLogicControlInaccessible } from '@diac/standard-components-diagrams/procEngInstruments'
+import { ProgrammableLogicControlInaccessible } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <ProgrammableLogicControlInaccessible/>
 ```

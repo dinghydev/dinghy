@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsCostExplorer } from '@diac/standard-components-diagrams/aws18CostManagement'
+import { AwsCostExplorer } from '@dinghy/standard-components-diagrams/aws18CostManagement'
 
 <AwsCostExplorer/>
 ```

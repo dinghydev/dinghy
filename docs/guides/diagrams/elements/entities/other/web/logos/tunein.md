@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tunein } from '@diac/standard-components-diagrams/webLogos'
+import { Tunein } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Tunein/>
 ```

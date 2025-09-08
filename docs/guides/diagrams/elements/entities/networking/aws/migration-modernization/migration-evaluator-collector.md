@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MigrationEvaluatorCollector } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { MigrationEvaluatorCollector } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <MigrationEvaluatorCollector/>
 ```

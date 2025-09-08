@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BotMitigation } from '@diac/standard-components-diagrams/citrixNetscaler'
+import { BotMitigation } from '@dinghy/standard-components-diagrams/citrixNetscaler'
 
 <BotMitigation/>
 ```

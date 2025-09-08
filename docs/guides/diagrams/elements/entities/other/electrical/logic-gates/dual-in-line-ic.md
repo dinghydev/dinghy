@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DualInLineIc } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { DualInLineIc } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <DualInLineIc/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Kms } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { Kms } from '@dinghy/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <Kms/>
 ```

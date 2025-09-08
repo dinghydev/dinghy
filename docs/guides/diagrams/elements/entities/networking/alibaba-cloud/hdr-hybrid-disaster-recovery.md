@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HdrHybridDisasterRecovery } from '@diac/standard-components-diagrams/alibabaCloud'
+import { HdrHybridDisasterRecovery } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <HdrHybridDisasterRecovery/>
 ```

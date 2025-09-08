@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TuningVariableCapacitorUs } from '@diac/standard-components-diagrams/electricalCapacitors'
+import { TuningVariableCapacitorUs } from '@dinghy/standard-components-diagrams/electricalCapacitors'
 
 <TuningVariableCapacitorUs/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EcsAnywhere } from '@diac/standard-components-diagrams/awsContainers'
+import { EcsAnywhere } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <EcsAnywhere/>
 ```

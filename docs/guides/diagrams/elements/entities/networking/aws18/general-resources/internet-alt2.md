@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternetAlt2 } from '@diac/standard-components-diagrams/aws18GeneralResources'
+import { InternetAlt2 } from '@dinghy/standard-components-diagrams/aws18GeneralResources'
 
 <InternetAlt2/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoggingReporting } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { LoggingReporting } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <LoggingReporting/>
 ```

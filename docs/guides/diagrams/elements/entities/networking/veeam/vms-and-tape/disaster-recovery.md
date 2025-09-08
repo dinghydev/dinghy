@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DisasterRecovery } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { DisasterRecovery } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <DisasterRecovery/>
 ```

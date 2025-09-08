@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProximityLimitSwitchOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { ProximityLimitSwitchOff } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <ProximityLimitSwitchOff/>
 ```

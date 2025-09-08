@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cap } from '@diac/standard-components-diagrams/procEngPiping'
+import { Cap } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <Cap/>
 ```

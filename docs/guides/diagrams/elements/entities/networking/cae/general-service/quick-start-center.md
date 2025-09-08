@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QuickStartCenter } from '@diac/standard-components-diagrams/caeGeneralService'
+import { QuickStartCenter } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <QuickStartCenter/>
 ```

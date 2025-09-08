@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dialogflow } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { Dialogflow } from '@dinghy/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <Dialogflow/>
 ```

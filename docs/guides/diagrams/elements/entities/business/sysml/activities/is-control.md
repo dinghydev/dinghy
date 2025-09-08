@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IsControl } from '@diac/standard-components-diagrams/sysmlActivities'
+import { IsControl } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <IsControl/>
 ```

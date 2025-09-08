@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WeakEntity } from '@diac/standard-components-diagrams/entityRelation'
+import { WeakEntity } from '@dinghy/standard-components-diagrams/entityRelation'
 
 <WeakEntity/>
 ```

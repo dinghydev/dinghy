@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FullscreenDialog } from '@diac/standard-components-diagrams/gmdlDialogs'
+import { FullscreenDialog } from '@dinghy/standard-components-diagrams/gmdlDialogs'
 
 <FullscreenDialog/>
 ```

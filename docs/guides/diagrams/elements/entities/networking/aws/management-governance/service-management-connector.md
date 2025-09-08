@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceManagementConnector } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ServiceManagementConnector } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ServiceManagementConnector/>
 ```

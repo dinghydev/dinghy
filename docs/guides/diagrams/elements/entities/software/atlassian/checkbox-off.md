@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CheckboxOff } from '@diac/standard-components-diagrams/atlassian'
+import { CheckboxOff } from '@dinghy/standard-components-diagrams/atlassian'
 
 <CheckboxOff/>
 ```

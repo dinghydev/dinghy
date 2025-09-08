@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IotCoreDeviceLocation } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { IotCoreDeviceLocation } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <IotCoreDeviceLocation/>
 ```

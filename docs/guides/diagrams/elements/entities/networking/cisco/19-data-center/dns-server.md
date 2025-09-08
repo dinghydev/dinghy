@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DnsServer } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { DnsServer } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <DnsServer/>
 ```

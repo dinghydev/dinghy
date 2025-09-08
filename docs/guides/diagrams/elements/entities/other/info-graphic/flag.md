@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Flag } from '@diac/standard-components-diagrams/infoGraphic'
+import { Flag } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <Flag/>
 ```

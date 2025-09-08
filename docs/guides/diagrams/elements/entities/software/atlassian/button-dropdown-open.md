@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonDropdownOpen } from '@diac/standard-components-diagrams/atlassian'
+import { ButtonDropdownOpen } from '@dinghy/standard-components-diagrams/atlassian'
 
 <ButtonDropdownOpen/>
 ```

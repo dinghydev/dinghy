@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RealtimeCompute } from '@diac/standard-components-diagrams/alibabaCloud'
+import { RealtimeCompute } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <RealtimeCompute/>
 ```

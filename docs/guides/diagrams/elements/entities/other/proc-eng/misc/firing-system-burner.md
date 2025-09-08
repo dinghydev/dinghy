@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FiringSystemBurner } from '@diac/standard-components-diagrams/procEngMisc'
+import { FiringSystemBurner } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <FiringSystemBurner/>
 ```

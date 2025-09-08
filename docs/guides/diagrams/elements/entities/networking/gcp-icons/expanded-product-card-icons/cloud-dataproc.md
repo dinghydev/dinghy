@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudDataproc } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { CloudDataproc } from '@dinghy/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <CloudDataproc/>
 ```

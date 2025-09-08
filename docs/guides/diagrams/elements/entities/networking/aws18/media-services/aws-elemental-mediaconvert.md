@@ -5,7 +5,7 @@
 ```
 {
   _style: { 
-    entity: 'sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.elemental_mediaconvert;',
+    entity: 'sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.elemental_medinghyonvert;',
   },
   _original_width: 80,
   _original_height: 110,
@@ -15,11 +15,11 @@
 ## Usage
 
 ```
-import { AwsElementalMediaconvert } from '@diac/standard-components-diagrams/aws18MediaServices'
+import { AwsElementalMedinghyonvert } from '@dinghy/standard-components-diagrams/aws18MediaServices'
 
-<AwsElementalMediaconvert/>
+<AwsElementalMedinghyonvert/>
 ```
 
 ## Preview
 
-<img src="./aws-elemental-mediaconvert.png" width="200"/>
+<img src="./aws-elemental-medinghyonvert.png" width="200"/>

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PartnerInterconnect } from '@diac/standard-components-diagrams/gcpIconsNetworking'
+import { PartnerInterconnect } from '@dinghy/standard-components-diagrams/gcpIconsNetworking'
 
 <PartnerInterconnect/>
 ```

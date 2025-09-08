@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MoveToFolder } from '@diac/standard-components-diagrams/ios7Icons'
+import { MoveToFolder } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <MoveToFolder/>
 ```

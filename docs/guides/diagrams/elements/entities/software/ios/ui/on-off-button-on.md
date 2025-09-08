@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnOffButtonOn } from '@diac/standard-components-diagrams/ios7Ui'
+import { OnOffButtonOn } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <OnOffButtonOn/>
 ```

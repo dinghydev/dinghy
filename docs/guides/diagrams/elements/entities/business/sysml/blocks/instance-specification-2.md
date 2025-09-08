@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InstanceSpecification2 } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { InstanceSpecification2 } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <InstanceSpecification2/>
 ```

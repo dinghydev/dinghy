@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Troubleshoot } from '@diac/standard-components-diagrams/azure2General'
+import { Troubleshoot } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Troubleshoot/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsElementalMediatailor } from '@diac/standard-components-diagrams/aws18MediaServices'
+import { AwsElementalMediatailor } from '@dinghy/standard-components-diagrams/aws18MediaServices'
 
 <AwsElementalMediatailor/>
 ```

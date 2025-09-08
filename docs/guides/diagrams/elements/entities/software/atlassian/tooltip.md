@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tooltip } from '@diac/standard-components-diagrams/atlassian'
+import { Tooltip } from '@dinghy/standard-components-diagrams/atlassian'
 
 <Tooltip/>
 ```

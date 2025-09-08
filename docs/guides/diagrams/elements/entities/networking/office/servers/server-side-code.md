@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerSideCode } from '@diac/standard-components-diagrams/officeServers'
+import { ServerSideCode } from '@dinghy/standard-components-diagrams/officeServers'
 
 <ServerSideCode/>
 ```

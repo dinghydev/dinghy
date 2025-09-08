@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Health } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Health } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Health/>
 ```

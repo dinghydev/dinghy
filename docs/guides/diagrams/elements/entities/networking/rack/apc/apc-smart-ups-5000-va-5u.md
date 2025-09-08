@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApcSmartUps5000Va5u } from '@diac/standard-components-diagrams/rackApc'
+import { ApcSmartUps5000Va5u } from '@dinghy/standard-components-diagrams/rackApc'
 
 <ApcSmartUps5000Va5u/>
 ```

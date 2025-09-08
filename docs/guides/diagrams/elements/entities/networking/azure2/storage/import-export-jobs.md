@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImportExportJobs } from '@diac/standard-components-diagrams/azure2Storage'
+import { ImportExportJobs } from '@dinghy/standard-components-diagrams/azure2Storage'
 
 <ImportExportJobs/>
 ```

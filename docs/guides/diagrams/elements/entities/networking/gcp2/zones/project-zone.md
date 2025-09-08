@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProjectZone } from '@diac/standard-components-diagrams/gcp2Zones'
+import { ProjectZone } from '@dinghy/standard-components-diagrams/gcp2Zones'
 
 <ProjectZone/>
 ```

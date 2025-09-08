@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HealthcareApi } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { HealthcareApi } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <HealthcareApi/>
 ```

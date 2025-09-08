@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TransferAppliance } from '@diac/standard-components-diagrams/gcp2DataTransfer'
+import { TransferAppliance } from '@dinghy/standard-components-diagrams/gcp2DataTransfer'
 
 <TransferAppliance/>
 ```

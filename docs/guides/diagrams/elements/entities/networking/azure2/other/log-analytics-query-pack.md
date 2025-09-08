@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogAnalyticsQueryPack } from '@diac/standard-components-diagrams/azure2Other'
+import { LogAnalyticsQueryPack } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <LogAnalyticsQueryPack/>
 ```

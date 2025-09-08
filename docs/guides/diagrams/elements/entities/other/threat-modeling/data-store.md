@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataStore } from '@diac/standard-components-diagrams/threatModeling'
+import { DataStore } from '@dinghy/standard-components-diagrams/threatModeling'
 
 <DataStore/>
 ```

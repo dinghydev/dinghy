@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component3rdPartyLayer } from '@diac/standard-components-diagrams/sapEssentials'
+import { Component3rdPartyLayer } from '@dinghy/standard-components-diagrams/sapEssentials'
 
 <Component3rdPartyLayer/>
 ```

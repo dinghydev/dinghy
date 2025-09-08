@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EndpointWhite } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { EndpointWhite } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <EndpointWhite/>
 ```

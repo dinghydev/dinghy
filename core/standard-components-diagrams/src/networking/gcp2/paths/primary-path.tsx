@@ -1,5 +1,5 @@
-import { Dependency, extendStyle } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { Dependency, extendStyle } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const PRIMARY_PATH = {
   _style: {

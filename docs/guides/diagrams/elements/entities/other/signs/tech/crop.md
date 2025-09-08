@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Crop } from '@diac/standard-components-diagrams/signsTech'
+import { Crop } from '@dinghy/standard-components-diagrams/signsTech'
 
 <Crop/>
 ```

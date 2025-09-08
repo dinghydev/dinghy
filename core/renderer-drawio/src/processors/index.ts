@@ -21,7 +21,7 @@ import { p32ApplyDistribution } from './p32ApplyDistribution.ts'
 import { p68AdjustRelationships } from './p68AdjustRelationships.ts'
 import { p61ConsolidateDependencies } from './p61ConsolidateDependencies.ts'
 import { p80ApplyBeforeGenerate } from './p80ApplyBeforeGenerate.tsx'
-import type { HostContainer } from '@diac/base-renderer'
+import type { HostContainer } from '@dinghy/base-renderer'
 const processors: Processor[] = [
   p10ApplyViewAttributes,
   p15ResolveAttrDiagram,

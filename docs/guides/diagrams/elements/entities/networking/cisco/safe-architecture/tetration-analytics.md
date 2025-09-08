@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TetrationAnalytics } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { TetrationAnalytics } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <TetrationAnalytics/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EcsCopilotCli } from '@diac/standard-components-diagrams/awsContainers'
+import { EcsCopilotCli } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <EcsCopilotCli/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FailoverProtectiveSnapshot } from '@diac/standard-components-diagrams/veeam3d'
+import { FailoverProtectiveSnapshot } from '@dinghy/standard-components-diagrams/veeam3d'
 
 <FailoverProtectiveSnapshot/>
 ```

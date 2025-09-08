@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RackVoyager } from '@diac/standard-components-diagrams/cumulus'
+import { RackVoyager } from '@dinghy/standard-components-diagrams/cumulus'
 
 <RackVoyager/>
 ```

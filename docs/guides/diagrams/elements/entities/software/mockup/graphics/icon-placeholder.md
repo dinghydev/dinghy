@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IconPlaceholder } from '@diac/standard-components-diagrams/mockupGraphics'
+import { IconPlaceholder } from '@dinghy/standard-components-diagrams/mockupGraphics'
 
 <IconPlaceholder/>
 ```

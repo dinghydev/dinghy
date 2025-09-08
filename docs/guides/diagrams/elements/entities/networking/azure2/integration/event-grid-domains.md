@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventGridDomains } from '@diac/standard-components-diagrams/azure2Integration'
+import { EventGridDomains } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <EventGridDomains/>
 ```

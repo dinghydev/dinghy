@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MessagesQueued } from '@diac/standard-components-diagrams/officeCommunications'
+import { MessagesQueued } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <MessagesQueued/>
 ```

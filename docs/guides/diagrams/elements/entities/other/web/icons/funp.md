@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Funp } from '@diac/standard-components-diagrams/webIcons'
+import { Funp } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Funp/>
 ```

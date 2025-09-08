@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Siem } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { Siem } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <Siem/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Retry } from '@diac/standard-components-diagrams/ios7Icons'
+import { Retry } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Retry/>
 ```

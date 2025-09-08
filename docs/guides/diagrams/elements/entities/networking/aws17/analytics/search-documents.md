@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SearchDocuments } from '@diac/standard-components-diagrams/aws17Analytics'
+import { SearchDocuments } from '@dinghy/standard-components-diagrams/aws17Analytics'
 
 <SearchDocuments/>
 ```

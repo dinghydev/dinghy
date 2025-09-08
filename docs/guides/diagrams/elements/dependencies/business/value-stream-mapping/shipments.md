@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Shipments } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { Shipments } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <Shipments/>
 ```

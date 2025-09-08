@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Coupling } from '@diac/standard-components-diagrams/procEngFittings'
+import { Coupling } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <Coupling/>
 ```

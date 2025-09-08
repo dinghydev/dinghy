@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonRds } from '@diac/standard-components-diagrams/aws18Database'
+import { AmazonRds } from '@dinghy/standard-components-diagrams/aws18Database'
 
 <AmazonRds/>
 ```

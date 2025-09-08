@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PnvsPhoneNumberVerificationService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { PnvsPhoneNumberVerificationService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <PnvsPhoneNumberVerificationService/>
 ```

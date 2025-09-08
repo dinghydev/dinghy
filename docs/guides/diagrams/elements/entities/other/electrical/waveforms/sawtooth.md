@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sawtooth } from '@diac/standard-components-diagrams/electricalWaveforms'
+import { Sawtooth } from '@dinghy/standard-components-diagrams/electricalWaveforms'
 
 <Sawtooth/>
 ```

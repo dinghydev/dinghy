@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentitySecureScore } from '@diac/standard-components-diagrams/azure2Security'
+import { IdentitySecureScore } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <IdentitySecureScore/>
 ```

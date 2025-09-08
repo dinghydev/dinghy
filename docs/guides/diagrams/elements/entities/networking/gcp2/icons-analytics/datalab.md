@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Datalab } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { Datalab } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <Datalab/>
 ```

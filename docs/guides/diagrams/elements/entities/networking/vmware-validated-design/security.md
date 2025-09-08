@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Security } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Security } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Security/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SingleLineTextFieldNormalDark3 } from '@diac/standard-components-diagrams/gmdlTextFields'
+import { SingleLineTextFieldNormalDark3 } from '@dinghy/standard-components-diagrams/gmdlTextFields'
 
 <SingleLineTextFieldNormalDark3/>
 ```

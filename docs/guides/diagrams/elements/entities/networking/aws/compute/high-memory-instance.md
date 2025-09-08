@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HighMemoryInstance } from '@diac/standard-components-diagrams/awsCompute'
+import { HighMemoryInstance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <HighMemoryInstance/>
 ```

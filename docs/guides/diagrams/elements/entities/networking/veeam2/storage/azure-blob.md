@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureBlob } from '@diac/standard-components-diagrams/veeam2Storage'
+import { AzureBlob } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <AzureBlob/>
 ```

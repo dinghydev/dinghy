@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { References } from '@diac/standard-components-diagrams/sitemap'
+import { References } from '@dinghy/standard-components-diagrams/sitemap'
 
 <References/>
 ```

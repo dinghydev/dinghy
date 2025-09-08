@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SingleLineTextFieldHover } from '@diac/standard-components-diagrams/gmdlTextFields'
+import { SingleLineTextFieldHover } from '@dinghy/standard-components-diagrams/gmdlTextFields'
 
 <SingleLineTextFieldHover/>
 ```

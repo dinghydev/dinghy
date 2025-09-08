@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsCodepipeline } from '@diac/standard-components-diagrams/aws18DeveloperTools'
+import { AwsCodepipeline } from '@dinghy/standard-components-diagrams/aws18DeveloperTools'
 
 <AwsCodepipeline/>
 ```

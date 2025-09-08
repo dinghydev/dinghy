@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PilotLight } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { PilotLight } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <PilotLight/>
 ```

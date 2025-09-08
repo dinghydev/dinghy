@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PublicCloud } from '@diac/standard-components-diagrams/officeClouds'
+import { PublicCloud } from '@dinghy/standard-components-diagrams/officeClouds'
 
 <PublicCloud/>
 ```

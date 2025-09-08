@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hexagon } from '@diac/standard-components-diagrams/general'
+import { Hexagon } from '@dinghy/standard-components-diagrams/general'
 
 <Hexagon/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ShapingMachineHorizontal } from '@diac/standard-components-diagrams/procEngShapingMachines'
+import { ShapingMachineHorizontal } from '@dinghy/standard-components-diagrams/procEngShapingMachines'
 
 <ShapingMachineHorizontal/>
 ```

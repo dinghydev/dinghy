@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Codestar } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { Codestar } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <Codestar/>
 ```

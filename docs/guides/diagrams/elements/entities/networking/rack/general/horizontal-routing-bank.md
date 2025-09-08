@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalRoutingBank } from '@diac/standard-components-diagrams/rackGeneral'
+import { HorizontalRoutingBank } from '@dinghy/standard-components-diagrams/rackGeneral'
 
 <HorizontalRoutingBank/>
 ```

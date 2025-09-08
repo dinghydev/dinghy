@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MonitorPipeline } from '@diac/standard-components-diagrams/azure2Other'
+import { MonitorPipeline } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <MonitorPipeline/>
 ```

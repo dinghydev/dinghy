@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { Table } from '@diac/standard-components-diagrams/mockupText'
+import { Table } from '@dinghy/standard-components-diagrams/mockupText'
 
 <Table/>
 ```

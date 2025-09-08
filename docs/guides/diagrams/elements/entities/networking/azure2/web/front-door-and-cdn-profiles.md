@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FrontDoorAndCdnProfiles } from '@diac/standard-components-diagrams/azure2Web'
+import { FrontDoorAndCdnProfiles } from '@dinghy/standard-components-diagrams/azure2Web'
 
 <FrontDoorAndCdnProfiles/>
 ```

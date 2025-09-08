@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pinterest } from '@diac/standard-components-diagrams/webLogos'
+import { Pinterest } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Pinterest/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Codewhisperer } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Codewhisperer } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Codewhisperer/>
 ```

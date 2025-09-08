@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetqChassis } from '@diac/standard-components-diagrams/cumulus'
+import { NetqChassis } from '@dinghy/standard-components-diagrams/cumulus'
 
 <NetqChassis/>
 ```

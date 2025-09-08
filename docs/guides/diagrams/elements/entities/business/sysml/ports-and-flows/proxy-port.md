@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProxyPort } from '@diac/standard-components-diagrams/sysmlPortsAndFlows'
+import { ProxyPort } from '@dinghy/standard-components-diagrams/sysmlPortsAndFlows'
 
 <ProxyPort/>
 ```

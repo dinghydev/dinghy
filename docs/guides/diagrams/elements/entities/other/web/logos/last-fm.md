@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LastFm } from '@diac/standard-components-diagrams/webLogos'
+import { LastFm } from '@dinghy/standard-components-diagrams/webLogos'
 
 <LastFm/>
 ```

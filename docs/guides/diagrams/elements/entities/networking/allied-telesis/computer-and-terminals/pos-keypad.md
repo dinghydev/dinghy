@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PosKeypad } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { PosKeypad } from '@dinghy/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <PosKeypad/>
 ```

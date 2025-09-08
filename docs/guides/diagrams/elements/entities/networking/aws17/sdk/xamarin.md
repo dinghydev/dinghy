@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Xamarin } from '@diac/standard-components-diagrams/aws17Sdk'
+import { Xamarin } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <Xamarin/>
 ```

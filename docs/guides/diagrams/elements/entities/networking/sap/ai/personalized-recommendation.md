@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PersonalizedRecommendation } from '@diac/standard-components-diagrams/sapAi'
+import { PersonalizedRecommendation } from '@dinghy/standard-components-diagrams/sapAi'
 
 <PersonalizedRecommendation/>
 ```

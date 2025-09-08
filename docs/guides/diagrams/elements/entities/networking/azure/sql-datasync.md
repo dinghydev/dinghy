@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlDatasync } from '@diac/standard-components-diagrams/azure'
+import { SqlDatasync } from '@dinghy/standard-components-diagrams/azure'
 
 <SqlDatasync/>
 ```

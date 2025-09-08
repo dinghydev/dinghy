@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudCycle } from '@diac/standard-components-diagrams/caeCompanies'
+import { CloudCycle } from '@dinghy/standard-components-diagrams/caeCompanies'
 
 <CloudCycle/>
 ```

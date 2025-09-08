@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DashedArrowlessEdge } from '@diac/standard-components-diagrams/aws3d'
+import { DashedArrowlessEdge } from '@dinghy/standard-components-diagrams/aws3d'
 
 <DashedArrowlessEdge/>
 ```

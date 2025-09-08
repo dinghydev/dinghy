@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CheckedDoc } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { CheckedDoc } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <CheckedDoc/>
 ```

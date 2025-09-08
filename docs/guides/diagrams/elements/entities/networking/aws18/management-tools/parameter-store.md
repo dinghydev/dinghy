@@ -16,7 +16,7 @@ Store
 ## Usage
 
 ```
-import { ParameterStore } from '@diac/standard-components-diagrams/aws18ManagementTools'
+import { ParameterStore } from '@dinghy/standard-components-diagrams/aws18ManagementTools'
 
 <ParameterStore/>
 ```

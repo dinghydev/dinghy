@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrafficMirroring } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { TrafficMirroring } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <TrafficMirroring/>
 ```

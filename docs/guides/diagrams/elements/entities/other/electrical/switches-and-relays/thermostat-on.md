@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThermostatOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { ThermostatOn } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <ThermostatOn/>
 ```

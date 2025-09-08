@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Service } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Service } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Service/>
 ```

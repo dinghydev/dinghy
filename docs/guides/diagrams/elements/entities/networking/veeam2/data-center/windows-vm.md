@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowsVm } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { WindowsVm } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <WindowsVm/>
 ```

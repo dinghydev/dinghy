@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmWithASnapshot } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { VmWithASnapshot } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <VmWithASnapshot/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Honeycode } from '@diac/standard-components-diagrams/awsBusinessApplications'
+import { Honeycode } from '@dinghy/standard-components-diagrams/awsBusinessApplications'
 
 <Honeycode/>
 ```

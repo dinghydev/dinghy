@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetMgmtAppliance } from '@diac/standard-components-diagrams/cisco19NetworkManagement'
+import { NetMgmtAppliance } from '@dinghy/standard-components-diagrams/cisco19NetworkManagement'
 
 <NetMgmtAppliance/>
 ```

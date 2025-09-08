@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Laptop } from '@diac/standard-components-diagrams/citrixUsersAndDevices'
+import { Laptop } from '@dinghy/standard-components-diagrams/citrixUsersAndDevices'
 
 <Laptop/>
 ```

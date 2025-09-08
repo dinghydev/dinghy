@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11700QuickActionCoupling } from '@diac/standard-components-diagrams/fluidPower'
+import { X11700QuickActionCoupling } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11700QuickActionCoupling/>
 ```

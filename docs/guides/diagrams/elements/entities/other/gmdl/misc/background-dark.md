@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackgroundDark } from '@diac/standard-components-diagrams/gmdlMisc'
+import { BackgroundDark } from '@dinghy/standard-components-diagrams/gmdlMisc'
 
 <BackgroundDark/>
 ```

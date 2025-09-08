@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { BidirectionalDataFlow } from '@diac/standard-components-diagrams/threatModeling'
+import { BidirectionalDataFlow } from '@dinghy/standard-components-diagrams/threatModeling'
 
 <BidirectionalDataFlow/>
 ```

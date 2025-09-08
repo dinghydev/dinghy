@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Translate } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Translate } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Translate/>
 ```

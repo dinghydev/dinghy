@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MfaToken } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { MfaToken } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <MfaToken/>
 ```

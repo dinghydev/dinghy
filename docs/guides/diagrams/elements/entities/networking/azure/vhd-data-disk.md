@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VhdDataDisk } from '@diac/standard-components-diagrams/azure'
+import { VhdDataDisk } from '@dinghy/standard-components-diagrams/azure'
 
 <VhdDataDisk/>
 ```

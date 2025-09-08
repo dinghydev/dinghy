@@ -6,7 +6,7 @@ import type {
   TfRenderOptions,
 } from '../types.ts'
 import { p10ResolveCategory } from './p10ResolveCategory.tsx'
-import type { HostContainer } from '@diac/base-renderer'
+import type { HostContainer } from '@dinghy/base-renderer'
 
 const processors: Processor[] = [p10ResolveCategory]
 

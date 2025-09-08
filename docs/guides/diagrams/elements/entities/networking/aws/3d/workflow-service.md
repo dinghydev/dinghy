@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkflowService } from '@diac/standard-components-diagrams/aws3d'
+import { WorkflowService } from '@dinghy/standard-components-diagrams/aws3d'
 
 <WorkflowService/>
 ```

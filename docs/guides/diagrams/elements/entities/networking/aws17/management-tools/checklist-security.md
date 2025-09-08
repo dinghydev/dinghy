@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChecklistSecurity } from '@diac/standard-components-diagrams/aws17ManagementTools'
+import { ChecklistSecurity } from '@dinghy/standard-components-diagrams/aws17ManagementTools'
 
 <ChecklistSecurity/>
 ```

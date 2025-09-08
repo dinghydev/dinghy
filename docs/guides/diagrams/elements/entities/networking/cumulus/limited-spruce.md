@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LimitedSpruce } from '@diac/standard-components-diagrams/cumulus'
+import { LimitedSpruce } from '@dinghy/standard-components-diagrams/cumulus'
 
 <LimitedSpruce/>
 ```

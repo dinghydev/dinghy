@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkspaceSite } from '@diac/standard-components-diagrams/activeDirectory'
+import { WorkspaceSite } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <WorkspaceSite/>
 ```

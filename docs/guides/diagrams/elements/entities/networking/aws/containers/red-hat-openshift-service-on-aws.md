@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RedHatOpenshiftServiceOnAws } from '@diac/standard-components-diagrams/awsContainers'
+import { RedHatOpenshiftServiceOnAws } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <RedHatOpenshiftServiceOnAws/>
 ```

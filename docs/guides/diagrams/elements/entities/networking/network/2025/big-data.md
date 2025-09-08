@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BigData } from '@diac/standard-components-diagrams/network2'
+import { BigData } from '@dinghy/standard-components-diagrams/network2'
 
 <BigData/>
 ```

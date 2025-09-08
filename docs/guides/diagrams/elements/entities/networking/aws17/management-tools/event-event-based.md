@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventEventBased } from '@diac/standard-components-diagrams/aws17ManagementTools'
+import { EventEventBased } from '@dinghy/standard-components-diagrams/aws17ManagementTools'
 
 <EventEventBased/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouterWithFirewall } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { RouterWithFirewall } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <RouterWithFirewall/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MeshApplications } from '@diac/standard-components-diagrams/azure2Compute'
+import { MeshApplications } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <MeshApplications/>
 ```

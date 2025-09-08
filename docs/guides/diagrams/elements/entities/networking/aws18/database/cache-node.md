@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CacheNode } from '@diac/standard-components-diagrams/aws18Database'
+import { CacheNode } from '@dinghy/standard-components-diagrams/aws18Database'
 
 <CacheNode/>
 ```

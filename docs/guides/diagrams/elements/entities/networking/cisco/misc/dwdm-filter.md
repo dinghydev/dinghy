@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DwdmFilter } from '@diac/standard-components-diagrams/ciscoMisc'
+import { DwdmFilter } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <DwdmFilter/>
 ```

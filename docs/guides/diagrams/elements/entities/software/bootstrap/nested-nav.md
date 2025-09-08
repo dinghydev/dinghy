@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NestedNav } from '@diac/standard-components-diagrams/bootstrap'
+import { NestedNav } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <NestedNav/>
 ```

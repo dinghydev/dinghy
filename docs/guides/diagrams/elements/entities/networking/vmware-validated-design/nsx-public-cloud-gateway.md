@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NsxPublicCloudGateway } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { NsxPublicCloudGateway } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <NsxPublicCloudGateway/>
 ```

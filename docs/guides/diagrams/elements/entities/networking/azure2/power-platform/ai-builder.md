@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AiBuilder } from '@diac/standard-components-diagrams/azure2PowerPlatform'
+import { AiBuilder } from '@dinghy/standard-components-diagrams/azure2PowerPlatform'
 
 <AiBuilder/>
 ```

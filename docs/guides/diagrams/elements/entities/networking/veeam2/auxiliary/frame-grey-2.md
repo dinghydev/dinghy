@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FrameGrey2 } from '@diac/standard-components-diagrams/veeam2Auxiliary'
+import { FrameGrey2 } from '@dinghy/standard-components-diagrams/veeam2Auxiliary'
 
 <FrameGrey2/>
 ```

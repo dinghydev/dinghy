@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlowAnalytics } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { FlowAnalytics } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <FlowAnalytics/>
 ```

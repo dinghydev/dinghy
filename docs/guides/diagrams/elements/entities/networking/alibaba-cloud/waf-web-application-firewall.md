@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WafWebApplicationFirewall } from '@diac/standard-components-diagrams/alibabaCloud'
+import { WafWebApplicationFirewall } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <WafWebApplicationFirewall/>
 ```

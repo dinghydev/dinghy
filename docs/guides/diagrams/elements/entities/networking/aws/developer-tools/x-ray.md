@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { XRay } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { XRay } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <XRay/>
 ```

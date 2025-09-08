@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LicenseManagerApplicationDiscovery } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { LicenseManagerApplicationDiscovery } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <LicenseManagerApplicationDiscovery/>
 ```

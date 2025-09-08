@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Myspace } from '@diac/standard-components-diagrams/webIcons'
+import { Myspace } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Myspace/>
 ```

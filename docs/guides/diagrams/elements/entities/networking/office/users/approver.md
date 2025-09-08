@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Approver } from '@diac/standard-components-diagrams/officeUsers'
+import { Approver } from '@dinghy/standard-components-diagrams/officeUsers'
 
 <Approver/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ColumnStaggeredBaffleTrays } from '@diac/standard-components-diagrams/procEngMisc'
+import { ColumnStaggeredBaffleTrays } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <ColumnStaggeredBaffleTrays/>
 ```

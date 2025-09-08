@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RibbonDoubleFolded } from '@diac/standard-components-diagrams/infoGraphic'
+import { RibbonDoubleFolded } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <RibbonDoubleFolded/>
 ```

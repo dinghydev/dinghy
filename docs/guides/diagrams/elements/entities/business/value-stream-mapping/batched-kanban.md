@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BatchedKanban } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { BatchedKanban } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <BatchedKanban/>
 ```

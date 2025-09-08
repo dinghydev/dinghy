@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Seagull } from '@diac/standard-components-diagrams/cumulus'
+import { Seagull } from '@dinghy/standard-components-diagrams/cumulus'
 
 <Seagull/>
 ```

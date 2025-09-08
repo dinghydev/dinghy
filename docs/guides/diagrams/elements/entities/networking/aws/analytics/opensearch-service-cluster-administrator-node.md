@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpensearchServiceClusterAdministratorNode } from '@diac/standard-components-diagrams/awsAnalytics'
+import { OpensearchServiceClusterAdministratorNode } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <OpensearchServiceClusterAdministratorNode/>
 ```

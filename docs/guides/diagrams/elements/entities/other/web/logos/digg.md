@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Digg } from '@diac/standard-components-diagrams/webLogos'
+import { Digg } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Digg/>
 ```

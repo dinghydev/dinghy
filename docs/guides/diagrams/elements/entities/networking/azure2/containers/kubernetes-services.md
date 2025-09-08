@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KubernetesServices } from '@diac/standard-components-diagrams/azure2Containers'
+import { KubernetesServices } from '@dinghy/standard-components-diagrams/azure2Containers'
 
 <KubernetesServices/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Color4 } from '@diac/standard-components-diagrams/android'
+import { Color4 } from '@dinghy/standard-components-diagrams/android'
 
 <Color4/>
 ```

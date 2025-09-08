@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PartnerNamespace } from '@diac/standard-components-diagrams/azure2Integration'
+import { PartnerNamespace } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <PartnerNamespace/>
 ```

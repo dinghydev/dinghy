@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vss } from '@diac/standard-components-diagrams/electricalMisc'
+import { Vss } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <Vss/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConstraintTextualNote2 } from '@diac/standard-components-diagrams/sysmlModelElements'
+import { ConstraintTextualNote2 } from '@dinghy/standard-components-diagrams/sysmlModelElements'
 
 <ConstraintTextualNote2/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Comment } from '@diac/standard-components-diagrams/uml25'
+import { Comment } from '@dinghy/standard-components-diagrams/uml25'
 
 <Comment/>
 ```

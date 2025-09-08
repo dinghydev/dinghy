@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GenomicsCli } from '@diac/standard-components-diagrams/awsCompute'
+import { GenomicsCli } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <GenomicsCli/>
 ```

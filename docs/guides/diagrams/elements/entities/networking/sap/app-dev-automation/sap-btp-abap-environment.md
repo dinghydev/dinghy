@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapBtpAbapEnvironment } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { SapBtpAbapEnvironment } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <SapBtpAbapEnvironment/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NasNetworkAttachedStorage } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NasNetworkAttachedStorage } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NasNetworkAttachedStorage/>
 ```

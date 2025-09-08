@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stacklight } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Stacklight } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Stacklight/>
 ```

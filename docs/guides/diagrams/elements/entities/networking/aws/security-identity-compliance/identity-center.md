@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentityCenter } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { IdentityCenter } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <IdentityCenter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SiteRecoveryFunctionalIcon } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { SiteRecoveryFunctionalIcon } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <SiteRecoveryFunctionalIcon/>
 ```

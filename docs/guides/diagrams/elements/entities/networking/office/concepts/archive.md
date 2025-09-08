@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Archive } from '@diac/standard-components-diagrams/officeConcepts'
+import { Archive } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Archive/>
 ```

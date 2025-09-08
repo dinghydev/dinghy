@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IbmObjectStorage } from '@diac/standard-components-diagrams/veeam2Storage'
+import { IbmObjectStorage } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <IbmObjectStorage/>
 ```

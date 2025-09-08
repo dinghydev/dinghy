@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ftp } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { Ftp } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <Ftp/>
 ```

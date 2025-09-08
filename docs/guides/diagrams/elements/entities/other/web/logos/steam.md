@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Steam } from '@diac/standard-components-diagrams/webLogos'
+import { Steam } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Steam/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlServer } from '@diac/standard-components-diagrams/activeDirectory'
+import { SqlServer } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <SqlServer/>
 ```

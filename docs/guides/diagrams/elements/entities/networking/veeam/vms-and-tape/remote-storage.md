@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RemoteStorage } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { RemoteStorage } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <RemoteStorage/>
 ```

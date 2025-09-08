@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VoiceCommserver } from '@diac/standard-components-diagrams/ciscoServers'
+import { VoiceCommserver } from '@dinghy/standard-components-diagrams/ciscoServers'
 
 <VoiceCommserver/>
 ```

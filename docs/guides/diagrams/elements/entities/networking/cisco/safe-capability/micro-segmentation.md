@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MicroSegmentation } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { MicroSegmentation } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <MicroSegmentation/>
 ```

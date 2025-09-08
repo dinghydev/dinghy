@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lightsail } from '@diac/standard-components-diagrams/awsCompute'
+import { Lightsail } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Lightsail/>
 ```

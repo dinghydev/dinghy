@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KubernetesEngine } from '@diac/standard-components-diagrams/gcpIconsOpenSourceIcons'
+import { KubernetesEngine } from '@dinghy/standard-components-diagrams/gcpIconsOpenSourceIcons'
 
 <KubernetesEngine/>
 ```

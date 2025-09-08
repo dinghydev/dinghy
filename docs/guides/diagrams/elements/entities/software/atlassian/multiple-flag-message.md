@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultipleFlagMessage } from '@diac/standard-components-diagrams/atlassian'
+import { MultipleFlagMessage } from '@dinghy/standard-components-diagrams/atlassian'
 
 <MultipleFlagMessage/>
 ```

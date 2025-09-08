@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Yammer } from '@diac/standard-components-diagrams/webLogos'
+import { Yammer } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Yammer/>
 ```

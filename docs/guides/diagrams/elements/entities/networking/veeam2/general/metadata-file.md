@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MetadataFile } from '@diac/standard-components-diagrams/veeam2General'
+import { MetadataFile } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <MetadataFile/>
 ```

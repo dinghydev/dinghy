@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmiResource } from '@diac/standard-components-diagrams/awsCompute'
+import { AmiResource } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <AmiResource/>
 ```

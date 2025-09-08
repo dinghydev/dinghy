@@ -10,8 +10,8 @@ export {
 
 export {
   AWS_ELEMENTAL_MEDIACONVERT,
-  AwsElementalMediaconvert,
-} from './aws-elemental-mediaconvert.tsx'
+  AwsElementalMedinghyonvert,
+} from './aws-elemental-medinghyonvert.tsx'
 
 export {
   AWS_ELEMENTAL_MEDIALIVE,

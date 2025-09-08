@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tags } from '@diac/standard-components-diagrams/azure2General'
+import { Tags } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Tags/>
 ```

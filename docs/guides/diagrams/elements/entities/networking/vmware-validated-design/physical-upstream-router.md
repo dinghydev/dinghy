@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhysicalUpstreamRouter } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { PhysicalUpstreamRouter } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <PhysicalUpstreamRouter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HttpsProtocol3 } from '@diac/standard-components-diagrams/sapEssentials'
+import { HttpsProtocol3 } from '@dinghy/standard-components-diagrams/sapEssentials'
 
 <HttpsProtocol3/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Browser } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Browser } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Browser/>
 ```

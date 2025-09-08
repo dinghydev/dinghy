@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SystemScopeBoundary } from '@diac/standard-components-diagrams/c4'
+import { SystemScopeBoundary } from '@dinghy/standard-components-diagrams/c4'
 
 <SystemScopeBoundary/>
 ```

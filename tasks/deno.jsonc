@@ -5,7 +5,7 @@
     "version-release": "deno run -A ./src/version-release.ts",
     "npm-build": "deno run -A ./src/npm-build.ts",
     "npm-publish": "deno run -A ./src/npm-publish.ts",
-    "aws-npm-login": "aws codeartifact login --tool npm --repository test-repo --domain diac-test-repo --domain-owner 313225491971 --namespace @diac --region eu-west-1",
+    "aws-npm-login": "aws codeartifact login --tool npm --repository test-repo --domain dinghy-test-repo --domain-owner 313225491971 --namespace @dinghy --region eu-west-1",
     "cli-build-x86_64-unknown-linux-gnu": {
       "command": "deno run -A src/cli-build.ts x86_64-unknown-linux-gnu"
     },

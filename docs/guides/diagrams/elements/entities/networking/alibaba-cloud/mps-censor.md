@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MpsCensor } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MpsCensor } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MpsCensor/>
 ```

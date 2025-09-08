@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Reference } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { Reference } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <Reference/>
 ```

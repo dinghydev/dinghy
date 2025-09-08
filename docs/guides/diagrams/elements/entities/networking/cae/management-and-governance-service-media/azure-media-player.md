@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureMediaPlayer } from '@diac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
+import { AzureMediaPlayer } from '@dinghy/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
 
 <AzureMediaPlayer/>
 ```

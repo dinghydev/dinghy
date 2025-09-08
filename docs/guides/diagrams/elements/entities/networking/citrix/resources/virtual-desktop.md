@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualDesktop } from '@diac/standard-components-diagrams/citrixResources'
+import { VirtualDesktop } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <VirtualDesktop/>
 ```

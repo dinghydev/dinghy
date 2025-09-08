@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InputOutput } from '@diac/standard-components-diagrams/azure2General'
+import { InputOutput } from '@dinghy/standard-components-diagrams/azure2General'
 
 <InputOutput/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualPrivateNetwork } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { VirtualPrivateNetwork } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <VirtualPrivateNetwork/>
 ```

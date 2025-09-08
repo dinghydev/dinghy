@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SwitchOff } from '@diac/standard-components-diagrams/gmdlSelectionControls'
+import { SwitchOff } from '@dinghy/standard-components-diagrams/gmdlSelectionControls'
 
 <SwitchOff/>
 ```

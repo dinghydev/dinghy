@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RevisionTable } from '@diac/standard-components-diagrams/mockupMisc'
+import { RevisionTable } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <RevisionTable/>
 ```

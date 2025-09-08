@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SelfServiceRecovery } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { SelfServiceRecovery } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <SelfServiceRecovery/>
 ```

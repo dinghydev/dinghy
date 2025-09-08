@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AnomalyDetection } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { AnomalyDetection } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <AnomalyDetection/>
 ```

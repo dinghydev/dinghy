@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ec2ImageBuilder } from '@diac/standard-components-diagrams/awsCompute'
+import { Ec2ImageBuilder } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Ec2ImageBuilder/>
 ```

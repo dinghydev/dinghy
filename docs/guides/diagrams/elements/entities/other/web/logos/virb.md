@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Virb } from '@diac/standard-components-diagrams/webLogos'
+import { Virb } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Virb/>
 ```

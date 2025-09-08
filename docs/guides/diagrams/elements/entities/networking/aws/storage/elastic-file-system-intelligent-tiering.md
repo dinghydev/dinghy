@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticFileSystemIntelligentTiering } from '@diac/standard-components-diagrams/awsStorage'
+import { ElasticFileSystemIntelligentTiering } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <ElasticFileSystemIntelligentTiering/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoutingSlip } from '@diac/standard-components-diagrams/eipMessageRouting'
+import { RoutingSlip } from '@dinghy/standard-components-diagrams/eipMessageRouting'
 
 <RoutingSlip/>
 ```

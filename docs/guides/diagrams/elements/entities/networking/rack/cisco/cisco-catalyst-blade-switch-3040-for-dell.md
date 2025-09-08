@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoCatalystBladeSwitch3040ForDell } from '@diac/standard-components-diagrams/rackCisco'
+import { CiscoCatalystBladeSwitch3040ForDell } from '@dinghy/standard-components-diagrams/rackCisco'
 
 <CiscoCatalystBladeSwitch3040ForDell/>
 ```

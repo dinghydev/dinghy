@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CrossDock } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { CrossDock } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <CrossDock/>
 ```

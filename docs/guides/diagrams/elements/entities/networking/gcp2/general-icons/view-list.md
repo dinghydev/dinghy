@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ViewList } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { ViewList } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <ViewList/>
 ```

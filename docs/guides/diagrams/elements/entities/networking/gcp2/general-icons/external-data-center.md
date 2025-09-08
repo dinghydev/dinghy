@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExternalDataCenter } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { ExternalDataCenter } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <ExternalDataCenter/>
 ```

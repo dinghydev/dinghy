@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CmnCloudManagedNetwork } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CmnCloudManagedNetwork } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CmnCloudManagedNetwork/>
 ```

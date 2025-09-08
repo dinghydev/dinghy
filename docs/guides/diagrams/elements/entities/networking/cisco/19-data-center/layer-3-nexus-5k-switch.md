@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Layer3Nexus5kSwitch } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { Layer3Nexus5kSwitch } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <Layer3Nexus5kSwitch/>
 ```

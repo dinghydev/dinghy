@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MediaOnDemand } from '@diac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
+import { MediaOnDemand } from '@dinghy/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
 
 <MediaOnDemand/>
 ```

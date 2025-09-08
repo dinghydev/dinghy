@@ -16,7 +16,7 @@ read replica
 ## Usage
 
 ```
-import { DbInstanceReadReplica } from '@diac/standard-components-diagrams/aws18Database'
+import { DbInstanceReadReplica } from '@dinghy/standard-components-diagrams/aws18Database'
 
 <DbInstanceReadReplica/>
 ```

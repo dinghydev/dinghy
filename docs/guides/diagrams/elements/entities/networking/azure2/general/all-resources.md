@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AllResources } from '@diac/standard-components-diagrams/azure2General'
+import { AllResources } from '@dinghy/standard-components-diagrams/azure2General'
 
 <AllResources/>
 ```

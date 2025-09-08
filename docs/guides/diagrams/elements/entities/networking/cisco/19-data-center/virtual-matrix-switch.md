@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualMatrixSwitch } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { VirtualMatrixSwitch } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <VirtualMatrixSwitch/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlMaster } from '@diac/standard-components-diagrams/aws17Database'
+import { SqlMaster } from '@dinghy/standard-components-diagrams/aws17Database'
 
 <SqlMaster/>
 ```

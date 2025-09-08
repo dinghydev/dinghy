@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IncreaseCostArrows } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { IncreaseCostArrows } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <IncreaseCostArrows/>
 ```

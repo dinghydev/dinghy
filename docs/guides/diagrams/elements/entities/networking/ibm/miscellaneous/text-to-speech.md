@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextToSpeech } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { TextToSpeech } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <TextToSpeech/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScvmmManagementServers } from '@diac/standard-components-diagrams/azure2Other'
+import { ScvmmManagementServers } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ScvmmManagementServers/>
 ```

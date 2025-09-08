@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RequiredInterface } from '@diac/standard-components-diagrams/sysmlPortsAndFlows'
+import { RequiredInterface } from '@dinghy/standard-components-diagrams/sysmlPortsAndFlows'
 
 <RequiredInterface/>
 ```

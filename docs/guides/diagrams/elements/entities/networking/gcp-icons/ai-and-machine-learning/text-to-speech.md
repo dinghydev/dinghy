@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextToSpeech } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { TextToSpeech } from '@dinghy/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <TextToSpeech/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Layers } from '@diac/standard-components-diagrams/aws18ManagementTools'
+import { Layers } from '@dinghy/standard-components-diagrams/aws18ManagementTools'
 
 <Layers/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wave } from '@diac/standard-components-diagrams/basic'
+import { Wave } from '@dinghy/standard-components-diagrams/basic'
 
 <Wave/>
 ```

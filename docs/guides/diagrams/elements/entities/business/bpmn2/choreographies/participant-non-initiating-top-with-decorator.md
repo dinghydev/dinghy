@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParticipantNonInitiatingTopWithDecorator } from '@diac/standard-components-diagrams/bpmn2Choreographies'
+import { ParticipantNonInitiatingTopWithDecorator } from '@dinghy/standard-components-diagrams/bpmn2Choreographies'
 
 <ParticipantNonInitiatingTopWithDecorator/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExecutionSpecification2 } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { ExecutionSpecification2 } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <ExecutionSpecification2/>
 ```

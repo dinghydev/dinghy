@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X12430SuctionCup } from '@diac/standard-components-diagrams/fluidPower'
+import { X12430SuctionCup } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X12430SuctionCup/>
 ```

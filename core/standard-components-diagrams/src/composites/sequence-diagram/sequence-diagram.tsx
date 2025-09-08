@@ -1,4 +1,4 @@
-import { Columns, Rows, Shape } from '@diac/base-components'
+import { Columns, Rows, Shape } from '@dinghy/base-components'
 
 import { Activation, ActivationProps } from './activation.tsx'
 import { Frame, FrameProps } from './frame.tsx'

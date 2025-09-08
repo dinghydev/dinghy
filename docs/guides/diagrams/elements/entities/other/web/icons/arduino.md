@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Arduino } from '@diac/standard-components-diagrams/webIcons'
+import { Arduino } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Arduino/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Startlap } from '@diac/standard-components-diagrams/webLogos'
+import { Startlap } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Startlap/>
 ```

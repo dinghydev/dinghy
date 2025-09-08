@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PiezoSounder } from '@diac/standard-components-diagrams/electricalAudio'
+import { PiezoSounder } from '@dinghy/standard-components-diagrams/electricalAudio'
 
 <PiezoSounder/>
 ```

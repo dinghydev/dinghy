@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExplorerForActiveDirectory } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { ExplorerForActiveDirectory } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <ExplorerForActiveDirectory/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContactCenter } from '@diac/standard-components-diagrams/awsContactCenter'
+import { ContactCenter } from '@dinghy/standard-components-diagrams/awsContactCenter'
 
 <ContactCenter/>
 ```

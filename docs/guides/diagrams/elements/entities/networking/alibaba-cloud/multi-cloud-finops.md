@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultiCloudFinops } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MultiCloudFinops } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MultiCloudFinops/>
 ```

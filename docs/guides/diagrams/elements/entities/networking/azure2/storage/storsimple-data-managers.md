@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorsimpleDataManagers } from '@diac/standard-components-diagrams/azure2Storage'
+import { StorsimpleDataManagers } from '@dinghy/standard-components-diagrams/azure2Storage'
 
 <StorsimpleDataManagers/>
 ```

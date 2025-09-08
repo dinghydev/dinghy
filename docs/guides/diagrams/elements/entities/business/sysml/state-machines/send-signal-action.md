@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SendSignalAction } from '@diac/standard-components-diagrams/sysmlStateMachines'
+import { SendSignalAction } from '@dinghy/standard-components-diagrams/sysmlStateMachines'
 
 <SendSignalAction/>
 ```

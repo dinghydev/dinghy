@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SoftwareAsAService } from '@diac/standard-components-diagrams/azure2Integration'
+import { SoftwareAsAService } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <SoftwareAsAService/>
 ```

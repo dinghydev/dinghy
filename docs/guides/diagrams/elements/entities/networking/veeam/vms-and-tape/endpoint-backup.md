@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EndpointBackup } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { EndpointBackup } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <EndpointBackup/>
 ```

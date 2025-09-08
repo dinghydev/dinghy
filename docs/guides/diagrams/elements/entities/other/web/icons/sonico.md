@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sonico } from '@diac/standard-components-diagrams/webIcons'
+import { Sonico } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Sonico/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dropbox2 } from '@diac/standard-components-diagrams/webIcons'
+import { Dropbox2 } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Dropbox2/>
 ```

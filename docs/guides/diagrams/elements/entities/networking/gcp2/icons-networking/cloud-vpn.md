@@ -16,7 +16,7 @@ VPN
 ## Usage
 
 ```
-import { CloudVpn } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudVpn } from '@dinghy/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudVpn/>
 ```

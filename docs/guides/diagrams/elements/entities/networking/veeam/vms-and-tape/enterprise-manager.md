@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EnterpriseManager } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { EnterpriseManager } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <EnterpriseManager/>
 ```

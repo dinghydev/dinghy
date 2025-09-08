@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Actor2 } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { Actor2 } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <Actor2/>
 ```

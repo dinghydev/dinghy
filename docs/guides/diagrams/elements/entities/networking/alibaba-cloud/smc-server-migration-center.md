@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SmcServerMigrationCenter } from '@diac/standard-components-diagrams/alibabaCloud'
+import { SmcServerMigrationCenter } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <SmcServerMigrationCenter/>
 ```

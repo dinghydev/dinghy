@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RightCurlyBracket } from '@diac/standard-components-diagrams/misc'
+import { RightCurlyBracket } from '@dinghy/standard-components-diagrams/misc'
 
 <RightCurlyBracket/>
 ```

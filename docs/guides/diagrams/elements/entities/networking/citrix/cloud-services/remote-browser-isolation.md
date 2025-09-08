@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RemoteBrowserIsolation } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { RemoteBrowserIsolation } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <RemoteBrowserIsolation/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UmgSeries } from '@diac/standard-components-diagrams/ciscoMisc'
+import { UmgSeries } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <UmgSeries/>
 ```

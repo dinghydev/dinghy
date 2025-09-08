@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiskPartition } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { DiskPartition } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <DiskPartition/>
 ```

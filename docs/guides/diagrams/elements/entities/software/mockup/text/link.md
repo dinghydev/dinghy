@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Link } from '@diac/standard-components-diagrams/mockupText'
+import { Link } from '@dinghy/standard-components-diagrams/mockupText'
 
 <Link/>
 ```

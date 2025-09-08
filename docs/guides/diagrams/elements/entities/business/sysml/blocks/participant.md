@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Participant } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { Participant } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <Participant/>
 ```

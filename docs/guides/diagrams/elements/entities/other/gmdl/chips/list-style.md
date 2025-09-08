@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ListStyle } from '@diac/standard-components-diagrams/gmdlChips'
+import { ListStyle } from '@dinghy/standard-components-diagrams/gmdlChips'
 
 <ListStyle/>
 ```

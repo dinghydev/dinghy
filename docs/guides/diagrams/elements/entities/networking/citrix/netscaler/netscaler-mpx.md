@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetscalerMpx } from '@diac/standard-components-diagrams/citrixNetscaler'
+import { NetscalerMpx } from '@dinghy/standard-components-diagrams/citrixNetscaler'
 
 <NetscalerMpx/>
 ```

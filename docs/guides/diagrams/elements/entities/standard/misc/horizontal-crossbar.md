@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalCrossbar } from '@diac/standard-components-diagrams/misc'
+import { HorizontalCrossbar } from '@dinghy/standard-components-diagrams/misc'
 
 <HorizontalCrossbar/>
 ```

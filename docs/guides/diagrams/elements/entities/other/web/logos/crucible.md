@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Crucible } from '@diac/standard-components-diagrams/webLogos'
+import { Crucible } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Crucible/>
 ```

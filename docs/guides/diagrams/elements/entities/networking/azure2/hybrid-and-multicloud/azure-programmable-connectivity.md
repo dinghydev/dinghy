@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureProgrammableConnectivity } from '@diac/standard-components-diagrams/azure2HybridAndMulticloud'
+import { AzureProgrammableConnectivity } from '@dinghy/standard-components-diagrams/azure2HybridAndMulticloud'
 
 <AzureProgrammableConnectivity/>
 ```

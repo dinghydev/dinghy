@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OneServer2 } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { OneServer2 } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <OneServer2/>
 ```

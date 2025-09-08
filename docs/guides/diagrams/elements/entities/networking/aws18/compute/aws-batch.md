@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsBatch } from '@diac/standard-components-diagrams/aws18Compute'
+import { AwsBatch } from '@dinghy/standard-components-diagrams/aws18Compute'
 
 <AwsBatch/>
 ```

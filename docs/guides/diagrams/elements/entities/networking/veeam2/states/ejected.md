@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ejected } from '@diac/standard-components-diagrams/veeam2States'
+import { Ejected } from '@dinghy/standard-components-diagrams/veeam2States'
 
 <Ejected/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationWeb } from '@diac/standard-components-diagrams/officeConcepts'
+import { ApplicationWeb } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <ApplicationWeb/>
 ```

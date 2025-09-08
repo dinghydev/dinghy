@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SharedBandwidth } from '@diac/standard-components-diagrams/alibabaCloud'
+import { SharedBandwidth } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <SharedBandwidth/>
 ```

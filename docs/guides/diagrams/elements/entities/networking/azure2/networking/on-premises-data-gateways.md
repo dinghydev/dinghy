@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnPremisesDataGateways } from '@diac/standard-components-diagrams/azure2Networking'
+import { OnPremisesDataGateways } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <OnPremisesDataGateways/>
 ```

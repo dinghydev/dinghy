@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalForm } from '@diac/standard-components-diagrams/bootstrap'
+import { HorizontalForm } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <HorizontalForm/>
 ```

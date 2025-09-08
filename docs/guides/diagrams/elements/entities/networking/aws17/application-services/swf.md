@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Swf } from '@diac/standard-components-diagrams/aws17ApplicationServices'
+import { Swf } from '@dinghy/standard-components-diagrams/aws17ApplicationServices'
 
 <Swf/>
 ```

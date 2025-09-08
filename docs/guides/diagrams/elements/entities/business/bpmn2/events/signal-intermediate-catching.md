@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SignalIntermediateCatching } from '@diac/standard-components-diagrams/bpmn2Events'
+import { SignalIntermediateCatching } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <SignalIntermediateCatching/>
 ```

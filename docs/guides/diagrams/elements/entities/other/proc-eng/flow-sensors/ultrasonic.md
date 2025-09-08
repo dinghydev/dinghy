@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ultrasonic } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Ultrasonic } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Ultrasonic/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Elasticsearch } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Elasticsearch } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Elasticsearch/>
 ```

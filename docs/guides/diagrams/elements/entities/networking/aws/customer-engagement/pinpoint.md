@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pinpoint } from '@diac/standard-components-diagrams/awsCustomerEngagement'
+import { Pinpoint } from '@dinghy/standard-components-diagrams/awsCustomerEngagement'
 
 <Pinpoint/>
 ```

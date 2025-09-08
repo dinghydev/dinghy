@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InformationDataCarrierSop } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { InformationDataCarrierSop } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <InformationDataCarrierSop/>
 ```

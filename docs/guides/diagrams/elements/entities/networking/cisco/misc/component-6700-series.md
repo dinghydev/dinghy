@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component6700Series } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Component6700Series } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Component6700Series/>
 ```

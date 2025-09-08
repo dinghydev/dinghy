@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MonitorTowerBehind } from '@diac/standard-components-diagrams/clipartComputer'
+import { MonitorTowerBehind } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <MonitorTowerBehind/>
 ```

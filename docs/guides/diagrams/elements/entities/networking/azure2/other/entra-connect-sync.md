@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EntraConnectSync } from '@diac/standard-components-diagrams/azure2Other'
+import { EntraConnectSync } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <EntraConnectSync/>
 ```

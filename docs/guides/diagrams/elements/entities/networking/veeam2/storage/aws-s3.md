@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsS3 } from '@diac/standard-components-diagrams/veeam2Storage'
+import { AwsS3 } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <AwsS3/>
 ```

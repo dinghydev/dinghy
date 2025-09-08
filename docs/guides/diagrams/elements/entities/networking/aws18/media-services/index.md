@@ -7,8 +7,8 @@
 - [AmazonKinesisVideoStreams](./amazon-kinesis-video-streams.md)  
 <img src="./amazon-kinesis-video-streams.png" width="200"/>
 
-- [AwsElementalMediaconvert](./aws-elemental-mediaconvert.md)  
-<img src="./aws-elemental-mediaconvert.png" width="200"/>
+- [AwsElementalMedinghyonvert](./aws-elemental-medinghyonvert.md)  
+<img src="./aws-elemental-medinghyonvert.png" width="200"/>
 
 - [AwsElementalMedialive](./aws-elemental-medialive.md)  
 <img src="./aws-elemental-medialive.png" width="200"/>

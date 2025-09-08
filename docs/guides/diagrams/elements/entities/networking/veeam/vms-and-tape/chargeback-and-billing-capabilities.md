@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChargebackAndBillingCapabilities } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { ChargebackAndBillingCapabilities } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <ChargebackAndBillingCapabilities/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AcsSolutionsBuilder } from '@diac/standard-components-diagrams/azure2Other'
+import { AcsSolutionsBuilder } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <AcsSolutionsBuilder/>
 ```

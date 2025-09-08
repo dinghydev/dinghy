@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DesktopWeb } from '@diac/standard-components-diagrams/citrixLegacy'
+import { DesktopWeb } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <DesktopWeb/>
 ```

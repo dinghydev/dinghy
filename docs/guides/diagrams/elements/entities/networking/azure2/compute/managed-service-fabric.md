@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedServiceFabric } from '@diac/standard-components-diagrams/azure2Compute'
+import { ManagedServiceFabric } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <ManagedServiceFabric/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ask } from '@diac/standard-components-diagrams/webLogos'
+import { Ask } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Ask/>
 ```

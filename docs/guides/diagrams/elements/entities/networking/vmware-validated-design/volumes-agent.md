@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VolumesAgent } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { VolumesAgent } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <VolumesAgent/>
 ```

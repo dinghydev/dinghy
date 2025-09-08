@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RuptureDisc } from '@diac/standard-components-diagrams/procEngFittings'
+import { RuptureDisc } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <RuptureDisc/>
 ```

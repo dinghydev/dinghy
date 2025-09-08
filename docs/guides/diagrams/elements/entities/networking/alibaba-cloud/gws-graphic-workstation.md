@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GwsGraphicWorkstation } from '@diac/standard-components-diagrams/alibabaCloud'
+import { GwsGraphicWorkstation } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <GwsGraphicWorkstation/>
 ```

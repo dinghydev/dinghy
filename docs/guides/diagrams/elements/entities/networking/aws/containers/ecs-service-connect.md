@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EcsServiceConnect } from '@diac/standard-components-diagrams/awsContainers'
+import { EcsServiceConnect } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <EcsServiceConnect/>
 ```

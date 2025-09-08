@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DcdnDynamicRouteForCdn } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DcdnDynamicRouteForCdn } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DcdnDynamicRouteForCdn/>
 ```

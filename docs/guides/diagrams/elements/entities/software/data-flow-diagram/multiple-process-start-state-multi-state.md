@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultipleProcessStartStateMultiState } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { MultipleProcessStartStateMultiState } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <MultipleProcessStartStateMultiState/>
 ```

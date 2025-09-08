@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Field } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { Field } from '@dinghy/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <Field/>
 ```

@@ -1,13 +1,13 @@
-import type { CommandArgs, CommandContext, Commands } from '@diac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
+import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { rendererMapping } from './renderMapping.ts'
 import { debounce } from '@std/async/debounce'
 
-import { containerAppHome, diacAppConfig, execCmd, isCi } from '@diac/cli'
-import { deepMerge, doWithStacks } from '@diac/base-components'
+import { containerAppHome, dinghyAppConfig, execCmd, isCi } from '@dinghy/cli'
+import { deepMerge, doWithStacks } from '@dinghy/base-components'
 import chalk from 'chalk'
 import Debug from 'debug'
-import { renderOptions, requireStacksConfig } from '@diac/cli'
+import { renderOptions, requireStacksConfig } from '@dinghy/cli'
 import { execa } from 'execa'
 const debug = Debug('render')
 
@@ -100,7 +100,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
 
   debug('render started at %O', new Date())
 
-  const options: any = deepMerge({}, diacAppConfig)
+  const options: any = deepMerge({}, dinghyAppConfig)
   if (args['tf-generateImport']) {
     options.tf ??= {}
     options.tf.generateImport = true

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CmpCloudMobilePush } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CmpCloudMobilePush } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CmpCloudMobilePush/>
 ```

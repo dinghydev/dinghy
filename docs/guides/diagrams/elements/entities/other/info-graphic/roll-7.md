@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Roll7 } from '@diac/standard-components-diagrams/infoGraphic'
+import { Roll7 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <Roll7/>
 ```

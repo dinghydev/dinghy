@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Neuron } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Neuron } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Neuron/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stack } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { Stack } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <Stack/>
 ```

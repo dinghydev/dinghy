@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentiCa } from '@diac/standard-components-diagrams/webIcons'
+import { IdentiCa } from '@dinghy/standard-components-diagrams/webIcons'
 
 <IdentiCa/>
 ```

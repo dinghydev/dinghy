@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Feedburner } from '@diac/standard-components-diagrams/webIcons'
+import { Feedburner } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Feedburner/>
 ```

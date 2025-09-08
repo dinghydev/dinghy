@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RelatedActions } from '@diac/standard-components-diagrams/gmdlButtons'
+import { RelatedActions } from '@dinghy/standard-components-diagrams/gmdlButtons'
 
 <RelatedActions/>
 ```

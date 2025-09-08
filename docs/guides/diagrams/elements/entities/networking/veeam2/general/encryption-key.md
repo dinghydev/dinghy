@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EncryptionKey } from '@diac/standard-components-diagrams/veeam2General'
+import { EncryptionKey } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <EncryptionKey/>
 ```

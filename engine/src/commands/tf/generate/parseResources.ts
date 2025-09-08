@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { namespaceMapping } from '@diac/standard-components-tf-aws'
+import { namespaceMapping } from '@dinghy/standard-components-tf-aws'
 import { existsSync } from '@std/fs/exists'
 import chalk from 'chalk'
 import Debug from 'debug'

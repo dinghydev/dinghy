@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataworksDataide } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DataworksDataide } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DataworksDataide/>
 ```

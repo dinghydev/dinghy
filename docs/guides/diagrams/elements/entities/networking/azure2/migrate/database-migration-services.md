@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseMigrationServices } from '@diac/standard-components-diagrams/azure2Migrate'
+import { DatabaseMigrationServices } from '@dinghy/standard-components-diagrams/azure2Migrate'
 
 <DatabaseMigrationServices/>
 ```

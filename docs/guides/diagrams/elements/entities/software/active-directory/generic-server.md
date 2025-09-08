@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GenericServer } from '@diac/standard-components-diagrams/activeDirectory'
+import { GenericServer } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <GenericServer/>
 ```

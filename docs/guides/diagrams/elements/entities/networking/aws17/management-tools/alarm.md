@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Alarm } from '@diac/standard-components-diagrams/aws17ManagementTools'
+import { Alarm } from '@dinghy/standard-components-diagrams/aws17ManagementTools'
 
 <Alarm/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StepperWithAlternativeLabelPlacing6 } from '@diac/standard-components-diagrams/gmdlSteppers'
+import { StepperWithAlternativeLabelPlacing6 } from '@dinghy/standard-components-diagrams/gmdlSteppers'
 
 <StepperWithAlternativeLabelPlacing6/>
 ```

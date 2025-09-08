@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SlsSimpleLogService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { SlsSimpleLogService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <SlsSimpleLogService/>
 ```

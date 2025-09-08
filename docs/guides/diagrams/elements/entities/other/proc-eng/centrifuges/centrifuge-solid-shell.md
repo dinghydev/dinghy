@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CentrifugeSolidShell } from '@diac/standard-components-diagrams/procEngCentrifuges'
+import { CentrifugeSolidShell } from '@dinghy/standard-components-diagrams/procEngCentrifuges'
 
 <CentrifugeSolidShell/>
 ```

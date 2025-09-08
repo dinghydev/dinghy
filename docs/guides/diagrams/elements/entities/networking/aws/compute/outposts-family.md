@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OutpostsFamily } from '@diac/standard-components-diagrams/awsCompute'
+import { OutpostsFamily } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <OutpostsFamily/>
 ```

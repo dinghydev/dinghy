@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScsiController } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { ScsiController } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <ScsiController/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SessionBorderController } from '@diac/standard-components-diagrams/officeDevices'
+import { SessionBorderController } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <SessionBorderController/>
 ```

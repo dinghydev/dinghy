@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThinkboxKrakatoa } from '@diac/standard-components-diagrams/awsMediaServices'
+import { ThinkboxKrakatoa } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <ThinkboxKrakatoa/>
 ```

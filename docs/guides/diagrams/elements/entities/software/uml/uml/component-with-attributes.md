@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ComponentWithAttributes } from '@diac/standard-components-diagrams/uml'
+import { ComponentWithAttributes } from '@dinghy/standard-components-diagrams/uml'
 
 <ComponentWithAttributes/>
 ```

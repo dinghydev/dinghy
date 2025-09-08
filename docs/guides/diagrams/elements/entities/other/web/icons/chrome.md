@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Chrome } from '@diac/standard-components-diagrams/webIcons'
+import { Chrome } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Chrome/>
 ```

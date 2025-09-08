@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Junction } from '@diac/standard-components-diagrams/archimate2'
+import { Junction } from '@dinghy/standard-components-diagrams/archimate2'
 
 <Junction/>
 ```

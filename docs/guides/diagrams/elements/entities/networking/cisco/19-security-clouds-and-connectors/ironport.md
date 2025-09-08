@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ironport } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { Ironport } from '@dinghy/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <Ironport/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PowerInstance } from '@diac/standard-components-diagrams/ibmVpc'
+import { PowerInstance } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <PowerInstance/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticacheForMemcached } from '@diac/standard-components-diagrams/awsDatabase'
+import { ElasticacheForMemcached } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <ElasticacheForMemcached/>
 ```

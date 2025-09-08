@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Voice2 } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { Voice2 } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <Voice2/>
 ```

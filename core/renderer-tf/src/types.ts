@@ -5,7 +5,7 @@ import type {
   NodeTree,
   Props,
   StackType,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 export type TfRenderOptions = {
   tf: {

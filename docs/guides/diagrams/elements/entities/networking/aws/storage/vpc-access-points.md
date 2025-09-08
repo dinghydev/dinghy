@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpcAccessPoints } from '@diac/standard-components-diagrams/awsStorage'
+import { VpcAccessPoints } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <VpcAccessPoints/>
 ```

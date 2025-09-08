@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Instagram } from '@diac/standard-components-diagrams/webLogos'
+import { Instagram } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Instagram/>
 ```

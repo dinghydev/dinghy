@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataprepByTrifacta } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { DataprepByTrifacta } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <DataprepByTrifacta/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationWindows } from '@diac/standard-components-diagrams/officeConcepts'
+import { ApplicationWindows } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <ApplicationWindows/>
 ```

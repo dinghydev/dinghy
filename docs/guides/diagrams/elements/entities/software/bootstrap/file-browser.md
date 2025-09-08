@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileBrowser } from '@diac/standard-components-diagrams/bootstrap'
+import { FileBrowser } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <FileBrowser/>
 ```

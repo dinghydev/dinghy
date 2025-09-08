@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ObjectStoreOnSapBtp } from '@diac/standard-components-diagrams/sapFoundational'
+import { ObjectStoreOnSapBtp } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <ObjectStoreOnSapBtp/>
 ```

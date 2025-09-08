@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Loop } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { Loop } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <Loop/>
 ```

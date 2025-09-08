@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PageIcon } from '@diac/standard-components-diagrams/ciscoMisc'
+import { PageIcon } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <PageIcon/>
 ```

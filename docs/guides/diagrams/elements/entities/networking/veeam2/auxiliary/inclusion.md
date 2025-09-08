@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Inclusion } from '@diac/standard-components-diagrams/veeam2Auxiliary'
+import { Inclusion } from '@dinghy/standard-components-diagrams/veeam2Auxiliary'
 
 <Inclusion/>
 ```

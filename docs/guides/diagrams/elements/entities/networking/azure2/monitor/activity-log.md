@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActivityLog } from '@diac/standard-components-diagrams/azure2Monitor'
+import { ActivityLog } from '@dinghy/standard-components-diagrams/azure2Monitor'
 
 <ActivityLog/>
 ```

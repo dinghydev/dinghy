@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserControl } from '@diac/standard-components-diagrams/citrixLegacy'
+import { UserControl } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <UserControl/>
 ```

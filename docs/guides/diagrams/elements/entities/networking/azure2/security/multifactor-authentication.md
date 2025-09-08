@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultifactorAuthentication } from '@diac/standard-components-diagrams/azure2Security'
+import { MultifactorAuthentication } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <MultifactorAuthentication/>
 ```

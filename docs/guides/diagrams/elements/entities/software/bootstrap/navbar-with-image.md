@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NavbarWithImage } from '@diac/standard-components-diagrams/bootstrap'
+import { NavbarWithImage } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <NavbarWithImage/>
 ```

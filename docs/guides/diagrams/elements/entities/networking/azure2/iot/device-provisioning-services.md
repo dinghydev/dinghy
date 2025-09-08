@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceProvisioningServices } from '@diac/standard-components-diagrams/azure2Iot'
+import { DeviceProvisioningServices } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <DeviceProvisioningServices/>
 ```

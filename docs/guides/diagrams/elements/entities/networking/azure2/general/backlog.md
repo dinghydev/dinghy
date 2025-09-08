@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Backlog } from '@diac/standard-components-diagrams/azure2General'
+import { Backlog } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Backlog/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HpBladesystemC3000Enclosure } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
+import { HpBladesystemC3000Enclosure } from '@dinghy/standard-components-diagrams/rackHpeArubaSwitches'
 
 <HpBladesystemC3000Enclosure/>
 ```

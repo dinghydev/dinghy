@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MicrosoftWindows } from '@diac/standard-components-diagrams/veeam2Software'
+import { MicrosoftWindows } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <MicrosoftWindows/>
 ```

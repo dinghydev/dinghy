@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QuickstartCenter } from '@diac/standard-components-diagrams/azure2General'
+import { QuickstartCenter } from '@dinghy/standard-components-diagrams/azure2General'
 
 <QuickstartCenter/>
 ```

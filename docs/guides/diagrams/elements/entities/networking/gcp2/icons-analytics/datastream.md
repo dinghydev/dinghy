@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Datastream } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { Datastream } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <Datastream/>
 ```

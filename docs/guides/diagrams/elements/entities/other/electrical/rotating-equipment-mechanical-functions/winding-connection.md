@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindingConnection } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { WindingConnection } from '@dinghy/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <WindingConnection/>
 ```

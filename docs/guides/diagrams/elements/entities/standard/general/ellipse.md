@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ellipse } from '@diac/standard-components-diagrams/general'
+import { Ellipse } from '@dinghy/standard-components-diagrams/general'
 
 <Ellipse/>
 ```

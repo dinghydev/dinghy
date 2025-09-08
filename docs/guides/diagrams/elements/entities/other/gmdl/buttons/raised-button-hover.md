@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RaisedButtonHover } from '@diac/standard-components-diagrams/gmdlButtons'
+import { RaisedButtonHover } from '@dinghy/standard-components-diagrams/gmdlButtons'
 
 <RaisedButtonHover/>
 ```

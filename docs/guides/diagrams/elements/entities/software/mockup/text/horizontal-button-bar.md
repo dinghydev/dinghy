@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalButtonBar } from '@diac/standard-components-diagrams/mockupText'
+import { HorizontalButtonBar } from '@dinghy/standard-components-diagrams/mockupText'
 
 <HorizontalButtonBar/>
 ```

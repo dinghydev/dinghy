@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackupRepository2 } from '@diac/standard-components-diagrams/veeam23d'
+import { BackupRepository2 } from '@dinghy/standard-components-diagrams/veeam23d'
 
 <BackupRepository2/>
 ```

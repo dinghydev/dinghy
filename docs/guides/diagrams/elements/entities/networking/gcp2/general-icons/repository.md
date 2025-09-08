@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Repository } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Repository } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Repository/>
 ```

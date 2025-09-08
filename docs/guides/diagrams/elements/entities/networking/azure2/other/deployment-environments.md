@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeploymentEnvironments } from '@diac/standard-components-diagrams/azure2Other'
+import { DeploymentEnvironments } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DeploymentEnvironments/>
 ```

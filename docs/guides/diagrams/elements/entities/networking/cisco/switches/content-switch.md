@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentSwitch } from '@diac/standard-components-diagrams/ciscoSwitches'
+import { ContentSwitch } from '@dinghy/standard-components-diagrams/ciscoSwitches'
 
 <ContentSwitch/>
 ```

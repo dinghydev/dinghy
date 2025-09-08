@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pocket } from '@diac/standard-components-diagrams/webLogos'
+import { Pocket } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Pocket/>
 ```

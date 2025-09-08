@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Controller } from '@diac/standard-components-diagrams/veeam2General'
+import { Controller } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <Controller/>
 ```

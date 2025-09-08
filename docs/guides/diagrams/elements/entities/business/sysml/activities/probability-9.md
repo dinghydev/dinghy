@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Probability9 } from '@diac/standard-components-diagrams/sysmlActivities'
+import { Probability9 } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <Probability9/>
 ```

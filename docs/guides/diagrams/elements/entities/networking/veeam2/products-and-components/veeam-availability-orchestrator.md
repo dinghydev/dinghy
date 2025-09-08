@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamAvailabilityOrchestrator } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamAvailabilityOrchestrator } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamAvailabilityOrchestrator/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnsmqttMicroMessageQueuingTelemetryTransport } from '@diac/standard-components-diagrams/alibabaCloud'
+import { OnsmqttMicroMessageQueuingTelemetryTransport } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <OnsmqttMicroMessageQueuingTelemetryTransport/>
 ```

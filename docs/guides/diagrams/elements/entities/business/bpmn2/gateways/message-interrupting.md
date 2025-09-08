@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MessageInterrupting } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { MessageInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <MessageInterrupting/>
 ```

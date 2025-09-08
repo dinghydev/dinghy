@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlobeInternet } from '@diac/standard-components-diagrams/officeConcepts'
+import { GlobeInternet } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <GlobeInternet/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActionBar } from '@diac/standard-components-diagrams/android'
+import { ActionBar } from '@dinghy/standard-components-diagrams/android'
 
 <ActionBar/>
 ```

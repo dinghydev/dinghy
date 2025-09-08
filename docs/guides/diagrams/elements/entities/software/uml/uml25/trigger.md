@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Trigger } from '@diac/standard-components-diagrams/uml25'
+import { Trigger } from '@dinghy/standard-components-diagrams/uml25'
 
 <Trigger/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Powerpages } from '@diac/standard-components-diagrams/azure2PowerPlatform'
+import { Powerpages } from '@dinghy/standard-components-diagrams/azure2PowerPlatform'
 
 <Powerpages/>
 ```

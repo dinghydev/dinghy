@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Firewall } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { Firewall } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <Firewall/>
 ```

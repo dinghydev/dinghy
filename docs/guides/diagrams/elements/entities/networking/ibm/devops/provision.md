@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Provision } from '@diac/standard-components-diagrams/ibmDevops'
+import { Provision } from '@dinghy/standard-components-diagrams/ibmDevops'
 
 <Provision/>
 ```

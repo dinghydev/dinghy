@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Linkagogo } from '@diac/standard-components-diagrams/webIcons'
+import { Linkagogo } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Linkagogo/>
 ```

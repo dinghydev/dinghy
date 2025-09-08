@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurityTokenService } from '@diac/standard-components-diagrams/aws3d'
+import { SecurityTokenService } from '@dinghy/standard-components-diagrams/aws3d'
 
 <SecurityTokenService/>
 ```

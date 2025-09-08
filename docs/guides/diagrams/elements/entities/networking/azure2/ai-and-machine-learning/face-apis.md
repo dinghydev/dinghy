@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FaceApis } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { FaceApis } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <FaceApis/>
 ```

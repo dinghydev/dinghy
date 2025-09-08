@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BtpBaseLayer } from '@diac/standard-components-diagrams/sapEssentials'
+import { BtpBaseLayer } from '@dinghy/standard-components-diagrams/sapEssentials'
 
 <BtpBaseLayer/>
 ```

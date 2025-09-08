@@ -1,8 +1,8 @@
-import { Shape } from "@diac/base-components";
+import { Shape } from "@dinghy/base-components";
 
 export function App() {
   return (
-    <DIaC>
+    <Dinghy>
       <Folder _dependsBy={["engine", "examples"]}>core</Folder>
       <Row _id="second">
         <Folder>engine</Folder>
@@ -19,13 +19,13 @@ export function App() {
         </Folder>
         <Folder>.github</Folder>
       </Row>
-    </DIaC>
+    </Dinghy>
   );
 }
 
-const DIaC = (props: any) => (
+const Dinghy = (props: any) => (
   <Shape
-    _title="DIaC Top Level Folder Structure"
+    _title="Dinghy Top Level Folder Structure"
     _direction={"vertical"}
     {...props}
   />

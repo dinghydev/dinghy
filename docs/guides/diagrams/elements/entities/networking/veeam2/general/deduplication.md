@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Deduplication } from '@diac/standard-components-diagrams/veeam2General'
+import { Deduplication } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <Deduplication/>
 ```

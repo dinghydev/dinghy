@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AccessCard } from '@diac/standard-components-diagrams/citrixLegacy'
+import { AccessCard } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <AccessCard/>
 ```

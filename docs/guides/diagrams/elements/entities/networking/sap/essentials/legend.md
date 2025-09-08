@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Legend } from '@diac/standard-components-diagrams/sapEssentials'
+import { Legend } from '@dinghy/standard-components-diagrams/sapEssentials'
 
 <Legend/>
 ```

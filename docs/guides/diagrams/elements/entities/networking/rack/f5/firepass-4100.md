@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Firepass4100 } from '@diac/standard-components-diagrams/rackF5'
+import { Firepass4100 } from '@dinghy/standard-components-diagrams/rackF5'
 
 <Firepass4100/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EyeWash } from '@diac/standard-components-diagrams/signsHealthcare'
+import { EyeWash } from '@dinghy/standard-components-diagrams/signsHealthcare'
 
 <EyeWash/>
 ```

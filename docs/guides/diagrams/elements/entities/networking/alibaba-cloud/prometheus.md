@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Prometheus } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Prometheus } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Prometheus/>
 ```

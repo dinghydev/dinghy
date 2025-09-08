@@ -4,9 +4,9 @@ import {
   NodeSchema,
   type NodeTree,
   type Props,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 import type { JsonRenderOptions } from './types.ts'
-import type { HostContainer, Output } from '@diac/base-renderer'
+import type { HostContainer, Output } from '@dinghy/base-renderer'
 
 const NODE_PROPS_FIELDS = Object.keys(NodeSchema.shape).filter(
   (key) => key !== 'ref',

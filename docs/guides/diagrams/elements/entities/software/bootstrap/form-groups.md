@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FormGroups } from '@diac/standard-components-diagrams/bootstrap'
+import { FormGroups } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <FormGroups/>
 ```

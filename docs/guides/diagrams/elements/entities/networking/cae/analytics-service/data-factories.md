@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataFactories } from '@diac/standard-components-diagrams/caeAnalyticsService'
+import { DataFactories } from '@dinghy/standard-components-diagrams/caeAnalyticsService'
 
 <DataFactories/>
 ```

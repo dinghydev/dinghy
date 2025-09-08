@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorsimpleDeviceManagers } from '@diac/standard-components-diagrams/azure2Integration'
+import { StorsimpleDeviceManagers } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <StorsimpleDeviceManagers/>
 ```

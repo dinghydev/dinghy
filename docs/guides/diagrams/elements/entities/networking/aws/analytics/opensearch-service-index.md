@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpensearchServiceIndex } from '@diac/standard-components-diagrams/awsAnalytics'
+import { OpensearchServiceIndex } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <OpensearchServiceIndex/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Internet } from '@diac/standard-components-diagrams/citrixNetworking'
+import { Internet } from '@dinghy/standard-components-diagrams/citrixNetworking'
 
 <Internet/>
 ```

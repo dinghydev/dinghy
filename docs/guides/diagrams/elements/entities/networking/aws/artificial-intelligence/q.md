@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Q } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Q } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Q/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BotServices } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { BotServices } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <BotServices/>
 ```

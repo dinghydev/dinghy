@@ -7,7 +7,7 @@ import {
   ResolvableStringSchema,
   Shape,
   useRenderOptions,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 import z from 'zod'
 import { AwsIamRolePolicyAttachment } from './AwsIamRolePolicyAttachment.tsx'
 import { AwsIamRolePolicy } from './AwsIamRolePolicy.tsx'

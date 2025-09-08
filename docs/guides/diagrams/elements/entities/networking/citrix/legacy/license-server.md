@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LicenseServer } from '@diac/standard-components-diagrams/citrixLegacy'
+import { LicenseServer } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <LicenseServer/>
 ```

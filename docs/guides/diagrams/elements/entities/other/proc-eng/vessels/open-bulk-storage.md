@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpenBulkStorage } from '@diac/standard-components-diagrams/procEngVessels'
+import { OpenBulkStorage } from '@dinghy/standard-components-diagrams/procEngVessels'
 
 <OpenBulkStorage/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TunnelStraight } from '@diac/standard-components-diagrams/officeServers'
+import { TunnelStraight } from '@dinghy/standard-components-diagrams/officeServers'
 
 <TunnelStraight/>
 ```

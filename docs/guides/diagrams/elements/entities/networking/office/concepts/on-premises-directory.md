@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnPremisesDirectory } from '@diac/standard-components-diagrams/officeConcepts'
+import { OnPremisesDirectory } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <OnPremisesDirectory/>
 ```

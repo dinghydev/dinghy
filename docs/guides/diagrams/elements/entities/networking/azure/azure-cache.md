@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureCache } from '@diac/standard-components-diagrams/azure'
+import { AzureCache } from '@dinghy/standard-components-diagrams/azure'
 
 <AzureCache/>
 ```

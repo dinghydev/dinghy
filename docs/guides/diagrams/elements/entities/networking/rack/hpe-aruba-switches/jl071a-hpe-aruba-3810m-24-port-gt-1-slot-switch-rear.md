@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Jl071aHpeAruba3810m24PortGt1SlotSwitchRear } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
+import { Jl071aHpeAruba3810m24PortGt1SlotSwitchRear } from '@dinghy/standard-components-diagrams/rackHpeArubaSwitches'
 
 <Jl071aHpeAruba3810m24PortGt1SlotSwitchRear/>
 ```

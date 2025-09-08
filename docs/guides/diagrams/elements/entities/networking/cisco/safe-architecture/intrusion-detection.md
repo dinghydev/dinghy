@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IntrusionDetection } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { IntrusionDetection } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <IntrusionDetection/>
 ```

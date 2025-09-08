@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TestPoint } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
+import { TestPoint } from '@dinghy/standard-components-diagrams/electricalTransmissionPaths'
 
 <TestPoint/>
 ```

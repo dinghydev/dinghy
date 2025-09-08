@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TensorflowOnAws } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { TensorflowOnAws } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <TensorflowOnAws/>
 ```

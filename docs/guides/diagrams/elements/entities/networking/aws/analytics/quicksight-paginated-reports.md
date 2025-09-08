@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QuicksightPaginatedReports } from '@diac/standard-components-diagrams/awsAnalytics'
+import { QuicksightPaginatedReports } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <QuicksightPaginatedReports/>
 ```

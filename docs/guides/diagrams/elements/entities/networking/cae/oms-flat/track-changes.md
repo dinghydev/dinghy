@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrackChanges } from '@diac/standard-components-diagrams/caeOmsFlat'
+import { TrackChanges } from '@dinghy/standard-components-diagrams/caeOmsFlat'
 
 <TrackChanges/>
 ```

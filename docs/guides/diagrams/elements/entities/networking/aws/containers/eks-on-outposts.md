@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EksOnOutposts } from '@diac/standard-components-diagrams/awsContainers'
+import { EksOnOutposts } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <EksOnOutposts/>
 ```

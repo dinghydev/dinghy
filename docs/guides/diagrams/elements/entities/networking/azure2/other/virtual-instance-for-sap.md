@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualInstanceForSap } from '@diac/standard-components-diagrams/azure2Other'
+import { VirtualInstanceForSap } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <VirtualInstanceForSap/>
 ```

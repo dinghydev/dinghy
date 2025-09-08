@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BraketStateVector } from '@diac/standard-components-diagrams/awsQuantumTechnologies'
+import { BraketStateVector } from '@dinghy/standard-components-diagrams/awsQuantumTechnologies'
 
 <BraketStateVector/>
 ```

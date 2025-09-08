@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AbapBusinessApplicationPlatform } from '@diac/standard-components-diagrams/alibabaCloud'
+import { AbapBusinessApplicationPlatform } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <AbapBusinessApplicationPlatform/>
 ```

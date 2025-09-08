@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Factory } from '@diac/standard-components-diagrams/citrixLocations'
+import { Factory } from '@dinghy/standard-components-diagrams/citrixLocations'
 
 <Factory/>
 ```

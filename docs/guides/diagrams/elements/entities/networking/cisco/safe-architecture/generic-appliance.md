@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GenericAppliance } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { GenericAppliance } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <GenericAppliance/>
 ```

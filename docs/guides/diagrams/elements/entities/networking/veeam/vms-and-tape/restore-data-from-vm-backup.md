@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RestoreDataFromVmBackup } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { RestoreDataFromVmBackup } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <RestoreDataFromVmBackup/>
 ```

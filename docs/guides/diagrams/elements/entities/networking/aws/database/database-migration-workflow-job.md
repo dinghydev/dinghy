@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseMigrationWorkflowJob } from '@diac/standard-components-diagrams/awsDatabase'
+import { DatabaseMigrationWorkflowJob } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <DatabaseMigrationWorkflowJob/>
 ```

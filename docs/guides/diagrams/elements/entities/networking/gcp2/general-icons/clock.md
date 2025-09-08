@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Clock } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Clock } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Clock/>
 ```

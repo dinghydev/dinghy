@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { OpenThinLeft } from '@diac/standard-components-diagrams/awsArrows'
+import { OpenThinLeft } from '@dinghy/standard-components-diagrams/awsArrows'
 
 <OpenThinLeft/>
 ```

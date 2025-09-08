@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArVr } from '@diac/standard-components-diagrams/awsArVr'
+import { ArVr } from '@dinghy/standard-components-diagrams/awsArVr'
 
 <ArVr/>
 ```

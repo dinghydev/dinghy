@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MachineLearningStudioWebServices } from '@diac/standard-components-diagrams/caeAiAndMlService'
+import { MachineLearningStudioWebServices } from '@dinghy/standard-components-diagrams/caeAiAndMlService'
 
 <MachineLearningStudioWebServices/>
 ```

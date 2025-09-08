@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LiquidFilterRotaryDrumOrDiscScraper } from '@diac/standard-components-diagrams/procEngFilters'
+import { LiquidFilterRotaryDrumOrDiscScraper } from '@dinghy/standard-components-diagrams/procEngFilters'
 
 <LiquidFilterRotaryDrumOrDiscScraper/>
 ```

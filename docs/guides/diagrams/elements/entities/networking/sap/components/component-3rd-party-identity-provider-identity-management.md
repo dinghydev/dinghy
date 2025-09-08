@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component3rdPartyIdentityProviderIdentityManagement } from '@diac/standard-components-diagrams/sapComponents'
+import { Component3rdPartyIdentityProviderIdentityManagement } from '@dinghy/standard-components-diagrams/sapComponents'
 
 <Component3rdPartyIdentityProviderIdentityManagement/>
 ```

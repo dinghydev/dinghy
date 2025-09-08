@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultipleCapacitor } from '@diac/standard-components-diagrams/electricalCapacitors'
+import { MultipleCapacitor } from '@dinghy/standard-components-diagrams/electricalCapacitors'
 
 <MultipleCapacitor/>
 ```

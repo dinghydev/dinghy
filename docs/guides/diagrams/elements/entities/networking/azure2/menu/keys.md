@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Keys } from '@diac/standard-components-diagrams/azure2Menu'
+import { Keys } from '@dinghy/standard-components-diagrams/azure2Menu'
 
 <Keys/>
 ```

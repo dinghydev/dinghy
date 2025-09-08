@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudServices } from '@diac/standard-components-diagrams/ibmVpc'
+import { CloudServices } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <CloudServices/>
 ```

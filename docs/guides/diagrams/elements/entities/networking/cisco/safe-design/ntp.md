@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ntp } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { Ntp } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <Ntp/>
 ```

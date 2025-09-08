@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component1ftvmWarning } from '@diac/standard-components-diagrams/veeam23d'
+import { Component1ftvmWarning } from '@dinghy/standard-components-diagrams/veeam23d'
 
 <Component1ftvmWarning/>
 ```

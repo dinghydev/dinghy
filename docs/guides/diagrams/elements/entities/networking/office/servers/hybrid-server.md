@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HybridServer } from '@diac/standard-components-diagrams/officeServers'
+import { HybridServer } from '@dinghy/standard-components-diagrams/officeServers'
 
 <HybridServer/>
 ```

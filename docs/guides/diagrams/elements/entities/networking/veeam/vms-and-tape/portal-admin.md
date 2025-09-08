@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PortalAdmin } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { PortalAdmin } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <PortalAdmin/>
 ```

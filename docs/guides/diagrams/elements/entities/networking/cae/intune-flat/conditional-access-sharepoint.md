@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConditionalAccessSharepoint } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { ConditionalAccessSharepoint } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <ConditionalAccessSharepoint/>
 ```

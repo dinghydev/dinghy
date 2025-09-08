@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SystemContextDiagramTitle } from '@diac/standard-components-diagrams/c4'
+import { SystemContextDiagramTitle } from '@dinghy/standard-components-diagrams/c4'
 
 <SystemContextDiagramTitle/>
 ```

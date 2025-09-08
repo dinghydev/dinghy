@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DualMode } from '@diac/standard-components-diagrams/ciscoMisc'
+import { DualMode } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <DualMode/>
 ```

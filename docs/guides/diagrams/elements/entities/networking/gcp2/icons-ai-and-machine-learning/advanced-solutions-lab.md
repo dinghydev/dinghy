@@ -16,7 +16,7 @@ Solutions Lab
 ## Usage
 
 ```
-import { AdvancedSolutionsLab } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AdvancedSolutionsLab } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AdvancedSolutionsLab/>
 ```

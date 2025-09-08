@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SureReplica } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { SureReplica } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <SureReplica/>
 ```

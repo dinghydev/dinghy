@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PartialRectangle3 } from '@diac/standard-components-diagrams/misc'
+import { PartialRectangle3 } from '@dinghy/standard-components-diagrams/misc'
 
 <PartialRectangle3/>
 ```

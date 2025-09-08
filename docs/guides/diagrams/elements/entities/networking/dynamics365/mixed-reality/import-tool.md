@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImportTool } from '@diac/standard-components-diagrams/dynamics365MixedReality'
+import { ImportTool } from '@dinghy/standard-components-diagrams/dynamics365MixedReality'
 
 <ImportTool/>
 ```

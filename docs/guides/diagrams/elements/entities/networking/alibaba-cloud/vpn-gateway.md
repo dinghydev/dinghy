@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpnGateway } from '@diac/standard-components-diagrams/alibabaCloud'
+import { VpnGateway } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <VpnGateway/>
 ```

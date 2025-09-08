@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CasSslCentralAuthenticationService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CasSslCentralAuthenticationService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CasSslCentralAuthenticationService/>
 ```

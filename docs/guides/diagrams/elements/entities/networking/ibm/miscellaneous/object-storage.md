@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ObjectStorage } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { ObjectStorage } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <ObjectStorage/>
 ```

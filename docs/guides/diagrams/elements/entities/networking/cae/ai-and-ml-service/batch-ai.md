@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BatchAi } from '@diac/standard-components-diagrams/caeAiAndMlService'
+import { BatchAi } from '@dinghy/standard-components-diagrams/caeAiAndMlService'
 
 <BatchAi/>
 ```

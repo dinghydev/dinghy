@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IndicatorPlc } from '@diac/standard-components-diagrams/procEngInstruments'
+import { IndicatorPlc } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <IndicatorPlc/>
 ```

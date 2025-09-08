@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonRekognitionImage } from '@diac/standard-components-diagrams/aws18MachineLearning'
+import { AmazonRekognitionImage } from '@dinghy/standard-components-diagrams/aws18MachineLearning'
 
 <AmazonRekognitionImage/>
 ```

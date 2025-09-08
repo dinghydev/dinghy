@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExecutionRegion } from '@diac/standard-components-diagrams/uml25'
+import { ExecutionRegion } from '@dinghy/standard-components-diagrams/uml25'
 
 <ExecutionRegion/>
 ```

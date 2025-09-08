@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScheduledBackups } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { ScheduledBackups } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <ScheduledBackups/>
 ```

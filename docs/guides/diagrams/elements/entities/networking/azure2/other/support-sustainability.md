@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SupportSustainability } from '@diac/standard-components-diagrams/azure2Other'
+import { SupportSustainability } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <SupportSustainability/>
 ```

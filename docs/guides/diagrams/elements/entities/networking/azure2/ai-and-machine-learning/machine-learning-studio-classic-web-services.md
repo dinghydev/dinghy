@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MachineLearningStudioClassicWebServices } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { MachineLearningStudioClassicWebServices } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <MachineLearningStudioClassicWebServices/>
 ```

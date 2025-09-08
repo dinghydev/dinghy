@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReplicationTimeControl } from '@diac/standard-components-diagrams/awsStorage'
+import { ReplicationTimeControl } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <ReplicationTimeControl/>
 ```

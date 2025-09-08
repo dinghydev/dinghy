@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecureCatalystSwitchSubdued } from '@diac/standard-components-diagrams/cisco19LanSwitching'
+import { SecureCatalystSwitchSubdued } from '@dinghy/standard-components-diagrams/cisco19LanSwitching'
 
 <SecureCatalystSwitchSubdued/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebWebAppService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { WebWebAppService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <WebWebAppService/>
 ```

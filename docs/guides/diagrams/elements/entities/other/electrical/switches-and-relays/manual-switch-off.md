@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManualSwitchOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { ManualSwitchOff } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <ManualSwitchOff/>
 ```

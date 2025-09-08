@@ -1,5 +1,5 @@
-import { Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const EVENT_TIME_BASED = {
   _color: { color: '#E7157B', fill: true },

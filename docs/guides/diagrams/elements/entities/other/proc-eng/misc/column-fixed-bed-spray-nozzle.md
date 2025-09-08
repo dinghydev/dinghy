@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ColumnFixedBedSprayNozzle } from '@diac/standard-components-diagrams/procEngMisc'
+import { ColumnFixedBedSprayNozzle } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <ColumnFixedBedSprayNozzle/>
 ```

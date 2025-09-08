@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X12220OilMist } from '@diac/standard-components-diagrams/fluidPower'
+import { X12220OilMist } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X12220OilMist/>
 ```

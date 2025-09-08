@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X10810ElectroHydraulicLinear } from '@diac/standard-components-diagrams/fluidPower'
+import { X10810ElectroHydraulicLinear } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X10810ElectroHydraulicLinear/>
 ```

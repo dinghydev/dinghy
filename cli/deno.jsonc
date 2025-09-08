@@ -1,5 +1,5 @@
 {
-  "name": "@diac/cli",
+  "name": "@dinghy/cli",
   "tasks": {
     "run": "deno run -A src/index.ts",
     "check": "deno check src/index.ts"

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CenterForSap } from '@diac/standard-components-diagrams/azure2Other'
+import { CenterForSap } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <CenterForSap/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hospital } from '@diac/standard-components-diagrams/citrixLocations'
+import { Hospital } from '@dinghy/standard-components-diagrams/citrixLocations'
 
 <Hospital/>
 ```

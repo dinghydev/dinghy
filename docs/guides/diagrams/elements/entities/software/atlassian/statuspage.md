@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Statuspage } from '@diac/standard-components-diagrams/atlassian'
+import { Statuspage } from '@dinghy/standard-components-diagrams/atlassian'
 
 <Statuspage/>
 ```

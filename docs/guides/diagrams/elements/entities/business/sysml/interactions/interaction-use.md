@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InteractionUse } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { InteractionUse } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <InteractionUse/>
 ```

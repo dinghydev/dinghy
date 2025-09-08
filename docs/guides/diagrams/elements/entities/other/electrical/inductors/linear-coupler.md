@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LinearCoupler } from '@diac/standard-components-diagrams/electricalInductors'
+import { LinearCoupler } from '@dinghy/standard-components-diagrams/electricalInductors'
 
 <LinearCoupler/>
 ```

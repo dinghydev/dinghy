@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticKubernetesService } from '@diac/standard-components-diagrams/awsContainers'
+import { ElasticKubernetesService } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <ElasticKubernetesService/>
 ```

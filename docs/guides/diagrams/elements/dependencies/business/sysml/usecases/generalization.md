@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Generalization } from '@diac/standard-components-diagrams/sysmlUsecases'
+import { Generalization } from '@dinghy/standard-components-diagrams/sysmlUsecases'
 
 <Generalization/>
 ```

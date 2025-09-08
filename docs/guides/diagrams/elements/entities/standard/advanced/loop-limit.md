@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoopLimit } from '@diac/standard-components-diagrams/advanced'
+import { LoopLimit } from '@dinghy/standard-components-diagrams/advanced'
 
 <LoopLimit/>
 ```

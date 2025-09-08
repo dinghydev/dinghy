@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BoxTruck } from '@diac/standard-components-diagrams/procEngMisc'
+import { BoxTruck } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <BoxTruck/>
 ```

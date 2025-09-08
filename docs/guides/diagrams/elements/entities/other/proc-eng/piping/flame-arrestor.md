@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlameArrestor } from '@diac/standard-components-diagrams/procEngPiping'
+import { FlameArrestor } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <FlameArrestor/>
 ```

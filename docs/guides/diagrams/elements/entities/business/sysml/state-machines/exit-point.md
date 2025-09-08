@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExitPoint } from '@diac/standard-components-diagrams/sysmlStateMachines'
+import { ExitPoint } from '@dinghy/standard-components-diagrams/sysmlStateMachines'
 
 <ExitPoint/>
 ```

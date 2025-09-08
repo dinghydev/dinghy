@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudTestLab } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { CloudTestLab } from '@dinghy/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <CloudTestLab/>
 ```

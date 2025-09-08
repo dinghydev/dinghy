@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PushNotifications } from '@diac/standard-components-diagrams/ibmManagement'
+import { PushNotifications } from '@dinghy/standard-components-diagrams/ibmManagement'
 
 <PushNotifications/>
 ```

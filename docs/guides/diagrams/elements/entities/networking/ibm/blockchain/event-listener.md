@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventListener } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { EventListener } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <EventListener/>
 ```

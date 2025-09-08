@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SdWan } from '@diac/standard-components-diagrams/citrixNetworking'
+import { SdWan } from '@dinghy/standard-components-diagrams/citrixNetworking'
 
 <SdWan/>
 ```

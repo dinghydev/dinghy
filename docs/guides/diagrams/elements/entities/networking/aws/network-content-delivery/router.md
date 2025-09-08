@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Router } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Router } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Router/>
 ```

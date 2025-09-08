@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RemovableSpool } from '@diac/standard-components-diagrams/procEngPiping'
+import { RemovableSpool } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <RemovableSpool/>
 ```

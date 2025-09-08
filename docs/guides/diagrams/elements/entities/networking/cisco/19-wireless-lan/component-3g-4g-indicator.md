@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component3g4gIndicator } from '@diac/standard-components-diagrams/cisco19WirelessLan'
+import { Component3g4gIndicator } from '@dinghy/standard-components-diagrams/cisco19WirelessLan'
 
 <Component3g4gIndicator/>
 ```

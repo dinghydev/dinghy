@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackupForOffice365 } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { BackupForOffice365 } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <BackupForOffice365/>
 ```

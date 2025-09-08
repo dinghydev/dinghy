@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IcmTroubleshooting } from '@diac/standard-components-diagrams/azure2Other'
+import { IcmTroubleshooting } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <IcmTroubleshooting/>
 ```

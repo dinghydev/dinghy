@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkSecurityPerimeters } from '@diac/standard-components-diagrams/azure2Other'
+import { NetworkSecurityPerimeters } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <NetworkSecurityPerimeters/>
 ```

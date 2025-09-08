@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticFileSystemOneZone } from '@diac/standard-components-diagrams/awsStorage'
+import { ElasticFileSystemOneZone } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <ElasticFileSystemOneZone/>
 ```

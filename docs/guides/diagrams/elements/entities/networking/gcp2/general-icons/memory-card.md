@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MemoryCard } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { MemoryCard } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <MemoryCard/>
 ```

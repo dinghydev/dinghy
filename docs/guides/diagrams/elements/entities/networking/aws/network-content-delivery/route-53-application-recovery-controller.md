@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Route53ApplicationRecoveryController } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Route53ApplicationRecoveryController } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Route53ApplicationRecoveryController/>
 ```

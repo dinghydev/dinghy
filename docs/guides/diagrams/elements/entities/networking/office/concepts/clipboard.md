@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Clipboard } from '@diac/standard-components-diagrams/officeConcepts'
+import { Clipboard } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Clipboard/>
 ```

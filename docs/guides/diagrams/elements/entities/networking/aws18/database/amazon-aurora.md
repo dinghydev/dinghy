@@ -16,7 +16,7 @@ Aurora
 ## Usage
 
 ```
-import { AmazonAurora } from '@diac/standard-components-diagrams/aws18Database'
+import { AmazonAurora } from '@dinghy/standard-components-diagrams/aws18Database'
 
 <AmazonAurora/>
 ```

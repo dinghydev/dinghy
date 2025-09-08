@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PushNotificationService } from '@diac/standard-components-diagrams/officeServices'
+import { PushNotificationService } from '@dinghy/standard-components-diagrams/officeServices'
 
 <PushNotificationService/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tags } from '@diac/standard-components-diagrams/caeGeneralService'
+import { Tags } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <Tags/>
 ```

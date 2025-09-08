@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlainDirect } from '@diac/standard-components-diagrams/sapDefaultConnectors'
+import { PlainDirect } from '@dinghy/standard-components-diagrams/sapDefaultConnectors'
 
 <PlainDirect/>
 ```

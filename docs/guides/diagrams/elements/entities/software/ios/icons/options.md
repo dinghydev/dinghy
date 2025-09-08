@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Options } from '@diac/standard-components-diagrams/ios7Icons'
+import { Options } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Options/>
 ```

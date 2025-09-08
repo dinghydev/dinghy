@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PopoverOnTop } from '@diac/standard-components-diagrams/bootstrap'
+import { PopoverOnTop } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <PopoverOnTop/>
 ```

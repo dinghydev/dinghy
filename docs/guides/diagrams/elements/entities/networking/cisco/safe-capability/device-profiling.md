@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceProfiling } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { DeviceProfiling } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <DeviceProfiling/>
 ```

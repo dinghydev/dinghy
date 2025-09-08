@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BusinessContinuityDataProtection } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { BusinessContinuityDataProtection } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <BusinessContinuityDataProtection/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { FoundMessage } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { FoundMessage } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <FoundMessage/>
 ```

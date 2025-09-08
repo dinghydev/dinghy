@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudSecurityScanner } from '@diac/standard-components-diagrams/gcpIconsSecurity'
+import { CloudSecurityScanner } from '@dinghy/standard-components-diagrams/gcpIconsSecurity'
 
 <CloudSecurityScanner/>
 ```

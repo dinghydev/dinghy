@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Video } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Video } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Video/>
 ```

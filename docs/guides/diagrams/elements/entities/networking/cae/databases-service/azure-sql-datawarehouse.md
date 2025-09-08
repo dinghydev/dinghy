@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureSqlDatawarehouse } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { AzureSqlDatawarehouse } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <AzureSqlDatawarehouse/>
 ```

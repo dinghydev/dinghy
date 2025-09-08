@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventDrivenConsumer } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
+import { EventDrivenConsumer } from '@dinghy/standard-components-diagrams/eipMessagingEndpoints'
 
 <EventDrivenConsumer/>
 ```

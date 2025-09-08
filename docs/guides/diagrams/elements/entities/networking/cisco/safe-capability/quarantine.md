@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Quarantine } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { Quarantine } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <Quarantine/>
 ```

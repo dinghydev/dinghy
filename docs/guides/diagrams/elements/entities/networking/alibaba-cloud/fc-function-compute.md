@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FcFunctionCompute } from '@diac/standard-components-diagrams/alibabaCloud'
+import { FcFunctionCompute } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <FcFunctionCompute/>
 ```

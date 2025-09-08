@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cosmosdb } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { Cosmosdb } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <Cosmosdb/>
 ```

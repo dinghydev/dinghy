@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SearchGrid } from '@diac/standard-components-diagrams/azure2General'
+import { SearchGrid } from '@dinghy/standard-components-diagrams/azure2General'
 
 <SearchGrid/>
 ```

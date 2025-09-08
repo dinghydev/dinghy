@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SamlToken } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { SamlToken } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <SamlToken/>
 ```

@@ -8,7 +8,7 @@
     },
     "backend": {
       "s3": {
-        "bucket": "diac-website-test-tf-state",
+        "bucket": "dinghy-website-test-tf-state",
         "key": "tfstates/test-main.tfstate",
         "region": "us-east-1",
         "use_lockfile": true
@@ -21,8 +21,8 @@
         "default_tags": [
           {
             "tags": {
-              "iac:stack-title": "DIaC Website: test",
-              "iac:stack-name": "diac-website-test"
+              "iac:stack-title": "Dinghy Website: test",
+              "iac:stack-name": "dinghy-website-test"
             }
           }
         ],
@@ -32,23 +32,23 @@
   },
   "data": {
     "aws_route53_zone": {
-      "aws_route53_zone_diacdev": {
-        "name": "diac.dev"
+      "aws_route53_zone_dinghydev": {
+        "name": "dinghy.dev"
       }
     },
     "aws_acm_certificate": {
-      "aws_acm_certificate_diacdev": {
-        "domain": "diac.dev"
+      "aws_acm_certificate_dinghydev": {
+        "domain": "dinghy.dev"
       }
     }
   },
   "resource": {
     "aws_s3_bucket": {
       "aws_s3_bucket_tfstate": {
-        "bucket": "diac-website-test-tf-state"
+        "bucket": "dinghy-website-test-tf-state"
       },
       "aws_s3_bucket_logs": {
-        "bucket": "diac-website-test-logs"
+        "bucket": "dinghy-website-test-logs"
       }
     },
     "aws_s3_bucket_versioning": {
@@ -61,14 +61,14 @@
     },
     "aws_s3_bucket_logging": {
       "aws_s3_bucket_logging_s3bucketlogging": {
-        "bucket": "diac-website-test-logs",
-        "target_bucket": "diac-website-test-logs",
-        "target_prefix": "log-sink/s3/diac-website-test-logs/"
+        "bucket": "dinghy-website-test-logs",
+        "target_bucket": "dinghy-website-test-logs",
+        "target_prefix": "log-sink/s3/dinghy-website-test-logs/"
       }
     },
     "aws_s3_bucket_ownership_controls": {
       "aws_s3_bucket_ownership_controls_s3bucketownershipcontrols": {
-        "bucket": "diac-website-test-logs",
+        "bucket": "dinghy-website-test-logs",
         "rule": {
           "object_ownership": "BucketOwnerPreferred"
         }
@@ -76,7 +76,7 @@
     },
     "aws_s3_bucket_acl": {
       "aws_s3_bucket_acl_s3bucketacl": {
-        "bucket": "diac-website-test-logs",
+        "bucket": "dinghy-website-test-logs",
         "acl": "log-delivery-write"
       }
     }

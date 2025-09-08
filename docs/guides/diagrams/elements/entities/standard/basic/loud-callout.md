@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoudCallout } from '@diac/standard-components-diagrams/basic'
+import { LoudCallout } from '@dinghy/standard-components-diagrams/basic'
 
 <LoudCallout/>
 ```

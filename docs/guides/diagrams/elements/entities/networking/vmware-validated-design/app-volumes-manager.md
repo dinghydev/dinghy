@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppVolumesManager } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { AppVolumesManager } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <AppVolumesManager/>
 ```

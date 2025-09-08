@@ -4,7 +4,7 @@ import type {
   ElementProps,
   Point,
 } from '../types.ts'
-import { deepResolve } from '@diac/base-components'
+import { deepResolve } from '@dinghy/base-components'
 import { absLeft, absTop } from '../utils.ts'
 
 function resolveElementProps({

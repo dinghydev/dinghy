@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LightActivatedScr } from '@diac/standard-components-diagrams/electricalOptical'
+import { LightActivatedScr } from '@dinghy/standard-components-diagrams/electricalOptical'
 
 <LightActivatedScr/>
 ```

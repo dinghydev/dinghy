@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapCloudApplicationProgrammingModel } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { SapCloudApplicationProgrammingModel } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <SapCloudApplicationProgrammingModel/>
 ```

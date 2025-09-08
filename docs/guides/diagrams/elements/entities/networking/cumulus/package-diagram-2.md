@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PackageDiagram2 } from '@diac/standard-components-diagrams/cumulus'
+import { PackageDiagram2 } from '@dinghy/standard-components-diagrams/cumulus'
 
 <PackageDiagram2/>
 ```

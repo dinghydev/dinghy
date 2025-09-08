@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Briefcase } from '@diac/standard-components-diagrams/ios7Icons'
+import { Briefcase } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Briefcase/>
 ```

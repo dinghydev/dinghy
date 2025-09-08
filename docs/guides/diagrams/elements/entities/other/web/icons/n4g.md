@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { N4g } from '@diac/standard-components-diagrams/webIcons'
+import { N4g } from '@dinghy/standard-components-diagrams/webIcons'
 
 <N4g/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlockingDevice } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { BlockingDevice } from '@dinghy/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <BlockingDevice/>
 ```

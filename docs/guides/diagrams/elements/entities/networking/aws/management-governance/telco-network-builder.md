@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TelcoNetworkBuilder } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { TelcoNetworkBuilder } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <TelcoNetworkBuilder/>
 ```

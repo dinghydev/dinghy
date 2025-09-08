@@ -16,7 +16,7 @@ compute Node
 ## Usage
 
 ```
-import { DenseComputeNode } from '@diac/standard-components-diagrams/aws18Analytics'
+import { DenseComputeNode } from '@dinghy/standard-components-diagrams/aws18Analytics'
 
 <DenseComputeNode/>
 ```

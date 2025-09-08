@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RedX } from '@diac/standard-components-diagrams/mockupMarkup'
+import { RedX } from '@dinghy/standard-components-diagrams/mockupMarkup'
 
 <RedX/>
 ```

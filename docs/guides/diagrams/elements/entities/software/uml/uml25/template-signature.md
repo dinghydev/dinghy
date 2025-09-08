@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TemplateSignature } from '@diac/standard-components-diagrams/uml25'
+import { TemplateSignature } from '@dinghy/standard-components-diagrams/uml25'
 
 <TemplateSignature/>
 ```

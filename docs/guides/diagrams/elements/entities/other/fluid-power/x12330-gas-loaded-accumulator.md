@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X12330GasLoadedAccumulator } from '@diac/standard-components-diagrams/fluidPower'
+import { X12330GasLoadedAccumulator } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X12330GasLoadedAccumulator/>
 ```

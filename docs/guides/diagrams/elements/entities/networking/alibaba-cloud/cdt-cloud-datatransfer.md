@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CdtCloudDatatransfer } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CdtCloudDatatransfer } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CdtCloudDatatransfer/>
 ```

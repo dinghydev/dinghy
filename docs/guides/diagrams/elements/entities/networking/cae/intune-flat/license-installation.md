@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LicenseInstallation } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { LicenseInstallation } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <LicenseInstallation/>
 ```

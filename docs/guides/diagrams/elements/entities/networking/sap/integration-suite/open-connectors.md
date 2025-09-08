@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpenConnectors } from '@diac/standard-components-diagrams/sapIntegrationSuite'
+import { OpenConnectors } from '@dinghy/standard-components-diagrams/sapIntegrationSuite'
 
 <OpenConnectors/>
 ```

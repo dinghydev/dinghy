@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowBay } from '@diac/standard-components-diagrams/floorPlans'
+import { WindowBay } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <WindowBay/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Reddit } from '@diac/standard-components-diagrams/webLogos'
+import { Reddit } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Reddit/>
 ```

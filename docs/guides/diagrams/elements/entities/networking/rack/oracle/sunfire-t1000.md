@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SunfireT1000 } from '@diac/standard-components-diagrams/rackOracle'
+import { SunfireT1000 } from '@dinghy/standard-components-diagrams/rackOracle'
 
 <SunfireT1000/>
 ```

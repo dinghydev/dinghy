@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Webappwordpress } from '@diac/standard-components-diagrams/caeCompanies'
+import { Webappwordpress } from '@dinghy/standard-components-diagrams/caeCompanies'
 
 <Webappwordpress/>
 ```

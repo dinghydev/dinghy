@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlobalAddressList } from '@diac/standard-components-diagrams/officeCommunications'
+import { GlobalAddressList } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <GlobalAddressList/>
 ```

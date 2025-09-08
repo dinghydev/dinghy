@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ErrorMessageField2 } from '@diac/standard-components-diagrams/atlassian'
+import { ErrorMessageField2 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <ErrorMessageField2/>
 ```

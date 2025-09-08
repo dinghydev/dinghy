@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Livejournal } from '@diac/standard-components-diagrams/webIcons'
+import { Livejournal } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Livejournal/>
 ```

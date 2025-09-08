@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SafetyInterlockOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { SafetyInterlockOn } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <SafetyInterlockOn/>
 ```

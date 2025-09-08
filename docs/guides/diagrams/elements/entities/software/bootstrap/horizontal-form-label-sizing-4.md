@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalFormLabelSizing4 } from '@diac/standard-components-diagrams/bootstrap'
+import { HorizontalFormLabelSizing4 } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <HorizontalFormLabelSizing4/>
 ```

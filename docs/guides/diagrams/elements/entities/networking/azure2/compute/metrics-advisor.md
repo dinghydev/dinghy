@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MetricsAdvisor } from '@diac/standard-components-diagrams/azure2Compute'
+import { MetricsAdvisor } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <MetricsAdvisor/>
 ```

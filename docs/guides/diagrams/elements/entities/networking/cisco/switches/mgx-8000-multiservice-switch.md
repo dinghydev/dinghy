@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mgx8000MultiserviceSwitch } from '@diac/standard-components-diagrams/ciscoSwitches'
+import { Mgx8000MultiserviceSwitch } from '@dinghy/standard-components-diagrams/ciscoSwitches'
 
 <Mgx8000MultiserviceSwitch/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudStorefront } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { CloudStorefront } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <CloudStorefront/>
 ```

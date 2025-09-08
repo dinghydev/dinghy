@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Clock } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { Clock } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <Clock/>
 ```

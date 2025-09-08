@@ -28,7 +28,7 @@ const options: CommandOptions = {
   default: {
     source: 'docker/images',
     arch: ['arm64', 'amd64'],
-    repo: ['diacdev/diac'],
+    repo: ['dinghydev/dinghy'],
     'multi-arch': true,
   },
   description: {},

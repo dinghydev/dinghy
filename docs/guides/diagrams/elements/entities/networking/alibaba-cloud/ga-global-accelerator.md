@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GaGlobalAccelerator } from '@diac/standard-components-diagrams/alibabaCloud'
+import { GaGlobalAccelerator } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <GaGlobalAccelerator/>
 ```

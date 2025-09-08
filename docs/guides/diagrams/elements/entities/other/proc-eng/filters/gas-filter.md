@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GasFilter } from '@diac/standard-components-diagrams/procEngFilters'
+import { GasFilter } from '@dinghy/standard-components-diagrams/procEngFilters'
 
 <GasFilter/>
 ```

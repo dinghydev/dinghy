@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ShadowedRouter } from '@diac/standard-components-diagrams/activeDirectory'
+import { ShadowedRouter } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <ShadowedRouter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Yoolink } from '@diac/standard-components-diagrams/webIcons'
+import { Yoolink } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Yoolink/>
 ```

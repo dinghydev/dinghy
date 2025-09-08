@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhysicalSwitch } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { PhysicalSwitch } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <PhysicalSwitch/>
 ```

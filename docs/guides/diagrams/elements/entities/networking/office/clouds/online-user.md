@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnlineUser } from '@diac/standard-components-diagrams/officeClouds'
+import { OnlineUser } from '@dinghy/standard-components-diagrams/officeClouds'
 
 <OnlineUser/>
 ```

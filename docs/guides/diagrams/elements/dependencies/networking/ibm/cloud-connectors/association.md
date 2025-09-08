@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Association } from '@diac/standard-components-diagrams/ibmCloudConnectors'
+import { Association } from '@dinghy/standard-components-diagrams/ibmCloudConnectors'
 
 <Association/>
 ```

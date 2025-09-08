@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Resources } from '@diac/standard-components-diagrams/aws18ManagementTools'
+import { Resources } from '@dinghy/standard-components-diagrams/aws18ManagementTools'
 
 <Resources/>
 ```

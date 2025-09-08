@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AngleGlobeValveManual } from '@diac/standard-components-diagrams/procEngValves'
+import { AngleGlobeValveManual } from '@dinghy/standard-components-diagrams/procEngValves'
 
 <AngleGlobeValveManual/>
 ```

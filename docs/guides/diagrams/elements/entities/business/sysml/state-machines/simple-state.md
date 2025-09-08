@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SimpleState } from '@diac/standard-components-diagrams/sysmlStateMachines'
+import { SimpleState } from '@dinghy/standard-components-diagrams/sysmlStateMachines'
 
 <SimpleState/>
 ```

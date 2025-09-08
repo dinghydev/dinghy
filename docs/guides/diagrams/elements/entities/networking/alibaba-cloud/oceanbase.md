@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Oceanbase } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Oceanbase } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Oceanbase/>
 ```

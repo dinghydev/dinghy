@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Firewall } from '@diac/standard-components-diagrams/activeDirectory'
+import { Firewall } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <Firewall/>
 ```

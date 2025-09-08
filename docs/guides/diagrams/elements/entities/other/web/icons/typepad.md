@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Typepad } from '@diac/standard-components-diagrams/webIcons'
+import { Typepad } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Typepad/>
 ```

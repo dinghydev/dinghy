@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SignalNonInterrupting } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { SignalNonInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <SignalNonInterrupting/>
 ```

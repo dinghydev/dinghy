@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudAuth } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CloudAuth } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CloudAuth/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KProxy } from '@diac/standard-components-diagrams/kubernetes'
+import { KProxy } from '@dinghy/standard-components-diagrams/kubernetes'
 
 <KProxy/>
 ```

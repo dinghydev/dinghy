@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Subject } from '@diac/standard-components-diagrams/sysmlUsecases'
+import { Subject } from '@dinghy/standard-components-diagrams/sysmlUsecases'
 
 <Subject/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhysicalNetworkAdapter } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { PhysicalNetworkAdapter } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <PhysicalNetworkAdapter/>
 ```

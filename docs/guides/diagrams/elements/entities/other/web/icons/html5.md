@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Html5 } from '@diac/standard-components-diagrams/webIcons'
+import { Html5 } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Html5/>
 ```

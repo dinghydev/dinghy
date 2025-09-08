@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DirectAccessFeature } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { DirectAccessFeature } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <DirectAccessFeature/>
 ```

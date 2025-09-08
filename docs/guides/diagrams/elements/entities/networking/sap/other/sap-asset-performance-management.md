@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapAssetPerformanceManagement } from '@diac/standard-components-diagrams/sapOther'
+import { SapAssetPerformanceManagement } from '@dinghy/standard-components-diagrams/sapOther'
 
 <SapAssetPerformanceManagement/>
 ```

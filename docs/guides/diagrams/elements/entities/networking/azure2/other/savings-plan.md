@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SavingsPlan } from '@diac/standard-components-diagrams/azure2Other'
+import { SavingsPlan } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <SavingsPlan/>
 ```

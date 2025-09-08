@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhysicalStorage } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { PhysicalStorage } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <PhysicalStorage/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerlessApplicationRepository } from '@diac/standard-components-diagrams/awsCompute'
+import { ServerlessApplicationRepository } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <ServerlessApplicationRepository/>
 ```

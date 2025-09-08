@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoUnifiedPresenceService } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { CiscoUnifiedPresenceService } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <CiscoUnifiedPresenceService/>
 ```

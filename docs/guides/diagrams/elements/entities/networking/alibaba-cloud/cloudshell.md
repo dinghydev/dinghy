@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloudshell } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Cloudshell } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Cloudshell/>
 ```

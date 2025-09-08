@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StealthwatchManagementConsoleSmc } from '@diac/standard-components-diagrams/cisco19EtaStealthwatch'
+import { StealthwatchManagementConsoleSmc } from '@dinghy/standard-components-diagrams/cisco19EtaStealthwatch'
 
 <StealthwatchManagementConsoleSmc/>
 ```

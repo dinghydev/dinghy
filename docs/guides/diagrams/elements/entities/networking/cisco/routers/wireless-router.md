@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WirelessRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { WirelessRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <WirelessRouter/>
 ```

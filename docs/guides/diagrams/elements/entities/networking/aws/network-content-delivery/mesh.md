@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mesh } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Mesh } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Mesh/>
 ```

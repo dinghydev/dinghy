@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LongBuilding } from '@diac/standard-components-diagrams/alliedTelesisBuildings'
+import { LongBuilding } from '@dinghy/standard-components-diagrams/alliedTelesisBuildings'
 
 <LongBuilding/>
 ```

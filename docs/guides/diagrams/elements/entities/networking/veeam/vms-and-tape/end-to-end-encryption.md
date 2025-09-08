@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EndToEndEncryption } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { EndToEndEncryption } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <EndToEndEncryption/>
 ```

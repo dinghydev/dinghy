@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Funp } from '@diac/standard-components-diagrams/webLogos'
+import { Funp } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Funp/>
 ```

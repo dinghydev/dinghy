@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RadioButtonOnDisabledLight } from '@diac/standard-components-diagrams/gmdlSelectionControls'
+import { RadioButtonOnDisabledLight } from '@dinghy/standard-components-diagrams/gmdlSelectionControls'
 
 <RadioButtonOnDisabledLight/>
 ```

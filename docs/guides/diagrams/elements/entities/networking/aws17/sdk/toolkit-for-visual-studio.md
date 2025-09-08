@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ToolkitForVisualStudio } from '@diac/standard-components-diagrams/aws17Sdk'
+import { ToolkitForVisualStudio } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <ToolkitForVisualStudio/>
 ```

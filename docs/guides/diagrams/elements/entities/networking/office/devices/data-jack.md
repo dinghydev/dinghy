@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataJack } from '@diac/standard-components-diagrams/officeDevices'
+import { DataJack } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <DataJack/>
 ```

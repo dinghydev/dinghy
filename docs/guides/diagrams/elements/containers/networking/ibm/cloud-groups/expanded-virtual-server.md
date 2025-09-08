@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { ExpandedVirtualServer } from '@diac/standard-components-diagrams/ibmCloudGroups'
+import { ExpandedVirtualServer } from '@dinghy/standard-components-diagrams/ibmCloudGroups'
 
 <ExpandedVirtualServer/>
 ```

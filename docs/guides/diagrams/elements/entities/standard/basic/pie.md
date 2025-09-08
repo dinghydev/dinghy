@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pie } from '@diac/standard-components-diagrams/basic'
+import { Pie } from '@dinghy/standard-components-diagrams/basic'
 
 <Pie/>
 ```

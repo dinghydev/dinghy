@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pyramid } from '@diac/standard-components-diagrams/infoGraphic'
+import { Pyramid } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <Pyramid/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ClassicLoadBalancer } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { ClassicLoadBalancer } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <ClassicLoadBalancer/>
 ```

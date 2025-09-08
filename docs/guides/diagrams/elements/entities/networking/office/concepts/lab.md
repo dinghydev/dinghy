@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lab } from '@diac/standard-components-diagrams/officeConcepts'
+import { Lab } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Lab/>
 ```

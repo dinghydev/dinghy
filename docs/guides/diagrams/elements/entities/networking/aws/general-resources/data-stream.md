@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataStream } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { DataStream } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <DataStream/>
 ```

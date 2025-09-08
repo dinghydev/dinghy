@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VideoGateway } from '@diac/standard-components-diagrams/officeDevices'
+import { VideoGateway } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <VideoGateway/>
 ```

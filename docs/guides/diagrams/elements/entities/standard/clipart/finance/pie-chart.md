@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PieChart } from '@diac/standard-components-diagrams/clipartFinance'
+import { PieChart } from '@dinghy/standard-components-diagrams/clipartFinance'
 
 <PieChart/>
 ```

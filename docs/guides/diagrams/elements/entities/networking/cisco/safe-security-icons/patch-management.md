@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PatchManagement } from '@diac/standard-components-diagrams/ciscoSafeSecurityIcons'
+import { PatchManagement } from '@dinghy/standard-components-diagrams/ciscoSafeSecurityIcons'
 
 <PatchManagement/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DirsyncServer } from '@diac/standard-components-diagrams/officeServers'
+import { DirsyncServer } from '@dinghy/standard-components-diagrams/officeServers'
 
 <DirsyncServer/>
 ```

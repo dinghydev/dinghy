@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DoorOverhead } from '@diac/standard-components-diagrams/floorPlans'
+import { DoorOverhead } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <DoorOverhead/>
 ```

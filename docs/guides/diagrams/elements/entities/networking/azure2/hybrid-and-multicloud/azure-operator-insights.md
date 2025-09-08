@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureOperatorInsights } from '@diac/standard-components-diagrams/azure2HybridAndMulticloud'
+import { AzureOperatorInsights } from '@dinghy/standard-components-diagrams/azure2HybridAndMulticloud'
 
 <AzureOperatorInsights/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LineConcentrator } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
+import { LineConcentrator } from '@dinghy/standard-components-diagrams/electricalTransmissionPaths'
 
 <LineConcentrator/>
 ```

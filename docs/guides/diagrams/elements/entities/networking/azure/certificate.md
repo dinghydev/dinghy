@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Certificate } from '@diac/standard-components-diagrams/azure'
+import { Certificate } from '@dinghy/standard-components-diagrams/azure'
 
 <Certificate/>
 ```

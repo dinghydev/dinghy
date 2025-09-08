@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureActiveDirectory } from '@diac/standard-components-diagrams/azure'
+import { AzureActiveDirectory } from '@dinghy/standard-components-diagrams/azure'
 
 <AzureActiveDirectory/>
 ```

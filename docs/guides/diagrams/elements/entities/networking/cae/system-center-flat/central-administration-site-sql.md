@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CentralAdministrationSiteSql } from '@diac/standard-components-diagrams/caeSystemCenterFlat'
+import { CentralAdministrationSiteSql } from '@dinghy/standard-components-diagrams/caeSystemCenterFlat'
 
 <CentralAdministrationSiteSql/>
 ```

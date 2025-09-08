@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Communities } from '@diac/standard-components-diagrams/ibmSocial'
+import { Communities } from '@dinghy/standard-components-diagrams/ibmSocial'
 
 <Communities/>
 ```

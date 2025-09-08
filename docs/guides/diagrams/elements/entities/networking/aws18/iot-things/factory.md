@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Factory } from '@diac/standard-components-diagrams/aws18IotThings'
+import { Factory } from '@dinghy/standard-components-diagrams/aws18IotThings'
 
 <Factory/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StepFunctions } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { StepFunctions } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <StepFunctions/>
 ```

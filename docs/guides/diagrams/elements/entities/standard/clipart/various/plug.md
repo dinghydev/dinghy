@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Plug } from '@diac/standard-components-diagrams/clipartVarious'
+import { Plug } from '@dinghy/standard-components-diagrams/clipartVarious'
 
 <Plug/>
 ```

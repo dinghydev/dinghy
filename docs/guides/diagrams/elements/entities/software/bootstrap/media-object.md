@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MediaObject } from '@diac/standard-components-diagrams/bootstrap'
+import { MediaObject } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <MediaObject/>
 ```

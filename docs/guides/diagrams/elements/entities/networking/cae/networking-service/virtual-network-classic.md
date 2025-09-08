@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualNetworkClassic } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { VirtualNetworkClassic } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <VirtualNetworkClassic/>
 ```

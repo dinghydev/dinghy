@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Directmail } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Directmail } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Directmail/>
 ```

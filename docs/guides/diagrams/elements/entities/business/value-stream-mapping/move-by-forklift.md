@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MoveByForklift } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { MoveByForklift } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <MoveByForklift/>
 ```

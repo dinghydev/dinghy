@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tab } from '@diac/standard-components-diagrams/android'
+import { Tab } from '@dinghy/standard-components-diagrams/android'
 
 <Tab/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DbAccelerator } from '@diac/standard-components-diagrams/aws17Database'
+import { DbAccelerator } from '@dinghy/standard-components-diagrams/aws17Database'
 
 <DbAccelerator/>
 ```

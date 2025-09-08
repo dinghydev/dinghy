@@ -16,7 +16,7 @@ server
 ## Usage
 
 ```
-import { TraditionalServer } from '@diac/standard-components-diagrams/aws18GeneralResources'
+import { TraditionalServer } from '@dinghy/standard-components-diagrams/aws18GeneralResources'
 
 <TraditionalServer/>
 ```

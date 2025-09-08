@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpcGateway } from '@diac/standard-components-diagrams/aws3d'
+import { VpcGateway } from '@dinghy/standard-components-diagrams/aws3d'
 
 <VpcGateway/>
 ```

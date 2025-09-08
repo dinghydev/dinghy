@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagementGroups } from '@diac/standard-components-diagrams/azure2General'
+import { ManagementGroups } from '@dinghy/standard-components-diagrams/azure2General'
 
 <ManagementGroups/>
 ```

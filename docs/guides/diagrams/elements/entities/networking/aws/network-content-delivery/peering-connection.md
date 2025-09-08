@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PeeringConnection } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { PeeringConnection } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <PeeringConnection/>
 ```

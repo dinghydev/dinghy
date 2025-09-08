@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MapsAccounts } from '@diac/standard-components-diagrams/azure2Iot'
+import { MapsAccounts } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <MapsAccounts/>
 ```

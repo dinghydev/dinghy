@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FrontDoors } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { FrontDoors } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <FrontDoors/>
 ```

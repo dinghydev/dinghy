@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Jumbotron } from '@diac/standard-components-diagrams/bootstrap'
+import { Jumbotron } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <Jumbotron/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Product } from '@diac/standard-components-diagrams/archimate3Business'
+import { Product } from '@dinghy/standard-components-diagrams/archimate3Business'
 
 <Product/>
 ```

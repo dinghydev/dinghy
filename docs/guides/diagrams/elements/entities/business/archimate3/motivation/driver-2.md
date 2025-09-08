@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Driver2 } from '@diac/standard-components-diagrams/archimate3Motivation'
+import { Driver2 } from '@dinghy/standard-components-diagrams/archimate3Motivation'
 
 <Driver2/>
 ```

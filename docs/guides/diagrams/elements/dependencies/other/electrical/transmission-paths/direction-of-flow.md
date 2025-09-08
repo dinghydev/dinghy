@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectionOfFlow } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
+import { DirectionOfFlow } from '@dinghy/standard-components-diagrams/electricalTransmissionPaths'
 
 <DirectionOfFlow/>
 ```

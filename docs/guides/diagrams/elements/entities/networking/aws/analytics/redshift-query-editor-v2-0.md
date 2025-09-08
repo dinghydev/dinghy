@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RedshiftQueryEditorV20 } from '@diac/standard-components-diagrams/awsAnalytics'
+import { RedshiftQueryEditorV20 } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <RedshiftQueryEditorV20/>
 ```

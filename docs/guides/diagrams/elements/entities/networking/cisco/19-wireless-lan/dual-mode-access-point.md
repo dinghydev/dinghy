@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DualModeAccessPoint } from '@diac/standard-components-diagrams/cisco19WirelessLan'
+import { DualModeAccessPoint } from '@dinghy/standard-components-diagrams/cisco19WirelessLan'
 
 <DualModeAccessPoint/>
 ```

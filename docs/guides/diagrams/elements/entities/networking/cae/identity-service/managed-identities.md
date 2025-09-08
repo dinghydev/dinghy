@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedIdentities } from '@diac/standard-components-diagrams/caeIdentityService'
+import { ManagedIdentities } from '@dinghy/standard-components-diagrams/caeIdentityService'
 
 <ManagedIdentities/>
 ```

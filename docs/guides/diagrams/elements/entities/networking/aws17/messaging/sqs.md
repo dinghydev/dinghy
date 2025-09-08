@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sqs } from '@diac/standard-components-diagrams/aws17Messaging'
+import { Sqs } from '@dinghy/standard-components-diagrams/aws17Messaging'
 
 <Sqs/>
 ```

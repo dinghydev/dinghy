@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { WedgeArrow } from '@diac/standard-components-diagrams/arrows2'
+import { WedgeArrow } from '@dinghy/standard-components-diagrams/arrows2'
 
 <WedgeArrow/>
 ```

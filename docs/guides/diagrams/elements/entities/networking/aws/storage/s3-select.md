@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3Select } from '@diac/standard-components-diagrams/awsStorage'
+import { S3Select } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <S3Select/>
 ```

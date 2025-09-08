@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ontology } from '@diac/standard-components-diagrams/ibmApplications'
+import { Ontology } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <Ontology/>
 ```

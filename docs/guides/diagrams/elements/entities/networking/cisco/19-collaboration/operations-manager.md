@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OperationsManager } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { OperationsManager } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <OperationsManager/>
 ```

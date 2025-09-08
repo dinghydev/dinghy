@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkInterfaceCard } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { NetworkInterfaceCard } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <NetworkInterfaceCard/>
 ```

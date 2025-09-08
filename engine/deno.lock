@@ -1440,21 +1440,21 @@
       "npm:zod@3.24.2"
     ],
     "links": {
-      "jsr:@diac/base-components@0.0.1": {
+      "jsr:@dinghy/base-components@0.0.1": {
         "dependencies": [
           "npm:debug@4.4.0",
           "npm:react@19.1.0",
           "npm:zod@3.24.2"
         ]
       },
-      "jsr:@diac/base-renderer": {
+      "jsr:@dinghy/base-renderer": {
         "dependencies": [
           "npm:debug@4.4.0",
           "npm:react-dom@19.1.0",
           "npm:react-reconciler@0.31.0"
         ]
       },
-      "jsr:@diac/cli": {
+      "jsr:@dinghy/cli": {
         "dependencies": [
           "jsr:@std/cli@1.0.14",
           "jsr:@std/fs@1.0.15",
@@ -1472,20 +1472,20 @@
           "npm:zod@3.24.2"
         ]
       },
-      "jsr:@diac/renderer-drawio": {
+      "jsr:@dinghy/renderer-drawio": {
         "dependencies": [
           "npm:debug@4.4.0",
           "npm:html-entities@2.6.0"
         ]
       },
-      "jsr:@diac/renderer-json": {},
-      "jsr:@diac/renderer-tf": {
+      "jsr:@dinghy/renderer-json": {},
+      "jsr:@dinghy/renderer-tf": {
         "dependencies": [
           "npm:debug@4.4.0"
         ]
       },
-      "jsr:@diac/standard-components-diagrams": {},
-      "jsr:@diac/standard-components-tf-aws": {
+      "jsr:@dinghy/standard-components-diagrams": {},
+      "jsr:@dinghy/standard-components-tf-aws": {
         "dependencies": [
           "npm:debug@4.4.0"
         ]

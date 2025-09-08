@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Failover } from '@diac/standard-components-diagrams/veeam2Features'
+import { Failover } from '@dinghy/standard-components-diagrams/veeam2Features'
 
 <Failover/>
 ```

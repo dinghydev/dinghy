@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ShoppingCart } from '@diac/standard-components-diagrams/mockupMisc'
+import { ShoppingCart } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <ShoppingCart/>
 ```

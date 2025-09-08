@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AndGate } from '@diac/standard-components-diagrams/threatModeling'
+import { AndGate } from '@dinghy/standard-components-diagrams/threatModeling'
 
 <AndGate/>
 ```

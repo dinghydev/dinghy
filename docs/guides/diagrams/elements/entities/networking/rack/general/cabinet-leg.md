@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CabinetLeg } from '@diac/standard-components-diagrams/rackGeneral'
+import { CabinetLeg } from '@dinghy/standard-components-diagrams/rackGeneral'
 
 <CabinetLeg/>
 ```

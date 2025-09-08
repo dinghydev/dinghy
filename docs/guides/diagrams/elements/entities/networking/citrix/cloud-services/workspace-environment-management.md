@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkspaceEnvironmentManagement } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { WorkspaceEnvironmentManagement } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <WorkspaceEnvironmentManagement/>
 ```

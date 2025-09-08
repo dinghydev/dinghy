@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sourcetree } from '@diac/standard-components-diagrams/webLogos'
+import { Sourcetree } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Sourcetree/>
 ```

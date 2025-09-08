@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppServiceCertificates } from '@diac/standard-components-diagrams/azure2Web'
+import { AppServiceCertificates } from '@dinghy/standard-components-diagrams/azure2Web'
 
 <AppServiceCertificates/>
 ```

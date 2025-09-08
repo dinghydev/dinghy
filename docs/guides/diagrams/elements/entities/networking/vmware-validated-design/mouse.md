@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mouse } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Mouse } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Mouse/>
 ```

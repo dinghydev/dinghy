@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AnticreepageDevice } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
+import { AnticreepageDevice } from '@dinghy/standard-components-diagrams/electricalTransmissionPaths'
 
 <AnticreepageDevice/>
 ```

@@ -8,10 +8,10 @@ import {
 } from './projectVersions.ts'
 const debug = Debug('dockerConfig')
 
-export const configEngineRepoDefault = 'diacdev/diac'
+export const configEngineRepoDefault = 'dinghydev/dinghy'
 
 export const configGetEngineRepo = () => {
-  return configGet(['diac', 'engine', 'repo']) || configEngineRepoDefault
+  return configGet(['dinghy', 'engine', 'repo']) || configEngineRepoDefault
 }
 
 const cliArgsVersion = () => {
@@ -27,7 +27,7 @@ const cliArgsVersion = () => {
 
 export const configGetEngineVersion = () => {
   let version = cliArgsVersion() ||
-    configGet(['diac', 'engine', 'version'])
+    configGet(['dinghy', 'engine', 'version'])
   if (!version || !version.includes('-')) {
     debug('none locked engine version detected, resolving', version)
     if (version && Deno.build.standalone) {
@@ -43,7 +43,7 @@ export const configGetEngineVersion = () => {
 }
 
 export const configGetEngineImage = () => {
-  let image = configGet(['diac', 'engine', 'image'])
+  let image = configGet(['dinghy', 'engine', 'image'])
   if (!image) {
     image = `${configGetEngineRepo()}:${configGetEngineVersion()}`
   }

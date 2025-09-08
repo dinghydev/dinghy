@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HsmHardwareSecurityModule } from '@diac/standard-components-diagrams/alibabaCloud'
+import { HsmHardwareSecurityModule } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <HsmHardwareSecurityModule/>
 ```

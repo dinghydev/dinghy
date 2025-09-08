@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Upc } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { Upc } from '@dinghy/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <Upc/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Spacer } from '@diac/standard-components-diagrams/uml'
+import { Spacer } from '@dinghy/standard-components-diagrams/uml'
 
 <Spacer/>
 ```

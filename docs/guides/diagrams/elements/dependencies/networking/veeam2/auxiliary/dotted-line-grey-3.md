@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DottedLineGrey3 } from '@diac/standard-components-diagrams/veeam2Auxiliary'
+import { DottedLineGrey3 } from '@dinghy/standard-components-diagrams/veeam2Auxiliary'
 
 <DottedLineGrey3/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Breakthrough } from '@diac/standard-components-diagrams/procEngFittings'
+import { Breakthrough } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <Breakthrough/>
 ```

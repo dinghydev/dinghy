@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MapsApi } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { MapsApi } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <MapsApi/>
 ```

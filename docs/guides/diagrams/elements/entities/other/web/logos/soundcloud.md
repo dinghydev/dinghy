@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Soundcloud } from '@diac/standard-components-diagrams/webLogos'
+import { Soundcloud } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Soundcloud/>
 ```

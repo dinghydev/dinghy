@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Monitor } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Monitor } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Monitor/>
 ```

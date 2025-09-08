@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SaasApplications } from '@diac/standard-components-diagrams/ibmApplications'
+import { SaasApplications } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <SaasApplications/>
 ```

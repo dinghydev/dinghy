@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecureRouterSubdued } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { SecureRouterSubdued } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <SecureRouterSubdued/>
 ```

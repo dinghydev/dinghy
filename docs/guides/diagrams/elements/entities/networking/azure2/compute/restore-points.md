@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RestorePoints } from '@diac/standard-components-diagrams/azure2Compute'
+import { RestorePoints } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <RestorePoints/>
 ```

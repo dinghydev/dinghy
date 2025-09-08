@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedGrafana } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ManagedGrafana } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ManagedGrafana/>
 ```

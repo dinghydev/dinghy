@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlueDatabrew2 } from '@diac/standard-components-diagrams/awsAnalytics'
+import { GlueDatabrew2 } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <GlueDatabrew2/>
 ```

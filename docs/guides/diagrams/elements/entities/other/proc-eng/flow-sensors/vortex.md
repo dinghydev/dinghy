@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vortex } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Vortex } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Vortex/>
 ```

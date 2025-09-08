@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LayeredRectangle } from '@diac/standard-components-diagrams/basic'
+import { LayeredRectangle } from '@dinghy/standard-components-diagrams/basic'
 
 <LayeredRectangle/>
 ```

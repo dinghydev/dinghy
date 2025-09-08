@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PytorchOnAws } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { PytorchOnAws } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <PytorchOnAws/>
 ```

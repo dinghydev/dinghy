@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MixingPath } from '@diac/standard-components-diagrams/procEngMixers'
+import { MixingPath } from '@dinghy/standard-components-diagrams/procEngMixers'
 
 <MixingPath/>
 ```

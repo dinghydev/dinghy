@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Appengine } from '@diac/standard-components-diagrams/gcpIconsCompute'
+import { Appengine } from '@dinghy/standard-components-diagrams/gcpIconsCompute'
 
 <Appengine/>
 ```

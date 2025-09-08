@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceControl } from '@diac/standard-components-diagrams/ciscoMisc'
+import { ServiceControl } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <ServiceControl/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PChannelJfet } from '@diac/standard-components-diagrams/electricalTransistors'
+import { PChannelJfet } from '@dinghy/standard-components-diagrams/electricalTransistors'
 
 <PChannelJfet/>
 ```

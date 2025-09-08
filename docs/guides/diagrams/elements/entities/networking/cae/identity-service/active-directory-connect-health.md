@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActiveDirectoryConnectHealth } from '@diac/standard-components-diagrams/caeIdentityService'
+import { ActiveDirectoryConnectHealth } from '@dinghy/standard-components-diagrams/caeIdentityService'
 
 <ActiveDirectoryConnectHealth/>
 ```

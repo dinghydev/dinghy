@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActiveDirectoryConnectHealth } from '@diac/standard-components-diagrams/azure2Identity'
+import { ActiveDirectoryConnectHealth } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <ActiveDirectoryConnectHealth/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RadioTower } from '@diac/standard-components-diagrams/network'
+import { RadioTower } from '@dinghy/standard-components-diagrams/network'
 
 <RadioTower/>
 ```

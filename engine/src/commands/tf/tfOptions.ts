@@ -1,7 +1,7 @@
-import type { CommandArgs, CommandOptions } from '@diac/cli'
+import type { CommandArgs, CommandOptions } from '@dinghy/cli'
 
-import { hostAppHome } from '@diac/cli'
-import { deepMerge } from '@diac/cli'
+import { hostAppHome } from '@dinghy/cli'
+import { deepMerge } from '@dinghy/cli'
 import { existsSync } from '@std/fs/exists'
 import Debug from 'debug'
 const debug = Debug('tfOptions')

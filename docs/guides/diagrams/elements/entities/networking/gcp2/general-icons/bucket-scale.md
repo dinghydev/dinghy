@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BucketScale } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { BucketScale } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <BucketScale/>
 ```

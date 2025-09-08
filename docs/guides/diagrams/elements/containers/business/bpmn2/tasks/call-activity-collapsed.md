@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { CallActivityCollapsed } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { CallActivityCollapsed } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <CallActivityCollapsed/>
 ```

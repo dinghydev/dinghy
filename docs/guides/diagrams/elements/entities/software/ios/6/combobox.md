@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Combobox } from '@diac/standard-components-diagrams/ios6'
+import { Combobox } from '@dinghy/standard-components-diagrams/ios6'
 
 <Combobox/>
 ```

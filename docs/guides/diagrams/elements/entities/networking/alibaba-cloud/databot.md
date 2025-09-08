@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Databot } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Databot } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Databot/>
 ```

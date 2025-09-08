@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Quantizer } from '@diac/standard-components-diagrams/electricalMisc'
+import { Quantizer } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <Quantizer/>
 ```

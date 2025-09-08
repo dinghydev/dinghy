@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SupportBracket } from '@diac/standard-components-diagrams/procEngApparatusElements'
+import { SupportBracket } from '@dinghy/standard-components-diagrams/procEngApparatusElements'
 
 <SupportBracket/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MiniVax } from '@diac/standard-components-diagrams/ciscoMisc'
+import { MiniVax } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <MiniVax/>
 ```

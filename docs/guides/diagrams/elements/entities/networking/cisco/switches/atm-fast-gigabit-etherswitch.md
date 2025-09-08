@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AtmFastGigabitEtherswitch } from '@diac/standard-components-diagrams/ciscoSwitches'
+import { AtmFastGigabitEtherswitch } from '@dinghy/standard-components-diagrams/ciscoSwitches'
 
 <AtmFastGigabitEtherswitch/>
 ```

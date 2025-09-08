@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExtensibilityServicesForSapBtp } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { ExtensibilityServicesForSapBtp } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <ExtensibilityServicesForSapBtp/>
 ```

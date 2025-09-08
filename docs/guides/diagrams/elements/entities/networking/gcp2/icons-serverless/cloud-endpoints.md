@@ -16,7 +16,7 @@ Endpoints
 ## Usage
 
 ```
-import { CloudEndpoints } from '@diac/standard-components-diagrams/gcp2IconsServerless'
+import { CloudEndpoints } from '@dinghy/standard-components-diagrams/gcp2IconsServerless'
 
 <CloudEndpoints/>
 ```

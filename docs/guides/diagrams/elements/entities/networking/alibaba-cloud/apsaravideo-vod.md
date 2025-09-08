@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApsaravideoVod } from '@diac/standard-components-diagrams/alibabaCloud'
+import { ApsaravideoVod } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <ApsaravideoVod/>
 ```

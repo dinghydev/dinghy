@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Triggers } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Triggers } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Triggers/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PublishSubscribeChannel2 } from '@diac/standard-components-diagrams/eipMessagingChannels'
+import { PublishSubscribeChannel2 } from '@dinghy/standard-components-diagrams/eipMessagingChannels'
 
 <PublishSubscribeChannel2/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wifi } from '@diac/standard-components-diagrams/ios7Ui'
+import { Wifi } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <Wifi/>
 ```

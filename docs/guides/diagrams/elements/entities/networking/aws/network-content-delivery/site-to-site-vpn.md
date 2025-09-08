@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SiteToSiteVpn } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { SiteToSiteVpn } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <SiteToSiteVpn/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stackexchange } from '@diac/standard-components-diagrams/webIcons'
+import { Stackexchange } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Stackexchange/>
 ```

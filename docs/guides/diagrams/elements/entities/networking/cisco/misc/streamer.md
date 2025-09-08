@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Streamer } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Streamer } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Streamer/>
 ```

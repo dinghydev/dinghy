@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapPersistenceServiceAse } from '@diac/standard-components-diagrams/sapDataAnalytics'
+import { SapPersistenceServiceAse } from '@dinghy/standard-components-diagrams/sapDataAnalytics'
 
 <SapPersistenceServiceAse/>
 ```

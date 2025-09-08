@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Speed } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Speed } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Speed/>
 ```

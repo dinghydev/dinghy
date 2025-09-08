@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Learn } from '@diac/standard-components-diagrams/officeConcepts'
+import { Learn } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Learn/>
 ```

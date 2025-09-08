@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CsMars } from '@diac/standard-components-diagrams/ciscoMisc'
+import { CsMars } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <CsMars/>
 ```

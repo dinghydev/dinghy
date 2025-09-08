@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DedicatedEventHub } from '@diac/standard-components-diagrams/caeIntuneService'
+import { DedicatedEventHub } from '@dinghy/standard-components-diagrams/caeIntuneService'
 
 <DedicatedEventHub/>
 ```

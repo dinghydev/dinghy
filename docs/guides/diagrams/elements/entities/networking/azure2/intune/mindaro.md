@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mindaro } from '@diac/standard-components-diagrams/azure2Intune'
+import { Mindaro } from '@dinghy/standard-components-diagrams/azure2Intune'
 
 <Mindaro/>
 ```

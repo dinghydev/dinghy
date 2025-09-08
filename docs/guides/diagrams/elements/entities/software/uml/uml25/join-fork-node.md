@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { JoinForkNode } from '@diac/standard-components-diagrams/uml25'
+import { JoinForkNode } from '@dinghy/standard-components-diagrams/uml25'
 
 <JoinForkNode/>
 ```

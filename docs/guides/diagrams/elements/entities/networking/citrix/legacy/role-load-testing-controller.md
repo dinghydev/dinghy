@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoleLoadTestingController } from '@diac/standard-components-diagrams/citrixLegacy'
+import { RoleLoadTestingController } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <RoleLoadTestingController/>
 ```

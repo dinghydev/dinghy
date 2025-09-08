@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapWatchListScreening } from '@diac/standard-components-diagrams/sapOther'
+import { SapWatchListScreening } from '@dinghy/standard-components-diagrams/sapOther'
 
 <SapWatchListScreening/>
 ```

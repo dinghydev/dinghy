@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pim } from '@diac/standard-components-diagrams/azure2Identity'
+import { Pim } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <Pim/>
 ```

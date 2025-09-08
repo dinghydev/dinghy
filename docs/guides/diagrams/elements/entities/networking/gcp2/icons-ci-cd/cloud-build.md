@@ -16,7 +16,7 @@ Build
 ## Usage
 
 ```
-import { CloudBuild } from '@diac/standard-components-diagrams/gcp2IconsCiCd'
+import { CloudBuild } from '@dinghy/standard-components-diagrams/gcp2IconsCiCd'
 
 <CloudBuild/>
 ```

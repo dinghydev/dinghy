@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AlertNotification } from '@diac/standard-components-diagrams/ibmManagement'
+import { AlertNotification } from '@dinghy/standard-components-diagrams/ibmManagement'
 
 <AlertNotification/>
 ```

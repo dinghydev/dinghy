@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultiFactorIdentification } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { MultiFactorIdentification } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <MultiFactorIdentification/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HangGliding } from '@diac/standard-components-diagrams/signsSports'
+import { HangGliding } from '@dinghy/standard-components-diagrams/signsSports'
 
 <HangGliding/>
 ```

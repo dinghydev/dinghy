@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WanAccelerator } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { WanAccelerator } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <WanAccelerator/>
 ```

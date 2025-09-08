@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConditionalAccess } from '@diac/standard-components-diagrams/azure2Security'
+import { ConditionalAccess } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <ConditionalAccess/>
 ```

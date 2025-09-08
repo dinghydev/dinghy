@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapPrivateLinkService } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapPrivateLinkService } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapPrivateLinkService/>
 ```

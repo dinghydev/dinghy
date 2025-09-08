@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hdx } from '@diac/standard-components-diagrams/citrixResources'
+import { Hdx } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <Hdx/>
 ```

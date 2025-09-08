@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CitrixEnterpriseBrowser } from '@diac/standard-components-diagrams/citrixResources'
+import { CitrixEnterpriseBrowser } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <CitrixEnterpriseBrowser/>
 ```

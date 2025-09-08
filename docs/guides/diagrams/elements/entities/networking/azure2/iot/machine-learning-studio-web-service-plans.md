@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MachineLearningStudioWebServicePlans } from '@diac/standard-components-diagrams/azure2Iot'
+import { MachineLearningStudioWebServicePlans } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <MachineLearningStudioWebServicePlans/>
 ```

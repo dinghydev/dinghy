@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkstationVisualStudio } from '@diac/standard-components-diagrams/officeDevices'
+import { WorkstationVisualStudio } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <WorkstationVisualStudio/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DsiDataSecurityInsurance } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DsiDataSecurityInsurance } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DsiDataSecurityInsurance/>
 ```

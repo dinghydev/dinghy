@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThinkboxXmesh } from '@diac/standard-components-diagrams/awsMediaServices'
+import { ThinkboxXmesh } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <ThinkboxXmesh/>
 ```

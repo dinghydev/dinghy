@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Route53ResolverQueryLogging } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Route53ResolverQueryLogging } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Route53ResolverQueryLogging/>
 ```

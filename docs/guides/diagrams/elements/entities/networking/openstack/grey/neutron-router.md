@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NeutronRouter } from '@diac/standard-components-diagrams/openstackGrey'
+import { NeutronRouter } from '@dinghy/standard-components-diagrams/openstackGrey'
 
 <NeutronRouter/>
 ```

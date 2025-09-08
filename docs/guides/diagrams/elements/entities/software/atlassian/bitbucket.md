@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bitbucket } from '@diac/standard-components-diagrams/atlassian'
+import { Bitbucket } from '@dinghy/standard-components-diagrams/atlassian'
 
 <Bitbucket/>
 ```

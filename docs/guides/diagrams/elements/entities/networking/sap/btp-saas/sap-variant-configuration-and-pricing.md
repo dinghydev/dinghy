@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapVariantConfigurationAndPricing } from '@diac/standard-components-diagrams/sapBtpSaas'
+import { SapVariantConfigurationAndPricing } from '@dinghy/standard-components-diagrams/sapBtpSaas'
 
 <SapVariantConfigurationAndPricing/>
 ```

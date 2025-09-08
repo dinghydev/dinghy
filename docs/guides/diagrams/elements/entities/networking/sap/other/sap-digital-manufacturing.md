@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapDigitalManufacturing } from '@diac/standard-components-diagrams/sapOther'
+import { SapDigitalManufacturing } from '@dinghy/standard-components-diagrams/sapOther'
 
 <SapDigitalManufacturing/>
 ```

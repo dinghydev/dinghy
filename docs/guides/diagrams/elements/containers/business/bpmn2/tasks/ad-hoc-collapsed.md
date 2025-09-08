@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { AdHocCollapsed } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { AdHocCollapsed } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <AdHocCollapsed/>
 ```

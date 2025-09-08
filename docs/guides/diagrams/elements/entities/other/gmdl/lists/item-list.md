@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ItemList } from '@diac/standard-components-diagrams/gmdlLists'
+import { ItemList } from '@dinghy/standard-components-diagrams/gmdlLists'
 
 <ItemList/>
 ```

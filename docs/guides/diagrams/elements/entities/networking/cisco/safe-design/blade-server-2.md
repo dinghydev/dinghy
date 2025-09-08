@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BladeServer2 } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { BladeServer2 } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <BladeServer2/>
 ```

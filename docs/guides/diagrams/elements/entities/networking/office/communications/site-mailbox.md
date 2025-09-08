@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SiteMailbox } from '@diac/standard-components-diagrams/officeCommunications'
+import { SiteMailbox } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <SiteMailbox/>
 ```

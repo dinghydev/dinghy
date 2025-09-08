@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ListGroup } from '@diac/standard-components-diagrams/bootstrap'
+import { ListGroup } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ListGroup/>
 ```

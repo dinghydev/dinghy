@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GooglePlay } from '@diac/standard-components-diagrams/webLogos'
+import { GooglePlay } from '@dinghy/standard-components-diagrams/webLogos'
 
 <GooglePlay/>
 ```

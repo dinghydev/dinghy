@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataExplorerClusters } from '@diac/standard-components-diagrams/azure2Databases'
+import { DataExplorerClusters } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <DataExplorerClusters/>
 ```

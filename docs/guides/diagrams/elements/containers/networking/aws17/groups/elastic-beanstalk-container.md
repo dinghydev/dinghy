@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { ElasticBeanstalkContainer } from '@diac/standard-components-diagrams/aws17Groups'
+import { ElasticBeanstalkContainer } from '@dinghy/standard-components-diagrams/aws17Groups'
 
 <ElasticBeanstalkContainer/>
 ```

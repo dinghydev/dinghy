@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PollingConsumer } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
+import { PollingConsumer } from '@dinghy/standard-components-diagrams/eipMessagingEndpoints'
 
 <PollingConsumer/>
 ```

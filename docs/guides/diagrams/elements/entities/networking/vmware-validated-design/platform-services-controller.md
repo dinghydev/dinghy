@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlatformServicesController } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { PlatformServicesController } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <PlatformServicesController/>
 ```

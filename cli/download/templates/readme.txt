@@ -1,34 +1,34 @@
-# PROJECT_NAME_PLACE_HOLDER - A DIaC Project
+# PROJECT_NAME_PLACE_HOLDER - A Dinghy Project
 
 ## Local Development
 
-### Install DIaC Cli
+### Install Dinghy Cli
 
 Need only once if not already done:
 
-    curl -fsSL https://play.diac.dev/download/install.sh | sh
+    curl -fsSL https://play.dinghy.dev/download/install.sh | sh
 
 ### To develop with devcontainer
 
-    diac devcontainer
+    dinghy devcontainer
 
 ### To render all output fomrats
 
-    diac render
+    dinghy render
 
 ### To render drawio diagram and generate png
 
-    diac diagram
+    dinghy diagram
 
 ### To perform tf actions
 
-    diac tf init
-    diac tf plan
-    diac tf apply
+    dinghy tf init
+    dinghy tf plan
+    dinghy tf apply
 
 ### Combined tf action
 
-    diac tf diff
+    dinghy tf diff
 
 Which does following:
 1. render --format tf

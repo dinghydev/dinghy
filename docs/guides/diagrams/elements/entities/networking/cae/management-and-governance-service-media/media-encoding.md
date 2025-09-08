@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MediaEncoding } from '@diac/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
+import { MediaEncoding } from '@dinghy/standard-components-diagrams/caeManagementAndGovernanceServiceMedia'
 
 <MediaEncoding/>
 ```

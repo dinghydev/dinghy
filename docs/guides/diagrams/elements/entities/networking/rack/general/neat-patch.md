@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NeatPatch } from '@diac/standard-components-diagrams/rackGeneral'
+import { NeatPatch } from '@dinghy/standard-components-diagrams/rackGeneral'
 
 <NeatPatch/>
 ```

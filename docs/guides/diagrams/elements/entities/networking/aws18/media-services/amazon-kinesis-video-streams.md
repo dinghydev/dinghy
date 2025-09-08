@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonKinesisVideoStreams } from '@diac/standard-components-diagrams/aws18MediaServices'
+import { AmazonKinesisVideoStreams } from '@dinghy/standard-components-diagrams/aws18MediaServices'
 
 <AmazonKinesisVideoStreams/>
 ```

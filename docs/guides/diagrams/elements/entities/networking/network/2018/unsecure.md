@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Unsecure } from '@diac/standard-components-diagrams/network'
+import { Unsecure } from '@dinghy/standard-components-diagrams/network'
 
 <Unsecure/>
 ```

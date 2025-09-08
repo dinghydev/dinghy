@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QualityOfService } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { QualityOfService } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <QualityOfService/>
 ```

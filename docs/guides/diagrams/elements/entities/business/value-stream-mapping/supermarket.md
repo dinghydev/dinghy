@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Supermarket } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { Supermarket } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <Supermarket/>
 ```

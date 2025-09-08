@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EmailService } from '@diac/standard-components-diagrams/aws3d'
+import { EmailService } from '@dinghy/standard-components-diagrams/aws3d'
 
 <EmailService/>
 ```

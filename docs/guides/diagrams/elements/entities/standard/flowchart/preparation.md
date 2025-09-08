@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Preparation } from '@diac/standard-components-diagrams/flowchart'
+import { Preparation } from '@dinghy/standard-components-diagrams/flowchart'
 
 <Preparation/>
 ```

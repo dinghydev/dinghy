@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternetConnection } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { InternetConnection } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <InternetConnection/>
 ```

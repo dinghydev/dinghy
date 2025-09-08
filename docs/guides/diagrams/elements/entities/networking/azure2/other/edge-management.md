@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EdgeManagement } from '@diac/standard-components-diagrams/azure2Other'
+import { EdgeManagement } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <EdgeManagement/>
 ```

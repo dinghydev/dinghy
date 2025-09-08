@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FirewallServiceModuleFwsm } from '@diac/standard-components-diagrams/ciscoControllersAndModules'
+import { FirewallServiceModuleFwsm } from '@dinghy/standard-components-diagrams/ciscoControllersAndModules'
 
 <FirewallServiceModuleFwsm/>
 ```

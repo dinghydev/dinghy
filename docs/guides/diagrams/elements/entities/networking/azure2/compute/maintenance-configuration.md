@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MaintenanceConfiguration } from '@diac/standard-components-diagrams/azure2Compute'
+import { MaintenanceConfiguration } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <MaintenanceConfiguration/>
 ```

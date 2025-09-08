@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ShieldAdvanced } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ShieldAdvanced } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ShieldAdvanced/>
 ```

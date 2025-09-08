@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataFiltering } from '@diac/standard-components-diagrams/clipartComputer'
+import { DataFiltering } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <DataFiltering/>
 ```

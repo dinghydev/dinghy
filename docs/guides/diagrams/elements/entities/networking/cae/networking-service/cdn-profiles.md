@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CdnProfiles } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { CdnProfiles } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <CdnProfiles/>
 ```

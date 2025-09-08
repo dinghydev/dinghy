@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Weir } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Weir } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Weir/>
 ```

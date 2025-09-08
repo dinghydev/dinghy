@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConditionalAccessExchange } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { ConditionalAccessExchange } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <ConditionalAccessExchange/>
 ```

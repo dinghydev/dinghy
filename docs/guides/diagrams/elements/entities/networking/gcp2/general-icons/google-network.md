@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GoogleNetwork } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { GoogleNetwork } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <GoogleNetwork/>
 ```

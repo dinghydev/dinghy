@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BiggerSapBoxWithMultipleLayers } from '@diac/standard-components-diagrams/sapComponents'
+import { BiggerSapBoxWithMultipleLayers } from '@dinghy/standard-components-diagrams/sapComponents'
 
 <BiggerSapBoxWithMultipleLayers/>
 ```

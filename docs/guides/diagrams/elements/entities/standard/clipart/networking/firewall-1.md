@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Firewall1 } from '@diac/standard-components-diagrams/clipartNetworking'
+import { Firewall1 } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <Firewall1/>
 ```

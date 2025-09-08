@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3ObjectLock } from '@diac/standard-components-diagrams/awsStorage'
+import { S3ObjectLock } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <S3ObjectLock/>
 ```

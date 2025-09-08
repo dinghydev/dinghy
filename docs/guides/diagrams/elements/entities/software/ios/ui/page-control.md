@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PageControl } from '@diac/standard-components-diagrams/ios7Ui'
+import { PageControl } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <PageControl/>
 ```

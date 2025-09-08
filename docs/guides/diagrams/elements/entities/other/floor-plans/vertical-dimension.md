@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerticalDimension } from '@diac/standard-components-diagrams/floorPlans'
+import { VerticalDimension } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <VerticalDimension/>
 ```

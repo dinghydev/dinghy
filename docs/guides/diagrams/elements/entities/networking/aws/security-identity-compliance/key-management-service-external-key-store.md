@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeyManagementServiceExternalKeyStore } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { KeyManagementServiceExternalKeyStore } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <KeyManagementServiceExternalKeyStore/>
 ```

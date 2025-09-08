@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Polyline } from '@diac/standard-components-diagrams/basic'
+import { Polyline } from '@dinghy/standard-components-diagrams/basic'
 
 <Polyline/>
 ```

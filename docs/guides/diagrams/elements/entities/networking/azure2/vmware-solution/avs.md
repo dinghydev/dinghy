@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Avs } from '@diac/standard-components-diagrams/azure2VmwareSolution'
+import { Avs } from '@dinghy/standard-components-diagrams/azure2VmwareSolution'
 
 <Avs/>
 ```

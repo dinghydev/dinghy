@@ -1,9 +1,9 @@
-import { IacNodeProps } from '@diac/base-components'
+import { IacNodeProps } from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { Shape } from '@diac/base-components'
-import { useTypedNode } from '@diac/base-components'
+import { Shape } from '@dinghy/base-components'
+import { useTypedNode } from '@dinghy/base-components'
 
 export const DataAwsIamPolicyDocumentInputSchema = z.object({
   statement: z.any(),

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FoldedBanners } from '@diac/standard-components-diagrams/infoGraphic'
+import { FoldedBanners } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <FoldedBanners/>
 ```

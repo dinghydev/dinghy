@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Realization } from '@diac/standard-components-diagrams/sysmlModelElements'
+import { Realization } from '@dinghy/standard-components-diagrams/sysmlModelElements'
 
 <Realization/>
 ```

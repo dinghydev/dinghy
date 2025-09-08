@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LyncWebAppClient } from '@diac/standard-components-diagrams/officeCommunications'
+import { LyncWebAppClient } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <LyncWebAppClient/>
 ```

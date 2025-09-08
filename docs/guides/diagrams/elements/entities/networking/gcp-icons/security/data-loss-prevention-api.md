@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataLossPreventionApi } from '@diac/standard-components-diagrams/gcpIconsSecurity'
+import { DataLossPreventionApi } from '@dinghy/standard-components-diagrams/gcpIconsSecurity'
 
 <DataLossPreventionApi/>
 ```

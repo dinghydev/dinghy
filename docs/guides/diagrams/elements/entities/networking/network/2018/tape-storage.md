@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TapeStorage } from '@diac/standard-components-diagrams/network'
+import { TapeStorage } from '@dinghy/standard-components-diagrams/network'
 
 <TapeStorage/>
 ```

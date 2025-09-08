@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConditionalAccess } from '@diac/standard-components-diagrams/caeIdentityService'
+import { ConditionalAccess } from '@dinghy/standard-components-diagrams/caeIdentityService'
 
 <ConditionalAccess/>
 ```

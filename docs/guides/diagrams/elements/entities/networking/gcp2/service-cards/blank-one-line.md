@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlankOneLine } from '@diac/standard-components-diagrams/gcp2ServiceCards'
+import { BlankOneLine } from '@dinghy/standard-components-diagrams/gcp2ServiceCards'
 
 <BlankOneLine/>
 ```

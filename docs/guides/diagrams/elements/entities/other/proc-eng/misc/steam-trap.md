@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SteamTrap } from '@diac/standard-components-diagrams/procEngMisc'
+import { SteamTrap } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <SteamTrap/>
 ```

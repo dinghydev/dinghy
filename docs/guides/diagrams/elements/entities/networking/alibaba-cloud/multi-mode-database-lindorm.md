@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultiModeDatabaseLindorm } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MultiModeDatabaseLindorm } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MultiModeDatabaseLindorm/>
 ```

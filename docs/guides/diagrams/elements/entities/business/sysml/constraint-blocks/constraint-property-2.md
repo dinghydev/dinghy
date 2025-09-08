@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConstraintProperty2 } from '@diac/standard-components-diagrams/sysmlConstraintBlocks'
+import { ConstraintProperty2 } from '@dinghy/standard-components-diagrams/sysmlConstraintBlocks'
 
 <ConstraintProperty2/>
 ```

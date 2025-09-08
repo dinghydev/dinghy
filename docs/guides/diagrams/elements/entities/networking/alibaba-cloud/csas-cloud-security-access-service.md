@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CsasCloudSecurityAccessService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CsasCloudSecurityAccessService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CsasCloudSecurityAccessService/>
 ```

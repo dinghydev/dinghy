@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Trello } from '@diac/standard-components-diagrams/webLogos'
+import { Trello } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Trello/>
 ```

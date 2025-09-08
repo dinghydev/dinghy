@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Instapaper } from '@diac/standard-components-diagrams/webIcons'
+import { Instapaper } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Instapaper/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlpIeTextInformationExtraction } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlpIeTextInformationExtraction } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlpIeTextInformationExtraction/>
 ```

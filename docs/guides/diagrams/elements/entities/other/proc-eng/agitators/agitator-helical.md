@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AgitatorHelical } from '@diac/standard-components-diagrams/procEngAgitators'
+import { AgitatorHelical } from '@dinghy/standard-components-diagrams/procEngAgitators'
 
 <AgitatorHelical/>
 ```

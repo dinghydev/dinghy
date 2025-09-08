@@ -16,7 +16,7 @@ Command Center
 ## Usage
 
 ```
-import { SecurityCommandCenter } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
+import { SecurityCommandCenter } from '@dinghy/standard-components-diagrams/gcp2IconsSecurity'
 
 <SecurityCommandCenter/>
 ```

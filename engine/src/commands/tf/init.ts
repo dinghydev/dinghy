@@ -1,10 +1,10 @@
-import type { CommandArgs, CommandContext, Commands } from '@diac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
+import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions } from './tfOptions.ts'
 import process from 'node:process'
 import confirm from '@inquirer/confirm'
-import { hostAppHome, requireStacksConfig } from '@diac/cli'
+import { hostAppHome, requireStacksConfig } from '@dinghy/cli'
 import { doWithTfStacks } from './doWithTfStacks.ts'
 import chalk from 'chalk'
 

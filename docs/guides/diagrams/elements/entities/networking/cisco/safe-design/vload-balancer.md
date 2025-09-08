@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VloadBalancer } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { VloadBalancer } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <VloadBalancer/>
 ```

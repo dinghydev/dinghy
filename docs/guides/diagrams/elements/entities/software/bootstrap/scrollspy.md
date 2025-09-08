@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Scrollspy } from '@diac/standard-components-diagrams/bootstrap'
+import { Scrollspy } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <Scrollspy/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapHanaDb } from '@diac/standard-components-diagrams/veeam2Software'
+import { SapHanaDb } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <SapHanaDb/>
 ```

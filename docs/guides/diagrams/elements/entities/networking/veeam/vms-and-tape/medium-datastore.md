@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MediumDatastore } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { MediumDatastore } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <MediumDatastore/>
 ```

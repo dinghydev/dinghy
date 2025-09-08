@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LozengeNewSubtle } from '@diac/standard-components-diagrams/atlassian'
+import { LozengeNewSubtle } from '@dinghy/standard-components-diagrams/atlassian'
 
 <LozengeNewSubtle/>
 ```

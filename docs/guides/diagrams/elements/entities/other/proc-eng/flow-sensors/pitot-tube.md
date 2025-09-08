@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PitotTube } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { PitotTube } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <PitotTube/>
 ```

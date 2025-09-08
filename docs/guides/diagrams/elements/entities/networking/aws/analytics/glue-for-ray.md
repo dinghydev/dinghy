@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlueForRay } from '@diac/standard-components-diagrams/awsAnalytics'
+import { GlueForRay } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <GlueForRay/>
 ```

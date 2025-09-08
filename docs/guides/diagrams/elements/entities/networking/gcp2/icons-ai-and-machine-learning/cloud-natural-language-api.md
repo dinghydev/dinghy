@@ -16,7 +16,7 @@ Language API
 ## Usage
 
 ```
-import { CloudNaturalLanguageApi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { CloudNaturalLanguageApi } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <CloudNaturalLanguageApi/>
 ```

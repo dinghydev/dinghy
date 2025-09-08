@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentityAuthentication } from '@diac/standard-components-diagrams/sapFoundational'
+import { IdentityAuthentication } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <IdentityAuthentication/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiDeveloperPortal } from '@diac/standard-components-diagrams/ibmApplications'
+import { ApiDeveloperPortal } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <ApiDeveloperPortal/>
 ```

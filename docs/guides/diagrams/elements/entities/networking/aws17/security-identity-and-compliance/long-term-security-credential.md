@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LongTermSecurityCredential } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { LongTermSecurityCredential } from '@dinghy/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <LongTermSecurityCredential/>
 ```

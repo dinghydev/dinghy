@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pos } from '@diac/standard-components-diagrams/alliedTelesisSecurity'
+import { Pos } from '@dinghy/standard-components-diagrams/alliedTelesisSecurity'
 
 <Pos/>
 ```

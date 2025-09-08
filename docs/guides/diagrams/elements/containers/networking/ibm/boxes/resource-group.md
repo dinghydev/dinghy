@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { ResourceGroup } from '@diac/standard-components-diagrams/ibmBoxes'
+import { ResourceGroup } from '@dinghy/standard-components-diagrams/ibmBoxes'
 
 <ResourceGroup/>
 ```

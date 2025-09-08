@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sns } from '@diac/standard-components-diagrams/aws17Messaging'
+import { Sns } from '@dinghy/standard-components-diagrams/aws17Messaging'
 
 <Sns/>
 ```

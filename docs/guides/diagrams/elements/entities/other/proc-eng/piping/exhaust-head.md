@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExhaustHead } from '@diac/standard-components-diagrams/procEngPiping'
+import { ExhaustHead } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <ExhaustHead/>
 ```

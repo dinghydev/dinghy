@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReturnToWork } from '@diac/standard-components-diagrams/dynamics365SubApp'
+import { ReturnToWork } from '@dinghy/standard-components-diagrams/dynamics365SubApp'
 
 <ReturnToWork/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorldNetwork } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { WorldNetwork } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <WorldNetwork/>
 ```

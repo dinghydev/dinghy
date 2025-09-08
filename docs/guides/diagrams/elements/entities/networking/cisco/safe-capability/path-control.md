@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PathControl } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { PathControl } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <PathControl/>
 ```

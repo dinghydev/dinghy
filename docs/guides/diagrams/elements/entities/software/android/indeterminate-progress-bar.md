@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IndeterminateProgressBar } from '@diac/standard-components-diagrams/android'
+import { IndeterminateProgressBar } from '@dinghy/standard-components-diagrams/android'
 
 <IndeterminateProgressBar/>
 ```

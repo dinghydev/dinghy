@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sql } from '@diac/standard-components-diagrams/azure2Databases'
+import { Sql } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <Sql/>
 ```

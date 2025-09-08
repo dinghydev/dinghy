@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Header } from '@diac/standard-components-diagrams/salesforceComponents'
+import { Header } from '@dinghy/standard-components-diagrams/salesforceComponents'
 
 <Header/>
 ```

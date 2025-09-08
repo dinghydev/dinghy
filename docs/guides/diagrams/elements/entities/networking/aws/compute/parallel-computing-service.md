@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParallelComputingService } from '@diac/standard-components-diagrams/awsCompute'
+import { ParallelComputingService } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <ParallelComputingService/>
 ```

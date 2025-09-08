@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Chime } from '@diac/standard-components-diagrams/aws17BusinessProductivity'
+import { Chime } from '@dinghy/standard-components-diagrams/aws17BusinessProductivity'
 
 <Chime/>
 ```

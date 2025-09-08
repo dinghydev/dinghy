@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TetrationAgent } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { TetrationAgent } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <TetrationAgent/>
 ```

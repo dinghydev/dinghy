@@ -16,7 +16,7 @@ Connectors
 ## Usage
 
 ```
-import { IntegrationConnectors } from '@diac/standard-components-diagrams/gcp2IconsIntegrationServices'
+import { IntegrationConnectors } from '@dinghy/standard-components-diagrams/gcp2IconsIntegrationServices'
 
 <IntegrationConnectors/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Quicksight } from '@diac/standard-components-diagrams/awsAnalytics'
+import { Quicksight } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <Quicksight/>
 ```

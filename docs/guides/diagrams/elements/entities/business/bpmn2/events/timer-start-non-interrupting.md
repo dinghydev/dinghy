@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimerStartNonInterrupting } from '@diac/standard-components-diagrams/bpmn2Events'
+import { TimerStartNonInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <TimerStartNonInterrupting/>
 ```

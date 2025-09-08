@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Venturi } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Venturi } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Venturi/>
 ```

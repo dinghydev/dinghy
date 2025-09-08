@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProxyServer } from '@diac/standard-components-diagrams/network'
+import { ProxyServer } from '@dinghy/standard-components-diagrams/network'
 
 <ProxyServer/>
 ```

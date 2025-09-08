@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BitbucketCodeSource } from '@diac/standard-components-diagrams/azure'
+import { BitbucketCodeSource } from '@dinghy/standard-components-diagrams/azure'
 
 <BitbucketCodeSource/>
 ```

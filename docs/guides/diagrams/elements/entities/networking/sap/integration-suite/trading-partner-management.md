@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TradingPartnerManagement } from '@diac/standard-components-diagrams/sapIntegrationSuite'
+import { TradingPartnerManagement } from '@dinghy/standard-components-diagrams/sapIntegrationSuite'
 
 <TradingPartnerManagement/>
 ```

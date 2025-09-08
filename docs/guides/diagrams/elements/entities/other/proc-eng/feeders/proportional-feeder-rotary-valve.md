@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProportionalFeederRotaryValve } from '@diac/standard-components-diagrams/procEngFeeders'
+import { ProportionalFeederRotaryValve } from '@dinghy/standard-components-diagrams/procEngFeeders'
 
 <ProportionalFeederRotaryValve/>
 ```

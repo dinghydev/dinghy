@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PartialConcentricEllipse2 } from '@diac/standard-components-diagrams/infoGraphic'
+import { PartialConcentricEllipse2 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <PartialConcentricEllipse2/>
 ```

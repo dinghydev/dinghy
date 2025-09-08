@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GenomicsAccounts } from '@diac/standard-components-diagrams/caeAiAndMlService'
+import { GenomicsAccounts } from '@dinghy/standard-components-diagrams/caeAiAndMlService'
 
 <GenomicsAccounts/>
 ```

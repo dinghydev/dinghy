@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Toolbar } from '@diac/standard-components-diagrams/gmdlButtons'
+import { Toolbar } from '@dinghy/standard-components-diagrams/gmdlButtons'
 
 <Toolbar/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QualityProblem } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { QualityProblem } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <QualityProblem/>
 ```

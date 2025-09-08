@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ComposedMessageProcessor } from '@diac/standard-components-diagrams/eipMessageRouting'
+import { ComposedMessageProcessor } from '@dinghy/standard-components-diagrams/eipMessageRouting'
 
 <ComposedMessageProcessor/>
 ```

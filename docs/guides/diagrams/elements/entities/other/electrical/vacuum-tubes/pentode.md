@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pentode } from '@diac/standard-components-diagrams/electricalVacuumTubes'
+import { Pentode } from '@dinghy/standard-components-diagrams/electricalVacuumTubes'
 
 <Pentode/>
 ```

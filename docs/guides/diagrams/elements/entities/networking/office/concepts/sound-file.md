@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SoundFile } from '@diac/standard-components-diagrams/officeConcepts'
+import { SoundFile } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <SoundFile/>
 ```

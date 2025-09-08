@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gatekeeper } from '@diac/standard-components-diagrams/ciscoSecurity'
+import { Gatekeeper } from '@dinghy/standard-components-diagrams/ciscoSecurity'
 
 <Gatekeeper/>
 ```

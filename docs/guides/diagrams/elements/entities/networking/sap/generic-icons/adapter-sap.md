@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdapterSap } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { AdapterSap } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <AdapterSap/>
 ```

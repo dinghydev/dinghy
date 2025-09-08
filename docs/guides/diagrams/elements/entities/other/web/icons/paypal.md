@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Paypal } from '@diac/standard-components-diagrams/webIcons'
+import { Paypal } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Paypal/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LifeSciences } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { LifeSciences } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <LifeSciences/>
 ```

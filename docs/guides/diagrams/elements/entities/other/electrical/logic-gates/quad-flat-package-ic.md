@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QuadFlatPackageIc } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { QuadFlatPackageIc } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <QuadFlatPackageIc/>
 ```

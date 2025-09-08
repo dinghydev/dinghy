@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Keyboard } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Keyboard } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Keyboard/>
 ```

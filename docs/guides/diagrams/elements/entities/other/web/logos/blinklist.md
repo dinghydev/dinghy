@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Blinklist } from '@diac/standard-components-diagrams/webLogos'
+import { Blinklist } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Blinklist/>
 ```

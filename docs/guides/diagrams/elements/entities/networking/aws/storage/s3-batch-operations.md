@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3BatchOperations } from '@diac/standard-components-diagrams/awsStorage'
+import { S3BatchOperations } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <S3BatchOperations/>
 ```

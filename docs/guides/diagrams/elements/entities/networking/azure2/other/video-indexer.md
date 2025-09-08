@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VideoIndexer } from '@diac/standard-components-diagrams/azure2Other'
+import { VideoIndexer } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <VideoIndexer/>
 ```

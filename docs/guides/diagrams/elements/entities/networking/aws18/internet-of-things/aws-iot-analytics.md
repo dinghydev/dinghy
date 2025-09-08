@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsIotAnalytics } from '@diac/standard-components-diagrams/aws18InternetOfThings'
+import { AwsIotAnalytics } from '@dinghy/standard-components-diagrams/aws18InternetOfThings'
 
 <AwsIotAnalytics/>
 ```

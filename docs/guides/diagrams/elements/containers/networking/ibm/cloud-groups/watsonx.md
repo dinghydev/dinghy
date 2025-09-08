@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { Watsonx } from '@diac/standard-components-diagrams/ibmCloudGroups'
+import { Watsonx } from '@dinghy/standard-components-diagrams/ibmCloudGroups'
 
 <Watsonx/>
 ```

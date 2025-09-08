@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ShortingSelector } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { ShortingSelector } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <ShortingSelector/>
 ```

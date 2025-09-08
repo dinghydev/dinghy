@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Event } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { Event } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <Event/>
 ```

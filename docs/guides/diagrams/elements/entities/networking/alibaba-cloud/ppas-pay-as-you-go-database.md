@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PpasPayAsYouGoDatabase } from '@diac/standard-components-diagrams/alibabaCloud'
+import { PpasPayAsYouGoDatabase } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <PpasPayAsYouGoDatabase/>
 ```

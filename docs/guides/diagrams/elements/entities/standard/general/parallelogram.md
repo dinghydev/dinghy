@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Parallelogram } from '@diac/standard-components-diagrams/general'
+import { Parallelogram } from '@dinghy/standard-components-diagrams/general'
 
 <Parallelogram/>
 ```

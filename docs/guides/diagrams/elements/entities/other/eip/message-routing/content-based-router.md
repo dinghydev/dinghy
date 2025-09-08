@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentBasedRouter } from '@diac/standard-components-diagrams/eipMessageRouting'
+import { ContentBasedRouter } from '@dinghy/standard-components-diagrams/eipMessageRouting'
 
 <ContentBasedRouter/>
 ```

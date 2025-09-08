@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsLambda } from '@diac/standard-components-diagrams/aws18Compute'
+import { AwsLambda } from '@dinghy/standard-components-diagrams/aws18Compute'
 
 <AwsLambda/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MqttProtocol } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { MqttProtocol } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <MqttProtocol/>
 ```

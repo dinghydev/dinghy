@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GetStarted } from '@diac/standard-components-diagrams/officeConcepts'
+import { GetStarted } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <GetStarted/>
 ```

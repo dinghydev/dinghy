@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ComplianceCenter } from '@diac/standard-components-diagrams/azure2Other'
+import { ComplianceCenter } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ComplianceCenter/>
 ```

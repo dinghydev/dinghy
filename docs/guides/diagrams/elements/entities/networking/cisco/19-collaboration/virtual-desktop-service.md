@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualDesktopService } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { VirtualDesktopService } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <VirtualDesktopService/>
 ```

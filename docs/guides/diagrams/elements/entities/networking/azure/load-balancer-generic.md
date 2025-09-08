@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadBalancerGeneric } from '@diac/standard-components-diagrams/azure'
+import { LoadBalancerGeneric } from '@dinghy/standard-components-diagrams/azure'
 
 <LoadBalancerGeneric/>
 ```

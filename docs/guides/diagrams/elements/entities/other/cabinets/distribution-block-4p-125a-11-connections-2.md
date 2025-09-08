@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DistributionBlock4p125a11Connections2 } from '@diac/standard-components-diagrams/cabinets'
+import { DistributionBlock4p125a11Connections2 } from '@dinghy/standard-components-diagrams/cabinets'
 
 <DistributionBlock4p125a11Connections2/>
 ```

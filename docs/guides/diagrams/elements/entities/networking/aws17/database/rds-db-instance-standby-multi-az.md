@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdsDbInstanceStandbyMultiAz } from '@diac/standard-components-diagrams/aws17Database'
+import { RdsDbInstanceStandbyMultiAz } from '@dinghy/standard-components-diagrams/aws17Database'
 
 <RdsDbInstanceStandbyMultiAz/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Switch48PortL3 } from '@diac/standard-components-diagrams/alliedTelesisSwitch'
+import { Switch48PortL3 } from '@dinghy/standard-components-diagrams/alliedTelesisSwitch'
 
 <Switch48PortL3/>
 ```

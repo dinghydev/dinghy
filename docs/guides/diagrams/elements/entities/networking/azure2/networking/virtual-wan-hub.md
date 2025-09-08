@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualWanHub } from '@diac/standard-components-diagrams/azure2Networking'
+import { VirtualWanHub } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <VirtualWanHub/>
 ```

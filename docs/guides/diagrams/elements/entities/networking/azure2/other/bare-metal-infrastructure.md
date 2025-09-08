@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BareMetalInfrastructure } from '@diac/standard-components-diagrams/azure2Other'
+import { BareMetalInfrastructure } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <BareMetalInfrastructure/>
 ```

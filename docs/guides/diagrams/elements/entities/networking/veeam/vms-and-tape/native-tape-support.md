@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NativeTapeSupport } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { NativeTapeSupport } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <NativeTapeSupport/>
 ```

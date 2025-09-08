@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DevopsGuruInsights } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { DevopsGuruInsights } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <DevopsGuruInsights/>
 ```

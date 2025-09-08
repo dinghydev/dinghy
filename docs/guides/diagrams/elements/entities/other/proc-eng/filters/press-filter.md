@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PressFilter } from '@diac/standard-components-diagrams/procEngFilters'
+import { PressFilter } from '@dinghy/standard-components-diagrams/procEngFilters'
 
 <PressFilter/>
 ```

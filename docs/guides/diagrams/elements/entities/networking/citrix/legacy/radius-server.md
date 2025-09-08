@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RadiusServer } from '@diac/standard-components-diagrams/citrixLegacy'
+import { RadiusServer } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <RadiusServer/>
 ```

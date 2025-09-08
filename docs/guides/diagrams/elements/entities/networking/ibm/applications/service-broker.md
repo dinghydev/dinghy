@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceBroker } from '@diac/standard-components-diagrams/ibmApplications'
+import { ServiceBroker } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <ServiceBroker/>
 ```

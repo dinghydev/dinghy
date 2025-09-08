@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogicAppsCustomConnector } from '@diac/standard-components-diagrams/caeIntegrationService'
+import { LogicAppsCustomConnector } from '@dinghy/standard-components-diagrams/caeIntegrationService'
 
 <LogicAppsCustomConnector/>
 ```

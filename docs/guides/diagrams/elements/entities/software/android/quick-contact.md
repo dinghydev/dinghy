@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QuickContact } from '@diac/standard-components-diagrams/android'
+import { QuickContact } from '@dinghy/standard-components-diagrams/android'
 
 <QuickContact/>
 ```

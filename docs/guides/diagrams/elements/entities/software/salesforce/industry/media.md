@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Media } from '@diac/standard-components-diagrams/salesforceIndustry'
+import { Media } from '@dinghy/standard-components-diagrams/salesforceIndustry'
 
 <Media/>
 ```

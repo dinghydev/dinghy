@@ -1,10 +1,10 @@
-import { Shape } from "@diac/base-components";
-import { Android } from "@diac/standard-components-diagrams/aws17Sdk";
-import * as awsGeneralResources from "@diac/standard-components-diagrams/awsGeneralResources";
-import * as awsGroups from "@diac/standard-components-diagrams/awsGroups";
-import { PostgreSqlInstance } from "@diac/standard-components-diagrams/awsDatabase";
-import { ApplicationLoadBalancer } from "@diac/standard-components-diagrams/awsNetworkContentDelivery";
-import { Waf } from "@diac/standard-components-diagrams/awsSecurityIdentityCompliance";
+import { Shape } from "@dinghy/base-components";
+import { Android } from "@dinghy/standard-components-diagrams/aws17Sdk";
+import * as awsGeneralResources from "@dinghy/standard-components-diagrams/awsGeneralResources";
+import * as awsGroups from "@dinghy/standard-components-diagrams/awsGroups";
+import { PostgreSqlInstance } from "@dinghy/standard-components-diagrams/awsDatabase";
+import { ApplicationLoadBalancer } from "@dinghy/standard-components-diagrams/awsNetworkContentDelivery";
+import { Waf } from "@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance";
 
 const Postgres = (props: any) => <PostgreSqlInstance {...props} />;
 

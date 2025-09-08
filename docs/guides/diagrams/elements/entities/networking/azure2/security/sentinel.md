@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sentinel } from '@diac/standard-components-diagrams/azure2Security'
+import { Sentinel } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <Sentinel/>
 ```

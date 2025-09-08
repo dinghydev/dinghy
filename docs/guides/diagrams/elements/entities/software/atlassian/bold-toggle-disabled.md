@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BoldToggleDisabled } from '@diac/standard-components-diagrams/atlassian'
+import { BoldToggleDisabled } from '@dinghy/standard-components-diagrams/atlassian'
 
 <BoldToggleDisabled/>
 ```

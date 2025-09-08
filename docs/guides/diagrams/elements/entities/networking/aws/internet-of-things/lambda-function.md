@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LambdaFunction } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { LambdaFunction } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <LambdaFunction/>
 ```

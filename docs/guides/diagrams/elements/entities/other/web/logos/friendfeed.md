@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Friendfeed } from '@diac/standard-components-diagrams/webLogos'
+import { Friendfeed } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Friendfeed/>
 ```

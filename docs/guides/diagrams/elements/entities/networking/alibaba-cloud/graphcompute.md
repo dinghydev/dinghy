@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Graphcompute } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Graphcompute } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Graphcompute/>
 ```

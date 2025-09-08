@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Connotea } from '@diac/standard-components-diagrams/webIcons'
+import { Connotea } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Connotea/>
 ```

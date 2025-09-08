@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Instant } from '@diac/standard-components-diagrams/veeam2States'
+import { Instant } from '@dinghy/standard-components-diagrams/veeam2States'
 
 <Instant/>
 ```

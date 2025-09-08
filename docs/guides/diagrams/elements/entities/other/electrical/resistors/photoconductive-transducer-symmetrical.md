@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhotoconductiveTransducerSymmetrical } from '@diac/standard-components-diagrams/electricalResistors'
+import { PhotoconductiveTransducerSymmetrical } from '@dinghy/standard-components-diagrams/electricalResistors'
 
 <PhotoconductiveTransducerSymmetrical/>
 ```

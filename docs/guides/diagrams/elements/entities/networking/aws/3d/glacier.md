@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Glacier } from '@diac/standard-components-diagrams/aws3d'
+import { Glacier } from '@dinghy/standard-components-diagrams/aws3d'
 
 <Glacier/>
 ```

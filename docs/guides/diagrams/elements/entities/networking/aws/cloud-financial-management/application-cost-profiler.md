@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationCostProfiler } from '@diac/standard-components-diagrams/awsCloudFinancialManagement'
+import { ApplicationCostProfiler } from '@dinghy/standard-components-diagrams/awsCloudFinancialManagement'
 
 <ApplicationCostProfiler/>
 ```

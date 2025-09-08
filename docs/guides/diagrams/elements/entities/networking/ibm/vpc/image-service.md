@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImageService } from '@diac/standard-components-diagrams/ibmVpc'
+import { ImageService } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <ImageService/>
 ```

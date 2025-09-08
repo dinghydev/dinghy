@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DurableSubscriber } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
+import { DurableSubscriber } from '@dinghy/standard-components-diagrams/eipMessagingEndpoints'
 
 <DurableSubscriber/>
 ```

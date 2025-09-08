@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MessageDispatcher } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
+import { MessageDispatcher } from '@dinghy/standard-components-diagrams/eipMessagingEndpoints'
 
 <MessageDispatcher/>
 ```

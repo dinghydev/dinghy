@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HpcWorkbench } from '@diac/standard-components-diagrams/azure2Other'
+import { HpcWorkbench } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <HpcWorkbench/>
 ```

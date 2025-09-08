@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SsisLiftAndShiftIr } from '@diac/standard-components-diagrams/azure2Databases'
+import { SsisLiftAndShiftIr } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <SsisLiftAndShiftIr/>
 ```

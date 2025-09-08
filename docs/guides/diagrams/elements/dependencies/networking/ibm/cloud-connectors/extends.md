@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Extends } from '@diac/standard-components-diagrams/ibmCloudConnectors'
+import { Extends } from '@dinghy/standard-components-diagrams/ibmCloudConnectors'
 
 <Extends/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Appstream20 } from '@diac/standard-components-diagrams/awsEndUserComputing'
+import { Appstream20 } from '@dinghy/standard-components-diagrams/awsEndUserComputing'
 
 <Appstream20/>
 ```

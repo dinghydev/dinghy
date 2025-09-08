@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpcNatGateway } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { VpcNatGateway } from '@dinghy/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <VpcNatGateway/>
 ```

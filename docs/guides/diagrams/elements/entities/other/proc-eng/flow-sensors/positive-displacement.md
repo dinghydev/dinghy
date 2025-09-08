@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PositiveDisplacement } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { PositiveDisplacement } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <PositiveDisplacement/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkspacesFamilyAmazonWorkspacesCore } from '@diac/standard-components-diagrams/awsEndUserComputing'
+import { WorkspacesFamilyAmazonWorkspacesCore } from '@dinghy/standard-components-diagrams/awsEndUserComputing'
 
 <WorkspacesFamilyAmazonWorkspacesCore/>
 ```

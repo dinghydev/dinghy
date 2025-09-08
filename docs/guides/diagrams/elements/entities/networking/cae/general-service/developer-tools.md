@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeveloperTools } from '@diac/standard-components-diagrams/caeGeneralService'
+import { DeveloperTools } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <DeveloperTools/>
 ```

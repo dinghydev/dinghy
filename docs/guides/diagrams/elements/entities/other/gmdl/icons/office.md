@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Office } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Office } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Office/>
 ```

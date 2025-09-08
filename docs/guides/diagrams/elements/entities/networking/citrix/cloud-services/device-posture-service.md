@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DevicePostureService } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { DevicePostureService } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <DevicePostureService/>
 ```

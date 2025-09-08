@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Whatsapp } from '@diac/standard-components-diagrams/webIcons'
+import { Whatsapp } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Whatsapp/>
 ```

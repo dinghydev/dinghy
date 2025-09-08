@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Restore } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Restore } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Restore/>
 ```

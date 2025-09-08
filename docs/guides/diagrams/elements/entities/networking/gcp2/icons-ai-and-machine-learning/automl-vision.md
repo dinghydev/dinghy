@@ -16,7 +16,7 @@ Vision
 ## Usage
 
 ```
-import { AutomlVision } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AutomlVision } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AutomlVision/>
 ```

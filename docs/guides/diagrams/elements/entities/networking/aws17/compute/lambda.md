@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lambda } from '@diac/standard-components-diagrams/aws17Compute'
+import { Lambda } from '@dinghy/standard-components-diagrams/aws17Compute'
 
 <Lambda/>
 ```

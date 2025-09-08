@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurityHub } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { SecurityHub } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <SecurityHub/>
 ```

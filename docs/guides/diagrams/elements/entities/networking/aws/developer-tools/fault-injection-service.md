@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FaultInjectionService } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { FaultInjectionService } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <FaultInjectionService/>
 ```

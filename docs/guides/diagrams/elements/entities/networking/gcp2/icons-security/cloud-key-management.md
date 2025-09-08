@@ -16,7 +16,7 @@ Management
 ## Usage
 
 ```
-import { CloudKeyManagement } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
+import { CloudKeyManagement } from '@dinghy/standard-components-diagrams/gcp2IconsSecurity'
 
 <CloudKeyManagement/>
 ```

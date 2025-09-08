@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Servo } from '@diac/standard-components-diagrams/aws18IotResources'
+import { Servo } from '@dinghy/standard-components-diagrams/aws18IotResources'
 
 <Servo/>
 ```

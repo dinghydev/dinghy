@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Block } from '@diac/standard-components-diagrams/uml'
+import { Block } from '@dinghy/standard-components-diagrams/uml'
 
 <Block/>
 ```

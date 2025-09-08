@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CheckboxGroup3 } from '@diac/standard-components-diagrams/atlassian'
+import { CheckboxGroup3 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <CheckboxGroup3/>
 ```

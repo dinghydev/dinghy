@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonPressed } from '@diac/standard-components-diagrams/android'
+import { ButtonPressed } from '@dinghy/standard-components-diagrams/android'
 
 <ButtonPressed/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NormalledJack } from '@diac/standard-components-diagrams/electricalMisc'
+import { NormalledJack } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <NormalledJack/>
 ```

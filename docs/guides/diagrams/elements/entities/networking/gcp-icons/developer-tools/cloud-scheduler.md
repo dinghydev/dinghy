@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudScheduler } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { CloudScheduler } from '@dinghy/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <CloudScheduler/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimeClocks } from '@diac/standard-components-diagrams/veeam2General'
+import { TimeClocks } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <TimeClocks/>
 ```

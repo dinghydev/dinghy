@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X2gdInstance } from '@diac/standard-components-diagrams/awsCompute'
+import { X2gdInstance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <X2gdInstance/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Coregion } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { Coregion } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <Coregion/>
 ```

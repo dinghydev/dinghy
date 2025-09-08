@@ -3,13 +3,13 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@diac/cli'
+} from '@dinghy/cli'
 import {
   fetchLatestVersion,
   OPTIONS_SYMBOL,
-  diacConfigFile,
+  dinghyConfigFile,
   RUN_SYMBOL,
-} from '@diac/cli'
+} from '@dinghy/cli'
 import chalk from 'chalk'
 import * as yaml from '@std/yaml'
 import { existsSync } from '@std/fs/exists'
@@ -26,7 +26,7 @@ const options: CommandOptions = {
     version: 'latest',
   },
   cmdDescription:
-    'Upgrade/lock project DIaC version, to the latest version by default',
+    'Upgrade/lock project Dinghy version, to the latest version by default',
   cmdAlias: ['up'],
 }
 
@@ -40,15 +40,15 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     }
   }
 
-  const config: any = existsSync(diacConfigFile)
-    ? yaml.parse(Deno.readTextFileSync(diacConfigFile))
+  const config: any = existsSync(dinghyConfigFile)
+    ? yaml.parse(Deno.readTextFileSync(dinghyConfigFile))
     : {}
-  const currentVersion = config.diac?.engine?.version
+  const currentVersion = config.dinghy?.engine?.version
   if (currentVersion !== version) {
-    config.diac ??= {}
-    config.diac.engine ??= {}
-    config.diac.engine.version = version
-    Deno.writeTextFileSync(diacConfigFile, yaml.stringify(config))
+    config.dinghy ??= {}
+    config.dinghy.engine ??= {}
+    config.dinghy.engine.version = version
+    Deno.writeTextFileSync(dinghyConfigFile, yaml.stringify(config))
     console.log(
       `Upgraded from ${chalk.red(currentVersion)} to version ${
         chalk.green(version)

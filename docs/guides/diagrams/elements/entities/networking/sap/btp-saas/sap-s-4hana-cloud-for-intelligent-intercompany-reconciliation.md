@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapS4hanaCloudForIntelligentIntercompanyReconciliation } from '@diac/standard-components-diagrams/sapBtpSaas'
+import { SapS4hanaCloudForIntelligentIntercompanyReconciliation } from '@dinghy/standard-components-diagrams/sapBtpSaas'
 
 <SapS4hanaCloudForIntelligentIntercompanyReconciliation/>
 ```

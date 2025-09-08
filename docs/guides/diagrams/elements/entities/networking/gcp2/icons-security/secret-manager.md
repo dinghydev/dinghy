@@ -16,7 +16,7 @@ Manager
 ## Usage
 
 ```
-import { SecretManager } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
+import { SecretManager } from '@dinghy/standard-components-diagrams/gcp2IconsSecurity'
 
 <SecretManager/>
 ```

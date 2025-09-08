@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DnsServer } from '@diac/standard-components-diagrams/citrixLegacy'
+import { DnsServer } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <DnsServer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IrmProtectedMessage } from '@diac/standard-components-diagrams/officeSecurity'
+import { IrmProtectedMessage } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <IrmProtectedMessage/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Step } from '@diac/standard-components-diagrams/general'
+import { Step } from '@dinghy/standard-components-diagrams/general'
 
 <Step/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CodeOptimization } from '@diac/standard-components-diagrams/azure2Devops'
+import { CodeOptimization } from '@dinghy/standard-components-diagrams/azure2Devops'
 
 <CodeOptimization/>
 ```

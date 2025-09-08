@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonCloudsearch } from '@diac/standard-components-diagrams/aws18Analytics'
+import { AmazonCloudsearch } from '@dinghy/standard-components-diagrams/aws18Analytics'
 
 <AmazonCloudsearch/>
 ```

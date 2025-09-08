@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MeetingSchedulingAndManagementServer } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { MeetingSchedulingAndManagementServer } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <MeetingSchedulingAndManagementServer/>
 ```

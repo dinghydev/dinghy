@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExchangeEdgeTransportServer } from '@diac/standard-components-diagrams/officeServers'
+import { ExchangeEdgeTransportServer } from '@dinghy/standard-components-diagrams/officeServers'
 
 <ExchangeEdgeTransportServer/>
 ```

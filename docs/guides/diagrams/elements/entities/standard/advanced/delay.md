@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Delay } from '@diac/standard-components-diagrams/advanced'
+import { Delay } from '@dinghy/standard-components-diagrams/advanced'
 
 <Delay/>
 ```

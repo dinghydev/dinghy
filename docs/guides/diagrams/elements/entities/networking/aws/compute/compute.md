@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Compute } from '@diac/standard-components-diagrams/awsCompute'
+import { Compute } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Compute/>
 ```

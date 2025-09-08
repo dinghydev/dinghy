@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlankService } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { BlankService } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <BlankService/>
 ```

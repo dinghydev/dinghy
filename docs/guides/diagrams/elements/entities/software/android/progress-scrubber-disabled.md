@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgressScrubberDisabled } from '@diac/standard-components-diagrams/android'
+import { ProgressScrubberDisabled } from '@dinghy/standard-components-diagrams/android'
 
 <ProgressScrubberDisabled/>
 ```

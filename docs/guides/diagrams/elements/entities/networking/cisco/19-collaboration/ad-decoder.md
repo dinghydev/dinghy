@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdDecoder } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { AdDecoder } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <AdDecoder/>
 ```

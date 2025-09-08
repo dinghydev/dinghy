@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CallSubConversation } from '@diac/standard-components-diagrams/bpmn2General'
+import { CallSubConversation } from '@dinghy/standard-components-diagrams/bpmn2General'
 
 <CallSubConversation/>
 ```

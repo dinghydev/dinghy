@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmProblem } from '@diac/standard-components-diagrams/veeam23d'
+import { VmProblem } from '@dinghy/standard-components-diagrams/veeam23d'
 
 <VmProblem/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HeatExchangerFloatingHead } from '@diac/standard-components-diagrams/procEngHeatExchangers'
+import { HeatExchangerFloatingHead } from '@dinghy/standard-components-diagrams/procEngHeatExchangers'
 
 <HeatExchangerFloatingHead/>
 ```

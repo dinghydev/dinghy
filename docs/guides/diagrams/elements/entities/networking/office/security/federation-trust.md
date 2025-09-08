@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FederationTrust } from '@diac/standard-components-diagrams/officeSecurity'
+import { FederationTrust } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <FederationTrust/>
 ```

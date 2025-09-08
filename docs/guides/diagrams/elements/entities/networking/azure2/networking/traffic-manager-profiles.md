@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrafficManagerProfiles } from '@diac/standard-components-diagrams/azure2Networking'
+import { TrafficManagerProfiles } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <TrafficManagerProfiles/>
 ```

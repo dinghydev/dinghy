@@ -16,7 +16,7 @@ Debugger
 ## Usage
 
 ```
-import { CloudDebugger } from '@diac/standard-components-diagrams/gcp2IconsOperations'
+import { CloudDebugger } from '@dinghy/standard-components-diagrams/gcp2IconsOperations'
 
 <CloudDebugger/>
 ```

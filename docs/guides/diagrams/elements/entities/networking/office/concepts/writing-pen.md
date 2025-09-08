@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WritingPen } from '@diac/standard-components-diagrams/officeConcepts'
+import { WritingPen } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <WritingPen/>
 ```

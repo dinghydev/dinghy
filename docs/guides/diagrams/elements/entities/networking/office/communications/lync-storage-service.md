@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LyncStorageService } from '@diac/standard-components-diagrams/officeCommunications'
+import { LyncStorageService } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <LyncStorageService/>
 ```

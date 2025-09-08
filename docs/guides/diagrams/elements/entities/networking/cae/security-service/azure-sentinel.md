@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureSentinel } from '@diac/standard-components-diagrams/caeSecurityService'
+import { AzureSentinel } from '@dinghy/standard-components-diagrams/caeSecurityService'
 
 <AzureSentinel/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualGateway } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { VirtualGateway } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <VirtualGateway/>
 ```

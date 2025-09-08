@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StayPut } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { StayPut } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <StayPut/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EdgeServices } from '@diac/standard-components-diagrams/ibmInfrastructure'
+import { EdgeServices } from '@dinghy/standard-components-diagrams/ibmInfrastructure'
 
 <EdgeServices/>
 ```

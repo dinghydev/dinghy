@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventGridSubscriptions } from '@diac/standard-components-diagrams/azure2Iot'
+import { EventGridSubscriptions } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <EventGridSubscriptions/>
 ```

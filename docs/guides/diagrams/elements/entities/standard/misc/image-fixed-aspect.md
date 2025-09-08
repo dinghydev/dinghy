@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImageFixedAspect } from '@diac/standard-components-diagrams/misc'
+import { ImageFixedAspect } from '@dinghy/standard-components-diagrams/misc'
 
 <ImageFixedAspect/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResourceGroupList } from '@diac/standard-components-diagrams/azure2General'
+import { ResourceGroupList } from '@dinghy/standard-components-diagrams/azure2General'
 
 <ResourceGroupList/>
 ```

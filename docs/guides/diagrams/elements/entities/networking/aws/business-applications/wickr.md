@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wickr } from '@diac/standard-components-diagrams/awsBusinessApplications'
+import { Wickr } from '@dinghy/standard-components-diagrams/awsBusinessApplications'
 
 <Wickr/>
 ```

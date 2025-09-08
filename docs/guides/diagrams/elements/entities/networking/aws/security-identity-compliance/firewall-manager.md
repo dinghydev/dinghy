@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FirewallManager } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { FirewallManager } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <FirewallManager/>
 ```

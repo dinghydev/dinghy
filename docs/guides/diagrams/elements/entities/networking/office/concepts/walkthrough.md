@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Walkthrough } from '@diac/standard-components-diagrams/officeConcepts'
+import { Walkthrough } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Walkthrough/>
 ```

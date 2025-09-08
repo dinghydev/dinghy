@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MsSql } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { MsSql } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <MsSql/>
 ```

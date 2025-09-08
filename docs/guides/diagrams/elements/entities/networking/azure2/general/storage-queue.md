@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageQueue } from '@diac/standard-components-diagrams/azure2General'
+import { StorageQueue } from '@dinghy/standard-components-diagrams/azure2General'
 
 <StorageQueue/>
 ```

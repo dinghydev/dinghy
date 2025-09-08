@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Demux } from '@diac/standard-components-diagrams/electricalMisc'
+import { Demux } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <Demux/>
 ```

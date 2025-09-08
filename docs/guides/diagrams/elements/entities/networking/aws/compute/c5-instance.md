@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { C5Instance } from '@diac/standard-components-diagrams/awsCompute'
+import { C5Instance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <C5Instance/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MembershipServicesProviderApi } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { MembershipServicesProviderApi } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <MembershipServicesProviderApi/>
 ```

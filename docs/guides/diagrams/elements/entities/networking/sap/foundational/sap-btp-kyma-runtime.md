@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapBtpKymaRuntime } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapBtpKymaRuntime } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapBtpKymaRuntime/>
 ```

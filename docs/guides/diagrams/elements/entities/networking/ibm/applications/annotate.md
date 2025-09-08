@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Annotate } from '@diac/standard-components-diagrams/ibmApplications'
+import { Annotate } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <Annotate/>
 ```

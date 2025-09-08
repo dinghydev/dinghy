@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Agent } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { Agent } from '@dinghy/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <Agent/>
 ```

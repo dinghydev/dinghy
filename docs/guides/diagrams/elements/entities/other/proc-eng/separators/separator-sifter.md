@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SeparatorSifter } from '@diac/standard-components-diagrams/procEngSeparators'
+import { SeparatorSifter } from '@dinghy/standard-components-diagrams/procEngSeparators'
 
 <SeparatorSifter/>
 ```

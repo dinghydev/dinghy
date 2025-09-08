@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SubtleToggle } from '@diac/standard-components-diagrams/atlassian'
+import { SubtleToggle } from '@dinghy/standard-components-diagrams/atlassian'
 
 <SubtleToggle/>
 ```

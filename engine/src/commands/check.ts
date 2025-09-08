@@ -4,10 +4,10 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@diac/cli'
-import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@diac/cli'
+} from '@dinghy/cli'
+import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@dinghy/cli'
 import { streamCmd } from '../utils/cmd.ts'
-import { hostAppHome } from '@diac/cli'
+import { hostAppHome } from '@dinghy/cli'
 import chalk from 'chalk'
 
 const SUPPORTED_CHECKS = ['fmt', 'lint', 'type', 'git']

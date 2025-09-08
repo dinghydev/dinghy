@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DdosProtectionPlans } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { DdosProtectionPlans } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <DdosProtectionPlans/>
 ```

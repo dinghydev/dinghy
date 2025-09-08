@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MqBroker } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { MqBroker } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <MqBroker/>
 ```

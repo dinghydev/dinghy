@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowGarden } from '@diac/standard-components-diagrams/floorPlans'
+import { WindowGarden } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <WindowGarden/>
 ```

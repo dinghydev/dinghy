@@ -16,7 +16,7 @@ board
 ## Usage
 
 ```
-import { HardwareBoard } from '@diac/standard-components-diagrams/aws18IotResources'
+import { HardwareBoard } from '@dinghy/standard-components-diagrams/aws18IotResources'
 
 <HardwareBoard/>
 ```

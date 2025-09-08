@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContainerOptimizedOs } from '@diac/standard-components-diagrams/gcpIconsCompute'
+import { ContainerOptimizedOs } from '@dinghy/standard-components-diagrams/gcpIconsCompute'
 
 <ContainerOptimizedOs/>
 ```

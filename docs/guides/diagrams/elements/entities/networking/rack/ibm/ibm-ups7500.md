@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IbmUps7500 } from '@diac/standard-components-diagrams/rackIbm'
+import { IbmUps7500 } from '@dinghy/standard-components-diagrams/rackIbm'
 
 <IbmUps7500/>
 ```

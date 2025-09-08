@@ -16,7 +16,7 @@ protocol
 ## Usage
 
 ```
-import { MqttProtocol } from '@diac/standard-components-diagrams/aws18IotResources'
+import { MqttProtocol } from '@dinghy/standard-components-diagrams/aws18IotResources'
 
 <MqttProtocol/>
 ```

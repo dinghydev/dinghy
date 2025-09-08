@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScenicViewpoint } from '@diac/standard-components-diagrams/signsSports'
+import { ScenicViewpoint } from '@dinghy/standard-components-diagrams/signsSports'
 
 <ScenicViewpoint/>
 ```

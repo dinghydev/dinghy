@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IotCore } from '@diac/standard-components-diagrams/gcpIconsInternetOfThings'
+import { IotCore } from '@dinghy/standard-components-diagrams/gcpIconsInternetOfThings'
 
 <IotCore/>
 ```

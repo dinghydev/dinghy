@@ -16,7 +16,7 @@ Security
 ## Usage
 
 ```
-import { ForsetiSecurity } from '@diac/standard-components-diagrams/gcp2IconsOpenSourceIcons'
+import { ForsetiSecurity } from '@dinghy/standard-components-diagrams/gcp2IconsOpenSourceIcons'
 
 <ForsetiSecurity/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FleetManagement } from '@diac/standard-components-diagrams/awsRobotics'
+import { FleetManagement } from '@dinghy/standard-components-diagrams/awsRobotics'
 
 <FleetManagement/>
 ```

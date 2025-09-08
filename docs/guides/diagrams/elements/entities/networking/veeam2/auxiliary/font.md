@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Font } from '@diac/standard-components-diagrams/veeam2Auxiliary'
+import { Font } from '@dinghy/standard-components-diagrams/veeam2Auxiliary'
 
 <Font/>
 ```

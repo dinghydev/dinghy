@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Promotion } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Promotion } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Promotion/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Manhole } from '@diac/standard-components-diagrams/procEngApparatusElements'
+import { Manhole } from '@dinghy/standard-components-diagrams/procEngApparatusElements'
 
 <Manhole/>
 ```

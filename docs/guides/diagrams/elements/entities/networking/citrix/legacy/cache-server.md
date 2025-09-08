@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CacheServer } from '@diac/standard-components-diagrams/citrixLegacy'
+import { CacheServer } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <CacheServer/>
 ```

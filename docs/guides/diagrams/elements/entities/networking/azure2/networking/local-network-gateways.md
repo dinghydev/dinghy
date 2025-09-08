@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LocalNetworkGateways } from '@diac/standard-components-diagrams/azure2Networking'
+import { LocalNetworkGateways } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <LocalNetworkGateways/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkgroupDirector } from '@diac/standard-components-diagrams/ciscoDirectors'
+import { WorkgroupDirector } from '@dinghy/standard-components-diagrams/ciscoDirectors'
 
 <WorkgroupDirector/>
 ```

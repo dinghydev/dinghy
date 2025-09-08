@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebsitePower } from '@diac/standard-components-diagrams/azure2General'
+import { WebsitePower } from '@dinghy/standard-components-diagrams/azure2General'
 
 <WebsitePower/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DynamicDistributionGroup } from '@diac/standard-components-diagrams/officeCommunications'
+import { DynamicDistributionGroup } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <DynamicDistributionGroup/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlpPosPartOfSpeechTagging } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlpPosPartOfSpeechTagging } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlpPosPartOfSpeechTagging/>
 ```

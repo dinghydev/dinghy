@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CurvedGasVent } from '@diac/standard-components-diagrams/procEngMisc'
+import { CurvedGasVent } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <CurvedGasVent/>
 ```

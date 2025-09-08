@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MessageStore } from '@diac/standard-components-diagrams/eipSystemManagement'
+import { MessageStore } from '@dinghy/standard-components-diagrams/eipSystemManagement'
 
 <MessageStore/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CallDialog } from '@diac/standard-components-diagrams/ios6'
+import { CallDialog } from '@dinghy/standard-components-diagrams/ios6'
 
 <CallDialog/>
 ```

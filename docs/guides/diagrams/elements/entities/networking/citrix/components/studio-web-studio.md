@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StudioWebStudio } from '@diac/standard-components-diagrams/citrixComponents'
+import { StudioWebStudio } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <StudioWebStudio/>
 ```

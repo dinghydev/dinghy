@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bridge } from '@diac/standard-components-diagrams/ibmVpc'
+import { Bridge } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <Bridge/>
 ```

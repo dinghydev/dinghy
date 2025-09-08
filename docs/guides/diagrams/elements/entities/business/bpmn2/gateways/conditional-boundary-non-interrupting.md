@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConditionalBoundaryNonInterrupting } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { ConditionalBoundaryNonInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <ConditionalBoundaryNonInterrupting/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EmptyFolder } from '@diac/standard-components-diagrams/clipartVarious'
+import { EmptyFolder } from '@dinghy/standard-components-diagrams/clipartVarious'
 
 <EmptyFolder/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureMaps } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
+import { AzureMaps } from '@dinghy/standard-components-diagrams/caeInternetOfThingsService'
 
 <AzureMaps/>
 ```

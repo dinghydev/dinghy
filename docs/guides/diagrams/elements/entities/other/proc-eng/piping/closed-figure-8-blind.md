@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ClosedFigure8Blind } from '@diac/standard-components-diagrams/procEngPiping'
+import { ClosedFigure8Blind } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <ClosedFigure8Blind/>
 ```

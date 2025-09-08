@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Endpoints } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { Endpoints } from '@dinghy/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <Endpoints/>
 ```

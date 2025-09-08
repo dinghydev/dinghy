@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NodeGeneric } from '@diac/standard-components-diagrams/officeConcepts'
+import { NodeGeneric } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <NodeGeneric/>
 ```

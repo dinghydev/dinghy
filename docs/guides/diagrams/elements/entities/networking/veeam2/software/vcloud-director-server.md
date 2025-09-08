@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VcloudDirectorServer } from '@diac/standard-components-diagrams/veeam2Software'
+import { VcloudDirectorServer } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <VcloudDirectorServer/>
 ```

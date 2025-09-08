@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsArtifact } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsArtifact } from '@dinghy/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsArtifact/>
 ```

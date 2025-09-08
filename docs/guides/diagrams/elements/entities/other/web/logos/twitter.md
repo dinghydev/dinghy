@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Twitter } from '@diac/standard-components-diagrams/webLogos'
+import { Twitter } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Twitter/>
 ```

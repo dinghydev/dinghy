@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Supercomputer } from '@diac/standard-components-diagrams/network'
+import { Supercomputer } from '@dinghy/standard-components-diagrams/network'
 
 <Supercomputer/>
 ```

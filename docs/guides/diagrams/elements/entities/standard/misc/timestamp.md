@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Timestamp } from '@diac/standard-components-diagrams/misc'
+import { Timestamp } from '@dinghy/standard-components-diagrams/misc'
 
 <Timestamp/>
 ```

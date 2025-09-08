@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GoSeeProductionScheduling } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { GoSeeProductionScheduling } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <GoSeeProductionScheduling/>
 ```

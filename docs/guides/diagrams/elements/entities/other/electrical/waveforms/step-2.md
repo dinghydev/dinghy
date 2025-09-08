@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Step2 } from '@diac/standard-components-diagrams/electricalWaveforms'
+import { Step2 } from '@dinghy/standard-components-diagrams/electricalWaveforms'
 
 <Step2/>
 ```

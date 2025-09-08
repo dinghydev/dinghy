@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecureSystem } from '@diac/standard-components-diagrams/clipartComputer'
+import { SecureSystem } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <SecureSystem/>
 ```

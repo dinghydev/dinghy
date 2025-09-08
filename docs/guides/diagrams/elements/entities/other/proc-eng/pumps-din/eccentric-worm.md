@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EccentricWorm } from '@diac/standard-components-diagrams/procEngPumpsDin'
+import { EccentricWorm } from '@dinghy/standard-components-diagrams/procEngPumpsDin'
 
 <EccentricWorm/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProjectorCanvas } from '@diac/standard-components-diagrams/network2'
+import { ProjectorCanvas } from '@dinghy/standard-components-diagrams/network2'
 
 <ProjectorCanvas/>
 ```

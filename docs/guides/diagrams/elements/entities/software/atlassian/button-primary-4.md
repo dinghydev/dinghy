@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonPrimary4 } from '@diac/standard-components-diagrams/atlassian'
+import { ButtonPrimary4 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <ButtonPrimary4/>
 ```

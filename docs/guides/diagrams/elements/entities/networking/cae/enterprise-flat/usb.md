@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Usb } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Usb } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Usb/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CachePlusRedis } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { CachePlusRedis } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <CachePlusRedis/>
 ```

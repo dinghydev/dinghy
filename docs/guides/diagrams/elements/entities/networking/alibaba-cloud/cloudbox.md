@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloudbox } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Cloudbox } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Cloudbox/>
 ```

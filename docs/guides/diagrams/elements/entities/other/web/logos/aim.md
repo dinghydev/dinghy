@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Aim } from '@diac/standard-components-diagrams/webLogos'
+import { Aim } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Aim/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NChannelJfet } from '@diac/standard-components-diagrams/electricalTransistors'
+import { NChannelJfet } from '@dinghy/standard-components-diagrams/electricalTransistors'
 
 <NChannelJfet/>
 ```

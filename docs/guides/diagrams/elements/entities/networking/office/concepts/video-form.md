@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VideoForm } from '@diac/standard-components-diagrams/officeConcepts'
+import { VideoForm } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <VideoForm/>
 ```

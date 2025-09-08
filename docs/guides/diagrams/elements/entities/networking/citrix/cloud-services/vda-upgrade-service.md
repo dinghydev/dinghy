@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VdaUpgradeService } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { VdaUpgradeService } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <VdaUpgradeService/>
 ```

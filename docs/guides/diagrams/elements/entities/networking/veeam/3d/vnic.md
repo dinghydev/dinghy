@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vnic } from '@diac/standard-components-diagrams/veeam3d'
+import { Vnic } from '@dinghy/standard-components-diagrams/veeam3d'
 
 <Vnic/>
 ```

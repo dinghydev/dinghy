@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Radiobutton } from '@diac/standard-components-diagrams/mockupForms'
+import { Radiobutton } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <Radiobutton/>
 ```

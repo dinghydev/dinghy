@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NotificationTopic } from '@diac/standard-components-diagrams/azure'
+import { NotificationTopic } from '@dinghy/standard-components-diagrams/azure'
 
 <NotificationTopic/>
 ```

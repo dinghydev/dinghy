@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProtectedVoiceMail } from '@diac/standard-components-diagrams/officeSecurity'
+import { ProtectedVoiceMail } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <ProtectedVoiceMail/>
 ```

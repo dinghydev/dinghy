@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EntraVerifiedId } from '@diac/standard-components-diagrams/azure2Identity'
+import { EntraVerifiedId } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <EntraVerifiedId/>
 ```

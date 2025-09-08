@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualNetworkGateways } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { VirtualNetworkGateways } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <VirtualNetworkGateways/>
 ```

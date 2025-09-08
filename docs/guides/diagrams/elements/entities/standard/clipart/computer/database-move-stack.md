@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseMoveStack } from '@diac/standard-components-diagrams/clipartComputer'
+import { DatabaseMoveStack } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <DatabaseMoveStack/>
 ```

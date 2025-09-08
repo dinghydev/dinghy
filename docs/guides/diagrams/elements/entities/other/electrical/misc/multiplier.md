@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Multiplier } from '@diac/standard-components-diagrams/electricalMisc'
+import { Multiplier } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <Multiplier/>
 ```

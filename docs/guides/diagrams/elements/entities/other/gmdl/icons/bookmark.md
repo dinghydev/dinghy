@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bookmark } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Bookmark } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Bookmark/>
 ```

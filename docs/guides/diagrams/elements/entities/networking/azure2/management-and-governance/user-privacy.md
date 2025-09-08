@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserPrivacy } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { UserPrivacy } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <UserPrivacy/>
 ```

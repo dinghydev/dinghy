@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FaultInjectionSimulator } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { FaultInjectionSimulator } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <FaultInjectionSimulator/>
 ```

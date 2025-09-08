@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProcessBar } from '@diac/standard-components-diagrams/advanced'
+import { ProcessBar } from '@dinghy/standard-components-diagrams/advanced'
 
 <ProcessBar/>
 ```

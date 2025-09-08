@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MagnifyingGlass } from '@diac/standard-components-diagrams/veeam2General'
+import { MagnifyingGlass } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <MagnifyingGlass/>
 ```

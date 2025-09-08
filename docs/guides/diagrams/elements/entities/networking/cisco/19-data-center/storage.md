@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Storage } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { Storage } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <Storage/>
 ```

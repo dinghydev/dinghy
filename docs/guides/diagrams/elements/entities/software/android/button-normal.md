@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonNormal } from '@diac/standard-components-diagrams/android'
+import { ButtonNormal } from '@dinghy/standard-components-diagrams/android'
 
 <ButtonNormal/>
 ```

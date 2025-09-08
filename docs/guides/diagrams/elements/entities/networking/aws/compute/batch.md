@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Batch } from '@diac/standard-components-diagrams/awsCompute'
+import { Batch } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Batch/>
 ```

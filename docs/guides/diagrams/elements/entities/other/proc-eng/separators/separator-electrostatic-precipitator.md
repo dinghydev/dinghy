@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SeparatorElectrostaticPrecipitator } from '@diac/standard-components-diagrams/procEngSeparators'
+import { SeparatorElectrostaticPrecipitator } from '@dinghy/standard-components-diagrams/procEngSeparators'
 
 <SeparatorElectrostaticPrecipitator/>
 ```

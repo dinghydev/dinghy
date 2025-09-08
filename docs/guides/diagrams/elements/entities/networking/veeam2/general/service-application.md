@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceApplication } from '@diac/standard-components-diagrams/veeam2General'
+import { ServiceApplication } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <ServiceApplication/>
 ```

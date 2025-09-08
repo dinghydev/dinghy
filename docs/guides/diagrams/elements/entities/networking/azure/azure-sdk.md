@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureSdk } from '@diac/standard-components-diagrams/azure'
+import { AzureSdk } from '@dinghy/standard-components-diagrams/azure'
 
 <AzureSdk/>
 ```

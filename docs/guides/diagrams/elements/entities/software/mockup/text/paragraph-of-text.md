@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParagraphOfText } from '@diac/standard-components-diagrams/mockupText'
+import { ParagraphOfText } from '@dinghy/standard-components-diagrams/mockupText'
 
 <ParagraphOfText/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IbmDx360 } from '@diac/standard-components-diagrams/rackIbm'
+import { IbmDx360 } from '@dinghy/standard-components-diagrams/rackIbm'
 
 <IbmDx360/>
 ```

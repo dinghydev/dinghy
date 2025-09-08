@@ -8,7 +8,7 @@
     },
     "backend": {
       "s3": {
-        "bucket": "diac-website-tf-state",
+        "bucket": "dinghy-website-tf-state",
         "key": "tfstates/app-main.tfstate",
         "region": "us-east-1",
         "use_lockfile": true
@@ -21,8 +21,8 @@
         "default_tags": [
           {
             "tags": {
-              "iac:stack-title": "DIaC Website",
-              "iac:stack-name": "diac-website"
+              "iac:stack-title": "Dinghy Website",
+              "iac:stack-name": "dinghy-website"
             }
           }
         ],
@@ -34,7 +34,7 @@
     "aws_cloudfront_distribution": {
       "aws_cloudfront_distribution_www": {
         "aliases": [
-          "diac.dev"
+          "dinghy.dev"
         ],
         "restrictions": {
           "geo_restriction": {
@@ -75,17 +75,17 @@
         "default_root_object": "index.html",
         "logging_config": {
           "bucket": "${aws_s3_bucket.aws_s3_bucket_logs.bucket_regional_domain_name}",
-          "prefix": "log-sink/cloudfront/diac.dev/"
+          "prefix": "log-sink/cloudfront/dinghy.dev/"
         },
         "viewer_certificate": {
-          "acm_certificate_arn": "${data.aws_acm_certificate.aws_acm_certificate_diacdev.arn}",
+          "acm_certificate_arn": "${data.aws_acm_certificate.aws_acm_certificate_dinghydev.arn}",
           "ssl_support_method": "sni-only",
           "minimum_protocol_version": "TLSv1.2_2021"
         }
       },
       "aws_cloudfront_distribution_play": {
         "aliases": [
-          "play.diac.dev"
+          "play.dinghy.dev"
         ],
         "restrictions": {
           "geo_restriction": {
@@ -126,17 +126,17 @@
         "default_root_object": "index.html",
         "logging_config": {
           "bucket": "${aws_s3_bucket.aws_s3_bucket_logs.bucket_regional_domain_name}",
-          "prefix": "log-sink/cloudfront/play.diac.dev/"
+          "prefix": "log-sink/cloudfront/play.dinghy.dev/"
         },
         "viewer_certificate": {
-          "acm_certificate_arn": "${data.aws_acm_certificate.aws_acm_certificate_diacdev.arn}",
+          "acm_certificate_arn": "${data.aws_acm_certificate.aws_acm_certificate_dinghydev.arn}",
           "ssl_support_method": "sni-only",
           "minimum_protocol_version": "TLSv1.2_2021"
         }
       },
       "aws_cloudfront_distribution_cdn": {
         "aliases": [
-          "cdn.diac.dev"
+          "cdn.dinghy.dev"
         ],
         "restrictions": {
           "geo_restriction": {
@@ -177,10 +177,10 @@
         "default_root_object": "index.html",
         "logging_config": {
           "bucket": "${aws_s3_bucket.aws_s3_bucket_logs.bucket_regional_domain_name}",
-          "prefix": "log-sink/cloudfront/cdn.diac.dev/"
+          "prefix": "log-sink/cloudfront/cdn.dinghy.dev/"
         },
         "viewer_certificate": {
-          "acm_certificate_arn": "${data.aws_acm_certificate.aws_acm_certificate_diacdev.arn}",
+          "acm_certificate_arn": "${data.aws_acm_certificate.aws_acm_certificate_dinghydev.arn}",
           "ssl_support_method": "sni-only",
           "minimum_protocol_version": "TLSv1.2_2021"
         }
@@ -188,8 +188,8 @@
     },
     "aws_route53_record": {
       "aws_route53_record_www": {
-        "zone_id": "${data.aws_route53_zone.aws_route53_zone_diacdev.zone_id}",
-        "name": "diac.dev",
+        "zone_id": "${data.aws_route53_zone.aws_route53_zone_dinghydev.zone_id}",
+        "name": "dinghy.dev",
         "type": "A",
         "alias": {
           "name": "${aws_cloudfront_distribution.aws_cloudfront_distribution_www.domain_name}",
@@ -198,8 +198,8 @@
         }
       },
       "aws_route53_record_play": {
-        "zone_id": "${data.aws_route53_zone.aws_route53_zone_diacdev.zone_id}",
-        "name": "play.diac.dev",
+        "zone_id": "${data.aws_route53_zone.aws_route53_zone_dinghydev.zone_id}",
+        "name": "play.dinghy.dev",
         "type": "A",
         "alias": {
           "name": "${aws_cloudfront_distribution.aws_cloudfront_distribution_play.domain_name}",
@@ -208,8 +208,8 @@
         }
       },
       "aws_route53_record_cdn": {
-        "zone_id": "${data.aws_route53_zone.aws_route53_zone_diacdev.zone_id}",
-        "name": "cdn.diac.dev",
+        "zone_id": "${data.aws_route53_zone.aws_route53_zone_dinghydev.zone_id}",
+        "name": "cdn.dinghy.dev",
         "type": "A",
         "alias": {
           "name": "${aws_cloudfront_distribution.aws_cloudfront_distribution_cdn.domain_name}",
@@ -220,19 +220,19 @@
     },
     "aws_cloudfront_origin_access_control": {
       "aws_cloudfront_origin_access_control_www": {
-        "name": "diac.dev",
+        "name": "dinghy.dev",
         "origin_access_control_origin_type": "s3",
         "signing_behavior": "always",
         "signing_protocol": "sigv4"
       },
       "aws_cloudfront_origin_access_control_play": {
-        "name": "play.diac.dev",
+        "name": "play.dinghy.dev",
         "origin_access_control_origin_type": "s3",
         "signing_behavior": "always",
         "signing_protocol": "sigv4"
       },
       "aws_cloudfront_origin_access_control_cdn": {
-        "name": "cdn.diac.dev",
+        "name": "cdn.dinghy.dev",
         "origin_access_control_origin_type": "s3",
         "signing_behavior": "always",
         "signing_protocol": "sigv4"
@@ -240,54 +240,54 @@
     },
     "aws_s3_bucket": {
       "aws_s3_bucket_wwwv1_v1": {
-        "bucket": "diac-website-www-v1"
+        "bucket": "dinghy-website-www-v1"
       },
       "aws_s3_bucket_playv1_v1": {
-        "bucket": "diac-website-play-v1"
+        "bucket": "dinghy-website-play-v1"
       },
       "aws_s3_bucket_cdnv1_v1": {
-        "bucket": "diac-website-cdn-v1"
+        "bucket": "dinghy-website-cdn-v1"
       },
       "aws_s3_bucket_tfstate": {
-        "bucket": "diac-website-tf-state"
+        "bucket": "dinghy-website-tf-state"
       },
       "aws_s3_bucket_logs": {
-        "bucket": "diac-website-logs"
+        "bucket": "dinghy-website-logs"
       }
     },
     "aws_s3_bucket_logging": {
       "aws_s3_bucket_logging_wwwv1_v1": {
-        "bucket": "diac-website-www-v1",
-        "target_bucket": "diac-website-logs",
-        "target_prefix": "log-sink/s3/diac-website-www-v1/"
+        "bucket": "dinghy-website-www-v1",
+        "target_bucket": "dinghy-website-logs",
+        "target_prefix": "log-sink/s3/dinghy-website-www-v1/"
       },
       "aws_s3_bucket_logging_playv1_v1": {
-        "bucket": "diac-website-play-v1",
-        "target_bucket": "diac-website-logs",
-        "target_prefix": "log-sink/s3/diac-website-play-v1/"
+        "bucket": "dinghy-website-play-v1",
+        "target_bucket": "dinghy-website-logs",
+        "target_prefix": "log-sink/s3/dinghy-website-play-v1/"
       },
       "aws_s3_bucket_logging_cdnv1_v1": {
-        "bucket": "diac-website-cdn-v1",
-        "target_bucket": "diac-website-logs",
-        "target_prefix": "log-sink/s3/diac-website-cdn-v1/"
+        "bucket": "dinghy-website-cdn-v1",
+        "target_bucket": "dinghy-website-logs",
+        "target_prefix": "log-sink/s3/dinghy-website-cdn-v1/"
       },
       "aws_s3_bucket_logging_s3bucketlogging": {
-        "bucket": "diac-website-logs",
-        "target_bucket": "diac-website-logs",
-        "target_prefix": "log-sink/s3/diac-website-logs/"
+        "bucket": "dinghy-website-logs",
+        "target_bucket": "dinghy-website-logs",
+        "target_prefix": "log-sink/s3/dinghy-website-logs/"
       }
     },
     "aws_s3_bucket_policy": {
       "aws_s3_bucket_policy_wwwv1_v1": {
-        "bucket": "diac-website-www-v1",
+        "bucket": "dinghy-website-www-v1",
         "policy": "${data.aws_iam_policy_document.aws_iam_policy_document_wwwv1_v1.json}"
       },
       "aws_s3_bucket_policy_playv1_v1": {
-        "bucket": "diac-website-play-v1",
+        "bucket": "dinghy-website-play-v1",
         "policy": "${data.aws_iam_policy_document.aws_iam_policy_document_playv1_v1.json}"
       },
       "aws_s3_bucket_policy_cdnv1_v1": {
-        "bucket": "diac-website-cdn-v1",
+        "bucket": "dinghy-website-cdn-v1",
         "policy": "${data.aws_iam_policy_document.aws_iam_policy_document_cdnv1_v1.json}"
       }
     },
@@ -301,7 +301,7 @@
     },
     "aws_s3_bucket_ownership_controls": {
       "aws_s3_bucket_ownership_controls_s3bucketownershipcontrols": {
-        "bucket": "diac-website-logs",
+        "bucket": "dinghy-website-logs",
         "rule": {
           "object_ownership": "BucketOwnerPreferred"
         }
@@ -309,7 +309,7 @@
     },
     "aws_s3_bucket_acl": {
       "aws_s3_bucket_acl_s3bucketacl": {
-        "bucket": "diac-website-logs",
+        "bucket": "dinghy-website-logs",
         "acl": "log-delivery-write"
       }
     }
@@ -329,7 +329,7 @@
             "s3:GetObject"
           ],
           "resources": [
-            "arn:aws:s3:::diac-website-www-v1/*"
+            "arn:aws:s3:::dinghy-website-www-v1/*"
           ],
           "condition": {
             "test": "StringEquals",
@@ -353,7 +353,7 @@
             "s3:GetObject"
           ],
           "resources": [
-            "arn:aws:s3:::diac-website-play-v1/*"
+            "arn:aws:s3:::dinghy-website-play-v1/*"
           ],
           "condition": {
             "test": "StringEquals",
@@ -377,7 +377,7 @@
             "s3:GetObject"
           ],
           "resources": [
-            "arn:aws:s3:::diac-website-cdn-v1/*"
+            "arn:aws:s3:::dinghy-website-cdn-v1/*"
           ],
           "condition": {
             "test": "StringEquals",
@@ -390,13 +390,13 @@
       }
     },
     "aws_route53_zone": {
-      "aws_route53_zone_diacdev": {
-        "name": "diac.dev"
+      "aws_route53_zone_dinghydev": {
+        "name": "dinghy.dev"
       }
     },
     "aws_acm_certificate": {
-      "aws_acm_certificate_diacdev": {
-        "domain": "diac.dev"
+      "aws_acm_certificate_dinghydev": {
+        "domain": "dinghy.dev"
       }
     }
   }

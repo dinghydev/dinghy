@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bluetooth } from '@diac/standard-components-diagrams/clipartVarious'
+import { Bluetooth } from '@dinghy/standard-components-diagrams/clipartVarious'
 
 <Bluetooth/>
 ```

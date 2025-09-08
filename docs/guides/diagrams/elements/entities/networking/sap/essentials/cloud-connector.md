@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudConnector } from '@diac/standard-components-diagrams/sapEssentials'
+import { CloudConnector } from '@dinghy/standard-components-diagrams/sapEssentials'
 
 <CloudConnector/>
 ```

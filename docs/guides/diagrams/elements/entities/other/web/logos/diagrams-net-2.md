@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiagramsNet2 } from '@diac/standard-components-diagrams/webLogos'
+import { DiagramsNet2 } from '@dinghy/standard-components-diagrams/webLogos'
 
 <DiagramsNet2/>
 ```

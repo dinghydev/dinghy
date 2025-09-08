@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NotificationHub } from '@diac/standard-components-diagrams/azure'
+import { NotificationHub } from '@dinghy/standard-components-diagrams/azure'
 
 <NotificationHub/>
 ```

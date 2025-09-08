@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mse } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Mse } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Mse/>
 ```

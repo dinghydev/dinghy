@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Folders } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Folders } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Folders/>
 ```

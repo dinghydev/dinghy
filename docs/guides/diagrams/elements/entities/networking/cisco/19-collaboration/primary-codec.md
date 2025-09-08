@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PrimaryCodec } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { PrimaryCodec } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <PrimaryCodec/>
 ```

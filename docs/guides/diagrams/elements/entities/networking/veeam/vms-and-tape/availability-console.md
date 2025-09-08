@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AvailabilityConsole } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { AvailabilityConsole } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <AvailabilityConsole/>
 ```

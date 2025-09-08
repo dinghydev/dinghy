@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EnterpriseScalabilityEnhancements } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { EnterpriseScalabilityEnhancements } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <EnterpriseScalabilityEnhancements/>
 ```

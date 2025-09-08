@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Finance } from '@diac/standard-components-diagrams/dynamics365App'
+import { Finance } from '@dinghy/standard-components-diagrams/dynamics365App'
 
 <Finance/>
 ```

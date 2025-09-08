@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PoweredgeR7515 } from '@diac/standard-components-diagrams/rackDell'
+import { PoweredgeR7515 } from '@dinghy/standard-components-diagrams/rackDell'
 
 <PoweredgeR7515/>
 ```

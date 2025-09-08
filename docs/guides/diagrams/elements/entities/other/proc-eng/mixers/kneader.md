@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Kneader } from '@diac/standard-components-diagrams/procEngMixers'
+import { Kneader } from '@dinghy/standard-components-diagrams/procEngMixers'
 
 <Kneader/>
 ```

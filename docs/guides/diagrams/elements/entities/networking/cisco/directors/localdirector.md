@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Localdirector } from '@diac/standard-components-diagrams/ciscoDirectors'
+import { Localdirector } from '@dinghy/standard-components-diagrams/ciscoDirectors'
 
 <Localdirector/>
 ```

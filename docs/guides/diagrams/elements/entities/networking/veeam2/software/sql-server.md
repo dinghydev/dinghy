@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlServer } from '@diac/standard-components-diagrams/veeam2Software'
+import { SqlServer } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <SqlServer/>
 ```

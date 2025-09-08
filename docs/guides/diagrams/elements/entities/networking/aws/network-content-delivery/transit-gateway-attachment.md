@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TransitGatewayAttachment } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { TransitGatewayAttachment } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <TransitGatewayAttachment/>
 ```

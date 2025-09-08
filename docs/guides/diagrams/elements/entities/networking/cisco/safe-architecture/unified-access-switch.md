@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UnifiedAccessSwitch } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { UnifiedAccessSwitch } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <UnifiedAccessSwitch/>
 ```

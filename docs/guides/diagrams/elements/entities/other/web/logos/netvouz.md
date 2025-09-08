@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Netvouz } from '@diac/standard-components-diagrams/webLogos'
+import { Netvouz } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Netvouz/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stumpedia } from '@diac/standard-components-diagrams/webLogos'
+import { Stumpedia } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Stumpedia/>
 ```

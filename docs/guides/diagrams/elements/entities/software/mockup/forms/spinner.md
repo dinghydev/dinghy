@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Spinner } from '@diac/standard-components-diagrams/mockupForms'
+import { Spinner } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <Spinner/>
 ```

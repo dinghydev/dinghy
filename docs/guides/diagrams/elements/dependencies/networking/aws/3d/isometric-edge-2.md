@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { IsometricEdge2 } from '@diac/standard-components-diagrams/aws3d'
+import { IsometricEdge2 } from '@dinghy/standard-components-diagrams/aws3d'
 
 <IsometricEdge2/>
 ```

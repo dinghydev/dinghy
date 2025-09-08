@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetqAgent } from '@diac/standard-components-diagrams/cumulus'
+import { NetqAgent } from '@dinghy/standard-components-diagrams/cumulus'
 
 <NetqAgent/>
 ```

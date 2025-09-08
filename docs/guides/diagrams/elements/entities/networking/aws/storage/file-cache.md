@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileCache } from '@diac/standard-components-diagrams/awsStorage'
+import { FileCache } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <FileCache/>
 ```

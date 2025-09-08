@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PrivateLinkHub } from '@diac/standard-components-diagrams/azure2Preview'
+import { PrivateLinkHub } from '@dinghy/standard-components-diagrams/azure2Preview'
 
 <PrivateLinkHub/>
 ```

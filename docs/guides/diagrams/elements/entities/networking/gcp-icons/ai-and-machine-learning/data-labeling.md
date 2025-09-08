@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataLabeling } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { DataLabeling } from '@dinghy/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <DataLabeling/>
 ```

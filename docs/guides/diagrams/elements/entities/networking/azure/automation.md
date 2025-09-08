@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Automation } from '@diac/standard-components-diagrams/azure'
+import { Automation } from '@dinghy/standard-components-diagrams/azure'
 
 <Automation/>
 ```

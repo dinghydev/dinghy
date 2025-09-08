@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobileHub } from '@diac/standard-components-diagrams/aws17MobileServices'
+import { MobileHub } from '@dinghy/standard-components-diagrams/aws17MobileServices'
 
 <MobileHub/>
 ```

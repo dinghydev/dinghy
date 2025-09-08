@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppBarPortrait } from '@diac/standard-components-diagrams/ios7Ui'
+import { AppBarPortrait } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <AppBarPortrait/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MarketplaceManagement } from '@diac/standard-components-diagrams/azure2General'
+import { MarketplaceManagement } from '@dinghy/standard-components-diagrams/azure2General'
 
 <MarketplaceManagement/>
 ```

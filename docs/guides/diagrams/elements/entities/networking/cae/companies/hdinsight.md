@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hdinsight } from '@diac/standard-components-diagrams/caeCompanies'
+import { Hdinsight } from '@dinghy/standard-components-diagrams/caeCompanies'
 
 <Hdinsight/>
 ```

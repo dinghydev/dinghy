@@ -2,13 +2,13 @@
 set -e
 
 if ! command -v unzip >/dev/null && ! command -v 7z >/dev/null; then
-	echo "Error: either unzip or 7z is required to install diac (see: https://github.com/denoland/deno_install#either-unzip-or-7z-is-required )." 1>&2
+	echo "Error: either unzip or 7z is required to install dinghy (see: https://github.com/denoland/deno_install#either-unzip-or-7z-is-required )." 1>&2
 	exit 1
 fi
 
-diac_home="${DIAC_HOME:-$HOME/.diac}"
+dinghy_home="${DINGHY_HOME:-$HOME/.dinghy}"
 
-install_diac() {
+install_dinghy() {
 
 	#if [ "$OS" = "Windows_NT" ]; then
 	#	target="x86_64-pc-windows-msvc"
@@ -21,17 +21,17 @@ install_diac() {
 		esac
 	#fi
 
-	diac_version="${DIAC_VERSION:-RELEASE_VERSION}"
+	dinghy_version="${DINGHY_VERSION:-RELEASE_VERSION}"
 
-	diac_uri="https://play.diac.dev/download/versions/${diac_version}/diac-${target}.zip"
-	bin_dir="$diac_home/bin"
-	exe="$bin_dir/diac"
+	dinghy_uri="https://play.dinghy.dev/download/versions/${dinghy_version}/dinghy-${target}.zip"
+	bin_dir="$dinghy_home/bin"
+	exe="$bin_dir/dinghy"
 
 	if [ ! -d "$bin_dir" ]; then
 		mkdir -p "$bin_dir"
 	fi
 
-	curl --fail --location --progress-bar --output "$exe.zip" "$diac_uri"
+	curl --fail --location --progress-bar --output "$exe.zip" "$dinghy_uri"
 	if command -v unzip >/dev/null; then
 		unzip -d "$bin_dir" -o "$exe.zip"
 	else
@@ -43,12 +43,12 @@ install_diac() {
 }
 
 
-if ! command -v diac >/dev/null || [ -z "$INIT_PROJECT" ]; then
-	install_diac
+if ! command -v dinghy >/dev/null || [ -z "$INIT_PROJECT" ]; then
+	install_dinghy
 fi
 
 set +e
-$diac_home/bin/diac postinstall
+$dinghy_home/bin/dinghy postinstall
 
 echo ""
-echo "Stuck? Email us at hello@diac.dev"
+echo "Stuck? Email us at hello@dinghy.dev"

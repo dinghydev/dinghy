@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseAdd } from '@diac/standard-components-diagrams/clipartComputer'
+import { DatabaseAdd } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <DatabaseAdd/>
 ```

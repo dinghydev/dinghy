@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DirectoryService } from '@diac/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
+import { DirectoryService } from '@dinghy/standard-components-diagrams/aws17SecurityIdentityAndCompliance'
 
 <DirectoryService/>
 ```

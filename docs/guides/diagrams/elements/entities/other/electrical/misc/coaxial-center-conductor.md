@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CoaxialCenterConductor } from '@diac/standard-components-diagrams/electricalMisc'
+import { CoaxialCenterConductor } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <CoaxialCenterConductor/>
 ```

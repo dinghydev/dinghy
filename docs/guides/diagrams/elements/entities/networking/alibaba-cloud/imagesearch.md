@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Imagesearch } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Imagesearch } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Imagesearch/>
 ```

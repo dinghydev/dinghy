@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudMessaging } from '@diac/standard-components-diagrams/ibmInfrastructure'
+import { CloudMessaging } from '@dinghy/standard-components-diagrams/ibmInfrastructure'
 
 <CloudMessaging/>
 ```

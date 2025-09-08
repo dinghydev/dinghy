@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudControlApi } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { CloudControlApi } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <CloudControlApi/>
 ```

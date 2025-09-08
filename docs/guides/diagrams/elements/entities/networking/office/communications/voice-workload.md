@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VoiceWorkload } from '@diac/standard-components-diagrams/officeCommunications'
+import { VoiceWorkload } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <VoiceWorkload/>
 ```

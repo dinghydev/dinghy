@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerticalScrollBar } from '@diac/standard-components-diagrams/mockupNavigation'
+import { VerticalScrollBar } from '@dinghy/standard-components-diagrams/mockupNavigation'
 
 <VerticalScrollBar/>
 ```

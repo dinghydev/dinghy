@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NonIonizingRadiation } from '@diac/standard-components-diagrams/signsSafety'
+import { NonIonizingRadiation } from '@dinghy/standard-components-diagrams/signsSafety'
 
 <NonIonizingRadiation/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceRegistry } from '@diac/standard-components-diagrams/ibmData'
+import { DeviceRegistry } from '@dinghy/standard-components-diagrams/ibmData'
 
 <DeviceRegistry/>
 ```

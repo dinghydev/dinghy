@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CircuitBreaker3p } from '@diac/standard-components-diagrams/cabinets'
+import { CircuitBreaker3p } from '@dinghy/standard-components-diagrams/cabinets'
 
 <CircuitBreaker3p/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudServiceRequest } from '@diac/standard-components-diagrams/officeClouds'
+import { CloudServiceRequest } from '@dinghy/standard-components-diagrams/officeClouds'
 
 <CloudServiceRequest/>
 ```

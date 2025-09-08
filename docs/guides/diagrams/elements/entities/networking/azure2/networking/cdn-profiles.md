@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CdnProfiles } from '@diac/standard-components-diagrams/azure2Networking'
+import { CdnProfiles } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <CdnProfiles/>
 ```

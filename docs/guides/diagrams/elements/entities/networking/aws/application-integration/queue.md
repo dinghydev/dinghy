@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Queue } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { Queue } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <Queue/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LocalPreAndPostconditions3 } from '@diac/standard-components-diagrams/sysmlActivities'
+import { LocalPreAndPostconditions3 } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <LocalPreAndPostconditions3/>
 ```

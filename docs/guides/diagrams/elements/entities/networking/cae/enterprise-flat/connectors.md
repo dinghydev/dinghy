@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Connectors } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Connectors } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Connectors/>
 ```

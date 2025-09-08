@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IotApplication } from '@diac/standard-components-diagrams/ibmApplications'
+import { IotApplication } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <IotApplication/>
 ```

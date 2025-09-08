@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fwisp } from '@diac/standard-components-diagrams/webLogos'
+import { Fwisp } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Fwisp/>
 ```

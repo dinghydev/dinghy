@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BranchRepeater } from '@diac/standard-components-diagrams/citrixLegacy'
+import { BranchRepeater } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <BranchRepeater/>
 ```

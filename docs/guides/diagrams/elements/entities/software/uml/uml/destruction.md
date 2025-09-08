@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Destruction } from '@diac/standard-components-diagrams/uml'
+import { Destruction } from '@dinghy/standard-components-diagrams/uml'
 
 <Destruction/>
 ```

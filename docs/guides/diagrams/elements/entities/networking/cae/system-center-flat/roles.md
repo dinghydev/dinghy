@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Roles } from '@diac/standard-components-diagrams/caeSystemCenterFlat'
+import { Roles } from '@dinghy/standard-components-diagrams/caeSystemCenterFlat'
 
 <Roles/>
 ```

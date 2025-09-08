@@ -16,7 +16,7 @@ Labeling
 ## Usage
 
 ```
-import { DataLabeling } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { DataLabeling } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <DataLabeling/>
 ```

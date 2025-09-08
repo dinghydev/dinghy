@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParameterStore } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ParameterStore } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ParameterStore/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Eject } from '@diac/standard-components-diagrams/signsTech'
+import { Eject } from '@dinghy/standard-components-diagrams/signsTech'
 
 <Eject/>
 ```

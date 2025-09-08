@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiscreteInstrumentControlRoom } from '@diac/standard-components-diagrams/procEngInstruments'
+import { DiscreteInstrumentControlRoom } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <DiscreteInstrumentControlRoom/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrainiumInstance } from '@diac/standard-components-diagrams/awsCompute'
+import { TrainiumInstance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <TrainiumInstance/>
 ```

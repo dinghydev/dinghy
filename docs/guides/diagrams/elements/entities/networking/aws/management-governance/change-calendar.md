@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChangeCalendar } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ChangeCalendar } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ChangeCalendar/>
 ```

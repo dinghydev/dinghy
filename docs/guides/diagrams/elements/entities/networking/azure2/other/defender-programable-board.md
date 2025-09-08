@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefenderProgramableBoard } from '@diac/standard-components-diagrams/azure2Other'
+import { DefenderProgramableBoard } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DefenderProgramableBoard/>
 ```

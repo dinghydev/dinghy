@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerRackPartial } from '@diac/standard-components-diagrams/clipartComputer'
+import { ServerRackPartial } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <ServerRackPartial/>
 ```

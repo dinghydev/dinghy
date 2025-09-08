@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FtpServer } from '@diac/standard-components-diagrams/citrixLegacy'
+import { FtpServer } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <FtpServer/>
 ```

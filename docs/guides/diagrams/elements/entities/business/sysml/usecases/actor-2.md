@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Actor2 } from '@diac/standard-components-diagrams/sysmlUsecases'
+import { Actor2 } from '@dinghy/standard-components-diagrams/sysmlUsecases'
 
 <Actor2/>
 ```

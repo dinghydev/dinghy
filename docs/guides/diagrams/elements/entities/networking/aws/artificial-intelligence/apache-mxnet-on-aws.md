@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApacheMxnetOnAws } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { ApacheMxnetOnAws } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <ApacheMxnetOnAws/>
 ```

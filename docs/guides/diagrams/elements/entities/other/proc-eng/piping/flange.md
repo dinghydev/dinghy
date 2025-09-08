@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Flange } from '@diac/standard-components-diagrams/procEngPiping'
+import { Flange } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <Flange/>
 ```

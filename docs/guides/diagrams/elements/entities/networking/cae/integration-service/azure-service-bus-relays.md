@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureServiceBusRelays } from '@diac/standard-components-diagrams/caeIntegrationService'
+import { AzureServiceBusRelays } from '@dinghy/standard-components-diagrams/caeIntegrationService'
 
 <AzureServiceBusRelays/>
 ```

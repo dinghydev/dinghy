@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SynchronousInvocation2 } from '@diac/standard-components-diagrams/uml'
+import { SynchronousInvocation2 } from '@dinghy/standard-components-diagrams/uml'
 
 <SynchronousInvocation2/>
 ```

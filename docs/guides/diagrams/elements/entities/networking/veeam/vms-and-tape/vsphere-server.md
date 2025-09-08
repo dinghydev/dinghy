@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VsphereServer } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { VsphereServer } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <VsphereServer/>
 ```

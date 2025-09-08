@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgressTracker2 } from '@diac/standard-components-diagrams/atlassian'
+import { ProgressTracker2 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <ProgressTracker2/>
 ```

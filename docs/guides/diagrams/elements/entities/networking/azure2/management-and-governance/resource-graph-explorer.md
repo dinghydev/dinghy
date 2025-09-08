@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResourceGraphExplorer } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { ResourceGraphExplorer } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <ResourceGraphExplorer/>
 ```

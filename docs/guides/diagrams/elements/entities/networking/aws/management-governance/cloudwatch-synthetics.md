@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudwatchSynthetics } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { CloudwatchSynthetics } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <CloudwatchSynthetics/>
 ```

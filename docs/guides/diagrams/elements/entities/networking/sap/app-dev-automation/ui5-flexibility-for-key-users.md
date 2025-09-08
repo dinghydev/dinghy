@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ui5FlexibilityForKeyUsers } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { Ui5FlexibilityForKeyUsers } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <Ui5FlexibilityForKeyUsers/>
 ```

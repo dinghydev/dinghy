@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Horizon } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Horizon } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Horizon/>
 ```

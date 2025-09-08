@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ibm1uFlatPanelConsoleKit } from '@diac/standard-components-diagrams/rackIbm'
+import { Ibm1uFlatPanelConsoleKit } from '@dinghy/standard-components-diagrams/rackIbm'
 
 <Ibm1uFlatPanelConsoleKit/>
 ```

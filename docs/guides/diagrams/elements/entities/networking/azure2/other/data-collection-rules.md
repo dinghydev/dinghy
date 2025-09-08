@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataCollectionRules } from '@diac/standard-components-diagrams/azure2Other'
+import { DataCollectionRules } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DataCollectionRules/>
 ```

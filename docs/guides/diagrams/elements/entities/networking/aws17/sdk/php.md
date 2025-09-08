@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Php } from '@diac/standard-components-diagrams/aws17Sdk'
+import { Php } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <Php/>
 ```

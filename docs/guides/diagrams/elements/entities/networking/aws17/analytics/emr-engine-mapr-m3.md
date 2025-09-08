@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EmrEngineMaprM3 } from '@diac/standard-components-diagrams/aws17Analytics'
+import { EmrEngineMaprM3 } from '@dinghy/standard-components-diagrams/aws17Analytics'
 
 <EmrEngineMaprM3/>
 ```

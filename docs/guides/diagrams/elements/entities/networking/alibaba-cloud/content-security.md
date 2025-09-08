@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentSecurity } from '@diac/standard-components-diagrams/alibabaCloud'
+import { ContentSecurity } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <ContentSecurity/>
 ```

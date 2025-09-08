@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TmsDataInterface } from '@diac/standard-components-diagrams/ibmData'
+import { TmsDataInterface } from '@dinghy/standard-components-diagrams/ibmData'
 
 <TmsDataInterface/>
 ```

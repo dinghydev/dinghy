@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContactBadgeNormal } from '@diac/standard-components-diagrams/android'
+import { ContactBadgeNormal } from '@dinghy/standard-components-diagrams/android'
 
 <ContactBadgeNormal/>
 ```

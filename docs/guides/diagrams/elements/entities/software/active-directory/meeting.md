@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Meeting } from '@diac/standard-components-diagrams/activeDirectory'
+import { Meeting } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <Meeting/>
 ```

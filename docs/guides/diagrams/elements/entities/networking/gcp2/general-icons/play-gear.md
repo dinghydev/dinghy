@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlayGear } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { PlayGear } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <PlayGear/>
 ```

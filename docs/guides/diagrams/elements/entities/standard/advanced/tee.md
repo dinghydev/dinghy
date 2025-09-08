@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tee } from '@diac/standard-components-diagrams/advanced'
+import { Tee } from '@dinghy/standard-components-diagrams/advanced'
 
 <Tee/>
 ```

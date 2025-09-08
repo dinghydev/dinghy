@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextBox } from '@diac/standard-components-diagrams/mockupText'
+import { TextBox } from '@dinghy/standard-components-diagrams/mockupText'
 
 <TextBox/>
 ```

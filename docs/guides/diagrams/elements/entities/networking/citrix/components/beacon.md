@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Beacon } from '@diac/standard-components-diagrams/citrixComponents'
+import { Beacon } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <Beacon/>
 ```

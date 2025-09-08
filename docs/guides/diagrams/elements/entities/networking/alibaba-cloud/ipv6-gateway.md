@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ipv6Gateway } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Ipv6Gateway } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Ipv6Gateway/>
 ```

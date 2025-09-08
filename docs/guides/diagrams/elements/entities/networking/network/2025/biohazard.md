@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Biohazard } from '@diac/standard-components-diagrams/network2'
+import { Biohazard } from '@dinghy/standard-components-diagrams/network2'
 
 <Biohazard/>
 ```

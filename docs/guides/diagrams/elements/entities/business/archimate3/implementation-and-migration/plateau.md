@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Plateau } from '@diac/standard-components-diagrams/archimate3ImplementationAndMigration'
+import { Plateau } from '@dinghy/standard-components-diagrams/archimate3ImplementationAndMigration'
 
 <Plateau/>
 ```

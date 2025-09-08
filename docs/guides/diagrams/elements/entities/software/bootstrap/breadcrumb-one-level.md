@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BreadcrumbOneLevel } from '@diac/standard-components-diagrams/bootstrap'
+import { BreadcrumbOneLevel } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <BreadcrumbOneLevel/>
 ```

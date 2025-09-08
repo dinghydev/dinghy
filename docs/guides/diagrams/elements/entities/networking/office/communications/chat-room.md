@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChatRoom } from '@diac/standard-components-diagrams/officeCommunications'
+import { ChatRoom } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <ChatRoom/>
 ```

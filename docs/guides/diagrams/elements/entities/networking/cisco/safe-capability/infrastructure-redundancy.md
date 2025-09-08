@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InfrastructureRedundancy } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { InfrastructureRedundancy } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <InfrastructureRedundancy/>
 ```

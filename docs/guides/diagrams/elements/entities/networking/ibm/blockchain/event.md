@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Event } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { Event } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <Event/>
 ```

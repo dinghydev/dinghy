@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloudant } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { Cloudant } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <Cloudant/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Unhealthy } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Unhealthy } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Unhealthy/>
 ```

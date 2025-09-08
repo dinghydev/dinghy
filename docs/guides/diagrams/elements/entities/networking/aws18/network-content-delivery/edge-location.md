@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EdgeLocation } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { EdgeLocation } from '@dinghy/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <EdgeLocation/>
 ```

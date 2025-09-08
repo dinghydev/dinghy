@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationOptimization } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { ApplicationOptimization } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <ApplicationOptimization/>
 ```

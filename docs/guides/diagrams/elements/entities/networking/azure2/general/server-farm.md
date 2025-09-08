@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerFarm } from '@diac/standard-components-diagrams/azure2General'
+import { ServerFarm } from '@dinghy/standard-components-diagrams/azure2General'
 
 <ServerFarm/>
 ```

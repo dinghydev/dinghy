@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Worklink } from '@diac/standard-components-diagrams/awsEndUserComputing'
+import { Worklink } from '@dinghy/standard-components-diagrams/awsEndUserComputing'
 
 <Worklink/>
 ```

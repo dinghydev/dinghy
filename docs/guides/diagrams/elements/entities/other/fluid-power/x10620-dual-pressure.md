@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X10620DualPressure } from '@diac/standard-components-diagrams/fluidPower'
+import { X10620DualPressure } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X10620DualPressure/>
 ```

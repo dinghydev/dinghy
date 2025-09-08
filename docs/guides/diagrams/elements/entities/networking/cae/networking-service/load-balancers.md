@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadBalancers } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { LoadBalancers } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <LoadBalancers/>
 ```

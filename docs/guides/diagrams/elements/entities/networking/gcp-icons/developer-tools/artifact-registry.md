@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArtifactRegistry } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { ArtifactRegistry } from '@dinghy/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <ArtifactRegistry/>
 ```

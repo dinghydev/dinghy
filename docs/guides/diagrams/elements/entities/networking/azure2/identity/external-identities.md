@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExternalIdentities } from '@diac/standard-components-diagrams/azure2Identity'
+import { ExternalIdentities } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <ExternalIdentities/>
 ```

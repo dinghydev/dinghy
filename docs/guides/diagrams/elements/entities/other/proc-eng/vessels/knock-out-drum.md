@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KnockOutDrum } from '@diac/standard-components-diagrams/procEngVessels'
+import { KnockOutDrum } from '@dinghy/standard-components-diagrams/procEngVessels'
 
 <KnockOutDrum/>
 ```

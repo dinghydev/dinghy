@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RestfulApi } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { RestfulApi } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <RestfulApi/>
 ```

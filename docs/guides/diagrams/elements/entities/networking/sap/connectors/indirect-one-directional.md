@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IndirectOneDirectional } from '@diac/standard-components-diagrams/sapConnectors'
+import { IndirectOneDirectional } from '@dinghy/standard-components-diagrams/sapConnectors'
 
 <IndirectOneDirectional/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CertificateOff } from '@diac/standard-components-diagrams/clipartNetworking'
+import { CertificateOff } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <CertificateOff/>
 ```

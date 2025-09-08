@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { ConversationLink } from '@diac/standard-components-diagrams/bpmn2General'
+import { ConversationLink } from '@dinghy/standard-components-diagrams/bpmn2General'
 
 <ConversationLink/>
 ```

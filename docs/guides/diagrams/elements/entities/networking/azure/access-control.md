@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AccessControl } from '@diac/standard-components-diagrams/azure'
+import { AccessControl } from '@dinghy/standard-components-diagrams/azure'
 
 <AccessControl/>
 ```

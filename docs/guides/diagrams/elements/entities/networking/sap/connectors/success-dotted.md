@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SuccessDotted } from '@diac/standard-components-diagrams/sapConnectors'
+import { SuccessDotted } from '@dinghy/standard-components-diagrams/sapConnectors'
 
 <SuccessDotted/>
 ```

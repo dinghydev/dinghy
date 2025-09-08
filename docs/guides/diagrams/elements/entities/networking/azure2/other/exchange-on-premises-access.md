@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExchangeOnPremisesAccess } from '@diac/standard-components-diagrams/azure2Other'
+import { ExchangeOnPremisesAccess } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ExchangeOnPremisesAccess/>
 ```

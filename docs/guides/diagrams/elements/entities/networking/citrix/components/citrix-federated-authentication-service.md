@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CitrixFederatedAuthenticationService } from '@diac/standard-components-diagrams/citrixComponents'
+import { CitrixFederatedAuthenticationService } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <CitrixFederatedAuthenticationService/>
 ```

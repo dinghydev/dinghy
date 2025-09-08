@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Writing } from '@diac/standard-components-diagrams/activeDirectory'
+import { Writing } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <Writing/>
 ```

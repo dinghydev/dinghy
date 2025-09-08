@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Detective } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { Detective } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <Detective/>
 ```

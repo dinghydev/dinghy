@@ -3,7 +3,7 @@ import {
   ResolvableRecordSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 import z from 'zod'
 import { useLogBucket } from './LogBucket.tsx'
 import { useAwsAcmCertificate } from '../AwsAcmCertificate.tsx'
@@ -11,7 +11,7 @@ import {
   AwsCloudfrontOriginAccessControl,
   useAwsCloudfrontOriginAccessControl,
 } from '../cloudfront/AwsCloudfrontOriginAccessControl.tsx'
-import { useStack } from '@diac/base-components'
+import { useStack } from '@dinghy/base-components'
 import {
   AwsCloudfrontDistribution,
   type AwsCloudfrontDistributionInputProps,

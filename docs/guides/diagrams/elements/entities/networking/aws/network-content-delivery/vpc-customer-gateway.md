@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpcCustomerGateway } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { VpcCustomerGateway } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <VpcCustomerGateway/>
 ```

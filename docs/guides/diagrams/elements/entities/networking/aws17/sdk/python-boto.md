@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PythonBoto } from '@diac/standard-components-diagrams/aws17Sdk'
+import { PythonBoto } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <PythonBoto/>
 ```

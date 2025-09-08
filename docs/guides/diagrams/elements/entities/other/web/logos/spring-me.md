@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpringMe } from '@diac/standard-components-diagrams/webLogos'
+import { SpringMe } from '@dinghy/standard-components-diagrams/webLogos'
 
 <SpringMe/>
 ```

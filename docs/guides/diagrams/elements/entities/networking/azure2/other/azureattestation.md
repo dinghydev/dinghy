@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Azureattestation } from '@diac/standard-components-diagrams/azure2Other'
+import { Azureattestation } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Azureattestation/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlashDrive } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { FlashDrive } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <FlashDrive/>
 ```

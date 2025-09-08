@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CheckboxOffFocusedOrPressedLight } from '@diac/standard-components-diagrams/gmdlSelectionControls'
+import { CheckboxOffFocusedOrPressedLight } from '@dinghy/standard-components-diagrams/gmdlSelectionControls'
 
 <CheckboxOffFocusedOrPressedLight/>
 ```

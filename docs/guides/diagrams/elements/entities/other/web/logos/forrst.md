@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Forrst } from '@diac/standard-components-diagrams/webLogos'
+import { Forrst } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Forrst/>
 ```

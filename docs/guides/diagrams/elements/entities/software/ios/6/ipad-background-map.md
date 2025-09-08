@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpadBackgroundMap } from '@diac/standard-components-diagrams/ios6'
+import { IpadBackgroundMap } from '@dinghy/standard-components-diagrams/ios6'
 
 <IpadBackgroundMap/>
 ```

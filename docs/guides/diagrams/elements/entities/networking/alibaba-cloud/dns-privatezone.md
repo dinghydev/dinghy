@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DnsPrivatezone } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DnsPrivatezone } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DnsPrivatezone/>
 ```

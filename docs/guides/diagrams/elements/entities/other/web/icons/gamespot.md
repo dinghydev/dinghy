@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gamespot } from '@diac/standard-components-diagrams/webIcons'
+import { Gamespot } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Gamespot/>
 ```

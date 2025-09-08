@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PelletizingDisc } from '@diac/standard-components-diagrams/procEngShapingMachines'
+import { PelletizingDisc } from '@dinghy/standard-components-diagrams/procEngShapingMachines'
 
 <PelletizingDisc/>
 ```

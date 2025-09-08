@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RunCommand } from '@diac/standard-components-diagrams/aws17ManagementTools'
+import { RunCommand } from '@dinghy/standard-components-diagrams/aws17ManagementTools'
 
 <RunCommand/>
 ```

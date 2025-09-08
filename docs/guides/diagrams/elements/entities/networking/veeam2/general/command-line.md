@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CommandLine } from '@diac/standard-components-diagrams/veeam2General'
+import { CommandLine } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <CommandLine/>
 ```

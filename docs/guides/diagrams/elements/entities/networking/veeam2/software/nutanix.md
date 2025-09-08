@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Nutanix } from '@diac/standard-components-diagrams/veeam2Software'
+import { Nutanix } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <Nutanix/>
 ```

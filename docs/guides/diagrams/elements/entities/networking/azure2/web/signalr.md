@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Signalr } from '@diac/standard-components-diagrams/azure2Web'
+import { Signalr } from '@dinghy/standard-components-diagrams/azure2Web'
 
 <Signalr/>
 ```

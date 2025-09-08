@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Magnetic } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Magnetic } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Magnetic/>
 ```

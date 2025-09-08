@@ -1,7 +1,7 @@
 import { toNodeJson } from './toNodeJson.ts'
-import { type HostContainer, renderNode } from '@diac/base-renderer'
+import { type HostContainer, renderNode } from '@dinghy/base-renderer'
 import type { JsonRenderOptions } from './types.ts'
-import { RootNode } from '@diac/base-components'
+import { RootNode } from '@dinghy/base-components'
 
 export function renderJson(
   App: React.FunctionComponent,

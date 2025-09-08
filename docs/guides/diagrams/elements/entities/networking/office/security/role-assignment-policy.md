@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoleAssignmentPolicy } from '@diac/standard-components-diagrams/officeSecurity'
+import { RoleAssignmentPolicy } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <RoleAssignmentPolicy/>
 ```

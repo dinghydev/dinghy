@@ -16,7 +16,7 @@ cloud
 ## Usage
 
 ```
-import { VirtualPrivateCloud } from '@diac/standard-components-diagrams/aws18GeneralResources'
+import { VirtualPrivateCloud } from '@dinghy/standard-components-diagrams/aws18GeneralResources'
 
 <VirtualPrivateCloud/>
 ```

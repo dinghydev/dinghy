@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StackedCheckboxes } from '@diac/standard-components-diagrams/bootstrap'
+import { StackedCheckboxes } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <StackedCheckboxes/>
 ```

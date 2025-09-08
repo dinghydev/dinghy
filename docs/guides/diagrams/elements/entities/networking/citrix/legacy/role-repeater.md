@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoleRepeater } from '@diac/standard-components-diagrams/citrixLegacy'
+import { RoleRepeater } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <RoleRepeater/>
 ```

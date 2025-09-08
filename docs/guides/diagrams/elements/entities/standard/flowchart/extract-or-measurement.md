@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExtractOrMeasurement } from '@diac/standard-components-diagrams/flowchart'
+import { ExtractOrMeasurement } from '@dinghy/standard-components-diagrams/flowchart'
 
 <ExtractOrMeasurement/>
 ```

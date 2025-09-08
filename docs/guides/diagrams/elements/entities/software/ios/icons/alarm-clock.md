@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AlarmClock } from '@diac/standard-components-diagrams/ios7Icons'
+import { AlarmClock } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <AlarmClock/>
 ```

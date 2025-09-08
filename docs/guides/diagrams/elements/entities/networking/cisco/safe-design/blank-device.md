@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlankDevice } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { BlankDevice } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <BlankDevice/>
 ```

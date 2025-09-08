@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AlexaForBusiness } from '@diac/standard-components-diagrams/aws18BusinessProductivity'
+import { AlexaForBusiness } from '@dinghy/standard-components-diagrams/aws18BusinessProductivity'
 
 <AlexaForBusiness/>
 ```

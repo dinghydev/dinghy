@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WheelThrobber1 } from '@diac/standard-components-diagrams/mockupNavigation'
+import { WheelThrobber1 } from '@dinghy/standard-components-diagrams/mockupNavigation'
 
 <WheelThrobber1/>
 ```

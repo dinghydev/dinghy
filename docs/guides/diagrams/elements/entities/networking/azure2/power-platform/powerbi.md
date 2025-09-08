@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Powerbi } from '@diac/standard-components-diagrams/azure2PowerPlatform'
+import { Powerbi } from '@dinghy/standard-components-diagrams/azure2PowerPlatform'
 
 <Powerbi/>
 ```

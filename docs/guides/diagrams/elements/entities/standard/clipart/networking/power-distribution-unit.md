@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PowerDistributionUnit } from '@diac/standard-components-diagrams/clipartNetworking'
+import { PowerDistributionUnit } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <PowerDistributionUnit/>
 ```

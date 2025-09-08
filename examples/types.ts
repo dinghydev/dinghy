@@ -1,5 +1,5 @@
 import z from "zod";
-import { Stack } from "@diac/base-components";
+import { Stack } from "@dinghy/base-components";
 
 export const ExampleSchema = z.object({
   title: z.string().optional(),

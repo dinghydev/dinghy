@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Capacity } from '@diac/standard-components-diagrams/azure2Azure2Stack'
+import { Capacity } from '@dinghy/standard-components-diagrams/azure2Azure2Stack'
 
 <Capacity/>
 ```

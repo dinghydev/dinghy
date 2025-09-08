@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RollingBin } from '@diac/standard-components-diagrams/procEngMisc'
+import { RollingBin } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <RollingBin/>
 ```

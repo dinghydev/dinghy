@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Chronicle } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
+import { Chronicle } from '@dinghy/standard-components-diagrams/gcp2IconsSecurity'
 
 <Chronicle/>
 ```

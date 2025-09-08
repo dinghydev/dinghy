@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sort } from '@diac/standard-components-diagrams/flowchart'
+import { Sort } from '@dinghy/standard-components-diagrams/flowchart'
 
 <Sort/>
 ```

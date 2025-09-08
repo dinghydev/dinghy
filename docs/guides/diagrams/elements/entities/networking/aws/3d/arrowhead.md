@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Arrowhead } from '@diac/standard-components-diagrams/aws3d'
+import { Arrowhead } from '@dinghy/standard-components-diagrams/aws3d'
 
 <Arrowhead/>
 ```

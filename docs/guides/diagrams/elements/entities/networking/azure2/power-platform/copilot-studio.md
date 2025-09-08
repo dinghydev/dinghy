@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CopilotStudio } from '@diac/standard-components-diagrams/azure2PowerPlatform'
+import { CopilotStudio } from '@dinghy/standard-components-diagrams/azure2PowerPlatform'
 
 <CopilotStudio/>
 ```

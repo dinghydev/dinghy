@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentRouter } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { ContentRouter } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <ContentRouter/>
 ```

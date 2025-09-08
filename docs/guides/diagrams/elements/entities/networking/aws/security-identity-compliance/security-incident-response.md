@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurityIncidentResponse } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { SecurityIncidentResponse } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <SecurityIncidentResponse/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Odnoklassniki } from '@diac/standard-components-diagrams/webLogos'
+import { Odnoklassniki } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Odnoklassniki/>
 ```

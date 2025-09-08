@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CentrifugeHighSpeed } from '@diac/standard-components-diagrams/procEngCentrifuges'
+import { CentrifugeHighSpeed } from '@dinghy/standard-components-diagrams/procEngCentrifuges'
 
 <CentrifugeHighSpeed/>
 ```

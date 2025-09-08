@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ethergrid } from '@diac/standard-components-diagrams/alliedTelesisSecurity'
+import { Ethergrid } from '@dinghy/standard-components-diagrams/alliedTelesisSecurity'
 
 <Ethergrid/>
 ```

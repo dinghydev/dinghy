@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VaractorVaricap } from '@diac/standard-components-diagrams/electricalDiodes'
+import { VaractorVaricap } from '@dinghy/standard-components-diagrams/electricalDiodes'
 
 <VaractorVaricap/>
 ```

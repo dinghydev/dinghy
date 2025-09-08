@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IadRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { IadRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <IadRouter/>
 ```

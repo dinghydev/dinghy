@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BannerSingleFold } from '@diac/standard-components-diagrams/infoGraphic'
+import { BannerSingleFold } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <BannerSingleFold/>
 ```

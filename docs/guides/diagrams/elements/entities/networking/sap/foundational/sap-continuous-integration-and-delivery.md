@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapContinuousIntegrationAndDelivery } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapContinuousIntegrationAndDelivery } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapContinuousIntegrationAndDelivery/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AssetLabel } from '@diac/standard-components-diagrams/threatModeling'
+import { AssetLabel } from '@dinghy/standard-components-diagrams/threatModeling'
 
 <AssetLabel/>
 ```

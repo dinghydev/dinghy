@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LargeDConnector } from '@diac/standard-components-diagrams/electricalMisc'
+import { LargeDConnector } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <LargeDConnector/>
 ```

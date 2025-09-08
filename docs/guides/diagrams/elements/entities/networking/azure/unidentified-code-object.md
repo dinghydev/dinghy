@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UnidentifiedCodeObject } from '@diac/standard-components-diagrams/azure'
+import { UnidentifiedCodeObject } from '@dinghy/standard-components-diagrams/azure'
 
 <UnidentifiedCodeObject/>
 ```

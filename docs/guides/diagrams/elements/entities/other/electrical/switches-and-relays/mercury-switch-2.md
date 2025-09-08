@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MercurySwitch2 } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { MercurySwitch2 } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <MercurySwitch2/>
 ```

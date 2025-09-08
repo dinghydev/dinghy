@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wakoopa } from '@diac/standard-components-diagrams/webIcons'
+import { Wakoopa } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Wakoopa/>
 ```

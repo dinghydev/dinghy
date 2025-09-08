@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Consortium } from '@diac/standard-components-diagrams/azure2Blockchain'
+import { Consortium } from '@dinghy/standard-components-diagrams/azure2Blockchain'
 
 <Consortium/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Annotation } from '@diac/standard-components-diagrams/flowchart'
+import { Annotation } from '@dinghy/standard-components-diagrams/flowchart'
 
 <Annotation/>
 ```

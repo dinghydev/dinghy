@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnPremiseHighlight } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { OnPremiseHighlight } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <OnPremiseHighlight/>
 ```

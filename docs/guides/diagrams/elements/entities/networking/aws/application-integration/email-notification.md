@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EmailNotification } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { EmailNotification } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <EmailNotification/>
 ```

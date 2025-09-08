@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudsimpleVirtualMachines } from '@diac/standard-components-diagrams/caeComputeService'
+import { CloudsimpleVirtualMachines } from '@dinghy/standard-components-diagrams/caeComputeService'
 
 <CloudsimpleVirtualMachines/>
 ```

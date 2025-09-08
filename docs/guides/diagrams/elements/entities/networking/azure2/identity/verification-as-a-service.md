@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerificationAsAService } from '@diac/standard-components-diagrams/azure2Identity'
+import { VerificationAsAService } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <VerificationAsAService/>
 ```

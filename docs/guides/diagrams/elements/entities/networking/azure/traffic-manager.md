@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrafficManager } from '@diac/standard-components-diagrams/azure'
+import { TrafficManager } from '@dinghy/standard-components-diagrams/azure'
 
 <TrafficManager/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Webappumbraco } from '@diac/standard-components-diagrams/caeCompanies'
+import { Webappumbraco } from '@dinghy/standard-components-diagrams/caeCompanies'
 
 <Webappumbraco/>
 ```

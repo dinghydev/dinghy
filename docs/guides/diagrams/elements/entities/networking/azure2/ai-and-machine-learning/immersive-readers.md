@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImmersiveReaders } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { ImmersiveReaders } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <ImmersiveReaders/>
 ```

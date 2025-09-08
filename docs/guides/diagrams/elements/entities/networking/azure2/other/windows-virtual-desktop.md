@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowsVirtualDesktop } from '@diac/standard-components-diagrams/azure2Other'
+import { WindowsVirtualDesktop } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <WindowsVirtualDesktop/>
 ```

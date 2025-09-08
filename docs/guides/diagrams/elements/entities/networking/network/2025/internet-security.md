@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternetSecurity } from '@diac/standard-components-diagrams/network2'
+import { InternetSecurity } from '@dinghy/standard-components-diagrams/network2'
 
 <InternetSecurity/>
 ```

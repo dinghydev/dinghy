@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EthernetPort } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { EthernetPort } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <EthernetPort/>
 ```

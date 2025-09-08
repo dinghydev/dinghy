@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vshield } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Vshield } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Vshield/>
 ```

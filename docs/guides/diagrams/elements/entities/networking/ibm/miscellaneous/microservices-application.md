@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MicroservicesApplication } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { MicroservicesApplication } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <MicroservicesApplication/>
 ```

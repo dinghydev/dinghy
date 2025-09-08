@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowsImage } from '@diac/standard-components-diagrams/citrixResources'
+import { WindowsImage } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <WindowsImage/>
 ```

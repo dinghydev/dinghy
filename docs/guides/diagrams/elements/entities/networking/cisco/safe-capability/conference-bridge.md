@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConferenceBridge } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { ConferenceBridge } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <ConferenceBridge/>
 ```

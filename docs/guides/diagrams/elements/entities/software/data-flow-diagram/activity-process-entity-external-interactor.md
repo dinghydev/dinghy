@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActivityProcessEntityExternalInteractor } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { ActivityProcessEntityExternalInteractor } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <ActivityProcessEntityExternalInteractor/>
 ```

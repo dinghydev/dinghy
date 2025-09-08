@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Callback } from '@diac/standard-components-diagrams/uml'
+import { Callback } from '@dinghy/standard-components-diagrams/uml'
 
 <Callback/>
 ```

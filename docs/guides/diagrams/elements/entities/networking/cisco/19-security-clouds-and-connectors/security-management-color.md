@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurityManagementColor } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { SecurityManagementColor } from '@dinghy/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <SecurityManagementColor/>
 ```

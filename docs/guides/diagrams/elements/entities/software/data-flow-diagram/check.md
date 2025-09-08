@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Check } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { Check } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <Check/>
 ```

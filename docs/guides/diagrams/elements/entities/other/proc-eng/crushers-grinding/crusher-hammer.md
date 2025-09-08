@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CrusherHammer } from '@diac/standard-components-diagrams/procEngCrushersGrinding'
+import { CrusherHammer } from '@dinghy/standard-components-diagrams/procEngCrushersGrinding'
 
 <CrusherHammer/>
 ```

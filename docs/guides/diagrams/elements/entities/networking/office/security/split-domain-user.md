@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SplitDomainUser } from '@diac/standard-components-diagrams/officeSecurity'
+import { SplitDomainUser } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <SplitDomainUser/>
 ```

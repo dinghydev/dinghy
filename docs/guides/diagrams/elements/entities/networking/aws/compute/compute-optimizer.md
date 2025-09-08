@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ComputeOptimizer } from '@diac/standard-components-diagrams/awsCompute'
+import { ComputeOptimizer } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <ComputeOptimizer/>
 ```

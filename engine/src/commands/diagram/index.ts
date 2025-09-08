@@ -3,8 +3,8 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '@diac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL, runCommand } from '@diac/cli'
+} from '@dinghy/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL, runCommand } from '@dinghy/cli'
 import Debug from 'debug'
 import png from './png.ts'
 import render from '../render/index.ts'

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArrowCycle } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { ArrowCycle } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <ArrowCycle/>
 ```

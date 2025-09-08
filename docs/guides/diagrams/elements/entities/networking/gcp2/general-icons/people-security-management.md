@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PeopleSecurityManagement } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { PeopleSecurityManagement } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <PeopleSecurityManagement/>
 ```

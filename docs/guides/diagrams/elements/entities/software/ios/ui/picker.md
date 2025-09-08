@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Picker } from '@diac/standard-components-diagrams/ios7Ui'
+import { Picker } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <Picker/>
 ```

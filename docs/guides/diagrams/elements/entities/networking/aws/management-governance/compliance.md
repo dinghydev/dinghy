@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Compliance } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { Compliance } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <Compliance/>
 ```

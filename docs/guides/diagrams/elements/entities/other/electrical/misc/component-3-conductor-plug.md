@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component3ConductorPlug } from '@diac/standard-components-diagrams/electricalMisc'
+import { Component3ConductorPlug } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <Component3ConductorPlug/>
 ```

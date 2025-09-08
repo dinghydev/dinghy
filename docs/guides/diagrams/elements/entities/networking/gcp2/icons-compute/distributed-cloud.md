@@ -16,7 +16,7 @@ Cloud
 ## Usage
 
 ```
-import { DistributedCloud } from '@diac/standard-components-diagrams/gcp2IconsCompute'
+import { DistributedCloud } from '@dinghy/standard-components-diagrams/gcp2IconsCompute'
 
 <DistributedCloud/>
 ```

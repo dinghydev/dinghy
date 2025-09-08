@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Oscilloscope } from '@diac/standard-components-diagrams/electricalInstruments'
+import { Oscilloscope } from '@dinghy/standard-components-diagrams/electricalInstruments'
 
 <Oscilloscope/>
 ```

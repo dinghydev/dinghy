@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdsProxyInstance2 } from '@diac/standard-components-diagrams/awsDatabase'
+import { RdsProxyInstance2 } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <RdsProxyInstance2/>
 ```

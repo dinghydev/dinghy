@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConeAdjustable } from '@diac/standard-components-diagrams/basic'
+import { ConeAdjustable } from '@dinghy/standard-components-diagrams/basic'
 
 <ConeAdjustable/>
 ```

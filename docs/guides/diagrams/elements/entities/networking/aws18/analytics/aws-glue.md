@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsGlue } from '@diac/standard-components-diagrams/aws18Analytics'
+import { AwsGlue } from '@dinghy/standard-components-diagrams/aws18Analytics'
 
 <AwsGlue/>
 ```

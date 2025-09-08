@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MainframeModernizationConverter } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { MainframeModernizationConverter } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <MainframeModernizationConverter/>
 ```

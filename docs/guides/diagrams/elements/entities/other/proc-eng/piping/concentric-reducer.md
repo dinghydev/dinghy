@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConcentricReducer } from '@diac/standard-components-diagrams/procEngPiping'
+import { ConcentricReducer } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <ConcentricReducer/>
 ```

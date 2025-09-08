@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CognitiveSearch } from '@diac/standard-components-diagrams/azure2Web'
+import { CognitiveSearch } from '@dinghy/standard-components-diagrams/azure2Web'
 
 <CognitiveSearch/>
 ```

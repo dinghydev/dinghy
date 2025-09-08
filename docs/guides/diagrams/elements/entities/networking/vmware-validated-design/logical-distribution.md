@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogicalDistribution } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { LogicalDistribution } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <LogicalDistribution/>
 ```

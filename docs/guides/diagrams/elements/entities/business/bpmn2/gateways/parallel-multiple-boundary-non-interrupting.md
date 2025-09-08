@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParallelMultipleBoundaryNonInterrupting } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { ParallelMultipleBoundaryNonInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <ParallelMultipleBoundaryNonInterrupting/>
 ```

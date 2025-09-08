@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LockProtectedGreen } from '@diac/standard-components-diagrams/officeSecurity'
+import { LockProtectedGreen } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <LockProtectedGreen/>
 ```

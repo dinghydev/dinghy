@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChannelPurger } from '@diac/standard-components-diagrams/eipSystemManagement'
+import { ChannelPurger } from '@dinghy/standard-components-diagrams/eipSystemManagement'
 
 <ChannelPurger/>
 ```

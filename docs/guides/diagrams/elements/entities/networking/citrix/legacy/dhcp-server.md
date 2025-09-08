@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DhcpServer } from '@diac/standard-components-diagrams/citrixLegacy'
+import { DhcpServer } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <DhcpServer/>
 ```

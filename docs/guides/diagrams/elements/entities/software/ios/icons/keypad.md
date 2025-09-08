@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Keypad } from '@diac/standard-components-diagrams/ios7Icons'
+import { Keypad } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Keypad/>
 ```

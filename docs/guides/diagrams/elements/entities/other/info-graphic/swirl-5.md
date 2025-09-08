@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Swirl5 } from '@diac/standard-components-diagrams/infoGraphic'
+import { Swirl5 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <Swirl5/>
 ```

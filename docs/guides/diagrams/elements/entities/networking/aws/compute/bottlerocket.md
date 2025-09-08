@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bottlerocket } from '@diac/standard-components-diagrams/awsCompute'
+import { Bottlerocket } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Bottlerocket/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebCluster } from '@diac/standard-components-diagrams/ciscoStorage'
+import { WebCluster } from '@dinghy/standard-components-diagrams/ciscoStorage'
 
 <WebCluster/>
 ```

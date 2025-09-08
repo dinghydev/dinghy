@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PluginRelay } from '@diac/standard-components-diagrams/cabinets'
+import { PluginRelay } from '@dinghy/standard-components-diagrams/cabinets'
 
 <PluginRelay/>
 ```

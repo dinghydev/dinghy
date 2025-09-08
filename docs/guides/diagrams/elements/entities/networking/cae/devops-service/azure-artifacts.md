@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureArtifacts } from '@diac/standard-components-diagrams/caeDevopsService'
+import { AzureArtifacts } from '@dinghy/standard-components-diagrams/caeDevopsService'
 
 <AzureArtifacts/>
 ```

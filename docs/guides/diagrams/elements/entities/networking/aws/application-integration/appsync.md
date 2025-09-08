@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Appsync } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { Appsync } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <Appsync/>
 ```

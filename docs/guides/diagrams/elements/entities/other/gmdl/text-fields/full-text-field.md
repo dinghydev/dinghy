@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FullTextField } from '@diac/standard-components-diagrams/gmdlTextFields'
+import { FullTextField } from '@dinghy/standard-components-diagrams/gmdlTextFields'
 
 <FullTextField/>
 ```

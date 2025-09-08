@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChoiceMergeNodeDecisionNode } from '@diac/standard-components-diagrams/uml25'
+import { ChoiceMergeNodeDecisionNode } from '@dinghy/standard-components-diagrams/uml25'
 
 <ChoiceMergeNodeDecisionNode/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ComputeEngine } from '@diac/standard-components-diagrams/gcpIconsCompute'
+import { ComputeEngine } from '@dinghy/standard-components-diagrams/gcpIconsCompute'
 
 <ComputeEngine/>
 ```

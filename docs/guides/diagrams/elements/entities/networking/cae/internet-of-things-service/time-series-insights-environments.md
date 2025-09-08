@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimeSeriesInsightsEnvironments } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
+import { TimeSeriesInsightsEnvironments } from '@dinghy/standard-components-diagrams/caeInternetOfThingsService'
 
 <TimeSeriesInsightsEnvironments/>
 ```

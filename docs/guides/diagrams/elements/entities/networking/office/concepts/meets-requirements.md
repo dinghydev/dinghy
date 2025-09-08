@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MeetsRequirements } from '@diac/standard-components-diagrams/officeConcepts'
+import { MeetsRequirements } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <MeetsRequirements/>
 ```

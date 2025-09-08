@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Timestream } from '@diac/standard-components-diagrams/awsDatabase'
+import { Timestream } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <Timestream/>
 ```

@@ -16,7 +16,7 @@ Command Line Interface
 ## Usage
 
 ```
-import { AwsCommandLineInterface } from '@diac/standard-components-diagrams/aws18ManagementTools'
+import { AwsCommandLineInterface } from '@dinghy/standard-components-diagrams/aws18ManagementTools'
 
 <AwsCommandLineInterface/>
 ```

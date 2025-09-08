@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackupForAwsCloudformation } from '@diac/standard-components-diagrams/awsStorage'
+import { BackupForAwsCloudformation } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <BackupForAwsCloudformation/>
 ```

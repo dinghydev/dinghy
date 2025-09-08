@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Constraint } from '@diac/standard-components-diagrams/archimate2'
+import { Constraint } from '@dinghy/standard-components-diagrams/archimate2'
 
 <Constraint/>
 ```

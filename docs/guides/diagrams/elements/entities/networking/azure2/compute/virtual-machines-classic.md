@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualMachinesClassic } from '@diac/standard-components-diagrams/azure2Compute'
+import { VirtualMachinesClassic } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <VirtualMachinesClassic/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Appfabric } from '@diac/standard-components-diagrams/awsBusinessApplications'
+import { Appfabric } from '@dinghy/standard-components-diagrams/awsBusinessApplications'
 
 <Appfabric/>
 ```

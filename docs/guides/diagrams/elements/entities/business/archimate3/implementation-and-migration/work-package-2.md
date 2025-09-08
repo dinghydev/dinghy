@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkPackage2 } from '@diac/standard-components-diagrams/archimate3ImplementationAndMigration'
+import { WorkPackage2 } from '@dinghy/standard-components-diagrams/archimate3ImplementationAndMigration'
 
 <WorkPackage2/>
 ```

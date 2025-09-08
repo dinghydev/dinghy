@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudShield } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CloudShield } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CloudShield/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Iso } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Iso } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Iso/>
 ```

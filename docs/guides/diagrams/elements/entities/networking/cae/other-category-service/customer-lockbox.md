@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CustomerLockbox } from '@diac/standard-components-diagrams/caeOtherCategoryService'
+import { CustomerLockbox } from '@dinghy/standard-components-diagrams/caeOtherCategoryService'
 
 <CustomerLockbox/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PalmTreo } from '@diac/standard-components-diagrams/clipartTelecommunication'
+import { PalmTreo } from '@dinghy/standard-components-diagrams/clipartTelecommunication'
 
 <PalmTreo/>
 ```

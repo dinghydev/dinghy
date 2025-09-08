@@ -16,7 +16,7 @@ Balancing
 ## Usage
 
 ```
-import { CloudLoadBalancing } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudLoadBalancing } from '@dinghy/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudLoadBalancing/>
 ```

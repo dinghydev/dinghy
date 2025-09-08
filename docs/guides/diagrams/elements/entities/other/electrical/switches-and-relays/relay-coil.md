@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RelayCoil } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { RelayCoil } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <RelayCoil/>
 ```

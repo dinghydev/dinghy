@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lift } from '@diac/standard-components-diagrams/procEngMisc'
+import { Lift } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <Lift/>
 ```

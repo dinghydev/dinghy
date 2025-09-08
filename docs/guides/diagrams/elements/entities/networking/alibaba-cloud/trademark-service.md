@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrademarkService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { TrademarkService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <TrademarkService/>
 ```

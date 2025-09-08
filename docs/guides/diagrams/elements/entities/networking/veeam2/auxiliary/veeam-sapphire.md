@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamSapphire } from '@diac/standard-components-diagrams/veeam2Auxiliary'
+import { VeeamSapphire } from '@dinghy/standard-components-diagrams/veeam2Auxiliary'
 
 <VeeamSapphire/>
 ```

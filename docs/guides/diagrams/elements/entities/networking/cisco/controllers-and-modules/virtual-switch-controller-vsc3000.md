@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualSwitchControllerVsc3000 } from '@diac/standard-components-diagrams/ciscoControllersAndModules'
+import { VirtualSwitchControllerVsc3000 } from '@dinghy/standard-components-diagrams/ciscoControllersAndModules'
 
 <VirtualSwitchControllerVsc3000/>
 ```

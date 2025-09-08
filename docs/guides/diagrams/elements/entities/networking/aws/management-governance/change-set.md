@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChangeSet } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ChangeSet } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ChangeSet/>
 ```

@@ -4,7 +4,7 @@
   version="25.0.2"
   >
   <diagram
-    name="diac-mono-repo-projects"
+    name="dinghy-mono-repo-projects"
     >
     <mxGraphModel
       grid="1"
@@ -31,9 +31,9 @@
           />
         <mxCell
           style="align=center;strokeColor=none;verticalAlign=top;aspect=fixed"
-          id="mono_repo_diacmonorepoprojects"
+          id="mono_repo_dinghymonorepoprojects"
           parent="root"
-          value="DIaC Mono Repo Projects"
+          value="Dinghy Mono Repo Projects"
           vertex="1"
           >
           <mxGeometry
@@ -47,7 +47,7 @@
         <mxCell
           style="align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;verticalAlign=top;aspect=fixed"
           id="core_coreprojectmodules"
-          parent="mono_repo_diacmonorepoprojects"
+          parent="mono_repo_dinghymonorepoprojects"
           value="Core Project / Modules"
           vertex="1"
           >
@@ -212,7 +212,7 @@
         <mxCell
           style="align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;verticalAlign=top;aspect=fixed"
           id="projects"
-          parent="mono_repo_diacmonorepoprojects"
+          parent="mono_repo_dinghymonorepoprojects"
           value="Projects"
           vertex="1"
           >

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Database } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Database } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Database/>
 ```

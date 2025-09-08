@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SasSituationalAwareness } from '@diac/standard-components-diagrams/alibabaCloud'
+import { SasSituationalAwareness } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <SasSituationalAwareness/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CrossFunctionalFlowchart } from '@diac/standard-components-diagrams/bpmn2General'
+import { CrossFunctionalFlowchart } from '@dinghy/standard-components-diagrams/bpmn2General'
 
 <CrossFunctionalFlowchart/>
 ```

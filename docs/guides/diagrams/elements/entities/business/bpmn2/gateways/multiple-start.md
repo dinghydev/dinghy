@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultipleStart } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { MultipleStart } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <MultipleStart/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Breather } from '@diac/standard-components-diagrams/procEngPiping'
+import { Breather } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <Breather/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdConnector } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { AdConnector } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <AdConnector/>
 ```

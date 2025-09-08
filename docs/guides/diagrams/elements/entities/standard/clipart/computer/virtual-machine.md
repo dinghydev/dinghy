@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualMachine } from '@diac/standard-components-diagrams/clipartComputer'
+import { VirtualMachine } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <VirtualMachine/>
 ```

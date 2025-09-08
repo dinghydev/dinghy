@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VideoFile } from '@diac/standard-components-diagrams/veeam2General'
+import { VideoFile } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <VideoFile/>
 ```

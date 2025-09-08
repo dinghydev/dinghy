@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CallPad } from '@diac/standard-components-diagrams/ios7Ui'
+import { CallPad } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <CallPad/>
 ```

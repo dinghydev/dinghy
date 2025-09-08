@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AeratorWithSparger } from '@diac/standard-components-diagrams/procEngMisc'
+import { AeratorWithSparger } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <AeratorWithSparger/>
 ```

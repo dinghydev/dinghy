@@ -29,7 +29,7 @@ const options: CommandOptions = {
   default: {
     git: true,
   },
-  cmdDescription: 'Create a new DIaC project',
+  cmdDescription: 'Create a new Dinghy project',
   cmdAlias: ['create-project'],
 }
 
@@ -45,7 +45,7 @@ const generateFile = async (
   }
   const filePath = folder ? `${folder}/${fileName}` : fileName
   const templateUrl =
-    `https://play.diac.dev/download/templates/${templateName}`
+    `https://play.dinghy.dev/download/templates/${templateName}`
   debug('Downloading template from %s', templateUrl)
   let template = await fetch(templateUrl).then((res) => res.text())
   if (template.includes('PROJECT_NAME_PLACE_HOLDER')) {
@@ -60,7 +60,7 @@ const generateFile = async (
 
 const run = async (_context: CommandContext, args: CommandArgs) => {
   if (!args.quiet) {
-    console.log('Creating new DIaC project ...')
+    console.log('Creating new Dinghy project ...')
   }
   const projectHome = args.project as string
 
@@ -76,7 +76,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     await generateFile(
       args,
       projectHome,
-      'diac.yml',
+      'dinghy.yml',
       'github.txt',
       '.github/workflows',
     )
@@ -107,7 +107,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   if (!args.quiet) {
     console.log('\nYou may now run the following commands to get started:')
     console.log(chalk.gray(`\n  cd ${projectHome}`))
-    console.log(chalk.gray('  diac devcontainer'))
+    console.log(chalk.gray('  dinghy devcontainer'))
   }
 }
 

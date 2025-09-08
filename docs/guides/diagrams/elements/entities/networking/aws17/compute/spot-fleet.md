@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpotFleet } from '@diac/standard-components-diagrams/aws17Compute'
+import { SpotFleet } from '@dinghy/standard-components-diagrams/aws17Compute'
 
 <SpotFleet/>
 ```

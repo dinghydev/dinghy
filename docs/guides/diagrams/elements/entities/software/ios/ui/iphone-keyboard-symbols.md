@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IphoneKeyboardSymbols } from '@diac/standard-components-diagrams/ios7Ui'
+import { IphoneKeyboardSymbols } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <IphoneKeyboardSymbols/>
 ```

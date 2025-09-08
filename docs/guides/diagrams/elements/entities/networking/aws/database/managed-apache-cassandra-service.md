@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedApacheCassandraService } from '@diac/standard-components-diagrams/awsDatabase'
+import { ManagedApacheCassandraService } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <ManagedApacheCassandraService/>
 ```

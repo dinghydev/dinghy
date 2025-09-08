@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdsMultiAzDbCluster } from '@diac/standard-components-diagrams/awsDatabase'
+import { RdsMultiAzDbCluster } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <RdsMultiAzDbCluster/>
 ```

@@ -1,4 +1,4 @@
-// deno run -A docker/images/61-release-base/fs-root/diac/cache-installer.ts
+// deno run -A docker/images/61-release-base/fs-root/dinghy/cache-installer.ts
 async function runCwdCommand(cwd: string, args: string[]) {
   const command = new Deno.Command(Deno.execPath(), {
     args,

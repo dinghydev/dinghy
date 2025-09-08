@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceCatalogMad } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { ServiceCatalogMad } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <ServiceCatalogMad/>
 ```

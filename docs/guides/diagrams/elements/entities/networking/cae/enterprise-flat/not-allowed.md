@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NotAllowed } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { NotAllowed } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <NotAllowed/>
 ```

@@ -1,9 +1,9 @@
 import z from 'zod'
-import { DiagramNodeProps } from '@diac/base-components'
+import { DiagramNodeProps } from '@dinghy/base-components'
 import { ActivationProps } from './activation.tsx'
 import { MessageProps } from './message.tsx'
 import { FrameProps } from './frame.tsx'
-import { defaultDiagramOptions } from '@diac/renderer-drawio'
+import { defaultDiagramOptions } from '@dinghy/renderer-drawio'
 
 export const ParticipantSchema = z.object({
   title: z.string().optional(),

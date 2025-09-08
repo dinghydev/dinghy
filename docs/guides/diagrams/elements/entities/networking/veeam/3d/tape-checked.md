@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TapeChecked } from '@diac/standard-components-diagrams/veeam3d'
+import { TapeChecked } from '@dinghy/standard-components-diagrams/veeam3d'
 
 <TapeChecked/>
 ```

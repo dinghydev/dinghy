@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReverseProxy } from '@diac/standard-components-diagrams/officeServers'
+import { ReverseProxy } from '@dinghy/standard-components-diagrams/officeServers'
 
 <ReverseProxy/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkWatcher } from '@diac/standard-components-diagrams/azure2Networking'
+import { NetworkWatcher } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <NetworkWatcher/>
 ```

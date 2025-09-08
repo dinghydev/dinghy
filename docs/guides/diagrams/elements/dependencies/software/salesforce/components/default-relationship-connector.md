@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DefaultRelationshipConnector } from '@diac/standard-components-diagrams/salesforceComponents'
+import { DefaultRelationshipConnector } from '@dinghy/standard-components-diagrams/salesforceComponents'
 
 <DefaultRelationshipConnector/>
 ```

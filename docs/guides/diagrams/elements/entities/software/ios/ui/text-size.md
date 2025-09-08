@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextSize } from '@diac/standard-components-diagrams/ios7Ui'
+import { TextSize } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <TextSize/>
 ```

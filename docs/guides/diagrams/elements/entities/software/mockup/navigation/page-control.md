@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PageControl } from '@diac/standard-components-diagrams/mockupNavigation'
+import { PageControl } from '@dinghy/standard-components-diagrams/mockupNavigation'
 
 <PageControl/>
 ```

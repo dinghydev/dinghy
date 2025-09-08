@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Contactor32To125a } from '@diac/standard-components-diagrams/cabinets'
+import { Contactor32To125a } from '@dinghy/standard-components-diagrams/cabinets'
 
 <Contactor32To125a/>
 ```

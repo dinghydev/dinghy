@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DarkCard } from '@diac/standard-components-diagrams/bootstrap'
+import { DarkCard } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <DarkCard/>
 ```

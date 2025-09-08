@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoDna } from '@diac/standard-components-diagrams/cisco19DnaSdAccess'
+import { CiscoDna } from '@dinghy/standard-components-diagrams/cisco19DnaSdAccess'
 
 <CiscoDna/>
 ```

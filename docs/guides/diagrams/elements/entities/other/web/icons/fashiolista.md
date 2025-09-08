@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fashiolista } from '@diac/standard-components-diagrams/webIcons'
+import { Fashiolista } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Fashiolista/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Flowbag } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Flowbag } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Flowbag/>
 ```

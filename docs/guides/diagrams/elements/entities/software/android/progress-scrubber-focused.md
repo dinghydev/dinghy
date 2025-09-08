@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgressScrubberFocused } from '@diac/standard-components-diagrams/android'
+import { ProgressScrubberFocused } from '@dinghy/standard-components-diagrams/android'
 
 <ProgressScrubberFocused/>
 ```

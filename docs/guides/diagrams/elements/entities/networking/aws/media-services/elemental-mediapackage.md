@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElementalMediapackage } from '@diac/standard-components-diagrams/awsMediaServices'
+import { ElementalMediapackage } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <ElementalMediapackage/>
 ```

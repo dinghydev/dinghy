@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AllocatedStereotype } from '@diac/standard-components-diagrams/sysmlAllocations'
+import { AllocatedStereotype } from '@dinghy/standard-components-diagrams/sysmlAllocations'
 
 <AllocatedStereotype/>
 ```

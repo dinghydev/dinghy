@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScientistWoman } from '@diac/standard-components-diagrams/clipartPeople'
+import { ScientistWoman } from '@dinghy/standard-components-diagrams/clipartPeople'
 
 <ScientistWoman/>
 ```

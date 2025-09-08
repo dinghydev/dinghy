@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VnfM } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { VnfM } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <VnfM/>
 ```

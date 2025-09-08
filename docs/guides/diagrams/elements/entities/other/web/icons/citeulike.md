@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Citeulike } from '@diac/standard-components-diagrams/webIcons'
+import { Citeulike } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Citeulike/>
 ```

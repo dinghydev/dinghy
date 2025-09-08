@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FrameTopaz } from '@diac/standard-components-diagrams/veeam2Auxiliary'
+import { FrameTopaz } from '@dinghy/standard-components-diagrams/veeam2Auxiliary'
 
 <FrameTopaz/>
 ```

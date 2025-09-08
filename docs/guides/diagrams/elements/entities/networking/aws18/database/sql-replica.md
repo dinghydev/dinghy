@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlReplica } from '@diac/standard-components-diagrams/aws18Database'
+import { SqlReplica } from '@dinghy/standard-components-diagrams/aws18Database'
 
 <SqlReplica/>
 ```

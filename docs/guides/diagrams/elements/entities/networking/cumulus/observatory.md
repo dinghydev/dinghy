@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Observatory } from '@diac/standard-components-diagrams/cumulus'
+import { Observatory } from '@dinghy/standard-components-diagrams/cumulus'
 
 <Observatory/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowsRouter } from '@diac/standard-components-diagrams/officeServers'
+import { WindowsRouter } from '@dinghy/standard-components-diagrams/officeServers'
 
 <WindowsRouter/>
 ```

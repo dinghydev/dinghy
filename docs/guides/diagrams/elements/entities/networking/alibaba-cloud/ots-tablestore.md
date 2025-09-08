@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OtsTablestore } from '@diac/standard-components-diagrams/alibabaCloud'
+import { OtsTablestore } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <OtsTablestore/>
 ```

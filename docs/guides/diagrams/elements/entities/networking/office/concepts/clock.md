@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Clock } from '@diac/standard-components-diagrams/officeConcepts'
+import { Clock } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Clock/>
 ```

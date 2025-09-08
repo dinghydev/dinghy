@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MachineLearning } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { MachineLearning } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <MachineLearning/>
 ```

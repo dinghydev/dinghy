@@ -16,7 +16,7 @@ Engine
 ## Usage
 
 ```
-import { GoogleKubernetesEngine } from '@diac/standard-components-diagrams/gcp2IconsCompute'
+import { GoogleKubernetesEngine } from '@dinghy/standard-components-diagrams/gcp2IconsCompute'
 
 <GoogleKubernetesEngine/>
 ```

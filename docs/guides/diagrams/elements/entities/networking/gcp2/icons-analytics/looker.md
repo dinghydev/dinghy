@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Looker } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { Looker } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <Looker/>
 ```

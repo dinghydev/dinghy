@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StatusBar } from '@diac/standard-components-diagrams/mockupMisc'
+import { StatusBar } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <StatusBar/>
 ```

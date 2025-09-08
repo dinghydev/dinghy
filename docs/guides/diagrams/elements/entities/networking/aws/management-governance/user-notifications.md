@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserNotifications } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { UserNotifications } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <UserNotifications/>
 ```

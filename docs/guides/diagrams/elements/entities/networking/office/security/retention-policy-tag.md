@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RetentionPolicyTag } from '@diac/standard-components-diagrams/officeSecurity'
+import { RetentionPolicyTag } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <RetentionPolicyTag/>
 ```

@@ -16,7 +16,7 @@ AI
 ## Usage
 
 ```
-import { RecommendationsAi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { RecommendationsAi } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <RecommendationsAi/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BusinessProcessModelConnectorForSapSignavioSolutions } from '@diac/standard-components-diagrams/sapOther'
+import { BusinessProcessModelConnectorForSapSignavioSolutions } from '@dinghy/standard-components-diagrams/sapOther'
 
 <BusinessProcessModelConnectorForSapSignavioSolutions/>
 ```

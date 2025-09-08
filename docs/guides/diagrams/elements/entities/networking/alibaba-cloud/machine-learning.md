@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MachineLearning } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MachineLearning } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MachineLearning/>
 ```

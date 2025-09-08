@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParallelMultipleStartNonInterrupting } from '@diac/standard-components-diagrams/bpmn2Events'
+import { ParallelMultipleStartNonInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <ParallelMultipleStartNonInterrupting/>
 ```

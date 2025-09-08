@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebTest } from '@diac/standard-components-diagrams/azure2General'
+import { WebTest } from '@dinghy/standard-components-diagrams/azure2General'
 
 <WebTest/>
 ```

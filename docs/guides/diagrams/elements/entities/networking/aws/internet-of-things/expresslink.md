@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Expresslink } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Expresslink } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Expresslink/>
 ```

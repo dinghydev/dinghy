@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProvidedRequiredInterface } from '@diac/standard-components-diagrams/uml'
+import { ProvidedRequiredInterface } from '@dinghy/standard-components-diagrams/uml'
 
 <ProvidedRequiredInterface/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudFirewallRules } from '@diac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudFirewallRules } from '@dinghy/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudFirewallRules/>
 ```

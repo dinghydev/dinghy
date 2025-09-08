@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CrusherImpact } from '@diac/standard-components-diagrams/procEngCrushersGrinding'
+import { CrusherImpact } from '@dinghy/standard-components-diagrams/procEngCrushersGrinding'
 
 <CrusherImpact/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CorporateDevice } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { CorporateDevice } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <CorporateDevice/>
 ```

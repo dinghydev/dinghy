@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Error } from '@diac/standard-components-diagrams/azure2General'
+import { Error } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Error/>
 ```

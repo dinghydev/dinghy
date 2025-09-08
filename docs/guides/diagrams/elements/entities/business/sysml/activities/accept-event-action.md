@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AcceptEventAction } from '@diac/standard-components-diagrams/sysmlActivities'
+import { AcceptEventAction } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <AcceptEventAction/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ObjectFlow2 } from '@diac/standard-components-diagrams/sysmlActivities'
+import { ObjectFlow2 } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <ObjectFlow2/>
 ```

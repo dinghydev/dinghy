@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatePicker3 } from '@diac/standard-components-diagrams/atlassian'
+import { DatePicker3 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <DatePicker3/>
 ```

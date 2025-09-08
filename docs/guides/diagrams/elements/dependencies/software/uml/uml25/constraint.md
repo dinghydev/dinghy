@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Constraint } from '@diac/standard-components-diagrams/uml25'
+import { Constraint } from '@dinghy/standard-components-diagrams/uml25'
 
 <Constraint/>
 ```

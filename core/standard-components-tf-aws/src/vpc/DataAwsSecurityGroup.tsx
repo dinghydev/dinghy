@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@diac/base-components'
+import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSecurityGroup } from './AwsSecurityGroup.tsx'
 

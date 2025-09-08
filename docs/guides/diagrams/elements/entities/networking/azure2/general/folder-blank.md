@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FolderBlank } from '@diac/standard-components-diagrams/azure2General'
+import { FolderBlank } from '@dinghy/standard-components-diagrams/azure2General'
 
 <FolderBlank/>
 ```

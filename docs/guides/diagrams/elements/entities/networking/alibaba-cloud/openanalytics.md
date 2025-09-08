@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Openanalytics } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Openanalytics } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Openanalytics/>
 ```

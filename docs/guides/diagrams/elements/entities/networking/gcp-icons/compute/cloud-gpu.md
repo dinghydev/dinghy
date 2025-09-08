@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudGpu } from '@diac/standard-components-diagrams/gcpIconsCompute'
+import { CloudGpu } from '@dinghy/standard-components-diagrams/gcpIconsCompute'
 
 <CloudGpu/>
 ```

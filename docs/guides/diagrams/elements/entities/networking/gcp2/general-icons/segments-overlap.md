@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SegmentsOverlap } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { SegmentsOverlap } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <SegmentsOverlap/>
 ```

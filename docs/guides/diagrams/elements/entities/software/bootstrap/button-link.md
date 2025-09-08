@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonLink } from '@diac/standard-components-diagrams/bootstrap'
+import { ButtonLink } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ButtonLink/>
 ```

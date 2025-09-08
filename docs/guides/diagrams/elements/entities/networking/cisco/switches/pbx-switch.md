@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PbxSwitch } from '@diac/standard-components-diagrams/ciscoSwitches'
+import { PbxSwitch } from '@dinghy/standard-components-diagrams/ciscoSwitches'
 
 <PbxSwitch/>
 ```

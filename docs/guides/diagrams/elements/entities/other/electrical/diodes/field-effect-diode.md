@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FieldEffectDiode } from '@diac/standard-components-diagrams/electricalDiodes'
+import { FieldEffectDiode } from '@dinghy/standard-components-diagrams/electricalDiodes'
 
 <FieldEffectDiode/>
 ```

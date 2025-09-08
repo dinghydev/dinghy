@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Instapaper } from '@diac/standard-components-diagrams/webLogos'
+import { Instapaper } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Instapaper/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamCloudMobility } from '@diac/standard-components-diagrams/veeam2Features'
+import { VeeamCloudMobility } from '@dinghy/standard-components-diagrams/veeam2Features'
 
 <VeeamCloudMobility/>
 ```

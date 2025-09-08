@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EndUserComputing } from '@diac/standard-components-diagrams/awsEndUserComputing'
+import { EndUserComputing } from '@dinghy/standard-components-diagrams/awsEndUserComputing'
 
 <EndUserComputing/>
 ```

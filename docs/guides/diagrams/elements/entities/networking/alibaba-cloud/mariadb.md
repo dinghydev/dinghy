@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mariadb } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Mariadb } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Mariadb/>
 ```

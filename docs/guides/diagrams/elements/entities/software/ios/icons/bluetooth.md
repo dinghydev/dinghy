@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bluetooth } from '@diac/standard-components-diagrams/ios7Icons'
+import { Bluetooth } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Bluetooth/>
 ```

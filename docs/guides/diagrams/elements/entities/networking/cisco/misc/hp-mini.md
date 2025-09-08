@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HpMini } from '@diac/standard-components-diagrams/ciscoMisc'
+import { HpMini } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <HpMini/>
 ```

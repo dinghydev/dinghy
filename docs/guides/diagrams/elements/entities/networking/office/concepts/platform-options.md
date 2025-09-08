@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlatformOptions } from '@diac/standard-components-diagrams/officeConcepts'
+import { PlatformOptions } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <PlatformOptions/>
 ```

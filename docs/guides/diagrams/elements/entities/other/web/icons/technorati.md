@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Technorati } from '@diac/standard-components-diagrams/webIcons'
+import { Technorati } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Technorati/>
 ```

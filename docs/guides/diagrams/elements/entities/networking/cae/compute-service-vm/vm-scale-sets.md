@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmScaleSets } from '@diac/standard-components-diagrams/caeComputeServiceVm'
+import { VmScaleSets } from '@dinghy/standard-components-diagrams/caeComputeServiceVm'
 
 <VmScaleSets/>
 ```

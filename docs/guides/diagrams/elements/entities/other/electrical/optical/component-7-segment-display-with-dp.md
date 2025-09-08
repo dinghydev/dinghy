@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component7SegmentDisplayWithDp } from '@diac/standard-components-diagrams/electricalOptical'
+import { Component7SegmentDisplayWithDp } from '@dinghy/standard-components-diagrams/electricalOptical'
 
 <Component7SegmentDisplayWithDp/>
 ```

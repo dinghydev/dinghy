@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StateInvariantContinuations } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { StateInvariantContinuations } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <StateInvariantContinuations/>
 ```

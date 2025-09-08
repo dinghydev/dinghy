@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NavigationBarLandscape } from '@diac/standard-components-diagrams/android'
+import { NavigationBarLandscape } from '@dinghy/standard-components-diagrams/android'
 
 <NavigationBarLandscape/>
 ```

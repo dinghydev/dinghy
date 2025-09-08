@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MigrationAssessment } from '@diac/standard-components-diagrams/sapIntegrationSuite'
+import { MigrationAssessment } from '@dinghy/standard-components-diagrams/sapIntegrationSuite'
 
 <MigrationAssessment/>
 ```

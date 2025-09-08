@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudConsole } from '@diac/standard-components-diagrams/gcp2IconsOperations'
+import { CloudConsole } from '@dinghy/standard-components-diagrams/gcp2IconsOperations'
 
 <CloudConsole/>
 ```

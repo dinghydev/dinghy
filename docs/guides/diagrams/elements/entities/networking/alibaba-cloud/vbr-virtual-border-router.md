@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VbrVirtualBorderRouter } from '@diac/standard-components-diagrams/alibabaCloud'
+import { VbrVirtualBorderRouter } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <VbrVirtualBorderRouter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ViewName } from '@diac/standard-components-diagrams/sysmlModelElements'
+import { ViewName } from '@dinghy/standard-components-diagrams/sysmlModelElements'
 
 <ViewName/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VoipIpPhone } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { VoipIpPhone } from '@dinghy/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <VoipIpPhone/>
 ```

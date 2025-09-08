@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Workflow } from '@diac/standard-components-diagrams/azure2General'
+import { Workflow } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Workflow/>
 ```

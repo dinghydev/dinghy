@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MpsMultimod } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MpsMultimod } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MpsMultimod/>
 ```

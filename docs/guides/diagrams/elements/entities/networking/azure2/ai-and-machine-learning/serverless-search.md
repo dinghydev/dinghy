@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServerlessSearch } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { ServerlessSearch } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <ServerlessSearch/>
 ```

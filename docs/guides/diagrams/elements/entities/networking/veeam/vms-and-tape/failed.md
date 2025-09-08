@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Failed } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Failed } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Failed/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Paused } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Paused } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Paused/>
 ```

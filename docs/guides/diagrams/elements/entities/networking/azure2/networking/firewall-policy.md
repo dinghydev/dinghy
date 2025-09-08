@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FirewallPolicy } from '@diac/standard-components-diagrams/azure2Networking'
+import { FirewallPolicy } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <FirewallPolicy/>
 ```

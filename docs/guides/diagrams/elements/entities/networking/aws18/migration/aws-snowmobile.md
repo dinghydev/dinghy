@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsSnowmobile } from '@diac/standard-components-diagrams/aws18Migration'
+import { AwsSnowmobile } from '@dinghy/standard-components-diagrams/aws18Migration'
 
 <AwsSnowmobile/>
 ```

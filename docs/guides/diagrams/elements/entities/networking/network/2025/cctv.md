@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cctv } from '@diac/standard-components-diagrams/network2'
+import { Cctv } from '@dinghy/standard-components-diagrams/network2'
 
 <Cctv/>
 ```

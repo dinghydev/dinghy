@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CompositeState } from '@diac/standard-components-diagrams/uml'
+import { CompositeState } from '@dinghy/standard-components-diagrams/uml'
 
 <CompositeState/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Codeguru } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Codeguru } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Codeguru/>
 ```

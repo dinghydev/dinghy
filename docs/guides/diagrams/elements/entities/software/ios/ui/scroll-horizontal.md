@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScrollHorizontal } from '@diac/standard-components-diagrams/ios7Ui'
+import { ScrollHorizontal } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <ScrollHorizontal/>
 ```

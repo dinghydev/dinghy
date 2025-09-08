@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultiSelect3 } from '@diac/standard-components-diagrams/atlassian'
+import { MultiSelect3 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <MultiSelect3/>
 ```

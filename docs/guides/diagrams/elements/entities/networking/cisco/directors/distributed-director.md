@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DistributedDirector } from '@diac/standard-components-diagrams/ciscoDirectors'
+import { DistributedDirector } from '@dinghy/standard-components-diagrams/ciscoDirectors'
 
 <DistributedDirector/>
 ```

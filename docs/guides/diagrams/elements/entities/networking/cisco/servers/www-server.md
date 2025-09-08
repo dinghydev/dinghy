@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WwwServer } from '@diac/standard-components-diagrams/ciscoServers'
+import { WwwServer } from '@dinghy/standard-components-diagrams/ciscoServers'
 
 <WwwServer/>
 ```

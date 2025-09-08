@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BraketQpu } from '@diac/standard-components-diagrams/awsQuantumTechnologies'
+import { BraketQpu } from '@dinghy/standard-components-diagrams/awsQuantumTechnologies'
 
 <BraketQpu/>
 ```

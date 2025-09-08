@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MosfetP } from '@diac/standard-components-diagrams/electricalTransistors'
+import { MosfetP } from '@dinghy/standard-components-diagrams/electricalTransistors'
 
 <MosfetP/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AuthenticationAdaptive } from '@diac/standard-components-diagrams/citrixAuthentication'
+import { AuthenticationAdaptive } from '@dinghy/standard-components-diagrams/citrixAuthentication'
 
 <AuthenticationAdaptive/>
 ```

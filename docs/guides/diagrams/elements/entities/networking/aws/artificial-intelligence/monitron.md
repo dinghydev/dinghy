@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Monitron } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Monitron } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Monitron/>
 ```

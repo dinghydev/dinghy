@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WikiSite } from '@diac/standard-components-diagrams/activeDirectory'
+import { WikiSite } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <WikiSite/>
 ```

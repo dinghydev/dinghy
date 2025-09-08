@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThinkboxSequoia } from '@diac/standard-components-diagrams/awsMediaServices'
+import { ThinkboxSequoia } from '@dinghy/standard-components-diagrams/awsMediaServices'
 
 <ThinkboxSequoia/>
 ```

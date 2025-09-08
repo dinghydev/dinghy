@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlockNamespaceContainment } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { BlockNamespaceContainment } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <BlockNamespaceContainment/>
 ```

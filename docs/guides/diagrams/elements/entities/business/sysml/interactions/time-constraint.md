@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimeConstraint } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { TimeConstraint } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <TimeConstraint/>
 ```

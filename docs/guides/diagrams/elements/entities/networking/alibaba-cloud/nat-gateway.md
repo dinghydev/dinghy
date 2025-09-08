@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NatGateway } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NatGateway } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NatGateway/>
 ```

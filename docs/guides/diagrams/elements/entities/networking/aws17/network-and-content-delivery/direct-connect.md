@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DirectConnect } from '@diac/standard-components-diagrams/aws17NetworkAndContentDelivery'
+import { DirectConnect } from '@dinghy/standard-components-diagrams/aws17NetworkAndContentDelivery'
 
 <DirectConnect/>
 ```

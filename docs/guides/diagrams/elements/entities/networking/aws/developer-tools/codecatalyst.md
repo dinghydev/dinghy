@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Codecatalyst } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { Codecatalyst } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <Codecatalyst/>
 ```

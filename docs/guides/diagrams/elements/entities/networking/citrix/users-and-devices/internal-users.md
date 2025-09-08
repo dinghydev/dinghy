@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternalUsers } from '@diac/standard-components-diagrams/citrixUsersAndDevices'
+import { InternalUsers } from '@dinghy/standard-components-diagrams/citrixUsersAndDevices'
 
 <InternalUsers/>
 ```

@@ -17,7 +17,7 @@ control list
 ## Usage
 
 ```
-import { NetworkAccessControlList } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { NetworkAccessControlList } from '@dinghy/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <NetworkAccessControlList/>
 ```

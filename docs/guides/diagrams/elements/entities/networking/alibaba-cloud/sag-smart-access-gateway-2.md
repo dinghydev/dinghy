@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SagSmartAccessGateway2 } from '@diac/standard-components-diagrams/alibabaCloud'
+import { SagSmartAccessGateway2 } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <SagSmartAccessGateway2/>
 ```

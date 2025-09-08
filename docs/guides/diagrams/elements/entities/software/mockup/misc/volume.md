@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Volume } from '@diac/standard-components-diagrams/mockupMisc'
+import { Volume } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <Volume/>
 ```

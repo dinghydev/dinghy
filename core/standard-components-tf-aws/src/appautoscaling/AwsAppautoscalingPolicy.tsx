@@ -4,10 +4,10 @@ import {
   ResolvableStringSchema,
   Shape,
   useTypedNode,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
-// import { awsProps } from "@diac/standard-components-tf-aws";
+// import { awsProps } from "@dinghy/standard-components-tf-aws";
 
 import z from 'zod'
 

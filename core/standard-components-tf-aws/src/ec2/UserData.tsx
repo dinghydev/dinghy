@@ -1,10 +1,10 @@
 import {
   type IacNodeProps,
   ResolvableStringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import z from 'zod'
-import { useTypedNode } from '@diac/base-components'
+import { useTypedNode } from '@dinghy/base-components'
 import { Buffer } from 'node:buffer'
 import { useUserDataTexts } from './UserDataText.tsx'
 import { azure } from '../../../standard-components-diagrams/src/index.ts'

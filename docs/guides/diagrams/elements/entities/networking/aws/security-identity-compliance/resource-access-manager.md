@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResourceAccessManager } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { ResourceAccessManager } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <ResourceAccessManager/>
 ```

@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { ScriptCallActivity } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { ScriptCallActivity } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <ScriptCallActivity/>
 ```

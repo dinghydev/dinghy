@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vts } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { Vts } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <Vts/>
 ```

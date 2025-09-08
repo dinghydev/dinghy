@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapPersonalDataManager } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapPersonalDataManager } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapPersonalDataManager/>
 ```

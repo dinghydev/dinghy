@@ -1,10 +1,10 @@
-import { IacNodeProps } from '@diac/base-components'
+import { IacNodeProps } from '@dinghy/base-components'
 
 import { awsProps } from './index.ts'
 import z from 'zod'
 import { aws4 } from '../../standard-components-diagrams/src/index.ts'
-import { useStack } from '@diac/base-components'
-import { useTypedNode } from '@diac/base-components'
+import { useStack } from '@dinghy/base-components'
+import { useTypedNode } from '@dinghy/base-components'
 
 export const AwsRegionInputSchema = z.object({
   region: z.string().default('us-east-1'),

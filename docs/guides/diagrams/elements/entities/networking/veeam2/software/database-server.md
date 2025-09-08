@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseServer } from '@diac/standard-components-diagrams/veeam2Software'
+import { DatabaseServer } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <DatabaseServer/>
 ```

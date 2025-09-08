@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationDiscoveryService } from '@diac/standard-components-diagrams/aws17Migration'
+import { ApplicationDiscoveryService } from '@dinghy/standard-components-diagrams/aws17Migration'
 
 <ApplicationDiscoveryService/>
 ```

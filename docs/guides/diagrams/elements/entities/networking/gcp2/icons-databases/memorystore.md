@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Memorystore } from '@diac/standard-components-diagrams/gcp2IconsDatabases'
+import { Memorystore } from '@dinghy/standard-components-diagrams/gcp2IconsDatabases'
 
 <Memorystore/>
 ```

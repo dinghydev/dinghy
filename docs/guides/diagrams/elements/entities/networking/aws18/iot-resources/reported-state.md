@@ -16,7 +16,7 @@ state
 ## Usage
 
 ```
-import { ReportedState } from '@diac/standard-components-diagrams/aws18IotResources'
+import { ReportedState } from '@dinghy/standard-components-diagrams/aws18IotResources'
 
 <ReportedState/>
 ```

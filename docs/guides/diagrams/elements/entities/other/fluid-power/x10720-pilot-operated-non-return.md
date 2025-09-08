@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X10720PilotOperatedNonReturn } from '@diac/standard-components-diagrams/fluidPower'
+import { X10720PilotOperatedNonReturn } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X10720PilotOperatedNonReturn/>
 ```

@@ -4,7 +4,7 @@ import {
   type NodeTree,
   toId,
   toName,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 import type { HostContainer } from '../types.ts'
 
 const defaultTags = (

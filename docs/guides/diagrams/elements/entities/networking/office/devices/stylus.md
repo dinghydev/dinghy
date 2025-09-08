@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stylus } from '@diac/standard-components-diagrams/officeDevices'
+import { Stylus } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <Stylus/>
 ```

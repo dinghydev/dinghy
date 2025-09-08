@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Property2 } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { Property2 } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <Property2/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowsServer } from '@diac/standard-components-diagrams/activeDirectory'
+import { WindowsServer } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <WindowsServer/>
 ```

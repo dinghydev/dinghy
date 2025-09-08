@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlateAndFrameHeatExchanger } from '@diac/standard-components-diagrams/procEngHeatExchangers'
+import { PlateAndFrameHeatExchanger } from '@dinghy/standard-components-diagrams/procEngHeatExchangers'
 
 <PlateAndFrameHeatExchanger/>
 ```

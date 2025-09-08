@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiskEncryptionSets } from '@diac/standard-components-diagrams/azure2Compute'
+import { DiskEncryptionSets } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <DiskEncryptionSets/>
 ```

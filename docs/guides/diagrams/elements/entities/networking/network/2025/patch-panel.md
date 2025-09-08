@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PatchPanel } from '@diac/standard-components-diagrams/network2'
+import { PatchPanel } from '@dinghy/standard-components-diagrams/network2'
 
 <PatchPanel/>
 ```

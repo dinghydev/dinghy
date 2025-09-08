@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LastFm } from '@diac/standard-components-diagrams/webIcons'
+import { LastFm } from '@dinghy/standard-components-diagrams/webIcons'
 
 <LastFm/>
 ```

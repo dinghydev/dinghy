@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SmtpConnector } from '@diac/standard-components-diagrams/officeCommunications'
+import { SmtpConnector } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <SmtpConnector/>
 ```

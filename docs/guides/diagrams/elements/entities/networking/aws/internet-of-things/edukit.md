@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Edukit } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Edukit } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Edukit/>
 ```

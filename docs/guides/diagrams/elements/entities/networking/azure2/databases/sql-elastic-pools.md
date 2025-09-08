@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlElasticPools } from '@diac/standard-components-diagrams/azure2Databases'
+import { SqlElasticPools } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <SqlElasticPools/>
 ```

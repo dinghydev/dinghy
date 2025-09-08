@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BuiltInManagementForAgents } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { BuiltInManagementForAgents } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <BuiltInManagementForAgents/>
 ```

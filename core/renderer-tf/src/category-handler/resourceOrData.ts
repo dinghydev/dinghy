@@ -1,6 +1,6 @@
 import type { TfRenderOptions } from '../types.ts'
 import { requiredSchema } from './index.ts'
-import { deepMerge, deepResolve, NodeTree, Props } from '@diac/base-components'
+import { deepMerge, deepResolve, NodeTree, Props } from '@dinghy/base-components'
 
 export const resourceOrData = (
   renderOptions: TfRenderOptions,

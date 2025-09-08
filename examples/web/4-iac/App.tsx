@@ -1,4 +1,4 @@
-import { Stack } from "@diac/base-components";
+import { Stack } from "@dinghy/base-components";
 import {
   Client,
   Waf,

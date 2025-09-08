@@ -1,7 +1,7 @@
 import { projectVersionRelease } from './projectVersions.ts'
 
-const URL_ERROR_REPORT = 'https://error.diac.dev/report'
-const URL_USAGE_REPORT = 'https://usage.diac.dev/report'
+const URL_ERROR_REPORT = 'https://error.dinghy.dev/report'
+const URL_USAGE_REPORT = 'https://usage.dinghy.dev/report'
 
 function addSimpleCommands(params: URLSearchParams) {
   const args = Deno.args
@@ -34,7 +34,7 @@ function addSimpleCommands(params: URLSearchParams) {
 export async function sendReport(msTaken: number, error?: any) {
   const url = error ? URL_ERROR_REPORT : URL_USAGE_REPORT
   const params = new URLSearchParams()
-  const cliVersion = Deno.env.get('DIAC_CLI_VERSION')
+  const cliVersion = Deno.env.get('DINGHY_CLI_VERSION')
   if (cliVersion) {
     params.set('cli', cliVersion)
   }
@@ -61,7 +61,7 @@ export const reportResult = async (msTaken: number, error?: any) => {
     await sendReport(msTaken, error)
   } else {
     const usageReportDisabled = Boolean(
-      Deno.env.get('DIAC_USAGE_REPORT_DISABLED'),
+      Deno.env.get('DINGHY_USAGE_REPORT_DISABLED'),
     )
     if (!usageReportDisabled) {
       sendReport(msTaken)

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextSelectionHandles } from '@diac/standard-components-diagrams/android'
+import { TextSelectionHandles } from '@dinghy/standard-components-diagrams/android'
 
 <TextSelectionHandles/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TabletWindows8 } from '@diac/standard-components-diagrams/officeDevices'
+import { TabletWindows8 } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <TabletWindows8/>
 ```

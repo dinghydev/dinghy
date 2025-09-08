@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DevTunnels } from '@diac/standard-components-diagrams/azure2Other'
+import { DevTunnels } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DevTunnels/>
 ```

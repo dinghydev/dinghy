@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OsImagesClassic } from '@diac/standard-components-diagrams/azure2Compute'
+import { OsImagesClassic } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <OsImagesClassic/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AvailabilitySets } from '@diac/standard-components-diagrams/caeComputeServiceVm'
+import { AvailabilitySets } from '@dinghy/standard-components-diagrams/caeComputeServiceVm'
 
 <AvailabilitySets/>
 ```

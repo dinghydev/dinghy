@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LakeFormation } from '@diac/standard-components-diagrams/awsAnalytics'
+import { LakeFormation } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <LakeFormation/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurityCenter } from '@diac/standard-components-diagrams/caeSecurityService'
+import { SecurityCenter } from '@dinghy/standard-components-diagrams/caeSecurityService'
 
 <SecurityCenter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GridTitles } from '@diac/standard-components-diagrams/gmdlGridLists'
+import { GridTitles } from '@dinghy/standard-components-diagrams/gmdlGridLists'
 
 <GridTitles/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OrderCommand } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { OrderCommand } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <OrderCommand/>
 ```

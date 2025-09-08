@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LaunchPortal } from '@diac/standard-components-diagrams/azure2General'
+import { LaunchPortal } from '@dinghy/standard-components-diagrams/azure2General'
 
 <LaunchPortal/>
 ```

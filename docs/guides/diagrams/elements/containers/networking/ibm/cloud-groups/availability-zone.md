@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { AvailabilityZone } from '@diac/standard-components-diagrams/ibmCloudGroups'
+import { AvailabilityZone } from '@dinghy/standard-components-diagrams/ibmCloudGroups'
 
 <AvailabilityZone/>
 ```

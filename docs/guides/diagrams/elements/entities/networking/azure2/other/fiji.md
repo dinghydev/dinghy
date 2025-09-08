@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fiji } from '@diac/standard-components-diagrams/azure2Other'
+import { Fiji } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Fiji/>
 ```

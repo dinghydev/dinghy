@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlsAsrcustommodel } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlsAsrcustommodel } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlsAsrcustommodel/>
 ```

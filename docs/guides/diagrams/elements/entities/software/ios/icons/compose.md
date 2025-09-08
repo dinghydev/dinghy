@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Compose } from '@diac/standard-components-diagrams/ios7Icons'
+import { Compose } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Compose/>
 ```

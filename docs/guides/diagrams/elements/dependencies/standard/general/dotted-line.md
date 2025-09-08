@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DottedLine } from '@diac/standard-components-diagrams/general'
+import { DottedLine } from '@dinghy/standard-components-diagrams/general'
 
 <DottedLine/>
 ```

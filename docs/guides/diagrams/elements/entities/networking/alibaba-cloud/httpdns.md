@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Httpdns } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Httpdns } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Httpdns/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FsxFileGateway } from '@diac/standard-components-diagrams/awsStorage'
+import { FsxFileGateway } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <FsxFileGateway/>
 ```

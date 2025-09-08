@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VcloudDirector } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { VcloudDirector } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <VcloudDirector/>
 ```

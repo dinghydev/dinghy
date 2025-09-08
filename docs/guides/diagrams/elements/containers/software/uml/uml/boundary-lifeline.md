@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { BoundaryLifeline } from '@diac/standard-components-diagrams/uml'
+import { BoundaryLifeline } from '@dinghy/standard-components-diagrams/uml'
 
 <BoundaryLifeline/>
 ```

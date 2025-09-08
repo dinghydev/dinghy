@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wavefront } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Wavefront } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Wavefront/>
 ```

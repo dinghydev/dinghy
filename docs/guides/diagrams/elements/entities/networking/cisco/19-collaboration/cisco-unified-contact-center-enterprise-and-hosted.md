@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoUnifiedContactCenterEnterpriseAndHosted } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { CiscoUnifiedContactCenterEnterpriseAndHosted } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <CiscoUnifiedContactCenterEnterpriseAndHosted/>
 ```

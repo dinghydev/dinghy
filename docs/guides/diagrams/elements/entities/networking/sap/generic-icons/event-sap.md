@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventSap } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { EventSap } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <EventSap/>
 ```

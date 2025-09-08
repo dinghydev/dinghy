@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeliveryController } from '@diac/standard-components-diagrams/citrixComponents'
+import { DeliveryController } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <DeliveryController/>
 ```

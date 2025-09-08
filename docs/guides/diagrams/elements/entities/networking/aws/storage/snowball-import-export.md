@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SnowballImportExport } from '@diac/standard-components-diagrams/awsStorage'
+import { SnowballImportExport } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <SnowballImportExport/>
 ```

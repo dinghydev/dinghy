@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MpsAi } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MpsAi } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MpsAi/>
 ```

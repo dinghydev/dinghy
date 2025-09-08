@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DnsPrivateResolver } from '@diac/standard-components-diagrams/azure2Networking'
+import { DnsPrivateResolver } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <DnsPrivateResolver/>
 ```

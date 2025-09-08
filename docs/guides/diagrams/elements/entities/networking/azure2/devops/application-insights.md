@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationInsights } from '@diac/standard-components-diagrams/azure2Devops'
+import { ApplicationInsights } from '@dinghy/standard-components-diagrams/azure2Devops'
 
 <ApplicationInsights/>
 ```

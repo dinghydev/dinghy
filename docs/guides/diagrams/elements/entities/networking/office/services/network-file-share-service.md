@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkFileShareService } from '@diac/standard-components-diagrams/officeServices'
+import { NetworkFileShareService } from '@dinghy/standard-components-diagrams/officeServices'
 
 <NetworkFileShareService/>
 ```

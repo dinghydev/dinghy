@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalLine } from '@diac/standard-components-diagrams/mockupMarkup'
+import { HorizontalLine } from '@dinghy/standard-components-diagrams/mockupMarkup'
 
 <HorizontalLine/>
 ```

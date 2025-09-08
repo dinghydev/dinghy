@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LocalDisk } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { LocalDisk } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <LocalDisk/>
 ```

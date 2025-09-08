@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FibreQsfp } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
+import { FibreQsfp } from '@dinghy/standard-components-diagrams/rackHpeArubaSwitches'
 
 <FibreQsfp/>
 ```

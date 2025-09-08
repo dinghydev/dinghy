@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HistoryDeepPseudoState } from '@diac/standard-components-diagrams/sysmlStateMachines'
+import { HistoryDeepPseudoState } from '@dinghy/standard-components-diagrams/sysmlStateMachines'
 
 <HistoryDeepPseudoState/>
 ```

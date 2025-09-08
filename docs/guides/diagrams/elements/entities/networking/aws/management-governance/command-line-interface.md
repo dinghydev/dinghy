@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CommandLineInterface } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { CommandLineInterface } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <CommandLineInterface/>
 ```

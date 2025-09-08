@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TransactionalClient } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
+import { TransactionalClient } from '@dinghy/standard-components-diagrams/eipMessagingEndpoints'
 
 <TransactionalClient/>
 ```

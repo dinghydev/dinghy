@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GtsGlobalTransactionService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { GtsGlobalTransactionService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <GtsGlobalTransactionService/>
 ```

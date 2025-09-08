@@ -16,7 +16,7 @@ Intelligence
 ## Usage
 
 ```
-import { NetworkIntelligence } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
+import { NetworkIntelligence } from '@dinghy/standard-components-diagrams/gcp2IconsNetworking'
 
 <NetworkIntelligence/>
 ```

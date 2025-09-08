@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultipleIntermediateThrowing } from '@diac/standard-components-diagrams/bpmn2Events'
+import { MultipleIntermediateThrowing } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <MultipleIntermediateThrowing/>
 ```

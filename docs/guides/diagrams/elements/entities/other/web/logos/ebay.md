@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ebay } from '@diac/standard-components-diagrams/webLogos'
+import { Ebay } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Ebay/>
 ```

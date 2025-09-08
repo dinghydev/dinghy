@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SipProxyServer } from '@diac/standard-components-diagrams/ciscoServers'
+import { SipProxyServer } from '@dinghy/standard-components-diagrams/ciscoServers'
 
 <SipProxyServer/>
 ```

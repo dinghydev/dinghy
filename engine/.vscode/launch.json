@@ -34,7 +34,7 @@
         // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/elements"
         "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/data"
-        // "APP_HOME": "${workspaceFolder}/../diac-sites"
+        // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
@@ -64,7 +64,7 @@
       "env": {
         "DEBUG": "10",
         // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/../diac-sites"
+        // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
@@ -92,7 +92,7 @@
       "env": {
         "DEBUG": "10",
         // "CI": "true",
-        // "APP_HOME": "${workspaceFolder}/../diac-sites"
+        // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
@@ -126,7 +126,7 @@
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        // "APP_HOME": "${workspaceFolder}/../diac-sites"
+        // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
       },
       "type": "node",
       "request": "launch",
@@ -157,7 +157,7 @@
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-global-infra"
         "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
-        // "APP_HOME": "${workspaceFolder}/../diac-sites"
+        // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
       },
       "type": "node",
       "request": "launch",

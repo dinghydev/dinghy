@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Umbrella } from '@diac/standard-components-diagrams/ios7Icons'
+import { Umbrella } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Umbrella/>
 ```

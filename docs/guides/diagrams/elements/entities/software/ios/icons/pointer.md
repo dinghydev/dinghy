@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pointer } from '@diac/standard-components-diagrams/ios7Icons'
+import { Pointer } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Pointer/>
 ```

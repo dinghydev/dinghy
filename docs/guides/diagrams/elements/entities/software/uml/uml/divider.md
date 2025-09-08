@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Divider } from '@diac/standard-components-diagrams/uml'
+import { Divider } from '@dinghy/standard-components-diagrams/uml'
 
 <Divider/>
 ```

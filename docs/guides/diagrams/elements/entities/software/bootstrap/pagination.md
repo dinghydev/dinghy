@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pagination } from '@diac/standard-components-diagrams/bootstrap'
+import { Pagination } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <Pagination/>
 ```

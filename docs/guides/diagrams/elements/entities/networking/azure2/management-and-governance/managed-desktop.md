@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedDesktop } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { ManagedDesktop } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <ManagedDesktop/>
 ```

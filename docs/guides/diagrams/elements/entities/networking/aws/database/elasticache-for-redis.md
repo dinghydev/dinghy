@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticacheForRedis } from '@diac/standard-components-diagrams/awsDatabase'
+import { ElasticacheForRedis } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <ElasticacheForRedis/>
 ```

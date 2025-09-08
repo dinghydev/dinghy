@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobilityService } from '@diac/standard-components-diagrams/officeServices'
+import { MobilityService } from '@dinghy/standard-components-diagrams/officeServices'
 
 <MobilityService/>
 ```

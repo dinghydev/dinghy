@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LiquidFilterFixedBed } from '@diac/standard-components-diagrams/procEngFilters'
+import { LiquidFilterFixedBed } from '@dinghy/standard-components-diagrams/procEngFilters'
 
 <LiquidFilterFixedBed/>
 ```

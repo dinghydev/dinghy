@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Condenser } from '@diac/standard-components-diagrams/procEngHeatExchangers'
+import { Condenser } from '@dinghy/standard-components-diagrams/procEngHeatExchangers'
 
 <Condenser/>
 ```

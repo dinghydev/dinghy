@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonSimpleEmailService } from '@diac/standard-components-diagrams/aws18CustomerEngagement'
+import { AmazonSimpleEmailService } from '@dinghy/standard-components-diagrams/aws18CustomerEngagement'
 
 <AmazonSimpleEmailService/>
 ```

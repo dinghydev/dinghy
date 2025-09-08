@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadBalancers } from '@diac/standard-components-diagrams/azure2Networking'
+import { LoadBalancers } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <LoadBalancers/>
 ```

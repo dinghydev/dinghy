@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InventoryLicense } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { InventoryLicense } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <InventoryLicense/>
 ```

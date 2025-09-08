@@ -1,8 +1,8 @@
 import { toTfJson } from './toTfJson.ts'
-import { renderNode } from '@diac/base-renderer'
-import type { HostContainer } from '@diac/base-renderer'
+import { renderNode } from '@dinghy/base-renderer'
+import type { HostContainer } from '@dinghy/base-renderer'
 import type { TfRenderOptions } from './types.ts'
-import { RootNode } from '@diac/base-components'
+import { RootNode } from '@dinghy/base-components'
 import { applyProcessors } from './processors/index.ts'
 
 export function renderTf(

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudTranslationApi } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { CloudTranslationApi } from '@dinghy/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <CloudTranslationApi/>
 ```

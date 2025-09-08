@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SharingPolicy } from '@diac/standard-components-diagrams/officeSecurity'
+import { SharingPolicy } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <SharingPolicy/>
 ```

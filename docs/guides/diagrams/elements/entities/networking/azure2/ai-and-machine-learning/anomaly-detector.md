@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AnomalyDetector } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { AnomalyDetector } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <AnomalyDetector/>
 ```

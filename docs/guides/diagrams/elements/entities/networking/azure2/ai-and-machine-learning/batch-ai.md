@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BatchAi } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { BatchAi } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <BatchAi/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReceiveSignalAction } from '@diac/standard-components-diagrams/sysmlStateMachines'
+import { ReceiveSignalAction } from '@dinghy/standard-components-diagrams/sysmlStateMachines'
 
 <ReceiveSignalAction/>
 ```

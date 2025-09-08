@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TransactionManager } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { TransactionManager } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <TransactionManager/>
 ```

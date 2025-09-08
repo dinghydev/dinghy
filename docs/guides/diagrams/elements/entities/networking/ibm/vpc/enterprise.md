@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Enterprise } from '@diac/standard-components-diagrams/ibmVpc'
+import { Enterprise } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <Enterprise/>
 ```

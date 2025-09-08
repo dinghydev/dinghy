@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticSan } from '@diac/standard-components-diagrams/azure2Other'
+import { ElasticSan } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ElasticSan/>
 ```

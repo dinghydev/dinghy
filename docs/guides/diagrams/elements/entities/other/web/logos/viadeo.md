@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Viadeo } from '@diac/standard-components-diagrams/webLogos'
+import { Viadeo } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Viadeo/>
 ```

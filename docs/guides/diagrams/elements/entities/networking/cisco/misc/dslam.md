@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dslam } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Dslam } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Dslam/>
 ```

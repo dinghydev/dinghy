@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Government } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Government } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Government/>
 ```

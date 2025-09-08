@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrustedLanguageExtensionsForPostgresql } from '@diac/standard-components-diagrams/awsDatabase'
+import { TrustedLanguageExtensionsForPostgresql } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <TrustedLanguageExtensionsForPostgresql/>
 ```

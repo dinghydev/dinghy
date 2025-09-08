@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Reservations } from '@diac/standard-components-diagrams/caeGeneralService'
+import { Reservations } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <Reservations/>
 ```

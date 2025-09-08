@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CompensationEnd } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { CompensationEnd } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <CompensationEnd/>
 ```

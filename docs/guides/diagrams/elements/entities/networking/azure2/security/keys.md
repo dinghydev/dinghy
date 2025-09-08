@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Keys } from '@diac/standard-components-diagrams/azure2Security'
+import { Keys } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <Keys/>
 ```

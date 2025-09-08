@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EnsEdgeNodeService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { EnsEdgeNodeService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <EnsEdgeNodeService/>
 ```

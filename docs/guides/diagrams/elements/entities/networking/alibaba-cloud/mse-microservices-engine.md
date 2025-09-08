@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MseMicroservicesEngine } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MseMicroservicesEngine } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MseMicroservicesEngine/>
 ```

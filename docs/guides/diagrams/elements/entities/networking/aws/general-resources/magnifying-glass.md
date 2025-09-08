@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MagnifyingGlass } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { MagnifyingGlass } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <MagnifyingGlass/>
 ```

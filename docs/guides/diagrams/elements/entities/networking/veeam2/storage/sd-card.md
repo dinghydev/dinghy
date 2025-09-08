@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SdCard } from '@diac/standard-components-diagrams/veeam2Storage'
+import { SdCard } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <SdCard/>
 ```

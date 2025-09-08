@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpensearchServiceTraces } from '@diac/standard-components-diagrams/awsAnalytics'
+import { OpensearchServiceTraces } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <OpensearchServiceTraces/>
 ```

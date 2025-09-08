@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EndpointManagement } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { EndpointManagement } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <EndpointManagement/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdsSlave } from '@diac/standard-components-diagrams/aws3d'
+import { RdsSlave } from '@dinghy/standard-components-diagrams/aws3d'
 
 <RdsSlave/>
 ```

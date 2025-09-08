@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapDocumentManagementService } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapDocumentManagementService } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapDocumentManagementService/>
 ```

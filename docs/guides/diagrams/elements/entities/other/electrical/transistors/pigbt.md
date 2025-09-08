@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pigbt } from '@diac/standard-components-diagrams/electricalTransistors'
+import { Pigbt } from '@dinghy/standard-components-diagrams/electricalTransistors'
 
 <Pigbt/>
 ```

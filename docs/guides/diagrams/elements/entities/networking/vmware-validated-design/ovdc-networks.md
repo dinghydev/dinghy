@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OvdcNetworks } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { OvdcNetworks } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <OvdcNetworks/>
 ```

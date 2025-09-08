@@ -3,15 +3,15 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '@diac/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@diac/cli'
+} from '@dinghy/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import init from './init.ts'
 import plan from './plan.ts'
 import apply from './apply.ts'
 // import generate from "./generate/index.ts";
 import normalise from './normalise.ts'
 import diff from './diff.ts'
-import { showHelp } from '@diac/cli'
+import { showHelp } from '@dinghy/cli'
 import up from './up.ts'
 import bash from './bash.ts'
 const options: CommandOptions = {

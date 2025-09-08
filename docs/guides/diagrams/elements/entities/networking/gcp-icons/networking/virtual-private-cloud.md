@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualPrivateCloud } from '@diac/standard-components-diagrams/gcpIconsNetworking'
+import { VirtualPrivateCloud } from '@dinghy/standard-components-diagrams/gcpIconsNetworking'
 
 <VirtualPrivateCloud/>
 ```

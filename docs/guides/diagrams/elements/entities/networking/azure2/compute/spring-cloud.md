@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpringCloud } from '@diac/standard-components-diagrams/azure2Compute'
+import { SpringCloud } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <SpringCloud/>
 ```

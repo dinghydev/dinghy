@@ -22,10 +22,10 @@ export async function runEngineCommand(context: CommandContext) {
   try {
     await runDockerCmd(
       hostAppHome,
-      { DIAC_CLI_VERSION: projectVersionRelease() },
+      { DINGHY_CLI_VERSION: projectVersionRelease() },
       [],
       [
-        'diac',
+        'dinghy',
         ...collectEngineArgs(context.originalArgs),
       ],
       configGetEngineImage(),

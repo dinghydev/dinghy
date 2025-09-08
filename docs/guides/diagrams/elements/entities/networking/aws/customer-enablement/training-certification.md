@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrainingCertification } from '@diac/standard-components-diagrams/awsCustomerEnablement'
+import { TrainingCertification } from '@dinghy/standard-components-diagrams/awsCustomerEnablement'
 
 <TrainingCertification/>
 ```

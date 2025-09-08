@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CsvFile } from '@diac/standard-components-diagrams/officeUsers'
+import { CsvFile } from '@dinghy/standard-components-diagrams/officeUsers'
 
 <CsvFile/>
 ```

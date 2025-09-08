@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Azure } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { Azure } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <Azure/>
 ```

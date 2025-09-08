@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeveloperTools } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { DeveloperTools } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <DeveloperTools/>
 ```

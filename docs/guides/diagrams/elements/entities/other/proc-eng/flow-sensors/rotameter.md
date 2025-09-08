@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rotameter } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Rotameter } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Rotameter/>
 ```

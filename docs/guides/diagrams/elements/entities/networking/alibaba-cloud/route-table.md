@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouteTable } from '@diac/standard-components-diagrams/alibabaCloud'
+import { RouteTable } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <RouteTable/>
 ```

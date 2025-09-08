@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SignLanguage } from '@diac/standard-components-diagrams/signsHealthcare'
+import { SignLanguage } from '@dinghy/standard-components-diagrams/signsHealthcare'
 
 <SignLanguage/>
 ```

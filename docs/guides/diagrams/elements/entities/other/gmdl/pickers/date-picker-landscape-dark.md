@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatePickerLandscapeDark } from '@diac/standard-components-diagrams/gmdlPickers'
+import { DatePickerLandscapeDark } from '@dinghy/standard-components-diagrams/gmdlPickers'
 
 <DatePickerLandscapeDark/>
 ```

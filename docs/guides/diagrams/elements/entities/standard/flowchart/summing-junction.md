@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SummingJunction } from '@diac/standard-components-diagrams/flowchart'
+import { SummingJunction } from '@dinghy/standard-components-diagrams/flowchart'
 
 <SummingJunction/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Designfloat } from '@diac/standard-components-diagrams/webLogos'
+import { Designfloat } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Designfloat/>
 ```

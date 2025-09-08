@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { EntityLifeline } from '@diac/standard-components-diagrams/uml'
+import { EntityLifeline } from '@dinghy/standard-components-diagrams/uml'
 
 <EntityLifeline/>
 ```

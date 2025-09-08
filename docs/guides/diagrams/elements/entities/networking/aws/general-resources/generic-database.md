@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GenericDatabase } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { GenericDatabase } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <GenericDatabase/>
 ```

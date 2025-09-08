@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gear } from '@diac/standard-components-diagrams/azure2General'
+import { Gear } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Gear/>
 ```

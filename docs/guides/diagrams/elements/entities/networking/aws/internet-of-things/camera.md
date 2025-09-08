@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Camera } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Camera } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Camera/>
 ```

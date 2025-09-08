@@ -2,10 +2,10 @@ import {
   IacNodeProps,
   ResolvableNumberSchema,
   ResolvableStringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { RdsInstance } from '@diac/standard-components-diagrams/awsDatabase'
+import { RdsInstance } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 export const AwsDbInstanceInputSchema = z.object({
   allocated_storage: ResolvableNumberSchema.optional(),

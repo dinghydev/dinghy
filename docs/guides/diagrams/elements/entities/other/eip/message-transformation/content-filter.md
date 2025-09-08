@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentFilter } from '@diac/standard-components-diagrams/eipMessageTransformation'
+import { ContentFilter } from '@dinghy/standard-components-diagrams/eipMessageTransformation'
 
 <ContentFilter/>
 ```

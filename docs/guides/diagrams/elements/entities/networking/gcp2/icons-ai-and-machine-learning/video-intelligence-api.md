@@ -16,7 +16,7 @@ Intelligence API
 ## Usage
 
 ```
-import { VideoIntelligenceApi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { VideoIntelligenceApi } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <VideoIntelligenceApi/>
 ```

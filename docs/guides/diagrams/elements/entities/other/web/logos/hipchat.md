@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hipchat } from '@diac/standard-components-diagrams/webLogos'
+import { Hipchat } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Hipchat/>
 ```

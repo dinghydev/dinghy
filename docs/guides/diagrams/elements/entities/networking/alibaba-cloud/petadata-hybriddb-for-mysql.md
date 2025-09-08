@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PetadataHybriddbForMysql } from '@diac/standard-components-diagrams/alibabaCloud'
+import { PetadataHybriddbForMysql } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <PetadataHybriddbForMysql/>
 ```

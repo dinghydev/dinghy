@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GeneratorAc } from '@diac/standard-components-diagrams/procEngEngines'
+import { GeneratorAc } from '@dinghy/standard-components-diagrams/procEngEngines'
 
 <GeneratorAc/>
 ```

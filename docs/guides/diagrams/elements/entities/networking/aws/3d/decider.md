@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Decider } from '@diac/standard-components-diagrams/aws3d'
+import { Decider } from '@dinghy/standard-components-diagrams/aws3d'
 
 <Decider/>
 ```

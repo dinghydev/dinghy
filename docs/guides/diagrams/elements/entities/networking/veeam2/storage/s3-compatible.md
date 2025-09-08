@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3Compatible } from '@diac/standard-components-diagrams/veeam2Storage'
+import { S3Compatible } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <S3Compatible/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerticalSlider } from '@diac/standard-components-diagrams/mockupForms'
+import { VerticalSlider } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <VerticalSlider/>
 ```

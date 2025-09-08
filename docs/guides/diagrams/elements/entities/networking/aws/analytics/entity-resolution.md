@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EntityResolution } from '@diac/standard-components-diagrams/awsAnalytics'
+import { EntityResolution } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <EntityResolution/>
 ```

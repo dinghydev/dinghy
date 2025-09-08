@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CitrixVdaForMacos } from '@diac/standard-components-diagrams/citrixResources'
+import { CitrixVdaForMacos } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <CitrixVdaForMacos/>
 ```

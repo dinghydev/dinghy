@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UniversalPrint } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { UniversalPrint } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <UniversalPrint/>
 ```

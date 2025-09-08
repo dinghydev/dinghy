@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LocationServicePlace } from '@diac/standard-components-diagrams/awsFrontEndWebMobile'
+import { LocationServicePlace } from '@dinghy/standard-components-diagrams/awsFrontEndWebMobile'
 
 <LocationServicePlace/>
 ```

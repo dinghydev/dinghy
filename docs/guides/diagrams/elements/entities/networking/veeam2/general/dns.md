@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dns } from '@diac/standard-components-diagrams/veeam2General'
+import { Dns } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <Dns/>
 ```

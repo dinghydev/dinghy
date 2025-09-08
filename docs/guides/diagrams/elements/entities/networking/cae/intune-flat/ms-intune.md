@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MsIntune } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { MsIntune } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <MsIntune/>
 ```

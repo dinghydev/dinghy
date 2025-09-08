@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IntelligentOrderManagement } from '@diac/standard-components-diagrams/dynamics365App'
+import { IntelligentOrderManagement } from '@dinghy/standard-components-diagrams/dynamics365App'
 
 <IntelligentOrderManagement/>
 ```

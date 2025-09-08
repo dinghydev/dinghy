@@ -3,12 +3,12 @@ import {
   ResolvableNumberSchema,
   ResolvableRecordSchema,
   ResolvableStringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
 import { aws4 } from '../../../standard-components-diagrams/src/index.ts'
-import { useTypedNode } from '@diac/base-components'
+import { useTypedNode } from '@dinghy/base-components'
 
 export const AwsDynamodbTableInputSchema = z.object({
   name: ResolvableStringSchema.optional(),

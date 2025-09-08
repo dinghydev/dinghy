@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlpNerNamedEntityRecognition } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlpNerNamedEntityRecognition } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlpNerNamedEntityRecognition/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11840PressureGauge } from '@diac/standard-components-diagrams/fluidPower'
+import { X11840PressureGauge } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11840PressureGauge/>
 ```

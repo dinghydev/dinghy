@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Alloydb } from '@diac/standard-components-diagrams/gcp2IconsDatabases'
+import { Alloydb } from '@dinghy/standard-components-diagrams/gcp2IconsDatabases'
 
 <Alloydb/>
 ```

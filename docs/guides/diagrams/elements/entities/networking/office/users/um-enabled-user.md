@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UmEnabledUser } from '@diac/standard-components-diagrams/officeUsers'
+import { UmEnabledUser } from '@dinghy/standard-components-diagrams/officeUsers'
 
 <UmEnabledUser/>
 ```

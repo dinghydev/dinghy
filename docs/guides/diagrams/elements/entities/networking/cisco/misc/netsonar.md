@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Netsonar } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Netsonar } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Netsonar/>
 ```

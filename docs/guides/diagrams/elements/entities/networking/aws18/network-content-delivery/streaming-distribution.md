@@ -16,7 +16,7 @@ distribution
 ## Usage
 
 ```
-import { StreamingDistribution } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { StreamingDistribution } from '@dinghy/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <StreamingDistribution/>
 ```

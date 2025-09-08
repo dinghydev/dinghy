@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudSql } from '@diac/standard-components-diagrams/gcp2Databases'
+import { CloudSql } from '@dinghy/standard-components-diagrams/gcp2Databases'
 
 <CloudSql/>
 ```

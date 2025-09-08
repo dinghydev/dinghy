@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogAnalyticsWorkspaces } from '@diac/standard-components-diagrams/azure2ManagementAndGovernance'
+import { LogAnalyticsWorkspaces } from '@dinghy/standard-components-diagrams/azure2ManagementAndGovernance'
 
 <LogAnalyticsWorkspaces/>
 ```

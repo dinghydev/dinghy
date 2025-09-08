@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FM2Conductor } from '@diac/standard-components-diagrams/electricalMisc'
+import { FM2Conductor } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <FM2Conductor/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataCatalog } from '@diac/standard-components-diagrams/gcpIconsDataAnalytics'
+import { DataCatalog } from '@dinghy/standard-components-diagrams/gcpIconsDataAnalytics'
 
 <DataCatalog/>
 ```

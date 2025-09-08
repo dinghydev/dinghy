@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsS3 } from '@diac/standard-components-diagrams/webLogos'
+import { AwsS3 } from '@dinghy/standard-components-diagrams/webLogos'
 
 <AwsS3/>
 ```

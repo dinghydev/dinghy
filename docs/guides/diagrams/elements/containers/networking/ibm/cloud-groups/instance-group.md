@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { InstanceGroup } from '@diac/standard-components-diagrams/ibmCloudGroups'
+import { InstanceGroup } from '@dinghy/standard-components-diagrams/ibmCloudGroups'
 
 <InstanceGroup/>
 ```

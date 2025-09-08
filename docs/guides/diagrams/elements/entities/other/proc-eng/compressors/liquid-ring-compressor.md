@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LiquidRingCompressor } from '@diac/standard-components-diagrams/procEngCompressors'
+import { LiquidRingCompressor } from '@dinghy/standard-components-diagrams/procEngCompressors'
 
 <LiquidRingCompressor/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UdpDirector2 } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { UdpDirector2 } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <UdpDirector2/>
 ```

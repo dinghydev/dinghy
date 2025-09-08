@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Firetv } from '@diac/standard-components-diagrams/aws18IotResources'
+import { Firetv } from '@dinghy/standard-components-diagrams/aws18IotResources'
 
 <Firetv/>
 ```

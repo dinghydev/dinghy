@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VwebSecurity } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { VwebSecurity } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <VwebSecurity/>
 ```

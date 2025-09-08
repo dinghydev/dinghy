@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Multimedia } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Multimedia } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Multimedia/>
 ```

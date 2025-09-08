@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hypervisor } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { Hypervisor } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <Hypervisor/>
 ```

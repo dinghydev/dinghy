@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SelectiveConsumer } from '@diac/standard-components-diagrams/eipMessagingEndpoints'
+import { SelectiveConsumer } from '@dinghy/standard-components-diagrams/eipMessagingEndpoints'
 
 <SelectiveConsumer/>
 ```

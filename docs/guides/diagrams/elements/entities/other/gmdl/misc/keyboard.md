@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Keyboard } from '@diac/standard-components-diagrams/gmdlMisc'
+import { Keyboard } from '@dinghy/standard-components-diagrams/gmdlMisc'
 
 <Keyboard/>
 ```

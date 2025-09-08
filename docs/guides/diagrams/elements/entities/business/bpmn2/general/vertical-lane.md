@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerticalLane } from '@diac/standard-components-diagrams/bpmn2General'
+import { VerticalLane } from '@dinghy/standard-components-diagrams/bpmn2General'
 
 <VerticalLane/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NitroEnclaves } from '@diac/standard-components-diagrams/awsCompute'
+import { NitroEnclaves } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <NitroEnclaves/>
 ```

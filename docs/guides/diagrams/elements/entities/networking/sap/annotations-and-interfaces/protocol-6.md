@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Protocol6 } from '@diac/standard-components-diagrams/sapAnnotationsAndInterfaces'
+import { Protocol6 } from '@dinghy/standard-components-diagrams/sapAnnotationsAndInterfaces'
 
 <Protocol6/>
 ```

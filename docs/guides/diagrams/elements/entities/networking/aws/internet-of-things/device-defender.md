@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceDefender } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { DeviceDefender } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <DeviceDefender/>
 ```

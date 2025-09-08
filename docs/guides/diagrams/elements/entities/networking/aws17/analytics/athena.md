@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Athena } from '@diac/standard-components-diagrams/aws17Analytics'
+import { Athena } from '@dinghy/standard-components-diagrams/aws17Analytics'
 
 <Athena/>
 ```

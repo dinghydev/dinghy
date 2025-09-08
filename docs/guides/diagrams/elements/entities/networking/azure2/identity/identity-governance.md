@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentityGovernance } from '@diac/standard-components-diagrams/azure2Identity'
+import { IdentityGovernance } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <IdentityGovernance/>
 ```

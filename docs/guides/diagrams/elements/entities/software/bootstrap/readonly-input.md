@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReadonlyInput } from '@diac/standard-components-diagrams/bootstrap'
+import { ReadonlyInput } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ReadonlyInput/>
 ```

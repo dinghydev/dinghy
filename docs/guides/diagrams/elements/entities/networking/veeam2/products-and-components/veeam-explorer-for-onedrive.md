@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamExplorerForOnedrive } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamExplorerForOnedrive } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamExplorerForOnedrive/>
 ```

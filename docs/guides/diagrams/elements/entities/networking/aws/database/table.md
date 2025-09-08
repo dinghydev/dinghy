@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Table } from '@diac/standard-components-diagrams/awsDatabase'
+import { Table } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <Table/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceIdentityService } from '@diac/standard-components-diagrams/ibmData'
+import { DeviceIdentityService } from '@dinghy/standard-components-diagrams/ibmData'
 
 <DeviceIdentityService/>
 ```

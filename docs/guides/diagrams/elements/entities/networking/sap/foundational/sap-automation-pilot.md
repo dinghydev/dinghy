@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapAutomationPilot } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapAutomationPilot } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapAutomationPilot/>
 ```

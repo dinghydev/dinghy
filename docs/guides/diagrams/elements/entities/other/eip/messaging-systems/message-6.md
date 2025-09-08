@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Message6 } from '@diac/standard-components-diagrams/eipMessagingSystems'
+import { Message6 } from '@dinghy/standard-components-diagrams/eipMessagingSystems'
 
 <Message6/>
 ```

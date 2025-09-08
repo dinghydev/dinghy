@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DialogBox } from '@diac/standard-components-diagrams/mockupContainers'
+import { DialogBox } from '@dinghy/standard-components-diagrams/mockupContainers'
 
 <DialogBox/>
 ```

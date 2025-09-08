@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserFemale } from '@diac/standard-components-diagrams/mockupContainers'
+import { UserFemale } from '@dinghy/standard-components-diagrams/mockupContainers'
 
 <UserFemale/>
 ```

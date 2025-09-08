@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventMessage } from '@diac/standard-components-diagrams/eipMessageConstruction'
+import { EventMessage } from '@dinghy/standard-components-diagrams/eipMessageConstruction'
 
 <EventMessage/>
 ```

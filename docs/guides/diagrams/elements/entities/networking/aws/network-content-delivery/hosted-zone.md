@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HostedZone } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { HostedZone } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <HostedZone/>
 ```

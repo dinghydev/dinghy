@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Template } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Template } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Template/>
 ```

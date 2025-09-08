@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Skype } from '@diac/standard-components-diagrams/webLogos'
+import { Skype } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Skype/>
 ```

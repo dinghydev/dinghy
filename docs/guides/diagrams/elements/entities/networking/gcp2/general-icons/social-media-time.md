@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SocialMediaTime } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { SocialMediaTime } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <SocialMediaTime/>
 ```

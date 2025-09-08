@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlowLogs } from '@diac/standard-components-diagrams/aws18NetworkContentDelivery'
+import { FlowLogs } from '@dinghy/standard-components-diagrams/aws18NetworkContentDelivery'
 
 <FlowLogs/>
 ```

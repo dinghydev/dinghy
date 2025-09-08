@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UcwaApplication } from '@diac/standard-components-diagrams/officeCommunications'
+import { UcwaApplication } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <UcwaApplication/>
 ```

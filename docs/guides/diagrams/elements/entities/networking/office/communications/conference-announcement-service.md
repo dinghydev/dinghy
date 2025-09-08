@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConferenceAnnouncementService } from '@diac/standard-components-diagrams/officeCommunications'
+import { ConferenceAnnouncementService } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <ConferenceAnnouncementService/>
 ```

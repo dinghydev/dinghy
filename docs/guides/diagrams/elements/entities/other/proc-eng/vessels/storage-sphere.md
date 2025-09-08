@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageSphere } from '@diac/standard-components-diagrams/procEngVessels'
+import { StorageSphere } from '@dinghy/standard-components-diagrams/procEngVessels'
 
 <StorageSphere/>
 ```

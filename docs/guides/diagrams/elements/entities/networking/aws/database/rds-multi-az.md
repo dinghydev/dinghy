@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdsMultiAz } from '@diac/standard-components-diagrams/awsDatabase'
+import { RdsMultiAz } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <RdsMultiAz/>
 ```

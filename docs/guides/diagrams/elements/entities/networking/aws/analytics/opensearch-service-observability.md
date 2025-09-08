@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpensearchServiceObservability } from '@diac/standard-components-diagrams/awsAnalytics'
+import { OpensearchServiceObservability } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <OpensearchServiceObservability/>
 ```

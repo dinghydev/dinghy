@@ -16,7 +16,7 @@ Disk
 ## Usage
 
 ```
-import { PersistentDisk } from '@diac/standard-components-diagrams/gcp2IconsStorage'
+import { PersistentDisk } from '@dinghy/standard-components-diagrams/gcp2IconsStorage'
 
 <PersistentDisk/>
 ```

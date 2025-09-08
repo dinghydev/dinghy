@@ -5,7 +5,7 @@ import {
   Shape,
   useTypedNode,
   useTypedNodes,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 export const S3TextInputSchema = z.object({
   content: ResolvableStringSchema.optional(),

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonWithSpinner2 } from '@diac/standard-components-diagrams/bootstrap'
+import { ButtonWithSpinner2 } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ButtonWithSpinner2/>
 ```

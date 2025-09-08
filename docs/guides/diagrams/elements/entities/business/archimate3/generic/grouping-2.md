@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Grouping2 } from '@diac/standard-components-diagrams/archimate3Generic'
+import { Grouping2 } from '@dinghy/standard-components-diagrams/archimate3Generic'
 
 <Grouping2/>
 ```

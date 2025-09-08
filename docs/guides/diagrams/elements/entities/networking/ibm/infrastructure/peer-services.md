@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PeerServices } from '@diac/standard-components-diagrams/ibmInfrastructure'
+import { PeerServices } from '@dinghy/standard-components-diagrams/ibmInfrastructure'
 
 <PeerServices/>
 ```

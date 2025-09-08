@@ -4,7 +4,7 @@ import {
   DiagramNodeProps,
   IacNodeProps,
   NodeTree,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 export * as ssoadmin from './ssoadmin/index.ts'
 export * as cloudwatch from './cloudwatch/index.ts'

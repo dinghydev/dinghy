@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CoreSwitch } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { CoreSwitch } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <CoreSwitch/>
 ```

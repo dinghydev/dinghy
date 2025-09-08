@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3ObjectLambdaAccessPoints } from '@diac/standard-components-diagrams/awsStorage'
+import { S3ObjectLambdaAccessPoints } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <S3ObjectLambdaAccessPoints/>
 ```

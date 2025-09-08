@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Peristaltic } from '@diac/standard-components-diagrams/procEngPumps'
+import { Peristaltic } from '@dinghy/standard-components-diagrams/procEngPumps'
 
 <Peristaltic/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SingleLineTextFieldPress } from '@diac/standard-components-diagrams/gmdlTextFields'
+import { SingleLineTextFieldPress } from '@dinghy/standard-components-diagrams/gmdlTextFields'
 
 <SingleLineTextFieldPress/>
 ```

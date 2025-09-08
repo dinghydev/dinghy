@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataTransferTerminal } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { DataTransferTerminal } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <DataTransferTerminal/>
 ```

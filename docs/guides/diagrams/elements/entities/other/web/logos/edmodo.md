@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Edmodo } from '@diac/standard-components-diagrams/webLogos'
+import { Edmodo } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Edmodo/>
 ```

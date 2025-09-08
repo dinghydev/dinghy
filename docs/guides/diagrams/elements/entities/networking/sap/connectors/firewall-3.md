@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Firewall3 } from '@diac/standard-components-diagrams/sapConnectors'
+import { Firewall3 } from '@dinghy/standard-components-diagrams/sapConnectors'
 
 <Firewall3/>
 ```

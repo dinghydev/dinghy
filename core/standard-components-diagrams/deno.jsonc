@@ -1,5 +1,5 @@
 {
-  "name": "@diac/standard-components-diagrams",
+  "name": "@dinghy/standard-components-diagrams",
   "exports": {
     // Category: Standard
     "./advanced": "./src/standard/advanced/index.ts",

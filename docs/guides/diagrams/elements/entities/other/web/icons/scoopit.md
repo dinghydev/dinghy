@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Scoopit } from '@diac/standard-components-diagrams/webIcons'
+import { Scoopit } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Scoopit/>
 ```

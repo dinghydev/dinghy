@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sphere } from '@diac/standard-components-diagrams/azure2Preview'
+import { Sphere } from '@dinghy/standard-components-diagrams/azure2Preview'
 
 <Sphere/>
 ```

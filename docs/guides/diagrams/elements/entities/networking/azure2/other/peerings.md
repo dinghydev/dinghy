@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Peerings } from '@diac/standard-components-diagrams/azure2Other'
+import { Peerings } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Peerings/>
 ```

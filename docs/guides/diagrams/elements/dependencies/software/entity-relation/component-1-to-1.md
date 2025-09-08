@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component1To1 } from '@diac/standard-components-diagrams/entityRelation'
+import { Component1To1 } from '@dinghy/standard-components-diagrams/entityRelation'
 
 <Component1To1/>
 ```

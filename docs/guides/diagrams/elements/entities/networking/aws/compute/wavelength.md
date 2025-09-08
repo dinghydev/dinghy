@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wavelength } from '@diac/standard-components-diagrams/awsCompute'
+import { Wavelength } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Wavelength/>
 ```

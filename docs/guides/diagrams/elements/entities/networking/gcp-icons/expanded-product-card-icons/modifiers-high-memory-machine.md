@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ModifiersHighMemoryMachine } from '@diac/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+import { ModifiersHighMemoryMachine } from '@dinghy/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
 
 <ModifiersHighMemoryMachine/>
 ```

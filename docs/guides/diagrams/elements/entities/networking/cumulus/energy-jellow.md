@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EnergyJellow } from '@diac/standard-components-diagrams/cumulus'
+import { EnergyJellow } from '@dinghy/standard-components-diagrams/cumulus'
 
 <EnergyJellow/>
 ```

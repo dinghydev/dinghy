@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpeechServices } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { SpeechServices } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <SpeechServices/>
 ```

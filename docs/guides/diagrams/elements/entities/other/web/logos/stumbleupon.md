@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stumbleupon } from '@diac/standard-components-diagrams/webLogos'
+import { Stumbleupon } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Stumbleupon/>
 ```

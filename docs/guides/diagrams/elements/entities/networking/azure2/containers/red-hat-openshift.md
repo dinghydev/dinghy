@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RedHatOpenshift } from '@diac/standard-components-diagrams/azure2Containers'
+import { RedHatOpenshift } from '@dinghy/standard-components-diagrams/azure2Containers'
 
 <RedHatOpenshift/>
 ```

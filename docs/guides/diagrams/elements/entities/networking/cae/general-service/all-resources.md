@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AllResources } from '@diac/standard-components-diagrams/caeGeneralService'
+import { AllResources } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <AllResources/>
 ```

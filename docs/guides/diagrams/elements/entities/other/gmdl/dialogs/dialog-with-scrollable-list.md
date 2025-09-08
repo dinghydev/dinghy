@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DialogWithScrollableList } from '@diac/standard-components-diagrams/gmdlDialogs'
+import { DialogWithScrollableList } from '@dinghy/standard-components-diagrams/gmdlDialogs'
 
 <DialogWithScrollableList/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResilienceHub } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ResilienceHub } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ResilienceHub/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Billinghub } from '@diac/standard-components-diagrams/caeManagementAndGovernanceService'
+import { Billinghub } from '@dinghy/standard-components-diagrams/caeManagementAndGovernanceService'
 
 <Billinghub/>
 ```

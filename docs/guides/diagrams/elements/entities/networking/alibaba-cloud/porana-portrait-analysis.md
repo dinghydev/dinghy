@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PoranaPortraitAnalysis } from '@diac/standard-components-diagrams/alibabaCloud'
+import { PoranaPortraitAnalysis } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <PoranaPortraitAnalysis/>
 ```

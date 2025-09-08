@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PortDoubleFlowHorizontal } from '@diac/standard-components-diagrams/sysmlPortsAndFlows'
+import { PortDoubleFlowHorizontal } from '@dinghy/standard-components-diagrams/sysmlPortsAndFlows'
 
 <PortDoubleFlowHorizontal/>
 ```

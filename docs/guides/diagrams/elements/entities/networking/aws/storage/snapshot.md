@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Snapshot } from '@diac/standard-components-diagrams/awsStorage'
+import { Snapshot } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <Snapshot/>
 ```

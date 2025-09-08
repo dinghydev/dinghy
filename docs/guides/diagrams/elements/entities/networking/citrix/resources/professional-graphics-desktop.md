@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProfessionalGraphicsDesktop } from '@diac/standard-components-diagrams/citrixResources'
+import { ProfessionalGraphicsDesktop } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <ProfessionalGraphicsDesktop/>
 ```

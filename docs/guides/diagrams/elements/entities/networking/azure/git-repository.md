@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GitRepository } from '@diac/standard-components-diagrams/azure'
+import { GitRepository } from '@dinghy/standard-components-diagrams/azure'
 
 <GitRepository/>
 ```

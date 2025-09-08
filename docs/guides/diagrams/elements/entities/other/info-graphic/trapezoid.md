@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Trapezoid } from '@diac/standard-components-diagrams/infoGraphic'
+import { Trapezoid } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <Trapezoid/>
 ```

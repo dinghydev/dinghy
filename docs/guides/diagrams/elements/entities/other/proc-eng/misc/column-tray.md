@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ColumnTray } from '@diac/standard-components-diagrams/procEngMisc'
+import { ColumnTray } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <ColumnTray/>
 ```

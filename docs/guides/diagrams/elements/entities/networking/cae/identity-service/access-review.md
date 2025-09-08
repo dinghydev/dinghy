@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AccessReview } from '@diac/standard-components-diagrams/caeIdentityService'
+import { AccessReview } from '@dinghy/standard-components-diagrams/caeIdentityService'
 
 <AccessReview/>
 ```

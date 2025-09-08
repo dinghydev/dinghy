@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Copyright } from '@diac/standard-components-diagrams/mockupMisc'
+import { Copyright } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <Copyright/>
 ```

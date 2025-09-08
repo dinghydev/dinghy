@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PublicIpAddresses } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { PublicIpAddresses } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <PublicIpAddresses/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ship } from '@diac/standard-components-diagrams/procEngMisc'
+import { Ship } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <Ship/>
 ```

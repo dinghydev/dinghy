@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SharedAssociation2 } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { SharedAssociation2 } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <SharedAssociation2/>
 ```

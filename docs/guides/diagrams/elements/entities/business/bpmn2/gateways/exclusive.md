@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Exclusive } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { Exclusive } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <Exclusive/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetqTelemetryServer } from '@diac/standard-components-diagrams/cumulus'
+import { NetqTelemetryServer } from '@dinghy/standard-components-diagrams/cumulus'
 
 <NetqTelemetryServer/>
 ```

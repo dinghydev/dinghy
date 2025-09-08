@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EmailEncryption } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { EmailEncryption } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <EmailEncryption/>
 ```

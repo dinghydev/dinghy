@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NeutronFloatingipassociation } from '@diac/standard-components-diagrams/openstackRed'
+import { NeutronFloatingipassociation } from '@dinghy/standard-components-diagrams/openstackRed'
 
 <NeutronFloatingipassociation/>
 ```

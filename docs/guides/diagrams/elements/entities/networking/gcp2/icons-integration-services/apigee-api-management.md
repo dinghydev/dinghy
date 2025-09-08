@@ -16,7 +16,7 @@ Management
 ## Usage
 
 ```
-import { ApigeeApiManagement } from '@diac/standard-components-diagrams/gcp2IconsIntegrationServices'
+import { ApigeeApiManagement } from '@dinghy/standard-components-diagrams/gcp2IconsIntegrationServices'
 
 <ApigeeApiManagement/>
 ```

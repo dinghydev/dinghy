@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Waypoint } from '@diac/standard-components-diagrams/misc'
+import { Waypoint } from '@dinghy/standard-components-diagrams/misc'
 
 <Waypoint/>
 ```

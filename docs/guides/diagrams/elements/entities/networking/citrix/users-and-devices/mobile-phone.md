@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobilePhone } from '@diac/standard-components-diagrams/citrixUsersAndDevices'
+import { MobilePhone } from '@dinghy/standard-components-diagrams/citrixUsersAndDevices'
 
 <MobilePhone/>
 ```

@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DirectionalDirectedDataAssociation } from '@diac/standard-components-diagrams/bpmn2General'
+import { DirectionalDirectedDataAssociation } from '@dinghy/standard-components-diagrams/bpmn2General'
 
 <DirectionalDirectedDataAssociation/>
 ```

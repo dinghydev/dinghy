@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DirectQsfp2 } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
+import { DirectQsfp2 } from '@dinghy/standard-components-diagrams/rackHpeArubaSwitches'
 
 <DirectQsfp2/>
 ```

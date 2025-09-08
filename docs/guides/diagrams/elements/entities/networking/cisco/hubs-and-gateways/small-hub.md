@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SmallHub } from '@diac/standard-components-diagrams/ciscoHubsAndGateways'
+import { SmallHub } from '@dinghy/standard-components-diagrams/ciscoHubsAndGateways'
 
 <SmallHub/>
 ```

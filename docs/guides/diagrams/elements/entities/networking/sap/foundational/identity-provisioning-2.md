@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentityProvisioning2 } from '@diac/standard-components-diagrams/sapFoundational'
+import { IdentityProvisioning2 } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <IdentityProvisioning2/>
 ```

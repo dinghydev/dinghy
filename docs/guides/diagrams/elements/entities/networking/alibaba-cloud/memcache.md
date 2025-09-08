@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Memcache } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Memcache } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Memcache/>
 ```

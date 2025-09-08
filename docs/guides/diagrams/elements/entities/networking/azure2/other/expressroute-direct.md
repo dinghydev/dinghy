@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExpressrouteDirect } from '@diac/standard-components-diagrams/azure2Other'
+import { ExpressrouteDirect } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ExpressrouteDirect/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextfieldDisabled } from '@diac/standard-components-diagrams/android'
+import { TextfieldDisabled } from '@dinghy/standard-components-diagrams/android'
 
 <TextfieldDisabled/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RackBareMetal } from '@diac/standard-components-diagrams/cumulus'
+import { RackBareMetal } from '@dinghy/standard-components-diagrams/cumulus'
 
 <RackBareMetal/>
 ```

@@ -1,10 +1,10 @@
 {
-  "name": "@diac/base-renderer",
+  "name": "@dinghy/base-renderer",
   "exports": {
     ".": "./src/index.ts"
   },
   "imports": {
-    // "@diac/base-renderer": "workspace:*",
+    // "@dinghy/base-renderer": "workspace:*",
     "debug": "npm:debug@4.4.0",
     "react-reconciler": "npm:react-reconciler@0.31.0",
     "react-dom": "npm:react-dom@19.1.0"

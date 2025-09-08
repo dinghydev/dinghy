@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HomeBlue } from '@diac/standard-components-diagrams/officeConcepts'
+import { HomeBlue } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <HomeBlue/>
 ```

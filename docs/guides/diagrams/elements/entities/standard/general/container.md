@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Container } from '@diac/standard-components-diagrams/general'
+import { Container } from '@dinghy/standard-components-diagrams/general'
 
 <Container/>
 ```

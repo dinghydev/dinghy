@@ -3,7 +3,7 @@ import {
   type AwsSubnetInputProps,
   type AwsSubnetOutputProps,
 } from './AwsSubnet.tsx'
-import { useTypedNode, useTypedNodes } from '@diac/base-components'
+import { useTypedNode, useTypedNodes } from '@dinghy/base-components'
 
 export function AwsPublicSubnet(props: AwsSubnetInputProps) {
   return <AwsSubnet _color='#7AA116' _background='#F2F6E8' {...props} />

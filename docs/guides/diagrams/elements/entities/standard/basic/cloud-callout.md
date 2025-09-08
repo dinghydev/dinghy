@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudCallout } from '@diac/standard-components-diagrams/basic'
+import { CloudCallout } from '@dinghy/standard-components-diagrams/basic'
 
 <CloudCallout/>
 ```

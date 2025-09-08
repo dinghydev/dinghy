@@ -1,5 +1,5 @@
-DIaC
-.diacrc.local
+Dinghy
+.dinghyrc.local
 **/.terraform
 **/.terraform.lock.hcl
 #**/*.tf.json

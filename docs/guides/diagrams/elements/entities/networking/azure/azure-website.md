@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureWebsite } from '@diac/standard-components-diagrams/azure'
+import { AzureWebsite } from '@dinghy/standard-components-diagrams/azure'
 
 <AzureWebsite/>
 ```

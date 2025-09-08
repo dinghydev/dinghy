@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlpSaSentimentAnalysis } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlpSaSentimentAnalysis } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlpSaSentimentAnalysis/>
 ```

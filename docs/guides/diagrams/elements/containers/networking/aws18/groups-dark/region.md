@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { Region } from '@diac/standard-components-diagrams/aws18GroupsDark'
+import { Region } from '@dinghy/standard-components-diagrams/aws18GroupsDark'
 
 <Region/>
 ```

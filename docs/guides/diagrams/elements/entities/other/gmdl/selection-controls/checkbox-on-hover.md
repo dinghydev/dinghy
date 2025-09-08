@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CheckboxOnHover } from '@diac/standard-components-diagrams/gmdlSelectionControls'
+import { CheckboxOnHover } from '@dinghy/standard-components-diagrams/gmdlSelectionControls'
 
 <CheckboxOnHover/>
 ```

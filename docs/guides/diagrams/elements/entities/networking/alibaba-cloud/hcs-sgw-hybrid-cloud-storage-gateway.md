@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HcsSgwHybridCloudStorageGateway } from '@diac/standard-components-diagrams/alibabaCloud'
+import { HcsSgwHybridCloudStorageGateway } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <HcsSgwHybridCloudStorageGateway/>
 ```

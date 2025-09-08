@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LorawanProtocol } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { LorawanProtocol } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <LorawanProtocol/>
 ```

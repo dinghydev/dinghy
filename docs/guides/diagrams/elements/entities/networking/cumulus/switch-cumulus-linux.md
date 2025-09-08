@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SwitchCumulusLinux } from '@diac/standard-components-diagrams/cumulus'
+import { SwitchCumulusLinux } from '@dinghy/standard-components-diagrams/cumulus'
 
 <SwitchCumulusLinux/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogStreaming } from '@diac/standard-components-diagrams/alibabaCloud'
+import { LogStreaming } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <LogStreaming/>
 ```

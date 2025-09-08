@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageTable } from '@diac/standard-components-diagrams/azure'
+import { StorageTable } from '@dinghy/standard-components-diagrams/azure'
 
 <StorageTable/>
 ```

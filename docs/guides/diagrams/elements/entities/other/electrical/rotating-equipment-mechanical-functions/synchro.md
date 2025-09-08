@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Synchro } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { Synchro } from '@dinghy/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <Synchro/>
 ```

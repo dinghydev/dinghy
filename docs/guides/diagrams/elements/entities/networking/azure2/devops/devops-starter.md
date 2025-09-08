@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DevopsStarter } from '@diac/standard-components-diagrams/azure2Devops'
+import { DevopsStarter } from '@dinghy/standard-components-diagrams/azure2Devops'
 
 <DevopsStarter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OfficeWebAppsServer } from '@diac/standard-components-diagrams/officeServers'
+import { OfficeWebAppsServer } from '@dinghy/standard-components-diagrams/officeServers'
 
 <OfficeWebAppsServer/>
 ```

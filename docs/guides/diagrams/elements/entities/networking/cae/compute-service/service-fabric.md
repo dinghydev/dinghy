@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceFabric } from '@diac/standard-components-diagrams/caeComputeService'
+import { ServiceFabric } from '@dinghy/standard-components-diagrams/caeComputeService'
 
 <ServiceFabric/>
 ```

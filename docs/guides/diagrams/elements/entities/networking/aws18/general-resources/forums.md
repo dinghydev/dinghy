@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Forums } from '@diac/standard-components-diagrams/aws18GeneralResources'
+import { Forums } from '@dinghy/standard-components-diagrams/aws18GeneralResources'
 
 <Forums/>
 ```

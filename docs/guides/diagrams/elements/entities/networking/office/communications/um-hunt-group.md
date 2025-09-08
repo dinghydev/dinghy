@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UmHuntGroup } from '@diac/standard-components-diagrams/officeCommunications'
+import { UmHuntGroup } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <UmHuntGroup/>
 ```

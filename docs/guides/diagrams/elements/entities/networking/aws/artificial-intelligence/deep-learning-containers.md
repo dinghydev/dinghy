@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeepLearningContainers } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { DeepLearningContainers } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <DeepLearningContainers/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SlbServerLoadBalancer } from '@diac/standard-components-diagrams/alibabaCloud'
+import { SlbServerLoadBalancer } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <SlbServerLoadBalancer/>
 ```

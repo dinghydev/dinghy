@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PrinterCommercial } from '@diac/standard-components-diagrams/clipartComputer'
+import { PrinterCommercial } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <PrinterCommercial/>
 ```

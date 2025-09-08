@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Imac } from '@diac/standard-components-diagrams/clipartComputer'
+import { Imac } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <Imac/>
 ```

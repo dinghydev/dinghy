@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Acs } from '@diac/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
+import { Acs } from '@dinghy/standard-components-diagrams/cisco19SecurityCloudsAndConnectors'
 
 <Acs/>
 ```

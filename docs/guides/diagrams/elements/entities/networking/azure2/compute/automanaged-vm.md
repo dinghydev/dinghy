@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AutomanagedVm } from '@diac/standard-components-diagrams/azure2Compute'
+import { AutomanagedVm } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <AutomanagedVm/>
 ```

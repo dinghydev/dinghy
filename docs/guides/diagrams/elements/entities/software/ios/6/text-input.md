@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextInput } from '@diac/standard-components-diagrams/ios6'
+import { TextInput } from '@dinghy/standard-components-diagrams/ios6'
 
 <TextInput/>
 ```

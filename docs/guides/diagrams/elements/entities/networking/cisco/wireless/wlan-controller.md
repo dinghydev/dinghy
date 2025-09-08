@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WlanController } from '@diac/standard-components-diagrams/ciscoWireless'
+import { WlanController } from '@dinghy/standard-components-diagrams/ciscoWireless'
 
 <WlanController/>
 ```

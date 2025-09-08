@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hologres } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Hologres } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Hologres/>
 ```

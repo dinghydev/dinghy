@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Yandex } from '@diac/standard-components-diagrams/webIcons'
+import { Yandex } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Yandex/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NavbarDark } from '@diac/standard-components-diagrams/bootstrap'
+import { NavbarDark } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <NavbarDark/>
 ```

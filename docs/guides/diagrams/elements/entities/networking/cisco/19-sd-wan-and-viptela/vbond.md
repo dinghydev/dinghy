@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vbond } from '@diac/standard-components-diagrams/cisco19SdWanAndViptela'
+import { Vbond } from '@dinghy/standard-components-diagrams/cisco19SdWanAndViptela'
 
 <Vbond/>
 ```

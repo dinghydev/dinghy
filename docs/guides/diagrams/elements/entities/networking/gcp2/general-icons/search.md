@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Search } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Search } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Search/>
 ```

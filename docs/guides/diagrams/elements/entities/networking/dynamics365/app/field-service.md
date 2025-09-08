@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FieldService } from '@diac/standard-components-diagrams/dynamics365App'
+import { FieldService } from '@dinghy/standard-components-diagrams/dynamics365App'
 
 <FieldService/>
 ```

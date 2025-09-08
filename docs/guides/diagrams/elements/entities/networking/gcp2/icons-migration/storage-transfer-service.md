@@ -16,7 +16,7 @@ Service
 ## Usage
 
 ```
-import { StorageTransferService } from '@diac/standard-components-diagrams/gcp2IconsMigration'
+import { StorageTransferService } from '@dinghy/standard-components-diagrams/gcp2IconsMigration'
 
 <StorageTransferService/>
 ```

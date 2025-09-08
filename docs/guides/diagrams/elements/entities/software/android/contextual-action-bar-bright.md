@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContextualActionBarBright } from '@diac/standard-components-diagrams/android'
+import { ContextualActionBarBright } from '@dinghy/standard-components-diagrams/android'
 
 <ContextualActionBarBright/>
 ```

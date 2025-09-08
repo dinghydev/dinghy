@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GridLayout } from '@diac/standard-components-diagrams/bootstrap'
+import { GridLayout } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <GridLayout/>
 ```

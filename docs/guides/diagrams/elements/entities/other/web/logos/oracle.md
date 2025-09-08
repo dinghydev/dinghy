@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Oracle } from '@diac/standard-components-diagrams/webLogos'
+import { Oracle } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Oracle/>
 ```

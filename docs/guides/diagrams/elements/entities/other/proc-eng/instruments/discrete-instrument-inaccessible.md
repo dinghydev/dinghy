@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiscreteInstrumentInaccessible } from '@diac/standard-components-diagrams/procEngInstruments'
+import { DiscreteInstrumentInaccessible } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <DiscreteInstrumentInaccessible/>
 ```

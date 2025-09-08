@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Actor } from '@diac/standard-components-diagrams/archimate3Business'
+import { Actor } from '@dinghy/standard-components-diagrams/archimate3Business'
 
 <Actor/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AskAckContainerServiceForKubernetes } from '@diac/standard-components-diagrams/alibabaCloud'
+import { AskAckContainerServiceForKubernetes } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <AskAckContainerServiceForKubernetes/>
 ```

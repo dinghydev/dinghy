@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpatialAnchor } from '@diac/standard-components-diagrams/caeMixedRealityService'
+import { SpatialAnchor } from '@dinghy/standard-components-diagrams/caeMixedRealityService'
 
 <SpatialAnchor/>
 ```

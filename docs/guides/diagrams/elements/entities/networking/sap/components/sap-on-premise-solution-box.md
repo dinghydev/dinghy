@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapOnPremiseSolutionBox } from '@diac/standard-components-diagrams/sapComponents'
+import { SapOnPremiseSolutionBox } from '@dinghy/standard-components-diagrams/sapComponents'
 
 <SapOnPremiseSolutionBox/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TelepresenceEndpointTwinDataDisplay } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { TelepresenceEndpointTwinDataDisplay } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <TelepresenceEndpointTwinDataDisplay/>
 ```

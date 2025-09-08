@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpcLattice } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { VpcLattice } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <VpcLattice/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HardwareController } from '@diac/standard-components-diagrams/veeam2DataCenter'
+import { HardwareController } from '@dinghy/standard-components-diagrams/veeam2DataCenter'
 
 <HardwareController/>
 ```

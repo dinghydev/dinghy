@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Automation } from '@diac/standard-components-diagrams/veeam2General'
+import { Automation } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <Automation/>
 ```

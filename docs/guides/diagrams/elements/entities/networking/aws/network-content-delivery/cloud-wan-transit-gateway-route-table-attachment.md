@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudWanTransitGatewayRouteTableAttachment } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { CloudWanTransitGatewayRouteTableAttachment } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <CloudWanTransitGatewayRouteTableAttachment/>
 ```

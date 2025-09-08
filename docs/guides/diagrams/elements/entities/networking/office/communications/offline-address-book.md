@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OfflineAddressBook } from '@diac/standard-components-diagrams/officeCommunications'
+import { OfflineAddressBook } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <OfflineAddressBook/>
 ```

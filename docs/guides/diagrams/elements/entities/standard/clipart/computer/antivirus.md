@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Antivirus } from '@diac/standard-components-diagrams/clipartComputer'
+import { Antivirus } from '@dinghy/standard-components-diagrams/clipartComputer'
 
 <Antivirus/>
 ```

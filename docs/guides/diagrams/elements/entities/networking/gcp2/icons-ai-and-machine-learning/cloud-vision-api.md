@@ -16,7 +16,7 @@ Vision API
 ## Usage
 
 ```
-import { CloudVisionApi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { CloudVisionApi } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <CloudVisionApi/>
 ```

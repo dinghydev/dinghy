@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseSynchronization } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { DatabaseSynchronization } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <DatabaseSynchronization/>
 ```

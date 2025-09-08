@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BigIp10x00 } from '@diac/standard-components-diagrams/rackF5'
+import { BigIp10x00 } from '@dinghy/standard-components-diagrams/rackF5'
 
 <BigIp10x00/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WedgeBar } from '@diac/standard-components-diagrams/mockupForms'
+import { WedgeBar } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <WedgeBar/>
 ```

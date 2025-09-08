@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BoldToggleWithTooltip } from '@diac/standard-components-diagrams/atlassian'
+import { BoldToggleWithTooltip } from '@dinghy/standard-components-diagrams/atlassian'
 
 <BoldToggleWithTooltip/>
 ```

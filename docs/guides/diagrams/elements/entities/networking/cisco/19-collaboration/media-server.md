@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MediaServer } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { MediaServer } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <MediaServer/>
 ```

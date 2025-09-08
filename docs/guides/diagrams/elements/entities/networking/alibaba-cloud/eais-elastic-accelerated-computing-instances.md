@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EaisElasticAcceleratedComputingInstances } from '@diac/standard-components-diagrams/alibabaCloud'
+import { EaisElasticAcceleratedComputingInstances } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <EaisElasticAcceleratedComputingInstances/>
 ```

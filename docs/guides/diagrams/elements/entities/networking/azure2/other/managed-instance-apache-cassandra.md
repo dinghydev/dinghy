@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedInstanceApacheCassandra } from '@diac/standard-components-diagrams/azure2Other'
+import { ManagedInstanceApacheCassandra } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ManagedInstanceApacheCassandra/>
 ```

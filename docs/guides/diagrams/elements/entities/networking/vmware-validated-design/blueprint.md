@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Blueprint } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Blueprint } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Blueprint/>
 ```

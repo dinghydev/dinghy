@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Veeamzip } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Veeamzip } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Veeamzip/>
 ```

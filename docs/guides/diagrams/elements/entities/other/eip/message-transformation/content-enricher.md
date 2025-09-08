@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentEnricher } from '@diac/standard-components-diagrams/eipMessageTransformation'
+import { ContentEnricher } from '@dinghy/standard-components-diagrams/eipMessageTransformation'
 
 <ContentEnricher/>
 ```

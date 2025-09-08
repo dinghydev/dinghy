@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkspacesThinClient } from '@diac/standard-components-diagrams/awsEndUserComputing'
+import { WorkspacesThinClient } from '@dinghy/standard-components-diagrams/awsEndUserComputing'
 
 <WorkspacesThinClient/>
 ```

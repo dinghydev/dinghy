@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Splitter } from '@diac/standard-components-diagrams/eipMessageRouting'
+import { Splitter } from '@dinghy/standard-components-diagrams/eipMessageRouting'
 
 <Splitter/>
 ```

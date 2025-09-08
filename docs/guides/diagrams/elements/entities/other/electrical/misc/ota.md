@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ota } from '@diac/standard-components-diagrams/electricalMisc'
+import { Ota } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <Ota/>
 ```

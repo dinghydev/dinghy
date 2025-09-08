@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BreakoutBox } from '@diac/standard-components-diagrams/ciscoMisc'
+import { BreakoutBox } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <BreakoutBox/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrustedApplicationPool } from '@diac/standard-components-diagrams/officeServers'
+import { TrustedApplicationPool } from '@dinghy/standard-components-diagrams/officeServers'
 
 <TrustedApplicationPool/>
 ```

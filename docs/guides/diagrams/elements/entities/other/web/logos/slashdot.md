@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Slashdot } from '@diac/standard-components-diagrams/webLogos'
+import { Slashdot } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Slashdot/>
 ```

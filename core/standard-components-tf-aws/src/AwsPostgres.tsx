@@ -1,6 +1,6 @@
 import AwsDbInstance, { AwsDbInstanceInputSchema } from './AwsDbInstance.tsx'
 import { aws4 } from '../../standard-components-diagrams/src/index.ts'
-import { IacNodeProps } from '@diac/base-components'
+import { IacNodeProps } from '@dinghy/base-components'
 import z from 'zod'
 
 export const AwsPostgresSchema = AwsDbInstanceInputSchema.omit({ engine: true })

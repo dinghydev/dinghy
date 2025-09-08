@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoundedRectangularCallout } from '@diac/standard-components-diagrams/basic'
+import { RoundedRectangularCallout } from '@dinghy/standard-components-diagrams/basic'
 
 <RoundedRectangularCallout/>
 ```

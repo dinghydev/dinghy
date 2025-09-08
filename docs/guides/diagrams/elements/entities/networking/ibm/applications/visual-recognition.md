@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VisualRecognition } from '@diac/standard-components-diagrams/ibmApplications'
+import { VisualRecognition } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <VisualRecognition/>
 ```

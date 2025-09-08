@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AutoScaling } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { AutoScaling } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <AutoScaling/>
 ```

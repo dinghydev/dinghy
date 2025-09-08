@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FrontEndProcessor } from '@diac/standard-components-diagrams/ciscoMisc'
+import { FrontEndProcessor } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <FrontEndProcessor/>
 ```

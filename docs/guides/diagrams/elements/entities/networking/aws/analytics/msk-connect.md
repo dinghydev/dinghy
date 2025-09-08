@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MskConnect } from '@diac/standard-components-diagrams/awsAnalytics'
+import { MskConnect } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <MskConnect/>
 ```

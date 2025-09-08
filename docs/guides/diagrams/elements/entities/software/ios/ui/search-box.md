@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SearchBox } from '@diac/standard-components-diagrams/ios7Ui'
+import { SearchBox } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <SearchBox/>
 ```

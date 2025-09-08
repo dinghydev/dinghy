@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Train } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Train } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Train/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VrealizeOperations } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { VrealizeOperations } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <VrealizeOperations/>
 ```

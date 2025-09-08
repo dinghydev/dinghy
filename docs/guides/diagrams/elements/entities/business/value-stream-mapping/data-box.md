@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataBox } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { DataBox } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <DataBox/>
 ```

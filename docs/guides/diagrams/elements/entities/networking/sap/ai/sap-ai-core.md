@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapAiCore } from '@diac/standard-components-diagrams/sapAi'
+import { SapAiCore } from '@dinghy/standard-components-diagrams/sapAi'
 
 <SapAiCore/>
 ```

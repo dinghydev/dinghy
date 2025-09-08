@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SmsGateway } from '@diac/standard-components-diagrams/officeCommunications'
+import { SmsGateway } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <SmsGateway/>
 ```

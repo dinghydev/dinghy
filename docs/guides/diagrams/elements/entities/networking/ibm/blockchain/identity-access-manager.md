@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentityAccessManager } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { IdentityAccessManager } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <IdentityAccessManager/>
 ```

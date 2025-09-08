@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CoreHr } from '@diac/standard-components-diagrams/dynamics365App'
+import { CoreHr } from '@dinghy/standard-components-diagrams/dynamics365App'
 
 <CoreHr/>
 ```

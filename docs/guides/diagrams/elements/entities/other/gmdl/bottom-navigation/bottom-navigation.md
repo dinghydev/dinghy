@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BottomNavigation } from '@diac/standard-components-diagrams/gmdlBottomNavigation'
+import { BottomNavigation } from '@dinghy/standard-components-diagrams/gmdlBottomNavigation'
 
 <BottomNavigation/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dermatology } from '@diac/standard-components-diagrams/signsHealthcare'
+import { Dermatology } from '@dinghy/standard-components-diagrams/signsHealthcare'
 
 <Dermatology/>
 ```

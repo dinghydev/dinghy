@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IbmPublicCloud } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { IbmPublicCloud } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <IbmPublicCloud/>
 ```

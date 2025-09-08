@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProjectZoneCloudServiceProvider } from '@diac/standard-components-diagrams/gcp2Zones'
+import { ProjectZoneCloudServiceProvider } from '@dinghy/standard-components-diagrams/gcp2Zones'
 
 <ProjectZoneCloudServiceProvider/>
 ```

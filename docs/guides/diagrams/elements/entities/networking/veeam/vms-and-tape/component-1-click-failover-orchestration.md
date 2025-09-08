@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component1ClickFailoverOrchestration } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { Component1ClickFailoverOrchestration } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <Component1ClickFailoverOrchestration/>
 ```

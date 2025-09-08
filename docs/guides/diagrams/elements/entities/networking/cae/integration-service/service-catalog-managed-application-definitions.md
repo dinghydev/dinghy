@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceCatalogManagedApplicationDefinitions } from '@diac/standard-components-diagrams/caeIntegrationService'
+import { ServiceCatalogManagedApplicationDefinitions } from '@dinghy/standard-components-diagrams/caeIntegrationService'
 
 <ServiceCatalogManagedApplicationDefinitions/>
 ```

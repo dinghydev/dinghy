@@ -16,7 +16,7 @@ library
 ## Usage
 
 ```
-import { VirtualTapeLibrary } from '@diac/standard-components-diagrams/aws18Storage'
+import { VirtualTapeLibrary } from '@dinghy/standard-components-diagrams/aws18Storage'
 
 <VirtualTapeLibrary/>
 ```

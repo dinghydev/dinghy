@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReferenceAssociation } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { ReferenceAssociation } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <ReferenceAssociation/>
 ```

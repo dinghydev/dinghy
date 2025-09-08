@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Buffer } from '@diac/standard-components-diagrams/webIcons'
+import { Buffer } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Buffer/>
 ```

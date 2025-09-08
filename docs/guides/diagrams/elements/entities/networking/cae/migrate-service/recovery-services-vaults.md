@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RecoveryServicesVaults } from '@diac/standard-components-diagrams/caeMigrateService'
+import { RecoveryServicesVaults } from '@dinghy/standard-components-diagrams/caeMigrateService'
 
 <RecoveryServicesVaults/>
 ```

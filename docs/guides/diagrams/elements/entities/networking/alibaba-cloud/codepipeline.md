@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Codepipeline } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Codepipeline } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Codepipeline/>
 ```

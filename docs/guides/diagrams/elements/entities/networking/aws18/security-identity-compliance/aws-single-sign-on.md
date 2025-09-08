@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsSingleSignOn } from '@diac/standard-components-diagrams/aws18SecurityIdentityCompliance'
+import { AwsSingleSignOn } from '@dinghy/standard-components-diagrams/aws18SecurityIdentityCompliance'
 
 <AwsSingleSignOn/>
 ```

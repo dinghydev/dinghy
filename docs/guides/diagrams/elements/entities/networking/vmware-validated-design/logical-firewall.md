@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogicalFirewall } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { LogicalFirewall } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <LogicalFirewall/>
 ```

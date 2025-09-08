@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EdgeGateway } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { EdgeGateway } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <EdgeGateway/>
 ```

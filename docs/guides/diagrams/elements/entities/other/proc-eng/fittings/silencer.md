@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Silencer } from '@diac/standard-components-diagrams/procEngFittings'
+import { Silencer } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <Silencer/>
 ```

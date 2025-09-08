@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RingBus } from '@diac/standard-components-diagrams/network'
+import { RingBus } from '@dinghy/standard-components-diagrams/network'
 
 <RingBus/>
 ```

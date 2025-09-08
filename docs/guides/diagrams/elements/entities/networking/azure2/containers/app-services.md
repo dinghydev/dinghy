@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppServices } from '@diac/standard-components-diagrams/azure2Containers'
+import { AppServices } from '@dinghy/standard-components-diagrams/azure2Containers'
 
 <AppServices/>
 ```

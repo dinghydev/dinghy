@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Youmob } from '@diac/standard-components-diagrams/webIcons'
+import { Youmob } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Youmob/>
 ```

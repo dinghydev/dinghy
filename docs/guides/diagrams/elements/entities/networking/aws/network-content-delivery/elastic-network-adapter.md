@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticNetworkAdapter } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { ElasticNetworkAdapter } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <ElasticNetworkAdapter/>
 ```

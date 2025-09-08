@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamBackupChainMetadata } from '@diac/standard-components-diagrams/veeam2Storage'
+import { VeeamBackupChainMetadata } from '@dinghy/standard-components-diagrams/veeam2Storage'
 
 <VeeamBackupChainMetadata/>
 ```

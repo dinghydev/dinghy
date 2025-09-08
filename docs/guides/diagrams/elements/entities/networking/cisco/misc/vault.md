@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vault } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Vault } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Vault/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppPart } from '@diac/standard-components-diagrams/officeConcepts'
+import { AppPart } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <AppPart/>
 ```

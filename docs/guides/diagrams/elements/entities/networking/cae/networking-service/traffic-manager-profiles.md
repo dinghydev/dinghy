@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrafficManagerProfiles } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { TrafficManagerProfiles } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <TrafficManagerProfiles/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataFactories } from '@diac/standard-components-diagrams/azure2Integration'
+import { DataFactories } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <DataFactories/>
 ```

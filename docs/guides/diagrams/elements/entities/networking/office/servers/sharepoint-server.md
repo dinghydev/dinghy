@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SharepointServer } from '@diac/standard-components-diagrams/officeServers'
+import { SharepointServer } from '@dinghy/standard-components-diagrams/officeServers'
 
 <SharepointServer/>
 ```

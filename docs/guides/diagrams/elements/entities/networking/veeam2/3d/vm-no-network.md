@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmNoNetwork } from '@diac/standard-components-diagrams/veeam23d'
+import { VmNoNetwork } from '@dinghy/standard-components-diagrams/veeam23d'
 
 <VmNoNetwork/>
 ```

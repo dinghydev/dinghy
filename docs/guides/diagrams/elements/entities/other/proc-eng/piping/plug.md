@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Plug } from '@diac/standard-components-diagrams/procEngPiping'
+import { Plug } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <Plug/>
 ```

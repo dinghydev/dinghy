@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiscoverySearchMailbox } from '@diac/standard-components-diagrams/officeCommunications'
+import { DiscoverySearchMailbox } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <DiscoverySearchMailbox/>
 ```

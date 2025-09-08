@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceBus } from '@diac/standard-components-diagrams/azure2Integration'
+import { ServiceBus } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <ServiceBus/>
 ```

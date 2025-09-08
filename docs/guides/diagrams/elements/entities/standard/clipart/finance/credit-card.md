@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CreditCard } from '@diac/standard-components-diagrams/clipartFinance'
+import { CreditCard } from '@dinghy/standard-components-diagrams/clipartFinance'
 
 <CreditCard/>
 ```

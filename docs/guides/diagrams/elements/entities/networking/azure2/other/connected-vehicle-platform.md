@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConnectedVehiclePlatform } from '@diac/standard-components-diagrams/azure2Other'
+import { ConnectedVehiclePlatform } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ConnectedVehiclePlatform/>
 ```

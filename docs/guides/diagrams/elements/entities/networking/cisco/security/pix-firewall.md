@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PixFirewall } from '@diac/standard-components-diagrams/ciscoSecurity'
+import { PixFirewall } from '@dinghy/standard-components-diagrams/ciscoSecurity'
 
 <PixFirewall/>
 ```

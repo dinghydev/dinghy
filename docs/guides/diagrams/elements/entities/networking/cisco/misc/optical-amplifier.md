@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpticalAmplifier } from '@diac/standard-components-diagrams/ciscoMisc'
+import { OpticalAmplifier } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <OpticalAmplifier/>
 ```

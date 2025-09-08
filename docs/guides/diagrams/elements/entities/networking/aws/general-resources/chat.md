@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Chat } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Chat } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Chat/>
 ```

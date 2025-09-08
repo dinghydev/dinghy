@@ -16,7 +16,7 @@ Language
 ## Usage
 
 ```
-import { AutomlNaturalLanguage } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AutomlNaturalLanguage } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AutomlNaturalLanguage/>
 ```

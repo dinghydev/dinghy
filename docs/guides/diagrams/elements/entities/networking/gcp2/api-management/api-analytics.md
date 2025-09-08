@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiAnalytics } from '@diac/standard-components-diagrams/gcp2ApiManagement'
+import { ApiAnalytics } from '@dinghy/standard-components-diagrams/gcp2ApiManagement'
 
 <ApiAnalytics/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Route53Resolver } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Route53Resolver } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Route53Resolver/>
 ```

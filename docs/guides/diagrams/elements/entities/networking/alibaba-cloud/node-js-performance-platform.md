@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NodeJsPerformancePlatform } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NodeJsPerformancePlatform } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NodeJsPerformancePlatform/>
 ```

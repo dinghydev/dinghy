@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReadonlyPlainText2 } from '@diac/standard-components-diagrams/bootstrap'
+import { ReadonlyPlainText2 } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ReadonlyPlainText2/>
 ```

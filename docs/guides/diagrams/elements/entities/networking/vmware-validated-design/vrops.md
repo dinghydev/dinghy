@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vrops } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Vrops } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Vrops/>
 ```

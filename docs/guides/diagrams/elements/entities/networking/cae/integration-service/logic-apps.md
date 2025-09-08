@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogicApps } from '@diac/standard-components-diagrams/caeIntegrationService'
+import { LogicApps } from '@dinghy/standard-components-diagrams/caeIntegrationService'
 
 <LogicApps/>
 ```

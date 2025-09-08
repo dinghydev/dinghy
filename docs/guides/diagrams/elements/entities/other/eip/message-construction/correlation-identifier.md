@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CorrelationIdentifier } from '@diac/standard-components-diagrams/eipMessageConstruction'
+import { CorrelationIdentifier } from '@dinghy/standard-components-diagrams/eipMessageConstruction'
 
 <CorrelationIdentifier/>
 ```

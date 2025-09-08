@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabasePostgresqlServerGroup } from '@diac/standard-components-diagrams/azure2Databases'
+import { DatabasePostgresqlServerGroup } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <DatabasePostgresqlServerGroup/>
 ```

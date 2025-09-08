@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MariadbInstance2 } from '@diac/standard-components-diagrams/awsDatabase'
+import { MariadbInstance2 } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <MariadbInstance2/>
 ```

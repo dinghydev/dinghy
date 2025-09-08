@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedServices } from '@diac/standard-components-diagrams/awsCustomerEnablement'
+import { ManagedServices } from '@dinghy/standard-components-diagrams/awsCustomerEnablement'
 
 <ManagedServices/>
 ```

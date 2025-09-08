@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiProtection } from '@diac/standard-components-diagrams/citrixNetscaler'
+import { ApiProtection } from '@dinghy/standard-components-diagrams/citrixNetscaler'
 
 <ApiProtection/>
 ```

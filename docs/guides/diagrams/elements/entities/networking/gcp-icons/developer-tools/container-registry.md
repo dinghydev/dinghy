@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContainerRegistry } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { ContainerRegistry } from '@dinghy/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <ContainerRegistry/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BoldBadge } from '@diac/standard-components-diagrams/atlassian'
+import { BoldBadge } from '@dinghy/standard-components-diagrams/atlassian'
 
 <BoldBadge/>
 ```

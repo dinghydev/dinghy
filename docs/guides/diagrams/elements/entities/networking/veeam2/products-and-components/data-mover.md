@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataMover } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { DataMover } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <DataMover/>
 ```

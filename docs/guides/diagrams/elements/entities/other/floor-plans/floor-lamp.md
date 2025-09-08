@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FloorLamp } from '@diac/standard-components-diagrams/floorPlans'
+import { FloorLamp } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <FloorLamp/>
 ```

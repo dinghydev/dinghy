@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkManager } from '@diac/standard-components-diagrams/azure2Other'
+import { NetworkManager } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <NetworkManager/>
 ```

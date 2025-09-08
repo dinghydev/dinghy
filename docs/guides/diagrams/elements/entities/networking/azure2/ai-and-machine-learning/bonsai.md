@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bonsai } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { Bonsai } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <Bonsai/>
 ```

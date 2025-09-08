@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hpa } from '@diac/standard-components-diagrams/kubernetes'
+import { Hpa } from '@dinghy/standard-components-diagrams/kubernetes'
 
 <Hpa/>
 ```

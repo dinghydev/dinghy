@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PulsationDampener } from '@diac/standard-components-diagrams/procEngPiping'
+import { PulsationDampener } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <PulsationDampener/>
 ```

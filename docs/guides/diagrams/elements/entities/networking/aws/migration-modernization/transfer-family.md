@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TransferFamily } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { TransferFamily } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <TransferFamily/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MacClient } from '@diac/standard-components-diagrams/activeDirectory'
+import { MacClient } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <MacClient/>
 ```

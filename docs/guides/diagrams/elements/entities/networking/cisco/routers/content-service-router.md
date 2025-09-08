@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentServiceRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { ContentServiceRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <ContentServiceRouter/>
 ```

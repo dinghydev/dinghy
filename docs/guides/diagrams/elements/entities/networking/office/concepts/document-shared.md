@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DocumentShared } from '@diac/standard-components-diagrams/officeConcepts'
+import { DocumentShared } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <DocumentShared/>
 ```

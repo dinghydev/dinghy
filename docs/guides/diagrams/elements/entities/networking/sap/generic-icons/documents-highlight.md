@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DocumentsHighlight } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { DocumentsHighlight } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <DocumentsHighlight/>
 ```

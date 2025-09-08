@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rescue } from '@diac/standard-components-diagrams/awsCompute'
+import { Rescue } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Rescue/>
 ```

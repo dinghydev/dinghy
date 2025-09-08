@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CurrentLocation } from '@diac/standard-components-diagrams/ios7Ui'
+import { CurrentLocation } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <CurrentLocation/>
 ```

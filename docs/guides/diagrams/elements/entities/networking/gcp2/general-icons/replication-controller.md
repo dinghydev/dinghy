@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReplicationController } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { ReplicationController } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <ReplicationController/>
 ```

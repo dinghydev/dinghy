@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureRepos } from '@diac/standard-components-diagrams/caeDevopsService'
+import { AzureRepos } from '@dinghy/standard-components-diagrams/caeDevopsService'
 
 <AzureRepos/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11780PiezoElectricControl } from '@diac/standard-components-diagrams/fluidPower'
+import { X11780PiezoElectricControl } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11780PiezoElectricControl/>
 ```

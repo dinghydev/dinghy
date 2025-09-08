@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RangeInput } from '@diac/standard-components-diagrams/bootstrap'
+import { RangeInput } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <RangeInput/>
 ```

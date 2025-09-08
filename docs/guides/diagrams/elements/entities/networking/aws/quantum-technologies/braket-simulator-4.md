@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BraketSimulator4 } from '@diac/standard-components-diagrams/awsQuantumTechnologies'
+import { BraketSimulator4 } from '@dinghy/standard-components-diagrams/awsQuantumTechnologies'
 
 <BraketSimulator4/>
 ```

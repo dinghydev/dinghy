@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChangeAnalysis } from '@diac/standard-components-diagrams/azure2Monitor'
+import { ChangeAnalysis } from '@dinghy/standard-components-diagrams/azure2Monitor'
 
 <ChangeAnalysis/>
 ```

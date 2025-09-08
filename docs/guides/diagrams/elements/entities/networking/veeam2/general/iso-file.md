@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IsoFile } from '@diac/standard-components-diagrams/veeam2General'
+import { IsoFile } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <IsoFile/>
 ```

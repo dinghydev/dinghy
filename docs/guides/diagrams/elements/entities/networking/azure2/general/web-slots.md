@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebSlots } from '@diac/standard-components-diagrams/azure2General'
+import { WebSlots } from '@dinghy/standard-components-diagrams/azure2General'
 
 <WebSlots/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MergeOrStorage } from '@diac/standard-components-diagrams/flowchart'
+import { MergeOrStorage } from '@dinghy/standard-components-diagrams/flowchart'
 
 <MergeOrStorage/>
 ```

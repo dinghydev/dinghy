@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SharedImageGalleries } from '@diac/standard-components-diagrams/caeOtherCategoryService'
+import { SharedImageGalleries } from '@dinghy/standard-components-diagrams/caeOtherCategoryService'
 
 <SharedImageGalleries/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Inf2 } from '@diac/standard-components-diagrams/awsCompute'
+import { Inf2 } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Inf2/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RedshiftStreamingIngestion } from '@diac/standard-components-diagrams/awsAnalytics'
+import { RedshiftStreamingIngestion } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <RedshiftStreamingIngestion/>
 ```

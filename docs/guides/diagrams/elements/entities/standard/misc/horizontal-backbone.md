@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalBackbone } from '@diac/standard-components-diagrams/misc'
+import { HorizontalBackbone } from '@dinghy/standard-components-diagrams/misc'
 
 <HorizontalBackbone/>
 ```

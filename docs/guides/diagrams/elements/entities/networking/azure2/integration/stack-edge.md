@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StackEdge } from '@diac/standard-components-diagrams/azure2Integration'
+import { StackEdge } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <StackEdge/>
 ```

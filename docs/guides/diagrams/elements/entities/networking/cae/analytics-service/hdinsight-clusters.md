@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HdinsightClusters } from '@diac/standard-components-diagrams/caeAnalyticsService'
+import { HdinsightClusters } from '@dinghy/standard-components-diagrams/caeAnalyticsService'
 
 <HdinsightClusters/>
 ```

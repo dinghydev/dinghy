@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StandardIa } from '@diac/standard-components-diagrams/awsStorage'
+import { StandardIa } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <StandardIa/>
 ```

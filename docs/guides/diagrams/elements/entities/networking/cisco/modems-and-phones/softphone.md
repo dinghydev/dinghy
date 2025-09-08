@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Softphone } from '@diac/standard-components-diagrams/ciscoModemsAndPhones'
+import { Softphone } from '@dinghy/standard-components-diagrams/ciscoModemsAndPhones'
 
 <Softphone/>
 ```

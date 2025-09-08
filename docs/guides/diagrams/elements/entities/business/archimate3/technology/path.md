@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Path } from '@diac/standard-components-diagrams/archimate3Technology'
+import { Path } from '@dinghy/standard-components-diagrams/archimate3Technology'
 
 <Path/>
 ```

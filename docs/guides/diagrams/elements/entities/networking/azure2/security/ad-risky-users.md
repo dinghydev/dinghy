@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdRiskyUsers } from '@diac/standard-components-diagrams/azure2Security'
+import { AdRiskyUsers } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <AdRiskyUsers/>
 ```

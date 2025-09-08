@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3StorageLens } from '@diac/standard-components-diagrams/awsStorage'
+import { S3StorageLens } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <S3StorageLens/>
 ```

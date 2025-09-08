@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlugAndPlay } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { PlugAndPlay } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <PlugAndPlay/>
 ```

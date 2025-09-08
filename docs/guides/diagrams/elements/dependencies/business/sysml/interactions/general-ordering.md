@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { GeneralOrdering } from '@diac/standard-components-diagrams/sysmlInteractions'
+import { GeneralOrdering } from '@dinghy/standard-components-diagrams/sysmlInteractions'
 
 <GeneralOrdering/>
 ```

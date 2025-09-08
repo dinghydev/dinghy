@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ec2AwsMicroserviceExtractorForNet } from '@diac/standard-components-diagrams/awsCompute'
+import { Ec2AwsMicroserviceExtractorForNet } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <Ec2AwsMicroserviceExtractorForNet/>
 ```

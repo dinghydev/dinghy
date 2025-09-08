@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tablet } from '@diac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
+import { Tablet } from '@dinghy/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
 
 <Tablet/>
 ```

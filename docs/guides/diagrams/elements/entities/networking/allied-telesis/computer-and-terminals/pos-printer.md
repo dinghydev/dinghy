@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PosPrinter } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { PosPrinter } from '@dinghy/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <PosPrinter/>
 ```

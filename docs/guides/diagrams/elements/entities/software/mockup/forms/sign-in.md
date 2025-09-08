@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SignIn } from '@diac/standard-components-diagrams/mockupForms'
+import { SignIn } from '@dinghy/standard-components-diagrams/mockupForms'
 
 <SignIn/>
 ```

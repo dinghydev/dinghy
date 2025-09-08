@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IntelliswitchStack } from '@diac/standard-components-diagrams/ciscoSwitches'
+import { IntelliswitchStack } from '@dinghy/standard-components-diagrams/ciscoSwitches'
 
 <IntelliswitchStack/>
 ```

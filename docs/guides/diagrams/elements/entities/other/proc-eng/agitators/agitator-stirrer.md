@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AgitatorStirrer } from '@diac/standard-components-diagrams/procEngAgitators'
+import { AgitatorStirrer } from '@dinghy/standard-components-diagrams/procEngAgitators'
 
 <AgitatorStirrer/>
 ```

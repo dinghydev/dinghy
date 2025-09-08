@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SolarCell } from '@diac/standard-components-diagrams/electricalOptical'
+import { SolarCell } from '@dinghy/standard-components-diagrams/electricalOptical'
 
 <SolarCell/>
 ```

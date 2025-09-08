@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnlineBackup } from '@diac/standard-components-diagrams/officeClouds'
+import { OnlineBackup } from '@dinghy/standard-components-diagrams/officeClouds'
 
 <OnlineBackup/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wordpress } from '@diac/standard-components-diagrams/webLogos'
+import { Wordpress } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Wordpress/>
 ```

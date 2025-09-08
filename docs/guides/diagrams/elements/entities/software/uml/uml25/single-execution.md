@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SingleExecution } from '@diac/standard-components-diagrams/uml25'
+import { SingleExecution } from '@dinghy/standard-components-diagrams/uml25'
 
 <SingleExecution/>
 ```

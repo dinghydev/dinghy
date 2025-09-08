@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Flickr } from '@diac/standard-components-diagrams/webIcons'
+import { Flickr } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Flickr/>
 ```

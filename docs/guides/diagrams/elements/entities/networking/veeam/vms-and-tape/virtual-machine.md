@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualMachine } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { VirtualMachine } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <VirtualMachine/>
 ```

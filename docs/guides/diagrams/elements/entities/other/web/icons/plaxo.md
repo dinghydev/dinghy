@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Plaxo } from '@diac/standard-components-diagrams/webIcons'
+import { Plaxo } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Plaxo/>
 ```

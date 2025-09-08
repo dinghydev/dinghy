@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataFirehose } from '@diac/standard-components-diagrams/awsAnalytics'
+import { DataFirehose } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <DataFirehose/>
 ```

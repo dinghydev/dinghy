@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouterUtm } from '@diac/standard-components-diagrams/alliedTelesisSecurity'
+import { RouterUtm } from '@dinghy/standard-components-diagrams/alliedTelesisSecurity'
 
 <RouterUtm/>
 ```

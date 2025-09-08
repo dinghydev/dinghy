@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DesuperHeater } from '@diac/standard-components-diagrams/procEngPiping'
+import { DesuperHeater } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <DesuperHeater/>
 ```

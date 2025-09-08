@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Nat } from '@diac/standard-components-diagrams/azure2Networking'
+import { Nat } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <Nat/>
 ```

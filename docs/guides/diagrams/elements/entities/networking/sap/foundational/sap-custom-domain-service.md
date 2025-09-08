@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapCustomDomainService } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapCustomDomainService } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapCustomDomainService/>
 ```

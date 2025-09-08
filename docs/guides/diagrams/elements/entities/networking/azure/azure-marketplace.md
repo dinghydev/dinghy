@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureMarketplace } from '@diac/standard-components-diagrams/azure'
+import { AzureMarketplace } from '@dinghy/standard-components-diagrams/azure'
 
 <AzureMarketplace/>
 ```

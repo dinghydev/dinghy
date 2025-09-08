@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppProtection } from '@diac/standard-components-diagrams/citrixComponents'
+import { AppProtection } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <AppProtection/>
 ```

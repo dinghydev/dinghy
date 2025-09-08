@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppConfig } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { AppConfig } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <AppConfig/>
 ```

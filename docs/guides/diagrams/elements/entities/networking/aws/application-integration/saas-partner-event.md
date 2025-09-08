@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SaasPartnerEvent } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { SaasPartnerEvent } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <SaasPartnerEvent/>
 ```

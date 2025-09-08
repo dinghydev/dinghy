@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CommunicationsManager } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { CommunicationsManager } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <CommunicationsManager/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExtruderScrew } from '@diac/standard-components-diagrams/procEngShapingMachines'
+import { ExtruderScrew } from '@dinghy/standard-components-diagrams/procEngShapingMachines'
 
 <ExtruderScrew/>
 ```

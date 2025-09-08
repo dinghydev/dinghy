@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AccessControlAndTrustsec } from '@diac/standard-components-diagrams/cisco19Safe'
+import { AccessControlAndTrustsec } from '@dinghy/standard-components-diagrams/cisco19Safe'
 
 <AccessControlAndTrustsec/>
 ```

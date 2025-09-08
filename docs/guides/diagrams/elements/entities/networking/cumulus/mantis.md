@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mantis } from '@diac/standard-components-diagrams/cumulus'
+import { Mantis } from '@dinghy/standard-components-diagrams/cumulus'
 
 <Mantis/>
 ```

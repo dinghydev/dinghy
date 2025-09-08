@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Locked } from '@diac/standard-components-diagrams/ios7Icons'
+import { Locked } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Locked/>
 ```

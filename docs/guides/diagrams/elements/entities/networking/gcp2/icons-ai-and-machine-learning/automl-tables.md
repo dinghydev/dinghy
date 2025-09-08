@@ -16,7 +16,7 @@ Tables
 ## Usage
 
 ```
-import { AutomlTables } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { AutomlTables } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <AutomlTables/>
 ```

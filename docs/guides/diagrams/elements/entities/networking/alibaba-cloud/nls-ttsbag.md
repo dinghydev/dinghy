@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlsTtsbag } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlsTtsbag } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlsTtsbag/>
 ```

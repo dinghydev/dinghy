@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FuseIec } from '@diac/standard-components-diagrams/electricalMisc'
+import { FuseIec } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <FuseIec/>
 ```

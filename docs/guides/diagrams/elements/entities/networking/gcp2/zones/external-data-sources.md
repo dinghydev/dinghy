@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExternalDataSources } from '@diac/standard-components-diagrams/gcp2Zones'
+import { ExternalDataSources } from '@dinghy/standard-components-diagrams/gcp2Zones'
 
 <ExternalDataSources/>
 ```

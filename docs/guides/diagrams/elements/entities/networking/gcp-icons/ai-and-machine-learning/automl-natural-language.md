@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AutomlNaturalLanguage } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { AutomlNaturalLanguage } from '@dinghy/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <AutomlNaturalLanguage/>
 ```

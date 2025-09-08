@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExpansionJoint } from '@diac/standard-components-diagrams/procEngPiping'
+import { ExpansionJoint } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <ExpansionJoint/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SipUriUmDialPlan } from '@diac/standard-components-diagrams/officeCommunications'
+import { SipUriUmDialPlan } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <SipUriUmDialPlan/>
 ```

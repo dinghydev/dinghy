@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpcReachabilityAnalyzer } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { VpcReachabilityAnalyzer } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <VpcReachabilityAnalyzer/>
 ```

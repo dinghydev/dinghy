@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CentriFirewall } from '@diac/standard-components-diagrams/ciscoSecurity'
+import { CentriFirewall } from '@dinghy/standard-components-diagrams/ciscoSecurity'
 
 <CentriFirewall/>
 ```

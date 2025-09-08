@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CosmosDb } from '@diac/standard-components-diagrams/azure2Databases'
+import { CosmosDb } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <CosmosDb/>
 ```

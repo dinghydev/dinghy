@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DirectElbow } from '@diac/standard-components-diagrams/sapDefaultConnectors'
+import { DirectElbow } from '@dinghy/standard-components-diagrams/sapDefaultConnectors'
 
 <DirectElbow/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FireTvStick } from '@diac/standard-components-diagrams/aws17InternetOfThings'
+import { FireTvStick } from '@dinghy/standard-components-diagrams/aws17InternetOfThings'
 
 <FireTvStick/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationSecurityGroups } from '@diac/standard-components-diagrams/azure2Security'
+import { ApplicationSecurityGroups } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <ApplicationSecurityGroups/>
 ```

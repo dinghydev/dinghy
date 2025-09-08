@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HybridVoipGateway } from '@diac/standard-components-diagrams/officeCommunications'
+import { HybridVoipGateway } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <HybridVoipGateway/>
 ```

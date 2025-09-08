@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RibbonBackFolded } from '@diac/standard-components-diagrams/infoGraphic'
+import { RibbonBackFolded } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <RibbonBackFolded/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fleetwise } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Fleetwise } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Fleetwise/>
 ```

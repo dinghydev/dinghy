@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IgniterPlug } from '@diac/standard-components-diagrams/electricalMisc'
+import { IgniterPlug } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <IgniterPlug/>
 ```

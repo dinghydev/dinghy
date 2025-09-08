@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudConnector } from '@diac/standard-components-diagrams/citrixCloudServices'
+import { CloudConnector } from '@dinghy/standard-components-diagrams/citrixCloudServices'
 
 <CloudConnector/>
 ```

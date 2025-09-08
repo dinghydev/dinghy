@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiMonetization } from '@diac/standard-components-diagrams/gcpIconsApiManagement'
+import { ApiMonetization } from '@dinghy/standard-components-diagrams/gcpIconsApiManagement'
 
 <ApiMonetization/>
 ```

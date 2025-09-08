@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ForkNode3 } from '@diac/standard-components-diagrams/sysmlActivities'
+import { ForkNode3 } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <ForkNode3/>
 ```

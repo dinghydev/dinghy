@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DropdownButton } from '@diac/standard-components-diagrams/gmdlButtons'
+import { DropdownButton } from '@dinghy/standard-components-diagrams/gmdlButtons'
 
 <DropdownButton/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AuthenticationOkta } from '@diac/standard-components-diagrams/citrixAuthentication'
+import { AuthenticationOkta } from '@dinghy/standard-components-diagrams/citrixAuthentication'
 
 <AuthenticationOkta/>
 ```

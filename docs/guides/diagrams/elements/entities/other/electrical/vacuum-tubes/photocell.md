@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Photocell } from '@diac/standard-components-diagrams/electricalVacuumTubes'
+import { Photocell } from '@dinghy/standard-components-diagrams/electricalVacuumTubes'
 
 <Photocell/>
 ```

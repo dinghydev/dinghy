@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataBoxEdgeDataBoxGateway } from '@diac/standard-components-diagrams/caeStorageService'
+import { DataBoxEdgeDataBoxGateway } from '@dinghy/standard-components-diagrams/caeStorageService'
 
 <DataBoxEdgeDataBoxGateway/>
 ```

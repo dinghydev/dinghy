@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DevConsole } from '@diac/standard-components-diagrams/azure2General'
+import { DevConsole } from '@dinghy/standard-components-diagrams/azure2General'
 
 <DevConsole/>
 ```

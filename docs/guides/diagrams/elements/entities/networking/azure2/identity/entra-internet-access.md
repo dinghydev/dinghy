@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EntraInternetAccess } from '@diac/standard-components-diagrams/azure2Identity'
+import { EntraInternetAccess } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <EntraInternetAccess/>
 ```

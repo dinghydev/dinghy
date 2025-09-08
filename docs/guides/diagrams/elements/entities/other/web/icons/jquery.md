@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Jquery } from '@diac/standard-components-diagrams/webIcons'
+import { Jquery } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Jquery/>
 ```

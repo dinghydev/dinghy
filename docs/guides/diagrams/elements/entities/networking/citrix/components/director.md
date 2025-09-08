@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Director } from '@diac/standard-components-diagrams/citrixComponents'
+import { Director } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <Director/>
 ```

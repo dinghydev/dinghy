@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobileVerticalStepper } from '@diac/standard-components-diagrams/gmdlSteppers'
+import { MobileVerticalStepper } from '@dinghy/standard-components-diagrams/gmdlSteppers'
 
 <MobileVerticalStepper/>
 ```

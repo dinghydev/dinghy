@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobileProviderNetwork } from '@diac/standard-components-diagrams/ibmInfrastructure'
+import { MobileProviderNetwork } from '@dinghy/standard-components-diagrams/ibmInfrastructure'
 
 <MobileProviderNetwork/>
 ```

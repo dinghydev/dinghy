@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HardDrive } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { HardDrive } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <HardDrive/>
 ```

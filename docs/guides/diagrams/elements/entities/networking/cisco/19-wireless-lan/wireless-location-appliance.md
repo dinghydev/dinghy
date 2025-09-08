@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WirelessLocationAppliance } from '@diac/standard-components-diagrams/cisco19WirelessLan'
+import { WirelessLocationAppliance } from '@dinghy/standard-components-diagrams/cisco19WirelessLan'
 
 <WirelessLocationAppliance/>
 ```

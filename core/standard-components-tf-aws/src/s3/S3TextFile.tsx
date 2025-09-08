@@ -1,10 +1,10 @@
 import {
   type IacNodeProps,
   ResolvableStringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import z from 'zod'
-import { useTypedNode } from '@diac/base-components'
+import { useTypedNode } from '@dinghy/base-components'
 import { AwsS3Object } from './AwsS3Object.tsx'
 import { Buffer } from 'node:buffer'
 import { useS3Texts } from './S3Text.tsx'

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Panorama } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Panorama } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Panorama/>
 ```

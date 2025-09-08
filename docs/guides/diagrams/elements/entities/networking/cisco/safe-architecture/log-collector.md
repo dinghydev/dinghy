@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogCollector } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { LogCollector } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <LogCollector/>
 ```

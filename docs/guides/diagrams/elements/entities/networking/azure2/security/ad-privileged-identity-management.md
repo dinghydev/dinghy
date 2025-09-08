@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdPrivilegedIdentityManagement } from '@diac/standard-components-diagrams/azure2Security'
+import { AdPrivilegedIdentityManagement } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <AdPrivilegedIdentityManagement/>
 ```

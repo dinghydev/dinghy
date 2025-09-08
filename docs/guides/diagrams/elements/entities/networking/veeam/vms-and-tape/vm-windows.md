@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VmWindows } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { VmWindows } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <VmWindows/>
 ```

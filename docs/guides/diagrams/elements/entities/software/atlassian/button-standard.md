@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ButtonStandard } from '@diac/standard-components-diagrams/atlassian'
+import { ButtonStandard } from '@dinghy/standard-components-diagrams/atlassian'
 
 <ButtonStandard/>
 ```

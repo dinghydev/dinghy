@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefenderPneumaticDevice } from '@diac/standard-components-diagrams/azure2Other'
+import { DefenderPneumaticDevice } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <DefenderPneumaticDevice/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureDigitalTwins } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
+import { AzureDigitalTwins } from '@dinghy/standard-components-diagrams/caeInternetOfThingsService'
 
 <AzureDigitalTwins/>
 ```

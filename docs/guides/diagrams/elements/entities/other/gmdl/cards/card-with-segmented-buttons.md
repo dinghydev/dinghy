@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CardWithSegmentedButtons } from '@diac/standard-components-diagrams/gmdlCards'
+import { CardWithSegmentedButtons } from '@dinghy/standard-components-diagrams/gmdlCards'
 
 <CardWithSegmentedButtons/>
 ```

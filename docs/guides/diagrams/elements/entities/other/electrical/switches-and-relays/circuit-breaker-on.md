@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CircuitBreakerOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { CircuitBreakerOn } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <CircuitBreakerOn/>
 ```

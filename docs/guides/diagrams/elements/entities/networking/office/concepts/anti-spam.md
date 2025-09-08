@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AntiSpam } from '@diac/standard-components-diagrams/officeConcepts'
+import { AntiSpam } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <AntiSpam/>
 ```

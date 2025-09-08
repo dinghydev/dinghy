@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InterfaceConsole } from '@diac/standard-components-diagrams/veeam2General'
+import { InterfaceConsole } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <InterfaceConsole/>
 ```

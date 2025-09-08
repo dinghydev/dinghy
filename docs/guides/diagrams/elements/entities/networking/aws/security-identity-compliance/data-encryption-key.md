@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataEncryptionKey } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { DataEncryptionKey } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <DataEncryptionKey/>
 ```

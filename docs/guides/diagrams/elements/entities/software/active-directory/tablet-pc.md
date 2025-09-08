@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TabletPc } from '@diac/standard-components-diagrams/activeDirectory'
+import { TabletPc } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <TabletPc/>
 ```

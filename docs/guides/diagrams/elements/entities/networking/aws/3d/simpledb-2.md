@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Simpledb2 } from '@diac/standard-components-diagrams/aws3d'
+import { Simpledb2 } from '@dinghy/standard-components-diagrams/aws3d'
 
 <Simpledb2/>
 ```

@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const JL659A_ARUBA_6300M_48_PORT_HPE_SMART_RATE_1_2_5_5GBE_CLASS_6_POE_AND_4_PORT_SWITCH =
   {

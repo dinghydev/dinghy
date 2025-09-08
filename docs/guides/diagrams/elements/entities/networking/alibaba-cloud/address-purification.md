@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AddressPurification } from '@diac/standard-components-diagrams/alibabaCloud'
+import { AddressPurification } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <AddressPurification/>
 ```

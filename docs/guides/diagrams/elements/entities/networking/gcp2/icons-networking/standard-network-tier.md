@@ -16,7 +16,7 @@ Network Tier
 ## Usage
 
 ```
-import { StandardNetworkTier } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
+import { StandardNetworkTier } from '@dinghy/standard-components-diagrams/gcp2IconsNetworking'
 
 <StandardNetworkTier/>
 ```

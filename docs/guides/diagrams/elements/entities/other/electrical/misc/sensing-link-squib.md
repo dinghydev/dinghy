@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SensingLinkSquib } from '@diac/standard-components-diagrams/electricalMisc'
+import { SensingLinkSquib } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <SensingLinkSquib/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Caches } from '@diac/standard-components-diagrams/ibmData'
+import { Caches } from '@dinghy/standard-components-diagrams/ibmData'
 
 <Caches/>
 ```

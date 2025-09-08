@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PiggyBank } from '@diac/standard-components-diagrams/clipartFinance'
+import { PiggyBank } from '@dinghy/standard-components-diagrams/clipartFinance'
 
 <PiggyBank/>
 ```

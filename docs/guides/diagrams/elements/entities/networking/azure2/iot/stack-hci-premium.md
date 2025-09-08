@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StackHciPremium } from '@diac/standard-components-diagrams/azure2Iot'
+import { StackHciPremium } from '@dinghy/standard-components-diagrams/azure2Iot'
 
 <StackHciPremium/>
 ```

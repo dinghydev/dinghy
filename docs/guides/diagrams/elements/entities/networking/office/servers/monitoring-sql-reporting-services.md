@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MonitoringSqlReportingServices } from '@diac/standard-components-diagrams/officeServers'
+import { MonitoringSqlReportingServices } from '@dinghy/standard-components-diagrams/officeServers'
 
 <MonitoringSqlReportingServices/>
 ```

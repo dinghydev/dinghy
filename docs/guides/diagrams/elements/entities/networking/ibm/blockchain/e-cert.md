@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ECert } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { ECert } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <ECert/>
 ```

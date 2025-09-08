@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeyAttribute } from '@diac/standard-components-diagrams/entityRelation'
+import { KeyAttribute } from '@dinghy/standard-components-diagrams/entityRelation'
 
 <KeyAttribute/>
 ```

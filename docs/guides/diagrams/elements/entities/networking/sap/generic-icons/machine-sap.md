@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MachineSap } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { MachineSap } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <MachineSap/>
 ```

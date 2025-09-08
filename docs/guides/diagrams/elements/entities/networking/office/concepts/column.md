@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Column } from '@diac/standard-components-diagrams/officeConcepts'
+import { Column } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Column/>
 ```

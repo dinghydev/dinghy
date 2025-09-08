@@ -16,7 +16,7 @@ Scanner
 ## Usage
 
 ```
-import { WebSecurityScanner } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
+import { WebSecurityScanner } from '@dinghy/standard-components-diagrams/gcp2IconsSecurity'
 
 <WebSecurityScanner/>
 ```

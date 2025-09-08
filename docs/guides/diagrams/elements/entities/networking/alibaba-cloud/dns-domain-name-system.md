@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DnsDomainNameSystem } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DnsDomainNameSystem } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DnsDomainNameSystem/>
 ```

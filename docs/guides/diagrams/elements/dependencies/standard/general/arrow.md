@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Arrow } from '@diac/standard-components-diagrams/general'
+import { Arrow } from '@dinghy/standard-components-diagrams/general'
 
 <Arrow/>
 ```

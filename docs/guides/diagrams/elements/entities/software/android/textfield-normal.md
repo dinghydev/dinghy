@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextfieldNormal } from '@diac/standard-components-diagrams/android'
+import { TextfieldNormal } from '@dinghy/standard-components-diagrams/android'
 
 <TextfieldNormal/>
 ```

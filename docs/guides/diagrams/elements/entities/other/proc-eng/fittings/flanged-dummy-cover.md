@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlangedDummyCover } from '@diac/standard-components-diagrams/procEngFittings'
+import { FlangedDummyCover } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <FlangedDummyCover/>
 ```

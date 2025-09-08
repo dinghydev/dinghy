@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventHubClusters } from '@diac/standard-components-diagrams/caeAnalyticsService'
+import { EventHubClusters } from '@dinghy/standard-components-diagrams/caeAnalyticsService'
 
 <EventHubClusters/>
 ```

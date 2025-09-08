@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonElasticsearchService } from '@diac/standard-components-diagrams/aws18Analytics'
+import { AmazonElasticsearchService } from '@dinghy/standard-components-diagrams/aws18Analytics'
 
 <AmazonElasticsearchService/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapHanaCloud } from '@diac/standard-components-diagrams/sapAi'
+import { SapHanaCloud } from '@dinghy/standard-components-diagrams/sapAi'
 
 <SapHanaCloud/>
 ```

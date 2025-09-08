@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OfficeInstalled } from '@diac/standard-components-diagrams/officeConcepts'
+import { OfficeInstalled } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <OfficeInstalled/>
 ```

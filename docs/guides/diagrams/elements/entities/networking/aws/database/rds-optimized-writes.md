@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdsOptimizedWrites } from '@diac/standard-components-diagrams/awsDatabase'
+import { RdsOptimizedWrites } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <RdsOptimizedWrites/>
 ```

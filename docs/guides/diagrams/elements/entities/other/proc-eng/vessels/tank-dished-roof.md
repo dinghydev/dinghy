@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TankDishedRoof } from '@diac/standard-components-diagrams/procEngVessels'
+import { TankDishedRoof } from '@dinghy/standard-components-diagrams/procEngVessels'
 
 <TankDishedRoof/>
 ```

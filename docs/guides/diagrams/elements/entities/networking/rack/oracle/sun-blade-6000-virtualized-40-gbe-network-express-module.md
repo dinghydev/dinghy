@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SunBlade6000Virtualized40GbeNetworkExpressModule } from '@diac/standard-components-diagrams/rackOracle'
+import { SunBlade6000Virtualized40GbeNetworkExpressModule } from '@dinghy/standard-components-diagrams/rackOracle'
 
 <SunBlade6000Virtualized40GbeNetworkExpressModule/>
 ```

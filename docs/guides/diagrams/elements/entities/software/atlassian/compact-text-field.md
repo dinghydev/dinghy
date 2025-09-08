@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CompactTextField } from '@diac/standard-components-diagrams/atlassian'
+import { CompactTextField } from '@dinghy/standard-components-diagrams/atlassian'
 
 <CompactTextField/>
 ```

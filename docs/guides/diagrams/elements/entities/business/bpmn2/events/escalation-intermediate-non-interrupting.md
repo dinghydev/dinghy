@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EscalationIntermediateNonInterrupting } from '@diac/standard-components-diagrams/bpmn2Events'
+import { EscalationIntermediateNonInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <EscalationIntermediateNonInterrupting/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapAuthorizationAndTrustManagementService } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapAuthorizationAndTrustManagementService } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapAuthorizationAndTrustManagementService/>
 ```

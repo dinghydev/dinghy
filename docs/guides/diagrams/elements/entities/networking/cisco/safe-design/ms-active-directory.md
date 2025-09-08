@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MsActiveDirectory } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { MsActiveDirectory } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <MsActiveDirectory/>
 ```

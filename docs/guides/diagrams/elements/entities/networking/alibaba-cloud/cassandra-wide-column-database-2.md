@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CassandraWideColumnDatabase2 } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CassandraWideColumnDatabase2 } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CassandraWideColumnDatabase2/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Photodiode } from '@diac/standard-components-diagrams/electricalOptical'
+import { Photodiode } from '@dinghy/standard-components-diagrams/electricalOptical'
 
 <Photodiode/>
 ```

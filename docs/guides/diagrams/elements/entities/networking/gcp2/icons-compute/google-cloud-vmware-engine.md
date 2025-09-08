@@ -16,7 +16,7 @@ VMware Engine
 ## Usage
 
 ```
-import { GoogleCloudVmwareEngine } from '@diac/standard-components-diagrams/gcp2IconsCompute'
+import { GoogleCloudVmwareEngine } from '@dinghy/standard-components-diagrams/gcp2IconsCompute'
 
 <GoogleCloudVmwareEngine/>
 ```

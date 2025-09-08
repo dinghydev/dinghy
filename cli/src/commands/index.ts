@@ -38,16 +38,16 @@ const options: CommandOptions = {
     c: 'commands',
   },
   cmdDescription:
-    'DIaC CLI is a command-line tool for running DIaC in local development to interact with DIaC engine.',
+    'Dinghy CLI is a command-line tool for running Dinghy in local development to interact with Dinghy engine.',
   additionalOptions: {
     'Global Options': [
       {
         name: '--app-home',
-        description: 'The path to the DIaC app home directory',
+        description: 'The path to the Dinghy app home directory',
       },
       {
         name: '--version',
-        description: 'The DIaC engine version to use',
+        description: 'The Dinghy engine version to use',
       },
       {
         name: '--debug',

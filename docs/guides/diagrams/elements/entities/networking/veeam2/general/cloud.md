@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloud } from '@diac/standard-components-diagrams/veeam2General'
+import { Cloud } from '@dinghy/standard-components-diagrams/veeam2General'
 
 <Cloud/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConfidentialLedger } from '@diac/standard-components-diagrams/azure2Other'
+import { ConfidentialLedger } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ConfidentialLedger/>
 ```

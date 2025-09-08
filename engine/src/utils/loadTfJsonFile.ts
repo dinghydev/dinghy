@@ -1,5 +1,5 @@
 import { existsSync } from '@std/fs/exists'
-import { hostAppHome } from '@diac/cli'
+import { hostAppHome } from '@dinghy/cli'
 
 export function loadTfJsonFile(args: any) {
   const jsonFile = args['json-file']

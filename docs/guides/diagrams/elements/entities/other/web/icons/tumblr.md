@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tumblr } from '@diac/standard-components-diagrams/webIcons'
+import { Tumblr } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Tumblr/>
 ```

@@ -2,12 +2,12 @@ import {
   deepResolve,
   type IacNodeProps,
   ResolvableStringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
-import { useTypedNode } from '@diac/base-components'
-import { Bucket } from '@diac/standard-components-diagrams/awsStorage'
+import { useTypedNode } from '@dinghy/base-components'
+import { Bucket } from '@dinghy/standard-components-diagrams/awsStorage'
 
 export const AwsS3ObjectInputSchema = z.object({
   bucket: ResolvableStringSchema.optional(),

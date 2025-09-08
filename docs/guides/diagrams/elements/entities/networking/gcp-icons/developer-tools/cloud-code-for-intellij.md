@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudCodeForIntellij } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { CloudCodeForIntellij } from '@dinghy/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <CloudCodeForIntellij/>
 ```

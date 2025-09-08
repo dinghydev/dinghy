@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CustomerGateway } from '@diac/standard-components-diagrams/aws3d'
+import { CustomerGateway } from '@dinghy/standard-components-diagrams/aws3d'
 
 <CustomerGateway/>
 ```

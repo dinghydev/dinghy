@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gamelift } from '@diac/standard-components-diagrams/aws17GameDevelopment'
+import { Gamelift } from '@dinghy/standard-components-diagrams/aws17GameDevelopment'
 
 <Gamelift/>
 ```

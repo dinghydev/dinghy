@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Connect } from '@diac/standard-components-diagrams/awsCustomerEngagement'
+import { Connect } from '@dinghy/standard-components-diagrams/awsCustomerEngagement'
 
 <Connect/>
 ```

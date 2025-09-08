@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IdentityProvider } from '@diac/standard-components-diagrams/ibmSecurity'
+import { IdentityProvider } from '@dinghy/standard-components-diagrams/ibmSecurity'
 
 <IdentityProvider/>
 ```

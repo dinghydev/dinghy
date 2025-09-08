@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Start2 } from '@diac/standard-components-diagrams/uml'
+import { Start2 } from '@dinghy/standard-components-diagrams/uml'
 
 <Start2/>
 ```

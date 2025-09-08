@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecondarySite } from '@diac/standard-components-diagrams/caeSystemCenterFlat'
+import { SecondarySite } from '@dinghy/standard-components-diagrams/caeSystemCenterFlat'
 
 <SecondarySite/>
 ```

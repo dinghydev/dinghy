@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sqlserver } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Sqlserver } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Sqlserver/>
 ```

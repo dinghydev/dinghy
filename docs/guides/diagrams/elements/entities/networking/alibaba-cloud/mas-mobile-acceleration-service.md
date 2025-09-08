@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MasMobileAccelerationService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { MasMobileAccelerationService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <MasMobileAccelerationService/>
 ```

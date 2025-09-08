@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlowCollector } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { FlowCollector } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <FlowCollector/>
 ```

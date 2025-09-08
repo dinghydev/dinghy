@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EntraConnectHealth } from '@diac/standard-components-diagrams/azure2Other'
+import { EntraConnectHealth } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <EntraConnectHealth/>
 ```

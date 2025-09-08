@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FolderWebsite } from '@diac/standard-components-diagrams/azure2General'
+import { FolderWebsite } from '@dinghy/standard-components-diagrams/azure2General'
 
 <FolderWebsite/>
 ```

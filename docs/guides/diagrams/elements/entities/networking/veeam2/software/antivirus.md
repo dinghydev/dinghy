@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Antivirus } from '@diac/standard-components-diagrams/veeam2Software'
+import { Antivirus } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <Antivirus/>
 ```

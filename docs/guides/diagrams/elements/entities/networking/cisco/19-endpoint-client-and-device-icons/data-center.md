@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataCenter } from '@diac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
+import { DataCenter } from '@dinghy/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
 
 <DataCenter/>
 ```

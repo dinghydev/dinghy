@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackintAgent } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { BackintAgent } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <BackintAgent/>
 ```

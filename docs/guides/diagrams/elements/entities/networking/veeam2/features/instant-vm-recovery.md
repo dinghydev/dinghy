@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InstantVmRecovery } from '@diac/standard-components-diagrams/veeam2Features'
+import { InstantVmRecovery } from '@dinghy/standard-components-diagrams/veeam2Features'
 
 <InstantVmRecovery/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EksCloud } from '@diac/standard-components-diagrams/awsContainers'
+import { EksCloud } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <EksCloud/>
 ```

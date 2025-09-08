@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InterchangeableDiscBlindDisc } from '@diac/standard-components-diagrams/procEngFittings'
+import { InterchangeableDiscBlindDisc } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <InterchangeableDiscBlindDisc/>
 ```

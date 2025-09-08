@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProviderCloudPortalService } from '@diac/standard-components-diagrams/ibmManagement'
+import { ProviderCloudPortalService } from '@dinghy/standard-components-diagrams/ibmManagement'
 
 <ProviderCloudPortalService/>
 ```

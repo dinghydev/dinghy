@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Transpath } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Transpath } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Transpath/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Pipeline } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Pipeline } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Pipeline/>
 ```

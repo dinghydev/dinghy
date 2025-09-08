@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudNat } from '@diac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudNat } from '@dinghy/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudNat/>
 ```

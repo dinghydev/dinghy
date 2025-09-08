@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CableTermination } from '@diac/standard-components-diagrams/electricalMisc'
+import { CableTermination } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <CableTermination/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mathoverflow } from '@diac/standard-components-diagrams/webLogos'
+import { Mathoverflow } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Mathoverflow/>
 ```

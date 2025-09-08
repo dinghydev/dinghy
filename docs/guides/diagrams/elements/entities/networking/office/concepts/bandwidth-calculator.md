@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BandwidthCalculator } from '@diac/standard-components-diagrams/officeConcepts'
+import { BandwidthCalculator } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <BandwidthCalculator/>
 ```

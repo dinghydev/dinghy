@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AvatarAvailable } from '@diac/standard-components-diagrams/atlassian'
+import { AvatarAvailable } from '@dinghy/standard-components-diagrams/atlassian'
 
 <AvatarAvailable/>
 ```

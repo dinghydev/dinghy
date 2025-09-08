@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mongodb } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Mongodb } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Mongodb/>
 ```

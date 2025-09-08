@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SchedulerJobCollections } from '@diac/standard-components-diagrams/caeManagementAndGovernanceService'
+import { SchedulerJobCollections } from '@dinghy/standard-components-diagrams/caeManagementAndGovernanceService'
 
 <SchedulerJobCollections/>
 ```

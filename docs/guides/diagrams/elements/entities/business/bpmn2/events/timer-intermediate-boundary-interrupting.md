@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimerIntermediateBoundaryInterrupting } from '@diac/standard-components-diagrams/bpmn2Events'
+import { TimerIntermediateBoundaryInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <TimerIntermediateBoundaryInterrupting/>
 ```

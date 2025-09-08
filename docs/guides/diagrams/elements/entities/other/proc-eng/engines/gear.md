@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gear } from '@diac/standard-components-diagrams/procEngEngines'
+import { Gear } from '@dinghy/standard-components-diagrams/procEngEngines'
 
 <Gear/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapTaskCenter } from '@diac/standard-components-diagrams/sapAppDevAutomation'
+import { SapTaskCenter } from '@dinghy/standard-components-diagrams/sapAppDevAutomation'
 
 <SapTaskCenter/>
 ```

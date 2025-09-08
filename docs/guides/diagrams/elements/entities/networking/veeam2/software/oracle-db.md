@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OracleDb } from '@diac/standard-components-diagrams/veeam2Software'
+import { OracleDb } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <OracleDb/>
 ```

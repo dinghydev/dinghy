@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Transcribe } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Transcribe } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Transcribe/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Star } from '@diac/standard-components-diagrams/clipartVarious'
+import { Star } from '@dinghy/standard-components-diagrams/clipartVarious'
 
 <Star/>
 ```

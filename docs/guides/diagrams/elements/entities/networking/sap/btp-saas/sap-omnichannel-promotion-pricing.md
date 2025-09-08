@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapOmnichannelPromotionPricing } from '@diac/standard-components-diagrams/sapBtpSaas'
+import { SapOmnichannelPromotionPricing } from '@dinghy/standard-components-diagrams/sapBtpSaas'
 
 <SapOmnichannelPromotionPricing/>
 ```

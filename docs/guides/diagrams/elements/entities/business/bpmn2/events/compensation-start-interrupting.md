@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CompensationStartInterrupting } from '@diac/standard-components-diagrams/bpmn2Events'
+import { CompensationStartInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Events'
 
 <CompensationStartInterrupting/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScuStorageCapacityUnit } from '@diac/standard-components-diagrams/alibabaCloud'
+import { ScuStorageCapacityUnit } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <ScuStorageCapacityUnit/>
 ```

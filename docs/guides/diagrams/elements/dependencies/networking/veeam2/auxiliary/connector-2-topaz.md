@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Connector2Topaz } from '@diac/standard-components-diagrams/veeam2Auxiliary'
+import { Connector2Topaz } from '@dinghy/standard-components-diagrams/veeam2Auxiliary'
 
 <Connector2Topaz/>
 ```

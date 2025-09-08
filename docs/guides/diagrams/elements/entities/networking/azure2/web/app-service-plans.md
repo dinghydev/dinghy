@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppServicePlans } from '@diac/standard-components-diagrams/azure2Web'
+import { AppServicePlans } from '@dinghy/standard-components-diagrams/azure2Web'
 
 <AppServicePlans/>
 ```

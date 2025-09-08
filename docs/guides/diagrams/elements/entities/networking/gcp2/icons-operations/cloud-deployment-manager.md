@@ -16,7 +16,7 @@ Manager
 ## Usage
 
 ```
-import { CloudDeploymentManager } from '@diac/standard-components-diagrams/gcp2IconsOperations'
+import { CloudDeploymentManager } from '@dinghy/standard-components-diagrams/gcp2IconsOperations'
 
 <CloudDeploymentManager/>
 ```

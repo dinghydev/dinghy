@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureDataCatalog } from '@diac/standard-components-diagrams/caeIntegrationService'
+import { AzureDataCatalog } from '@dinghy/standard-components-diagrams/caeIntegrationService'
 
 <AzureDataCatalog/>
 ```

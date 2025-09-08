@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Commit } from '@diac/standard-components-diagrams/azure2General'
+import { Commit } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Commit/>
 ```

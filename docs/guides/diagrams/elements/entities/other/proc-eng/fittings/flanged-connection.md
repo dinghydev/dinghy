@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FlangedConnection } from '@diac/standard-components-diagrams/procEngFittings'
+import { FlangedConnection } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <FlangedConnection/>
 ```

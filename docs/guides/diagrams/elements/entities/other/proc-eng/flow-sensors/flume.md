@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Flume } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { Flume } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <Flume/>
 ```

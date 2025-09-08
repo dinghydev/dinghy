@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MessageBus } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { MessageBus } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <MessageBus/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationService } from '@diac/standard-components-diagrams/archimate2'
+import { ApplicationService } from '@dinghy/standard-components-diagrams/archimate2'
 
 <ApplicationService/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VsbFile } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { VsbFile } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <VsbFile/>
 ```

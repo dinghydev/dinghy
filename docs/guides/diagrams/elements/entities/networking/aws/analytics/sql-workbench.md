@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlWorkbench } from '@diac/standard-components-diagrams/awsAnalytics'
+import { SqlWorkbench } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <SqlWorkbench/>
 ```

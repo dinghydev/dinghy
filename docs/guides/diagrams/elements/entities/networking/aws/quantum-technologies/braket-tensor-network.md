@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BraketTensorNetwork } from '@diac/standard-components-diagrams/awsQuantumTechnologies'
+import { BraketTensorNetwork } from '@dinghy/standard-components-diagrams/awsQuantumTechnologies'
 
 <BraketTensorNetwork/>
 ```

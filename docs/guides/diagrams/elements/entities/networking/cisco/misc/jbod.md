@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Jbod } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Jbod } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Jbod/>
 ```

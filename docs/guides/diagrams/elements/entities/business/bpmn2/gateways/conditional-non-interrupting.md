@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConditionalNonInterrupting } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { ConditionalNonInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <ConditionalNonInterrupting/>
 ```

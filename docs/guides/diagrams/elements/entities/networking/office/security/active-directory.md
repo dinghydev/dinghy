@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActiveDirectory } from '@diac/standard-components-diagrams/officeSecurity'
+import { ActiveDirectory } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <ActiveDirectory/>
 ```

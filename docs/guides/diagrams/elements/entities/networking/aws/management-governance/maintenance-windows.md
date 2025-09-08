@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MaintenanceWindows } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { MaintenanceWindows } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <MaintenanceWindows/>
 ```

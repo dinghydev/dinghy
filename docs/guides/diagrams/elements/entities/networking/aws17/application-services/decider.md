@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Decider } from '@diac/standard-components-diagrams/aws17ApplicationServices'
+import { Decider } from '@dinghy/standard-components-diagrams/aws17ApplicationServices'
 
 <Decider/>
 ```

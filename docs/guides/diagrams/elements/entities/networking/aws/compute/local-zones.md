@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LocalZones } from '@diac/standard-components-diagrams/awsCompute'
+import { LocalZones } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <LocalZones/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LockButton } from '@diac/standard-components-diagrams/ios6'
+import { LockButton } from '@dinghy/standard-components-diagrams/ios6'
 
 <LockButton/>
 ```

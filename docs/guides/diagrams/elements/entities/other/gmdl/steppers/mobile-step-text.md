@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MobileStepText } from '@diac/standard-components-diagrams/gmdlSteppers'
+import { MobileStepText } from '@dinghy/standard-components-diagrams/gmdlSteppers'
 
 <MobileStepText/>
 ```

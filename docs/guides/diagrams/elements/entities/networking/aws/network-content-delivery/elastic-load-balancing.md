@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticLoadBalancing } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { ElasticLoadBalancing } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <ElasticLoadBalancing/>
 ```

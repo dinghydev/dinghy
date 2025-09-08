@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DropboxCodeSource } from '@diac/standard-components-diagrams/azure'
+import { DropboxCodeSource } from '@dinghy/standard-components-diagrams/azure'
 
 <DropboxCodeSource/>
 ```

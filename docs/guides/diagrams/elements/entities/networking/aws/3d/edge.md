@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Edge } from '@diac/standard-components-diagrams/aws3d'
+import { Edge } from '@dinghy/standard-components-diagrams/aws3d'
 
 <Edge/>
 ```

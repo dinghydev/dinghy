@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X10040ControlMechanism } from '@diac/standard-components-diagrams/fluidPower'
+import { X10040ControlMechanism } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X10040ControlMechanism/>
 ```

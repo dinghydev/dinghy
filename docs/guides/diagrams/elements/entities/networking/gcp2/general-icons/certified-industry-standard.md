@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CertifiedIndustryStandard } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { CertifiedIndustryStandard } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <CertifiedIndustryStandard/>
 ```

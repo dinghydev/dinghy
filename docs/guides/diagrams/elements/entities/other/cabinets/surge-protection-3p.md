@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SurgeProtection3p } from '@diac/standard-components-diagrams/cabinets'
+import { SurgeProtection3p } from '@dinghy/standard-components-diagrams/cabinets'
 
 <SurgeProtection3p/>
 ```

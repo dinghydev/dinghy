@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudRun } from '@diac/standard-components-diagrams/gcpIconsCompute'
+import { CloudRun } from '@dinghy/standard-components-diagrams/gcpIconsCompute'
 
 <CloudRun/>
 ```

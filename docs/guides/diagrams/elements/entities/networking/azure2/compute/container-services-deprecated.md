@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContainerServicesDeprecated } from '@diac/standard-components-diagrams/azure2Compute'
+import { ContainerServicesDeprecated } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <ContainerServicesDeprecated/>
 ```

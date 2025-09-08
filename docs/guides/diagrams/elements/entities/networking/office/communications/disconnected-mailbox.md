@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DisconnectedMailbox } from '@diac/standard-components-diagrams/officeCommunications'
+import { DisconnectedMailbox } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <DisconnectedMailbox/>
 ```

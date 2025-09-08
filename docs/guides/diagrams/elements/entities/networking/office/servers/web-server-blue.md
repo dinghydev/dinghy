@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebServerBlue } from '@diac/standard-components-diagrams/officeServers'
+import { WebServerBlue } from '@dinghy/standard-components-diagrams/officeServers'
 
 <WebServerBlue/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Xtrace } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Xtrace } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Xtrace/>
 ```

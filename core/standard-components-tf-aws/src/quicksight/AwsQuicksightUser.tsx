@@ -2,7 +2,7 @@ import {
   type IacNodeProps,
   ResolvableStringSchema,
   Shape,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 import { awsProps } from '../index.ts'
 import z from 'zod'
 

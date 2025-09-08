@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SelectBar } from '@diac/standard-components-diagrams/ios7Ui'
+import { SelectBar } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <SelectBar/>
 ```

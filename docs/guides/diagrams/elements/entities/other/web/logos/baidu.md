@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Baidu } from '@diac/standard-components-diagrams/webLogos'
+import { Baidu } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Baidu/>
 ```

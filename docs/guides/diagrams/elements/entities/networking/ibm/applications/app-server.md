@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppServer } from '@diac/standard-components-diagrams/ibmApplications'
+import { AppServer } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <AppServer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DomainController } from '@diac/standard-components-diagrams/activeDirectory'
+import { DomainController } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <DomainController/>
 ```

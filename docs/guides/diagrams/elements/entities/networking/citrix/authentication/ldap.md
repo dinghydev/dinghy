@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ldap } from '@diac/standard-components-diagrams/citrixAuthentication'
+import { Ldap } from '@dinghy/standard-components-diagrams/citrixAuthentication'
 
 <Ldap/>
 ```

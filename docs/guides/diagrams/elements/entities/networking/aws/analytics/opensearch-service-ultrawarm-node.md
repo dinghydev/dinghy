@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpensearchServiceUltrawarmNode } from '@diac/standard-components-diagrams/awsAnalytics'
+import { OpensearchServiceUltrawarmNode } from '@dinghy/standard-components-diagrams/awsAnalytics'
 
 <OpensearchServiceUltrawarmNode/>
 ```

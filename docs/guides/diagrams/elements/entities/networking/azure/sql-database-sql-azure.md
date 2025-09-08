@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlDatabaseSqlAzure } from '@diac/standard-components-diagrams/azure'
+import { SqlDatabaseSqlAzure } from '@dinghy/standard-components-diagrams/azure'
 
 <SqlDatabaseSqlAzure/>
 ```

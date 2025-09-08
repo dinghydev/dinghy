@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkWatcher } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { NetworkWatcher } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <NetworkWatcher/>
 ```

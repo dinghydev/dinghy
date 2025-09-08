@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { PackageContainment } from '@diac/standard-components-diagrams/sysmlModelElements'
+import { PackageContainment } from '@dinghy/standard-components-diagrams/sysmlModelElements'
 
 <PackageContainment/>
 ```

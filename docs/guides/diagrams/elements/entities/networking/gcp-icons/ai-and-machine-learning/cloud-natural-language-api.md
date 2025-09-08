@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudNaturalLanguageApi } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { CloudNaturalLanguageApi } from '@dinghy/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <CloudNaturalLanguageApi/>
 ```

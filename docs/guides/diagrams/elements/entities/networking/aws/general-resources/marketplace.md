@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Marketplace } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Marketplace } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Marketplace/>
 ```

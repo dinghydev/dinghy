@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticDatabasePools } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { ElasticDatabasePools } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <ElasticDatabasePools/>
 ```

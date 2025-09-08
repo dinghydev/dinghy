@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MasterCallout } from '@diac/standard-components-diagrams/sysmlRequirements'
+import { MasterCallout } from '@dinghy/standard-components-diagrams/sysmlRequirements'
 
 <MasterCallout/>
 ```

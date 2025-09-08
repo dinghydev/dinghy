@@ -1,7 +1,7 @@
-import { IacNodeProps, ResolvableStringSchema } from '@diac/base-components'
+import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAcmCertificate } from './AwsAcmCertificate.tsx'
-import { useTypedNode } from '@diac/base-components'
+import { useTypedNode } from '@dinghy/base-components'
 
 export const DataAwsAcmCertificateInputSchema = z.object({
   domain: ResolvableStringSchema.optional(),

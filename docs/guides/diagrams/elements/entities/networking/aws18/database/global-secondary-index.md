@@ -17,7 +17,7 @@ index
 ## Usage
 
 ```
-import { GlobalSecondaryIndex } from '@diac/standard-components-diagrams/aws18Database'
+import { GlobalSecondaryIndex } from '@dinghy/standard-components-diagrams/aws18Database'
 
 <GlobalSecondaryIndex/>
 ```

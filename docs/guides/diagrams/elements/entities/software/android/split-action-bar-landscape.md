@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SplitActionBarLandscape } from '@diac/standard-components-diagrams/android'
+import { SplitActionBarLandscape } from '@dinghy/standard-components-diagrams/android'
 
 <SplitActionBarLandscape/>
 ```

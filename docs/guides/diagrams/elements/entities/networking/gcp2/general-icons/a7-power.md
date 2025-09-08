@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { A7Power } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { A7Power } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <A7Power/>
 ```

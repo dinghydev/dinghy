@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stackdriver } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
+import { Stackdriver } from '@dinghy/standard-components-diagrams/gcpIconsManagementTools'
 
 <Stackdriver/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsCloudformation } from '@diac/standard-components-diagrams/aws18ManagementTools'
+import { AwsCloudformation } from '@dinghy/standard-components-diagrams/aws18ManagementTools'
 
 <AwsCloudformation/>
 ```

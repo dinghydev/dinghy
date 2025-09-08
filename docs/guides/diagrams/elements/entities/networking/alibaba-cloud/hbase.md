@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hbase } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Hbase } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Hbase/>
 ```

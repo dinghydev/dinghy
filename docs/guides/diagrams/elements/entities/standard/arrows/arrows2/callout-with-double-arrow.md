@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CalloutWithDoubleArrow } from '@diac/standard-components-diagrams/arrows2'
+import { CalloutWithDoubleArrow } from '@dinghy/standard-components-diagrams/arrows2'
 
 <CalloutWithDoubleArrow/>
 ```

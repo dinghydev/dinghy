@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OrientationLock } from '@diac/standard-components-diagrams/ios7Icons'
+import { OrientationLock } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <OrientationLock/>
 ```

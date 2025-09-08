@@ -3,11 +3,11 @@ import {
   ResolvableBooleanSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 import { awsProps } from '../index.ts'
 import z from 'zod'
 import { aws4 } from '../../../standard-components-diagrams/src/index.ts'
-import { useTypedNode, useTypedNodes } from '@diac/base-components'
+import { useTypedNode, useTypedNodes } from '@dinghy/base-components'
 
 export const AwsCloudfrontDistributionInputSchema = z.object({
   aliases: ResolvableStringArraySchema.optional(),

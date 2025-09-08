@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HyperVRecoveryManager } from '@diac/standard-components-diagrams/azure'
+import { HyperVRecoveryManager } from '@dinghy/standard-components-diagrams/azure'
 
 <HyperVRecoveryManager/>
 ```

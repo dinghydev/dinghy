@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedServiceForPrometheus } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ManagedServiceForPrometheus } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ManagedServiceForPrometheus/>
 ```

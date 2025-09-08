@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoServiceReadyEngine } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { CiscoServiceReadyEngine } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <CiscoServiceReadyEngine/>
 ```

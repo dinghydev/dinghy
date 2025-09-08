@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IntegrationServiceEnvironments } from '@diac/standard-components-diagrams/azure2Integration'
+import { IntegrationServiceEnvironments } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <IntegrationServiceEnvironments/>
 ```

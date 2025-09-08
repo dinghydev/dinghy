@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ResourceLinked } from '@diac/standard-components-diagrams/azure2General'
+import { ResourceLinked } from '@dinghy/standard-components-diagrams/azure2General'
 
 <ResourceLinked/>
 ```

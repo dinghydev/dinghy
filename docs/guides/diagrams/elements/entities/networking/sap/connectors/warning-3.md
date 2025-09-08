@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Warning3 } from '@diac/standard-components-diagrams/sapConnectors'
+import { Warning3 } from '@dinghy/standard-components-diagrams/sapConnectors'
 
 <Warning3/>
 ```

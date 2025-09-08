@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedMsAd } from '@diac/standard-components-diagrams/gcp2IconsSecurity'
+import { ManagedMsAd } from '@dinghy/standard-components-diagrams/gcp2IconsSecurity'
 
 <ManagedMsAd/>
 ```

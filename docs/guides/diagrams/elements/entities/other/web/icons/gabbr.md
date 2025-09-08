@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gabbr } from '@diac/standard-components-diagrams/webIcons'
+import { Gabbr } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Gabbr/>
 ```

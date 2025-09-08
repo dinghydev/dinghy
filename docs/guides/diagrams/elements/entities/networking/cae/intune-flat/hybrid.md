@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hybrid } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { Hybrid } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <Hybrid/>
 ```

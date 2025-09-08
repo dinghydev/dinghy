@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FloatingIp } from '@diac/standard-components-diagrams/ibmVpc'
+import { FloatingIp } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <FloatingIp/>
 ```

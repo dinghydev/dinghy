@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapSustainabilityDataExchange } from '@diac/standard-components-diagrams/sapOther'
+import { SapSustainabilityDataExchange } from '@dinghy/standard-components-diagrams/sapOther'
 
 <SapSustainabilityDataExchange/>
 ```

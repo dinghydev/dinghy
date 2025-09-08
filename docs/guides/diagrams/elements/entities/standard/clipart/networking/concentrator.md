@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Concentrator } from '@diac/standard-components-diagrams/clipartNetworking'
+import { Concentrator } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <Concentrator/>
 ```

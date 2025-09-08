@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Delete } from '@diac/standard-components-diagrams/ios7Ui'
+import { Delete } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <Delete/>
 ```

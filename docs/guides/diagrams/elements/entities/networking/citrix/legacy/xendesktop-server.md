@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { XendesktopServer } from '@diac/standard-components-diagrams/citrixLegacy'
+import { XendesktopServer } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <XendesktopServer/>
 ```

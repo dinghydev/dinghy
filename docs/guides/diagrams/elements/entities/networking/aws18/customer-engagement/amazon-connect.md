@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonConnect } from '@diac/standard-components-diagrams/aws18CustomerEngagement'
+import { AmazonConnect } from '@dinghy/standard-components-diagrams/aws18CustomerEngagement'
 
 <AmazonConnect/>
 ```

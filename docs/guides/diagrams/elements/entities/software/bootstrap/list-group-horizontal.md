@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ListGroupHorizontal } from '@diac/standard-components-diagrams/bootstrap'
+import { ListGroupHorizontal } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ListGroupHorizontal/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserAndClient4 } from '@diac/standard-components-diagrams/sapEssentials'
+import { UserAndClient4 } from '@dinghy/standard-components-diagrams/sapEssentials'
 
 <UserAndClient4/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EsxEsxi } from '@diac/standard-components-diagrams/veeam23d'
+import { EsxEsxi } from '@dinghy/standard-components-diagrams/veeam23d'
 
 <EsxEsxi/>
 ```

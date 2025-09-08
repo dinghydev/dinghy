@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsDataPipeline } from '@diac/standard-components-diagrams/aws18Analytics'
+import { AwsDataPipeline } from '@dinghy/standard-components-diagrams/aws18Analytics'
 
 <AwsDataPipeline/>
 ```

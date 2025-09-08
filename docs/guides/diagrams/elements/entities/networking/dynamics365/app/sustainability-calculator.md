@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SustainabilityCalculator } from '@diac/standard-components-diagrams/dynamics365App'
+import { SustainabilityCalculator } from '@dinghy/standard-components-diagrams/dynamics365App'
 
 <SustainabilityCalculator/>
 ```

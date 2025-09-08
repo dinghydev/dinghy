@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Orbital } from '@diac/standard-components-diagrams/azure2Other'
+import { Orbital } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Orbital/>
 ```

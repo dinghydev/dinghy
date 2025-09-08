@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Scheduler } from '@diac/standard-components-diagrams/azure'
+import { Scheduler } from '@dinghy/standard-components-diagrams/azure'
 
 <Scheduler/>
 ```

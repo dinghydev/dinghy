@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MainframeHost } from '@diac/standard-components-diagrams/officeServers'
+import { MainframeHost } from '@dinghy/standard-components-diagrams/officeServers'
 
 <MainframeHost/>
 ```

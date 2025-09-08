@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceProvisioningServices } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
+import { DeviceProvisioningServices } from '@dinghy/standard-components-diagrams/caeInternetOfThingsService'
 
 <DeviceProvisioningServices/>
 ```

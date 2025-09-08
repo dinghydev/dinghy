@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fargate } from '@diac/standard-components-diagrams/awsContainers'
+import { Fargate } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <Fargate/>
 ```

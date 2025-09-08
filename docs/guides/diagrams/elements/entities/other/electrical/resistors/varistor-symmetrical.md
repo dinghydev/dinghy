@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VaristorSymmetrical } from '@diac/standard-components-diagrams/electricalResistors'
+import { VaristorSymmetrical } from '@dinghy/standard-components-diagrams/electricalResistors'
 
 <VaristorSymmetrical/>
 ```

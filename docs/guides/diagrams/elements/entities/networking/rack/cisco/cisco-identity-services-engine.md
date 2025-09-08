@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CiscoIdentityServicesEngine } from '@diac/standard-components-diagrams/rackCisco'
+import { CiscoIdentityServicesEngine } from '@dinghy/standard-components-diagrams/rackCisco'
 
 <CiscoIdentityServicesEngine/>
 ```

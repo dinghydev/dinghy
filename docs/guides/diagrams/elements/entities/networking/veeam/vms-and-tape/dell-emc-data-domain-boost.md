@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DellEmcDataDomainBoost } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { DellEmcDataDomainBoost } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <DellEmcDataDomainBoost/>
 ```

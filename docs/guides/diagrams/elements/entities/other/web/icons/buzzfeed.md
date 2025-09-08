@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Buzzfeed } from '@diac/standard-components-diagrams/webIcons'
+import { Buzzfeed } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Buzzfeed/>
 ```

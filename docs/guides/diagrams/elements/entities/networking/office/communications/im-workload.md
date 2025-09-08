@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImWorkload } from '@diac/standard-components-diagrams/officeCommunications'
+import { ImWorkload } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <ImWorkload/>
 ```

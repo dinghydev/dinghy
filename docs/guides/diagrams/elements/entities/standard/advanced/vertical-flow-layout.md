@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerticalFlowLayout } from '@diac/standard-components-diagrams/advanced'
+import { VerticalFlowLayout } from '@dinghy/standard-components-diagrams/advanced'
 
 <VerticalFlowLayout/>
 ```

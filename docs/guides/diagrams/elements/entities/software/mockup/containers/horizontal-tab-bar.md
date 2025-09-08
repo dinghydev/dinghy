@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HorizontalTabBar } from '@diac/standard-components-diagrams/mockupContainers'
+import { HorizontalTabBar } from '@dinghy/standard-components-diagrams/mockupContainers'
 
 <HorizontalTabBar/>
 ```

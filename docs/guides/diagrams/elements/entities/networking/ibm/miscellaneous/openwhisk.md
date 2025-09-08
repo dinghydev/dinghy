@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Openwhisk } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { Openwhisk } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <Openwhisk/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TwoWayContact } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { TwoWayContact } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <TwoWayContact/>
 ```

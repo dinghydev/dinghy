@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NodeJs } from '@diac/standard-components-diagrams/aws17Sdk'
+import { NodeJs } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <NodeJs/>
 ```

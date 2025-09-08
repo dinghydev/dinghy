@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fisheye } from '@diac/standard-components-diagrams/atlassian'
+import { Fisheye } from '@dinghy/standard-components-diagrams/atlassian'
 
 <Fisheye/>
 ```

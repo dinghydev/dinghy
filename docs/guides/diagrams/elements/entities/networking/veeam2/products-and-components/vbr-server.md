@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VbrServer } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VbrServer } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VbrServer/>
 ```

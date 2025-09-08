@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IsocIotSecurityOperationsCenter } from '@diac/standard-components-diagrams/alibabaCloud'
+import { IsocIotSecurityOperationsCenter } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <IsocIotSecurityOperationsCenter/>
 ```

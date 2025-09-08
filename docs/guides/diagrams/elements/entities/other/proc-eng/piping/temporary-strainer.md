@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TemporaryStrainer } from '@diac/standard-components-diagrams/procEngPiping'
+import { TemporaryStrainer } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <TemporaryStrainer/>
 ```

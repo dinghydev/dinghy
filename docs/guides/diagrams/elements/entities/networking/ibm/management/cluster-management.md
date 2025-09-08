@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ClusterManagement } from '@diac/standard-components-diagrams/ibmManagement'
+import { ClusterManagement } from '@dinghy/standard-components-diagrams/ibmManagement'
 
 <ClusterManagement/>
 ```

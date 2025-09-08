@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudExtensionsRos } from '@diac/standard-components-diagrams/awsRobotics'
+import { CloudExtensionsRos } from '@dinghy/standard-components-diagrams/awsRobotics'
 
 <CloudExtensionsRos/>
 ```

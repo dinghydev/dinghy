@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ftp } from '@diac/standard-components-diagrams/azure2General'
+import { Ftp } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Ftp/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageSyncServices } from '@diac/standard-components-diagrams/azure2Storage'
+import { StorageSyncServices } from '@dinghy/standard-components-diagrams/azure2Storage'
 
 <StorageSyncServices/>
 ```

@@ -1,4 +1,4 @@
-import { Shape, Stack, useRenderOptions } from "@diac/base-components";
+import { Shape, Stack, useRenderOptions } from "@dinghy/base-components";
 import {
   Client,
   GroupOnPremise,

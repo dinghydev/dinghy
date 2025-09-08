@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppEngine } from '@diac/standard-components-diagrams/gcp2IconsServerless'
+import { AppEngine } from '@dinghy/standard-components-diagrams/gcp2IconsServerless'
 
 <AppEngine/>
 ```

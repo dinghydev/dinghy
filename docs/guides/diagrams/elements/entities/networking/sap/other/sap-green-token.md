@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapGreenToken } from '@diac/standard-components-diagrams/sapOther'
+import { SapGreenToken } from '@dinghy/standard-components-diagrams/sapOther'
 
 <SapGreenToken/>
 ```

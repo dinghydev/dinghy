@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternetCloud } from '@diac/standard-components-diagrams/activeDirectory'
+import { InternetCloud } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <InternetCloud/>
 ```

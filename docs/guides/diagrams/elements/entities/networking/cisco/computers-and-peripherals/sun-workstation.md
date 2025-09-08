@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SunWorkstation } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { SunWorkstation } from '@dinghy/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <SunWorkstation/>
 ```

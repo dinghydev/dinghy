@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpenSupplyChainPlatform } from '@diac/standard-components-diagrams/azure2Other'
+import { OpenSupplyChainPlatform } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <OpenSupplyChainPlatform/>
 ```

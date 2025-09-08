@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MarketplaceShoppingBag } from '@diac/standard-components-diagrams/officeConcepts'
+import { MarketplaceShoppingBag } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <MarketplaceShoppingBag/>
 ```

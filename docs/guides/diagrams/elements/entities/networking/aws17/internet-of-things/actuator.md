@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Actuator } from '@diac/standard-components-diagrams/aws17InternetOfThings'
+import { Actuator } from '@dinghy/standard-components-diagrams/aws17InternetOfThings'
 
 <Actuator/>
 ```

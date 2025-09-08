@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CvcCloudVideoConferencing } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CvcCloudVideoConferencing } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CvcCloudVideoConferencing/>
 ```

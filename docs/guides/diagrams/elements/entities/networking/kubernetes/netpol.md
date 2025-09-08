@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Netpol } from '@diac/standard-components-diagrams/kubernetes'
+import { Netpol } from '@dinghy/standard-components-diagrams/kubernetes'
 
 <Netpol/>
 ```

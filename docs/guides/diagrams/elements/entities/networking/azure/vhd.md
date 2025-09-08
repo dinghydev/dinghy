@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vhd } from '@diac/standard-components-diagrams/azure'
+import { Vhd } from '@dinghy/standard-components-diagrams/azure'
 
 <Vhd/>
 ```

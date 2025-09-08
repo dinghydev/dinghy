@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnPremiseNonSap } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { OnPremiseNonSap } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <OnPremiseNonSap/>
 ```

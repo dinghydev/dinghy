@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X12200FluidSeparator } from '@diac/standard-components-diagrams/fluidPower'
+import { X12200FluidSeparator } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X12200FluidSeparator/>
 ```

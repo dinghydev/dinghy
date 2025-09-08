@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const JL663A_ARUBA_6300M_48_PORT_1GBE_AND_4_PORT_SFP56_SWITCH_REAR = {
   _style: {

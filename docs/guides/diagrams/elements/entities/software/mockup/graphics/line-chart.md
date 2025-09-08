@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LineChart } from '@diac/standard-components-diagrams/mockupGraphics'
+import { LineChart } from '@dinghy/standard-components-diagrams/mockupGraphics'
 
 <LineChart/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContentDeliveryNetwork } from '@diac/standard-components-diagrams/azure'
+import { ContentDeliveryNetwork } from '@dinghy/standard-components-diagrams/azure'
 
 <ContentDeliveryNetwork/>
 ```

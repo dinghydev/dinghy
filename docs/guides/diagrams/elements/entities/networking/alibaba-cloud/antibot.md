@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Antibot } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Antibot } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Antibot/>
 ```

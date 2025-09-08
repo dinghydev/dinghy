@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AuthenticatedUser } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { AuthenticatedUser } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <AuthenticatedUser/>
 ```

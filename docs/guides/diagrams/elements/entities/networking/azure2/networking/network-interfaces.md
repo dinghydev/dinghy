@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetworkInterfaces } from '@diac/standard-components-diagrams/azure2Networking'
+import { NetworkInterfaces } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <NetworkInterfaces/>
 ```

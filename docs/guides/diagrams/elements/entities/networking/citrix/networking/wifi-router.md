@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WifiRouter } from '@diac/standard-components-diagrams/citrixNetworking'
+import { WifiRouter } from '@dinghy/standard-components-diagrams/citrixNetworking'
 
 <WifiRouter/>
 ```

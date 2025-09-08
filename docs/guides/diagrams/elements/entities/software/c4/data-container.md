@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataContainer } from '@diac/standard-components-diagrams/c4'
+import { DataContainer } from '@dinghy/standard-components-diagrams/c4'
 
 <DataContainer/>
 ```

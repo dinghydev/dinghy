@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Onedrive } from '@diac/standard-components-diagrams/webIcons'
+import { Onedrive } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Onedrive/>
 ```

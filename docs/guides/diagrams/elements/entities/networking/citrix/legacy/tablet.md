@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tablet } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Tablet } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Tablet/>
 ```

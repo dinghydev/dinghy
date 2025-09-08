@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SitewiseDataStreams } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { SitewiseDataStreams } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <SitewiseDataStreams/>
 ```

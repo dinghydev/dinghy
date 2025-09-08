@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AnalysisCorrelation } from '@diac/standard-components-diagrams/cisco19Safe'
+import { AnalysisCorrelation } from '@dinghy/standard-components-diagrams/cisco19Safe'
 
 <AnalysisCorrelation/>
 ```

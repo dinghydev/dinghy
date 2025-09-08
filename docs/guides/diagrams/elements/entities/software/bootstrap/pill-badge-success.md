@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PillBadgeSuccess } from '@diac/standard-components-diagrams/bootstrap'
+import { PillBadgeSuccess } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <PillBadgeSuccess/>
 ```

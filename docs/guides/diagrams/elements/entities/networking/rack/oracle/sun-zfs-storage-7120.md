@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SunZfsStorage7120 } from '@diac/standard-components-diagrams/rackOracle'
+import { SunZfsStorage7120 } from '@dinghy/standard-components-diagrams/rackOracle'
 
 <SunZfsStorage7120/>
 ```

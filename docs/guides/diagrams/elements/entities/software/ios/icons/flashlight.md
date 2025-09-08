@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Flashlight } from '@diac/standard-components-diagrams/ios7Icons'
+import { Flashlight } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Flashlight/>
 ```

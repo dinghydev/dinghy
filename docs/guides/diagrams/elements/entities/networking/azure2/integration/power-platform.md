@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PowerPlatform } from '@diac/standard-components-diagrams/azure2Integration'
+import { PowerPlatform } from '@dinghy/standard-components-diagrams/azure2Integration'
 
 <PowerPlatform/>
 ```

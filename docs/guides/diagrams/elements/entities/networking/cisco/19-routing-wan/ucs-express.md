@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UcsExpress } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { UcsExpress } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <UcsExpress/>
 ```

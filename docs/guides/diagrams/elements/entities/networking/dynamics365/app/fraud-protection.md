@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FraudProtection } from '@diac/standard-components-diagrams/dynamics365App'
+import { FraudProtection } from '@dinghy/standard-components-diagrams/dynamics365App'
 
 <FraudProtection/>
 ```

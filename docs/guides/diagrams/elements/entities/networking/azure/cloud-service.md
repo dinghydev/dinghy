@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudService } from '@diac/standard-components-diagrams/azure'
+import { CloudService } from '@dinghy/standard-components-diagrams/azure'
 
 <CloudService/>
 ```

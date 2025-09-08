@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Evernote } from '@diac/standard-components-diagrams/webIcons'
+import { Evernote } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Evernote/>
 ```

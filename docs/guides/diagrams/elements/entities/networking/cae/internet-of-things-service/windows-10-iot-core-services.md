@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Windows10IotCoreServices } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
+import { Windows10IotCoreServices } from '@dinghy/standard-components-diagrams/caeInternetOfThingsService'
 
 <Windows10IotCoreServices/>
 ```

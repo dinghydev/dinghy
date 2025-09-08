@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ControlObject } from '@diac/standard-components-diagrams/uml'
+import { ControlObject } from '@dinghy/standard-components-diagrams/uml'
 
 <ControlObject/>
 ```

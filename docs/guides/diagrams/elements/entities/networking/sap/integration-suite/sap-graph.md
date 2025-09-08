@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapGraph } from '@diac/standard-components-diagrams/sapIntegrationSuite'
+import { SapGraph } from '@dinghy/standard-components-diagrams/sapIntegrationSuite'
 
 <SapGraph/>
 ```

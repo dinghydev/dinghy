@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LeafNode } from '@diac/standard-components-diagrams/threatModeling'
+import { LeafNode } from '@dinghy/standard-components-diagrams/threatModeling'
 
 <LeafNode/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Db2 } from '@diac/standard-components-diagrams/ibmCloudData'
+import { Db2 } from '@dinghy/standard-components-diagrams/ibmCloudData'
 
 <Db2/>
 ```

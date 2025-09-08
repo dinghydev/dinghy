@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PrivateEndpoints } from '@diac/standard-components-diagrams/azure2Other'
+import { PrivateEndpoints } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <PrivateEndpoints/>
 ```

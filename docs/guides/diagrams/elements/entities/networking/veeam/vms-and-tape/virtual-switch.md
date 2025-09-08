@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualSwitch } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { VirtualSwitch } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <VirtualSwitch/>
 ```

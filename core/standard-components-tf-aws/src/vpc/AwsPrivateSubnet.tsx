@@ -1,4 +1,4 @@
-import { useTypedNode, useTypedNodes } from '@diac/base-components'
+import { useTypedNode, useTypedNodes } from '@dinghy/base-components'
 import {
   AwsSubnet,
   type AwsSubnetInputProps,

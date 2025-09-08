@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ShallowHistory } from '@diac/standard-components-diagrams/uml25'
+import { ShallowHistory } from '@dinghy/standard-components-diagrams/uml25'
 
 <ShallowHistory/>
 ```

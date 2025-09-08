@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Hdtv } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { Hdtv } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <Hdtv/>
 ```

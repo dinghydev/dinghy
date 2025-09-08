@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudProgressBar } from '@diac/standard-components-diagrams/ios6'
+import { CloudProgressBar } from '@dinghy/standard-components-diagrams/ios6'
 
 <CloudProgressBar/>
 ```

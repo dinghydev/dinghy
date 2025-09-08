@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AuthenticationGoogle } from '@diac/standard-components-diagrams/citrixAuthentication'
+import { AuthenticationGoogle } from '@dinghy/standard-components-diagrams/citrixAuthentication'
 
 <AuthenticationGoogle/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Registered } from '@diac/standard-components-diagrams/mockupMisc'
+import { Registered } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <Registered/>
 ```

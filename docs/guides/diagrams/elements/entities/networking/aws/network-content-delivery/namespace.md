@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Namespace } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Namespace } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Namespace/>
 ```

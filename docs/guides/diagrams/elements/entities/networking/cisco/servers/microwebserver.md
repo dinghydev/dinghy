@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Microwebserver } from '@diac/standard-components-diagrams/ciscoServers'
+import { Microwebserver } from '@dinghy/standard-components-diagrams/ciscoServers'
 
 <Microwebserver/>
 ```

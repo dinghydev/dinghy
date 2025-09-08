@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Line } from '@diac/standard-components-diagrams/general'
+import { Line } from '@dinghy/standard-components-diagrams/general'
 
 <Line/>
 ```

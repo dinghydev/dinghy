@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Process } from '@diac/standard-components-diagrams/flowchart'
+import { Process } from '@dinghy/standard-components-diagrams/flowchart'
 
 <Process/>
 ```

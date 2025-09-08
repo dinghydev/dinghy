@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LiveCollaboration } from '@diac/standard-components-diagrams/ibmSocial'
+import { LiveCollaboration } from '@dinghy/standard-components-diagrams/ibmSocial'
 
 <LiveCollaboration/>
 ```

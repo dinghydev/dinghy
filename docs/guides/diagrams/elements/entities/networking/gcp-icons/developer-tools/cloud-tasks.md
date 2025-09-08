@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudTasks } from '@diac/standard-components-diagrams/gcpIconsDeveloperTools'
+import { CloudTasks } from '@dinghy/standard-components-diagrams/gcpIconsDeveloperTools'
 
 <CloudTasks/>
 ```

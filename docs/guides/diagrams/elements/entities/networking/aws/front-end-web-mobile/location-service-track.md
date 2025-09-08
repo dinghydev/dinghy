@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LocationServiceTrack } from '@diac/standard-components-diagrams/awsFrontEndWebMobile'
+import { LocationServiceTrack } from '@dinghy/standard-components-diagrams/awsFrontEndWebMobile'
 
 <LocationServiceTrack/>
 ```

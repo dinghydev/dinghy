@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Workers } from '@diac/standard-components-diagrams/aws17OnDemandWorkforce'
+import { Workers } from '@dinghy/standard-components-diagrams/aws17OnDemandWorkforce'
 
 <Workers/>
 ```

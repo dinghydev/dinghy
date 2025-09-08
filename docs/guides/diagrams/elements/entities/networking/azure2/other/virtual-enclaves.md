@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualEnclaves } from '@diac/standard-components-diagrams/azure2Other'
+import { VirtualEnclaves } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <VirtualEnclaves/>
 ```

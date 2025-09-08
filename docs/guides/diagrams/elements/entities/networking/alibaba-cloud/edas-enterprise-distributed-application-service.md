@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EdasEnterpriseDistributedApplicationService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { EdasEnterpriseDistributedApplicationService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <EdasEnterpriseDistributedApplicationService/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Snackbar } from '@diac/standard-components-diagrams/gmdlMisc'
+import { Snackbar } from '@dinghy/standard-components-diagrams/gmdlMisc'
 
 <Snackbar/>
 ```

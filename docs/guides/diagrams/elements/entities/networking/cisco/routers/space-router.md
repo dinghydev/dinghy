@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpaceRouter } from '@diac/standard-components-diagrams/ciscoRouters'
+import { SpaceRouter } from '@dinghy/standard-components-diagrams/ciscoRouters'
 
 <SpaceRouter/>
 ```

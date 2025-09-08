@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdRiskySignins } from '@diac/standard-components-diagrams/azure2Security'
+import { AdRiskySignins } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <AdRiskySignins/>
 ```

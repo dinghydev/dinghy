@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vxlan } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { Vxlan } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <Vxlan/>
 ```

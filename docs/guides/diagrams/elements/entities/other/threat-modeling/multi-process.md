@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MultiProcess } from '@diac/standard-components-diagrams/threatModeling'
+import { MultiProcess } from '@dinghy/standard-components-diagrams/threatModeling'
 
 <MultiProcess/>
 ```

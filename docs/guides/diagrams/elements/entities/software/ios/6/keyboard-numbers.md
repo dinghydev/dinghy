@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeyboardNumbers } from '@diac/standard-components-diagrams/ios6'
+import { KeyboardNumbers } from '@dinghy/standard-components-diagrams/ios6'
 
 <KeyboardNumbers/>
 ```

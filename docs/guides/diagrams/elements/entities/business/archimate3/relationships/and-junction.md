@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AndJunction } from '@diac/standard-components-diagrams/archimate3Relationships'
+import { AndJunction } from '@dinghy/standard-components-diagrams/archimate3Relationships'
 
 <AndJunction/>
 ```

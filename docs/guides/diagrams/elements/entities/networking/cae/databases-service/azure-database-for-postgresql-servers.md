@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureDatabaseForPostgresqlServers } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { AzureDatabaseForPostgresqlServers } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <AzureDatabaseForPostgresqlServers/>
 ```

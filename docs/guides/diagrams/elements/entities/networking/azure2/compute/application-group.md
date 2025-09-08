@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationGroup } from '@diac/standard-components-diagrams/azure2Compute'
+import { ApplicationGroup } from '@dinghy/standard-components-diagrams/azure2Compute'
 
 <ApplicationGroup/>
 ```

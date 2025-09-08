@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProgressBar } from '@diac/standard-components-diagrams/mockupMisc'
+import { ProgressBar } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <ProgressBar/>
 ```

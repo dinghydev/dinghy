@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Filter2 } from '@diac/standard-components-diagrams/procEngMisc'
+import { Filter2 } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <Filter2/>
 ```

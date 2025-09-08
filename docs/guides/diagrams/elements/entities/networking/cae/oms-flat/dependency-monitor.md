@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DependencyMonitor } from '@diac/standard-components-diagrams/caeOmsFlat'
+import { DependencyMonitor } from '@dinghy/standard-components-diagrams/caeOmsFlat'
 
 <DependencyMonitor/>
 ```

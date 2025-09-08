@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Eventbridge } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Eventbridge } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Eventbridge/>
 ```

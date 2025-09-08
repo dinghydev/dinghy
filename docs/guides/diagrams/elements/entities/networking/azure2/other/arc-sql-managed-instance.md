@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArcSqlManagedInstance } from '@diac/standard-components-diagrams/azure2Other'
+import { ArcSqlManagedInstance } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ArcSqlManagedInstance/>
 ```

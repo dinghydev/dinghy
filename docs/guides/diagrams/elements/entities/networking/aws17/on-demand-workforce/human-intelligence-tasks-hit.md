@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HumanIntelligenceTasksHit } from '@diac/standard-components-diagrams/aws17OnDemandWorkforce'
+import { HumanIntelligenceTasksHit } from '@dinghy/standard-components-diagrams/aws17OnDemandWorkforce'
 
 <HumanIntelligenceTasksHit/>
 ```

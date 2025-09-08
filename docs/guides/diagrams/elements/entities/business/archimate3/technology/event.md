@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Event } from '@diac/standard-components-diagrams/archimate3Technology'
+import { Event } from '@dinghy/standard-components-diagrams/archimate3Technology'
 
 <Event/>
 ```

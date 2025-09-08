@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IbmMainframe } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { IbmMainframe } from '@dinghy/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <IbmMainframe/>
 ```

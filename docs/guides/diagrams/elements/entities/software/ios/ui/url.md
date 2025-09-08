@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Url } from '@diac/standard-components-diagrams/ios7Ui'
+import { Url } from '@dinghy/standard-components-diagrams/ios7Ui'
 
 <Url/>
 ```

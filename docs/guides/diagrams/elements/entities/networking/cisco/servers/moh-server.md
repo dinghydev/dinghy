@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MohServer } from '@diac/standard-components-diagrams/ciscoServers'
+import { MohServer } from '@dinghy/standard-components-diagrams/ciscoServers'
 
 <MohServer/>
 ```

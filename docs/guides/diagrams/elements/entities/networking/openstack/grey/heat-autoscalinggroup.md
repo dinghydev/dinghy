@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HeatAutoscalinggroup } from '@diac/standard-components-diagrams/openstackGrey'
+import { HeatAutoscalinggroup } from '@dinghy/standard-components-diagrams/openstackGrey'
 
 <HeatAutoscalinggroup/>
 ```

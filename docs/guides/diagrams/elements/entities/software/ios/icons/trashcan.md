@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Trashcan } from '@diac/standard-components-diagrams/ios7Icons'
+import { Trashcan } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Trashcan/>
 ```

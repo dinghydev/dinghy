@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiManagement } from '@diac/standard-components-diagrams/ibmManagement'
+import { ApiManagement } from '@dinghy/standard-components-diagrams/ibmManagement'
 
 <ApiManagement/>
 ```

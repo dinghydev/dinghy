@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { XdragonBareMetalServer } from '@diac/standard-components-diagrams/alibabaCloud'
+import { XdragonBareMetalServer } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <XdragonBareMetalServer/>
 ```

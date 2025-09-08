@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CostUsageReport } from '@diac/standard-components-diagrams/awsCloudFinancialManagement'
+import { CostUsageReport } from '@dinghy/standard-components-diagrams/awsCloudFinancialManagement'
 
 <CostUsageReport/>
 ```

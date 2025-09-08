@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrimmerVariableCapacitorUs } from '@diac/standard-components-diagrams/electricalCapacitors'
+import { TrimmerVariableCapacitorUs } from '@dinghy/standard-components-diagrams/electricalCapacitors'
 
 <TrimmerVariableCapacitorUs/>
 ```

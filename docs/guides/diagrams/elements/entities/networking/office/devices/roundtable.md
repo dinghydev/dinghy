@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Roundtable } from '@diac/standard-components-diagrams/officeDevices'
+import { Roundtable } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <Roundtable/>
 ```

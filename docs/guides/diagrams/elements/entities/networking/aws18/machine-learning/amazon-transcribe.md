@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonTranscribe } from '@diac/standard-components-diagrams/aws18MachineLearning'
+import { AmazonTranscribe } from '@dinghy/standard-components-diagrams/aws18MachineLearning'
 
 <AmazonTranscribe/>
 ```

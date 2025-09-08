@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DmsDataManagementService } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DmsDataManagementService } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DmsDataManagementService/>
 ```

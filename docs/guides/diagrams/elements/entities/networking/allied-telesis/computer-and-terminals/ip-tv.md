@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpTv } from '@diac/standard-components-diagrams/alliedTelesisComputerAndTerminals'
+import { IpTv } from '@dinghy/standard-components-diagrams/alliedTelesisComputerAndTerminals'
 
 <IpTv/>
 ```

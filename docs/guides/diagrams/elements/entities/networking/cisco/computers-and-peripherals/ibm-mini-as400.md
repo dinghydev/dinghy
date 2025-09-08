@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IbmMiniAs400 } from '@diac/standard-components-diagrams/ciscoComputersAndPeripherals'
+import { IbmMiniAs400 } from '@dinghy/standard-components-diagrams/ciscoComputersAndPeripherals'
 
 <IbmMiniAs400/>
 ```

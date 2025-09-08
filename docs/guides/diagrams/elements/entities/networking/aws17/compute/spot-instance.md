@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SpotInstance } from '@diac/standard-components-diagrams/aws17Compute'
+import { SpotInstance } from '@dinghy/standard-components-diagrams/aws17Compute'
 
 <SpotInstance/>
 ```

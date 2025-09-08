@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Deviantart } from '@diac/standard-components-diagrams/webLogos'
+import { Deviantart } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Deviantart/>
 ```

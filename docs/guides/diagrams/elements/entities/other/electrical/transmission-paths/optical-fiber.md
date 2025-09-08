@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpticalFiber } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
+import { OpticalFiber } from '@dinghy/standard-components-diagrams/electricalTransmissionPaths'
 
 <OpticalFiber/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpenapiExplorer } from '@diac/standard-components-diagrams/alibabaCloud'
+import { OpenapiExplorer } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <OpenapiExplorer/>
 ```

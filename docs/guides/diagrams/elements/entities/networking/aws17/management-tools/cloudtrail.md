@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cloudtrail } from '@diac/standard-components-diagrams/aws17ManagementTools'
+import { Cloudtrail } from '@dinghy/standard-components-diagrams/aws17ManagementTools'
 
 <Cloudtrail/>
 ```

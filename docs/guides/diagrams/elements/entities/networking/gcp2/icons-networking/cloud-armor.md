@@ -16,7 +16,7 @@ Armor
 ## Usage
 
 ```
-import { CloudArmor } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudArmor } from '@dinghy/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudArmor/>
 ```

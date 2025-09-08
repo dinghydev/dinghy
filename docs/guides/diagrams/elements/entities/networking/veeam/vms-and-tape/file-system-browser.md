@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileSystemBrowser } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { FileSystemBrowser } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <FileSystemBrowser/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurityBaselines } from '@diac/standard-components-diagrams/azure2Intune'
+import { SecurityBaselines } from '@dinghy/standard-components-diagrams/azure2Intune'
 
 <SecurityBaselines/>
 ```

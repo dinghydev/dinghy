@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecureCatalystSwitchColor2 } from '@diac/standard-components-diagrams/cisco19LanSwitching'
+import { SecureCatalystSwitchColor2 } from '@dinghy/standard-components-diagrams/cisco19LanSwitching'
 
 <SecureCatalystSwitchColor2/>
 ```

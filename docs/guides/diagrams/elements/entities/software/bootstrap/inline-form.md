@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InlineForm } from '@diac/standard-components-diagrams/bootstrap'
+import { InlineForm } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <InlineForm/>
 ```

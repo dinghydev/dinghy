@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationHybrid } from '@diac/standard-components-diagrams/officeConcepts'
+import { ApplicationHybrid } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <ApplicationHybrid/>
 ```

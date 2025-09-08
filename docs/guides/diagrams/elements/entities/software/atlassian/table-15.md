@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Table15 } from '@diac/standard-components-diagrams/atlassian'
+import { Table15 } from '@dinghy/standard-components-diagrams/atlassian'
 
 <Table15/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IpadBackgroundGray } from '@diac/standard-components-diagrams/ios6'
+import { IpadBackgroundGray } from '@dinghy/standard-components-diagrams/ios6'
 
 <IpadBackgroundGray/>
 ```

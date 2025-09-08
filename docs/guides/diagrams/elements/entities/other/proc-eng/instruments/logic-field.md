@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogicField } from '@diac/standard-components-diagrams/procEngInstruments'
+import { LogicField } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <LogicField/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Companyreg } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Companyreg } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Companyreg/>
 ```

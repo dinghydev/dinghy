@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Share } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Share } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Share/>
 ```

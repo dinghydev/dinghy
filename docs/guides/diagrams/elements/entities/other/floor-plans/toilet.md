@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Toilet } from '@diac/standard-components-diagrams/floorPlans'
+import { Toilet } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <Toilet/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SystemSoftware } from '@diac/standard-components-diagrams/archimate2'
+import { SystemSoftware } from '@dinghy/standard-components-diagrams/archimate2'
 
 <SystemSoftware/>
 ```

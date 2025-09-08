@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HabanaGaudiInstance } from '@diac/standard-components-diagrams/awsCompute'
+import { HabanaGaudiInstance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <HabanaGaudiInstance/>
 ```

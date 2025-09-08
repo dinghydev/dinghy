@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualLab } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { VirtualLab } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <VirtualLab/>
 ```

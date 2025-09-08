@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppSpace } from '@diac/standard-components-diagrams/azure2Web'
+import { AppSpace } from '@dinghy/standard-components-diagrams/azure2Web'
 
 <AppSpace/>
 ```

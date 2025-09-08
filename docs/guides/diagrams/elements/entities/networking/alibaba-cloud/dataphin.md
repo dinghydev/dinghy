@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dataphin } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Dataphin } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Dataphin/>
 ```

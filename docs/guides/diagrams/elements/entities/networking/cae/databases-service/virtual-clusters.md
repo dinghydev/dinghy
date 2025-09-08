@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualClusters } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { VirtualClusters } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <VirtualClusters/>
 ```

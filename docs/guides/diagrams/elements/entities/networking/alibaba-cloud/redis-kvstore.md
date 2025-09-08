@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RedisKvstore } from '@diac/standard-components-diagrams/alibabaCloud'
+import { RedisKvstore } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <RedisKvstore/>
 ```

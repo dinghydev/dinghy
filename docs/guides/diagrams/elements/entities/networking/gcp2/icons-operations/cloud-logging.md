@@ -16,7 +16,7 @@ Logging
 ## Usage
 
 ```
-import { CloudLogging } from '@diac/standard-components-diagrams/gcp2IconsOperations'
+import { CloudLogging } from '@dinghy/standard-components-diagrams/gcp2IconsOperations'
 
 <CloudLogging/>
 ```

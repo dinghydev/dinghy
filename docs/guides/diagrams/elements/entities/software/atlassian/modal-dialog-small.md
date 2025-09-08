@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ModalDialogSmall } from '@diac/standard-components-diagrams/atlassian'
+import { ModalDialogSmall } from '@dinghy/standard-components-diagrams/atlassian'
 
 <ModalDialogSmall/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Textbox } from '@diac/standard-components-diagrams/general'
+import { Textbox } from '@dinghy/standard-components-diagrams/general'
 
 <Textbox/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Key } from '@diac/standard-components-diagrams/activeDirectory'
+import { Key } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <Key/>
 ```

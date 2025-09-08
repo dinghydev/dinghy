@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AuditManager } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { AuditManager } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <AuditManager/>
 ```

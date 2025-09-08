@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpenDisc } from '@diac/standard-components-diagrams/procEngFittings'
+import { OpenDisc } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <OpenDisc/>
 ```

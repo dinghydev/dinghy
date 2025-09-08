@@ -1,5 +1,5 @@
-import { extendStyle, Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { extendStyle, Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const JL073A_HPE_ARUBA_3810M_24_PORT_GT_POE_1_SLOT_SWITCH_REAR = {
   _style: {

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArcDataServices } from '@diac/standard-components-diagrams/azure2Other'
+import { ArcDataServices } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ArcDataServices/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HomeOffice } from '@diac/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
+import { HomeOffice } from '@dinghy/standard-components-diagrams/cisco19EndpointClientAndDeviceIcons'
 
 <HomeOffice/>
 ```

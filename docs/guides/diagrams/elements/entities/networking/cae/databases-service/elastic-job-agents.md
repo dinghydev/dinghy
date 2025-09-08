@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticJobAgents } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { ElasticJobAgents } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <ElasticJobAgents/>
 ```

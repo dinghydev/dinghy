@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ControlTower } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { ControlTower } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <ControlTower/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11280RotaryActuatorSwivel } from '@diac/standard-components-diagrams/fluidPower'
+import { X11280RotaryActuatorSwivel } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11280RotaryActuatorSwivel/>
 ```

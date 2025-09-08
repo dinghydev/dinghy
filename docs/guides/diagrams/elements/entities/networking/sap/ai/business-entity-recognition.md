@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BusinessEntityRecognition } from '@diac/standard-components-diagrams/sapAi'
+import { BusinessEntityRecognition } from '@dinghy/standard-components-diagrams/sapAi'
 
 <BusinessEntityRecognition/>
 ```

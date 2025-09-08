@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stream } from '@diac/standard-components-diagrams/salesforcePlatform'
+import { Stream } from '@dinghy/standard-components-diagrams/salesforcePlatform'
 
 <Stream/>
 ```

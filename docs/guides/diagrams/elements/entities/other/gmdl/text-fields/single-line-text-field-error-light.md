@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SingleLineTextFieldErrorLight } from '@diac/standard-components-diagrams/gmdlTextFields'
+import { SingleLineTextFieldErrorLight } from '@dinghy/standard-components-diagrams/gmdlTextFields'
 
 <SingleLineTextFieldErrorLight/>
 ```

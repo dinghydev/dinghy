@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataSecurity } from '@diac/standard-components-diagrams/ibmSecurity'
+import { DataSecurity } from '@dinghy/standard-components-diagrams/ibmSecurity'
 
 <DataSecurity/>
 ```

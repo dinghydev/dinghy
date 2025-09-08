@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PushArrow } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { PushArrow } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <PushArrow/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualClusters } from '@diac/standard-components-diagrams/azure2Databases'
+import { VirtualClusters } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <VirtualClusters/>
 ```

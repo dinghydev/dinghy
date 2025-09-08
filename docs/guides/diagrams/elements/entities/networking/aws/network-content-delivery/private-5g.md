@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Private5g } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Private5g } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Private5g/>
 ```

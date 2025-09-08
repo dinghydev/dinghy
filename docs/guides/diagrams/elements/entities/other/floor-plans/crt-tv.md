@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CrtTv } from '@diac/standard-components-diagrams/floorPlans'
+import { CrtTv } from '@dinghy/standard-components-diagrams/floorPlans'
 
 <CrtTv/>
 ```

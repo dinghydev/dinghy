@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Accordion } from '@diac/standard-components-diagrams/mockupContainers'
+import { Accordion } from '@dinghy/standard-components-diagrams/mockupContainers'
 
 <Accordion/>
 ```

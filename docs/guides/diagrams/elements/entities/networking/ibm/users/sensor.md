@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sensor } from '@diac/standard-components-diagrams/ibmUsers'
+import { Sensor } from '@dinghy/standard-components-diagrams/ibmUsers'
 
 <Sensor/>
 ```

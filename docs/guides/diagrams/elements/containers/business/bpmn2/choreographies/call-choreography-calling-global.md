@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { CallChoreographyCallingGlobal } from '@diac/standard-components-diagrams/bpmn2Choreographies'
+import { CallChoreographyCallingGlobal } from '@dinghy/standard-components-diagrams/bpmn2Choreographies'
 
 <CallChoreographyCallingGlobal/>
 ```

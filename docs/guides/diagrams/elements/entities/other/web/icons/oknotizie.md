@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Oknotizie } from '@diac/standard-components-diagrams/webIcons'
+import { Oknotizie } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Oknotizie/>
 ```

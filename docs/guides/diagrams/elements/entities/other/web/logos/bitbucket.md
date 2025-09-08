@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bitbucket } from '@diac/standard-components-diagrams/webLogos'
+import { Bitbucket } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Bitbucket/>
 ```

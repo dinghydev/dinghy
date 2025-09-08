@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OutlookUser } from '@diac/standard-components-diagrams/officeUsers'
+import { OutlookUser } from '@dinghy/standard-components-diagrams/officeUsers'
 
 <OutlookUser/>
 ```

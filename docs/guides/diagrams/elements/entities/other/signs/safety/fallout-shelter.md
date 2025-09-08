@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FalloutShelter } from '@diac/standard-components-diagrams/signsSafety'
+import { FalloutShelter } from '@dinghy/standard-components-diagrams/signsSafety'
 
 <FalloutShelter/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagementConsole } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { ManagementConsole } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <ManagementConsole/>
 ```

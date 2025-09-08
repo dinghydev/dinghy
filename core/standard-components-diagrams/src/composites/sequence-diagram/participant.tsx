@@ -1,5 +1,5 @@
-import { type DiagramNodeProps, Rows, Shape } from '@diac/base-components'
-import { defaultDiagramOptions } from '@diac/renderer-drawio'
+import { type DiagramNodeProps, Rows, Shape } from '@dinghy/base-components'
+import { defaultDiagramOptions } from '@dinghy/renderer-drawio'
 
 type ParticipantProps = {
   _width: number

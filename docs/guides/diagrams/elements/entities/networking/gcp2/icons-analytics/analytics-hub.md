@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AnalyticsHub } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { AnalyticsHub } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <AnalyticsHub/>
 ```

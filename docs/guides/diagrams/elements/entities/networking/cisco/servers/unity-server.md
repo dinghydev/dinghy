@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UnityServer } from '@diac/standard-components-diagrams/ciscoServers'
+import { UnityServer } from '@dinghy/standard-components-diagrams/ciscoServers'
 
 <UnityServer/>
 ```

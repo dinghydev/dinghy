@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Aci } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { Aci } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <Aci/>
 ```

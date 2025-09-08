@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdB2c } from '@diac/standard-components-diagrams/azure2Identity'
+import { AdB2c } from '@dinghy/standard-components-diagrams/azure2Identity'
 
 <AdB2c/>
 ```

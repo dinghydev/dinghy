@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeveloperPortal } from '@diac/standard-components-diagrams/gcpIconsApiManagement'
+import { DeveloperPortal } from '@dinghy/standard-components-diagrams/gcpIconsApiManagement'
 
 <DeveloperPortal/>
 ```

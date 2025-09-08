@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HpInfinibandFdrSwitch } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
+import { HpInfinibandFdrSwitch } from '@dinghy/standard-components-diagrams/rackHpeArubaSwitches'
 
 <HpInfinibandFdrSwitch/>
 ```

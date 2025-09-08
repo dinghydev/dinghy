@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Personalizers } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { Personalizers } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <Personalizers/>
 ```

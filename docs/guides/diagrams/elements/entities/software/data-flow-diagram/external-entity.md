@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExternalEntity } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { ExternalEntity } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <ExternalEntity/>
 ```

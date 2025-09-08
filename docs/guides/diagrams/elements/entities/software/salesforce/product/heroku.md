@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Heroku } from '@diac/standard-components-diagrams/salesforceProduct'
+import { Heroku } from '@dinghy/standard-components-diagrams/salesforceProduct'
 
 <Heroku/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageExplorer } from '@diac/standard-components-diagrams/azure2Storage'
+import { StorageExplorer } from '@dinghy/standard-components-diagrams/azure2Storage'
 
 <StorageExplorer/>
 ```

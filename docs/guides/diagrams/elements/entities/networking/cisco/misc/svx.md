@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Svx } from '@diac/standard-components-diagrams/ciscoMisc'
+import { Svx } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <Svx/>
 ```

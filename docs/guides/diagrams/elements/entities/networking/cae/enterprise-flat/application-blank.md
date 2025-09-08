@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApplicationBlank } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { ApplicationBlank } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <ApplicationBlank/>
 ```

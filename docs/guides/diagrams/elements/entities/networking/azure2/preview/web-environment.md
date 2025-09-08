@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebEnvironment } from '@diac/standard-components-diagrams/azure2Preview'
+import { WebEnvironment } from '@dinghy/standard-components-diagrams/azure2Preview'
 
 <WebEnvironment/>
 ```

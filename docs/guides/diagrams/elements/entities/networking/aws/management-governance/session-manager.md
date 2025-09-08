@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SessionManager } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { SessionManager } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <SessionManager/>
 ```

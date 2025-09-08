@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ScriptFile } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { ScriptFile } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <ScriptFile/>
 ```

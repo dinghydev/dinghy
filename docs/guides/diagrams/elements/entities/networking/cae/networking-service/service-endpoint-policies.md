@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ServiceEndpointPolicies } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { ServiceEndpointPolicies } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <ServiceEndpointPolicies/>
 ```

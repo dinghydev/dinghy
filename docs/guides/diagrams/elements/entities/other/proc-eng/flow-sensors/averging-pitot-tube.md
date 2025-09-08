@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AvergingPitotTube } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { AvergingPitotTube } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <AvergingPitotTube/>
 ```

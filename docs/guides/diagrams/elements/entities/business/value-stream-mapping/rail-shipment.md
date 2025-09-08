@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RailShipment } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { RailShipment } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <RailShipment/>
 ```

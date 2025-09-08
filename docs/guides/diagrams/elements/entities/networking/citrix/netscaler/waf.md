@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Waf } from '@diac/standard-components-diagrams/citrixNetscaler'
+import { Waf } from '@dinghy/standard-components-diagrams/citrixNetscaler'
 
 <Waf/>
 ```

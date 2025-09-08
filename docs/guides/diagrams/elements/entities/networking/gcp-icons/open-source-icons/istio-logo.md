@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IstioLogo } from '@diac/standard-components-diagrams/gcpIconsOpenSourceIcons'
+import { IstioLogo } from '@dinghy/standard-components-diagrams/gcpIconsOpenSourceIcons'
 
 <IstioLogo/>
 ```

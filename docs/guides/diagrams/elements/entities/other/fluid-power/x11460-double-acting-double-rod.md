@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X11460DoubleActingDoubleRod } from '@diac/standard-components-diagrams/fluidPower'
+import { X11460DoubleActingDoubleRod } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X11460DoubleActingDoubleRod/>
 ```

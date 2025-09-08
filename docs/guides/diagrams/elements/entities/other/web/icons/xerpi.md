@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Xerpi } from '@diac/standard-components-diagrams/webIcons'
+import { Xerpi } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Xerpi/>
 ```

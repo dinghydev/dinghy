@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticVmwareService } from '@diac/standard-components-diagrams/awsMigrationModernization'
+import { ElasticVmwareService } from '@dinghy/standard-components-diagrams/awsMigrationModernization'
 
 <ElasticVmwareService/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArubaMobilityMaster5kRear } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
+import { ArubaMobilityMaster5kRear } from '@dinghy/standard-components-diagrams/rackHpeArubaSwitches'
 
 <ArubaMobilityMaster5kRear/>
 ```

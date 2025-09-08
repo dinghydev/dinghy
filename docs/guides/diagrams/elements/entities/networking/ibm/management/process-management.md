@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ProcessManagement } from '@diac/standard-components-diagrams/ibmManagement'
+import { ProcessManagement } from '@dinghy/standard-components-diagrams/ibmManagement'
 
 <ProcessManagement/>
 ```

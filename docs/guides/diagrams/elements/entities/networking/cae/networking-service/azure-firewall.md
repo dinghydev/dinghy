@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureFirewall } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { AzureFirewall } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <AzureFirewall/>
 ```

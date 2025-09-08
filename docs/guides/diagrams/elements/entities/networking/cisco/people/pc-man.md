@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PcMan } from '@diac/standard-components-diagrams/ciscoPeople'
+import { PcMan } from '@dinghy/standard-components-diagrams/ciscoPeople'
 
 <PcMan/>
 ```

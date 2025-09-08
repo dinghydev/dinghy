@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HtmlTable4 } from '@diac/standard-components-diagrams/misc'
+import { HtmlTable4 } from '@dinghy/standard-components-diagrams/misc'
 
 <HtmlTable4/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppStudio } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { AppStudio } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <AppStudio/>
 ```

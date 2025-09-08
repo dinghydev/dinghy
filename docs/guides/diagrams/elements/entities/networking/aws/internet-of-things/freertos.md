@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Freertos } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Freertos } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Freertos/>
 ```

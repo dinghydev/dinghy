@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StorageSyncServices } from '@diac/standard-components-diagrams/caeStorageService'
+import { StorageSyncServices } from '@dinghy/standard-components-diagrams/caeStorageService'
 
 <StorageSyncServices/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UserPrivacy } from '@diac/standard-components-diagrams/caeGeneralService'
+import { UserPrivacy } from '@dinghy/standard-components-diagrams/caeGeneralService'
 
 <UserPrivacy/>
 ```

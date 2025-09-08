@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ThermistorWithIndependentIntegralHeater } from '@diac/standard-components-diagrams/electricalMisc'
+import { ThermistorWithIndependentIntegralHeater } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <ThermistorWithIndependentIntegralHeater/>
 ```

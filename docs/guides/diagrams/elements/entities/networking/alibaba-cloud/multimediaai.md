@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Multimediaai } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Multimediaai } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Multimediaai/>
 ```

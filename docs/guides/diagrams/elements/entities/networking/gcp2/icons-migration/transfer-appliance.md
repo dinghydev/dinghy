@@ -16,7 +16,7 @@ Appliance
 ## Usage
 
 ```
-import { TransferAppliance } from '@diac/standard-components-diagrams/gcp2IconsMigration'
+import { TransferAppliance } from '@dinghy/standard-components-diagrams/gcp2IconsMigration'
 
 <TransferAppliance/>
 ```

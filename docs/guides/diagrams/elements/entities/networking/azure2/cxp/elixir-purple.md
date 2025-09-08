@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElixirPurple } from '@diac/standard-components-diagrams/azure2Cxp'
+import { ElixirPurple } from '@dinghy/standard-components-diagrams/azure2Cxp'
 
 <ElixirPurple/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Deepcomposer } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { Deepcomposer } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <Deepcomposer/>
 ```

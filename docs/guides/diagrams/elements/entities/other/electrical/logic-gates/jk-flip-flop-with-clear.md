@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { JkFlipFlopWithClear } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { JkFlipFlopWithClear } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <JkFlipFlopWithClear/>
 ```

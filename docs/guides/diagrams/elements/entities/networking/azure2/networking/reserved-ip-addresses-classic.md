@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ReservedIpAddressesClassic } from '@diac/standard-components-diagrams/azure2Networking'
+import { ReservedIpAddressesClassic } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <ReservedIpAddressesClassic/>
 ```

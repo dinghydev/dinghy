@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeyManagementService } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { KeyManagementService } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <KeyManagementService/>
 ```

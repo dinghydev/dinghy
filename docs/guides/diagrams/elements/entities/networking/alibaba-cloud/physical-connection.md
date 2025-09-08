@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PhysicalConnection } from '@diac/standard-components-diagrams/alibabaCloud'
+import { PhysicalConnection } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <PhysicalConnection/>
 ```

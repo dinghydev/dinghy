@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiGatewayEndpoint } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { ApiGatewayEndpoint } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <ApiGatewayEndpoint/>
 ```

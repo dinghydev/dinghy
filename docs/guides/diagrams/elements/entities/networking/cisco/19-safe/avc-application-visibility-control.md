@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AvcApplicationVisibilityControl } from '@diac/standard-components-diagrams/cisco19Safe'
+import { AvcApplicationVisibilityControl } from '@dinghy/standard-components-diagrams/cisco19Safe'
 
 <AvcApplicationVisibilityControl/>
 ```

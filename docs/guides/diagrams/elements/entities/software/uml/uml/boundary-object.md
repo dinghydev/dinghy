@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BoundaryObject } from '@diac/standard-components-diagrams/uml'
+import { BoundaryObject } from '@dinghy/standard-components-diagrams/uml'
 
 <BoundaryObject/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdvancedSolutionsLab } from '@diac/standard-components-diagrams/gcpIconsAiAndMachineLearning'
+import { AdvancedSolutionsLab } from '@dinghy/standard-components-diagrams/gcpIconsAiAndMachineLearning'
 
 <AdvancedSolutionsLab/>
 ```

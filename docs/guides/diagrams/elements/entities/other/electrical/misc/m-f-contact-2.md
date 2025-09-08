@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MFContact2 } from '@diac/standard-components-diagrams/electricalMisc'
+import { MFContact2 } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <MFContact2/>
 ```

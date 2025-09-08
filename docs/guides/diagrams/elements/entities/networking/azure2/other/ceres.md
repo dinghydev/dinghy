@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ceres } from '@diac/standard-components-diagrams/azure2Other'
+import { Ceres } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Ceres/>
 ```

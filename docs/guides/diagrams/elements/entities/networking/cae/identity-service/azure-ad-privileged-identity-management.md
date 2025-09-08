@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureAdPrivilegedIdentityManagement } from '@diac/standard-components-diagrams/caeIdentityService'
+import { AzureAdPrivilegedIdentityManagement } from '@dinghy/standard-components-diagrams/caeIdentityService'
 
 <AzureAdPrivilegedIdentityManagement/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Phishing } from '@diac/standard-components-diagrams/officeConcepts'
+import { Phishing } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <Phishing/>
 ```

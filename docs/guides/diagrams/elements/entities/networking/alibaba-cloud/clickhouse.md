@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Clickhouse } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Clickhouse } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Clickhouse/>
 ```

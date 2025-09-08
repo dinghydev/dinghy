@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UmEnabledMailbox } from '@diac/standard-components-diagrams/officeCommunications'
+import { UmEnabledMailbox } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <UmEnabledMailbox/>
 ```

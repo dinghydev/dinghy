@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Adfty } from '@diac/standard-components-diagrams/webLogos'
+import { Adfty } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Adfty/>
 ```

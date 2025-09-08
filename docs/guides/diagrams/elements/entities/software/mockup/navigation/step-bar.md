@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StepBar } from '@diac/standard-components-diagrams/mockupNavigation'
+import { StepBar } from '@dinghy/standard-components-diagrams/mockupNavigation'
 
 <StepBar/>
 ```

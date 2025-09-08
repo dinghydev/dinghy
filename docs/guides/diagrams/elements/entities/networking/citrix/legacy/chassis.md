@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Chassis } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Chassis } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Chassis/>
 ```

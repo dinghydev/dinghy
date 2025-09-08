@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fileshare } from '@diac/standard-components-diagrams/azure2Storage'
+import { Fileshare } from '@dinghy/standard-components-diagrams/azure2Storage'
 
 <Fileshare/>
 ```

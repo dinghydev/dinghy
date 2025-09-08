@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiskSnapshots } from '@diac/standard-components-diagrams/caeComputeService'
+import { DiskSnapshots } from '@dinghy/standard-components-diagrams/caeComputeService'
 
 <DiskSnapshots/>
 ```

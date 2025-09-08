@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CfwCloudFirewall } from '@diac/standard-components-diagrams/alibabaCloud'
+import { CfwCloudFirewall } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <CfwCloudFirewall/>
 ```

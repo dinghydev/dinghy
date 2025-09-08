@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConeStrainer } from '@diac/standard-components-diagrams/procEngPiping'
+import { ConeStrainer } from '@dinghy/standard-components-diagrams/procEngPiping'
 
 <ConeStrainer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Component3x74FloorClusterController } from '@diac/standard-components-diagrams/ciscoControllersAndModules'
+import { Component3x74FloorClusterController } from '@dinghy/standard-components-diagrams/ciscoControllersAndModules'
 
 <Component3x74FloorClusterController/>
 ```

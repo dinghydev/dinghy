@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MicrosoftScvmm } from '@diac/standard-components-diagrams/veeam2Software'
+import { MicrosoftScvmm } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <MicrosoftScvmm/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SunServerX32 } from '@diac/standard-components-diagrams/rackOracle'
+import { SunServerX32 } from '@dinghy/standard-components-diagrams/rackOracle'
 
 <SunServerX32/>
 ```

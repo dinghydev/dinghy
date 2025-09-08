@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Keys } from '@diac/standard-components-diagrams/clipartVarious'
+import { Keys } from '@dinghy/standard-components-diagrams/clipartVarious'
 
 <Keys/>
 ```

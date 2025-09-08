@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BareMetalServer } from '@diac/standard-components-diagrams/ibmVpc'
+import { BareMetalServer } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <BareMetalServer/>
 ```

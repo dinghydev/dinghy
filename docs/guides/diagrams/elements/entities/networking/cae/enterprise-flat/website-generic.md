@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebsiteGeneric } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { WebsiteGeneric } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <WebsiteGeneric/>
 ```

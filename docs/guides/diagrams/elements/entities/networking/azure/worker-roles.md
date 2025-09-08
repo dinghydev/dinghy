@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WorkerRoles } from '@diac/standard-components-diagrams/azure'
+import { WorkerRoles } from '@dinghy/standard-components-diagrams/azure'
 
 <WorkerRoles/>
 ```

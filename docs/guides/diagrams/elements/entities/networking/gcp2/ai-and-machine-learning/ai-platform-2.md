@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AiPlatform2 } from '@diac/standard-components-diagrams/gcp2AiAndMachineLearning'
+import { AiPlatform2 } from '@dinghy/standard-components-diagrams/gcp2AiAndMachineLearning'
 
 <AiPlatform2/>
 ```

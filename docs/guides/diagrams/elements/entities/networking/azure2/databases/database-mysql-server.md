@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseMysqlServer } from '@diac/standard-components-diagrams/azure2Databases'
+import { DatabaseMysqlServer } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <DatabaseMysqlServer/>
 ```

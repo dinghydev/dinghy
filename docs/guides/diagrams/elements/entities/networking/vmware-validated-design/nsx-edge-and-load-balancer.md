@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NsxEdgeAndLoadBalancer } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { NsxEdgeAndLoadBalancer } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <NsxEdgeAndLoadBalancer/>
 ```

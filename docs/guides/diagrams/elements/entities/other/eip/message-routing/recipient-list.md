@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RecipientList } from '@diac/standard-components-diagrams/eipMessageRouting'
+import { RecipientList } from '@dinghy/standard-components-diagrams/eipMessageRouting'
 
 <RecipientList/>
 ```

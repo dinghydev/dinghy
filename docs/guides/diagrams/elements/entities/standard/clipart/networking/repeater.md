@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Repeater } from '@diac/standard-components-diagrams/clipartNetworking'
+import { Repeater } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <Repeater/>
 ```

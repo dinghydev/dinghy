@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Xenmobile } from '@diac/standard-components-diagrams/citrixLegacy'
+import { Xenmobile } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <Xenmobile/>
 ```

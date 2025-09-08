@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EndProtection } from '@diac/standard-components-diagrams/caeIntuneFlat'
+import { EndProtection } from '@dinghy/standard-components-diagrams/caeIntuneFlat'
 
 <EndProtection/>
 ```

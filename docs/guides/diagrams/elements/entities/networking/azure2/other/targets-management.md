@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TargetsManagement } from '@diac/standard-components-diagrams/azure2Other'
+import { TargetsManagement } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <TargetsManagement/>
 ```

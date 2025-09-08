@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DesktopHightlight } from '@diac/standard-components-diagrams/sapGenericIcons'
+import { DesktopHightlight } from '@dinghy/standard-components-diagrams/sapGenericIcons'
 
 <DesktopHightlight/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VCone } from '@diac/standard-components-diagrams/procEngFlowSensors'
+import { VCone } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
 
 <VCone/>
 ```

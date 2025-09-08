@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerbalInformation } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { VerbalInformation } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <VerbalInformation/>
 ```

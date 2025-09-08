@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Android } from '@diac/standard-components-diagrams/webIcons'
+import { Android } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Android/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OffPageConnector } from '@diac/standard-components-diagrams/advanced'
+import { OffPageConnector } from '@dinghy/standard-components-diagrams/advanced'
 
 <OffPageConnector/>
 ```

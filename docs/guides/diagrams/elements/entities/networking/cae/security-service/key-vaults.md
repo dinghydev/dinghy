@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KeyVaults } from '@diac/standard-components-diagrams/caeSecurityService'
+import { KeyVaults } from '@dinghy/standard-components-diagrams/caeSecurityService'
 
 <KeyVaults/>
 ```

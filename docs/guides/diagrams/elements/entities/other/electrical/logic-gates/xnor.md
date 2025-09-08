@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Xnor } from '@diac/standard-components-diagrams/electricalLogicGates'
+import { Xnor } from '@dinghy/standard-components-diagrams/electricalLogicGates'
 
 <Xnor/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DocumentInformationExtraction } from '@diac/standard-components-diagrams/sapAi'
+import { DocumentInformationExtraction } from '@dinghy/standard-components-diagrams/sapAi'
 
 <DocumentInformationExtraction/>
 ```

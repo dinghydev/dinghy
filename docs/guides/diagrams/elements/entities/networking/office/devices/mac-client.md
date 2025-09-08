@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MacClient } from '@diac/standard-components-diagrams/officeDevices'
+import { MacClient } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <MacClient/>
 ```

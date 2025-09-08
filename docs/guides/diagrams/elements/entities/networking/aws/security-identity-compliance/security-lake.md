@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SecurityLake } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { SecurityLake } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <SecurityLake/>
 ```

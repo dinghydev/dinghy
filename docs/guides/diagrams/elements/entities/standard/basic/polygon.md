@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Polygon } from '@diac/standard-components-diagrams/basic'
+import { Polygon } from '@dinghy/standard-components-diagrams/basic'
 
 <Polygon/>
 ```

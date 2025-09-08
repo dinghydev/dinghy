@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MemInstances } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { MemInstances } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <MemInstances/>
 ```

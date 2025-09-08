@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dataplex } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { Dataplex } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <Dataplex/>
 ```

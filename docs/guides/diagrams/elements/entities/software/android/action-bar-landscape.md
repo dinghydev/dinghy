@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActionBarLandscape } from '@diac/standard-components-diagrams/android'
+import { ActionBarLandscape } from '@dinghy/standard-components-diagrams/android'
 
 <ActionBarLandscape/>
 ```

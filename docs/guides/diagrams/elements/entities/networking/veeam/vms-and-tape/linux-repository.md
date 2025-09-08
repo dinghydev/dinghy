@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LinuxRepository } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { LinuxRepository } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <LinuxRepository/>
 ```

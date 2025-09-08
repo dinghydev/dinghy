@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ColumnFluidizedBed } from '@diac/standard-components-diagrams/procEngMisc'
+import { ColumnFluidizedBed } from '@dinghy/standard-components-diagrams/procEngMisc'
 
 <ColumnFluidizedBed/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TrustendComputing } from '@diac/standard-components-diagrams/ibmSecurity'
+import { TrustendComputing } from '@dinghy/standard-components-diagrams/ibmSecurity'
 
 <TrustendComputing/>
 ```

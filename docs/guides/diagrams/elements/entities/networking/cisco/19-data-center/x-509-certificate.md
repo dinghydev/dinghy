@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X509Certificate } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { X509Certificate } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <X509Certificate/>
 ```

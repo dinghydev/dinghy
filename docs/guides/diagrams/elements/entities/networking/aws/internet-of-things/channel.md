@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Channel } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Channel } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Channel/>
 ```

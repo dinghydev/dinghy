@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SkypeForBusinessDirector } from '@diac/standard-components-diagrams/officeServers'
+import { SkypeForBusinessDirector } from '@dinghy/standard-components-diagrams/officeServers'
 
 <SkypeForBusinessDirector/>
 ```

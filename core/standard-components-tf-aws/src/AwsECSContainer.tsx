@@ -1,7 +1,7 @@
-import { IacNodeProps, ResolvableStringSchema } from '@diac/base-components'
+import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { Android } from '@diac/standard-components-diagrams/aws17Sdk'
+import { Android } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 export const AwsECSContainerSchema = z.object({
   name: ResolvableStringSchema.optional(),

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NlbNetworkLoadBalancer } from '@diac/standard-components-diagrams/alibabaCloud'
+import { NlbNetworkLoadBalancer } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <NlbNetworkLoadBalancer/>
 ```

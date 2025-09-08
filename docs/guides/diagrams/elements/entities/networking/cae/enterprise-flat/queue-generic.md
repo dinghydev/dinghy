@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { QueueGeneric } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { QueueGeneric } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <QueueGeneric/>
 ```

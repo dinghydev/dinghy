@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GotoMeeting } from '@diac/standard-components-diagrams/citrixLegacy'
+import { GotoMeeting } from '@dinghy/standard-components-diagrams/citrixLegacy'
 
 <GotoMeeting/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadBalancerListener } from '@diac/standard-components-diagrams/ibmVpc'
+import { LoadBalancerListener } from '@dinghy/standard-components-diagrams/ibmVpc'
 
 <LoadBalancerListener/>
 ```

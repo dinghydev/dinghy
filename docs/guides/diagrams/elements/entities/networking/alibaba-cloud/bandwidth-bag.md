@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BandwidthBag } from '@diac/standard-components-diagrams/alibabaCloud'
+import { BandwidthBag } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <BandwidthBag/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetraServerX32 } from '@diac/standard-components-diagrams/rackOracle'
+import { NetraServerX32 } from '@dinghy/standard-components-diagrams/rackOracle'
 
 <NetraServerX32/>
 ```

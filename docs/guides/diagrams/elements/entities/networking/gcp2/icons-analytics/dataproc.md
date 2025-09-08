@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dataproc } from '@diac/standard-components-diagrams/gcp2IconsAnalytics'
+import { Dataproc } from '@dinghy/standard-components-diagrams/gcp2IconsAnalytics'
 
 <Dataproc/>
 ```

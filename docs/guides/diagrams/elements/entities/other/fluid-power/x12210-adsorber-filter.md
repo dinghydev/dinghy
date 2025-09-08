@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X12210AdsorberFilter } from '@diac/standard-components-diagrams/fluidPower'
+import { X12210AdsorberFilter } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X12210AdsorberFilter/>
 ```

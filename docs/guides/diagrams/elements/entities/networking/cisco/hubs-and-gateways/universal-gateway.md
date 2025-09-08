@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UniversalGateway } from '@diac/standard-components-diagrams/ciscoHubsAndGateways'
+import { UniversalGateway } from '@dinghy/standard-components-diagrams/ciscoHubsAndGateways'
 
 <UniversalGateway/>
 ```

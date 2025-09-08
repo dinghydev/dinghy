@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerticalLine } from '@diac/standard-components-diagrams/misc'
+import { VerticalLine } from '@dinghy/standard-components-diagrams/misc'
 
 <VerticalLine/>
 ```

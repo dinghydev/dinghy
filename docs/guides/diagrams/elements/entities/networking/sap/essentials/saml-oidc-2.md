@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SamlOidc2 } from '@diac/standard-components-diagrams/sapEssentials'
+import { SamlOidc2 } from '@dinghy/standard-components-diagrams/sapEssentials'
 
 <SamlOidc2/>
 ```

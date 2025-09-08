@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlobalAccelerator } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { GlobalAccelerator } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <GlobalAccelerator/>
 ```

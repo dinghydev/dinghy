@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { Zone } from '@diac/standard-components-diagrams/ibmBoxes'
+import { Zone } from '@dinghy/standard-components-diagrams/ibmBoxes'
 
 <Zone/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RouteSwitchProcessor } from '@diac/standard-components-diagrams/ciscoMisc'
+import { RouteSwitchProcessor } from '@dinghy/standard-components-diagrams/ciscoMisc'
 
 <RouteSwitchProcessor/>
 ```

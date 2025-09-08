@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogManagement } from '@diac/standard-components-diagrams/caeOmsFlat'
+import { LogManagement } from '@dinghy/standard-components-diagrams/caeOmsFlat'
 
 <LogManagement/>
 ```

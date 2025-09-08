@@ -16,7 +16,7 @@ DNS
 ## Usage
 
 ```
-import { CloudDns } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudDns } from '@dinghy/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudDns/>
 ```

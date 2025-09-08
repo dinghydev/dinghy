@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rate } from '@diac/standard-components-diagrams/sysmlActivities'
+import { Rate } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <Rate/>
 ```

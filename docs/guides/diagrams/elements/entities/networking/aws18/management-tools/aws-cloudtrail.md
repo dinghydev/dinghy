@@ -16,7 +16,7 @@ CloudTrail
 ## Usage
 
 ```
-import { AwsCloudtrail } from '@diac/standard-components-diagrams/aws18ManagementTools'
+import { AwsCloudtrail } from '@dinghy/standard-components-diagrams/aws18ManagementTools'
 
 <AwsCloudtrail/>
 ```

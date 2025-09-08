@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Alert } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Alert } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Alert/>
 ```

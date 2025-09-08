@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EventSubProcessExpanded } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { EventSubProcessExpanded } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <EventSubProcessExpanded/>
 ```

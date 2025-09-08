@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElectricMotorAc } from '@diac/standard-components-diagrams/procEngEngines'
+import { ElectricMotorAc } from '@dinghy/standard-components-diagrams/procEngEngines'
 
 <ElectricMotorAc/>
 ```

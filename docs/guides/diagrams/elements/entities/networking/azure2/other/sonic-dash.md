@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SonicDash } from '@diac/standard-components-diagrams/azure2Other'
+import { SonicDash } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <SonicDash/>
 ```

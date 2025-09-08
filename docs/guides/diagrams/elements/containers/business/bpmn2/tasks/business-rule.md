@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { BusinessRule } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { BusinessRule } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <BusinessRule/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ModalTitle } from '@diac/standard-components-diagrams/bootstrap'
+import { ModalTitle } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <ModalTitle/>
 ```

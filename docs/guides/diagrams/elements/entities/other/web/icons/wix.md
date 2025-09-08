@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Wix } from '@diac/standard-components-diagrams/webIcons'
+import { Wix } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Wix/>
 ```

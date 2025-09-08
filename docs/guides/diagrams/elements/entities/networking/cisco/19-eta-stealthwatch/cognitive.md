@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Cognitive } from '@diac/standard-components-diagrams/cisco19EtaStealthwatch'
+import { Cognitive } from '@dinghy/standard-components-diagrams/cisco19EtaStealthwatch'
 
 <Cognitive/>
 ```

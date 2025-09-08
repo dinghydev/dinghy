@@ -1,7 +1,7 @@
-import { IacNodeProps, ResolvableStringSchema } from '@diac/base-components'
+import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { Shape } from '@diac/base-components'
+import { Shape } from '@dinghy/base-components'
 
 export const ECSClusterSchema = z.object({
   name: ResolvableStringSchema.optional(),

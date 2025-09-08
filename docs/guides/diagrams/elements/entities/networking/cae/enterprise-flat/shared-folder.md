@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SharedFolder } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { SharedFolder } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <SharedFolder/>
 ```

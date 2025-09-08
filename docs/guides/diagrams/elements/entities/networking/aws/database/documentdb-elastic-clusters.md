@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DocumentdbElasticClusters } from '@diac/standard-components-diagrams/awsDatabase'
+import { DocumentdbElasticClusters } from '@dinghy/standard-components-diagrams/awsDatabase'
 
 <DocumentdbElasticClusters/>
 ```

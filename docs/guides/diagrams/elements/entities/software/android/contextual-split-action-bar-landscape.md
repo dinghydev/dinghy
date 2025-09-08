@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ContextualSplitActionBarLandscape } from '@diac/standard-components-diagrams/android'
+import { ContextualSplitActionBarLandscape } from '@dinghy/standard-components-diagrams/android'
 
 <ContextualSplitActionBarLandscape/>
 ```

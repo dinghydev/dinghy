@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MicrosoftOnedrive } from '@diac/standard-components-diagrams/veeam2Software'
+import { MicrosoftOnedrive } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <MicrosoftOnedrive/>
 ```

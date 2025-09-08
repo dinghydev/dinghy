@@ -16,7 +16,7 @@ Shell
 ## Usage
 
 ```
-import { CloudShell } from '@diac/standard-components-diagrams/gcp2IconsOperations'
+import { CloudShell } from '@dinghy/standard-components-diagrams/gcp2IconsOperations'
 
 <CloudShell/>
 ```

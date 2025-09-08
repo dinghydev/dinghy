@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AwsCodecommit } from '@diac/standard-components-diagrams/aws18DeveloperTools'
+import { AwsCodecommit } from '@dinghy/standard-components-diagrams/aws18DeveloperTools'
 
 <AwsCodecommit/>
 ```

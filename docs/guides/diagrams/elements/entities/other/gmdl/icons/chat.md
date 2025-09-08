@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Chat } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Chat } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Chat/>
 ```

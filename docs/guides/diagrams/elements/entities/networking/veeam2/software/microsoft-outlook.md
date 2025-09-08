@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MicrosoftOutlook } from '@diac/standard-components-diagrams/veeam2Software'
+import { MicrosoftOutlook } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <MicrosoftOutlook/>
 ```

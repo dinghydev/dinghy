@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimerCatching } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { TimerCatching } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <TimerCatching/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FirewallBlue } from '@diac/standard-components-diagrams/officeConcepts'
+import { FirewallBlue } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <FirewallBlue/>
 ```

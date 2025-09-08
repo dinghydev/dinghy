@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Istio } from '@diac/standard-components-diagrams/gcp2IconsOpenSourceIcons'
+import { Istio } from '@dinghy/standard-components-diagrams/gcp2IconsOpenSourceIcons'
 
 <Istio/>
 ```

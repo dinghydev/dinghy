@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NmosWithBulk } from '@diac/standard-components-diagrams/electricalTransistors'
+import { NmosWithBulk } from '@dinghy/standard-components-diagrams/electricalTransistors'
 
 <NmosWithBulk/>
 ```

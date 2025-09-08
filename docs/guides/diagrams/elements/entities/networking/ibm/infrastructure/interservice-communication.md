@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InterserviceCommunication } from '@diac/standard-components-diagrams/ibmInfrastructure'
+import { InterserviceCommunication } from '@dinghy/standard-components-diagrams/ibmInfrastructure'
 
 <InterserviceCommunication/>
 ```

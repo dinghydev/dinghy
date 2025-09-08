@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VpnGateway } from '@diac/standard-components-diagrams/aws17Compute'
+import { VpnGateway } from '@dinghy/standard-components-diagrams/aws17Compute'
 
 <VpnGateway/>
 ```

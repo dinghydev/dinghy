@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mdm } from '@diac/standard-components-diagrams/ciscoSafeArchitecture'
+import { Mdm } from '@dinghy/standard-components-diagrams/ciscoSafeArchitecture'
 
 <Mdm/>
 ```

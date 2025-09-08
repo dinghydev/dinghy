@@ -1,4 +1,4 @@
-import type { Props } from '@diac/base-components'
+import type { Props } from '@dinghy/base-components'
 import type { ReactElement } from 'react'
 import { globalCategory } from './globalCategory.ts'
 import type { TfRenderOptions } from '../types.ts'

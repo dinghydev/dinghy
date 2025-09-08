@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiskBlockStorage } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DiskBlockStorage } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DiskBlockStorage/>
 ```

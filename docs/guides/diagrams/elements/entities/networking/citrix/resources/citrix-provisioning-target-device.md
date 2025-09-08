@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CitrixProvisioningTargetDevice } from '@diac/standard-components-diagrams/citrixResources'
+import { CitrixProvisioningTargetDevice } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <CitrixProvisioningTargetDevice/>
 ```

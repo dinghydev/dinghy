@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NeutronSecuritygroup } from '@diac/standard-components-diagrams/openstackGreen'
+import { NeutronSecuritygroup } from '@dinghy/standard-components-diagrams/openstackGreen'
 
 <NeutronSecuritygroup/>
 ```

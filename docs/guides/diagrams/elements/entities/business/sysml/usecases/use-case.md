@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UseCase } from '@diac/standard-components-diagrams/sysmlUsecases'
+import { UseCase } from '@dinghy/standard-components-diagrams/sysmlUsecases'
 
 <UseCase/>
 ```

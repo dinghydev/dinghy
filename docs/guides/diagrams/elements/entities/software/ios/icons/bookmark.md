@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bookmark } from '@diac/standard-components-diagrams/ios7Icons'
+import { Bookmark } from '@dinghy/standard-components-diagrams/ios7Icons'
 
 <Bookmark/>
 ```

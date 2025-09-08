@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FolderGhosted } from '@diac/standard-components-diagrams/officeConcepts'
+import { FolderGhosted } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <FolderGhosted/>
 ```

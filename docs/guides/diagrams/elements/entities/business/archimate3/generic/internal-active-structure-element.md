@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InternalActiveStructureElement } from '@diac/standard-components-diagrams/archimate3Generic'
+import { InternalActiveStructureElement } from '@dinghy/standard-components-diagrams/archimate3Generic'
 
 <InternalActiveStructureElement/>
 ```

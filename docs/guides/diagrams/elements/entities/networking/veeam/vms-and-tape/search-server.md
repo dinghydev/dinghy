@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SearchServer } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { SearchServer } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <SearchServer/>
 ```

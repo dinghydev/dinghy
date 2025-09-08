@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SettingsOffice365 } from '@diac/standard-components-diagrams/officeConcepts'
+import { SettingsOffice365 } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <SettingsOffice365/>
 ```

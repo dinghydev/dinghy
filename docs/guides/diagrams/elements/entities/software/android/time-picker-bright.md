@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TimePickerBright } from '@diac/standard-components-diagrams/android'
+import { TimePickerBright } from '@dinghy/standard-components-diagrams/android'
 
 <TimePickerBright/>
 ```

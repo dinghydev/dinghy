@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DiagonalStripe } from '@diac/standard-components-diagrams/basic'
+import { DiagonalStripe } from '@dinghy/standard-components-diagrams/basic'
 
 <DiagonalStripe/>
 ```

@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { MultiInstanceParallel2 } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { MultiInstanceParallel2 } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <MultiInstanceParallel2/>
 ```

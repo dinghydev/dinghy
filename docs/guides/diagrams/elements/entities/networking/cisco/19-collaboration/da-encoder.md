@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DaEncoder } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { DaEncoder } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <DaEncoder/>
 ```

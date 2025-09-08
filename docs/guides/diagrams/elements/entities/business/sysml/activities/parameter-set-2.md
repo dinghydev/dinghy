@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ParameterSet2 } from '@diac/standard-components-diagrams/sysmlActivities'
+import { ParameterSet2 } from '@dinghy/standard-components-diagrams/sysmlActivities'
 
 <ParameterSet2/>
 ```

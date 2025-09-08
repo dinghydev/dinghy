@@ -1,6 +1,6 @@
-import type { Props } from '@diac/base-components'
+import type { Props } from '@dinghy/base-components'
 import type { DrawioContext, DrawioNodeTree } from '../types.ts'
-import { deepResolve } from '@diac/base-components'
+import { deepResolve } from '@dinghy/base-components'
 
 function resolveElementProps(_node: DrawioNodeTree): Props {
   return deepResolve(_node, _node._props._diagram.element)

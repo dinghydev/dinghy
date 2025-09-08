@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FileRepository } from '@diac/standard-components-diagrams/ibmData'
+import { FileRepository } from '@dinghy/standard-components-diagrams/ibmData'
 
 <FileRepository/>
 ```

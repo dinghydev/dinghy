@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Vkontakte } from '@diac/standard-components-diagrams/webLogos'
+import { Vkontakte } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Vkontakte/>
 ```

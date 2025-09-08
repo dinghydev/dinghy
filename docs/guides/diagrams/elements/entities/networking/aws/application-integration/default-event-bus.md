@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefaultEventBus } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { DefaultEventBus } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <DefaultEventBus/>
 ```

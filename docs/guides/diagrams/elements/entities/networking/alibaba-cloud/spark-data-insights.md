@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SparkDataInsights } from '@diac/standard-components-diagrams/alibabaCloud'
+import { SparkDataInsights } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <SparkDataInsights/>
 ```

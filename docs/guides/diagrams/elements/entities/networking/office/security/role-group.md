@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RoleGroup } from '@diac/standard-components-diagrams/officeSecurity'
+import { RoleGroup } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <RoleGroup/>
 ```

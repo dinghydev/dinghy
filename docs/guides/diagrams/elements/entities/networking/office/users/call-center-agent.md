@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CallCenterAgent } from '@diac/standard-components-diagrams/officeUsers'
+import { CallCenterAgent } from '@dinghy/standard-components-diagrams/officeUsers'
 
 <CallCenterAgent/>
 ```

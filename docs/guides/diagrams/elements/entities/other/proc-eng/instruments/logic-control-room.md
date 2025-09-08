@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LogicControlRoom } from '@diac/standard-components-diagrams/procEngInstruments'
+import { LogicControlRoom } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <LogicControlRoom/>
 ```

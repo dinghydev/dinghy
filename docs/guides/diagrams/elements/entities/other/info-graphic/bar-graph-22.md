@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BarGraph22 } from '@diac/standard-components-diagrams/infoGraphic'
+import { BarGraph22 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <BarGraph22/>
 ```

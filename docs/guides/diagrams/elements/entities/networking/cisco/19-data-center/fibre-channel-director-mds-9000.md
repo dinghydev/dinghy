@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FibreChannelDirectorMds9000 } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { FibreChannelDirectorMds9000 } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <FibreChannelDirectorMds9000/>
 ```

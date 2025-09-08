@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TfsVcRepository } from '@diac/standard-components-diagrams/azure2General'
+import { TfsVcRepository } from '@dinghy/standard-components-diagrams/azure2General'
 
 <TfsVcRepository/>
 ```

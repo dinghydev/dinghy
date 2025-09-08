@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowsAndLinuxVirtualizedApps } from '@diac/standard-components-diagrams/citrixResources'
+import { WindowsAndLinuxVirtualizedApps } from '@dinghy/standard-components-diagrams/citrixResources'
 
 <WindowsAndLinuxVirtualizedApps/>
 ```

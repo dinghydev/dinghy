@@ -16,7 +16,7 @@ Functions
 ## Usage
 
 ```
-import { CloudFunctions } from '@diac/standard-components-diagrams/gcp2IconsCompute'
+import { CloudFunctions } from '@dinghy/standard-components-diagrams/gcp2IconsCompute'
 
 <CloudFunctions/>
 ```

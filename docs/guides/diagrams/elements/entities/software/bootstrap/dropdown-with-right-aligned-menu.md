@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DropdownWithRightAlignedMenu } from '@diac/standard-components-diagrams/bootstrap'
+import { DropdownWithRightAlignedMenu } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <DropdownWithRightAlignedMenu/>
 ```

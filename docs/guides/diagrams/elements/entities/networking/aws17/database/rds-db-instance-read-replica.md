@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RdsDbInstanceReadReplica } from '@diac/standard-components-diagrams/aws17Database'
+import { RdsDbInstanceReadReplica } from '@dinghy/standard-components-diagrams/aws17Database'
 
 <RdsDbInstanceReadReplica/>
 ```

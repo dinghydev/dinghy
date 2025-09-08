@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { S3OnOutposts } from '@diac/standard-components-diagrams/awsStorage'
+import { S3OnOutposts } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <S3OnOutposts/>
 ```

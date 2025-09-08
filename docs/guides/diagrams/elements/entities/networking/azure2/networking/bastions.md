@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bastions } from '@diac/standard-components-diagrams/azure2Networking'
+import { Bastions } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <Bastions/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudExchangeOnline } from '@diac/standard-components-diagrams/officeClouds'
+import { CloudExchangeOnline } from '@dinghy/standard-components-diagrams/officeClouds'
 
 <CloudExchangeOnline/>
 ```

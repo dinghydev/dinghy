@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MissionLandingZone } from '@diac/standard-components-diagrams/azure2Other'
+import { MissionLandingZone } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <MissionLandingZone/>
 ```

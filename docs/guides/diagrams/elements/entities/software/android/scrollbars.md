@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Scrollbars } from '@diac/standard-components-diagrams/android'
+import { Scrollbars } from '@dinghy/standard-components-diagrams/android'
 
 <Scrollbars/>
 ```

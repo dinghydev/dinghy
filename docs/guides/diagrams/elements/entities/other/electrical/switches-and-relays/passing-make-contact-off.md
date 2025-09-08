@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PassingMakeContactOff } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { PassingMakeContactOff } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <PassingMakeContactOff/>
 ```

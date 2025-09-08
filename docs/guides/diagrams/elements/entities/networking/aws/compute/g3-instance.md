@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { G3Instance } from '@diac/standard-components-diagrams/awsCompute'
+import { G3Instance } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <G3Instance/>
 ```

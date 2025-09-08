@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapCloudAlm } from '@diac/standard-components-diagrams/sapOther'
+import { SapCloudAlm } from '@dinghy/standard-components-diagrams/sapOther'
 
 <SapCloudAlm/>
 ```

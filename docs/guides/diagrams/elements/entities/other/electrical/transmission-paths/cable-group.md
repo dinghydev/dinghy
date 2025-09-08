@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CableGroup } from '@diac/standard-components-diagrams/electricalTransmissionPaths'
+import { CableGroup } from '@dinghy/standard-components-diagrams/electricalTransmissionPaths'
 
 <CableGroup/>
 ```

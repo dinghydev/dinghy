@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Aggregator } from '@diac/standard-components-diagrams/eipMessageRouting'
+import { Aggregator } from '@dinghy/standard-components-diagrams/eipMessageRouting'
 
 <Aggregator/>
 ```

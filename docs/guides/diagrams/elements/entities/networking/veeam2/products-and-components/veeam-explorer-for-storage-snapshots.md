@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VeeamExplorerForStorageSnapshots } from '@diac/standard-components-diagrams/veeam2ProductsAndComponents'
+import { VeeamExplorerForStorageSnapshots } from '@dinghy/standard-components-diagrams/veeam2ProductsAndComponents'
 
 <VeeamExplorerForStorageSnapshots/>
 ```

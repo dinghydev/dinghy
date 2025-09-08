@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PowershellFile } from '@diac/standard-components-diagrams/azure'
+import { PowershellFile } from '@dinghy/standard-components-diagrams/azure'
 
 <PowershellFile/>
 ```

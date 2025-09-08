@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ForkJoin } from '@diac/standard-components-diagrams/uml'
+import { ForkJoin } from '@dinghy/standard-components-diagrams/uml'
 
 <ForkJoin/>
 ```

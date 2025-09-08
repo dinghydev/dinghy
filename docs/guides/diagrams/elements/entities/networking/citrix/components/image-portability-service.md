@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ImagePortabilityService } from '@diac/standard-components-diagrams/citrixComponents'
+import { ImagePortabilityService } from '@dinghy/standard-components-diagrams/citrixComponents'
 
 <ImagePortabilityService/>
 ```

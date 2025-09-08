@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CustomInputGroup } from '@diac/standard-components-diagrams/bootstrap'
+import { CustomInputGroup } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <CustomInputGroup/>
 ```

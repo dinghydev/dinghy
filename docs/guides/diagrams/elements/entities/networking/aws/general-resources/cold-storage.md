@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ColdStorage } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { ColdStorage } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <ColdStorage/>
 ```

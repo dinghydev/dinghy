@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Relay } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Relay } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Relay/>
 ```

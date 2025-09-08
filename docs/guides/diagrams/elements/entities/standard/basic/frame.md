@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Frame } from '@diac/standard-components-diagrams/basic'
+import { Frame } from '@dinghy/standard-components-diagrams/basic'
 
 <Frame/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VirtualNode } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { VirtualNode } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <VirtualNode/>
 ```

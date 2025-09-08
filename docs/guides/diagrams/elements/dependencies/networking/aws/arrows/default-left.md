@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { DefaultLeft } from '@diac/standard-components-diagrams/awsArrows'
+import { DefaultLeft } from '@dinghy/standard-components-diagrams/awsArrows'
 
 <DefaultLeft/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExtendWithCondition } from '@diac/standard-components-diagrams/sysmlUsecases'
+import { ExtendWithCondition } from '@dinghy/standard-components-diagrams/sysmlUsecases'
 
 <ExtendWithCondition/>
 ```

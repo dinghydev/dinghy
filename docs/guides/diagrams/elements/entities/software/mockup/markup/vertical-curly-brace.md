@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerticalCurlyBrace } from '@diac/standard-components-diagrams/mockupMarkup'
+import { VerticalCurlyBrace } from '@dinghy/standard-components-diagrams/mockupMarkup'
 
 <VerticalCurlyBrace/>
 ```

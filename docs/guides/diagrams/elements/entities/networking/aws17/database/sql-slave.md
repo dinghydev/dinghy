@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlSlave } from '@diac/standard-components-diagrams/aws17Database'
+import { SqlSlave } from '@dinghy/standard-components-diagrams/aws17Database'
 
 <SqlSlave/>
 ```

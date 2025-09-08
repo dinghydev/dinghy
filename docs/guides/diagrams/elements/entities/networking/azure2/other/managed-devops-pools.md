@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagedDevopsPools } from '@diac/standard-components-diagrams/azure2Other'
+import { ManagedDevopsPools } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ManagedDevopsPools/>
 ```

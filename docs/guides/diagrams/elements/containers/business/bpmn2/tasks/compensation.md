@@ -14,7 +14,7 @@
 ## Usage
 
 ```
-import { Compensation } from '@diac/standard-components-diagrams/bpmn2Tasks'
+import { Compensation } from '@dinghy/standard-components-diagrams/bpmn2Tasks'
 
 <Compensation/>
 ```

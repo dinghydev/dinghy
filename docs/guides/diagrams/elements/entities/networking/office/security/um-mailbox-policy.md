@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UmMailboxPolicy } from '@diac/standard-components-diagrams/officeSecurity'
+import { UmMailboxPolicy } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <UmMailboxPolicy/>
 ```

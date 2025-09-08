@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PlaybackControls } from '@diac/standard-components-diagrams/mockupMisc'
+import { PlaybackControls } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <PlaybackControls/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BlockchainService } from '@diac/standard-components-diagrams/azure2Blockchain'
+import { BlockchainService } from '@dinghy/standard-components-diagrams/azure2Blockchain'
 
 <BlockchainService/>
 ```

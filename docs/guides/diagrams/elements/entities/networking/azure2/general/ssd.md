@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ssd } from '@diac/standard-components-diagrams/azure2General'
+import { Ssd } from '@dinghy/standard-components-diagrams/azure2General'
 
 <Ssd/>
 ```

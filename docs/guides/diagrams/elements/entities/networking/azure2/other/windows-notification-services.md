@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowsNotificationServices } from '@diac/standard-components-diagrams/azure2Other'
+import { WindowsNotificationServices } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <WindowsNotificationServices/>
 ```

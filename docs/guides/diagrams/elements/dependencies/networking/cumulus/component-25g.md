@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { Component25g } from '@diac/standard-components-diagrams/cumulus'
+import { Component25g } from '@dinghy/standard-components-diagrams/cumulus'
 
 <Component25g/>
 ```

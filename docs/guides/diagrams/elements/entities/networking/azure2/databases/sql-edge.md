@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlEdge } from '@diac/standard-components-diagrams/azure2Databases'
+import { SqlEdge } from '@dinghy/standard-components-diagrams/azure2Databases'
 
 <SqlEdge/>
 ```

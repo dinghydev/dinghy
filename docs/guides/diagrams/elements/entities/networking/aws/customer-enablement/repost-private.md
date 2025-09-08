@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RepostPrivate } from '@diac/standard-components-diagrams/awsCustomerEnablement'
+import { RepostPrivate } from '@dinghy/standard-components-diagrams/awsCustomerEnablement'
 
 <RepostPrivate/>
 ```

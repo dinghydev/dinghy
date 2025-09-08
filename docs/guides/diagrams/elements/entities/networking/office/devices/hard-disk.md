@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HardDisk } from '@diac/standard-components-diagrams/officeDevices'
+import { HardDisk } from '@dinghy/standard-components-diagrams/officeDevices'
 
 <HardDisk/>
 ```

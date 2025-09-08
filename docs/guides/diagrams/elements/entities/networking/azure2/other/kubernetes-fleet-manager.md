@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { KubernetesFleetManager } from '@diac/standard-components-diagrams/azure2Other'
+import { KubernetesFleetManager } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <KubernetesFleetManager/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ArcPostgresql } from '@diac/standard-components-diagrams/azure2Other'
+import { ArcPostgresql } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <ArcPostgresql/>
 ```

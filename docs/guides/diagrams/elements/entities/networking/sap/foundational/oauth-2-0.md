@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Oauth20 } from '@diac/standard-components-diagrams/sapFoundational'
+import { Oauth20 } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <Oauth20/>
 ```

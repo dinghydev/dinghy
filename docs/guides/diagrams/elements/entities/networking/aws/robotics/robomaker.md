@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Robomaker } from '@diac/standard-components-diagrams/awsRobotics'
+import { Robomaker } from '@dinghy/standard-components-diagrams/awsRobotics'
 
 <Robomaker/>
 ```

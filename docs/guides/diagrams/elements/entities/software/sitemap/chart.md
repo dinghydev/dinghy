@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Chart } from '@diac/standard-components-diagrams/sitemap'
+import { Chart } from '@dinghy/standard-components-diagrams/sitemap'
 
 <Chart/>
 ```

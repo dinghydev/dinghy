@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureDataExplorerClusters } from '@diac/standard-components-diagrams/caeAnalyticsService'
+import { AzureDataExplorerClusters } from '@dinghy/standard-components-diagrams/caeAnalyticsService'
 
 <AzureDataExplorerClusters/>
 ```

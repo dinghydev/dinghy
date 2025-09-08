@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Fotolog } from '@diac/standard-components-diagrams/webLogos'
+import { Fotolog } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Fotolog/>
 ```

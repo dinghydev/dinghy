@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MicrosoftActiveDirectory } from '@diac/standard-components-diagrams/veeam2Software'
+import { MicrosoftActiveDirectory } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <MicrosoftActiveDirectory/>
 ```

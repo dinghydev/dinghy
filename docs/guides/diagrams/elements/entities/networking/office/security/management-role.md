@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ManagementRole } from '@diac/standard-components-diagrams/officeSecurity'
+import { ManagementRole } from '@dinghy/standard-components-diagrams/officeSecurity'
 
 <ManagementRole/>
 ```

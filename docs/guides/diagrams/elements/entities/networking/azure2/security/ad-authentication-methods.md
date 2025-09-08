@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AdAuthenticationMethods } from '@diac/standard-components-diagrams/azure2Security'
+import { AdAuthenticationMethods } from '@dinghy/standard-components-diagrams/azure2Security'
 
 <AdAuthenticationMethods/>
 ```

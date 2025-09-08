@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExplorerForOracle } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { ExplorerForOracle } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <ExplorerForOracle/>
 ```

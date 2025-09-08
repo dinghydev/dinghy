@@ -16,7 +16,7 @@ Director
 ## Usage
 
 ```
-import { TrafficDirector } from '@diac/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
+import { TrafficDirector } from '@dinghy/standard-components-diagrams/gcp2IconsHybridAndMultiCloud'
 
 <TrafficDirector/>
 ```

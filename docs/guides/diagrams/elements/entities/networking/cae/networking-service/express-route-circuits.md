@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExpressRouteCircuits } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { ExpressRouteCircuits } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <ExpressRouteCircuits/>
 ```

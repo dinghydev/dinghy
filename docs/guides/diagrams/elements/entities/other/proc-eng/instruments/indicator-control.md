@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IndicatorControl } from '@diac/standard-components-diagrams/procEngInstruments'
+import { IndicatorControl } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <IndicatorControl/>
 ```

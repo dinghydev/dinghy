@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Captcha } from '@diac/standard-components-diagrams/mockupText'
+import { Captcha } from '@dinghy/standard-components-diagrams/mockupText'
 
 <Captcha/>
 ```

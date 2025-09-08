@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Powerpoint } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Powerpoint } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Powerpoint/>
 ```

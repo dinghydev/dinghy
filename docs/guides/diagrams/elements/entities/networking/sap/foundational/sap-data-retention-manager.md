@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapDataRetentionManager } from '@diac/standard-components-diagrams/sapFoundational'
+import { SapDataRetentionManager } from '@dinghy/standard-components-diagrams/sapFoundational'
 
 <SapDataRetentionManager/>
 ```

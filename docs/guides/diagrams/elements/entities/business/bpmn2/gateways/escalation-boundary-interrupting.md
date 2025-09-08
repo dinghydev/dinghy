@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EscalationBoundaryInterrupting } from '@diac/standard-components-diagrams/bpmn2Gateways'
+import { EscalationBoundaryInterrupting } from '@dinghy/standard-components-diagrams/bpmn2Gateways'
 
 <EscalationBoundaryInterrupting/>
 ```

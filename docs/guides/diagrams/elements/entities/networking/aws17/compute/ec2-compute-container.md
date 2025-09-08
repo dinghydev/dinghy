@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ec2ComputeContainer } from '@diac/standard-components-diagrams/aws17Compute'
+import { Ec2ComputeContainer } from '@dinghy/standard-components-diagrams/aws17Compute'
 
 <Ec2ComputeContainer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UpgradeApplication } from '@diac/standard-components-diagrams/officeConcepts'
+import { UpgradeApplication } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <UpgradeApplication/>
 ```

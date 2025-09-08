@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InputOutputFilter } from '@diac/standard-components-diagrams/officeConcepts'
+import { InputOutputFilter } from '@dinghy/standard-components-diagrams/officeConcepts'
 
 <InputOutputFilter/>
 ```

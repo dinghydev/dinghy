@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExchangeAccess } from '@diac/standard-components-diagrams/azure2Intune'
+import { ExchangeAccess } from '@dinghy/standard-components-diagrams/azure2Intune'
 
 <ExchangeAccess/>
 ```

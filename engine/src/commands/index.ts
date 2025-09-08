@@ -3,7 +3,7 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '@diac/cli'
+} from '@dinghy/cli'
 import {
   devcontainer,
   info,
@@ -13,7 +13,7 @@ import {
   showHelp,
   throwDiacError,
   versionDetails,
-} from '@diac/cli'
+} from '@dinghy/cli'
 import render from './render/index.ts'
 import diagram from './diagram/index.ts'
 import tf from './tf/index.ts'
@@ -22,7 +22,7 @@ import upgrade from './upgrade.ts'
 import check from './check.ts'
 import deno from './deno.ts'
 import bash from './bash.ts'
-const debug = Debug('diac:main')
+const debug = Debug('dinghy:main')
 
 const options: CommandOptions = {
   boolean: ['debug', 'help', 'version'],
@@ -42,16 +42,16 @@ const options: CommandOptions = {
     v: 'version',
     c: 'commands',
   },
-  cmdDescription: 'DIaC Engine',
+  cmdDescription: 'Dinghy Engine',
   additionalOptions: {
     'Global Options': [
       {
         name: '--app-home',
-        description: 'The path to the DIaC app home directory',
+        description: 'The path to the Dinghy app home directory',
       },
       {
         name: '--version',
-        description: 'The docker image version of the DIaC app to use',
+        description: 'The docker image version of the Dinghy app to use',
       },
       {
         name: '--debug',

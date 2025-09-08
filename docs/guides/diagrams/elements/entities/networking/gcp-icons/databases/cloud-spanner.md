@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudSpanner } from '@diac/standard-components-diagrams/gcpIconsDatabases'
+import { CloudSpanner } from '@dinghy/standard-components-diagrams/gcpIconsDatabases'
 
 <CloudSpanner/>
 ```

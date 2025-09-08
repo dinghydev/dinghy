@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ChipWithTextAndIcon } from '@diac/standard-components-diagrams/gmdlChips'
+import { ChipWithTextAndIcon } from '@dinghy/standard-components-diagrams/gmdlChips'
 
 <ChipWithTextAndIcon/>
 ```

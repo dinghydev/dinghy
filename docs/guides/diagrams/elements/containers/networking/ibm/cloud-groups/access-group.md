@@ -16,7 +16,7 @@
 ## Usage
 
 ```
-import { AccessGroup } from '@diac/standard-components-diagrams/ibmCloudGroups'
+import { AccessGroup } from '@dinghy/standard-components-diagrams/ibmCloudGroups'
 
 <AccessGroup/>
 ```

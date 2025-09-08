@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AmazonPolly } from '@diac/standard-components-diagrams/aws18MachineLearning'
+import { AmazonPolly } from '@dinghy/standard-components-diagrams/aws18MachineLearning'
 
 <AmazonPolly/>
 ```

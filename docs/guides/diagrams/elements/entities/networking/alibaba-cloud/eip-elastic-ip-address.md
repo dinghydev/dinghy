@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { EipElasticIpAddress } from '@diac/standard-components-diagrams/alibabaCloud'
+import { EipElasticIpAddress } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <EipElasticIpAddress/>
 ```

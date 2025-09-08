@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CustomVision } from '@diac/standard-components-diagrams/azure2AiAndMachineLearning'
+import { CustomVision } from '@dinghy/standard-components-diagrams/azure2AiAndMachineLearning'
 
 <CustomVision/>
 ```

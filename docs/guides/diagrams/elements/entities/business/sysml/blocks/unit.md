@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Unit } from '@diac/standard-components-diagrams/sysmlBlocks'
+import { Unit } from '@dinghy/standard-components-diagrams/sysmlBlocks'
 
 <Unit/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rss } from '@diac/standard-components-diagrams/signsTech'
+import { Rss } from '@dinghy/standard-components-diagrams/signsTech'
 
 <Rss/>
 ```

@@ -16,7 +16,7 @@ Instance
 ## Usage
 
 ```
-import { DbOnInstance } from '@diac/standard-components-diagrams/aws18Compute'
+import { DbOnInstance } from '@dinghy/standard-components-diagrams/aws18Compute'
 
 <DbOnInstance/>
 ```

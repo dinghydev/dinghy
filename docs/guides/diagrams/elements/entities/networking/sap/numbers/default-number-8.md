@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DefaultNumber8 } from '@diac/standard-components-diagrams/sapNumbers'
+import { DefaultNumber8 } from '@dinghy/standard-components-diagrams/sapNumbers'
 
 <DefaultNumber8/>
 ```

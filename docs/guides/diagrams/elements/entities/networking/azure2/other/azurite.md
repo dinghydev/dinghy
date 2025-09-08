@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Azurite } from '@diac/standard-components-diagrams/azure2Other'
+import { Azurite } from '@dinghy/standard-components-diagrams/azure2Other'
 
 <Azurite/>
 ```

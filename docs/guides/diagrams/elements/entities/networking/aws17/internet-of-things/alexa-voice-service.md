@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AlexaVoiceService } from '@diac/standard-components-diagrams/aws17InternetOfThings'
+import { AlexaVoiceService } from '@dinghy/standard-components-diagrams/aws17InternetOfThings'
 
 <AlexaVoiceService/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudComputerPrivate } from '@diac/standard-components-diagrams/clipartNetworking'
+import { CloudComputerPrivate } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <CloudComputerPrivate/>
 ```

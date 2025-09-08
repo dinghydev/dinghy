@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LcSfp } from '@diac/standard-components-diagrams/rackHpeArubaSwitches'
+import { LcSfp } from '@dinghy/standard-components-diagrams/rackHpeArubaSwitches'
 
 <LcSfp/>
 ```

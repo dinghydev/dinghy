@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Route53ResolverDnsFirewall } from '@diac/standard-components-diagrams/awsNetworkContentDelivery'
+import { Route53ResolverDnsFirewall } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 <Route53ResolverDnsFirewall/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CollectiveNsxEsg } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { CollectiveNsxEsg } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <CollectiveNsxEsg/>
 ```

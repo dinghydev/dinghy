@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X1026032Lockout } from '@diac/standard-components-diagrams/fluidPower'
+import { X1026032Lockout } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X1026032Lockout/>
 ```

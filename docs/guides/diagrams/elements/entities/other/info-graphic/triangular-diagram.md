@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TriangularDiagram } from '@diac/standard-components-diagrams/infoGraphic'
+import { TriangularDiagram } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <TriangularDiagram/>
 ```

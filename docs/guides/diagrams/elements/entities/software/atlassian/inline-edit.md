@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InlineEdit } from '@diac/standard-components-diagrams/atlassian'
+import { InlineEdit } from '@dinghy/standard-components-diagrams/atlassian'
 
 <InlineEdit/>
 ```

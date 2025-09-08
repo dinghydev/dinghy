@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FsxForNetappOntap } from '@diac/standard-components-diagrams/awsStorage'
+import { FsxForNetappOntap } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <FsxForNetappOntap/>
 ```

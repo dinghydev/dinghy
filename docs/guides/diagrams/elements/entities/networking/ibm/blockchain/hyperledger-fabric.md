@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HyperledgerFabric } from '@diac/standard-components-diagrams/ibmBlockchain'
+import { HyperledgerFabric } from '@dinghy/standard-components-diagrams/ibmBlockchain'
 
 <HyperledgerFabric/>
 ```

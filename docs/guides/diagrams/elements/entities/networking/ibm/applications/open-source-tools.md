@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OpenSourceTools } from '@diac/standard-components-diagrams/ibmApplications'
+import { OpenSourceTools } from '@dinghy/standard-components-diagrams/ibmApplications'
 
 <OpenSourceTools/>
 ```

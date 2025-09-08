@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HexLoop4 } from '@diac/standard-components-diagrams/infoGraphic'
+import { HexLoop4 } from '@dinghy/standard-components-diagrams/infoGraphic'
 
 <HexLoop4/>
 ```

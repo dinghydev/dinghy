@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudwatchRum } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { CloudwatchRum } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <CloudwatchRum/>
 ```

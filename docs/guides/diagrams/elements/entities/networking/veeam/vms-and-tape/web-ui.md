@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WebUi } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { WebUi } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <WebUi/>
 ```

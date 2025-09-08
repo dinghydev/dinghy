@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DatabaseCube } from '@diac/standard-components-diagrams/activeDirectory'
+import { DatabaseCube } from '@dinghy/standard-components-diagrams/activeDirectory'
 
 <DatabaseCube/>
 ```

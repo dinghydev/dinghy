@@ -4,7 +4,7 @@ import {
   ResolvableStringSchema,
   Shape,
   useTypedNode,
-} from '@diac/base-components'
+} from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 

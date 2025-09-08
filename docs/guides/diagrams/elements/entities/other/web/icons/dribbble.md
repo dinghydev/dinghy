@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Dribbble } from '@diac/standard-components-diagrams/webIcons'
+import { Dribbble } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Dribbble/>
 ```

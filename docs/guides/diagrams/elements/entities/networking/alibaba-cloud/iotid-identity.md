@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IotidIdentity } from '@diac/standard-components-diagrams/alibabaCloud'
+import { IotidIdentity } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <IotidIdentity/>
 ```

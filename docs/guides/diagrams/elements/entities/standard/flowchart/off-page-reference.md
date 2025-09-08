@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OffPageReference } from '@diac/standard-components-diagrams/flowchart'
+import { OffPageReference } from '@dinghy/standard-components-diagrams/flowchart'
 
 <OffPageReference/>
 ```

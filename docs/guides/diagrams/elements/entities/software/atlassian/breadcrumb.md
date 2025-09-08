@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Breadcrumb } from '@diac/standard-components-diagrams/atlassian'
+import { Breadcrumb } from '@dinghy/standard-components-diagrams/atlassian'
 
 <Breadcrumb/>
 ```

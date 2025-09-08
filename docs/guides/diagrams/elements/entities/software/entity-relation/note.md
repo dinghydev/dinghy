@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Note } from '@diac/standard-components-diagrams/entityRelation'
+import { Note } from '@dinghy/standard-components-diagrams/entityRelation'
 
 <Note/>
 ```

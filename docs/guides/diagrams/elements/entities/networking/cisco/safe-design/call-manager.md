@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CallManager } from '@diac/standard-components-diagrams/ciscoSafeDesign'
+import { CallManager } from '@dinghy/standard-components-diagrams/ciscoSafeDesign'
 
 <CallManager/>
 ```

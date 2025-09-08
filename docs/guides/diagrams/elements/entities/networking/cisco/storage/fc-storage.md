@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FcStorage } from '@diac/standard-components-diagrams/ciscoStorage'
+import { FcStorage } from '@dinghy/standard-components-diagrams/ciscoStorage'
 
 <FcStorage/>
 ```

@@ -1,5 +1,5 @@
-import { Shape } from '@diac/base-components'
-import type { DiagramNodeProps } from '@diac/base-components'
+import { Shape } from '@dinghy/base-components'
+import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const ROUTE53_COLOR = '#8C4FFF'
 export const ROUTE53 = {

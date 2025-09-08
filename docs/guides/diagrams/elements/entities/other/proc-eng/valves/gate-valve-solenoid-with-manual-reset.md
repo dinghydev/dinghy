@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GateValveSolenoidWithManualReset } from '@diac/standard-components-diagrams/procEngValves'
+import { GateValveSolenoidWithManualReset } from '@dinghy/standard-components-diagrams/procEngValves'
 
 <GateValveSolenoidWithManualReset/>
 ```

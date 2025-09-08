@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Svc2 } from '@diac/standard-components-diagrams/kubernetes'
+import { Svc2 } from '@dinghy/standard-components-diagrams/kubernetes'
 
 <Svc2/>
 ```

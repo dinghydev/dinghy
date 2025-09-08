@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AthensGray } from '@diac/standard-components-diagrams/cumulus'
+import { AthensGray } from '@dinghy/standard-components-diagrams/cumulus'
 
 <AthensGray/>
 ```

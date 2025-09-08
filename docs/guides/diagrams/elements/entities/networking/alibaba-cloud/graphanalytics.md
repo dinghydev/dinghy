@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Graphanalytics } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Graphanalytics } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Graphanalytics/>
 ```

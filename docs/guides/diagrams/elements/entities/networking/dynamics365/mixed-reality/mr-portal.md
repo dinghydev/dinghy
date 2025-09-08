@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MrPortal } from '@diac/standard-components-diagrams/dynamics365MixedReality'
+import { MrPortal } from '@dinghy/standard-components-diagrams/dynamics365MixedReality'
 
 <MrPortal/>
 ```

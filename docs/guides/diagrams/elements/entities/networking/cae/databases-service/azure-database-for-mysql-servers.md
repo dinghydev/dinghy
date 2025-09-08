@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureDatabaseForMysqlServers } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { AzureDatabaseForMysqlServers } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <AzureDatabaseForMysqlServers/>
 ```

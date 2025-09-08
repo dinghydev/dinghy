@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BusinessActor } from '@diac/standard-components-diagrams/archimate2'
+import { BusinessActor } from '@dinghy/standard-components-diagrams/archimate2'
 
 <BusinessActor/>
 ```

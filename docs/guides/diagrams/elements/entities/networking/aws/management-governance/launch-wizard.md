@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LaunchWizard } from '@diac/standard-components-diagrams/awsManagementGovernance'
+import { LaunchWizard } from '@dinghy/standard-components-diagrams/awsManagementGovernance'
 
 <LaunchWizard/>
 ```

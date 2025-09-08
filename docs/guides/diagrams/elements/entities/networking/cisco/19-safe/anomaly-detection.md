@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AnomalyDetection } from '@diac/standard-components-diagrams/cisco19Safe'
+import { AnomalyDetection } from '@dinghy/standard-components-diagrams/cisco19Safe'
 
 <AnomalyDetection/>
 ```

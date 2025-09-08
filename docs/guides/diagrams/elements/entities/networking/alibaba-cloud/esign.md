@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Esign } from '@diac/standard-components-diagrams/alibabaCloud'
+import { Esign } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <Esign/>
 ```

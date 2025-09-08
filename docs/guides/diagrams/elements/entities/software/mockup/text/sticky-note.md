@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { StickyNote } from '@diac/standard-components-diagrams/mockupText'
+import { StickyNote } from '@dinghy/standard-components-diagrams/mockupText'
 
 <StickyNote/>
 ```

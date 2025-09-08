@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExpressWorkflows } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { ExpressWorkflows } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <ExpressWorkflows/>
 ```

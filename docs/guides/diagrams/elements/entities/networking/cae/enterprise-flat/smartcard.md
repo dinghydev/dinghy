@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Smartcard } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { Smartcard } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <Smartcard/>
 ```

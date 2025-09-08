@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Bots2 } from '@diac/standard-components-diagrams/salesforcePlatform'
+import { Bots2 } from '@dinghy/standard-components-diagrams/salesforcePlatform'
 
 <Bots2/>
 ```

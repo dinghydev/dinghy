@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DbfsDatabaseFileSystem } from '@diac/standard-components-diagrams/alibabaCloud'
+import { DbfsDatabaseFileSystem } from '@dinghy/standard-components-diagrams/alibabaCloud'
 
 <DbfsDatabaseFileSystem/>
 ```

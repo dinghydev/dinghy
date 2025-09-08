@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RemovableTag } from '@diac/standard-components-diagrams/atlassian'
+import { RemovableTag } from '@dinghy/standard-components-diagrams/atlassian'
 
 <RemovableTag/>
 ```

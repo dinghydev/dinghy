@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { NetflowRouter } from '@diac/standard-components-diagrams/cisco19RoutingWan'
+import { NetflowRouter } from '@dinghy/standard-components-diagrams/cisco19RoutingWan'
 
 <NetflowRouter/>
 ```

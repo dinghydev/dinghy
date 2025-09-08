@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Rating } from '@diac/standard-components-diagrams/mockupMisc'
+import { Rating } from '@dinghy/standard-components-diagrams/mockupMisc'
 
 <Rating/>
 ```

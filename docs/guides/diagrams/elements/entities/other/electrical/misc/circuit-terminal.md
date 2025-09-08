@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CircuitTerminal } from '@diac/standard-components-diagrams/electricalMisc'
+import { CircuitTerminal } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <CircuitTerminal/>
 ```

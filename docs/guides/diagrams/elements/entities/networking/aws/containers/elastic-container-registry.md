@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticContainerRegistry } from '@diac/standard-components-diagrams/awsContainers'
+import { ElasticContainerRegistry } from '@dinghy/standard-components-diagrams/awsContainers'
 
 <ElasticContainerRegistry/>
 ```

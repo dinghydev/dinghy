@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DeviceManagementFleet } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { DeviceManagementFleet } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <DeviceManagementFleet/>
 ```

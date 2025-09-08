@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BiomedicalBeaker } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { BiomedicalBeaker } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <BiomedicalBeaker/>
 ```

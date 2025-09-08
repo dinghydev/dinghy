@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Mousepointer } from '@diac/standard-components-diagrams/clipartVarious'
+import { Mousepointer } from '@dinghy/standard-components-diagrams/clipartVarious'
 
 <Mousepointer/>
 ```

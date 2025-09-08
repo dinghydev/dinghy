@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GkeOnPrem } from '@diac/standard-components-diagrams/gcpIconsCompute'
+import { GkeOnPrem } from '@dinghy/standard-components-diagrams/gcpIconsCompute'
 
 <GkeOnPrem/>
 ```

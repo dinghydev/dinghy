@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SwiftContainer } from '@diac/standard-components-diagrams/openstackBlue'
+import { SwiftContainer } from '@dinghy/standard-components-diagrams/openstackBlue'
 
 <SwiftContainer/>
 ```

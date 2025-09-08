@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Trace } from '@diac/standard-components-diagrams/gcpIconsManagementTools'
+import { Trace } from '@dinghy/standard-components-diagrams/gcpIconsManagementTools'
 
 <Trace/>
 ```

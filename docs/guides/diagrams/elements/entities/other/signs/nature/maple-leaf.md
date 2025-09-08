@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MapleLeaf } from '@diac/standard-components-diagrams/signsNature'
+import { MapleLeaf } from '@dinghy/standard-components-diagrams/signsNature'
 
 <MapleLeaf/>
 ```

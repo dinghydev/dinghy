@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ComputerFunctionControlRoom } from '@diac/standard-components-diagrams/procEngInstruments'
+import { ComputerFunctionControlRoom } from '@dinghy/standard-components-diagrams/procEngInstruments'
 
 <ComputerFunctionControlRoom/>
 ```

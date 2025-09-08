@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DelayedAction } from '@diac/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+import { DelayedAction } from '@dinghy/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
 
 <DelayedAction/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CorporateDataCenter } from '@diac/standard-components-diagrams/aws17General'
+import { CorporateDataCenter } from '@dinghy/standard-components-diagrams/aws17General'
 
 <CorporateDataCenter/>
 ```

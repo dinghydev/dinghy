@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Gps } from '@diac/standard-components-diagrams/gmdlIcons'
+import { Gps } from '@dinghy/standard-components-diagrams/gmdlIcons'
 
 <Gps/>
 ```

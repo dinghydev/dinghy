@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Interface2 } from '@diac/standard-components-diagrams/archimate3Generic'
+import { Interface2 } from '@dinghy/standard-components-diagrams/archimate3Generic'
 
 <Interface2/>
 ```

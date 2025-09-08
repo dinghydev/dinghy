@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { And } from '@diac/standard-components-diagrams/general'
+import { And } from '@dinghy/standard-components-diagrams/general'
 
 <And/>
 ```

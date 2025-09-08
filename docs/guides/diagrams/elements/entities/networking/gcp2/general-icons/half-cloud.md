@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { HalfCloud } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { HalfCloud } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <HalfCloud/>
 ```

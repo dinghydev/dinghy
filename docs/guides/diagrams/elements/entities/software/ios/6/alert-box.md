@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AlertBox } from '@diac/standard-components-diagrams/ios6'
+import { AlertBox } from '@dinghy/standard-components-diagrams/ios6'
 
 <AlertBox/>
 ```

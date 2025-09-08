@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { JoystickKeyboard } from '@diac/standard-components-diagrams/cisco19Collaboration'
+import { JoystickKeyboard } from '@dinghy/standard-components-diagrams/cisco19Collaboration'
 
 <JoystickKeyboard/>
 ```

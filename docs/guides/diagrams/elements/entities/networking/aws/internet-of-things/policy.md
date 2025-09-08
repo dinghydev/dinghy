@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Policy } from '@diac/standard-components-diagrams/awsInternetOfThings'
+import { Policy } from '@dinghy/standard-components-diagrams/awsInternetOfThings'
 
 <Policy/>
 ```

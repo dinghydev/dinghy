@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TafficDirector } from '@diac/standard-components-diagrams/gcpIconsNetworking'
+import { TafficDirector } from '@dinghy/standard-components-diagrams/gcpIconsNetworking'
 
 <TafficDirector/>
 ```

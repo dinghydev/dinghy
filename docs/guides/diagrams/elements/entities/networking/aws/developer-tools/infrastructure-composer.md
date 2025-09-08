@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InfrastructureComposer } from '@diac/standard-components-diagrams/awsDeveloperTools'
+import { InfrastructureComposer } from '@dinghy/standard-components-diagrams/awsDeveloperTools'
 
 <InfrastructureComposer/>
 ```

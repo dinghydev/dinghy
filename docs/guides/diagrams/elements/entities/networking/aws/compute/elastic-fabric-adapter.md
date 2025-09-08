@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ElasticFabricAdapter } from '@diac/standard-components-diagrams/awsCompute'
+import { ElasticFabricAdapter } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <ElasticFabricAdapter/>
 ```

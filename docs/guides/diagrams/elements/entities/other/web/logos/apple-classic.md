@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppleClassic } from '@diac/standard-components-diagrams/webLogos'
+import { AppleClassic } from '@dinghy/standard-components-diagrams/webLogos'
 
 <AppleClassic/>
 ```

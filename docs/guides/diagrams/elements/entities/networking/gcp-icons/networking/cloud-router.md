@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { CloudRouter } from '@diac/standard-components-diagrams/gcpIconsNetworking'
+import { CloudRouter } from '@dinghy/standard-components-diagrams/gcpIconsNetworking'
 
 <CloudRouter/>
 ```

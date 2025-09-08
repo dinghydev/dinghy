@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Ses } from '@diac/standard-components-diagrams/aws17Messaging'
+import { Ses } from '@dinghy/standard-components-diagrams/aws17Messaging'
 
 <Ses/>
 ```

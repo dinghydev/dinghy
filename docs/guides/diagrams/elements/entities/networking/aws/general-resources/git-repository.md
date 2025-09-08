@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GitRepository } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { GitRepository } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <GitRepository/>
 ```

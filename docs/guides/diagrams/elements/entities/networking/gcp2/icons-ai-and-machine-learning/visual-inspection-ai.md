@@ -16,7 +16,7 @@ Inspection AI
 ## Usage
 
 ```
-import { VisualInspectionAi } from '@diac/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
+import { VisualInspectionAi } from '@dinghy/standard-components-diagrams/gcp2IconsAiAndMachineLearning'
 
 <VisualInspectionAi/>
 ```

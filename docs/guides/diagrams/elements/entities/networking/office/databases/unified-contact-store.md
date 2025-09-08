@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { UnifiedContactStore } from '@diac/standard-components-diagrams/officeDatabases'
+import { UnifiedContactStore } from '@dinghy/standard-components-diagrams/officeDatabases'
 
 <UnifiedContactStore/>
 ```

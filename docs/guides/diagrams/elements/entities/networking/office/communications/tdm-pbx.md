@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TdmPbx } from '@diac/standard-components-diagrams/officeCommunications'
+import { TdmPbx } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <TdmPbx/>
 ```

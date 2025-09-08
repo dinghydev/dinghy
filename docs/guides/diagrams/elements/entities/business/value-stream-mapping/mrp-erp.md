@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { MrpErp } from '@diac/standard-components-diagrams/valueStreamMapping'
+import { MrpErp } from '@dinghy/standard-components-diagrams/valueStreamMapping'
 
 <MrpErp/>
 ```

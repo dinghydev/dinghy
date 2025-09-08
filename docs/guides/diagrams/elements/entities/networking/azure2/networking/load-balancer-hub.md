@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { LoadBalancerHub } from '@diac/standard-components-diagrams/azure2Networking'
+import { LoadBalancerHub } from '@dinghy/standard-components-diagrams/azure2Networking'
 
 <LoadBalancerHub/>
 ```

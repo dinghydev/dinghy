@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ExplorerForExchange } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { ExplorerForExchange } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <ExplorerForExchange/>
 ```

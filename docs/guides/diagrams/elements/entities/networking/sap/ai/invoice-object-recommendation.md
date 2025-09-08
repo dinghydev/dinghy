@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { InvoiceObjectRecommendation } from '@diac/standard-components-diagrams/sapAi'
+import { InvoiceObjectRecommendation } from '@dinghy/standard-components-diagrams/sapAi'
 
 <InvoiceObjectRecommendation/>
 ```

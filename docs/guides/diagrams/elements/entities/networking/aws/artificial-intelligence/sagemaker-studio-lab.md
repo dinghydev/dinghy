@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SagemakerStudioLab } from '@diac/standard-components-diagrams/awsArtificialIntelligence'
+import { SagemakerStudioLab } from '@dinghy/standard-components-diagrams/awsArtificialIntelligence'
 
 <SagemakerStudioLab/>
 ```

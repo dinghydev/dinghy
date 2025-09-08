@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Snowflake } from '@diac/standard-components-diagrams/signsNature'
+import { Snowflake } from '@dinghy/standard-components-diagrams/signsNature'
 
 <Snowflake/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GearChain } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { GearChain } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <GearChain/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Recover } from '@diac/standard-components-diagrams/awsGeneralResources'
+import { Recover } from '@dinghy/standard-components-diagrams/awsGeneralResources'
 
 <Recover/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SqlServerStretchDb } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { SqlServerStretchDb } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <SqlServerStretchDb/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WirelessRouterN } from '@diac/standard-components-diagrams/clipartNetworking'
+import { WirelessRouterN } from '@dinghy/standard-components-diagrams/clipartNetworking'
 
 <WirelessRouterN/>
 ```

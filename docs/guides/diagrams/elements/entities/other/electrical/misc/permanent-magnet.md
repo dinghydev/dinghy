@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { PermanentMagnet } from '@diac/standard-components-diagrams/electricalMisc'
+import { PermanentMagnet } from '@dinghy/standard-components-diagrams/electricalMisc'
 
 <PermanentMagnet/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IotCentralApplications } from '@diac/standard-components-diagrams/caeInternetOfThingsService'
+import { IotCentralApplications } from '@dinghy/standard-components-diagrams/caeInternetOfThingsService'
 
 <IotCentralApplications/>
 ```

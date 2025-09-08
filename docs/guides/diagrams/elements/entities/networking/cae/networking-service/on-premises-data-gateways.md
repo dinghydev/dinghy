@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { OnPremisesDataGateways } from '@diac/standard-components-diagrams/caeNetworkingService'
+import { OnPremisesDataGateways } from '@dinghy/standard-components-diagrams/caeNetworkingService'
 
 <OnPremisesDataGateways/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DocumentDbFile } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { DocumentDbFile } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <DocumentDbFile/>
 ```

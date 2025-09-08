@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DataProcess } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { DataProcess } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <DataProcess/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ClampedFlangeCoupling } from '@diac/standard-components-diagrams/procEngFittings'
+import { ClampedFlangeCoupling } from '@dinghy/standard-components-diagrams/procEngFittings'
 
 <ClampedFlangeCoupling/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapBrtools } from '@diac/standard-components-diagrams/veeam2Software'
+import { SapBrtools } from '@dinghy/standard-components-diagrams/veeam2Software'
 
 <SapBrtools/>
 ```

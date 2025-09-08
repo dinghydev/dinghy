@@ -13,7 +13,7 @@
 ## Usage
 
 ```
-import { VerticalElbow } from '@diac/standard-components-diagrams/misc'
+import { VerticalElbow } from '@dinghy/standard-components-diagrams/misc'
 
 <VerticalElbow/>
 ```

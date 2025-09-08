@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RemoteSite } from '@diac/standard-components-diagrams/veeam3d'
+import { RemoteSite } from '@dinghy/standard-components-diagrams/veeam3d'
 
 <RemoteSite/>
 ```

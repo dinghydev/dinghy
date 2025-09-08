@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ConsumptionPlane } from '@diac/standard-components-diagrams/vmwareValidatedDesign'
+import { ConsumptionPlane } from '@dinghy/standard-components-diagrams/vmwareValidatedDesign'
 
 <ConsumptionPlane/>
 ```

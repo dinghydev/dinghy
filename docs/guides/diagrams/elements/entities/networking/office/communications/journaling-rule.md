@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { JournalingRule } from '@diac/standard-components-diagrams/officeCommunications'
+import { JournalingRule } from '@dinghy/standard-components-diagrams/officeCommunications'
 
 <JournalingRule/>
 ```

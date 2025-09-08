@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Lifecycle } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { Lifecycle } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <Lifecycle/>
 ```

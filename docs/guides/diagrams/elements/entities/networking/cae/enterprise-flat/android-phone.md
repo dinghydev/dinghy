@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AndroidPhone } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { AndroidPhone } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <AndroidPhone/>
 ```

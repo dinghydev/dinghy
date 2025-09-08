@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { WindowsServer } from '@diac/standard-components-diagrams/caeEnterpriseFlat'
+import { WindowsServer } from '@dinghy/standard-components-diagrams/caeEnterpriseFlat'
 
 <WindowsServer/>
 ```

@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Sitejot } from '@diac/standard-components-diagrams/webLogos'
+import { Sitejot } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Sitejot/>
 ```

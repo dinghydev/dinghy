@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { RetrieveRank } from '@diac/standard-components-diagrams/ibmMiscellaneous'
+import { RetrieveRank } from '@dinghy/standard-components-diagrams/ibmMiscellaneous'
 
 <RetrieveRank/>
 ```

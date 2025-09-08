@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SapBusinessAcceleratorHub } from '@diac/standard-components-diagrams/sapIntegrationSuite'
+import { SapBusinessAcceleratorHub } from '@dinghy/standard-components-diagrams/sapIntegrationSuite'
 
 <SapBusinessAcceleratorHub/>
 ```

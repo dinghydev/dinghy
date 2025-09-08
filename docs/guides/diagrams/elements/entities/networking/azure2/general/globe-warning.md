@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GlobeWarning } from '@diac/standard-components-diagrams/azure2General'
+import { GlobeWarning } from '@dinghy/standard-components-diagrams/azure2General'
 
 <GlobeWarning/>
 ```

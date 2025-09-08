@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ApiGateway } from '@diac/standard-components-diagrams/gcp2IconsServerless'
+import { ApiGateway } from '@dinghy/standard-components-diagrams/gcp2IconsServerless'
 
 <ApiGateway/>
 ```

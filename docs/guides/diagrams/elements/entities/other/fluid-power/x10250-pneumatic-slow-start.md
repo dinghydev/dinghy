@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { X10250PneumaticSlowStart } from '@diac/standard-components-diagrams/fluidPower'
+import { X10250PneumaticSlowStart } from '@dinghy/standard-components-diagrams/fluidPower'
 
 <X10250PneumaticSlowStart/>
 ```

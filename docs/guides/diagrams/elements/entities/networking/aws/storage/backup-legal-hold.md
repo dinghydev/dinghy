@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { BackupLegalHold } from '@diac/standard-components-diagrams/awsStorage'
+import { BackupLegalHold } from '@dinghy/standard-components-diagrams/awsStorage'
 
 <BackupLegalHold/>
 ```

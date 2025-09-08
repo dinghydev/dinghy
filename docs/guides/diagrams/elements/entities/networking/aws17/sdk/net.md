@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Net } from '@diac/standard-components-diagrams/aws17Sdk'
+import { Net } from '@dinghy/standard-components-diagrams/aws17Sdk'
 
 <Net/>
 ```

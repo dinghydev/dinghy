@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IsolatorOn } from '@diac/standard-components-diagrams/electricalSwitchesAndRelays'
+import { IsolatorOn } from '@dinghy/standard-components-diagrams/electricalSwitchesAndRelays'
 
 <IsolatorOn/>
 ```

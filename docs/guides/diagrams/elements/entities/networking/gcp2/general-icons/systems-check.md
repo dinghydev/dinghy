@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { SystemsCheck } from '@diac/standard-components-diagrams/gcp2GeneralIcons'
+import { SystemsCheck } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
 
 <SystemsCheck/>
 ```

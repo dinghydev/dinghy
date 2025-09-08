@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { TextInsertionPoint } from '@diac/standard-components-diagrams/android'
+import { TextInsertionPoint } from '@dinghy/standard-components-diagrams/android'
 
 <TextInsertionPoint/>
 ```

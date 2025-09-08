@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Grooveshark } from '@diac/standard-components-diagrams/webIcons'
+import { Grooveshark } from '@dinghy/standard-components-diagrams/webIcons'
 
 <Grooveshark/>
 ```

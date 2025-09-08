@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { DecisionEntityRelationship } from '@diac/standard-components-diagrams/dataFlowDiagram'
+import { DecisionEntityRelationship } from '@dinghy/standard-components-diagrams/dataFlowDiagram'
 
 <DecisionEntityRelationship/>
 ```

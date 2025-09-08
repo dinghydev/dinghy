@@ -16,7 +16,7 @@ Routes
 ## Usage
 
 ```
-import { CloudRoutes } from '@diac/standard-components-diagrams/gcp2IconsNetworking'
+import { CloudRoutes } from '@dinghy/standard-components-diagrams/gcp2IconsNetworking'
 
 <CloudRoutes/>
 ```

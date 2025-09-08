@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Comment } from '@diac/standard-components-diagrams/sysmlModelElements'
+import { Comment } from '@dinghy/standard-components-diagrams/sysmlModelElements'
 
 <Comment/>
 ```

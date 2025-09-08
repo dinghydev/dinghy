@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AzureCacheForRedis } from '@diac/standard-components-diagrams/caeDatabasesService'
+import { AzureCacheForRedis } from '@dinghy/standard-components-diagrams/caeDatabasesService'
 
 <AzureCacheForRedis/>
 ```

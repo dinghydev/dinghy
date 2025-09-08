@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { B2bDataInterchange } from '@diac/standard-components-diagrams/awsApplicationIntegration'
+import { B2bDataInterchange } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
 
 <B2bDataInterchange/>
 ```

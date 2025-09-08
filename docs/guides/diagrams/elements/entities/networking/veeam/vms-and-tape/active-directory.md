@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { ActiveDirectory } from '@diac/standard-components-diagrams/veeamVmsAndTape'
+import { ActiveDirectory } from '@dinghy/standard-components-diagrams/veeamVmsAndTape'
 
 <ActiveDirectory/>
 ```

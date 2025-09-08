@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { FibreChannelFabricSwitch } from '@diac/standard-components-diagrams/cisco19DataCenter'
+import { FibreChannelFabricSwitch } from '@dinghy/standard-components-diagrams/cisco19DataCenter'
 
 <FibreChannelFabricSwitch/>
 ```

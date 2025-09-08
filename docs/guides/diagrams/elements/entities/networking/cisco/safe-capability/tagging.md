@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Tagging } from '@diac/standard-components-diagrams/ciscoSafeCapability'
+import { Tagging } from '@dinghy/standard-components-diagrams/ciscoSafeCapability'
 
 <Tagging/>
 ```

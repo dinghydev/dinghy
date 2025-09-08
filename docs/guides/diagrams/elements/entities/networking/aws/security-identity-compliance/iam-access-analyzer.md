@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { IamAccessAnalyzer } from '@diac/standard-components-diagrams/awsSecurityIdentityCompliance'
+import { IamAccessAnalyzer } from '@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance'
 
 <IamAccessAnalyzer/>
 ```

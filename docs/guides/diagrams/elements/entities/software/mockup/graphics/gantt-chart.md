@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { GanttChart } from '@diac/standard-components-diagrams/mockupGraphics'
+import { GanttChart } from '@dinghy/standard-components-diagrams/mockupGraphics'
 
 <GanttChart/>
 ```

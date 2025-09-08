@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { AppRunner } from '@diac/standard-components-diagrams/awsCompute'
+import { AppRunner } from '@dinghy/standard-components-diagrams/awsCompute'
 
 <AppRunner/>
 ```

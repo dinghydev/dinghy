@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { VerticalNavigation } from '@diac/standard-components-diagrams/bootstrap'
+import { VerticalNavigation } from '@dinghy/standard-components-diagrams/bootstrap'
 
 <VerticalNavigation/>
 ```

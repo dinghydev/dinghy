@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Stride } from '@diac/standard-components-diagrams/webLogos'
+import { Stride } from '@dinghy/standard-components-diagrams/webLogos'
 
 <Stride/>
 ```

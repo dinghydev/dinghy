@@ -15,7 +15,7 @@
 ## Usage
 
 ```
-import { Earth } from '@diac/standard-components-diagrams/signsNature'
+import { Earth } from '@dinghy/standard-components-diagrams/signsNature'
 
 <Earth/>
 ```
