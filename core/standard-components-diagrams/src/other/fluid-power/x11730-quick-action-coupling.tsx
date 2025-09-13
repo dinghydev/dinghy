@@ -6,8 +6,8 @@ export const X11730_QUICK_ACTION_COUPLING = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11730;points=[[0.5,0,0],[0.5,1,0]]',
   },
-  _original_width: 18.98,
-  _original_height: 93.78,
+  _width: 18.98,
+  _height: 93.78,
 }
 
 export function X11730QuickActionCoupling(props: DiagramNodeProps) {

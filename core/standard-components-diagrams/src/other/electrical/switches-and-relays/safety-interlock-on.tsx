@@ -6,8 +6,8 @@ export const SAFETY_INTERLOCK_ON = {
     entity:
       'html=1;shape=mxgraph.electrical.electro-mechanical.safetyInterlockSwitch;aspect=fixed;elSwitchState=on;',
   },
-  _original_width: 75,
-  _original_height: 45,
+  _width: 75,
+  _height: 45,
 }
 
 export function SafetyInterlockOn(props: DiagramNodeProps) {

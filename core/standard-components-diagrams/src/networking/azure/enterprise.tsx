@@ -6,8 +6,8 @@ export const ENTERPRISE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.enterprise;pointerEvents=1;',
   },
-  _original_width: 30,
-  _original_height: 50,
+  _width: 30,
+  _height: 50,
 }
 
 export function Enterprise(props: DiagramNodeProps) {

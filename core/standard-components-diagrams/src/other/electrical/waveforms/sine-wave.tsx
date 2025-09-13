@@ -6,8 +6,8 @@ export const SINE_WAVE = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.waveforms.sine_wave;',
   },
-  _original_width: 90,
-  _original_height: 66.18,
+  _width: 90,
+  _height: 66.18,
 }
 
 export function SineWave(props: DiagramNodeProps) {

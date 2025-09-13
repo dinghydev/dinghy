@@ -6,8 +6,8 @@ export const SWIRL_6 = {
     entity:
       'rounded=0;whiteSpace=wrap;shadow=0;strokeColor=none;strokeWidth=6;fillColor=none;fontSize=7;fontColor=#FFFFFF;align=left;html=1;spacingLeft=5;',
   },
-  _original_width: 5,
-  _original_height: 456,
+  _width: 5,
+  _height: 456,
 }
 
 export function Swirl6(props: DiagramNodeProps) {

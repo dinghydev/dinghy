@@ -6,8 +6,8 @@ export const CIRCULAR_DIAL_LIST_HORIZONTAL_14 = {
     entity:
       'verticalLabelPosition=middle;verticalAlign=middle;html=1;fillColor=none;strokeColor=none;fontSize=15;fontColor=#23445D;align=center;fontStyle=1;',
   },
-  _original_width: 8,
-  _original_height: 260,
+  _width: 8,
+  _height: 260,
 }
 
 export function CircularDialListHorizontal14(props: DiagramNodeProps) {

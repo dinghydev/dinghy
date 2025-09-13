@@ -1,0 +1,23 @@
+# 1
+
+## Definition
+
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERone;endFill=1;',
+  },
+}
+```
+
+## Usage
+
+```js
+import { Component1 } from '@dinghy/standard-components-diagrams/entityRelation'
+
+<Component1/>
+```
+
+## Preview
+
+<img src="./component-1.png" width="200"/>

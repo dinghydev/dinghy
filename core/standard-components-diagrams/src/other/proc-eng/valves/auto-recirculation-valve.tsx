@@ -6,8 +6,8 @@ export const AUTO_RECIRCULATION_VALVE = {
     entity:
       'verticalLabelPosition=bottom;align=center;html=1;verticalAlign=top;pointerEvents=1;dashed=0;shape=mxgraph.pid2valves.autoRecircValve',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function AutoRecirculationValve(props: DiagramNodeProps) {

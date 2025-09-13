@@ -6,8 +6,8 @@ export const REQUIRED_INTERFACE_3 = {
     entity:
       'ellipse;whiteSpace=wrap;html=1;align=center;aspect=fixed;fillColor=none;strokeColor=none;resizable=0;perimeter=centerPerimeter;rotatable=0;allowArrows=0;points=[];outlineConnect=1;',
   },
-  _original_width: 1,
-  _original_height: 20,
+  _width: 1,
+  _height: 20,
 }
 
 export function RequiredInterface3(props: DiagramNodeProps) {

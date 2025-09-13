@@ -6,8 +6,8 @@ export const PELLETIZING_DISC = {
     entity:
       'shape=mxgraph.pid.shaping_machines.pelletizing_disc;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function PelletizingDisc(props: DiagramNodeProps) {

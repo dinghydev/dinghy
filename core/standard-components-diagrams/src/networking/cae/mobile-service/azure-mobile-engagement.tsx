@@ -6,8 +6,8 @@ export const AZURE_MOBILE_ENGAGEMENT = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Mobile_Engagement.svg;strokeColor=none;',
   },
-  _original_width: 34,
-  _original_height: 50,
+  _width: 34,
+  _height: 50,
 }
 
 export function AzureMobileEngagement(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const KIOSK = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.kiosk;',
   },
-  _original_width: 65,
-  _original_height: 85,
+  _width: 65,
+  _height: 85,
 }
 
 export function Kiosk(props: DiagramNodeProps) {

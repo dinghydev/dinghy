@@ -6,8 +6,8 @@ export const BAR_GRAPH_7 = {
     entity:
       'verticalLabelPosition=top;verticalAlign=bottom;html=1;shape=mxgraph.infographic.shadedCube;isoAngle=15;fillColor=#CCCCCC;strokeColor=none;fontStyle=1;fontColor=#F19A19;fontSize=12;shadow=0;align=left;opacity=70;',
   },
-  _original_width: 6,
-  _original_height: 120,
+  _width: 6,
+  _height: 120,
 }
 
 export function BarGraph7(props: DiagramNodeProps) {

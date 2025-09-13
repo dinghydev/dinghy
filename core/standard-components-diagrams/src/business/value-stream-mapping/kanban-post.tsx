@@ -6,8 +6,8 @@ export const KANBAN_POST = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.kanban_post;',
   },
-  _original_width: 50,
-  _original_height: 100,
+  _width: 50,
+  _height: 100,
 }
 
 export function KanbanPost(props: DiagramNodeProps) {

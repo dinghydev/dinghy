@@ -6,8 +6,8 @@ export const IBM_UPS7500 = {
     entity:
       'shape=mxgraph.rack.ibm.ibm_ups7500;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _original_width: 161,
-  _original_height: 89,
+  _width: 161,
+  _height: 89,
 }
 
 export function IbmUps7500(props: DiagramNodeProps) {

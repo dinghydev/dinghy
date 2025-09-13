@@ -6,8 +6,8 @@ export const FRAME_TOPAZ = {
     entity:
       'rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#00B336;strokeWidth=2;',
   },
-  _original_width: 150,
-  _original_height: 110.00000000000001,
+  _width: 150,
+  _height: 110.00000000000001,
 }
 
 export function FrameTopaz(props: DiagramNodeProps) {

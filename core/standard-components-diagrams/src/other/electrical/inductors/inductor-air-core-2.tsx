@@ -6,8 +6,8 @@ export const INDUCTOR_AIR_CORE_2 = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.inductor_5;',
   },
-  _original_width: 100,
-  _original_height: 14,
+  _width: 100,
+  _height: 14,
 }
 
 export function InductorAirCore2(props: DiagramNodeProps) {

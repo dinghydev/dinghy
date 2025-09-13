@@ -6,8 +6,8 @@ export const HOME_OFFICE = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.home_office;',
   },
-  _original_width: 80,
-  _original_height: 55.5,
+  _width: 80,
+  _height: 55.5,
 }
 
 export function HomeOffice(props: DiagramNodeProps) {

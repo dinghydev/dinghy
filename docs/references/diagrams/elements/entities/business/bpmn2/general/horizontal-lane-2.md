@@ -1,0 +1,25 @@
+# Horizontal Lane 2
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'swimlane;html=1;startSize=20;fontStyle=0;collapsible=0;horizontal=0;swimlaneLine=1;swimlaneFillColor=#ffffff;strokeWidth=2;whiteSpace=wrap;',
+  },
+  _width: 440,
+  _height: 100,
+}
+```
+
+## Usage
+
+```js
+import { HorizontalLane2 } from '@dinghy/standard-components-diagrams/bpmn2General'
+
+<HorizontalLane2/>
+```
+
+## Preview
+
+<img src="./horizontal-lane-2.png" width="200"/>

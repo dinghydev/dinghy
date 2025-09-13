@@ -6,8 +6,8 @@ export const TANK_DISHED_ROOF_CONICAL_BOTTOM = {
     entity:
       'shape=mxgraph.pid.vessels.tank_(dished_roof,_conical_bottom);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 100,
-  _original_height: 125,
+  _width: 100,
+  _height: 125,
 }
 
 export function TankDishedRoofConicalBottom(props: DiagramNodeProps) {

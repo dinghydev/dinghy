@@ -1,0 +1,25 @@
+# Interface
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#AFFFAF;shape=mxgraph.archimate3.interface;',
+  },
+  _width: 70,
+  _height: 35,
+}
+```
+
+## Usage
+
+```js
+import { Interface } from '@dinghy/standard-components-diagrams/archimate3Technology'
+
+<Interface/>
+```
+
+## Preview
+
+<img src="./interface.png" width="200"/>

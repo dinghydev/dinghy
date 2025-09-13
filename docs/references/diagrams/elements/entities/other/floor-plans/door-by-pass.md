@@ -1,0 +1,25 @@
+# Door, By-pass
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.doorBypass;dx=0.25;',
+  },
+  _width: 104,
+  _height: 10,
+}
+```
+
+## Usage
+
+```js
+import { DoorByPass } from '@dinghy/standard-components-diagrams/floorPlans'
+
+<DoorByPass/>
+```
+
+## Preview
+
+<img src="./door-by-pass.png" width="200"/>

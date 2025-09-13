@@ -6,8 +6,8 @@ export const SCROLLSPY_2 = {
     entity:
       'fillColor=none;strokeColor=none;perimeter=none;whiteSpace=wrap;fontColor=#212529;html=1;align=left;verticalAlign=top;spacingRight=25;',
   },
-  _original_width: 1,
-  _original_height: 300,
+  _width: 1,
+  _height: 300,
 }
 
 export function Scrollspy2(props: DiagramNodeProps) {

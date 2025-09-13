@@ -6,8 +6,8 @@ export const CONDITION = {
     entity:
       'rhombus;whiteSpace=wrap;html=1;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;',
   },
-  _original_width: 0,
-  _original_height: 100,
+  _width: 0,
+  _height: 100,
 }
 
 export function Condition(props: DiagramNodeProps) {

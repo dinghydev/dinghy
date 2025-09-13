@@ -1,0 +1,26 @@
+# Remote Storage
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'sketch=0;shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.remote_storage;',
+  },
+  _original_width: 52,
+  _original_height: 62,
+
+}
+```
+
+## Usage
+
+```js
+import { RemoteStorage } from '@dinghy/standard-components-diagrams/veeam23d'
+
+<RemoteStorage/>
+```
+
+## Preview
+
+<img src="./remote-storage.png" width="200"/>

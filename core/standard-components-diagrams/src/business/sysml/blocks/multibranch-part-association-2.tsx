@@ -6,8 +6,8 @@ export const MULTIBRANCH_PART_ASSOCIATION_2 = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;elbow=horizontal;align=right;verticalAlign=bottom;endArrow=none;rounded=0;labelBackgroundColor=none;fontFamily=Helvetica;fontSize=11;fontColor=default;startSize=14;shape=connector;',
   },
-  _original_width: 1,
-  _original_height: 50,
+  _width: 1,
+  _height: 50,
 }
 
 export function MultibranchPartAssociation2(props: DiagramNodeProps) {

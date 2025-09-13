@@ -6,8 +6,8 @@ export const FIREPLACE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.fireplace;',
   },
-  _original_width: 304,
-  _original_height: 200,
+  _width: 304,
+  _height: 200,
 }
 
 export function Fireplace(props: DiagramNodeProps) {

@@ -5,8 +5,8 @@ export const COREGION_3 = {
   _style: {
     entity: 'edgeStyle=none;html=1;dashed=1;endArrow=none;rounded=0;',
   },
-  _original_width: 4,
-  _original_height: 220,
+  _width: 4,
+  _height: 220,
 }
 
 export function Coregion3(props: DiagramNodeProps) {

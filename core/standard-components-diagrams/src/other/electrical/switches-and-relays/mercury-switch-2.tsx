@@ -6,8 +6,8 @@ export const MERCURY_SWITCH_2 = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.mercury_switch_2;',
   },
-  _original_width: 50,
-  _original_height: 90,
+  _width: 50,
+  _height: 90,
 }
 
 export function MercurySwitch2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const THREAT_B4 = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;html=1;fillColor=#F06650;strokeColor=#ffffff;verticalAlign=top;align=center;points=[];pointerEvents=1;shape=mxgraph.cisco_safe.compositeIcon;bgIcon=threat2;resIcon=mxgraph.cisco_safe.threat.threat_b4;',
   },
-  _original_width: 31.5,
-  _original_height: 50,
+  _width: 31.5,
+  _height: 50,
 }
 
 export function ThreatB4(props: DiagramNodeProps) {

@@ -1,0 +1,25 @@
+# Arrow List 3
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'html=1;whiteSpace=wrap;fillColor=#F2931E;strokeColor=none;shadow=0;fontSize=17;fontColor=#FFFFFF;align=center;fontStyle=1;rounded=0;',
+  },
+  _width: 2,
+  _height: 220,
+}
+```
+
+## Usage
+
+```js
+import { ArrowList3 } from '@dinghy/standard-components-diagrams/infoGraphic'
+
+<ArrowList3/>
+```
+
+## Preview
+
+<img src="./arrow-list-3.png" width="200"/>

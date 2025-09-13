@@ -1,0 +1,25 @@
+# Partial Rectangle 2
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'shape=partialRectangle;whiteSpace=wrap;html=1;bottom=0;top=0;fillColor=none;',
+  },
+  _width: 120,
+  _height: 60,
+}
+```
+
+## Usage
+
+```js
+import { PartialRectangle2 } from '@dinghy/standard-components-diagrams/misc'
+
+<PartialRectangle2/>
+```
+
+## Preview
+
+<img src="./partial-rectangle-2.png" width="200"/>

@@ -6,8 +6,8 @@ export const GATEWAY = {
     entity:
       'strokeColor=#dddddd;fillColor=#FFFFFF;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;',
   },
-  _original_width: 0,
-  _original_height: 44,
+  _width: 0,
+  _height: 44,
 }
 
 export function Gateway(props: DiagramNodeProps) {

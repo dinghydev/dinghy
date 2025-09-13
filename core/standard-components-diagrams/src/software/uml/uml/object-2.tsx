@@ -6,8 +6,8 @@ export const OBJECT_2 = {
     entity:
       'verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;',
   },
-  _original_width: 160,
-  _original_height: 90,
+  _width: 160,
+  _height: 90,
 }
 
 export function Object2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const MOBILE = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Mobile.svg;strokeColor=none;',
   },
-  _original_width: 40,
-  _original_height: 67,
+  _width: 40,
+  _height: 67,
 }
 
 export function Mobile(props: DiagramNodeProps) {

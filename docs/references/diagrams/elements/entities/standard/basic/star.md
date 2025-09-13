@@ -1,0 +1,26 @@
+# Star
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.star',
+  },
+  _original_width: 100,
+  _original_height: 95,
+
+}
+```
+
+## Usage
+
+```js
+import { Star } from '@dinghy/standard-components-diagrams/basic'
+
+<Star/>
+```
+
+## Preview
+
+<img src="./star.png" width="200"/>

@@ -6,8 +6,8 @@ export const X11020_CARTRIDGE_FOR = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11020;points=[[0.33,1,0],[1,0.5,0]]',
   },
-  _original_width: 56.06,
-  _original_height: 93.2,
+  _width: 56.06,
+  _height: 93.2,
 }
 
 export function X11020CartridgeFor(props: DiagramNodeProps) {

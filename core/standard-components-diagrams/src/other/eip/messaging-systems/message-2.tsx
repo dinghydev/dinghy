@@ -6,8 +6,8 @@ export const MESSAGE_2 = {
     entity:
       'strokeWidth=2;dashed=0;align=center;fontSize=8;shape=ellipse;fillColor=#808080;strokeColor=none;',
   },
-  _original_width: 2,
-  _original_height: 48,
+  _width: 2,
+  _height: 48,
 }
 
 export function Message2(props: DiagramNodeProps) {

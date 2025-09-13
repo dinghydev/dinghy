@@ -1,0 +1,25 @@
+# Business Event
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate.business;busType=event',
+  },
+  _width: 100,
+  _height: 75,
+}
+```
+
+## Usage
+
+```js
+import { BusinessEvent } from '@dinghy/standard-components-diagrams/archimate2'
+
+<BusinessEvent/>
+```
+
+## Preview
+
+<img src="./business-event.png" width="200"/>

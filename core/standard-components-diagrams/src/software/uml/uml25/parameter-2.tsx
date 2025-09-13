@@ -5,8 +5,8 @@ export const PARAMETER_2 = {
   _style: {
     entity: 'text;verticalAlign=middle;align=center;html=1;',
   },
-  _original_width: 1,
-  _original_height: 40,
+  _width: 1,
+  _height: 40,
 }
 
 export function Parameter2(props: DiagramNodeProps) {

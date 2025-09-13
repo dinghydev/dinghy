@@ -6,8 +6,8 @@ export const SCROLLABLE_TAB = {
     entity:
       'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.rrect;rSize=0;fillColor=#444444;strokeColor=none;',
   },
-  _original_width: 0,
-  _original_height: 15,
+  _width: 0,
+  _height: 15,
 }
 
 export function ScrollableTab(props: DiagramNodeProps) {

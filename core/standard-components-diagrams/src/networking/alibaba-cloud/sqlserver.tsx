@@ -6,8 +6,8 @@ export const SQLSERVER = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.sqlserver;',
   },
-  _original_width: 39.6,
-  _original_height: 54.900000000000006,
+  _width: 39.6,
+  _height: 54.900000000000006,
 }
 
 export function Sqlserver(props: DiagramNodeProps) {

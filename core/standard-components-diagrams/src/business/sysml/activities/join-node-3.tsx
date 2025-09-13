@@ -6,8 +6,8 @@ export const JOIN_NODE_3 = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;elbow=vertical;startArrow=open;endArrow=none;rounded=0;strokeWidth=3;startSize=12;',
   },
-  _original_width: 2,
-  _original_height: 80,
+  _width: 2,
+  _height: 80,
 }
 
 export function JoinNode3(props: DiagramNodeProps) {

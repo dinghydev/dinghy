@@ -6,8 +6,8 @@ export const ASSET_LABEL = {
     entity:
       'text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;',
   },
-  _original_width: 40,
-  _original_height: 20,
+  _width: 40,
+  _height: 20,
 }
 
 export function AssetLabel(props: DiagramNodeProps) {

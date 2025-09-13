@@ -6,8 +6,8 @@ export const TURBINE = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.engines.turbine',
   },
-  _original_width: 70,
-  _original_height: 100,
+  _width: 70,
+  _height: 100,
 }
 
 export function Turbine(props: DiagramNodeProps) {

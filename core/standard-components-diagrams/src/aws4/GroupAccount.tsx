@@ -5,7 +5,7 @@ export const GROUP_ACCOUNT_COLOR = '#CD2264'
 
 export const GROUP_ACCOUNT = {
   _color: GROUP_ACCOUNT_COLOR,
-  _icon: 'mxgraph.aws4.group_account',
+  _icon: 'mxgraph.aws4.container_account',
 }
 
 export function GroupAccount(props: DiagramNodeProps) {

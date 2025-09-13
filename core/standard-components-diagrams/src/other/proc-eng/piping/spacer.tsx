@@ -6,8 +6,8 @@ export const SPACER = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.piping.spacer;',
   },
-  _original_width: 20,
-  _original_height: 60,
+  _width: 20,
+  _height: 60,
 }
 
 export function Spacer(props: DiagramNodeProps) {

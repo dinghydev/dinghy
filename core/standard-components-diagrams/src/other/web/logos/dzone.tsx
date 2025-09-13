@@ -6,8 +6,8 @@ export const DZONE = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.dzone',
   },
-  _original_width: 87.60000000000001,
-  _original_height: 61.2,
+  _width: 87.60000000000001,
+  _height: 61.2,
 }
 
 export function Dzone(props: DiagramNodeProps) {

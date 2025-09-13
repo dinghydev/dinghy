@@ -6,8 +6,8 @@ export const SUBSCRIPTIONS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Subscriptions.svg;strokeColor=none;',
   },
-  _original_width: 44,
-  _original_height: 71,
+  _width: 44,
+  _height: 71,
 }
 
 export function Subscriptions(props: DiagramNodeProps) {

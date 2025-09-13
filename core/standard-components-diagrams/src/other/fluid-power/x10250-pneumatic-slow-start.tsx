@@ -6,8 +6,8 @@ export const X10250_PNEUMATIC_SLOW_START = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10250;points=[[0.665,0,0],[0.665,1,0]]',
   },
-  _original_width: 167.26,
-  _original_height: 143.78,
+  _width: 167.26,
+  _height: 143.78,
 }
 
 export function X10250PneumaticSlowStart(props: DiagramNodeProps) {

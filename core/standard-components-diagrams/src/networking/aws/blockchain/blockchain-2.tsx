@@ -6,8 +6,8 @@ export const BLOCKCHAIN_2 = {
     entity:
       'sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.blockchain_resource;',
   },
-  _original_width: 78,
-  _original_height: 25,
+  _width: 78,
+  _height: 25,
 }
 
 export function Blockchain2(props: DiagramNodeProps) {

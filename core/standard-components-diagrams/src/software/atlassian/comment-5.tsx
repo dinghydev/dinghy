@@ -6,8 +6,8 @@ export const COMMENT_5 = {
     entity:
       'html=1;fillColor=none;strokeColor=none;fontSize=12;align=left;fontColor=#000000;whiteSpace=wrap;verticalAlign=top',
   },
-  _original_width: 5,
-  _original_height: 125,
+  _width: 5,
+  _height: 125,
 }
 
 export function Comment5(props: DiagramNodeProps) {

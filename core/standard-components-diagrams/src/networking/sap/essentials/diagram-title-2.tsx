@@ -6,8 +6,8 @@ export const DIAGRAM_TITLE_2 = {
     entity:
       'text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;',
   },
-  _original_width: 500,
-  _original_height: 50,
+  _width: 500,
+  _height: 50,
 }
 
 export function DiagramTitle2(props: DiagramNodeProps) {

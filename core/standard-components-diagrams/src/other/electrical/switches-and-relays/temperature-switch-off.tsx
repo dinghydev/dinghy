@@ -6,8 +6,8 @@ export const TEMPERATURE_SWITCH_OFF = {
     entity:
       'html=1;shape=mxgraph.electrical.electro-mechanical.temperatureSwitch;aspect=fixed;elSwitchState=off;',
   },
-  _original_width: 75,
-  _original_height: 18,
+  _width: 75,
+  _height: 18,
 }
 
 export function TemperatureSwitchOff(props: DiagramNodeProps) {

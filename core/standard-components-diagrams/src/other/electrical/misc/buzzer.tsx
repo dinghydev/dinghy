@@ -6,8 +6,8 @@ export const BUZZER = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.radio.buzzer',
   },
-  _original_width: 80,
-  _original_height: 50,
+  _width: 80,
+  _height: 50,
 }
 
 export function Buzzer(props: DiagramNodeProps) {

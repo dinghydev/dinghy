@@ -5,8 +5,8 @@ export const PROCESS = {
   _style: {
     entity: 'shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;',
   },
-  _original_width: 120,
-  _original_height: 60,
+  _width: 120,
+  _height: 60,
 }
 
 export function Process(props: DiagramNodeProps) {

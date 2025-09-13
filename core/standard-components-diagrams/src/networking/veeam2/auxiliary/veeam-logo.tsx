@@ -6,8 +6,8 @@ export const VEEAM_LOGO = {
     entity:
       'pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#13B24B;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam2.veeam_logo;',
   },
-  _original_width: 136,
-  _original_height: 24,
+  _width: 136,
+  _height: 24,
 }
 
 export function VeeamLogo(props: DiagramNodeProps) {

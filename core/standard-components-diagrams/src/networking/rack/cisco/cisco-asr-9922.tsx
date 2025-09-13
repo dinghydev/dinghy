@@ -6,8 +6,8 @@ export const CISCO_ASR_9922 = {
     entity:
       'shape=mxgraph.rack.cisco.cisco_asr_9922;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _original_width: 161,
-  _original_height: 652,
+  _width: 161,
+  _height: 652,
 }
 
 export function CiscoAsr9922(props: DiagramNodeProps) {

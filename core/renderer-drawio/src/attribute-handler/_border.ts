@@ -1,6 +1,6 @@
 export const _border = (width: number) => (
   {
-    group: {
+    container: {
       style: {
         strokeWidth: width,
       },

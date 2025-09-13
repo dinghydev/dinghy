@@ -8,7 +8,7 @@ export const _shape = (shape: string | Props) =>
           shape,
         },
       },
-      group: {
+      container: {
         style: {
           shape,
         },
@@ -20,9 +20,9 @@ export const _shape = (shape: string | Props) =>
           shape: shape.entity,
         },
       },
-      group: {
+      container: {
         style: {
-          shape: shape.group,
+          shape: shape.container,
         },
       },
     }

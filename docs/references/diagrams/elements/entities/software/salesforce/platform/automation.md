@@ -1,0 +1,26 @@
+# Automation
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.automation;',
+  },
+  _original_width: 60,
+  _original_height: 58.199999999999996,
+
+}
+```
+
+## Usage
+
+```js
+import { Automation } from '@dinghy/standard-components-diagrams/salesforcePlatform'
+
+<Automation/>
+```
+
+## Preview
+
+<img src="./automation.png" width="200"/>

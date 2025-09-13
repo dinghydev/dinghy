@@ -6,8 +6,8 @@ export const AZURE_MAPS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_Maps.svg;strokeColor=none;',
   },
-  _original_width: 39,
-  _original_height: 50,
+  _width: 39,
+  _height: 50,
 }
 
 export function AzureMaps(props: DiagramNodeProps) {

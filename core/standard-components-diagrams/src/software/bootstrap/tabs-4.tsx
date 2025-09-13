@@ -5,8 +5,8 @@ export const TABS_4 = {
   _style: {
     entity: 'shape=line;strokeColor=#dddddd;',
   },
-  _original_width: 4,
-  _original_height: 45,
+  _width: 4,
+  _height: 45,
 }
 
 export function Tabs4(props: DiagramNodeProps) {

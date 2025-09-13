@@ -6,8 +6,8 @@ export const JAVA = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.java',
   },
-  _original_width: 34.4,
-  _original_height: 65,
+  _width: 34.4,
+  _height: 65,
 }
 
 export function Java(props: DiagramNodeProps) {

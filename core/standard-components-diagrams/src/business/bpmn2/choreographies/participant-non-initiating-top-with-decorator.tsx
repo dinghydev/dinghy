@@ -5,8 +5,8 @@ export const PARTICIPANT_NON_INITIATING_TOP_WITH_DECORATOR = {
   _style: {
     entity: 'shape=message;fillColor=#C0C0C0;html=1;',
   },
-  _original_width: 1,
-  _original_height: 80,
+  _width: 1,
+  _height: 80,
 }
 
 export function ParticipantNonInitiatingTopWithDecorator(

@@ -5,8 +5,8 @@ export const POINTED_OVAL = {
   _style: {
     entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.pointed_oval',
   },
-  _original_width: 50,
-  _original_height: 100,
+  _width: 50,
+  _height: 100,
 }
 
 export function PointedOval(props: DiagramNodeProps) {

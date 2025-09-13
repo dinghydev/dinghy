@@ -6,8 +6,8 @@ export const POWEREDGE_630 = {
     entity:
       'strokeColor=#666666;html=1;labelPosition=right;align=left;spacingLeft=15;shadow=0;dashed=0;outlineConnect=0;shape=mxgraph.rack.dell.poweredge_630;',
   },
-  _original_width: 162,
-  _original_height: 15,
+  _width: 162,
+  _height: 15,
 }
 
 export function Poweredge630(props: DiagramNodeProps) {

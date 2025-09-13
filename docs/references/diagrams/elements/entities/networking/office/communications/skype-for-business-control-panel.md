@@ -1,0 +1,26 @@
+# Skype for Business Control Panel
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.communications.skype_for_business_control_panel;',
+  },
+  _original_width: 65,
+  _original_height: 59,
+
+}
+```
+
+## Usage
+
+```js
+import { SkypeForBusinessControlPanel } from '@dinghy/standard-components-diagrams/officeCommunications'
+
+<SkypeForBusinessControlPanel/>
+```
+
+## Preview
+
+<img src="./skype-for-business-control-panel.png" width="200"/>

@@ -6,8 +6,8 @@ export const ACTION_SHEET_2 = {
     entity:
       'shape=rect;rSize=3;strokeColor=none;fillColor=#D2D3D5;gradientColor=none;shadow=0;',
   },
-  _original_width: 164,
-  _original_height: 115,
+  _width: 164,
+  _height: 115,
 }
 
 export function ActionSheet2(props: DiagramNodeProps) {

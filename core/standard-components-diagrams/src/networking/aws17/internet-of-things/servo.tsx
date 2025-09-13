@@ -6,8 +6,8 @@ export const SERVO = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.servo;fillColor=#5294CF;gradientColor=none;',
   },
-  _original_width: 84,
-  _original_height: 60,
+  _width: 84,
+  _height: 60,
 }
 
 export function Servo(props: DiagramNodeProps) {

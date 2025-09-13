@@ -6,8 +6,8 @@ export const COMPUTE_ENGINE_2 = {
     entity:
       'shape=mxgraph.gcp2.doubleRect;fillColor=#ffffff;strokeColor=#dddddd;shadow=1;strokeWidth=1;',
   },
-  _original_width: 0,
-  _original_height: 78,
+  _width: 0,
+  _height: 78,
 }
 
 export function ComputeEngine2(props: DiagramNodeProps) {

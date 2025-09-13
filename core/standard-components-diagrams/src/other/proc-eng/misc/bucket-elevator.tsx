@@ -6,8 +6,8 @@ export const BUCKET_ELEVATOR = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.bucket_elevator;',
   },
-  _original_width: 65,
-  _original_height: 200,
+  _width: 65,
+  _height: 200,
 }
 
 export function BucketElevator(props: DiagramNodeProps) {

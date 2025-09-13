@@ -1,0 +1,26 @@
+# MOSFET No Bulk (N)
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.mosfets1.mosfet_n_no_bulk;',
+  },
+  _original_width: 95,
+  _original_height: 100,
+
+}
+```
+
+## Usage
+
+```js
+import { MosfetNoBulkN } from '@dinghy/standard-components-diagrams/electricalTransistors'
+
+<MosfetNoBulkN/>
+```
+
+## Preview
+
+<img src="./mosfet-no-bulk-n.png" width="200"/>

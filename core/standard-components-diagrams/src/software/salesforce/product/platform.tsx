@@ -6,8 +6,8 @@ export const PLATFORM = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;shape=mxgraph.salesforce.platform;',
   },
-  _original_width: 39,
-  _original_height: 60,
+  _width: 39,
+  _height: 60,
 }
 
 export function Platform(props: DiagramNodeProps) {

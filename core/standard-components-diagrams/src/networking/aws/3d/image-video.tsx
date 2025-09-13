@@ -6,8 +6,8 @@ export const IMAGE_VIDEO = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=1;align=center;outlineConnect=0;dashed=0;outlineConnect=0;shape=mxgraph.aws3d.image;strokeColor=none;fillColor=#777777;aspect=fixed;',
   },
-  _original_width: 50,
-  _original_height: 86,
+  _width: 50,
+  _height: 86,
 }
 
 export function ImageVideo(props: DiagramNodeProps) {

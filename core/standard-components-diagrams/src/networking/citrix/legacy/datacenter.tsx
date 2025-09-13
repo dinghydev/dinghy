@@ -6,8 +6,8 @@ export const DATACENTER = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.datacenter;',
   },
-  _original_width: 127.5,
-  _original_height: 135,
+  _width: 127.5,
+  _height: 135,
 }
 
 export function Datacenter(props: DiagramNodeProps) {

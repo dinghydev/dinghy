@@ -6,8 +6,8 @@ export const ELECTROLYTIC_CAPACITOR_US_2 = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.capacitors.capacitor_5;',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function ElectrolyticCapacitorUs2(props: DiagramNodeProps) {

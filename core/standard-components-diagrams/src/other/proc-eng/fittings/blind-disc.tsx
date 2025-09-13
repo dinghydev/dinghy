@@ -6,8 +6,8 @@ export const BLIND_DISC = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.blind_disc2;',
   },
-  _original_width: 40,
-  _original_height: 140,
+  _width: 40,
+  _height: 140,
 }
 
 export function BlindDisc(props: DiagramNodeProps) {

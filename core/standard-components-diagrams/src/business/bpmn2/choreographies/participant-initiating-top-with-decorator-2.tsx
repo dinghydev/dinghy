@@ -5,8 +5,8 @@ export const PARTICIPANT_INITIATING_TOP_WITH_DECORATOR_2 = {
   _style: {
     entity: 'shape=message;html=1;',
   },
-  _original_width: 1,
-  _original_height: 80,
+  _width: 1,
+  _height: 80,
 }
 
 export function ParticipantInitiatingTopWithDecorator2(

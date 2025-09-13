@@ -33,7 +33,7 @@ const DISPLAYS = {
     },
   },
   inactive: {
-    group: {
+    container: {
       style: {
         dashed: 1,
       },

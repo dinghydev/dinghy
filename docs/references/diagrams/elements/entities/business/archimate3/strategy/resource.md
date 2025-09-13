@@ -1,0 +1,25 @@
+# Resource
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#F5DEAA;shape=mxgraph.archimate3.application;appType=resource;archiType=square;',
+  },
+  _width: 150,
+  _height: 75,
+}
+```
+
+## Usage
+
+```js
+import { Resource } from '@dinghy/standard-components-diagrams/archimate3Strategy'
+
+<Resource/>
+```
+
+## Preview
+
+<img src="./resource.png" width="200"/>

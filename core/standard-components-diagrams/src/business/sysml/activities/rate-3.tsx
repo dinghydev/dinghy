@@ -6,8 +6,8 @@ export const RATE_3 = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;elbow=vertical;endArrow=open;rounded=0;verticalAlign=top;entryX=0;entryY=0.5;labelBackgroundColor=none;endSize=12;',
   },
-  _original_width: 2,
-  _original_height: 60,
+  _width: 2,
+  _height: 60,
 }
 
 export function Rate3(props: DiagramNodeProps) {

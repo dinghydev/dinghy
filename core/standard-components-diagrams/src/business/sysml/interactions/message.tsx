@@ -5,8 +5,8 @@ export const MESSAGE = {
   _style: {
     entity: 'edgeStyle=none;dashed=1;html=1;endArrow=none;',
   },
-  _original_width: 2,
-  _original_height: 250,
+  _width: 2,
+  _height: 250,
 }
 
 export function Message(props: DiagramNodeProps) {

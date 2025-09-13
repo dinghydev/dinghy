@@ -6,8 +6,8 @@ export const CRUSHER_IMPACT = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.crushers_grinding.crusher_(impact);',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function CrusherImpact(props: DiagramNodeProps) {

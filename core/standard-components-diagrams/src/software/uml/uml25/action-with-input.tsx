@@ -6,8 +6,8 @@ export const ACTION_WITH_INPUT = {
     entity:
       'shape=mxgraph.uml25.action;html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;spacingLeft=10;flipH=1;whiteSpace=wrap;',
   },
-  _original_width: 0,
-  _original_height: 40,
+  _width: 0,
+  _height: 40,
 }
 
 export function ActionWithInput(props: DiagramNodeProps) {

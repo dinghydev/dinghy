@@ -6,8 +6,8 @@ export const TEXTFIELD_DISABLED = {
     entity:
       'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.textfield;align=center;strokeColor=#4D4D4D;pointerEvents=1',
   },
-  _original_width: 174,
-  _original_height: 30,
+  _width: 174,
+  _height: 30,
 }
 
 export function TextfieldDisabled(props: DiagramNodeProps) {

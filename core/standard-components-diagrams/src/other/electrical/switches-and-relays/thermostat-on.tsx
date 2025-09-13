@@ -6,8 +6,8 @@ export const THERMOSTAT_ON = {
     entity:
       'html=1;shape=mxgraph.electrical.electro-mechanical.thermostat2;aspect=fixed;elSwitchState=on;',
   },
-  _original_width: 75,
-  _original_height: 21,
+  _width: 75,
+  _height: 21,
 }
 
 export function ThermostatOn(props: DiagramNodeProps) {

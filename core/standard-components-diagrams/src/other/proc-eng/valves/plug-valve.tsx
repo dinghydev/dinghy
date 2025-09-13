@@ -6,8 +6,8 @@ export const PLUG_VALVE = {
     entity:
       'verticalLabelPosition=bottom;align=center;html=1;verticalAlign=top;pointerEvents=1;dashed=0;shape=mxgraph.pid2valves.valve;valveType=plug',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function PlugValve(props: DiagramNodeProps) {

@@ -5,8 +5,8 @@ export const DOUBLE_ARROW_VERTICAL = {
   _style: {
     entity: 'shape=doubleArrow;direction=south;whiteSpace=wrap;html=1;',
   },
-  _original_width: 60,
-  _original_height: 100,
+  _width: 60,
+  _height: 100,
 }
 
 export function DoubleArrowVertical(props: DiagramNodeProps) {

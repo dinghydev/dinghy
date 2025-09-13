@@ -6,8 +6,8 @@ export const MATERIAL = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=rect;',
   },
-  _original_width: 130,
-  _original_height: 50,
+  _width: 130,
+  _height: 50,
 }
 
 export function Material(props: DiagramNodeProps) {

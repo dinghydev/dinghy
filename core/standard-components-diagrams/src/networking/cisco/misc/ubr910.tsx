@@ -6,8 +6,8 @@ export const UBR910 = {
     entity:
       'shape=mxgraph.cisco.misc.ubr910;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _original_width: 101,
-  _original_height: 50,
+  _width: 101,
+  _height: 50,
 }
 
 export function Ubr910(props: DiagramNodeProps) {

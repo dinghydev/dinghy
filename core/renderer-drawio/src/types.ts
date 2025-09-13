@@ -50,7 +50,7 @@ export type GeometryProps = {
 export type DrawioProps = {
   element: ElementProps
   entity: Props
-  group: Props
+  container: Props
   dependency: Props
   geometry: GeometryProps
   points: Point[]

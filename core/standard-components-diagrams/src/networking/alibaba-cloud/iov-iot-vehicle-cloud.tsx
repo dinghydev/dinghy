@@ -6,8 +6,8 @@ export const IOV_IOT_VEHICLE_CLOUD = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.iov_iot_vehicle_cloud;',
   },
-  _original_width: 54.900000000000006,
-  _original_height: 33,
+  _width: 54.900000000000006,
+  _height: 33,
 }
 
 export function IovIotVehicleCloud(props: DiagramNodeProps) {

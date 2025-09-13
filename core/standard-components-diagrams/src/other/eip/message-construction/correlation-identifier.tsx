@@ -6,8 +6,8 @@ export const CORRELATION_IDENTIFIER = {
     entity:
       'endArrow=block;html=1;endFill=1;strokeWidth=2;strokeColor=#FF9238;rounded=0;',
   },
-  _original_width: 2,
-  _original_height: 30,
+  _width: 2,
+  _height: 30,
 }
 
 export function CorrelationIdentifier(props: DiagramNodeProps) {

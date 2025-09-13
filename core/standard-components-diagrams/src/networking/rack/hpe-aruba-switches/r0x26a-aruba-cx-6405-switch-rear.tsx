@@ -6,8 +6,8 @@ export const R0X26A_ARUBA_CX_6405_SWITCH_REAR = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.r0x26a_aruba_cx_6405_switch_rear;',
   },
-  _original_width: 142,
-  _original_height: 98,
+  _width: 142,
+  _height: 98,
 }
 
 export function R0x26aArubaCx6405SwitchRear(props: DiagramNodeProps) {

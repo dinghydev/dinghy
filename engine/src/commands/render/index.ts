@@ -91,11 +91,16 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     const appFullPath = `${containerAppHome}/${renderOptions.stack.app}`
     debug('loading app from %O', appFullPath)
     const app = await import(appFullPath)
+    if (!app.default) {
+      throw new Error(
+        `App ${appFullPath} does not have a default export function`,
+      )
+    }
     if (app.renderOptions) {
       deepMerge(renderOptions, app.renderOptions)
       debug('applied app render options: %O', app.renderOptions)
     }
-    return app.App
+    return app.default
   }
 
   debug('render started at %O', new Date())

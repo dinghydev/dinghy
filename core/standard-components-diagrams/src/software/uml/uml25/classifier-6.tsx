@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const CLASSIFIER_6 = {
   _style: {
-    group:
+    container:
       'shape=ellipse;container=1;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;html=1;dashed=1;collapsible=0;',
   },
 }

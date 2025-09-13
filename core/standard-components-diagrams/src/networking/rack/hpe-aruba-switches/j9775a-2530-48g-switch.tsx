@@ -6,8 +6,8 @@ export const J9775A_2530_48G_SWITCH = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.j9775a_2530_48g_switch;',
   },
-  _original_width: 142,
-  _original_height: 15,
+  _width: 142,
+  _height: 15,
 }
 
 export function J9775a253048gSwitch(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const CANS_AND_BOTTLES = {
     entity:
       'shape=mxgraph.signs.food.cans_and_bottles;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 74,
-  _original_height: 98,
+  _width: 74,
+  _height: 98,
 }
 
 export function CansAndBottles(props: DiagramNodeProps) {

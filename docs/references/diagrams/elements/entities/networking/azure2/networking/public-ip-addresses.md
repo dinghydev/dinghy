@@ -1,0 +1,26 @@
+# Public IP Addresses
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Public_IP_Addresses.svg;strokeColor=none;',
+  },
+  _original_width: 65,
+  _original_height: 52,
+
+}
+```
+
+## Usage
+
+```js
+import { PublicIpAddresses } from '@dinghy/standard-components-diagrams/azure2Networking'
+
+<PublicIpAddresses/>
+```
+
+## Preview
+
+<img src="./public-ip-addresses.png" width="200"/>

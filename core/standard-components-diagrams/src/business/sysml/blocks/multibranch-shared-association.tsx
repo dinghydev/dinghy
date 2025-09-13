@@ -5,8 +5,8 @@ export const MULTIBRANCH_SHARED_ASSOCIATION = {
   _style: {
     entity: 'verticalAlign=bottom;html=1;ellipse;fillColor=strokeColor;',
   },
-  _original_width: 250,
-  _original_height: 50,
+  _width: 250,
+  _height: 50,
 }
 
 export function MultibranchSharedAssociation(props: DiagramNodeProps) {

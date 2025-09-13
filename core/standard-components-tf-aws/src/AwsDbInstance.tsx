@@ -18,7 +18,7 @@ export const AwsDbInstanceInputSchema = z.object({
   instance_class: ResolvableStringSchema.optional(),
   username: ResolvableStringSchema.optional(),
   password: ResolvableStringSchema.optional(),
-  parameter_group_name: ResolvableStringSchema.optional(),
+  parameter_container_name: ResolvableStringSchema.optional(),
   subnet: ResolvableStringSchema.optional(),
 })
 
@@ -82,7 +82,7 @@ export default function AwsDbInstance(props: AwsDbInstanceInputProps) {
   /*        password: _props.password,*/
 }
 {
-  /*        parameter_group_name: _props.parameter_group_name,*/
+  /*        parameter_container_name: _props.parameter_container_name,*/
 }
 {
   /*      },*/

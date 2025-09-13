@@ -6,8 +6,8 @@ export const SIGNAL_IN_ARROW = {
     entity:
       'shape=mxgraph.arrows.signal-in_arrow;html=1;verticalLabelPosition=bottom;verticalAlign=top;strokeWidth=2;strokeColor=#000000;',
   },
-  _original_width: 97,
-  _original_height: 30,
+  _width: 97,
+  _height: 30,
 }
 
 export function SignalInArrow(props: DiagramNodeProps) {

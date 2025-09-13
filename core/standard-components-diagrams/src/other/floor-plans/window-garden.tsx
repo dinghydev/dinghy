@@ -6,8 +6,8 @@ export const WINDOW_GARDEN = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.windowGarden;dx=0.25;',
   },
-  _original_width: 100,
-  _original_height: 20,
+  _width: 100,
+  _height: 20,
 }
 
 export function WindowGarden(props: DiagramNodeProps) {

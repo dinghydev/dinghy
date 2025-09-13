@@ -6,8 +6,8 @@ export const ALLOCATION_ACTIVITY_PARTITION_2 = {
     entity:
       'html=1;shape=mxgraph.sysml.cont;fontStyle=1;whiteSpace=wrap;align=center;',
   },
-  _original_width: 1,
-  _original_height: 160,
+  _width: 1,
+  _height: 160,
 }
 
 export function AllocationActivityPartition2(props: DiagramNodeProps) {

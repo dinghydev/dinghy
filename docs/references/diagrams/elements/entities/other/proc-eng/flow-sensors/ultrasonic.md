@@ -1,0 +1,26 @@
+# Ultrasonic
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;align=center;outlineConnect=0;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.flow_sensors.ultrasonic;',
+  },
+  _original_width: 50,
+  _original_height: 50,
+
+}
+```
+
+## Usage
+
+```js
+import { Ultrasonic } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
+
+<Ultrasonic/>
+```
+
+## Preview
+
+<img src="./ultrasonic.png" width="200"/>

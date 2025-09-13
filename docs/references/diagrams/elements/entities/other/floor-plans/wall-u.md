@@ -1,0 +1,26 @@
+# Wall (U)
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.wallU;fillColor=strokeColor;',
+  },
+  _original_width: 100,
+  _original_height: 100,
+
+}
+```
+
+## Usage
+
+```js
+import { WallU } from '@dinghy/standard-components-diagrams/floorPlans'
+
+<WallU/>
+```
+
+## Preview
+
+<img src="./wall-u.png" width="200"/>

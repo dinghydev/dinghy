@@ -1,0 +1,25 @@
+# Lozenge (current, subtle)
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'dashed=0;html=1;rounded=1;strokeColor=#0057D8;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#0057D8',
+  },
+  _width: 100,
+  _height: 20,
+}
+```
+
+## Usage
+
+```js
+import { LozengeCurrentSubtle } from '@dinghy/standard-components-diagrams/atlassian'
+
+<LozengeCurrentSubtle/>
+```
+
+## Preview
+
+<img src="./lozenge-current-subtle.png" width="200"/>

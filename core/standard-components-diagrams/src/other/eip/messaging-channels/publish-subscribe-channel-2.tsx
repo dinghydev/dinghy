@@ -6,8 +6,8 @@ export const PUBLISH_SUBSCRIBE_CHANNEL_2 = {
     entity:
       'rounded=0;endArrow=none;endSize=10;dashed=0;html=1;strokeColor=#808080;strokeWidth=2;',
   },
-  _original_width: 1,
-  _original_height: 160,
+  _width: 1,
+  _height: 160,
 }
 
 export function PublishSubscribeChannel2(props: DiagramNodeProps) {

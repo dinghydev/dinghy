@@ -6,8 +6,8 @@ export const BATCH_AI = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Batch_AI.svg;strokeColor=none;',
   },
-  _original_width: 36,
-  _original_height: 50,
+  _width: 36,
+  _height: 50,
 }
 
 export function BatchAi(props: DiagramNodeProps) {

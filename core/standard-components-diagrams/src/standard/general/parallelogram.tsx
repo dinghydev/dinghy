@@ -6,8 +6,8 @@ export const PARALLELOGRAM = {
     entity:
       'shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;',
   },
-  _original_width: 120,
-  _original_height: 60,
+  _width: 120,
+  _height: 60,
 }
 
 export function Parallelogram(props: DiagramNodeProps) {

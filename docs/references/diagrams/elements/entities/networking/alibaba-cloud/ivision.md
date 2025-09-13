@@ -1,0 +1,26 @@
+# iVision
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.ivision;',
+  },
+  _original_width: 55.2,
+  _original_height: 54.900000000000006,
+
+}
+```
+
+## Usage
+
+```js
+import { Ivision } from '@dinghy/standard-components-diagrams/alibabaCloud'
+
+<Ivision/>
+```
+
+## Preview
+
+<img src="./ivision.png" width="200"/>

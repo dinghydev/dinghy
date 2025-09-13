@@ -6,8 +6,8 @@ export const MANAGED_DESKTOP = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Managed_Desktop.svg;strokeColor=none;',
   },
-  _original_width: 50,
-  _original_height: 36,
+  _width: 50,
+  _height: 36,
 }
 
 export function ManagedDesktop(props: DiagramNodeProps) {

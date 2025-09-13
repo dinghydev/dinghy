@@ -5,8 +5,8 @@ export const MESSAGE_BROKER_3 = {
   _style: {
     entity: 'edgeStyle=none;endArrow=none;dashed=0;html=1;strokeWidth=2;',
   },
-  _original_width: 7,
-  _original_height: 90,
+  _width: 7,
+  _height: 90,
 }
 
 export function MessageBroker3(props: DiagramNodeProps) {

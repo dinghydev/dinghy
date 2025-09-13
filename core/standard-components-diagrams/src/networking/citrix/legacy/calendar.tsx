@@ -6,8 +6,8 @@ export const CALENDAR = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.calendar;',
   },
-  _original_width: 75,
-  _original_height: 100,
+  _width: 75,
+  _height: 100,
 }
 
 export function Calendar(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const COMMENT = {
     entity:
       'shape=mxgraph.ios7.icons.user;fillColor=#ffffff;strokeColor=#253858',
   },
-  _original_width: 470,
-  _original_height: 125,
+  _width: 470,
+  _height: 125,
 }
 
 export function Comment(props: DiagramNodeProps) {

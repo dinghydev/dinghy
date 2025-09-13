@@ -6,8 +6,8 @@ export const DATE_PICKER_LANDSCAPE_DARK = {
     entity:
       'shape=rect;fillColor=#424242;strokeColor=none;shadow=1;aspect=fixed;',
   },
-  _original_width: 512,
-  _original_height: 304,
+  _width: 512,
+  _height: 304,
 }
 
 export function DatePickerLandscapeDark(props: DiagramNodeProps) {

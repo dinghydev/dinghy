@@ -6,8 +6,8 @@ export const SHARED_PROCESS = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.manufacturing_process_shared;spacingTop=-5;align=center;whiteSpace=wrap;verticalAlign=top;',
   },
-  _original_width: 100,
-  _original_height: 70,
+  _width: 100,
+  _height: 70,
 }
 
 export function SharedProcess(props: DiagramNodeProps) {

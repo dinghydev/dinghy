@@ -6,8 +6,8 @@ export const AIR_SEPARATOR = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.air_separator;',
   },
-  _original_width: 65.5,
-  _original_height: 106,
+  _width: 65.5,
+  _height: 106,
 }
 
 export function AirSeparator(props: DiagramNodeProps) {

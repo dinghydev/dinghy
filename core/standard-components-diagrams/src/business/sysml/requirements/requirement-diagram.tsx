@@ -6,8 +6,8 @@ export const REQUIREMENT_DIAGRAM = {
     entity:
       'html=1;shape=mxgraph.sysml.package;overflow=fill;labelX=110;strokeWidth=2;align=center;',
   },
-  _original_width: 160,
-  _original_height: 80,
+  _width: 160,
+  _height: 80,
 }
 
 export function RequirementDiagram(props: DiagramNodeProps) {

@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const SERVER_CONTENTS = {
   _style: {
-    group:
+    container:
       'rounded=1;arcSize=10;strokeColor=none;fillColor=#DBDBDB;gradientColor=none;',
     entity: {
       fillColor: '#DBDBDB',

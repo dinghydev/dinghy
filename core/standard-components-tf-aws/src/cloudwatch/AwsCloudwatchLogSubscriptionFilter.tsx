@@ -12,7 +12,7 @@ export const InputSchema = z.object({
   name: ResolvableStringSchema,
   destination_arn: ResolvableStringSchema,
   filter_pattern: ResolvableStringSchema,
-  log_group_name: ResolvableStringSchema,
+  log_container_name: ResolvableStringSchema,
   role_arn: ResolvableStringSchema.optional(),
   distribution: ResolvableStringSchema.optional(),
 })
@@ -33,7 +33,7 @@ export type OutputProps =
 
 export function AwsCloudwatchLogSubscriptionFilter(props: InputProps) {
   const _importId = (node: any) =>
-    `${node._props.log_group_name}|${node._props.name}`
+    `${node._props.log_container_name}|${node._props.name}`
   return (
     <Shape
       _importId={_importId}

@@ -127,7 +127,7 @@ export const DiagramNodeSchema = z.object({
         ResolvableStringSchema.optional(),
         z.record(z.string(), z.any()),
       ]),
-      group: z.union([
+      container: z.union([
         ResolvableStringSchema.optional(),
         z.record(z.string(), z.any()),
       ]),
@@ -141,14 +141,14 @@ export const DiagramNodeSchema = z.object({
     ResolvableStringSchema.optional(),
     z.object({
       entity: z.string().optional(),
-      group: z.string().optional(),
+      container: z.string().optional(),
     }),
   ]),
   _icon: z.union([
     ResolvableStringSchema.optional(),
     z.object({
       entity: z.string().optional(),
-      group: z.string().optional(),
+      container: z.string().optional(),
     }),
   ]),
   _color: z.union([

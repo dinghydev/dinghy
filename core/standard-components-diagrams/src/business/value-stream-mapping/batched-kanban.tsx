@@ -6,8 +6,8 @@ export const BATCHED_KANBAN = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.batched_kanban;',
   },
-  _original_width: 200,
-  _original_height: 80,
+  _width: 200,
+  _height: 80,
 }
 
 export function BatchedKanban(props: DiagramNodeProps) {

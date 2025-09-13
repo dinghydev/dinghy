@@ -1,0 +1,25 @@
+# Block Namespace Containment
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'edgeStyle=elbowEdgeStyle;html=1;endSize=12;endArrow=sysMLPackCont;elbow=horizontal;rounded=0;align=left;verticalAlign=middle',
+  },
+  _width: 1,
+  _height: 70,
+}
+```
+
+## Usage
+
+```js
+import { BlockNamespaceContainment } from '@dinghy/standard-components-diagrams/sysmlBlocks'
+
+<BlockNamespaceContainment/>
+```
+
+## Preview
+
+<img src="./block-namespace-containment.png" width="200"/>

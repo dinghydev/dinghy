@@ -6,8 +6,8 @@ export const F_M_2_CONDUCTOR_3 = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.f_m_2_conductor_3',
   },
-  _original_width: 100,
-  _original_height: 50,
+  _width: 100,
+  _height: 50,
 }
 
 export function FM2Conductor3(props: DiagramNodeProps) {

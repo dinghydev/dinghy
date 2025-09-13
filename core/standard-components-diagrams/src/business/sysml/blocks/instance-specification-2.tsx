@@ -6,8 +6,8 @@ export const INSTANCE_SPECIFICATION_2 = {
     entity:
       'verticalAlign=bottom;html=1;endArrow=open;endSize=12;edgeStyle=orthogonalEdgeStyle;',
   },
-  _original_width: 2,
-  _original_height: 30,
+  _width: 2,
+  _height: 30,
 }
 
 export function InstanceSpecification2(props: DiagramNodeProps) {

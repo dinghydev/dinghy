@@ -6,8 +6,8 @@ export const TOOTH = {
     entity:
       'shape=mxgraph.signs.healthcare.tooth;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 80,
-  _original_height: 101,
+  _width: 80,
+  _height: 101,
 }
 
 export function Tooth(props: DiagramNodeProps) {

@@ -5,8 +5,8 @@ export const ISOMETRIC_SQUARE = {
   _style: {
     entity: 'html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;',
   },
-  _original_width: 150,
-  _original_height: 90,
+  _width: 150,
+  _height: 90,
 }
 
 export function IsometricSquare(props: DiagramNodeProps) {

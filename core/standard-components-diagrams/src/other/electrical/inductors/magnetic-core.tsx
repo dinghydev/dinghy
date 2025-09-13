@@ -6,8 +6,8 @@ export const MAGNETIC_CORE = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.magnetic_core;direction=north;',
   },
-  _original_width: 64,
-  _original_height: 3,
+  _width: 64,
+  _height: 3,
 }
 
 export function MagneticCore(props: DiagramNodeProps) {

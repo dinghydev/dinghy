@@ -6,8 +6,8 @@ export const PUSH_ARROW = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=2;shape=mxgraph.lean_mapping.push_arrow;',
   },
-  _original_width: 100,
-  _original_height: 30,
+  _width: 100,
+  _height: 30,
 }
 
 export function PushArrow(props: DiagramNodeProps) {

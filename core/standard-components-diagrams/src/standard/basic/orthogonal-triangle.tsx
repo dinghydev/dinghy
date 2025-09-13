@@ -6,8 +6,8 @@ export const ORTHOGONAL_TRIANGLE = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.orthogonal_triangle',
   },
-  _original_width: 100,
-  _original_height: 70,
+  _width: 100,
+  _height: 70,
 }
 
 export function OrthogonalTriangle(props: DiagramNodeProps) {

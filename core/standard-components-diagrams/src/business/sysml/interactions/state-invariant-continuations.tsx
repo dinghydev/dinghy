@@ -6,8 +6,8 @@ export const STATE_INVARIANT_CONTINUATIONS = {
     entity:
       'html=1;shape=mxgraph.sysml.cont;fontStyle=1;whiteSpace=wrap;align=center;',
   },
-  _original_width: 1,
-  _original_height: 220,
+  _width: 1,
+  _height: 220,
 }
 
 export function StateInvariantContinuations(props: DiagramNodeProps) {

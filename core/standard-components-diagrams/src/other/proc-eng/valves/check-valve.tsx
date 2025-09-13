@@ -6,8 +6,8 @@ export const CHECK_VALVE = {
     entity:
       'verticalLabelPosition=bottom;align=center;html=1;verticalAlign=top;pointerEvents=1;dashed=0;shape=mxgraph.pid2valves.valve;valveType=check;',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function CheckValve(props: DiagramNodeProps) {

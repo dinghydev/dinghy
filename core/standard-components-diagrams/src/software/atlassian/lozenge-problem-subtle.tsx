@@ -6,8 +6,8 @@ export const LOZENGE_PROBLEM_SUBTLE = {
     entity:
       'dashed=0;html=1;rounded=1;strokeColor=#BA3200;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#BA3200',
   },
-  _original_width: 70,
-  _original_height: 20,
+  _width: 70,
+  _height: 20,
 }
 
 export function LozengeProblemSubtle(props: DiagramNodeProps) {

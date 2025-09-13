@@ -6,8 +6,8 @@ export const ARROW_LIST_7 = {
     entity:
       'html=1;whiteSpace=wrap;fillColor=#23445D;strokeColor=none;shadow=0;fontSize=17;fontColor=#FFFFFF;align=center;fontStyle=1;rounded=0;',
   },
-  _original_width: 6,
-  _original_height: 220,
+  _width: 6,
+  _height: 220,
 }
 
 export function ArrowList7(props: DiagramNodeProps) {

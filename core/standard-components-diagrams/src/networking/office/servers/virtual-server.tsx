@@ -6,8 +6,8 @@ export const VIRTUAL_SERVER = {
     entity:
       'sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.virtual_server;',
   },
-  _original_width: 28,
-  _original_height: 52,
+  _width: 28,
+  _height: 52,
 }
 
 export function VirtualServer(props: DiagramNodeProps) {

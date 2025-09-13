@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const DIAGRAM = {
   _style: {
-    group:
+    container:
       'shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;recursiveResize=0;container=1;collapsible=0;width=160;',
   },
 }

@@ -6,8 +6,8 @@ export const LIQUID_LEVEL_ACTUATED_ON = {
     entity:
       'html=1;shape=mxgraph.electrical.electro-mechanical.liquidLevelActuatedSwitch;aspect=fixed;elSwitchState=on;',
   },
-  _original_width: 75,
-  _original_height: 30,
+  _width: 75,
+  _height: 30,
 }
 
 export function LiquidLevelActuatedOn(props: DiagramNodeProps) {

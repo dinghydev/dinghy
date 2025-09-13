@@ -5,8 +5,8 @@ export const USE_CASE = {
   _style: {
     entity: 'ellipse;whiteSpace=wrap;html=1;',
   },
-  _original_width: 140,
-  _original_height: 70,
+  _width: 140,
+  _height: 70,
 }
 
 export function UseCase(props: DiagramNodeProps) {

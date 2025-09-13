@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const AWS_STEP_FUNCTIONS_WORKFLOW = {
   _style: {
-    group:
+    container:
       'sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_step_functions_workflow;strokeColor=#E8E8E8;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#E8E8E8;dashed=0;',
     entity: {
       strokeColor: '#E8E8E8',

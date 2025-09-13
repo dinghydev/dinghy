@@ -6,8 +6,8 @@ export const CACHE_SERVER = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.cache_server;',
   },
-  _original_width: 71,
-  _original_height: 97.5,
+  _width: 71,
+  _height: 97.5,
 }
 
 export function CacheServer(props: DiagramNodeProps) {

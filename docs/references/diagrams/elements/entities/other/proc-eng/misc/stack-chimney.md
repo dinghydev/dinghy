@@ -1,0 +1,25 @@
+# Stack, Chimney
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.stack,_chimney;',
+  },
+  _width: 60,
+  _height: 100,
+}
+```
+
+## Usage
+
+```js
+import { StackChimney } from '@dinghy/standard-components-diagrams/procEngMisc'
+
+<StackChimney/>
+```
+
+## Preview
+
+<img src="./stack-chimney.png" width="200"/>

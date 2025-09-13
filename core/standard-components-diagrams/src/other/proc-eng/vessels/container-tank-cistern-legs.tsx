@@ -6,8 +6,8 @@ export const CONTAINER_TANK_CISTERN_LEGS = {
     entity:
       'shape=mxgraph.pid.vessels.container,_tank,_cistern_(legs);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 100,
-  _original_height: 105,
+  _width: 100,
+  _height: 105,
 }
 
 export function ContainerTankCisternLegs(props: DiagramNodeProps) {

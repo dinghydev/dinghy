@@ -6,8 +6,8 @@ export const REQUIRED_INTERFACE = {
     entity:
       'html=1;shape=mxgraph.sysml.port4;fontStyle=1;whiteSpace=wrap;align=center;',
   },
-  _original_width: 0,
-  _original_height: 60,
+  _width: 0,
+  _height: 60,
 }
 
 export function RequiredInterface(props: DiagramNodeProps) {

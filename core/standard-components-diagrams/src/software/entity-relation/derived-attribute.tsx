@@ -5,8 +5,8 @@ export const DERIVED_ATTRIBUTE = {
   _style: {
     entity: 'ellipse;whiteSpace=wrap;html=1;align=center;dashed=1;',
   },
-  _original_width: 100,
-  _original_height: 40,
+  _width: 100,
+  _height: 40,
 }
 
 export function DerivedAttribute(props: DiagramNodeProps) {

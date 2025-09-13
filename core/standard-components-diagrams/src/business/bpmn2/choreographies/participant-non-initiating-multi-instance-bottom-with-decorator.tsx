@@ -6,8 +6,8 @@ export const PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_BOTTOM_WITH_DECORATOR = {
     entity:
       'shape=mxgraph.bpmn.task2;part=1;taskMarker=abstract;rectStyle=rounded;topLeftStyle=square;topRightStyle=square;verticalAlign=top;isLoopMultiParallel=1;fillColor=#C0C0C0;whiteSpace=wrap;html=1;',
   },
-  _original_width: 0,
-  _original_height: 100,
+  _width: 0,
+  _height: 100,
 }
 
 export function ParticipantNonInitiatingMultiInstanceBottomWithDecorator(

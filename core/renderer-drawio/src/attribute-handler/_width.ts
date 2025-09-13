@@ -8,7 +8,7 @@ export const _width = (width: number) => (
         width,
       },
     },
-    group: {
+    container: {
       geometry: {
         width,
       },

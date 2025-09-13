@@ -1,0 +1,26 @@
+# AWS
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.aws',
+  },
+  _original_width: 63.6,
+  _original_height: 58.400000000000006,
+
+}
+```
+
+## Usage
+
+```js
+import { Aws } from '@dinghy/standard-components-diagrams/webLogos'
+
+<Aws/>
+```
+
+## Preview
+
+<img src="./aws.png" width="200"/>

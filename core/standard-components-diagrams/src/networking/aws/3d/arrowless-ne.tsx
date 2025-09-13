@@ -6,8 +6,8 @@ export const ARROWLESS_NE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=1;align=center;outlineConnect=0;dashed=0;outlineConnect=0;shape=mxgraph.aws3d.arrowlessNE;fillColor=#000000;aspect=fixed;',
   },
-  _original_width: 31.6,
-  _original_height: 18,
+  _width: 31.6,
+  _height: 18,
 }
 
 export function ArrowlessNe(props: DiagramNodeProps) {

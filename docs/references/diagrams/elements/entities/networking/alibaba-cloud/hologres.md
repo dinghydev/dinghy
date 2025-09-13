@@ -1,0 +1,26 @@
+# Hologres
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.hologres;',
+  },
+  _original_width: 54.900000000000006,
+  _original_height: 50.099999999999994,
+
+}
+```
+
+## Usage
+
+```js
+import { Hologres } from '@dinghy/standard-components-diagrams/alibabaCloud'
+
+<Hologres/>
+```
+
+## Preview
+
+<img src="./hologres.png" width="200"/>

@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const CORPORATE_DATA_CENTER = {
   _style: {
-    group:
+    container:
       'dashed=0;html=1;shape=mxgraph.aws3.corporate_data_center;fillColor=#7D7C7C;gradientColor=none;dashed=0;',
     entity: {
       fillColor: '#7D7C7C',

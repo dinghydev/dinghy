@@ -65,7 +65,7 @@ const Application = (props: any) => {
   );
 };
 
-export function App() {
+export default function App() {
   return (
     <WebApp>
       <Client />

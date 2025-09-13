@@ -6,8 +6,8 @@ export const SIMPLE_DIALOG = {
     entity:
       'shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;fontSize=20;fontColor=#000000;align=left;spacing=16;verticalAlign=top;fontStyle=0;spacingTop=-5;recursiveResize=0;whiteSpace=wrap;html=1;',
   },
-  _original_width: 280,
-  _original_height: 250,
+  _width: 280,
+  _height: 250,
 }
 
 export function SimpleDialog(props: DiagramNodeProps) {

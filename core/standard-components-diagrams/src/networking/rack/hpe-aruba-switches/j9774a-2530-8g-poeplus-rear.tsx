@@ -6,8 +6,8 @@ export const J9774A_2530_8G_POEPLUS_REAR = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.j9774a_2530_8g_poeplus_rear;',
   },
-  _original_width: 87,
-  _original_height: 15,
+  _width: 87,
+  _height: 15,
 }
 
 export function J9774a25308gPoeplusRear(props: DiagramNodeProps) {

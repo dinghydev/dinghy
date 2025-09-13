@@ -6,8 +6,8 @@ export const POT_TRANS_3_WINDINGS = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.pot_trans_3_windings;',
   },
-  _original_width: 67,
-  _original_height: 96,
+  _width: 67,
+  _height: 96,
 }
 
 export function PotTrans3Windings(props: DiagramNodeProps) {

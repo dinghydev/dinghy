@@ -5,8 +5,8 @@ export const ACTION = {
   _style: {
     entity: 'shape=rect;html=1;whiteSpace=wrap;align=center;',
   },
-  _original_width: 140,
-  _original_height: 40,
+  _width: 140,
+  _height: 40,
 }
 
 export function Action(props: DiagramNodeProps) {

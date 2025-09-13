@@ -1,0 +1,25 @@
+# Plot Chart
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.graphics.plotChart;strokeColor=none;strokeColor2=#aaaaaa;strokeColor3=#666666;fillColor2=#99aaff,#0022ff,#008cff;',
+  },
+  _width: 400,
+  _height: 200,
+}
+```
+
+## Usage
+
+```js
+import { PlotChart } from '@dinghy/standard-components-diagrams/mockupGraphics'
+
+<PlotChart/>
+```
+
+## Preview
+
+<img src="./plot-chart.png" width="200"/>

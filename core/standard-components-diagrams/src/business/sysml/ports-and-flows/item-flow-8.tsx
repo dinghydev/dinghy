@@ -6,8 +6,8 @@ export const ITEM_FLOW_8 = {
     entity:
       'endArrow=none;html=1;edgeStyle=elbowEdgeStyle;elbow=horizontal;dashed=1;',
   },
-  _original_width: 4,
-  _original_height: 370,
+  _width: 4,
+  _height: 370,
 }
 
 export function ItemFlow8(props: DiagramNodeProps) {

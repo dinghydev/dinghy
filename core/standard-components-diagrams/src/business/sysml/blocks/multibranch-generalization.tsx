@@ -6,8 +6,8 @@ export const MULTIBRANCH_GENERALIZATION = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;endSize=12;endArrow=block;endFill=0;elbow=horizontal;rounded=0;labelBackgroundColor=default;fontFamily=Helvetica;fontSize=11;fontColor=default;shape=connector;',
   },
-  _original_width: 1,
-  _original_height: 50,
+  _width: 1,
+  _height: 50,
 }
 
 export function MultibranchGeneralization(props: DiagramNodeProps) {

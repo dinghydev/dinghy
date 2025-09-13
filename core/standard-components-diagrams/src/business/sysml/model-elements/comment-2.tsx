@@ -5,8 +5,8 @@ export const COMMENT_2 = {
   _style: {
     entity: 'edgeStyle=none;endArrow=none;exitX=0.4;exitY=0;dashed=1;html=1;',
   },
-  _original_width: 1,
-  _original_height: 80,
+  _width: 1,
+  _height: 80,
 }
 
 export function Comment2(props: DiagramNodeProps) {

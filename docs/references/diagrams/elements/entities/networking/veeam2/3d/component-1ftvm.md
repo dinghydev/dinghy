@@ -1,0 +1,26 @@
+# 1FTVM
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'sketch=0;shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.1ftvm;',
+  },
+  _original_width: 68,
+  _original_height: 62,
+
+}
+```
+
+## Usage
+
+```js
+import { Component1ftvm } from '@dinghy/standard-components-diagrams/veeam23d'
+
+<Component1ftvm/>
+```
+
+## Preview
+
+<img src="./component-1ftvm.png" width="200"/>

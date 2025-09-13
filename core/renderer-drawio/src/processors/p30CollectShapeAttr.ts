@@ -5,7 +5,7 @@ function mergeElement({ _props }: DrawioNodeTree) {
   let { _diagram } = _props
   const shapeAttributes = _diagram.flags.isEntity
     ? _diagram.entity
-    : _diagram.group
+    : _diagram.container
   if (shapeAttributes) {
     const { geometry, ...element } = shapeAttributes
     if (geometry) {

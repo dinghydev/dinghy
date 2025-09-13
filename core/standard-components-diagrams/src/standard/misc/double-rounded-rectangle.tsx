@@ -5,8 +5,8 @@ export const DOUBLE_ROUNDED_RECTANGLE = {
   _style: {
     entity: 'shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;',
   },
-  _original_width: 120,
-  _original_height: 80,
+  _width: 120,
+  _height: 80,
 }
 
 export function DoubleRoundedRectangle(props: DiagramNodeProps) {

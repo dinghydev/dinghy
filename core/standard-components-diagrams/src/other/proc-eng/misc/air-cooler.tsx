@@ -6,8 +6,8 @@ export const AIR_COOLER = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.air_cooler;',
   },
-  _original_width: 70,
-  _original_height: 20,
+  _width: 70,
+  _height: 20,
 }
 
 export function AirCooler(props: DiagramNodeProps) {

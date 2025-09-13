@@ -6,8 +6,8 @@ export const NON_AZURE_MACHINE = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Non_Azure_Machine.svg;strokeColor=none;',
   },
-  _original_width: 31,
-  _original_height: 50,
+  _width: 31,
+  _height: 50,
 }
 
 export function NonAzureMachine(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const ROADMAP_HORIZONTAL_3 = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.partConcEllipse;startAngle=0.25;endAngle=0.75;arcWidth=0.25;fillColor=#AE4132;strokeColor=none;',
   },
-  _original_width: 2,
-  _original_height: 300,
+  _width: 2,
+  _height: 300,
 }
 
 export function RoadmapHorizontal3(props: DiagramNodeProps) {

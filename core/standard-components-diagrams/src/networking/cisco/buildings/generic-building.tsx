@@ -6,8 +6,8 @@ export const GENERIC_BUILDING = {
     entity:
       'shape=mxgraph.cisco.buildings.generic_building;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _original_width: 90,
-  _original_height: 136,
+  _width: 90,
+  _height: 136,
 }
 
 export function GenericBuilding(props: DiagramNodeProps) {

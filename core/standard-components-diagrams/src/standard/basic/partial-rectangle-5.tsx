@@ -6,8 +6,8 @@ export const PARTIAL_RECTANGLE_5 = {
     entity:
       'shape=partialRectangle;whiteSpace=wrap;html=1;top=0;left=0;fillColor=none;',
   },
-  _original_width: 120,
-  _original_height: 60,
+  _width: 120,
+  _height: 60,
 }
 
 export function PartialRectangle5(props: DiagramNodeProps) {

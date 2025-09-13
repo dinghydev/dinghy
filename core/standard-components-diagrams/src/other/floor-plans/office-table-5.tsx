@@ -6,8 +6,8 @@ export const OFFICE_TABLE_5 = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.office_chair;shadow=0;direction=south',
   },
-  _original_width: 3,
-  _original_height: 140,
+  _width: 3,
+  _height: 140,
 }
 
 export function OfficeTable5(props: DiagramNodeProps) {

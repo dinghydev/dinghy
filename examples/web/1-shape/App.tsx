@@ -1,6 +1,6 @@
 import { Shape } from "@dinghy/base-components";
 
-export function App() {
+export default function App() {
   return (
     <Shape>
       Web App

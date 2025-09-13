@@ -6,8 +6,8 @@ export const LARGE_D_CONNECTOR = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.large_d_connector',
   },
-  _original_width: 375,
-  _original_height: 75,
+  _width: 375,
+  _height: 75,
 }
 
 export function LargeDConnector(props: DiagramNodeProps) {

@@ -5,8 +5,8 @@ export const TAPE = {
   _style: {
     entity: 'shape=tape;whiteSpace=wrap;html=1;',
   },
-  _original_width: 120,
-  _original_height: 100,
+  _width: 120,
+  _height: 100,
 }
 
 export function Tape(props: DiagramNodeProps) {

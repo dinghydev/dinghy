@@ -6,8 +6,8 @@ export const ITEM_FLOW_2 = {
     entity:
       'html=1;shape=mxgraph.sysml.itemFlow;fontStyle=1;flowDir=N;flowType=in;whiteSpace=wrap;align=center;',
   },
-  _original_width: 1,
-  _original_height: 180,
+  _width: 1,
+  _height: 180,
 }
 
 export function ItemFlow2(props: DiagramNodeProps) {

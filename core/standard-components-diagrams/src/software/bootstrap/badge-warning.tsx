@@ -6,8 +6,8 @@ export const BADGE_WARNING = {
     entity:
       'html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#FFBC26;fontColor=#000000;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=0;fontStyle=1;fontSize=14;spacing=5;',
   },
-  _original_width: 65,
-  _original_height: 20,
+  _width: 65,
+  _height: 20,
 }
 
 export function BadgeWarning(props: DiagramNodeProps) {

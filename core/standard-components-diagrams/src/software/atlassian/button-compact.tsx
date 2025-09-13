@@ -6,8 +6,8 @@ export const BUTTON_COMPACT = {
     entity:
       'rounded=1;fillColor=#F1F2F4;align=center;strokeColor=none;html=1;whiteSpace=wrap;fontColor=#596780;fontSize=12;sketch=0;',
   },
-  _original_width: 0,
-  _original_height: 33,
+  _width: 0,
+  _height: 33,
 }
 
 export function ButtonCompact(props: DiagramNodeProps) {

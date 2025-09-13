@@ -6,8 +6,8 @@ export const NOTE = {
     entity:
       'shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;',
   },
-  _original_width: 80,
-  _original_height: 100,
+  _width: 80,
+  _height: 100,
 }
 
 export function Note(props: DiagramNodeProps) {

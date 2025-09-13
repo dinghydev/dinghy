@@ -6,8 +6,8 @@ export const WAITING_ROOM_1 = {
     entity:
       'shape=mxgraph.signs.people.waiting_room_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 77,
-  _original_height: 100,
+  _width: 77,
+  _height: 100,
 }
 
 export function WaitingRoom1(props: DiagramNodeProps) {

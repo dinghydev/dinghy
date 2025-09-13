@@ -6,8 +6,8 @@ export const INTERNAL_MEDICINE = {
     entity:
       'shape=mxgraph.signs.healthcare.internal_medicine;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 71,
-  _original_height: 98,
+  _width: 71,
+  _height: 98,
 }
 
 export function InternalMedicine(props: DiagramNodeProps) {

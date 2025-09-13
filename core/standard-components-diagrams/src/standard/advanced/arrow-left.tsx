@@ -5,8 +5,8 @@ export const ARROW_LEFT = {
   _style: {
     entity: 'shape=singleArrow;direction=west;whiteSpace=wrap;html=1;',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function ArrowLeft(props: DiagramNodeProps) {

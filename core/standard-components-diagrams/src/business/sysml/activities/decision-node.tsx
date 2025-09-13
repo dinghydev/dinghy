@@ -6,8 +6,8 @@ export const DECISION_NODE = {
     entity:
       'shape=rhombus;html=1;verticalLabelPosition=bottom;verticalAlignment=top;',
   },
-  _original_width: 200,
-  _original_height: 80,
+  _width: 200,
+  _height: 80,
 }
 
 export function DecisionNode(props: DiagramNodeProps) {

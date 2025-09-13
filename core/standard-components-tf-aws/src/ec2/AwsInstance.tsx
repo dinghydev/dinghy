@@ -15,7 +15,7 @@ export const AwsInstanceInputSchema = z.object({
   ami: ResolvableStringSchema.optional(),
   instance_type: ResolvableStringSchema.optional(),
   key_name: ResolvableStringSchema.optional(),
-  vpc_security_group_ids: ResolvableStringArraySchema.optional(),
+  vpc_security_container_ids: ResolvableStringArraySchema.optional(),
   root_block_device: ResolvableRecordSchema.optional(),
   metadata_options: ResolvableRecordSchema.optional(),
   lifecycle: ResolvableRecordSchema.optional(),

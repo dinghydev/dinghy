@@ -6,8 +6,8 @@ export const MACHINESAZUREARC = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/management_governance/MachinesAzureArc.svg;strokeColor=none;',
   },
-  _original_width: 44,
-  _original_height: 68,
+  _width: 44,
+  _height: 68,
 }
 
 export function Machinesazurearc(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const LIST_ITEM_3 = {
     entity:
       'line;strokeWidth=1;rotatable=0;dashed=0;labelPosition=right;align=left;verticalAlign=middle;spacingTop=0;spacingLeft=6;points=[];portConstraint=eastwest;',
   },
-  _original_width: 0,
-  _original_height: 10,
+  _width: 0,
+  _height: 10,
 }
 
 export function ListItem3(props: DiagramNodeProps) {

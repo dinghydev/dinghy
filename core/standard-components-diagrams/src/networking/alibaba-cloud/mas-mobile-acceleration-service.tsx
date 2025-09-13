@@ -6,8 +6,8 @@ export const MAS_MOBILE_ACCELERATION_SERVICE = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.mas_mobile_acceleration_service;',
   },
-  _original_width: 51.3,
-  _original_height: 37.8,
+  _width: 51.3,
+  _height: 37.8,
 }
 
 export function MasMobileAccelerationService(props: DiagramNodeProps) {

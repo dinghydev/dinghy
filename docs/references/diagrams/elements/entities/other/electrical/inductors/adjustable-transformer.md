@@ -1,0 +1,26 @@
+# Adjustable Transformer
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.inductors.adjustable_transformer;',
+  },
+  _original_width: 46,
+  _original_height: 60,
+
+}
+```
+
+## Usage
+
+```js
+import { AdjustableTransformer } from '@dinghy/standard-components-diagrams/electricalInductors'
+
+<AdjustableTransformer/>
+```
+
+## Preview
+
+<img src="./adjustable-transformer.png" width="200"/>

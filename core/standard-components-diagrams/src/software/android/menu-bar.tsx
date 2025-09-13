@@ -6,8 +6,8 @@ export const MENU_BAR = {
     entity:
       'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.rrect;rSize=0;strokeColor=#888888;fillColor=#444444;',
   },
-  _original_width: 0,
-  _original_height: 50,
+  _width: 0,
+  _height: 50,
 }
 
 export function MenuBar(props: DiagramNodeProps) {

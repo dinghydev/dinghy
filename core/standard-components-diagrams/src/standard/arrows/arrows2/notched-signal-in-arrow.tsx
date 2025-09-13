@@ -6,8 +6,8 @@ export const NOTCHED_SIGNAL_IN_ARROW = {
     entity:
       'html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0;dx=10;notch=10;',
   },
-  _original_width: 100,
-  _original_height: 30,
+  _width: 100,
+  _height: 30,
 }
 
 export function NotchedSignalInArrow(props: DiagramNodeProps) {

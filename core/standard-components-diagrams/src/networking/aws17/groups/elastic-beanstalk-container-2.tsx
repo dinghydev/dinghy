@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_BEANSTALK_CONTAINER_2 = {
   _style: {
-    group:
+    container:
       'dashed=0;html=1;shape=mxgraph.aws3.elastic_beanstalk;fillColor=#F58536;gradientColor=none;dashed=0;',
     entity: {
       fillColor: '#F58536',

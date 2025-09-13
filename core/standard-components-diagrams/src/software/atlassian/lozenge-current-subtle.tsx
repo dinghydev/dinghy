@@ -6,8 +6,8 @@ export const LOZENGE_CURRENT_SUBTLE = {
     entity:
       'dashed=0;html=1;rounded=1;strokeColor=#0057D8;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#0057D8',
   },
-  _original_width: 100,
-  _original_height: 20,
+  _width: 100,
+  _height: 20,
 }
 
 export function LozengeCurrentSubtle(props: DiagramNodeProps) {

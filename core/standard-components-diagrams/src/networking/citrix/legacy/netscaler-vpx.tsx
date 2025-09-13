@@ -6,8 +6,8 @@ export const NETSCALER_VPX = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.netscaler_vpx;',
   },
-  _original_width: 97,
-  _original_height: 36,
+  _width: 97,
+  _height: 36,
 }
 
 export function NetscalerVpx(props: DiagramNodeProps) {

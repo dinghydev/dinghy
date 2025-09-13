@@ -1,0 +1,25 @@
+# App Engine
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjE2LjA2OTk5OTY5NDgyNDIyIiBoZWlnaHQ9IjEyLjg2OTk5OTg4NTU1OTA4MiIgdmlld0JveD0iMCAxLjc4ODEzOTM0MzI2MTcxODhlLTcgMTYuMDY5OTk5Njk0ODI0MjIgMTIuODY5OTk5ODg1NTU5MDgyIj4mI3hhOwk8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNDI4NWY0O30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04IDMuMDVhNC45MSA0LjkxIDAgMSAwIDMuNDcyIDEuNDM4QTQuOTEgNC45MSAwIDAgMCA4IDMuMDVtMCA4LjYzYTMuNzIgMy43MiAwIDAgMSAwLTcuNDQgMy43MiAzLjcyIDAgMSAxIDAgNy40NG03LjctNC4yN2wtMi0uNjRhNS43OCA1Ljc4IDAgMCAxIC4xMyAxLjIyIDUuODcgNS44NyAwIDAgMS0uMDYuODZoMmEuMzYuMzYgMCAwIDAgLjMtLjM0di0uOGEuMzYuMzYgMCAwIDAtLjM3LS4zTTggMi4xOGE1LjgzIDUuODMgMCAwIDEgMS4yLjEybC0uNzMtMmEuMzYuMzYgMCAwIDAtLjM0LS4zaC0uMzFhLjM2LjM2IDAgMCAwLS4zNC4zbC0uNjQgMkE1LjggNS44IDAgMCAxIDggMi4xOE0yLjIyIDcuOTZhNS43OCA1Ljc4IDAgMCAxIC4xMy0xLjIyTC4zIDcuNDFhLjM2LjM2IDAgMCAwLS4zLjN2Ljc3YS4zNi4zNiAwIDAgMCAuMy4zNGgyYTUuNzkgNS43OSAwIDAgMS0uMDYtLjg2bTcuNTEtMS42MWwtLjQ2LjQ2aDBhMS43NyAxLjc3IDAgMCAwLTIuNSAyLjVsLS40Ni40NmEyLjQyIDIuNDIgMCAxIDAgMy40Mi0zLjQybS0xIDIuNGExLjEyIDEuMTIgMCAxIDEgLjMzMS0uNzk1IDEuMTIgMS4xMiAwIDAgMS0uMzMxLjc5NSIvPiYjeGE7PC9zdmc+;strokeColor=none;',
+  },
+  _width: 32,
+  _height: 26,
+}
+```
+
+## Usage
+
+```js
+import { AppEngine } from '@dinghy/standard-components-diagrams/gcpIconsExpandedProductCardIcons'
+
+<AppEngine/>
+```
+
+## Preview
+
+<img src="./app-engine.png" width="200"/>

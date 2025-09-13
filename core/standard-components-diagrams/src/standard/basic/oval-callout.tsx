@@ -5,8 +5,8 @@ export const OVAL_CALLOUT = {
   _style: {
     entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.oval_callout',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function OvalCallout(props: DiagramNodeProps) {

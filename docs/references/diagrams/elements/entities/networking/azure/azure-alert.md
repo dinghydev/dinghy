@@ -1,0 +1,26 @@
+# Azure Alert
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_alert;',
+  },
+  _original_width: 50,
+  _original_height: 42.5,
+
+}
+```
+
+## Usage
+
+```js
+import { AzureAlert } from '@dinghy/standard-components-diagrams/azure'
+
+<AzureAlert/>
+```
+
+## Preview
+
+<img src="./azure-alert.png" width="200"/>

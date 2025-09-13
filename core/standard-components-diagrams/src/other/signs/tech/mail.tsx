@@ -6,8 +6,8 @@ export const MAIL = {
     entity:
       'shape=mxgraph.signs.tech.mail;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 99,
-  _original_height: 75,
+  _width: 99,
+  _height: 75,
 }
 
 export function Mail(props: DiagramNodeProps) {

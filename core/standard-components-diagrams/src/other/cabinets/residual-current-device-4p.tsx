@@ -6,8 +6,8 @@ export const RESIDUAL_CURRENT_DEVICE_4P = {
     entity:
       'verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.residual_current_device_4p;',
   },
-  _original_width: 36,
-  _original_height: 50,
+  _width: 36,
+  _height: 50,
 }
 
 export function ResidualCurrentDevice4p(props: DiagramNodeProps) {

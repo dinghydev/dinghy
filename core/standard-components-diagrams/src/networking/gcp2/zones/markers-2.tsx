@@ -6,8 +6,8 @@ export const MARKERS_2 = {
     entity:
       'strokeColor=none;fillColor=none;fontColor=#757575;align=left;html=1;fontStyle=0;fontSize=11;',
   },
-  _original_width: 7,
-  _original_height: 50,
+  _width: 7,
+  _height: 50,
 }
 
 export function Markers2(props: DiagramNodeProps) {

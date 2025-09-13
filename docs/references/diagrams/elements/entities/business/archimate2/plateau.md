@@ -1,0 +1,25 @@
+# Plateau
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ff99;shape=mxgraph.archimate.tech;techType=plateau',
+  },
+  _width: 100,
+  _height: 75,
+}
+```
+
+## Usage
+
+```js
+import { Plateau } from '@dinghy/standard-components-diagrams/archimate2'
+
+<Plateau/>
+```
+
+## Preview
+
+<img src="./plateau.png" width="200"/>

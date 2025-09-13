@@ -17,7 +17,7 @@ export const InputSchema = z.object({
   name: ResolvableStringSchema,
   enable_deletion_protection: ResolvableBooleanSchema.default(true),
   idle_timeout: ResolvableNumberSchema.default(600),
-  security_groups: ResolvableStringArraySchema.optional(),
+  security_containers: ResolvableStringArraySchema.optional(),
   subnets: ResolvableStringArraySchema.optional(),
   access_logs: ResolvableRecordSchema.optional(),
 })

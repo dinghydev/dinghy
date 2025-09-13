@@ -6,8 +6,8 @@ export const NMOS_2 = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transistors.nmos;pointerEvents=1;',
   },
-  _original_width: 60,
-  _original_height: 100,
+  _width: 60,
+  _height: 100,
 }
 
 export function Nmos2(props: DiagramNodeProps) {

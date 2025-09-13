@@ -1,0 +1,26 @@
+# User
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'sketch=0;verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;fillColor=#000000;align=center;outlineConnect=0;pointerEvents=1;shape=mxgraph.citrix2.user;',
+  },
+  _original_width: 48.84,
+  _original_height: 50,
+
+}
+```
+
+## Usage
+
+```js
+import { User } from '@dinghy/standard-components-diagrams/citrixUsersAndDevices'
+
+<User/>
+```
+
+## Preview
+
+<img src="./user.png" width="200"/>

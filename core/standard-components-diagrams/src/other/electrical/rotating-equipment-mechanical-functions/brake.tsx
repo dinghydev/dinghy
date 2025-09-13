@@ -6,8 +6,8 @@ export const BRAKE = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=trapezoid;perimeter=none;',
   },
-  _original_width: 75,
-  _original_height: 25,
+  _width: 75,
+  _height: 25,
 }
 
 export function Brake(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const BICYCLE_2 = {
     entity:
       'shape=mxgraph.signs.transportation.bicycle_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 99,
-  _original_height: 56,
+  _width: 99,
+  _height: 56,
 }
 
 export function Bicycle2(props: DiagramNodeProps) {

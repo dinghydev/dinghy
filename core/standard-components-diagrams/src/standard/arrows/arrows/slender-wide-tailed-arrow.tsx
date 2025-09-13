@@ -6,8 +6,8 @@ export const SLENDER_WIDE_TAILED_ARROW = {
     entity:
       'shape=mxgraph.arrows.slender_wide_tailed_arrow;html=1;verticalLabelPosition=bottom;verticalAlign=top;strokeWidth=2;strokeColor=#000000;',
   },
-  _original_width: 96,
-  _original_height: 60,
+  _width: 96,
+  _height: 60,
 }
 
 export function SlenderWideTailedArrow(props: DiagramNodeProps) {

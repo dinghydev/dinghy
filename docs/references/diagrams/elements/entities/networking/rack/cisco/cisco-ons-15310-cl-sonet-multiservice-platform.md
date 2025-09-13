@@ -1,0 +1,25 @@
+# Cisco ONS 15310-CL SONET Multiservice Platform
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.rack.cisco.cisco_ons_15310-cl_sonet_multiservice_platform;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
+  },
+  _width: 161,
+  _height: 15,
+}
+```
+
+## Usage
+
+```js
+import { CiscoOns15310ClSonetMultiservicePlatform } from '@dinghy/standard-components-diagrams/rackCisco'
+
+<CiscoOns15310ClSonetMultiservicePlatform/>
+```
+
+## Preview
+
+<img src="./cisco-ons-15310-cl-sonet-multiservice-platform.png" width="200"/>

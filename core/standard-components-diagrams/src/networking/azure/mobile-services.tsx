@@ -6,8 +6,8 @@ export const MOBILE_SERVICES = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.mobile_services;pointerEvents=1;',
   },
-  _original_width: 32.5,
-  _original_height: 50,
+  _width: 32.5,
+  _height: 50,
 }
 
 export function MobileServices(props: DiagramNodeProps) {

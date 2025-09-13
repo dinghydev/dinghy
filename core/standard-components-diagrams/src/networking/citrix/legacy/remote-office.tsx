@@ -6,8 +6,8 @@ export const REMOTE_OFFICE = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.remote_office;',
   },
-  _original_width: 92,
-  _original_height: 41.5,
+  _width: 92,
+  _height: 41.5,
 }
 
 export function RemoteOffice(props: DiagramNodeProps) {

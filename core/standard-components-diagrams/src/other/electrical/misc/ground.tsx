@@ -6,8 +6,8 @@ export const GROUND = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.signal_ground;',
   },
-  _original_width: 45,
-  _original_height: 30,
+  _width: 45,
+  _height: 30,
 }
 
 export function Ground(props: DiagramNodeProps) {

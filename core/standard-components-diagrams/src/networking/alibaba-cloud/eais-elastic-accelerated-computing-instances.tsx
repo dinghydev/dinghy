@@ -6,8 +6,8 @@ export const EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES = {
     entity:
       'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.eais_elastic_accelerated_computing_instances;',
   },
-  _original_width: 51.9,
-  _original_height: 36,
+  _width: 51.9,
+  _height: 36,
 }
 
 export function EaisElasticAcceleratedComputingInstances(

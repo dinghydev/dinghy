@@ -6,8 +6,8 @@ export const OBJECT_FLOW_4 = {
     entity:
       'html=1;shape=mxgraph.sysml.objFlowR;strokeWidth=2;whiteSpace=wrap;',
   },
-  _original_width: 0,
-  _original_height: 60,
+  _width: 0,
+  _height: 60,
 }
 
 export function ObjectFlow4(props: DiagramNodeProps) {

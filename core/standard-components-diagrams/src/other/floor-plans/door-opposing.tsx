@@ -6,8 +6,8 @@ export const DOOR_OPPOSING = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.doorOpposing;dx=0.5;',
   },
-  _original_width: 160,
-  _original_height: 165,
+  _width: 160,
+  _height: 165,
 }
 
 export function DoorOpposing(props: DiagramNodeProps) {

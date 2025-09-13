@@ -6,8 +6,8 @@ export const CONTROL_OPERATOR_2 = {
     entity:
       'html=1;shape=mxgraph.sysml.package;align=left;spacingLeft=5;verticalAlign=top;spacingTop=-3;labelX=135;html=1;overflow=fill;',
   },
-  _original_width: 250,
-  _original_height: 120,
+  _width: 250,
+  _height: 120,
 }
 
 export function ControlOperator2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const SUBNET = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Subnet.svg;strokeColor=none;',
   },
-  _original_width: 68,
-  _original_height: 40.72,
+  _width: 68,
+  _height: 40.72,
 }
 
 export function Subnet(props: DiagramNodeProps) {

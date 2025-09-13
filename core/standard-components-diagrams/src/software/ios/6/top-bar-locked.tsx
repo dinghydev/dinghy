@@ -6,8 +6,8 @@ export const TOP_BAR_LOCKED = {
     entity:
       'html=1;shadow=0;dashed=0;shape=mxgraph.ios.iTopBarLocked;strokeWidth=1;sketch=0;',
   },
-  _original_width: 0,
-  _original_height: 15,
+  _width: 0,
+  _height: 15,
 }
 
 export function TopBarLocked(props: DiagramNodeProps) {

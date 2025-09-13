@@ -6,8 +6,8 @@ export const SWITCHES_1 = {
     entity:
       'strokeColor=#666666;html=1;labelPosition=right;align=left;spacingLeft=15;shadow=0;dashed=0;outlineConnect=0;shape=mxgraph.rack.general.switches_1;',
   },
-  _original_width: 160,
-  _original_height: 30,
+  _width: 160,
+  _height: 30,
 }
 
 export function Switches1(props: DiagramNodeProps) {

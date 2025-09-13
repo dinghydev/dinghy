@@ -1,0 +1,26 @@
+# Messenger 2
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.messenger_2',
+  },
+  _original_width: 64.4,
+  _original_height: 64.8,
+
+}
+```
+
+## Usage
+
+```js
+import { Messenger2 } from '@dinghy/standard-components-diagrams/webLogos'
+
+<Messenger2/>
+```
+
+## Preview
+
+<img src="./messenger-2.png" width="200"/>

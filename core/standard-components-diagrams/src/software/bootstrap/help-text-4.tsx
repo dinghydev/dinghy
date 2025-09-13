@@ -6,8 +6,8 @@ export const HELP_TEXT_4 = {
     entity:
       'html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=#ffffff;strokeColor=#CED4DA;align=left;spacingLeft=50;fontSize=14;fontColor=#6C767D;',
   },
-  _original_width: 5,
-  _original_height: 240,
+  _width: 5,
+  _height: 240,
 }
 
 export function HelpText4(props: DiagramNodeProps) {

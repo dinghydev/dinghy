@@ -6,8 +6,8 @@ export const APPLICATION_SECURITY_GROUPS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Application_Security_Groups.svg;strokeColor=none;',
   },
-  _original_width: 37,
-  _original_height: 50,
+  _width: 37,
+  _height: 50,
 }
 
 export function ApplicationSecurityGroups(props: DiagramNodeProps) {

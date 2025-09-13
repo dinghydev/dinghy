@@ -1,0 +1,25 @@
+# N4g
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.n4g;fillColor=#000000;strokeColor=none',
+  },
+  _width: 88.2,
+  _height: 31.8,
+}
+```
+
+## Usage
+
+```js
+import { N4g } from '@dinghy/standard-components-diagrams/webLogos'
+
+<N4g/>
+```
+
+## Preview
+
+<img src="./n4g.png" width="200"/>

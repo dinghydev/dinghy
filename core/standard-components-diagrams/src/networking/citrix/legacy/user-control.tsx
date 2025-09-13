@@ -6,8 +6,8 @@ export const USER_CONTROL = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.user_control;',
   },
-  _original_width: 103,
-  _original_height: 84,
+  _width: 103,
+  _height: 84,
 }
 
 export function UserControl(props: DiagramNodeProps) {

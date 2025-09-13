@@ -6,8 +6,8 @@ export const TURBINE_AGITATOR = {
     entity:
       'shape=mxgraph.pid.vessels.turbine_agitator;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 36,
-  _original_height: 93,
+  _width: 36,
+  _height: 93,
 }
 
 export function TurbineAgitator(props: DiagramNodeProps) {

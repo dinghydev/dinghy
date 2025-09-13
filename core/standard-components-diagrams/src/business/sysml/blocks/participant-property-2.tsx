@@ -5,8 +5,8 @@ export const PARTICIPANT_PROPERTY_2 = {
   _style: {
     entity: 'edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;',
   },
-  _original_width: 3,
-  _original_height: 140,
+  _width: 3,
+  _height: 140,
 }
 
 export function ParticipantProperty2(props: DiagramNodeProps) {

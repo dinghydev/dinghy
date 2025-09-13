@@ -5,8 +5,8 @@ export const CARD_COLLECTION_2 = {
   _style: {
     entity: 'dashed=0;shape=rect;fillColor=#ECECEC;strokeColor=none;',
   },
-  _original_width: 358,
-  _original_height: 642,
+  _width: 358,
+  _height: 642,
 }
 
 export function CardCollection2(props: DiagramNodeProps) {

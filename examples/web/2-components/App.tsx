@@ -22,7 +22,7 @@ const Firewall = (props: any) => <Shape {...props} />;
 
 const Postgres = (props: any) => <Shape {...props} />;
 
-export function App() {
+export default function App() {
   return (
     <WebApp>
       <Client />

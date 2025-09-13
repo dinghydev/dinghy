@@ -1,0 +1,26 @@
+# Storage Accounts
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/storage/Storage_Accounts.svg;strokeColor=none;',
+  },
+  _original_width: 65,
+  _original_height: 52,
+
+}
+```
+
+## Usage
+
+```js
+import { StorageAccounts } from '@dinghy/standard-components-diagrams/azure2Storage'
+
+<StorageAccounts/>
+```
+
+## Preview
+
+<img src="./storage-accounts.png" width="200"/>

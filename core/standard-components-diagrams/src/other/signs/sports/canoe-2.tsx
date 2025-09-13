@@ -6,8 +6,8 @@ export const CANOE_2 = {
     entity:
       'shape=mxgraph.signs.sports.canoe_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 103,
-  _original_height: 49,
+  _width: 103,
+  _height: 49,
 }
 
 export function Canoe2(props: DiagramNodeProps) {

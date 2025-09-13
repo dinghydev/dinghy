@@ -1,0 +1,26 @@
+# Target
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;align=center;outlineConnect=0;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.flow_sensors.target;',
+  },
+  _original_width: 50,
+  _original_height: 50,
+
+}
+```
+
+## Usage
+
+```js
+import { Target } from '@dinghy/standard-components-diagrams/procEngFlowSensors'
+
+<Target/>
+```
+
+## Preview
+
+<img src="./target.png" width="200"/>

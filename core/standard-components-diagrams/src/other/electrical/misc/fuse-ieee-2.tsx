@@ -6,8 +6,8 @@ export const FUSE_IEEE_2 = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.fuse_4;',
   },
-  _original_width: 100,
-  _original_height: 32,
+  _width: 100,
+  _height: 32,
 }
 
 export function FuseIeee2(props: DiagramNodeProps) {

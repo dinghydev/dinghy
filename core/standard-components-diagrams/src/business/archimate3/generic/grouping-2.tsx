@@ -6,8 +6,8 @@ export const GROUPING_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.grouping;fillColor=none;dashed=1;',
   },
-  _original_width: 60,
-  _original_height: 35,
+  _width: 60,
+  _height: 35,
 }
 
 export function Grouping2(props: DiagramNodeProps) {

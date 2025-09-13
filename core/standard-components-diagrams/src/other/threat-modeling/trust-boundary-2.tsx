@@ -6,8 +6,8 @@ export const TRUST_BOUNDARY_2 = {
     entity:
       'shape=requiredInterface;html=1;verticalLabelPosition=bottom;dashed=1;strokeColor=#FF3333;strokeWidth=2;fillColor=none;fontColor=#FF3333;align=center;verticalAlign=top;labelPosition=center;',
   },
-  _original_width: 20,
-  _original_height: 330,
+  _width: 20,
+  _height: 330,
 }
 
 export function TrustBoundary2(props: DiagramNodeProps) {

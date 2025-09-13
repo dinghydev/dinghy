@@ -5,8 +5,8 @@ export const COMPONENT = {
   _style: {
     entity: 'html=1;dropTarget=0;whiteSpace=wrap;',
   },
-  _original_width: 0,
-  _original_height: 90,
+  _width: 0,
+  _height: 90,
 }
 
 export function Component(props: DiagramNodeProps) {

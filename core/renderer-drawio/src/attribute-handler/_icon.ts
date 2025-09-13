@@ -8,7 +8,7 @@ export const _icon = (icon: string | Props) =>
           resIcon: icon,
         },
       },
-      group: {
+      container: {
         style: {
           grIcon: icon,
         },
@@ -20,9 +20,9 @@ export const _icon = (icon: string | Props) =>
           resIcon: icon.entity,
         },
       },
-      group: {
+      container: {
         style: {
-          grIcon: icon.group,
+          grIcon: icon.container,
         },
       },
     }

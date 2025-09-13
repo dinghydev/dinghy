@@ -6,8 +6,8 @@ export const OBJECT_FLOW_5 = {
     entity:
       'html=1;shape=mxgraph.sysml.objFlowL;strokeWidth=2;whiteSpace=wrap;',
   },
-  _original_width: 1,
-  _original_height: 60,
+  _width: 1,
+  _height: 60,
 }
 
 export function ObjectFlow5(props: DiagramNodeProps) {

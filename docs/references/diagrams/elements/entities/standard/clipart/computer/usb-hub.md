@@ -1,0 +1,26 @@
+# USB Hub
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'image;html=1;image=img/lib/clip_art/computers/USB_Hub_128x128.pngstrokeColor=none;',
+  },
+  _original_width: 80,
+  _original_height: 80,
+
+}
+```
+
+## Usage
+
+```js
+import { UsbHub } from '@dinghy/standard-components-diagrams/clipartComputer'
+
+<UsbHub/>
+```
+
+## Preview
+
+<img src="./usb-hub.png" width="200"/>

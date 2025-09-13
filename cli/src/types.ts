@@ -52,7 +52,7 @@ export class DinghyError extends Error {
   code?: string
   constructor(message: string, code?: string) {
     super(message)
-    this.name = 'DiacError'
+    this.name = 'DinghyError'
     this.code = code
     Object.setPrototypeOf(this, DinghyError.prototype)
   }

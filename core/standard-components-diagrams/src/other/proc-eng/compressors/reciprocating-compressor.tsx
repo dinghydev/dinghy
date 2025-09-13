@@ -6,8 +6,8 @@ export const RECIPROCATING_COMPRESSOR = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.compressors.reciprocating_compressor',
   },
-  _original_width: 100,
-  _original_height: 40,
+  _width: 100,
+  _height: 40,
 }
 
 export function ReciprocatingCompressor(props: DiagramNodeProps) {

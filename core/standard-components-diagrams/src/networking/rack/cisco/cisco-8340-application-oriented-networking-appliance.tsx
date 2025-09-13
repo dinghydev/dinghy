@@ -6,8 +6,8 @@ export const CISCO_8340_APPLICATION_ORIENTED_NETWORKING_APPLIANCE = {
     entity:
       'shape=mxgraph.rack.cisco.cisco_8340_application-oriented_networking_appliance;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _original_width: 161,
-  _original_height: 45,
+  _width: 161,
+  _height: 45,
 }
 
 export function Cisco8340ApplicationOrientedNetworkingAppliance(

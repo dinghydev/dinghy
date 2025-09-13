@@ -6,8 +6,8 @@ export const INDICATOR_PLC = {
     entity:
       'html=1;outlineConnect=0;align=center;dashed=0;shape=mxgraph.pid2inst.indicator;mounting=room;overflow=fill;indType=plc',
   },
-  _original_width: 50,
-  _original_height: 100,
+  _width: 50,
+  _height: 100,
 }
 
 export function IndicatorPlc(props: DiagramNodeProps) {

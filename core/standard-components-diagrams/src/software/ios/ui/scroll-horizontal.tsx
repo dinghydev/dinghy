@@ -6,8 +6,8 @@ export const SCROLL_HORIZONTAL = {
     entity:
       'html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=2;shape=mxgraph.ios7.misc.scroll_(horizontal);fillColor=#a0a0a0;',
   },
-  _original_width: 80,
-  _original_height: 6,
+  _width: 80,
+  _height: 6,
 }
 
 export function ScrollHorizontal(props: DiagramNodeProps) {

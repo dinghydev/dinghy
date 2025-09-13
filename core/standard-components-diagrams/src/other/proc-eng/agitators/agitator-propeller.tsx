@@ -6,8 +6,8 @@ export const AGITATOR_PROPELLER = {
     entity:
       'shape=mxgraph.pid.agitators.agitator_(propeller);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 92,
-  _original_height: 132,
+  _width: 92,
+  _height: 132,
 }
 
 export function AgitatorPropeller(props: DiagramNodeProps) {

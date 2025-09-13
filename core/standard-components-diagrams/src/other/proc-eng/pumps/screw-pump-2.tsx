@@ -6,8 +6,8 @@ export const SCREW_PUMP_2 = {
     entity:
       'shape=mxgraph.pid.pumps.screw_pump_2;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 123,
-  _original_height: 40,
+  _width: 123,
+  _height: 40,
 }
 
 export function ScrewPump2(props: DiagramNodeProps) {

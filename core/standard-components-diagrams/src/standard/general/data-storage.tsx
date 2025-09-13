@@ -5,8 +5,8 @@ export const DATA_STORAGE = {
   _style: {
     entity: 'shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;',
   },
-  _original_width: 100,
-  _original_height: 80,
+  _width: 100,
+  _height: 80,
 }
 
 export function DataStorage(props: DiagramNodeProps) {

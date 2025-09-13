@@ -6,8 +6,8 @@ export const SPOT_FLEET_2 = {
     entity:
       'outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.spot_instance;fillColor=#F58534;strokeColor=none;gradientColor=none;',
   },
-  _original_width: 1,
-  _original_height: 230,
+  _width: 1,
+  _height: 230,
 }
 
 export function SpotFleet2(props: DiagramNodeProps) {

@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const SHAPE_GROUP = {
   _style: {
-    group:
+    container:
       'html=1;whiteSpace=wrap;container=1;recursiveResize=0;collapsible=0;',
   },
 }

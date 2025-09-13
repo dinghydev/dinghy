@@ -6,8 +6,8 @@ export const FORM_GROUPS = {
     entity:
       'fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#212529;',
   },
-  _original_width: 0,
-  _original_height: 150,
+  _width: 0,
+  _height: 150,
 }
 
 export function FormGroups(props: DiagramNodeProps) {

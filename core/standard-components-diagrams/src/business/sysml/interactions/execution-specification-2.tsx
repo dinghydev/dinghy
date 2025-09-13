@@ -5,8 +5,8 @@ export const EXECUTION_SPECIFICATION_2 = {
   _style: {
     entity: 'edgeStyle=none;html=1;dashed=1;endArrow=none;',
   },
-  _original_width: 2,
-  _original_height: 220,
+  _width: 2,
+  _height: 220,
 }
 
 export function ExecutionSpecification2(props: DiagramNodeProps) {

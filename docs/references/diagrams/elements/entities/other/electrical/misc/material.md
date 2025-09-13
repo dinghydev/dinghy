@@ -1,0 +1,25 @@
+# Material
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=rect;',
+  },
+  _width: 130,
+  _height: 50,
+}
+```
+
+## Usage
+
+```js
+import { Material } from '@dinghy/standard-components-diagrams/electricalMisc'
+
+<Material/>
+```
+
+## Preview
+
+<img src="./material.png" width="200"/>

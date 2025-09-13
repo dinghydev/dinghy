@@ -6,8 +6,8 @@ export const FISHING_2 = {
     entity:
       'shape=mxgraph.signs.sports.fishing_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 98,
-  _original_height: 117,
+  _width: 98,
+  _height: 117,
 }
 
 export function Fishing2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const COMPONENT_4_LINE_BUS = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.4_line_bus;',
   },
-  _original_width: 130,
-  _original_height: 75,
+  _width: 130,
+  _height: 75,
 }
 
 export function Component4LineBus(props: DiagramNodeProps) {

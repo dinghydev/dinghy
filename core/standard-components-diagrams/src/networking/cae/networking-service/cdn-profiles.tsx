@@ -6,8 +6,8 @@ export const CDN_PROFILES = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Content_Delivery_Network.svg;strokeColor=none;',
   },
-  _original_width: 50,
-  _original_height: 23,
+  _width: 50,
+  _height: 23,
 }
 
 export function CdnProfiles(props: DiagramNodeProps) {

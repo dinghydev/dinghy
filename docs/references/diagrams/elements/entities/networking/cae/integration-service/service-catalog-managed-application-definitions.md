@@ -1,0 +1,26 @@
+# Service Catalog Managed Application Definitions
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Service_Catalog_Managed_Application_Definitions.svg;strokeColor=none;',
+  },
+  _original_width: 47,
+  _original_height: 50,
+
+}
+```
+
+## Usage
+
+```js
+import { ServiceCatalogManagedApplicationDefinitions } from '@dinghy/standard-components-diagrams/caeIntegrationService'
+
+<ServiceCatalogManagedApplicationDefinitions/>
+```
+
+## Preview
+
+<img src="./service-catalog-managed-application-definitions.png" width="200"/>

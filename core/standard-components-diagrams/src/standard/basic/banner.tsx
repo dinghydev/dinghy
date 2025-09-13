@@ -6,8 +6,8 @@ export const BANNER = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.banner',
   },
-  _original_width: 100,
-  _original_height: 50,
+  _width: 100,
+  _height: 50,
 }
 
 export function Banner(props: DiagramNodeProps) {

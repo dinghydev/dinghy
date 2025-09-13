@@ -6,8 +6,8 @@ export const LOADING_ARM = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.loading_arm;pointerEvents=1;',
   },
-  _original_width: 120,
-  _original_height: 80,
+  _width: 120,
+  _height: 80,
 }
 
 export function LoadingArm(props: DiagramNodeProps) {

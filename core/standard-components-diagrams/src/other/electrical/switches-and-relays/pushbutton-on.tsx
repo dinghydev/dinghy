@@ -6,8 +6,8 @@ export const PUSHBUTTON_ON = {
     entity:
       'html=1;shape=mxgraph.electrical.electro-mechanical.pushbutton;aspect=fixed;elSwitchState=on;',
   },
-  _original_width: 75,
-  _original_height: 20,
+  _width: 75,
+  _height: 20,
 }
 
 export function PushbuttonOn(props: DiagramNodeProps) {

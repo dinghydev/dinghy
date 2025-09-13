@@ -6,8 +6,8 @@ export const PROPERTY_2 = {
     entity:
       'verticalAlign=bottom;html=1;endArrow=none;edgeStyle=orthogonalEdgeStyle;strokeWidth=2;',
   },
-  _original_width: 160,
-  _original_height: 0,
+  _width: 160,
+  _height: 0,
 }
 
 export function Property2(props: DiagramNodeProps) {

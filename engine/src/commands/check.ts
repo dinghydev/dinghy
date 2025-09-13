@@ -5,7 +5,7 @@ import type {
   CommandContext,
   CommandOptions,
 } from '@dinghy/cli'
-import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@dinghy/cli'
+import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { streamCmd } from '../utils/cmd.ts'
 import { hostAppHome } from '@dinghy/cli'
 import chalk from 'chalk'
@@ -72,7 +72,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
   }
   const failedChecks = results.filter((result) => result.result.exitCode !== 0)
   if (failedChecks.length > 0) {
-    throw new DiacError(
+    throw new DinghyError(
       `Failed to run checks [${
         failedChecks.map((result) => result.check).join(', ')
       }], see error above`,

@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const VPC_SUBNET = {
   _style: {
-    group:
+    container:
       'dashed=0;html=1;shape=mxgraph.aws3.permissions;fillColor=#D9A741;gradientColor=none;dashed=0;',
     entity: {
       fillColor: '#D9A741',

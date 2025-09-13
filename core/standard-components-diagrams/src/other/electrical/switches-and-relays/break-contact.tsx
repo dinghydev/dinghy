@@ -6,8 +6,8 @@ export const BREAK_CONTACT = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.break_contact;',
   },
-  _original_width: 75,
-  _original_height: 10,
+  _width: 75,
+  _height: 10,
 }
 
 export function BreakContact(props: DiagramNodeProps) {

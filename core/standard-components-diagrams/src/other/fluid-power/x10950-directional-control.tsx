@@ -6,8 +6,8 @@ export const X10950_DIRECTIONAL_CONTROL = {
     entity:
       'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x10950;points=[[0.335,1,0],[1,0.6,0]]',
   },
-  _original_width: 56.1,
-  _original_height: 93.28,
+  _width: 56.1,
+  _height: 93.28,
 }
 
 export function X10950DirectionalControl(props: DiagramNodeProps) {

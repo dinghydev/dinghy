@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const SECURITY_GROUP = {
   _style: {
-    group:
+    container:
       'fillColor=none;strokeColor=#DD3522;verticalAlign=top;fontStyle=0;fontColor=#DD3522;whiteSpace=wrap;html=1;',
     entity: {
       strokeColor: '#DD3522',

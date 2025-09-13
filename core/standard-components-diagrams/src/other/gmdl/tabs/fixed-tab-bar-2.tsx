@@ -6,8 +6,8 @@ export const FIXED_TAB_BAR_2 = {
     entity:
       'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=none;fontFamily=Helvetica;fontSize=12;fontColor=default;',
   },
-  _original_width: 358,
-  _original_height: 642,
+  _width: 358,
+  _height: 642,
 }
 
 export function FixedTabBar2(props: DiagramNodeProps) {

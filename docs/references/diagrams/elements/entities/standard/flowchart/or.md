@@ -1,0 +1,26 @@
+# Or
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.flowchart.summing_function;',
+  },
+  _original_width: 70,
+  _original_height: 70,
+
+}
+```
+
+## Usage
+
+```js
+import { Or } from '@dinghy/standard-components-diagrams/flowchart'
+
+<Or/>
+```
+
+## Preview
+
+<img src="./or.png" width="200"/>

@@ -5,8 +5,8 @@ export const CLOUD_CALLOUT = {
   _style: {
     entity: 'whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout',
   },
-  _original_width: 90,
-  _original_height: 60,
+  _width: 90,
+  _height: 60,
 }
 
 export function CloudCallout(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const VALUE_STREAM_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#F5DEAA;shape=mxgraph.archimate3.valueStream;',
   },
-  _original_width: 70,
-  _original_height: 35,
+  _width: 70,
+  _height: 35,
 }
 
 export function ValueStream2(props: DiagramNodeProps) {

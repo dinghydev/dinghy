@@ -6,8 +6,8 @@ export const HORIZONTAL_PUMP = {
     entity:
       'shape=mxgraph.pid.pumps.horizontal_pump;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 155,
-  _original_height: 111,
+  _width: 155,
+  _height: 111,
 }
 
 export function HorizontalPump(props: DiagramNodeProps) {

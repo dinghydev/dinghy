@@ -6,8 +6,8 @@ export const MEANING_2 = {
     entity:
       'shape=mxgraph.basic.cloud_callout;html=1;whiteSpace=wrap;fillColor=#CCCCFF;',
   },
-  _original_width: 70,
-  _original_height: 45,
+  _width: 70,
+  _height: 45,
 }
 
 export function Meaning2(props: DiagramNodeProps) {

@@ -1,0 +1,25 @@
+# Date picker (portrait, dark)
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'shape=rect;fillColor=#424242;strokeColor=#eeeeee;shadow=1;',
+  },
+  _width: 328,
+  _height: 484,
+}
+```
+
+## Usage
+
+```js
+import { DatePickerPortraitDark } from '@dinghy/standard-components-diagrams/gmdlPickers'
+
+<DatePickerPortraitDark/>
+```
+
+## Preview
+
+<img src="./date-picker-portrait-dark.png" width="200"/>

@@ -5,8 +5,8 @@ export const TEMPLATE_SIGNATURE = {
   _style: {
     entity: 'shape=partialRectangle;html=1;top=1;align=left;dashed=1;',
   },
-  _original_width: 200,
-  _original_height: 20,
+  _width: 200,
+  _height: 20,
 }
 
 export function TemplateSignature(props: DiagramNodeProps) {

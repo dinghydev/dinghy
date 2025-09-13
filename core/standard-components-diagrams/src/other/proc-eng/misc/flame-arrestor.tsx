@@ -6,8 +6,8 @@ export const FLAME_ARRESTOR = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.flame_arrestor;',
   },
-  _original_width: 100,
-  _original_height: 40,
+  _width: 100,
+  _height: 40,
 }
 
 export function FlameArrestor(props: DiagramNodeProps) {

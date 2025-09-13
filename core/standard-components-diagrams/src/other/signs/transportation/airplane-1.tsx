@@ -6,8 +6,8 @@ export const AIRPLANE_1 = {
     entity:
       'shape=mxgraph.signs.transportation.airplane_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 99,
-  _original_height: 35,
+  _width: 99,
+  _height: 35,
 }
 
 export function Airplane1(props: DiagramNodeProps) {

@@ -5,8 +5,8 @@ export const EXECUTION_SPECIFICATION = {
   _style: {
     entity: 'shape=rect;html=1;fillColor=#eeeeee;',
   },
-  _original_width: 1,
-  _original_height: 220,
+  _width: 1,
+  _height: 220,
 }
 
 export function ExecutionSpecification(props: DiagramNodeProps) {

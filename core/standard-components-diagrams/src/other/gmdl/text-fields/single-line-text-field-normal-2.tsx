@@ -6,8 +6,8 @@ export const SINGLE_LINE_TEXT_FIELD_NORMAL_2 = {
     entity:
       'dashed=0;shape=line;strokeWidth=1;noLabel=1;strokeColor=#eeeeee;opacity=50;',
   },
-  _original_width: 1,
-  _original_height: 35,
+  _width: 1,
+  _height: 35,
 }
 
 export function SingleLineTextFieldNormal2(props: DiagramNodeProps) {

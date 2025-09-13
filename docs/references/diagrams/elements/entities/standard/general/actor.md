@@ -1,0 +1,25 @@
+# Actor
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;',
+  },
+  _width: 30,
+  _height: 60,
+}
+```
+
+## Usage
+
+```js
+import { Actor } from '@dinghy/standard-components-diagrams/general'
+
+<Actor/>
+```
+
+## Preview
+
+<img src="./actor.png" width="200"/>

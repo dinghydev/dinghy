@@ -6,8 +6,8 @@ export const REFERENCE_ASSOCIATION = {
     entity:
       'verticalAlign=bottom;html=1;endArrow=none;edgeStyle=orthogonalEdgeStyle;',
   },
-  _original_width: 250,
-  _original_height: 0,
+  _width: 250,
+  _height: 0,
 }
 
 export function ReferenceAssociation(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const VERTICAL_LANE_3 = {
     entity:
       'shape=mxgraph.bpmn.swimlane;html=1;startSize=20;horizontal=1;swimlaneLine=1;collapsible=0;fontStyle=0;strokeWidth=2;swimlaneFillColor=#ffffff;isCollection=1;whiteSpace=wrap;',
   },
-  _original_width: 220,
-  _original_height: 100,
+  _width: 220,
+  _height: 100,
 }
 
 export function VerticalLane3(props: DiagramNodeProps) {

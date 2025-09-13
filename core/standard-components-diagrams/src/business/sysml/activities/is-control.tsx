@@ -6,8 +6,8 @@ export const IS_CONTROL = {
     entity:
       'html=1;shape=mxgraph.sysml.isControl;whiteSpace=wrap;align=center;',
   },
-  _original_width: 300,
-  _original_height: 60,
+  _width: 300,
+  _height: 60,
 }
 
 export function IsControl(props: DiagramNodeProps) {

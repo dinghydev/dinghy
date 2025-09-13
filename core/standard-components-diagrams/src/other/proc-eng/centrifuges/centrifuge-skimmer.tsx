@@ -6,8 +6,8 @@ export const CENTRIFUGE_SKIMMER = {
     entity:
       'shape=mxgraph.pid.centrifuges.centrifuge_(skimmer);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 110,
-  _original_height: 100,
+  _width: 110,
+  _height: 100,
 }
 
 export function CentrifugeSkimmer(props: DiagramNodeProps) {

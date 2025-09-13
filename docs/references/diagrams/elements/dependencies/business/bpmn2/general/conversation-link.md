@@ -1,0 +1,23 @@
+# Conversation Link
+
+## Definition
+
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=elbowEdgeStyle;fontSize=12;html=1;shape=link;',
+  },
+}
+```
+
+## Usage
+
+```js
+import { ConversationLink } from '@dinghy/standard-components-diagrams/bpmn2General'
+
+<ConversationLink/>
+```
+
+## Preview
+
+<img src="./conversation-link.png" width="200"/>

@@ -6,8 +6,8 @@ export const ORIFICE_PLATE = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.orifice_plate2;',
   },
-  _original_width: 40,
-  _original_height: 140,
+  _width: 40,
+  _height: 140,
 }
 
 export function OrificePlate(props: DiagramNodeProps) {

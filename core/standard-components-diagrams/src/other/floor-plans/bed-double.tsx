@@ -6,8 +6,8 @@ export const BED_DOUBLE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.bed_double;',
   },
-  _original_width: 200,
-  _original_height: 180,
+  _width: 200,
+  _height: 180,
 }
 
 export function BedDouble(props: DiagramNodeProps) {

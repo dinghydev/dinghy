@@ -6,8 +6,8 @@ export const DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS = {
     entity:
       'verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.distribution_block_4p_125a_11_connections;',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function DistributionBlock4p125a11Connections(props: DiagramNodeProps) {

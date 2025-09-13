@@ -1,0 +1,26 @@
+# Tablet
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tablet_1;',
+  },
+  _original_width: 61,
+  _original_height: 79,
+
+}
+```
+
+## Usage
+
+```js
+import { Tablet } from '@dinghy/standard-components-diagrams/citrixLegacy'
+
+<Tablet/>
+```
+
+## Preview
+
+<img src="./tablet.png" width="200"/>

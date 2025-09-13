@@ -5,8 +5,8 @@ export const SIMPLE_STATE = {
   _style: {
     entity: 'shape=rect;rounded=1;html=1;whiteSpace=wrap;align=center;',
   },
-  _original_width: 100,
-  _original_height: 40,
+  _width: 100,
+  _height: 40,
 }
 
 export function SimpleState(props: DiagramNodeProps) {

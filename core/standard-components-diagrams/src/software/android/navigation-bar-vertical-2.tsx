@@ -6,8 +6,8 @@ export const NAVIGATION_BAR_VERTICAL_2 = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=2;shape=mxgraph.android.navigation_bar_5_vertical;fillColor=#1A1A1A;strokeColor=#999999;sketch=0;',
   },
-  _original_width: 30,
-  _original_height: 320,
+  _width: 30,
+  _height: 320,
 }
 
 export function NavigationBarVertical2(props: DiagramNodeProps) {

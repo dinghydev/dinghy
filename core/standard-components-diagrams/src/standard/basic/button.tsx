@@ -6,8 +6,8 @@ export const BUTTON = {
     entity:
       'labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;whiteSpace=wrap;',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function Button(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const APPLICATION_INSIGHTS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Application_Insights.svg;strokeColor=none;',
   },
-  _original_width: 32,
-  _original_height: 50,
+  _width: 32,
+  _height: 50,
 }
 
 export function ApplicationInsights(props: DiagramNodeProps) {

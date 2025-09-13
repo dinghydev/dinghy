@@ -1,0 +1,26 @@
+# SOS
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.sos;',
+  },
+  _original_width: 46.5,
+  _original_height: 47.400000000000006,
+
+}
+```
+
+## Usage
+
+```js
+import { Sos } from '@dinghy/standard-components-diagrams/alibabaCloud'
+
+<Sos/>
+```
+
+## Preview
+
+<img src="./sos.png" width="200"/>

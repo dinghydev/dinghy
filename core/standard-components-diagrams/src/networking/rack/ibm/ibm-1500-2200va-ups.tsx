@@ -6,8 +6,8 @@ export const IBM_1500_2200VA_UPS = {
     entity:
       'shape=mxgraph.rack.ibm.ibm_1500-2200va_ups;html=1;labelPosition=right;align=left;spacingLeft=15;dashed=0;shadow=0;fillColor=#ffffff;',
   },
-  _original_width: 161,
-  _original_height: 30,
+  _width: 161,
+  _height: 30,
 }
 
 export function Ibm15002200vaUps(props: DiagramNodeProps) {

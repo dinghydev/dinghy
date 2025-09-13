@@ -6,8 +6,8 @@ export const COVER_PLATE = {
     entity:
       'verticalLabelPosition=bottom;dashed=0;shadow=0;html=1;align=center;verticalAlign=top;shape=mxgraph.cabinets.coverPlate',
   },
-  _original_width: 220.00000000000003,
-  _original_height: 125,
+  _width: 220.00000000000003,
+  _height: 125,
 }
 
 export function CoverPlate(props: DiagramNodeProps) {

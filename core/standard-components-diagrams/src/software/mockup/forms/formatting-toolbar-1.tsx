@@ -6,8 +6,8 @@ export const FORMATTING_TOOLBAR_1 = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.menus_and_buttons.font_style_selector_1;',
   },
-  _original_width: 136,
-  _original_height: 31,
+  _width: 136,
+  _height: 31,
 }
 
 export function FormattingToolbar1(props: DiagramNodeProps) {

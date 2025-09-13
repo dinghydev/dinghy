@@ -6,8 +6,8 @@ export const BREAKTHROUGH = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.breakthrough2;',
   },
-  _original_width: 38,
-  _original_height: 100,
+  _width: 38,
+  _height: 100,
 }
 
 export function Breakthrough(props: DiagramNodeProps) {

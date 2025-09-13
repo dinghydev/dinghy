@@ -6,8 +6,8 @@ export const RIGHT_NOTCHED_ARROW = {
     entity:
       'shape=mxgraph.arrows.right_notched_arrow;html=1;verticalLabelPosition=bottom;verticalAlign=top;strokeWidth=2;strokeColor=#000000;',
   },
-  _original_width: 96,
-  _original_height: 70,
+  _width: 96,
+  _height: 70,
 }
 
 export function RightNotchedArrow(props: DiagramNodeProps) {

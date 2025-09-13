@@ -6,8 +6,8 @@ export const WALL_HORIZONTAL = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.wall;fillColor=strokeColor;',
   },
-  _original_width: 100,
-  _original_height: 10,
+  _width: 100,
+  _height: 10,
 }
 
 export function WallHorizontal(props: DiagramNodeProps) {

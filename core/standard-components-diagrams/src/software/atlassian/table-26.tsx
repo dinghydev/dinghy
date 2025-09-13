@@ -6,8 +6,8 @@ export const TABLE_26 = {
     entity:
       'strokeColor=none;fillColor=none;fontSize=12;fontColor=#596780;align=left;html=1;sketch=1;hachureGap=4;pointerEvents=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;',
   },
-  _original_width: 8,
-  _original_height: 230,
+  _width: 8,
+  _height: 230,
 }
 
 export function Table26(props: DiagramNodeProps) {

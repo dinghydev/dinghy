@@ -6,8 +6,8 @@ export const DIAMOND_SKETCH = {
     entity:
       'rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillWeight=-1;hachureGap=8;fillStyle=cross-hatch;fillColor=#006600;sketch=1;',
   },
-  _original_width: 120,
-  _original_height: 60,
+  _width: 120,
+  _height: 60,
 }
 
 export function DiamondSketch(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const TECHNOLOGY_COLLABORATION = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#AFFFAF;shape=mxgraph.archimate3.application;appType=collab;archiType=square;',
   },
-  _original_width: 150,
-  _original_height: 75,
+  _width: 150,
+  _height: 75,
 }
 
 export function TechnologyCollaboration(props: DiagramNodeProps) {

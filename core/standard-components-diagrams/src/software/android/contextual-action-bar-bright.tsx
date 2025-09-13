@@ -6,8 +6,8 @@ export const CONTEXTUAL_ACTION_BAR_BRIGHT = {
     entity:
       'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.contextual_action_bar_white;fillColor=#E6E6E6;',
   },
-  _original_width: 0,
-  _original_height: 30,
+  _width: 0,
+  _height: 30,
 }
 
 export function ContextualActionBarBright(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const BEAR_1 = {
     entity:
       'shape=mxgraph.signs.animals.bear_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 98,
-  _original_height: 62,
+  _width: 98,
+  _height: 62,
 }
 
 export function Bear1(props: DiagramNodeProps) {

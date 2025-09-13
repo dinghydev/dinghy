@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const GENERIC_GROUP = {
   _style: {
-    group:
+    container:
       'fillColor=none;strokeColor=#5A6C86;dashed=1;verticalAlign=top;fontStyle=0;fontColor=#5A6C86;whiteSpace=wrap;html=1;',
     entity: {
       strokeColor: '#5A6C86',

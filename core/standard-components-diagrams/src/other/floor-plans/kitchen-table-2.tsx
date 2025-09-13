@@ -6,8 +6,8 @@ export const KITCHEN_TABLE_2 = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.chair;shadow=0;direction=north;',
   },
-  _original_width: 2,
-  _original_height: 140,
+  _width: 2,
+  _height: 140,
 }
 
 export function KitchenTable2(props: DiagramNodeProps) {

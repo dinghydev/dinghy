@@ -6,8 +6,8 @@ export const PURVIEW_ACCOUNTS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Purview_Accounts.svg;strokeColor=none;',
   },
-  _original_width: 68,
-  _original_height: 42,
+  _width: 68,
+  _height: 42,
 }
 
 export function PurviewAccounts(props: DiagramNodeProps) {

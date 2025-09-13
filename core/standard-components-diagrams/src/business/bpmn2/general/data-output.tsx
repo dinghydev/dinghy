@@ -6,8 +6,8 @@ export const DATA_OUTPUT = {
     entity:
       'shape=mxgraph.bpmn.data2;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=15;html=1;bpmnTransferType=output;',
   },
-  _original_width: 40,
-  _original_height: 60,
+  _width: 40,
+  _height: 60,
 }
 
 export function DataOutput(props: DiagramNodeProps) {

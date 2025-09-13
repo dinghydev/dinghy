@@ -6,8 +6,8 @@ export const CUSTOM_INPUT_GROUP_3 = {
     entity:
       'html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#CED4DA;html=1;whiteSpace=wrap;fillColor=#FFFFFF;fontColor=#7D868C;align=left;spacing=15;spacingLeft=80;fontSize=14;',
   },
-  _original_width: 0,
-  _original_height: 40,
+  _width: 0,
+  _height: 40,
 }
 
 export function CustomInputGroup3(props: DiagramNodeProps) {

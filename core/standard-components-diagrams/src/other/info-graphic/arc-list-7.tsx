@@ -5,8 +5,8 @@ export const ARC_LIST_7 = {
   _style: {
     entity: 'ellipse;fillColor=none;strokeColor=#444444;',
   },
-  _original_width: 0,
-  _original_height: 200,
+  _width: 0,
+  _height: 200,
 }
 
 export function ArcList7(props: DiagramNodeProps) {

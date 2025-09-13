@@ -6,8 +6,8 @@ export const LOUDSPEAKER = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.loudspeaker;',
   },
-  _original_width: 25,
-  _original_height: 50,
+  _width: 25,
+  _height: 50,
 }
 
 export function Loudspeaker(props: DiagramNodeProps) {

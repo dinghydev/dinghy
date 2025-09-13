@@ -6,8 +6,8 @@ export const FILE_INPUT_FORM = {
     entity:
       'fillColor=#FEFEFE;strokeColor=#AAAAAA;fontSize=14;gradientColor=#F0F0F0;',
   },
-  _original_width: 1,
-  _original_height: 70,
+  _width: 1,
+  _height: 70,
 }
 
 export function FileInputForm(props: DiagramNodeProps) {

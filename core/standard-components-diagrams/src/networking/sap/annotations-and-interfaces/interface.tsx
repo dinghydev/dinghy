@@ -6,8 +6,8 @@ export const INTERFACE = {
     entity:
       'rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeColor=#0070f3;fillColor=default;strokeWidth=1.5;',
   },
-  _original_width: 57,
-  _original_height: 16,
+  _width: 57,
+  _height: 16,
 }
 
 export function Interface(props: DiagramNodeProps) {

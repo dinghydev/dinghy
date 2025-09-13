@@ -1,0 +1,25 @@
+# Single-line text field (normal) 5
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'text;fontColor=#999999;fontSize=16;verticalAlign=middle;strokeColor=none;fillColor=none;textOpacity=80;whiteSpace=wrap;html=1;',
+  },
+  _width: 1,
+  _height: 55,
+}
+```
+
+## Usage
+
+```js
+import { SingleLineTextFieldNormal5 } from '@dinghy/standard-components-diagrams/gmdlTextFields'
+
+<SingleLineTextFieldNormal5/>
+```
+
+## Preview
+
+<img src="./single-line-text-field-normal-5.png" width="200"/>

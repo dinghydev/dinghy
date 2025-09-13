@@ -6,8 +6,8 @@ export const IMAGE_DEFINITIONS = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Image_Definitions.svg;strokeColor=none;',
   },
-  _original_width: 50,
-  _original_height: 39,
+  _width: 50,
+  _height: 39,
 }
 
 export function ImageDefinitions(props: DiagramNodeProps) {

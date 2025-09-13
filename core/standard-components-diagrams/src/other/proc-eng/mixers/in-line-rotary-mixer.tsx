@@ -6,8 +6,8 @@ export const IN_LINE_ROTARY_MIXER = {
     entity:
       'shape=mxgraph.pid.mixers.in-line_rotary_mixer;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 190,
-  _original_height: 100,
+  _width: 190,
+  _height: 100,
 }
 
 export function InLineRotaryMixer(props: DiagramNodeProps) {

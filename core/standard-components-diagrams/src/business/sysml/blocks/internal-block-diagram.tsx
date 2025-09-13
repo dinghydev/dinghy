@@ -6,8 +6,8 @@ export const INTERNAL_BLOCK_DIAGRAM = {
     entity:
       'html=1;shape=mxgraph.sysml.package;labelX=100;align=left;spacingLeft=10;html=1;overflow=fill;whiteSpace=wrap;recursiveResize=0;',
   },
-  _original_width: 0,
-  _original_height: 100,
+  _width: 0,
+  _height: 100,
 }
 
 export function InternalBlockDiagram(props: DiagramNodeProps) {

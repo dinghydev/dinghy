@@ -6,8 +6,8 @@ export const REPLICATION_CONTROLLER_3 = {
     entity:
       'sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;fillColor=#3B8DF1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.replication_controller_3',
   },
-  _original_width: 100,
-  _original_height: 66,
+  _width: 100,
+  _height: 66,
 }
 
 export function ReplicationController3(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const PRESS_ROLLER = {
     entity:
       'shape=mxgraph.pid.shaping_machines.press_(roller);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function PressRoller(props: DiagramNodeProps) {

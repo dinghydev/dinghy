@@ -6,8 +6,8 @@ export const AZURE_IOT_HUB_SECURITY = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_IoT_Hub_Security.svg;strokeColor=none;',
   },
-  _original_width: 37,
-  _original_height: 50,
+  _width: 37,
+  _height: 50,
 }
 
 export function AzureIotHubSecurity(props: DiagramNodeProps) {

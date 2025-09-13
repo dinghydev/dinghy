@@ -6,8 +6,8 @@ export const LEGACY_CLOUD_2 = {
     entity:
       'sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;align=center;fillColor=#2D9C5E;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.legacy_cloud_2',
   },
-  _original_width: 100,
-  _original_height: 69,
+  _width: 100,
+  _height: 69,
 }
 
 export function LegacyCloud2(props: DiagramNodeProps) {

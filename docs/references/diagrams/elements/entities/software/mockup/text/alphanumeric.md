@@ -1,0 +1,25 @@
+# Alphanumeric
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.alphanumeric;linkText=;html=1;fontStyle=4;fontSize=17;fontColor=#0000ff;',
+  },
+  _width: 450,
+  _height: 50,
+}
+```
+
+## Usage
+
+```js
+import { Alphanumeric } from '@dinghy/standard-components-diagrams/mockupText'
+
+<Alphanumeric/>
+```
+
+## Preview
+
+<img src="./alphanumeric.png" width="200"/>

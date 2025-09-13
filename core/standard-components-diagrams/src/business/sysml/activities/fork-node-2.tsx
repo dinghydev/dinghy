@@ -6,8 +6,8 @@ export const FORK_NODE_2 = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;elbow=horizontal;endArrow=none;rounded=0;startArrow=open;strokeWidth=3;startSize=12;',
   },
-  _original_width: 1,
-  _original_height: 80,
+  _width: 1,
+  _height: 80,
 }
 
 export function ForkNode2(props: DiagramNodeProps) {

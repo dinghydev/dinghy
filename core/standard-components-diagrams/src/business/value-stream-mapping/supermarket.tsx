@@ -5,8 +5,8 @@ export const SUPERMARKET = {
   _style: {
     entity: 'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.supermarket;',
   },
-  _original_width: 60,
-  _original_height: 100,
+  _width: 60,
+  _height: 100,
 }
 
 export function Supermarket(props: DiagramNodeProps) {

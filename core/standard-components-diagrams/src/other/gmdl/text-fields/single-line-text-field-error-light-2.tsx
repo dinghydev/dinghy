@@ -6,8 +6,8 @@ export const SINGLE_LINE_TEXT_FIELD_ERROR_LIGHT_2 = {
     entity:
       'text;fontColor=#ff0000;fontSize=12;verticalAlign=middle;strokeColor=none;fillColor=none;whiteSpace=wrap;html=1;',
   },
-  _original_width: 2,
-  _original_height: 55,
+  _width: 2,
+  _height: 55,
 }
 
 export function SingleLineTextFieldErrorLight2(props: DiagramNodeProps) {

@@ -1,0 +1,26 @@
+# PolarDB
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;fillColor=#FF6A00;strokeColor=none;shape=mxgraph.alibaba_cloud.polardb;',
+  },
+  _original_width: 55.5,
+  _original_height: 57.3,
+
+}
+```
+
+## Usage
+
+```js
+import { Polardb } from '@dinghy/standard-components-diagrams/alibabaCloud'
+
+<Polardb/>
+```
+
+## Preview
+
+<img src="./polardb.png" width="200"/>

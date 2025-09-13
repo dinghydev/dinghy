@@ -6,8 +6,8 @@ export const STRAIGHT_BUS = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.straightBus;',
   },
-  _original_width: 90,
-  _original_height: 130,
+  _width: 90,
+  _height: 130,
 }
 
 export function StraightBus(props: DiagramNodeProps) {

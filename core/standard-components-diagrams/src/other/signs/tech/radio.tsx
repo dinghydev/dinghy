@@ -6,8 +6,8 @@ export const RADIO = {
     entity:
       'shape=mxgraph.signs.tech.radio;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 99,
-  _original_height: 56,
+  _width: 99,
+  _height: 56,
 }
 
 export function Radio(props: DiagramNodeProps) {

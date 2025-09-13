@@ -6,8 +6,8 @@ export const PACKAGE = {
     entity:
       'html=1;shape=mxgraph.sysml.package;html=1;overflow=fill;whiteSpace=wrap;',
   },
-  _original_width: 300,
-  _original_height: 135,
+  _width: 300,
+  _height: 135,
 }
 
 export function Package(props: DiagramNodeProps) {

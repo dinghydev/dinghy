@@ -1,0 +1,26 @@
+# WAN Accelerator
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'sketch=0;shadow=0;dashed=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.3d.wan_accelerator;',
+  },
+  _original_width: 46,
+  _original_height: 46,
+
+}
+```
+
+## Usage
+
+```js
+import { WanAccelerator } from '@dinghy/standard-components-diagrams/veeam23d'
+
+<WanAccelerator/>
+```
+
+## Preview
+
+<img src="./wan-accelerator.png" width="200"/>

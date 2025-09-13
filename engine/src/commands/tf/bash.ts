@@ -1,5 +1,5 @@
 import type { CommandArgs, CommandContext, Commands } from '@dinghy/cli'
-import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@dinghy/cli'
+import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { runTfImageCmd } from './runTfImageCmd.ts'
 import { createTfOptions, tfOptionsPlan } from './tfOptions.ts'
 import { doWithTfStacks } from './doWithTfStacks.ts'
@@ -26,11 +26,11 @@ const run = async (context: CommandContext, args: CommandArgs) => {
     }
   })
   if (!firstStage) {
-    throw new DiacError('No stack/stage found')
+    throw new DinghyError('No stack/stage found')
   }
   const stagePath = `${args.output}/${firstStage.id}`
   if (!existsSync(stagePath)) {
-    throw new DiacError(
+    throw new DinghyError(
       `Stage folder ${args.output} not exist. Run render or tf operation first`,
     )
   }

@@ -1,0 +1,26 @@
+# X11240 Variable-displacement pump
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;fillColor=strokeColor;align=center;outlineConnect=0;shape=mxgraph.fluid_power.x11240;points=[[0.567,0,0],[0.567,1,0],[0.95,1,0]]',
+  },
+  _original_width: 97.7,
+  _original_height: 93.94,
+
+}
+```
+
+## Usage
+
+```js
+import { X11240VariableDisplacementPump } from '@dinghy/standard-components-diagrams/fluidPower'
+
+<X11240VariableDisplacementPump/>
+```
+
+## Preview
+
+<img src="./x11240-variable-displacement-pump.png" width="200"/>

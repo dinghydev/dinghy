@@ -6,8 +6,8 @@ export const COMPOSITE_STATE_2 = {
     entity:
       'shape=mxgraph.sysml.compState;html=1;align=left;verticalAlign=top;spacingTop=-3;spacingLeft=18;',
   },
-  _original_width: 200,
-  _original_height: 160,
+  _width: 200,
+  _height: 160,
 }
 
 export function CompositeState2(props: DiagramNodeProps) {

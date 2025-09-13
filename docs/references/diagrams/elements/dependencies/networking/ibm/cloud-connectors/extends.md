@@ -1,0 +1,23 @@
+# Extends
+
+## Definition
+
+```js
+{
+  _style: {
+    dependency: 'html=1;labelBackgroundColor=#ffffff;jettySize=auto;orthogonalLoop=1;fontSize=14;rounded=0;jumpStyle=gap;edgeStyle=orthogonalEdgeStyle;startArrow=none;endArrow=block;endFill=0;strokeWidth=1;',
+  },
+}
+```
+
+## Usage
+
+```js
+import { Extends } from '@dinghy/standard-components-diagrams/ibmCloudConnectors'
+
+<Extends/>
+```
+
+## Preview
+
+<img src="./extends.png" width="200"/>

@@ -1,0 +1,23 @@
+# Many Mandatory to Many Mandatory
+
+## Definition
+
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERoneToMany;',
+  },
+}
+```
+
+## Usage
+
+```js
+import { ManyMandatoryToManyMandatory } from '@dinghy/standard-components-diagrams/entityRelation'
+
+<ManyMandatoryToManyMandatory/>
+```
+
+## Preview
+
+<img src="./many-mandatory-to-many-mandatory.png" width="200"/>

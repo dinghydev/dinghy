@@ -6,8 +6,8 @@ export const CUSTOMER_SUPPLIER = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.outside_sources;whiteSpace=wrap;align=center;',
   },
-  _original_width: 100,
-  _original_height: 70,
+  _width: 100,
+  _height: 70,
 }
 
 export function CustomerSupplier(props: DiagramNodeProps) {

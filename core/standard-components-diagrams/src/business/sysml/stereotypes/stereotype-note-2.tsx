@@ -5,8 +5,8 @@ export const STEREOTYPE_NOTE_2 = {
   _style: {
     entity: 'shape=rect;fontStyle=1;html=1;whiteSpace=wrap;align=center;',
   },
-  _original_width: 1,
-  _original_height: 150,
+  _width: 1,
+  _height: 150,
 }
 
 export function StereotypeNote2(props: DiagramNodeProps) {

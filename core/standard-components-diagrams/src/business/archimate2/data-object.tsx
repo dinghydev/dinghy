@@ -6,8 +6,8 @@ export const DATA_OBJECT = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate.businessObject;overflow=fill',
   },
-  _original_width: 100,
-  _original_height: 75,
+  _width: 100,
+  _height: 75,
 }
 
 export function DataObject(props: DiagramNodeProps) {

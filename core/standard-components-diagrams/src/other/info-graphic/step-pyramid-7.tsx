@@ -6,8 +6,8 @@ export const STEP_PYRAMID_7 = {
     entity:
       'html=1;shape=mxgraph.infographic.pyramidStep;fillColor=#23445D;strokeColor=none;shadow=0;',
   },
-  _original_width: 6,
-  _original_height: 95,
+  _width: 6,
+  _height: 95,
 }
 
 export function StepPyramid7(props: DiagramNodeProps) {

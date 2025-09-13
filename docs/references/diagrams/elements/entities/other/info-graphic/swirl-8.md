@@ -1,0 +1,25 @@
+# Swirl 8
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'shape=manualInput;whiteSpace=wrap;html=1;shadow=0;fillColor=#F2931E;strokeColor=none;fontSize=12;fontColor=#FFFFFF;align=center;direction=north;flipV=1;rounded=0;',
+  },
+  _width: 1,
+  _height: 215,
+}
+```
+
+## Usage
+
+```js
+import { Swirl8 } from '@dinghy/standard-components-diagrams/infoGraphic'
+
+<Swirl8/>
+```
+
+## Preview
+
+<img src="./swirl-8.png" width="200"/>

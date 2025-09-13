@@ -6,8 +6,8 @@ export const J9855A_2530_48G_2SFP_SWITCH = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.j9855a_2530_48g_2sfpplus_switch;',
   },
-  _original_width: 142,
-  _original_height: 15,
+  _width: 142,
+  _height: 15,
 }
 
 export function J9855a253048g2sfpSwitch(props: DiagramNodeProps) {

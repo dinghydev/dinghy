@@ -6,8 +6,8 @@ export const FLANGED_DUMMY_COVER = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.flanged_dummy_cover;',
   },
-  _original_width: 85,
-  _original_height: 50,
+  _width: 85,
+  _height: 50,
 }
 
 export function FlangedDummyCover(props: DiagramNodeProps) {

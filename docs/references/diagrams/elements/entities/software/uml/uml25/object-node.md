@@ -1,0 +1,25 @@
+# Object Node
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'html=1;align=center;verticalAlign=middle;rounded=0;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;',
+  },
+  _width: 0,
+  _height: 90,
+}
+```
+
+## Usage
+
+```js
+import { ObjectNode } from '@dinghy/standard-components-diagrams/uml25'
+
+<ObjectNode/>
+```
+
+## Preview
+
+<img src="./object-node.png" width="200"/>

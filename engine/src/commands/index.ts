@@ -11,7 +11,7 @@ import {
   RUN_SYMBOL,
   runCommand,
   showHelp,
-  throwDiacError,
+  throwDinghyError,
   versionDetails,
 } from '@dinghy/cli'
 import render from './render/index.ts'
@@ -93,7 +93,7 @@ const runCommandInParallel = async (cmds: string[]) => {
       }
     })
     if (failed) {
-      throwDiacError('Failed to run commands. See above for details.')
+      throwDinghyError('Failed to run commands. See above for details.')
     }
   })
 }

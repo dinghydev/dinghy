@@ -7,7 +7,7 @@ export const GROUP_SECURITY_GROUP: DiagramNodeProps = {
   _border: 0,
   _shape: {
     entity: 'mxgraph.openstack.neutron_subnet',
-    group: 'mxgraph.aws4.group',
+    container: 'mxgraph.aws4.container',
   },
 }
 

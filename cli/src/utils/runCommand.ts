@@ -3,7 +3,7 @@ import {
   OPTIONS_SYMBOL,
   REQUIRE_ENGINE_SYMBOL,
   RUN_SYMBOL,
-  throwDiacError,
+  throwDinghyError,
 } from '../types.ts'
 import { showHelp } from './showHelp.ts'
 import Debug from 'debug'
@@ -58,7 +58,7 @@ export async function runCommand(context: CommandContext) {
           context.prefix.length ? ` ${context.prefix.join(' ')}` : ''
         } [${cmds.join(', ')}]`,
       )
-      throwDiacError(`Command [${currentCommand.join(' ')}] not found`)
+      throwDinghyError(`Command [${currentCommand.join(' ')}] not found`)
     }
     return await runCommand({
       ...context,

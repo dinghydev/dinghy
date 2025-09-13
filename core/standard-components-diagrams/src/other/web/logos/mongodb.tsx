@@ -6,8 +6,8 @@ export const MONGODB = {
     entity:
       'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.mongodb',
   },
-  _original_width: 41.2,
-  _original_height: 86.2,
+  _width: 41.2,
+  _height: 86.2,
 }
 
 export function Mongodb(props: DiagramNodeProps) {

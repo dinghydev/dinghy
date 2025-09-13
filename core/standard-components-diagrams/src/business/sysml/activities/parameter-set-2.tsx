@@ -6,8 +6,8 @@ export const PARAMETER_SET_2 = {
     entity:
       'html=1;shape=mxgraph.sysml.paramActSet;align=left;spacingLeft=15;verticalAlign=top;spacingTop=-3;fontStyle=1;',
   },
-  _original_width: 250,
-  _original_height: 120,
+  _width: 250,
+  _height: 120,
 }
 
 export function ParameterSet2(props: DiagramNodeProps) {

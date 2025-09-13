@@ -6,8 +6,8 @@ export const KNEADER = {
     entity:
       'shape=mxgraph.pid.mixers.kneader;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 170,
-  _original_height: 100,
+  _width: 170,
+  _height: 100,
 }
 
 export function Kneader(props: DiagramNodeProps) {

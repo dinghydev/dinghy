@@ -6,8 +6,8 @@ export const ALERT_2 = {
     entity:
       'html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=#D6D8DB;strokeWidth=1;fillColor=#E2E3E5;fontColor=#383D41;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=10;',
   },
-  _original_width: 800,
-  _original_height: 40,
+  _width: 800,
+  _height: 40,
 }
 
 export function Alert2(props: DiagramNodeProps) {

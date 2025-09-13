@@ -1,0 +1,26 @@
+# Stairs
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.signs.travel.stairs;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  },
+  _original_width: 98,
+  _original_height: 83,
+
+}
+```
+
+## Usage
+
+```js
+import { Stairs } from '@dinghy/standard-components-diagrams/signsTravel'
+
+<Stairs/>
+```
+
+## Preview
+
+<img src="./stairs.png" width="200"/>

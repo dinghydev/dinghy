@@ -5,8 +5,8 @@ export const DATE_PICKER_PORTRAIT = {
   _style: {
     entity: 'shape=rect;fillColor=#ffffff;strokeColor=#eeeeee;shadow=1;',
   },
-  _original_width: 328,
-  _original_height: 484,
+  _width: 328,
+  _height: 484,
 }
 
 export function DatePickerPortrait(props: DiagramNodeProps) {

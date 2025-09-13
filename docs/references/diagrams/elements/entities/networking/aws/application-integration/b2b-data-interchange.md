@@ -1,0 +1,26 @@
+# B2B Data Interchange
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.b2b_data_interchange;',
+  },
+  _original_width: 78,
+  _original_height: 78,
+
+}
+```
+
+## Usage
+
+```js
+import { B2bDataInterchange } from '@dinghy/standard-components-diagrams/awsApplicationIntegration'
+
+<B2bDataInterchange/>
+```
+
+## Preview
+
+<img src="./b2b-data-interchange.png" width="200"/>

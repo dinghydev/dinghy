@@ -1,0 +1,26 @@
+# Door
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.doorLeft;aspect=fixed;',
+  },
+  _original_width: 80,
+  _original_height: 85,
+
+}
+```
+
+## Usage
+
+```js
+import { Door } from '@dinghy/standard-components-diagrams/floorPlans'
+
+<Door/>
+```
+
+## Preview
+
+<img src="./door.png" width="200"/>

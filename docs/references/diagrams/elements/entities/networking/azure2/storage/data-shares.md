@@ -1,0 +1,26 @@
+# Data Shares
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/storage/Data_Shares.svg;strokeColor=none;',
+  },
+  _original_width: 64,
+  _original_height: 55.00000000000001,
+
+}
+```
+
+## Usage
+
+```js
+import { DataShares } from '@dinghy/standard-components-diagrams/azure2Storage'
+
+<DataShares/>
+```
+
+## Preview
+
+<img src="./data-shares.png" width="200"/>

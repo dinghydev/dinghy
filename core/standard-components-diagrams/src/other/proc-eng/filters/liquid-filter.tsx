@@ -6,8 +6,8 @@ export const LIQUID_FILTER = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.filters.liquid_filter;',
   },
-  _original_width: 50,
-  _original_height: 100,
+  _width: 50,
+  _height: 100,
 }
 
 export function LiquidFilter(props: DiagramNodeProps) {

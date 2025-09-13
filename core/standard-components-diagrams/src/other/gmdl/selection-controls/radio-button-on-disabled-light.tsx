@@ -6,8 +6,8 @@ export const RADIO_BUTTON_ON_DISABLED_LIGHT = {
     entity:
       'dashed=0;labelPosition=right;align=left;shape=mxgraph.gmdl.radiobutton;strokeColor=#B0B0B0;fillColor=#B0B0B0;strokeWidth=2;aspect=fixed;sketch=0;html=1;',
   },
-  _original_width: 0,
-  _original_height: 16,
+  _width: 0,
+  _height: 16,
 }
 
 export function RadioButtonOnDisabledLight(props: DiagramNodeProps) {

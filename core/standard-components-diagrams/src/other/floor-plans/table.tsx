@@ -6,8 +6,8 @@ export const TABLE = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.table;',
   },
-  _original_width: 90,
-  _original_height: 50,
+  _width: 90,
+  _height: 50,
 }
 
 export function Table(props: DiagramNodeProps) {

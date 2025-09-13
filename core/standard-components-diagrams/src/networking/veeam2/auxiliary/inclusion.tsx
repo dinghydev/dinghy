@@ -6,8 +6,8 @@ export const INCLUSION = {
     entity:
       'triangle;whiteSpace=wrap;html=1;gradientColor=#D3D3D3;strokeColor=none;gradientDirection=east;',
   },
-  _original_width: 40,
-  _original_height: 160,
+  _width: 40,
+  _height: 160,
 }
 
 export function Inclusion(props: DiagramNodeProps) {

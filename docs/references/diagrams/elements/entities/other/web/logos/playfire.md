@@ -1,0 +1,26 @@
+# Playfire
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.playfire;fillColor=#FDA21A;gradientColor=#FEE635;strokeColor=none',
+  },
+  _original_width: 62,
+  _original_height: 61.6,
+
+}
+```
+
+## Usage
+
+```js
+import { Playfire } from '@dinghy/standard-components-diagrams/webLogos'
+
+<Playfire/>
+```
+
+## Preview
+
+<img src="./playfire.png" width="200"/>

@@ -4,7 +4,7 @@ import type {
   CommandContext,
   CommandOptions,
 } from '@dinghy/cli'
-import { OPTIONS_SYMBOL, DiacError, RUN_SYMBOL } from '@dinghy/cli'
+import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '@dinghy/cli'
 import { streamCmd } from '../utils/cmd.ts'
 import { subCommandArgs } from '../utils/subCommandArgs.ts'
 
@@ -23,7 +23,7 @@ const run = async (context: CommandContext, _args: CommandArgs) => {
     false,
   )
   if (result.exitCode !== 0) {
-    throw new DiacError(`Failed to run deno, see error above`)
+    throw new DinghyError(`Failed to run deno, see error above`)
   }
 }
 export default {

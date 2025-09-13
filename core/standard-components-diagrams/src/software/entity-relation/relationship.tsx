@@ -6,8 +6,8 @@ export const RELATIONSHIP = {
     entity:
       'shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;',
   },
-  _original_width: 120,
-  _original_height: 60,
+  _width: 120,
+  _height: 60,
 }
 
 export function Relationship(props: DiagramNodeProps) {

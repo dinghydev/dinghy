@@ -1,0 +1,26 @@
+# Icon6
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;sketch=0;html=1;fillColor=#282828;strokeColor=none;verticalAlign=top;pointerEvents=1;align=center;shape=mxgraph.cisco_safe.iot_things_icons.icon6;',
+  },
+  _original_width: 50,
+  _original_height: 49.5,
+
+}
+```
+
+## Usage
+
+```js
+import { Icon6 } from '@dinghy/standard-components-diagrams/ciscoSafeIotThingsIcons'
+
+<Icon6/>
+```
+
+## Preview
+
+<img src="./icon6.png" width="200"/>

@@ -1,0 +1,25 @@
+# Bar Graph 23
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=top;verticalAlign=bottom;html=1;shape=mxgraph.infographic.cylinder;isoAngle=15;fillColor=#CCCCCC;strokeColor=none;fontStyle=1;fontColor=#AE4132;fontSize=12;shadow=0;align=left;opacity=70;',
+  },
+  _width: 7,
+  _height: 120,
+}
+```
+
+## Usage
+
+```js
+import { BarGraph23 } from '@dinghy/standard-components-diagrams/infoGraphic'
+
+<BarGraph23/>
+```
+
+## Preview
+
+<img src="./bar-graph-23.png" width="200"/>

@@ -6,8 +6,8 @@ export const SECURITY = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.security;',
   },
-  _original_width: 40.5,
-  _original_height: 71,
+  _width: 40.5,
+  _height: 71,
 }
 
 export function Security(props: DiagramNodeProps) {

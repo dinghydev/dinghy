@@ -6,8 +6,8 @@ export const TEXT_BOX = {
     entity:
       'strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=',
   },
-  _original_width: 150,
-  _original_height: 30,
+  _width: 150,
+  _height: 30,
 }
 
 export function TextBox(props: DiagramNodeProps) {

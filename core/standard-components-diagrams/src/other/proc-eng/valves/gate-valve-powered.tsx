@@ -6,8 +6,8 @@ export const GATE_VALVE_POWERED = {
     entity:
       'verticalLabelPosition=bottom;align=center;html=1;verticalAlign=top;pointerEvents=1;dashed=0;shape=mxgraph.pid2valves.valve;valveType=gate;actuator=powered',
   },
-  _original_width: 0,
-  _original_height: 100,
+  _width: 0,
+  _height: 100,
 }
 
 export function GateValvePowered(props: DiagramNodeProps) {

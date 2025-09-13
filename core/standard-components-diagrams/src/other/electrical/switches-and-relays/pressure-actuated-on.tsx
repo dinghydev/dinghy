@@ -6,8 +6,8 @@ export const PRESSURE_ACTUATED_ON = {
     entity:
       'html=1;shape=mxgraph.electrical.electro-mechanical.pressureActuatedSwitch;aspect=fixed;elSwitchState=on;',
   },
-  _original_width: 75,
-  _original_height: 31,
+  _width: 75,
+  _height: 31,
 }
 
 export function PressureActuatedOn(props: DiagramNodeProps) {

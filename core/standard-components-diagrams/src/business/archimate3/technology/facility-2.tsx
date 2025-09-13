@@ -6,8 +6,8 @@ export const FACILITY_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#AFFFAF;shape=mxgraph.archimate3.facility;',
   },
-  _original_width: 60,
-  _original_height: 40,
+  _width: 60,
+  _height: 40,
 }
 
 export function Facility2(props: DiagramNodeProps) {

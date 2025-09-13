@@ -6,8 +6,8 @@ export const STEREOTYPE_EDGE = {
     entity:
       'endArrow=none;html=1;edgeStyle=none;labelBackgroundColor=none;align=left;fontStyle=1;fontSize=10;',
   },
-  _original_width: 2,
-  _original_height: 180,
+  _width: 2,
+  _height: 180,
 }
 
 export function StereotypeEdge(props: DiagramNodeProps) {

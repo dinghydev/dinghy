@@ -6,8 +6,8 @@ export const PROBABILITY_2 = {
     entity:
       'html=1;shape=mxgraph.sysml.actProb;align=left;spacingLeft=5;verticalAlign=top;spacingTop=-3;fontStyle=1;',
   },
-  _original_width: 120,
-  _original_height: 160,
+  _width: 120,
+  _height: 160,
 }
 
 export function Probability2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const VIRTUAL_PRIVATE_CLOUD = {
     entity:
       'fillColor=#ffffff;strokeColor=#dddddd;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;',
   },
-  _original_width: 0,
-  _original_height: 60,
+  _width: 0,
+  _height: 60,
 }
 
 export function VirtualPrivateCloud(props: DiagramNodeProps) {

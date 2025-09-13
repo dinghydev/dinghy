@@ -6,8 +6,8 @@ export const BEHAVIOR_ACTION = {
     entity:
       'shape=mxgraph.uml25.behaviorAction;html=1;rounded=1;absoluteArcSize=1;arcSize=10;align=left;spacingLeft=5;whiteSpace=wrap;',
   },
-  _original_width: 190,
-  _original_height: 60,
+  _width: 190,
+  _height: 60,
 }
 
 export function BehaviorAction(props: DiagramNodeProps) {

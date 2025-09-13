@@ -6,8 +6,8 @@ export const ITEM_FLOW_7 = {
     entity:
       'shape=rect;html=1;overflow=fill;whiteSpace=wrap;recursiveResize=0;',
   },
-  _original_width: 3,
-  _original_height: 370,
+  _width: 3,
+  _height: 370,
 }
 
 export function ItemFlow7(props: DiagramNodeProps) {

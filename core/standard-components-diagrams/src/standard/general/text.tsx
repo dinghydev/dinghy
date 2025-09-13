@@ -6,8 +6,8 @@ export const TEXT = {
     entity:
       'text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;',
   },
-  _original_width: 60,
-  _original_height: 30,
+  _width: 60,
+  _height: 30,
 }
 
 export function Text(props: DiagramNodeProps) {

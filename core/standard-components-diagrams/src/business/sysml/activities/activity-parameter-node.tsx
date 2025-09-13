@@ -6,8 +6,8 @@ export const ACTIVITY_PARAMETER_NODE = {
     entity:
       'html=1;shape=mxgraph.sysml.actParamNode;align=left;spacingLeft=15;verticalAlign=top;spacingTop=-3;',
   },
-  _original_width: 300,
-  _original_height: 135,
+  _width: 300,
+  _height: 135,
 }
 
 export function ActivityParameterNode(props: DiagramNodeProps) {

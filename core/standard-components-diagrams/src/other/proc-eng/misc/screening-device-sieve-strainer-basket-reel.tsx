@@ -6,8 +6,8 @@ export const SCREENING_DEVICE_SIEVE_STRAINER_BASKET_REEL = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.screening_device,_sieve,_strainer_(basket_reel);',
   },
-  _original_width: 80,
-  _original_height: 180,
+  _width: 80,
+  _height: 180,
 }
 
 export function ScreeningDeviceSieveStrainerBasketReel(

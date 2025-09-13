@@ -6,8 +6,8 @@ export const COGNITIVE_SERVICES = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Cognitive_Services.svg;strokeColor=none;',
   },
-  _original_width: 50,
-  _original_height: 30,
+  _width: 50,
+  _height: 30,
 }
 
 export function CognitiveServices(props: DiagramNodeProps) {

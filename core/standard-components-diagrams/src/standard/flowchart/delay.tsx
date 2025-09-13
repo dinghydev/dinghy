@@ -6,8 +6,8 @@ export const DELAY = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.flowchart.delay;whiteSpace=wrap;',
   },
-  _original_width: 100,
-  _original_height: 60,
+  _width: 100,
+  _height: 60,
 }
 
 export function Delay(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const COPY_AREA = {
     entity:
       'html=1;shadow=0;dashed=0;shape=mxgraph.ios.iCopy;fillColor=#000000;buttonText=;fontColor=#ffffff;spacingBottom=6;fontSize=9;fillColor2=#000000;fillColor3=#ffffff;align=center;sketch=0;whiteSpace=wrap;',
   },
-  _original_width: 0,
-  _original_height: 80,
+  _width: 0,
+  _height: 80,
 }
 
 export function CopyArea(props: DiagramNodeProps) {

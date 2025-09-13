@@ -5,8 +5,8 @@ export const LOOP_LIMIT = {
   _style: {
     entity: 'shape=loopLimit;whiteSpace=wrap;html=1;',
   },
-  _original_width: 100,
-  _original_height: 80,
+  _width: 100,
+  _height: 80,
 }
 
 export function LoopLimit(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const C_HEADER_CONNECTOR = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.c_header_connector',
   },
-  _original_width: 200,
-  _original_height: 75,
+  _width: 200,
+  _height: 75,
 }
 
 export function CHeaderConnector(props: DiagramNodeProps) {

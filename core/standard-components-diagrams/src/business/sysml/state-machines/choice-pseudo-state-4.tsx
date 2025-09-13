@@ -6,8 +6,8 @@ export const CHOICE_PSEUDO_STATE_4 = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;elbow=vertical;align=left;endArrow=open;rounded=0;labelBackgroundColor=none;verticalAlign=bottom;endSize=12;',
   },
-  _original_width: 3,
-  _original_height: 100,
+  _width: 3,
+  _height: 100,
 }
 
 export function ChoicePseudoState4(props: DiagramNodeProps) {

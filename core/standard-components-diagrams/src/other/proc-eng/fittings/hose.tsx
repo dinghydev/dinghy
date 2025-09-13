@@ -6,8 +6,8 @@ export const HOSE = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.hose;',
   },
-  _original_width: 180,
-  _original_height: 30,
+  _width: 180,
+  _height: 30,
 }
 
 export function Hose(props: DiagramNodeProps) {

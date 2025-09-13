@@ -6,8 +6,8 @@ export const TEXT_SELECTION_HANDLES = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.textSelHandles;fillColor=#33b5e5;strokeColor=#0099cc;',
   },
-  _original_width: 168.8,
-  _original_height: 42.2,
+  _width: 168.8,
+  _height: 42.2,
 }
 
 export function TextSelectionHandles(props: DiagramNodeProps) {

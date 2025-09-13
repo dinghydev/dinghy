@@ -1,9 +1,9 @@
 import { runCommand } from './runCommand.ts'
 import {
   type Commands,
+  DinghyError,
   HANDLED_ERROR_EXIT_CODE,
   OPTIONS_SYMBOL,
-  DiacError,
 } from '../types.ts'
 import { updateCheck } from './updateCheck.ts'
 import { setupDebug } from './setupDebug.ts'
@@ -48,7 +48,7 @@ export const cliRun = async (
     await reportResult(msTaken, error)
 
     if (error) {
-      if (error instanceof DiacError) {
+      if (error instanceof DinghyError) {
         console.error(
           `${error.code ? `${chalk.bold(error.code)} ` : ''}${
             chalk.red(error.message)

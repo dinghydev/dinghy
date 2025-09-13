@@ -6,8 +6,8 @@ export const VESSEL_SEMI_TUBE_HEATING_COOLING_COIL = {
     entity:
       'shape=mxgraph.pid.vessels.vessel_(semi-tube_heating-cooling_coil);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 110,
-  _original_height: 70,
+  _width: 110,
+  _height: 70,
 }
 
 export function VesselSemiTubeHeatingCoolingCoil(props: DiagramNodeProps) {

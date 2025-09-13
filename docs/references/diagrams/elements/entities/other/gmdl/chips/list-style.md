@@ -1,0 +1,25 @@
+# List Style
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'dashed=0;shape=rect;fillColor=#ffffff;strokeColor=none;',
+  },
+  _width: 358,
+  _height: 642,
+}
+```
+
+## Usage
+
+```js
+import { ListStyle } from '@dinghy/standard-components-diagrams/gmdlChips'
+
+<ListStyle/>
+```
+
+## Preview
+
+<img src="./list-style.png" width="200"/>

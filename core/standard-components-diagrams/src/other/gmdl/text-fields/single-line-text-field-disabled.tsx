@@ -6,8 +6,8 @@ export const SINGLE_LINE_TEXT_FIELD_DISABLED = {
     entity:
       'shape=line;strokeWidth=1;noLabel=1;strokeColor=#B3B3B3;dashed=1;dashPattern=1 4;',
   },
-  _original_width: 1,
-  _original_height: 35,
+  _width: 1,
+  _height: 35,
 }
 
 export function SingleLineTextFieldDisabled(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const GAS_FILTER_BELT_ROLL = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.filters.gas_filter_(belt,_roll);',
   },
-  _original_width: 50,
-  _original_height: 100,
+  _width: 50,
+  _height: 100,
 }
 
 export function GasFilterBeltRoll(props: DiagramNodeProps) {

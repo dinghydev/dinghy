@@ -6,8 +6,8 @@ export const MESSAGE_BUS_2 = {
     entity:
       'edgeStyle=elbowEdgeStyle;strokeWidth=2;rounded=0;endArrow=block;startArrow=block;startSize=10;endSize=10;dashed=0;html=1;strokeColor=#808080;',
   },
-  _original_width: 1,
-  _original_height: 140,
+  _width: 1,
+  _height: 140,
 }
 
 export function MessageBus2(props: DiagramNodeProps) {

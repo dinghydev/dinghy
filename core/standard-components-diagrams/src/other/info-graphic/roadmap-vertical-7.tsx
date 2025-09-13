@@ -6,8 +6,8 @@ export const ROADMAP_VERTICAL_7 = {
     entity:
       'rounded=1;strokeColor=none;fillColor=#EEEEEE;align=center;arcSize=12;verticalAlign=top;whiteSpace=wrap;html=1;fontSize=12;',
   },
-  _original_width: 5,
-  _original_height: 400,
+  _width: 5,
+  _height: 400,
 }
 
 export function RoadmapVertical7(props: DiagramNodeProps) {

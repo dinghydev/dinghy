@@ -6,8 +6,8 @@ export const SPLIT_ACTION_BAR_LANDSCAPE = {
     entity:
       'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.split_action_bar_landscape;fillColor=#1A1A1A;',
   },
-  _original_width: 0,
-  _original_height: 70,
+  _width: 0,
+  _height: 70,
 }
 
 export function SplitActionBarLandscape(props: DiagramNodeProps) {

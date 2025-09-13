@@ -6,8 +6,8 @@ export const VIRTUAL_NETWORKS = {
     entity:
       'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Virtual_Networks.svg;strokeColor=none;',
   },
-  _original_width: 67,
-  _original_height: 40,
+  _width: 67,
+  _height: 40,
 }
 
 export function VirtualNetworks(props: DiagramNodeProps) {

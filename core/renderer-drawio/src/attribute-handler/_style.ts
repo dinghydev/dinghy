@@ -1,6 +1,6 @@
 import type { Props } from '@dinghy/base-components'
 
-const STYLE_CATEGORIES = ['entity', 'group', 'dependency', 'element']
+const STYLE_CATEGORIES = ['entity', 'container', 'dependency', 'element']
 
 const handleStringStyle = (
   style: any,
@@ -54,7 +54,7 @@ export const _style = (style: any) => {
     entity: {
       style: {},
     },
-    group: {
+    container: {
       style: {},
     },
     dependency: {

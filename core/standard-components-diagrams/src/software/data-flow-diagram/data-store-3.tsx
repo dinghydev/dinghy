@@ -6,8 +6,8 @@ export const DATA_STORE_3 = {
     entity:
       'shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;',
   },
-  _original_width: 60,
-  _original_height: 80,
+  _width: 60,
+  _height: 80,
 }
 
 export function DataStore3(props: DiagramNodeProps) {

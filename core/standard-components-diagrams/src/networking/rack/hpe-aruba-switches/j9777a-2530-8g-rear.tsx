@@ -6,8 +6,8 @@ export const J9777A_2530_8G_REAR = {
     entity:
       'html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;shadow=0;dashed=0;shape=mxgraph.rack.hpe_aruba.switches.j9777a_2530_8g_rear;',
   },
-  _original_width: 87,
-  _original_height: 15,
+  _width: 87,
+  _height: 15,
 }
 
 export function J9777a25308gRear(props: DiagramNodeProps) {

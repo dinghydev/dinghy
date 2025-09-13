@@ -6,8 +6,8 @@ export const ROUTER_IN_BUILDING = {
     entity:
       'shape=mxgraph.cisco.routers.router_in_building;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;',
   },
-  _original_width: 91,
-  _original_height: 138,
+  _width: 91,
+  _height: 138,
 }
 
 export function RouterInBuilding(props: DiagramNodeProps) {

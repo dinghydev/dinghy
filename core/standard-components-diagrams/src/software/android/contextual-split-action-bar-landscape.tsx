@@ -6,8 +6,8 @@ export const CONTEXTUAL_SPLIT_ACTION_BAR_LANDSCAPE = {
     entity:
       'strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.contextual_split_action_bar_landscape;fillColor=#002E3E;fontColor=#FFFFFF;',
   },
-  _original_width: 0,
-  _original_height: 70,
+  _width: 0,
+  _height: 70,
 }
 
 export function ContextualSplitActionBarLandscape(props: DiagramNodeProps) {

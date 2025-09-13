@@ -5,8 +5,8 @@ export const STEPPER = {
   _style: {
     entity: 'shape=rect;strokeColor=none;fillColor=#ffffff;',
   },
-  _original_width: 704,
-  _original_height: 478,
+  _width: 704,
+  _height: 478,
 }
 
 export function Stepper(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const PARTICIPANT_NON_INITIATING_TOP = {
     entity:
       'shape=mxgraph.bpmn.task2;part=1;taskMarker=abstract;rectStyle=rounded;bottomRightStyle=square;bottomLeftStyle=square;fillColor=#C0C0C0;whiteSpace=wrap;html=1;',
   },
-  _original_width: 120,
-  _original_height: 20,
+  _width: 120,
+  _height: 20,
 }
 
 export function ParticipantNonInitiatingTop(props: DiagramNodeProps) {

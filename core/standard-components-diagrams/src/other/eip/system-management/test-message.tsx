@@ -6,8 +6,8 @@ export const TEST_MESSAGE = {
     entity:
       'html=1;strokeWidth=2;outlineConnect=0;dashed=0;align=center;fontSize=8;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.eip.test_message;fillColor=#c0f5a9',
   },
-  _original_width: 150,
-  _original_height: 90,
+  _width: 150,
+  _height: 90,
 }
 
 export function TestMessage(props: DiagramNodeProps) {

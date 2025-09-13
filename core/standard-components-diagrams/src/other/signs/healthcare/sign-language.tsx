@@ -6,8 +6,8 @@ export const SIGN_LANGUAGE = {
     entity:
       'shape=mxgraph.signs.healthcare.sign_language;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 101,
-  _original_height: 84,
+  _width: 101,
+  _height: 84,
 }
 
 export function SignLanguage(props: DiagramNodeProps) {

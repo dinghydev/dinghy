@@ -6,8 +6,8 @@ export const STAKEHOLDER_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#CCCCFF;shape=mxgraph.archimate3.role;',
   },
-  _original_width: 60,
-  _original_height: 35,
+  _width: 60,
+  _height: 35,
 }
 
 export function Stakeholder2(props: DiagramNodeProps) {

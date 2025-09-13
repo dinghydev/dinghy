@@ -6,8 +6,8 @@ export const TANK = {
     entity:
       'shape=mxgraph.signs.transportation.tank;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
   },
-  _original_width: 100,
-  _original_height: 50,
+  _width: 100,
+  _height: 50,
 }
 
 export function Tank(props: DiagramNodeProps) {

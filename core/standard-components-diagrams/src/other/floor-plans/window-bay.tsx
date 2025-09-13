@@ -6,8 +6,8 @@ export const WINDOW_BAY = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.windowBay;strokeWidth=3;aspect=fixed;',
   },
-  _original_width: 100,
-  _original_height: 40,
+  _width: 100,
+  _height: 40,
 }
 
 export function WindowBay(props: DiagramNodeProps) {

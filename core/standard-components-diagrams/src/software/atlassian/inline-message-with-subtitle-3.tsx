@@ -6,8 +6,8 @@ export const INLINE_MESSAGE_WITH_SUBTITLE_3 = {
     entity:
       'fillColor=none;strokeColor=none;align=left;html=1;whiteSpace=wrap;fontSize=11;fontColor=#596780',
   },
-  _original_width: 2,
-  _original_height: 63,
+  _width: 2,
+  _height: 63,
 }
 
 export function InlineMessageWithSubtitle3(props: DiagramNodeProps) {

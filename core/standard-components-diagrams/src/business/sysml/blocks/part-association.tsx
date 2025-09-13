@@ -6,8 +6,8 @@ export const PART_ASSOCIATION = {
     entity:
       'verticalAlign=bottom;html=1;endArrow=open;endSize=12;edgeStyle=orthogonalEdgeStyle;startFill=1;startSize=12;startArrow=diamondThin;',
   },
-  _original_width: 250,
-  _original_height: 0,
+  _width: 250,
+  _height: 0,
 }
 
 export function PartAssociation(props: DiagramNodeProps) {

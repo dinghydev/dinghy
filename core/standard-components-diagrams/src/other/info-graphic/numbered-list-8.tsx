@@ -6,8 +6,8 @@ export const NUMBERED_LIST_8 = {
     entity:
       'shape=rect;rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeColor=none;fillColor=#61C6CE;arcSize=30;fontSize=14;spacingLeft=42;fontStyle=1;fontColor=#FFFFFF;align=left;',
   },
-  _original_width: 8,
-  _original_height: 320,
+  _width: 8,
+  _height: 320,
 }
 
 export function NumberedList8(props: DiagramNodeProps) {

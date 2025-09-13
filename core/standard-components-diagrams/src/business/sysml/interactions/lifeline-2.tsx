@@ -6,8 +6,8 @@ export const LIFELINE_2 = {
     entity:
       'edgeStyle=none;html=1;dashed=1;endArrow=none;align=center;verticalAlign=bottom;exitX=0.5;exitY=1;',
   },
-  _original_width: 1,
-  _original_height: 150,
+  _width: 1,
+  _height: 150,
 }
 
 export function Lifeline2(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const INERTIA_SWITCH_ON = {
     entity:
       'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.electro-mechanical.inertiaSwitch2;elSwitchState=on;',
   },
-  _original_width: 75,
-  _original_height: 19,
+  _width: 75,
+  _height: 19,
 }
 
 export function InertiaSwitchOn(props: DiagramNodeProps) {

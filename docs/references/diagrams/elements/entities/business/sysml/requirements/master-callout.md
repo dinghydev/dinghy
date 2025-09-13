@@ -1,0 +1,25 @@
+# Master Callout
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'shape=note;html=1;size=15;align=left;spacingLeft=5;whiteSpace=wrap;align=center;',
+  },
+  _width: 0,
+  _height: 60,
+}
+```
+
+## Usage
+
+```js
+import { MasterCallout } from '@dinghy/standard-components-diagrams/sysmlRequirements'
+
+<MasterCallout/>
+```
+
+## Preview
+
+<img src="./master-callout.png" width="200"/>

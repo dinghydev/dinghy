@@ -6,8 +6,8 @@ export const FLOW_NOZZLE = {
     entity:
       'verticalLabelPosition=bottom;align=center;outlineConnect=0;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.flow_sensors.flow_nozzle;',
   },
-  _original_width: 50,
-  _original_height: 25,
+  _width: 50,
+  _height: 25,
 }
 
 export function FlowNozzle(props: DiagramNodeProps) {

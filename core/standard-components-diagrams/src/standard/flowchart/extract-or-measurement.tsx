@@ -6,8 +6,8 @@ export const EXTRACT_OR_MEASUREMENT = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.flowchart.extract_or_measurement;whiteSpace=wrap;',
   },
-  _original_width: 95,
-  _original_height: 60,
+  _width: 95,
+  _height: 60,
 }
 
 export function ExtractOrMeasurement(props: DiagramNodeProps) {

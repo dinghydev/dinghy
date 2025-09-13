@@ -6,8 +6,8 @@ export const AGITATOR_HELICAL = {
     entity:
       'shape=mxgraph.pid.agitators.agitator_(helical);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 80,
-  _original_height: 130,
+  _width: 80,
+  _height: 130,
 }
 
 export function AgitatorHelical(props: DiagramNodeProps) {

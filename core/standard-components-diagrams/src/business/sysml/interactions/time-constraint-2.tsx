@@ -6,8 +6,8 @@ export const TIME_CONSTRAINT_2 = {
     entity:
       'edgeStyle=none;html=1;endArrow=none;align=left;labelBackgroundColor=none;',
   },
-  _original_width: 5,
-  _original_height: 200,
+  _width: 5,
+  _height: 200,
 }
 
 export function TimeConstraint2(props: DiagramNodeProps) {

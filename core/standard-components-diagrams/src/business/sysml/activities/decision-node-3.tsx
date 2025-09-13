@@ -6,8 +6,8 @@ export const DECISION_NODE_3 = {
     entity:
       'edgeStyle=elbowEdgeStyle;html=1;elbow=vertical;verticalAlign=bottom;endArrow=open;rounded=0;labelBackgroundColor=none;endSize=12;',
   },
-  _original_width: 2,
-  _original_height: 80,
+  _width: 2,
+  _height: 80,
 }
 
 export function DecisionNode3(props: DiagramNodeProps) {

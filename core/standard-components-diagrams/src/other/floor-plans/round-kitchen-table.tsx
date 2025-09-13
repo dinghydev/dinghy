@@ -5,8 +5,8 @@ export const ROUND_KITCHEN_TABLE = {
   _style: {
     entity: 'shape=ellipse;shadow=0;html=1;',
   },
-  _original_width: 4,
-  _original_height: 140,
+  _width: 4,
+  _height: 140,
 }
 
 export function RoundKitchenTable(props: DiagramNodeProps) {

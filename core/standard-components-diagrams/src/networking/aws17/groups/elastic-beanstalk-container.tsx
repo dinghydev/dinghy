@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_BEANSTALK_CONTAINER = {
   _style: {
-    group:
+    container:
       'rounded=1;arcSize=10;dashed=0;fillColor=none;gradientColor=none;strokeWidth=2;',
   },
 }

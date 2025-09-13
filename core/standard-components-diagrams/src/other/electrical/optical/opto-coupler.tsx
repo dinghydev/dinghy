@@ -6,8 +6,8 @@ export const OPTO_COUPLER = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.opto_electronics.opto-coupler;',
   },
-  _original_width: 99,
-  _original_height: 60,
+  _width: 99,
+  _height: 60,
 }
 
 export function OptoCoupler(props: DiagramNodeProps) {

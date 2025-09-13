@@ -6,8 +6,8 @@ export const THIN_FILM_EVAPORATOR = {
     entity:
       'shape=mxgraph.pid.heat_exchangers.thin-film_evaporator;html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 80,
-  _original_height: 120,
+  _width: 80,
+  _height: 120,
 }
 
 export function ThinFilmEvaporator(props: DiagramNodeProps) {

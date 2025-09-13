@@ -5,8 +5,8 @@ export const OBJECT_FLOW_7 = {
   _style: {
     entity: 'html=1;shape=mxgraph.sysml.objFlowL;whiteSpace=wrap;',
   },
-  _original_width: 120,
-  _original_height: 60,
+  _width: 120,
+  _height: 60,
 }
 
 export function ObjectFlow7(props: DiagramNodeProps) {

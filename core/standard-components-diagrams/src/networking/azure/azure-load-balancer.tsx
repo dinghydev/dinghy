@@ -6,8 +6,8 @@ export const AZURE_LOAD_BALANCER = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_load_balancer;',
   },
-  _original_width: 50,
-  _original_height: 35,
+  _width: 50,
+  _height: 35,
 }
 
 export function AzureLoadBalancer(props: DiagramNodeProps) {

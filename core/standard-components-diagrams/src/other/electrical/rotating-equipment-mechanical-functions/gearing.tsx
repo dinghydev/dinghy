@@ -6,8 +6,8 @@ export const GEARING = {
     entity:
       'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.rot_mech.gearing;pointerEvents=1;',
   },
-  _original_width: 100,
-  _original_height: 64,
+  _width: 100,
+  _height: 64,
 }
 
 export function Gearing(props: DiagramNodeProps) {

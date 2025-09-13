@@ -6,8 +6,8 @@ export const PROGRESS_TRACKER = {
     entity:
       'fillColor=#0065FF;strokeColor=none;shadow=0;rounded=1;arcSize=50;sketch=1;hachureGap=4;pointerEvents=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;',
   },
-  _original_width: 470,
-  _original_height: 30,
+  _width: 470,
+  _height: 30,
 }
 
 export function ProgressTracker(props: DiagramNodeProps) {

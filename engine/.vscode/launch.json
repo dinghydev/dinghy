@@ -30,10 +30,10 @@
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/../examples/web/2-components"
-        // "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
+        "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
         // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/elements"
-        "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/data"
+        // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/data"
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"

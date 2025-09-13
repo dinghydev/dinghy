@@ -3,7 +3,7 @@ import type { DiagramNodeProps } from '@dinghy/base-components'
 
 export const AVAILABILITY_ZONE = {
   _style: {
-    group:
+    container:
       'fillColor=none;strokeColor=#147EBA;dashed=1;verticalAlign=top;fontStyle=0;fontColor=#147EBA;whiteSpace=wrap;html=1;',
     entity: {
       strokeColor: '#147EBA',

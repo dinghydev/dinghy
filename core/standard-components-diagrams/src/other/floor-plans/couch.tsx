@@ -6,8 +6,8 @@ export const COUCH = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.couch;',
   },
-  _original_width: 150,
-  _original_height: 80,
+  _width: 150,
+  _height: 80,
 }
 
 export function Couch(props: DiagramNodeProps) {

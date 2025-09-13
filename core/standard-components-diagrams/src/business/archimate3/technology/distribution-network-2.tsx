@@ -6,8 +6,8 @@ export const DISTRIBUTION_NETWORK_2 = {
     entity:
       'html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#AFFFAF;shape=mxgraph.archimate3.distribution;strokeWidth=4;',
   },
-  _original_width: 70,
-  _original_height: 30,
+  _width: 70,
+  _height: 30,
 }
 
 export function DistributionNetwork2(props: DiagramNodeProps) {

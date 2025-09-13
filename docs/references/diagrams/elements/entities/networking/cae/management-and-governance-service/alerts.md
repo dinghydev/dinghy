@@ -1,0 +1,26 @@
+# Alerts
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Notification.svg;strokeColor=none;',
+  },
+  _original_width: 50,
+  _original_height: 50,
+
+}
+```
+
+## Usage
+
+```js
+import { Alerts } from '@dinghy/standard-components-diagrams/caeManagementAndGovernanceService'
+
+<Alerts/>
+```
+
+## Preview
+
+<img src="./alerts.png" width="200"/>

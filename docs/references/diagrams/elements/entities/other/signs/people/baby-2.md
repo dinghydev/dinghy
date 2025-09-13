@@ -1,0 +1,25 @@
+# Baby 2
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.signs.people.baby_2;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;',
+  },
+  _width: 77,
+  _height: 99,
+}
+```
+
+## Usage
+
+```js
+import { Baby2 } from '@dinghy/standard-components-diagrams/signsPeople'
+
+<Baby2/>
+```
+
+## Preview
+
+<img src="./baby-2.png" width="200"/>

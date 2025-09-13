@@ -6,8 +6,8 @@ export const HORIZONTAL_BACKBONE = {
     entity:
       'line;strokeWidth=4;html=1;perimeter=backbonePerimeter;points=[];outlineConnect=0;',
   },
-  _original_width: 160,
-  _original_height: 10,
+  _width: 160,
+  _height: 10,
 }
 
 export function HorizontalBackbone(props: DiagramNodeProps) {

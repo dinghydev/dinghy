@@ -6,8 +6,8 @@ export const DROPDOWN_BUTTON_7 = {
     entity:
       'html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#1CA5B8;fontColor=#ffffff;whiteSpace=wrap;align=left;verticalAlign=middle;fontStyle=0;fontSize=14;spacingLeft=10;',
   },
-  _original_width: 0,
-  _original_height: 153,
+  _width: 0,
+  _height: 153,
 }
 
 export function DropdownButton7(props: DiagramNodeProps) {

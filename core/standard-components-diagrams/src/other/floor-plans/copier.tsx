@@ -6,8 +6,8 @@ export const COPIER = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;shape=mxgraph.floorplan.copier;',
   },
-  _original_width: 110,
-  _original_height: 60,
+  _width: 110,
+  _height: 60,
 }
 
 export function Copier(props: DiagramNodeProps) {

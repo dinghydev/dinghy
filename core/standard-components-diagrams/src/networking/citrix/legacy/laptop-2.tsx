@@ -6,8 +6,8 @@ export const LAPTOP_2 = {
     entity:
       'verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.laptop_2;',
   },
-  _original_width: 116,
-  _original_height: 86.5,
+  _width: 116,
+  _height: 86.5,
 }
 
 export function Laptop2(props: DiagramNodeProps) {

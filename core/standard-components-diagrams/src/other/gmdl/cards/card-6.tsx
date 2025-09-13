@@ -6,8 +6,8 @@ export const CARD_6 = {
     entity:
       'shape=rect;fillColor=#BDBDBD;strokeColor=#eeeeee;shadow=1;html=1;whiteSpace=wrap;',
   },
-  _original_width: 342,
-  _original_height: 246,
+  _width: 342,
+  _height: 246,
 }
 
 export function Card6(props: DiagramNodeProps) {

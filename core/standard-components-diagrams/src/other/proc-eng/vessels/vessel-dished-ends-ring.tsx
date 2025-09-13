@@ -6,8 +6,8 @@ export const VESSEL_DISHED_ENDS_RING = {
     entity:
       'shape=mxgraph.pid.vessels.vessel_(dished_ends,_ring);html=1;pointerEvents=1;align=center;verticalLabelPosition=bottom;verticalAlign=top;dashed=0;',
   },
-  _original_width: 52,
-  _original_height: 95,
+  _width: 52,
+  _height: 95,
 }
 
 export function VesselDishedEndsRing(props: DiagramNodeProps) {

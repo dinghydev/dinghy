@@ -6,8 +6,8 @@ export const SQL_DATASYNC = {
     entity:
       'verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.sql_datasync;',
   },
-  _original_width: 37.5,
-  _original_height: 50,
+  _width: 37.5,
+  _height: 50,
 }
 
 export function SqlDatasync(props: DiagramNodeProps) {

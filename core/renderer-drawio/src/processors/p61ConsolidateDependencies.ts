@@ -34,7 +34,7 @@ function collectPairs(context: DrawioContext, node: DrawioNodeTree) {
   DependsSchema.options.map((key: string) => {
     const depends = node[key as keyof DrawioNodeTree]
     if (depends) {
-      const groups = (depends as any).reduce(
+      const containers = (depends as any).reduce(
         (acc: { [key: string]: DrawioNodeTree[] }, d: DrawioNodeTree) => {
           const relationship = findRelationship(context, node, d)
           if (!relationship) {
@@ -44,17 +44,17 @@ function collectPairs(context: DrawioContext, node: DrawioNodeTree) {
             d._parent!._props._id
           }-${relationship._props._diagram.flags.arrowDirection}`
           // biome-ignore lint/suspicious/noAssignInExpressions: todo
-          const groupList = (acc[key] = (acc[key] as DrawioNodeTree[]) ||
+          const containerList = (acc[key] = (acc[key] as DrawioNodeTree[]) ||
             ([] as DrawioNodeTree[])) as unknown as DrawioNodeTree[][]
-          groupList.push([d, relationship])
+          containerList.push([d, relationship])
           return acc
         },
         {} as { [key: string]: DrawioNodeTree[] },
       )
-      Object.values(groups).map((value) => {
-        const group = value as unknown as [DrawioNodeTree, DrawioNodeTree][]
-        const list = group.map((d) => d[0])
-        const relationships = group.map((d) => d[1])
+      Object.values(containers).map((value) => {
+        const container = value as unknown as [DrawioNodeTree, DrawioNodeTree][]
+        const list = container.map((d) => d[0])
+        const relationships = container.map((d) => d[1])
         const all = [node, ...list]
         const dependsPair = {
           single: node,

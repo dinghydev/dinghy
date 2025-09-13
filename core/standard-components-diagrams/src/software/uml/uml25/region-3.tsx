@@ -5,8 +5,8 @@ export const REGION_3 = {
   _style: {
     entity: 'text;align=left;',
   },
-  _original_width: 2,
-  _original_height: 100,
+  _width: 2,
+  _height: 100,
 }
 
 export function Region3(props: DiagramNodeProps) {

@@ -5,8 +5,8 @@ export const ARROW_UP = {
   _style: {
     entity: 'shape=singleArrow;direction=north;whiteSpace=wrap;html=1;',
   },
-  _original_width: 60,
-  _original_height: 100,
+  _width: 60,
+  _height: 100,
 }
 
 export function ArrowUp(props: DiagramNodeProps) {

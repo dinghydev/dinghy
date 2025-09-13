@@ -6,8 +6,8 @@ export const MATRIX_2X2 = {
     entity:
       'html=1;fillColor=#10739E;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;',
   },
-  _original_width: 0,
-  _original_height: 240,
+  _width: 0,
+  _height: 240,
 }
 
 export function Matrix2x2(props: DiagramNodeProps) {

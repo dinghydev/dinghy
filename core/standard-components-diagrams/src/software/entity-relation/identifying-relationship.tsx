@@ -6,8 +6,8 @@ export const IDENTIFYING_RELATIONSHIP = {
     entity:
       'shape=rhombus;double=1;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;',
   },
-  _original_width: 120,
-  _original_height: 60,
+  _width: 120,
+  _height: 60,
 }
 
 export function IdentifyingRelationship(props: DiagramNodeProps) {

@@ -5,8 +5,8 @@ export const INSTANCE = {
   _style: {
     entity: 'fontStyle=0;html=1;whiteSpace=wrap;',
   },
-  _original_width: 120,
-  _original_height: 40,
+  _width: 120,
+  _height: 40,
 }
 
 export function Instance(props: DiagramNodeProps) {

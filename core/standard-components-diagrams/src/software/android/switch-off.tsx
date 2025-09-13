@@ -6,8 +6,8 @@ export const SWITCH_OFF = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.switch_off;fillColor=#666666;sketch=0;',
   },
-  _original_width: 80,
-  _original_height: 20,
+  _width: 80,
+  _height: 20,
 }
 
 export function SwitchOff(props: DiagramNodeProps) {

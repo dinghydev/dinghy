@@ -6,8 +6,8 @@ export const ALLOCATION_DERIVED_PROPERTIES_COMMENT_3 = {
     entity:
       'rounded=0;html=1;labelBackgroundColor=none;endArrow=none;dashed=1;',
   },
-  _original_width: 2,
-  _original_height: 140,
+  _width: 2,
+  _height: 140,
 }
 
 export function AllocationDerivedPropertiesComment3(props: DiagramNodeProps) {

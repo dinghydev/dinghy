@@ -6,8 +6,8 @@ export const FLASH = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.flash',
   },
-  _original_width: 60,
-  _original_height: 100,
+  _width: 60,
+  _height: 100,
 }
 
 export function Flash(props: DiagramNodeProps) {

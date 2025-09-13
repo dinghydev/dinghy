@@ -1,0 +1,25 @@
+# Field
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.rot_mech.field;pointerEvents=1;',
+  },
+  _width: 90,
+  _height: 15,
+}
+```
+
+## Usage
+
+```js
+import { Field } from '@dinghy/standard-components-diagrams/electricalRotatingEquipmentMechanicalFunctions'
+
+<Field/>
+```
+
+## Preview
+
+<img src="./field.png" width="200"/>

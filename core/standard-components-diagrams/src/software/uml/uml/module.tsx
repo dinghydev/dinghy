@@ -6,8 +6,8 @@ export const MODULE = {
     entity:
       'shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;',
   },
-  _original_width: 100,
-  _original_height: 50,
+  _width: 100,
+  _height: 50,
 }
 
 export function Module(props: DiagramNodeProps) {

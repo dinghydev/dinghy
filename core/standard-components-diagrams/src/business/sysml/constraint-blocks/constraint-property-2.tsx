@@ -6,8 +6,8 @@ export const CONSTRAINT_PROPERTY_2 = {
     entity:
       'html=1;shape=mxgraph.sysml.consProp;overflow=fill;whiteSpace=wrap;',
   },
-  _original_width: 150,
-  _original_height: 120,
+  _width: 150,
+  _height: 120,
 }
 
 export function ConstraintProperty2(props: DiagramNodeProps) {

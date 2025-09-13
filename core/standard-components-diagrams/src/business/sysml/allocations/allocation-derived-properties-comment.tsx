@@ -6,8 +6,8 @@ export const ALLOCATION_DERIVED_PROPERTIES_COMMENT = {
     entity:
       'shape=note;html=1;size=15;spacingLeft=5;align=left;html=1;overflow=fill;whiteSpace=wrap;align=center;',
   },
-  _original_width: 270,
-  _original_height: 140,
+  _width: 270,
+  _height: 140,
 }
 
 export function AllocationDerivedPropertiesComment(props: DiagramNodeProps) {

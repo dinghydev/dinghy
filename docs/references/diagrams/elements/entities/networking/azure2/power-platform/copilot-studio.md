@@ -1,0 +1,26 @@
+# Copilot Studio
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/power_platform/CopilotStudio.svg;strokeColor=none;',
+  },
+  _original_width: 68,
+  _original_height: 62.32,
+
+}
+```
+
+## Usage
+
+```js
+import { CopilotStudio } from '@dinghy/standard-components-diagrams/azure2PowerPlatform'
+
+<CopilotStudio/>
+```
+
+## Preview
+
+<img src="./copilot-studio.png" width="200"/>

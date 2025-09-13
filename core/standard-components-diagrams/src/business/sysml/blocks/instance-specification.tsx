@@ -5,8 +5,8 @@ export const INSTANCE_SPECIFICATION = {
   _style: {
     entity: 'shape=rect;html=1;overflow=fill;fontSize=15;whiteSpace=wrap;',
   },
-  _original_width: 70,
-  _original_height: 30,
+  _width: 70,
+  _height: 30,
 }
 
 export function InstanceSpecification(props: DiagramNodeProps) {

@@ -6,8 +6,8 @@ export const CALLBACK = {
     entity:
       'html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=5;',
   },
-  _original_width: 1,
-  _original_height: 80,
+  _width: 1,
+  _height: 80,
 }
 
 export function Callback(props: DiagramNodeProps) {

@@ -27,7 +27,7 @@ export const defaultDiagramOptions = {
       align: 'center',
     },
   },
-  group: {
+  container: {
     style: {
       verticalAlign: 'top',
       aspect: 'fixed',

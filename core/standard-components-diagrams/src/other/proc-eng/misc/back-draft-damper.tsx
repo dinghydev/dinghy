@@ -6,8 +6,8 @@ export const BACK_DRAFT_DAMPER = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.back_draft_damper2;',
   },
-  _original_width: 62,
-  _original_height: 32,
+  _width: 62,
+  _height: 32,
 }
 
 export function BackDraftDamper(props: DiagramNodeProps) {

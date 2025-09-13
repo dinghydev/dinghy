@@ -1,0 +1,26 @@
+# Cost File
+
+## Definition
+
+```js
+{
+  _style: {
+    entity: 'sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;fillColor=#3B8DF1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.cost',
+  },
+  _original_width: 85,
+  _original_height: 100,
+
+}
+```
+
+## Usage
+
+```js
+import { CostFile } from '@dinghy/standard-components-diagrams/gcp2GeneralIcons'
+
+<CostFile/>
+```
+
+## Preview
+
+<img src="./cost-file.png" width="200"/>

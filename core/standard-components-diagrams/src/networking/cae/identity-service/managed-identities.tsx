@@ -6,8 +6,8 @@ export const MANAGED_IDENTITIES = {
     entity:
       'image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Managed_Identities.svg;strokeColor=none;',
   },
-  _original_width: 38,
-  _original_height: 50,
+  _width: 38,
+  _height: 50,
 }
 
 export function ManagedIdentities(props: DiagramNodeProps) {

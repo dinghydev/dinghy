@@ -6,8 +6,8 @@ export const GENERIC_PROTOCOL = {
     entity:
       'rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeColor=#475f75;fillColor=#f5f6f7;fontColor=#266f3a;strokeWidth=1.5;',
   },
-  _original_width: 125,
-  _original_height: 16,
+  _width: 125,
+  _height: 16,
 }
 
 export function GenericProtocol(props: DiagramNodeProps) {

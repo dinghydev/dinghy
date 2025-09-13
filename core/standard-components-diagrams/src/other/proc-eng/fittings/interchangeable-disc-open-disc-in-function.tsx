@@ -6,8 +6,8 @@ export const INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION = {
     entity:
       'verticalLabelPosition=bottom;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.fittings.interchangeable_disc_(open_disc_in_function)2;',
   },
-  _original_width: 40,
-  _original_height: 140,
+  _width: 40,
+  _height: 140,
 }
 
 export function InterchangeableDiscOpenDiscInFunction(props: DiagramNodeProps) {

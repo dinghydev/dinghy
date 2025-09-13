@@ -6,8 +6,8 @@ export const HORIZONTAL_DIMENSION = {
     entity:
       'shape=dimension;whiteSpace=wrap;html=1;align=center;points=[];verticalAlign=bottom;spacingBottom=3;labelBackgroundColor=none;',
   },
-  _original_width: 100,
-  _original_height: 40,
+  _width: 100,
+  _height: 40,
 }
 
 export function HorizontalDimension(props: DiagramNodeProps) {

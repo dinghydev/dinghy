@@ -6,8 +6,8 @@ export const DROP = {
     entity:
       'verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.drop',
   },
-  _original_width: 70,
-  _original_height: 100,
+  _width: 70,
+  _height: 100,
 }
 
 export function Drop(props: DiagramNodeProps) {

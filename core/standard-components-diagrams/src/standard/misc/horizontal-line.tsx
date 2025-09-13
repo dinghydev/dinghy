@@ -5,8 +5,8 @@ export const HORIZONTAL_LINE = {
   _style: {
     entity: 'line;strokeWidth=2;html=1;',
   },
-  _original_width: 160,
-  _original_height: 10,
+  _width: 160,
+  _height: 10,
 }
 
 export function HorizontalLine(props: DiagramNodeProps) {

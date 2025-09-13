@@ -6,8 +6,8 @@ export const LEFT_CURLY_BRACKET = {
     entity:
       'shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;',
   },
-  _original_width: 20,
-  _original_height: 120,
+  _width: 20,
+  _height: 120,
 }
 
 export function LeftCurlyBracket(props: DiagramNodeProps) {

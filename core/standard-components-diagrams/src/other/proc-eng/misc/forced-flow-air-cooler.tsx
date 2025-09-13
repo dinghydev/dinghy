@@ -6,8 +6,8 @@ export const FORCED_FLOW_AIR_COOLER = {
     entity:
       'verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.forced_flow_air_cooler;',
   },
-  _original_width: 70,
-  _original_height: 30,
+  _width: 70,
+  _height: 30,
 }
 
 export function ForcedFlowAirCooler(props: DiagramNodeProps) {

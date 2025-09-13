@@ -6,8 +6,8 @@ export const SAFETY_STOCK = {
     entity:
       'strokeWidth=2;html=1;shape=mxgraph.lean_mapping.buffer_or_safety_stock;',
   },
-  _original_width: 40,
-  _original_height: 100,
+  _width: 40,
+  _height: 100,
 }
 
 export function SafetyStock(props: DiagramNodeProps) {

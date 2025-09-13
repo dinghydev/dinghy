@@ -1,0 +1,25 @@
+# Region
+
+## Definition
+
+```js
+{
+  _style: {
+    container: 'points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_region;strokeColor=#00A4A6;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;dashed=1;',
+    entity:{
+      strokeColor:'#00A4A6',fontColor:'#147EBA',},
+    },
+}
+```
+
+## Usage
+
+```js
+import { Region } from '@dinghy/standard-components-diagrams/awsGroups'
+
+<Region/>
+```
+
+## Preview
+
+<img src="./region.png" width="200"/>
