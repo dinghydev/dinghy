@@ -1,5 +1,5 @@
 import AwsDbInstance, { AwsDbInstanceInputSchema } from './AwsDbInstance.tsx'
-import { aws4 } from '../../standard-components-diagrams/src/index.ts'
+import { POSTGRE_SQL_INSTANCE } from '@dinghy/standard-components-diagrams/awsDatabase'
 import { IacNodeProps } from '@dinghy/base-components'
 import z from 'zod'
 
@@ -10,7 +10,7 @@ export default function AwsPostgres(props: AwsPostgresProps) {
   return (
     <AwsDbInstance
       engine='postgres'
-      {...aws4.RDS_POSTGRESQL_INSTANCE}
+      {...POSTGRE_SQL_INSTANCE}
       {...props}
     />
   )

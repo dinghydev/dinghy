@@ -3,7 +3,7 @@ import {
   ResolvableNumberSchema,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
-import { aws4 } from '../../standard-components-diagrams/src/index.ts'
+import { AmazonElasticacheForRedis } from '@dinghy/standard-components-diagrams/aws18Database'
 
 import { awsProps } from './index.ts'
 import z from 'zod'
@@ -30,7 +30,7 @@ export default function AwsElasticacheCluster(
   props: AwsElasticacheClusterProps,
 ) {
   return (
-    <aws4.ElasticacheForRedis
+    <AmazonElasticacheForRedis
       {...awsProps(props, AwsElasticacheClusterSchema)}
     />
   )

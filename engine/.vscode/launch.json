@@ -30,7 +30,8 @@
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/../examples/web/2-components"
-        "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
+        "APP_HOME": "${workspaceFolder}/../examples/web/4-iac"
         // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/elements"
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/data"

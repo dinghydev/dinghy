@@ -6,7 +6,14 @@ import {
 import { useTypedNode, useTypedNodes } from '@dinghy/base-components'
 
 export function AwsPublicSubnet(props: AwsSubnetInputProps) {
-  return <AwsSubnet _color='#7AA116' _background='#F2F6E8' {...props} />
+  return (
+    <AwsSubnet
+      _color='#7AA116'
+      _direction='vertical'
+      _background='#F2F6E8'
+      {...props}
+    />
+  )
 }
 
 export const useAwsPublicSubnet = () =>

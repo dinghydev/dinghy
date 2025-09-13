@@ -43,7 +43,7 @@ const parseStackFromId = (stackId: string): StackType => {
   return {
     id: stackId,
     name: name || undefined,
-    env: segments.slice(split).join('-'),
+    env: stackId === DEFAULT_APP ? undefined : segments.slice(split).join('-'),
   }
 }
 

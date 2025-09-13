@@ -1,5 +1,5 @@
 import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
-import { aws4 } from '../../standard-components-diagrams/src/index.ts'
+import { Ec2InstanceContents } from '@dinghy/standard-components-diagrams/awsGroups'
 import { awsProps } from './index.ts'
 import z from 'zod'
 
@@ -13,7 +13,7 @@ export type AwsECSServiceProps =
 
 export default function AwsECSService(props: AwsECSServiceProps) {
   return (
-    <aws4.GroupEc2InstanceContents
+    <Ec2InstanceContents
       {...awsProps(props, AwsECSServiceSchema)}
     />
   )

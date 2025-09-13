@@ -2,7 +2,7 @@ import { IacNodeProps } from '@dinghy/base-components'
 
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { aws4 } from '../../standard-components-diagrams/src/index.ts'
+import { Region } from '@dinghy/standard-components-diagrams/awsGroups'
 import { useStack } from '@dinghy/base-components'
 import { useTypedNode } from '@dinghy/base-components'
 
@@ -25,7 +25,7 @@ export function AwsRegion(props: AwsRegionInputProps) {
     }
   }
   return (
-    <aws4.GroupRegion
+    <Region
       {...awsProps(
         {
           _provider: {

@@ -1,27 +1,26 @@
 import { Stack } from "@dinghy/base-components";
-import {
-  Client,
-  Waf,
-} from "../../../core/standard-components/standard-components-diagrams/src/index.ts";
+import * as awsGeneralResources from "@dinghy/standard-components-diagrams/awsGeneralResources";
+import { Waf } from "@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance";
 
 import {
   AwsCloud,
   AwsInstance,
   AwsLb,
   AwsPostgres,
-  AwsPrivateSubnet,
-  AwsPublicSubnet,
   AwsRegion,
   DataAwsVpc,
   useAwsSubnet,
   useAwsSubnets,
-} from "../../../core/standard-components/standard-components-tf-aws/src/index.ts";
+  vpc,
+} from "@dinghy/standard-components-tf-aws";
 
 const Postgres = (props: any) => <AwsPostgres {...props} />;
 
 const WebApp = (props: any) => <Stack {...props} />;
 
-const Client = (props: any) => <Client _dependsOn="Load Balancer" {...props} />;
+const Client = (props: any) => (
+  <awsGeneralResources.Client _dependsOn="Load Balancer" {...props} />
+);
 
 const Cloud = (props: any) => (
   <AwsCloud {...props}>
@@ -34,18 +33,18 @@ const Cloud = (props: any) => (
 );
 
 const PublicSubnet = (props: any) => (
-  <AwsPublicSubnet cidr_block="10.0.0.0/16" {...props} />
+  <vpc.AwsPublicSubnet cidr_block="10.0.0.0/16" {...props} />
 );
 
 const PrivateSubnet = (props: any) => (
-  <AwsPrivateSubnet cidr_block="10.10.0.0/16" {...props} />
+  <vpc.AwsPrivateSubnet cidr_block="10.10.0.0/16" {...props} />
 );
 
 const LoadBalancer = (props: any) => {
-  const { subnets } = useAwsSubnets();
+  const { awsSubnets } = useAwsSubnets();
   return (
     <AwsLb
-      subnets={subnets.map((s) => s.id)}
+      subnets={awsSubnets.map((s) => s.id)}
       _dependsOn={["Firewall", "Application"]}
       {...props}
     />
@@ -54,10 +53,10 @@ const LoadBalancer = (props: any) => {
 const Firewall = (props: any) => <Waf {...props} />;
 
 const Application = (props: any) => {
-  const { subnet } = useAwsSubnet();
+  const { awsSubnet } = useAwsSubnet();
   return (
     <AwsInstance
-      subnet_id={subnet.id}
+      subnet_id={awsSubnet.id}
       ami="ami-005e54dee72cc1d00"
       _dependsOn="Postgres"
       {...props}

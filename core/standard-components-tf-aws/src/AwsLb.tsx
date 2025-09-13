@@ -6,7 +6,7 @@ import {
 
 import { awsProps } from './index.ts'
 import z from 'zod'
-import { aws4 } from '../../standard-components-diagrams/src/index.ts'
+import { ApplicationLoadBalancer } from '@dinghy/standard-components-diagrams/awsNetworkContentDelivery'
 
 export const AwsLbInputSchema = z.object({
   name: ResolvableStringSchema.optional(),
@@ -25,7 +25,7 @@ export type AwsLbOutputProps =
 
 export default function AwsLb(props: AwsLbInputProps) {
   return (
-    <aws4.ApplicationLoadBalancer
+    <ApplicationLoadBalancer
       {...awsProps(props, AwsLbInputSchema, AwsLbOutputSchema)}
     />
   )
