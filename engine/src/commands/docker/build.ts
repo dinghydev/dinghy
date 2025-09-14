@@ -227,7 +227,7 @@ async function buildImage(image: DockerImage, args: CommandArgs) {
   if (isOndemandImage(image.name)) {
     console.log(
       new Date().toISOString(),
-      `\n\n\n\n\nSkip build ondemand image ${image.tag}`,
+      `Skip build ondemand image ${image.tag}`,
     )
     return
   } else {

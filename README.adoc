@@ -1,7 +1,7 @@
 = Dinghy
 :toc:
 
-image:https://github.com/dinghy/dinghy/actions/workflows/release.yml/badge.svg[release,link=https://github.com/dinghy/dinghy/actions/workflows/release.yml] image:https://github.com/dinghy/dinghy/actions/workflows/verification.yml/badge.svg[verification,link=https://github.com/dinghy/dinghy/actions/workflows/verification.yml]
+image:https://github.com/dinghydev/dinghy/actions/workflows/release.yml/badge.svg[release,link=https://github.com/dinghydev/dinghy/actions/workflows/release.yml]
 
 == Development
 
@@ -13,7 +13,7 @@ This project is developed with deno and VSCode.
 
 === Tasks
 
-Set of debugable tasks defined in https://github.com/dinghy/dinghy/blob/main/.vscode/launch.json[.vscode/launch.json]
+Set of debugable tasks defined in `.vscode/launch.json` files of various projects.
 
 
 == Architecture
