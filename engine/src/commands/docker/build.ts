@@ -237,19 +237,12 @@ async function buildImage(image: DockerImage, args: CommandArgs) {
     )
   }
 
-  const isReleaseImage = image.name === 'release'
-  const releaseTags = [args.buildContext.VERSION_BASE, 'latest']
   if (args['multi-arch']) {
     for (const arch of args.arch) {
       await buildImageWithArch(image, args, arch)
     }
     if (dockerPushEnabled(args)) {
       await createManifest(image, args, image.tag.split(':')[1])
-      if (isReleaseImage) {
-        for (const tag of releaseTags) {
-          await createManifest(image, args, tag)
-        }
-      }
     } else {
       await dockerCommand([
         'tag',
@@ -261,15 +254,6 @@ async function buildImage(image: DockerImage, args: CommandArgs) {
     }
   } else {
     await buildImageWithArch(image, args)
-    if (isReleaseImage && dockerPushEnabled(args)) {
-      for (const tag of releaseTags) {
-        for (const repo of args.repo) {
-          const targetTag = `${repo}:${tag}`
-          await dockerCommand(['tag', image.tag, targetTag])
-          await dockerPush(args, targetTag)
-        }
-      }
-    }
   }
 }
 
