@@ -21,7 +21,7 @@ const options: CommandOptions = {
   default: {
     version: 'latest',
   },
-  cmdDescription: 'Upgrade Dinghy Cli to the latest version',
+  cmdDescription: 'Upgrade Dinghy Cli to latest or specified version',
   cmdAlias: ['up'],
 }
 

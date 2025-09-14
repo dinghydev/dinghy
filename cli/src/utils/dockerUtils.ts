@@ -27,7 +27,6 @@ type Env = Record<string, any>
 const HOME_MOUNTS = [
   '.aws',
   '.ssh',
-  '.npmrc',
 ]
 
 const DOCKER_EXCLUDED_ENVS = [

@@ -33,32 +33,6 @@
       ],
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
-    },
-    {
-      "name": "docker build",
-      "args": [
-        "docker",
-        "build",
-        "--source",
-        "docker/images",
-        "--debug",
-      ],
-      "program": "src/index.ts",
-      "env": {
-        // "DEBUG_DEPTH": "10",
-        // "CI": "true",
-        "APP_HOME": "../",
-      },
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
-      "runtimeArgs": [
-        "run",
-        "--inspect-wait",
-        "--allow-all",
-      ],
-      "attachSimplePort": 9229,
-      "console": "integratedTerminal"
     }
   ]
 }

@@ -4,21 +4,24 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '../../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
+} from '@dinghy/cli'
+import {
+  configGetEngineRepo,
+  hostAppHome,
+  isCi,
+  OPTIONS_SYMBOL,
+  projectRoot,
+  RUN_SYMBOL,
+} from '@dinghy/cli'
 import { execaSync } from 'execa'
 import chalk from 'chalk'
 import Debug from 'debug'
-import { hostAppHome } from '../../utils/loadConfig.ts'
 import { baseVersion, commitVersion } from '../../utils/commitVersion.ts'
 import { walk } from '@std/fs/walk'
 import ejs from 'ejs'
 import { createHash } from 'node:crypto'
-import { configGetEngineRepo } from '../../utils/dockerConfig.ts'
-import { isCi } from '../../utils/index.ts'
-import { projectRoot } from '../../utils/projectRoot.ts'
 import { readFileSync } from 'node:fs'
-import { ostring } from 'zod'
+import { isOndemandImage } from '../../utils/dockerOndemandImageUtils.ts'
 const debug = Debug('init')
 
 const options: CommandOptions = {
@@ -49,7 +52,7 @@ async function init(args: CommandArgs) {
 
   args.sourceFolder = args.source.startsWith('/')
     ? args.source
-    : `${hostAppHome}/${args.source}`
+    : `${projectRoot}/${args.source}`
   if (!existsSync(args.sourceFolder)) {
     throw new Error(`Source folder ${args.sourceFolder} not exist`)
   }
@@ -221,10 +224,18 @@ async function buildImage(image: DockerImage, args: CommandArgs) {
     args.imageTags.push(image.tag)
     return
   }
-  console.log(
-    new Date().toISOString(),
-    `Image ${image.tag} does not exist, building...`,
-  )
+  if (isOndemandImage(image.name)) {
+    console.log(
+      new Date().toISOString(),
+      `\n\n\n\n\nSkip build ondemand image ${image.tag}`,
+    )
+    return
+  } else {
+    console.log(
+      new Date().toISOString(),
+      `Image ${image.tag} does not exist, building...`,
+    )
+  }
 
   const isReleaseImage = image.name === 'release'
   const releaseTags = [args.buildContext.VERSION_BASE, 'latest']
@@ -282,18 +293,6 @@ async function buildImageWithArch(
   buildArgs.push('-t', tag, '-f', `${image.folder}/Dockerfile`, '.')
   await dockerCommand(buildArgs)
   console.log(`Tag ${image.tag} built at`, new Date().toISOString())
-
-  // const baseVersionTag = `${args.buildContext.DOCKER_REPO}:${
-  //   isReleaseImage ? '' : `${image.name}-`
-  // }${args.buildContext.VERSION_BASE}${imageArch}`
-  // await dockerCommand(['tag', tag, baseVersionTag])
-  // await dockerPush(args, baseVersionTag)
-
-  // const latestVersionTag = `${args.buildContext.DOCKER_REPO}:${
-  //   isReleaseImage ? 'latest' : image.name
-  // }${imageArch}`
-  // await dockerCommand(['tag', tag, latestVersionTag])
-  // await dockerPush(args, latestVersionTag)
 
   await dockerPush(args, tag)
 }

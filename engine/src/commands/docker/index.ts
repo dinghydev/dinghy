@@ -3,10 +3,8 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '../../types.ts'
-import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
-import { showHelp } from '../../utils/showHelp.ts'
-import login from './login.ts'
+} from '@dinghy/cli'
+import { OPTIONS_SYMBOL, RUN_SYMBOL, showHelp } from '@dinghy/cli'
 import build from './build.ts'
 
 const options: CommandOptions = {
@@ -19,7 +17,6 @@ const run = (context: CommandContext, _args: CommandArgs) => {
 }
 
 const commands: Commands = {
-  login,
   build,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,

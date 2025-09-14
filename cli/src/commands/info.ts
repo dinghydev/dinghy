@@ -10,11 +10,7 @@ import { execa } from 'execa'
 import chalk from 'chalk'
 import { versionDetails } from '../utils/projectVersions.ts'
 import { configGetEngineImage } from '../utils/dockerConfig.ts'
-import {
-  hostAppHome,
-  dinghyHome,
-  dinghyRcFiles,
-} from '../utils/loadConfig.ts'
+import { dinghyHome, dinghyRcFiles, hostAppHome } from '../utils/loadConfig.ts'
 
 const options: CommandOptions = {
   description: {},
@@ -39,6 +35,7 @@ const binaryVersion = async (bin: string) => {
     let version = result.stdout.split('\n')[0]
     if (version.includes('version ')) {
       version = version.split('version ')[1].trim().split(' ')[0]
+      version = version.replace(',', '')
     }
     return version
   }).catch(() => chalk.red('NOT INSTALLED'))
@@ -48,23 +45,26 @@ const binaryVersion = async (bin: string) => {
 const run = async (_context: CommandContext, _args: CommandArgs) => {
   const infoItems: InfoItem[] = []
   infoItems.push({ label: 'Dinghy version', value: versionDetails() })
+  infoItems.push({
+    label: 'Dinghy Engine image',
+    value: configGetEngineImage(),
+  })
   infoItems.push({ label: 'Dinghy home', value: dinghyHome })
   infoItems.push({
     label: 'Dinghy config files',
     value: existConfigFiles().join(', '),
   })
-  infoItems.push({ label: 'Engine image', value: configGetEngineImage() })
   infoItems.push({ label: 'Shell', value: Deno.env.get('SHELL') || 'unknown' })
   infoItems.push({
-    label: 'git version',
+    label: 'Git version',
     value: await binaryVersion('git'),
   })
   infoItems.push({
-    label: 'docker client version',
+    label: 'Docker client version',
     value: await binaryVersion('docker'),
   })
   infoItems.push({
-    label: 'devcontainer version',
+    label: 'Devcontainer version',
     value: await binaryVersion('devcontainer'),
   })
   infoItems.push({
