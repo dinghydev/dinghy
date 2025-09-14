@@ -33,6 +33,9 @@ function isImagePulledRemotely(image: string) {
 function build(image: string) {
   const buildArch = Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
   const imageFolder = ondemandImages[image.split(':')[1].split('-')[0]]
+  if (!imageFolder) {
+    throw new Error(`Image ${image} not found`)
+  }
   console.log(`Building ondemand docker image ${image}...`)
   execaSync({
     stderr: 'inherit',
@@ -41,7 +44,7 @@ function build(image: string) {
   })`docker buildx build --platform linux/${buildArch} --build-arg BUILD_ARCH=${buildArch} -t ${image} -f ${imageFolder}/Dockerfile .`
 }
 
-export async function prepareOndemandImage(image: string) {
+export function prepareOndemandImage(image: string) {
   if (isImageExistLocally(image)) {
     return
   }

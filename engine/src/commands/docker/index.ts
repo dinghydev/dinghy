@@ -6,6 +6,7 @@ import type {
 } from '@dinghy/cli'
 import { OPTIONS_SYMBOL, RUN_SYMBOL, showHelp } from '@dinghy/cli'
 import build from './build.ts'
+import cache from './cache.ts'
 
 const options: CommandOptions = {
   description: {},
@@ -18,6 +19,7 @@ const run = (context: CommandContext, _args: CommandArgs) => {
 
 const commands: Commands = {
   build,
+  'populate-cache': cache,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 }
