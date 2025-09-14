@@ -1,8 +1,8 @@
 name: release
 
 on:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
   workflow_dispatch:
   # workflow_run:
   #     workflows: ['verification']
@@ -16,6 +16,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release]')}}
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
