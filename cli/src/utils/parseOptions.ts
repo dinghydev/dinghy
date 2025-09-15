@@ -1,6 +1,7 @@
 import { parseArgs } from '@std/cli'
 import Debug from 'debug'
 import { configGet } from './loadConfig.ts'
+import { DinghyError } from '../types.ts'
 const debug = Debug('parseOptions')
 
 export const OPTIONS_TYPES = ['boolean', 'string', 'number', 'collect']
@@ -44,7 +45,9 @@ export const parseOptions = (
       let value = options._[index] ||
         configGet(['dinghy', ...envPrefix, name])
       if ((argSpec as any).required && value === undefined) {
-        throw new Error(`Argument [${name.toLocaleUpperCase()}] is required`)
+        throw new DinghyError(
+          `Argument [${name.toLocaleUpperCase()}] is required`,
+        )
       }
       if (name === 'stack' && value?.includes('.tsx')) {
         value = value.split('/').pop().replace('.tsx', '')
@@ -57,7 +60,7 @@ export const parseOptions = (
     for (const required of spec.required) {
       const value = options[required]
       if (value === undefined) {
-        throw new Error(`Option [${required}] is required`)
+        throw new DinghyError(`Option [${required}] is required`)
       }
     }
   }

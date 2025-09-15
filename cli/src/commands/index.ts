@@ -38,7 +38,7 @@ const options: CommandOptions = {
     c: 'commands',
   },
   cmdDescription:
-    'Dinghy CLI is a command-line tool for running Dinghy in local development to interact with Dinghy engine.',
+    'Dinghy CLI is a command-line tool for running Dinghy in local development to interact with Dinghy Engine.',
   additionalOptions: {
     'Global Options': [
       {
@@ -46,8 +46,8 @@ const options: CommandOptions = {
         description: 'The path to the Dinghy app home directory',
       },
       {
-        name: '--version',
-        description: 'The Dinghy engine version to use',
+        name: '--engine-version',
+        description: 'The Dinghy Engine version to use',
       },
       {
         name: '--debug',

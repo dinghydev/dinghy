@@ -51,7 +51,7 @@ const options: CommandOptions = {
         description: 'The path to the Dinghy app home directory',
       },
       {
-        name: '--version',
+        name: '--engine-version',
         description: 'The docker image version of the Dinghy app to use',
       },
       {

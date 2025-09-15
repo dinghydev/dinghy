@@ -7,6 +7,7 @@ import type {
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
 import { execa } from 'execa'
 import { fetchLatestVersion } from '../utils/updateCheck.ts'
+import { updateProjectVersion } from '../utils/updateProjectVersion.ts'
 import Debug from 'debug'
 const debug = Debug('upgrade')
 
@@ -14,12 +15,16 @@ const options: CommandOptions = {
   string: ['version'],
   description: {
     version: 'The version to upgrade to',
+    'update-project-engine-version':
+      'Update the engine.version in dinghy.config.yaml if it was configured',
   },
+  boolean: ['update-project-engine-version'],
   alias: {
     v: 'version',
   },
   default: {
     version: 'latest',
+    'update-project-engine-version': true,
   },
   cmdDescription: 'Upgrade Dinghy Cli to latest or specified version',
   cmdAlias: ['up'],
@@ -48,9 +53,12 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     if (!version) {
       throw new Error(`Unknown version ${args.version}`)
     }
-    debug('upgrading to version %s', version)
+    debug('resolved %s to version %s', args.version, version)
   }
 
+  if (args['update-project-engine-version']) {
+    updateProjectVersion(version)
+  }
   await upgradeToVersion(version)
 }
 

@@ -5,14 +5,14 @@ import type {
   CommandOptions,
 } from '@dinghy/cli'
 import {
+  DinghyError,
   fetchLatestVersion,
   OPTIONS_SYMBOL,
-  dinghyConfigFile,
   RUN_SYMBOL,
+  updateProjectVersion,
 } from '@dinghy/cli'
-import chalk from 'chalk'
-import * as yaml from '@std/yaml'
-import { existsSync } from '@std/fs/exists'
+import Debug from 'debug'
+const debug = Debug('upgrade')
 
 const options: CommandOptions = {
   string: ['version'],
@@ -36,27 +36,11 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     const latestVersion = await fetchLatestVersion()
     version = latestVersion[version]
     if (!version) {
-      throw new Error(`Unknown version ${args.version}`)
+      throw new DinghyError(`Unknown version ${args.version}`)
     }
+    debug('resolved %s to version %s', args.version, version)
   }
-
-  const config: any = existsSync(dinghyConfigFile)
-    ? yaml.parse(Deno.readTextFileSync(dinghyConfigFile))
-    : {}
-  const currentVersion = config.dinghy?.engine?.version
-  if (currentVersion !== version) {
-    config.dinghy ??= {}
-    config.dinghy.engine ??= {}
-    config.dinghy.engine.version = version
-    Deno.writeTextFileSync(dinghyConfigFile, yaml.stringify(config))
-    console.log(
-      `Upgraded from ${chalk.red(currentVersion)} to version ${
-        chalk.green(version)
-      }`,
-    )
-  } else {
-    console.log(`Already at version ${chalk.red(chalk.green(version))}`)
-  }
+  updateProjectVersion(version)
 }
 
 export default {

@@ -10,7 +10,14 @@ const debug = Debug('dockerConfig')
 
 export const configEngineRepoDefault = 'dinghydev/dinghy'
 
+const useDefaultRepo = () =>
+  Deno.args[0] === 'docker' && Deno.args[1] === 'clone'
+
 export const configGetEngineRepo = () => {
+  if (useDefaultRepo()) {
+    debug('using default engine repo for special docker operation')
+    return configEngineRepoDefault
+  }
   return configGet(['dinghy', 'engine', 'repo']) || configEngineRepoDefault
 }
 

@@ -6,7 +6,6 @@ import type {
   CommandOptions,
 } from '@dinghy/cli'
 import {
-  configGetEngineRepo,
   hostAppHome,
   isCi,
   OPTIONS_SYMBOL,
@@ -21,18 +20,24 @@ import { walk } from '@std/fs/walk'
 import ejs from 'ejs'
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
-import { isOndemandImage } from '../../utils/dockerOndemandImageUtils.ts'
+import {
+  dockerManifestCreate,
+  dockerPush,
+  isOndemandImage,
+  multiArch,
+} from './dockerBuildUtils.ts'
+import { supportedArchs } from './dockerBuildUtils.ts'
 const debug = Debug('init')
 
 const options: CommandOptions = {
   boolean: ['push', 'multi-arch'],
-  collect: ['arch', 'repo'],
-  string: ['source'],
+  collect: ['arch'],
+  string: ['source', 'repo'],
   default: {
     source: 'docker/images',
-    arch: ['arm64', 'amd64'],
-    repo: ['dinghydev/dinghy'],
-    'multi-arch': true,
+    arch: supportedArchs,
+    repo: 'dinghydev/dinghy',
+    'multi-arch': multiArch,
   },
   description: {},
   cmdDescription: 'Build docker images',
@@ -63,13 +68,11 @@ async function init(args: CommandArgs) {
     },
     {},
   )
-  // args.buildContext.TARGETARCH = args.arch ||
-  //   (Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64')
+
   args.buildContext.VERSION_RELEASE = await commitVersion(hostAppHome)
   args.buildContext.VERSION_BASE = baseVersion(hostAppHome)
-  args.buildContext.DOCKER_REPO = configGetEngineRepo()
+  args.buildContext.DOCKER_REPO = args.repo
 
-  // console.log("buildContext", args.buildContext);
   args.images = Deno.readDirSync(args.sourceFolder).filter((f) => f.isDirectory)
     .map(
       (f) => f.name,
@@ -115,28 +118,13 @@ function dockerPushEnabled(args: CommandArgs) {
   return args.push || isCi()
 }
 
-async function dockerPush(args: CommandArgs, tag: string) {
+function performDockerPush(args: CommandArgs, tag: string) {
   args.imageTags.push(tag)
   if (dockerPushEnabled(args)) {
     if (tag.includes('-dirty')) {
       throw new Error(`Cannot push dirty image: ${tag}`)
     }
-    await dockerCommand([
-      'push',
-      tag,
-    ])
-    for (let i = 1; i < args.repo.length; i++) {
-      const repoTag = `${args.repo[i]}:${tag.split(':')[1]}`
-      await dockerCommand([
-        'tag',
-        tag,
-        repoTag,
-      ])
-      await dockerCommand([
-        'push',
-        repoTag,
-      ])
-    }
+    dockerPush(tag)
   } else {
     console.log(`Skipping: docker push ${tag}`)
   }
@@ -204,7 +192,7 @@ async function populateImageTag(image: DockerImage, args: CommandArgs) {
   } else {
     imageVersion = `${image.name}-${imageHash()}`
   }
-  image.tag = `${args.repo[0]}:${imageVersion}`
+  image.tag = `${args.repo}:${imageVersion}`
 
   args.buildContext[`DOCKER_IMAGE_${imageKey}_TAG`] = image.tag
   args.buildContext[`DOCKER_IMAGE_${imageKey}_VERSION`] = imageVersion
@@ -242,7 +230,10 @@ async function buildImage(image: DockerImage, args: CommandArgs) {
       await buildImageWithArch(image, args, arch)
     }
     if (dockerPushEnabled(args)) {
-      await createManifest(image, args, image.tag.split(':')[1])
+      dockerManifestCreate(
+        image.tag,
+        args.arch.map((arch) => `${image.tag}-linux-${arch}`),
+      )
     } else {
       await dockerCommand([
         'tag',
@@ -278,25 +269,7 @@ async function buildImageWithArch(
   await dockerCommand(buildArgs)
   console.log(`Tag ${image.tag} built at`, new Date().toISOString())
 
-  await dockerPush(args, tag)
-}
-
-async function createManifest(
-  image: DockerImage,
-  args: CommandArgs,
-  tag: string,
-) {
-  for (const repo of args.repo) {
-    const targetTag = `${repo}:${tag}`
-    const sourceTag = `${repo}:${image.tag.split(':')[1]}`
-    await dockerCommand([
-      'manifest',
-      'create',
-      targetTag,
-      ...args.arch.map((arch) => `${sourceTag}-linux-${arch}`),
-    ])
-    await dockerCommand(['manifest', 'push', targetTag])
-  }
+  performDockerPush(args, tag)
 }
 
 async function run(_context: CommandContext, args: CommandArgs) {

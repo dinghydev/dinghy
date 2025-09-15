@@ -11,7 +11,7 @@ import {
   RUN_SYMBOL,
 } from '@dinghy/cli'
 import chalk from 'chalk'
-import { prepareOndemandImage } from '../../utils/dockerOndemandImageUtils.ts'
+import { prepareOndemandImage } from './dockerBuildUtils.ts'
 
 const options: CommandOptions = {
   description: {},
