@@ -17,7 +17,6 @@ import {
 import render from './render/index.ts'
 import diagram from './diagram/index.ts'
 import tf from './tf/index.ts'
-import docker from './docker/index.ts'
 import Debug from 'debug'
 import upgrade from './upgrade.ts'
 import check from './check.ts'
@@ -115,7 +114,6 @@ const commands: Commands = {
   render,
   diagram,
   tf,
-  docker,
   info,
   devcontainer,
   upgrade,

@@ -3,16 +3,14 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@dinghy/cli'
+} from '../../types.ts'
+import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
 import {
   configGetDrawioImage,
   configGetEngineImage,
   configGetTfImage,
-  dinghyAppConfig,
-  DinghyError,
-  OPTIONS_SYMBOL,
-  RUN_SYMBOL,
-} from '@dinghy/cli'
+} from '../../utils/dockerConfig.ts'
+import { dinghyAppConfig } from '../../utils/loadConfig.ts'
 import chalk from 'chalk'
 import {
   buildOndemandImage,

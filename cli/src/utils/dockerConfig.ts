@@ -21,6 +21,10 @@ export const configGetEngineRepo = () => {
   return configGet(['dinghy', 'engine', 'repo']) || configEngineRepoDefault
 }
 
+export const configIsEngineRepoDefault = () => {
+  return configGetEngineRepo() === configEngineRepoDefault
+}
+
 const cliArgsVersion = () => {
   const args = Deno.args
   const versionIndex = args.indexOf('--engine-version')

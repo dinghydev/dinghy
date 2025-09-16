@@ -3,8 +3,9 @@ import type {
   CommandContext,
   CommandOptions,
   Commands,
-} from '@dinghy/cli'
-import { OPTIONS_SYMBOL, RUN_SYMBOL, showHelp } from '@dinghy/cli'
+} from '../../types.ts'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
+import { showHelp } from '../../utils/showHelp.ts'
 import build from './build.ts'
 import cache from './cache.ts'
 import clone from './clone.ts'
@@ -20,7 +21,7 @@ const run = (context: CommandContext, _args: CommandArgs) => {
 
 const commands: Commands = {
   build,
-  'populate-cache': cache,
+  cache,
   clone,
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,

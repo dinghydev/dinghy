@@ -4,14 +4,11 @@ import type {
   CommandArgs,
   CommandContext,
   CommandOptions,
-} from '@dinghy/cli'
-import {
-  hostAppHome,
-  isCi,
-  OPTIONS_SYMBOL,
-  projectRoot,
-  RUN_SYMBOL,
-} from '@dinghy/cli'
+} from '../../types.ts'
+import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
+import { isCi } from '../../utils/gitUtils.ts'
+import { hostAppHome } from '../../utils/loadConfig.ts'
+import { projectRoot } from '../../utils/projectRoot.ts'
 import { execaSync } from 'execa'
 import chalk from 'chalk'
 import Debug from 'debug'
@@ -40,6 +37,7 @@ const options: CommandOptions = {
     'multi-arch': multiArch,
   },
   description: {},
+  hidden: true, // keep to internal use only for now
   cmdDescription: 'Build docker images',
 }
 
@@ -256,6 +254,7 @@ async function buildImageWithArch(
   const tag = arch ? `${image.tag}-linux-${arch}` : image.tag
   const buildArgs = ['buildx', 'build']
   if (arch) {
+    buildArgs.push('--provenance', 'false')
     buildArgs.push('--platform', `linux/${arch}`)
     if (
       readFileSync(`${image.folder}/Dockerfile`, 'utf-8').includes(

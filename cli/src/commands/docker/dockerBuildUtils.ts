@@ -1,5 +1,7 @@
 import Debug from 'debug'
-import { DinghyError, hostAppHome, projectRoot } from '@dinghy/cli'
+import { DinghyError } from '../../types.ts'
+import { configGetEngineImage } from '../../utils/dockerConfig.ts'
+import { hostAppHome } from '../../utils/loadConfig.ts'
 import { execaSync } from 'execa'
 const debug = Debug('init')
 
@@ -14,7 +16,7 @@ export function dockerCommand(args: string[], cwd?: string) {
   if (!cwd) {
     cwd = hostAppHome
   }
-  console.log(`Executing: cd ${cwd}; docker ${args.join(' ')}`)
+  debug('Executing: cd %s; docker %s', cwd, args.join(' '))
   execaSync({
     stderr: 'inherit',
     stdout: 'inherit',
@@ -80,6 +82,32 @@ export function dockerManifestCreate(
   dockerCommand(['manifest', 'push', image])
 }
 
+function extractDockerSourceFiles() {
+  const workingDir = Deno.makeTempDirSync({
+    dir: hostAppHome,
+    prefix: '.tmp-dinghy-docker-build-',
+  })
+  debug('Extracting docker source files to %s ...', workingDir)
+
+  dockerCommand(
+    [
+      'run',
+      '-v',
+      `${workingDir}:/output`,
+      '--rm',
+      '--entrypoint',
+      'cp',
+      configGetEngineImage(),
+      '-r',
+      '/dinghy/docker',
+      '/output/docker',
+    ],
+    hostAppHome,
+  )
+
+  return workingDir
+}
+
 export function buildOndemandImage(image: string, buildArch?: string) {
   if (!buildArch) {
     buildArch = Deno.build.arch === 'aarch64' ? 'arm64' : 'amd64'
@@ -88,12 +116,16 @@ export function buildOndemandImage(image: string, buildArch?: string) {
   if (!imageFolder) {
     throw new Error(`Image ${image} not found`)
   }
+
+  const workingDir = extractDockerSourceFiles()
   console.log(`Building ondemand docker image ${image}...`)
   execaSync({
     stderr: 'inherit',
     stdout: 'inherit',
-    cwd: projectRoot,
-  })`docker buildx build --platform linux/${buildArch} --build-arg BUILD_ARCH=${buildArch} -t ${image} -f ${imageFolder}/Dockerfile .`
+    cwd: workingDir,
+  })`docker buildx build --provenance false --platform linux/${buildArch} --build-arg BUILD_ARCH=${buildArch} -t ${image} -f ${imageFolder}/Dockerfile .`
+  debug('Removing temporary folder %s ...', workingDir)
+  Deno.removeSync(workingDir, { recursive: true })
 }
 
 export function prepareOndemandImage(image: string) {

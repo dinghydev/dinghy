@@ -1,8 +1,10 @@
-import type { CommandArgs } from '@dinghy/cli'
-import { runDockerCmd } from '@dinghy/cli'
-import { configGetTfImage } from '@dinghy/cli'
-import { hostAppHome } from '@dinghy/cli'
-import { prepareOndemandImage } from '../docker/dockerBuildUtils.ts'
+import {
+  type CommandArgs,
+  configGetTfImage,
+  hostAppHome,
+  prepareOndemandImage,
+  runDockerCmd,
+} from '@dinghy/cli'
 
 export const runTfImageCmd = async (
   workingDir: string,

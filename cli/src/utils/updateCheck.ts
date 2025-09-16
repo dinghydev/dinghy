@@ -57,6 +57,8 @@ export const cleanUpdateCheck = async () => {
         Deno.removeSync(dirEntry.path)
       }
     }
+  } else {
+    Deno.mkdirSync(statesDir, { recursive: true })
   }
 }
 
