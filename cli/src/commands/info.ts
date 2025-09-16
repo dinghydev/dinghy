@@ -10,7 +10,12 @@ import { execa } from 'execa'
 import chalk from 'chalk'
 import { versionDetails } from '../utils/projectVersions.ts'
 import { configGetEngineImage } from '../utils/dockerConfig.ts'
-import { dinghyHome, dinghyRcFiles, hostAppHome } from '../utils/loadConfig.ts'
+import {
+  dinghyConfigFile,
+  dinghyHome,
+  dinghyRcFiles,
+  hostAppHome,
+} from '../utils/loadConfig.ts'
 
 const options: CommandOptions = {
   description: {},
@@ -26,7 +31,7 @@ type InfoItem = {
 const existConfigFiles = () => {
   return [
     ...dinghyRcFiles,
-    `${hostAppHome}/iac.yaml`,
+    dinghyConfigFile,
   ].filter((path) => existsSync(path))
 }
 

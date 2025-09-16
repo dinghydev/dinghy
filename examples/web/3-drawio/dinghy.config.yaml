@@ -6,3 +6,6 @@ options:
     dimension:
       boxWidth: 60
       boxHeight: 60
+# engine:
+#   repo: public.ecr.aws/f2v6q7q7/reactiac/reactiac
+#   version: 0.1.143-20250916-182808-228bd315

@@ -29,7 +29,7 @@ export const dinghyRcFiles: string[] = [
   `${containerAppHome}/.dinghyrc`,
   `${dinghyHome}rc`,
 ]
-export const dinghyConfigFile = `${hostAppHome}/dinghy.yaml`
+export const dinghyConfigFile = `${hostAppHome}/dinghy.config.yaml`
 
 export async function loadGlobalConfig() {
   debug('dinghy home %s', dinghyHome)
@@ -98,14 +98,15 @@ export const configGet = (paths: string[]) => {
     debug('use env %s=*', envVar)
   } else {
     current = dinghyAppConfig
-    for (const path of paths) {
+    const configPaths = paths.slice(1)
+    for (const path of configPaths) {
       if (!current || typeof current !== 'object') {
         break
       }
       current = current[path]
     }
     if (current !== undefined) {
-      debug('use config %s=*', paths.join('.'))
+      debug('use config %s=*', configPaths.join('.'))
     }
   }
   return current
@@ -121,7 +122,7 @@ function loadEnvFromConfig() {
       const value = String(v)
       Deno.env.set(k, value)
       dinghyRc[k] = value
-      debug('loaded %s=* from dinghy.yaml', k)
+      debug('loaded %s=* from dinghy.config.yaml', k)
     }
   }
 }
