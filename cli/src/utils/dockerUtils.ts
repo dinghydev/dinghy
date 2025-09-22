@@ -128,19 +128,19 @@ export const runDockerCmd = async (
   args: string[],
   dockerImage: string,
   exitOnFailure = true,
+  dockerArgs = [] as string[],
 ) => {
   prepareDockerAuthConfig()
-  const dockerArgs = [
-    'docker',
-    'run',
-    '--rm',
-    '-t',
-  ]
   if (args.includes('bash')) {
     dockerArgs.push('-i')
   }
+  const cwd = existsSync(workingDir) ? workingDir : containerAppHome
   return await streamCmd(
     [
+      'docker',
+      'run',
+      '--rm',
+      '-t',
       ...dockerArgs,
       ...Object.entries(getDockerEnvs(envs)).flatMap((
         [k, v],
@@ -153,7 +153,7 @@ export const runDockerCmd = async (
       dockerImage,
       ...args,
     ],
-    workingDir,
+    cwd,
     exitOnFailure,
   )
 }

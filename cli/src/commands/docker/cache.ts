@@ -8,6 +8,7 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
 import {
   configGetDrawioImage,
   configGetEngineImage,
+  configGetSiteImage,
   configGetTfImage,
 } from '../../utils/dockerConfig.ts'
 import chalk from 'chalk'
@@ -25,6 +26,7 @@ async function run(_context: CommandContext, _args: CommandArgs) {
   const images = [
     configGetEngineImage(),
     configGetDrawioImage(),
+    configGetSiteImage(),
     configGetTfImage(),
   ]
   for (const image of images) {

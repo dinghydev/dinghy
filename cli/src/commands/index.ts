@@ -19,6 +19,7 @@ import info from './info.ts'
 import deno from './deno.ts'
 import check from './check.ts'
 import bash from './bash.ts'
+import site from './site.ts'
 const options: CommandOptions = {
   boolean: ['debug', 'help', 'version'],
   collect: ['commands'],
@@ -81,6 +82,7 @@ const commands: Commands = {
   devcontainer,
   render,
   diagram,
+  site,
   docker,
   tf,
   info,

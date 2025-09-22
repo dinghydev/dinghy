@@ -1,0 +1,31 @@
+ARG BUILD_ARCH=arm64
+FROM <%= DOCKER_IMAGE_BASE_TAG %>-linux-$BUILD_ARCH
+ARG BUILD_ARCH
+
+# ENTRYPOINT [ "/opt/docusaurus/entrypoint.sh" ]
+# CMD [ "--help" ]
+
+RUN echo 'Install nodejs' \
+   && apt-get update \
+    # && apt list -a nodejs \
+    && apt-get -y install nodejs=<%= VERSION_NODEJS %> \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN echo 'Install yarn' \
+   && curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor -o /usr/share/keyrings/yarn-archive-keyring.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/yarn-archive-keyring.gpg] https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    # && apt list -a yarn \
+    && apt-get -y install yarn=<%= VERSION_YARN %> \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*    
+
+
+
+COPY docker/images/40-site/fs-root /
+
+RUN echo 'Install docusaurus dependencies' \
+   && cd /opt/docusaurus \
+    && yarn install --immutable \
+    && sed -i '/await/c\for (const file of await promises_1.readdir(pathToClear)) await (0, promises_1.rm)(`${pathToClear}/${file}`,{ recursive: true,force: true,});' /opt/docusaurus/node_modules/@docusaurus/core/lib/commands/utils/clearPath.js

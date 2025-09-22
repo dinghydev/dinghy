@@ -27,6 +27,7 @@ function lazyLoad(): Record<string, string> {
 export const projectVersionBase = () => lazyLoad().base
 export const projectVersionTf = () => lazyLoad().tf
 export const projectVersionDrawio = () => lazyLoad().drawio
+export const projectVersionSite = () => lazyLoad().site
 export const projectVersionRelease = () => lazyLoad().release
 export const projectVersionReleaseBase = () =>
   projectVersionRelease().split('.').slice(0, 2).join('.')

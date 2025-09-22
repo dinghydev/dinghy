@@ -4,6 +4,7 @@ import { configGet } from './loadConfig.ts'
 import {
   projectVersionDrawio,
   projectVersionRelease,
+  projectVersionSite,
   projectVersionTf,
 } from './projectVersions.ts'
 const debug = Debug('dockerConfig')
@@ -71,5 +72,11 @@ export const configGetTfImage = () => {
 export const configGetDrawioImage = () => {
   const image = `${configGetEngineRepo()}:${projectVersionDrawio()}`
   debug('resolved drawio image %s', image)
+  return image
+}
+
+export const configGetSiteImage = () => {
+  const image = `${configGetEngineRepo()}:${projectVersionSite()}`
+  debug('resolved site image %s', image)
   return image
 }

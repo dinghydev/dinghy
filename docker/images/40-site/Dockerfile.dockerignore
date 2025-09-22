@@ -1,0 +1,5 @@
+# Ignore everything
+**
+
+# Allow files and directories
+!/docker/images/40-site/fs-root/**

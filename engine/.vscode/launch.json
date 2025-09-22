@@ -207,10 +207,13 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "docker build",
+      "name": "site",
       "args": [
-        "docker",
-        "build",
+        "site",
+        // "bash",
+        "start",
+        // "build",
+        // "serve",
         // "--debug",
         // "-h",
       ],
@@ -218,6 +221,8 @@
       "env": {
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
+        "APP_HOME": "${workspaceFolder}/../examples/site"
+        // "APP_HOME": "${workspaceFolder}/../sites/www"
       },
       "type": "node",
       "request": "launch",

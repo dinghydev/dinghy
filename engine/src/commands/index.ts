@@ -22,6 +22,7 @@ import upgrade from './upgrade.ts'
 import check from './check.ts'
 import deno from './deno.ts'
 import bash from './bash.ts'
+import site from './site/index.ts'
 const debug = Debug('dinghy:main')
 
 const options: CommandOptions = {
@@ -113,6 +114,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
 const commands: Commands = {
   render,
   diagram,
+  site,
   tf,
   info,
   devcontainer,
