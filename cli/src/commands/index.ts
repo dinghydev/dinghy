@@ -9,17 +9,11 @@ import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../types.ts'
 import postinstall from './postinstall.ts'
 import init from './init.ts'
 import devcontainer from './devcontainer.ts'
-import render from './render.ts'
-import diagram from './diagram.ts'
-import tf from './tf.ts'
 import docker from './docker/index.ts'
 import { runEngineCommand } from '../utils/runEngineCommand.ts'
 import { versionDetails } from '../utils/projectVersions.ts'
 import info from './info.ts'
-import deno from './deno.ts'
-import check from './check.ts'
-import bash from './bash.ts'
-import site from './site.ts'
+import { createEngineCommand } from './createEngineCommand.ts'
 const options: CommandOptions = {
   boolean: ['debug', 'help', 'version'],
   collect: ['commands'],
@@ -80,15 +74,20 @@ const commands: Commands = {
   upgrade,
   postinstall,
   devcontainer,
-  render,
-  diagram,
-  site,
   docker,
-  tf,
   info,
-  deno,
-  check,
-  bash,
+
+  render: createEngineCommand(
+    'Render from .tsx files to target formats e.g. .drawio or .tf',
+  ),
+  diagram: createEngineCommand(
+    'Diagram related operations, default is convert drawio files to png',
+  ),
+  tf: createEngineCommand('Terraform/OpenTofu related operations'),
+  site: createEngineCommand('Operation for docusaurus.io based site'),
+  deno: createEngineCommand('Run deno with in the probject'),
+  check: createEngineCommand('Run static code analysis'),
+  bash: createEngineCommand('Run interactive bash command with engine image'),
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
 }
