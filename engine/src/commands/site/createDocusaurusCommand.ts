@@ -18,6 +18,7 @@ export const createDocusaurusCommand = (
     },
     default: {},
     cmdDescription,
+    // '--': true,
   }
   if (supportPort) {
     cmdOptions.string.push('port')

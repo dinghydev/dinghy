@@ -15,16 +15,17 @@ const options: CommandOptions = {
   string: ['version'],
   description: {
     version: 'The version to upgrade to',
-    'update-project-engine-version':
+    'update-project':
       'Update the engine.version in dinghy.config.yaml if it was configured',
   },
-  boolean: ['update-project-engine-version'],
+  boolean: ['update-project'],
+  negatable: ['update-project'],
   alias: {
     v: 'version',
   },
   default: {
     version: 'latest',
-    'update-project-engine-version': true,
+    'update-project': true,
   },
   cmdDescription: 'Upgrade Dinghy Cli to latest or specified version',
   cmdAlias: ['up'],
@@ -56,7 +57,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
     debug('resolved %s to version %s', args.version, version)
   }
 
-  if (args['update-project-engine-version']) {
+  if (args['update-project']) {
     updateProjectVersion(version)
   }
   await upgradeToVersion(version)

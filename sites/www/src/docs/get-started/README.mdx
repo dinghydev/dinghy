@@ -1,0 +1,69 @@
+import CodeBlock from '@theme/CodeBlock'; import AppTsx from
+'!!raw-loader!./simple-app.tsx';
+
+# Get Started
+
+Dinghy is an open source toolchain designed for your Diagram as Code and
+Infrastructure as Code workflows.
+
+At it's core, it use React as a templating engine to render your data model into target: [draw.io](https://draw.io) based
+diagram or [Terraform](https://developer.hashicorp.com/terraform) (OpenToufu/CloudFormation in the future) based
+infrastruture.
+
+All those powerful technologies are delivered via a simple Cli through Docker.
+Under the hood, the stable Cli drive the versioned Engine to perform critical
+operations in a fast, reliable and predicatable way, all based on Deno runtime
+with zero language configuration.
+
+:::tip
+
+The project embraces the spirit of a dinghy - simple, reliable and fun to sail
+with.
+
+:::
+
+## Quick install
+
+Install the latest Dinghy Cli on your system using the terminal command:
+
+```bash
+curl -fsSL https://dinghy.dev/install.sh | sh
+```
+
+If you have trouble install, please refering
+[Installation > Prerequisites](./installation.md#prerequisites) section for
+resolution.
+
+## Basic example
+
+### app.tsx
+
+Create one of simplest dinghy application as single file:
+
+<CodeBlock language="tsx" title="app.tsx">{AppTsx}</CodeBlock>
+
+Don't put off by all those Shape components, it's just an simple example for
+demo purpose. Most time you will write more expressive code. The
+[Step by Step](/get-started/step-by-step) guide shows how the code could
+progress from simple Shape component.
+
+### Run
+
+Then from same directory, run:
+
+```
+dinghy render
+```
+
+### Diagram
+
+It will generate a few files in `output` folder include the image:
+
+<!-- dinghy render --no-diagram-createMd --delete-drawio-file-after-render -->
+
+![Simple App](./simple-app.png)
+
+## What's next
+
+You may follow this guide by keep navigate throught the `Next` link down bellow
+to know more about the dinghy concepts before actual get hands dirty.

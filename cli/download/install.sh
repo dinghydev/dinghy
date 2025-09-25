@@ -2,7 +2,7 @@
 set -e
 
 if ! command -v unzip >/dev/null && ! command -v 7z >/dev/null; then
-	echo "Error: either unzip or 7z is required to install dinghy (see: https://github.com/denoland/deno_install#either-unzip-or-7z-is-required )." 1>&2
+	echo "Error: either unzip or 7z is required to install dinghy (see: https://dinghy.dev/getting-started/installation#unzip-or-7z )." 1>&2
 	exit 1
 fi
 

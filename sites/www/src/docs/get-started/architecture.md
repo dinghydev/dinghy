@@ -1,4 +1,8 @@
-# Introduction
+---
+sidebar_position: 20
+---
+
+# Architecture
 
 ## Dinghy architecture
 

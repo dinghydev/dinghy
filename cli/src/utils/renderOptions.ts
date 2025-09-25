@@ -9,6 +9,7 @@ export const renderOptions = {
     'debug',
   ],
   string: ['output'],
+  negatable: ['diagram-createMd'],
   description: {
     output: 'Output folder',
     format: 'Formats to render',

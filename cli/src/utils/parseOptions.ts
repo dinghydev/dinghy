@@ -37,6 +37,7 @@ export const parseOptions = (
   envPrefix: string[],
 ) => {
   const options: any = parseArgs(args, {
+    '--': true,
     ...spec,
     default: loadDefaultFromEnv(spec, envPrefix),
   })

@@ -215,14 +215,18 @@
         // "build",
         // "serve",
         // "--debug",
+        // "docusaurus",
+        // "--",
+        // "swizzle",
+        // "--list"
         // "-h",
       ],
       "program": "src/index.ts",
       "env": {
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
-        "APP_HOME": "${workspaceFolder}/../examples/site"
-        // "APP_HOME": "${workspaceFolder}/../sites/www"
+        // "APP_HOME": "${workspaceFolder}/../examples/site"
+        "APP_HOME": "${workspaceFolder}/../sites/www"
       },
       "type": "node",
       "request": "launch",
@@ -232,6 +236,7 @@
         "--inspect-wait",
         "--allow-all",
       ],
+      "killBehavior": "polite",
       "attachSimplePort": 9229,
       "console": "integratedTerminal"
     }

@@ -17,7 +17,6 @@ const executeCommand = async (context: CommandContext) => {
     context.args,
     context.envPrefix,
   )
-  // todo: use REQUIRE_CONTAINER_SYMBOL to fix iac-cicd $ DOCKER_IMAGEVERSION=latest dinghy tf init production --debug
   debug('running [dinghy %s]', context.prefix.join(' '))
   return await context.commands[RUN_SYMBOL]!(context, options)
 }

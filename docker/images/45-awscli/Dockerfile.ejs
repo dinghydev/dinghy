@@ -1,0 +1,9 @@
+ARG BUILD_ARCH=arm64
+FROM <%= DOCKER_IMAGE_BASE_TAG %>-linux-$BUILD_ARCH
+
+RUN echo 'Install aws cli' \
+   && apt-get update \
+    # && apt list -a awscli \
+    && apt-get -y install awscli=<%= VERSION_AWSCLI %> \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*

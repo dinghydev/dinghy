@@ -121,6 +121,7 @@ export const runDocusaurusCmd = async (
 
     if (cmd.includes('start') || cmd.includes('serve')) {
       siteArgs.push('--host', '0.0.0.0')
+      siteArgs.push('--port', args['port'])
     }
   }
 
@@ -146,7 +147,7 @@ export const runDocusaurusCmd = async (
     '/opt/docusaurus',
     dockerEnvs,
     dockerVolumnes,
-    [...cmd, ...siteArgs],
+    [...cmd, ...siteArgs, ...args['--']],
     image,
     true,
     dockerArgs,

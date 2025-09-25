@@ -7,7 +7,9 @@ const siteConfigJson = process.env.SITE_CONFIG_JSON
   ? JSON.parse(process.env.SITE_CONFIG_JSON)
   : {};
 
-let { docs, blog, theme, themeConfig, ...siteConfig } = siteConfigJson;
+// console.log("siteConfigJson:", JSON.stringify(siteConfigJson, null, 2));
+
+let { docs, blog, theme, svgr, themeConfig, ...siteConfig } = siteConfigJson;
 if (fs.existsSync("./docs") || fs.existsSync("./src/docs")) {
   docs = docs || {};
   if (fs.existsSync("./src/docs")) {
@@ -60,64 +62,9 @@ themeConfig = {
       alt: "My Site Logo",
       src: "img/logo.svg",
     },
-    items: [
-      {
-        type: "docSidebar",
-        sidebarId: "tutorialSidebar",
-        position: "left",
-        label: "Tutorial",
-      },
-      { to: "/blog", label: "Blog", position: "left" },
-      {
-        href: "https://github.com/facebook/docusaurus",
-        label: "GitHub",
-        position: "right",
-      },
-    ],
   },
   footer: {
     style: "dark",
-    links: [
-      {
-        title: "Docs",
-        items: [
-          {
-            label: "Tutorial",
-            to: "/docs/intro",
-          },
-        ],
-      },
-      {
-        title: "Community",
-        items: [
-          {
-            label: "Stack Overflow",
-            href: "https://stackoverflow.com/questions/tagged/docusaurus",
-          },
-          {
-            label: "Discord",
-            href: "https://discordapp.com/invite/docusaurus",
-          },
-          {
-            label: "X",
-            href: "https://x.com/docusaurus",
-          },
-        ],
-      },
-      {
-        title: "More",
-        items: [
-          {
-            label: "Blog",
-            to: "/blog",
-          },
-          {
-            label: "GitHub",
-            href: "https://github.com/facebook/docusaurus",
-          },
-        ],
-      },
-    ],
     copyright: `Copyright © ${
       new Date().getFullYear()
     } My Project, Inc. Built with Docusaurus.`,
@@ -129,10 +76,18 @@ themeConfig = {
   ...(themeConfig || {}),
 };
 
+if (themeConfig.footer === false) {
+  delete themeConfig.footer;
+}
+
+if (svgr === undefined) {
+  svgr = { svgrConfig: {} };
+}
+
 const config: Config = {
   title: "My Site",
   tagline: "Dinosaurs are cool",
-  favicon: "img/favicon.ico",
+  favicon: "assets/img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -168,11 +123,14 @@ const config: Config = {
         docs,
         blog,
         theme,
+        svgr,
       } satisfies Preset.Options,
     ],
   ],
   themeConfig,
   ...siteConfig,
 };
+
+// console.log("Docusaurus config:", JSON.stringify(config, null, 2));
 
 export default config;
