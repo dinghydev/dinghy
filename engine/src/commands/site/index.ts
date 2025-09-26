@@ -35,6 +35,7 @@ const commands: Commands = {
     true,
   ),
   build: createDocusaurusCommand('Build site', ['yarn', 'build']),
+  deploy: createDocusaurusCommand('Deploy site', ['yarn', 'deploy']),
   serve: createDocusaurusCommand('Serve built static site', [
     'yarn',
     'serve',

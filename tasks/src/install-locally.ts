@@ -23,6 +23,7 @@ if (import.meta.main) {
     stdout: 'inherit',
     input: `
       set -e
+      deno task prepare-build
       deno task docker-build-arm64
       deno task cli-build-aarch64-apple-darwin
       cp ../build/cli/aarch64-apple-darwin/dinghy ~/.dinghy/bin/

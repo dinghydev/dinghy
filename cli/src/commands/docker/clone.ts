@@ -5,12 +5,7 @@ import type {
   CommandOptions,
 } from '../../types.ts'
 import { DinghyError, OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
-import {
-  configGetDrawioImage,
-  configGetEngineImage,
-  configGetSiteImage,
-  configGetTfImage,
-} from '../../utils/dockerConfig.ts'
+import { configGetEngineImage } from '../../utils/dockerConfig.ts'
 import { dinghyAppConfig } from '../../utils/loadConfig.ts'
 import chalk from 'chalk'
 import {
@@ -23,6 +18,7 @@ import {
   multiArch,
   supportedArchs,
 } from './dockerBuildUtils.ts'
+import { consumerImages } from './consumerImages.ts'
 
 const options: CommandOptions = {
   string: ['target-repo'],
@@ -35,9 +31,7 @@ const options: CommandOptions = {
 
 function run(_context: CommandContext, args: CommandArgs) {
   const images = [
-    configGetTfImage(),
-    configGetDrawioImage(),
-    configGetSiteImage(),
+    ...consumerImages(),
     configGetEngineImage(),
   ]
 

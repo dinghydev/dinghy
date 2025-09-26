@@ -13,39 +13,23 @@ async function runCwdCommand(cwd: string, args: string[]) {
   }
 }
 
-const workspacePackages: Record<string, string> = {};
 // for (const folder of ["core", "cli"]) {
 for (const folder of ["engine"]) {
-  const allPackages = Object.keys(
-    JSON.parse(Deno.readTextFileSync(`${folder}/deno.lock`)).specifiers,
-  );
-  const unlockedPackages = allPackages.filter((p) => p.includes("@*"));
-  if (unlockedPackages.length > 0) {
-    console.warn(`Unlocked packages found ${unlockedPackages.join(", ")}`);
-    // throw new Error(`Unlocked packages found ${unlockedPackages.join(", ")}`);
-  }
-
-  const packages = allPackages
-    .filter((p) => !p.includes("@*"))
-    .map((p) => [p.substring(p.indexOf(":") + 1, p.lastIndexOf("@")), p]);
-  packages.map(([name, spec]) => {
-    const specifier = spec.replaceAll("\^", "");
-    if (workspacePackages[name] && workspacePackages[name] !== specifier) {
-      throw new Error(
-        `Package ${name} has conflicting specifier ${
-          workspacePackages[name]
-        } and ${folder}:${specifier}`,
-      );
-    }
-    workspacePackages[name] = specifier;
+  const denoLock = JSON.parse(Deno.readTextFileSync(`${folder}/deno.lock`));
+  const packages: string[] = [];
+  ["npm", "jsr"].forEach((type) => {
+    Object.keys(denoLock[type]).forEach((spec) => {
+      packages.push(`${type}:${spec.split("_")[0]}`);
+    });
   });
+  console.log({ folder, packages: packages.length });
 
   Deno.writeTextFileSync(
     `${folder}/packages-to-cache.ts`,
     `
   ${
       packages.map((p) =>
-        `import * as ${p[0].replaceAll(/[^a-zA-Z0-9]/g, "")} from '${p[0]}'`
+        `import * as ${p.replaceAll(/[^a-zA-Z0-9]/g, "")} from '${p}'`
       ).join("\n")
     }
   `,
@@ -66,11 +50,6 @@ for (const folder of ["engine"]) {
     ]
   },
   "imports": {
-  ${
-      packages.map((p) => `"${p[0]}": "${p[1].replaceAll("\^", "")}"`).join(
-        ",\n",
-      )
-    }
   }
 }
   `,
@@ -83,20 +62,3 @@ for (const folder of ["engine"]) {
     "--lock",
   ]);
 }
-
-// let workspaceJsonc = Deno.readTextFileSync("workspace/deno.jsonc").trim();
-// const workspacePackageOnlyJsonc = `{
-//   "imports": {
-//     ${
-//   Object.entries(workspacePackages).map(([name, spec]) =>
-//     `"${name}": "${spec}"`
-//   )
-//     .join(",\n")
-// }
-//   }
-// }
-// `;
-// Deno.writeTextFileSync("workspace/deno.jsonc", workspacePackageOnlyJsonc);
-// await runCwdCommand("engine", [
-//   "install",
-// ]);

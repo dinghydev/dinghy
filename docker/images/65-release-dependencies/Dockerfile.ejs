@@ -6,4 +6,4 @@ COPY . /dinghy
 RUN cd /dinghy && \
     . /root/.bashrc && \
     deno run -A cache-installer.ts && \
-    rm -rf xdeno.* xcache-installer.ts engine/xpackages-to-cache.ts xengine/deno.jsonc
+    rm -rf deno.* cache-installer.ts engine/packages-to-cache.ts engine/deno.jsonc

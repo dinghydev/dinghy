@@ -1,6 +1,6 @@
 import {
   type CommandArgs,
-  configGetTfImage,
+  configGetImage,
   hostAppHome,
   prepareOndemandImage,
   runDockerCmd,
@@ -15,7 +15,7 @@ export const runTfImageCmd = async (
   const containerWorkingDir = workingDir.startsWith('/')
     ? workingDir
     : `${hostAppHome}/${workingDir}`
-  const image = configGetTfImage()
+  const image = configGetImage('tf')
   await prepareOndemandImage(image)
 
   return await runDockerCmd(

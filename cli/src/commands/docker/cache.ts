@@ -5,14 +5,9 @@ import type {
   CommandOptions,
 } from '../../types.ts'
 import { OPTIONS_SYMBOL, RUN_SYMBOL } from '../../types.ts'
-import {
-  configGetDrawioImage,
-  configGetEngineImage,
-  configGetSiteImage,
-  configGetTfImage,
-} from '../../utils/dockerConfig.ts'
 import chalk from 'chalk'
 import { prepareOndemandImage } from './dockerBuildUtils.ts'
+import { consumerImages } from './consumerImages.ts'
 
 const options: CommandOptions = {
   description: {},
@@ -23,13 +18,7 @@ const options: CommandOptions = {
 }
 
 async function run(_context: CommandContext, _args: CommandArgs) {
-  const images = [
-    configGetEngineImage(),
-    configGetDrawioImage(),
-    configGetSiteImage(),
-    configGetTfImage(),
-  ]
-  for (const image of images) {
+  for (const image of consumerImages()) {
     prepareOndemandImage(image)
     console.log(`Image ${chalk.green(image)} is ready`)
   }

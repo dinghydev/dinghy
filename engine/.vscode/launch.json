@@ -214,6 +214,7 @@
         "start",
         // "build",
         // "serve",
+        // "deploy",
         // "--debug",
         // "docusaurus",
         // "--",

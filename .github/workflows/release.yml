@@ -81,6 +81,7 @@ jobs:
           echo "::endgroup::"
 
           echo "::group::Build docker images"
+          deno task prepare-build
           deno task docker-build
           echo "::endgroup::"
           

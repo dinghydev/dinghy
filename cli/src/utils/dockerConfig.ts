@@ -1,12 +1,7 @@
 import Debug from 'debug'
 import { resolveLatestVersion } from './updateCheck.ts'
 import { configGet } from './loadConfig.ts'
-import {
-  projectVersionDrawio,
-  projectVersionRelease,
-  projectVersionSite,
-  projectVersionTf,
-} from './projectVersions.ts'
+import { projectVersionRelease, projectVersions } from './projectVersions.ts'
 const debug = Debug('dockerConfig')
 
 export const configEngineRepoDefault = 'dinghydev/dinghy'
@@ -63,20 +58,12 @@ export const configGetEngineImage = () => {
   return image
 }
 
-export const configGetTfImage = () => {
-  const image = `${configGetEngineRepo()}:${projectVersionTf()}`
-  debug('resolved tf image %s', image)
-  return image
-}
-
-export const configGetDrawioImage = () => {
-  const image = `${configGetEngineRepo()}:${projectVersionDrawio()}`
-  debug('resolved drawio image %s', image)
-  return image
-}
-
-export const configGetSiteImage = () => {
-  const image = `${configGetEngineRepo()}:${projectVersionSite()}`
-  debug('resolved site image %s', image)
+export const configGetImage = (name: string) => {
+  const imageVersion = projectVersions()[name]
+  if (!imageVersion) {
+    throw new Error(`Image ${name} not exists`)
+  }
+  const image = `${configGetEngineRepo()}:${imageVersion}`
+  debug('resolved %s image %s', name, image)
   return image
 }

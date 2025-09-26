@@ -6,6 +6,9 @@ sidebar_position: 10
 
 ## Prerequisites
 
+The prerequisites listed below (Shell environment, unzip or 7z, and Docker) are
+commonly used by developers and widely available on most platforms.
+
 ### Shell environment
 
 The Shell installer can be used on Windows with

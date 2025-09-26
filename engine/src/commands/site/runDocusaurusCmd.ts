@@ -1,7 +1,7 @@
 import {
   type CommandArgs,
   CommandContext,
-  configGetSiteImage,
+  configGetImage,
   deepMerge,
   dinghyAppConfig,
   DinghyError,
@@ -10,6 +10,7 @@ import {
 } from '@dinghy/cli'
 import { existsSync } from 'node:fs'
 import * as yaml from '@std/yaml'
+import { deployToS3 } from './deployToS3.ts'
 
 const resolveSiteDir = async (args: CommandArgs) => {
   let siteDir = args['site-dir']
@@ -83,7 +84,7 @@ const resolveOutputDir = async (args: CommandArgs) => {
   return outputDir
 }
 
-const resolveSiteConfig = async (siteDir: string) => {
+const resolveSiteConfig = async (siteDir: string): Promise<any> => {
   const configFiles = [
     `${siteDir}/../docusaurus.config.yaml`,
     `${siteDir}/docusaurus.config.yaml`,
@@ -106,14 +107,24 @@ const resolveSiteConfig = async (siteDir: string) => {
 }
 
 export const runDocusaurusCmd = async (
-  _context: CommandContext,
+  context: CommandContext,
   args: CommandArgs,
   cmd: string[],
 ) => {
   const siteDir = await resolveSiteDir(args)
   const outputDir = await resolveOutputDir(args)
   const siteConfig = await resolveSiteConfig(siteDir)
-  const image = configGetSiteImage()
+
+  const dockerEnvs = {} as Record<string, string>
+  if (siteConfig) {
+    const { deploy, ...restSiteConfig } = siteConfig
+    if (deploy?.s3Url && cmd[1] === 'deploy') {
+      return await deployToS3(context, args, outputDir, siteConfig)
+    }
+
+    dockerEnvs['SITE_CONFIG_JSON'] = JSON.stringify(restSiteConfig)
+  }
+  const image = configGetImage('site')
   const siteArgs = args['site-args'] ? args['site-args'].split(' ') : []
   const dockerArgs = args['docker-args'] ? args['docker-args'].split(' ') : []
   if (args['port']) {
@@ -123,11 +134,6 @@ export const runDocusaurusCmd = async (
       siteArgs.push('--host', '0.0.0.0')
       siteArgs.push('--port', args['port'])
     }
-  }
-
-  const dockerEnvs = {} as Record<string, string>
-  if (siteConfig) {
-    dockerEnvs['SITE_CONFIG_JSON'] = JSON.stringify(siteConfig)
   }
 
   const dockerVolumnes = [] as any[]
