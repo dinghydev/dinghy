@@ -10,7 +10,7 @@ import {
 import { streamCmd } from './cmd.ts'
 import { mkdirSync } from 'node:fs'
 import Debug from 'debug'
-import { deepMerge } from './index.ts'
+import { deepMerge } from '../shared/deepMerge.ts'
 const debug = Debug('dockerUtils')
 
 const HOST_USER_HOME = Deno.env.get('HOST_USER_HOME') ||

@@ -25,6 +25,7 @@ export {
 } from './types.ts'
 
 export { RootNode } from './contexts/NodeContext.tsx'
+export * from './cli-shared/index.ts'
 export * from './utils/index.ts'
 export {
   useParentsProp,

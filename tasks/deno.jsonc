@@ -2,7 +2,7 @@
   "tasks": {
     "clean": "rm -rf ../../build",
     // duplicated files to avoid core to depends on cli module
-    "prepare-build": "cp ../cli/src/utils/deepMerge.ts ../core/base-components/src/utils/deepMerge.ts && cp ../cli/src/utils/stackUtils.ts ../core/base-components/src/utils/stackUtils.ts",
+    "prepare-build": "cp ../cli/src/shared/* ../core/base-components/src/cli-shared/",
     "refresh-engine-lock": "deno run -A ./src/refresh-engine-lock.ts",
     "version-release": "deno run -A ./src/version-release.ts",
     "npm-build": "deno run -A ./src/npm-build.ts",

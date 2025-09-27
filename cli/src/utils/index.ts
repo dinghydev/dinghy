@@ -1,6 +1,4 @@
 export * from './cmd.ts'
-export * from './deepMerge.ts'
-export * from './stackUtils.ts'
 export * from './gitUtils.ts'
 export * from './loadConfig.ts'
 export * from './parseOptions.ts'

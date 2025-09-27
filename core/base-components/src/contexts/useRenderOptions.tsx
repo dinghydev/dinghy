@@ -1,6 +1,6 @@
 import { useNodeContext } from './NodeContext.tsx'
 import { getRootNode } from '../utils/nodeUtils.ts'
-import type { StackType } from '../utils/stackUtils.ts'
+import type { StackType } from '../cli-shared/stackUtils.ts'
 
 export function useRenderOptions() {
   const rootNode = getRootNode(useNodeContext())

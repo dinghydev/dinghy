@@ -117,7 +117,6 @@ function dockerPushEnabled(args: CommandArgs) {
 }
 
 function performDockerPush(args: CommandArgs, tag: string) {
-  args.imageTags.push(tag)
   if (dockerPushEnabled(args)) {
     if (tag.includes('-dirty')) {
       throw new Error(`Cannot push dirty image: ${tag}`)
@@ -204,10 +203,10 @@ async function populateImageTag(image: DockerImage, args: CommandArgs) {
 
 async function buildImage(image: DockerImage, args: CommandArgs) {
   await populateImageTag(image, args)
+  args.imageTags.push(image.tag)
 
   if (isTagExists(image.tag)) {
     console.log(`Tag ${image.tag} already exists, skipping build`)
-    args.imageTags.push(image.tag)
     return
   }
   if (isOndemandImage(image.name)) {
