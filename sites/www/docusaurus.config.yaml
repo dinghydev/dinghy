@@ -2,7 +2,6 @@ title: dinghy.dev
 tagline: Diagram and Infrastructure as Code with React
 url: https://dinghy.dev
 favicon: /assets/img/favicon.ico
-trailingSlash: false
 docs:
   editUrl: https://github.com/dinghydev/dinghy/edit/main/sites/www/
   # Cannot show git info due to files been mounted from outside of the site folder

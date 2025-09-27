@@ -130,7 +130,7 @@ export const runDocusaurusCmd = async (
   if (args['port']) {
     dockerArgs.push('-p', `${args['port']}:${args['port']}`)
 
-    if (cmd.includes('start') || cmd.includes('serve')) {
+    if (['start', 'serve'].includes(cmd[1])) {
       siteArgs.push('--host', '0.0.0.0')
       siteArgs.push('--port', args['port'])
     }
@@ -144,10 +144,12 @@ export const runDocusaurusCmd = async (
     })
   }
 
-  dockerVolumnes.push({
-    source: `${outputDir}`,
-    target: `/opt/docusaurus/build`,
-  })
+  if (cmd[1] !== 'start') {
+    dockerVolumnes.push({
+      source: `${outputDir}`,
+      target: `/opt/docusaurus/build`,
+    })
+  }
 
   return await runDockerCmd(
     '/opt/docusaurus',
