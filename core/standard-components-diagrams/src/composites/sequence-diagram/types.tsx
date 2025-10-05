@@ -16,6 +16,7 @@ export const MessageSchema = z.object({
   to: z.string(),
   message: z.string().optional(),
   return: z.boolean().optional(),
+  dashed: z.boolean().optional(),
 })
 
 export type MessageType = z.output<typeof MessageSchema>
@@ -25,30 +26,27 @@ export const InteractionSchema = z.object({
   messages: MessageSchema.array(),
 })
 
+const sizeDefault = {
+  participant: defaultDiagramOptions.dimension.boxWidth,
+  timelinePadding: 15,
+  participantsPadding: 100,
+  activationWidth: 12,
+}
+
 export const SizeSchema = z.object({
-  participant: z.number().default(defaultDiagramOptions.dimension.boxWidth),
-  paddingTimeline: z.number().default(16),
-  paddingBetweenMessages: z.number().default(50),
-  paddingBetweenParticipants: z.number().default(50),
-  paddingActivation: z.number().default(10),
-  activation: z.number().default(12),
-  activationWidth: z.number().default(12),
-  activationHeight: z.number().default(30),
+  participant: z.number().default(sizeDefault.participant),
+  timelinePadding: z.number().default(sizeDefault.timelinePadding),
+  participantsPadding: z.number().default(
+    sizeDefault.participantsPadding,
+  ),
+  activationWidth: z.number().default(sizeDefault.activationWidth),
 })
 
 export const SequenceDiagramSchema = z.object({
   participants: z.record(z.string(), ParticipantSchema).default({}),
   messages: MessageSchema.array().optional(),
   interactions: InteractionSchema.array().default([]),
-  size: SizeSchema.default({
-    participant: defaultDiagramOptions.dimension.boxWidth,
-    paddingTimeline: 15,
-    paddingBetweenMessages: 15,
-    paddingBetweenParticipants: 150,
-    activationWidth: 12,
-    activationHeight: 30,
-    paddingActivation: 6,
-  }),
+  size: SizeSchema.default(sizeDefault),
 })
 
 export type SequenceDiagramProps =

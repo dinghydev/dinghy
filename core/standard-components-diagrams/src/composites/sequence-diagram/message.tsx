@@ -9,7 +9,9 @@ export type MessageProps = {
   source: Point
   target: Point
   paddingX: number
+  return?: boolean
   dashed?: boolean
+  isToRight?: boolean
   message?: string
 } & DiagramNodeProps
 

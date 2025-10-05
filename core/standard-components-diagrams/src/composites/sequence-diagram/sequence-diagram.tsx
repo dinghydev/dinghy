@@ -51,22 +51,21 @@ export function SequenceDiagram(props: SequenceDiagramProps) {
   const context = initializeContext(props)
   context.interactions.map((interaction, i) => {
     if (i > 0) {
-      context.yActive += context.size.paddingBetweenMessages
+      context.yActive += context.size.timelinePadding
     }
     const activations: Record<string, ActivationProps[]> = {}
-    const startedParticipants: string[] = []
     const arrows: MessageProps[] = []
     const frame = interaction.title
       ? {
         title: interaction.title,
-        _x: 0 - context.size.paddingTimeline * 2,
-        _padding: context.size.paddingTimeline,
+        _x: 0 - context.size.timelinePadding * 2,
+        _padding: context.size.timelinePadding,
       } as FrameProps
       : undefined
     if (frame) {
-      context.yActive += context.size.paddingTimeline
+      context.yActive += context.size.timelinePadding
       frame._y = context.yActive
-      context.yActive += context.size.paddingTimeline * 3
+      context.yActive += context.size.timelinePadding * 3
       context.frames.push(frame)
     }
     const addMessage = (
@@ -74,9 +73,10 @@ export function SequenceDiagram(props: SequenceDiagramProps) {
     ) => {
       const from = safeGetParticipant(context, message.from)
       const to = safeGetParticipant(context, message.to)
-      const restart = startedParticipants.includes(message.from)
+      const lastArrow = arrows.slice(-1)[0]
       const isSelf = to.index === from.index
       const isToRight = to.index > from.index
+      const crossArrow = lastArrow && lastArrow.isToRight !== isToRight
       const xOffset = (isSelf || isToRight)
         ? context.size.activationWidth / 2
         : 0 - context.size.activationWidth / 2
@@ -90,66 +90,92 @@ export function SequenceDiagram(props: SequenceDiagramProps) {
       let activationTo: ActivationProps = activations[message.to]
         ?.slice(-1)[0]
       if (message.return) {
-        if (!arrows.slice(-1)[0]?.dashed) {
-          context.yActive += context.size.activationHeight
+        if (crossArrow) {
+          Object.values(activations).map((as) => {
+            as.map((a) => {
+              if (!a.closed) {
+                a._height += context.size.timelinePadding
+              }
+            })
+          })
         }
         activationFrom.closed = true
+        if (crossArrow) {
+          context.yActive += context.size.timelinePadding
+        }
+        Object.values(activations).map((as) => {
+          as.map((a) => {
+            if (!a.closed) {
+              a._height += context.size.timelinePadding
+            }
+          })
+        })
+
         const inactiveArrow = {
-          paddingX: context.size.paddingTimeline,
+          paddingX: context.size.timelinePadding,
           dashed: true,
+          isToRight,
           source: {
             x: xOffset,
             y: context.yActive,
           },
           target: {
-            x: (context.size.paddingBetweenParticipants +
+            x: (context.size.participantsPadding +
                   context.size.participant) *
                 (to.index - from.index) - xOffset,
             y: context.yActive,
           },
           ...message,
         }
-        context.yActive += context.size.paddingActivation
+        context.yActive += context.size.timelinePadding
         context.arrows[message.from].push(inactiveArrow)
         arrows.push(inactiveArrow)
         return
+      } // message.return===true
+
+      if (!isSelf) {
+        if (crossArrow) {
+          context.yActive += context.size.timelinePadding
+        }
+        Object.values(activations).map((as) => {
+          as.map((a) => {
+            if (!a.closed) {
+              a._height += context.size.timelinePadding
+              if (crossArrow) {
+                a._height += context.size.timelinePadding
+              }
+            }
+          })
+        })
       }
 
-      Object.values(activations).map((as) => {
-        as.map((a) => {
-          if (!a.closed) {
-            a._height += context.size.paddingActivation * 2
-          }
-        })
-      })
-
-      context.yActive += context.size.paddingActivation
       if (!activationFrom || activationFrom.closed) {
         activationFrom = {
           _x: 0 - context.size.activationWidth / 2,
           _y: context.yActive,
           _width: context.size.activationWidth,
-          _height: context.size.activationHeight +
-            context.size.paddingActivation * 2,
+          _height: context.size.timelinePadding * 2,
         } as ActivationProps
         activations[message.from].push(activationFrom)
-        context.yActive += context.size.paddingActivation
-        startedParticipants.push(message.from)
-      } else {
-        startedParticipants.push(message.from)
-        if (restart || isSelf) {
-          startedParticipants.length = 0
-          context.yActive += context.size.paddingBetweenMessages
+        context.yActive += context.size.timelinePadding
+        if (isSelf) {
           Object.values(activations).map((as) => {
             as.map((a) => {
               if (!a.closed) {
-                a._height += context.size.paddingBetweenMessages +
-                  context.size.activationHeight
+                a._height += context.size.timelinePadding * 2
               }
             })
           })
-          startedParticipants.push(message.from)
         }
+      } else if (isSelf) {
+        context.yActive += context.size.timelinePadding
+        Object.values(activations).map((as) => {
+          as.map((a) => {
+            if (!a.closed) {
+              a._height += context.size.timelinePadding * 4
+            }
+          })
+        })
       }
 
       if (!isSelf) {
@@ -158,36 +184,38 @@ export function SequenceDiagram(props: SequenceDiagramProps) {
             _x: 0 - context.size.activationWidth / 2,
             _y: context.yActive,
             _width: context.size.activationWidth,
-            _height: context.size.activationHeight,
+            _height: context.size.timelinePadding,
           } as ActivationProps
           activations[message.to].push(activationTo)
         }
       }
 
       const activeArrow = {
-        paddingX: context.size.paddingTimeline,
+        paddingX: context.size.timelinePadding,
         source: {
           x: xOffset,
           y: context.yActive,
         },
         target: {
-          x: (context.size.paddingBetweenParticipants +
+          x: (context.size.participantsPadding +
                 context.size.participant) *
               (to.index - from.index) +
             (isSelf ? xOffset : 0 - xOffset),
           y: context.yActive +
-            (isSelf ? context.size.activationHeight : 0),
+            (isSelf ? context.size.timelinePadding * 2 : 0),
         },
+        isToRight,
         ...message,
       }
       context.arrows[message.from].push(activeArrow)
       arrows.push(activeArrow)
 
+      context.yActive += context.size.timelinePadding
       if (isSelf) {
-        context.yActive += context.size.activationHeight +
-          context.size.paddingActivation
+        context.yActive += context.size.timelinePadding * 2
       }
-    }
+    } // addMessage
+
     for (let i = 0; i < interaction.messages.length; i++) {
       const message = interaction.messages[i]
       addMessage(message)
@@ -195,9 +223,6 @@ export function SequenceDiagram(props: SequenceDiagramProps) {
 
     for (const [participant, as] of Object.entries(activations)) {
       context.activations[participant] ??= []
-      as.map((a) => {
-        a.closed = true
-      })
       context.activations[participant].push(...as)
     }
     context.yActive = Math.max(
@@ -212,15 +237,16 @@ export function SequenceDiagram(props: SequenceDiagramProps) {
 
     if (frame) {
       frame._height = context.yActive - frame._y +
-        context.size.paddingTimeline * 1
-      context.yActive += context.size.paddingTimeline
+        context.size.timelinePadding
+      context.yActive += context.size.timelinePadding
     }
-  })
+  }) // interactions loop
+
   context.frames.map((frame) => {
     frame._width =
-      (context.size.paddingBetweenParticipants + context.size.participant) *
+      (context.size.participantsPadding + context.size.participant) *
         (Object.keys(context.participants).length - 1) +
-      context.size.paddingTimeline * 4
+      context.size.timelinePadding * 4
   })
   const lifelineHeight = Math.max(
     0,
@@ -230,7 +256,7 @@ export function SequenceDiagram(props: SequenceDiagramProps) {
         return lastActivation._y + lastActivation._height
       },
     ),
-  ) + context.size.paddingTimeline
+  ) + context.size.timelinePadding * 2
   return (
     <Root {...props}>
       {Object.entries(context.participants).map(([title, participant], i) => (
@@ -239,11 +265,11 @@ export function SequenceDiagram(props: SequenceDiagramProps) {
             _width={context.size.participant}
             _height={context.size.participant}
             lifelineHeight={lifelineHeight}
-            paddingY={context.size.paddingTimeline}
-            paddingX={context.size.paddingBetweenParticipants}
+            paddingY={context.size.timelinePadding}
+            paddingX={context.size.participantsPadding}
             {...participant}
           >
-            {context.activations[title].map((activation, i) => (
+            {context.activations[title]?.map((activation, i) => (
               <Activation key={i} {...activation} />
             ))}
             {context.arrows[title]?.map((arrow, i) => (
