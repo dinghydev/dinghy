@@ -1,4 +1,4 @@
-import type { IacNodeProps, NodeTree } from '../types.ts'
+import type { IacNodeProps, NodeTree } from '../types/index.ts'
 import { Shape } from './Shape.tsx'
 import { useTypedNode } from '../contexts/useTypedNode.tsx'
 import { useRenderOptions } from '../contexts/useRenderOptions.tsx'

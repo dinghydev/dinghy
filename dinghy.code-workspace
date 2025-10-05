@@ -18,7 +18,7 @@
         {
             "path": "sites"
         },
-	{
+        {
             "path": "docker"
         },
         {
@@ -35,6 +35,9 @@
         "[jsonc]": {
             "editor.defaultFormatter": "vscode.json-language-features"
         },
+        "[plaintext]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
     },
     "extensions": {
         "recommendations": [
@@ -42,6 +45,7 @@
             "ms-azuretools.vscode-docker",
             "github.vscode-github-actions",
             "asciidoctor.asciidoctor-vscode",
+            "esbenp.prettier-vscode",
             "denoland.vscode-deno",
             "eamodio.gitlens",
             "reduckted.vscode-gitweblinks"

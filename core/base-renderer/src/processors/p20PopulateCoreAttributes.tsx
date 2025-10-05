@@ -43,11 +43,11 @@ const defaultTitle = (node: NodeTree) => {
 }
 
 const defaultName = (node: NodeTree) => {
-  return (node._props as any).key || (node._props._title as string)
+  return toName(node._props._title as string)
 }
 
 const defaultId = (node: NodeTree, _fiber: any, usedIds: string[]) => {
-  const typeId = toId(node._props._type as string)
+  const typeId = toId(toName(node._props._type as string))
   const nameId = toId(node._props._name as string)
   let id = typeId !== nameId ? `${typeId}_${nameId}` : typeId
   if (node._props._version) {
@@ -79,23 +79,15 @@ const populateField = (
   defaultValue: (node: NodeTree, fiber: any, usedIds: string[]) => unknown,
 ) => {
   const internalField = `_${field}`
-  let value = (node._props as any)[field]
-  if (!COPY_STRING_VALUE_FIELDS.includes(field) || typeof value !== 'string') {
-    value = (node._props as any)[internalField] || defaultValue
-    if (typeof value === 'function') {
-      value = value(node, fiber, usedIds)
-    }
-    if (!value) {
-      value = defaultValue(node, fiber, usedIds)
-    }
+  let value = (node._props as any)[internalField]
+  if (COPY_STRING_VALUE_FIELDS.includes(field)) {
+    value ??= (node._props as any)[field]
   }
-  if (field === 'id') {
-    ;(node._props as any)[internalField] = toId(value)
-  } else if (field === 'name') {
-    ;(node._props as any)[internalField] = toName(value)
-  } else {
-    ;(node._props as any)[internalField] = value
+  value ??= defaultValue
+  if (typeof value === 'function') {
+    value = value(node, fiber, usedIds)
   }
+  ;(node._props as any)[internalField] = value
   return value
 }
 

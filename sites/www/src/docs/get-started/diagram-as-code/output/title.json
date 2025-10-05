@@ -1,0 +1,46 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "_title": "Title example",
+    "_tags": [
+      "App",
+      "Shape"
+    ],
+    "_type": "shape",
+    "_name": "title-example",
+    "_id": "shape_titleexample"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "Tag Level1",
+        "_tags": [
+          "TagLevel2",
+          "TagLevel1",
+          "Shape"
+        ],
+        "_type": "tag_level2",
+        "_name": "tag-level1",
+        "_id": "taglevel2_taglevel1"
+      },
+      "children": []
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "Title as text",
+        "_tags": [
+          "Shape"
+        ],
+        "_type": "shape",
+        "_name": "title-as-text",
+        "_id": "shape_titleastext"
+      },
+      "children": []
+    }
+  ]
+}

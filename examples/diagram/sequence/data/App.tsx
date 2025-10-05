@@ -24,6 +24,28 @@ const sequenceDiagram = {
     messages: [
         {
             from: "User",
+            to: "Servers",
+            message: "M1",
+        },
+        {
+            from: "Servers",
+            to: "Client",
+            message: "M2",
+        },
+        {
+            from: "Client",
+            to: "Servers",
+            message: "M3",
+            return: true,
+        },
+        {
+            from: "Servers",
+            to: "User",
+            message: "M4",
+            return: true,
+        },
+        {
+            from: "User",
             to: "User",
             message: "self",
         },
@@ -156,11 +178,49 @@ const sequenceDiagram = {
                     to: "Servers",
                     message: "M2",
                 },
+                {
+                    from: "Servers",
+                    to: "Client",
+                    message: "M3",
+                    return: true,
+                },
+                {
+                    from: "Client",
+                    to: "User",
+                    message: "M4",
+                    return: true,
+                },
+            ],
+        },
+        {
+            messages: [
+                {
+                    from: "User",
+                    to: "Client",
+                    message: "M1",
+                },
+                {
+                    from: "Client",
+                    to: "Servers",
+                    message: "M2",
+                },
+                {
+                    from: "Servers",
+                    to: "Client",
+                    message: "M3",
+                    return: true,
+                },
+                {
+                    from: "Client",
+                    to: "User",
+                    message: "M4",
+                    return: true,
+                },
             ],
         },
     ],
 };
 
-export function App() {
+export default function App() {
     return <SequenceDiagram {...sequenceDiagram} />;
 }

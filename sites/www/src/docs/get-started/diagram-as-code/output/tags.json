@@ -1,0 +1,32 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "_title": "Tags example",
+    "_tags": [
+      "App",
+      "Shape"
+    ],
+    "_type": "shape",
+    "_name": "tags-example",
+    "_id": "shape_tagsexample"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "TagLevel2",
+          "TagLevel1",
+          "Shape"
+        ],
+        "_type": "tag_level2",
+        "_title": "Tag Level2",
+        "_name": "tag-level2",
+        "_id": "taglevel2"
+      },
+      "children": []
+    }
+  ]
+}

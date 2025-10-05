@@ -1,0 +1,107 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "_title": "Dependency example",
+    "_tags": [
+      "App",
+      "Shape"
+    ],
+    "_type": "shape",
+    "_name": "dependency-example",
+    "_id": "shape_dependencyexample"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "A",
+        "_tags": [
+          "Shape"
+        ],
+        "_type": "shape",
+        "_name": "a",
+        "_id": "shape_a",
+        "_dependsOn": [
+          "shape_b"
+        ]
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_source": "shape_a",
+            "_target": "shape_b",
+            "_isDependency": true,
+            "_tags": [
+              "Dependency"
+            ],
+            "_type": "dependency",
+            "_title": "Dependency",
+            "_name": "dependency",
+            "_id": "dependency"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "B",
+        "_tags": [
+          "Shape"
+        ],
+        "_type": "shape",
+        "_name": "b",
+        "_id": "shape_b",
+        "_dependsOn": [
+          "shape_c"
+        ],
+        "_dependsBy": [
+          "shape_a"
+        ]
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_source": "shape_b",
+            "_target": "shape_c",
+            "_isDependency": true,
+            "_tags": [
+              "Dependency",
+              "Dependency"
+            ],
+            "_type": "dependency",
+            "_title": "Dependency",
+            "_name": "dependency",
+            "_id": "dependency_2"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "C",
+        "_tags": [
+          "Shape"
+        ],
+        "_type": "shape",
+        "_name": "c",
+        "_id": "shape_c",
+        "_dependsBy": [
+          "shape_b"
+        ]
+      },
+      "children": []
+    }
+  ]
+}

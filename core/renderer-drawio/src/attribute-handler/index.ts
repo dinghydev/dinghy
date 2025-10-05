@@ -19,7 +19,6 @@ import { _image } from './_image.ts'
 import { _mxGraphModel } from './_mxGraphModel.ts'
 import { simpleStyleAttribute } from './simpleStyleAttribute.ts'
 import { DrawioRenderOptions } from '../types.ts'
-import { _wayPoint } from './_wayPoint.ts'
 
 const attributesHandlers: Props = {
   _color,
@@ -40,7 +39,6 @@ const attributesHandlers: Props = {
   _align: simpleStyleAttribute('align'),
   _verticalAlign: simpleStyleAttribute('verticalAlign'),
   _beforeGenerate: eventHandler,
-  _wayPoint,
   _x,
   _y,
 }

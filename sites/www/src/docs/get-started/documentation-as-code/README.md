@@ -6,7 +6,7 @@ sidebar_position: 60
 
 :::info
 
-While `Documentation as Code` is not a core feature of dinghy, we use it to
+While `Documentation as Code` is not a core function of dinghy, we use it to
 build this site and want to package this neat functionality to make it easier
 for developers who prefer keep everything as code.
 
@@ -56,6 +56,12 @@ Following commands are mapped to
 - `deploy` Deploys your site to remote services
 
 ### Deploy to AWS S3
+
+:::tip
+
+The deployed S3 target could be served by CloudFront with simple path match.
+
+:::
 
 The `deploy` command has been extended to support deploy site to `AWS S3` on top
 of standard
@@ -107,9 +113,12 @@ Following top level config are intercepted and populated to correct place:
 - theme
 - themeConfig
 
+Content in `src/docs` and `src/blog` will map to root without prefix which is
+same behaviour as `src/pages`.
+
 Those config are handled by
 [docusaurus.config.ts](https://github.com/dinghydev/dinghy/blob/main/docker/images/40-site/fs-root/opt/docusaurus/docusaurus.config.ts),
-please refer to the source code if has doult.
+please refer to the source code for details.
 
 ### docusaurus.config.ts
 

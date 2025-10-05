@@ -12,8 +12,8 @@ commonly used by developers and widely available on most platforms.
 ### Shell environment
 
 The Shell installer can be used on Windows with
-[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about),
-[MSYS](https://www.msys2.org) or equivalent set of tools.
+[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
+or equivalent set of tools.
 
 ### Unzip or 7z
 
@@ -34,7 +34,7 @@ Docker from https://docs.docker.com/get-started/get-docker/
 Install the latest Dinghy Cli on your system using the terminal command:
 
 ```bash
-curl -fsSL https://dinghy.dev/install.sh | sh
+curl -fsSL https://get.dinghy.dev/install.sh | sh
 ```
 
 It will

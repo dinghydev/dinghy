@@ -240,7 +240,8 @@ function alignRelationship(dependsPair: DependsPair) {
     .dependency
     .style as any
   if (
-    dependencyStyle.elbow || dependsPair.relationships[0]._props._diagram.points
+    dependencyStyle.edgeStyle?.includes('elbow') ||
+    dependsPair.relationships[0]._props._diagram.points
   ) {
     return
   }

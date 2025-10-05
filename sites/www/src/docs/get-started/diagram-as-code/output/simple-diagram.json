@@ -1,0 +1,68 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "_title": "Simple diagram as code",
+    "_tags": [
+      "App",
+      "Shape"
+    ],
+    "_type": "shape",
+    "_name": "simple-diagram-as-code",
+    "_id": "shape_simplediagramascode"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "A",
+        "_tags": [
+          "Shape"
+        ],
+        "_type": "shape",
+        "_name": "a",
+        "_id": "shape_a",
+        "_dependsOn": [
+          "shape_b"
+        ]
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_source": "shape_a",
+            "_target": "shape_b",
+            "_isDependency": true,
+            "_tags": [
+              "Dependency"
+            ],
+            "_type": "dependency",
+            "_title": "Dependency",
+            "_name": "dependency",
+            "_id": "dependency"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "B",
+        "_tags": [
+          "Shape"
+        ],
+        "_type": "shape",
+        "_name": "b",
+        "_id": "shape_b",
+        "_dependsBy": [
+          "shape_a"
+        ]
+      },
+      "children": []
+    }
+  ]
+}

@@ -1,9 +1,11 @@
 title: dinghy.dev
 tagline: Diagram and Infrastructure as Code with React
-url: https://dinghy.dev
+url: https://docs.dinghy.dev
+# baseUrl: /
+baseUrl: /preview/
 favicon: /assets/img/favicon.ico
 docs:
-  editUrl: https://github.com/dinghydev/dinghy/edit/main/sites/www/
+  editUrl: https://github.com/dinghydev/dinghy/blob/main/sites/www/
   # Cannot show git info due to files been mounted from outside of the site folder
   # showLastUpdateAuthor: true
   # showLastUpdateTime: true
@@ -24,14 +26,14 @@ themeConfig:
       - to: /get-started
         label: Get Started
         position: left
-      - to: /get-started/step-by-step
-        label: References
-        position: left
-      - to: /get-started/step-by-step
-        label: Examples
-        position: left
-      - to: /get-started/step-by-step
-        label: Contribution
+      # - href: /references/
+      #   label: References
+      #   position: left
+      # - to: /examples
+      #   label: Examples
+      #   position: left
+      - to: /community
+        label: Community
         position: left
       - to: /contact
         label: Contact
@@ -42,4 +44,4 @@ themeConfig:
         aria-label: GitHub repository
   footer: false
 deploy:
-  s3Url: s3://dinghy-website-play-v1/test
+  s3Url: s3://dinghy-website-play-v1

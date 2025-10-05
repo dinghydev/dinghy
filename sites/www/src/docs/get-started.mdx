@@ -1,5 +1,9 @@
-import CodeBlock from '@theme/CodeBlock'; import AppTsx from
-'!!raw-loader!./simple-app.tsx';
+---
+sidebar_position: 5
+---
+
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./get-started/diagram-as-code/simple-diagram.tsx";
 
 # Get Started
 
@@ -27,11 +31,11 @@ with.
 Install the latest Dinghy Cli on your system using the terminal command:
 
 ```bash
-curl -fsSL https://dinghy.dev/install.sh | sh
+curl -fsSL https://get.dinghy.dev/install.sh | sh
 ```
 
 If you have trouble install, please refering
-[Installation > Prerequisites](./installation.md#prerequisites) section for
+[Installation > Prerequisites](./get-started/installation.md#prerequisites) section for
 resolution.
 
 ## Basic example
@@ -40,7 +44,9 @@ resolution.
 
 Create one of simplest dinghy application as single file:
 
-<CodeBlock language="tsx" title="app.tsx">{AppTsx}</CodeBlock>
+<CodeBlock language="tsx" title="app.tsx">
+  {AppTsx}
+</CodeBlock>
 
 Don't be put off by all those Shape components, it's just a simple example for
 demo purpose. Most time you will write more expressive code. The
@@ -57,11 +63,9 @@ dinghy render
 
 ### Diagram
 
-It will generate a few files in `output` folder include the image:
+It will generate a few files in `output` folder include the image `app.png`:
 
-<!-- dinghy render --no-diagram-createMd --delete-drawio-file-after-render -->
-
-![Simple App](./simple-app.png)
+![Simple App](./get-started/diagram-as-code/output/simple-diagram.png)
 
 ## What's next
 

@@ -4,7 +4,7 @@ import type {
   NodeTree,
   Props,
   ReactNodeTree,
-} from '../types.ts'
+} from '../types/index.ts'
 import { useNodeContext } from '../contexts/NodeContext.tsx'
 import type { ReactNode } from 'react'
 

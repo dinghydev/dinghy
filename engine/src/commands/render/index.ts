@@ -106,7 +106,7 @@ const run = async (context: CommandContext, args: CommandArgs) => {
   debug('render started at %O', new Date())
 
   const options: any = deepMerge({}, dinghyAppConfig)
-  if (args['tf-generateImport']) {
+  if (args['tf-generate-import']) {
     options.tf ??= {}
     options.tf.generateImport = true
   }

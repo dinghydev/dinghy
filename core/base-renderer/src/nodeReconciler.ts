@@ -190,7 +190,7 @@ export const nodeReconciler = createReconciler<
   hideInstance() {},
   unhideInstance() {},
   createTextInstance(text: string): any {
-    return { type: 'text', props: { title: text }, key: null }
+    return { type: 'text', props: { _title: text }, key: null }
   },
   hideTextInstance() {},
   unhideTextInstance() {},

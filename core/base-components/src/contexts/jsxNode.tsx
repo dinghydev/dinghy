@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { NodeTree, ReactNodeTree } from '../types.ts'
+import type { NodeTree, ReactNodeTree } from '../types/index.ts'
 
 type Attributes = {
   children?: ReactNode

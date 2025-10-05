@@ -1,5 +1,5 @@
 import { createContext, type ReactElement, useContext } from 'react'
-import type { NodeProps, NodeTree, Props } from '../types.ts'
+import type { NodeProps, NodeTree, Props } from '../types/index.ts'
 
 export const NodeContext = createContext<NodeTree>({} as any)
 

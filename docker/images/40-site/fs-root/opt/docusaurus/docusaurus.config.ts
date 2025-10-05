@@ -69,6 +69,9 @@ themeConfig = {
       new Date().getFullYear()
     } My Project, Inc. Built with Docusaurus.`,
   },
+  colorMode: {
+    respectPrefersColorScheme: true,
+  },
   prism: {
     theme: prismThemes.github,
     darkTheme: prismThemes.dracula,

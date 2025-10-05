@@ -1,5 +1,5 @@
 import { processDependencyAttributes } from './Dependency.tsx'
-import type { NodeProps } from '../types.ts'
+import type { NodeProps } from '../types/index.ts'
 import { NodeContext, useNode } from '../contexts/NodeContext.tsx'
 import jsxRender from '../contexts/jsxNode.tsx'
 

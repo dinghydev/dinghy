@@ -1,9 +1,9 @@
 import { type CommandArgs, CommandContext } from '@dinghy/cli'
 import { walk } from '@std/fs'
 import { existsSync } from 'node:fs'
-import { GzipStream } from 'jsr:@deno-library/compress'
 import { s3UploadFile } from '../../utils/index.ts'
 import { s3Sync } from '../../utils/s3.ts'
+import { gzip } from 'jsr:@deno-library/compress'
 import chalk from 'chalk'
 import { DeployConfigSchema } from './deploy-config-schema.ts'
 export const deployToS3 = async (
@@ -15,22 +15,22 @@ export const deployToS3 = async (
   const startTime = Date.now()
   const deployConfig = DeployConfigSchema.parse(siteConfig)
   const { s3Region, s3Url } = deployConfig.deploy
-  const m = /^s3:\/\/([^/]+)\/?(.*)$/.exec(s3Url)
-  if (!m) throw new Error(`Invalid S3 Url: ${s3Url}`)
-  const s3Bucket = m[1]
-  const s3Prefix = m[2]
+  const s3Bucket = s3Url.split('/')[2]
+  let s3Prefix = s3Url.substring(s3Url.indexOf(s3Bucket) + s3Bucket.length + 1)
+  if (s3Prefix.endsWith('/')) {
+    s3Prefix = s3Prefix.substring(0, s3Prefix.length - 1)
+  }
+
   const immutablePatterns = deployConfig.deploy.immutablePatterns.map(
     (p) => new RegExp(p),
   )
-  const isDomainRoot = deployConfig.baseUrl === '/'
-  const targetBaseDir = isDomainRoot ? '' : deployConfig.baseUrl.substring(1)
+  const targetBaseDir = deployConfig.baseUrl.substring(
+    1,
+    deployConfig.baseUrl.length - 1,
+  )
   const resolveFileName = (path: string) => {
     if (path === 'index.html') {
-      if (isDomainRoot) {
-        return path
-      } else {
-        return ''
-      }
+      return ''
     }
     if (path === '404.html') {
       return path
@@ -56,14 +56,33 @@ export const deployToS3 = async (
     let targetPath = `${outputDir}-${category}/${targetBaseDir}${
       relativePath.substring(0, relativePath.lastIndexOf('/') + 1)
     }`
+    const subPath = relativePath.substring(
+      0,
+      relativePath.lastIndexOf('/') + 1,
+    )
+    targetPath = `${outputDir}-${category}`
+    if (targetBaseDir) {
+      targetPath += `/${targetBaseDir}`
+    }
+    if (subPath) {
+      targetPath += `/${subPath}`
+    }
     if (isHtml) {
+      const fileName = resolveFileName(relativePath)
       const isIndex = relativePath === 'index.html' ||
         existsSync(`${entry.path.substring(0, entry.path.length - 5)}`)
       if (isIndex) {
-        const s3Key = `${s3Prefix}/${targetBaseDir}${
-          relativePath.substring(0, relativePath.lastIndexOf('/') + 1)
-        }${resolveFileName(relativePath)}`
-        console.log('S3 uploading index file', s3Key)
+        let s3Key = s3Prefix
+        if (targetBaseDir) {
+          s3Key = `${s3Key ? `${s3Key}/` : ''}${targetBaseDir}`
+        }
+        if (subPath) {
+          s3Key = `${s3Key ? `${s3Key}/` : ''}${
+            subPath.substring(0, subPath.length - 1)
+          }`
+        }
+        s3Key = `${s3Key}/${fileName}`
+        console.log('S3 uploading folder file', s3Key)
         await s3UploadFile(
           s3Region,
           s3Bucket,
@@ -77,13 +96,9 @@ export const deployToS3 = async (
         )
         continue
       }
-      targetPath = `${outputDir}-${category}/${targetBaseDir}${
-        relativePath.substring(0, relativePath.lastIndexOf('/') + 1)
-      }${resolveFileName(relativePath)}`
+      targetPath = `${targetPath}/${fileName}`
     } else {
-      targetPath = `${outputDir}-${category}/${targetBaseDir}${
-        relativePath.substring(0, relativePath.lastIndexOf('/') + 1)
-      }/${entry.name}`
+      targetPath = `${targetPath}/${entry.name}`
     }
     const targetFolder = `${
       targetPath.substring(0, targetPath.lastIndexOf('/'))
@@ -92,7 +107,9 @@ export const deployToS3 = async (
       await Deno.mkdir(targetFolder, { recursive: true })
     }
     if (isGzip) {
-      await new GzipStream().compress(entry.path, targetPath)
+      const fileData = Deno.readFileSync(entry.path)
+      const gzippedData = await gzip(fileData)
+      await Deno.writeFile(targetPath, gzippedData)
     } else {
       await Deno.copyFile(entry.path, targetPath)
     }

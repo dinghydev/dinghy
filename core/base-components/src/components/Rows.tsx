@@ -1,4 +1,4 @@
-import type { DiagramNodeProps } from '../types.ts'
+import type { DiagramNodeProps } from '../types/index.ts'
 import { Columns } from './Columns.tsx'
 
 export function Rows(props: DiagramNodeProps) {

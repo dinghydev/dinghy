@@ -1,0 +1,45 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "_title": "Basic shapes",
+    "_tags": [
+      "App",
+      "Shape"
+    ],
+    "_type": "shape",
+    "_name": "basic-shapes",
+    "_id": "shape_basicshapes"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_title": "Container",
+        "_tags": [
+          "Shape"
+        ],
+        "_type": "shape",
+        "_name": "container",
+        "_id": "shape_container"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_title": "Entity",
+            "_tags": [
+              "Shape"
+            ],
+            "_type": "shape",
+            "_name": "entity",
+            "_id": "shape_entity"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

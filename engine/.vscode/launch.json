@@ -9,8 +9,8 @@
         // "--format",
         // "all",
         // "tf"
-        // "--tf-generateImport",
-        // "--diagram-saveView",
+        // "--tf-generate-import",
+        // "--diagram-save-view",
         // "--stage",
         // "main",
         // "--view",
@@ -31,10 +31,13 @@
         // "APP_HOME": "${workspaceFolder}/../examples/web/1-shape"
         // "APP_HOME": "${workspaceFolder}/../examples/web/2-components"
         // "APP_HOME": "${workspaceFolder}/../examples/web/3-drawio"
-        "APP_HOME": "${workspaceFolder}/../examples/web/4-iac"
+        // "APP_HOME": "${workspaceFolder}/../examples/web/4-iac"
         // "APP_HOME": "${workspaceFolder}/../examples/web/5-data"
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/elements"
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/data"
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/architecture"
+        "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/community",
+        // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/diagram-as-code"
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-cicd"
         // "APP_HOME": "${env:HOME}/andopen/src/devops/iac-ecs"
@@ -48,9 +51,8 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all",
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -77,9 +79,8 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all",
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -105,9 +106,8 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all",
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -118,7 +118,7 @@
         "platform-staging",
         // "production",
         // "development",
-        // "--tf-generateImport",
+        // "--tf-generate-import",
         // "true",
         // "-h",
         "--debug"
@@ -136,9 +136,8 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all",
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -149,7 +148,7 @@
         "platform-staging",
         // "production",
         // "development",
-        // "--tf-generateImport",
+        // "--tf-generate-import",
         // "true",
         // "-h",
         "--debug",
@@ -167,9 +166,8 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all",
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -201,9 +199,8 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all",
       ],
-      "attachSimplePort": 9229,
+      "attachSimplePort": 0,
       "console": "integratedTerminal"
     },
     {
@@ -235,10 +232,9 @@
       "runtimeArgs": [
         "run",
         "--inspect-wait",
-        "--allow-all",
       ],
+      "attachSimplePort": 0,
       "killBehavior": "polite",
-      "attachSimplePort": 9229,
       "console": "integratedTerminal"
     }
   ]

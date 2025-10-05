@@ -1,0 +1,89 @@
+{
+  "type": "node",
+  "attributes": {
+    "_level": 1,
+    "_title": "draw.io example",
+    "_tags": [
+      "App",
+      "Shape"
+    ],
+    "_type": "shape",
+    "_name": "drawio-example",
+    "_id": "shape_drawioexample"
+  },
+  "children": [
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "Client",
+          "Shape"
+        ],
+        "_type": "client",
+        "_title": "Client",
+        "_name": "client",
+        "_id": "client",
+        "_dependsOn": [
+          "database"
+        ]
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_source": "client",
+            "_target": "database",
+            "_isDependency": true,
+            "_tags": [
+              "Activity",
+              "Dependency",
+              "Dependency"
+            ],
+            "_type": "activity",
+            "_title": "Activity",
+            "_name": "activity",
+            "_id": "activity"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "node",
+      "attributes": {
+        "_level": 2,
+        "_tags": [
+          "AwsCloud",
+          "Shape"
+        ],
+        "_type": "aws_cloud",
+        "_title": "Aws Cloud",
+        "_name": "aws-cloud",
+        "_id": "awscloud"
+      },
+      "children": [
+        {
+          "type": "node",
+          "attributes": {
+            "_level": 3,
+            "_tags": [
+              "Database",
+              "PostgreSqlInstance",
+              "Shape"
+            ],
+            "_type": "database",
+            "_title": "Database",
+            "_name": "database",
+            "_id": "database",
+            "_dependsBy": [
+              "client"
+            ]
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

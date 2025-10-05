@@ -11,6 +11,7 @@ import {
 import { existsSync } from 'node:fs'
 import * as yaml from '@std/yaml'
 import { deployToS3 } from './deployToS3.ts'
+import path from 'node:path'
 
 const resolveSiteDir = async (args: CommandArgs) => {
   let siteDir = args['site-dir']
@@ -142,6 +143,16 @@ export const runDocusaurusCmd = async (
       source: `${siteDir}/${f.name}`,
       target: `/opt/docusaurus/${f.name}`,
     })
+  }
+  for (const v of args['docker-volumes'] || []) {
+    const [source, target] = v.split(':')
+    if (source && target) {
+      const resolvedSource = path.resolve(`${siteDir}/${source}`) // check source path valid
+      dockerVolumnes.push({
+        source: resolvedSource,
+        target: `/opt/docusaurus/${target}`,
+      })
+    }
   }
 
   if (cmd[1] !== 'start') {

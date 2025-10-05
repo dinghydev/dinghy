@@ -127,7 +127,7 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
     await writeFile(outputPath, result.result)
     collectedViews = result.views
     if (
-      args['diagram-saveView'] || args['diagram-createMd'] ||
+      args['diagram-save-view'] || args['diagram-create-md'] ||
       args['diagram-png']
     ) {
       views[view.id] = view
@@ -144,10 +144,10 @@ const diagram = async (app: any, options: any, args: any, context: any) => {
     }
   }
   if (Object.values(views).length) {
-    if (args['diagram-saveView']) {
+    if (args['diagram-save-view']) {
       await saveStackInfo(options, args, { views })
     }
-    if (args['diagram-createMd']) {
+    if (args['diagram-create-md']) {
       await saveStackMd(options, args, views)
     }
     if (args['diagram-png']) {

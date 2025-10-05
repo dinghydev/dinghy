@@ -20,8 +20,10 @@ export const DeployConfigSchema = z.object({
       mutable: z.string(),
       immutable: z.string(),
     }).default({
-      mutable: 'public,s-maxage=3600,max-age=86400,must-revalidate',
-      immutable: 'max-age=2592000',
+      // mutable: 'public,s-maxage=3600,max-age=86400,must-revalidate',
+      mutable: 's-maxage=0,max-age=0,must-revalidate',
+      // immutable: 'max-age=2592000',
+      immutable: 's-maxage=0,max-age=0,must-revalidate',
     }),
     cleanUpStagingFiles: z.boolean().default(true),
   }),

@@ -1,9 +1,11 @@
-import { Dependency, Shape } from "@dinghy/base-components";
+#!/usr/bin/env -S dinghy diagram
+import { Shape } from "@dinghy/base-components";
+import * as uml from "@dinghy/standard-components-diagrams/uml";
 
-export function App() {
+export default function App() {
   return (
-    <MonoRepo>
-      <Core>
+    <DinghyArchitecture>
+      <CoreModules>
         <StandardComponents>
           <Module _width={200}>standard-components-diagrams</Module>
           <Module _width={200}>standard-components-tf-aws</Module>
@@ -14,27 +16,25 @@ export function App() {
           </Module>
           <Module>base-renderer</Module>
         </Base>
-        <Renderers>
-          <Dependency _dependsOn="base-renderer" _wayPoint="elbow" />
+        <Renderers _dependsOn="base-renderer">
           <Module>renderer-json</Module>
           <Module>renderer-drawio</Module>
           <Module>renderer-tf</Module>
         </Renderers>
-      </Core>
+      </CoreModules>
       <Projects _distribution="even">
         <Project _dependsBy="cli" _dependsOn="StandardComponents">
-          examples
+          project / examples
         </Project>
         <Project>cli</Project>
         <Project _dependsBy="cli" _dependsOn="Renderers">engine</Project>
       </Projects>
-    </MonoRepo>
+    </DinghyArchitecture>
   );
 }
 
-const MonoRepo = (props: any) => (
+const DinghyArchitecture = (props: any) => (
   <Shape
-    _title="Dinghy Mono Repo Projects"
     {...props}
   />
 );
@@ -45,12 +45,19 @@ const Base = (props: any) => <Shape _distribution="even" {...props} />;
 
 const StandardComponents = (props: any) => <Shape {...props} />;
 
-const Module = (props: any) => <Shape _width={100} _height={30} {...props} />;
-const Project = (props: any) => <Shape _width={100} _height={90} {...props} />;
+const Module = (props: any) => (
+  <uml.Module
+    _width={130}
+    {...props}
+    _style={{
+      verticalAlign: "middle",
+    }}
+  />
+);
+const Project = (props: any) => <Shape _width={120} _height={60} {...props} />;
 
-const Core = (props: any) => (
+const CoreModules = (props: any) => (
   <Shape
-    _title="Core Project / Modules"
     _direction="vertical"
     {...props}
   />

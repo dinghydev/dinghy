@@ -7,24 +7,9 @@ export {
   useRenderOptions,
   useRenderOptionsStack,
 } from './contexts/useRenderOptions.tsx'
-export type { DiagramNodeProps, IacNodeProps, NodeProps } from './types.ts'
-export {
-  DependsSchema,
-  DiagramNodeSchema,
-  type DisplayStringType,
-  IacNodeSchema,
-  NodeSchema,
-  type NodeTree,
-  type Props,
-  ResolvableBooleanSchema,
-  ResolvableNumberSchema,
-  ResolvableRecordSchema,
-  ResolvableStringArraySchema,
-  ResolvableStringSchema,
-  StringSchema,
-} from './types.ts'
 
 export { RootNode } from './contexts/NodeContext.tsx'
+export * from './types/index.ts'
 export * from './cli-shared/index.ts'
 export * from './utils/index.ts'
 export {
