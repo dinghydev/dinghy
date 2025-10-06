@@ -1,8 +1,7 @@
 title: dinghy.dev
 tagline: Diagram and Infrastructure as Code with React
-url: https://docs.dinghy.dev
+url: https://dinghy.dev
 # baseUrl: /
-baseUrl: /preview/
 favicon: /assets/img/favicon.ico
 docs:
   editUrl: https://github.com/dinghydev/dinghy/blob/main/sites/www/
@@ -32,8 +31,8 @@ themeConfig:
       # - to: /examples
       #   label: Examples
       #   position: left
-      - to: /community
-        label: Community
+      - to: /contribute
+        label: Contribute
         position: left
       - to: /contact
         label: Contact

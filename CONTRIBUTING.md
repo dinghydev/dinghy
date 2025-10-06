@@ -1,4 +1,4 @@
-# Contributing Guide
+# Contributing
 
-Please refer to
-[Contributing Guide](./sites/www/src/docs/community/contributing-guide.md)
+Please refer to [Contribute](https://dinghy.dev/contribute) section on
+dinghy.dev
