@@ -8,7 +8,8 @@ sidebar_position: 60
 
 While `Documentation as Code` is not a core function of dinghy, we use it to
 build this site and want to package this neat functionality to make it easier
-for developers who prefer keep everything as code.
+for developers who prefer keep everything as code with
+[docusaurus.io](https://docusaurus.io/)
 
 :::
 

@@ -1,5 +1,6 @@
 .navbar__logo svg {
   width: 66px;
+  animation: svg-shadow 1.5s ease-in-out infinite alternate;
 }
 
 [data-theme="dark"] .navbar__logo svg {

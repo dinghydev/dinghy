@@ -131,7 +131,7 @@ export const runDockerCmd = async (
   dockerArgs = [] as string[],
 ) => {
   prepareDockerAuthConfig()
-  if (args.includes('bash')) {
+  if (Deno.env.get('CI') !== 'true' && !dockerArgs.includes('-i')) {
     dockerArgs.push('-i')
   }
   const cwd = existsSync(workingDir) ? workingDir : containerAppHome

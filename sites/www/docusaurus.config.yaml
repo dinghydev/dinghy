@@ -13,7 +13,7 @@ themeConfig:
     - name: keywords
       content: dinghy, diagram as code, infrastructure as code, react
   navbar:
-    # title: dinghy.dev
+    title: Dinghy
     logo:
       alt: Logo
       src: /assets/img/logo.svg

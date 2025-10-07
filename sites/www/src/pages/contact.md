@@ -2,8 +2,8 @@
 
 :::tip[ㅤ]
 
-Thanks for stopping by! Please check the [Contribute](./contribute) section to
-get involved for general development.
+Thanks for stopping by! Please refer to the [Contribute](./contribute) section
+to get involved for general support.
 
 :::
 
