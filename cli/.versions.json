@@ -1,0 +1,8 @@
+{
+  "base": "base-581b5de263bd5af955f699c122ba289b",
+  "drawio": "drawio-3ea05b86f47c821ae6b69ad1135c82d6",
+  "site": "site-4fc7a5405ee24a25fd54bc7a0aa4e637",
+  "awscli": "awscli-2fb5f12c7942031df87fc287af891361",
+  "tf": "tf-a022fffff91cd5bef83d354bd3637ee1",
+  "release-base": "release-base-72ebb9215b6c32bbff5c467bc171808b"
+}

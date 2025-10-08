@@ -1,6 +1,7 @@
 /**
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
+ * used from https://gitlab.com/aweframework/awe/-/blob/develop/website/src/pages/index.js?ref_type=heads
  */
 
 .heroBanner {

@@ -24,10 +24,12 @@ export const deployToS3 = async (
   const immutablePatterns = deployConfig.deploy.immutablePatterns.map(
     (p) => new RegExp(p),
   )
-  const targetBaseDir = deployConfig.baseUrl.substring(
-    1,
-    deployConfig.baseUrl.length - 1,
-  )
+  const targetBaseDir = deployConfig.baseUrl === '/'
+    ? ''
+    : deployConfig.baseUrl.substring(
+      1,
+      deployConfig.baseUrl.length - 1,
+    )
   const resolveFileName = (path: string) => {
     if (path === 'index.html') {
       return ''
@@ -72,6 +74,7 @@ export const deployToS3 = async (
       const isIndex = relativePath === 'index.html' ||
         existsSync(`${entry.path.substring(0, entry.path.length - 5)}`)
       if (isIndex) {
+        debugger
         let s3Key = s3Prefix
         if (targetBaseDir) {
           s3Key = `${s3Key ? `${s3Key}/` : ''}${targetBaseDir}`
@@ -81,7 +84,10 @@ export const deployToS3 = async (
             subPath.substring(0, subPath.length - 1)
           }`
         }
-        s3Key = `${s3Key}/${fileName}`
+        s3Key = `${s3Key ? `${s3Key}/` : ''}${fileName}`
+        if (!s3Key) {
+          s3Key = '/'
+        }
         console.log('S3 uploading folder file', s3Key)
         await s3UploadFile(
           s3Region,

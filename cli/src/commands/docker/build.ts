@@ -27,7 +27,7 @@ import { supportedArchs } from './dockerBuildUtils.ts'
 const debug = Debug('init')
 
 const options: CommandOptions = {
-  boolean: ['push', 'multi-arch'],
+  boolean: ['push', 'multi-arch', 'dryrun'],
   collect: ['arch'],
   string: ['source', 'repo'],
   default: {
@@ -49,6 +49,7 @@ type DockerImage = {
 
 async function init(args: CommandArgs) {
   const versionsFile = `${projectRoot}/.versions.json`
+  debug('versions file: %s', versionsFile)
   if (existsSync(versionsFile)) {
     Deno.removeSync(versionsFile)
   }
@@ -204,6 +205,11 @@ async function populateImageTag(image: DockerImage, args: CommandArgs) {
 async function buildImage(image: DockerImage, args: CommandArgs) {
   await populateImageTag(image, args)
   args.imageTags.push(image.tag)
+
+  if (args.dryrun) {
+    console.log(`Dry run: ${image.tag} would not built`)
+    return
+  }
 
   if (isTagExists(image.tag)) {
     console.log(`Tag ${image.tag} already exists, skipping build`)

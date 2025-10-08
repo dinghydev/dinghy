@@ -7,7 +7,7 @@
 **/coverage
 
 # Build
-.versions.json
+/.versions.json
 build
 sites/*/output
 examples/site/output

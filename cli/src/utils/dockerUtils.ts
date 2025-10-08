@@ -1,5 +1,5 @@
 import { existsSync } from '@std/fs/exists'
-import { dirname, resolve } from 'jsr:@std/path@1.0.8'
+import { dirname, resolve } from 'jsr:@std/path'
 import {
   appHomeMount,
   containerAppHome,
@@ -11,6 +11,7 @@ import { streamCmd } from './cmd.ts'
 import { mkdirSync } from 'node:fs'
 import Debug from 'debug'
 import { deepMerge } from '../shared/deepMerge.ts'
+import process from 'node:process'
 const debug = Debug('dockerUtils')
 
 const HOST_USER_HOME = Deno.env.get('HOST_USER_HOME') ||
@@ -131,8 +132,12 @@ export const runDockerCmd = async (
   dockerArgs = [] as string[],
 ) => {
   prepareDockerAuthConfig()
-  if (Deno.env.get('CI') !== 'true' && !dockerArgs.includes('-i')) {
-    dockerArgs.push('-i')
+  if (!exitOnFailure) {
+    if (process.stdout.isTTY) {
+      dockerArgs.push('-i')
+    } else {
+      debug('not a tty')
+    }
   }
   const cwd = existsSync(workingDir) ? workingDir : containerAppHome
   return await streamCmd(

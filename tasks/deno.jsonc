@@ -2,7 +2,7 @@
   "tasks": {
     "clean": "rm -rf ../../build",
     // duplicated files to avoid core to depends on cli module
-    "prepare-build": "cp ../cli/src/shared/* ../core/base-components/src/cli-shared/",
+    "prepare-build": "deno run -A ./src/prepare-build.ts",
     "refresh-engine-lock": "deno run -A ./src/refresh-engine-lock.ts",
     "version-release": "deno run -A ./src/version-release.ts",
     "npm-build": "deno run -A ./src/npm-build.ts",
@@ -40,6 +40,12 @@
     },
     "docker-build": {
       "command": "deno run -A ../cli/src/index.ts docker build --app-home ../"
+    },
+    "render-samples": {
+      "command": "todo",
+    },
+    "release-site": {
+      "command": "deno run -A ./src/release-site.ts",
     },
     "install-locally": "deno run -A ./src/install-locally.ts",
     "check-projects": "deno run -A ./src/check-projects.ts"
