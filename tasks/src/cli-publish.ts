@@ -50,6 +50,13 @@ Deno.mkdirSync(`${distDownload}/templates`, { recursive: true })
 await copyFilesToDistDownload(`${cliSrcFolder}/download`)
 await replaceVersion(`${distDownload}/install.sh`)
 await replaceVersion(`${distDownload}/latest-version.json`)
+Deno.mkdirSync(`${distDownload}/versions/${projectVersionRelease()}`, {
+  recursive: true,
+})
+Deno.copyFileSync(
+  `${distDownload}/install.sh`,
+  `${distDownload}/versions/${projectVersionRelease()}/install.sh`,
+)
 
 await syncToS3Download(
   `${cliOutputFolder}/zips`,
