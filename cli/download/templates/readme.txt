@@ -6,7 +6,7 @@
 
 Need only once if not already done:
 
-    curl -fsSL https://play.dinghy.dev/download/install.sh | sh
+    curl -fsSL https://get.dinghy.dev/install.sh | sh
 
 ### To develop with devcontainer
 

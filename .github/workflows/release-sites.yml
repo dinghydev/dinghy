@@ -10,7 +10,7 @@ permissions:
     contents: read    # This is required for actions/checkout
 
 jobs:
-  release:
+  release-sites:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release-sites]')}}
     steps:

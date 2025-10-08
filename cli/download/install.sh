@@ -23,7 +23,7 @@ install_dinghy() {
 
 	dinghy_version="${DINGHY_VERSION:-RELEASE_VERSION}"
 
-	dinghy_uri="https://play.dinghy.dev/download/versions/${dinghy_version}/dinghy-${target}.zip"
+	dinghy_uri="https://get.dinghy.dev/versions/${dinghy_version}/dinghy-${target}.zip"
 	bin_dir="$dinghy_home/bin"
 	exe="$bin_dir/dinghy"
 

@@ -32,7 +32,7 @@ const options: CommandOptions = {
 }
 
 export const upgradeToVersion = async (version: string) => {
-  const url = 'https://play.dinghy.dev/download/install.sh'
+  const url = 'https://get.dinghy.dev/install.sh'
   const response = await fetch(url)
   const content = await response.text()
 

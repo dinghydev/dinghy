@@ -44,8 +44,7 @@ const generateFile = async (
     Deno.mkdirSync(`${projectHome}/${folder}`, { recursive: true })
   }
   const filePath = folder ? `${folder}/${fileName}` : fileName
-  const templateUrl =
-    `https://play.dinghy.dev/download/templates/${templateName}`
+  const templateUrl = `https://get.dinghy.dev/templates/${templateName}`
   debug('Downloading template from %s', templateUrl)
   let template = await fetch(templateUrl).then((res) => res.text())
   if (template.includes('PROJECT_NAME_PLACE_HOLDER')) {

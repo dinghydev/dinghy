@@ -64,7 +64,7 @@ export const cleanUpdateCheck = async () => {
 
 export const fetchLatestVersion = async () => {
   const url = Deno.env.get('DINGHY_UPDATE_CHECK_URL') ||
-    'https://play.dinghy.dev/download/latest-version.json'
+    'https://get.dinghy.dev/latest-version.json'
   const response = await fetch(
     `${url}?runner-version=${projectVersionRelease()}`,
   )
