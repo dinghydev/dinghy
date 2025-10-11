@@ -26,7 +26,7 @@ export default function App() {
 
 const Postgres = (props: any) => <PostgreSqlInstance {...props} />;
 
-const WebApp = (props: any) => <Shape {...props} />;
+const WebApp = (props: any) => <Shape {...props} _style={{ noLabel: 1 }} />;
 
 const Cloud = (props: any) => <awsGroups.AwsCloud {...props} />;
 

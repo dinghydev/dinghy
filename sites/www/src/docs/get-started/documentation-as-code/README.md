@@ -74,8 +74,9 @@ the files with optimimal settings by:
 
 1. remove file `.html` extension when necessary to support
    [trailingSlash=false](https://docusaurus.io/docs/deployment#trailing-slashes).
-2. `gzip text` files before upload
-3. set optimal `cache-control` headers based on mutable or not
+1. upload root `index.html` as `/`
+1. `gzip text` files before upload
+1. set optimal `cache-control` headers based on mutable or not
 
 You may found more configurable options in
 [DeployConfigSchema](https://github.com/dinghydev/dinghy/blob/main/engine/src/commands/site/deploy-config-schema.ts).

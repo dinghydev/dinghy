@@ -65,9 +65,7 @@ themeConfig = {
   },
   footer: {
     style: "dark",
-    copyright: `Copyright © ${
-      new Date().getFullYear()
-    } My Project, Inc. Built with Docusaurus.`,
+    copyright: `Copyright © YYYY My Project, Inc. Built with Docusaurus.`,
   },
   colorMode: {
     respectPrefersColorScheme: true,
@@ -81,6 +79,11 @@ themeConfig = {
 
 if (themeConfig.footer === false) {
   delete themeConfig.footer;
+} else if (themeConfig.footer?.copyright) {
+  themeConfig.footer.copyright = themeConfig.footer?.copyright.replace(
+    "YYYY",
+    `${new Date().getFullYear()}`,
+  );
 }
 
 if (svgr === undefined) {

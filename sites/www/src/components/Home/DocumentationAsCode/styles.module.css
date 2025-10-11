@@ -1,0 +1,26 @@
+.poweredBy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: large;
+}
+.poweredBy svg {
+    height: 2em;
+    width: auto;
+    margin: 0 0.5em;
+}
+.poweredBy b {
+    font-weight: bold;
+    color: #3ecc5f;
+    font-size: x-large;
+}
+
+.site {
+    font-size: large;
+    margin-top: 5px;
+}
+
+.site b {
+    color: var(--ifm-color-success-light);
+}

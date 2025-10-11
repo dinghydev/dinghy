@@ -1,0 +1,35 @@
+.logos {
+    display: inline-block;
+    width: 190px;
+    height: auto;
+    margin: 0 15px 50px 15px;
+}
+[data-theme="dark"] .logos {
+    filter: invert(100%) hue-rotate(180deg) saturate(1.25);
+}
+
+.opentofuLogo {
+    height: 80px;
+}
+
+.text {
+    font-size: large;
+    margin-bottom: 10px;
+}
+
+.consText {
+    font-size: medium;
+    color: var(--ifm-color-secondary-darkest);
+    text-decoration: line-through;
+}
+
+.proText {
+    font-size: medium;
+    color: var(--ifm-color-success-light);
+}
+
+.reactLogo {
+    width: 200px;
+    height: 70px;
+    margin-left: 20px;
+}

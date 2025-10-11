@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<svg  width="100%" height="100%" viewBox="0 0 85 24" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <title>React Logo</title>
+ <g class="layer">
+  <title>Layer 1</title>
+  <circle cx="12.09" cy="11.63" id="svg_1" r="2.05"/>
+  <g fill="none" id="svg_2" stroke="black" transform="translate(0.217391 0) translate(0.217391 0) translate(0.217391 0) translate(0.217391 0) translate(0.217391 0) translate(11 11.63)">
+   <ellipse id="svg_3" rx="11" ry="4.2"/>
+   <ellipse id="svg_4" rx="11" ry="4.2" transform="rotate(60)"/>
+   <ellipse id="svg_5" rx="11" ry="4.2" transform="rotate(120)"/>
+  </g>
+  <text font-family="Monospace" font-weight="bold" font-size="19" id="svg_6" stroke-width="0" text-anchor="middle" x="55.11" xml:space="preserve" y="19.69">React</text>
+ </g>
+</svg>

@@ -1,0 +1,123 @@
+.hero {
+    background-color: #2b3137;
+    padding: 50px;
+}
+
+.heroBanner {
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroInner {
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 0 20px;
+}
+
+.heroProjectTagline {
+    color: #fff;
+    font-size: 40px;
+    margin: 0;
+}
+
+.heroTitleTextHtml b {
+    color: var(--ifm-color-primary);
+}
+
+@keyframes glowing-shadow {
+    from {
+        filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #e60073)
+            drop-shadow(0 0 20px #e60073);
+    }
+    to {
+        filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 25px #e60073)
+            drop-shadow(0 0 40px #e60073);
+    }
+}
+
+.heroLogo {
+    animation: glowing-shadow 1.5s ease-in-out infinite alternate;
+    float: right;
+    max-width: 42%;
+    fill: white;
+}
+
+.indexCtas {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.indexCtasGetStartedButton {
+    border: 2px solid var(--ifm-color-primary);
+    display: inline-block;
+    line-height: 1.2em;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 18px 45px;
+}
+
+.getStartedButton {
+    border: 2px solid var(--ifm-color-primary);
+    display: inline-block;
+    line-height: 1.2em;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border-radius: 8px;
+    background-color: var(--ifm-color-primary);
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 18px 45px;
+}
+
+.getStartedButton:hover {
+    opacity: 0.8;
+    color: white;
+}
+
+@media only screen and (max-width: 996px) {
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .heroInner {
+        padding: 2rem;
+    }
+
+    .heroProjectTagline {
+        color: #fff;
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .heroLogo {
+        padding: 0 0 60px 0;
+        display: block;
+        float: none;
+        margin: 0 auto;
+    }
+
+    .indexCtas {
+        justify-content: center;
+    }
+
+    .indexCtasGitHubButton {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 996px) {
+    .heroTitleTextHtml {
+        display: block;
+        max-width: 500px;
+    }
+}

@@ -1,0 +1,21 @@
+[data-theme="dark"] .diagramImage {
+    filter: invert(100%) hue-rotate(180deg) saturate(1.25);
+}
+
+.poweredBy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: large;
+}
+.poweredBy svg {
+    height: 2em;
+    width: auto;
+    margin: 0 0.5em;
+}
+.poweredBy b {
+    font-weight: bold;
+    color: #f08705;
+    font-size: x-large;
+}

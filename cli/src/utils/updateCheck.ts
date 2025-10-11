@@ -54,7 +54,12 @@ export const cleanUpdateCheck = async () => {
     for await (const dirEntry of walk(statesDir)) {
       if (dirEntry.name.startsWith('update-check-')) {
         debug('clean up existing update check file %s exists', dirEntry.path)
-        Deno.removeSync(dirEntry.path)
+        try {
+          Deno.removeSync(dirEntry.path)
+        } catch {
+          // did fail but not sure why, maybe file was removed by other process?
+          debug('failed to remove %s', dirEntry.path)
+        }
       }
     }
   } else {

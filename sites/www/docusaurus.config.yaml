@@ -41,6 +41,7 @@ themeConfig:
         position: right
         className: header-github-link
         aria-label: GitHub repository
-  footer: false
+  footer:
+    copyright: © YYYY <a href="https://dinghy.dev">dinghy.dev</a>
 deploy:
   s3Url: s3://dinghy-website-play-v1

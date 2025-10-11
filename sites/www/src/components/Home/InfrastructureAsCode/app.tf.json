@@ -1,0 +1,20 @@
+// Rendered from app.tsx
+{
+  "terraform": {
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "5.94.1"
+  ...
+  "resource": {
+    "aws_subnet": {
+      "aws_subnet_publicsubnet": {
+        "cidr_block": "10.0.0.0/16"
+    ...
+    "aws_db_instance": {
+      "aws_db_instance_postgres": {
+        "engine": "postgres"
+      }
+    }
+  }
+}

@@ -128,11 +128,11 @@ export const runDockerCmd = async (
   appMounts: Mount[],
   args: string[],
   dockerImage: string,
-  exitOnFailure = true,
+  errorOnFailure = true,
   dockerArgs = [] as string[],
 ) => {
   prepareDockerAuthConfig()
-  if (!exitOnFailure) {
+  if (errorOnFailure) {
     if (process.stdout.isTTY) {
       dockerArgs.push('-i')
     } else {
@@ -159,6 +159,6 @@ export const runDockerCmd = async (
       ...args,
     ],
     cwd,
-    exitOnFailure,
+    errorOnFailure,
   )
 }
