@@ -18,8 +18,11 @@ export default function TwoColumn(
                 styles.container,
                 background && styles.containerWithBackground,
             )}
+            id={title.props?.children?.replaceAll(" ", "-").toLowerCase()}
         >
-            <h2 className={styles.title}>
+            <h2
+                className={styles.title}
+            >
                 {title}
             </h2>
             <div

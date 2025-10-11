@@ -128,3 +128,16 @@ You may provide your own
 [docusaurus.config.ts](https://github.com/dinghydev/dinghy/blob/main/docker/images/40-site/fs-root/opt/docusaurus/docusaurus.config.ts)
 in the root folder of site to override the default for advanced control which
 not possbile by configure `docusaurus.config.yaml`.
+
+## Pre-installed packages
+
+The npm package dependencies are installed based on project created from
+[create-docusaurus](https://docusaurus.io/docs/installation#scaffold-project-website)
+command.
+
+Additional packages can be pre-installed if it's from reputable repo. Such repos
+are installed bellow:
+
+| Package                                                | Usage                                                                   |
+| ------------------------------------------------------ | ----------------------------------------------------------------------- |
+| [raw-loader](https://www.npmjs.com/package/raw-loader) | Importing source code files as a String for documentation shows as code |
