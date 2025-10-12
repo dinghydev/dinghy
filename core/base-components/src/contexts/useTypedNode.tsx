@@ -1,4 +1,5 @@
-import { type NodeTree, type Props } from '../types/index.ts'
+import { type NodeTree } from '../types/index.ts'
+import type { Props } from '../cli-shared/index.ts'
 import { useNodeContext } from './NodeContext.tsx'
 import type { ZodObject, ZodRawShape } from 'zod'
 import { renderKey } from '../utils/stringUtils.ts'

@@ -14,7 +14,6 @@ import {
   dinghyConfigFile,
   dinghyHome,
   dinghyRcFiles,
-  hostAppHome,
 } from '../utils/loadConfig.ts'
 
 const options: CommandOptions = {

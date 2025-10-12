@@ -42,10 +42,10 @@
       "command": "deno run -A ../cli/src/index.ts docker build --app-home ../"
     },
     "render-samples": {
-      "command": "todo",
+      "command": "todo"
     },
     "release-site": {
-      "command": "deno run -A ./src/release-site.ts",
+      "command": "deno run -A ./src/release-site.ts"
     },
     "install-locally": "deno run -A ./src/install-locally.ts",
     "check-projects": "deno run -A ./src/check-projects.ts"

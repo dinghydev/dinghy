@@ -1,4 +1,5 @@
-import type { NodeTree, Props } from '../types/index.ts'
+import type { NodeTree } from '../types/index.ts'
+import type { Props } from '../cli-shared/index.ts'
 
 export const deepResolve = (
   node: NodeTree,

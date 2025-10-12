@@ -21,6 +21,28 @@ if (import.meta.main) {
       result,
     })
   }
+  const runGitDiff = async () => {
+    const cwd = projectRoot
+    console.log(
+      `Running [git diff] from ${cwd} ...`,
+    )
+    const result = await execa('git', ['diff'], {
+      stderr: ['pipe', 'inherit'],
+      stdout: ['pipe', 'inherit'],
+      all: true,
+      cwd,
+      reject: false,
+    })
+
+    if (result.all) {
+      result.exitCode = 1
+    }
+    results.push({
+      project: 'root',
+      cmd: 'git diff',
+      result,
+    })
+  }
 
   for (
     const project of [
@@ -49,6 +71,7 @@ if (import.meta.main) {
       }
     }
   }
+  await runGitDiff()
   console.log(
     results.map((r) =>
       `${r.project} ${r.cmd} ${

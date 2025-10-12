@@ -74,7 +74,6 @@ export const deployToS3 = async (
       const isIndex = relativePath === 'index.html' ||
         existsSync(`${entry.path.substring(0, entry.path.length - 5)}`)
       if (isIndex) {
-        debugger
         let s3Key = s3Prefix
         if (targetBaseDir) {
           s3Key = `${s3Key ? `${s3Key}/` : ''}${targetBaseDir}`

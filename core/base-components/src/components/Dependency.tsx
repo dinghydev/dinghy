@@ -2,11 +2,11 @@ import Node from './Node.tsx'
 import type {
   DependencyProps,
   NodeTree,
-  Props,
   ReactNodeTree,
 } from '../types/index.ts'
 import { useNodeContext } from '../contexts/NodeContext.tsx'
 import type { ReactNode } from 'react'
+import type { Props } from '../cli-shared/index.ts'
 
 export const processDependencyAttributes = (
   props: Partial<ReactNodeTree>,

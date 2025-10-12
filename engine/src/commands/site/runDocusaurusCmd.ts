@@ -85,15 +85,15 @@ const resolveOutputDir = async (args: CommandArgs) => {
   return outputDir
 }
 
-const resolveSiteConfig = async (siteDir: string): Promise<any> => {
+const resolveSiteConfig = (siteDir: string): any => {
   const configFiles = [
     `${siteDir}/../docusaurus.config.yaml`,
     `${siteDir}/docusaurus.config.yaml`,
   ]
-  const configs = []
+  const configs: any[] = []
   for (const file of configFiles) {
     if (existsSync(file)) {
-      configs.push(yaml.parse(Deno.readTextFileSync(file)))
+      configs.push(yaml.parse(Deno.readTextFileSync(file)) as any)
     }
   }
   if (configs.length === 1) {
@@ -103,7 +103,7 @@ const resolveSiteConfig = async (siteDir: string): Promise<any> => {
     for (const c of configs) {
       deepMerge(result, c)
     }
-    return result
+    return result as any
   }
 }
 

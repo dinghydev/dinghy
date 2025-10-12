@@ -1,0 +1,32 @@
+name: verification
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+    id-token: write   # This is required for requesting the JWT
+    contents: read    # This is required for actions/checkout
+
+jobs:
+  verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.4.5
+          cache: true
+      - name: verification
+        run: |
+          cd tasks
+
+          echo "::group::Prepare Build"
+          deno task prepare-build
+          echo "::endgroup::"
+
+          echo "::group::Check Projects"
+          deno task check-projects
+          echo "::endgroup::"
+          

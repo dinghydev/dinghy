@@ -12,7 +12,7 @@ const options: CommandOptions = {
   cmdDescription: 'Operation for docusaurus.io based site',
 }
 
-const run = async (context: CommandContext, _args: CommandArgs) => {
+const run = (context: CommandContext, _args: CommandArgs) => {
   showHelp(context)
 }
 

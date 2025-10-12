@@ -17,6 +17,7 @@
     "jsr:@std/fs@1.0.15": "1.0.15",
     "jsr:@std/fs@~0.229.3": "0.229.3",
     "jsr:@std/io@0.223": "0.223.0",
+    "jsr:@std/json@1": "1.0.2",
     "jsr:@std/jsonc@1.0.1": "1.0.1",
     "jsr:@std/path@0.223": "0.223.0",
     "jsr:@std/path@1": "1.0.8",
@@ -97,8 +98,14 @@
         "jsr:@std/bytes"
       ]
     },
+    "@std/json@1.0.2": {
+      "integrity": "d9e5497801c15fb679f55a2c01c7794ad7a5dfda4dd1bebab5e409cb5e0d34d4"
+    },
     "@std/jsonc@1.0.1": {
-      "integrity": "6b36956e2a7cbb08ca5ad7fbec72e661e6217c202f348496ea88747636710dda"
+      "integrity": "6b36956e2a7cbb08ca5ad7fbec72e661e6217c202f348496ea88747636710dda",
+      "dependencies": [
+        "jsr:@std/json"
+      ]
     },
     "@std/path@0.223.0": {
       "integrity": "593963402d7e6597f5a6e620931661053572c982fc014000459edc1f93cc3989",
