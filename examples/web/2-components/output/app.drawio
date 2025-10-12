@@ -31,7 +31,7 @@
           />
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
-          id="web_app_webapp" 
+          id="webapp" 
           parent="root" 
           value="Web App" 
           vertex="1"
@@ -47,7 +47,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="client" 
-          parent="web_app_webapp" 
+          parent="webapp" 
           value="Client" 
           vertex="1"
           >
@@ -62,7 +62,7 @@
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
           id="cloud" 
-          parent="web_app_webapp" 
+          parent="webapp" 
           value="Cloud" 
           vertex="1"
           >
@@ -76,7 +76,7 @@
           </mxCell>
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
-          id="public_subnet_publicsubnet" 
+          id="publicsubnet" 
           parent="cloud" 
           value="Public Subnet" 
           vertex="1"
@@ -91,8 +91,8 @@
           </mxCell>
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
-          id="load_balancer_loadbalancer" 
-          parent="public_subnet_publicsubnet" 
+          id="loadbalancer" 
+          parent="publicsubnet" 
           value="Load Balancer" 
           vertex="1"
           >
@@ -107,7 +107,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="firewall" 
-          parent="public_subnet_publicsubnet" 
+          parent="publicsubnet" 
           value="Firewall" 
           vertex="1"
           >
@@ -121,7 +121,7 @@
           </mxCell>
         <mxCell
           style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
-          id="private_subnet_privatesubnet" 
+          id="privatesubnet" 
           parent="cloud" 
           value="Private Subnet" 
           vertex="1"
@@ -137,7 +137,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="application" 
-          parent="private_subnet_privatesubnet" 
+          parent="privatesubnet" 
           value="Application" 
           vertex="1"
           >
@@ -152,7 +152,7 @@
         <mxCell
           style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="postgres" 
-          parent="private_subnet_privatesubnet" 
+          parent="privatesubnet" 
           value="Postgres" 
           vertex="1"
           >
@@ -167,7 +167,7 @@
         <mxCell
           id="dependency" 
           source="client" 
-          target="load_balancer_loadbalancer" 
+          target="loadbalancer" 
           parent="root" 
           edge="1" 
           style="edgeStyle=orthogonalEdgeStyle;"
@@ -192,7 +192,7 @@
           </mxCell>
         <mxCell
           id="dependency_2" 
-          source="load_balancer_loadbalancer" 
+          source="loadbalancer" 
           target="firewall" 
           parent="root" 
           edge="1" 
@@ -218,7 +218,7 @@
           </mxCell>
         <mxCell
           id="dependency_3" 
-          source="load_balancer_loadbalancer" 
+          source="loadbalancer" 
           target="application" 
           parent="root" 
           edge="1" 

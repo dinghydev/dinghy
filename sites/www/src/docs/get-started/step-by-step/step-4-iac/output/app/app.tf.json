@@ -31,28 +31,28 @@
   },
   "resource": {
     "aws_subnet": {
-      "aws_subnet_publicsubnet": {
+      "awssubnet_publicsubnet": {
         "cidr_block": "10.0.0.0/16"
       },
-      "aws_subnet_privatesubnet": {
+      "awssubnet_privatesubnet": {
         "cidr_block": "10.10.0.0/16"
       }
     },
     "aws_lb": {
-      "aws_lb_loadbalancer": {
+      "awslb_loadbalancer": {
         "subnets": [
-          "${aws_subnet.aws_subnet_publicsubnet.id}"
+          "${aws_subnet.awssubnet_publicsubnet.id}"
         ]
       }
     },
     "aws_instance": {
-      "aws_instance_application": {
-        "subnet_id": "${aws_subnet.aws_subnet_privatesubnet.id}",
+      "awsinstance_application": {
+        "subnet_id": "${aws_subnet.awssubnet_privatesubnet.id}",
         "ami": "ami-005e54dee72cc1d00"
       }
     },
     "aws_db_instance": {
-      "aws_db_instance_postgres": {
+      "awsdbinstance_postgres": {
         "engine": "postgres"
       }
     }

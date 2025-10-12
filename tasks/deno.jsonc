@@ -41,9 +41,7 @@
     "docker-build": {
       "command": "deno run -A ../cli/src/index.ts docker build --app-home ../"
     },
-    "render-samples": {
-      "command": "todo"
-    },
+    "render-examples": "deno run -A ./src/render-examples.ts",
     "release-site": {
       "command": "deno run -A ./src/release-site.ts"
     },
@@ -66,7 +64,8 @@
     "semiColons": false,
     "singleQuote": true,
     "exclude": [
-      ".vscode/launch.json"
+      ".vscode/launch.json",
+      "deno.jsonc"
     ]
   },
   "lint": {

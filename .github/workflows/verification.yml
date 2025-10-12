@@ -26,6 +26,10 @@ jobs:
           deno task prepare-build
           echo "::endgroup::"
 
+          echo "::group::Render Examples"
+          deno task render-examples
+          echo "::endgroup::"
+
           echo "::group::Check Projects"
           deno task check-projects
           echo "::endgroup::"

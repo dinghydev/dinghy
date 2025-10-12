@@ -11,7 +11,7 @@ import {
     User,
 } from "@dinghy/standard-components-diagrams/awsGeneralResources";
 
-export function App() {
+export default function App() {
     return (
         <Shape title="Sequence Diagram with elements only">
             <Participant

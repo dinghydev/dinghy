@@ -4,7 +4,7 @@
   version="25.0.2"
   >
   <diagram
-    name="web-app-cloud"
+    name="web-app"
     >
     <mxGraphModel
       grid="1" 
@@ -30,24 +30,24 @@
           parent="page"
           />
         <mxCell
-          style="align=center;strokeColor=none;verticalAlign=top;aspect=fixed" 
-          id="cloud" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=none;" 
+          id="webapp" 
           parent="root" 
-          value="Web App: cloud" 
+          value="Web App" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
-            width="600" 
-            height="480" 
+            width="480" 
+            height="330" 
             x="0" 
             y="0"
             />
           </mxCell>
         <mxCell
-          style="shape=mxgraph.aws4.client;fillColor=#000000;verticalLabelPosition=bottom;verticalAlign=top;align=center;aspect=fixed" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="client" 
-          parent="cloud" 
+          parent="webapp" 
           value="Client" 
           vertex="1"
           >
@@ -56,73 +56,43 @@
             width="60" 
             height="60" 
             x="30" 
-            y="150"
+            y="90"
             />
           </mxCell>
         <mxCell
-          style="shape=mxgraph.aws4.group;align=left;spacingLeft=30;verticalAlign=top;aspect=fixed;grIcon=mxgraph.aws4.group_aws_cloud_alt" 
-          id="aws_cloud_cloud" 
-          parent="cloud" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
+          id="cloud" 
+          parent="webapp" 
           value="Cloud" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
-            width="450" 
-            height="420" 
+            width="330" 
+            height="270" 
             x="120" 
             y="30"
             />
           </mxCell>
         <mxCell
-          style="shape=mxgraph.aws4.group;align=left;spacingLeft=30;verticalAlign=top;aspect=fixed;grIcon=mxgraph.aws4.group_region;strokeColor=#00A4A6;fontColor=#00A4A6" 
-          id="aws_region_region" 
-          parent="aws_cloud_cloud" 
-          value="Region" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="390" 
-            height="360" 
-            x="30" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="shape=mxgraph.aws4.group;align=left;spacingLeft=30;verticalAlign=top;aspect=fixed;grIcon=mxgraph.aws4.group_vpc2;strokeColor=#8C4FFF;fontColor=#8C4FFF" 
-          id="vpcid1" 
-          parent="aws_region_region" 
-          value="Vpc" 
-          vertex="1"
-          >
-          <mxGeometry
-            as="geometry" 
-            width="330" 
-            height="300" 
-            x="30" 
-            y="30"
-            />
-          </mxCell>
-        <mxCell
-          style="shape=mxgraph.aws4.group;align=left;spacingLeft=30;verticalAlign=top;aspect=fixed;grIcon=mxgraph.aws4.group_security_group;fillColor=#F2F6E8;strokeWidth=0;strokeColor=#7AA116;fontColor=#7AA116" 
-          id="aws_subnet_publicsubnet" 
-          parent="vpcid1" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
+          id="publicsubnet" 
+          parent="cloud" 
           value="Public Subnet" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
             width="120" 
-            height="240" 
+            height="210" 
             x="30" 
             y="30"
             />
           </mxCell>
         <mxCell
-          style="shape=mxgraph.aws4.application_load_balancer;fillColor=#8C4FFF;verticalLabelPosition=bottom;verticalAlign=top;align=center;aspect=fixed;strokeColor=#8C4FFF;fontColor=#8C4FFF" 
-          id="aws_lb_loadbalancer" 
-          parent="aws_subnet_publicsubnet" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="loadbalancer" 
+          parent="publicsubnet" 
           value="Load Balancer" 
           vertex="1"
           >
@@ -135,9 +105,9 @@
             />
           </mxCell>
         <mxCell
-          style="shape=mxgraph.aws4.waf;fillColor=#8C4FFF;verticalLabelPosition=bottom;verticalAlign=top;align=center;aspect=fixed;strokeColor=#8C4FFF;fontColor=#8C4FFF" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
           id="firewall" 
-          parent="aws_subnet_publicsubnet" 
+          parent="publicsubnet" 
           value="Firewall" 
           vertex="1"
           >
@@ -146,28 +116,28 @@
             width="60" 
             height="60" 
             x="30" 
-            y="150"
+            y="120"
             />
           </mxCell>
         <mxCell
-          style="shape=mxgraph.aws4.group;align=left;spacingLeft=30;verticalAlign=top;aspect=fixed;grIcon=mxgraph.aws4.group_security_group;fillColor=#E6F6F7;strokeWidth=0;strokeColor=#00A4A6;fontColor=#00A4A6" 
-          id="aws_subnet_privatesubnet" 
-          parent="vpcid1" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;" 
+          id="privatesubnet" 
+          parent="cloud" 
           value="Private Subnet" 
           vertex="1"
           >
           <mxGeometry
             as="geometry" 
             width="120" 
-            height="240" 
+            height="210" 
             x="180" 
             y="30"
             />
           </mxCell>
         <mxCell
-          style="shape=mxgraph.aws3.android;fillColor=#AE1F23;verticalLabelPosition=bottom;verticalAlign=top;align=center;aspect=fixed;strokeColor=#AE1F23;fontColor=#AE1F23" 
-          id="aws_instance_application" 
-          parent="aws_subnet_privatesubnet" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="application" 
+          parent="privatesubnet" 
           value="Application" 
           vertex="1"
           >
@@ -180,9 +150,9 @@
             />
           </mxCell>
         <mxCell
-          style="shape=mxgraph.aws4.rds_postgresql_instance;fillColor=#C925D1;verticalLabelPosition=bottom;verticalAlign=top;align=center;aspect=fixed;strokeColor=#C925D1;fontColor=#C925D1" 
-          id="aws_db_instance_postgres" 
-          parent="aws_subnet_privatesubnet" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;" 
+          id="postgres" 
+          parent="privatesubnet" 
           value="Postgres" 
           vertex="1"
           >
@@ -191,16 +161,16 @@
             width="60" 
             height="60" 
             x="30" 
-            y="150"
+            y="120"
             />
           </mxCell>
         <mxCell
           id="dependency" 
-          source="aws_lb_loadbalancer" 
-          target="firewall" 
+          source="client" 
+          target="loadbalancer" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1"
+          style="edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 
@@ -210,23 +180,23 @@
               as="points"
               >
               <mxPoint
-                x="270" 
-                y="240"
+                x="135" 
+                y="120"
                 />
               <mxPoint
-                x="270" 
-                y="240"
+                x="135" 
+                y="120"
                 />
               </Array>
             </mxGeometry>
           </mxCell>
         <mxCell
           id="dependency_2" 
-          source="aws_lb_loadbalancer" 
-          target="aws_instance_application" 
+          source="loadbalancer" 
+          target="firewall" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1"
+          style="edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 
@@ -236,23 +206,23 @@
               as="points"
               >
               <mxPoint
-                x="345" 
-                y="180"
+                x="210" 
+                y="165"
                 />
               <mxPoint
-                x="345" 
-                y="180"
+                x="210" 
+                y="165"
                 />
               </Array>
             </mxGeometry>
           </mxCell>
         <mxCell
           id="dependency_3" 
-          source="client" 
-          target="aws_lb_loadbalancer" 
+          source="loadbalancer" 
+          target="application" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1"
+          style="edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 
@@ -262,23 +232,23 @@
               as="points"
               >
               <mxPoint
-                x="165" 
-                y="180"
+                x="285" 
+                y="120"
                 />
               <mxPoint
-                x="165" 
-                y="180"
+                x="285" 
+                y="120"
                 />
               </Array>
             </mxGeometry>
           </mxCell>
         <mxCell
           id="dependency_4" 
-          source="aws_instance_application" 
-          target="aws_db_instance_postgres" 
+          source="application" 
+          target="postgres" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1"
+          style="edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 
@@ -288,12 +258,12 @@
               as="points"
               >
               <mxPoint
-                x="420" 
-                y="240"
+                x="360" 
+                y="165"
                 />
               <mxPoint
-                x="420" 
-                y="240"
+                x="360" 
+                y="165"
                 />
               </Array>
             </mxGeometry>
