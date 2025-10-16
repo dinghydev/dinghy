@@ -1,45 +1,45 @@
 // GENERATED FILE: DO NOT EDIT
-import { ExampleType } from './types.ts'
-import { default as web_1_shape } from './web/1-shape/App.ts'
+import { ExampleType } from "./types.ts";
+import { default as web_1_shape } from "./web/1-shape/App.ts";
 
 //import web_1_shape_spec from './web/1-shape/example.yaml'
-import { default as web_2_components } from './web/2-components/App.ts'
+import { default as web_2_components } from "./web/2-components/App.ts";
 
 //import web_2_components_spec from './web/2-components/example.yaml'
-import { default as web_3_drawio } from './web/3-drawio/App.ts'
+import { default as web_3_drawio } from "./web/3-drawio/App.ts";
 
 //import web_3_drawio_spec from './web/3-drawio/example.yaml'
-import { default as web_4_iac } from './web/4-iac/App.ts'
+import { default as web_4_iac } from "./web/4-iac/App.ts";
 
 //import web_4_iac_spec from './web/4-iac/example.yaml'
-import { default as web_5_data } from './web/5-data/App.ts'
+import { default as web_5_data } from "./web/5-data/App.ts";
 
 //import web_5_data_spec from './web/5-data/example.yaml'
-import { default as diagram_ecs } from './diagram/ecs/App.ts'
+import { default as diagram_ecs } from "./diagram/ecs/App.ts";
 
 //import diagram_ecs_spec from './diagram/ecs/example.yaml'
-import { default as diagram_ecs2 } from './diagram/ecs2/App.ts'
+import { default as diagram_ecs2 } from "./diagram/ecs2/App.ts";
 
 //import diagram_ecs2_spec from './diagram/ecs2/example.yaml'
-import { default as diagram_layout_mindmap } from './diagram/layout/mindmap/App.ts'
+import { default as diagram_layout_mindmap } from "./diagram/layout/mindmap/App.ts";
 
 //import diagram_layout_mindmap_spec from './diagram/layout/mindmap/example.yaml'
-import { default as diagram_modules } from './diagram/modules/App.ts'
+import { default as diagram_modules } from "./diagram/modules/App.ts";
 
 //import diagram_modules_spec from './diagram/modules/example.yaml'
-import { default as iac_cf_site } from './iac/cf-site/App.ts'
+import { default as iac_cf_site } from "./iac/cf-site/App.ts";
 
 //import iac_cf_site_spec from './iac/cf-site/example.yaml'
-import { default as iac_ecs } from './iac/ecs/App.ts'
+import { default as iac_ecs } from "./iac/ecs/App.ts";
 
 //import iac_ecs_spec from './iac/ecs/example.yaml'
 
 export const allExamples: Record<string, ExampleType> = {
-  'step-by-step-1-shape': {
-    title: 'Step 1: Shape',
-    slag: 'step-by-step-1-shape',
-    packagePath: 'web/1-shape',
-    outputPath: './packages/examples/web/1-shape/output',
+  "step-by-step-1-shape": {
+    title: "Step 1: Shape",
+    slag: "step-by-step-1-shape",
+    packagePath: "web/1-shape",
+    outputPath: "./packages/examples/web/1-shape/output",
     order: 100,
     code: `import { Shape } from 'dinghy-core'
 
@@ -69,11 +69,11 @@ export function App() {
     options: { diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } } },
     App: web_1_shape,
   },
-  'step-by-step-2-components': {
-    title: 'Step 2: Components',
-    slag: 'step-by-step-2-components',
-    packagePath: 'web/2-components',
-    outputPath: './packages/examples/web/2-components/output',
+  "step-by-step-2-components": {
+    title: "Step 2: Components",
+    slag: "step-by-step-2-components",
+    packagePath: "web/2-components",
+    outputPath: "./packages/examples/web/2-components/output",
     order: 100,
     code: `import { Shape } from 'dinghy-core'
 
@@ -134,11 +134,11 @@ export function App() {
     options: { diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } } },
     App: web_2_components,
   },
-  'step-by-step-3-drawio': {
-    title: 'Step 3: Drawio diagram',
-    slag: 'step-by-step-3-drawio',
-    packagePath: 'web/3-drawio',
-    outputPath: './packages/examples/web/3-drawio/output',
+  "step-by-step-3-drawio": {
+    title: "Step 3: Drawio diagram",
+    slag: "step-by-step-3-drawio",
+    packagePath: "web/3-drawio",
+    outputPath: "./packages/examples/web/3-drawio/output",
     order: 100,
     code: `import { Shape } from 'dinghy-core'
 
@@ -220,11 +220,11 @@ export function App() {
     options: { diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } } },
     App: web_3_drawio,
   },
-  'step-by-step-4-iac': {
-    title: 'Step 4: Terraform IaC',
-    slag: 'step-by-step-4-iac',
-    packagePath: 'web/4-iac',
-    outputPath: './packages/examples/web/4-iac/output',
+  "step-by-step-4-iac": {
+    title: "Step 4: Terraform IaC",
+    slag: "step-by-step-4-iac",
+    packagePath: "web/4-iac",
+    outputPath: "./packages/examples/web/4-iac/output",
     order: 100,
     code: `import { Stack } from 'dinghy-core'
 import { Client, Waf } from 'dinghy-components-generated-drawio'
@@ -323,15 +323,15 @@ export function App() {
     //options: web_4_iac_spec.options,
     options: {
       diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } },
-      iacOptions: { provider: 'opentofu' },
+      iacOptions: { provider: "opentofu" },
     },
     App: web_4_iac,
   },
-  'step-by-step-5-data': {
-    title: 'Step 5: Data layer',
-    slag: 'step-by-step-5-data',
-    packagePath: 'web/5-data',
-    outputPath: './packages/examples/web/5-data/output',
+  "step-by-step-5-data": {
+    title: "Step 5: Data layer",
+    slag: "step-by-step-5-data",
+    packagePath: "web/5-data",
+    outputPath: "./packages/examples/web/5-data/output",
     order: 100,
     code: `import { Shape, Stack, useRenderOptions, } from 'dinghy-core'
 import {
@@ -458,16 +458,16 @@ export function App() {
     //options: web_5_data_spec.options,
     options: {
       diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } },
-      iacOptions: { provider: 'opentofu' },
+      iacOptions: { provider: "opentofu" },
       stacks: { cloud: { stages: { backend: null, main: null } }, local: null },
     },
     App: web_5_data,
   },
-  'diagram/ecs': {
-    title: 'diagram/ecs',
-    slag: 'diagram/ecs',
-    packagePath: 'diagram/ecs',
-    outputPath: './packages/examples/diagram/ecs/output',
+  "diagram/ecs": {
+    title: "diagram/ecs",
+    slag: "diagram/ecs",
+    packagePath: "diagram/ecs",
+    outputPath: "./packages/examples/diagram/ecs/output",
     order: 1000,
     code: `import {
   Android,
@@ -590,11 +590,11 @@ export function App() {
     options: { diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } } },
     App: diagram_ecs,
   },
-  'diagram/layout/mindmap': {
-    title: 'diagram/layout/mindmap',
-    slag: 'diagram/layout/mindmap',
-    packagePath: 'diagram/layout/mindmap',
-    outputPath: './packages/examples/diagram/layout/mindmap/output',
+  "diagram/layout/mindmap": {
+    title: "diagram/layout/mindmap",
+    slag: "diagram/layout/mindmap",
+    packagePath: "diagram/layout/mindmap",
+    outputPath: "./packages/examples/diagram/layout/mindmap/output",
     order: 1000,
     code: `import {
   Dependency,
@@ -718,11 +718,11 @@ export function App() {
     options: { diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } } },
     App: diagram_layout_mindmap,
   },
-  'diagram/modules': {
-    title: 'diagram/modules',
-    slag: 'diagram/modules',
-    packagePath: 'diagram/modules',
-    outputPath: './packages/examples/diagram/modules/output',
+  "diagram/modules": {
+    title: "diagram/modules",
+    slag: "diagram/modules",
+    packagePath: "diagram/modules",
+    outputPath: "./packages/examples/diagram/modules/output",
     order: 1000,
     code: `import {
   Dependency,
@@ -825,11 +825,11 @@ export function App() {
       <Row>
         <StandardComponents>
           <Module>standard-diagrams</Module>
-          <Module>standard-components-aws</Module>
+          <Module>aws</Module>
         </StandardComponents>
         <Examples>
           <Module _dependsOn={'standard-diagrams'}>diagram</Module>
-          <Module _dependsOn={'standard-components-aws'}>iac</Module>
+          <Module _dependsOn={'aws'}>iac</Module>
           <Module _dependsOn={'Standard Components'}>web</Module>
         </Examples>
       </Row>
@@ -841,11 +841,11 @@ export function App() {
     options: { diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } } },
     App: diagram_modules,
   },
-  'iac/cf-site': {
-    title: 'iac/cf-site',
-    slag: 'iac/cf-site',
-    packagePath: 'iac/cf-site',
-    outputPath: './packages/examples/iac/cf-site/output',
+  "iac/cf-site": {
+    title: "iac/cf-site",
+    slag: "iac/cf-site",
+    packagePath: "iac/cf-site",
+    outputPath: "./packages/examples/iac/cf-site/output",
     order: 1000,
     code: `import {
   Dependency,
@@ -933,15 +933,15 @@ export function App() {
     //options: iac_cf_site_spec.options,
     options: {
       diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } },
-      iacOptions: { provider: 'opentofu' },
+      iacOptions: { provider: "opentofu" },
     },
     App: iac_cf_site,
   },
-  'iac/ecs': {
-    title: 'iac/ecs',
-    slag: 'iac/ecs',
-    packagePath: 'iac/ecs',
-    outputPath: './packages/examples/iac/ecs/output',
+  "iac/ecs": {
+    title: "iac/ecs",
+    slag: "iac/ecs",
+    packagePath: "iac/ecs",
+    outputPath: "./packages/examples/iac/ecs/output",
     order: 1000,
     code: `import { type DiagramNodeProps, Shape, Stack } from 'dinghy-core'
 import {
@@ -1026,8 +1026,8 @@ export function App() {
     //options: iac_ecs_spec.options,
     options: {
       diagramOptions: { dimension: { boxWidth: 60, boxHeight: 60 } },
-      iacOptions: { provider: 'opentofu' },
+      iacOptions: { provider: "opentofu" },
     },
     App: iac_ecs,
   },
-}
+};

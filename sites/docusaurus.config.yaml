@@ -1,0 +1,19 @@
+title: dinghy.dev
+tagline: Diagram and Infrastructure as Code with React
+url: https://dinghy.dev
+favicon: /assets/img/favicon.ico
+themeConfig:
+  metadata:
+    - name: keywords
+      content: dinghy, diagram as code, infrastructure as code, react
+  navbar:
+    title: Dinghy
+    logo:
+      alt: Logo
+      src: /assets/img/logo.svg
+      href: /
+  footer:
+    copyright: © YYYY <a href="https://dinghy.dev">dinghy.dev</a>
+dinghySite:
+  deploy:
+    s3Url: s3://dinghy-website-play-v1

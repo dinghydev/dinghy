@@ -5,7 +5,7 @@ import { s3UploadFile } from '../../utils/index.ts'
 import { s3Sync } from '../../utils/s3.ts'
 import { gzip } from 'jsr:@deno-library/compress'
 import chalk from 'chalk'
-import { DeployConfigSchema } from './deploy-config-schema.ts'
+import { SiteConfigSchema } from './site-config-schema.ts'
 export const deployToS3 = async (
   _context: CommandContext,
   _args: CommandArgs,
@@ -13,15 +13,22 @@ export const deployToS3 = async (
   siteConfig: any,
 ) => {
   const startTime = Date.now()
-  const deployConfig = DeployConfigSchema.parse(siteConfig)
-  const { s3Region, s3Url } = deployConfig.deploy
+  const deployConfig = SiteConfigSchema.parse(siteConfig)
+  const {
+    s3Region,
+    s3Url,
+    immutablePatterns,
+    cacheControl,
+    gzipExtensions,
+    cleanUpStagingFiles,
+  } = deployConfig.dinghySite!.deploy
   const s3Bucket = s3Url.split('/')[2]
   let s3Prefix = s3Url.substring(s3Url.indexOf(s3Bucket) + s3Bucket.length + 1)
   if (s3Prefix.endsWith('/')) {
     s3Prefix = s3Prefix.substring(0, s3Prefix.length - 1)
   }
 
-  const immutablePatterns = deployConfig.deploy.immutablePatterns.map(
+  const iPatterns = immutablePatterns.map(
     (p) => new RegExp(p),
   )
   const targetBaseDir = deployConfig.baseUrl === '/'
@@ -46,9 +53,9 @@ export const deployToS3 = async (
     const extension = relativePath.split('.').pop() || ''
     const isHtml = extension === 'html'
     const isGzip = isHtml ||
-      deployConfig.deploy.gzipExtensions.includes(extension)
+      gzipExtensions.includes(extension)
     const isImmutable = !isHtml &&
-      immutablePatterns.some((regex) => regex.test(relativePath))
+      iPatterns.some((regex) => regex.test(relativePath))
 
     const category = isHtml
       ? 'html-mutable'
@@ -96,7 +103,7 @@ export const deployToS3 = async (
           {
             ContentType: 'text/html; charset=utf-8',
             ContentEncoding: isGzip ? 'gzip' : undefined,
-            CacheControl: deployConfig.deploy.cacheControl.mutable,
+            CacheControl: cacheControl.mutable,
           },
         )
         continue
@@ -129,18 +136,18 @@ export const deployToS3 = async (
 
     const isHtml = category === 'html-mutable'
     const isGzip = isHtml || category.startsWith('gzip-')
-    const cacheControl = category.endsWith('-immutable')
-      ? deployConfig.deploy.cacheControl.immutable
-      : deployConfig.deploy.cacheControl.mutable
+    const cacheControlValue = category.endsWith('-immutable')
+      ? cacheControl.immutable
+      : cacheControl.mutable
 
     await s3Sync(categoryPath, `s3://${s3Bucket}/${s3Prefix}`, {
       region: s3Region,
       'content-type': isHtml ? 'text/html;charset=utf-8' : undefined,
       'content-encoding': isGzip ? 'gzip' : undefined,
-      'cache-control': cacheControl,
+      'cache-control': cacheControlValue,
     })
 
-    if (deployConfig.deploy.cleanUpStagingFiles) {
+    if (cleanUpStagingFiles) {
       await Deno.remove(categoryPath, { recursive: true })
     }
   }

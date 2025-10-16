@@ -212,7 +212,7 @@
           "npm:debug@4.4.0"
         ]
       },
-      "standard-components-tf-aws": {
+      "tf-aws": {
         "dependencies": [
           "npm:debug@4.4.0"
         ]

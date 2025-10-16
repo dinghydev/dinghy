@@ -20,9 +20,7 @@ export function generateApp(_args: any, cloud: any) {
 } from '${
         namespace.includes('/')
           ? namespace
-          : `@dinghy/standard-components-tf-aws${
-            namespace ? `/${namespace}` : ''
-          }`
+          : `@dinghy/tf-aws${namespace ? `/${namespace}` : ''}`
       }'`
     ).join('\n\n')
   }

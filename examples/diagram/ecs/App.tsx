@@ -3,16 +3,16 @@ import {
   Ec2InstanceContents,
   Region,
   Vpc,
-} from "@dinghy/standard-components-diagrams/awsGroups";
+} from "@dinghy/diagrams/awsGroups";
 import { type DiagramNodeProps, Shape } from "@dinghy/base-components";
-import { ApplicationLoadBalancer } from "@dinghy/standard-components-diagrams/awsNetworkContentDelivery";
-import { Client } from "@dinghy/standard-components-diagrams/awsGeneralResources";
-import { Android } from "@dinghy/standard-components-diagrams/aws17Sdk";
+import { ApplicationLoadBalancer } from "@dinghy/diagrams/awsNetworkContentDelivery";
+import { Client } from "@dinghy/diagrams/awsGeneralResources";
+import { Android } from "@dinghy/diagrams/aws17Sdk";
 import {
   ElasticacheForRedis,
   PostgreSqlInstance,
-} from "@dinghy/standard-components-diagrams/awsDatabase";
-import { Waf } from "@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance";
+} from "@dinghy/diagrams/awsDatabase";
+import { Waf } from "@dinghy/diagrams/awsSecurityIdentityCompliance";
 function Stack(props: DiagramNodeProps) {
   return <Shape {...props} />;
 }

@@ -3,13 +3,13 @@ import {
     Activation,
     Message,
     Participant,
-} from "@dinghy/standard-components-diagrams/sequenceDiagram";
+} from "@dinghy/diagrams/sequenceDiagram";
 
 import {
     Client,
     Servers,
     User,
-} from "@dinghy/standard-components-diagrams/awsGeneralResources";
+} from "@dinghy/diagrams/entitiesAwsGeneralResources";
 
 export default function App() {
     return (

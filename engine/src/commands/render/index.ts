@@ -6,9 +6,9 @@ import { debounce } from '@std/async/debounce'
 import { containerAppHome, dinghyAppConfig, execCmd, isCi } from '@dinghy/cli'
 import { deepMerge, doWithStacks } from '@dinghy/base-components'
 import chalk from 'chalk'
-import Debug from 'debug'
 import { renderOptions, requireStacksConfig } from '@dinghy/cli'
 import { execa } from 'execa'
+import Debug from 'debug'
 const debug = Debug('render')
 
 const WATCH_FILE_TYPES = ['ts', 'tsx', 'yaml']

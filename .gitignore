@@ -9,7 +9,9 @@
 # Build
 /.versions.json
 build
+/output
 sites/*/output
+/sites/references-diagrams-elements
 examples/site/output
 **/Dockerfile
 **/dist

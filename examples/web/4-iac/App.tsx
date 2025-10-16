@@ -1,6 +1,6 @@
 import { Stack } from "@dinghy/base-components";
-import * as awsGeneralResources from "@dinghy/standard-components-diagrams/awsGeneralResources";
-import { Waf } from "@dinghy/standard-components-diagrams/awsSecurityIdentityCompliance";
+import * as awsGeneralResources from "@dinghy/diagrams/entitiesAwsGeneralResources";
+import { Waf } from "@dinghy/diagrams/entitiesAwsSecurityIdentityCompliance";
 
 import {
   AwsCloud,
@@ -12,7 +12,7 @@ import {
   useAwsSubnet,
   useAwsSubnets,
   vpc,
-} from "@dinghy/standard-components-tf-aws";
+} from "@dinghy/tf-aws";
 
 const Postgres = (props: any) => <AwsPostgres {...props} />;
 

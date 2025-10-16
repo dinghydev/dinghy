@@ -12,6 +12,9 @@ import { existsSync } from 'node:fs'
 import * as yaml from '@std/yaml'
 import { deployToS3 } from './deployToS3.ts'
 import path from 'node:path'
+import { resolve } from 'node:path'
+import Debug from 'debug'
+const debug = Debug('runDocusaurusCmd')
 
 const resolveSiteDir = async (args: CommandArgs) => {
   let siteDir = args['site-dir']
@@ -45,6 +48,7 @@ const resolveSiteDir = async (args: CommandArgs) => {
   if (!existsSync(siteDir)) {
     throw new DinghyError(`Site dir ${siteDir} not exists`)
   }
+  debug('Resolved site dir %s', siteDir)
   return siteDir
 }
 
@@ -82,6 +86,7 @@ const resolveOutputDir = async (args: CommandArgs) => {
   if (!existsSync(outputDir)) {
     Deno.mkdirSync(outputDir, { recursive: true })
   }
+  debug('Resolved site output dir %s', outputDir)
   return outputDir
 }
 
@@ -91,6 +96,9 @@ const resolveSiteConfig = (siteDir: string): any => {
     `${siteDir}/docusaurus.config.yaml`,
   ]
   const configs: any[] = []
+  if (dinghyAppConfig.site) {
+    configs.push(dinghyAppConfig.site)
+  }
   for (const file of configFiles) {
     if (existsSync(file)) {
       configs.push(yaml.parse(Deno.readTextFileSync(file)) as any)
@@ -118,8 +126,8 @@ export const runDocusaurusCmd = async (
 
   const dockerEnvs = {} as Record<string, string>
   if (siteConfig) {
-    const { deploy, ...restSiteConfig } = siteConfig
-    if (deploy?.s3Url && cmd[1] === 'deploy') {
+    const { dinghySite, ...restSiteConfig } = siteConfig
+    if (dinghySite?.deploy?.s3Url && cmd[1] === 'deploy') {
       return await deployToS3(context, args, outputDir, siteConfig)
     }
 
@@ -138,20 +146,50 @@ export const runDocusaurusCmd = async (
   }
 
   const dockerVolumnes = [] as any[]
-  for await (const f of Deno.readDir(siteDir)) {
+  for (const name of args['site-mapping']) {
+    let source = `${siteDir}/${name}`
+    if (!existsSync(source)) {
+      source = resolve(`${siteDir}/../${name}`)
+      if (!existsSync(source)) {
+        continue
+      }
+    }
     dockerVolumnes.push({
-      source: `${siteDir}/${f.name}`,
-      target: `/opt/docusaurus/${f.name}`,
+      source,
+      target: `/opt/docusaurus/${name}`,
     })
   }
-  for (const v of args['docker-volumes'] || []) {
-    const [source, target] = v.split(':')
-    if (source && target) {
-      const resolvedSource = path.resolve(`${siteDir}/${source}`) // check source path valid
-      dockerVolumnes.push({
-        source: resolvedSource,
-        target: `/opt/docusaurus/${target}`,
-      })
+  const siteSrcExists = existsSync(`${siteDir}/src`)
+  for await (const f of Deno.readDir(siteDir)) {
+    let name = f.name
+    if (
+      ['docusaurus.config.yaml', 'output', 'build'].includes(name) ||
+      args['site-mapping'].includes(name)
+    ) {
+      continue
+    }
+    if (
+      ['pages', 'docs', 'blog'].includes(name) && !siteSrcExists
+    ) {
+      name = `src/${name}`
+    }
+    dockerVolumnes.push({
+      source: `${siteDir}/${f.name}`,
+      target: `/opt/docusaurus/${name}`,
+    })
+  }
+  for (const volumns of args['docker-volumes'] || []) {
+    for (const v of volumns.split(',')) {
+      const [source, target] = v.split(':')
+      if (source && target) {
+        const resolvedSource = source.startsWith('/')
+          ? source
+          : path.resolve(`${siteDir}/${source}`) // check source path valid
+        dockerVolumnes.push({
+          source: resolvedSource,
+          target: `/opt/docusaurus/${target}`,
+        })
+      }
     }
   }
 

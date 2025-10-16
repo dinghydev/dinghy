@@ -1538,6 +1538,7 @@
           "npm:zod@3.24.2"
         ]
       },
+      "jsr:@dinghy/diagrams": {},
       "jsr:@dinghy/renderer-drawio": {
         "dependencies": [
           "npm:debug@4.4.0",
@@ -1550,8 +1551,7 @@
           "npm:debug@4.4.0"
         ]
       },
-      "jsr:@dinghy/standard-components-diagrams": {},
-      "jsr:@dinghy/standard-components-tf-aws": {
+      "jsr:@dinghy/tf-aws": {
         "dependencies": [
           "npm:debug@4.4.0"
         ]

@@ -1,36 +1,14 @@
-title: dinghy.dev
-tagline: Diagram and Infrastructure as Code with React
-url: https://dinghy.dev
-# baseUrl: /
-favicon: /assets/img/favicon.ico
 docs:
   editUrl: https://github.com/dinghydev/dinghy/blob/main/sites/www/
-  # Cannot show git info due to files been mounted from outside of the site folder
-  # showLastUpdateAuthor: true
-  # showLastUpdateTime: true
 themeConfig:
-  metadata:
-    - name: keywords
-      content: dinghy, diagram as code, infrastructure as code, react
   navbar:
-    title: Dinghy
-    logo:
-      alt: Logo
-      src: /assets/img/logo.svg
     items:
-      # - type: docSidebar
-      #   sidebarId: gettingStartedSidebar
-      #   position: left
-      #   label: Getting Started
       - to: /get-started
         label: Get Started
         position: left
-      # - href: /references/
-      #   label: References
-      #   position: left
-      # - to: /examples
-      #   label: Examples
-      #   position: left
+      - to: /references
+        label: References
+        position: left
       - to: /contribute
         label: Contribute
         position: left
@@ -41,7 +19,3 @@ themeConfig:
         position: right
         className: header-github-link
         aria-label: GitHub repository
-  footer:
-    copyright: © YYYY <a href="https://dinghy.dev">dinghy.dev</a>
-deploy:
-  s3Url: s3://dinghy-website-play-v1

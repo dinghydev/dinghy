@@ -26,8 +26,8 @@
     "./renderer-json",
     "./renderer-drawio",
     "./renderer-tf",
-    "./standard-components-diagrams",
-    "./standard-components-tf-aws"
+    "./diagrams",
+    "./tf-aws"
   ],
   "fmt": {
     "semiColons": false,

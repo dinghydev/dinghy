@@ -13,17 +13,20 @@ export const createDocusaurusCommand = (
   supportPort = false,
 ): Commands => {
   const cmdOptions: CommandOptions = {
-    collect: ['docker-volumes'],
+    collect: ['site-mapping', 'docker-volumes'],
     string: ['site', 'site-dir', 'site-output', 'site-args', 'docker-args'],
     description: {
       'site': 'Named site if there are multiple sites configured',
       'site-dir': 'Path to the site base directory',
       'site-output': 'The build output directory',
       'site-args': 'Additional arguments to pass to the docusaurus command',
+      'site-mapping': 'Folders to map to Docusaurus base folder',
       'docker-volumes': 'Additional volumes mapped to the docker container',
       'docker-args': 'Additional arguments to pass to the docker run command',
     },
-    default: {},
+    default: {
+      'site-mapping': ['docusaurus.config.ts', 'src', 'static'],
+    },
     cmdDescription,
   }
   if (supportPort) {

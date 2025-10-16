@@ -38,6 +38,16 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "render examples",
+      "args": [
+        "deno task render-examples"
+      ],
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "console": "integratedTerminal"
+    },
+    {
       "name": "check projects",
       "args": [
         "deno task check-projects"

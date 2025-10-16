@@ -35,7 +35,6 @@ const DOCKER_EXCLUDED_ENVS = [
   'HOME',
   'TMPDIR',
   'SHELL',
-  'NODE_OPTIONS',
   'SSH_AUTH_SOCK',
 ]
 
@@ -68,7 +67,7 @@ export function getDockerMounts(
   appMounts: Mount[],
 ): Mount[] {
   const mounts: Mount[] = []
-  if (!appMounts.find((m) => m.source.startsWith(hostAppHome))) {
+  if (!appMounts.some((m) => m.source === hostAppHome)) {
     mounts.push({
       source: hostAppHome,
       target: hostAppHome,

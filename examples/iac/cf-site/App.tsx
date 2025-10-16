@@ -13,8 +13,8 @@ import {
   LogBucket,
   S3Backend,
   S3CloudfrontSite,
-} from "../../../core/standard-components/standard-components-tf-aws/src/index.ts";
-import { Client as Client } from "../../../core/standard-components/standard-components-diagrams/src/index.ts";
+} from "../../../core/standard-components/tf-aws/src/index.ts";
+import { Client as Client } from "../../../core/standard-components/diagrams/src/index.ts";
 
 const DinghyWebsite = (props: NodeProps) => (
   <Stack title="Dinghy Website" {...props} />

@@ -5,6 +5,8 @@ import { runDockerCmd } from './dockerUtils.ts'
 import { configGetEngineImage } from './dockerConfig.ts'
 import { projectVersionRelease } from './projectVersions.ts'
 import { ExecaError } from 'execa'
+import { walk } from '@std/fs/walk'
+import { existsSync } from '@std/fs/exists'
 const debug = Debug('runEngineCommand')
 function collectEngineArgs(originalArgs: string[]) {
   const engineVersionIndex = originalArgs.indexOf('--engine-version')
@@ -16,6 +18,21 @@ function collectEngineArgs(originalArgs: string[]) {
   }
   return originalArgs.map((arg) => arg.includes(' ') ? `"${arg}"` : arg)
 }
+
+async function collectDinghyFileOverrideMount() {
+  const dotDinghyFiles: any[] = []
+  const overrideDir = `${hostAppHome}/.dinghy_file_override`
+  if (existsSync(overrideDir)) {
+    for await (const entry of walk(overrideDir, { includeDirs: false })) {
+      const source = entry.path
+      const target = entry.path.replace(overrideDir, '/dinghy')
+      debug('Mounting override file: %s => %s', source, target)
+      dotDinghyFiles.push({ source, target })
+    }
+  }
+  return dotDinghyFiles
+}
+
 export async function runEngineCommand(context: CommandContext) {
   debug('running engine command [%s]', context.originalArgs.join(' '))
 
@@ -23,7 +40,7 @@ export async function runEngineCommand(context: CommandContext) {
     await runDockerCmd(
       hostAppHome,
       { DINGHY_CLI_VERSION: projectVersionRelease() },
-      [],
+      await collectDinghyFileOverrideMount(),
       [
         'dinghy',
         ...collectEngineArgs(context.originalArgs),

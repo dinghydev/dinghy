@@ -3,7 +3,7 @@ import { walk } from '@std/fs'
 import { projectRoot } from '../../cli/src/utils/projectRoot.ts'
 
 const folderWithExamples = [
-  'sites/www/src',
+  'sites/www',
   'examples/web',
   'examples/diagram/sequence',
 ] as string[]

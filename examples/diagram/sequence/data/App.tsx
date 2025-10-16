@@ -1,12 +1,10 @@
-import {
-    SequenceDiagram,
-} from "@dinghy/standard-components-diagrams/sequenceDiagram";
+import { SequenceDiagram } from "@dinghy/diagrams/sequenceDiagram";
 
 import {
     Client,
     // Servers,
     User,
-} from "@dinghy/standard-components-diagrams/awsGeneralResources";
+} from "@dinghy/diagrams/entitiesAwsGeneralResources";
 
 const sequenceDiagram = {
     title: "Sequence Diagram from data",

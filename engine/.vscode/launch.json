@@ -208,24 +208,32 @@
       "name": "site",
       "args": [
         "site",
-        // "bash",
-        "start",
+        // "start",
         // "build",
         // "serve",
         // "deploy",
         // "--debug",
+        "bash",
         // "docusaurus",
         // "--",
+        // "--docker-volumes",
+        // "../references:src/docs/references",
         // "swizzle",
         // "--list"
         // "-h",
+        "--site",
+        // "www",
+        "references-diagrams-elements",
+        // "tmp",
+        // "references",
       ],
       "program": "src/index.ts",
       "env": {
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../examples/site"
-        "APP_HOME": "${workspaceFolder}/../sites/www"
+        "NODE_OPTIONS": "--max_old_space_size=8192",
+        "APP_HOME": "${workspaceFolder}/../"
       },
       "type": "node",
       "request": "launch",

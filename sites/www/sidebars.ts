@@ -15,6 +15,35 @@ export default {
             }],
         },
     ],
+    references: [
+        {
+            type: "category",
+            label: "References",
+            collapsible: false,
+            link: {
+                type: "doc",
+                id: "references",
+            },
+            items: [
+                {
+                    type: "category",
+                    label: "Diagrams",
+                    collapsible: false,
+                    link: {
+                        type: "doc",
+                        id: "references/diagrams",
+                    },
+                    items: [
+                        {
+                            type: "link",
+                            label: "Elements",
+                            href: "/references/diagrams/elements/rewrite-url",
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
     contribute: [
         {
             type: "category",
