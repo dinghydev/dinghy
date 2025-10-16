@@ -74,7 +74,8 @@
         "recommended"
       ],
       "exclude": [
-        "no-explicit-any"
+        "no-explicit-any",
+        "no-unversioned-import"
       ]
     }
   }

@@ -31,7 +31,11 @@
   ],
   "fmt": {
     "semiColons": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "exclude": [
+      "deno.jsonc",
+      "**/deno.jsonc"
+    ]
   },
   "lint": {
     "rules": {
@@ -39,7 +43,8 @@
         "recommended"
       ],
       "exclude": [
-        "no-explicit-any"
+        "no-explicit-any",
+        "no-unversioned-import",
       ]
     }
   }
