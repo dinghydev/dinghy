@@ -8,9 +8,9 @@ export {
 export { APPFLOW, Appflow } from './appflow.tsx'
 
 export {
-  APPLICATION_INTEGRATION_ICON,
-  ApplicationIntegrationIcon,
-} from './application-integration-icon.tsx'
+  APPLICATION_INTEGRATION,
+  ApplicationIntegration,
+} from './application-integration.tsx'
 
 export { APPSYNC, Appsync } from './appsync.tsx'
 

@@ -1,0 +1,67 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Other Threat Modeling Dependencies
+
+
+## Bidirectional Data Flow
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./bidirectional-data-flow.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { BidirectionalDataFlow } from '@dinghy/diagrams/dependenciesThreatModeling'
+
+<BidirectionalDataFlow/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'endArrow=classic;startArrow=classic;html=1;fontColor=#FF3333;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Data Flow
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./data-flow.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DataFlow } from '@dinghy/diagrams/dependenciesThreatModeling'
+
+<DataFlow/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'endArrow=classic;html=1;fontColor=#FF3333;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+

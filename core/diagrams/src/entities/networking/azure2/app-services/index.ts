@@ -20,7 +20,7 @@ export {
 
 export { APP_SERVICE_PLANS, AppServicePlans } from './app-service-plans.tsx'
 
-export { APP_SERVICES_ICON, AppServicesIcon } from './app-services-icon.tsx'
+export { APP_SERVICES, AppServices } from './app-services.tsx'
 
 export { CDN_PROFILES, CdnProfiles } from './cdn-profiles.tsx'
 

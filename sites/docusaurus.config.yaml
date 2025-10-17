@@ -1,3 +1,6 @@
+site:
+  deploy:
+    s3Url: s3://dinghy-website-play-v1
 title: dinghy.dev
 tagline: Diagram and Infrastructure as Code with React
 url: https://dinghy.dev
@@ -14,6 +17,3 @@ themeConfig:
       href: /
   footer:
     copyright: © YYYY <a href="https://dinghy.dev">dinghy.dev</a>
-dinghySite:
-  deploy:
-    s3Url: s3://dinghy-website-play-v1

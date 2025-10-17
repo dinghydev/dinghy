@@ -54,10 +54,7 @@ export {
   KinesisVideoStreams,
 } from './kinesis-video-streams.tsx'
 
-export {
-  MEDIA_SERVICES_ICON,
-  MediaServicesIcon,
-} from './media-services-icon.tsx'
+export { MEDIA_SERVICES, MediaServices } from './media-services.tsx'
 
 export {
   MEDIACONNECT_GATEWAY,

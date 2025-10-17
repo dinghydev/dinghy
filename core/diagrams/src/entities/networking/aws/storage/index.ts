@@ -287,9 +287,9 @@ export { SNOWMOBILE, Snowmobile } from './snowmobile.tsx'
 
 export { STANDARD_IA, StandardIa } from './standard-ia.tsx'
 
-export { STORAGE_GATEWAY, StorageGateway } from './storage-gateway.tsx'
+export { STORAGE, Storage } from './storage.tsx'
 
-export { STORAGE_ICON, StorageIcon } from './storage-icon.tsx'
+export { STORAGE_GATEWAY, StorageGateway } from './storage-gateway.tsx'
 
 export { TAPE_GATEWAY, TapeGateway } from './tape-gateway.tsx'
 

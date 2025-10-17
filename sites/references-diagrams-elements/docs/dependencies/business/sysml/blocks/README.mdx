@@ -1,0 +1,67 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Sysml Blocks Dependencies
+
+
+## Dependency Relationship
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./dependency-relationship.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DependencyRelationship } from '@dinghy/diagrams/dependenciesSysmlBlocks'
+
+<DependencyRelationship/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Generalization
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./generalization.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Generalization } from '@dinghy/diagrams/dependenciesSysmlBlocks'
+
+<Generalization/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endSize=12;endArrow=block;endFill=0;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+

@@ -1,4 +1,4 @@
-export { ANALYTICS_ICON, AnalyticsIcon } from './analytics-icon.tsx'
+export { ANALYTICS, Analytics } from './analytics.tsx'
 
 export { ATHENA, Athena } from './athena.tsx'
 

@@ -1,0 +1,501 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Software Entity Relation Dependencies
+
+
+## 0 to 1
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-0-to-1.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component0To1 } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component0To1/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToOne;endFill=1;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 0 to Many Optional
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-0-to-many-optional.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component0ToManyOptional } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component0ToManyOptional/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 1
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-1.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component1 } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component1/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERone;endFill=1;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 1 Mandatory
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-1-mandatory.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component1Mandatory } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component1Mandatory/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 1 Mandatory to 1 Optional
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-1-mandatory-to-1-optional.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component1MandatoryTo1Optional } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component1MandatoryTo1Optional/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToOne;startArrow=ERmandOne;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 1 Mandatory to Many Mandatory
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-1-mandatory-to-many-mandatory.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component1MandatoryToManyMandatory } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component1MandatoryToManyMandatory/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 1 Mandatory to Many Optional
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-1-mandatory-to-many-optional.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component1MandatoryToManyOptional } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component1MandatoryToManyOptional/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 1 Optional to Many Mandatory
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-1-optional-to-many-mandatory.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component1OptionalToManyMandatory } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component1OptionalToManyMandatory/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERzeroToOne;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 1 Optional to Many Optional
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-1-optional-to-many-optional.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component1OptionalToManyOptional } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component1OptionalToManyOptional/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 1 to 1
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-1-to-1.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component1To1 } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component1To1/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## 1 to Many
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./component-1-to-many.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Component1ToMany } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Component1ToMany/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Many
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./many.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Many } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<Many/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmany;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Many Mandatory to Many Mandatory
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./many-mandatory-to-many-mandatory.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ManyMandatoryToManyMandatory } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<ManyMandatoryToManyMandatory/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERoneToMany;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Many Optional to Many Mandatory
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./many-optional-to-many-mandatory.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ManyOptionalToManyMandatory } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<ManyOptionalToManyMandatory/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERzeroToMany;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Many Optional to Many Optional
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./many-optional-to-many-optional.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ManyOptionalToManyOptional } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<ManyOptionalToManyOptional/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;startArrow=ERzeroToMany;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Many to Many
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./many-to-many.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ManyToMany } from '@dinghy/diagrams/dependenciesEntityRelation'
+
+<ManyToMany/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmany;startArrow=ERmany;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+

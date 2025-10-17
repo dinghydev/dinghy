@@ -164,9 +164,9 @@ export {
 export { MANAGED_SERVICES, ManagedServices } from './managed-services.tsx'
 
 export {
-  MANAGEMENT_GOVERNANCE_ICON,
-  ManagementGovernanceIcon,
-} from './management-governance-icon.tsx'
+  MANAGEMENT_GOVERNANCE,
+  ManagementGovernance,
+} from './management-governance.tsx'
 
 export { MANAGEMENT_CONSOLE, ManagementConsole } from './management-console.tsx'
 

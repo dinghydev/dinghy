@@ -208,16 +208,14 @@
       "name": "site",
       "args": [
         "site",
-        // "start",
+        "start",
         // "build",
         // "serve",
         // "deploy",
         // "--debug",
-        "bash",
+        // "bash",
         // "docusaurus",
         // "--",
-        // "--docker-volumes",
-        // "../references:src/docs/references",
         // "swizzle",
         // "--list"
         // "-h",
@@ -232,8 +230,8 @@
         // "DEBUG_DEPTH": "10",
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../examples/site"
-        "NODE_OPTIONS": "--max_old_space_size=8192",
-        "APP_HOME": "${workspaceFolder}/../"
+        // "NODE_OPTIONS": "--max_old_space_size=8192",
+        "APP_HOME": "${workspaceFolder}/../sites"
       },
       "type": "node",
       "request": "launch",

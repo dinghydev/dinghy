@@ -80,7 +80,7 @@ export { SETTINGS, Settings } from './settings.tsx'
 
 export { SHOPPING, Shopping } from './shopping.tsx'
 
-export { SITEMAP_ICON, SitemapIcon } from './sitemap-icon.tsx'
+export { SITEMAP, Sitemap } from './sitemap.tsx'
 
 export { SLIDESHOW, Slideshow } from './slideshow.tsx'
 

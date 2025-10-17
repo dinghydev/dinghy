@@ -45,7 +45,7 @@ export { C7G_INSTANCE, C7gInstance } from './c7g-instance.tsx'
 
 export { C7GN_INSTANCE, C7gnInstance } from './c7gn-instance.tsx'
 
-export { COMPUTE_ICON, ComputeIcon } from './compute-icon.tsx'
+export { COMPUTE, Compute } from './compute.tsx'
 
 export { COMPUTE_OPTIMIZER, ComputeOptimizer } from './compute-optimizer.tsx'
 

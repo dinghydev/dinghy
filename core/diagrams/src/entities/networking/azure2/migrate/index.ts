@@ -14,7 +14,7 @@ export {
 
 export { DATABOX_GATEWAY, DataboxGateway } from './databox-gateway.tsx'
 
-export { MIGRATE_ICON, MigrateIcon } from './migrate-icon.tsx'
+export { MIGRATE, Migrate } from './migrate.tsx'
 
 export {
   RECOVERY_SERVICES_VAULTS,

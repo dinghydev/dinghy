@@ -1,0 +1,98 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Sysml Profiles Dependencies
+
+
+## Metamodel Reference
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./metamodel-reference.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { MetamodelReference } from '@dinghy/diagrams/dependenciesSysmlProfiles'
+
+<MetamodelReference/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=top;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Profile Application
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./profile-application.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ProfileApplication } from '@dinghy/diagrams/dependenciesSysmlProfiles'
+
+<ProfileApplication/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Unidirectional Association
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./unidirectional-association.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { UnidirectionalAssociation } from '@dinghy/diagrams/dependenciesSysmlProfiles'
+
+<UnidirectionalAssociation/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endArrow=open;endSize=12;verticalAlign=bottom;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+

@@ -1,9 +1,9 @@
 export { ACTIVATE, Activate } from './activate.tsx'
 
 export {
-  CUSTOMER_ENABLEMENT_ICON,
-  CustomerEnablementIcon,
-} from './customer-enablement-icon.tsx'
+  CUSTOMER_ENABLEMENT,
+  CustomerEnablement,
+} from './customer-enablement.tsx'
 
 export { IQ, Iq } from './iq.tsx'
 

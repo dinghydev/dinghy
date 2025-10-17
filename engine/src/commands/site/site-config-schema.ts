@@ -1,7 +1,7 @@
 import { z } from 'zod'
 export const SiteConfigSchema = z.object({
   baseUrl: z.string().default('/'),
-  dinghySite: z.object({
+  site: z.object({
     deploy: z.object({
       s3Url: z.string(),
       s3Region: z.string().default('us-east-1'),
@@ -27,6 +27,7 @@ export const SiteConfigSchema = z.object({
         immutable: 's-maxage=0,max-age=0,must-revalidate',
       }),
       cleanUpStagingFiles: z.boolean().default(true),
+      volumes: z.string().array().optional(),
     }),
   }).optional(),
 })

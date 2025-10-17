@@ -1,0 +1,104 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Other Threat Modeling Containers
+
+
+## Asset Table
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./asset-table.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { AssetTable } from '@dinghy/diagrams/containersThreatModeling'
+
+<AssetTable/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    container: 'shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;shadow=1;swimlaneFillColor=#FFFFFF;fontColor=#000000;whiteSpace=wrap;html=1;',
+    entity:{
+      strokeColor:'#d6b656',fillColor:'#fff2cc',fontColor:'#000000',},
+    },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Security Control Table
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./security-control-table.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SecurityControlTable } from '@dinghy/diagrams/containersThreatModeling'
+
+<SecurityControlTable/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    container: 'shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;swimlaneFillColor=#FFFFFF;fontColor=#000000;whiteSpace=wrap;html=1;',
+    entity:{
+      strokeColor:'#82b366',fillColor:'#d5e8d4',fontColor:'#000000',},
+    },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Threat Actor Table
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./threat-actor-table.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ThreatActorTable } from '@dinghy/diagrams/containersThreatModeling'
+
+<ThreatActorTable/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    container: 'shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fillColor=#F8CECC;strokeColor=#B85450;fontStyle=1;shadow=1;swimlaneFillColor=#FFFFFF;fontColor=#000000;whiteSpace=wrap;html=1;',
+    entity:{
+      strokeColor:'#B85450',fillColor:'#F8CECC',fontColor:'#000000',},
+    },
+}
+```
+
+  </TabItem>
+</Tabs>
+

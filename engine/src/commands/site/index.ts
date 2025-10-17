@@ -22,7 +22,7 @@ const commands: Commands = {
   docusaurus: createDocusaurusCommand(
     'Run docusaurus command with arbitrary arguments',
     ['yarn', 'docusaurus'],
-    true,
+    false,
   ),
   bash: createDocusaurusCommand(
     'Run bash in the docusaurus container',

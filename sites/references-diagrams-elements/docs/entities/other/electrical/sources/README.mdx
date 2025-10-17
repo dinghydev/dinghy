@@ -1,0 +1,783 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Electrical Sources Entities
+
+
+## Accumulator / Monocell Battery
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./accumulator-monocell-battery.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { AccumulatorMonocellBattery } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<AccumulatorMonocellBattery/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;fillColor=strokeColor;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.electrical.miscellaneous.monocell_battery;',
+  },
+  _width: 100,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Battery Stack
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./battery-stack.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { BatteryStack } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<BatteryStack/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.miscellaneous.batteryStack;',
+  },
+  _width: 100,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Current
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./current.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Current } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Current/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.current_source;',
+  },
+  _width: 40,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## DC
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./dc.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Dc } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Dc/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.dc_source_1;',
+  },
+  _original_width: 70,
+  _original_height: 75,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Multicell Battery Tapped
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./multicell-battery-tapped.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { MulticellBatteryTapped } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<MulticellBatteryTapped/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;fillColor=strokeColor;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.electrical.miscellaneous.multicell_battery_tapped;',
+  },
+  _width: 100,
+  _height: 70,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Source } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Source/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=ac;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source 2
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-2.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Source2 } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Source2/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=dc1;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source 3
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-3.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Source3 } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Source3/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=dc3;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source 4
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-4.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Source4 } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Source4/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=none;elSourceType=dependent;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source 5
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-5.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Source5 } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Source5/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=dc2;elSourceType=dependent;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source 6
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-6.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Source6 } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Source6/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSourceType=dependent;elSignalType=dc3;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source 7
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-7.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Source7 } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Source7/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=noise;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source 8
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-8.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Source8 } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Source8/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=ideal;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source 9
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-9.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Source9 } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<Source9/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=expSquib;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source, Chopped Square
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-chopped-square.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SourceChoppedSquare } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<SourceChoppedSquare/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=chopSquare;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source, DC
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-dc.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SourceDc } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<SourceDc/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=dc2;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source, Inverse Pulse
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-inverse-pulse.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SourceInversePulse } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<SourceInversePulse/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=invPulse;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source, Pulse
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-pulse.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SourcePulse } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<SourcePulse/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=pulse;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source, Sawtooth
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-sawtooth.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SourceSawtooth } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<SourceSawtooth/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=sawtooth;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source, Square
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-square.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SourceSquare } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<SourceSquare/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=square;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source, Step Off
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-step-off.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SourceStepOff } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<SourceStepOff/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=stepOff;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source, Step On
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-step-on.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SourceStepOn } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<SourceStepOn/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=stepOn;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Source, Triangular
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./source-triangular.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SourceTriangular } from '@dinghy/diagrams/entitiesElectricalSources'
+
+<SourceTriangular/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.signal_sources.source;aspect=fixed;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0]];elSignalType=triangular;',
+  },
+  _original_width: 60,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+

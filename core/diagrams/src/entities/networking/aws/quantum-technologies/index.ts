@@ -42,6 +42,6 @@ export {
 } from './braket-tensor-network.tsx'
 
 export {
-  QUANTUM_TECHNOLOGIES_ICON,
-  QuantumTechnologiesIcon,
-} from './quantum-technologies-icon.tsx'
+  QUANTUM_TECHNOLOGIES,
+  QuantumTechnologies,
+} from './quantum-technologies.tsx'

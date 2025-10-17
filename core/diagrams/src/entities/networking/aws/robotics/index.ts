@@ -12,6 +12,6 @@ export { FLEET_MANAGEMENT, FleetManagement } from './fleet-management.tsx'
 
 export { ROBOMAKER, Robomaker } from './robomaker.tsx'
 
-export { ROBOTICS_ICON, RoboticsIcon } from './robotics-icon.tsx'
+export { ROBOTICS, Robotics } from './robotics.tsx'
 
 export { SIMULATION, Simulation } from './simulation.tsx'

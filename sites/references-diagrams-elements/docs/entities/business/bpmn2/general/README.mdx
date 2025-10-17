@@ -1,0 +1,936 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# BPMN 2.0 General Entities
+
+
+## Annotation
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./annotation.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Annotation } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<Annotation/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;',
+  },
+  _width: 50,
+  _height: 100,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Call Conversation
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./call-conversation.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { CallConversation } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<CallConversation/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.conversation2;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;aspect=fixed;bpmnConversationType=call;',
+  },
+  _original_width: 70,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Call Sub-Conversation
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./call-sub-conversation.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { CallSubConversation } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<CallSubConversation/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.conversation2;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;aspect=fixed;bpmnConversationType=call;isLoopSub=1;',
+  },
+  _original_width: 70,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Conversation
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./conversation.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Conversation } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<Conversation/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.conversation2;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;aspect=fixed;bpmnConversationType=conv;',
+  },
+  _original_width: 70,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Cross-Functional Flowchart
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./cross-functional-flowchart.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { CrossFunctionalFlowchart } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<CrossFunctionalFlowchart/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=table;childLayout=tableLayout;startSize=40;collapsible=0;recursiveResize=0;expand=0;fontSize=16;fontStyle=1',
+  },
+  _original_width: 400,
+  _original_height: 400,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Data Input
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./data-input.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DataInput } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<DataInput/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.data2;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=15;html=1;bpmnTransferType=input;',
+  },
+  _width: 40,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Data Input Collection
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./data-input-collection.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DataInputCollection } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<DataInputCollection/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.data2;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=15;html=1;bpmnTransferType=input;isCollection=1;',
+  },
+  _width: 40,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Data Object
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./data-object.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DataObject } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<DataObject/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.data2;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=15;html=1;',
+  },
+  _width: 40,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Data Object 2
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./data-object-2.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DataObject2 } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<DataObject2/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];rounded=1;dashed=1;dashPattern=5 2 1 2;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;fontSize=8;html=1;whiteSpace=wrap;',
+  },
+  _width: 140,
+  _height: 80,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Data Object Collection
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./data-object-collection.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DataObjectCollection } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<DataObjectCollection/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.data2;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=15;html=1;bpmnTransferType=none;isCollection=1;',
+  },
+  _width: 40,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Data Output
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./data-output.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DataOutput } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<DataOutput/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.data2;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=15;html=1;bpmnTransferType=output;',
+  },
+  _width: 40,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Data Output Collection
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./data-output-collection.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DataOutputCollection } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<DataOutputCollection/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.data2;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;size=15;html=1;bpmnTransferType=output;isCollection=1;',
+  },
+  _width: 40,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Data Store
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./data-store.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DataStore } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<DataStore/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=datastore;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;',
+  },
+  _original_width: 100,
+  _original_height: 100,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Group
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./group.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Group } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<Group/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];rounded=1;arcSize=10;dashed=1;fillColor=none;gradientColor=none;dashPattern=8 3 1 3;strokeWidth=2;whiteSpace=wrap;html=1;',
+  },
+  _original_width: 200,
+  _original_height: 200,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Horizontal Lane
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./horizontal-lane.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { HorizontalLane } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<HorizontalLane/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;html=1;startSize=20;fontStyle=0;collapsible=0;horizontal=0;swimlaneLine=0;fillColor=none;whiteSpace=wrap;',
+  },
+  _width: 440,
+  _height: 100,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Horizontal Lane 2
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./horizontal-lane-2.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { HorizontalLane2 } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<HorizontalLane2/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;html=1;startSize=20;fontStyle=0;collapsible=0;horizontal=0;swimlaneLine=1;swimlaneFillColor=#ffffff;strokeWidth=2;whiteSpace=wrap;',
+  },
+  _width: 440,
+  _height: 100,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Horizontal Lane 3
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./horizontal-lane-3.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { HorizontalLane3 } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<HorizontalLane3/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.swimlane;html=1;startSize=20;horizontal=0;swimlaneLine=1;collapsible=0;fontStyle=0;swimlaneFillColor=#ffffff;strokeWidth=2;isCollection=1;whiteSpace=wrap;',
+  },
+  _width: 440,
+  _height: 100,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Horizontal Pool 1
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./horizontal-pool-1.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { HorizontalPool1 } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<HorizontalPool1/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=1;startSize=20;horizontalStack=0;whiteSpace=wrap;',
+  },
+  _width: 480,
+  _height: 380,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Horizontal Pool 2
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./horizontal-pool-2.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { HorizontalPool2 } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<HorizontalPool2/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;whiteSpace=wrap;',
+  },
+  _width: 480,
+  _height: 360,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Horizontal Swimlane
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./horizontal-swimlane.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { HorizontalSwimlane } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<HorizontalSwimlane/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;startSize=20;horizontal=0;html=1;whiteSpace=wrap;',
+  },
+  _width: 320,
+  _height: 120,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Sub-Conversation
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./sub-conversation.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { SubConversation } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<SubConversation/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.conversation2;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;aspect=fixed;bpmnConversationType=conv;isLoopSub=1;',
+  },
+  _original_width: 70,
+  _original_height: 60,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Text Annotation
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./text-annotation.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { TextAnnotation } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<TextAnnotation/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;',
+  },
+  _width: 80,
+  _height: 30,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Vertical Lane
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./vertical-lane.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { VerticalLane } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<VerticalLane/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;html=1;startSize=20;fontStyle=0;collapsible=0;horizontal=1;swimlaneLine=0;fillColor=none;whiteSpace=wrap;',
+  },
+  _width: 440,
+  _height: 100,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Vertical Lane 2
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./vertical-lane-2.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { VerticalLane2 } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<VerticalLane2/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;html=1;startSize=20;fontStyle=0;collapsible=0;horizontal=1;swimlaneLine=1;strokeWidth=2;swimlaneFillColor=#ffffff;whiteSpace=wrap;',
+  },
+  _width: 220,
+  _height: 100,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Vertical Lane 3
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./vertical-lane-3.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { VerticalLane3 } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<VerticalLane3/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=mxgraph.bpmn.swimlane;html=1;startSize=20;horizontal=1;swimlaneLine=1;collapsible=0;fontStyle=0;strokeWidth=2;swimlaneFillColor=#ffffff;isCollection=1;whiteSpace=wrap;',
+  },
+  _width: 220,
+  _height: 100,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Vertical Pool 1
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./vertical-pool-1.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { VerticalPool1 } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<VerticalPool1/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;whiteSpace=wrap;',
+  },
+  _width: 360,
+  _height: 480,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Vertical Pool 2
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./vertical-pool-2.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { VerticalPool2 } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<VerticalPool2/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;horizontal=0;horizontalStack=1;whiteSpace=wrap;',
+  },
+  _width: 380,
+  _height: 480,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Vertical Swimlane
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./vertical-swimlane.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { VerticalSwimlane } from '@dinghy/diagrams/entitiesBpmn2General'
+
+<VerticalSwimlane/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;startSize=20;whiteSpace=wrap;html=1;',
+  },
+  _width: 120,
+  _height: 320,
+}
+```
+
+  </TabItem>
+</Tabs>
+

@@ -21,13 +21,13 @@ export {
 
 export { CLOCK, Clock } from './clock.tsx'
 
+export { COLLABORATION, Collaboration } from './collaboration.tsx'
+
 export { Collaboration2, COLLABORATION_2 } from './collaboration-2.tsx'
 
 export { Collaboration3, COLLABORATION_3 } from './collaboration-3.tsx'
 
 export { Collaboration4, COLLABORATION_4 } from './collaboration-4.tsx'
-
-export { COLLABORATION_ICON, CollaborationIcon } from './collaboration-icon.tsx'
 
 export {
   COMMUNICATIONS_MANAGER,

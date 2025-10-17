@@ -1,7 +1,4 @@
-export {
-  ACTIVE_DIRECTORY_ICON,
-  ActiveDirectoryIcon,
-} from './active-directory-icon.tsx'
+export { ACTIVE_DIRECTORY, ActiveDirectory } from './active-directory.tsx'
 
 export { CD_DVD, CdDvd } from './cd-dvd.tsx'
 

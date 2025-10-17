@@ -1,0 +1,98 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Sysml Model Elements Dependencies
+
+
+## Conform
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./conform.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Conform } from '@dinghy/diagrams/dependenciesSysmlModelElements'
+
+<Conform/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Package Containment
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./package-containment.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { PackageContainment } from '@dinghy/diagrams/dependenciesSysmlModelElements'
+
+<PackageContainment/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Realization
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./realization.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Realization } from '@dinghy/diagrams/dependenciesSysmlModelElements'
+
+<Realization/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endSize=12;endArrow=block;endFill=0;dashed=1;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+

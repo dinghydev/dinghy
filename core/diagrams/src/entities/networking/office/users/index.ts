@@ -75,6 +75,8 @@ export { USER_SERVICES, UserServices } from './user-services.tsx'
 
 export { USER_STORE, UserStore } from './user-store.tsx'
 
+export { USERS, Users } from './users.tsx'
+
 export { USERS_BLUE, UsersBlue } from './users-blue.tsx'
 
 export { USERS_GHOSTED, UsersGhosted } from './users-ghosted.tsx'
@@ -82,8 +84,6 @@ export { USERS_GHOSTED, UsersGhosted } from './users-ghosted.tsx'
 export { USERS_GREEN, UsersGreen } from './users-green.tsx'
 
 export { USERS_ORANGE, UsersOrange } from './users-orange.tsx'
-
-export { USERS_ICON, UsersIcon } from './users-icon.tsx'
 
 export { USERS_TWO, UsersTwo } from './users-two.tsx'
 

@@ -1,1 +1,1 @@
-export { GENERIC_ICON, GenericIcon } from './generic-icon.tsx'
+export { GENERIC, Generic } from './generic.tsx'

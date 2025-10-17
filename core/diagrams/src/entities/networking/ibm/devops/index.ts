@@ -21,7 +21,7 @@ export { CONTINUOUS_DEPLOY, ContinuousDeploy } from './continuous-deploy.tsx'
 
 export { CONTINUOUS_TESTING, ContinuousTesting } from './continuous-testing.tsx'
 
-export { DEVOPS_ICON, DevopsIcon } from './devops-icon.tsx'
+export { DEVOPS, Devops } from './devops.tsx'
 
 export { PROVISION, Provision } from './provision.tsx'
 

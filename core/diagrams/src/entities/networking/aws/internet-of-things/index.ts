@@ -143,10 +143,7 @@ export { HUMIDITY_SENSOR, HumiditySensor } from './humidity-sensor.tsx'
 
 export { INDUSTRIAL_PC, IndustrialPc } from './industrial-pc.tsx'
 
-export {
-  INTERNET_OF_THINGS_ICON,
-  InternetOfThingsIcon,
-} from './internet-of-things-icon.tsx'
+export { INTERNET_OF_THINGS, InternetOfThings } from './internet-of-things.tsx'
 
 export {
   IOT_CORE_DEVICE_ADVISOR,

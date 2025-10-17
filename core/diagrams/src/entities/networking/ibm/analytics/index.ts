@@ -1,4 +1,4 @@
-export { ANALYTICS_ICON, AnalyticsIcon } from './analytics-icon.tsx'
+export { ANALYTICS, Analytics } from './analytics.tsx'
 
 export { DATA_INTEGRATION, DataIntegration } from './data-integration.tsx'
 

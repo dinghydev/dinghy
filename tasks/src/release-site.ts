@@ -9,8 +9,8 @@ if (import.meta.main) {
     input: `
       set -e
       cd ../engine/
-      deno run -A src/index.ts site build --app-home ./../ --site ${site}
-      deno run -A src/index.ts site deploy --app-home ./../ --site ${site}
+      deno run -A src/index.ts site build --app-home ./../sites/ --site ${site}
+      deno run -A src/index.ts site deploy --app-home ./../sites/ --site ${site}
     `,
   })`sh`
   console.log('Released site for', Deno.args[0])

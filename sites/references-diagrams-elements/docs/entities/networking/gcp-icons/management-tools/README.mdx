@@ -1,0 +1,406 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Gcp Icons Management Tools Entities
+
+
+## Anthos Service Mesh
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./anthos-service-mesh.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { AnthosServiceMesh } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<AnthosServiceMesh/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjM3My4xMTQ5NzU3NzgxNzE2NCIgaGVpZ2h0PSIzODMuMTM4MDM1MDYzOTUxOCIgdmlld0JveD0iMCAwIDk4LjcxOTk5MzU5MTMwODYgMTAxLjM3MjAwOTI3NzM0Mzc1Ij4mI3hhOzxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7PC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNjguMTk1IDBjLTUuMDExIDAtOS4wNzQgNC4wNjItOS4wNzQgOS4wNzMuMDAyLjc3OS4xMDUgMS41NTUuMzA1IDIuMzA4TDQ5LjMwNSAyMS41ODdsLTkuODExLTkuNTk3Yy4yNjItLjg1OS4zOTYtMS43NTEuMzk2LTIuNjQ5IDAtMi40MDctLjk1Ni00LjcxNS0yLjY1OC02LjQxNlMzMy4yMjMuMjY3IDMwLjgxNi4yNjdzLTQuNzE1Ljk1Ni02LjQxNiAyLjY1OC0yLjY1OCA0LjAxLTIuNjU4IDYuNDE2Ljk1NiA0LjcxNSAyLjY1OCA2LjQxNiA0LjAxIDIuNjU4IDYuNDE2IDIuNjU4Yy4yOTktLjAwMi41OTgtLjAxOC44OTUtLjA1bDEwLjU1MyAxMC4zMjMtMTQuNjIxIDE0Ljc0Mi05LjQ1Ni05Ljc4OGMuMTQ0LS42NDUuMjE2LTEuMzAzLjIxNy0xLjk2NCAwLTUuMDExLTQuMDYyLTkuMDc0LTkuMDczLTkuMDc0LTIuNDA3IDAtNC43MTUuOTU2LTYuNDE2IDIuNjU4Uy4yNTcgMjkuMjczLjI1NyAzMS42NzlzLjk1NiA0LjcxNSAyLjY1OCA2LjQxNiA0LjAxIDIuNjU4IDYuNDE2IDIuNjU4Yy41NTktLjAwMiAxLjExNi0uMDU2IDEuNjY2LS4xNjFsMzEuMDM3IDMyLjEyNi0xMC4wODggMTAuNDA1Yy0uMzgxLS4wNDktLjc2NS0uMDczLTEuMTQ5LS4wNzMtMi40MDcgMC00LjcxNS45NTYtNi40MTYgMi42NThzLTIuNjU4IDQuMDEtMi42NTggNi40MTYuOTU2IDQuNzE1IDIuNjU4IDYuNDE2IDQuMDEgMi42NTggNi40MTYgMi42NTggNC43MTUtLjk1NiA2LjQxNi0yLjY1OCAyLjY1OC00LjAxIDIuNjU4LTYuNDE2YzAtLjgzMS0uMTE1LTEuNjU3LS4zNC0yLjQ1N2wyNi4zMjUtMjcuMTUtNy4xOC02Ljk2My05LjY3NyA5Ljk4MS0xNC40MDYtMTQuOTEgMzIuMzAxLTMyLjU3M2MuNDMxLjA2My44NjYuMDk1IDEuMzAyLjA5NiAyLjQwNyAwIDQuNzE1LS45NTYgNi40MTYtMi42NThzMi42NTgtNC4wMSAyLjY1OC02LjQxNkM3Ny4yNjkgNC4wNjIgNzMuMjA2IDAgNjguMTk1IDB6bTIxLjQ1MSAyMi40NDFjLTIuNDA3IDAtNC43MTUuOTU2LTYuNDE2IDIuNjU4cy0yLjY1OCA0LjAxLTIuNjU4IDYuNDE2Yy4wMDIuNTkzLjA2MiAxLjE4My4xNzkgMS43NjRMNzAuNTA0IDQzLjUzNmwtOS42NTYtOS45MzctNy4xNzQgNi45NjlMODAuNDk1IDY4LjE3Yy0uMTEuNTYyLS4xNjYgMS4xMzQtLjE2OCAxLjcwNyAwIDIuNDA3Ljk1NiA0LjcxNSAyLjY1OCA2LjQxNnM0LjAxIDIuNjU4IDYuNDE2IDIuNjU4YzUuMDExIDAgOS4wNzMtNC4wNjMgOS4wNzMtOS4wNzRzLTQuMDYyLTkuMDc0LTkuMDczLTkuMDc0Yy0uNjQ1LjAwMS0xLjI4OC4wNzEtMS45MTguMjA4bC0xMC4wMS0xMC4zMDRMODcuNzgxIDQwLjM5Yy42MTMuMTMgMS4yMzguMTk3IDEuODY1LjE5OCAyLjQwNyAwIDQuNzE1LS45NTYgNi40MTYtMi42NThzMi42NTgtNC4wMSAyLjY1OC02LjQxNi0uOTU2LTQuNzE1LTIuNjU4LTYuNDE2LTQuMDEtMi42NTgtNi40MTYtMi42NTh6bS03My41MzQgMzMuMjJsLTUuMDgxIDUuMjU3Yy0uNjQzLS4xNDItMS4yOTktLjIxNC0xLjk1Ny0uMjE0LTIuNDA3IDAtNC43MTUuOTU2LTYuNDE2IDIuNjU4UzAgNjcuMzcxIDAgNjkuNzc3cy45NTYgNC43MTUgMi42NTggNi40MTYgNC4wMSAyLjY1OCA2LjQxNiAyLjY1OCA0LjcxNS0uOTU2IDYuNDE2LTIuNjU4IDIuNjU4LTQuMDEgMi42NTgtNi40MTZjMC0uNTYxLS4wNTItMS4xMjEtLjE1Ni0xLjY3Mmw1LjMxLTUuNDkyem00NC4yMjMgMjEuNzZsLTYuODkzIDcuMjQ0IDUuNTE1IDUuMjQ5Yy0uMjE0Ljc3Ny0uMzIzIDEuNTc4LS4zMjUgMi4zODQgMCAyLjQwNy45NTYgNC43MTUgMi42NTggNi40MTZzNC4wMSAyLjY1OCA2LjQxNiAyLjY1OCA0LjcxNS0uOTU2IDYuNDE2LTIuNjU4IDIuNjU4LTQuMDEgMi42NTgtNi40MTYtLjk1Ni00LjcxNS0yLjY1OC02LjQxNi00LjAxLTIuNjU4LTYuNDE2LTIuNjU4Yy0uMzk3LjAwMi0uNzk0LjAyOS0xLjE4Ny4wODN6Ii8+JiN4YTs8L3N2Zz4=;strokeColor=none;',
+  },
+  _original_width: 40,
+  _original_height: 40,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Cloud Billing API
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./cloud-billing-api.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { CloudBillingApi } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<CloudBillingApi/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjQyNCIgaGVpZ2h0PSI0MjQiIHZpZXdCb3g9IjAgMCA0MjQgNDI0Ij4mI3hhOwk8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNDI4NWY0O30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQgMHY0MjRIMFYwek0yMTIgOTcuODQ2Yy0zNy44ODQgMC03MC4xNjQgMjMuOTktODIuNDc4IDU3LjYwOGgwbC0zLjQwMy4wMDFjLTQyLjYzNCAwLTc3LjE5NiAzNC41NjItNzcuMTk2IDc3LjE5NnMzNC41NjIgNzcuMTk2IDc3LjE5NiA3Ny4xOTZoMCAxNzEuNzYzYzQyLjYzNCAwIDc3LjE5Ni0zNC41NjIgNzcuMTk2LTc3LjE5NnMtMzQuNTYyLTc3LjE5Ni03Ny4xOTYtNzcuMTk2aDBsLTMuNDAzLS4wMDFDMjgyLjE2NCAxMjEuODM3IDI0OS44ODQgOTcuODQ2IDIxMiA5Ny44NDZ6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4mI3hhOzwvc3ZnPg==;strokeColor=none;',
+  },
+  _original_width: 40,
+  _original_height: 40,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Cloud Console
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./cloud-console.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { CloudConsole } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<CloudConsole/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE4Ljk1MDAwMDc2MjkzOTQ1MyIgdmlld0JveD0iMCAwIDIwIDE4Ljk1MDAwMDc2MjkzOTQ1MyI+JiN4YTsJPHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGw6IzQyODVmNDt9JiN4YTsJLnN0MXtmaWxsOiM2NjlkZjY7fSYjeGE7CS5zdDJ7ZmlsbDojYWVjYmZhO30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04IDEzLjk1aDR2NEg4eiIvPiYjeGE7CTxnIGZpbGwtcnVsZT0iZXZlbm9kZCI+JiN4YTsJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xMS42NSA0LjQ3TDE3IDkuOFY3Ljc5bC00LjM0LTQuMzN6Ii8+JiN4YTsJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMi42NiAzLjQ2bDEuMDEgMS4wMXYyLjAxbC0yLjAyLTIuMDF6Ii8+JiN4YTsJCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMi42NiAzLjQ2bDEuMDEgMS4wMS00LjczIDQuNzItMS4wMS0xLjAxeiIvPiYjeGE7CQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNy4xIDUuMzNsMi44NSAyLjg1LTEuMDEgMS4wMS0yLjg2LTIuODV6Ii8+JiN4YTsJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik03LjEgNS4zM2wuOTguOTh2Mi4wMmwtMi0xLjk5eiIvPiYjeGE7CQk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNy4wNyA1LjNMMyA5LjM2djEuNThoLjQ0bDQuNjQtNC42M3oiLz4mI3hhOwkJPHBhdGggY2xhc3M9InN0MSIgZD0iTTIwIDFhMS4yNCAxLjI0IDAgMCAwLTEtMUgxYTEuMjQgMS4yNCAwIDAgMC0xIDF2MTIuOTVhMS4xOSAxLjE5IDAgMCAwIDEgMWgxOGExLjE5IDEuMTkgMCAwIDAgMS0xem0tMiAxMS45NUgydi0xMWgxNnptLTEyIDZjMC0uNjkuMzEtMSAxLTFoNmMuNjkgMCAxIC4zMSAxIDF6Ii8+JiN4YTsJPC9nPiYjeGE7PC9zdmc+;strokeColor=none;',
+  },
+  _width: 40,
+  _height: 38,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Cloud Deployment Manager
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./cloud-deployment-manager.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { CloudDeploymentManager } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<CloudDeploymentManager/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjEzLjUyOTk5OTczMjk3MTE5MSIgdmlld0JveD0iLTIuOTMyMDk3ODk3ODEyMDE0ZS05IC01LjI1ODAxNTA0MTgzNzk1NmUtMTUgMjAgMTMuNTI5OTk5NzMyOTcxMTkxIj4mI3hhOwk8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNDI4NWY0O30mI3hhOwkuc3Qxe2ZpbGw6IzY2OWRmNjt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNOC44MyAxMC41OGgyLjMzdjIuNjRIOC44M3oiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTYuNDggOC42MWEuNTYuNTYgMCAwIDEtLjQtLjE3TDEyIDQuMjEgOS4yNiA3LjFhLjU3LjU3IDAgMCAxLS43Ni4wNUw2LjQyIDUuNDdsLTIuMiAyLjkyYS41Ni41NiAwIDAgMS0uNDUuMjJIMHYxLjcxYS43NS43NSAwIDAgMCAuNzQuNzVoMTguNTJhLjc1Ljc1IDAgMCAwIC43NC0uNzVWOC42MXoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMy41IDcuNWwyLjM4LTMuMTZhLjU1LjU1IDAgMCAxIC4zNy0uMjIuNjMuNjMgMCAwIDEgLjQyLjEybDIuMTIgMS43MiAyLjgtMi45NGEuNTQuNTQgMCAwIDEgLjQtLjE3aDBhLjU0LjU0IDAgMCAxIC40LjE3bDQuMzMgNC40OEgyMFYuNzRhLjc0Ljc0IDAgMCAwLS43NC0uNzRILjc0QS43NC43NCAwIDAgMCAwIC43NHY2LjgxeiIvPiYjeGE7CTxyZWN0IGNsYXNzPSJzdDAiIHg9IjYuNjciIHk9IjEyLjkyIiB3aWR0aD0iNi42NyIgaGVpZ2h0PSIuNjEiIHJ4PSIuMyIvPiYjeGE7PC9zdmc+;strokeColor=none;',
+  },
+  _width: 40,
+  _height: 28.000000000000004,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Cloud Logging
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./cloud-logging.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { CloudLogging } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<CloudLogging/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE5IiB2aWV3Qm94PSIwIDAgMjAgMTkiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwkuc3Qye2ZpbGw6I2FlY2JmYTt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8ZyBjbGFzcz0ic3QwIj4mI3hhOwkJPHBhdGggZD0iTTQgOWg0djJINHptLTIgN2g2djJIMnoiLz4mI3hhOwkJPHBhdGggZD0iTTQgNEgydjEyaDJ6Ii8+JiN4YTsJPC9nPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yMCAxSDd2NGgxM3ptMCA3SDd2NGgxM3ptMCA3SDd2NGgxM3oiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNiAwSDB2Nmg2eiIvPiYjeGE7PC9zdmc+;strokeColor=none;',
+  },
+  _width: 40,
+  _height: 38,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Cloud Shell
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./cloud-shell.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { CloudShell } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<CloudShell/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjM3NS44NTAyODQ2NDQwODg3MyIgaGVpZ2h0PSIzNTMuODA1Nzc3NDY3NzY5NyIgdmlld0JveD0iMC4yNTU5OTk1NjUxMjQ1MTE3IDAuNDI2MDAwMDI4ODQ4NjQ4MDcgOTkuNDQzNjU2OTIxMzg2NzIgOTMuNjExMDAwMDYxMDM1MTYiPiYjeGE7PHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGw6I2FlY2JmYTt9JiN4YTsJLnN0MXtmaWxsOiNmZmY7fSYjeGE7CS5zdDJ7ZmlsbDojNDI4NWY0O30mI3hhOwkuc3Qze2ZpbGw6IzY2OWRmNjt9JiN4YTs8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04LjU0NCA3MS45MjhjLTQuODE1IDAtOC4yODgtMy44ODktOC4yODgtOC4zMjdWNy45ODNDLjI1NyA0LjY1IDQuMDcyLjQyNiA3LjQ5NS40MjZoODMuOTUyYzQuNzA1IDAgOC4yNTIgMy4zNzkgOC4yNTIgOC4xNzR2NTEuNDk1Yy4wNDcgNy41OTUtMi40NyAxMS44MzQtOS4wMTIgMTEuODM0eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yOC4wNDYgNTcuMTV2LTkuOTIybDMxLjg4Mi0xMy44OTEtMzEuODgyLTEzLjY5MlY5LjI2MWw0NS44MDYgMTguOTg0djkuNzl6bTI1LjIzNSAzLjY3MXYtMTAuNTVoMjAuMDc1djEwLjU1eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik00MC4wMyA4My41MjRWNzEuOTI4aDIwLjI5NXYxMS41OTZ6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MyIgZD0iTTY5Ljg3MyA4My41MjR2MTAuNTEzSDMwLjFWODMuNTI0eiIvPiYjeGE7PC9zdmc+;strokeColor=none;',
+  },
+  _width: 40,
+  _height: 38,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## CloudAPIs
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./cloudapis.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Cloudapis } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<Cloudapis/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwkuc3Qye2ZpbGw6I2FlY2JmYTt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTQuNDkgMTBMMTAgMTQuNDkgNS41MSAxMCAxMCA1LjUxek0xMCAxMi45MUwxMi45MSAxMCAxMCA3LjA5IDcuMDkgMTB6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTIwIDEwaC0yLjY1bC0zLjAyIDMuMDJoMi42NXoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMjAgMTBsLTMuMDItMy4wMmgtMi42NUwxNy4zNSAxMHpNMCAxMGgyLjY1bDMuMDItMy4wMkgzLjAyeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik01LjY3IDEzLjAyTDIuNjUgMTBIMGwzLjAyIDMuMDJ6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MiIgZD0iTTEwIDIuNjVWMEw2Ljk4IDMuMDJ2Mi42NXoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTMuMDIgNS42N1YzLjAyTDEwIDB2Mi42NXoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTAgMjB2LTIuNjVsLTMuMDItMy4wMnYyLjY1eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xMy4wMiAxNi45OHYtMi42NUwxMCAxNy4zNVYyMHoiLz4mI3hhOzwvc3ZnPg==;strokeColor=none;',
+  },
+  _original_width: 40,
+  _original_height: 40,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Debugger
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./debugger.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Debugger } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<Debugger/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjE2LjEyMDAwMDgzOTIzMzQiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxNi4xMjAwMDA4MzkyMzM0IDIwIj4mI3hhOwk8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNDI4NWY0O30mI3hhOwkuc3Qxe2ZpbGw6IzY2OWRmNjt9JiN4YTsJLnN0MntmaWxsOiNhZWNiZmE7fSYjeGE7CTwvc3R5bGU+JiN4YTsJPHBhdGggY2xhc3M9InN0MiIgZD0iTTEyLjEyIDJ2MmgydjJoMlYyek0wIDZoMi4xMlY0aDJWMmgtNHY0eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNi4xMiA2VjJsLTIgMnYyem0tMiAzbC04IDExVjl6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MCIgZD0iTTYuMTIgOC4xMmw0IDIuODgtNCA1LjAzeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMC4xMiAwdjExaC04eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMi4xMiAxNmgydi0yaDJ2NGgtNHoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMi4xMiAxNnYtMmgtMnY0aDQuMTMtLjEzdi0yeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0yLjEyIDE2di0yaC0ydjR6Ii8+JiN4YTs8L3N2Zz4=;strokeColor=none;',
+  },
+  _width: 32,
+  _height: 40,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Error Reporting
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./error-reporting.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ErrorReporting } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<ErrorReporting/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0wIDE1bDUgNWg1bC0yLjUtMi44Nkg2LjI1bC0zLjM5LTMuMzl2LTcuNWwzLjM5LTMuMzlINy41TDEwIDBINUwwIDV6TTEzLjc1IDIuODZsMy4zOSAzLjM5djcuNWwtMy4zOSAzLjM5SDEwTDEyLjUgMjBIMTVsNS01VjVsLTUtNWgtMi41TDEwIDIuODZ6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTAgMTBMNy41IDcuNSAxMCA1SDcuNUw1IDcuNXY1TDcuNSAxNUgxMGwtMi41LTIuNXptMi41IDBMMTAgMTIuNWwyLjUgMi41IDIuNS0yLjV2LTVMMTIuNSA1IDEwIDcuNXoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPiYjeGE7PC9zdmc+;strokeColor=none;',
+  },
+  _original_width: 40,
+  _original_height: 40,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Profiler
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./profiler.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Profiler } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<Profiler/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjMxNC44ODMzMTI4NTM1OTA3IiBoZWlnaHQ9IjM3Ny4zNTIwNjc2NDgzMTU0IiB2aWV3Qm94PSItMC41MDE5OTg5MDEzNjcxODc1IDAuMDEzMDAwMDAwMjY4MjIwOTAxIDgzLjMxMjk5NTkxMDY0NDUzIDk5Ljg0MTAwMzQxNzk2ODc1Ij4mI3hhOzxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiNhZWNiZmE7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOzwvc3R5bGU+JiN4YTsJPHBhdGggY2xhc3M9InN0MCIgZD0iTTM5LjQ5OSAzOS42NzJ2MjAuMDI5TDIyLjk3MyA3MS42N2EyMC4yNCAyMC4yNCAwIDAgMCAzMC43ODIgMi41NTQgMjAuMjQgMjAuMjQgMCAwIDAgNS45MjgtMTQuMzEyYzAtMTEuMTU3LTkuMDI4LTIwLjIwOS0yMC4xODUtMjAuMjR6bS0xLjMwNC4wMzlsLS4wNDkuMDAzLjA0OS0uMDAzem0tLjk2LjA4OWEyMC4yNCAyMC4yNCAwIDAgMC0xNy41MyAxNS42NzNjMS45MzgtOC4zMDYgOS4xNjMtMTQuNjg0IDE3LjUzLTE1LjY3M3pNMTkuNjEyIDU1Ljg5MmwtLjA3Mi4zNTcuMDcyLS4zNTd6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTM5LjQ5OSA1OS43MDFMMjIuOTY2IDcxLjY3NmEyMC4xNSAyMC4xNSAwIDAgMS0zLjc3Mi0xMS43N2MwLTExLjE3OSA5LjUzOC0yMC4yNDEgMjAuMzA0LTIwLjI0MXptMzUuNTE1LTQ0LjY2NUw2Mi42MzIgMjcuNDc2Yy02LjU0OC00LjY5OS0xNC41NjQtNy40NzItMjMuMjA4LTcuNDcyLTIxLjk5MSAwLTM5LjkyNiAxNy45MzUtMzkuOTI2IDM5LjkyNnMxNy45MzUgMzkuOTI0IDM5LjkyNiAzOS45MjRTNzkuMzQ4IDgxLjkyIDc5LjM0OCA1OS45MjljMC05LjM5NC0zLjI3NC0xOC4wNDYtOC43MzctMjQuODc4bDEyLjItMTIuMjU0em0tMzUuNTkgMTQuOTY3YTI5Ljg1IDI5Ljg1IDAgMCAxIDI5LjkyNCAyOS45MjYgMjkuODUgMjkuODUgMCAwIDEtMjkuOTI0IDI5LjkyNEEyOS44NSAyOS44NSAwIDAgMSA5LjQ5OCA1OS45MjljMC0xNi41ODYgMTMuMzM5LTI5LjkyNiAyOS45MjYtMjkuOTI2ek02MC4xODUuMDEzTDE5LjU3Mi4wOGwuMDE2IDkuNSA0MC42MTMtLjA2NnoiLz4mI3hhOzwvc3ZnPg==;strokeColor=none;',
+  },
+  _width: 34,
+  _height: 40,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Stackdriver
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./stackdriver.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Stackdriver } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<Stackdriver/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjQxNiIgaGVpZ2h0PSIzNjIuMjAwMDEyMjA3MDMxMjUiIHZpZXdCb3g9IjAgMCA0MTYgMzYyLjIwMDAxMjIwNzAzMTI1Ij4mI3hhOwk8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNDI4NWY0O30mI3hhOwkuc3Qxe2ZpbGw6IzY2OWRmNjt9JiN4YTsJLnN0MntmaWxsOiNhZWNiZmE7fSYjeGE7CTwvc3R5bGU+JiN4YTsJPHBhdGggY2xhc3M9InN0MiIgZD0iTTk2LjAzIDBMMCAxNjcuMTdoMTkwLjY3TDI4Ny45NCAweiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yODcuNTkgMzYyLjJsLTk1LjY4LTE2Ny4xN0gwTDk1LjY4IDM2Mi4yeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik00MTYgMTgxLjFMMzIwIDEzLjMxIDIyMy44OCAxODEuMSAzMjAgMzQ4Ljl6Ii8+JiN4YTs8L3N2Zz4=;strokeColor=none;',
+  },
+  _width: 40,
+  _height: 34,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Trace
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./trace.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Trace } from '@dinghy/diagrams/entitiesGcpIconsManagementTools'
+
+<Trace/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMCA4SDEwdjRoMTB6bTAgOEgxMHY0aDEweiIgZmlsbD0iIzQyODVmNCIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xMCAxNkg2djRoNHpNMCAwaDZ2NEgwem0wIDhoMTB2NEgweiIgZmlsbD0iIzY2OWRmNiIvPiYjeGE7PC9zdmc+;strokeColor=none;',
+  },
+  _original_width: 40,
+  _original_height: 40,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+

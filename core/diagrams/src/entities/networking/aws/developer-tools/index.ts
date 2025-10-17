@@ -32,10 +32,7 @@ export {
 
 export { CORRETTO, Corretto } from './corretto.tsx'
 
-export {
-  DEVELOPER_TOOLS_ICON,
-  DeveloperToolsIcon,
-} from './developer-tools-icon.tsx'
+export { DEVELOPER_TOOLS, DeveloperTools } from './developer-tools.tsx'
 
 export {
   FAULT_INJECTION_SERVICE,

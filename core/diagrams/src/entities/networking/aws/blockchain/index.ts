@@ -1,6 +1,6 @@
-export { Blockchain2, BLOCKCHAIN_2 } from './blockchain-2.tsx'
+export { BLOCKCHAIN, Blockchain } from './blockchain.tsx'
 
-export { BLOCKCHAIN_ICON, BlockchainIcon } from './blockchain-icon.tsx'
+export { Blockchain2, BLOCKCHAIN_2 } from './blockchain-2.tsx'
 
 export { MANAGED_BLOCKCHAIN, ManagedBlockchain } from './managed-blockchain.tsx'
 

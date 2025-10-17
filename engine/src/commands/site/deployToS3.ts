@@ -21,7 +21,7 @@ export const deployToS3 = async (
     cacheControl,
     gzipExtensions,
     cleanUpStagingFiles,
-  } = deployConfig.dinghySite!.deploy
+  } = deployConfig.site!.deploy
   const s3Bucket = s3Url.split('/')[2]
   let s3Prefix = s3Url.substring(s3Url.indexOf(s3Bucket) + s3Bucket.length + 1)
   if (s3Prefix.endsWith('/')) {
@@ -148,7 +148,11 @@ export const deployToS3 = async (
     })
 
     if (cleanUpStagingFiles) {
-      await Deno.remove(categoryPath, { recursive: true })
+      try {
+        await Deno.remove(categoryPath, { recursive: true })
+      } catch {
+        console.warn(`WARN: Failed to remove: ${categoryPath}`)
+      }
     }
   }
   console.log(

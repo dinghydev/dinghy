@@ -35,12 +35,12 @@ export { EBOOKS, Ebooks } from './ebooks.tsx'
 
 export { EXCHANGE_ACCESS, ExchangeAccess } from './exchange-access.tsx'
 
+export { INTUNE, Intune } from './intune.tsx'
+
 export {
   INTUNE_FOR_EDUCATION,
   IntuneForEducation,
 } from './intune-for-education.tsx'
-
-export { INTUNE_ICON, IntuneIcon } from './intune-icon.tsx'
 
 export { MINDARO, Mindaro } from './mindaro.tsx'
 

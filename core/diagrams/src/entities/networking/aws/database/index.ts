@@ -10,7 +10,7 @@ export { AURORA_INSTANCE_2, AuroraInstance2 } from './aurora-instance-2.tsx'
 
 export { CACHE_NODE, CacheNode } from './cache-node.tsx'
 
-export { DATABASE_ICON, DatabaseIcon } from './database-icon.tsx'
+export { DATABASE, Database } from './database.tsx'
 
 export {
   DATABASE_MIGRATION_SERVICE,

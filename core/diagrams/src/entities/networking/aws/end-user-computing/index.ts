@@ -1,9 +1,6 @@
 export { Appstream20, APPSTREAM_2_0 } from './appstream-2-0.tsx'
 
-export {
-  END_USER_COMPUTING_ICON,
-  EndUserComputingIcon,
-} from './end-user-computing-icon.tsx'
+export { END_USER_COMPUTING, EndUserComputing } from './end-user-computing.tsx'
 
 export { WORKDOCS, Workdocs } from './workdocs.tsx'
 

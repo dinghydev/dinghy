@@ -1,3 +1,3 @@
-export { AR_VR_ICON, ArVrIcon } from './ar-vr-icon.tsx'
+export { AR_VR, ArVr } from './ar-vr.tsx'
 
 export { SUMERIAN, Sumerian } from './sumerian.tsx'

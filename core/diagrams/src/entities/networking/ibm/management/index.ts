@@ -22,7 +22,7 @@ export {
   ItServiceManagement,
 } from './it-service-management.tsx'
 
-export { MANAGEMENT_ICON, ManagementIcon } from './management-icon.tsx'
+export { MANAGEMENT, Management } from './management.tsx'
 
 export { MONITORING_METRICS, MonitoringMetrics } from './monitoring-metrics.tsx'
 

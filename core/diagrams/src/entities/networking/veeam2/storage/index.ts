@@ -45,7 +45,7 @@ export { SD_CARD, SdCard } from './sd-card.tsx'
 
 export { SHARED_FOLDER, SharedFolder } from './shared-folder.tsx'
 
-export { STORAGE_ICON, StorageIcon } from './storage-icon.tsx'
+export { STORAGE, Storage } from './storage.tsx'
 
 export { STORAGE_SNAPSHOT, StorageSnapshot } from './storage-snapshot.tsx'
 

@@ -4,7 +4,7 @@ export { Container2, CONTAINER_2 } from './container-2.tsx'
 
 export { Container3, CONTAINER_3 } from './container-3.tsx'
 
-export { CONTAINERS_ICON, ContainersIcon } from './containers-icon.tsx'
+export { CONTAINERS, Containers } from './containers.tsx'
 
 export { ECS_ANYWHERE, EcsAnywhere } from './ecs-anywhere.tsx'
 

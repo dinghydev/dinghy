@@ -1,7 +1,6 @@
 {
   "name": "@dinghy/diagrams",
-  "exports": {
-    "./containersAws17Groups": "./src/containers/networking/aws17/groups/index.ts",
+  "exports": {    "./containersAws17Groups": "./src/containers/networking/aws17/groups/index.ts",
     "./containersAws18GroupsDark": "./src/containers/networking/aws18/groups-dark/index.ts",
     "./containersAws18GroupsLight": "./src/containers/networking/aws18/groups-light/index.ts",
     "./containersAwsGroups": "./src/containers/networking/aws/groups/index.ts",
@@ -516,6 +515,7 @@
     "./entitiesVmwareValidatedDesign": "./src/entities/networking/vmware-validated-design/index.ts",
     "./entitiesWebIcons": "./src/entities/other/web/icons/index.ts",
     "./entitiesWebLogos": "./src/entities/other/web/logos/index.ts",
+
     "./sequenceDiagram": "./src/composites/sequence-diagram/index.ts",
     ".": "./src/index.ts"
   }

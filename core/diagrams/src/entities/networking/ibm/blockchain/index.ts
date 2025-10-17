@@ -1,9 +1,9 @@
+export { BLOCKCHAIN, Blockchain } from './blockchain.tsx'
+
 export {
   BLOCKCHAIN_DEVELOPER,
   BlockchainDeveloper,
 } from './blockchain-developer.tsx'
-
-export { BLOCKCHAIN_ICON, BlockchainIcon } from './blockchain-icon.tsx'
 
 export {
   CERTIFICATE_AUTHORITY,

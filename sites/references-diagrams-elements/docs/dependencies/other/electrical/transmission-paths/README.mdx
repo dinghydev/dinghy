@@ -1,0 +1,98 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Electrical Transmission Paths Dependencies
+
+
+## Dashed Wire
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./dashed-wire.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DashedWire } from '@dinghy/diagrams/dependenciesElectricalTransmissionPaths'
+
+<DashedWire/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'shape=wire;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endArrow=none;curved=0;rounded=0;strokeColor=#009900;dashed=1;fillColor=#ffff00;dashPattern=12 12;fixDash=1;startSize=6;endSize=6;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Direction of Flow
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./direction-of-flow.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DirectionOfFlow } from '@dinghy/diagrams/dependenciesElectricalTransmissionPaths'
+
+<DirectionOfFlow/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'endArrow=classicThin;html=1;strokeWidth=1;endSize=20;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Transmission Path
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./transmission-path.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { TransmissionPath } from '@dinghy/diagrams/dependenciesElectricalTransmissionPaths'
+
+<TransmissionPath/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'endArrow=none;html=1;strokeWidth=1;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+

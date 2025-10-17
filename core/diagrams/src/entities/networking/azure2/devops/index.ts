@@ -16,7 +16,7 @@ export { CLOUDTEST, Cloudtest } from './cloudtest.tsx'
 
 export { CODE_OPTIMIZATION, CodeOptimization } from './code-optimization.tsx'
 
-export { DEVOPS_ICON, DevopsIcon } from './devops-icon.tsx'
+export { DEVOPS, Devops } from './devops.tsx'
 
 export { DEVOPS_STARTER, DevopsStarter } from './devops-starter.tsx'
 

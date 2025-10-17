@@ -1,0 +1,98 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Business Value Stream Mapping Dependencies
+
+
+## Electronic Information
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./electronic-information.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ElectronicInformation } from '@dinghy/diagrams/dependenciesValueStreamMapping'
+
+<ElectronicInformation/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'shape=mxgraph.lean_mapping.electronic_info_flow_edge;html=1;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Manual Information
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./manual-information.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ManualInformation } from '@dinghy/diagrams/dependenciesValueStreamMapping'
+
+<ManualInformation/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'shape=mxgraph.lean_mapping.manual_info_flow_edge;html=1;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Shipments
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./shipments.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Shipments } from '@dinghy/diagrams/dependenciesValueStreamMapping'
+
+<Shipments/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'shape=flexArrow;html=1;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+

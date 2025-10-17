@@ -1,0 +1,129 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Sysml UseCases Dependencies
+
+
+## Communication Path
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./communication-path.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { CommunicationPath } from '@dinghy/diagrams/dependenciesSysmlUsecases'
+
+<CommunicationPath/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endArrow=none;verticalAlign=bottom;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Extend
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./extend.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Extend } from '@dinghy/diagrams/dependenciesSysmlUsecases'
+
+<Extend/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;startArrow=open;endArrow=none;startSize=12;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Generalization
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./generalization.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Generalization } from '@dinghy/diagrams/dependenciesSysmlUsecases'
+
+<Generalization/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endArrow=block;endFill=0;endSize=12;verticalAlign=bottom;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Include
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./include.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Include } from '@dinghy/diagrams/dependenciesSysmlUsecases'
+
+<Include/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    dependency: 'edgeStyle=none;html=1;endArrow=open;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;',
+  },
+}
+```
+
+  </TabItem>
+</Tabs>
+

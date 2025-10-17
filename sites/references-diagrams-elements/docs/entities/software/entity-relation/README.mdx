@@ -1,0 +1,600 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Software Entity Relation Entities
+
+
+## Associative Entity
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./associative-entity.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { AssociativeEntity } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<AssociativeEntity/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=associativeEntity;whiteSpace=wrap;html=1;align=center;',
+  },
+  _width: 140,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Attribute
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./attribute.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Attribute } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<Attribute/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'ellipse;whiteSpace=wrap;html=1;align=center;',
+  },
+  _width: 100,
+  _height: 40,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Cloud
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./cloud.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Cloud } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<Cloud/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'ellipse;shape=cloud;whiteSpace=wrap;html=1;align=center;',
+  },
+  _width: 100,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Derived Attribute
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./derived-attribute.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { DerivedAttribute } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<DerivedAttribute/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'ellipse;whiteSpace=wrap;html=1;align=center;dashed=1;',
+  },
+  _width: 100,
+  _height: 40,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Entity
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./entity.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Entity } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<Entity/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;',
+  },
+  _width: 0,
+  _height: 120,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Entity (Rounded)
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./entity-rounded.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { EntityRounded } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<EntityRounded/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;',
+  },
+  _width: 100,
+  _height: 40,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Entity 2
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./entity-2.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Entity2 } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<Entity2/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'whiteSpace=wrap;html=1;align=center;',
+  },
+  _width: 100,
+  _height: 40,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Hierarchy
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./hierarchy.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Hierarchy } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<Hierarchy/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'rounded=1;absoluteArcSize=1;html=1;arcSize=10;',
+  },
+  _width: 0,
+  _height: 100,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Identifying Relationship
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./identifying-relationship.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { IdentifyingRelationship } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<IdentifyingRelationship/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=rhombus;double=1;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;',
+  },
+  _width: 120,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Key Attribute
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./key-attribute.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { KeyAttribute } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<KeyAttribute/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;',
+  },
+  _width: 100,
+  _height: 40,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## List
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./list.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { List } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<List/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;',
+  },
+  _width: 0,
+  _height: 110,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## List Item 1
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./list-item-1.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ListItem1 } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<ListItem1/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;',
+  },
+  _width: 0,
+  _height: 30,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## List Item 2
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./list-item-2.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ListItem2 } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<ListItem2/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=partialRectangle;fillColor=none;align=left;verticalAlign=middle;strokeColor=none;spacingLeft=34;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;dropTarget=0;',
+  },
+  _width: 0,
+  _height: 30,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## List Item 3
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./list-item-3.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { ListItem3 } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<ListItem3/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'line;strokeWidth=1;rotatable=0;dashed=0;labelPosition=right;align=left;verticalAlign=middle;spacingTop=0;spacingLeft=6;points=[];portConstraint=eastwest;',
+  },
+  _width: 0,
+  _height: 10,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Multivalue Attribute
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./multivalue-attribute.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { MultivalueAttribute } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<MultivalueAttribute/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'ellipse;shape=doubleEllipse;margin=3;whiteSpace=wrap;html=1;align=center;',
+  },
+  _width: 100,
+  _height: 40,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Note
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./note.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Note } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<Note/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=note;size=20;whiteSpace=wrap;html=1;',
+  },
+  _original_width: 100,
+  _original_height: 100,
+
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Relationship
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./relationship.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { Relationship } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<Relationship/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;',
+  },
+  _width: 120,
+  _height: 60,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+
+## Weak Entity
+
+<Tabs>
+  <TabItem value="Preview">
+
+![](./weak-entity.png#drawio)
+
+  </TabItem>
+  <TabItem value="Usage">
+    
+```js
+import { WeakEntity } from '@dinghy/diagrams/entitiesEntityRelation'
+
+<WeakEntity/>
+```
+
+  </TabItem>
+  <TabItem value="Definition">
+    
+```js
+{
+  _style: {
+    entity: 'shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;',
+  },
+  _width: 100,
+  _height: 40,
+}
+```
+
+  </TabItem>
+</Tabs>
+

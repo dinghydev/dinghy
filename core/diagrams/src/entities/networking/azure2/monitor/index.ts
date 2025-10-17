@@ -19,7 +19,7 @@ export {
 
 export { METRICS_ADVISOR, MetricsAdvisor } from './metrics-advisor.tsx'
 
-export { MONITOR_ICON, MonitorIcon } from './monitor-icon.tsx'
+export { MONITOR, Monitor } from './monitor.tsx'
 
 export { NETWORK_WATCHER, NetworkWatcher } from './network-watcher.tsx'
 

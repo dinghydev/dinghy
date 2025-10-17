@@ -10,9 +10,9 @@ export { SATELLITE_DISH, SatelliteDish } from './satellite-dish.tsx'
 
 export { WI_FI_TAG, WiFiTag } from './wi-fi-tag.tsx'
 
-export { WIRELESS_BRIDGE, WirelessBridge } from './wireless-bridge.tsx'
+export { WIRELESS, Wireless } from './wireless.tsx'
 
-export { WIRELESS_ICON, WirelessIcon } from './wireless-icon.tsx'
+export { WIRELESS_BRIDGE, WirelessBridge } from './wireless-bridge.tsx'
 
 export {
   WIRELESS_LOCATION_APPLIANCE,

@@ -1,4 +1,4 @@
-export { ATLASSIAN_ICON, AtlassianIcon } from './atlassian-icon.tsx'
+export { ATLASSIAN, Atlassian } from './atlassian.tsx'
 
 export { AVATAR_AVAILABLE, AvatarAvailable } from './avatar-available.tsx'
 
