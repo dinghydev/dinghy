@@ -1,0 +1,35 @@
+---
+edit_url: none
+---
+# Engine
+
+Dinghy Engine which runs commands inside a Docker container. It could be run by Dinghy Cli or directly with required configurations.
+
+## Usage
+```sh
+$ dinghy <command> [options]
+```
+## Commands
+- [ bash](.//bash/README.mdx)
+- [ check](.//check/README.mdx)
+- [ deno](.//deno/README.mdx)
+- [ devcontainer](.//devcontainer/README.mdx)
+- [ diagram](.//diagram/README.mdx)
+- [ info](.//info/README.mdx)
+- [ render](.//render/README.mdx)
+- [ site](.//site/README.mdx)
+- [ tf](.//tf/README.mdx)
+- [ upgrade](.//upgrade/README.mdx)
+## Options
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `-c, --commands` | Commands to run in sequence, parallel commands split by |  |
+| `-v, --version` | Show version  |
+## Global Options
+| Name            | Description           | Default                   |
+| ---------------- | --------------- | ----------------------------- |
+| `--app-home` | The path to the Dinghy app home directory |   |
+| `--engine-version` | The docker image version of the Dinghy app to use |   |
+| `--debug` | Enable debug mode |   |
+| `-h, --help` | Show help |   |
+| `--output` | The path to the output directory | `output`  |

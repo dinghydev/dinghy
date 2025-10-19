@@ -21,12 +21,12 @@ export default function DocSidebarItemLink({
   index,
   ...props
 }: Props): ReactNode {
-  const { label, className, autoAddBaseUrl } = item;
-  let { href } = item;
+  const { className, autoAddBaseUrl } = item;
+  let { href, label } = item;
   const isActive = isActiveSidebarItem(item, activePath);
-  let isInternalLink = isInternalUrl(href);
+  const isInternalLink = isInternalUrl(href);
   if (isRewritable(href)) {
-    href = rewriteUrl(href, label);
+    ({ href, label } = rewriteUrl(href, label));
     props.target = "_self";
   }
   return (

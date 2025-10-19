@@ -3,7 +3,7 @@ export default {
     "references": [
         {
             type: "category",
-            label: "References",
+            label: "/References",
             collapsible: false,
             link: {
                 type: "doc",
@@ -11,14 +11,24 @@ export default {
             },
             items: [
                 {
+                    type: "doc",
+                    label: "/References/Commands",
+                    id: "rewrite-url",
+                },
+                {
                     type: "category",
-                    label: "Diagrams",
+                    label: "/References/Diagrams",
                     collapsible: false,
                     link: {
                         type: "doc",
                         id: "rewrite-url",
                     },
                     items: [
+                        {
+                            type: "doc",
+                            label: "/References/Diagrams/Composites",
+                            id: "rewrite-url",
+                        },
                         {
                             type: "category",
                             label: "Elements",

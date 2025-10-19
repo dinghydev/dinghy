@@ -64,7 +64,7 @@ const addToPathIfNotAlready = (shell: string, paths: string[]) => {
   })
 }
 
-const run = async (_context: CommandContext, args: CommandArgs) => {
+const run = async (context: CommandContext, args: CommandArgs) => {
   addToPathIfNotAlready('bash', ['.bashrc', '.profile'])
   addToPathIfNotAlready('zsh', ['.zshrc', '.zprofile'])
   addToPathIfNotAlready('fish', ['.config/fish/config.fish'])
@@ -84,6 +84,7 @@ const run = async (_context: CommandContext, args: CommandArgs) => {
       args: ['--quiet'],
       originalArgs: ['init', '--quiet'],
       commands: init,
+      rootCommands: context.rootCommands,
       options: init[OPTIONS_SYMBOL],
     })
   }

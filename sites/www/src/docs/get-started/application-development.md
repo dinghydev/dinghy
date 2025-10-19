@@ -13,7 +13,8 @@ favourte editor editors or IDE to edit the tsx or yaml files.
 We recommend [VS Code](https://code.visualstudio.com/) with
 [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers)
 extension. Once you have those installed, you may use following command to open
-your project.
+your project. Other VSCode based IDE ( e.g. Cursor ) may also work but didn't
+tested intensively.
 
 ### dinghy dc
 
@@ -25,18 +26,7 @@ autocomplete developer experience.
 The devcontainer is where [Dinghy Engine](./architecture#engine) lives, so you
 can run engine command directly.
 
-## Other IDEs
-
-### Cursor
-
-Cursor had been used to develop the Dinghy app without problem. However it has
-been [broken](https://github.com/cursor/cursor/issues/3331) since cursor's own
-devcontainer implementation. The known broken function is the host's docker
-authentication won't be avaiable inside devcontainer. You might get away with
-this limitation by pull the image manually if it failed to pull the requested
-image.
-
-### Jetbrains IDEs
+## Jetbrains IDEs
 
 Jetbrains IDEs has basic
 [devcontainer](https://www.jetbrains.com/help/idea/connect-to-devcontainer.html)

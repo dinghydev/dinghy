@@ -1,0 +1,23 @@
+---
+edit_url: none
+---
+# check
+
+Run static code analysis, available checks: fmt, lint, type, git
+
+## Usage
+```sh
+$ dinghy check [CHECK] [options]
+```
+## Arguments
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `CHECK` | The checks to run  |
+## Options
+| Name            | Description           | Default                   |
+| ---------------- | --------------- | ----------------------------- |
+| `--checks` |  | `fmt,lint,type,git`  |
+| `--fmtCmd` |  | `deno fmt`  |
+| `--gitCmd` |  | `git diff`  |
+| `--lintCmd` |  | `deno lint`  |
+| `--typeCmd` |  | `deno check`  |

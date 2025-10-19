@@ -44,6 +44,7 @@ export type CommandContext = {
   args: string[]
   originalArgs: string[]
   commands: Commands
+  rootCommands: Commands
   isEngine: boolean
   options: CommandOptions
 }

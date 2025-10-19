@@ -16,6 +16,26 @@ if (fs.existsSync("./docs") || fs.existsSync("./src/docs")) {
     docs.path ??= "src/docs";
     docs.routeBasePath ??= "/";
   }
+  if (fs.existsSync("./src/theme/editUrl.ts")) {
+    const defaultEditUrl = docs.editUrl;
+    const editUrlFn = require("./src/theme/editUrl.ts").default;
+    docs.editUrl = (
+      version: string,
+      versionDocsDirPath: string,
+      docPath: string,
+      permalink: string,
+      locale: string,
+    ) => {
+      return editUrlFn(
+        version,
+        versionDocsDirPath,
+        docPath,
+        permalink,
+        locale,
+        defaultEditUrl,
+      );
+    };
+  }
 }
 if (docs && fs.existsSync("./sidebars.ts")) {
   docs.sidebarPath ??= "./sidebars.ts";

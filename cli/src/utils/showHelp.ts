@@ -1,5 +1,6 @@
 import {
   type CommandContext,
+  Commands,
   OPTIONS_SYMBOL,
   REQUIRE_ENGINE_SYMBOL,
 } from '../types.ts'
@@ -10,16 +11,18 @@ type Row = {
   name: string
   options?: string
   description?: string
+  defaultValue?: string
+  cmdAlias?: string[]
 }
 
 type Sections = {
   version: Row[]
-  usage: Row[]
-  arguments: Row[]
-  commands: Row[]
-  'cli commands': Row[]
-  'engine commands': Row[]
-  options: Row[]
+  Usage: Row[]
+  Arguments: Row[]
+  'Commands': Row[]
+  'Cli Commands': Row[]
+  'Engine Commands': Row[]
+  Options: Row[]
 }
 
 type Options = {
@@ -37,14 +40,102 @@ const printHelp = (context: CommandContext, sections: Sections) => {
         0,
       )
       for (const row of rows) {
-        console.log(
-          `  ${chalk.green(row.name.padEnd(maxNameLength + 2))}${
-            row.options ? `${chalk.dim(row.options)} ` : ''
-          }${row.description ? row.description : ''}`,
-        )
+        let options = ''
+        if (row.cmdAlias) {
+          options = `[alias:${row.cmdAlias.join(', ')}] `
+        } else if (row.defaultValue !== undefined) {
+          options = `[default: ${row.defaultValue}] `
+        }
+        if (name === 'Usage') {
+          console.log(
+            `  $ ${chalk.green(row.name)}`,
+          )
+        } else {
+          console.log(
+            `  ${chalk.green(row.name.padEnd(maxNameLength + 2))}${
+              chalk.dim(options)
+            }${row.description ? row.description : ''}`,
+          )
+        }
       }
     }
   }
+}
+
+const printHelpInMarkdown = (context: CommandContext, sections: Sections) => {
+  const mdx: string[] = []
+  mdx.push(`---
+edit_url: none
+---
+# ${
+    context.prefix.length > 0
+      ? context.prefix.join(' ')
+      : context.isEngine
+      ? 'Engine'
+      : 'Cli'
+  }
+
+${context.options.cmdDescription}
+`)
+  for (const [name, rows] of Object.entries(sections)) {
+    if (name === 'version') {
+      continue
+    }
+    const hasDefaultValue = rows.some((row) => row.defaultValue !== undefined)
+    if (rows.length > 0) {
+      mdx.push(`## ${name}`)
+      if (name.includes('Commands')) {
+        const isEngineCommands = name === 'Engine Commands'
+        for (const row of rows) {
+          mdx.push(
+            `- [${context.prefix.join(' ')} ${row.name}](./${
+              isEngineCommands ? '../engine' : ''
+            }/${row.name}/README.mdx)`,
+          )
+        }
+
+        continue
+      }
+
+      const isUsage = name === 'Usage'
+
+      if (isUsage) {
+        mdx.push(`\`\`\`sh`)
+      } else {
+        mdx.push(
+          `| Name            | Description           ${
+            hasDefaultValue ? '| Default         ' : ''
+          }          |
+| ---------------- ${
+            hasDefaultValue ? '| --------------- ' : ''
+          }| ----------------------------- |`,
+        )
+      }
+      for (const row of rows) {
+        if (isUsage) {
+          mdx.push(
+            `$ ${row.name}`,
+          )
+        } else {
+          mdx.push(
+            `| \`${row.name}\` | ${row.description ? row.description : ''} ${
+              hasDefaultValue
+                ? `| ${
+                  row.defaultValue !== undefined
+                    ? `\`${row.defaultValue}\``
+                    : ''
+                } `
+                : ''
+            } |`,
+          )
+        }
+      }
+      if (isUsage) {
+        mdx.push(`\`\`\``)
+      }
+    }
+  }
+  return mdx
 }
 
 const generateArgumentsSection = (
@@ -52,10 +143,10 @@ const generateArgumentsSection = (
   sections: Sections,
 ) => {
   Object.entries(context.options.arguments || {}).map(([name, argDef]) => {
-    sections.arguments.push({
+    sections.Arguments.push({
       name: name.toLocaleUpperCase(),
       description: argDef.description,
-      options: argDef.default ? `[default: ${argDef.default}]` : '',
+      defaultValue: argDef.default,
     })
   })
 }
@@ -73,20 +164,18 @@ const generateCommandSection = (
       if (commandOptions.hidden) {
         return
       }
-      const options = commandOptions.cmdAlias
-        ? `[alias:${commandOptions.cmdAlias.join(', ')}]`
-        : ''
+      const { cmdAlias } = commandOptions
       ;(commandDef[REQUIRE_ENGINE_SYMBOL] ? engineCommands : cliCommands).push({
         name,
-        options,
+        cmdAlias,
         description: commandOptions.cmdDescription,
       })
     })
   if (cliCommands.length && engineCommands.length) {
-    sections['cli commands'] = cliCommands
-    sections['engine commands'] = engineCommands
+    sections['Cli Commands'] = cliCommands
+    sections['Engine Commands'] = engineCommands
   } else {
-    sections.commands.push(...cliCommands, ...engineCommands)
+    sections['Commands'].push(...cliCommands, ...engineCommands)
   }
 }
 
@@ -115,20 +204,57 @@ const generateOptionsSection = (
     const noFlag = (context.options.negatable || []).includes(option.name)
       ? '[no]-'
       : ''
-    const defaultValue = context.options.default?.[option.name]
-    const defaultValueString = defaultValue === undefined
-      ? ''
-      : `[default: ${defaultValue}]`
-    sections.options.push({
+    const defaultValue = context.options.default?.[option.name] as any
+    sections.Options.push({
       name: `${alias ? `-${alias}, ` : ''}--${noFlag}${option.name}`,
       description: context.options.description[option.name] || '',
-      options: defaultValueString,
+      defaultValue,
     })
   }
 }
 
+const resolveCommandName = (commands: Commands, parent: Commands) => {
+  let cmdName
+  Object.entries(parent).forEach(([name, command]) => {
+    if (command === commands) {
+      cmdName = name
+    }
+  })
+  if (!cmdName) {
+    Object.values(parent).forEach((command) => {
+      const name = resolveCommandName(commands, command)
+      if (name) {
+        cmdName = name
+      }
+    })
+  }
+  return cmdName!
+}
+
+const resolveCommandNameAndAlias = (context: CommandContext) => {
+  const results: string[] = []
+  const { prefix } = context
+  if (prefix.length === 0) {
+    results.push('')
+  } else {
+    const cmdPrefix = prefix.slice(0, -1)
+    results.push(
+      ` ${
+        [
+          ...cmdPrefix,
+          resolveCommandName(context.commands, context.rootCommands),
+        ].join(' ')
+      }`,
+    )
+    for (const alias of context.options.cmdAlias || []) {
+      results.push(` ${[...cmdPrefix, alias].join(' ')}`)
+    }
+  }
+  return results
+}
+
 const generateUsageSection = (context: CommandContext, sections: Sections) => {
-  const argumentsPlaceholder = sections.arguments.length
+  const argumentsPlaceholder = sections.Arguments.length
     ? ` ${
       Object.entries(context.options.arguments || {})
         .map(([name, spec]) =>
@@ -139,15 +265,13 @@ const generateUsageSection = (context: CommandContext, sections: Sections) => {
         .join(' ')
     }`
     : ''
-  const commandPlaceholder = sections.commands.length ? ' <command>' : ''
-  const optionsPlaceholder = sections.options.length ? ' [options]' : ''
-  const prefixPlaceholder = context.prefix.length
-    ? ` ${context.prefix.join(' ')}`
-    : ''
-  sections.usage.push({
-    name: `  ${
-      chalk.white('$')
-    } dinghy${prefixPlaceholder}${argumentsPlaceholder}${commandPlaceholder}${optionsPlaceholder}`,
+  const commandPlaceholder = sections['Commands'].length ? ' <command>' : ''
+  const optionsPlaceholder = sections.Options.length ? ' [options]' : ''
+  resolveCommandNameAndAlias(context).map((command) => {
+    sections.Usage.push({
+      name:
+        `dinghy${command}${argumentsPlaceholder}${commandPlaceholder}${optionsPlaceholder}`,
+    })
   })
 
   if (context.prefix.length === 0) {
@@ -157,15 +281,15 @@ const generateUsageSection = (context: CommandContext, sections: Sections) => {
   }
 }
 
-export const showHelp = (context: CommandContext) => {
+const generateHelpData = (context: CommandContext) => {
   const sections = {
     version: [],
-    usage: [],
-    arguments: [],
-    commands: [],
-    'cli commands': [],
-    'engine commands': [],
-    options: [],
+    Usage: [],
+    Arguments: [],
+    'Commands': [],
+    'Cli Commands': [],
+    'Engine Commands': [],
+    Options: [],
     ...(context.options?.additionalOptions || {}),
   }
 
@@ -174,5 +298,16 @@ export const showHelp = (context: CommandContext) => {
   generateOptionsSection(context, sections)
   generateUsageSection(context, sections)
 
+  return sections
+}
+
+export const showHelp = (context: CommandContext) => {
+  const sections = generateHelpData(context)
   printHelp(context, sections)
+}
+
+export const showHelpInMarkdown = (context: CommandContext) => {
+  const sections = generateHelpData(context)
+  const mdx = printHelpInMarkdown(context, sections)
+  return { mdx, sections }
 }

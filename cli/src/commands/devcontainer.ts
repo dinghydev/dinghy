@@ -16,11 +16,11 @@ import { projectVersionRelease } from '../utils/projectVersions.ts'
 const debug = Debug('init')
 
 const options: CommandOptions = {
-  collect: ['mounts'],
+  collect: ['volumns'],
   string: ['workspace'],
   boolean: ['no-open'],
   description: {
-    mounts: 'Additional mounts to the devcontainer',
+    volumns: 'Additional volumns to mount to the devcontainer',
     workspace: 'The workspace folder to use in the devcontainer',
     'no-open':
       'Do not open the devcontainer.Generate .devcontainer.json only if not exist',
@@ -85,7 +85,7 @@ function prepareConfig(args: CommandArgs): any {
     config.image
 
   config.mounts ??= getDockerMounts([
-    ...(args.mounts || []).map((mount) => ({
+    ...(args.volumns || []).map((mount) => ({
       source: mount.split(':')[0],
       target: mount.split(':')[1],
     })),

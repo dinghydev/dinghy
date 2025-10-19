@@ -55,7 +55,7 @@ const options: CommandOptions = {
       {
         name: '--output',
         description: 'The path to the output directory',
-        options: '[default: output]',
+        defaultValue: 'output',
       },
     ],
   },

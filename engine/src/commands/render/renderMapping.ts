@@ -94,6 +94,7 @@ const generatePng = async (
     args: pngArgs,
     originalArgs: ['diagram', ...pngArgs],
     commands: { png } as any,
+    rootCommands: context.rootCommands,
     options: png[OPTIONS_SYMBOL],
   })
 }

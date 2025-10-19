@@ -1,0 +1,28 @@
+---
+edit_url: none
+---
+# render
+
+Render from .tsx files to target formats e.g. .drawio or .tf
+
+## Usage
+```sh
+$ dinghy render [STACK] [options]
+```
+## Arguments
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `STACK` | Stack name or tsx file name  |
+## Options
+| Name            | Description           | Default                   |
+| ---------------- | --------------- | ----------------------------- |
+| `--debug` |  |   |
+| `--diagram-create-md` | Create markdown file for diagram | `false`  |
+| `--[no]-diagram-png` | Generate png file for diagram | `true`  |
+| `--diagram-save-view` | Save view to stack-info.json |   |
+| `--format` | Formats to render |   |
+| `--output` | Output folder |   |
+| `--stage` | Stages to render |   |
+| `--tf-generate-import` | Generate import statements for tf |   |
+| `--view` | Views to render |   |
+| `--watch` | Re-render when changes of yaml/ts/tsx files detected |   |

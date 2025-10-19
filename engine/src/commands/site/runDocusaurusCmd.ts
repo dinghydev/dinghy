@@ -15,7 +15,7 @@ import path from 'node:path'
 import Debug from 'debug'
 const debug = Debug('runDocusaurusCmd')
 
-const resolveSiteDir = async (args: CommandArgs) => {
+const resolveSiteDir = (args: CommandArgs) => {
   let siteDir = args['site-dir'] || args.site || hostAppHome
   if (!siteDir.startsWith('/')) {
     siteDir = `${hostAppHome}/${siteDir}`
@@ -27,7 +27,7 @@ const resolveSiteDir = async (args: CommandArgs) => {
   return siteDir
 }
 
-const resolveOutputDir = async (siteDir: string, args: CommandArgs) => {
+const resolveOutputDir = (siteDir: string, args: CommandArgs) => {
   let outputDir = args['site-output']
   if (!outputDir) {
     outputDir = `${siteDir}/output/site`

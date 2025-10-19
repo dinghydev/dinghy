@@ -118,14 +118,19 @@ export default function DocSidebarItemCategory({
   index,
   ...props
 }: Props): ReactNode {
-  const { items, label, collapsible, className, href } = item;
+  const { items, collapsible, className } = item;
+  let { label, href } = item;
   const {
     docs: {
       sidebar: { autoCollapseCategories },
     },
   } = useThemeConfig();
-  const hrefWithSSRFallback = isRewritable(href)
-    ? rewriteUrl(href, label)
+  if (isRewritable(href)) {
+    ({ href, label } = rewriteUrl(href, label));
+    props.target = "_self";
+  }
+  const hrefWithSSRFallback = props.target === "_self"
+    ? href
     : useCategoryHrefWithSSRFallback(item);
 
   const isActive = isActiveSidebarItem(item, activePath);

@@ -34,6 +34,7 @@ const options: CommandOptions = {
 }
 
 const runStackTfCommands = async (
+  context: CommandContext,
   stack: string,
   tfCommand: string,
   args: string[],
@@ -45,6 +46,7 @@ const runStackTfCommands = async (
     args: [tfCommand, stack, ...args],
     originalArgs: ['tf', tfCommand, stack, ...args],
     commands: tf,
+    rootCommands: context.rootCommands,
     options: tf[OPTIONS_SYMBOL],
   })
 }
@@ -53,9 +55,13 @@ export const createCombinedTfCmds = (
   cmdDescription: string,
   cmds: string[],
 ) => {
-  const runStackCommands = async (stack: string, args: string[]) => {
+  const runStackCommands = async (
+    context: CommandContext,
+    stack: string,
+    args: string[],
+  ) => {
     for (const cmd of cmds) {
-      await runStackTfCommands(stack, cmd, args)
+      await runStackTfCommands(context, stack, cmd, args)
     }
   }
 
@@ -101,7 +107,7 @@ export const createCombinedTfCmds = (
           (!isMr() && stack.mainAutoDiff)
         ) {
           activedStackIds.push(stack.id)
-          await runStackCommands(stack.id, noneStackArgs)
+          await runStackCommands(context, stack.id, noneStackArgs)
         }
       }
     }

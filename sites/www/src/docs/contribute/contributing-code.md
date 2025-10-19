@@ -29,7 +29,7 @@ Clone from your own fork if intend to contribute the code.
 
 ### Project code structure
 
-![](./output/folder-structure.png)
+![](./output/folder-structure.png#drawio)
 
 ### Debugable tasks
 
@@ -37,7 +37,7 @@ There are set of debugable tasks defined in `.vscode/launch.json` files of
 various projects. Those are handy way to test the changes locally. You may
 easily run those from `Run and Debug` panel:
 
-![](./run-and-debug-tasks.png)
+![](./run-and-debug-tasks.png#w-70)
 
 ## Create Pull Request
 

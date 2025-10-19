@@ -4,7 +4,10 @@
     {
       "name": "render",
       "args": [
-        "render",
+        // "render",
+        // "dc",
+        // "tf",
+        // "plan",
         // "platform-staging",
         // "--format",
         // "all",
@@ -22,7 +25,7 @@
         // ".",
         // "--watch",
         // "--debug",
-        // "-h",
+        "-h",
       ],
       "program": "src/index.ts",
       "env": {
@@ -208,10 +211,10 @@
       "name": "site",
       "args": [
         "site",
-        "start",
+        // "start",
         // "build",
         // "serve",
-        // "deploy",
+        "deploy",
         // "--debug",
         // "bash",
         // "docusaurus",
@@ -231,6 +234,29 @@
         // "CI": "true",
         // "APP_HOME": "${workspaceFolder}/../examples/site"
         // "NODE_OPTIONS": "--max_old_space_size=8192",
+        "APP_HOME": "${workspaceFolder}/../sites"
+      },
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--inspect-wait",
+      ],
+      "attachSimplePort": 0,
+      "killBehavior": "polite",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "generate docs",
+      "args": [
+        "www",
+        // "references-diagrams-elements",
+        // "tmp",
+        // "references",
+      ],
+      "program": "src/generate-docs.ts",
+      "env": {
         "APP_HOME": "${workspaceFolder}/../sites"
       },
       "type": "node",

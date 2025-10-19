@@ -4,20 +4,13 @@ export const isRewritable = (url: string) => {
   return url?.endsWith("/rewrite-url");
 };
 
-export const rewriteUrl = (url: string, text: string) => {
-  if (isRewritable(url)) {
+export const rewriteUrl = (href: string, label: string) => {
+  if (isRewritable(href)) {
     const { siteConfig } = useDocusaurusContext();
-    const endPath = text.toLowerCase();
-    let ending = url.indexOf(endPath) + endPath.length;
-    if (url.endsWith(`/${endPath}/rewrite-url`)) {
-      ending += 1;
-    }
-    return siteConfig.url +
-      url.substring(
-        0,
-        ending,
-      );
-  } else {
-    return url;
+    href = siteConfig.url + label.replaceAll(" ", "-").toLowerCase();
+    const labelParts = label.split("/");
+    label = labelParts[labelParts.length - 1] ||
+      labelParts[labelParts.length - 2];
   }
+  return { href, label };
 };

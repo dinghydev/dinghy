@@ -1,6 +1,5 @@
 export { cliRun } from './utils/cliRun.ts'
-export { default as info } from './commands/info.ts'
-export { default as devcontainer } from './commands/devcontainer.ts'
+export { default as commands } from './commands/index.ts'
 export * from './shared/index.ts'
 export * from './utils/index.ts'
 export * from './types.ts'

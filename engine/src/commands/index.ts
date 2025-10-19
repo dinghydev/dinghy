@@ -5,8 +5,7 @@ import type {
   Commands,
 } from '@dinghy/cli'
 import {
-  devcontainer,
-  info,
+  commands as cliCommands,
   OPTIONS_SYMBOL,
   RUN_SYMBOL,
   runCommand,
@@ -43,7 +42,8 @@ const options: CommandOptions = {
     v: 'version',
     c: 'commands',
   },
-  cmdDescription: 'Dinghy Engine',
+  cmdDescription:
+    'Dinghy Engine which runs commands inside a Docker container. It could be run by Dinghy Cli or directly with required configurations.',
   additionalOptions: {
     'Global Options': [
       {
@@ -65,7 +65,7 @@ const options: CommandOptions = {
       {
         name: '--output',
         description: 'The path to the output directory',
-        options: '[default: output]',
+        defaultValue: 'output',
       },
     ],
   },
@@ -81,6 +81,7 @@ const runCommandInParallel = async (cmds: string[]) => {
       args,
       originalArgs: args,
       commands,
+      rootCommands: commands,
       options: commands[OPTIONS_SYMBOL],
       isEngine: true,
     })
@@ -116,8 +117,8 @@ const commands: Commands = {
   diagram,
   site,
   tf,
-  info,
-  devcontainer,
+  info: cliCommands.info,
+  devcontainer: cliCommands.devcontainer,
   upgrade,
   check,
   deno,

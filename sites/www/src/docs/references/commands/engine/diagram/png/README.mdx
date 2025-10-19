@@ -1,0 +1,23 @@
+---
+edit_url: none
+---
+# diagram png
+
+Generate png from drawio file
+
+## Usage
+```sh
+$ dinghy diagram png [STACK] [options]
+```
+## Arguments
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `STACK` | Stack name or tsx file name  |
+## Options
+| Name            | Description                     |
+| ---------------- | ----------------------------- |
+| `--debug` |   |
+| `--delete-drawio-file-after-render` | Delete the drawio file after successful generation the png file  |
+| `--drawio-bin` | Path to local drawio binary, e.g. --drawio-bin /Applications/draw.io.app/Contents/MacOS/draw.io  |
+| `-f, --file` | Path to the drawio file  |
+| `--output` | Path to the lookup drawio files if file not provided  |

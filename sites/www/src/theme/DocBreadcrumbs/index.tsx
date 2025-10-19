@@ -7,9 +7,9 @@ import Link from "@docusaurus/Link";
 import { translate } from "@docusaurus/Translate";
 import HomeBreadcrumbItem from "@theme/DocBreadcrumbs/Items/Home";
 import DocBreadcrumbsStructuredData from "@theme/DocBreadcrumbs/StructuredData";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 import styles from "./styles.module.css";
+import { isRewritable, rewriteUrl } from "../rewriteUrl.tsx";
 
 // TODO move to design system folder
 function BreadcrumbsItemLink({
@@ -56,7 +56,6 @@ function BreadcrumbsItem({
 export default function DocBreadcrumbs(): ReactNode {
   const breadcrumbs = useSidebarBreadcrumbs();
   const homePageRoute = useHomePageRoute();
-  const { siteConfig } = useDocusaurusContext();
 
   if (!breadcrumbs) {
     return null;
@@ -80,19 +79,19 @@ export default function DocBreadcrumbs(): ReactNode {
           {homePageRoute && <HomeBreadcrumbItem />}
           {breadcrumbs.map((item, idx) => {
             const isLast = idx === breadcrumbs.length - 1;
+            let { label } = item;
             let href = item.type === "category" && item.linkUnlisted
               ? undefined
               : item.href;
-            if (href?.endsWith("/rewrite-url")) {
-              const endPath = item.label.toLowerCase();
-              href = siteConfig.url +
-                href.substring(0, href.indexOf(endPath) + endPath.length);
+
+            if (isRewritable(href)) {
+              ({ href, label } = rewriteUrl(href, label));
             }
 
             return (
               <BreadcrumbsItem key={idx} active={isLast}>
                 <BreadcrumbsItemLink href={href} isLast={isLast}>
-                  {item.label}
+                  {label}
                 </BreadcrumbsItemLink>
               </BreadcrumbsItem>
             );

@@ -36,6 +36,7 @@ export const cliRun = async (
       args: Deno.args,
       originalArgs: Deno.args,
       commands,
+      rootCommands: commands,
       options: commands[OPTIONS_SYMBOL],
     })
 
