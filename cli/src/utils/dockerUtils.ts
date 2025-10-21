@@ -132,7 +132,7 @@ export const runDockerCmd = async (
 ) => {
   prepareDockerAuthConfig()
   if (errorOnFailure) {
-    if (process.stdout.isTTY) {
+    if (process.stdout.isTTY && !Deno.env.get('CI')) {
       dockerArgs.push('-i')
     } else {
       debug('not a tty')

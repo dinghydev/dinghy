@@ -4,8 +4,7 @@ if (import.meta.main) {
   console.log(`Releasing site for ${Deno.args[0]}...`)
   const site = Deno.args[0]
   await execa({
-    stderr: 'inherit',
-    stdout: 'inherit',
+    stdio: 'inherit',
     input: `
       set -e
       cd ../engine/

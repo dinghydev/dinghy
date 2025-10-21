@@ -2,13 +2,19 @@ import type { ReactNode } from 'react'
 import z, { type ZodType, type ZodTypeAny } from 'zod'
 
 export const resolvable = <T extends ZodTypeAny>(_schema: T): ZodType<T> =>
-  z.function().args(z.any()).returns(z.any()) as unknown as ZodType<T>
+  z.function({
+    input: [z.any()],
+    output: z.any(),
+  }) as unknown as ZodType<T>
 
 export const resolvableValue = <T extends z.ZodTypeAny>(schema: T) =>
   z.union([
     schema,
     resolvable(schema),
-    z.function().args(z.any()).returns(z.any()),
+    z.function({
+      input: [z.any()],
+      output: z.any(),
+    }),
   ])
 
 export const StringSchema = z.string()
@@ -25,7 +31,10 @@ export const ResolvableNumberSchema = resolvableValue(z.number())
 
 export const ResolvableBooleanSchema = resolvableValue(z.boolean())
 
-export const CallableSchema = z.function().args(z.any()).returns(z.any())
+export const CallableSchema = z.function({
+  input: [z.any()],
+  output: z.any(),
+})
 export type CallableType = z.input<typeof CallableSchema>
 
 export const RecordSchema = z.record(z.string(), z.unknown())

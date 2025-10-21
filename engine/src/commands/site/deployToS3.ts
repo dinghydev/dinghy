@@ -47,7 +47,15 @@ export const deployToS3 = async (
     return path.substring(path.lastIndexOf('/') + 1, path.length - 5)
   }
 
-  const categories = {} as Record<string, string[]>
+  const categories = {
+    'gzip-mutable': [],
+    'gzip-immutable': [],
+    'regular-mutable': [],
+    'regular-immutable': [],
+    'html-mutable': [],
+    'html-immutable': [],
+  } as Record<string, string[]>
+  const folderFiles = {} as Record<string, string>
   for await (const entry of walk(outputDir, { includeDirs: false })) {
     const relativePath = entry.path.substring(outputDir.length + 1)
     const extension = relativePath.split('.').pop() || ''
@@ -78,9 +86,10 @@ export const deployToS3 = async (
     }
     if (isHtml) {
       const fileName = resolveFileName(relativePath)
-      const isIndex = relativePath === 'index.html' ||
-        existsSync(`${entry.path.substring(0, entry.path.length - 5)}`)
-      if (isIndex) {
+      const isFolderIndex = !deployConfig.trailingSlash &&
+        (relativePath === 'index.html' ||
+          existsSync(`${entry.path.substring(0, entry.path.length - 5)}`))
+      if (isFolderIndex) {
         let s3Key = s3Prefix
         if (targetBaseDir) {
           s3Key = `${s3Key ? `${s3Key}/` : ''}${targetBaseDir}`
@@ -94,18 +103,7 @@ export const deployToS3 = async (
         if (!s3Key) {
           s3Key = '/'
         }
-        console.log('S3 uploading folder file', s3Key)
-        await s3UploadFile(
-          s3Region,
-          s3Bucket,
-          s3Key,
-          entry.path,
-          {
-            ContentType: 'text/html; charset=utf-8',
-            ContentEncoding: isGzip ? 'gzip' : undefined,
-            CacheControl: cacheControl.mutable,
-          },
-        )
+        folderFiles[s3Key] = entry.path
         continue
       }
       targetPath = `${targetPath}/${fileName}`
@@ -131,6 +129,9 @@ export const deployToS3 = async (
   }
   for (const category of Object.keys(categories)) {
     const files = categories[category]
+    if (files.length === 0) {
+      continue
+    }
     const categoryPath = `${outputDir}-${category}`
     console.log(`S3 syncing ${category} with ${files.length} files...`)
 
@@ -146,8 +147,30 @@ export const deployToS3 = async (
       'content-encoding': isGzip ? 'gzip' : undefined,
       'cache-control': cacheControlValue,
     })
+  }
 
-    if (cleanUpStagingFiles) {
+  for (const [s3Key, path] of Object.entries(folderFiles)) {
+    console.log('S3 uploading folder file', s3Key)
+    await s3UploadFile(
+      s3Region,
+      s3Bucket,
+      s3Key,
+      path,
+      {
+        ContentType: 'text/html; charset=utf-8',
+        ContentEncoding: 'gzip',
+        CacheControl: cacheControl.mutable,
+      },
+    )
+  }
+
+  if (cleanUpStagingFiles) {
+    for (const category of Object.keys(categories)) {
+      const files = categories[category]
+      if (files.length === 0) {
+        continue
+      }
+      const categoryPath = `${outputDir}-${category}`
       try {
         await Deno.remove(categoryPath, { recursive: true })
       } catch {

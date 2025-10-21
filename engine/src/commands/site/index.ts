@@ -20,7 +20,7 @@ const commands: Commands = {
   [OPTIONS_SYMBOL]: options,
   [RUN_SYMBOL]: run,
   docusaurus: createDocusaurusCommand(
-    'Run docusaurus command with arbitrary arguments',
+    'Run docusaurus command with arbitrary arguments.  Additional docusaurus args could be passed after `--`',
     ['yarn', 'docusaurus'],
     false,
   ),

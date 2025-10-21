@@ -48,6 +48,20 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "release site",
+      "args": [
+        "deno task release-site www"
+        // "deno task release-site references-diagrams-elements"
+      ],
+      "env": {
+        "CI": "true"
+      },
+      "request": "launch",
+      "type": "node",
+      "runtimeExecutable": "${workspaceFolder}/.vscode/none-debug-run.sh",
+      "console": "integratedTerminal"
+    },
+    {
       "name": "check projects",
       "args": [
         "deno task check-projects"

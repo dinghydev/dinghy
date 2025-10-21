@@ -129,24 +129,14 @@ You may provide your own
 in the root folder of site to override the default for advanced control which
 not possbile by configure `docusaurus.config.yaml`.
 
-### Multiple sites
+### site config sources
 
-Sometimes you may want to split a large website into multiple smaller managable
-section like [current](https://github.com/dinghydev/dinghy/blob/main/sites/).
+The `SITE_CONFIG_JSON` object is merged from the following sources, with later
+sources overriding earlier ones.
 
-To support the shared configuration, following folder from `parent` are mapped
-under `/opt/docusaurus` if not existing in active site folder:
-
-1. docusaurus.config.ts
-1. src
-1. static
-
-When `src` not existing in active site folder, following folder will map under
-`/opt/docusaurus/src`:
-
-1. blog
-1. docs
-1. pages
+1. `site` from `dinghy.config.yaml`
+1. `../docusaurus.config.yaml` file if `--site` options was provided
+1. `docusaurus.config.yaml` file
 
 ## Pre-installed packages
 

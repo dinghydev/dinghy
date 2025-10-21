@@ -49,7 +49,6 @@ export default {
                         {
                             type: "category",
                             label: "Composites",
-                            collapsible: false,
                             link: {
                                 type: "doc",
                                 id: "references/diagrams/composites",

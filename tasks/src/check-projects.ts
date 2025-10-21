@@ -8,7 +8,7 @@ if (import.meta.main) {
     console.log(
       `Running [deno ${cmd}] from ${cwd} ...`,
     )
-    const result = await execa('deno', [cmd], {
+    const result = await execa('deno', cmd.split(' '), {
       stderr: 'inherit',
       stdout: 'inherit',
       all: true,
@@ -71,6 +71,7 @@ if (import.meta.main) {
       }
     }
   }
+  await runDenoCmd('engine', 'run -A src/generate-docs.ts')
   await runGitDiff()
   console.log(
     results.map((r) =>

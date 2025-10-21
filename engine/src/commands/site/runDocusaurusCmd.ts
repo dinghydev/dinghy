@@ -99,6 +99,22 @@ export const runDocusaurusCmd = async (
   }
 
   const dockerVolumnes = [] as any[]
+  const outputParentDir = path.dirname(outputDir)
+  dockerVolumnes.push({
+    source: outputParentDir,
+    target: `/opt/docusaurus/${path.basename(outputParentDir)}`,
+  })
+  if (cmd[1] === 'build') {
+    siteArgs.push(
+      '--out-dir',
+      `${path.basename(outputParentDir)}/${path.basename(outputDir)}`,
+    )
+  } else if (cmd[1] === 'serve') {
+    siteArgs.push(
+      '--dir',
+      `${path.basename(outputParentDir)}/${path.basename(outputDir)}`,
+    )
+  }
   for await (const f of Deno.readDir(siteDir)) {
     if (
       !['docusaurus.config.yaml', 'output', 'build'].includes(f.name)

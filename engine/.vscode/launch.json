@@ -5,9 +5,6 @@
       "name": "render",
       "args": [
         // "render",
-        // "dc",
-        // "tf",
-        // "plan",
         // "platform-staging",
         // "--format",
         // "all",
@@ -222,6 +219,7 @@
         // "swizzle",
         // "--list"
         // "-h",
+        // "--debug",
         "--site",
         // "www",
         "references-diagrams-elements",
