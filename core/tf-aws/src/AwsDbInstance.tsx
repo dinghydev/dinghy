@@ -11,8 +11,12 @@ export const AwsDbInstanceInputSchema = z.object({
   allocated_storage: ResolvableNumberSchema.optional(),
   db_name: ResolvableStringSchema.optional(),
   engine: z.union([
-    z.enum(['postgres', 'mysql']),
-    z.function().args(z.any()).returns(z.any()),
+    z.enum(['postgres', 'mysql']).optional(),
+    // z.string().optional(),
+    z.function({
+      input: [z.any()],
+      output: z.any(),
+    }),
   ]),
   engine_version: ResolvableStringSchema.optional(),
   instance_class: ResolvableStringSchema.optional(),

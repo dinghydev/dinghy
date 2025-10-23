@@ -75,7 +75,6 @@ const renderDenoDoc = async (input: string, output: string) => {
       const definition = definitions[schema] as any
       shapes[Object.keys(definition.shape).join(',')] = schema
     })
-    console.log(definitions)
     const resolveObjectType = (obj: any): string => {
       if (obj.type === 'array') {
         return `[ ${resolveObjectType(obj.items)} ]`
@@ -112,21 +111,9 @@ const renderDenoDoc = async (input: string, output: string) => {
 </thead>
 <tbody>`)
       const { properties, required } = z.toJSONSchema(definition)
-      console.log('json', z.toJSONSchema(definition))
-      console.log('meta', definition.meta())
       Object.entries(properties as any).map(([name, p]) => {
         const prop = p as any
         const typeValue = resolveObjectType(prop)
-        // mdx.push(
-        //   `| \`${name}\` | ${typeValue} | ${prop.description || ''} | ${
-        //     (required || [])!.includes(name) ? '✅' : '❌'
-        //   } | ${
-        //     prop.default !== undefined &&
-        //       !['object', 'array'].includes(prop.type)
-        //       ? `\`${prop.default}\``
-        //       : ''
-        //   } |`,
-        // )
         if (prop.hidden) {
           return
         }

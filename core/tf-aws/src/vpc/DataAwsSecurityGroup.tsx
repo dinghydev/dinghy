@@ -31,7 +31,7 @@ export function DataAwsSecurityGroup(props: DataAwsSecurityGroupInputProps) {
     <AwsSecurityGroup
       _inputSchema={DataAwsSecurityGroupInputSchema}
       _outputSchema={DataAwsSecurityGroupOutputSchema}
-      {...props}
+      {...(props as any)}
     />
   )
 }

@@ -31,7 +31,7 @@ export type AwsS3BucketInputProps =
 
 export type AwsS3BucketOutputProps =
   & z.output<typeof AwsS3BucketOutputSchema>
-  & AwsS3BucketInputProps
+  & z.output<typeof AwsS3BucketInputSchema>
 
 export function AwsS3Bucket(props: AwsS3BucketInputProps) {
   const _importId = (node: any) => node._props.bucket

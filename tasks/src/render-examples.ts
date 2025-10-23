@@ -29,14 +29,17 @@ const findDinghyProjects = async () => {
 
 const renderProjectWithoutPng = async (projectPath: string) => {
   console.log(`Rendering ${projectPath}...`)
-  await execa('deno', [
+  const args = [
     'run',
     '-A',
     'src/index.ts',
     'render',
-    '--no-diagram-png',
     `--app-home=${projectPath}`,
-  ], {
+  ]
+  if (!Deno.args.includes('--diagram-png')) {
+    args.push('--no-diagram-png')
+  }
+  await execa('deno', args, {
     cwd: `${projectRoot}/engine`,
     stdio: 'inherit',
     env: { CI_SKIP_GIT_DIFF_CHECK: 'true' },

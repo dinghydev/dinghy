@@ -1,6 +1,7 @@
 import { z } from 'zod'
 export const SiteConfigSchema = z.object({
   baseUrl: z.string().default('/'),
+  trailingSlash: z.boolean().default(false),
   site: z.object({
     deploy: z.object({
       s3Url: z.string(),

@@ -149,9 +149,6 @@ const handleVertical = (
   const totalLength = list.length
   const isListMultiple = list.length > 1
   const middleNumber = totalLength / 2
-  const listCenterX = list
-    .map((l) => (l._props as any)._diagram.state.absCenterX)
-    .reduce((a, b) => a + b, 0) / totalLength
   const listLeft = Math.min(
     ...list.map((l) => (l._props as any)._diagram.state.absLeft),
   )
@@ -164,7 +161,8 @@ const handleVertical = (
     let y1: number
     let distanceY: number
     if (isSingleSource) {
-      x1 = listCenterX +
+      x1 =
+        (relationship._props as any)._source._props._diagram.state.absCenterX +
         (i - middleNumber + 0.5) *
           (relationship._props as any)._diagram.dimension.arrowSpace
       x2 = (relationship._props as any)._target._props._diagram.state.absCenterX
@@ -180,7 +178,8 @@ const handleVertical = (
       )
     } else {
       x1 = (relationship._props as any)._source._props._diagram.state.absCenterX
-      x2 = listCenterX +
+      x2 =
+        (relationship._props as any)._target._props._diagram.state.absCenterX +
         (i - middleNumber + 0.5) *
           (relationship._props as any)._diagram.dimension.arrowSpace
       ;[x1, x2] = correctToDirectLine(

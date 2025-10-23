@@ -40,7 +40,8 @@
     {
       "name": "render examples",
       "args": [
-        "deno task render-examples"
+        // "deno task render-examples"
+        "deno task render-examples --diagram-png"
       ],
       "request": "launch",
       "type": "node",

@@ -48,7 +48,7 @@ export type AwsCloudfrontDistributionInputProps =
   & IacNodeProps
 
 export type AwsCloudfrontDistributionOutputProps =
-  & z.input<
+  & z.output<
     typeof AwsCloudfrontDistributionOuputSchema
   >
   & AwsCloudfrontDistributionInputProps

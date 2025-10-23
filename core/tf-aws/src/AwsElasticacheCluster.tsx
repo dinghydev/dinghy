@@ -12,8 +12,11 @@ import z from 'zod'
 export const AwsElasticacheClusterSchema = z.object({
   cluster_id: ResolvableStringSchema.optional(),
   engine: z.union([
-    z.string(z.enum(['memcached', 'redis'])).optional(),
-    z.function().args(z.any()).returns(z.any()),
+    z.enum(['memcached', 'redis']).optional(),
+    z.function({
+      input: [z.any()],
+      output: z.any(),
+    }),
   ]),
   node_type: ResolvableStringSchema.optional(),
   num_cache_nodes: ResolvableNumberSchema.optional(),

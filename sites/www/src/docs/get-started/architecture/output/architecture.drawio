@@ -82,10 +82,10 @@
           vertex="1"
           >
           <mxGeometry
-            width="200" 
+            width="130" 
             height="50" 
             as="geometry" 
-            x="35" 
+            x="70" 
             y="30"
             />
           </mxCell>
@@ -97,10 +97,10 @@
           vertex="1"
           >
           <mxGeometry
-            width="200" 
+            width="130" 
             height="50" 
             as="geometry" 
-            x="275" 
+            x="310" 
             y="30"
             />
           </mxCell>
@@ -337,11 +337,11 @@
               as="points"
               >
               <mxPoint
-                x="315" 
+                x="435" 
                 y="340"
                 />
               <mxPoint
-                x="315" 
+                x="435" 
                 y="340"
                 />
               </Array>

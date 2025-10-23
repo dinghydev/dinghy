@@ -7,8 +7,8 @@ export default function App() {
     <DinghyArchitecture>
       <CoreModules>
         <StandardComponents>
-          <Module _width={200}>diagrams</Module>
-          <Module _width={200}>tf-aws</Module>
+          <Module>diagrams</Module>
+          <Module>tf-aws</Module>
         </StandardComponents>
         <Base>
           <Module _dependsBy={["StandardComponents", "base-renderer"]}>

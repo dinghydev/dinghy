@@ -103,7 +103,7 @@ export function S3CloudfrontSite(props: S3CloudfrontSiteInputProps) {
             response_page_path: '/errors/404.html',
           },
         ]}
-        {...props}
+        {...(props as any)}
       >
         <AwsRoute53Record
           name={domain as any}

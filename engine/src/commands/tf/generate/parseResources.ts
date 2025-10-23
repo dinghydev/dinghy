@@ -126,7 +126,7 @@ export async function parseResources(_args: any, resources: any) {
           /* eslint-disable no-case-declarations */
         default: {
           if (schema instanceof z.ZodDefault) {
-            const defaultValue = schema._def.defaultValue()
+            const defaultValue = schema.def.defaultValue
             if (defaultValue === value) {
               return
             }

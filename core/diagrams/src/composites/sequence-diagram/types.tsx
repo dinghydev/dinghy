@@ -37,7 +37,9 @@ export const MessageSchema = z.object({
   to: z.string().describe('Receiver participant'),
   message: z.string().optional().describe('Message content'),
   return: z.boolean().default(false).describe('Is this a return message?'),
-  dashed: z.boolean().default(false).describe('Is this message dashed?'),
+  dashed: z.boolean().describe(
+    'Is this message dashed? Default to true for return messages',
+  ).optional(),
 }).describe('A message between participants')
 
 export type MessageType = z.output<typeof MessageSchema>

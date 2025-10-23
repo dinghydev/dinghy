@@ -4,7 +4,7 @@ import { IacNodeProps } from '@dinghy/base-components'
 import z from 'zod'
 
 export const AwsPostgresSchema = AwsDbInstanceInputSchema.omit({ engine: true })
-export type AwsPostgresProps = z.input<typeof AwsPostgresSchema> & IacNodeProps
+export type AwsPostgresProps = z.output<typeof AwsPostgresSchema> & IacNodeProps
 
 export default function AwsPostgres(props: AwsPostgresProps) {
   return (
