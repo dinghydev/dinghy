@@ -1,4 +1,9 @@
+---
+sidebar_position: 10
+---
 # Contributing Code
+
+Get hands dirty with Dinghy code base! We welcome contributions from the community.
 
 ## Local Development
 

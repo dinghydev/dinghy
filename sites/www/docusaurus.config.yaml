@@ -9,11 +9,8 @@ themeConfig:
       - to: /references
         label: References
         position: left
-      - to: /contribute
-        label: Contribute
-        position: left
-      - to: /contact
-        label: Contact
+      - to: /community
+        label: Community
         position: left
       - href: https://github.com/dinghydev/dinghy
         position: right
