@@ -2,10 +2,11 @@
 edit_url: https://github.com/dinghydev/dinghy/blob/main/core/diagrams/src/composites/sequence-diagram/types.tsx
 ---
 # Sequence diagram
-A simple implmentation of standard UML sequence diagram
-## Schemas
 
-### ParticipantSchema
+A simple implementation of standard UML sequence diagram
+
+## ParticipantSchema
+
 A participant in the sequence diagram
 <table>
 <thead>
@@ -47,7 +48,7 @@ Shape of the participant
 </tbody>
 </table>
 
-### MessageSchema
+## MessageSchema
 A message between participants
 <table>
 <thead>
@@ -128,7 +129,8 @@ Is this message dashed? Default to true for return messages
 </tbody>
 </table>
 
-### InteractionSchema
+## InteractionSchema
+An interaction frame in the sequence diagram
 <table>
 <thead>
 <tr>
@@ -169,7 +171,8 @@ Messages in this interaction
 </tbody>
 </table>
 
-### SizeSchema
+## SizeSchema
+Size configuration for the sequence diagram
 <table>
 <thead>
 <tr>
@@ -236,7 +239,10 @@ Width of the activation bar
 </tbody>
 </table>
 
-### SequenceDiagramSchema
+## SequenceDiagramSchema
+
+The schema for end user to define sequence diagram component
+
 <table>
 <thead>
 <tr>
@@ -314,9 +320,8 @@ Size configuration for the diagram
 </tbody>
 </table>
 
-## Examples
 
-### Dinghy Runtime
+### Example: Dinghy Runtime
 
 A real world example of sequence diagram is the [Dinghy runtime architecture](/get-started/architecture#runtime-sequence-diagram).
 

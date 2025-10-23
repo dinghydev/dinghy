@@ -6,21 +6,14 @@ import { FrameProps } from './frame.tsx'
 import { defaultDiagramOptions } from '@dinghy/renderer-drawio'
 
 /**
- * # Sequence diagram
- * A simple implmentation of standard UML sequence diagram
- * @example
-### Dinghy Runtime
+# Sequence diagram
 
-A real world example of sequence diagram is the [Dinghy runtime architecture](/get-started/architecture#runtime-sequence-diagram).
+A simple implementation of standard UML sequence diagram
 
-import CodeBlock from "@theme/CodeBlock";
-import RuntimeTsx from "!!raw-loader!././../../../../get-started/architecture/runtime.tsx";
+## ParticipantSchema
 
-<CodeBlock language="tsx" title="runtime.tsx">
-  {RuntimeTsx}
-</CodeBlock>
+A participant in the sequence diagram
 
-![](./../../../../get-started/architecture/output/runtime.png)
  */
 export const ParticipantSchema = z.object({
   title: z.string().optional().describe('Name of the participant'),
@@ -30,8 +23,12 @@ export const ParticipantSchema = z.object({
   lifelineHeight: z.number().optional().describe(
     'Height of the lifeline, calculated automatically',
   ).meta({ hidden: true }),
-}).describe('A participant in the sequence diagram')
+})
 
+/**
+## MessageSchema
+A message between participants
+*/
 export const MessageSchema = z.object({
   from: z.string().describe('Sender participant'),
   to: z.string().describe('Receiver participant'),
@@ -44,6 +41,10 @@ export const MessageSchema = z.object({
 
 export type MessageType = z.output<typeof MessageSchema>
 
+/**
+## InteractionSchema
+An interaction frame in the sequence diagram
+*/
 export const InteractionSchema = z.object({
   title: z.string().optional().describe(
     'Title of the interaction frame, if not provided, no frame is drawn',
@@ -58,6 +59,10 @@ const sizeDefault = {
   activationWidth: 12,
 }
 
+/**
+## SizeSchema
+Size configuration for the sequence diagram
+*/
 export const SizeSchema = z.object({
   participant: z.number().default(sizeDefault.participant).describe(
     'Width of the participant box',
@@ -73,6 +78,26 @@ export const SizeSchema = z.object({
   ),
 })
 
+/**
+## SequenceDiagramSchema
+
+The schema for end user to define sequence diagram component
+
+SCHEMA_ATTIBUTES
+
+### Example: Dinghy Runtime
+
+A real world example of sequence diagram is the [Dinghy runtime architecture](/get-started/architecture#runtime-sequence-diagram).
+
+import CodeBlock from "@theme/CodeBlock";
+import RuntimeTsx from "!!raw-loader!././../../../../get-started/architecture/runtime.tsx";
+
+<CodeBlock language="tsx" title="runtime.tsx">
+  {RuntimeTsx}
+</CodeBlock>
+
+![](./../../../../get-started/architecture/output/runtime.png)
+ */
 export const SequenceDiagramSchema = z.object({
   participants: z.record(z.string(), ParticipantSchema).default({}).describe(
     'Participants in the sequence diagram, if not provided, participants will be inferred from message sources and targets',

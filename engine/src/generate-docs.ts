@@ -49,57 +49,45 @@ const renderDenoDoc = async (input: string, output: string) => {
   })
   const doc = JSON.parse(result.stdout)
   const mdx = [] as string[]
-  const examples = [] as string[]
   const schemas = [] as string[]
   doc.nodes.map((node: any) => {
-    const { doc, tags } = node.jsDoc || {}
-    if (doc) {
-      mdx.push(doc as string)
-    }
-    if (tags) {
-      tags.map((tag: any) => {
-        if (tag.kind === 'example') {
-          examples.push(tag.doc as string)
-        }
-      })
-    }
-    if (node.name.endsWith('Schema')) {
+    if (node.jsDoc?.doc && node.name.endsWith('Schema')) {
       schemas.push(node.name)
     }
   })
-  if (schemas.length > 0) {
-    mdx.push('## Schemas\n')
-    const definitions = await import(`${projectRoot}/${input}`)
-    const shapes = {} as any
-    schemas.map((schema) => {
-      const definition = definitions[schema] as any
-      shapes[Object.keys(definition.shape).join(',')] = schema
-    })
-    const resolveObjectType = (obj: any): string => {
-      if (obj.type === 'array') {
-        return `[ ${resolveObjectType(obj.items)} ]`
-      } else if (obj.properties) {
-        const key = Object.keys(obj.properties).join(',')
-        const refSchema = shapes[key]
-        if (refSchema) {
-          return `[${refSchema}](#${refSchema.toLowerCase()})`
-        }
-      } else if (obj.propertyNames) {
-        return `&lt; ${obj.propertyNames.type}, ${
-          resolveObjectType(obj.additionalProperties)
-        } &gt;`
+
+  const definitions = await import(`${projectRoot}/${input}`)
+  const shapes = {} as any
+  schemas.map((schema) => {
+    const definition = definitions[schema] as any
+    shapes[Object.keys(definition.shape).join(',')] = schema
+  })
+
+  const resolveObjectType = (obj: any): string => {
+    if (obj.type === 'array') {
+      return `[ ${resolveObjectType(obj.items)} ]`
+    } else if (obj.properties) {
+      const key = Object.keys(obj.properties).join(',')
+      const refSchema = shapes[key]
+      if (refSchema) {
+        return `[${refSchema}](#${refSchema.toLowerCase()})`
       }
-      return obj.type || ''
+    } else if (obj.propertyNames) {
+      return `&lt; ${obj.propertyNames.type}, ${
+        resolveObjectType(obj.additionalProperties)
+      } &gt;`
     }
-    schemas.map((schema) => {
-      const definition = definitions[schema] as z.ZodSchema
-      mdx.push(`### ${schema}`)
-      if (definition.description) {
-        mdx.push(definition.description)
-      }
-      //   mdx.push('| Name | Type | Description | Required | Default |')
-      //   mdx.push('| ---- | ---- | ----------- | -------- | ------- |')
-      mdx.push(`<table>
+    return obj.type || ''
+  }
+  const schemaAttributes = (schema: string) => {
+    if (!schema.endsWith('Schema')) {
+      return
+    }
+    const attributes = [] as string[]
+
+    const definition = definitions[schema] as z.ZodSchema
+
+    attributes.push(`<table>
 <thead>
 <tr>
 <th>Name</th>
@@ -110,21 +98,21 @@ const renderDenoDoc = async (input: string, output: string) => {
 </tr>
 </thead>
 <tbody>`)
-      const { properties, required } = z.toJSONSchema(definition)
-      Object.entries(properties as any).map(([name, p]) => {
-        const prop = p as any
-        const typeValue = resolveObjectType(prop)
-        if (prop.hidden) {
-          return
-        }
-        const defaultValue = prop.default !== undefined
-          ? ['object', 'array'].includes(prop.type)
-            ? `\`\`\`json
+    const { properties, required } = z.toJSONSchema(definition)
+    Object.entries(properties as any).map(([name, p]) => {
+      const prop = p as any
+      const typeValue = resolveObjectType(prop)
+      if (prop.hidden) {
+        return
+      }
+      const defaultValue = prop.default !== undefined
+        ? ['object', 'array'].includes(prop.type)
+          ? `\`\`\`json
 ${JSON.stringify(prop.default, null, 2)}
 \`\`\``
-            : `\`${prop.default}\``
-          : ''
-        mdx.push(`<tr>
+          : `\`${prop.default}\``
+        : ''
+      attributes.push(`<tr>
 <td>\`${name}\`</td>
 <td>
 ${typeValue}
@@ -137,15 +125,26 @@ ${prop.description || ''}
 ${defaultValue}
 </td>
 </tr>`)
-      })
-      mdx.push(`</tbody>`)
-      mdx.push(`</table>\n`)
     })
+    attributes.push(`</tbody>`)
+    attributes.push(`</table>\n`)
+    return attributes.join('\n')
   }
-  if (examples.length > 0) {
-    mdx.push('## Examples\n')
-    mdx.push(examples.join('\n'))
-  }
+
+  doc.nodes.map((node: any) => {
+    let doc = node.jsDoc?.doc as string | undefined
+    if (doc) {
+      const attributes = schemaAttributes(node.name)
+      if (attributes) {
+        if (doc.includes('SCHEMA_ATTIBUTES')) {
+          doc = doc.replace('SCHEMA_ATTIBUTES', attributes)
+        } else {
+          doc = doc + '\n' + attributes
+        }
+      }
+      mdx.push(doc)
+    }
+  })
   if (mdx.length === 0) {
     throw new Error(`No docs found in ${input}`)
   }

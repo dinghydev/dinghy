@@ -247,12 +247,7 @@
     },
     {
       "name": "generate docs",
-      "args": [
-        "www",
-        // "references-diagrams-elements",
-        // "tmp",
-        // "references",
-      ],
+      "args": [],
       "program": "src/generate-docs.ts",
       "env": {
         "APP_HOME": "${workspaceFolder}/../sites"
