@@ -48,12 +48,12 @@ export const deployToS3 = async (
   }
 
   const categories = {
-    'gzip-mutable': [],
     'gzip-immutable': [],
-    'regular-mutable': [],
     'regular-immutable': [],
-    'html-mutable': [],
     'html-immutable': [],
+    'gzip-mutable': [],
+    'regular-mutable': [],
+    'html-mutable': [],
   } as Record<string, string[]>
   const folderFiles = {} as Record<string, string>
   for await (const entry of walk(outputDir, { includeDirs: false })) {
