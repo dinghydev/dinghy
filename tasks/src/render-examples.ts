@@ -42,7 +42,10 @@ const renderProjectWithoutPng = async (projectPath: string) => {
   await execa('deno', args, {
     cwd: `${projectRoot}/engine`,
     stdio: 'inherit',
-    env: { CI_SKIP_GIT_DIFF_CHECK: 'true' },
+    env: {
+      CI_SKIP_GIT_DIFF_CHECK: 'true',
+      NODE_OPTIONS: undefined, // VSCode pass this cause unnecessary png warning message
+    },
   })
 }
 

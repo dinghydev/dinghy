@@ -17,10 +17,10 @@ export const p30BindData = (
         const key = targetKeys[i]
         if (keys.includes(key)) {
           Object.assign(_props, bindings[key])
-          if (_props.onDataBind) {
-            _props.onDataBind(_node)
-          }
         }
+      }
+      if (_props.onDataBind) {
+        _props.onDataBind(_node)
       }
     }
 

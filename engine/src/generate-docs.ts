@@ -60,10 +60,13 @@ const renderDenoDoc = async (input: string, output: string) => {
   const shapes = {} as any
   schemas.map((schema) => {
     const definition = definitions[schema] as any
-    shapes[Object.keys(definition.shape).join(',')] = schema
+    shapes[Object.keys(definition.shape || {}).join(',')] = schema
   })
 
   const resolveObjectType = (obj: any): string => {
+    if (obj.typeText) {
+      return obj.typeText
+    }
     if (obj.type === 'array') {
       return `[ ${resolveObjectType(obj.items)} ]`
     } else if (obj.properties) {
@@ -86,32 +89,38 @@ const renderDenoDoc = async (input: string, output: string) => {
     const attributes = [] as string[]
 
     const definition = definitions[schema] as z.ZodSchema
-
+    const { properties, required, hideRequired, hideDefault } = z
+      .toJSONSchema(definition, { unrepresentable: 'any' })
+    if (!properties) {
+      return
+    }
     attributes.push(`<table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th>Required</th>
-<th>Default</th>
+${hideRequired ? '' : '<th>Required</th>'}
+${hideDefault ? '' : '<th>Default</th>'}
 </tr>
 </thead>
 <tbody>`)
-    const { properties, required } = z.toJSONSchema(definition)
-    Object.entries(properties as any).map(([name, p]) => {
+    Object.entries(properties).map(([name, p]) => {
       const prop = p as any
       const typeValue = resolveObjectType(prop)
       if (prop.hidden) {
         return
       }
-      const defaultValue = prop.default !== undefined
-        ? ['object', 'array'].includes(prop.type)
-          ? `\`\`\`json
+      let defaultValue = prop.defaultText as string
+      if (!defaultValue) {
+        defaultValue = prop.default !== undefined
+          ? ['object', 'array'].includes(prop.type)
+            ? `\`\`\`json
 ${JSON.stringify(prop.default, null, 2)}
 \`\`\``
-          : `\`${prop.default}\``
-        : ''
+            : `\`${prop.default}\``
+          : ''
+      }
       attributes.push(`<tr>
 <td>\`${name}\`</td>
 <td>
@@ -120,10 +129,18 @@ ${typeValue}
 <td style={{"min-width":"200px"}}>
 ${prop.description || ''}
 </td>
-<td align="center">${(required || [])!.includes(name) ? '✅' : '❌'}</td>
-<td>
+${
+        hideRequired
+          ? ''
+          : `<td align="center">${
+            (required || [])!.includes(name) ? '✅' : '❌'
+          }</td>`
+      }
+${
+        hideDefault ? '' : `<td>
 ${defaultValue}
-</td>
+</td>`
+      }
 </tr>`)
     })
     attributes.push(`</tbody>`)
@@ -165,8 +182,13 @@ ${defaultValue}
 }
 
 const jsDocs = {
-  'core/diagrams/src/composites/sequence-diagram/types.tsx':
-    'sites/www/src/docs/references/diagrams/composites/sequence-diagram/README.mdx',
+  // 'core/diagrams/src/composites/sequence-diagram/types.tsx':
+  //   'sites/www/src/docs/references/diagrams/composites/sequence-diagram/README.mdx',
+
+  'core/base-components/src/types/base.ts':
+    'sites/www/src/docs/references/diagrams/attributes/base/README.mdx',
+  'core/base-components/src/types/diagrams.ts':
+    'sites/www/src/docs/references/diagrams/attributes/diagrams/README.mdx',
 }
 Object.entries(jsDocs).forEach(([input, output]) => {
   renderDenoDoc(input, output)

@@ -10,6 +10,14 @@ import {
   ResolvableStringSchema,
 } from './base.ts'
 
+/**
+# Diagrams
+
+Diagram specific attributes
+
+## DisplayStringSchema
+
+ */
 export const DisplayStringSchema = z.enum([
   'invisible',
   'none',

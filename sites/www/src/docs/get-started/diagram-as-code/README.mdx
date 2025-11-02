@@ -52,23 +52,10 @@ That's right, the attribute name convention is that all diagram or internal attr
 prefixed with underscore. None underscore attribute are reserved for
 Infrastructure as Code data model.
 
-For full list of supported diagram attributes, references [types/diagrams.ts](https://github.com/dinghydev/dinghy/blob/main/core/base-components/src/types/diagrams.ts) before dedicated documentation developed.
+For full list of supported diagram attributes, references to:
+1. [Base Attributes](./../../references/diagrams/attributes/base/README.mdx)
+1. [Diagrams Attributes](./../../references/diagrams/attributes/diagrams/README.mdx)
 
-### \_tags attribute
-
-The shape React component names are collected as `_tags`. The value will be used to populate other values automatically or programmablely.
-
-Given example below, the `TagLevel2` component has `_tags` = `[TagLevel2, TagLevel1, Shape]`.
-
-<CodeBlock language="tsx" title="tags.tsx">
-  {TagsTsx}
-</CodeBlock>
-
-### \_title attribute
-
-`_title` will be displayed for shape. It's default to be the first `_tags` break down by camel case splitter.
-
-Given the above `_tags` example above, the `TagLevel2` component has `_title` = `Tag Level2`.
 
 #### Function attribute
 
@@ -87,16 +74,6 @@ Given example below, the `TagLevel2` component has `_title` = `Tag Level1` .
 You may also put text inside component which will resolved as `_title` for the component.
 
 Given example above, the last `Shape` component has `_title` = `Title as text` .
-
-### \_id attribute
-
-`_id` is an unique identifier for the component. It's primary used for [IaC#_id](./infrastructure-as-code#_id-attribute), but you may use it to identify a unique [dependency](#dependency-component) when other match type is difficult.
-
-Given the above `_tags` example, the last `Shape` component has [generated default](https://github.com/dinghydev/dinghy/blob/main/core/base-renderer/src/processors/p20PopulateCoreAttributes.tsx#L49) `_id` = `shape_titleastext`.
-
-### \_view attribute
-
-You may assign `_view` atrribute `string|string[]` to a Shape to show it only when the view was selected during rendering.
 
 ### Attributes output
 
@@ -129,7 +106,7 @@ The string target will be match following attributes in order:
 
 ## draw.io elements
 
-You can import [draw.io libary elements](https://github.com/dinghydev/dinghy/tree/main/sites/references/diagrams/elements) into your diagram to enhance its appearance.
+You can import <a href="https://dinghy.dev/references/diagrams/elements/" target="_self">draw.io libary elements</a> into your diagram to enhance its appearance.
 
 <CodeBlock language="tsx" title="drawio.tsx">
   {DrawioTsx}
@@ -141,7 +118,7 @@ You can import [draw.io libary elements](https://github.com/dinghydev/dinghy/tre
 
 We intend to build out standard set of common diagram capability so ready to use by provide simple data structure.
 
-You may found out the list of such composites in [core/diagrams/src/composites](https://github.com/dinghydev/dinghy/tree/main/core/diagrams/src/composites).
+You may found out the list of such [composites](../references/diagrams/composites) in references section.
 
 The [Runtime sequence diagram](./architecture#runtime-sequence-diagram) of the Dinghy Architecture was defined as code below:
 

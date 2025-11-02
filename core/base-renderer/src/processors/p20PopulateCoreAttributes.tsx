@@ -50,8 +50,12 @@ const defaultId = (node: NodeTree, _fiber: any, usedIds: string[]) => {
   const typeId = toId(toName(node._props._type as string))
   const nameId = toId(node._props._name as string)
   let id = typeId !== nameId ? `${typeId}_${nameId}` : typeId
-  if (node._props._version) {
-    id = `${id}_${node._props._version}`
+  let { _version } = node._props
+  if (_version) {
+    if (typeof _version === 'function') {
+      _version = _version(node, _fiber)
+    }
+    id = `${id}_${_version}`
   }
   let i = 2
   while (true) {

@@ -36,7 +36,7 @@
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/elements"
         // "APP_HOME": "${workspaceFolder}/../examples/diagram/sequence/data"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/architecture"
-        "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/contribute",
+        "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/community",
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/diagram-as-code"
         // "APP_HOME": "${workspaceFolder}/../sites/www/src/docs/get-started/step-by-step/step-3-draw-io"
         // "APP_HOME": "${workspaceFolder}/../dinghy-sites"

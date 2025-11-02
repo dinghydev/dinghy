@@ -29,7 +29,7 @@ Name of the participant
 </td>
 <td align="center">❌</td>
 <td>
-
+Inferred from participant shape if not provided
 </td>
 </tr>
 <tr>
@@ -250,7 +250,7 @@ The schema for end user to define sequence diagram component
 <th>Type</th>
 <th>Description</th>
 <th>Required</th>
-<th>Default</th>
+
 </tr>
 </thead>
 <tbody>
@@ -263,11 +263,7 @@ The schema for end user to define sequence diagram component
 Participants in the sequence diagram, if not provided, participants will be inferred from message sources and targets
 </td>
 <td align="center">✅</td>
-<td>
-```json
-{}
-```
-</td>
+
 </tr>
 <tr>
 <td>`messages`</td>
@@ -278,9 +274,7 @@ Participants in the sequence diagram, if not provided, participants will be infe
 If provided, messages converted as first interaction automatically
 </td>
 <td align="center">❌</td>
-<td>
 
-</td>
 </tr>
 <tr>
 <td>`interactions`</td>
@@ -291,11 +285,7 @@ If provided, messages converted as first interaction automatically
 Interactions in the sequence diagram
 </td>
 <td align="center">✅</td>
-<td>
-```json
-[]
-```
-</td>
+
 </tr>
 <tr>
 <td>`size`</td>
@@ -306,16 +296,7 @@ Interactions in the sequence diagram
 Size configuration for the diagram
 </td>
 <td align="center">✅</td>
-<td>
-```json
-{
-  "participant": 60,
-  "timelinePadding": 15,
-  "participantsPadding": 100,
-  "activationWidth": 12
-}
-```
-</td>
+
 </tr>
 </tbody>
 </table>

@@ -26,6 +26,11 @@ export default {
                     items: [
                         {
                             type: "doc",
+                            label: "/References/Diagrams/Attributes",
+                            id: "rewrite-url",
+                        },
+                        {
+                            type: "doc",
                             label: "/References/Diagrams/Composites",
                             id: "rewrite-url",
                         },

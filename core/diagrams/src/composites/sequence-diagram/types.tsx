@@ -16,7 +16,9 @@ A participant in the sequence diagram
 
  */
 export const ParticipantSchema = z.object({
-  title: z.string().optional().describe('Name of the participant'),
+  title: z.string().optional().describe('Name of the participant').meta({
+    defaultText: 'Inferred from participant shape if not provided',
+  }),
   icon: z.any().optional().describe(
     `Shape of the participant`,
   ).meta({ type: 'Component' }),
@@ -111,6 +113,8 @@ export const SequenceDiagramSchema = z.object({
   size: SizeSchema.default(sizeDefault).describe(
     'Size configuration for the diagram',
   ),
+}).meta({
+  hideDefault: true,
 })
 
 export type SequenceDiagramProps =

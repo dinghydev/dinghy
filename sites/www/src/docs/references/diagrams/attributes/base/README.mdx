@@ -1,0 +1,142 @@
+---
+edit_url: https://github.com/dinghydev/dinghy/blob/main/core/base-components/src/types/base.ts
+---
+# Base
+
+Used by base renderer to build the node tree
+
+## BaseAttributesSchema
+
+The base attributes are resolved in following sequence from the table below. All values could be actual value or resolvable function. The function will take current `node` as first parameter.
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`_tags`</td>
+<td>
+[string]
+</td>
+<td style={{"min-width":"200px"}}>
+Names of the shape's React component. It will be used to construct other attributes if those are not provided explicitly.
+</td>
+
+
+</tr>
+<tr>
+<td>`_type`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+Type of the component. Default to first of the tags value if not provided. Primarily used for Infrastructure as Code `IaC`
+</td>
+
+
+</tr>
+<tr>
+<td>`_title`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+Displayed title of the shape
+</td>
+
+
+</tr>
+<tr>
+<td>`_name`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+Name of the shape for identification.  `IaC`
+</td>
+
+
+</tr>
+<tr>
+<td>`_version`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+Version of the shape if applicable.  `IaC`
+</td>
+
+
+</tr>
+<tr>
+<td>`_id`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+An unique identifier for the component.  `IaC`
+</td>
+
+
+</tr>
+</tbody>
+</table>
+
+
+### Base Attributes Example
+
+import CodeBlock from "@theme/CodeBlock";
+import TagsTsx from "!!raw-loader!./../../../../get-started/diagram-as-code/tags.tsx";
+
+Given example below,
+
+<CodeBlock language="tsx" title="tags.tsx">
+  {TagsTsx}
+</CodeBlock>
+
+The `TagLevel2` component has
+1. `_tags` = `[TagLevel2, TagLevel1, Shape]`
+1. `_type` = `tag_level2`
+1. `_title` = `Tag Level2`
+1. `_name` = `tag-level2`
+1. `_id` = `taglevel2`
+
+### Fallback Resolution
+
+`_title`, `_name`, and `_id` will fallback to their respective `title`, `name`, and `id` attributes if they are not provided explicitly.
+
+The same resolution logic applies reversely as well e.g. `name` will fallback to `_name` if not provided explicitly.
+## LifecycleSchema
+
+Events been invoked during lifecycle of the node
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`onDataBind`</td>
+<td>
+function(node)
+</td>
+<td style={{"min-width":"200px"}}>
+Invoked after all attributes resolved to the node tree
+</td>
+
+
+</tr>
+</tbody>
+</table>

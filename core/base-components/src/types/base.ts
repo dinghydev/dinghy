@@ -16,15 +16,15 @@ export const resolvableValue = <T extends z.ZodTypeAny>(schema: T) =>
       output: z.any(),
     }),
   ])
-
 export const StringSchema = z.string()
-
-export const ResolvableStringSchema = resolvableValue(z.string())
+export const ResolvableStringSchema = resolvableValue(z.string()).meta({
+  typeText: 'string',
+})
 export const ResolvableStringArraySchema = z.union([
   z.string().array(),
   ResolvableStringSchema.array(),
   resolvable(ResolvableStringSchema.array()),
-])
+]).meta({ typeText: '[string]' })
 export const StringOrArraySchema = z.union([z.string(), z.string().array()])
 
 export const ResolvableNumberSchema = resolvableValue(z.number())
@@ -66,30 +66,98 @@ export type NodeTree = {
   _dependsBy?: NodeTree[]
 }
 
-export const NodeSchema = z.object({
-  // react props
+export const ReactPropsSchema = z.object({
   key: z.any().optional(),
   ref: z.any().optional(),
+})
 
-  // dinghy core props
-  title: ResolvableStringSchema.optional(),
-  name: ResolvableStringSchema.optional(),
-  id: ResolvableStringSchema.optional(),
-  _title: ResolvableStringSchema.optional(),
-  _name: ResolvableStringSchema.optional(),
-  _id: ResolvableStringSchema.optional(),
+/**
 
-  // dinghy additional props
-  _level: ResolvableNumberSchema.optional(),
-  _tags: ResolvableStringArraySchema.optional(),
-  _type: ResolvableStringSchema.optional(),
-  _isDependency: ResolvableBooleanSchema.optional(),
-  _version: ResolvableStringSchema.optional(),
+# Base
+
+Used by base renderer to build the node tree
+
+## BaseAttributesSchema
+
+The base attributes are resolved in following sequence from the table below. All values could be actual value or resolvable function. The function will take current `node` as first parameter.
+
+SCHEMA_ATTIBUTES
+
+### Base Attributes Example
+
+import CodeBlock from "@theme/CodeBlock";
+import TagsTsx from "!!raw-loader!./../../../../get-started/diagram-as-code/tags.tsx";
+
+Given example below,
+
+<CodeBlock language="tsx" title="tags.tsx">
+  {TagsTsx}
+</CodeBlock>
+
+The `TagLevel2` component has
+1. `_tags` = `[TagLevel2, TagLevel1, Shape]`
+1. `_type` = `tag_level2`
+1. `_title` = `Tag Level2`
+1. `_name` = `tag-level2`
+1. `_id` = `taglevel2`
+
+### Fallback Resolution
+
+`_title`, `_name`, and `_id` will fallback to their respective `title`, `name`, and `id` attributes if they are not provided explicitly.
+
+The same resolution logic applies reversely as well e.g. `name` will fallback to `_name` if not provided explicitly.
+*/
+
+export const BaseAttributesSchema = z.object({
+  // internal populated by default
+  _level: ResolvableNumberSchema.optional().meta({ hidden: true }),
+  _isDependency: ResolvableBooleanSchema.optional().meta({ hidden: true }),
+
+  _tags: ResolvableStringArraySchema.optional().describe(
+    `Names of the shape's React component. It will be used to construct other attributes if those are not provided explicitly.`,
+  ),
+  _type: ResolvableStringSchema.optional().describe(
+    `Type of the component. Default to first of the tags value if not provided. Primarily used for Infrastructure as Code \`IaC\``,
+  ),
+  _title: ResolvableStringSchema.optional().describe(
+    `Displayed title of the shape`,
+  ),
+  _name: ResolvableStringSchema.optional().describe(
+    `Name of the shape for identification.  \`IaC\``,
+  ),
+  _version: ResolvableStringSchema.optional().describe(
+    `Version of the shape if applicable.  \`IaC\``,
+  ),
+  _id: ResolvableStringSchema.optional().describe(
+    `An unique identifier for the component.  \`IaC\``,
+  ),
+  title: ResolvableStringSchema.optional().meta({ hidden: true }),
+  name: ResolvableStringSchema.optional().meta({ hidden: true }),
+  id: ResolvableStringSchema.optional().meta({ hidden: true }),
+}).meta({ hideRequired: true, hideDefault: true })
+
+/**
+## LifecycleSchema
+
+Events been invoked during lifecycle of the node
+*/
+export const LifecycleSchema = z.object({
+  onDataBind: CallableSchema.optional().meta({
+    description: 'Invoked after all attributes resolved to the node tree',
+    typeText: 'function(node)',
+  }),
+}).meta({ hideRequired: true, hideDefault: true })
+
+export const ToDoRefactoryRequiredSchema = z.object({
   _view: StringOrArraySchema.optional(),
   _stage: StringOrArraySchema.optional(),
   _importId: ResolvableStringSchema.optional(),
-  onDataBind: CallableSchema.optional(),
 })
 
-export type NodeType = z.input<typeof NodeSchema>
+export type NodeType =
+  & z.input<typeof ReactPropsSchema>
+  & z.input<typeof BaseAttributesSchema>
+  & z.input<typeof LifecycleSchema>
+  & z.input<typeof ToDoRefactoryRequiredSchema>
+
 export type NodeProps = NodeType & ReactNodeTree

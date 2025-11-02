@@ -1,14 +1,14 @@
 import type { ReactElement } from 'react'
 import {
+  BaseAttributesSchema,
   DependsSchema,
-  NodeSchema,
   type NodeTree,
   type Props,
 } from '@dinghy/base-components'
 import type { JsonRenderOptions } from './types.ts'
 import type { HostContainer, Output } from '@dinghy/base-renderer'
 
-const NODE_PROPS_FIELDS = Object.keys(NodeSchema.shape).filter(
+const NODE_PROPS_FIELDS = Object.keys(BaseAttributesSchema.shape).filter(
   (key) => key !== 'ref',
 )
 const DEPENDS_FIELDS = Object.keys(DependsSchema.enum)
