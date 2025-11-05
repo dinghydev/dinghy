@@ -1,0 +1,22 @@
+---
+sidebar_position: 10
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./with-elements.tsx";
+
+# With Elements
+
+Build sequence diagram with raw elements with custom controls
+
+<Tabs>
+  <TabItem value="Source">    
+    <CodeBlock language="tsx" title="app.tsx">
+      {AppTsx}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="Diagram" default>
+    ![](./output/with-elements.png#drawio-w-70)
+  </TabItem>
+</Tabs>

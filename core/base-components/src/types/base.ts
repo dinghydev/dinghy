@@ -26,6 +26,7 @@ export const ResolvableStringArraySchema = z.union([
   resolvable(ResolvableStringSchema.array()),
 ]).meta({ typeText: '[string]' })
 export const StringOrArraySchema = z.union([z.string(), z.string().array()])
+  .meta({ typeText: 'string|[string]' })
 
 export const ResolvableNumberSchema = resolvableValue(z.number())
 
@@ -69,6 +70,7 @@ export type NodeTree = {
 export const ReactPropsSchema = z.object({
   key: z.any().optional(),
   ref: z.any().optional(),
+  _importId: ResolvableStringSchema.optional(), // TODO: move to tf module
 })
 
 /**
@@ -126,7 +128,7 @@ export const BaseAttributesSchema = z.object({
     `Name of the shape for identification.  \`IaC\``,
   ),
   _version: ResolvableStringSchema.optional().describe(
-    `Version of the shape if applicable.  \`IaC\``,
+    `Version of the shape if applicable. Parent version are passed down to children automatically.  \`IaC\``,
   ),
   _id: ResolvableStringSchema.optional().describe(
     `An unique identifier for the component.  \`IaC\``,
@@ -134,6 +136,20 @@ export const BaseAttributesSchema = z.object({
   title: ResolvableStringSchema.optional().meta({ hidden: true }),
   name: ResolvableStringSchema.optional().meta({ hidden: true }),
   id: ResolvableStringSchema.optional().meta({ hidden: true }),
+}).meta({ hideRequired: true, hideDefault: true })
+
+/**
+## FiltersSchema
+
+Special attributes to filter the nodes visibility. Parent value are passed down to children automatically.
+*/
+export const FiltersSchema = z.object({
+  _view: StringOrArraySchema.optional().describe(
+    `Nodes visibility will be decided by the activated view(s). See [Multiple Views](/examples/diagrams/basic/multiple-views) example for usage.`,
+  ),
+  _stage: StringOrArraySchema.optional().describe(
+    `Only selected stage will be rendered.`,
+  ),
 }).meta({ hideRequired: true, hideDefault: true })
 
 /**
@@ -148,16 +164,10 @@ export const LifecycleSchema = z.object({
   }),
 }).meta({ hideRequired: true, hideDefault: true })
 
-export const ToDoRefactoryRequiredSchema = z.object({
-  _view: StringOrArraySchema.optional(),
-  _stage: StringOrArraySchema.optional(),
-  _importId: ResolvableStringSchema.optional(),
-})
-
 export type NodeType =
   & z.input<typeof ReactPropsSchema>
   & z.input<typeof BaseAttributesSchema>
+  & z.input<typeof FiltersSchema>
   & z.input<typeof LifecycleSchema>
-  & z.input<typeof ToDoRefactoryRequiredSchema>
 
 export type NodeProps = NodeType & ReactNodeTree

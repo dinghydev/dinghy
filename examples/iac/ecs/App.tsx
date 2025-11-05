@@ -1,4 +1,4 @@
-import { type DiagramNodeProps, Shape, Stack } from '../../../core/index.ts'
+import { type NodeProps, Shape, Stack } from '../../../core/index.ts'
 import {
   AwsCloud,
   AwsECSCluster,
@@ -25,11 +25,11 @@ function Redis(props: AwsElasticacheClusterProps) {
   return <AwsElasticacheCluster engine='redis' {...props} />
 }
 
-function StorageLayer(props: DiagramNodeProps) {
+function StorageLayer(props: NodeProps) {
   return <Shape _border={0} _color={{ color: 'none', fill: true }} {...props} />
 }
 
-function ECSApp(props: DiagramNodeProps) {
+function ECSApp(props: NodeProps) {
   return <Stack {...props} />
 }
 

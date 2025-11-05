@@ -8,7 +8,7 @@ import { defaultDiagramOptions } from '@dinghy/renderer-drawio'
 /**
 # Sequence diagram
 
-A simple implementation of standard UML sequence diagram
+A simple implementation of standard UML sequence diagram. See examples [here](/examples/diagrams/composites/sequence-diagram)
 
 ## ParticipantSchema
 
@@ -84,21 +84,6 @@ export const SizeSchema = z.object({
 ## SequenceDiagramSchema
 
 The schema for end user to define sequence diagram component
-
-SCHEMA_ATTIBUTES
-
-### Example: Dinghy Runtime
-
-A real world example of sequence diagram is the [Dinghy runtime architecture](/get-started/architecture#runtime-sequence-diagram).
-
-import CodeBlock from "@theme/CodeBlock";
-import RuntimeTsx from "!!raw-loader!././../../../../get-started/architecture/runtime.tsx";
-
-<CodeBlock language="tsx" title="runtime.tsx">
-  {RuntimeTsx}
-</CodeBlock>
-
-![](./../../../../get-started/architecture/output/runtime.png)
  */
 export const SequenceDiagramSchema = z.object({
   participants: z.record(z.string(), ParticipantSchema).default({}).describe(

@@ -1,0 +1,19 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./ecs.tsx";
+
+# ECS
+
+Sample ECS application
+
+<Tabs>
+  <TabItem value="Source">    
+    <CodeBlock language="tsx" title="app.tsx">
+      {AppTsx}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="Diagram" default>
+    ![](./output/ecs.png#drawio-w-100)
+  </TabItem>
+</Tabs>

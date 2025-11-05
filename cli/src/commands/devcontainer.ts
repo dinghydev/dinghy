@@ -23,7 +23,7 @@ const options: CommandOptions = {
     volumns: 'Additional volumns to mount to the devcontainer',
     workspace: 'The workspace folder to use in the devcontainer',
     'no-open':
-      'Do not open the devcontainer.Generate .devcontainer.json only if not exist',
+      'Do not open the devcontainer. Generate .devcontainer.json only if not exist',
   },
   cmdDescription: 'Start the project in devcontainer',
   cmdAlias: ['dc'],

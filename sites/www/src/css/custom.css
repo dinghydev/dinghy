@@ -30,39 +30,42 @@
   display: none;
 }
 
-img[src$="#drawio"] {
+img[src*="#drawio"] {
   max-width: 50%;
   height: auto;
 }
 
-[data-theme="dark"] img[src$="#drawio"] {
+[data-theme="dark"] img[src*="#drawio"] {
   filter: invert(100%) hue-rotate(180deg) saturate(1.25);
 }
 
-img[src$="#w-10"] {
+img[src$="w-10"] {
   max-width: 10%;
 }
-img[src$="#w-20"] {
+img[src$="w-20"] {
   max-width: 20%;
 }
-img[src$="#w-30"] {
+img[src$="w-30"] {
   max-width: 30%;
 }
-img[src$="#w-40"] {
+img[src$="w-40"] {
   max-width: 40%;
 }
-img[src$="#w-50"] {
+img[src$="w-50"] {
   max-width: 50%;
 }
-img[src$="#w-60"] {
+img[src$="w-60"] {
   max-width: 60%;
 }
-img[src$="#w-70"] {
+img[src$="w-70"] {
   max-width: 70%;
 }
-img[src$="#w-80"] {
+img[src$="w-80"] {
   max-width: 80%;
 }
-img[src$="#w-90"] {
+img[src$="w-90"] {
   max-width: 90%;
+}
+img[src$="w-100"] {
+  max-width: 100%;
 }

@@ -16,9 +16,9 @@ extension. Once you have those installed, you may use following command to open
 your project. Other VSCode based IDE ( e.g. Cursor ) may also work but didn't
 tested intensively.
 
-### dinghy dc
+### [dinghy devcontainer](/references/commands/cli/devcontainer)
 
-You may run `dinghy dc` or `dinghy devcontainer` in the project folder to open
+You may run `dinghy devcontainer` or `dinghy dc` in the project folder to open
 your project in devcontainer. The devcontainer is a full-featured development
 environment which has deno language server running which give you nice
 autocomplete developer experience.

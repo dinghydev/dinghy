@@ -4,8 +4,6 @@ import { projectRoot } from '../../cli/src/utils/projectRoot.ts'
 
 const folderWithExamples = [
   'sites/www',
-  'examples/web',
-  'examples/diagram/sequence',
 ] as string[]
 
 const findDinghyProjects = async () => {
@@ -27,7 +25,7 @@ const findDinghyProjects = async () => {
   return dinghyProjects
 }
 
-const renderProjectWithoutPng = async (projectPath: string) => {
+const renderProject = async (projectPath: string) => {
   console.log(`Rendering ${projectPath}...`)
   const args = [
     'run',
@@ -52,6 +50,6 @@ const renderProjectWithoutPng = async (projectPath: string) => {
 if (import.meta.main) {
   const dinghyProjects = await findDinghyProjects()
   for (const project of dinghyProjects) {
-    await renderProjectWithoutPng(project)
+    await renderProject(project)
   }
 }

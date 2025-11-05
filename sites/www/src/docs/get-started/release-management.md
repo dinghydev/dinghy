@@ -37,11 +37,30 @@ it can never be changed. Any change will result a different release.
 
 ## Release workflow
 
-We have github action based workflow to perform the release:
-
 <a href='https://github.com/dinghydev/dinghy/actions/workflows/release.yml'><img width='117' height='20' src='https://github.com/dinghydev/dinghy/actions/workflows/release.yml/badge.svg'/></a>
 
-The release will be triggered
+The github
+[release](https://github.com/dinghydev/dinghy/actions/workflows/release.yml)
+action based workflow to perform the release. The release will be triggered:
 
 1. automatically when last commit has `[release]` keyword
 2. or manually on demand
+
+## Static code analysis
+
+<a href='https://github.com/dinghydev/dinghy/actions/workflows/verification.yml'><img width='117' height='20' src='https://github.com/dinghydev/dinghy/actions/workflows/verification.yml/badge.svg'/></a>
+
+The github
+[verification](https://github.com/dinghydev/dinghy/actions/workflows/verification.yml)
+action will perform static code analsys on every push to ensure the code base in
+good status:
+
+1. [Render examples](https://github.com/dinghydev/dinghy/blob/main/tasks/src/render-examples.ts)
+1. [Check projects](https://github.com/dinghydev/dinghy/blob/main/tasks/src/check-projects.ts)
+   which will:
+   1. Run `deno check`
+   2. Run `deno fmt`
+   3. Run `deno lint`
+   4. Generate docs from source code
+   5. At the end, it will run `git diff` which will fail the action if any
+      change found

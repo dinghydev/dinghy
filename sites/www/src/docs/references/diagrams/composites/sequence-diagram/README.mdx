@@ -3,7 +3,7 @@ edit_url: https://github.com/dinghydev/dinghy/blob/main/core/diagrams/src/compos
 ---
 # Sequence diagram
 
-A simple implementation of standard UML sequence diagram
+A simple implementation of standard UML sequence diagram. See examples [here](/examples/diagrams/composites/sequence-diagram)
 
 ## ParticipantSchema
 
@@ -242,7 +242,6 @@ Width of the activation bar
 ## SequenceDiagramSchema
 
 The schema for end user to define sequence diagram component
-
 <table>
 <thead>
 <tr>
@@ -300,17 +299,3 @@ Size configuration for the diagram
 </tr>
 </tbody>
 </table>
-
-
-### Example: Dinghy Runtime
-
-A real world example of sequence diagram is the [Dinghy runtime architecture](/get-started/architecture#runtime-sequence-diagram).
-
-import CodeBlock from "@theme/CodeBlock";
-import RuntimeTsx from "!!raw-loader!././../../../../get-started/architecture/runtime.tsx";
-
-<CodeBlock language="tsx" title="runtime.tsx">
-  {RuntimeTsx}
-</CodeBlock>
-
-![](./../../../../get-started/architecture/output/runtime.png)

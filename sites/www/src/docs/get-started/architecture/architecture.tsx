@@ -1,4 +1,3 @@
-#!/usr/bin/env -S dinghy diagram
 import { Shape } from "@dinghy/base-components";
 import * as uml from "@dinghy/diagrams/entitiesUml";
 

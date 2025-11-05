@@ -1,0 +1,19 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./mindmap.tsx";
+
+# Mindmap
+
+Not pretty mindmap, but show how shape could be arranged
+
+<Tabs>
+  <TabItem value="Source">    
+    <CodeBlock language="tsx" title="app.tsx">
+      {AppTsx}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="Diagram" default>
+    ![](./output/mindmap.png#drawio-w-100)
+  </TabItem>
+</Tabs>

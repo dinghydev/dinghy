@@ -6,6 +6,9 @@ themeConfig:
       - to: /get-started
         label: Get Started
         position: left
+      - to: /examples
+        label: Examples
+        position: left
       - to: /references
         label: References
         position: left

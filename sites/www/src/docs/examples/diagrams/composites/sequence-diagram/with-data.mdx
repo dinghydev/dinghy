@@ -1,0 +1,22 @@
+---
+sidebar_position: 20
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./with-data.tsx";
+
+# With Data
+
+Build sequence diagram from data with [SequenceDiagram](/references/diagrams/composites/sequence-diagram) component.
+
+<Tabs>
+  <TabItem value="Source">    
+    <CodeBlock language="tsx" title="app.tsx">
+      {AppTsx}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="Diagram" default>
+    ![](./output/with-data.png#drawio-w-70)
+  </TabItem>
+</Tabs>

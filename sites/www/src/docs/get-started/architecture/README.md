@@ -9,14 +9,14 @@ core components and how they interact.
 
 ## Component diagram
 
-![](./output/architecture.png)
+![](./output/architecture.png#drawio-w-100)
 
-### Cli
+### [Cli](/references/commands/cli)
 
 The `dinghy-cli` only contain a very small amount of logic which will be stable
 to talk to wider range of more frequent changed engines.
 
-### Engine
+### [Engine](/references/commands/engine)
 
 The engine is where everything coming togeter:
 
@@ -32,4 +32,4 @@ render to target format.
 
 ## Runtime sequence diagram
 
-![](./output/runtime.png)
+![](./output/runtime.png#drawio-w-100)

@@ -1,0 +1,23 @@
+---
+description: Use only base Shape component syntax to define the diagram
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock'; import AppTsx from
+'!!raw-loader!./app.tsx';
+
+# Step 1: Basic Shape
+
+This example use only base `Shape` component syntax to define the diagram. It's
+just for illustration purpose, we don't expect you to code your diagram like
+this as it's not good user expereince to maintain.
+
+<Tabs>
+  <TabItem value="Source">    
+    <CodeBlock language="tsx" title="app.tsx">{AppTsx}</CodeBlock>
+  </TabItem>
+  <TabItem value="Diagram" default>
+    ![](./output/app.png#drawio-w-100)
+  </TabItem>
+</Tabs>
+

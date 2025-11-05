@@ -1,0 +1,30 @@
+---
+description: Use IaC component to generate terraform code
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock'; import AppTsx from
+'!!raw-loader!./app.tsx'; import AppTfJson from
+'!!raw-loader!./output/app/app.tf.json';
+
+# Step 4: Infrastructure as Code
+
+This example use IaC backed component from `@dinghy/tf-aws`
+to not only generate same diagramm as
+[Step 3: draw.io](../step-3-draw-io/README.mdx), but also
+[terraform code](#terraform-code).
+
+<Tabs>
+  <TabItem value="Source">    
+    <CodeBlock language="tsx" title="app.tsx">{AppTsx}</CodeBlock>
+  </TabItem>
+  <TabItem value="Diagram">
+    ![](./output/app.png#drawio-w-100)
+  </TabItem>
+  <TabItem value="Terraform Code" default>
+    The terraform code snippet is for illustration only.
+
+    <CodeBlock language="json" title="output/app/app.tf.json">{AppTfJson}</CodeBlock>
+  </TabItem>
+</Tabs>

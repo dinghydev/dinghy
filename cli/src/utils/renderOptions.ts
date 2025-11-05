@@ -27,10 +27,11 @@ export const renderOptions = {
   },
   arguments: {
     stack: {
-      description: 'Stack name or tsx file name',
+      description:
+        'Stack name or tsx file name. If not specified, all stacks will be rendered',
       required: false,
     },
   },
   cmdDescription:
-    'Render from .tsx files to target formats e.g. .drawio or .tf',
+    'Render from `tsx` files to target formats e.g. `json`, `drawio` or `tf`',
 }

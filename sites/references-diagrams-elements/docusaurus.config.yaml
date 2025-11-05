@@ -20,17 +20,17 @@ themeConfig:
         html: Get Started
         target: _self
         position: left
+      - href: https://dinghy.dev/examples
+        html: Examples
+        target: _self
+        position: left
       - href: /references/
         html: References
         target: _self
         className: navbar__link--active
         position: left
-      - href: https://dinghy.dev/contribute
-        html: Contribute
-        target: _self
-        position: left
-      - href: https://dinghy.dev/contact
-        html: Contact
+      - href: https://dinghy.dev/community
+        html: Community
         position: left
         target: _self
       - href: https://github.com/dinghydev/dinghy

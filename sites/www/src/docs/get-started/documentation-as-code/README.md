@@ -42,7 +42,7 @@ dinghy site start
 
 ### Preview in browser
 
-By visiting https://localhost:3000
+By visiting http://localhost:3000
 
 ![Preview](./preview.png)
 
@@ -51,10 +51,14 @@ By visiting https://localhost:3000
 Following commands are mapped to
 [Docusaurus Cli](https://docusaurus.io/docs/cli)
 
-- `start` Builds and serves a preview of your site locally
-- `build` Compiles your site for production
-- `serve` Serve your built website locally
-- `deploy` Deploys your site to remote services
+- [dinghy site start](../../references/commands/engine/site/start) Builds and
+  serves a preview of your site locally
+- [dinghy site build](../../references/commands/engine/site/build) Compiles your
+  site for production
+- [dinghy site serve](../../references/commands/engine/site/serve) Serve your
+  built website locally
+- [dinghy site deploy](../../references/commands/engine/site/deploy) Deploys
+  your site to remote services
 
 ### Deploy to AWS S3
 

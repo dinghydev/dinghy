@@ -52,10 +52,10 @@ advanced use cases e.g. to install specific version of Dinghy Cli:
 curl -fsSL https://dinghy.dev/install.sh | DINGHY_VERSION=1.2.3 sh
 ```
 
-| Name             | Default         | Description                   |
-| ---------------- | --------------- | ----------------------------- |
-| `DINGHY_HOME`    | `$HOME/.dinghy` | Installation target folder    |
-| `DINGHY_VERSION` | `latest`        | Dinghy Cli version to install |
+| Name             | Description                   | Default         |
+| ---------------- | ----------------------------- | --------------- |
+| `DINGHY_HOME`    | Installation target folder    | `$HOME/.dinghy` |
+| `DINGHY_VERSION` | Dinghy Cli version to install | `latest`        |
 
 ## Upgrade
 
@@ -66,11 +66,5 @@ dinghy upgrade
 ```
 
 This will fetch the latest release, unzip it, and replace your current
-executable with it.
-
-### Upgrade options
-
-| Name               | Default  | Description                                                                                                                                                                |
-| ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--version`        | `latest` | Dinghy Cli version to upgrade to                                                                                                                                           |
-| `--update-project` | `true`   | By default, `dinghy upgrade` will also update your project engine version if `dinghy.config.yaml` exist in current folder. You may pass `--no--update-project` to skip it. |
+executable with it. See
+[dinghy upgrade reference](/references/commands/cli/upgrade) for more details.

@@ -70,7 +70,7 @@ Name of the shape for identification.  `IaC`
 string
 </td>
 <td style={{"min-width":"200px"}}>
-Version of the shape if applicable.  `IaC`
+Version of the shape if applicable. Parent version are passed down to children automatically.  `IaC`
 </td>
 
 
@@ -113,6 +113,45 @@ The `TagLevel2` component has
 `_title`, `_name`, and `_id` will fallback to their respective `title`, `name`, and `id` attributes if they are not provided explicitly.
 
 The same resolution logic applies reversely as well e.g. `name` will fallback to `_name` if not provided explicitly.
+## FiltersSchema
+
+Special attributes to filter the nodes visibility. Parent value are passed down to children automatically.
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`_view`</td>
+<td>
+string|[string]
+</td>
+<td style={{"min-width":"200px"}}>
+Nodes visibility will be decided by the activated view(s). See [Multiple Views](/examples/diagrams/basic/multiple-views) example for usage.
+</td>
+
+
+</tr>
+<tr>
+<td>`_stage`</td>
+<td>
+string|[string]
+</td>
+<td style={{"min-width":"200px"}}>
+Only selected stage will be rendered.
+</td>
+
+
+</tr>
+</tbody>
+</table>
+
 ## LifecycleSchema
 
 Events been invoked during lifecycle of the node

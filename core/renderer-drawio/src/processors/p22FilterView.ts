@@ -64,8 +64,11 @@ export const p22FilterView = ({
     )
     if (visibleNode) {
       if (visibleNode !== rootNode) {
-        rootNode._children = [visibleNode]
-        visibleNode._parent = rootNode
+        rootNode._children = visibleNode._children
+        visibleNode._children.map((child) => {
+          child._parent = rootNode
+        })
+        rootNode._props._title = visibleNode._props._title
       }
     } else {
       rootNode._children = []

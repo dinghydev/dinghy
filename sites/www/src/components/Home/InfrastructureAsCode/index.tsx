@@ -36,7 +36,7 @@ export default function InfrastructureAsCode() {
             </h3>
             <h3>You use full-fledged</h3>
             <h3 className={styles.proText}>
-              programming languages TypeScript
+              programming language TypeScript
             </h3>
           </div>
           <div className={styles.text}>
