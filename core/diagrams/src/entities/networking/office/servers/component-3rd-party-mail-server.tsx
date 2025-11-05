@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_3RD_PARTY_MAIL_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_3RD_PARTY_MAIL_SERVER = {
   _original_height: 59,
 }
 
-export function Component3rdPartyMailServer(props: DiagramNodeProps) {
+export function Component3rdPartyMailServer(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_3RD_PARTY_MAIL_SERVER}

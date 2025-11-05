@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCRIPT_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const SCRIPT_FILE = {
   _original_height: 50,
 }
 
-export function ScriptFile(props: DiagramNodeProps) {
+export function ScriptFile(props: NodeProps) {
   return (
     <Shape
       {...SCRIPT_FILE}

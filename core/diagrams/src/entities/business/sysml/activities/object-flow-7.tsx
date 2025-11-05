@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OBJECT_FLOW_7 = {
   _style: {
@@ -9,7 +9,7 @@ export const OBJECT_FLOW_7 = {
   _height: 60,
 }
 
-export function ObjectFlow7(props: DiagramNodeProps) {
+export function ObjectFlow7(props: NodeProps) {
   return (
     <Shape
       {...OBJECT_FLOW_7}

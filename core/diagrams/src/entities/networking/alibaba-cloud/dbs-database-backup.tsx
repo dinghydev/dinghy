@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DBS_DATABASE_BACKUP = {
   _style: {
@@ -10,7 +10,7 @@ export const DBS_DATABASE_BACKUP = {
   _original_height: 63.9,
 }
 
-export function DbsDatabaseBackup(props: DiagramNodeProps) {
+export function DbsDatabaseBackup(props: NodeProps) {
   return (
     <Shape
       {...DBS_DATABASE_BACKUP}

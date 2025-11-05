@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HORIZONTAL_BACKBONE = {
   _style: {
@@ -10,7 +10,7 @@ export const HORIZONTAL_BACKBONE = {
   _height: 10,
 }
 
-export function HorizontalBackbone(props: DiagramNodeProps) {
+export function HorizontalBackbone(props: NodeProps) {
   return (
     <Shape
       {...HORIZONTAL_BACKBONE}

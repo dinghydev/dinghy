@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IBMTABLET = {
   _style: {
@@ -10,7 +10,7 @@ export const IBMTABLET = {
   _original_height: 80,
 }
 
-export function Ibmtablet(props: DiagramNodeProps) {
+export function Ibmtablet(props: NodeProps) {
   return (
     <Shape {...IBMTABLET} {...props} _style={extendStyle(IBMTABLET, props)} />
   )

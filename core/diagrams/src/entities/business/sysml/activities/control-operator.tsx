@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTROL_OPERATOR = {
   _style: {
@@ -9,7 +9,7 @@ export const CONTROL_OPERATOR = {
   _height: 80,
 }
 
-export function ControlOperator(props: DiagramNodeProps) {
+export function ControlOperator(props: NodeProps) {
   return (
     <Shape
       {...CONTROL_OPERATOR}

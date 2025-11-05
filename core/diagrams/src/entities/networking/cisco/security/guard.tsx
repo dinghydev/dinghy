@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GUARD = {
   _style: {
@@ -10,6 +10,6 @@ export const GUARD = {
   _height: 54,
 }
 
-export function Guard(props: DiagramNodeProps) {
+export function Guard(props: NodeProps) {
   return <Shape {...GUARD} {...props} _style={extendStyle(GUARD, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEEDLE_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const NEEDLE_VALVE = {
   _height: 60,
 }
 
-export function NeedleValve(props: DiagramNodeProps) {
+export function NeedleValve(props: NodeProps) {
   return (
     <Shape
       {...NEEDLE_VALVE}

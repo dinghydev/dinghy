@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FERRY = {
   _style: {
@@ -10,6 +10,6 @@ export const FERRY = {
   _height: 69,
 }
 
-export function Ferry(props: DiagramNodeProps) {
+export function Ferry(props: NodeProps) {
   return <Shape {...FERRY} {...props} _style={extendStyle(FERRY, props)} />
 }

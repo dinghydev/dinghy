@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RETURN_TO_WORK = {
   _style: {
@@ -10,7 +10,7 @@ export const RETURN_TO_WORK = {
   _original_height: 62.32,
 }
 
-export function ReturnToWork(props: DiagramNodeProps) {
+export function ReturnToWork(props: NodeProps) {
   return (
     <Shape
       {...RETURN_TO_WORK}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BEST_PRACTICES = {
   _style: {
@@ -10,7 +10,7 @@ export const BEST_PRACTICES = {
   _original_height: 53,
 }
 
-export function BestPractices(props: DiagramNodeProps) {
+export function BestPractices(props: NodeProps) {
   return (
     <Shape
       {...BEST_PRACTICES}

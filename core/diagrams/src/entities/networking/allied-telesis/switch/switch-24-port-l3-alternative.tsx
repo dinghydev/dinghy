@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWITCH_24_PORT_L3_ALTERNATIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const SWITCH_24_PORT_L3_ALTERNATIVE = {
   _height: 52.8,
 }
 
-export function Switch24PortL3Alternative(props: DiagramNodeProps) {
+export function Switch24PortL3Alternative(props: NodeProps) {
   return (
     <Shape
       {...SWITCH_24_PORT_L3_ALTERNATIVE}

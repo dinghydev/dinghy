@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOGIC_APPS_CUSTOM_CONNECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const LOGIC_APPS_CUSTOM_CONNECTOR = {
   _original_height: 50,
 }
 
-export function LogicAppsCustomConnector(props: DiagramNodeProps) {
+export function LogicAppsCustomConnector(props: NodeProps) {
   return (
     <Shape
       {...LOGIC_APPS_CUSTOM_CONNECTOR}

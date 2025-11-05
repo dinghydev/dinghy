@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PC_ROUTERCARD = {
   _style: {
@@ -10,7 +10,7 @@ export const PC_ROUTERCARD = {
   _original_height: 70,
 }
 
-export function PcRoutercard(props: DiagramNodeProps) {
+export function PcRoutercard(props: NodeProps) {
   return (
     <Shape
       {...PC_ROUTERCARD}

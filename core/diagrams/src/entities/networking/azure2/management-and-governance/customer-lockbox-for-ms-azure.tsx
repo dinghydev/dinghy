@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CUSTOMER_LOCKBOX_FOR_MS_AZURE = {
   _style: {
@@ -10,7 +10,7 @@ export const CUSTOMER_LOCKBOX_FOR_MS_AZURE = {
   _original_height: 66.4,
 }
 
-export function CustomerLockboxForMsAzure(props: DiagramNodeProps) {
+export function CustomerLockboxForMsAzure(props: NodeProps) {
   return (
     <Shape
       {...CUSTOMER_LOCKBOX_FOR_MS_AZURE}

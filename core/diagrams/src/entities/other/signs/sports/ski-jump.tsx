@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SKI_JUMP = {
   _style: {
@@ -10,7 +10,7 @@ export const SKI_JUMP = {
   _original_height: 98,
 }
 
-export function SkiJump(props: DiagramNodeProps) {
+export function SkiJump(props: NodeProps) {
   return (
     <Shape {...SKI_JUMP} {...props} _style={extendStyle(SKI_JUMP, props)} />
   )

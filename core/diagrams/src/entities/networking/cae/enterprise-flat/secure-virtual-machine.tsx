@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURE_VIRTUAL_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURE_VIRTUAL_MACHINE = {
   _height: 38,
 }
 
-export function SecureVirtualMachine(props: DiagramNodeProps) {
+export function SecureVirtualMachine(props: NodeProps) {
   return (
     <Shape
       {...SECURE_VIRTUAL_MACHINE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_LOAD_BALANCER = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_LOAD_BALANCER = {
   _height: 35,
 }
 
-export function AzureLoadBalancer(props: DiagramNodeProps) {
+export function AzureLoadBalancer(props: NodeProps) {
   return (
     <Shape
       {...AZURE_LOAD_BALANCER}

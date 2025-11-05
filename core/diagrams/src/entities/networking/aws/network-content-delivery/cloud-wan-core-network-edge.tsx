@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_WAN_CORE_NETWORK_EDGE = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_WAN_CORE_NETWORK_EDGE = {
   _original_height: 78,
 }
 
-export function CloudWanCoreNetworkEdge(props: DiagramNodeProps) {
+export function CloudWanCoreNetworkEdge(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_WAN_CORE_NETWORK_EDGE}

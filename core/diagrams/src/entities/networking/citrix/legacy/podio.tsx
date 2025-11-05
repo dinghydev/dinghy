@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PODIO = {
   _style: {
@@ -10,6 +10,6 @@ export const PODIO = {
   _original_height: 37,
 }
 
-export function Podio(props: DiagramNodeProps) {
+export function Podio(props: NodeProps) {
   return <Shape {...PODIO} {...props} _style={extendStyle(PODIO, props)} />
 }

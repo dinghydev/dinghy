@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOURCEFORGE = {
   _style: {
@@ -10,7 +10,7 @@ export const SOURCEFORGE = {
   _original_height: 102.4,
 }
 
-export function Sourceforge(props: DiagramNodeProps) {
+export function Sourceforge(props: NodeProps) {
   return (
     <Shape
       {...SOURCEFORGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIDEO_FORM = {
   _style: {
@@ -10,7 +10,7 @@ export const VIDEO_FORM = {
   _original_height: 49,
 }
 
-export function VideoForm(props: DiagramNodeProps) {
+export function VideoForm(props: NodeProps) {
   return (
     <Shape {...VIDEO_FORM} {...props} _style={extendStyle(VIDEO_FORM, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RED_HAT_OPENSHIFT_SERVICE_ON_AWS = {
   _style: {
@@ -10,7 +10,7 @@ export const RED_HAT_OPENSHIFT_SERVICE_ON_AWS = {
   _original_height: 78,
 }
 
-export function RedHatOpenshiftServiceOnAws(props: DiagramNodeProps) {
+export function RedHatOpenshiftServiceOnAws(props: NodeProps) {
   return (
     <Shape
       {...RED_HAT_OPENSHIFT_SERVICE_ON_AWS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTIPLE_VOLUMES = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTIPLE_VOLUMES = {
   _original_height: 60,
 }
 
-export function MultipleVolumes(props: DiagramNodeProps) {
+export function MultipleVolumes(props: NodeProps) {
   return (
     <Shape
       {...MULTIPLE_VOLUMES}

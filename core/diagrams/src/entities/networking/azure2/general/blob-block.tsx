@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLOB_BLOCK = {
   _style: {
@@ -10,7 +10,7 @@ export const BLOB_BLOCK = {
   _original_height: 52,
 }
 
-export function BlobBlock(props: DiagramNodeProps) {
+export function BlobBlock(props: NodeProps) {
   return (
     <Shape {...BLOB_BLOCK} {...props} _style={extendStyle(BLOB_BLOCK, props)} />
   )

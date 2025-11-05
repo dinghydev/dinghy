@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INCLUSION = {
   _style: {
@@ -10,7 +10,7 @@ export const INCLUSION = {
   _height: 160,
 }
 
-export function Inclusion(props: DiagramNodeProps) {
+export function Inclusion(props: NodeProps) {
   return (
     <Shape {...INCLUSION} {...props} _style={extendStyle(INCLUSION, props)} />
   )

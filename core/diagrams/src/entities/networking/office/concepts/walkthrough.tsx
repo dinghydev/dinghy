@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WALKTHROUGH = {
   _style: {
@@ -10,7 +10,7 @@ export const WALKTHROUGH = {
   _original_height: 58,
 }
 
-export function Walkthrough(props: DiagramNodeProps) {
+export function Walkthrough(props: NodeProps) {
   return (
     <Shape
       {...WALKTHROUGH}

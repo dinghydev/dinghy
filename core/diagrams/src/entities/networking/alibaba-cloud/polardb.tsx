@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POLARDB = {
   _style: {
@@ -10,6 +10,6 @@ export const POLARDB = {
   _original_height: 57.3,
 }
 
-export function Polardb(props: DiagramNodeProps) {
+export function Polardb(props: NodeProps) {
   return <Shape {...POLARDB} {...props} _style={extendStyle(POLARDB, props)} />
 }

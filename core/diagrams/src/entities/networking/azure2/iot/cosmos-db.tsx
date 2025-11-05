@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COSMOS_DB = {
   _style: {
@@ -10,7 +10,7 @@ export const COSMOS_DB = {
   _original_height: 68,
 }
 
-export function CosmosDb(props: DiagramNodeProps) {
+export function CosmosDb(props: NodeProps) {
   return (
     <Shape {...COSMOS_DB} {...props} _style={extendStyle(COSMOS_DB, props)} />
   )

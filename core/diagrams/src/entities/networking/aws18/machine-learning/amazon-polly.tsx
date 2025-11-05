@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_POLLY = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_POLLY = {
   _height: 100,
 }
 
-export function AmazonPolly(props: DiagramNodeProps) {
+export function AmazonPolly(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_POLLY}

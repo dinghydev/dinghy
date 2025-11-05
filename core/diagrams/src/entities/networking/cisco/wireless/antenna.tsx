@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANTENNA = {
   _style: {
@@ -10,6 +10,6 @@ export const ANTENNA = {
   _height: 104,
 }
 
-export function Antenna(props: DiagramNodeProps) {
+export function Antenna(props: NodeProps) {
   return <Shape {...ANTENNA} {...props} _style={extendStyle(ANTENNA, props)} />
 }

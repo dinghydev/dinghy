@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_EMR = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_EMR = {
   _height: 100,
 }
 
-export function AmazonEmr(props: DiagramNodeProps) {
+export function AmazonEmr(props: NodeProps) {
   return (
     <Shape {...AMAZON_EMR} {...props} _style={extendStyle(AMAZON_EMR, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BREAK_CONTACT = {
   _style: {
@@ -10,7 +10,7 @@ export const BREAK_CONTACT = {
   _height: 10,
 }
 
-export function BreakContact(props: DiagramNodeProps) {
+export function BreakContact(props: NodeProps) {
   return (
     <Shape
       {...BREAK_CONTACT}

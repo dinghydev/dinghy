@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POSTURE_ASSESSMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const POSTURE_ASSESSMENT = {
   _original_height: 43,
 }
 
-export function PostureAssessment(props: DiagramNodeProps) {
+export function PostureAssessment(props: NodeProps) {
   return (
     <Shape
       {...POSTURE_ASSESSMENT}

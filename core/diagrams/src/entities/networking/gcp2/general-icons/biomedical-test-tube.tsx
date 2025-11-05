@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIOMEDICAL_TEST_TUBE = {
   _style: {
@@ -10,7 +10,7 @@ export const BIOMEDICAL_TEST_TUBE = {
   _height: 100,
 }
 
-export function BiomedicalTestTube(props: DiagramNodeProps) {
+export function BiomedicalTestTube(props: NodeProps) {
   return (
     <Shape
       {...BIOMEDICAL_TEST_TUBE}

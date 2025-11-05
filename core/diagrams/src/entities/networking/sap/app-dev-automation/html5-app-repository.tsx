@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HTML5_APP_REPOSITORY = {
   _style: {
@@ -10,7 +10,7 @@ export const HTML5_APP_REPOSITORY = {
   _original_height: 50,
 }
 
-export function Html5AppRepository(props: DiagramNodeProps) {
+export function Html5AppRepository(props: NodeProps) {
   return (
     <Shape
       {...HTML5_APP_REPOSITORY}

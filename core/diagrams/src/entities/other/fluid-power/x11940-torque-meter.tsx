@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11940_TORQUE_METER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11940_TORQUE_METER = {
   _height: 37.42,
 }
 
-export function X11940TorqueMeter(props: DiagramNodeProps) {
+export function X11940TorqueMeter(props: NodeProps) {
   return (
     <Shape
       {...X11940_TORQUE_METER}

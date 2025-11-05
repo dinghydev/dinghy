@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIALOGFLOW_ENTERPRISE_EDITION = {
   _style: {
@@ -10,7 +10,7 @@ export const DIALOGFLOW_ENTERPRISE_EDITION = {
   _height: 42,
 }
 
-export function DialogflowEnterpriseEdition(props: DiagramNodeProps) {
+export function DialogflowEnterpriseEdition(props: NodeProps) {
   return (
     <Shape
       {...DIALOGFLOW_ENTERPRISE_EDITION}

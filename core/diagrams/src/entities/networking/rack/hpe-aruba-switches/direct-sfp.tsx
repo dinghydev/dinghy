@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECT_SFP = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRECT_SFP = {
   _height: 8,
 }
 
-export function DirectSfp(props: DiagramNodeProps) {
+export function DirectSfp(props: NodeProps) {
   return (
     <Shape {...DIRECT_SFP} {...props} _style={extendStyle(DIRECT_SFP, props)} />
   )

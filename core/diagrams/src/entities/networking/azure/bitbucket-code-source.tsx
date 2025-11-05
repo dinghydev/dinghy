@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BITBUCKET_CODE_SOURCE = {
   _style: {
@@ -10,7 +10,7 @@ export const BITBUCKET_CODE_SOURCE = {
   _original_height: 50,
 }
 
-export function BitbucketCodeSource(props: DiagramNodeProps) {
+export function BitbucketCodeSource(props: NodeProps) {
   return (
     <Shape
       {...BITBUCKET_CODE_SOURCE}

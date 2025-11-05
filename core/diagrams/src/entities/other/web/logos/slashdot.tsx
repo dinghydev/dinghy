@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SLASHDOT = {
   _style: {
@@ -10,7 +10,7 @@ export const SLASHDOT = {
   _original_height: 62,
 }
 
-export function Slashdot(props: DiagramNodeProps) {
+export function Slashdot(props: NodeProps) {
   return (
     <Shape {...SLASHDOT} {...props} _style={extendStyle(SLASHDOT, props)} />
   )

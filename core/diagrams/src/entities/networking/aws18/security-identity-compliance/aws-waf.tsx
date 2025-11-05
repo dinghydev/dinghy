@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_WAF = {
   _style: {
@@ -10,6 +10,6 @@ export const AWS_WAF = {
   _height: 100,
 }
 
-export function AwsWaf(props: DiagramNodeProps) {
+export function AwsWaf(props: NodeProps) {
   return <Shape {...AWS_WAF} {...props} _style={extendStyle(AWS_WAF, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNIFIED_CONTACT_STORE = {
   _style: {
@@ -10,7 +10,7 @@ export const UNIFIED_CONTACT_STORE = {
   _original_height: 55,
 }
 
-export function UnifiedContactStore(props: DiagramNodeProps) {
+export function UnifiedContactStore(props: NodeProps) {
   return (
     <Shape
       {...UNIFIED_CONTACT_STORE}

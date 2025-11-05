@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TICKET_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const TICKET_MACHINE = {
   _original_height: 100,
 }
 
-export function TicketMachine(props: DiagramNodeProps) {
+export function TicketMachine(props: NodeProps) {
   return (
     <Shape
       {...TICKET_MACHINE}

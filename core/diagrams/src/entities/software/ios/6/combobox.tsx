@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMBOBOX = {
   _style: {
@@ -10,7 +10,7 @@ export const COMBOBOX = {
   _height: 15,
 }
 
-export function Combobox(props: DiagramNodeProps) {
+export function Combobox(props: NodeProps) {
   return (
     <Shape {...COMBOBOX} {...props} _style={extendStyle(COMBOBOX, props)} />
   )

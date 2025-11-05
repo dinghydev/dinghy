@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APP_MESH = {
   _style: {
@@ -10,7 +10,7 @@ export const APP_MESH = {
   _original_height: 78,
 }
 
-export function AppMesh(props: DiagramNodeProps) {
+export function AppMesh(props: NodeProps) {
   return (
     <Shape {...APP_MESH} {...props} _style={extendStyle(APP_MESH, props)} />
   )

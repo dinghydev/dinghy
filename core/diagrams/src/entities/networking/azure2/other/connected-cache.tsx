@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONNECTED_CACHE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONNECTED_CACHE = {
   _original_height: 56.00000000000001,
 }
 
-export function ConnectedCache(props: DiagramNodeProps) {
+export function ConnectedCache(props: NodeProps) {
   return (
     <Shape
       {...CONNECTED_CACHE}

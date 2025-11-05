@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRAINIUM_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const TRAINIUM_INSTANCE = {
   _original_height: 48,
 }
 
-export function TrainiumInstance(props: DiagramNodeProps) {
+export function TrainiumInstance(props: NodeProps) {
   return (
     <Shape
       {...TRAINIUM_INSTANCE}

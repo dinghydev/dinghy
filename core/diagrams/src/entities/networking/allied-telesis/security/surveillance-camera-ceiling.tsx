@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SURVEILLANCE_CAMERA_CEILING = {
   _style: {
@@ -10,7 +10,7 @@ export const SURVEILLANCE_CAMERA_CEILING = {
   _height: 35.4,
 }
 
-export function SurveillanceCameraCeiling(props: DiagramNodeProps) {
+export function SurveillanceCameraCeiling(props: NodeProps) {
   return (
     <Shape
       {...SURVEILLANCE_CAMERA_CEILING}

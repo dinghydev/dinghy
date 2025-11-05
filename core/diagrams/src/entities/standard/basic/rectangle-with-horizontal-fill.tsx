@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECTANGLE_WITH_HORIZONTAL_FILL = {
   _style: {
@@ -10,7 +10,7 @@ export const RECTANGLE_WITH_HORIZONTAL_FILL = {
   _height: 60,
 }
 
-export function RectangleWithHorizontalFill(props: DiagramNodeProps) {
+export function RectangleWithHorizontalFill(props: NodeProps) {
   return (
     <Shape
       {...RECTANGLE_WITH_HORIZONTAL_FILL}

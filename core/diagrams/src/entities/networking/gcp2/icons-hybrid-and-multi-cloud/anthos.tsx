@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANTHOS = {
   _style: {
@@ -10,6 +10,6 @@ export const ANTHOS = {
   _height: 36,
 }
 
-export function Anthos(props: DiagramNodeProps) {
+export function Anthos(props: NodeProps) {
   return <Shape {...ANTHOS} {...props} _style={extendStyle(ANTHOS, props)} />
 }

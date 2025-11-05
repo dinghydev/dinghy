@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFAULT_NUMBER = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFAULT_NUMBER = {
   _original_height: 30,
 }
 
-export function DefaultNumber(props: DiagramNodeProps) {
+export function DefaultNumber(props: NodeProps) {
   return (
     <Shape
       {...DEFAULT_NUMBER}

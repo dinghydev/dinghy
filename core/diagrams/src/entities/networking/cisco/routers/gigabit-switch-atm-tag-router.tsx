@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GIGABIT_SWITCH_ATM_TAG_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const GIGABIT_SWITCH_ATM_TAG_ROUTER = {
   _original_height: 78,
 }
 
-export function GigabitSwitchAtmTagRouter(props: DiagramNodeProps) {
+export function GigabitSwitchAtmTagRouter(props: NodeProps) {
   return (
     <Shape
       {...GIGABIT_SWITCH_ATM_TAG_ROUTER}

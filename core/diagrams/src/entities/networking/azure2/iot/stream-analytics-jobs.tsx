@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STREAM_ANALYTICS_JOBS = {
   _style: {
@@ -10,7 +10,7 @@ export const STREAM_ANALYTICS_JOBS = {
   _original_height: 57.99999999999999,
 }
 
-export function StreamAnalyticsJobs(props: DiagramNodeProps) {
+export function StreamAnalyticsJobs(props: NodeProps) {
   return (
     <Shape
       {...STREAM_ANALYTICS_JOBS}

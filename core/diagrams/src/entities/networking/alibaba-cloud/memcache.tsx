@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEMCACHE = {
   _style: {
@@ -10,7 +10,7 @@ export const MEMCACHE = {
   _original_height: 45.3,
 }
 
-export function Memcache(props: DiagramNodeProps) {
+export function Memcache(props: NodeProps) {
   return (
     <Shape {...MEMCACHE} {...props} _style={extendStyle(MEMCACHE, props)} />
   )

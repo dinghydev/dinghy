@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_STREAM = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_STREAM = {
   _original_height: 78,
 }
 
-export function DataStream(props: DiagramNodeProps) {
+export function DataStream(props: NodeProps) {
   return (
     <Shape
       {...DATA_STREAM}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REDDIT = {
   _style: {
@@ -10,6 +10,6 @@ export const REDDIT = {
   _original_height: 73.60000000000001,
 }
 
-export function Reddit(props: DiagramNodeProps) {
+export function Reddit(props: NodeProps) {
   return <Shape {...REDDIT} {...props} _style={extendStyle(REDDIT, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SFTP = {
   _style: {
@@ -10,6 +10,6 @@ export const SFTP = {
   _original_height: 78,
 }
 
-export function Sftp(props: DiagramNodeProps) {
+export function Sftp(props: NodeProps) {
   return <Shape {...SFTP} {...props} _style={extendStyle(SFTP, props)} />
 }

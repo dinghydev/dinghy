@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STANDARD_IA = {
   _style: {
@@ -10,7 +10,7 @@ export const STANDARD_IA = {
   _original_height: 78,
 }
 
-export function StandardIa(props: DiagramNodeProps) {
+export function StandardIa(props: NodeProps) {
   return (
     <Shape
       {...STANDARD_IA}

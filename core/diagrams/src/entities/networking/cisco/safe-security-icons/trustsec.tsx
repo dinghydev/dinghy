@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRUSTSEC = {
   _style: {
@@ -10,7 +10,7 @@ export const TRUSTSEC = {
   _original_height: 50,
 }
 
-export function Trustsec(props: DiagramNodeProps) {
+export function Trustsec(props: NodeProps) {
   return (
     <Shape {...TRUSTSEC} {...props} _style={extendStyle(TRUSTSEC, props)} />
   )

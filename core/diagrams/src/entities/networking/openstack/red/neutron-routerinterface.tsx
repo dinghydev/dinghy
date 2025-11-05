@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEUTRON_ROUTERINTERFACE = {
   _style: {
@@ -10,7 +10,7 @@ export const NEUTRON_ROUTERINTERFACE = {
   _original_height: 50,
 }
 
-export function NeutronRouterinterface(props: DiagramNodeProps) {
+export function NeutronRouterinterface(props: NodeProps) {
   return (
     <Shape
       {...NEUTRON_ROUTERINTERFACE}

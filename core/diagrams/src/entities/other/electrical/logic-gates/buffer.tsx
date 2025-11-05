@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUFFER = {
   _style: {
@@ -10,6 +10,6 @@ export const BUFFER = {
   _height: 60,
 }
 
-export function Buffer(props: DiagramNodeProps) {
+export function Buffer(props: NodeProps) {
   return <Shape {...BUFFER} {...props} _style={extendStyle(BUFFER, props)} />
 }

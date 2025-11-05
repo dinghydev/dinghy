@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARUBA_CLEARPASS_C1000_REAR = {
   _style: {
@@ -10,7 +10,7 @@ export const ARUBA_CLEARPASS_C1000_REAR = {
   _height: 15,
 }
 
-export function ArubaClearpassC1000Rear(props: DiagramNodeProps) {
+export function ArubaClearpassC1000Rear(props: NodeProps) {
   return (
     <Shape
       {...ARUBA_CLEARPASS_C1000_REAR}

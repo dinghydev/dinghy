@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NICE_ENGINFRAME = {
   _style: {
@@ -10,7 +10,7 @@ export const NICE_ENGINFRAME = {
   _original_height: 78,
 }
 
-export function NiceEnginframe(props: DiagramNodeProps) {
+export function NiceEnginframe(props: NodeProps) {
   return (
     <Shape
       {...NICE_ENGINFRAME}

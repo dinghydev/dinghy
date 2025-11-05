@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLR_HELPER_APPLIANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const FLR_HELPER_APPLIANCE = {
   _original_height: 21,
 }
 
-export function FlrHelperAppliance(props: DiagramNodeProps) {
+export function FlrHelperAppliance(props: NodeProps) {
   return (
     <Shape
       {...FLR_HELPER_APPLIANCE}

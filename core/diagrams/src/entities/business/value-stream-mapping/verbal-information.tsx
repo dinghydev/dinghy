@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERBAL_INFORMATION = {
   _style: {
@@ -10,7 +10,7 @@ export const VERBAL_INFORMATION = {
   _height: 100,
 }
 
-export function VerbalInformation(props: DiagramNodeProps) {
+export function VerbalInformation(props: NodeProps) {
   return (
     <Shape
       {...VERBAL_INFORMATION}

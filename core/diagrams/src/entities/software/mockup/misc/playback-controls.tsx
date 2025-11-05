@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLAYBACK_CONTROLS = {
   _style: {
@@ -10,7 +10,7 @@ export const PLAYBACK_CONTROLS = {
   _height: 30,
 }
 
-export function PlaybackControls(props: DiagramNodeProps) {
+export function PlaybackControls(props: NodeProps) {
   return (
     <Shape
       {...PLAYBACK_CONTROLS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RSIMGANALYS = {
   _style: {
@@ -10,7 +10,7 @@ export const RSIMGANALYS = {
   _original_height: 44.4,
 }
 
-export function Rsimganalys(props: DiagramNodeProps) {
+export function Rsimganalys(props: NodeProps) {
   return (
     <Shape
       {...RSIMGANALYS}

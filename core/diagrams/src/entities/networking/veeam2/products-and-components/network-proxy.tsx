@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETWORK_PROXY = {
   _style: {
@@ -10,7 +10,7 @@ export const NETWORK_PROXY = {
   _original_height: 28.000000000000004,
 }
 
-export function NetworkProxy(props: DiagramNodeProps) {
+export function NetworkProxy(props: NodeProps) {
   return (
     <Shape
       {...NETWORK_PROXY}

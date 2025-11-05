@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESIDUAL_CURRENT_DEVICE_2P = {
   _style: {
@@ -10,7 +10,7 @@ export const RESIDUAL_CURRENT_DEVICE_2P = {
   _height: 50,
 }
 
-export function ResidualCurrentDevice2p(props: DiagramNodeProps) {
+export function ResidualCurrentDevice2p(props: NodeProps) {
   return (
     <Shape
       {...RESIDUAL_CURRENT_DEVICE_2P}

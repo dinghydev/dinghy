@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FULL_BLEED_DIVIDERS = {
   _style: {
@@ -9,7 +9,7 @@ export const FULL_BLEED_DIVIDERS = {
   _height: 642,
 }
 
-export function FullBleedDividers(props: DiagramNodeProps) {
+export function FullBleedDividers(props: NodeProps) {
   return (
     <Shape
       {...FULL_BLEED_DIVIDERS}

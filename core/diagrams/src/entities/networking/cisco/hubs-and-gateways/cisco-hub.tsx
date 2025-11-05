@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_HUB = {
   _original_height: 58,
 }
 
-export function CiscoHub(props: DiagramNodeProps) {
+export function CiscoHub(props: NodeProps) {
   return (
     <Shape {...CISCO_HUB} {...props} _style={extendStyle(CISCO_HUB, props)} />
   )

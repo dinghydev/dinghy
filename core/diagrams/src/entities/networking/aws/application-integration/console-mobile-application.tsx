@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONSOLE_MOBILE_APPLICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const CONSOLE_MOBILE_APPLICATION = {
   _original_height: 78,
 }
 
-export function ConsoleMobileApplication(props: DiagramNodeProps) {
+export function ConsoleMobileApplication(props: NodeProps) {
   return (
     <Shape
       {...CONSOLE_MOBILE_APPLICATION}

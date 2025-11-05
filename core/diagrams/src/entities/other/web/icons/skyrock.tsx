@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SKYROCK = {
   _style: {
@@ -10,6 +10,6 @@ export const SKYROCK = {
   _original_height: 102.4,
 }
 
-export function Skyrock(props: DiagramNodeProps) {
+export function Skyrock(props: NodeProps) {
   return <Shape {...SKYROCK} {...props} _style={extendStyle(SKYROCK, props)} />
 }

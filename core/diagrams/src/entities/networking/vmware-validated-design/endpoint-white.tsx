@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENDPOINT_WHITE = {
   _style: {
@@ -10,7 +10,7 @@ export const ENDPOINT_WHITE = {
   _original_height: 46.5,
 }
 
-export function EndpointWhite(props: DiagramNodeProps) {
+export function EndpointWhite(props: NodeProps) {
   return (
     <Shape
       {...ENDPOINT_WHITE}

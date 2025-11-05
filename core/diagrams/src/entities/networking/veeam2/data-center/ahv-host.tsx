@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AHV_HOST = {
   _style: {
@@ -10,7 +10,7 @@ export const AHV_HOST = {
   _original_height: 79,
 }
 
-export function AhvHost(props: DiagramNodeProps) {
+export function AhvHost(props: NodeProps) {
   return (
     <Shape {...AHV_HOST} {...props} _style={extendStyle(AHV_HOST, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VAPP_RUNNING = {
   _style: {
@@ -10,7 +10,7 @@ export const VAPP_RUNNING = {
   _original_height: 36,
 }
 
-export function VappRunning(props: DiagramNodeProps) {
+export function VappRunning(props: NodeProps) {
   return (
     <Shape
       {...VAPP_RUNNING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DASHED_ARROWLESS_EDGE = {
   _style: {
@@ -10,7 +10,7 @@ export const DASHED_ARROWLESS_EDGE = {
   _height: 18,
 }
 
-export function DashedArrowlessEdge(props: DiagramNodeProps) {
+export function DashedArrowlessEdge(props: NodeProps) {
   return (
     <Shape
       {...DASHED_ARROWLESS_EDGE}

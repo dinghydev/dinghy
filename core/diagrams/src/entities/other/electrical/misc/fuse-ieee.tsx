@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FUSE_IEEE = {
   _style: {
@@ -10,7 +10,7 @@ export const FUSE_IEEE = {
   _height: 20,
 }
 
-export function FuseIeee(props: DiagramNodeProps) {
+export function FuseIeee(props: NodeProps) {
   return (
     <Shape {...FUSE_IEEE} {...props} _style={extendStyle(FUSE_IEEE, props)} />
   )

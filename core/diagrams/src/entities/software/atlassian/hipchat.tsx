@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HIPCHAT = {
   _style: {
@@ -10,6 +10,6 @@ export const HIPCHAT = {
   _original_height: 62,
 }
 
-export function Hipchat(props: DiagramNodeProps) {
+export function Hipchat(props: NodeProps) {
   return <Shape {...HIPCHAT} {...props} _style={extendStyle(HIPCHAT, props)} />
 }

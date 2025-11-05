@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAC = {
   _style: {
@@ -10,6 +10,6 @@ export const WAC = {
   _original_height: 68,
 }
 
-export function Wac(props: DiagramNodeProps) {
+export function Wac(props: NodeProps) {
   return <Shape {...WAC} {...props} _style={extendStyle(WAC, props)} />
 }

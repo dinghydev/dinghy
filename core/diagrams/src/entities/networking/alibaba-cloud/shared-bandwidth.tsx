@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHARED_BANDWIDTH = {
   _style: {
@@ -10,7 +10,7 @@ export const SHARED_BANDWIDTH = {
   _original_height: 50.099999999999994,
 }
 
-export function SharedBandwidth(props: DiagramNodeProps) {
+export function SharedBandwidth(props: NodeProps) {
   return (
     <Shape
       {...SHARED_BANDWIDTH}

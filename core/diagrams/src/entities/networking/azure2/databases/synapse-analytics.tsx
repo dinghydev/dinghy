@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SYNAPSE_ANALYTICS = {
   _style: {
@@ -10,7 +10,7 @@ export const SYNAPSE_ANALYTICS = {
   _original_height: 69,
 }
 
-export function SynapseAnalytics(props: DiagramNodeProps) {
+export function SynapseAnalytics(props: NodeProps) {
   return (
     <Shape
       {...SYNAPSE_ANALYTICS}

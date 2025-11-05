@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXT_FIELD_WITH_TOOLTIP = {
   _style: {
@@ -10,7 +10,7 @@ export const TEXT_FIELD_WITH_TOOLTIP = {
   _height: 80,
 }
 
-export function TextFieldWithTooltip(props: DiagramNodeProps) {
+export function TextFieldWithTooltip(props: NodeProps) {
   return (
     <Shape
       {...TEXT_FIELD_WITH_TOOLTIP}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROCESS_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const PROCESS_MANAGER = {
   _height: 90,
 }
 
-export function ProcessManager(props: DiagramNodeProps) {
+export function ProcessManager(props: NodeProps) {
   return (
     <Shape
       {...PROCESS_MANAGER}

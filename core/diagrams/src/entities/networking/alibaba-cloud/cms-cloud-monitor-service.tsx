@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CMS_CLOUD_MONITOR_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const CMS_CLOUD_MONITOR_SERVICE = {
   _original_height: 41.4,
 }
 
-export function CmsCloudMonitorService(props: DiagramNodeProps) {
+export function CmsCloudMonitorService(props: NodeProps) {
   return (
     <Shape
       {...CMS_CLOUD_MONITOR_SERVICE}

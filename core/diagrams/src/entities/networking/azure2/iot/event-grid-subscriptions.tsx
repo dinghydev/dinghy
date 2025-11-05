@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EVENT_GRID_SUBSCRIPTIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const EVENT_GRID_SUBSCRIPTIONS = {
   _original_height: 60,
 }
 
-export function EventGridSubscriptions(props: DiagramNodeProps) {
+export function EventGridSubscriptions(props: NodeProps) {
   return (
     <Shape
       {...EVENT_GRID_SUBSCRIPTIONS}

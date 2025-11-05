@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DROPDOWN_MENU = {
   _style: {
@@ -10,7 +10,7 @@ export const DROPDOWN_MENU = {
   _height: 180,
 }
 
-export function DropdownMenu(props: DiagramNodeProps) {
+export function DropdownMenu(props: NodeProps) {
   return (
     <Shape
       {...DROPDOWN_MENU}

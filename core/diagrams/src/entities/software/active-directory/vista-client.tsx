@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VISTA_CLIENT = {
   _style: {
@@ -10,7 +10,7 @@ export const VISTA_CLIENT = {
   _height: 50,
 }
 
-export function VistaClient(props: DiagramNodeProps) {
+export function VistaClient(props: NodeProps) {
   return (
     <Shape
       {...VISTA_CLIENT}

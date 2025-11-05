@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWF = {
   _style: {
@@ -10,6 +10,6 @@ export const SWF = {
   _original_height: 93,
 }
 
-export function Swf(props: DiagramNodeProps) {
+export function Swf(props: NodeProps) {
   return <Shape {...SWF} {...props} _style={extendStyle(SWF, props)} />
 }

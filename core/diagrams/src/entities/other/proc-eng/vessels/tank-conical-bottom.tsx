@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TANK_CONICAL_BOTTOM = {
   _style: {
@@ -10,7 +10,7 @@ export const TANK_CONICAL_BOTTOM = {
   _original_height: 100,
 }
 
-export function TankConicalBottom(props: DiagramNodeProps) {
+export function TankConicalBottom(props: NodeProps) {
   return (
     <Shape
       {...TANK_CONICAL_BOTTOM}

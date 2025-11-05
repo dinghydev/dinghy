@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REPLICATION_TIME_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const REPLICATION_TIME_CONTROL = {
   _original_height: 78,
 }
 
-export function ReplicationTimeControl(props: DiagramNodeProps) {
+export function ReplicationTimeControl(props: NodeProps) {
   return (
     <Shape
       {...REPLICATION_TIME_CONTROL}

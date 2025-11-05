@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETQ_AGENT = {
   _style: {
@@ -10,7 +10,7 @@ export const NETQ_AGENT = {
   _original_height: 18,
 }
 
-export function NetqAgent(props: DiagramNodeProps) {
+export function NetqAgent(props: NodeProps) {
   return (
     <Shape {...NETQ_AGENT} {...props} _style={extendStyle(NETQ_AGENT, props)} />
   )

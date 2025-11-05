@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FUSE_ON = {
   _style: {
@@ -10,6 +10,6 @@ export const FUSE_ON = {
   _height: 20,
 }
 
-export function FuseOn(props: DiagramNodeProps) {
+export function FuseOn(props: NodeProps) {
   return <Shape {...FUSE_ON} {...props} _style={extendStyle(FUSE_ON, props)} />
 }

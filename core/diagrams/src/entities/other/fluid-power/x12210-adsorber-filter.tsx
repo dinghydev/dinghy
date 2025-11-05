@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12210_ADSORBER_FILTER = {
   _style: {
@@ -10,7 +10,7 @@ export const X12210_ADSORBER_FILTER = {
   _original_height: 71.34,
 }
 
-export function X12210AdsorberFilter(props: DiagramNodeProps) {
+export function X12210AdsorberFilter(props: NodeProps) {
   return (
     <Shape
       {...X12210_ADSORBER_FILTER}

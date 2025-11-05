@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DELL_EMC_DATA_DOMAIN_BOOST = {
   _style: {
@@ -10,7 +10,7 @@ export const DELL_EMC_DATA_DOMAIN_BOOST = {
   _original_height: 44.8,
 }
 
-export function DellEmcDataDomainBoost(props: DiagramNodeProps) {
+export function DellEmcDataDomainBoost(props: NodeProps) {
   return (
     <Shape
       {...DELL_EMC_DATA_DOMAIN_BOOST}

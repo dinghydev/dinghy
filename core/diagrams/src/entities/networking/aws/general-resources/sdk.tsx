@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SDK = {
   _style: {
@@ -10,6 +10,6 @@ export const SDK = {
   _original_height: 78,
 }
 
-export function Sdk(props: DiagramNodeProps) {
+export function Sdk(props: NodeProps) {
   return <Shape {...SDK} {...props} _style={extendStyle(SDK, props)} />
 }

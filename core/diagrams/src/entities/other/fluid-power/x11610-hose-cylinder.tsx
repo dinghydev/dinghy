@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11610_HOSE_CYLINDER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11610_HOSE_CYLINDER = {
   _height: 38.14,
 }
 
-export function X11610HoseCylinder(props: DiagramNodeProps) {
+export function X11610HoseCylinder(props: NodeProps) {
   return (
     <Shape
       {...X11610_HOSE_CYLINDER}

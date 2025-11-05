@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURE_PRIVATE_ACCESS = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURE_PRIVATE_ACCESS = {
   _height: 34.82,
 }
 
-export function SecurePrivateAccess(props: DiagramNodeProps) {
+export function SecurePrivateAccess(props: NodeProps) {
   return (
     <Shape
       {...SECURE_PRIVATE_ACCESS}

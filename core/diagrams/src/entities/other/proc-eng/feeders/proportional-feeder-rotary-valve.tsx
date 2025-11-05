@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROPORTIONAL_FEEDER_ROTARY_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const PROPORTIONAL_FEEDER_ROTARY_VALVE = {
   _original_height: 100,
 }
 
-export function ProportionalFeederRotaryValve(props: DiagramNodeProps) {
+export function ProportionalFeederRotaryValve(props: NodeProps) {
   return (
     <Shape
       {...PROPORTIONAL_FEEDER_ROTARY_VALVE}

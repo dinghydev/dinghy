@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTHORIZE = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTHORIZE = {
   _height: 16,
 }
 
-export function Authorize(props: DiagramNodeProps) {
+export function Authorize(props: NodeProps) {
   return (
     <Shape {...AUTHORIZE} {...props} _style={extendStyle(AUTHORIZE, props)} />
   )

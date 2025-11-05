@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRAFFIC_MIRRORING = {
   _style: {
@@ -10,7 +10,7 @@ export const TRAFFIC_MIRRORING = {
   _original_height: 78,
 }
 
-export function TrafficMirroring(props: DiagramNodeProps) {
+export function TrafficMirroring(props: NodeProps) {
   return (
     <Shape
       {...TRAFFIC_MIRRORING}

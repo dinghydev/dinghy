@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIMEO = {
   _style: {
@@ -10,6 +10,6 @@ export const VIMEO = {
   _original_height: 58,
 }
 
-export function Vimeo(props: DiagramNodeProps) {
+export function Vimeo(props: NodeProps) {
   return <Shape {...VIMEO} {...props} _style={extendStyle(VIMEO, props)} />
 }

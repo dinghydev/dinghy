@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LICENSE_INSTALLATION = {
   _style: {
@@ -10,7 +10,7 @@ export const LICENSE_INSTALLATION = {
   _original_height: 43,
 }
 
-export function LicenseInstallation(props: DiagramNodeProps) {
+export function LicenseInstallation(props: NodeProps) {
   return (
     <Shape
       {...LICENSE_INSTALLATION}

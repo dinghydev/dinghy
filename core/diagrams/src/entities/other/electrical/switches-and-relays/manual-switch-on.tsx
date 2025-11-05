@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANUAL_SWITCH_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const MANUAL_SWITCH_ON = {
   _height: 18,
 }
 
-export function ManualSwitchOn(props: DiagramNodeProps) {
+export function ManualSwitchOn(props: NodeProps) {
   return (
     <Shape
       {...MANUAL_SWITCH_ON}

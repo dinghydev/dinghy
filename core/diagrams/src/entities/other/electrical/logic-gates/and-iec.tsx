@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AND_IEC = {
   _style: {
@@ -10,6 +10,6 @@ export const AND_IEC = {
   _height: 80,
 }
 
-export function AndIec(props: DiagramNodeProps) {
+export function AndIec(props: NodeProps) {
   return <Shape {...AND_IEC} {...props} _style={extendStyle(AND_IEC, props)} />
 }

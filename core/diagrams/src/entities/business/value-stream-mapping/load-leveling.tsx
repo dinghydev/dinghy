@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOAD_LEVELING = {
   _style: {
@@ -10,7 +10,7 @@ export const LOAD_LEVELING = {
   _height: 30,
 }
 
-export function LoadLeveling(props: DiagramNodeProps) {
+export function LoadLeveling(props: NodeProps) {
   return (
     <Shape
       {...LOAD_LEVELING}

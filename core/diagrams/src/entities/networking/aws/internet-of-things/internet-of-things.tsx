@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERNET_OF_THINGS = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERNET_OF_THINGS = {
   _original_height: 78,
 }
 
-export function InternetOfThings(props: DiagramNodeProps) {
+export function InternetOfThings(props: NodeProps) {
   return (
     <Shape
       {...INTERNET_OF_THINGS}

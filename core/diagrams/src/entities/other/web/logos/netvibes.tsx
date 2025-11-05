@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETVIBES = {
   _style: {
@@ -10,7 +10,7 @@ export const NETVIBES = {
   _original_height: 61.800000000000004,
 }
 
-export function Netvibes(props: DiagramNodeProps) {
+export function Netvibes(props: NodeProps) {
   return (
     <Shape {...NETVIBES} {...props} _style={extendStyle(NETVIBES, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEADLINE_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const DEADLINE_CLOUD = {
   _original_height: 78,
 }
 
-export function DeadlineCloud(props: DiagramNodeProps) {
+export function DeadlineCloud(props: NodeProps) {
   return (
     <Shape
       {...DEADLINE_CLOUD}

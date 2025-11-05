@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOCIAL_MEDIA_TIME = {
   _style: {
@@ -10,7 +10,7 @@ export const SOCIAL_MEDIA_TIME = {
   _original_height: 100,
 }
 
-export function SocialMediaTime(props: DiagramNodeProps) {
+export function SocialMediaTime(props: NodeProps) {
   return (
     <Shape
       {...SOCIAL_MEDIA_TIME}

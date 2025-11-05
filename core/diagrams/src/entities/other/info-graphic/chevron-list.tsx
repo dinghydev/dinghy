@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHEVRON_LIST = {
   _style: {
@@ -10,7 +10,7 @@ export const CHEVRON_LIST = {
   _height: 160,
 }
 
-export function ChevronList(props: DiagramNodeProps) {
+export function ChevronList(props: NodeProps) {
   return (
     <Shape
       {...CHEVRON_LIST}

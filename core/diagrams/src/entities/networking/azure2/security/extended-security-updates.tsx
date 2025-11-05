@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXTENDED_SECURITY_UPDATES = {
   _style: {
@@ -10,7 +10,7 @@ export const EXTENDED_SECURITY_UPDATES = {
   _original_height: 70,
 }
 
-export function ExtendedSecurityUpdates(props: DiagramNodeProps) {
+export function ExtendedSecurityUpdates(props: NodeProps) {
   return (
     <Shape
       {...EXTENDED_SECURITY_UPDATES}

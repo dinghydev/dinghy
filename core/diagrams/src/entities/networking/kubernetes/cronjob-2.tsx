@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CRONJOB_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const CRONJOB_2 = {
   _original_height: 48,
 }
 
-export function Cronjob2(props: DiagramNodeProps) {
+export function Cronjob2(props: NodeProps) {
   return (
     <Shape {...CRONJOB_2} {...props} _style={extendStyle(CRONJOB_2, props)} />
   )

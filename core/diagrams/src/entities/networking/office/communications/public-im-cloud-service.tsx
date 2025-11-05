@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUBLIC_IM_CLOUD_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const PUBLIC_IM_CLOUD_SERVICE = {
   _original_height: 58,
 }
 
-export function PublicImCloudService(props: DiagramNodeProps) {
+export function PublicImCloudService(props: NodeProps) {
   return (
     <Shape
       {...PUBLIC_IM_CLOUD_SERVICE}

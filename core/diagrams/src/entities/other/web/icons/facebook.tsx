@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FACEBOOK = {
   _style: {
@@ -10,7 +10,7 @@ export const FACEBOOK = {
   _original_height: 102.4,
 }
 
-export function Facebook(props: DiagramNodeProps) {
+export function Facebook(props: NodeProps) {
   return (
     <Shape {...FACEBOOK} {...props} _style={extendStyle(FACEBOOK, props)} />
   )

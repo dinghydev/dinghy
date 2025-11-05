@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OTA = {
   _style: {
@@ -10,6 +10,6 @@ export const OTA = {
   _original_height: 90,
 }
 
-export function Ota(props: DiagramNodeProps) {
+export function Ota(props: NodeProps) {
   return <Shape {...OTA} {...props} _style={extendStyle(OTA, props)} />
 }

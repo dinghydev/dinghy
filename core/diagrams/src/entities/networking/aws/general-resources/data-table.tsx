@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_TABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_TABLE = {
   _original_height: 59,
 }
 
-export function DataTable(props: DiagramNodeProps) {
+export function DataTable(props: NodeProps) {
   return (
     <Shape {...DATA_TABLE} {...props} _style={extendStyle(DATA_TABLE, props)} />
   )

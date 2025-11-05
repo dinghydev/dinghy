@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MODIFIERS_HIGH_MEMORY_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const MODIFIERS_HIGH_MEMORY_MACHINE = {
   _height: 30,
 }
 
-export function ModifiersHighMemoryMachine(props: DiagramNodeProps) {
+export function ModifiersHighMemoryMachine(props: NodeProps) {
   return (
     <Shape
       {...MODIFIERS_HIGH_MEMORY_MACHINE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTERFLY_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTERFLY_VALVE = {
   _height: 60,
 }
 
-export function ButterflyValve(props: DiagramNodeProps) {
+export function ButterflyValve(props: NodeProps) {
   return (
     <Shape
       {...BUTTERFLY_VALVE}

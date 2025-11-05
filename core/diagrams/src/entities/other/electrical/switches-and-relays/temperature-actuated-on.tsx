@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEMPERATURE_ACTUATED_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const TEMPERATURE_ACTUATED_ON = {
   _height: 31,
 }
 
-export function TemperatureActuatedOn(props: DiagramNodeProps) {
+export function TemperatureActuatedOn(props: NodeProps) {
   return (
     <Shape
       {...TEMPERATURE_ACTUATED_ON}

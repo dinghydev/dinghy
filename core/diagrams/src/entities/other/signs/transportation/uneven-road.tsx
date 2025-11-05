@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNEVEN_ROAD = {
   _style: {
@@ -10,7 +10,7 @@ export const UNEVEN_ROAD = {
   _height: 68,
 }
 
-export function UnevenRoad(props: DiagramNodeProps) {
+export function UnevenRoad(props: NodeProps) {
   return (
     <Shape
       {...UNEVEN_ROAD}

@@ -1,5 +1,5 @@
 import {
-  IacNodeProps,
+  NodeProps,
   ResolvableNumberSchema,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
@@ -32,7 +32,7 @@ export const AwsDbInstanceOuputSchema = z.object({
 
 export type AwsDbInstanceInputProps =
   & z.output<typeof AwsDbInstanceInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export default function AwsDbInstance(props: AwsDbInstanceInputProps) {
   return (

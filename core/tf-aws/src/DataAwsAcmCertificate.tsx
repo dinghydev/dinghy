@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsAcmCertificate } from './AwsAcmCertificate.tsx'
 import { useTypedNode } from '@dinghy/base-components'
@@ -17,7 +17,7 @@ export type DataAwsAcmCertificateInputProps =
   & z.output<
     typeof DataAwsAcmCertificateInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type DataAwsAcmCertificateOutputProps =
   & z.output<

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLAT_EDGE = {
   _style: {
@@ -10,7 +10,7 @@ export const FLAT_EDGE = {
   _height: 36,
 }
 
-export function FlatEdge(props: DiagramNodeProps) {
+export function FlatEdge(props: NodeProps) {
   return (
     <Shape {...FLAT_EDGE} {...props} _style={extendStyle(FLAT_EDGE, props)} />
   )

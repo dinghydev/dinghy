@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINEAR_DISCUSSION = {
   _style: {
@@ -10,7 +10,7 @@ export const LINEAR_DISCUSSION = {
   _height: 125,
 }
 
-export function LinearDiscussion(props: DiagramNodeProps) {
+export function LinearDiscussion(props: NodeProps) {
   return (
     <Shape
       {...LINEAR_DISCUSSION}

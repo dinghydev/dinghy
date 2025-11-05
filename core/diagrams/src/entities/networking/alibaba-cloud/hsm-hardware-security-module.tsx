@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HSM_HARDWARE_SECURITY_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const HSM_HARDWARE_SECURITY_MODULE = {
   _original_height: 49.5,
 }
 
-export function HsmHardwareSecurityModule(props: DiagramNodeProps) {
+export function HsmHardwareSecurityModule(props: NodeProps) {
   return (
     <Shape
       {...HSM_HARDWARE_SECURITY_MODULE}

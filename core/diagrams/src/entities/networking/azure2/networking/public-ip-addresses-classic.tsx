@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUBLIC_IP_ADDRESSES_CLASSIC = {
   _style: {
@@ -10,7 +10,7 @@ export const PUBLIC_IP_ADDRESSES_CLASSIC = {
   _original_height: 52,
 }
 
-export function PublicIpAddressesClassic(props: DiagramNodeProps) {
+export function PublicIpAddressesClassic(props: NodeProps) {
   return (
     <Shape
       {...PUBLIC_IP_ADDRESSES_CLASSIC}

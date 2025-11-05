@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLOCKING_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const BLOCKING_DEVICE = {
   _height: 15,
 }
 
-export function BlockingDevice(props: DiagramNodeProps) {
+export function BlockingDevice(props: NodeProps) {
   return (
     <Shape
       {...BLOCKING_DEVICE}

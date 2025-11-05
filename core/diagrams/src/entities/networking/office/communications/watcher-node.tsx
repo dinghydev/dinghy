@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WATCHER_NODE = {
   _style: {
@@ -10,7 +10,7 @@ export const WATCHER_NODE = {
   _original_height: 56,
 }
 
-export function WatcherNode(props: DiagramNodeProps) {
+export function WatcherNode(props: NodeProps) {
   return (
     <Shape
       {...WATCHER_NODE}

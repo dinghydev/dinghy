@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOGIC_INACCESSIBLE = {
   _style: {
@@ -10,7 +10,7 @@ export const LOGIC_INACCESSIBLE = {
   _original_height: 50,
 }
 
-export function LogicInaccessible(props: DiagramNodeProps) {
+export function LogicInaccessible(props: NodeProps) {
   return (
     <Shape
       {...LOGIC_INACCESSIBLE}

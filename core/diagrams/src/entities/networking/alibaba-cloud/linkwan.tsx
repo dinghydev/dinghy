@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINKWAN = {
   _style: {
@@ -10,6 +10,6 @@ export const LINKWAN = {
   _original_height: 54.900000000000006,
 }
 
-export function Linkwan(props: DiagramNodeProps) {
+export function Linkwan(props: NodeProps) {
   return <Shape {...LINKWAN} {...props} _style={extendStyle(LINKWAN, props)} />
 }

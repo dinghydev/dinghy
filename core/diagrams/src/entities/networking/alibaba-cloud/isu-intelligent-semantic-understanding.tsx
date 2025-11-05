@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ISU_INTELLIGENT_SEMANTIC_UNDERSTANDING = {
   _style: {
@@ -10,7 +10,7 @@ export const ISU_INTELLIGENT_SEMANTIC_UNDERSTANDING = {
   _original_height: 46.800000000000004,
 }
 
-export function IsuIntelligentSemanticUnderstanding(props: DiagramNodeProps) {
+export function IsuIntelligentSemanticUnderstanding(props: NodeProps) {
   return (
     <Shape
       {...ISU_INTELLIGENT_SEMANTIC_UNDERSTANDING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIRELESS_LOCATION_APPLIANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const WIRELESS_LOCATION_APPLIANCE = {
   _original_height: 50,
 }
 
-export function WirelessLocationAppliance(props: DiagramNodeProps) {
+export function WirelessLocationAppliance(props: NodeProps) {
   return (
     <Shape
       {...WIRELESS_LOCATION_APPLIANCE}

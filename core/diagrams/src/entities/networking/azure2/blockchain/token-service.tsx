@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOKEN_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const TOKEN_SERVICE = {
   _original_height: 68,
 }
 
-export function TokenService(props: DiagramNodeProps) {
+export function TokenService(props: NodeProps) {
   return (
     <Shape
       {...TOKEN_SERVICE}

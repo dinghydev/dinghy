@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPSWORKS = {
   _style: {
@@ -10,7 +10,7 @@ export const OPSWORKS = {
   _original_height: 93,
 }
 
-export function Opsworks(props: DiagramNodeProps) {
+export function Opsworks(props: NodeProps) {
   return (
     <Shape {...OPSWORKS} {...props} _style={extendStyle(OPSWORKS, props)} />
   )

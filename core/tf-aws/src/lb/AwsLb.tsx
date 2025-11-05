@@ -1,5 +1,5 @@
 import {
-  type IacNodeProps,
+  type NodeProps,
   ResolvableBooleanSchema,
   ResolvableNumberSchema,
   ResolvableRecordSchema,
@@ -33,7 +33,7 @@ export type InputProps =
   & z.output<
     typeof InputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type OutputProps =
   & z.output<

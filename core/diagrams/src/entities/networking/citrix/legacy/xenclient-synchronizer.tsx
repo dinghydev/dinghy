@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XENCLIENT_SYNCHRONIZER = {
   _style: {
@@ -10,7 +10,7 @@ export const XENCLIENT_SYNCHRONIZER = {
   _original_height: 91,
 }
 
-export function XenclientSynchronizer(props: DiagramNodeProps) {
+export function XenclientSynchronizer(props: NodeProps) {
   return (
     <Shape
       {...XENCLIENT_SYNCHRONIZER}

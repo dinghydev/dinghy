@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11990_RESERVOIR_BREATHER_FILTER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11990_RESERVOIR_BREATHER_FILTER = {
   _height: 95.62,
 }
 
-export function X11990ReservoirBreatherFilter(props: DiagramNodeProps) {
+export function X11990ReservoirBreatherFilter(props: NodeProps) {
   return (
     <Shape
       {...X11990_RESERVOIR_BREATHER_FILTER}

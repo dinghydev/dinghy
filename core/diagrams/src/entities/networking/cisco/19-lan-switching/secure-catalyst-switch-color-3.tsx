@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURE_CATALYST_SWITCH_COLOR_3 = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURE_CATALYST_SWITCH_COLOR_3 = {
   _original_height: 50,
 }
 
-export function SecureCatalystSwitchColor3(props: DiagramNodeProps) {
+export function SecureCatalystSwitchColor3(props: NodeProps) {
   return (
     <Shape
       {...SECURE_CATALYST_SWITCH_COLOR_3}

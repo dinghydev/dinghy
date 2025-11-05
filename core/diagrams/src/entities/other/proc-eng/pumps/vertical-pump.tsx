@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_PUMP = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTICAL_PUMP = {
   _height: 146,
 }
 
-export function VerticalPump(props: DiagramNodeProps) {
+export function VerticalPump(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_PUMP}

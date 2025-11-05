@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STEP_PYRAMID_6 = {
   _style: {
@@ -10,7 +10,7 @@ export const STEP_PYRAMID_6 = {
   _height: 95,
 }
 
-export function StepPyramid6(props: DiagramNodeProps) {
+export function StepPyramid6(props: NodeProps) {
   return (
     <Shape
       {...STEP_PYRAMID_6}

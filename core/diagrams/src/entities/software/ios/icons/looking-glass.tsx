@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOOKING_GLASS = {
   _style: {
@@ -10,7 +10,7 @@ export const LOOKING_GLASS = {
   _original_height: 30,
 }
 
-export function LookingGlass(props: DiagramNodeProps) {
+export function LookingGlass(props: NodeProps) {
   return (
     <Shape
       {...LOOKING_GLASS}

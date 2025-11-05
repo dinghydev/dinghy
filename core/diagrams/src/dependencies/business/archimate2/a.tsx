@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const A_CONST = {
   _style: {
@@ -8,7 +8,7 @@ export const A_CONST = {
   },
 }
 
-export function A(props: DiagramNodeProps) {
+export function A(props: NodeProps) {
   return (
     <Dependency {...A_CONST} {...props} _style={extendStyle(A_CONST, props)} />
   )

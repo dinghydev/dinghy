@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIRELESS_INTRUSION_PREVENTION_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const WIRELESS_INTRUSION_PREVENTION_SYSTEM = {
   _original_height: 43,
 }
 
-export function WirelessIntrusionPreventionSystem(props: DiagramNodeProps) {
+export function WirelessIntrusionPreventionSystem(props: NodeProps) {
   return (
     <Shape
       {...WIRELESS_INTRUSION_PREVENTION_SYSTEM}

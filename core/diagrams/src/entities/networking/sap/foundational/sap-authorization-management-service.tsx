@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_AUTHORIZATION_MANAGEMENT_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_AUTHORIZATION_MANAGEMENT_SERVICE = {
   _original_height: 50,
 }
 
-export function SapAuthorizationManagementService(props: DiagramNodeProps) {
+export function SapAuthorizationManagementService(props: NodeProps) {
   return (
     <Shape
       {...SAP_AUTHORIZATION_MANAGEMENT_SERVICE}

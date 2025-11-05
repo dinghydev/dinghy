@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XENCLIENT = {
   _style: {
@@ -10,7 +10,7 @@ export const XENCLIENT = {
   _original_height: 77,
 }
 
-export function Xenclient(props: DiagramNodeProps) {
+export function Xenclient(props: NodeProps) {
   return (
     <Shape {...XENCLIENT} {...props} _style={extendStyle(XENCLIENT, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DETECTIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const DETECTIVE = {
   _original_height: 78,
 }
 
-export function Detective(props: DiagramNodeProps) {
+export function Detective(props: NodeProps) {
   return (
     <Shape {...DETECTIVE} {...props} _style={extendStyle(DETECTIVE, props)} />
   )

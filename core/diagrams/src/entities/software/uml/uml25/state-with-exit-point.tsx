@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STATE_WITH_EXIT_POINT = {
   _style: {
@@ -10,7 +10,7 @@ export const STATE_WITH_EXIT_POINT = {
   _height: 60,
 }
 
-export function StateWithExitPoint(props: DiagramNodeProps) {
+export function StateWithExitPoint(props: NodeProps) {
   return (
     <Shape
       {...STATE_WITH_EXIT_POINT}

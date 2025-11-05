@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11580_PRESSURE_INTENSIFIER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11580_PRESSURE_INTENSIFIER = {
   _height: 55.9,
 }
 
-export function X11580PressureIntensifier(props: DiagramNodeProps) {
+export function X11580PressureIntensifier(props: NodeProps) {
   return (
     <Shape
       {...X11580_PRESSURE_INTENSIFIER}

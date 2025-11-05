@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LABEL = {
   _style: {
@@ -10,6 +10,6 @@ export const LABEL = {
   _height: 20,
 }
 
-export function Label(props: DiagramNodeProps) {
+export function Label(props: NodeProps) {
   return <Shape {...LABEL} {...props} _style={extendStyle(LABEL, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LUN = {
   _style: {
@@ -10,6 +10,6 @@ export const LUN = {
   _height: 40,
 }
 
-export function Lun(props: DiagramNodeProps) {
+export function Lun(props: NodeProps) {
   return <Shape {...LUN} {...props} _style={extendStyle(LUN, props)} />
 }

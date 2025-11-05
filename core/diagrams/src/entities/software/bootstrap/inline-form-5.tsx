@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INLINE_FORM_5 = {
   _style: {
@@ -10,7 +10,7 @@ export const INLINE_FORM_5 = {
   _height: 30,
 }
 
-export function InlineForm5(props: DiagramNodeProps) {
+export function InlineForm5(props: NodeProps) {
   return (
     <Shape
       {...INLINE_FORM_5}

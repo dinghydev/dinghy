@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARRAY_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const ARRAY_MANAGER = {
   _height: 36.5,
 }
 
-export function ArrayManager(props: DiagramNodeProps) {
+export function ArrayManager(props: NodeProps) {
   return (
     <Shape
       {...ARRAY_MANAGER}

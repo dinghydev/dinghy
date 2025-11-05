@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHASSIS_CUMULUS_LINUX = {
   _style: {
@@ -10,7 +10,7 @@ export const CHASSIS_CUMULUS_LINUX = {
   _height: 72,
 }
 
-export function ChassisCumulusLinux(props: DiagramNodeProps) {
+export function ChassisCumulusLinux(props: NodeProps) {
   return (
     <Shape
       {...CHASSIS_CUMULUS_LINUX}

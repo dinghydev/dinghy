@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CDN_PROFILES = {
   _style: {
@@ -10,7 +10,7 @@ export const CDN_PROFILES = {
   _height: 40,
 }
 
-export function CdnProfiles(props: DiagramNodeProps) {
+export function CdnProfiles(props: NodeProps) {
   return (
     <Shape
       {...CDN_PROFILES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARCHIVE = {
   _style: {
@@ -10,6 +10,6 @@ export const ARCHIVE = {
   _original_height: 78,
 }
 
-export function Archive(props: DiagramNodeProps) {
+export function Archive(props: NodeProps) {
   return <Shape {...ARCHIVE} {...props} _style={extendStyle(ARCHIVE, props)} />
 }

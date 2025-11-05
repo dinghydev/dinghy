@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESERVED_INSTANCE_REPORTING = {
   _style: {
@@ -10,7 +10,7 @@ export const RESERVED_INSTANCE_REPORTING = {
   _original_height: 78,
 }
 
-export function ReservedInstanceReporting(props: DiagramNodeProps) {
+export function ReservedInstanceReporting(props: NodeProps) {
   return (
     <Shape
       {...RESERVED_INSTANCE_REPORTING}

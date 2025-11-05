@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENROLLMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const ENROLLMENT = {
   _original_height: 50,
 }
 
-export function Enrollment(props: DiagramNodeProps) {
+export function Enrollment(props: NodeProps) {
   return (
     <Shape {...ENROLLMENT} {...props} _style={extendStyle(ENROLLMENT, props)} />
   )

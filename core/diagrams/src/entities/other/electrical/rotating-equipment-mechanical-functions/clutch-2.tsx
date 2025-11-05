@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLUTCH_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const CLUTCH_2 = {
   _height: 60,
 }
 
-export function Clutch2(props: DiagramNodeProps) {
+export function Clutch2(props: NodeProps) {
   return (
     <Shape {...CLUTCH_2} {...props} _style={extendStyle(CLUTCH_2, props)} />
   )

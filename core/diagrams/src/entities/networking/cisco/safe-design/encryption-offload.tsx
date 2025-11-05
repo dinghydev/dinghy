@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENCRYPTION_OFFLOAD = {
   _style: {
@@ -10,7 +10,7 @@ export const ENCRYPTION_OFFLOAD = {
   _original_height: 45,
 }
 
-export function EncryptionOffload(props: DiagramNodeProps) {
+export function EncryptionOffload(props: NodeProps) {
   return (
     <Shape
       {...ENCRYPTION_OFFLOAD}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TALOS = {
   _style: {
@@ -10,6 +10,6 @@ export const TALOS = {
   _height: 21.5,
 }
 
-export function Talos(props: DiagramNodeProps) {
+export function Talos(props: NodeProps) {
   return <Shape {...TALOS} {...props} _style={extendStyle(TALOS, props)} />
 }

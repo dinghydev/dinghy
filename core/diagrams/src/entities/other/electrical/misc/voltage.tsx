@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOLTAGE = {
   _style: {
@@ -10,6 +10,6 @@ export const VOLTAGE = {
   _height: 70,
 }
 
-export function Voltage(props: DiagramNodeProps) {
+export function Voltage(props: NodeProps) {
   return <Shape {...VOLTAGE} {...props} _style={extendStyle(VOLTAGE, props)} />
 }

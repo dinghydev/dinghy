@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES = {
   _style: {
@@ -10,9 +10,7 @@ export const EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES = {
   _height: 36,
 }
 
-export function EaisElasticAcceleratedComputingInstances(
-  props: DiagramNodeProps,
-) {
+export function EaisElasticAcceleratedComputingInstances(props: NodeProps) {
   return (
     <Shape
       {...EAIS_ELASTIC_ACCELERATED_COMPUTING_INSTANCES}

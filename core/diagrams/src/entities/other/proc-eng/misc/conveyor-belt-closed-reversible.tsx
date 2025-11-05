@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONVEYOR_BELT_CLOSED_REVERSIBLE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONVEYOR_BELT_CLOSED_REVERSIBLE = {
   _height: 80,
 }
 
-export function ConveyorBeltClosedReversible(props: DiagramNodeProps) {
+export function ConveyorBeltClosedReversible(props: NodeProps) {
   return (
     <Shape
       {...CONVEYOR_BELT_CLOSED_REVERSIBLE}

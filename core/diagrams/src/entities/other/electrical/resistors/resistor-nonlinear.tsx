@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESISTOR_NONLINEAR = {
   _style: {
@@ -10,7 +10,7 @@ export const RESISTOR_NONLINEAR = {
   _height: 60,
 }
 
-export function ResistorNonlinear(props: DiagramNodeProps) {
+export function ResistorNonlinear(props: NodeProps) {
   return (
     <Shape
       {...RESISTOR_NONLINEAR}

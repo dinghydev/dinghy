@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAPLE_LEAF = {
   _style: {
@@ -10,7 +10,7 @@ export const MAPLE_LEAF = {
   _original_height: 98,
 }
 
-export function MapleLeaf(props: DiagramNodeProps) {
+export function MapleLeaf(props: NodeProps) {
   return (
     <Shape {...MAPLE_LEAF} {...props} _style={extendStyle(MAPLE_LEAF, props)} />
   )

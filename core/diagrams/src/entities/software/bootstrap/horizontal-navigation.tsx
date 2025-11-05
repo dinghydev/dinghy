@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HORIZONTAL_NAVIGATION = {
   _style: {
@@ -10,7 +10,7 @@ export const HORIZONTAL_NAVIGATION = {
   _height: 30,
 }
 
-export function HorizontalNavigation(props: DiagramNodeProps) {
+export function HorizontalNavigation(props: NodeProps) {
   return (
     <Shape
       {...HORIZONTAL_NAVIGATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTION_SHEET = {
   _style: {
@@ -10,7 +10,7 @@ export const ACTION_SHEET = {
   _height: 115,
 }
 
-export function ActionSheet(props: DiagramNodeProps) {
+export function ActionSheet(props: NodeProps) {
   return (
     <Shape
       {...ACTION_SHEET}

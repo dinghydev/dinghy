@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPEN_LEFT_2 = {
   _style: {
@@ -8,7 +8,7 @@ export const OPEN_LEFT_2 = {
   },
 }
 
-export function OpenLeft2(props: DiagramNodeProps) {
+export function OpenLeft2(props: NodeProps) {
   return (
     <Dependency
       {...OPEN_LEFT_2}

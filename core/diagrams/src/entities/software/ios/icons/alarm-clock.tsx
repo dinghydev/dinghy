@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALARM_CLOCK = {
   _style: {
@@ -10,7 +10,7 @@ export const ALARM_CLOCK = {
   _height: 30,
 }
 
-export function AlarmClock(props: DiagramNodeProps) {
+export function AlarmClock(props: NodeProps) {
   return (
     <Shape
       {...ALARM_CLOCK}

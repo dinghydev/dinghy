@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_FREEZER_MONITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_FREEZER_MONITOR = {
   _height: 68,
 }
 
-export function DefenderFreezerMonitor(props: DiagramNodeProps) {
+export function DefenderFreezerMonitor(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_FREEZER_MONITOR}

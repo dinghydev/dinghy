@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DB_ACCELERATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DB_ACCELERATOR = {
   _original_height: 81,
 }
 
-export function DbAccelerator(props: DiagramNodeProps) {
+export function DbAccelerator(props: NodeProps) {
   return (
     <Shape
       {...DB_ACCELERATOR}

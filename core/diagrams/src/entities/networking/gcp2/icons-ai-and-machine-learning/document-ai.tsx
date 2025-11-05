@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOCUMENT_AI = {
   _style: {
@@ -10,7 +10,7 @@ export const DOCUMENT_AI = {
   _height: 42,
 }
 
-export function DocumentAi(props: DiagramNodeProps) {
+export function DocumentAi(props: NodeProps) {
   return (
     <Shape
       {...DOCUMENT_AI}

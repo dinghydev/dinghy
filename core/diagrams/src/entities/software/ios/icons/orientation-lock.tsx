@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORIENTATION_LOCK = {
   _style: {
@@ -10,7 +10,7 @@ export const ORIENTATION_LOCK = {
   _height: 21,
 }
 
-export function OrientationLock(props: DiagramNodeProps) {
+export function OrientationLock(props: NodeProps) {
   return (
     <Shape
       {...ORIENTATION_LOCK}

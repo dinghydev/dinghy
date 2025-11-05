@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIRELESS_ROGUE_DETECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const WIRELESS_ROGUE_DETECTION = {
   _original_height: 43,
 }
 
-export function WirelessRogueDetection(props: DiagramNodeProps) {
+export function WirelessRogueDetection(props: NodeProps) {
   return (
     <Shape
       {...WIRELESS_ROGUE_DETECTION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHANGE_GRAPH_4 = {
   _style: {
@@ -9,7 +9,7 @@ export const CHANGE_GRAPH_4 = {
   _height: 130,
 }
 
-export function ChangeGraph4(props: DiagramNodeProps) {
+export function ChangeGraph4(props: NodeProps) {
   return (
     <Shape
       {...CHANGE_GRAPH_4}

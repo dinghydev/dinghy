@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_AVAILABILITY_ORCHESTRATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_AVAILABILITY_ORCHESTRATOR = {
   _original_height: 34,
 }
 
-export function VeeamAvailabilityOrchestrator(props: DiagramNodeProps) {
+export function VeeamAvailabilityOrchestrator(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_AVAILABILITY_ORCHESTRATOR}

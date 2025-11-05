@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITE_COLLECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const SITE_COLLECTION = {
   _original_height: 47,
 }
 
-export function SiteCollection(props: DiagramNodeProps) {
+export function SiteCollection(props: NodeProps) {
   return (
     <Shape
       {...SITE_COLLECTION}

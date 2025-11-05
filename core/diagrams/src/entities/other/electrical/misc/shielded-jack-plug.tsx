@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHIELDED_JACK_PLUG = {
   _style: {
@@ -10,7 +10,7 @@ export const SHIELDED_JACK_PLUG = {
   _height: 100,
 }
 
-export function ShieldedJackPlug(props: DiagramNodeProps) {
+export function ShieldedJackPlug(props: NodeProps) {
   return (
     <Shape
       {...SHIELDED_JACK_PLUG}

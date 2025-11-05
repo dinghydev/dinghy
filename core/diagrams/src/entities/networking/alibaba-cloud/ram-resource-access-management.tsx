@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RAM_RESOURCE_ACCESS_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const RAM_RESOURCE_ACCESS_MANAGEMENT = {
   _height: 36,
 }
 
-export function RamResourceAccessManagement(props: DiagramNodeProps) {
+export function RamResourceAccessManagement(props: NodeProps) {
   return (
     <Shape
       {...RAM_RESOURCE_ACCESS_MANAGEMENT}

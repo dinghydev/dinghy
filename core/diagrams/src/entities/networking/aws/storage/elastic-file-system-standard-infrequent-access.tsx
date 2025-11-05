@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS = {
   _style: {
@@ -10,9 +10,7 @@ export const ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS = {
   _original_height: 76,
 }
 
-export function ElasticFileSystemStandardInfrequentAccess(
-  props: DiagramNodeProps,
-) {
+export function ElasticFileSystemStandardInfrequentAccess(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_FILE_SYSTEM_STANDARD_INFREQUENT_ACCESS}

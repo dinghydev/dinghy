@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLASSIFIER_7 = {
   _style: {
@@ -8,7 +8,7 @@ export const CLASSIFIER_7 = {
   },
 }
 
-export function Classifier7(props: DiagramNodeProps) {
+export function Classifier7(props: NodeProps) {
   return (
     <Shape
       {...CLASSIFIER_7}

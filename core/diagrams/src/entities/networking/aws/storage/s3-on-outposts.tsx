@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const S3_ON_OUTPOSTS = {
   _style: {
@@ -10,7 +10,7 @@ export const S3_ON_OUTPOSTS = {
   _original_height: 78,
 }
 
-export function S3OnOutposts(props: DiagramNodeProps) {
+export function S3OnOutposts(props: NodeProps) {
   return (
     <Shape
       {...S3_ON_OUTPOSTS}

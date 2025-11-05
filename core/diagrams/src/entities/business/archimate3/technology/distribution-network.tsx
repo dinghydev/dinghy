@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISTRIBUTION_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const DISTRIBUTION_NETWORK = {
   _height: 75,
 }
 
-export function DistributionNetwork(props: DiagramNodeProps) {
+export function DistributionNetwork(props: NodeProps) {
   return (
     <Shape
       {...DISTRIBUTION_NETWORK}

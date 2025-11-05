@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPSCENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const OPSCENTER = {
   _original_height: 78,
 }
 
-export function Opscenter(props: DiagramNodeProps) {
+export function Opscenter(props: NodeProps) {
   return (
     <Shape {...OPSCENTER} {...props} _style={extendStyle(OPSCENTER, props)} />
   )

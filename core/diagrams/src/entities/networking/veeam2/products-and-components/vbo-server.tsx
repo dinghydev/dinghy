@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VBO_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const VBO_SERVER = {
   _original_height: 52,
 }
 
-export function VboServer(props: DiagramNodeProps) {
+export function VboServer(props: NodeProps) {
   return (
     <Shape {...VBO_SERVER} {...props} _style={extendStyle(VBO_SERVER, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12320_GAS_LOADED_ACCUMULATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X12320_GAS_LOADED_ACCUMULATOR = {
   _height: 92.92,
 }
 
-export function X12320GasLoadedAccumulator(props: DiagramNodeProps) {
+export function X12320GasLoadedAccumulator(props: NodeProps) {
   return (
     <Shape
       {...X12320_GAS_LOADED_ACCUMULATOR}

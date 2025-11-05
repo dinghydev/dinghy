@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ISOLATOR_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const ISOLATOR_OFF = {
   _height: 20,
 }
 
-export function IsolatorOff(props: DiagramNodeProps) {
+export function IsolatorOff(props: NodeProps) {
   return (
     <Shape
       {...ISOLATOR_OFF}

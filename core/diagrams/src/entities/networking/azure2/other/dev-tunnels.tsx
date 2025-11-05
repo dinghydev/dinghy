@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEV_TUNNELS = {
   _style: {
@@ -10,7 +10,7 @@ export const DEV_TUNNELS = {
   _original_height: 68,
 }
 
-export function DevTunnels(props: DiagramNodeProps) {
+export function DevTunnels(props: NodeProps) {
   return (
     <Shape
       {...DEV_TUNNELS}

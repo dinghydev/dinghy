@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ECR_REGISTRY = {
   _style: {
@@ -10,7 +10,7 @@ export const ECR_REGISTRY = {
   _original_height: 60,
 }
 
-export function EcrRegistry(props: DiagramNodeProps) {
+export function EcrRegistry(props: NodeProps) {
   return (
     <Shape
       {...ECR_REGISTRY}

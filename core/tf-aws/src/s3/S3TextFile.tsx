@@ -1,7 +1,4 @@
-import {
-  type IacNodeProps,
-  ResolvableStringSchema,
-} from '@dinghy/base-components'
+import { type NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
 import z from 'zod'
 import { useTypedNode } from '@dinghy/base-components'
@@ -23,7 +20,7 @@ export const S3TextFileOutputSchema = z.object({
 
 export type S3TextFileInputProps =
   & z.input<typeof S3TextFileInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type S3TextFileOutputProps =
   & z.output<typeof S3TextFileOutputSchema>

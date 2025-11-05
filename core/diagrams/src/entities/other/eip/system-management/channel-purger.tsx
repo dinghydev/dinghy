@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHANNEL_PURGER = {
   _style: {
@@ -10,7 +10,7 @@ export const CHANNEL_PURGER = {
   _height: 90,
 }
 
-export function ChannelPurger(props: DiagramNodeProps) {
+export function ChannelPurger(props: NodeProps) {
   return (
     <Shape
       {...CHANNEL_PURGER}

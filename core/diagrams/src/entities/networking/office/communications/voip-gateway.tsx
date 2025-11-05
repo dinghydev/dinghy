@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOIP_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const VOIP_GATEWAY = {
   _height: 15,
 }
 
-export function VoipGateway(props: DiagramNodeProps) {
+export function VoipGateway(props: NodeProps) {
   return (
     <Shape
       {...VOIP_GATEWAY}

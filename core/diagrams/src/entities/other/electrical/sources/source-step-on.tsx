@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOURCE_STEP_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const SOURCE_STEP_ON = {
   _original_height: 60,
 }
 
-export function SourceStepOn(props: DiagramNodeProps) {
+export function SourceStepOn(props: NodeProps) {
   return (
     <Shape
       {...SOURCE_STEP_ON}

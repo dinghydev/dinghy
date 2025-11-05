@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const A7_POWER = {
   _style: {
@@ -10,7 +10,7 @@ export const A7_POWER = {
   _original_height: 100,
 }
 
-export function A7Power(props: DiagramNodeProps) {
+export function A7Power(props: NodeProps) {
   return (
     <Shape {...A7_POWER} {...props} _style={extendStyle(A7_POWER, props)} />
   )

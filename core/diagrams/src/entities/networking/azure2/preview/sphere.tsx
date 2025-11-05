@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPHERE = {
   _style: {
@@ -10,6 +10,6 @@ export const SPHERE = {
   _original_height: 68,
 }
 
-export function Sphere(props: DiagramNodeProps) {
+export function Sphere(props: NodeProps) {
   return <Shape {...SPHERE} {...props} _style={extendStyle(SPHERE, props)} />
 }

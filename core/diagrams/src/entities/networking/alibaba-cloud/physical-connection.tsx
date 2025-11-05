@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PHYSICAL_CONNECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const PHYSICAL_CONNECTION = {
   _original_height: 40.5,
 }
 
-export function PhysicalConnection(props: DiagramNodeProps) {
+export function PhysicalConnection(props: NodeProps) {
   return (
     <Shape
       {...PHYSICAL_CONNECTION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FERN = {
   _style: {
@@ -9,6 +9,6 @@ export const FERN = {
   _original_height: 50,
 }
 
-export function Fern(props: DiagramNodeProps) {
+export function Fern(props: NodeProps) {
   return <Shape {...FERN} {...props} _style={extendStyle(FERN, props)} />
 }

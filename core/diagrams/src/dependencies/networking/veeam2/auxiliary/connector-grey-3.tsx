@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONNECTOR_GREY_3 = {
   _style: {
@@ -8,7 +8,7 @@ export const CONNECTOR_GREY_3 = {
   },
 }
 
-export function ConnectorGrey3(props: DiagramNodeProps) {
+export function ConnectorGrey3(props: NodeProps) {
   return (
     <Dependency
       {...CONNECTOR_GREY_3}

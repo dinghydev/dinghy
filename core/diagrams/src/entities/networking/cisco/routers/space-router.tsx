@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPACE_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SPACE_ROUTER = {
   _height: 70,
 }
 
-export function SpaceRouter(props: DiagramNodeProps) {
+export function SpaceRouter(props: NodeProps) {
   return (
     <Shape
       {...SPACE_ROUTER}

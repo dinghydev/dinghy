@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POLYLINE = {
   _style: {
@@ -10,7 +10,7 @@ export const POLYLINE = {
   _original_height: 100,
 }
 
-export function Polyline(props: DiagramNodeProps) {
+export function Polyline(props: NodeProps) {
   return (
     <Shape {...POLYLINE} {...props} _style={extendStyle(POLYLINE, props)} />
   )

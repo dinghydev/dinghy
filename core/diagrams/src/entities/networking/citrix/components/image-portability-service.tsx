@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMAGE_PORTABILITY_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const IMAGE_PORTABILITY_SERVICE = {
   _original_height: 50,
 }
 
-export function ImagePortabilityService(props: DiagramNodeProps) {
+export function ImagePortabilityService(props: NodeProps) {
   return (
     <Shape
       {...IMAGE_PORTABILITY_SERVICE}

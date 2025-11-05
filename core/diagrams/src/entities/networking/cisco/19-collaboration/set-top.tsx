@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SET_TOP = {
   _style: {
@@ -10,6 +10,6 @@ export const SET_TOP = {
   _original_height: 50,
 }
 
-export function SetTop(props: DiagramNodeProps) {
+export function SetTop(props: NodeProps) {
   return <Shape {...SET_TOP} {...props} _style={extendStyle(SET_TOP, props)} />
 }

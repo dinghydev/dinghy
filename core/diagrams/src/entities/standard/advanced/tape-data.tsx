@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAPE_DATA = {
   _style: {
@@ -9,7 +9,7 @@ export const TAPE_DATA = {
   _original_height: 80,
 }
 
-export function TapeData(props: DiagramNodeProps) {
+export function TapeData(props: NodeProps) {
   return (
     <Shape {...TAPE_DATA} {...props} _style={extendStyle(TAPE_DATA, props)} />
   )

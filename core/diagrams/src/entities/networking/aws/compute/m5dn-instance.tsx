@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const M5DN_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const M5DN_INSTANCE = {
   _original_height: 48,
 }
 
-export function M5dnInstance(props: DiagramNodeProps) {
+export function M5dnInstance(props: NodeProps) {
   return (
     <Shape
       {...M5DN_INSTANCE}

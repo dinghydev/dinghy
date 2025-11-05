@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLUE_ELASTIC_VIEWS = {
   _style: {
@@ -10,7 +10,7 @@ export const GLUE_ELASTIC_VIEWS = {
   _original_height: 78,
 }
 
-export function GlueElasticViews(props: DiagramNodeProps) {
+export function GlueElasticViews(props: NodeProps) {
   return (
     <Shape
       {...GLUE_ELASTIC_VIEWS}

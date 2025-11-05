@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORKCELL = {
   _style: {
@@ -10,7 +10,7 @@ export const WORKCELL = {
   _original_height: 60,
 }
 
-export function Workcell(props: DiagramNodeProps) {
+export function Workcell(props: NodeProps) {
   return (
     <Shape {...WORKCELL} {...props} _style={extendStyle(WORKCELL, props)} />
   )

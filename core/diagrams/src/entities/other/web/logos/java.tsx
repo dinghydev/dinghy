@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JAVA = {
   _style: {
@@ -10,6 +10,6 @@ export const JAVA = {
   _height: 65,
 }
 
-export function Java(props: DiagramNodeProps) {
+export function Java(props: NodeProps) {
   return <Shape {...JAVA} {...props} _style={extendStyle(JAVA, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUPPORT_BRACKET = {
   _style: {
@@ -10,7 +10,7 @@ export const SUPPORT_BRACKET = {
   _original_height: 10,
 }
 
-export function SupportBracket(props: DiagramNodeProps) {
+export function SupportBracket(props: NodeProps) {
   return (
     <Shape
       {...SUPPORT_BRACKET}

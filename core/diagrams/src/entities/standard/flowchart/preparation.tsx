@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PREPARATION = {
   _style: {
@@ -10,7 +10,7 @@ export const PREPARATION = {
   _height: 60,
 }
 
-export function Preparation(props: DiagramNodeProps) {
+export function Preparation(props: NodeProps) {
   return (
     <Shape
       {...PREPARATION}

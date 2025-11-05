@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBSEC = {
   _style: {
@@ -10,6 +10,6 @@ export const MOBSEC = {
   _original_height: 43.199999999999996,
 }
 
-export function Mobsec(props: DiagramNodeProps) {
+export function Mobsec(props: NodeProps) {
   return <Shape {...MOBSEC} {...props} _style={extendStyle(MOBSEC, props)} />
 }

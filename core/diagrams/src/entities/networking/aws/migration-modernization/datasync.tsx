@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATASYNC = {
   _style: {
@@ -10,7 +10,7 @@ export const DATASYNC = {
   _original_height: 78,
 }
 
-export function Datasync(props: DiagramNodeProps) {
+export function Datasync(props: NodeProps) {
   return (
     <Shape {...DATASYNC} {...props} _style={extendStyle(DATASYNC, props)} />
   )

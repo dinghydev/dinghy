@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEVIANTART = {
   _style: {
@@ -10,7 +10,7 @@ export const DEVIANTART = {
   _original_height: 102.4,
 }
 
-export function Deviantart(props: DiagramNodeProps) {
+export function Deviantart(props: NodeProps) {
   return (
     <Shape {...DEVIANTART} {...props} _style={extendStyle(DEVIANTART, props)} />
   )

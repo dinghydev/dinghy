@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOTOR_PROTECTION_CB = {
   _style: {
@@ -10,7 +10,7 @@ export const MOTOR_PROTECTION_CB = {
   _height: 50,
 }
 
-export function MotorProtectionCb(props: DiagramNodeProps) {
+export function MotorProtectionCb(props: NodeProps) {
   return (
     <Shape
       {...MOTOR_PROTECTION_CB}

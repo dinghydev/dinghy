@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IBM_1754_LOCAL_CONSOLE_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const IBM_1754_LOCAL_CONSOLE_MANAGER = {
   _height: 15,
 }
 
-export function Ibm1754LocalConsoleManager(props: DiagramNodeProps) {
+export function Ibm1754LocalConsoleManager(props: NodeProps) {
   return (
     <Shape
       {...IBM_1754_LOCAL_CONSOLE_MANAGER}

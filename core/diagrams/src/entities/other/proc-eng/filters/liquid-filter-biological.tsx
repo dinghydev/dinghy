@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIQUID_FILTER_BIOLOGICAL = {
   _style: {
@@ -10,7 +10,7 @@ export const LIQUID_FILTER_BIOLOGICAL = {
   _height: 100,
 }
 
-export function LiquidFilterBiological(props: DiagramNodeProps) {
+export function LiquidFilterBiological(props: NodeProps) {
   return (
     <Shape
       {...LIQUID_FILTER_BIOLOGICAL}

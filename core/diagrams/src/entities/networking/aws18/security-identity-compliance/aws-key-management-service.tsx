@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_KEY_MANAGEMENT_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_KEY_MANAGEMENT_SERVICE = {
   _height: 120,
 }
 
-export function AwsKeyManagementService(props: DiagramNodeProps) {
+export function AwsKeyManagementService(props: NodeProps) {
   return (
     <Shape
       {...AWS_KEY_MANAGEMENT_SERVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEPARATOR_CYCLONE = {
   _style: {
@@ -10,7 +10,7 @@ export const SEPARATOR_CYCLONE = {
   _height: 120,
 }
 
-export function SeparatorCyclone(props: DiagramNodeProps) {
+export function SeparatorCyclone(props: NodeProps) {
   return (
     <Shape
       {...SEPARATOR_CYCLONE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTIAL_RECTANGLE_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const PARTIAL_RECTANGLE_4 = {
   _height: 60,
 }
 
-export function PartialRectangle4(props: DiagramNodeProps) {
+export function PartialRectangle4(props: NodeProps) {
   return (
     <Shape
       {...PARTIAL_RECTANGLE_4}

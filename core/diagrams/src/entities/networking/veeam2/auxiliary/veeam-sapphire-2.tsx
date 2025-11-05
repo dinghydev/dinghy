@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_SAPPHIRE_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_SAPPHIRE_2 = {
   _height: 110.00000000000001,
 }
 
-export function VeeamSapphire2(props: DiagramNodeProps) {
+export function VeeamSapphire2(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_SAPPHIRE_2}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LANGUAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const LANGUAGE = {
   _original_height: 68,
 }
 
-export function Language(props: DiagramNodeProps) {
+export function Language(props: NodeProps) {
   return (
     <Shape {...LANGUAGE} {...props} _style={extendStyle(LANGUAGE, props)} />
   )

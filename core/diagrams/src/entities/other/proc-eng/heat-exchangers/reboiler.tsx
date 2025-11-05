@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REBOILER = {
   _style: {
@@ -10,7 +10,7 @@ export const REBOILER = {
   _height: 33,
 }
 
-export function Reboiler(props: DiagramNodeProps) {
+export function Reboiler(props: NodeProps) {
   return (
     <Shape {...REBOILER} {...props} _style={extendStyle(REBOILER, props)} />
   )

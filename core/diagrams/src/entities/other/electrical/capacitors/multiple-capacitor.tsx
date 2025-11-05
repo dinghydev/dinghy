@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTIPLE_CAPACITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTIPLE_CAPACITOR = {
   _height: 130,
 }
 
-export function MultipleCapacitor(props: DiagramNodeProps) {
+export function MultipleCapacitor(props: NodeProps) {
   return (
     <Shape
       {...MULTIPLE_CAPACITOR}

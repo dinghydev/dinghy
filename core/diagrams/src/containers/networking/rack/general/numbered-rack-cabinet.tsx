@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NUMBERED_RACK_CABINET = {
   _style: {
@@ -11,7 +11,7 @@ export const NUMBERED_RACK_CABINET = {
   },
 }
 
-export function NumberedRackCabinet(props: DiagramNodeProps) {
+export function NumberedRackCabinet(props: NodeProps) {
   return (
     <Shape
       {...NUMBERED_RACK_CABINET}

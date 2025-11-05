@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANUAL_OPERATION = {
   _style: {
@@ -10,7 +10,7 @@ export const MANUAL_OPERATION = {
   _height: 60,
 }
 
-export function ManualOperation(props: DiagramNodeProps) {
+export function ManualOperation(props: NodeProps) {
   return (
     <Shape
       {...MANUAL_OPERATION}

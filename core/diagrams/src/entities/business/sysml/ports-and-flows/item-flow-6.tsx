@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ITEM_FLOW_6 = {
   _style: {
@@ -10,7 +10,7 @@ export const ITEM_FLOW_6 = {
   _height: 370,
 }
 
-export function ItemFlow6(props: DiagramNodeProps) {
+export function ItemFlow6(props: NodeProps) {
   return (
     <Shape
       {...ITEM_FLOW_6}

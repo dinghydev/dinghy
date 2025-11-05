@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STORSIMPLE = {
   _style: {
@@ -10,7 +10,7 @@ export const STORSIMPLE = {
   _original_height: 45,
 }
 
-export function Storsimple(props: DiagramNodeProps) {
+export function Storsimple(props: NodeProps) {
   return (
     <Shape {...STORSIMPLE} {...props} _style={extendStyle(STORSIMPLE, props)} />
   )

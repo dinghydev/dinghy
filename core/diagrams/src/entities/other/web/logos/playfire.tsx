@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLAYFIRE = {
   _style: {
@@ -10,7 +10,7 @@ export const PLAYFIRE = {
   _original_height: 61.6,
 }
 
-export function Playfire(props: DiagramNodeProps) {
+export function Playfire(props: NodeProps) {
   return (
     <Shape {...PLAYFIRE} {...props} _style={extendStyle(PLAYFIRE, props)} />
   )

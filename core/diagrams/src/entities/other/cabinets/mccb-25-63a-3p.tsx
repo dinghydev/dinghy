@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MCCB_25_63A_3P = {
   _style: {
@@ -10,7 +10,7 @@ export const MCCB_25_63A_3P = {
   _height: 90,
 }
 
-export function Mccb2563a3p(props: DiagramNodeProps) {
+export function Mccb2563a3p(props: NodeProps) {
   return (
     <Shape
       {...MCCB_25_63A_3P}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUTE_53_RESOLVER_QUERY_LOGGING = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUTE_53_RESOLVER_QUERY_LOGGING = {
   _original_height: 78,
 }
 
-export function Route53ResolverQueryLogging(props: DiagramNodeProps) {
+export function Route53ResolverQueryLogging(props: NodeProps) {
   return (
     <Shape
       {...ROUTE_53_RESOLVER_QUERY_LOGGING}

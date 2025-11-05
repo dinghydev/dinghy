@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXPRESSROUTE_DIRECT = {
   _style: {
@@ -10,7 +10,7 @@ export const EXPRESSROUTE_DIRECT = {
   _original_height: 60,
 }
 
-export function ExpressrouteDirect(props: DiagramNodeProps) {
+export function ExpressrouteDirect(props: NodeProps) {
   return (
     <Shape
       {...EXPRESSROUTE_DIRECT}

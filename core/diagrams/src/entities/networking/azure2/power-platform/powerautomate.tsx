@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWERAUTOMATE = {
   _style: {
@@ -10,7 +10,7 @@ export const POWERAUTOMATE = {
   _original_height: 53.839999999999996,
 }
 
-export function Powerautomate(props: DiagramNodeProps) {
+export function Powerautomate(props: NodeProps) {
   return (
     <Shape
       {...POWERAUTOMATE}

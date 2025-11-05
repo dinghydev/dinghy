@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
@@ -19,7 +19,7 @@ export type AwsRoute53ZoneInputProps =
   & z.output<
     typeof AwsRoute53ZoneInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type AwsRoute53ZoneOutputProps =
   & z.output<

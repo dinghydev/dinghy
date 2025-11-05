@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDEX_APP = {
   _style: {
@@ -10,7 +10,7 @@ export const INDEX_APP = {
   _original_height: 60,
 }
 
-export function IndexApp(props: DiagramNodeProps) {
+export function IndexApp(props: NodeProps) {
   return (
     <Shape {...INDEX_APP} {...props} _style={extendStyle(INDEX_APP, props)} />
   )

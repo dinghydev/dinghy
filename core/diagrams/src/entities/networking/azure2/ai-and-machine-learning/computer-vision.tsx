@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPUTER_VISION = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPUTER_VISION = {
   _original_height: 68,
 }
 
-export function ComputerVision(props: DiagramNodeProps) {
+export function ComputerVision(props: NodeProps) {
   return (
     <Shape
       {...COMPUTER_VISION}

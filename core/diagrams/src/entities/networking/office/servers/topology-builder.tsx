@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOPOLOGY_BUILDER = {
   _style: {
@@ -10,7 +10,7 @@ export const TOPOLOGY_BUILDER = {
   _original_height: 59,
 }
 
-export function TopologyBuilder(props: DiagramNodeProps) {
+export function TopologyBuilder(props: NodeProps) {
   return (
     <Shape
       {...TOPOLOGY_BUILDER}

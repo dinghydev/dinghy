@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRB = {
   _style: {
@@ -10,6 +10,6 @@ export const VIRB = {
   _original_height: 70.60000000000001,
 }
 
-export function Virb(props: DiagramNodeProps) {
+export function Virb(props: NodeProps) {
   return <Shape {...VIRB} {...props} _style={extendStyle(VIRB, props)} />
 }

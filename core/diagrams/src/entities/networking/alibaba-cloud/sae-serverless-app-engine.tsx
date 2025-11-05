@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAE_SERVERLESS_APP_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const SAE_SERVERLESS_APP_ENGINE = {
   _original_height: 54.900000000000006,
 }
 
-export function SaeServerlessAppEngine(props: DiagramNodeProps) {
+export function SaeServerlessAppEngine(props: NodeProps) {
   return (
     <Shape
       {...SAE_SERVERLESS_APP_ENGINE}

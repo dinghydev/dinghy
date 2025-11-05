@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MPS_PRODUCE = {
   _style: {
@@ -10,7 +10,7 @@ export const MPS_PRODUCE = {
   _original_height: 52.5,
 }
 
-export function MpsProduce(props: DiagramNodeProps) {
+export function MpsProduce(props: NodeProps) {
   return (
     <Shape
       {...MPS_PRODUCE}

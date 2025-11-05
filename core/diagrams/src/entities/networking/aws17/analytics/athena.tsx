@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATHENA = {
   _style: {
@@ -10,6 +10,6 @@ export const ATHENA = {
   _original_height: 76.5,
 }
 
-export function Athena(props: DiagramNodeProps) {
+export function Athena(props: NodeProps) {
   return <Shape {...ATHENA} {...props} _style={extendStyle(ATHENA, props)} />
 }

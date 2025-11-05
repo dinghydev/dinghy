@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRIAD_ARROW = {
   _style: {
@@ -10,7 +10,7 @@ export const TRIAD_ARROW = {
   _height: 68,
 }
 
-export function TriadArrow(props: DiagramNodeProps) {
+export function TriadArrow(props: NodeProps) {
   return (
     <Shape
       {...TRIAD_ARROW}

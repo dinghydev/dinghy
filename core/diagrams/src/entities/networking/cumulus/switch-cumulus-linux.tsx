@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWITCH_CUMULUS_LINUX = {
   _style: {
@@ -10,7 +10,7 @@ export const SWITCH_CUMULUS_LINUX = {
   _height: 24,
 }
 
-export function SwitchCumulusLinux(props: DiagramNodeProps) {
+export function SwitchCumulusLinux(props: NodeProps) {
   return (
     <Shape
       {...SWITCH_CUMULUS_LINUX}

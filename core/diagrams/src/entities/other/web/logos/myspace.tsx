@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MYSPACE = {
   _style: {
@@ -10,6 +10,6 @@ export const MYSPACE = {
   _original_height: 70.2,
 }
 
-export function Myspace(props: DiagramNodeProps) {
+export function Myspace(props: NodeProps) {
   return <Shape {...MYSPACE} {...props} _style={extendStyle(MYSPACE, props)} />
 }

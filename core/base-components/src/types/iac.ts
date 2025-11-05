@@ -1,6 +1,10 @@
 import z from 'zod'
-import { RecordSchema, resolvable, ResolvableBooleanSchema } from './base.ts'
-import { DiagramNodeProps } from './diagrams.ts'
+import {
+  RecordSchema,
+  resolvable,
+  ResolvableBooleanSchema,
+  ResolvableStringSchema,
+} from './base.ts'
 
 // Terraform / OpenTofu types
 export const IacCategorySchema = z.enum([
@@ -12,6 +16,7 @@ export const IacCategorySchema = z.enum([
 ])
 
 export const IacNodeSchema = z.object({
+  _importId: ResolvableStringSchema.optional(),
   _inputSchema: z.instanceof(z.ZodType).optional(),
   _outputSchema: z.instanceof(z.ZodType).optional(),
   _stackResource: ResolvableBooleanSchema.optional(),
@@ -23,4 +28,3 @@ export const IacNodeSchema = z.object({
 })
 
 export type IacNodeType = z.input<typeof IacNodeSchema>
-export type IacNodeProps = IacNodeType & DiagramNodeProps

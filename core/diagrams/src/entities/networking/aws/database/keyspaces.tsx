@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEYSPACES = {
   _style: {
@@ -10,7 +10,7 @@ export const KEYSPACES = {
   _original_height: 78,
 }
 
-export function Keyspaces(props: DiagramNodeProps) {
+export function Keyspaces(props: NodeProps) {
   return (
     <Shape {...KEYSPACES} {...props} _style={extendStyle(KEYSPACES, props)} />
   )

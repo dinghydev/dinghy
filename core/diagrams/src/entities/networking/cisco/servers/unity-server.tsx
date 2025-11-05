@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNITY_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const UNITY_SERVER = {
   _original_height: 69,
 }
 
-export function UnityServer(props: DiagramNodeProps) {
+export function UnityServer(props: NodeProps) {
   return (
     <Shape
       {...UNITY_SERVER}

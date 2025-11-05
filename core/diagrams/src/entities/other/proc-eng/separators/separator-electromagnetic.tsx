@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEPARATOR_ELECTROMAGNETIC = {
   _style: {
@@ -10,7 +10,7 @@ export const SEPARATOR_ELECTROMAGNETIC = {
   _height: 120,
 }
 
-export function SeparatorElectromagnetic(props: DiagramNodeProps) {
+export function SeparatorElectromagnetic(props: NodeProps) {
   return (
     <Shape
       {...SEPARATOR_ELECTROMAGNETIC}

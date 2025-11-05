@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STACKED_OWNERSHIP = {
   _style: {
@@ -10,7 +10,7 @@ export const STACKED_OWNERSHIP = {
   _original_height: 100,
 }
 
-export function StackedOwnership(props: DiagramNodeProps) {
+export function StackedOwnership(props: NodeProps) {
   return (
     <Shape
       {...STACKED_OWNERSHIP}

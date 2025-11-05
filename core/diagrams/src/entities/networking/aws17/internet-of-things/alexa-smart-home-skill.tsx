@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALEXA_SMART_HOME_SKILL = {
   _style: {
@@ -10,7 +10,7 @@ export const ALEXA_SMART_HOME_SKILL = {
   _original_height: 70.5,
 }
 
-export function AlexaSmartHomeSkill(props: DiagramNodeProps) {
+export function AlexaSmartHomeSkill(props: NodeProps) {
   return (
     <Shape
       {...ALEXA_SMART_HOME_SKILL}

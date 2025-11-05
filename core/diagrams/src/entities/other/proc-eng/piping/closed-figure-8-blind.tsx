@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOSED_FIGURE_8_BLIND = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOSED_FIGURE_8_BLIND = {
   _height: 80,
 }
 
-export function ClosedFigure8Blind(props: DiagramNodeProps) {
+export function ClosedFigure8Blind(props: NodeProps) {
   return (
     <Shape
       {...CLOSED_FIGURE_8_BLIND}

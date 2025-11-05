@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INLINE_MESSAGE_WITH_SUBTITLE_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const INLINE_MESSAGE_WITH_SUBTITLE_2 = {
   _height: 63,
 }
 
-export function InlineMessageWithSubtitle2(props: DiagramNodeProps) {
+export function InlineMessageWithSubtitle2(props: NodeProps) {
   return (
     <Shape
       {...INLINE_MESSAGE_WITH_SUBTITLE_2}

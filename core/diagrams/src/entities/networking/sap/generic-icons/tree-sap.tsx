@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TREE_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const TREE_SAP = {
   _height: 24.5,
 }
 
-export function TreeSap(props: DiagramNodeProps) {
+export function TreeSap(props: NodeProps) {
   return (
     <Shape {...TREE_SAP} {...props} _style={extendStyle(TREE_SAP, props)} />
   )

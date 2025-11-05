@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_6500_VSS = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_6500_VSS = {
   _height: 73,
 }
 
-export function Component6500Vss(props: DiagramNodeProps) {
+export function Component6500Vss(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_6500_VSS}

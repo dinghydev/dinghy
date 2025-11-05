@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9840A_MSM_775ZL_V2_ZL_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const J9840A_MSM_775ZL_V2_ZL_MODULE = {
   _height: 15,
 }
 
-export function J9840aMsm775zlV2ZlModule(props: DiagramNodeProps) {
+export function J9840aMsm775zlV2ZlModule(props: NodeProps) {
   return (
     <Shape
       {...J9840A_MSM_775ZL_V2_ZL_MODULE}

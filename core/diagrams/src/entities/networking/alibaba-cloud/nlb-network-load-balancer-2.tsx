@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NLB_NETWORK_LOAD_BALANCER_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const NLB_NETWORK_LOAD_BALANCER_2 = {
   _original_height: 60,
 }
 
-export function NlbNetworkLoadBalancer2(props: DiagramNodeProps) {
+export function NlbNetworkLoadBalancer2(props: NodeProps) {
   return (
     <Shape
       {...NLB_NETWORK_LOAD_BALANCER_2}

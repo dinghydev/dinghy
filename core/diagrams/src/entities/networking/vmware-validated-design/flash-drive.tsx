@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLASH_DRIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const FLASH_DRIVE = {
   _height: 50,
 }
 
-export function FlashDrive(props: DiagramNodeProps) {
+export function FlashDrive(props: NodeProps) {
   return (
     <Shape
       {...FLASH_DRIVE}

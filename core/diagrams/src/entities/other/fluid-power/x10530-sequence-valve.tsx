@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10530_SEQUENCE_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const X10530_SEQUENCE_VALVE = {
   _height: 75.54,
 }
 
-export function X10530SequenceValve(props: DiagramNodeProps) {
+export function X10530SequenceValve(props: NodeProps) {
   return (
     <Shape
       {...X10530_SEQUENCE_VALVE}

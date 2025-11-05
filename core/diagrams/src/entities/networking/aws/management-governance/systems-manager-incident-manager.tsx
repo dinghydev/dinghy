@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SYSTEMS_MANAGER_INCIDENT_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const SYSTEMS_MANAGER_INCIDENT_MANAGER = {
   _original_height: 78,
 }
 
-export function SystemsManagerIncidentManager(props: DiagramNodeProps) {
+export function SystemsManagerIncidentManager(props: NodeProps) {
   return (
     <Shape
       {...SYSTEMS_MANAGER_INCIDENT_MANAGER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_GLUE = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_GLUE = {
   _height: 100,
 }
 
-export function AwsGlue(props: DiagramNodeProps) {
+export function AwsGlue(props: NodeProps) {
   return (
     <Shape {...AWS_GLUE} {...props} _style={extendStyle(AWS_GLUE, props)} />
   )

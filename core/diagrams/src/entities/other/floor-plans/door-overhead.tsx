@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOOR_OVERHEAD = {
   _style: {
@@ -10,7 +10,7 @@ export const DOOR_OVERHEAD = {
   _height: 30,
 }
 
-export function DoorOverhead(props: DiagramNodeProps) {
+export function DoorOverhead(props: NodeProps) {
   return (
     <Shape
       {...DOOR_OVERHEAD}

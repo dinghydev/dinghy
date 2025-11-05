@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUSHBUTTON_2_CIRCUIT = {
   _style: {
@@ -10,7 +10,7 @@ export const PUSHBUTTON_2_CIRCUIT = {
   _original_height: 73,
 }
 
-export function Pushbutton2Circuit(props: DiagramNodeProps) {
+export function Pushbutton2Circuit(props: NodeProps) {
   return (
     <Shape
       {...PUSHBUTTON_2_CIRCUIT}

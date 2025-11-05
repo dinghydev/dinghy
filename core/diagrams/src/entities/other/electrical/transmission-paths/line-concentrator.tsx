@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINE_CONCENTRATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const LINE_CONCENTRATOR = {
   _original_height: 130,
 }
 
-export function LineConcentrator(props: DiagramNodeProps) {
+export function LineConcentrator(props: NodeProps) {
   return (
     <Shape
       {...LINE_CONCENTRATOR}

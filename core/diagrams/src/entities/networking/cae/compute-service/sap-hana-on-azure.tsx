@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_HANA_ON_AZURE = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_HANA_ON_AZURE = {
   _height: 25,
 }
 
-export function SapHanaOnAzure(props: DiagramNodeProps) {
+export function SapHanaOnAzure(props: NodeProps) {
   return (
     <Shape
       {...SAP_HANA_ON_AZURE}

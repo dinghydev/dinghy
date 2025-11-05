@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL079A3810M_2930M_2_PORT_40GBE_QSFP_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const JL079A3810M_2930M_2_PORT_40GBE_QSFP_MODULE = {
   _height: 15,
 }
 
-export function Jl079a3810m2930m2Port40gbeQsfpModule(props: DiagramNodeProps) {
+export function Jl079a3810m2930m2Port40gbeQsfpModule(props: NodeProps) {
   return (
     <Shape
       {...JL079A3810M_2930M_2_PORT_40GBE_QSFP_MODULE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11300_VARIABLE_DISPLACEMENT_PUMP = {
   _style: {
@@ -10,7 +10,7 @@ export const X11300_VARIABLE_DISPLACEMENT_PUMP = {
   _height: 229.08,
 }
 
-export function X11300VariableDisplacementPump(props: DiagramNodeProps) {
+export function X11300VariableDisplacementPump(props: NodeProps) {
   return (
     <Shape
       {...X11300_VARIABLE_DISPLACEMENT_PUMP}

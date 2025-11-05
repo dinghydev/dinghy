@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HORIZONTAL_DIMENSION = {
   _style: {
@@ -10,7 +10,7 @@ export const HORIZONTAL_DIMENSION = {
   _height: 40,
 }
 
-export function HorizontalDimension(props: DiagramNodeProps) {
+export function HorizontalDimension(props: NodeProps) {
   return (
     <Shape
       {...HORIZONTAL_DIMENSION}

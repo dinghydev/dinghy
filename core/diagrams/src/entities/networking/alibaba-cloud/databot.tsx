@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABOT = {
   _style: {
@@ -10,6 +10,6 @@ export const DATABOT = {
   _original_height: 52.2,
 }
 
-export function Databot(props: DiagramNodeProps) {
+export function Databot(props: NodeProps) {
   return <Shape {...DATABOT} {...props} _style={extendStyle(DATABOT, props)} />
 }

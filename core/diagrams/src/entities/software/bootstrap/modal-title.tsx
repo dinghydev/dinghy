@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MODAL_TITLE = {
   _style: {
@@ -10,7 +10,7 @@ export const MODAL_TITLE = {
   _height: 200,
 }
 
-export function ModalTitle(props: DiagramNodeProps) {
+export function ModalTitle(props: NodeProps) {
   return (
     <Shape
       {...MODAL_TITLE}

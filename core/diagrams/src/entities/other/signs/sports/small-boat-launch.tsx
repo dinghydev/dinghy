@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SMALL_BOAT_LAUNCH = {
   _style: {
@@ -10,7 +10,7 @@ export const SMALL_BOAT_LAUNCH = {
   _original_height: 93,
 }
 
-export function SmallBoatLaunch(props: DiagramNodeProps) {
+export function SmallBoatLaunch(props: NodeProps) {
   return (
     <Shape
       {...SMALL_BOAT_LAUNCH}

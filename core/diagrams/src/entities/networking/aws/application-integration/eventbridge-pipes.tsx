@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EVENTBRIDGE_PIPES = {
   _style: {
@@ -10,7 +10,7 @@ export const EVENTBRIDGE_PIPES = {
   _original_height: 78,
 }
 
-export function EventbridgePipes(props: DiagramNodeProps) {
+export function EventbridgePipes(props: NodeProps) {
   return (
     <Shape
       {...EVENTBRIDGE_PIPES}

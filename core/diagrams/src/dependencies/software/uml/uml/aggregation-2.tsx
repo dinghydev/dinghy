@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AGGREGATION_2 = {
   _style: {
@@ -7,7 +7,7 @@ export const AGGREGATION_2 = {
   },
 }
 
-export function Aggregation2(props: DiagramNodeProps) {
+export function Aggregation2(props: NodeProps) {
   return (
     <Dependency
       {...AGGREGATION_2}

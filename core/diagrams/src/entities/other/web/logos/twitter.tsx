@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TWITTER = {
   _style: {
@@ -10,6 +10,6 @@ export const TWITTER = {
   _original_height: 70,
 }
 
-export function Twitter(props: DiagramNodeProps) {
+export function Twitter(props: NodeProps) {
   return <Shape {...TWITTER} {...props} _style={extendStyle(TWITTER, props)} />
 }

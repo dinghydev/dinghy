@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNIVERSAL_PRINT = {
   _style: {
@@ -10,7 +10,7 @@ export const UNIVERSAL_PRINT = {
   _original_height: 57.99999999999999,
 }
 
-export function UniversalPrint(props: DiagramNodeProps) {
+export function UniversalPrint(props: NodeProps) {
   return (
     <Shape
       {...UNIVERSAL_PRINT}

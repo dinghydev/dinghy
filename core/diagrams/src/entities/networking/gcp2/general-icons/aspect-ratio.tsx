@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASPECT_RATIO = {
   _style: {
@@ -10,7 +10,7 @@ export const ASPECT_RATIO = {
   _original_height: 92,
 }
 
-export function AspectRatio(props: DiagramNodeProps) {
+export function AspectRatio(props: NodeProps) {
   return (
     <Shape
       {...ASPECT_RATIO}

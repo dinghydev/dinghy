@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const METADATA_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const METADATA_FILE = {
   _height: 39,
 }
 
-export function MetadataFile(props: DiagramNodeProps) {
+export function MetadataFile(props: NodeProps) {
   return (
     <Shape
       {...METADATA_FILE}

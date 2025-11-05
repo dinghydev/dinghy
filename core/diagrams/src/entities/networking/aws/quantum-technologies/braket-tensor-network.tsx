@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRAKET_TENSOR_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const BRAKET_TENSOR_NETWORK = {
   _original_height: 78,
 }
 
-export function BraketTensorNetwork(props: DiagramNodeProps) {
+export function BraketTensorNetwork(props: NodeProps) {
   return (
     <Shape
       {...BRAKET_TENSOR_NETWORK}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINKEDMALL = {
   _style: {
@@ -10,7 +10,7 @@ export const LINKEDMALL = {
   _original_height: 42,
 }
 
-export function Linkedmall(props: DiagramNodeProps) {
+export function Linkedmall(props: NodeProps) {
   return (
     <Shape {...LINKEDMALL} {...props} _style={extendStyle(LINKEDMALL, props)} />
   )

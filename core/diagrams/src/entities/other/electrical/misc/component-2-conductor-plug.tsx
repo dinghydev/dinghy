@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_2_CONDUCTOR_PLUG = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_2_CONDUCTOR_PLUG = {
   _height: 24,
 }
 
-export function Component2ConductorPlug(props: DiagramNodeProps) {
+export function Component2ConductorPlug(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_2_CONDUCTOR_PLUG}

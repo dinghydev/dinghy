@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCVMM_MANAGEMENT_SERVERS = {
   _style: {
@@ -10,7 +10,7 @@ export const SCVMM_MANAGEMENT_SERVERS = {
   _original_height: 67.72,
 }
 
-export function ScvmmManagementServers(props: DiagramNodeProps) {
+export function ScvmmManagementServers(props: NodeProps) {
   return (
     <Shape
       {...SCVMM_MANAGEMENT_SERVERS}

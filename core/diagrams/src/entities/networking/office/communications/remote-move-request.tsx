@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REMOTE_MOVE_REQUEST = {
   _style: {
@@ -10,7 +10,7 @@ export const REMOTE_MOVE_REQUEST = {
   _original_height: 57,
 }
 
-export function RemoteMoveRequest(props: DiagramNodeProps) {
+export function RemoteMoveRequest(props: NodeProps) {
   return (
     <Shape
       {...REMOTE_MOVE_REQUEST}

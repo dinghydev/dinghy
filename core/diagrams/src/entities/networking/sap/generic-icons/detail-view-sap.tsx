@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DETAIL_VIEW_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const DETAIL_VIEW_SAP = {
   _height: 28,
 }
 
-export function DetailViewSap(props: DiagramNodeProps) {
+export function DetailViewSap(props: NodeProps) {
   return (
     <Shape
       {...DETAIL_VIEW_SAP}

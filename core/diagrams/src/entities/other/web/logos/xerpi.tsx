@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XERPI = {
   _style: {
@@ -10,6 +10,6 @@ export const XERPI = {
   _original_height: 65.60000000000001,
 }
 
-export function Xerpi(props: DiagramNodeProps) {
+export function Xerpi(props: NodeProps) {
   return <Shape {...XERPI} {...props} _style={extendStyle(XERPI, props)} />
 }

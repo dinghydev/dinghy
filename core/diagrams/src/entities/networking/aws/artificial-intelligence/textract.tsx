@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXTRACT = {
   _style: {
@@ -10,7 +10,7 @@ export const TEXTRACT = {
   _original_height: 78,
 }
 
-export function Textract(props: DiagramNodeProps) {
+export function Textract(props: NodeProps) {
   return (
     <Shape {...TEXTRACT} {...props} _style={extendStyle(TEXTRACT, props)} />
   )

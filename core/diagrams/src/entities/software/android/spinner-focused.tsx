@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPINNER_FOCUSED = {
   _style: {
@@ -10,7 +10,7 @@ export const SPINNER_FOCUSED = {
   _height: 10,
 }
 
-export function SpinnerFocused(props: DiagramNodeProps) {
+export function SpinnerFocused(props: NodeProps) {
   return (
     <Shape
       {...SPINNER_FOCUSED}

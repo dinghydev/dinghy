@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HPC_WORKBENCH = {
   _style: {
@@ -10,7 +10,7 @@ export const HPC_WORKBENCH = {
   _original_height: 68,
 }
 
-export function HpcWorkbench(props: DiagramNodeProps) {
+export function HpcWorkbench(props: NodeProps) {
   return (
     <Shape
       {...HPC_WORKBENCH}

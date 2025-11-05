@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_WAN_TRANSIT_GATEWAY_ROUTE_TABLE_ATTACHMENT = {
   _style: {
@@ -10,9 +10,7 @@ export const CLOUD_WAN_TRANSIT_GATEWAY_ROUTE_TABLE_ATTACHMENT = {
   _original_height: 78,
 }
 
-export function CloudWanTransitGatewayRouteTableAttachment(
-  props: DiagramNodeProps,
-) {
+export function CloudWanTransitGatewayRouteTableAttachment(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_WAN_TRANSIT_GATEWAY_ROUTE_TABLE_ATTACHMENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTERPRISE_USER_DIRECTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTERPRISE_USER_DIRECTORY = {
   _original_height: 60,
 }
 
-export function EnterpriseUserDirectory(props: DiagramNodeProps) {
+export function EnterpriseUserDirectory(props: NodeProps) {
   return (
     <Shape
       {...ENTERPRISE_USER_DIRECTORY}

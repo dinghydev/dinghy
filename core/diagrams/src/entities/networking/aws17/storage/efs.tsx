@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EFS = {
   _style: {
@@ -10,6 +10,6 @@ export const EFS = {
   _original_height: 93,
 }
 
-export function Efs(props: DiagramNodeProps) {
+export function Efs(props: NodeProps) {
   return <Shape {...EFS} {...props} _style={extendStyle(EFS, props)} />
 }

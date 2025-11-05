@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTIPLE_FLAG_MESSAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTIPLE_FLAG_MESSAGE = {
   _height: 150,
 }
 
-export function MultipleFlagMessage(props: DiagramNodeProps) {
+export function MultipleFlagMessage(props: NodeProps) {
   return (
     <Shape
       {...MULTIPLE_FLAG_MESSAGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NO_ENTRY = {
   _style: {
@@ -10,7 +10,7 @@ export const NO_ENTRY = {
   _original_height: 99,
 }
 
-export function NoEntry(props: DiagramNodeProps) {
+export function NoEntry(props: NodeProps) {
   return (
     <Shape {...NO_ENTRY} {...props} _style={extendStyle(NO_ENTRY, props)} />
   )

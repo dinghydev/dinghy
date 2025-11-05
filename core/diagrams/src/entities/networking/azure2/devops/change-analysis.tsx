@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHANGE_ANALYSIS = {
   _style: {
@@ -10,7 +10,7 @@ export const CHANGE_ANALYSIS = {
   _original_height: 67.67999999999999,
 }
 
-export function ChangeAnalysis(props: DiagramNodeProps) {
+export function ChangeAnalysis(props: NodeProps) {
   return (
     <Shape
       {...CHANGE_ANALYSIS}

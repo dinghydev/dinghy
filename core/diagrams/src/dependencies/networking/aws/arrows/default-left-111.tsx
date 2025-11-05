@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFAULT_LEFT_111 = {
   _style: {
@@ -8,7 +8,7 @@ export const DEFAULT_LEFT_111 = {
   },
 }
 
-export function DefaultLeft111(props: DiagramNodeProps) {
+export function DefaultLeft111(props: NodeProps) {
   return (
     <Dependency
       {...DEFAULT_LEFT_111}

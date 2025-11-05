@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GAS_FILTER_BAG_CANDLE_CARTRIDGE = {
   _style: {
@@ -10,7 +10,7 @@ export const GAS_FILTER_BAG_CANDLE_CARTRIDGE = {
   _height: 100,
 }
 
-export function GasFilterBagCandleCartridge(props: DiagramNodeProps) {
+export function GasFilterBagCandleCartridge(props: NodeProps) {
   return (
     <Shape
       {...GAS_FILTER_BAG_CANDLE_CARTRIDGE}

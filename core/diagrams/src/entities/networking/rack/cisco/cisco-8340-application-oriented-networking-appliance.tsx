@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_8340_APPLICATION_ORIENTED_NETWORKING_APPLIANCE = {
   _style: {
@@ -11,7 +11,7 @@ export const CISCO_8340_APPLICATION_ORIENTED_NETWORKING_APPLIANCE = {
 }
 
 export function Cisco8340ApplicationOrientedNetworkingAppliance(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

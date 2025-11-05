@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10890_PROPORTIONAL_FLOW_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const X10890_PROPORTIONAL_FLOW_CONTROL = {
   _height: 75.02,
 }
 
-export function X10890ProportionalFlowControl(props: DiagramNodeProps) {
+export function X10890ProportionalFlowControl(props: NodeProps) {
   return (
     <Shape
       {...X10890_PROPORTIONAL_FLOW_CONTROL}

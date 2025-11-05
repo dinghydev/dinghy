@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DYNAMODB_ACCELERATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DYNAMODB_ACCELERATOR = {
   _original_height: 72,
 }
 
-export function DynamodbAccelerator(props: DiagramNodeProps) {
+export function DynamodbAccelerator(props: NodeProps) {
   return (
     <Shape
       {...DYNAMODB_ACCELERATOR}

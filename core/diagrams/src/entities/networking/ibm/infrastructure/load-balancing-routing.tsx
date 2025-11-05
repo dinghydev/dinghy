@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOAD_BALANCING_ROUTING = {
   _style: {
@@ -10,7 +10,7 @@ export const LOAD_BALANCING_ROUTING = {
   _original_height: 60,
 }
 
-export function LoadBalancingRouting(props: DiagramNodeProps) {
+export function LoadBalancingRouting(props: NodeProps) {
   return (
     <Shape
       {...LOAD_BALANCING_ROUTING}

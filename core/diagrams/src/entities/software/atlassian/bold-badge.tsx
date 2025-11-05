@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOLD_BADGE = {
   _style: {
@@ -10,7 +10,7 @@ export const BOLD_BADGE = {
   _height: 25,
 }
 
-export function BoldBadge(props: DiagramNodeProps) {
+export function BoldBadge(props: NodeProps) {
   return (
     <Shape {...BOLD_BADGE} {...props} _style={extendStyle(BOLD_BADGE, props)} />
   )

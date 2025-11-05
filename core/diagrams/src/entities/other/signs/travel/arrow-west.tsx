@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARROW_WEST = {
   _style: {
@@ -10,7 +10,7 @@ export const ARROW_WEST = {
   _original_height: 83,
 }
 
-export function ArrowWest(props: DiagramNodeProps) {
+export function ArrowWest(props: NodeProps) {
   return (
     <Shape {...ARROW_WEST} {...props} _style={extendStyle(ARROW_WEST, props)} />
   )

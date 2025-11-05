@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HP_PROLIANT_SL230S_G8 = {
   _style: {
@@ -10,7 +10,7 @@ export const HP_PROLIANT_SL230S_G8 = {
   _height: 15,
 }
 
-export function HpProliantSl230sG8(props: DiagramNodeProps) {
+export function HpProliantSl230sG8(props: NodeProps) {
   return (
     <Shape
       {...HP_PROLIANT_SL230S_G8}

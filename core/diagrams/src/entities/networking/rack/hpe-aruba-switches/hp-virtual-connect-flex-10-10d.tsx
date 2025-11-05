@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HP_VIRTUAL_CONNECT_FLEX_10_10D = {
   _style: {
@@ -10,7 +10,7 @@ export const HP_VIRTUAL_CONNECT_FLEX_10_10D = {
   _height: 121,
 }
 
-export function HpVirtualConnectFlex1010d(props: DiagramNodeProps) {
+export function HpVirtualConnectFlex1010d(props: NodeProps) {
   return (
     <Shape
       {...HP_VIRTUAL_CONNECT_FLEX_10_10D}

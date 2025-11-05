@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETSCALER_MPX = {
   _style: {
@@ -10,7 +10,7 @@ export const NETSCALER_MPX = {
   _height: 39,
 }
 
-export function NetscalerMpx(props: DiagramNodeProps) {
+export function NetscalerMpx(props: NodeProps) {
   return (
     <Shape
       {...NETSCALER_MPX}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMSCLOUDAPP = {
   _style: {
@@ -10,7 +10,7 @@ export const AMSCLOUDAPP = {
   _height: 39.6,
 }
 
-export function Amscloudapp(props: DiagramNodeProps) {
+export function Amscloudapp(props: NodeProps) {
   return (
     <Shape
       {...AMSCLOUDAPP}

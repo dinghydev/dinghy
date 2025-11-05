@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIVITY_PARTITION = {
   _style: {
@@ -10,7 +10,7 @@ export const ACTIVITY_PARTITION = {
   _original_height: 100,
 }
 
-export function ActivityPartition(props: DiagramNodeProps) {
+export function ActivityPartition(props: NodeProps) {
   return (
     <Shape
       {...ACTIVITY_PARTITION}

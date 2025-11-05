@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OSCILLOSCOPE = {
   _style: {
@@ -10,7 +10,7 @@ export const OSCILLOSCOPE = {
   _original_height: 90,
 }
 
-export function Oscilloscope(props: DiagramNodeProps) {
+export function Oscilloscope(props: NodeProps) {
   return (
     <Shape
       {...OSCILLOSCOPE}

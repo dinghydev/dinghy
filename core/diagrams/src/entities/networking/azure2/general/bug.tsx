@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUG = {
   _style: {
@@ -10,6 +10,6 @@ export const BUG = {
   _original_height: 64,
 }
 
-export function Bug(props: DiagramNodeProps) {
+export function Bug(props: NodeProps) {
   return <Shape {...BUG} {...props} _style={extendStyle(BUG, props)} />
 }

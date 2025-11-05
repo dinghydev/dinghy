@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_VPC = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_VPC = {
   _height: 100,
 }
 
-export function AmazonVpc(props: DiagramNodeProps) {
+export function AmazonVpc(props: NodeProps) {
   return (
     <Shape {...AMAZON_VPC} {...props} _style={extendStyle(AMAZON_VPC, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FEEDER_ROTARY_TABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const FEEDER_ROTARY_TABLE = {
   _height: 100,
 }
 
-export function FeederRotaryTable(props: DiagramNodeProps) {
+export function FeederRotaryTable(props: NodeProps) {
   return (
     <Shape
       {...FEEDER_ROTARY_TABLE}

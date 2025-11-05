@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LUMBERYARD = {
   _style: {
@@ -10,7 +10,7 @@ export const LUMBERYARD = {
   _original_height: 78,
 }
 
-export function Lumberyard(props: DiagramNodeProps) {
+export function Lumberyard(props: NodeProps) {
   return (
     <Shape {...LUMBERYARD} {...props} _style={extendStyle(LUMBERYARD, props)} />
   )

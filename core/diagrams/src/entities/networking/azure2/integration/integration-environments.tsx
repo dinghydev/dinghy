@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTEGRATION_ENVIRONMENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const INTEGRATION_ENVIRONMENTS = {
   _original_height: 68,
 }
 
-export function IntegrationEnvironments(props: DiagramNodeProps) {
+export function IntegrationEnvironments(props: NodeProps) {
   return (
     <Shape
       {...INTEGRATION_ENVIRONMENTS}

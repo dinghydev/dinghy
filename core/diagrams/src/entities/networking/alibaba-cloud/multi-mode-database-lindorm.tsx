@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_MODE_DATABASE_LINDORM = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTI_MODE_DATABASE_LINDORM = {
   _original_height: 50.099999999999994,
 }
 
-export function MultiModeDatabaseLindorm(props: DiagramNodeProps) {
+export function MultiModeDatabaseLindorm(props: NodeProps) {
   return (
     <Shape
       {...MULTI_MODE_DATABASE_LINDORM}

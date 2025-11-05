@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11530_DOUBLE_ACTING_CABLE_TYPE = {
   _style: {
@@ -10,7 +10,7 @@ export const X11530_DOUBLE_ACTING_CABLE_TYPE = {
   _original_height: 73.8,
 }
 
-export function X11530DoubleActingCableType(props: DiagramNodeProps) {
+export function X11530DoubleActingCableType(props: NodeProps) {
   return (
     <Shape
       {...X11530_DOUBLE_ACTING_CABLE_TYPE}

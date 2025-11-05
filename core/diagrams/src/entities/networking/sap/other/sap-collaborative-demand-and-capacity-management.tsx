@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_COLLABORATIVE_DEMAND_AND_CAPACITY_MANAGEMENT = {
   _style: {
@@ -10,9 +10,7 @@ export const SAP_COLLABORATIVE_DEMAND_AND_CAPACITY_MANAGEMENT = {
   _original_height: 50,
 }
 
-export function SapCollaborativeDemandAndCapacityManagement(
-  props: DiagramNodeProps,
-) {
+export function SapCollaborativeDemandAndCapacityManagement(props: NodeProps) {
   return (
     <Shape
       {...SAP_COLLABORATIVE_DEMAND_AND_CAPACITY_MANAGEMENT}

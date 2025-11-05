@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IOT_CORE_DEVICE_LOCATION = {
   _style: {
@@ -10,7 +10,7 @@ export const IOT_CORE_DEVICE_LOCATION = {
   _original_height: 78,
 }
 
-export function IotCoreDeviceLocation(props: DiagramNodeProps) {
+export function IotCoreDeviceLocation(props: NodeProps) {
   return (
     <Shape
       {...IOT_CORE_DEVICE_LOCATION}

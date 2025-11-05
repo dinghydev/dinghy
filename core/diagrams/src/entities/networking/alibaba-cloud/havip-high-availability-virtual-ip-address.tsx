@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HAVIP_HIGH_AVAILABILITY_VIRTUAL_IP_ADDRESS = {
   _style: {
@@ -10,7 +10,7 @@ export const HAVIP_HIGH_AVAILABILITY_VIRTUAL_IP_ADDRESS = {
   _original_height: 52.5,
 }
 
-export function HavipHighAvailabilityVirtualIpAddress(props: DiagramNodeProps) {
+export function HavipHighAvailabilityVirtualIpAddress(props: NodeProps) {
   return (
     <Shape
       {...HAVIP_HIGH_AVAILABILITY_VIRTUAL_IP_ADDRESS}

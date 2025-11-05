@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HDINSIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const HDINSIGHT = {
   _original_height: 48,
 }
 
-export function Hdinsight(props: DiagramNodeProps) {
+export function Hdinsight(props: NodeProps) {
   return (
     <Shape {...HDINSIGHT} {...props} _style={extendStyle(HDINSIGHT, props)} />
   )

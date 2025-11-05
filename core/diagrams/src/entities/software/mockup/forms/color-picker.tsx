@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLOR_PICKER = {
   _style: {
@@ -10,7 +10,7 @@ export const COLOR_PICKER = {
   _original_height: 40,
 }
 
-export function ColorPicker(props: DiagramNodeProps) {
+export function ColorPicker(props: NodeProps) {
   return (
     <Shape
       {...COLOR_PICKER}

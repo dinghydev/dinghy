@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAC_INSTALLER = {
   _style: {
@@ -10,7 +10,7 @@ export const WAC_INSTALLER = {
   _original_height: 68,
 }
 
-export function WacInstaller(props: DiagramNodeProps) {
+export function WacInstaller(props: NodeProps) {
   return (
     <Shape
       {...WAC_INSTALLER}

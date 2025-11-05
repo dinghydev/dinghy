@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INLINE_EDIT = {
   _style: {
@@ -10,7 +10,7 @@ export const INLINE_EDIT = {
   _height: 55,
 }
 
-export function InlineEdit(props: DiagramNodeProps) {
+export function InlineEdit(props: NodeProps) {
   return (
     <Shape
       {...INLINE_EDIT}

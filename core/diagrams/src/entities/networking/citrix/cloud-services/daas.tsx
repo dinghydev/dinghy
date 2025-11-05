@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DAAS = {
   _style: {
@@ -10,6 +10,6 @@ export const DAAS = {
   _height: 37.735,
 }
 
-export function Daas(props: DiagramNodeProps) {
+export function Daas(props: NodeProps) {
   return <Shape {...DAAS} {...props} _style={extendStyle(DAAS, props)} />
 }

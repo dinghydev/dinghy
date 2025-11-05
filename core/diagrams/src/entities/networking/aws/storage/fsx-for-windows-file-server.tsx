@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FSX_FOR_WINDOWS_FILE_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const FSX_FOR_WINDOWS_FILE_SERVER = {
   _original_height: 78,
 }
 
-export function FsxForWindowsFileServer(props: DiagramNodeProps) {
+export function FsxForWindowsFileServer(props: NodeProps) {
   return (
     <Shape
       {...FSX_FOR_WINDOWS_FILE_SERVER}

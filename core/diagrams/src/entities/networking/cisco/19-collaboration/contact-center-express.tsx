@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTACT_CENTER_EXPRESS = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTACT_CENTER_EXPRESS = {
   _original_height: 50,
 }
 
-export function ContactCenterExpress(props: DiagramNodeProps) {
+export function ContactCenterExpress(props: NodeProps) {
   return (
     <Shape
       {...CONTACT_CENTER_EXPRESS}

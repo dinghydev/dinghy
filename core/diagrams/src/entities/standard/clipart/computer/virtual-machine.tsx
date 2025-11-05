@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_MACHINE = {
   _original_height: 80,
 }
 
-export function VirtualMachine(props: DiagramNodeProps) {
+export function VirtualMachine(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_MACHINE}

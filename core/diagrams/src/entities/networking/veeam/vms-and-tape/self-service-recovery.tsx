@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SELF_SERVICE_RECOVERY = {
   _style: {
@@ -10,7 +10,7 @@ export const SELF_SERVICE_RECOVERY = {
   _original_height: 44.8,
 }
 
-export function SelfServiceRecovery(props: DiagramNodeProps) {
+export function SelfServiceRecovery(props: NodeProps) {
   return (
     <Shape
       {...SELF_SERVICE_RECOVERY}

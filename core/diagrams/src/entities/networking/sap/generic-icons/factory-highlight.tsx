@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FACTORY_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const FACTORY_HIGHLIGHT = {
   _original_height: 28,
 }
 
-export function FactoryHighlight(props: DiagramNodeProps) {
+export function FactoryHighlight(props: NodeProps) {
   return (
     <Shape
       {...FACTORY_HIGHLIGHT}

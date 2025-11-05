@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VSPHERE = {
   _style: {
@@ -10,6 +10,6 @@ export const VSPHERE = {
   _original_height: 44.8,
 }
 
-export function Vsphere(props: DiagramNodeProps) {
+export function Vsphere(props: NodeProps) {
   return <Shape {...VSPHERE} {...props} _style={extendStyle(VSPHERE, props)} />
 }

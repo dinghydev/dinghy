@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_FACTOR_IDENTIFICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTI_FACTOR_IDENTIFICATION = {
   _original_height: 43,
 }
 
-export function MultiFactorIdentification(props: DiagramNodeProps) {
+export function MultiFactorIdentification(props: NodeProps) {
   return (
     <Shape
       {...MULTI_FACTOR_IDENTIFICATION}

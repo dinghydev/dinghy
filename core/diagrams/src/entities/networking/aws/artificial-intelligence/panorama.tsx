@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PANORAMA = {
   _style: {
@@ -10,7 +10,7 @@ export const PANORAMA = {
   _original_height: 78,
 }
 
-export function Panorama(props: DiagramNodeProps) {
+export function Panorama(props: NodeProps) {
   return (
     <Shape {...PANORAMA} {...props} _style={extendStyle(PANORAMA, props)} />
   )

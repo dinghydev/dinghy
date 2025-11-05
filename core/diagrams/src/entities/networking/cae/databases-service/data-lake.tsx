@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_LAKE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_LAKE = {
   _height: 50,
 }
 
-export function DataLake(props: DiagramNodeProps) {
+export function DataLake(props: NodeProps) {
   return (
     <Shape {...DATA_LAKE} {...props} _style={extendStyle(DATA_LAKE, props)} />
   )

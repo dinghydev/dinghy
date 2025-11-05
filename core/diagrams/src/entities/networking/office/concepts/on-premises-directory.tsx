@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_PREMISES_DIRECTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const ON_PREMISES_DIRECTORY = {
   _original_height: 59,
 }
 
-export function OnPremisesDirectory(props: DiagramNodeProps) {
+export function OnPremisesDirectory(props: NodeProps) {
   return (
     <Shape
       {...ON_PREMISES_DIRECTORY}

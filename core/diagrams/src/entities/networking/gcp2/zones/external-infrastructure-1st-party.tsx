@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXTERNAL_INFRASTRUCTURE_1ST_PARTY = {
   _style: {
@@ -10,7 +10,7 @@ export const EXTERNAL_INFRASTRUCTURE_1ST_PARTY = {
   _height: 75,
 }
 
-export function ExternalInfrastructure1stParty(props: DiagramNodeProps) {
+export function ExternalInfrastructure1stParty(props: NodeProps) {
   return (
     <Shape
       {...EXTERNAL_INFRASTRUCTURE_1ST_PARTY}

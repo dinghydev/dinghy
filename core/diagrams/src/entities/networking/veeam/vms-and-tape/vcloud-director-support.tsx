@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VCLOUD_DIRECTOR_SUPPORT = {
   _style: {
@@ -10,7 +10,7 @@ export const VCLOUD_DIRECTOR_SUPPORT = {
   _original_height: 44.8,
 }
 
-export function VcloudDirectorSupport(props: DiagramNodeProps) {
+export function VcloudDirectorSupport(props: NodeProps) {
   return (
     <Shape
       {...VCLOUD_DIRECTOR_SUPPORT}

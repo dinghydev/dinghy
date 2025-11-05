@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KUBERNETES = {
   _style: {
@@ -10,7 +10,7 @@ export const KUBERNETES = {
   _original_height: 40,
 }
 
-export function Kubernetes(props: DiagramNodeProps) {
+export function Kubernetes(props: NodeProps) {
   return (
     <Shape {...KUBERNETES} {...props} _style={extendStyle(KUBERNETES, props)} />
   )

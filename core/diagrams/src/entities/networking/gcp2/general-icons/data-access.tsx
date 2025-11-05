@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_ACCESS = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_ACCESS = {
   _original_height: 100,
 }
 
-export function DataAccess(props: DiagramNodeProps) {
+export function DataAccess(props: NodeProps) {
   return (
     <Shape
       {...DATA_ACCESS}

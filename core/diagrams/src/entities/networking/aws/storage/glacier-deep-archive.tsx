@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLACIER_DEEP_ARCHIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const GLACIER_DEEP_ARCHIVE = {
   _original_height: 78,
 }
 
-export function GlacierDeepArchive(props: DiagramNodeProps) {
+export function GlacierDeepArchive(props: NodeProps) {
   return (
     <Shape
       {...GLACIER_DEEP_ARCHIVE}

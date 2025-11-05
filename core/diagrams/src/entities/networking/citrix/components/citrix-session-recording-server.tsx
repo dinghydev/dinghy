@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_SESSION_RECORDING_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_SESSION_RECORDING_SERVER = {
   _height: 33.19,
 }
 
-export function CitrixSessionRecordingServer(props: DiagramNodeProps) {
+export function CitrixSessionRecordingServer(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_SESSION_RECORDING_SERVER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQL_SERVER_REGISTRIES = {
   _style: {
@@ -10,7 +10,7 @@ export const SQL_SERVER_REGISTRIES = {
   _original_height: 62,
 }
 
-export function SqlServerRegistries(props: DiagramNodeProps) {
+export function SqlServerRegistries(props: NodeProps) {
   return (
     <Shape
       {...SQL_SERVER_REGISTRIES}

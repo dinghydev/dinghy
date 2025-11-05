@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLOATING_ACTION_BUTTONS_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const FLOATING_ACTION_BUTTONS_2 = {
   _height: 156,
 }
 
-export function FloatingActionButtons2(props: DiagramNodeProps) {
+export function FloatingActionButtons2(props: NodeProps) {
   return (
     <Shape
       {...FLOATING_ACTION_BUTTONS_2}

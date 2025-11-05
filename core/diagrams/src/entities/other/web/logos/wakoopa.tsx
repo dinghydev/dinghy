@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAKOOPA = {
   _style: {
@@ -10,6 +10,6 @@ export const WAKOOPA = {
   _height: 44.800000000000004,
 }
 
-export function Wakoopa(props: DiagramNodeProps) {
+export function Wakoopa(props: NodeProps) {
   return <Shape {...WAKOOPA} {...props} _style={extendStyle(WAKOOPA, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AIR_FREIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const AIR_FREIGHT = {
   _height: 45,
 }
 
-export function AirFreight(props: DiagramNodeProps) {
+export function AirFreight(props: NodeProps) {
   return (
     <Shape
       {...AIR_FREIGHT}

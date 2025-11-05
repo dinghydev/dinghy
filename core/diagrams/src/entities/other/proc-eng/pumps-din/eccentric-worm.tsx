@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ECCENTRIC_WORM = {
   _style: {
@@ -10,7 +10,7 @@ export const ECCENTRIC_WORM = {
   _original_height: 100,
 }
 
-export function EccentricWorm(props: DiagramNodeProps) {
+export function EccentricWorm(props: NodeProps) {
   return (
     <Shape
       {...ECCENTRIC_WORM}

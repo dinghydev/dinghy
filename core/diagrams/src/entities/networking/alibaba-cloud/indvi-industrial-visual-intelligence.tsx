@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE = {
   _style: {
@@ -10,7 +10,7 @@ export const INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE = {
   _original_height: 47.400000000000006,
 }
 
-export function IndviIndustrialVisualIntelligence(props: DiagramNodeProps) {
+export function IndviIndustrialVisualIntelligence(props: NodeProps) {
   return (
     <Shape
       {...INDVI_INDUSTRIAL_VISUAL_INTELLIGENCE}

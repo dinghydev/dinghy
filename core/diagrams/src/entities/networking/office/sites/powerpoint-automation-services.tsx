@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWERPOINT_AUTOMATION_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const POWERPOINT_AUTOMATION_SERVICES = {
   _original_height: 49,
 }
 
-export function PowerpointAutomationServices(props: DiagramNodeProps) {
+export function PowerpointAutomationServices(props: NodeProps) {
   return (
     <Shape
       {...POWERPOINT_AUTOMATION_SERVICES}

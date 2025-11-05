@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHAREPOINT_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const SHAREPOINT_SERVER = {
   _original_height: 52,
 }
 
-export function SharepointServer(props: DiagramNodeProps) {
+export function SharepointServer(props: NodeProps) {
   return (
     <Shape
       {...SHAREPOINT_SERVER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_RULER = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTICAL_RULER = {
   _height: 30,
 }
 
-export function VerticalRuler(props: DiagramNodeProps) {
+export function VerticalRuler(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_RULER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNAVAILABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const UNAVAILABLE = {
   _original_height: 36,
 }
 
-export function Unavailable(props: DiagramNodeProps) {
+export function Unavailable(props: NodeProps) {
   return (
     <Shape
       {...UNAVAILABLE}

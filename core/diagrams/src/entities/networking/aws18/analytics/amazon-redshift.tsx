@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_REDSHIFT = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_REDSHIFT = {
   _height: 110,
 }
 
-export function AmazonRedshift(props: DiagramNodeProps) {
+export function AmazonRedshift(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_REDSHIFT}

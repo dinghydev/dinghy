@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARDUINO = {
   _style: {
@@ -10,6 +10,6 @@ export const ARDUINO = {
   _height: 32,
 }
 
-export function Arduino(props: DiagramNodeProps) {
+export function Arduino(props: NodeProps) {
   return <Shape {...ARDUINO} {...props} _style={extendStyle(ARDUINO, props)} />
 }

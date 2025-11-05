@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THINKBOX_XMESH = {
   _style: {
@@ -10,7 +10,7 @@ export const THINKBOX_XMESH = {
   _original_height: 78,
 }
 
-export function ThinkboxXmesh(props: DiagramNodeProps) {
+export function ThinkboxXmesh(props: NodeProps) {
   return (
     <Shape
       {...THINKBOX_XMESH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11860_THERMOMETER_WITH = {
   _style: {
@@ -10,7 +10,7 @@ export const X11860_THERMOMETER_WITH = {
   _original_height: 70.58,
 }
 
-export function X11860ThermometerWith(props: DiagramNodeProps) {
+export function X11860ThermometerWith(props: NodeProps) {
   return (
     <Shape
       {...X11860_THERMOMETER_WITH}

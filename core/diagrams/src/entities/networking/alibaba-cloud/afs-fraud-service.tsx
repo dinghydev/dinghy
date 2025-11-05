@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AFS_FRAUD_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const AFS_FRAUD_SERVICE = {
   _original_height: 49.8,
 }
 
-export function AfsFraudService(props: DiagramNodeProps) {
+export function AfsFraudService(props: NodeProps) {
   return (
     <Shape
       {...AFS_FRAUD_SERVICE}

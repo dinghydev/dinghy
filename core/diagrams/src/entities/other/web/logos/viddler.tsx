@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIDDLER = {
   _style: {
@@ -10,6 +10,6 @@ export const VIDDLER = {
   _height: 21.200000000000003,
 }
 
-export function Viddler(props: DiagramNodeProps) {
+export function Viddler(props: NodeProps) {
   return <Shape {...VIDDLER} {...props} _style={extendStyle(VIDDLER, props)} />
 }

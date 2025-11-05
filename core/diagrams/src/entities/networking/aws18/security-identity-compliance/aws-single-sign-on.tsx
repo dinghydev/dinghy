@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_SINGLE_SIGN_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_SINGLE_SIGN_ON = {
   _height: 110,
 }
 
-export function AwsSingleSignOn(props: DiagramNodeProps) {
+export function AwsSingleSignOn(props: NodeProps) {
   return (
     <Shape
       {...AWS_SINGLE_SIGN_ON}

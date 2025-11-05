@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const USB = {
   _style: {
@@ -10,6 +10,6 @@ export const USB = {
   _height: 18.4,
 }
 
-export function Usb(props: DiagramNodeProps) {
+export function Usb(props: NodeProps) {
   return <Shape {...USB} {...props} _style={extendStyle(USB, props)} />
 }

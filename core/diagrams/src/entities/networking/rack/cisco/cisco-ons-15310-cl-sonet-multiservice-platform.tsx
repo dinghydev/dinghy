@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_ONS_15310_CL_SONET_MULTISERVICE_PLATFORM = {
   _style: {
@@ -10,9 +10,7 @@ export const CISCO_ONS_15310_CL_SONET_MULTISERVICE_PLATFORM = {
   _height: 15,
 }
 
-export function CiscoOns15310ClSonetMultiservicePlatform(
-  props: DiagramNodeProps,
-) {
+export function CiscoOns15310ClSonetMultiservicePlatform(props: NodeProps) {
   return (
     <Shape
       {...CISCO_ONS_15310_CL_SONET_MULTISERVICE_PLATFORM}

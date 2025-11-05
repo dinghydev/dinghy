@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_PREMISES_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const ON_PREMISES_SERVER = {
   _original_height: 58,
 }
 
-export function OnPremisesServer(props: DiagramNodeProps) {
+export function OnPremisesServer(props: NodeProps) {
   return (
     <Shape
       {...ON_PREMISES_SERVER}

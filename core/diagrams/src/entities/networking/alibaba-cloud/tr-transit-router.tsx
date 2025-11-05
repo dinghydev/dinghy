@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TR_TRANSIT_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const TR_TRANSIT_ROUTER = {
   _original_height: 52.5,
 }
 
-export function TrTransitRouter(props: DiagramNodeProps) {
+export function TrTransitRouter(props: NodeProps) {
   return (
     <Shape
       {...TR_TRANSIT_ROUTER}

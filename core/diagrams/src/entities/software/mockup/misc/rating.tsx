@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RATING = {
   _style: {
@@ -10,6 +10,6 @@ export const RATING = {
   _height: 30,
 }
 
-export function Rating(props: DiagramNodeProps) {
+export function Rating(props: NodeProps) {
   return <Shape {...RATING} {...props} _style={extendStyle(RATING, props)} />
 }

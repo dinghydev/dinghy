@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLUE_FOR_RAY = {
   _style: {
@@ -10,7 +10,7 @@ export const GLUE_FOR_RAY = {
   _original_height: 78,
 }
 
-export function GlueForRay(props: DiagramNodeProps) {
+export function GlueForRay(props: NodeProps) {
   return (
     <Shape
       {...GLUE_FOR_RAY}

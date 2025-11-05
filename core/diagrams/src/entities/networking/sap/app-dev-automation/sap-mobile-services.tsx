@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_MOBILE_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_MOBILE_SERVICES = {
   _original_height: 50,
 }
 
-export function SapMobileServices(props: DiagramNodeProps) {
+export function SapMobileServices(props: NodeProps) {
   return (
     <Shape
       {...SAP_MOBILE_SERVICES}

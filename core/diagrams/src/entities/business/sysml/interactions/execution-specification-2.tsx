@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXECUTION_SPECIFICATION_2 = {
   _style: {
@@ -9,7 +9,7 @@ export const EXECUTION_SPECIFICATION_2 = {
   _height: 220,
 }
 
-export function ExecutionSpecification2(props: DiagramNodeProps) {
+export function ExecutionSpecification2(props: NodeProps) {
   return (
     <Shape
       {...EXECUTION_SPECIFICATION_2}

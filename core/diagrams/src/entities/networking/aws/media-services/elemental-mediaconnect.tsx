@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELEMENTAL_MEDIACONNECT = {
   _style: {
@@ -10,7 +10,7 @@ export const ELEMENTAL_MEDIACONNECT = {
   _original_height: 78,
 }
 
-export function ElementalMediaconnect(props: DiagramNodeProps) {
+export function ElementalMediaconnect(props: NodeProps) {
   return (
     <Shape
       {...ELEMENTAL_MEDIACONNECT}

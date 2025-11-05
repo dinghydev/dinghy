@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCU_STORAGE_CAPACITY_UNIT = {
   _style: {
@@ -10,7 +10,7 @@ export const SCU_STORAGE_CAPACITY_UNIT = {
   _original_height: 54.900000000000006,
 }
 
-export function ScuStorageCapacityUnit(props: DiagramNodeProps) {
+export function ScuStorageCapacityUnit(props: NodeProps) {
   return (
     <Shape
       {...SCU_STORAGE_CAPACITY_UNIT}

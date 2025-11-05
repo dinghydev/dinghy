@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const YANDEX = {
   _style: {
@@ -10,6 +10,6 @@ export const YANDEX = {
   _original_height: 102.4,
 }
 
-export function Yandex(props: DiagramNodeProps) {
+export function Yandex(props: NodeProps) {
   return <Shape {...YANDEX} {...props} _style={extendStyle(YANDEX, props)} />
 }

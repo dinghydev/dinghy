@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const GENERATOR = {
   _original_height: 100,
 }
 
-export function Generator(props: DiagramNodeProps) {
+export function Generator(props: NodeProps) {
   return (
     <Shape {...GENERATOR} {...props} _style={extendStyle(GENERATOR, props)} />
   )

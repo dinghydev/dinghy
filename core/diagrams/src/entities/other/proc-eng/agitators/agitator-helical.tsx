@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AGITATOR_HELICAL = {
   _style: {
@@ -10,7 +10,7 @@ export const AGITATOR_HELICAL = {
   _height: 130,
 }
 
-export function AgitatorHelical(props: DiagramNodeProps) {
+export function AgitatorHelical(props: NodeProps) {
   return (
     <Shape
       {...AGITATOR_HELICAL}

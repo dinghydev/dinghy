@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CUSTOMER_ENGAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const CUSTOMER_ENGAGEMENT = {
   _original_height: 78,
 }
 
-export function CustomerEngagement(props: DiagramNodeProps) {
+export function CustomerEngagement(props: NodeProps) {
   return (
     <Shape
       {...CUSTOMER_ENGAGEMENT}

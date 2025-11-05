@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOCIAL_MEDIA = {
   _style: {
@@ -10,7 +10,7 @@ export const SOCIAL_MEDIA = {
   _original_height: 46.6,
 }
 
-export function SocialMedia(props: DiagramNodeProps) {
+export function SocialMedia(props: NodeProps) {
   return (
     <Shape
       {...SOCIAL_MEDIA}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XENSERVER_CONSOLE = {
   _style: {
@@ -10,7 +10,7 @@ export const XENSERVER_CONSOLE = {
   _original_height: 43.05,
 }
 
-export function XenserverConsole(props: DiagramNodeProps) {
+export function XenserverConsole(props: NodeProps) {
   return (
     <Shape
       {...XENSERVER_CONSOLE}

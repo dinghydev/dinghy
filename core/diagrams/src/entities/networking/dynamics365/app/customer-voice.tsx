@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CUSTOMER_VOICE = {
   _style: {
@@ -10,7 +10,7 @@ export const CUSTOMER_VOICE = {
   _original_height: 68,
 }
 
-export function CustomerVoice(props: DiagramNodeProps) {
+export function CustomerVoice(props: NodeProps) {
   return (
     <Shape
       {...CUSTOMER_VOICE}

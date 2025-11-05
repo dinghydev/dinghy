@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRIPLEX_INDUCTION_VOLTAGE_REGULATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const TRIPLEX_INDUCTION_VOLTAGE_REGULATOR = {
   _original_height: 100,
 }
 
-export function TriplexInductionVoltageRegulator(props: DiagramNodeProps) {
+export function TriplexInductionVoltageRegulator(props: NodeProps) {
   return (
     <Shape
       {...TRIPLEX_INDUCTION_VOLTAGE_REGULATOR}

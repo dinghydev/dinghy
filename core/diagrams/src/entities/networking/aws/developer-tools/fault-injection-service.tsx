@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FAULT_INJECTION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const FAULT_INJECTION_SERVICE = {
   _original_height: 78,
 }
 
-export function FaultInjectionService(props: DiagramNodeProps) {
+export function FaultInjectionService(props: NodeProps) {
   return (
     <Shape
       {...FAULT_INJECTION_SERVICE}

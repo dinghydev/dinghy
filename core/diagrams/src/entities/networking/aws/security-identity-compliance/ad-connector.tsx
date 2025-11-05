@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AD_CONNECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const AD_CONNECTOR = {
   _original_height: 73,
 }
 
-export function AdConnector(props: DiagramNodeProps) {
+export function AdConnector(props: NodeProps) {
   return (
     <Shape
       {...AD_CONNECTOR}

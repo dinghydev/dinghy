@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAHUB = {
   _style: {
@@ -10,6 +10,6 @@ export const DATAHUB = {
   _original_height: 47.7,
 }
 
-export function Datahub(props: DiagramNodeProps) {
+export function Datahub(props: NodeProps) {
   return <Shape {...DATAHUB} {...props} _style={extendStyle(DATAHUB, props)} />
 }

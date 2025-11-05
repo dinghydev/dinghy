@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NSX_ESG = {
   _style: {
@@ -10,6 +10,6 @@ export const NSX_ESG = {
   _original_height: 50,
 }
 
-export function NsxEsg(props: DiagramNodeProps) {
+export function NsxEsg(props: NodeProps) {
   return <Shape {...NSX_ESG} {...props} _style={extendStyle(NSX_ESG, props)} />
 }

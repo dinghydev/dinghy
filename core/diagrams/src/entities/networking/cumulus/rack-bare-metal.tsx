@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RACK_BARE_METAL = {
   _style: {
@@ -10,7 +10,7 @@ export const RACK_BARE_METAL = {
   _height: 114,
 }
 
-export function RackBareMetal(props: DiagramNodeProps) {
+export function RackBareMetal(props: NodeProps) {
   return (
     <Shape
       {...RACK_BARE_METAL}

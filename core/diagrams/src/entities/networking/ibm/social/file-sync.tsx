@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILE_SYNC = {
   _style: {
@@ -10,7 +10,7 @@ export const FILE_SYNC = {
   _original_height: 60,
 }
 
-export function FileSync(props: DiagramNodeProps) {
+export function FileSync(props: NodeProps) {
   return (
     <Shape {...FILE_SYNC} {...props} _style={extendStyle(FILE_SYNC, props)} />
   )

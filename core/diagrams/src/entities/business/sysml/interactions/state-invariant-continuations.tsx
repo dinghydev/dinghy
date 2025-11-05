@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STATE_INVARIANT_CONTINUATIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const STATE_INVARIANT_CONTINUATIONS = {
   _height: 220,
 }
 
-export function StateInvariantContinuations(props: DiagramNodeProps) {
+export function StateInvariantContinuations(props: NodeProps) {
   return (
     <Shape
       {...STATE_INVARIANT_CONTINUATIONS}

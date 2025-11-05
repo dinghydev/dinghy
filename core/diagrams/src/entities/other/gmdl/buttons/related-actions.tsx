@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RELATED_ACTIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const RELATED_ACTIONS = {
   _height: 40,
 }
 
-export function RelatedActions(props: DiagramNodeProps) {
+export function RelatedActions(props: NodeProps) {
   return (
     <Shape
       {...RELATED_ACTIONS}

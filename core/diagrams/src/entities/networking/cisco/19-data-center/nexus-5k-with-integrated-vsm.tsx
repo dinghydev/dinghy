@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEXUS_5K_WITH_INTEGRATED_VSM = {
   _style: {
@@ -10,7 +10,7 @@ export const NEXUS_5K_WITH_INTEGRATED_VSM = {
   _original_height: 50,
 }
 
-export function Nexus5kWithIntegratedVsm(props: DiagramNodeProps) {
+export function Nexus5kWithIntegratedVsm(props: NodeProps) {
   return (
     <Shape
       {...NEXUS_5K_WITH_INTEGRATED_VSM}

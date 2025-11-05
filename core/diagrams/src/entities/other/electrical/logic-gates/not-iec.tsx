@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NOT_IEC = {
   _style: {
@@ -10,6 +10,6 @@ export const NOT_IEC = {
   _original_height: 80,
 }
 
-export function NotIec(props: DiagramNodeProps) {
+export function NotIec(props: NodeProps) {
   return <Shape {...NOT_IEC} {...props} _style={extendStyle(NOT_IEC, props)} />
 }

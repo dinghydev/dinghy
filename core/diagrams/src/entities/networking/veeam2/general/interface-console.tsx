@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERFACE_CONSOLE = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERFACE_CONSOLE = {
   _original_height: 28.000000000000004,
 }
 
-export function InterfaceConsole(props: DiagramNodeProps) {
+export function InterfaceConsole(props: NodeProps) {
   return (
     <Shape
       {...INTERFACE_CONSOLE}

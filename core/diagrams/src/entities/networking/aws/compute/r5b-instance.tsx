@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const R5B_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const R5B_INSTANCE = {
   _original_height: 48,
 }
 
-export function R5bInstance(props: DiagramNodeProps) {
+export function R5bInstance(props: NodeProps) {
   return (
     <Shape
       {...R5B_INSTANCE}

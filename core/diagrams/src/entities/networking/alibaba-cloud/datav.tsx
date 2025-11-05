@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAV = {
   _style: {
@@ -10,6 +10,6 @@ export const DATAV = {
   _original_height: 44.4,
 }
 
-export function Datav(props: DiagramNodeProps) {
+export function Datav(props: NodeProps) {
   return <Shape {...DATAV} {...props} _style={extendStyle(DATAV, props)} />
 }

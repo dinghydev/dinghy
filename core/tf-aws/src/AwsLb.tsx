@@ -1,5 +1,5 @@
 import {
-  IacNodeProps,
+  NodeProps,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
@@ -17,7 +17,7 @@ export const AwsLbOutputSchema = z.object({
   arn: ResolvableStringSchema.optional(),
 })
 
-export type AwsLbInputProps = z.output<typeof AwsLbInputSchema> & IacNodeProps
+export type AwsLbInputProps = z.output<typeof AwsLbInputSchema> & NodeProps
 
 export type AwsLbOutputProps =
   & z.output<typeof AwsLbOutputSchema>

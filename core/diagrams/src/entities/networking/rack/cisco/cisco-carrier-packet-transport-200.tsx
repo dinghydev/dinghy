@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_CARRIER_PACKET_TRANSPORT_200 = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_CARRIER_PACKET_TRANSPORT_200 = {
   _height: 30,
 }
 
-export function CiscoCarrierPacketTransport200(props: DiagramNodeProps) {
+export function CiscoCarrierPacketTransport200(props: NodeProps) {
   return (
     <Shape
       {...CISCO_CARRIER_PACKET_TRANSPORT_200}

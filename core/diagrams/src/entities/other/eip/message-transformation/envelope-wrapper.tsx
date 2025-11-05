@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENVELOPE_WRAPPER = {
   _style: {
@@ -10,7 +10,7 @@ export const ENVELOPE_WRAPPER = {
   _height: 90,
 }
 
-export function EnvelopeWrapper(props: DiagramNodeProps) {
+export function EnvelopeWrapper(props: NodeProps) {
   return (
     <Shape
       {...ENVELOPE_WRAPPER}

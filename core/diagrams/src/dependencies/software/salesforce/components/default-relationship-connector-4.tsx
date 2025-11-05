@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFAULT_RELATIONSHIP_CONNECTOR_4 = {
   _style: {
@@ -8,7 +8,7 @@ export const DEFAULT_RELATIONSHIP_CONNECTOR_4 = {
   },
 }
 
-export function DefaultRelationshipConnector4(props: DiagramNodeProps) {
+export function DefaultRelationshipConnector4(props: NodeProps) {
   return (
     <Dependency
       {...DEFAULT_RELATIONSHIP_CONNECTOR_4}

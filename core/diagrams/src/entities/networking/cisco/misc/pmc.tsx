@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PMC = {
   _style: {
@@ -10,6 +10,6 @@ export const PMC = {
   _height: 77,
 }
 
-export function Pmc(props: DiagramNodeProps) {
+export function Pmc(props: NodeProps) {
   return <Shape {...PMC} {...props} _style={extendStyle(PMC, props)} />
 }

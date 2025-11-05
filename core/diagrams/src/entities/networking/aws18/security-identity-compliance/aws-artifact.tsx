@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_ARTIFACT = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_ARTIFACT = {
   _height: 100,
 }
 
-export function AwsArtifact(props: DiagramNodeProps) {
+export function AwsArtifact(props: NodeProps) {
   return (
     <Shape
       {...AWS_ARTIFACT}

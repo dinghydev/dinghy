@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VBEM_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const VBEM_SERVER = {
   _original_height: 52,
 }
 
-export function VbemServer(props: DiagramNodeProps) {
+export function VbemServer(props: NodeProps) {
   return (
     <Shape
       {...VBEM_SERVER}

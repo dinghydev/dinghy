@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLUSTER_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const CLUSTER_MANAGEMENT = {
   _original_height: 60,
 }
 
-export function ClusterManagement(props: DiagramNodeProps) {
+export function ClusterManagement(props: NodeProps) {
   return (
     <Shape
       {...CLUSTER_MANAGEMENT}

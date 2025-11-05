@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENCRYPTED_DATA = {
   _style: {
@@ -10,7 +10,7 @@ export const ENCRYPTED_DATA = {
   _original_height: 78,
 }
 
-export function EncryptedData(props: DiagramNodeProps) {
+export function EncryptedData(props: NodeProps) {
   return (
     <Shape
       {...ENCRYPTED_DATA}

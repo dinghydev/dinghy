@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_LOGO = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_LOGO = {
   _height: 24,
 }
 
-export function VeeamLogo(props: DiagramNodeProps) {
+export function VeeamLogo(props: NodeProps) {
   return (
     <Shape {...VEEAM_LOGO} {...props} _style={extendStyle(VEEAM_LOGO, props)} />
   )

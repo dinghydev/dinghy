@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMMERSIVE_TELEPRESENCE_ENDPOINT = {
   _style: {
@@ -10,7 +10,7 @@ export const IMMERSIVE_TELEPRESENCE_ENDPOINT = {
   _height: 50,
 }
 
-export function ImmersiveTelepresenceEndpoint(props: DiagramNodeProps) {
+export function ImmersiveTelepresenceEndpoint(props: NodeProps) {
   return (
     <Shape
       {...IMMERSIVE_TELEPRESENCE_ENDPOINT}

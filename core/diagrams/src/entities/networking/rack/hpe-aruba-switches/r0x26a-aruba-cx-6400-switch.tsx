@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const R0X26A_ARUBA_CX_6400_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const R0X26A_ARUBA_CX_6400_SWITCH = {
   _height: 98,
 }
 
-export function R0x26aArubaCx6400Switch(props: DiagramNodeProps) {
+export function R0x26aArubaCx6400Switch(props: NodeProps) {
   return (
     <Shape
       {...R0X26A_ARUBA_CX_6400_SWITCH}

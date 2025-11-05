@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SESSION_BORDER_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const SESSION_BORDER_CONTROLLER = {
   _original_height: 52,
 }
 
-export function SessionBorderController(props: DiagramNodeProps) {
+export function SessionBorderController(props: NodeProps) {
   return (
     <Shape
       {...SESSION_BORDER_CONTROLLER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TWO_LINE_GRID_LIST = {
   _style: {
@@ -9,7 +9,7 @@ export const TWO_LINE_GRID_LIST = {
   _height: 642,
 }
 
-export function TwoLineGridList(props: DiagramNodeProps) {
+export function TwoLineGridList(props: NodeProps) {
   return (
     <Shape
       {...TWO_LINE_GRID_LIST}

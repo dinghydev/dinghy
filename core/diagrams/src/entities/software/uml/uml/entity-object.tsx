@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTITY_OBJECT = {
   _style: {
@@ -9,7 +9,7 @@ export const ENTITY_OBJECT = {
   _original_height: 80,
 }
 
-export function EntityObject(props: DiagramNodeProps) {
+export function EntityObject(props: NodeProps) {
   return (
     <Shape
       {...ENTITY_OBJECT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOYALTY = {
   _style: {
@@ -10,6 +10,6 @@ export const LOYALTY = {
   _original_height: 40.800000000000004,
 }
 
-export function Loyalty(props: DiagramNodeProps) {
+export function Loyalty(props: NodeProps) {
   return <Shape {...LOYALTY} {...props} _style={extendStyle(LOYALTY, props)} />
 }

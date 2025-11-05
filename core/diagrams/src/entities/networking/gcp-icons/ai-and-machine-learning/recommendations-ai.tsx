@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECOMMENDATIONS_AI = {
   _style: {
@@ -10,7 +10,7 @@ export const RECOMMENDATIONS_AI = {
   _height: 36,
 }
 
-export function RecommendationsAi(props: DiagramNodeProps) {
+export function RecommendationsAi(props: NodeProps) {
   return (
     <Shape
       {...RECOMMENDATIONS_AI}

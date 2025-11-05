@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FHIR_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const FHIR_SERVICE = {
   _original_height: 59.440000000000005,
 }
 
-export function FhirService(props: DiagramNodeProps) {
+export function FhirService(props: NodeProps) {
   return (
     <Shape
       {...FHIR_SERVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIQUID_FILTER_FIXED_BED = {
   _style: {
@@ -10,7 +10,7 @@ export const LIQUID_FILTER_FIXED_BED = {
   _height: 100,
 }
 
-export function LiquidFilterFixedBed(props: DiagramNodeProps) {
+export function LiquidFilterFixedBed(props: NodeProps) {
   return (
     <Shape
       {...LIQUID_FILTER_FIXED_BED}

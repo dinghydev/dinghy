@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_LEX = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_LEX = {
   _height: 100,
 }
 
-export function AmazonLex(props: DiagramNodeProps) {
+export function AmazonLex(props: NodeProps) {
   return (
     <Shape {...AMAZON_LEX} {...props} _style={extendStyle(AMAZON_LEX, props)} />
   )

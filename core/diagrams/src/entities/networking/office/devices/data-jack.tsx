@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_JACK = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_JACK = {
   _original_height: 47,
 }
 
-export function DataJack(props: DiagramNodeProps) {
+export function DataJack(props: NodeProps) {
   return (
     <Shape {...DATA_JACK} {...props} _style={extendStyle(DATA_JACK, props)} />
   )

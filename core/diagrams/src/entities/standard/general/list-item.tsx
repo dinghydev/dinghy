@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIST_ITEM = {
   _style: {
@@ -10,7 +10,7 @@ export const LIST_ITEM = {
   _height: 30,
 }
 
-export function ListItem(props: DiagramNodeProps) {
+export function ListItem(props: NodeProps) {
   return (
     <Shape {...LIST_ITEM} {...props} _style={extendStyle(LIST_ITEM, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MYSQL_DB_INSTANCE_ALTERNATE = {
   _style: {
@@ -10,7 +10,7 @@ export const MYSQL_DB_INSTANCE_ALTERNATE = {
   _original_height: 60,
 }
 
-export function MysqlDbInstanceAlternate(props: DiagramNodeProps) {
+export function MysqlDbInstanceAlternate(props: NodeProps) {
   return (
     <Shape
       {...MYSQL_DB_INSTANCE_ALTERNATE}

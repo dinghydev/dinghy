@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HOME_ORANGE = {
   _style: {
@@ -10,7 +10,7 @@ export const HOME_ORANGE = {
   _original_height: 50,
 }
 
-export function HomeOrange(props: DiagramNodeProps) {
+export function HomeOrange(props: NodeProps) {
   return (
     <Shape
       {...HOME_ORANGE}

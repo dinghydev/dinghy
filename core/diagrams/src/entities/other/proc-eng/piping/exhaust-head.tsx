@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXHAUST_HEAD = {
   _style: {
@@ -10,7 +10,7 @@ export const EXHAUST_HEAD = {
   _original_height: 40,
 }
 
-export function ExhaustHead(props: DiagramNodeProps) {
+export function ExhaustHead(props: NodeProps) {
   return (
     <Shape
       {...EXHAUST_HEAD}

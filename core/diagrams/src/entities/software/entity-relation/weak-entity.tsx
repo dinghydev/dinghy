@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEAK_ENTITY = {
   _style: {
@@ -9,7 +9,7 @@ export const WEAK_ENTITY = {
   _height: 40,
 }
 
-export function WeakEntity(props: DiagramNodeProps) {
+export function WeakEntity(props: NodeProps) {
   return (
     <Shape
       {...WEAK_ENTITY}

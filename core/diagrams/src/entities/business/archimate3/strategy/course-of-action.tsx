@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COURSE_OF_ACTION = {
   _style: {
@@ -10,7 +10,7 @@ export const COURSE_OF_ACTION = {
   _height: 75,
 }
 
-export function CourseOfAction(props: DiagramNodeProps) {
+export function CourseOfAction(props: NodeProps) {
   return (
     <Shape
       {...COURSE_OF_ACTION}

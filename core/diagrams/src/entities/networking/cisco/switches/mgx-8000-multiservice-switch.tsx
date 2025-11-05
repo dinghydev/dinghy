@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MGX_8000_MULTISERVICE_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const MGX_8000_MULTISERVICE_SWITCH = {
   _original_height: 78,
 }
 
-export function Mgx8000MultiserviceSwitch(props: DiagramNodeProps) {
+export function Mgx8000MultiserviceSwitch(props: NodeProps) {
   return (
     <Shape
       {...MGX_8000_MULTISERVICE_SWITCH}

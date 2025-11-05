@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INVERTING_CONTACT = {
   _style: {
@@ -10,7 +10,7 @@ export const INVERTING_CONTACT = {
   _original_height: 10,
 }
 
-export function InvertingContact(props: DiagramNodeProps) {
+export function InvertingContact(props: NodeProps) {
   return (
     <Shape
       {...INVERTING_CONTACT}

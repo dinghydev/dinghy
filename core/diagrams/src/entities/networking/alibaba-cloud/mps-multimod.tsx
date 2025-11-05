@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MPS_MULTIMOD = {
   _style: {
@@ -10,7 +10,7 @@ export const MPS_MULTIMOD = {
   _original_height: 54.900000000000006,
 }
 
-export function MpsMultimod(props: DiagramNodeProps) {
+export function MpsMultimod(props: NodeProps) {
   return (
     <Shape
       {...MPS_MULTIMOD}

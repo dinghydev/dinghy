@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HOLOGRES = {
   _style: {
@@ -10,7 +10,7 @@ export const HOLOGRES = {
   _original_height: 50.099999999999994,
 }
 
-export function Hologres(props: DiagramNodeProps) {
+export function Hologres(props: NodeProps) {
   return (
     <Shape {...HOLOGRES} {...props} _style={extendStyle(HOLOGRES, props)} />
   )

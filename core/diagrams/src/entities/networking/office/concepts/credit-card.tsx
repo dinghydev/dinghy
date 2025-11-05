@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CREDIT_CARD = {
   _style: {
@@ -10,7 +10,7 @@ export const CREDIT_CARD = {
   _height: 36,
 }
 
-export function CreditCard(props: DiagramNodeProps) {
+export function CreditCard(props: NodeProps) {
   return (
     <Shape
       {...CREDIT_CARD}

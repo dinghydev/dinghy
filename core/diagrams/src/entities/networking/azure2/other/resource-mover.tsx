@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESOURCE_MOVER = {
   _style: {
@@ -10,7 +10,7 @@ export const RESOURCE_MOVER = {
   _original_height: 68,
 }
 
-export function ResourceMover(props: DiagramNodeProps) {
+export function ResourceMover(props: NodeProps) {
   return (
     <Shape
       {...RESOURCE_MOVER}

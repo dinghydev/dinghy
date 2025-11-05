@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPENSATION_2 = {
   _style: {
@@ -8,7 +8,7 @@ export const COMPENSATION_2 = {
   },
 }
 
-export function Compensation2(props: DiagramNodeProps) {
+export function Compensation2(props: NodeProps) {
   return (
     <Shape
       {...COMPENSATION_2}

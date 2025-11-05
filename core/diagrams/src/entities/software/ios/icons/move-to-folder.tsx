@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOVE_TO_FOLDER = {
   _style: {
@@ -10,7 +10,7 @@ export const MOVE_TO_FOLDER = {
   _height: 22.5,
 }
 
-export function MoveToFolder(props: DiagramNodeProps) {
+export function MoveToFolder(props: NodeProps) {
   return (
     <Shape
       {...MOVE_TO_FOLDER}

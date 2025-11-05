@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9990A_20P_GIGT_4P_SFP_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const J9990A_20P_GIGT_4P_SFP_MODULE = {
   _height: 15,
 }
 
-export function J9990a20pGigt4pSfpModule(props: DiagramNodeProps) {
+export function J9990a20pGigt4pSfpModule(props: NodeProps) {
   return (
     <Shape
       {...J9990A_20P_GIGT_4P_SFP_MODULE}

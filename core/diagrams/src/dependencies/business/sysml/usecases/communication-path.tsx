@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMMUNICATION_PATH = {
   _style: {
@@ -7,7 +7,7 @@ export const COMMUNICATION_PATH = {
   },
 }
 
-export function CommunicationPath(props: DiagramNodeProps) {
+export function CommunicationPath(props: NodeProps) {
   return (
     <Dependency
       {...COMMUNICATION_PATH}

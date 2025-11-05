@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RETROSPECTIVE_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const RETROSPECTIVE_SECURITY = {
   _original_height: 48,
 }
 
-export function RetrospectiveSecurity(props: DiagramNodeProps) {
+export function RetrospectiveSecurity(props: NodeProps) {
   return (
     <Shape
       {...RETROSPECTIVE_SECURITY}

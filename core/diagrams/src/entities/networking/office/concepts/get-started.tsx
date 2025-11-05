@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GET_STARTED = {
   _style: {
@@ -10,7 +10,7 @@ export const GET_STARTED = {
   _original_height: 52,
 }
 
-export function GetStarted(props: DiagramNodeProps) {
+export function GetStarted(props: NodeProps) {
   return (
     <Shape
       {...GET_STARTED}

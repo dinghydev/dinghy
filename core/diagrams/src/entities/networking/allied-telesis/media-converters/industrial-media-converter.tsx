@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDUSTRIAL_MEDIA_CONVERTER = {
   _style: {
@@ -10,7 +10,7 @@ export const INDUSTRIAL_MEDIA_CONVERTER = {
   _height: 57,
 }
 
-export function IndustrialMediaConverter(props: DiagramNodeProps) {
+export function IndustrialMediaConverter(props: NodeProps) {
   return (
     <Shape
       {...INDUSTRIAL_MEDIA_CONVERTER}

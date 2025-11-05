@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_SLOTS = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_SLOTS = {
   _original_height: 64,
 }
 
-export function WebSlots(props: DiagramNodeProps) {
+export function WebSlots(props: NodeProps) {
   return (
     <Shape {...WEB_SLOTS} {...props} _style={extendStyle(WEB_SLOTS, props)} />
   )

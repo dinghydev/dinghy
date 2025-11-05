@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIGNALR = {
   _style: {
@@ -10,6 +10,6 @@ export const SIGNALR = {
   _original_height: 50,
 }
 
-export function Signalr(props: DiagramNodeProps) {
+export function Signalr(props: NodeProps) {
   return <Shape {...SIGNALR} {...props} _style={extendStyle(SIGNALR, props)} />
 }

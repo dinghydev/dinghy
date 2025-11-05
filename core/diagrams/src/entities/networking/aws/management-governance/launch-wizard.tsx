@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAUNCH_WIZARD = {
   _style: {
@@ -10,7 +10,7 @@ export const LAUNCH_WIZARD = {
   _original_height: 78,
 }
 
-export function LaunchWizard(props: DiagramNodeProps) {
+export function LaunchWizard(props: NodeProps) {
   return (
     <Shape
       {...LAUNCH_WIZARD}

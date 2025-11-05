@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIGNER = {
   _style: {
@@ -10,6 +10,6 @@ export const SIGNER = {
   _original_height: 78,
 }
 
-export function Signer(props: DiagramNodeProps) {
+export function Signer(props: NodeProps) {
   return <Shape {...SIGNER} {...props} _style={extendStyle(SIGNER, props)} />
 }

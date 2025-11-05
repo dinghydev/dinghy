@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HEX_LOOP_6 = {
   _style: {
@@ -10,7 +10,7 @@ export const HEX_LOOP_6 = {
   _height: 312,
 }
 
-export function HexLoop6(props: DiagramNodeProps) {
+export function HexLoop6(props: NodeProps) {
   return (
     <Shape {...HEX_LOOP_6} {...props} _style={extendStyle(HEX_LOOP_6, props)} />
   )

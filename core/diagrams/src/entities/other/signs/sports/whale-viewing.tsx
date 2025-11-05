@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WHALE_VIEWING = {
   _style: {
@@ -10,7 +10,7 @@ export const WHALE_VIEWING = {
   _original_height: 99,
 }
 
-export function WhaleViewing(props: DiagramNodeProps) {
+export function WhaleViewing(props: NodeProps) {
   return (
     <Shape
       {...WHALE_VIEWING}

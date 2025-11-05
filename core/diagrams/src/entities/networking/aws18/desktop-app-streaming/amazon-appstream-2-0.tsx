@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_APPSTREAM_2_0 = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_APPSTREAM_2_0 = {
   _height: 110,
 }
 
-export function AmazonAppstream20(props: DiagramNodeProps) {
+export function AmazonAppstream20(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_APPSTREAM_2_0}

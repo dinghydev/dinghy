@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KNEADER = {
   _style: {
@@ -10,6 +10,6 @@ export const KNEADER = {
   _height: 100,
 }
 
-export function Kneader(props: DiagramNodeProps) {
+export function Kneader(props: NodeProps) {
   return <Shape {...KNEADER} {...props} _style={extendStyle(KNEADER, props)} />
 }

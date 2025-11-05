@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEDIA_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const MEDIA_FILE = {
   _original_height: 64,
 }
 
-export function MediaFile(props: DiagramNodeProps) {
+export function MediaFile(props: NodeProps) {
   return (
     <Shape {...MEDIA_FILE} {...props} _style={extendStyle(MEDIA_FILE, props)} />
   )

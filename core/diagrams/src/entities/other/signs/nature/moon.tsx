@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOON = {
   _style: {
@@ -10,6 +10,6 @@ export const MOON = {
   _height: 99,
 }
 
-export function Moon(props: DiagramNodeProps) {
+export function Moon(props: NodeProps) {
   return <Shape {...MOON} {...props} _style={extendStyle(MOON, props)} />
 }

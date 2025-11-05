@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OVERGROUND_ENCLOSURE = {
   _style: {
@@ -10,7 +10,7 @@ export const OVERGROUND_ENCLOSURE = {
   _height: 136,
 }
 
-export function OvergroundEnclosure(props: DiagramNodeProps) {
+export function OvergroundEnclosure(props: NodeProps) {
   return (
     <Shape
       {...OVERGROUND_ENCLOSURE}

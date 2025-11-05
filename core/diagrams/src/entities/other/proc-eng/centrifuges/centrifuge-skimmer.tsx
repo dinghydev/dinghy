@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CENTRIFUGE_SKIMMER = {
   _style: {
@@ -10,7 +10,7 @@ export const CENTRIFUGE_SKIMMER = {
   _height: 100,
 }
 
-export function CentrifugeSkimmer(props: DiagramNodeProps) {
+export function CentrifugeSkimmer(props: NodeProps) {
   return (
     <Shape
       {...CENTRIFUGE_SKIMMER}

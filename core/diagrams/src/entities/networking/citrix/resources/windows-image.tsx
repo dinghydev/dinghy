@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDOWS_IMAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDOWS_IMAGE = {
   _height: 50,
 }
 
-export function WindowsImage(props: DiagramNodeProps) {
+export function WindowsImage(props: NodeProps) {
   return (
     <Shape
       {...WINDOWS_IMAGE}

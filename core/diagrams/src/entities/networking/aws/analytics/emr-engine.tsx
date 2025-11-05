@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EMR_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const EMR_ENGINE = {
   _original_height: 59,
 }
 
-export function EmrEngine(props: DiagramNodeProps) {
+export function EmrEngine(props: NodeProps) {
   return (
     <Shape {...EMR_ENGINE} {...props} _style={extendStyle(EMR_ENGINE, props)} />
   )

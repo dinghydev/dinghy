@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THERMAL_ELEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const THERMAL_ELEMENT = {
   _height: 32,
 }
 
-export function ThermalElement(props: DiagramNodeProps) {
+export function ThermalElement(props: NodeProps) {
   return (
     <Shape
       {...THERMAL_ELEMENT}

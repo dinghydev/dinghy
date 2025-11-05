@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONDITIONAL_SEQUENCE_FLOW = {
   _style: {
@@ -8,7 +8,7 @@ export const CONDITIONAL_SEQUENCE_FLOW = {
   },
 }
 
-export function ConditionalSequenceFlow(props: DiagramNodeProps) {
+export function ConditionalSequenceFlow(props: NodeProps) {
   return (
     <Dependency
       {...CONDITIONAL_SEQUENCE_FLOW}

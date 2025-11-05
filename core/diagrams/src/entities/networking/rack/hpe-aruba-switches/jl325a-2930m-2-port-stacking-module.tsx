@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL325A_2930M_2_PORT_STACKING_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const JL325A_2930M_2_PORT_STACKING_MODULE = {
   _height: 10,
 }
 
-export function Jl325a2930m2PortStackingModule(props: DiagramNodeProps) {
+export function Jl325a2930m2PortStackingModule(props: NodeProps) {
   return (
     <Shape
       {...JL325A_2930M_2_PORT_STACKING_MODULE}

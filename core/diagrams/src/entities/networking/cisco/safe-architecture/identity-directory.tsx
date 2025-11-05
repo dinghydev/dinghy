@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IDENTITY_DIRECTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const IDENTITY_DIRECTORY = {
   _original_height: 50,
 }
 
-export function IdentityDirectory(props: DiagramNodeProps) {
+export function IdentityDirectory(props: NodeProps) {
   return (
     <Shape
       {...IDENTITY_DIRECTORY}

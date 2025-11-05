@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONDITIONAL_INTERRUPTING = {
   _style: {
@@ -10,7 +10,7 @@ export const CONDITIONAL_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function ConditionalInterrupting(props: DiagramNodeProps) {
+export function ConditionalInterrupting(props: NodeProps) {
   return (
     <Shape
       {...CONDITIONAL_INTERRUPTING}

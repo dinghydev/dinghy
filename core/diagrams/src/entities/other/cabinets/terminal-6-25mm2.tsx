@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TERMINAL_6_25MM2 = {
   _style: {
@@ -10,7 +10,7 @@ export const TERMINAL_6_25MM2 = {
   _height: 37.5,
 }
 
-export function Terminal625mm2(props: DiagramNodeProps) {
+export function Terminal625mm2(props: NodeProps) {
   return (
     <Shape
       {...TERMINAL_6_25MM2}

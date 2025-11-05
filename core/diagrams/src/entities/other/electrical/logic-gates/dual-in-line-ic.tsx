@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DUAL_IN_LINE_IC = {
   _style: {
@@ -10,7 +10,7 @@ export const DUAL_IN_LINE_IC = {
   _height: 200,
 }
 
-export function DualInLineIc(props: DiagramNodeProps) {
+export function DualInLineIc(props: NodeProps) {
   return (
     <Shape
       {...DUAL_IN_LINE_IC}

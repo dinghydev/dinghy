@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CODESTORE = {
   _style: {
@@ -10,7 +10,7 @@ export const CODESTORE = {
   _original_height: 41.699999999999996,
 }
 
-export function Codestore(props: DiagramNodeProps) {
+export function Codestore(props: NodeProps) {
   return (
     <Shape {...CODESTORE} {...props} _style={extendStyle(CODESTORE, props)} />
   )

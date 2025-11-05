@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECKED = {
   _style: {
@@ -10,6 +10,6 @@ export const CHECKED = {
   _original_height: 36,
 }
 
-export function Checked(props: DiagramNodeProps) {
+export function Checked(props: NodeProps) {
   return <Shape {...CHECKED} {...props} _style={extendStyle(CHECKED, props)} />
 }

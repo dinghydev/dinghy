@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOFTWARE_UPDATE_POINT = {
   _style: {
@@ -10,7 +10,7 @@ export const SOFTWARE_UPDATE_POINT = {
   _original_height: 43,
 }
 
-export function SoftwareUpdatePoint(props: DiagramNodeProps) {
+export function SoftwareUpdatePoint(props: NodeProps) {
   return (
     <Shape
       {...SOFTWARE_UPDATE_POINT}

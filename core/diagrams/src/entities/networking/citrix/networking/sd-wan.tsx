@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SD_WAN = {
   _style: {
@@ -10,6 +10,6 @@ export const SD_WAN = {
   _original_height: 49.96,
 }
 
-export function SdWan(props: DiagramNodeProps) {
+export function SdWan(props: NodeProps) {
   return <Shape {...SD_WAN} {...props} _style={extendStyle(SD_WAN, props)} />
 }

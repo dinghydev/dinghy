@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CERTIFIED_INDUSTRY_STANDARD = {
   _style: {
@@ -10,7 +10,7 @@ export const CERTIFIED_INDUSTRY_STANDARD = {
   _height: 78,
 }
 
-export function CertifiedIndustryStandard(props: DiagramNodeProps) {
+export function CertifiedIndustryStandard(props: NodeProps) {
   return (
     <Shape
       {...CERTIFIED_INDUSTRY_STANDARD}

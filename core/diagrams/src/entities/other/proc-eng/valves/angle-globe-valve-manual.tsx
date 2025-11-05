@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANGLE_GLOBE_VALVE_MANUAL = {
   _style: {
@@ -10,7 +10,7 @@ export const ANGLE_GLOBE_VALVE_MANUAL = {
   _height: 120,
 }
 
-export function AngleGlobeValveManual(props: DiagramNodeProps) {
+export function AngleGlobeValveManual(props: NodeProps) {
   return (
     <Shape
       {...ANGLE_GLOBE_VALVE_MANUAL}

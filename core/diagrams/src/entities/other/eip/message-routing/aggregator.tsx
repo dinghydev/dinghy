@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AGGREGATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const AGGREGATOR = {
   _height: 90,
 }
 
-export function Aggregator(props: DiagramNodeProps) {
+export function Aggregator(props: NodeProps) {
   return (
     <Shape {...AGGREGATOR} {...props} _style={extendStyle(AGGREGATOR, props)} />
   )

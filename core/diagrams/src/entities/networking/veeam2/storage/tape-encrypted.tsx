@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAPE_ENCRYPTED = {
   _style: {
@@ -10,7 +10,7 @@ export const TAPE_ENCRYPTED = {
   _height: 30,
 }
 
-export function TapeEncrypted(props: DiagramNodeProps) {
+export function TapeEncrypted(props: NodeProps) {
   return (
     <Shape
       {...TAPE_ENCRYPTED}

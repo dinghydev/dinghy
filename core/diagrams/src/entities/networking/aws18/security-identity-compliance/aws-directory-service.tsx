@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_DIRECTORY_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_DIRECTORY_SERVICE = {
   _height: 110,
 }
 
-export function AwsDirectoryService(props: DiagramNodeProps) {
+export function AwsDirectoryService(props: NodeProps) {
   return (
     <Shape
       {...AWS_DIRECTORY_SERVICE}

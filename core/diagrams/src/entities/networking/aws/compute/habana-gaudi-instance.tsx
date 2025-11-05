@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HABANA_GAUDI_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const HABANA_GAUDI_INSTANCE = {
   _original_height: 48,
 }
 
-export function HabanaGaudiInstance(props: DiagramNodeProps) {
+export function HabanaGaudiInstance(props: NodeProps) {
   return (
     <Shape
       {...HABANA_GAUDI_INSTANCE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEVICE_SECURITY_GOOGLE = {
   _style: {
@@ -10,7 +10,7 @@ export const DEVICE_SECURITY_GOOGLE = {
   _original_height: 69,
 }
 
-export function DeviceSecurityGoogle(props: DiagramNodeProps) {
+export function DeviceSecurityGoogle(props: NodeProps) {
   return (
     <Shape
       {...DEVICE_SECURITY_GOOGLE}

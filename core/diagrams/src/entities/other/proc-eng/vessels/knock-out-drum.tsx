@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KNOCK_OUT_DRUM = {
   _style: {
@@ -10,7 +10,7 @@ export const KNOCK_OUT_DRUM = {
   _height: 95,
 }
 
-export function KnockOutDrum(props: DiagramNodeProps) {
+export function KnockOutDrum(props: NodeProps) {
   return (
     <Shape
       {...KNOCK_OUT_DRUM}

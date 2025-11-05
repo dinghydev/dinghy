@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PAPER_PLANE_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const PAPER_PLANE_SAP = {
   _original_height: 28,
 }
 
-export function PaperPlaneSap(props: DiagramNodeProps) {
+export function PaperPlaneSap(props: NodeProps) {
   return (
     <Shape
       {...PAPER_PLANE_SAP}

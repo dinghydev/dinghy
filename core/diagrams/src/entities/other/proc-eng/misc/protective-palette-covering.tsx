@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROTECTIVE_PALETTE_COVERING = {
   _style: {
@@ -10,7 +10,7 @@ export const PROTECTIVE_PALETTE_COVERING = {
   _height: 100,
 }
 
-export function ProtectivePaletteCovering(props: DiagramNodeProps) {
+export function ProtectivePaletteCovering(props: NodeProps) {
   return (
     <Shape
       {...PROTECTIVE_PALETTE_COVERING}

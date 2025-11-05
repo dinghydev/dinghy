@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AIR_SEPARATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const AIR_SEPARATOR = {
   _height: 106,
 }
 
-export function AirSeparator(props: DiagramNodeProps) {
+export function AirSeparator(props: NodeProps) {
   return (
     <Shape
       {...AIR_SEPARATOR}

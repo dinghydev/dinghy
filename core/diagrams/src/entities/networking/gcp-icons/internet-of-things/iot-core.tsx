@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IOT_CORE = {
   _style: {
@@ -10,7 +10,7 @@ export const IOT_CORE = {
   _original_height: 40,
 }
 
-export function IotCore(props: DiagramNodeProps) {
+export function IotCore(props: NodeProps) {
   return (
     <Shape {...IOT_CORE} {...props} _style={extendStyle(IOT_CORE, props)} />
   )

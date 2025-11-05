@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETWORKEDBLOGS = {
   _style: {
@@ -10,7 +10,7 @@ export const NETWORKEDBLOGS = {
   _original_height: 102.4,
 }
 
-export function Networkedblogs(props: DiagramNodeProps) {
+export function Networkedblogs(props: NodeProps) {
   return (
     <Shape
       {...NETWORKEDBLOGS}

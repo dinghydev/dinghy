@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SELECTIVE_CONSUMER = {
   _style: {
@@ -10,7 +10,7 @@ export const SELECTIVE_CONSUMER = {
   _height: 90,
 }
 
-export function SelectiveConsumer(props: DiagramNodeProps) {
+export function SelectiveConsumer(props: NodeProps) {
   return (
     <Shape
       {...SELECTIVE_CONSUMER}

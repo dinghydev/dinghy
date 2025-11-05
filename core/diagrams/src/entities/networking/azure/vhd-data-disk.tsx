@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VHD_DATA_DISK = {
   _style: {
@@ -10,7 +10,7 @@ export const VHD_DATA_DISK = {
   _height: 50,
 }
 
-export function VhdDataDisk(props: DiagramNodeProps) {
+export function VhdDataDisk(props: NodeProps) {
   return (
     <Shape
       {...VHD_DATA_DISK}

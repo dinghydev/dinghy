@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOCAL_NETWORK_GATEWAYS = {
   _style: {
@@ -10,7 +10,7 @@ export const LOCAL_NETWORK_GATEWAYS = {
   _original_height: 68,
 }
 
-export function LocalNetworkGateways(props: DiagramNodeProps) {
+export function LocalNetworkGateways(props: NodeProps) {
   return (
     <Shape
       {...LOCAL_NETWORK_GATEWAYS}

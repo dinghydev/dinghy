@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONNOTEA = {
   _style: {
@@ -10,7 +10,7 @@ export const CONNOTEA = {
   _original_height: 82.60000000000001,
 }
 
-export function Connotea(props: DiagramNodeProps) {
+export function Connotea(props: NodeProps) {
   return (
     <Shape {...CONNOTEA} {...props} _style={extendStyle(CONNOTEA, props)} />
   )

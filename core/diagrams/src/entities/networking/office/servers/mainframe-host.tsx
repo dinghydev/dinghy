@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAINFRAME_HOST = {
   _style: {
@@ -10,7 +10,7 @@ export const MAINFRAME_HOST = {
   _original_height: 42,
 }
 
-export function MainframeHost(props: DiagramNodeProps) {
+export function MainframeHost(props: NodeProps) {
   return (
     <Shape
       {...MAINFRAME_HOST}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUBMERSIBLE_PUMP = {
   _style: {
@@ -10,7 +10,7 @@ export const SUBMERSIBLE_PUMP = {
   _height: 74,
 }
 
-export function SubmersiblePump(props: DiagramNodeProps) {
+export function SubmersiblePump(props: NodeProps) {
   return (
     <Shape
       {...SUBMERSIBLE_PUMP}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CAROUSEL = {
   _style: {
@@ -10,7 +10,7 @@ export const CAROUSEL = {
   _height: 300,
 }
 
-export function Carousel(props: DiagramNodeProps) {
+export function Carousel(props: NodeProps) {
   return (
     <Shape {...CAROUSEL} {...props} _style={extendStyle(CAROUSEL, props)} />
   )

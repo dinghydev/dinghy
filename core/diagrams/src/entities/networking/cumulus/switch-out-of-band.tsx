@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWITCH_OUT_OF_BAND = {
   _style: {
@@ -10,7 +10,7 @@ export const SWITCH_OUT_OF_BAND = {
   _height: 24,
 }
 
-export function SwitchOutOfBand(props: DiagramNodeProps) {
+export function SwitchOutOfBand(props: NodeProps) {
   return (
     <Shape
       {...SWITCH_OUT_OF_BAND}

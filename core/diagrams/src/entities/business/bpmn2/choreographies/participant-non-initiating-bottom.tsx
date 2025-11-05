@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTICIPANT_NON_INITIATING_BOTTOM = {
   _style: {
@@ -10,7 +10,7 @@ export const PARTICIPANT_NON_INITIATING_BOTTOM = {
   _height: 20,
 }
 
-export function ParticipantNonInitiatingBottom(props: DiagramNodeProps) {
+export function ParticipantNonInitiatingBottom(props: NodeProps) {
   return (
     <Shape
       {...PARTICIPANT_NON_INITIATING_BOTTOM}

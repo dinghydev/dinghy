@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECONDARY_CODEC = {
   _style: {
@@ -10,7 +10,7 @@ export const SECONDARY_CODEC = {
   _original_height: 50,
 }
 
-export function SecondaryCodec(props: DiagramNodeProps) {
+export function SecondaryCodec(props: NodeProps) {
   return (
     <Shape
       {...SECONDARY_CODEC}

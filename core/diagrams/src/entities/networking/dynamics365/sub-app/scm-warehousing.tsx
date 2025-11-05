@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCM_WAREHOUSING = {
   _style: {
@@ -10,7 +10,7 @@ export const SCM_WAREHOUSING = {
   _original_height: 68,
 }
 
-export function ScmWarehousing(props: DiagramNodeProps) {
+export function ScmWarehousing(props: NodeProps) {
   return (
     <Shape
       {...SCM_WAREHOUSING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_LINE = {
   _style: {
@@ -9,7 +9,7 @@ export const VERTICAL_LINE = {
   _height: 160,
 }
 
-export function VerticalLine(props: DiagramNodeProps) {
+export function VerticalLine(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_LINE}

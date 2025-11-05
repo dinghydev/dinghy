@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWEREDGE_M1000E_ENCLOSURE = {
   _style: {
@@ -10,7 +10,7 @@ export const POWEREDGE_M1000E_ENCLOSURE = {
   _height: 150,
 }
 
-export function PoweredgeM1000eEnclosure(props: DiagramNodeProps) {
+export function PoweredgeM1000eEnclosure(props: NodeProps) {
   return (
     <Shape
       {...POWEREDGE_M1000E_ENCLOSURE}

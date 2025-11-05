@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11420_VACUUM_PUMP = {
   _style: {
@@ -10,7 +10,7 @@ export const X11420_VACUUM_PUMP = {
   _original_height: 92.9,
 }
 
-export function X11420VacuumPump(props: DiagramNodeProps) {
+export function X11420VacuumPump(props: NodeProps) {
   return (
     <Shape
       {...X11420_VACUUM_PUMP}

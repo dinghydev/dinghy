@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRAKET_NOISE_SIMULATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const BRAKET_NOISE_SIMULATOR = {
   _original_height: 78,
 }
 
-export function BraketNoiseSimulator(props: DiagramNodeProps) {
+export function BraketNoiseSimulator(props: NodeProps) {
   return (
     <Shape
       {...BRAKET_NOISE_SIMULATOR}

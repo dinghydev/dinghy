@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RANGE_INPUT = {
   _style: {
@@ -10,7 +10,7 @@ export const RANGE_INPUT = {
   _height: 20,
 }
 
-export function RangeInput(props: DiagramNodeProps) {
+export function RangeInput(props: NodeProps) {
   return (
     <Shape
       {...RANGE_INPUT}

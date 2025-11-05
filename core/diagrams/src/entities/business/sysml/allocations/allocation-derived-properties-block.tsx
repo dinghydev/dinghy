@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALLOCATION_DERIVED_PROPERTIES_BLOCK = {
   _style: {
@@ -10,7 +10,7 @@ export const ALLOCATION_DERIVED_PROPERTIES_BLOCK = {
   _height: 120,
 }
 
-export function AllocationDerivedPropertiesBlock(props: DiagramNodeProps) {
+export function AllocationDerivedPropertiesBlock(props: NodeProps) {
   return (
     <Shape
       {...ALLOCATION_DERIVED_PROPERTIES_BLOCK}

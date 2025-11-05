@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPENSEARCH_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const OPENSEARCH_SERVICE = {
   _original_height: 78,
 }
 
-export function OpensearchService(props: DiagramNodeProps) {
+export function OpensearchService(props: NodeProps) {
   return (
     <Shape
       {...OPENSEARCH_SERVICE}

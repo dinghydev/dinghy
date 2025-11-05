@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VBR_CONSOLE = {
   _style: {
@@ -10,7 +10,7 @@ export const VBR_CONSOLE = {
   _original_height: 34,
 }
 
-export function VbrConsole(props: DiagramNodeProps) {
+export function VbrConsole(props: NodeProps) {
   return (
     <Shape
       {...VBR_CONSOLE}

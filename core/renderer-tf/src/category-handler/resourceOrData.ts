@@ -34,7 +34,9 @@ export const resourceOrData = (
   resolvedElement = schema.strict().parse(resolvedElement)
   resolvedElement = removeDoubleUnderscorePrefix(resolvedElement)
   tfElements[node._props._id as any] = resolvedElement
-  if (node._props?._importId && renderOptions.tf?.generateImport) {
+  if (
+    node._props?._importId && renderOptions.tf?.generateImport
+  ) {
     const importId = deepResolve(node, node._props, '_importId')
     if (importId) {
       tfRoot.import ??= []

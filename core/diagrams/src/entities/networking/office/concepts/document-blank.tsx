@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOCUMENT_BLANK = {
   _style: {
@@ -10,7 +10,7 @@ export const DOCUMENT_BLANK = {
   _original_height: 47,
 }
 
-export function DocumentBlank(props: DiagramNodeProps) {
+export function DocumentBlank(props: NodeProps) {
   return (
     <Shape
       {...DOCUMENT_BLANK}

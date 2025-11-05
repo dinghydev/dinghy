@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_CATALYST_4928_10_GIGABIT_ETHERNET_SWITCH = {
   _style: {
@@ -10,9 +10,7 @@ export const CISCO_CATALYST_4928_10_GIGABIT_ETHERNET_SWITCH = {
   _height: 15,
 }
 
-export function CiscoCatalyst492810GigabitEthernetSwitch(
-  props: DiagramNodeProps,
-) {
+export function CiscoCatalyst492810GigabitEthernetSwitch(props: NodeProps) {
   return (
     <Shape
       {...CISCO_CATALYST_4928_10_GIGABIT_ETHERNET_SWITCH}

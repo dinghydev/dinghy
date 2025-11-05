@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const API_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const API_GATEWAY = {
   _original_height: 42,
 }
 
-export function ApiGateway(props: DiagramNodeProps) {
+export function ApiGateway(props: NodeProps) {
   return (
     <Shape
       {...API_GATEWAY}

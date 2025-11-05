@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOLIDIFIER_CLOSED = {
   _style: {
@@ -10,7 +10,7 @@ export const SOLIDIFIER_CLOSED = {
   _height: 120,
 }
 
-export function SolidifierClosed(props: DiagramNodeProps) {
+export function SolidifierClosed(props: NodeProps) {
   return (
     <Shape
       {...SOLIDIFIER_CLOSED}

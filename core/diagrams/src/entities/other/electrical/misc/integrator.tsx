@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTEGRATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const INTEGRATOR = {
   _original_height: 50,
 }
 
-export function Integrator(props: DiagramNodeProps) {
+export function Integrator(props: NodeProps) {
   return (
     <Shape {...INTEGRATOR} {...props} _style={extendStyle(INTEGRATOR, props)} />
   )

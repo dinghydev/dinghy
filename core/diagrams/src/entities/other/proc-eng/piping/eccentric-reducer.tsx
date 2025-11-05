@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ECCENTRIC_REDUCER = {
   _style: {
@@ -10,7 +10,7 @@ export const ECCENTRIC_REDUCER = {
   _height: 15,
 }
 
-export function EccentricReducer(props: DiagramNodeProps) {
+export function EccentricReducer(props: NodeProps) {
   return (
     <Shape
       {...ECCENTRIC_REDUCER}

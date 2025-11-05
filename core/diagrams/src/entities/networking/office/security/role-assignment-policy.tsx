@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROLE_ASSIGNMENT_POLICY = {
   _style: {
@@ -10,7 +10,7 @@ export const ROLE_ASSIGNMENT_POLICY = {
   _original_height: 54,
 }
 
-export function RoleAssignmentPolicy(props: DiagramNodeProps) {
+export function RoleAssignmentPolicy(props: NodeProps) {
   return (
     <Shape
       {...ROLE_ASSIGNMENT_POLICY}

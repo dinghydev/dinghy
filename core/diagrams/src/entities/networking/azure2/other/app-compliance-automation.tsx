@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APP_COMPLIANCE_AUTOMATION = {
   _style: {
@@ -10,7 +10,7 @@ export const APP_COMPLIANCE_AUTOMATION = {
   _original_height: 49.480000000000004,
 }
 
-export function AppComplianceAutomation(props: DiagramNodeProps) {
+export function AppComplianceAutomation(props: NodeProps) {
   return (
     <Shape
       {...APP_COMPLIANCE_AUTOMATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POTENTIOMETER_TRIMMER = {
   _style: {
@@ -10,7 +10,7 @@ export const POTENTIOMETER_TRIMMER = {
   _height: 40,
 }
 
-export function PotentiometerTrimmer(props: DiagramNodeProps) {
+export function PotentiometerTrimmer(props: NodeProps) {
   return (
     <Shape
       {...POTENTIOMETER_TRIMMER}

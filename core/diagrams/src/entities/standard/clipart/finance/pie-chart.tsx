@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PIE_CHART = {
   _style: {
@@ -10,7 +10,7 @@ export const PIE_CHART = {
   _original_height: 80,
 }
 
-export function PieChart(props: DiagramNodeProps) {
+export function PieChart(props: NodeProps) {
   return (
     <Shape {...PIE_CHART} {...props} _style={extendStyle(PIE_CHART, props)} />
   )

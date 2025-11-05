@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WADING = {
   _style: {
@@ -10,6 +10,6 @@ export const WADING = {
   _original_height: 98,
 }
 
-export function Wading(props: DiagramNodeProps) {
+export function Wading(props: NodeProps) {
   return <Shape {...WADING} {...props} _style={extendStyle(WADING, props)} />
 }

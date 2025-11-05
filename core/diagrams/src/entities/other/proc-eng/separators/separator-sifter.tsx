@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEPARATOR_SIFTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SEPARATOR_SIFTER = {
   _height: 120,
 }
 
-export function SeparatorSifter(props: DiagramNodeProps) {
+export function SeparatorSifter(props: NodeProps) {
   return (
     <Shape
       {...SEPARATOR_SIFTER}

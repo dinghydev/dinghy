@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_FILE_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_FILE_SYSTEM = {
   _original_height: 78,
 }
 
-export function ElasticFileSystem(props: DiagramNodeProps) {
+export function ElasticFileSystem(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_FILE_SYSTEM}

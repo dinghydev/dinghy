@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const USER_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const USER_HIGHLIGHT = {
   _original_height: 28,
 }
 
-export function UserHighlight(props: DiagramNodeProps) {
+export function UserHighlight(props: NodeProps) {
   return (
     <Shape
       {...USER_HIGHLIGHT}

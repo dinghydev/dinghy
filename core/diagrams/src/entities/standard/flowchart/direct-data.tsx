@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECT_DATA = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRECT_DATA = {
   _height: 60,
 }
 
-export function DirectData(props: DiagramNodeProps) {
+export function DirectData(props: NodeProps) {
   return (
     <Shape
       {...DIRECT_DATA}

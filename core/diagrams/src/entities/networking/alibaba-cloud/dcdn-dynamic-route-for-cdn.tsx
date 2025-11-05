@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DCDN_DYNAMIC_ROUTE_FOR_CDN = {
   _style: {
@@ -10,7 +10,7 @@ export const DCDN_DYNAMIC_ROUTE_FOR_CDN = {
   _original_height: 54.900000000000006,
 }
 
-export function DcdnDynamicRouteForCdn(props: DiagramNodeProps) {
+export function DcdnDynamicRouteForCdn(props: NodeProps) {
   return (
     <Shape
       {...DCDN_DYNAMIC_ROUTE_FOR_CDN}

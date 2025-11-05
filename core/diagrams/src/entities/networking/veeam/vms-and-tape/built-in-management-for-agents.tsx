@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUILT_IN_MANAGEMENT_FOR_AGENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const BUILT_IN_MANAGEMENT_FOR_AGENTS = {
   _original_height: 44.8,
 }
 
-export function BuiltInManagementForAgents(props: DiagramNodeProps) {
+export function BuiltInManagementForAgents(props: NodeProps) {
   return (
     <Shape
       {...BUILT_IN_MANAGEMENT_FOR_AGENTS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_REKOGNITION_VIDEO = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_REKOGNITION_VIDEO = {
   _height: 120,
 }
 
-export function AmazonRekognitionVideo(props: DiagramNodeProps) {
+export function AmazonRekognitionVideo(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_REKOGNITION_VIDEO}

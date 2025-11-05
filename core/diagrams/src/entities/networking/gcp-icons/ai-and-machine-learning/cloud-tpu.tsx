@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_TPU = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_TPU = {
   _original_height: 40,
 }
 
-export function CloudTpu(props: DiagramNodeProps) {
+export function CloudTpu(props: NodeProps) {
   return (
     <Shape {...CLOUD_TPU} {...props} _style={extendStyle(CLOUD_TPU, props)} />
   )

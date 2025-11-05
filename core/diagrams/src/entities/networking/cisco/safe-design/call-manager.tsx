@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALL_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const CALL_MANAGER = {
   _original_height: 45,
 }
 
-export function CallManager(props: DiagramNodeProps) {
+export function CallManager(props: NodeProps) {
   return (
     <Shape
       {...CALL_MANAGER}

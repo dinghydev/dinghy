@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_MASTER_DATA_INTEGRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_MASTER_DATA_INTEGRATION = {
   _original_height: 50,
 }
 
-export function SapMasterDataIntegration(props: DiagramNodeProps) {
+export function SapMasterDataIntegration(props: NodeProps) {
   return (
     <Shape
       {...SAP_MASTER_DATA_INTEGRATION}

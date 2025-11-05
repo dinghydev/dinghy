@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRIER = {
   _style: {
@@ -10,6 +10,6 @@ export const DRIER = {
   _height: 140,
 }
 
-export function Drier(props: DiagramNodeProps) {
+export function Drier(props: NodeProps) {
   return <Shape {...DRIER} {...props} _style={extendStyle(DRIER, props)} />
 }

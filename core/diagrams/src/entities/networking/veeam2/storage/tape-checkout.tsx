@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAPE_CHECKOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const TAPE_CHECKOUT = {
   _height: 30,
 }
 
-export function TapeCheckout(props: DiagramNodeProps) {
+export function TapeCheckout(props: NodeProps) {
   return (
     <Shape
       {...TAPE_CHECKOUT}

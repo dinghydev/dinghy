@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENOMICS_ACCOUNTS = {
   _style: {
@@ -10,7 +10,7 @@ export const GENOMICS_ACCOUNTS = {
   _height: 50,
 }
 
-export function GenomicsAccounts(props: DiagramNodeProps) {
+export function GenomicsAccounts(props: NodeProps) {
   return (
     <Shape
       {...GENOMICS_ACCOUNTS}

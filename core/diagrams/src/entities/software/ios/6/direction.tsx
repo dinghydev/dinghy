@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRECTION = {
   _original_height: 100,
 }
 
-export function Direction(props: DiagramNodeProps) {
+export function Direction(props: NodeProps) {
   return (
     <Shape {...DIRECTION} {...props} _style={extendStyle(DIRECTION, props)} />
   )

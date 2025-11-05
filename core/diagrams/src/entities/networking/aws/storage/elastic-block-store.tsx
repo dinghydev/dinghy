@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_BLOCK_STORE = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_BLOCK_STORE = {
   _original_height: 78,
 }
 
-export function ElasticBlockStore(props: DiagramNodeProps) {
+export function ElasticBlockStore(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_BLOCK_STORE}

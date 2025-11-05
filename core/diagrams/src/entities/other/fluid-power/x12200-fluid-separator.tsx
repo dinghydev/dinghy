@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12200_FLUID_SEPARATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X12200_FLUID_SEPARATOR = {
   _original_height: 71.34,
 }
 
-export function X12200FluidSeparator(props: DiagramNodeProps) {
+export function X12200FluidSeparator(props: NodeProps) {
   return (
     <Shape
       {...X12200_FLUID_SEPARATOR}

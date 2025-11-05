@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVER_RACK_EMPTY = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVER_RACK_EMPTY = {
   _original_height: 80,
 }
 
-export function ServerRackEmpty(props: DiagramNodeProps) {
+export function ServerRackEmpty(props: NodeProps) {
   return (
     <Shape
       {...SERVER_RACK_EMPTY}

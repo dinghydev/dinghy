@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAPE_LOCKED = {
   _style: {
@@ -10,7 +10,7 @@ export const TAPE_LOCKED = {
   _height: 30,
 }
 
-export function TapeLocked(props: DiagramNodeProps) {
+export function TapeLocked(props: NodeProps) {
   return (
     <Shape
       {...TAPE_LOCKED}

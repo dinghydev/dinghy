@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEPENDENCY_MONITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DEPENDENCY_MONITOR = {
   _original_height: 49,
 }
 
-export function DependencyMonitor(props: DiagramNodeProps) {
+export function DependencyMonitor(props: NodeProps) {
   return (
     <Shape
       {...DEPENDENCY_MONITOR}

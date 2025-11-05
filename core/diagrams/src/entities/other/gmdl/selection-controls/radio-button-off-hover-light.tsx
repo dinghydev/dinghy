@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RADIO_BUTTON_OFF_HOVER_LIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const RADIO_BUTTON_OFF_HOVER_LIGHT = {
   _height: 16,
 }
 
-export function RadioButtonOffHoverLight(props: DiagramNodeProps) {
+export function RadioButtonOffHoverLight(props: NodeProps) {
   return (
     <Shape
       {...RADIO_BUTTON_OFF_HOVER_LIGHT}

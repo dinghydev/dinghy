@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UM_MAILBOX_POLICY = {
   _style: {
@@ -10,7 +10,7 @@ export const UM_MAILBOX_POLICY = {
   _original_height: 53,
 }
 
-export function UmMailboxPolicy(props: DiagramNodeProps) {
+export function UmMailboxPolicy(props: NodeProps) {
   return (
     <Shape
       {...UM_MAILBOX_POLICY}

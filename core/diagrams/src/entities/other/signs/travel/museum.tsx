@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MUSEUM = {
   _style: {
@@ -10,6 +10,6 @@ export const MUSEUM = {
   _original_height: 94,
 }
 
-export function Museum(props: DiagramNodeProps) {
+export function Museum(props: NodeProps) {
   return <Shape {...MUSEUM} {...props} _style={extendStyle(MUSEUM, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HOST_POOLS = {
   _style: {
@@ -10,7 +10,7 @@ export const HOST_POOLS = {
   _original_height: 68,
 }
 
-export function HostPools(props: DiagramNodeProps) {
+export function HostPools(props: NodeProps) {
   return (
     <Shape {...HOST_POOLS} {...props} _style={extendStyle(HOST_POOLS, props)} />
   )

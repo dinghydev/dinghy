@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEMORYDB = {
   _style: {
@@ -10,7 +10,7 @@ export const MEMORYDB = {
   _original_height: 78,
 }
 
-export function Memorydb(props: DiagramNodeProps) {
+export function Memorydb(props: NodeProps) {
   return (
     <Shape {...MEMORYDB} {...props} _style={extendStyle(MEMORYDB, props)} />
   )

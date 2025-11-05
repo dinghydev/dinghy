@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GRAVITY_SEPARATOR_SETTLING_CHAMBER = {
   _style: {
@@ -10,7 +10,7 @@ export const GRAVITY_SEPARATOR_SETTLING_CHAMBER = {
   _height: 120,
 }
 
-export function GravitySeparatorSettlingChamber(props: DiagramNodeProps) {
+export function GravitySeparatorSettlingChamber(props: NodeProps) {
   return (
     <Shape
       {...GRAVITY_SEPARATOR_SETTLING_CHAMBER}

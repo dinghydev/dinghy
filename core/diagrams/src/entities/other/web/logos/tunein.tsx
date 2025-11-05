@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TUNEIN = {
   _style: {
@@ -10,6 +10,6 @@ export const TUNEIN = {
   _original_height: 70,
 }
 
-export function Tunein(props: DiagramNodeProps) {
+export function Tunein(props: NodeProps) {
   return <Shape {...TUNEIN} {...props} _style={extendStyle(TUNEIN, props)} />
 }

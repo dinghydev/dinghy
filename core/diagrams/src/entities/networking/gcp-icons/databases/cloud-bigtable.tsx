@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_BIGTABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_BIGTABLE = {
   _height: 40,
 }
 
-export function CloudBigtable(props: DiagramNodeProps) {
+export function CloudBigtable(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_BIGTABLE}

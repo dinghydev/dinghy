@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KAFKA = {
   _style: {
@@ -10,6 +10,6 @@ export const KAFKA = {
   _original_height: 42,
 }
 
-export function Kafka(props: DiagramNodeProps) {
+export function Kafka(props: NodeProps) {
   return <Shape {...KAFKA} {...props} _style={extendStyle(KAFKA, props)} />
 }

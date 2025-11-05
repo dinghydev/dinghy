@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAT_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const NAT_GATEWAY = {
   _original_height: 78,
 }
 
-export function NatGateway(props: DiagramNodeProps) {
+export function NatGateway(props: NodeProps) {
   return (
     <Shape
       {...NAT_GATEWAY}

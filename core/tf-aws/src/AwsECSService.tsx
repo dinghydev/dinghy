@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import { Ec2InstanceContents } from '@dinghy/diagrams/containersAwsGroups'
 import { awsProps } from './index.ts'
 import z from 'zod'
@@ -9,7 +9,7 @@ export const AwsECSServiceSchema = z.object({
 
 export type AwsECSServiceProps =
   & z.output<typeof AwsECSServiceSchema>
-  & IacNodeProps
+  & NodeProps
 
 export default function AwsECSService(props: AwsECSServiceProps) {
   return (

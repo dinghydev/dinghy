@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_TRUSTED_ADVISOR = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_TRUSTED_ADVISOR = {
   _height: 110,
 }
 
-export function AwsTrustedAdvisor(props: DiagramNodeProps) {
+export function AwsTrustedAdvisor(props: NodeProps) {
   return (
     <Shape
       {...AWS_TRUSTED_ADVISOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COAXIAL_JACK_PLUG = {
   _style: {
@@ -10,7 +10,7 @@ export const COAXIAL_JACK_PLUG = {
   _height: 100,
 }
 
-export function CoaxialJackPlug(props: DiagramNodeProps) {
+export function CoaxialJackPlug(props: NodeProps) {
   return (
     <Shape
       {...COAXIAL_JACK_PLUG}

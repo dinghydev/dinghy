@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACCENT_1_DOTTED_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const ACCENT_1_DOTTED_4 = {
   _height: 20,
 }
 
-export function Accent1Dotted4(props: DiagramNodeProps) {
+export function Accent1Dotted4(props: NodeProps) {
   return (
     <Shape
       {...ACCENT_1_DOTTED_4}

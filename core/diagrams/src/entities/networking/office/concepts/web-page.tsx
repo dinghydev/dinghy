@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_PAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_PAGE = {
   _original_height: 54,
 }
 
-export function WebPage(props: DiagramNodeProps) {
+export function WebPage(props: NodeProps) {
   return (
     <Shape {...WEB_PAGE} {...props} _style={extendStyle(WEB_PAGE, props)} />
   )

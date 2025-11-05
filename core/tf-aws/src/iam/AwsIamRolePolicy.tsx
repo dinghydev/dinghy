@@ -1,7 +1,4 @@
-import {
-  type IacNodeProps,
-  ResolvableStringSchema,
-} from '@dinghy/base-components'
+import { type NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
@@ -21,7 +18,7 @@ export const AwsIamRolePolicyOutputSchema = z.object({
 
 export type AwsIamRolePolicyInputProps =
   & z.input<typeof AwsIamRolePolicyInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type AwsIamRolePolicyOutputProps =
   & z.output<typeof AwsIamRolePolicyOutputSchema>

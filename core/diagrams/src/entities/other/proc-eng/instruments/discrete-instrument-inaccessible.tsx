@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISCRETE_INSTRUMENT_INACCESSIBLE = {
   _style: {
@@ -10,7 +10,7 @@ export const DISCRETE_INSTRUMENT_INACCESSIBLE = {
   _original_height: 50,
 }
 
-export function DiscreteInstrumentInaccessible(props: DiagramNodeProps) {
+export function DiscreteInstrumentInaccessible(props: NodeProps) {
   return (
     <Shape
       {...DISCRETE_INSTRUMENT_INACCESSIBLE}

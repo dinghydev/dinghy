@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLUSTER_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const CLUSTER_SERVER = {
   _original_height: 59,
 }
 
-export function ClusterServer(props: DiagramNodeProps) {
+export function ClusterServer(props: NodeProps) {
   return (
     <Shape
       {...CLUSTER_SERVER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STATUSPAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const STATUSPAGE = {
   _height: 52,
 }
 
-export function Statuspage(props: DiagramNodeProps) {
+export function Statuspage(props: NodeProps) {
   return (
     <Shape {...STATUSPAGE} {...props} _style={extendStyle(STATUSPAGE, props)} />
   )

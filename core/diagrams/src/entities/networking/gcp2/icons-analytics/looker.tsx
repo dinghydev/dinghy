@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOOKER = {
   _style: {
@@ -10,6 +10,6 @@ export const LOOKER = {
   _height: 42,
 }
 
-export function Looker(props: DiagramNodeProps) {
+export function Looker(props: NodeProps) {
   return <Shape {...LOOKER} {...props} _style={extendStyle(LOOKER, props)} />
 }

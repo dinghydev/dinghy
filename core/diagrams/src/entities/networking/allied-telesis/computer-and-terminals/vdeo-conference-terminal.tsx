@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VDEO_CONFERENCE_TERMINAL = {
   _style: {
@@ -10,7 +10,7 @@ export const VDEO_CONFERENCE_TERMINAL = {
   _height: 45,
 }
 
-export function VdeoConferenceTerminal(props: DiagramNodeProps) {
+export function VdeoConferenceTerminal(props: NodeProps) {
   return (
     <Shape
       {...VDEO_CONFERENCE_TERMINAL}

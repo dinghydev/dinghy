@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADVANCED_REFS_INTEGRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const ADVANCED_REFS_INTEGRATION = {
   _original_height: 44.8,
 }
 
-export function AdvancedRefsIntegration(props: DiagramNodeProps) {
+export function AdvancedRefsIntegration(props: NodeProps) {
   return (
     <Shape
       {...ADVANCED_REFS_INTEGRATION}

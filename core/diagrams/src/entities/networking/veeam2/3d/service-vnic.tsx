@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVICE_VNIC = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVICE_VNIC = {
   _original_height: 64,
 }
 
-export function ServiceVnic(props: DiagramNodeProps) {
+export function ServiceVnic(props: NodeProps) {
   return (
     <Shape
       {...SERVICE_VNIC}

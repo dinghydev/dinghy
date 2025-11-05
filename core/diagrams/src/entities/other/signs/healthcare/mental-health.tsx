@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MENTAL_HEALTH = {
   _style: {
@@ -10,7 +10,7 @@ export const MENTAL_HEALTH = {
   _original_height: 98,
 }
 
-export function MentalHealth(props: DiagramNodeProps) {
+export function MentalHealth(props: NodeProps) {
   return (
     <Shape
       {...MENTAL_HEALTH}

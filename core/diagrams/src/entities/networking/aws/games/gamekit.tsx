@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GAMEKIT = {
   _style: {
@@ -10,6 +10,6 @@ export const GAMEKIT = {
   _original_height: 78,
 }
 
-export function Gamekit(props: DiagramNodeProps) {
+export function Gamekit(props: NodeProps) {
   return <Shape {...GAMEKIT} {...props} _style={extendStyle(GAMEKIT, props)} />
 }

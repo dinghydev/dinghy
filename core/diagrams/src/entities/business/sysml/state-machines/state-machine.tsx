@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STATE_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const STATE_MACHINE = {
   _height: 120,
 }
 
-export function StateMachine(props: DiagramNodeProps) {
+export function StateMachine(props: NodeProps) {
   return (
     <Shape
       {...STATE_MACHINE}

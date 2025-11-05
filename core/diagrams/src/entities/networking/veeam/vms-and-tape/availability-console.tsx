@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AVAILABILITY_CONSOLE = {
   _style: {
@@ -10,7 +10,7 @@ export const AVAILABILITY_CONSOLE = {
   _original_height: 44.8,
 }
 
-export function AvailabilityConsole(props: DiagramNodeProps) {
+export function AvailabilityConsole(props: NodeProps) {
   return (
     <Shape
       {...AVAILABILITY_CONSOLE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WISM = {
   _style: {
@@ -10,6 +10,6 @@ export const WISM = {
   _original_height: 96,
 }
 
-export function Wism(props: DiagramNodeProps) {
+export function Wism(props: NodeProps) {
   return <Shape {...WISM} {...props} _style={extendStyle(WISM, props)} />
 }

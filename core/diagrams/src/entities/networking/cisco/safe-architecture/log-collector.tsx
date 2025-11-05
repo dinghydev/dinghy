@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOG_COLLECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const LOG_COLLECTOR = {
   _original_height: 50,
 }
 
-export function LogCollector(props: DiagramNodeProps) {
+export function LogCollector(props: NodeProps) {
   return (
     <Shape
       {...LOG_COLLECTOR}

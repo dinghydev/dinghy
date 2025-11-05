@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DESKTOP_HIGHTLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const DESKTOP_HIGHTLIGHT = {
   _height: 19,
 }
 
-export function DesktopHightlight(props: DiagramNodeProps) {
+export function DesktopHightlight(props: NodeProps) {
   return (
     <Shape
       {...DESKTOP_HIGHTLIGHT}

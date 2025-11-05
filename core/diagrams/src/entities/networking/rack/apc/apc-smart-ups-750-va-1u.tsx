@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APC_SMART_UPS_750_VA_1U = {
   _style: {
@@ -10,7 +10,7 @@ export const APC_SMART_UPS_750_VA_1U = {
   _height: 15,
 }
 
-export function ApcSmartUps750Va1u(props: DiagramNodeProps) {
+export function ApcSmartUps750Va1u(props: NodeProps) {
   return (
     <Shape
       {...APC_SMART_UPS_750_VA_1U}

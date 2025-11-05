@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOSFET_NO_BULK_N = {
   _style: {
@@ -10,7 +10,7 @@ export const MOSFET_NO_BULK_N = {
   _original_height: 100,
 }
 
-export function MosfetNoBulkN(props: DiagramNodeProps) {
+export function MosfetNoBulkN(props: NodeProps) {
   return (
     <Shape
       {...MOSFET_NO_BULK_N}

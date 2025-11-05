@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRAIN_STATION = {
   _style: {
@@ -10,7 +10,7 @@ export const TRAIN_STATION = {
   _original_height: 99,
 }
 
-export function TrainStation(props: DiagramNodeProps) {
+export function TrainStation(props: NodeProps) {
   return (
     <Shape
       {...TRAIN_STATION}

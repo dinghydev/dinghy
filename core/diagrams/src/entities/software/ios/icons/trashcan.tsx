@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRASHCAN = {
   _style: {
@@ -10,7 +10,7 @@ export const TRASHCAN = {
   _height: 30,
 }
 
-export function Trashcan(props: DiagramNodeProps) {
+export function Trashcan(props: NodeProps) {
   return (
     <Shape {...TRASHCAN} {...props} _style={extendStyle(TRASHCAN, props)} />
   )

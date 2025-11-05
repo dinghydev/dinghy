@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCHMITT_TRIGGER = {
   _style: {
@@ -10,7 +10,7 @@ export const SCHMITT_TRIGGER = {
   _height: 60,
 }
 
-export function SchmittTrigger(props: DiagramNodeProps) {
+export function SchmittTrigger(props: NodeProps) {
   return (
     <Shape
       {...SCHMITT_TRIGGER}

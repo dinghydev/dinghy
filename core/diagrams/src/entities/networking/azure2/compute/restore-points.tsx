@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESTORE_POINTS = {
   _style: {
@@ -10,7 +10,7 @@ export const RESTORE_POINTS = {
   _original_height: 66.8,
 }
 
-export function RestorePoints(props: DiagramNodeProps) {
+export function RestorePoints(props: NodeProps) {
   return (
     <Shape
       {...RESTORE_POINTS}

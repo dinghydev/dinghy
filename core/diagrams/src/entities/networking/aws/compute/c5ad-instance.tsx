@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const C5AD_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const C5AD_INSTANCE = {
   _original_height: 48,
 }
 
-export function C5adInstance(props: DiagramNodeProps) {
+export function C5adInstance(props: NodeProps) {
   return (
     <Shape
       {...C5AD_INSTANCE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BANDPASS_FILTER = {
   _style: {
@@ -10,7 +10,7 @@ export const BANDPASS_FILTER = {
   _original_height: 46,
 }
 
-export function BandpassFilter(props: DiagramNodeProps) {
+export function BandpassFilter(props: NodeProps) {
   return (
     <Shape
       {...BANDPASS_FILTER}

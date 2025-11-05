@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUOTA_2 = {
   _style: {
@@ -10,6 +10,6 @@ export const QUOTA_2 = {
   _original_height: 48,
 }
 
-export function Quota2(props: DiagramNodeProps) {
+export function Quota2(props: NodeProps) {
   return <Shape {...QUOTA_2} {...props} _style={extendStyle(QUOTA_2, props)} />
 }

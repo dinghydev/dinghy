@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT = {
   _style: {
@@ -10,9 +10,7 @@ export const ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT = {
   _height: 39.300000000000004,
 }
 
-export function OnsmqttMicroMessageQueuingTelemetryTransport(
-  props: DiagramNodeProps,
-) {
+export function OnsmqttMicroMessageQueuingTelemetryTransport(props: NodeProps) {
   return (
     <Shape
       {...ONSMQTT_MICRO_MESSAGE_QUEUING_TELEMETRY_TRANSPORT}

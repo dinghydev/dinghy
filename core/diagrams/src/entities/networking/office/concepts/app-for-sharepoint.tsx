@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APP_FOR_SHAREPOINT = {
   _style: {
@@ -10,7 +10,7 @@ export const APP_FOR_SHAREPOINT = {
   _original_height: 40,
 }
 
-export function AppForSharepoint(props: DiagramNodeProps) {
+export function AppForSharepoint(props: NodeProps) {
   return (
     <Shape
       {...APP_FOR_SHAREPOINT}

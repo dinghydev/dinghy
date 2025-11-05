@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPENANALYTICS = {
   _style: {
@@ -10,7 +10,7 @@ export const OPENANALYTICS = {
   _original_height: 54.900000000000006,
 }
 
-export function Openanalytics(props: DiagramNodeProps) {
+export function Openanalytics(props: NodeProps) {
   return (
     <Shape
       {...OPENANALYTICS}

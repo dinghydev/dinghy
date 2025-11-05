@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MSE_MICROSERVICES_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const MSE_MICROSERVICES_ENGINE = {
   _original_height: 54.900000000000006,
 }
 
-export function MseMicroservicesEngine(props: DiagramNodeProps) {
+export function MseMicroservicesEngine(props: NodeProps) {
   return (
     <Shape
       {...MSE_MICROSERVICES_ENGINE}

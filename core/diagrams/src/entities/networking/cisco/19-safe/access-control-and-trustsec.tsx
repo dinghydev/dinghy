@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACCESS_CONTROL_AND_TRUSTSEC = {
   _style: {
@@ -10,7 +10,7 @@ export const ACCESS_CONTROL_AND_TRUSTSEC = {
   _original_height: 50,
 }
 
-export function AccessControlAndTrustsec(props: DiagramNodeProps) {
+export function AccessControlAndTrustsec(props: NodeProps) {
   return (
     <Shape
       {...ACCESS_CONTROL_AND_TRUSTSEC}

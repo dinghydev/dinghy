@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const USER_FEEDBACK = {
   _style: {
@@ -10,7 +10,7 @@ export const USER_FEEDBACK = {
   _original_height: 47.400000000000006,
 }
 
-export function UserFeedback(props: DiagramNodeProps) {
+export function UserFeedback(props: NodeProps) {
   return (
     <Shape
       {...USER_FEEDBACK}

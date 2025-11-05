@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12410_SINGLE_STAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const X12410_SINGLE_STAGE = {
   _height: 168.08,
 }
 
-export function X12410SingleStage(props: DiagramNodeProps) {
+export function X12410SingleStage(props: NodeProps) {
   return (
     <Shape
       {...X12410_SINGLE_STAGE}

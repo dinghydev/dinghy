@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQL_MANAGED_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const SQL_MANAGED_INSTANCE = {
   _original_height: 64,
 }
 
-export function SqlManagedInstance(props: DiagramNodeProps) {
+export function SqlManagedInstance(props: NodeProps) {
   return (
     <Shape
       {...SQL_MANAGED_INSTANCE}

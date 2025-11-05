@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const L2_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const L2_SWITCH = {
   _original_height: 50,
 }
 
-export function L2Switch(props: DiagramNodeProps) {
+export function L2Switch(props: NodeProps) {
   return (
     <Shape {...L2_SWITCH} {...props} _style={extendStyle(L2_SWITCH, props)} />
   )

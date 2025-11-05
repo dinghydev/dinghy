@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INSTANCE_GROUP = {
   _style: {
@@ -11,7 +11,7 @@ export const INSTANCE_GROUP = {
   },
 }
 
-export function InstanceGroup(props: DiagramNodeProps) {
+export function InstanceGroup(props: NodeProps) {
   return (
     <Shape
       {...INSTANCE_GROUP}

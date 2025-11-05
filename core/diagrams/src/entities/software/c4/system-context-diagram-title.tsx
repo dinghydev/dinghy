@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SYSTEM_CONTEXT_DIAGRAM_TITLE = {
   _style: {
@@ -10,7 +10,7 @@ export const SYSTEM_CONTEXT_DIAGRAM_TITLE = {
   _height: 40,
 }
 
-export function SystemContextDiagramTitle(props: DiagramNodeProps) {
+export function SystemContextDiagramTitle(props: NodeProps) {
   return (
     <Shape
       {...SYSTEM_CONTEXT_DIAGRAM_TITLE}

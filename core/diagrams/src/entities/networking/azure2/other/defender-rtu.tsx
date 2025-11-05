@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_RTU = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_RTU = {
   _original_height: 60.440000000000005,
 }
 
-export function DefenderRtu(props: DiagramNodeProps) {
+export function DefenderRtu(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_RTU}

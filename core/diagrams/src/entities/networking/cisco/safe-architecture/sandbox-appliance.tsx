@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SANDBOX_APPLIANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const SANDBOX_APPLIANCE = {
   _original_height: 50,
 }
 
-export function SandboxAppliance(props: DiagramNodeProps) {
+export function SandboxAppliance(props: NodeProps) {
   return (
     <Shape
       {...SANDBOX_APPLIANCE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPEN_DISC = {
   _style: {
@@ -10,7 +10,7 @@ export const OPEN_DISC = {
   _height: 140,
 }
 
-export function OpenDisc(props: DiagramNodeProps) {
+export function OpenDisc(props: NodeProps) {
   return (
     <Shape {...OPEN_DISC} {...props} _style={extendStyle(OPEN_DISC, props)} />
   )

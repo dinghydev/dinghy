@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUB_SUB = {
   _style: {
@@ -10,6 +10,6 @@ export const PUB_SUB = {
   _height: 40,
 }
 
-export function PubSub(props: DiagramNodeProps) {
+export function PubSub(props: NodeProps) {
   return <Shape {...PUB_SUB} {...props} _style={extendStyle(PUB_SUB, props)} />
 }

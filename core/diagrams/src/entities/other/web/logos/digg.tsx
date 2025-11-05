@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIGG = {
   _style: {
@@ -10,6 +10,6 @@ export const DIGG = {
   _original_height: 56,
 }
 
-export function Digg(props: DiagramNodeProps) {
+export function Digg(props: NodeProps) {
   return <Shape {...DIGG} {...props} _style={extendStyle(DIGG, props)} />
 }

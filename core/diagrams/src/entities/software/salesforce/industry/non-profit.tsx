@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NON_PROFIT = {
   _style: {
@@ -10,7 +10,7 @@ export const NON_PROFIT = {
   _original_height: 55.800000000000004,
 }
 
-export function NonProfit(props: DiagramNodeProps) {
+export function NonProfit(props: NodeProps) {
   return (
     <Shape {...NON_PROFIT} {...props} _style={extendStyle(NON_PROFIT, props)} />
   )

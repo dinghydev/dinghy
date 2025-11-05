@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IP_DSL = {
   _style: {
@@ -10,6 +10,6 @@ export const IP_DSL = {
   _original_height: 64,
 }
 
-export function IpDsl(props: DiagramNodeProps) {
+export function IpDsl(props: NodeProps) {
   return <Shape {...IP_DSL} {...props} _style={extendStyle(IP_DSL, props)} />
 }

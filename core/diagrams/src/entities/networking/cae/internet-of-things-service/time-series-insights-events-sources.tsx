@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIME_SERIES_INSIGHTS_EVENTS_SOURCES = {
   _style: {
@@ -10,7 +10,7 @@ export const TIME_SERIES_INSIGHTS_EVENTS_SOURCES = {
   _original_height: 45,
 }
 
-export function TimeSeriesInsightsEventsSources(props: DiagramNodeProps) {
+export function TimeSeriesInsightsEventsSources(props: NodeProps) {
   return (
     <Shape
       {...TIME_SERIES_INSIGHTS_EVENTS_SOURCES}

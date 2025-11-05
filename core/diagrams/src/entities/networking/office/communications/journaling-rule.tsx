@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JOURNALING_RULE = {
   _style: {
@@ -10,7 +10,7 @@ export const JOURNALING_RULE = {
   _original_height: 58,
 }
 
-export function JournalingRule(props: DiagramNodeProps) {
+export function JournalingRule(props: NodeProps) {
   return (
     <Shape
       {...JOURNALING_RULE}

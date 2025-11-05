@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTACT_BADGE_NORMAL = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTACT_BADGE_NORMAL = {
   _original_height: 40,
 }
 
-export function ContactBadgeNormal(props: DiagramNodeProps) {
+export function ContactBadgeNormal(props: NodeProps) {
   return (
     <Shape
       {...CONTACT_BADGE_NORMAL}

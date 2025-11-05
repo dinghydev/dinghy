@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAVIGATION_BAR_VERTICAL = {
   _style: {
@@ -10,7 +10,7 @@ export const NAVIGATION_BAR_VERTICAL = {
   _height: 320,
 }
 
-export function NavigationBarVertical(props: DiagramNodeProps) {
+export function NavigationBarVertical(props: NodeProps) {
   return (
     <Shape
       {...NAVIGATION_BAR_VERTICAL}

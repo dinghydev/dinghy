@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARROW_TOPAZ = {
   _style: {
@@ -8,7 +8,7 @@ export const ARROW_TOPAZ = {
   },
 }
 
-export function ArrowTopaz(props: DiagramNodeProps) {
+export function ArrowTopaz(props: NodeProps) {
   return (
     <Dependency
       {...ARROW_TOPAZ}

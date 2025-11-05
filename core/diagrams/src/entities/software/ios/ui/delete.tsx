@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DELETE = {
   _style: {
@@ -10,6 +10,6 @@ export const DELETE = {
   _original_height: 12,
 }
 
-export function Delete(props: DiagramNodeProps) {
+export function Delete(props: NodeProps) {
   return <Shape {...DELETE} {...props} _style={extendStyle(DELETE, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_BACKUP_FOR_OFFICE_365 = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_BACKUP_FOR_OFFICE_365 = {
   _original_height: 34,
 }
 
-export function VeeamBackupForOffice365(props: DiagramNodeProps) {
+export function VeeamBackupForOffice365(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_BACKUP_FOR_OFFICE_365}

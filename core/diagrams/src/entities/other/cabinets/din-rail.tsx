@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIN_RAIL = {
   _style: {
@@ -10,7 +10,7 @@ export const DIN_RAIL = {
   _height: 25,
 }
 
-export function DinRail(props: DiagramNodeProps) {
+export function DinRail(props: NodeProps) {
   return (
     <Shape {...DIN_RAIL} {...props} _style={extendStyle(DIN_RAIL, props)} />
   )

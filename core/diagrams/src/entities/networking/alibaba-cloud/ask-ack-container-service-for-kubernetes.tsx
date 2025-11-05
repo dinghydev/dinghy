@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASK_ACK_CONTAINER_SERVICE_FOR_KUBERNETES = {
   _style: {
@@ -10,7 +10,7 @@ export const ASK_ACK_CONTAINER_SERVICE_FOR_KUBERNETES = {
   _original_height: 51.3,
 }
 
-export function AskAckContainerServiceForKubernetes(props: DiagramNodeProps) {
+export function AskAckContainerServiceForKubernetes(props: NodeProps) {
   return (
     <Shape
       {...ASK_ACK_CONTAINER_SERVICE_FOR_KUBERNETES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEYBOARD = {
   _style: {
@@ -10,7 +10,7 @@ export const KEYBOARD = {
   _height: 120,
 }
 
-export function Keyboard(props: DiagramNodeProps) {
+export function Keyboard(props: NodeProps) {
   return (
     <Shape {...KEYBOARD} {...props} _style={extendStyle(KEYBOARD, props)} />
   )

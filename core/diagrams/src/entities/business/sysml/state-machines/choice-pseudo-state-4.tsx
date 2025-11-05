@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHOICE_PSEUDO_STATE_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const CHOICE_PSEUDO_STATE_4 = {
   _height: 100,
 }
 
-export function ChoicePseudoState4(props: DiagramNodeProps) {
+export function ChoicePseudoState4(props: NodeProps) {
   return (
     <Shape
       {...CHOICE_PSEUDO_STATE_4}

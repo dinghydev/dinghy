@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORKGROUP_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const WORKGROUP_SWITCH = {
   _height: 50,
 }
 
-export function WorkgroupSwitch(props: DiagramNodeProps) {
+export function WorkgroupSwitch(props: NodeProps) {
   return (
     <Shape
       {...WORKGROUP_SWITCH}

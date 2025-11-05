@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SYNCHRONOUS_INVOCATION = {
   _style: {
@@ -10,7 +10,7 @@ export const SYNCHRONOUS_INVOCATION = {
   _height: 80,
 }
 
-export function SynchronousInvocation(props: DiagramNodeProps) {
+export function SynchronousInvocation(props: NodeProps) {
   return (
     <Shape
       {...SYNCHRONOUS_INVOCATION}

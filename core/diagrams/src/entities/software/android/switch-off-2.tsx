@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWITCH_OFF_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const SWITCH_OFF_2 = {
   _height: 20,
 }
 
-export function SwitchOff2(props: DiagramNodeProps) {
+export function SwitchOff2(props: NodeProps) {
   return (
     <Shape
       {...SWITCH_OFF_2}

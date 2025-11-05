@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVICE_ACTIVATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVICE_ACTIVATOR = {
   _height: 90,
 }
 
-export function ServiceActivator(props: DiagramNodeProps) {
+export function ServiceActivator(props: NodeProps) {
   return (
     <Shape
       {...SERVICE_ACTIVATOR}

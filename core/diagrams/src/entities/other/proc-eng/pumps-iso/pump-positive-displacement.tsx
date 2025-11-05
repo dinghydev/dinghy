@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUMP_POSITIVE_DISPLACEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const PUMP_POSITIVE_DISPLACEMENT = {
   _original_height: 100,
 }
 
-export function PumpPositiveDisplacement(props: DiagramNodeProps) {
+export function PumpPositiveDisplacement(props: NodeProps) {
   return (
     <Shape
       {...PUMP_POSITIVE_DISPLACEMENT}

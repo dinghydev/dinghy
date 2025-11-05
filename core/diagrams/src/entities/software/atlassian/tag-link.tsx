@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAG_LINK = {
   _style: {
@@ -10,7 +10,7 @@ export const TAG_LINK = {
   _height: 20,
 }
 
-export function TagLink(props: DiagramNodeProps) {
+export function TagLink(props: NodeProps) {
   return (
     <Shape {...TAG_LINK} {...props} _style={extendStyle(TAG_LINK, props)} />
   )

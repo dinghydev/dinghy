@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11840_PRESSURE_GAUGE = {
   _style: {
@@ -10,7 +10,7 @@ export const X11840_PRESSURE_GAUGE = {
   _height: 108.54,
 }
 
-export function X11840PressureGauge(props: DiagramNodeProps) {
+export function X11840PressureGauge(props: NodeProps) {
   return (
     <Shape
       {...X11840_PRESSURE_GAUGE}

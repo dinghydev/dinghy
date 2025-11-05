@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADB_ANALYTICDB_FOR_MYSQL = {
   _style: {
@@ -10,7 +10,7 @@ export const ADB_ANALYTICDB_FOR_MYSQL = {
   _original_height: 54.900000000000006,
 }
 
-export function AdbAnalyticdbForMysql(props: DiagramNodeProps) {
+export function AdbAnalyticdbForMysql(props: NodeProps) {
   return (
     <Shape
       {...ADB_ANALYTICDB_FOR_MYSQL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROGRESS_SCRUBBER_PRESSED = {
   _style: {
@@ -10,7 +10,7 @@ export const PROGRESS_SCRUBBER_PRESSED = {
   _height: 16,
 }
 
-export function ProgressScrubberPressed(props: DiagramNodeProps) {
+export function ProgressScrubberPressed(props: NodeProps) {
   return (
     <Shape
       {...PROGRESS_SCRUBBER_PRESSED}

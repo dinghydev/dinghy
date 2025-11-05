@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL = {
   _style: {
@@ -8,7 +8,7 @@ export const VIRTUAL = {
   },
 }
 
-export function Virtual(props: DiagramNodeProps) {
+export function Virtual(props: NodeProps) {
   return (
     <Dependency {...VIRTUAL} {...props} _style={extendStyle(VIRTUAL, props)} />
   )

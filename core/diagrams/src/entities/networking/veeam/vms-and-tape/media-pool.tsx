@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEDIA_POOL = {
   _style: {
@@ -10,7 +10,7 @@ export const MEDIA_POOL = {
   _original_height: 71.6,
 }
 
-export function MediaPool(props: DiagramNodeProps) {
+export function MediaPool(props: NodeProps) {
   return (
     <Shape {...MEDIA_POOL} {...props} _style={extendStyle(MEDIA_POOL, props)} />
   )

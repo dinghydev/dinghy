@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LEFT = {
   _style: {
@@ -10,6 +10,6 @@ export const LEFT = {
   _height: 12,
 }
 
-export function Left(props: DiagramNodeProps) {
+export function Left(props: NodeProps) {
   return <Shape {...LEFT} {...props} _style={extendStyle(LEFT, props)} />
 }

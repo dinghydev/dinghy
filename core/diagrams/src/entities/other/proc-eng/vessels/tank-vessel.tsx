@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TANK_VESSEL = {
   _style: {
@@ -10,7 +10,7 @@ export const TANK_VESSEL = {
   _height: 70,
 }
 
-export function TankVessel(props: DiagramNodeProps) {
+export function TankVessel(props: NodeProps) {
   return (
     <Shape
       {...TANK_VESSEL}

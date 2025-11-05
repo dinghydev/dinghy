@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HORSEBACK_TRAIL = {
   _style: {
@@ -10,7 +10,7 @@ export const HORSEBACK_TRAIL = {
   _original_height: 99,
 }
 
-export function HorsebackTrail(props: DiagramNodeProps) {
+export function HorsebackTrail(props: NodeProps) {
   return (
     <Shape
       {...HORSEBACK_TRAIL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMAGE_RECOGNITION = {
   _style: {
@@ -10,7 +10,7 @@ export const IMAGE_RECOGNITION = {
   _original_height: 47.7,
 }
 
-export function ImageRecognition(props: DiagramNodeProps) {
+export function ImageRecognition(props: NodeProps) {
   return (
     <Shape
       {...IMAGE_RECOGNITION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BING = {
   _style: {
@@ -10,6 +10,6 @@ export const BING = {
   _original_height: 102.4,
 }
 
-export function Bing(props: DiagramNodeProps) {
+export function Bing(props: NodeProps) {
   return <Shape {...BING} {...props} _style={extendStyle(BING, props)} />
 }

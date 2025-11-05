@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIREGUARD = {
   _style: {
@@ -10,7 +10,7 @@ export const WIREGUARD = {
   _original_height: 34,
 }
 
-export function Wireguard(props: DiagramNodeProps) {
+export function Wireguard(props: NodeProps) {
   return (
     <Shape {...WIREGUARD} {...props} _style={extendStyle(WIREGUARD, props)} />
   )

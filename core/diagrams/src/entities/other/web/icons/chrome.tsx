@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHROME = {
   _style: {
@@ -10,6 +10,6 @@ export const CHROME = {
   _height: 104,
 }
 
-export function Chrome(props: DiagramNodeProps) {
+export function Chrome(props: NodeProps) {
   return <Shape {...CHROME} {...props} _style={extendStyle(CHROME, props)} />
 }

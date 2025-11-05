@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQL_EDGE = {
   _style: {
@@ -10,7 +10,7 @@ export const SQL_EDGE = {
   _original_height: 68,
 }
 
-export function SqlEdge(props: DiagramNodeProps) {
+export function SqlEdge(props: NodeProps) {
   return (
     <Shape {...SQL_EDGE} {...props} _style={extendStyle(SQL_EDGE, props)} />
   )

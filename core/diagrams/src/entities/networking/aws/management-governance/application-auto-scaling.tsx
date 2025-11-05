@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPLICATION_AUTO_SCALING = {
   _style: {
@@ -10,7 +10,7 @@ export const APPLICATION_AUTO_SCALING = {
   _original_height: 78,
 }
 
-export function ApplicationAutoScaling(props: DiagramNodeProps) {
+export function ApplicationAutoScaling(props: NodeProps) {
   return (
     <Shape
       {...APPLICATION_AUTO_SCALING}

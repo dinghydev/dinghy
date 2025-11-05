@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWER_STRIP = {
   _style: {
@@ -10,7 +10,7 @@ export const POWER_STRIP = {
   _height: 15,
 }
 
-export function PowerStrip(props: DiagramNodeProps) {
+export function PowerStrip(props: NodeProps) {
   return (
     <Shape
       {...POWER_STRIP}

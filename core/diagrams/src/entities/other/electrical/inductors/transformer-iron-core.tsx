@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSFORMER_IRON_CORE = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSFORMER_IRON_CORE = {
   _original_height: 60,
 }
 
-export function TransformerIronCore(props: DiagramNodeProps) {
+export function TransformerIronCore(props: NodeProps) {
   return (
     <Shape
       {...TRANSFORMER_IRON_CORE}

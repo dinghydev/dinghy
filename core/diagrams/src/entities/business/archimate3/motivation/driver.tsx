@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRIVER = {
   _style: {
@@ -10,6 +10,6 @@ export const DRIVER = {
   _height: 75,
 }
 
-export function Driver(props: DiagramNodeProps) {
+export function Driver(props: NodeProps) {
   return <Shape {...DRIVER} {...props} _style={extendStyle(DRIVER, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROJECT_ZONE = {
   _style: {
@@ -10,7 +10,7 @@ export const PROJECT_ZONE = {
   _height: 350,
 }
 
-export function ProjectZone(props: DiagramNodeProps) {
+export function ProjectZone(props: NodeProps) {
   return (
     <Shape
       {...PROJECT_ZONE}

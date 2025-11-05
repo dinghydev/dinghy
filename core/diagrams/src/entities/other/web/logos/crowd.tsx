@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CROWD = {
   _style: {
@@ -10,6 +10,6 @@ export const CROWD = {
   _original_height: 65,
 }
 
-export function Crowd(props: DiagramNodeProps) {
+export function Crowd(props: NodeProps) {
   return <Shape {...CROWD} {...props} _style={extendStyle(CROWD, props)} />
 }

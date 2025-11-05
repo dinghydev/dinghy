@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAYERED_RECTANGLE = {
   _style: {
@@ -10,7 +10,7 @@ export const LAYERED_RECTANGLE = {
   _height: 60,
 }
 
-export function LayeredRectangle(props: DiagramNodeProps) {
+export function LayeredRectangle(props: NodeProps) {
   return (
     <Shape
       {...LAYERED_RECTANGLE}

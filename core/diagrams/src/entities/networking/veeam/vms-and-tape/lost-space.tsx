@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOST_SPACE = {
   _style: {
@@ -10,7 +10,7 @@ export const LOST_SPACE = {
   _original_height: 44.4,
 }
 
-export function LostSpace(props: DiagramNodeProps) {
+export function LostSpace(props: NodeProps) {
   return (
     <Shape {...LOST_SPACE} {...props} _style={extendStyle(LOST_SPACE, props)} />
   )

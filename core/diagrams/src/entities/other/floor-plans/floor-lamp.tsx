@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLOOR_LAMP = {
   _style: {
@@ -10,7 +10,7 @@ export const FLOOR_LAMP = {
   _original_height: 50,
 }
 
-export function FloorLamp(props: DiagramNodeProps) {
+export function FloorLamp(props: NodeProps) {
   return (
     <Shape {...FLOOR_LAMP} {...props} _style={extendStyle(FLOOR_LAMP, props)} />
   )

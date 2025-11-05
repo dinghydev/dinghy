@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPENSEARCH_SERVICE_CLUSTER_ADMINISTRATOR_NODE = {
   _style: {
@@ -10,9 +10,7 @@ export const OPENSEARCH_SERVICE_CLUSTER_ADMINISTRATOR_NODE = {
   _original_height: 78,
 }
 
-export function OpensearchServiceClusterAdministratorNode(
-  props: DiagramNodeProps,
-) {
+export function OpensearchServiceClusterAdministratorNode(props: NodeProps) {
   return (
     <Shape
       {...OPENSEARCH_SERVICE_CLUSTER_ADMINISTRATOR_NODE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DERIVED_ATTRIBUTE = {
   _style: {
@@ -9,7 +9,7 @@ export const DERIVED_ATTRIBUTE = {
   _height: 40,
 }
 
-export function DerivedAttribute(props: DiagramNodeProps) {
+export function DerivedAttribute(props: NodeProps) {
   return (
     <Shape
       {...DERIVED_ATTRIBUTE}

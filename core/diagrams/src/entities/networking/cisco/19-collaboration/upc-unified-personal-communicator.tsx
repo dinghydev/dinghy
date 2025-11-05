@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UPC_UNIFIED_PERSONAL_COMMUNICATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const UPC_UNIFIED_PERSONAL_COMMUNICATOR = {
   _original_height: 42.5,
 }
 
-export function UpcUnifiedPersonalCommunicator(props: DiagramNodeProps) {
+export function UpcUnifiedPersonalCommunicator(props: NodeProps) {
   return (
     <Shape
       {...UPC_UNIFIED_PERSONAL_COMMUNICATOR}

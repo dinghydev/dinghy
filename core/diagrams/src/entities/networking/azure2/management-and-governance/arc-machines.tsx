@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARC_MACHINES = {
   _style: {
@@ -10,7 +10,7 @@ export const ARC_MACHINES = {
   _original_height: 68,
 }
 
-export function ArcMachines(props: DiagramNodeProps) {
+export function ArcMachines(props: NodeProps) {
   return (
     <Shape
       {...ARC_MACHINES}

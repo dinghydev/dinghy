@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_TASK_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_TASK_CENTER = {
   _original_height: 50,
 }
 
-export function SapTaskCenter(props: DiagramNodeProps) {
+export function SapTaskCenter(props: NodeProps) {
   return (
     <Shape
       {...SAP_TASK_CENTER}

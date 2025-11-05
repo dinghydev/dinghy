@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTAINER_OPTIMIZED_OS = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTAINER_OPTIMIZED_OS = {
   _original_height: 20,
 }
 
-export function ContainerOptimizedOs(props: DiagramNodeProps) {
+export function ContainerOptimizedOs(props: NodeProps) {
   return (
     <Shape
       {...CONTAINER_OPTIMIZED_OS}

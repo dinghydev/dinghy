@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOUD_CALLOUT = {
   _style: {
@@ -9,7 +9,7 @@ export const LOUD_CALLOUT = {
   _height: 60,
 }
 
-export function LoudCallout(props: DiagramNodeProps) {
+export function LoudCallout(props: NodeProps) {
   return (
     <Shape
       {...LOUD_CALLOUT}

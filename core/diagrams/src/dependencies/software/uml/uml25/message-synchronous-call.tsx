@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_SYNCHRONOUS_CALL = {
   _style: {
@@ -8,7 +8,7 @@ export const MESSAGE_SYNCHRONOUS_CALL = {
   },
 }
 
-export function MessageSynchronousCall(props: DiagramNodeProps) {
+export function MessageSynchronousCall(props: NodeProps) {
   return (
     <Dependency
       {...MESSAGE_SYNCHRONOUS_CALL}

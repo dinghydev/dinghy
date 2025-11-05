@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOLUME_SLIDER = {
   _style: {
@@ -10,7 +10,7 @@ export const VOLUME_SLIDER = {
   _height: 30,
 }
 
-export function VolumeSlider(props: DiagramNodeProps) {
+export function VolumeSlider(props: NodeProps) {
   return (
     <Shape
       {...VOLUME_SLIDER}

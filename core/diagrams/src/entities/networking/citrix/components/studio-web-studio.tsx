@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STUDIO_WEB_STUDIO = {
   _style: {
@@ -10,7 +10,7 @@ export const STUDIO_WEB_STUDIO = {
   _original_height: 42.985,
 }
 
-export function StudioWebStudio(props: DiagramNodeProps) {
+export function StudioWebStudio(props: NodeProps) {
   return (
     <Shape
       {...STUDIO_WEB_STUDIO}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VPN_CONCENTRATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const VPN_CONCENTRATOR = {
   _original_height: 50,
 }
 
-export function VpnConcentrator(props: DiagramNodeProps) {
+export function VpnConcentrator(props: NodeProps) {
   return (
     <Shape
       {...VPN_CONCENTRATOR}

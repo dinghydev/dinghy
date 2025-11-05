@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATASYNC_DISCOVERY = {
   _style: {
@@ -10,7 +10,7 @@ export const DATASYNC_DISCOVERY = {
   _original_height: 77,
 }
 
-export function DatasyncDiscovery(props: DiagramNodeProps) {
+export function DatasyncDiscovery(props: NodeProps) {
   return (
     <Shape
       {...DATASYNC_DISCOVERY}

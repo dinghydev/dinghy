@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNIVERSAL_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const UNIVERSAL_GATEWAY = {
   _original_height: 56,
 }
 
-export function UniversalGateway(props: DiagramNodeProps) {
+export function UniversalGateway(props: NodeProps) {
   return (
     <Shape
       {...UNIVERSAL_GATEWAY}

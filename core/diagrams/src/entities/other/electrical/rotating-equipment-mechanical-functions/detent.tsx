@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DETENT = {
   _style: {
@@ -10,6 +10,6 @@ export const DETENT = {
   _height: 8,
 }
 
-export function Detent(props: DiagramNodeProps) {
+export function Detent(props: NodeProps) {
   return <Shape {...DETENT} {...props} _style={extendStyle(DETENT, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_ELASTICSEARCH_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_ELASTICSEARCH_SERVICE = {
   _height: 120,
 }
 
-export function AmazonElasticsearchService(props: DiagramNodeProps) {
+export function AmazonElasticsearchService(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_ELASTICSEARCH_SERVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYPERVISOR_XENSERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const HYPERVISOR_XENSERVER = {
   _height: 30.995,
 }
 
-export function HypervisorXenserver(props: DiagramNodeProps) {
+export function HypervisorXenserver(props: NodeProps) {
   return (
     <Shape
       {...HYPERVISOR_XENSERVER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTION_BAR = {
   _style: {
@@ -10,7 +10,7 @@ export const ACTION_BAR = {
   _height: 30,
 }
 
-export function ActionBar(props: DiagramNodeProps) {
+export function ActionBar(props: NodeProps) {
   return (
     <Shape {...ACTION_BAR} {...props} _style={extendStyle(ACTION_BAR, props)} />
   )

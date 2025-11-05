@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEAM_FOUNDATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const TEAM_FOUNDATION_SERVICE = {
   _height: 37.5,
 }
 
-export function TeamFoundationService(props: DiagramNodeProps) {
+export function TeamFoundationService(props: NodeProps) {
   return (
     <Shape
       {...TEAM_FOUNDATION_SERVICE}

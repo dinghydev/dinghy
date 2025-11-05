@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL726A_ARUBA_6200F_48_PORT_1GBE_AND_4_PORT_SFP_SWITCH = {
   _style: {
@@ -10,9 +10,7 @@ export const JL726A_ARUBA_6200F_48_PORT_1GBE_AND_4_PORT_SFP_SWITCH = {
   _height: 15,
 }
 
-export function Jl726aAruba6200f48Port1gbeAnd4PortSfpSwitch(
-  props: DiagramNodeProps,
-) {
+export function Jl726aAruba6200f48Port1gbeAnd4PortSfpSwitch(props: NodeProps) {
   return (
     <Shape
       {...JL726A_ARUBA_6200F_48_PORT_1GBE_AND_4_PORT_SFP_SWITCH}

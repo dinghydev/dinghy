@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MIXER = {
   _style: {
@@ -10,6 +10,6 @@ export const MIXER = {
   _height: 88,
 }
 
-export function Mixer(props: DiagramNodeProps) {
+export function Mixer(props: NodeProps) {
   return <Shape {...MIXER} {...props} _style={extendStyle(MIXER, props)} />
 }

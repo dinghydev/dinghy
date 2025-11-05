@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AD_IDENTITY_PROTECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const AD_IDENTITY_PROTECTION = {
   _original_height: 62,
 }
 
-export function AdIdentityProtection(props: DiagramNodeProps) {
+export function AdIdentityProtection(props: NodeProps) {
   return (
     <Shape
       {...AD_IDENTITY_PROTECTION}

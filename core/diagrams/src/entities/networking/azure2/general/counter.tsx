@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COUNTER = {
   _style: {
@@ -10,6 +10,6 @@ export const COUNTER = {
   _original_height: 52,
 }
 
-export function Counter(props: DiagramNodeProps) {
+export function Counter(props: NodeProps) {
   return <Shape {...COUNTER} {...props} _style={extendStyle(COUNTER, props)} />
 }

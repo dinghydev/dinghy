@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLOGGER = {
   _style: {
@@ -10,6 +10,6 @@ export const BLOGGER = {
   _original_height: 102.4,
 }
 
-export function Blogger(props: DiagramNodeProps) {
+export function Blogger(props: NodeProps) {
   return <Shape {...BLOGGER} {...props} _style={extendStyle(BLOGGER, props)} />
 }

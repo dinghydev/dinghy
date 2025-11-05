@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDUSTRIAL_ETHERNET_IE200_POE = {
   _style: {
@@ -10,7 +10,7 @@ export const INDUSTRIAL_ETHERNET_IE200_POE = {
   _original_height: 56.4,
 }
 
-export function IndustrialEthernetIe200Poe(props: DiagramNodeProps) {
+export function IndustrialEthernetIe200Poe(props: NodeProps) {
   return (
     <Shape
       {...INDUSTRIAL_ETHERNET_IE200_POE}

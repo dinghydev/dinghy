@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_SAP = {
   _style: {
@@ -10,6 +10,6 @@ export const WEB_SAP = {
   _height: 27,
 }
 
-export function WebSap(props: DiagramNodeProps) {
+export function WebSap(props: NodeProps) {
   return <Shape {...WEB_SAP} {...props} _style={extendStyle(WEB_SAP, props)} />
 }

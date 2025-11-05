@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DNS_MULTISTACK = {
   _style: {
@@ -10,7 +10,7 @@ export const DNS_MULTISTACK = {
   _original_height: 68,
 }
 
-export function DnsMultistack(props: DiagramNodeProps) {
+export function DnsMultistack(props: NodeProps) {
   return (
     <Shape
       {...DNS_MULTISTACK}

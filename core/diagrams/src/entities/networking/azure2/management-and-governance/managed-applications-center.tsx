@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_APPLICATIONS_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_APPLICATIONS_CENTER = {
   _original_height: 54,
 }
 
-export function ManagedApplicationsCenter(props: DiagramNodeProps) {
+export function ManagedApplicationsCenter(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_APPLICATIONS_CENTER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_OPERATOR_INSIGHTS = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_OPERATOR_INSIGHTS = {
   _original_height: 68,
 }
 
-export function AzureOperatorInsights(props: DiagramNodeProps) {
+export function AzureOperatorInsights(props: NodeProps) {
   return (
     <Shape
       {...AZURE_OPERATOR_INSIGHTS}

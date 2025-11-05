@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11290_SEMI_ROTARY_ACTUATOR_SWIVEL = {
   _style: {
@@ -10,7 +10,7 @@ export const X11290_SEMI_ROTARY_ACTUATOR_SWIVEL = {
   _height: 55.74,
 }
 
-export function X11290SemiRotaryActuatorSwivel(props: DiagramNodeProps) {
+export function X11290SemiRotaryActuatorSwivel(props: NodeProps) {
   return (
     <Shape
       {...X11290_SEMI_ROTARY_ACTUATOR_SWIVEL}

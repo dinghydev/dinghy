@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DBAUDIT = {
   _style: {
@@ -10,6 +10,6 @@ export const DBAUDIT = {
   _original_height: 48.9,
 }
 
-export function Dbaudit(props: DiagramNodeProps) {
+export function Dbaudit(props: NodeProps) {
   return <Shape {...DBAUDIT} {...props} _style={extendStyle(DBAUDIT, props)} />
 }

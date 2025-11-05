@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VXLAN = {
   _style: {
@@ -10,6 +10,6 @@ export const VXLAN = {
   _original_height: 50,
 }
 
-export function Vxlan(props: DiagramNodeProps) {
+export function Vxlan(props: NodeProps) {
   return <Shape {...VXLAN} {...props} _style={extendStyle(VXLAN, props)} />
 }

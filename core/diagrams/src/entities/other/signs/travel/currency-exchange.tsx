@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CURRENCY_EXCHANGE = {
   _style: {
@@ -10,7 +10,7 @@ export const CURRENCY_EXCHANGE = {
   _original_height: 93,
 }
 
-export function CurrencyExchange(props: DiagramNodeProps) {
+export function CurrencyExchange(props: NodeProps) {
   return (
     <Shape
       {...CURRENCY_EXCHANGE}

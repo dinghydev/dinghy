@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLAIN_DIRECT = {
   _style: {
@@ -10,7 +10,7 @@ export const PLAIN_DIRECT = {
   _height: 0,
 }
 
-export function PlainDirect(props: DiagramNodeProps) {
+export function PlainDirect(props: NodeProps) {
   return (
     <Shape
       {...PLAIN_DIRECT}

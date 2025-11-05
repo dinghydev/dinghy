@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPERATING_SYSTEM_IMAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const OPERATING_SYSTEM_IMAGE = {
   _original_height: 50,
 }
 
-export function OperatingSystemImage(props: DiagramNodeProps) {
+export function OperatingSystemImage(props: NodeProps) {
   return (
     <Shape
       {...OPERATING_SYSTEM_IMAGE}

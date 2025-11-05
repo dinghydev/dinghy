@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CSAS_CLOUD_SECURITY_ACCESS_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const CSAS_CLOUD_SECURITY_ACCESS_SERVICE = {
   _original_height: 50.099999999999994,
 }
 
-export function CsasCloudSecurityAccessService(props: DiagramNodeProps) {
+export function CsasCloudSecurityAccessService(props: NodeProps) {
   return (
     <Shape
       {...CSAS_CLOUD_SECURITY_ACCESS_SERVICE}

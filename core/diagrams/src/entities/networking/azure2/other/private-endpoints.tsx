@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIVATE_ENDPOINTS = {
   _style: {
@@ -10,7 +10,7 @@ export const PRIVATE_ENDPOINTS = {
   _original_height: 64.68,
 }
 
-export function PrivateEndpoints(props: DiagramNodeProps) {
+export function PrivateEndpoints(props: NodeProps) {
   return (
     <Shape
       {...PRIVATE_ENDPOINTS}

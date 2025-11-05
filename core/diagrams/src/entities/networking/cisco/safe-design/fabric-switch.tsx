@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FABRIC_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const FABRIC_SWITCH = {
   _original_height: 45,
 }
 
-export function FabricSwitch(props: DiagramNodeProps) {
+export function FabricSwitch(props: NodeProps) {
   return (
     <Shape
       {...FABRIC_SWITCH}

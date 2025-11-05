@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPEN_3D_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const OPEN_3D_ENGINE = {
   _original_height: 78,
 }
 
-export function Open3dEngine(props: DiagramNodeProps) {
+export function Open3dEngine(props: NodeProps) {
   return (
     <Shape
       {...OPEN_3D_ENGINE}

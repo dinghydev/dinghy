@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SURE_REPLICA = {
   _style: {
@@ -10,7 +10,7 @@ export const SURE_REPLICA = {
   _original_height: 44.8,
 }
 
-export function SureReplica(props: DiagramNodeProps) {
+export function SureReplica(props: NodeProps) {
   return (
     <Shape
       {...SURE_REPLICA}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_SPEED = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_SPEED = {
   _height: 100,
 }
 
-export function DatabaseSpeed(props: DiagramNodeProps) {
+export function DatabaseSpeed(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_SPEED}

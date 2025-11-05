@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VISIBILITY = {
   _style: {
@@ -10,7 +10,7 @@ export const VISIBILITY = {
   _original_height: 94,
 }
 
-export function Visibility(props: DiagramNodeProps) {
+export function Visibility(props: NodeProps) {
   return (
     <Shape {...VISIBILITY} {...props} _style={extendStyle(VISIBILITY, props)} />
   )

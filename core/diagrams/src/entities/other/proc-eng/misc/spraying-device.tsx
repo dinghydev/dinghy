@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPRAYING_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const SPRAYING_DEVICE = {
   _height: 20,
 }
 
-export function SprayingDevice(props: DiagramNodeProps) {
+export function SprayingDevice(props: NodeProps) {
   return (
     <Shape
       {...SPRAYING_DEVICE}

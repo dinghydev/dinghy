@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MASTER_CALLOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const MASTER_CALLOUT = {
   _height: 60,
 }
 
-export function MasterCallout(props: DiagramNodeProps) {
+export function MasterCallout(props: NodeProps) {
   return (
     <Shape
       {...MASTER_CALLOUT}

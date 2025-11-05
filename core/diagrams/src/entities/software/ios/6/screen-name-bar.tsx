@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCREEN_NAME_BAR = {
   _style: {
@@ -10,7 +10,7 @@ export const SCREEN_NAME_BAR = {
   _height: 25,
 }
 
-export function ScreenNameBar(props: DiagramNodeProps) {
+export function ScreenNameBar(props: NodeProps) {
   return (
     <Shape
       {...SCREEN_NAME_BAR}

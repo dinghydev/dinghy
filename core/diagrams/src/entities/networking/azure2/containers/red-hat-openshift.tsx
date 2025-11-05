@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RED_HAT_OPENSHIFT = {
   _style: {
@@ -10,7 +10,7 @@ export const RED_HAT_OPENSHIFT = {
   _original_height: 68,
 }
 
-export function RedHatOpenshift(props: DiagramNodeProps) {
+export function RedHatOpenshift(props: NodeProps) {
   return (
     <Shape
       {...RED_HAT_OPENSHIFT}

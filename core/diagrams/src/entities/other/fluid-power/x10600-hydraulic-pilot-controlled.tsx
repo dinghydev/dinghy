@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10600_HYDRAULIC_PILOT_CONTROLLED = {
   _style: {
@@ -10,7 +10,7 @@ export const X10600_HYDRAULIC_PILOT_CONTROLLED = {
   _height: 232.62,
 }
 
-export function X10600HydraulicPilotControlled(props: DiagramNodeProps) {
+export function X10600HydraulicPilotControlled(props: NodeProps) {
   return (
     <Shape
       {...X10600_HYDRAULIC_PILOT_CONTROLLED}

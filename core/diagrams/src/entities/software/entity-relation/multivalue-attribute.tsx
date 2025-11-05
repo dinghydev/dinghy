@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTIVALUE_ATTRIBUTE = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTIVALUE_ATTRIBUTE = {
   _height: 40,
 }
 
-export function MultivalueAttribute(props: DiagramNodeProps) {
+export function MultivalueAttribute(props: NodeProps) {
   return (
     <Shape
       {...MULTIVALUE_ATTRIBUTE}

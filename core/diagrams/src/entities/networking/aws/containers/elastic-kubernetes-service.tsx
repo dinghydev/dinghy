@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_KUBERNETES_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_KUBERNETES_SERVICE = {
   _original_height: 78,
 }
 
-export function ElasticKubernetesService(props: DiagramNodeProps) {
+export function ElasticKubernetesService(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_KUBERNETES_SERVICE}

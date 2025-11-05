@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER = {
   _style: {
@@ -10,7 +10,7 @@ export const DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER = {
   _height: 140,
 }
 
-export function DryingOvenDryingChamberShelfDryer(props: DiagramNodeProps) {
+export function DryingOvenDryingChamberShelfDryer(props: NodeProps) {
   return (
     <Shape
       {...DRYING_OVEN_DRYING_CHAMBER_SHELF_DRYER}

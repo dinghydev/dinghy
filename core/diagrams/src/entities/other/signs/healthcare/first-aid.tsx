@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIRST_AID = {
   _style: {
@@ -10,7 +10,7 @@ export const FIRST_AID = {
   _original_height: 98,
 }
 
-export function FirstAid(props: DiagramNodeProps) {
+export function FirstAid(props: NodeProps) {
   return (
     <Shape {...FIRST_AID} {...props} _style={extendStyle(FIRST_AID, props)} />
   )

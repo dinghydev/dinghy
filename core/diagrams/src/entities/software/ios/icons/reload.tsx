@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RELOAD = {
   _style: {
@@ -10,6 +10,6 @@ export const RELOAD = {
   _height: 27,
 }
 
-export function Reload(props: DiagramNodeProps) {
+export function Reload(props: NodeProps) {
   return <Shape {...RELOAD} {...props} _style={extendStyle(RELOAD, props)} />
 }

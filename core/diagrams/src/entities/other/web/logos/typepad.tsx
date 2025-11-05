@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TYPEPAD = {
   _style: {
@@ -10,6 +10,6 @@ export const TYPEPAD = {
   _height: 38.400000000000006,
 }
 
-export function Typepad(props: DiagramNodeProps) {
+export function Typepad(props: NodeProps) {
   return <Shape {...TYPEPAD} {...props} _style={extendStyle(TYPEPAD, props)} />
 }

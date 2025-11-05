@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTON_LABEL_ONLY = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTON_LABEL_ONLY = {
   _height: 33,
 }
 
-export function ButtonLabelOnly(props: DiagramNodeProps) {
+export function ButtonLabelOnly(props: NodeProps) {
   return (
     <Shape
       {...BUTTON_LABEL_ONLY}

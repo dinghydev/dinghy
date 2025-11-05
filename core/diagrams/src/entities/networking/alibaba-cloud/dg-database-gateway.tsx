@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DG_DATABASE_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const DG_DATABASE_GATEWAY = {
   _height: 54.900000000000006,
 }
 
-export function DgDatabaseGateway(props: DiagramNodeProps) {
+export function DgDatabaseGateway(props: NodeProps) {
   return (
     <Shape
       {...DG_DATABASE_GATEWAY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUN_STORAGE_2500_M2_ARRAY = {
   _style: {
@@ -10,7 +10,7 @@ export const SUN_STORAGE_2500_M2_ARRAY = {
   _height: 30,
 }
 
-export function SunStorage2500M2Array(props: DiagramNodeProps) {
+export function SunStorage2500M2Array(props: NodeProps) {
   return (
     <Shape
       {...SUN_STORAGE_2500_M2_ARRAY}

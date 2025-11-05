@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS = {
   _style: {
@@ -10,7 +10,7 @@ export const BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS = {
   _height: 250,
 }
 
-export function BiggerSapBoxWithMultipleLayers(props: DiagramNodeProps) {
+export function BiggerSapBoxWithMultipleLayers(props: NodeProps) {
   return (
     <Shape
       {...BIGGER_SAP_BOX_WITH_MULTIPLE_LAYERS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_L2_SWITCHING = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_L2_SWITCHING = {
   _original_height: 43,
 }
 
-export function VirtualL2Switching(props: DiagramNodeProps) {
+export function VirtualL2Switching(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_L2_SWITCHING}

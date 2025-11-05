@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12220_OIL_MIST = {
   _style: {
@@ -10,7 +10,7 @@ export const X12220_OIL_MIST = {
   _original_height: 71.34,
 }
 
-export function X12220OilMist(props: DiagramNodeProps) {
+export function X12220OilMist(props: NodeProps) {
   return (
     <Shape
       {...X12220_OIL_MIST}

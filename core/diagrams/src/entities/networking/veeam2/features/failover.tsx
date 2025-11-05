@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FAILOVER = {
   _style: {
@@ -10,7 +10,7 @@ export const FAILOVER = {
   _original_height: 34,
 }
 
-export function Failover(props: DiagramNodeProps) {
+export function Failover(props: NodeProps) {
   return (
     <Shape {...FAILOVER} {...props} _style={extendStyle(FAILOVER, props)} />
   )

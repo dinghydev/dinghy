@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTELLIGENT_ADVISOR = {
   _style: {
@@ -10,7 +10,7 @@ export const INTELLIGENT_ADVISOR = {
   _original_height: 54.900000000000006,
 }
 
-export function IntelligentAdvisor(props: DiagramNodeProps) {
+export function IntelligentAdvisor(props: NodeProps) {
   return (
     <Shape
       {...INTELLIGENT_ADVISOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_INSTANCE_PARALLEL = {
   _style: {
@@ -8,7 +8,7 @@ export const MULTI_INSTANCE_PARALLEL = {
   },
 }
 
-export function MultiInstanceParallel(props: DiagramNodeProps) {
+export function MultiInstanceParallel(props: NodeProps) {
   return (
     <Shape
       {...MULTI_INSTANCE_PARALLEL}

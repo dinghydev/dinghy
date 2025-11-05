@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPLICATION_VISIBILITY_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const APPLICATION_VISIBILITY_CONTROL = {
   _original_height: 43,
 }
 
-export function ApplicationVisibilityControl(props: DiagramNodeProps) {
+export function ApplicationVisibilityControl(props: NodeProps) {
   return (
     <Shape
       {...APPLICATION_VISIBILITY_CONTROL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITEWISE_ASSET_MODEL = {
   _style: {
@@ -10,7 +10,7 @@ export const SITEWISE_ASSET_MODEL = {
   _original_height: 78,
 }
 
-export function SitewiseAssetModel(props: DiagramNodeProps) {
+export function SitewiseAssetModel(props: NodeProps) {
   return (
     <Shape
       {...SITEWISE_ASSET_MODEL}

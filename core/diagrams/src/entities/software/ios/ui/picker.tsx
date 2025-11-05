@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PICKER = {
   _style: {
@@ -10,6 +10,6 @@ export const PICKER = {
   _height: 160,
 }
 
-export function Picker(props: DiagramNodeProps) {
+export function Picker(props: NodeProps) {
   return <Shape {...PICKER} {...props} _style={extendStyle(PICKER, props)} />
 }

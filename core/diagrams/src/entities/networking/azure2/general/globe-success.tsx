@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLOBE_SUCCESS = {
   _style: {
@@ -10,7 +10,7 @@ export const GLOBE_SUCCESS = {
   _original_height: 66,
 }
 
-export function GlobeSuccess(props: DiagramNodeProps) {
+export function GlobeSuccess(props: NodeProps) {
   return (
     <Shape
       {...GLOBE_SUCCESS}

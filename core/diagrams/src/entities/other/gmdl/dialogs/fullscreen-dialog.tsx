@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FULLSCREEN_DIALOG = {
   _style: {
@@ -9,7 +9,7 @@ export const FULLSCREEN_DIALOG = {
   _height: 642,
 }
 
-export function FullscreenDialog(props: DiagramNodeProps) {
+export function FullscreenDialog(props: NodeProps) {
   return (
     <Shape
       {...FULLSCREEN_DIALOG}

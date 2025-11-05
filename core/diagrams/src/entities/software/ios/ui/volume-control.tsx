@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOLUME_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const VOLUME_CONTROL = {
   _height: 14,
 }
 
-export function VolumeControl(props: DiagramNodeProps) {
+export function VolumeControl(props: NodeProps) {
   return (
     <Shape
       {...VOLUME_CONTROL}

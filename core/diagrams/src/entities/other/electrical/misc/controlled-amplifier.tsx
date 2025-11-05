@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTROLLED_AMPLIFIER = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTROLLED_AMPLIFIER = {
   _original_height: 90,
 }
 
-export function ControlledAmplifier(props: DiagramNodeProps) {
+export function ControlledAmplifier(props: NodeProps) {
   return (
     <Shape
       {...CONTROLLED_AMPLIFIER}

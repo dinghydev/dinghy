@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPTICAL_AMPLIFIER = {
   _style: {
@@ -10,7 +10,7 @@ export const OPTICAL_AMPLIFIER = {
   _original_height: 51,
 }
 
-export function OpticalAmplifier(props: DiagramNodeProps) {
+export function OpticalAmplifier(props: NodeProps) {
   return (
     <Shape
       {...OPTICAL_AMPLIFIER}

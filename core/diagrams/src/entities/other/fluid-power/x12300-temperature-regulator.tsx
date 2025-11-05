@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12300_TEMPERATURE_REGULATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X12300_TEMPERATURE_REGULATOR = {
   _height: 52.56,
 }
 
-export function X12300TemperatureRegulator(props: DiagramNodeProps) {
+export function X12300TemperatureRegulator(props: NodeProps) {
   return (
     <Shape
       {...X12300_TEMPERATURE_REGULATOR}

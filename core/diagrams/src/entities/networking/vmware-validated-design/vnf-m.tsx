@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VNF_M = {
   _style: {
@@ -10,6 +10,6 @@ export const VNF_M = {
   _original_height: 43.5,
 }
 
-export function VnfM(props: DiagramNodeProps) {
+export function VnfM(props: NodeProps) {
   return <Shape {...VNF_M} {...props} _style={extendStyle(VNF_M, props)} />
 }

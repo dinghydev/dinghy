@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQL_MASTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SQL_MASTER = {
   _original_height: 64.5,
 }
 
-export function SqlMaster(props: DiagramNodeProps) {
+export function SqlMaster(props: NodeProps) {
   return (
     <Shape {...SQL_MASTER} {...props} _style={extendStyle(SQL_MASTER, props)} />
   )

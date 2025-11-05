@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELEMENTAL_MEDIATAILOR = {
   _style: {
@@ -10,7 +10,7 @@ export const ELEMENTAL_MEDIATAILOR = {
   _original_height: 78,
 }
 
-export function ElementalMediatailor(props: DiagramNodeProps) {
+export function ElementalMediatailor(props: NodeProps) {
   return (
     <Shape
       {...ELEMENTAL_MEDIATAILOR}

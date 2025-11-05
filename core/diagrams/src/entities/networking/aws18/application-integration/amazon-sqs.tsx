@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_SQS = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_SQS = {
   _height: 100,
 }
 
-export function AmazonSqs(props: DiagramNodeProps) {
+export function AmazonSqs(props: NodeProps) {
   return (
     <Shape {...AMAZON_SQS} {...props} _style={extendStyle(AMAZON_SQS, props)} />
   )

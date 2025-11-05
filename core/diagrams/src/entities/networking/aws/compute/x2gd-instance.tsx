@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X2GD_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const X2GD_INSTANCE = {
   _original_height: 48,
 }
 
-export function X2gdInstance(props: DiagramNodeProps) {
+export function X2gdInstance(props: NodeProps) {
   return (
     <Shape
       {...X2GD_INSTANCE}

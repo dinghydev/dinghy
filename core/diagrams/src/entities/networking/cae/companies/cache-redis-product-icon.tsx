@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CACHE_REDIS_PRODUCT_ICON = {
   _style: {
@@ -10,7 +10,7 @@ export const CACHE_REDIS_PRODUCT_ICON = {
   _original_height: 42,
 }
 
-export function CacheRedisProductIcon(props: DiagramNodeProps) {
+export function CacheRedisProductIcon(props: NodeProps) {
   return (
     <Shape
       {...CACHE_REDIS_PRODUCT_ICON}

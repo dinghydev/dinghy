@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_UPLOADING = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_UPLOADING = {
   _original_height: 84,
 }
 
-export function DatabaseUploading(props: DiagramNodeProps) {
+export function DatabaseUploading(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_UPLOADING}

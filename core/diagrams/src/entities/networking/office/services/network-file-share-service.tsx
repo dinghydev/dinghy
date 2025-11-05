@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETWORK_FILE_SHARE_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const NETWORK_FILE_SHARE_SERVICE = {
   _original_height: 53,
 }
 
-export function NetworkFileShareService(props: DiagramNodeProps) {
+export function NetworkFileShareService(props: NodeProps) {
   return (
     <Shape
       {...NETWORK_FILE_SHARE_SERVICE}

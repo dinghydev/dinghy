@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_MATRIX_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_MATRIX_SWITCH = {
   _original_height: 50,
 }
 
-export function VirtualMatrixSwitch(props: DiagramNodeProps) {
+export function VirtualMatrixSwitch(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_MATRIX_SWITCH}

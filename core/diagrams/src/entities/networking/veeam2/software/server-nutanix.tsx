@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVER_NUTANIX = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVER_NUTANIX = {
   _original_height: 52,
 }
 
-export function ServerNutanix(props: DiagramNodeProps) {
+export function ServerNutanix(props: NodeProps) {
   return (
     <Shape
       {...SERVER_NUTANIX}

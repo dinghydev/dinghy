@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECIPROCATING = {
   _style: {
@@ -10,7 +10,7 @@ export const RECIPROCATING = {
   _original_height: 100,
 }
 
-export function Reciprocating(props: DiagramNodeProps) {
+export function Reciprocating(props: NodeProps) {
   return (
     <Shape
       {...RECIPROCATING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIBRE_QSFP = {
   _style: {
@@ -10,7 +10,7 @@ export const FIBRE_QSFP = {
   _height: 5.7,
 }
 
-export function FibreQsfp(props: DiagramNodeProps) {
+export function FibreQsfp(props: NodeProps) {
   return (
     <Shape {...FIBRE_QSFP} {...props} _style={extendStyle(FIBRE_QSFP, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_S3 = {
   _style: {
@@ -10,6 +10,6 @@ export const AWS_S3 = {
   _original_height: 102.4,
 }
 
-export function AwsS3(props: DiagramNodeProps) {
+export function AwsS3(props: NodeProps) {
   return <Shape {...AWS_S3} {...props} _style={extendStyle(AWS_S3, props)} />
 }

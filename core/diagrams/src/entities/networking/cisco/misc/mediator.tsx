@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEDIATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const MEDIATOR = {
   _original_height: 82,
 }
 
-export function Mediator(props: DiagramNodeProps) {
+export function Mediator(props: NodeProps) {
   return (
     <Shape {...MEDIATOR} {...props} _style={extendStyle(MEDIATOR, props)} />
   )

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TERMINATE = {
   _style: {
@@ -8,7 +8,7 @@ export const TERMINATE = {
   },
 }
 
-export function Terminate(props: DiagramNodeProps) {
+export function Terminate(props: NodeProps) {
   return (
     <Dependency
       {...TERMINATE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WHATSAPP = {
   _style: {
@@ -10,7 +10,7 @@ export const WHATSAPP = {
   _original_height: 102.4,
 }
 
-export function Whatsapp(props: DiagramNodeProps) {
+export function Whatsapp(props: NodeProps) {
   return (
     <Shape {...WHATSAPP} {...props} _style={extendStyle(WHATSAPP, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLANGED_CONNECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const FLANGED_CONNECTION = {
   _height: 50,
 }
 
-export function FlangedConnection(props: DiagramNodeProps) {
+export function FlangedConnection(props: NodeProps) {
   return (
     <Shape
       {...FLANGED_CONNECTION}

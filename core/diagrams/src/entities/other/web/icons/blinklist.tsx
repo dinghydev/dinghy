@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLINKLIST = {
   _style: {
@@ -10,7 +10,7 @@ export const BLINKLIST = {
   _original_height: 102.4,
 }
 
-export function Blinklist(props: DiagramNodeProps) {
+export function Blinklist(props: NodeProps) {
   return (
     <Shape {...BLINKLIST} {...props} _style={extendStyle(BLINKLIST, props)} />
   )

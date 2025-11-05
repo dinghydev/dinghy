@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10920_ADJUSTABLE_ORIFICE_FLOW_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const X10920_ADJUSTABLE_ORIFICE_FLOW_CONTROL = {
   _height: 110.94,
 }
 
-export function X10920AdjustableOrificeFlowControl(props: DiagramNodeProps) {
+export function X10920AdjustableOrificeFlowControl(props: NodeProps) {
   return (
     <Shape
       {...X10920_ADJUSTABLE_ORIFICE_FLOW_CONTROL}

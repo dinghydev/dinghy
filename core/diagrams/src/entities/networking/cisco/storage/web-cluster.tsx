@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_CLUSTER = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_CLUSTER = {
   _height: 106,
 }
 
-export function WebCluster(props: DiagramNodeProps) {
+export function WebCluster(props: NodeProps) {
   return (
     <Shape
       {...WEB_CLUSTER}

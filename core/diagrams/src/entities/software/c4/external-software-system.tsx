@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXTERNAL_SOFTWARE_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const EXTERNAL_SOFTWARE_SYSTEM = {
   _height: 120,
 }
 
-export function ExternalSoftwareSystem(props: DiagramNodeProps) {
+export function ExternalSoftwareSystem(props: NodeProps) {
   return (
     <Shape
       {...EXTERNAL_SOFTWARE_SYSTEM}

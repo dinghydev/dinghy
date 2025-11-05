@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABRICKS = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABRICKS = {
   _original_height: 68,
 }
 
-export function Databricks(props: DiagramNodeProps) {
+export function Databricks(props: NodeProps) {
   return (
     <Shape {...DATABRICKS} {...props} _style={extendStyle(DATABRICKS, props)} />
   )

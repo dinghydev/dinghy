@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLOCKCHAIN_DEVELOPER = {
   _style: {
@@ -10,7 +10,7 @@ export const BLOCKCHAIN_DEVELOPER = {
   _original_height: 60,
 }
 
-export function BlockchainDeveloper(props: DiagramNodeProps) {
+export function BlockchainDeveloper(props: NodeProps) {
   return (
     <Shape
       {...BLOCKCHAIN_DEVELOPER}

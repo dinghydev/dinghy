@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const S3_BUCKET = {
   _style: {
@@ -10,7 +10,7 @@ export const S3_BUCKET = {
   _original_height: 63.800000000000004,
 }
 
-export function S3Bucket(props: DiagramNodeProps) {
+export function S3Bucket(props: NodeProps) {
   return (
     <Shape {...S3_BUCKET} {...props} _style={extendStyle(S3_BUCKET, props)} />
   )

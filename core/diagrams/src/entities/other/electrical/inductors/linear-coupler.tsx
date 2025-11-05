@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINEAR_COUPLER = {
   _style: {
@@ -10,7 +10,7 @@ export const LINEAR_COUPLER = {
   _height: 20,
 }
 
-export function LinearCoupler(props: DiagramNodeProps) {
+export function LinearCoupler(props: NodeProps) {
   return (
     <Shape
       {...LINEAR_COUPLER}

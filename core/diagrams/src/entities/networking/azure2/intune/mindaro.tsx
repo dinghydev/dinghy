@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MINDARO = {
   _style: {
@@ -10,6 +10,6 @@ export const MINDARO = {
   _original_height: 68,
 }
 
-export function Mindaro(props: DiagramNodeProps) {
+export function Mindaro(props: NodeProps) {
   return <Shape {...MINDARO} {...props} _style={extendStyle(MINDARO, props)} />
 }

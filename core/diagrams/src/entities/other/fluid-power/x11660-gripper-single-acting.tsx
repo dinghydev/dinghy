@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11660_GRIPPER_SINGLE_ACTING = {
   _style: {
@@ -10,7 +10,7 @@ export const X11660_GRIPPER_SINGLE_ACTING = {
   _height: 55.82,
 }
 
-export function X11660GripperSingleActing(props: DiagramNodeProps) {
+export function X11660GripperSingleActing(props: NodeProps) {
   return (
     <Shape
       {...X11660_GRIPPER_SINGLE_ACTING}

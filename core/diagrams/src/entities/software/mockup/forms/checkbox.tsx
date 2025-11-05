@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECKBOX = {
   _style: {
@@ -10,7 +10,7 @@ export const CHECKBOX = {
   _original_height: 15,
 }
 
-export function Checkbox(props: DiagramNodeProps) {
+export function Checkbox(props: NodeProps) {
   return (
     <Shape {...CHECKBOX} {...props} _style={extendStyle(CHECKBOX, props)} />
   )

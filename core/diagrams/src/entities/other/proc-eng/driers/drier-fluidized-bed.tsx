@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRIER_FLUIDIZED_BED = {
   _style: {
@@ -10,7 +10,7 @@ export const DRIER_FLUIDIZED_BED = {
   _height: 140,
 }
 
-export function DrierFluidizedBed(props: DiagramNodeProps) {
+export function DrierFluidizedBed(props: NodeProps) {
   return (
     <Shape
       {...DRIER_FLUIDIZED_BED}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSDUCTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSDUCTOR = {
   _height: 100,
 }
 
-export function Transductor(props: DiagramNodeProps) {
+export function Transductor(props: NodeProps) {
   return (
     <Shape
       {...TRANSDUCTOR}

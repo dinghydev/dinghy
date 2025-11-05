@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REPOST = {
   _style: {
@@ -10,6 +10,6 @@ export const REPOST = {
   _original_height: 78,
 }
 
-export function Repost(props: DiagramNodeProps) {
+export function Repost(props: NodeProps) {
   return <Shape {...REPOST} {...props} _style={extendStyle(REPOST, props)} />
 }

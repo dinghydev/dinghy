@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPRAY_COOLER = {
   _style: {
@@ -10,7 +10,7 @@ export const SPRAY_COOLER = {
   _height: 120,
 }
 
-export function SprayCooler(props: DiagramNodeProps) {
+export function SprayCooler(props: NodeProps) {
   return (
     <Shape
       {...SPRAY_COOLER}

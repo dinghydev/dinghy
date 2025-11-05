@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REGISTRAR_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const REGISTRAR_SERVICE = {
   _original_height: 52,
 }
 
-export function RegistrarService(props: DiagramNodeProps) {
+export function RegistrarService(props: NodeProps) {
   return (
     <Shape
       {...REGISTRAR_SERVICE}

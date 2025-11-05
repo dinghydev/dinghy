@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIALOG_WITH_PERSISTENT_FOOTER_BUTTON = {
   _style: {
@@ -10,7 +10,7 @@ export const DIALOG_WITH_PERSISTENT_FOOTER_BUTTON = {
   _height: 472,
 }
 
-export function DialogWithPersistentFooterButton(props: DiagramNodeProps) {
+export function DialogWithPersistentFooterButton(props: NodeProps) {
   return (
     <Shape
       {...DIALOG_WITH_PERSISTENT_FOOTER_BUTTON}

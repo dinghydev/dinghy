@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRINTER_COMMERCIAL = {
   _style: {
@@ -10,7 +10,7 @@ export const PRINTER_COMMERCIAL = {
   _original_height: 80,
 }
 
-export function PrinterCommercial(props: DiagramNodeProps) {
+export function PrinterCommercial(props: NodeProps) {
   return (
     <Shape
       {...PRINTER_COMMERCIAL}

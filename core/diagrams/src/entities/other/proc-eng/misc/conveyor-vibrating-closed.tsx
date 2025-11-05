@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONVEYOR_VIBRATING_CLOSED = {
   _style: {
@@ -10,7 +10,7 @@ export const CONVEYOR_VIBRATING_CLOSED = {
   _height: 80,
 }
 
-export function ConveyorVibratingClosed(props: DiagramNodeProps) {
+export function ConveyorVibratingClosed(props: NodeProps) {
   return (
     <Shape
       {...CONVEYOR_VIBRATING_CLOSED}

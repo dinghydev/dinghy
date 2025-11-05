@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MICROSERVICES_MESH = {
   _style: {
@@ -10,7 +10,7 @@ export const MICROSERVICES_MESH = {
   _original_height: 60,
 }
 
-export function MicroservicesMesh(props: DiagramNodeProps) {
+export function MicroservicesMesh(props: NodeProps) {
   return (
     <Shape
       {...MICROSERVICES_MESH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const URANUS = {
   _style: {
@@ -10,6 +10,6 @@ export const URANUS = {
   _height: 99,
 }
 
-export function Uranus(props: DiagramNodeProps) {
+export function Uranus(props: NodeProps) {
   return <Shape {...URANUS} {...props} _style={extendStyle(URANUS, props)} />
 }

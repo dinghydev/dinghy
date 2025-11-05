@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL660A_ARUBA_6300M_24_PORT_HPE_SMART_RATE_1_2_5_5_GBE_CLASS_6_POE_AND_4_PORT_SWITCH_REAR =
   {
@@ -12,7 +12,7 @@ export const JL660A_ARUBA_6300M_24_PORT_HPE_SMART_RATE_1_2_5_5_GBE_CLASS_6_POE_A
   }
 
 export function Jl660aAruba6300m24PortHpeSmartRate1255GbeClass6PoeAnd4PortSwitchRear(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

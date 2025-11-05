@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHARED_MAILBOX = {
   _style: {
@@ -10,7 +10,7 @@ export const SHARED_MAILBOX = {
   _original_height: 55,
 }
 
-export function SharedMailbox(props: DiagramNodeProps) {
+export function SharedMailbox(props: NodeProps) {
   return (
     <Shape
       {...SHARED_MAILBOX}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LEGEND = {
   _style: {
@@ -10,6 +10,6 @@ export const LEGEND = {
   _height: 125,
 }
 
-export function Legend(props: DiagramNodeProps) {
+export function Legend(props: NodeProps) {
   return <Shape {...LEGEND} {...props} _style={extendStyle(LEGEND, props)} />
 }

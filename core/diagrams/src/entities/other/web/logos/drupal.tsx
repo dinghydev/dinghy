@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRUPAL = {
   _style: {
@@ -10,6 +10,6 @@ export const DRUPAL = {
   _original_height: 69,
 }
 
-export function Drupal(props: DiagramNodeProps) {
+export function Drupal(props: NodeProps) {
   return <Shape {...DRUPAL} {...props} _style={extendStyle(DRUPAL, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_INSTANCE_FOR_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_INSTANCE_FOR_SAP = {
   _original_height: 65.2,
 }
 
-export function DatabaseInstanceForSap(props: DiagramNodeProps) {
+export function DatabaseInstanceForSap(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_INSTANCE_FOR_SAP}

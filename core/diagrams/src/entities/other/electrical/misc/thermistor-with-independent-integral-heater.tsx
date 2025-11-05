@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER = {
   _style: {
@@ -10,9 +10,7 @@ export const THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER = {
   _original_height: 94.25,
 }
 
-export function ThermistorWithIndependentIntegralHeater(
-  props: DiagramNodeProps,
-) {
+export function ThermistorWithIndependentIntegralHeater(props: NodeProps) {
   return (
     <Shape
       {...THERMISTOR_WITH_INDEPENDENT_INTEGRAL_HEATER}

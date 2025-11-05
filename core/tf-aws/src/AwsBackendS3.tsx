@@ -1,6 +1,6 @@
 import {
-  type IacNodeProps,
   IacNodeSchema,
+  type NodeProps,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
@@ -19,7 +19,7 @@ export const AwsBackendS3InputSchema = IacNodeSchema.extend({
 
 export type AwsBackendS3InputProps =
   & z.input<typeof AwsBackendS3InputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export function AwsBackendS3(props: AwsBackendS3InputProps) {
   return (

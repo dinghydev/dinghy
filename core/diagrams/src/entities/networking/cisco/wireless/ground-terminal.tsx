@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GROUND_TERMINAL = {
   _style: {
@@ -10,7 +10,7 @@ export const GROUND_TERMINAL = {
   _height: 122,
 }
 
-export function GroundTerminal(props: DiagramNodeProps) {
+export function GroundTerminal(props: NodeProps) {
   return (
     <Shape
       {...GROUND_TERMINAL}

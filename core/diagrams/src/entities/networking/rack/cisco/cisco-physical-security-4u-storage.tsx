@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_PHYSICAL_SECURITY_4U_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_PHYSICAL_SECURITY_4U_STORAGE = {
   _height: 60,
 }
 
-export function CiscoPhysicalSecurity4uStorage(props: DiagramNodeProps) {
+export function CiscoPhysicalSecurity4uStorage(props: NodeProps) {
   return (
     <Shape
       {...CISCO_PHYSICAL_SECURITY_4U_STORAGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTUNE_CERTIFICATE_PROFILES = {
   _style: {
@@ -10,7 +10,7 @@ export const INTUNE_CERTIFICATE_PROFILES = {
   _original_height: 50,
 }
 
-export function IntuneCertificateProfiles(props: DiagramNodeProps) {
+export function IntuneCertificateProfiles(props: NodeProps) {
   return (
     <Shape
       {...INTUNE_CERTIFICATE_PROFILES}

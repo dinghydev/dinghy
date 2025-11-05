@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VBR_CONFIGURATION_BACKUP = {
   _style: {
@@ -10,7 +10,7 @@ export const VBR_CONFIGURATION_BACKUP = {
   _height: 39,
 }
 
-export function VbrConfigurationBackup(props: DiagramNodeProps) {
+export function VbrConfigurationBackup(props: NodeProps) {
   return (
     <Shape
       {...VBR_CONFIGURATION_BACKUP}

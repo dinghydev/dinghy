@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MPS_DNA = {
   _style: {
@@ -10,6 +10,6 @@ export const MPS_DNA = {
   _original_height: 55.800000000000004,
 }
 
-export function MpsDna(props: DiagramNodeProps) {
+export function MpsDna(props: NodeProps) {
   return <Shape {...MPS_DNA} {...props} _style={extendStyle(MPS_DNA, props)} />
 }

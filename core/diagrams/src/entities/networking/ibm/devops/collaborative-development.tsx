@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLLABORATIVE_DEVELOPMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const COLLABORATIVE_DEVELOPMENT = {
   _original_height: 60,
 }
 
-export function CollaborativeDevelopment(props: DiagramNodeProps) {
+export function CollaborativeDevelopment(props: NodeProps) {
   return (
     <Shape
       {...COLLABORATIVE_DEVELOPMENT}

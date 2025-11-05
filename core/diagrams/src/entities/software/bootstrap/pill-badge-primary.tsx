@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PILL_BADGE_PRIMARY = {
   _style: {
@@ -10,7 +10,7 @@ export const PILL_BADGE_PRIMARY = {
   _height: 20,
 }
 
-export function PillBadgePrimary(props: DiagramNodeProps) {
+export function PillBadgePrimary(props: NodeProps) {
   return (
     <Shape
       {...PILL_BADGE_PRIMARY}

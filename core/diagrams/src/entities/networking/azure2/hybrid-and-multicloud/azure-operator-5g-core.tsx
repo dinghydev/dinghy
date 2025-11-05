@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_OPERATOR_5G_CORE = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_OPERATOR_5G_CORE = {
   _height: 45.32,
 }
 
-export function AzureOperator5gCore(props: DiagramNodeProps) {
+export function AzureOperator5gCore(props: NodeProps) {
   return (
     <Shape
       {...AZURE_OPERATOR_5G_CORE}

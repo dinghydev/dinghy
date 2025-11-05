@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEAT_PATCH = {
   _style: {
@@ -10,7 +10,7 @@ export const NEAT_PATCH = {
   _height: 30,
 }
 
-export function NeatPatch(props: DiagramNodeProps) {
+export function NeatPatch(props: NodeProps) {
   return (
     <Shape {...NEAT_PATCH} {...props} _style={extendStyle(NEAT_PATCH, props)} />
   )

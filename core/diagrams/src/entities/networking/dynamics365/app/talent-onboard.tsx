@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TALENT_ONBOARD = {
   _style: {
@@ -10,7 +10,7 @@ export const TALENT_ONBOARD = {
   _original_height: 68,
 }
 
-export function TalentOnboard(props: DiagramNodeProps) {
+export function TalentOnboard(props: NodeProps) {
   return (
     <Shape
       {...TALENT_ONBOARD}

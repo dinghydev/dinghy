@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTITY_ROUNDED = {
   _style: {
@@ -9,7 +9,7 @@ export const ENTITY_ROUNDED = {
   _height: 40,
 }
 
-export function EntityRounded(props: DiagramNodeProps) {
+export function EntityRounded(props: NodeProps) {
   return (
     <Shape
       {...ENTITY_ROUNDED}

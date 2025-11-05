@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCHOTTKY_DIODE = {
   _style: {
@@ -10,7 +10,7 @@ export const SCHOTTKY_DIODE = {
   _height: 60,
 }
 
-export function SchottkyDiode(props: DiagramNodeProps) {
+export function SchottkyDiode(props: NodeProps) {
   return (
     <Shape
       {...SCHOTTKY_DIODE}

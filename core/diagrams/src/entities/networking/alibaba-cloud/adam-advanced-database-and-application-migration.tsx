@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADAM_ADVANCED_DATABASE_AND_APPLICATION_MIGRATION = {
   _style: {
@@ -10,9 +10,7 @@ export const ADAM_ADVANCED_DATABASE_AND_APPLICATION_MIGRATION = {
   _original_height: 51.3,
 }
 
-export function AdamAdvancedDatabaseAndApplicationMigration(
-  props: DiagramNodeProps,
-) {
+export function AdamAdvancedDatabaseAndApplicationMigration(props: NodeProps) {
   return (
     <Shape
       {...ADAM_ADVANCED_DATABASE_AND_APPLICATION_MIGRATION}

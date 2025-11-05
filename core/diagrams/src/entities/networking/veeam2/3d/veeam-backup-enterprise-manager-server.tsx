@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_BACKUP_ENTERPRISE_MANAGER_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_BACKUP_ENTERPRISE_MANAGER_SERVER = {
   _original_height: 46,
 }
 
-export function VeeamBackupEnterpriseManagerServer(props: DiagramNodeProps) {
+export function VeeamBackupEnterpriseManagerServer(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_BACKUP_ENTERPRISE_MANAGER_SERVER}

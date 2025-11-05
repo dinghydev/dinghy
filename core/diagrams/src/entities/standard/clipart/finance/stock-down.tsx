@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STOCK_DOWN = {
   _style: {
@@ -10,7 +10,7 @@ export const STOCK_DOWN = {
   _original_height: 80,
 }
 
-export function StockDown(props: DiagramNodeProps) {
+export function StockDown(props: NodeProps) {
   return (
     <Shape {...STOCK_DOWN} {...props} _style={extendStyle(STOCK_DOWN, props)} />
   )

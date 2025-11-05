@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUBSITE_BLUE = {
   _style: {
@@ -10,7 +10,7 @@ export const SUBSITE_BLUE = {
   _original_height: 40,
 }
 
-export function SubsiteBlue(props: DiagramNodeProps) {
+export function SubsiteBlue(props: NodeProps) {
   return (
     <Shape
       {...SUBSITE_BLUE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_CONFIG = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_CONFIG = {
   _height: 100,
 }
 
-export function AwsConfig(props: DiagramNodeProps) {
+export function AwsConfig(props: NodeProps) {
   return (
     <Shape {...AWS_CONFIG} {...props} _style={extendStyle(AWS_CONFIG, props)} />
   )

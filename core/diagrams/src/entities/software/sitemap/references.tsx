@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REFERENCES = {
   _style: {
@@ -10,7 +10,7 @@ export const REFERENCES = {
   _height: 70,
 }
 
-export function References(props: DiagramNodeProps) {
+export function References(props: NodeProps) {
   return (
     <Shape {...REFERENCES} {...props} _style={extendStyle(REFERENCES, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOCUMENTDB_ELASTIC_CLUSTERS = {
   _style: {
@@ -10,7 +10,7 @@ export const DOCUMENTDB_ELASTIC_CLUSTERS = {
   _original_height: 78,
 }
 
-export function DocumentdbElasticClusters(props: DiagramNodeProps) {
+export function DocumentdbElasticClusters(props: NodeProps) {
   return (
     <Shape
       {...DOCUMENTDB_ELASTIC_CLUSTERS}

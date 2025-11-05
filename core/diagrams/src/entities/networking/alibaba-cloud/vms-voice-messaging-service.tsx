@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VMS_VOICE_MESSAGING_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const VMS_VOICE_MESSAGING_SERVICE = {
   _original_height: 45.6,
 }
 
-export function VmsVoiceMessagingService(props: DiagramNodeProps) {
+export function VmsVoiceMessagingService(props: NodeProps) {
   return (
     <Shape
       {...VMS_VOICE_MESSAGING_SERVICE}

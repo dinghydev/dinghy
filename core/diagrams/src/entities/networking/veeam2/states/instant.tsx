@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INSTANT = {
   _style: {
@@ -10,6 +10,6 @@ export const INSTANT = {
   _original_height: 21,
 }
 
-export function Instant(props: DiagramNodeProps) {
+export function Instant(props: NodeProps) {
   return <Shape {...INSTANT} {...props} _style={extendStyle(INSTANT, props)} />
 }

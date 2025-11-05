@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_GREEN_TOKEN = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_GREEN_TOKEN = {
   _original_height: 50,
 }
 
-export function SapGreenToken(props: DiagramNodeProps) {
+export function SapGreenToken(props: NodeProps) {
   return (
     <Shape
       {...SAP_GREEN_TOKEN}

@@ -1,6 +1,6 @@
 import {
   deepResolve,
-  type IacNodeProps,
+  type NodeProps,
   ResolvableRecordSchema,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
@@ -22,7 +22,7 @@ export type AwsS3BucketVersioningInputProps =
   & z.output<
     typeof AwsS3BucketVersioningInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type AwsS3BucketVersioningOutputProps =
   & z.output<

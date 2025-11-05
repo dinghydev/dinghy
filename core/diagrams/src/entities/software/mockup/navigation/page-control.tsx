@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PAGE_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const PAGE_CONTROL = {
   _height: 30,
 }
 
-export function PageControl(props: DiagramNodeProps) {
+export function PageControl(props: NodeProps) {
   return (
     <Shape
       {...PAGE_CONTROL}

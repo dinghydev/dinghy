@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BEND_ARROW_ROUNDED = {
   _style: {
@@ -10,7 +10,7 @@ export const BEND_ARROW_ROUNDED = {
   _original_height: 100,
 }
 
-export function BendArrowRounded(props: DiagramNodeProps) {
+export function BendArrowRounded(props: NodeProps) {
   return (
     <Shape
       {...BEND_ARROW_ROUNDED}

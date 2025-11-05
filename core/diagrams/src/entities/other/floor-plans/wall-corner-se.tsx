@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WALL_CORNER_SE = {
   _style: {
@@ -10,7 +10,7 @@ export const WALL_CORNER_SE = {
   _original_height: 100,
 }
 
-export function WallCornerSe(props: DiagramNodeProps) {
+export function WallCornerSe(props: NodeProps) {
   return (
     <Shape
       {...WALL_CORNER_SE}

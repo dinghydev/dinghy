@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROLLING_STONE = {
   _style: {
@@ -9,7 +9,7 @@ export const ROLLING_STONE = {
   _original_height: 50,
 }
 
-export function RollingStone(props: DiagramNodeProps) {
+export function RollingStone(props: NodeProps) {
   return (
     <Shape
       {...ROLLING_STONE}

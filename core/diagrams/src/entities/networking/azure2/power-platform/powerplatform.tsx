@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWERPLATFORM = {
   _style: {
@@ -10,7 +10,7 @@ export const POWERPLATFORM = {
   _original_height: 68,
 }
 
-export function Powerplatform(props: DiagramNodeProps) {
+export function Powerplatform(props: NodeProps) {
   return (
     <Shape
       {...POWERPLATFORM}

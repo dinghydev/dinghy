@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_FULL_BACKUP = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_FULL_BACKUP = {
   _height: 39,
 }
 
-export function VeeamFullBackup(props: DiagramNodeProps) {
+export function VeeamFullBackup(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_FULL_BACKUP}

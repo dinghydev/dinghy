@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APP_RUNNER = {
   _style: {
@@ -10,7 +10,7 @@ export const APP_RUNNER = {
   _original_height: 78,
 }
 
-export function AppRunner(props: DiagramNodeProps) {
+export function AppRunner(props: NodeProps) {
   return (
     <Shape {...APP_RUNNER} {...props} _style={extendStyle(APP_RUNNER, props)} />
   )

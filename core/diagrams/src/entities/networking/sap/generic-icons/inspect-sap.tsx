@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INSPECT_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const INSPECT_SAP = {
   _original_height: 28,
 }
 
-export function InspectSap(props: DiagramNodeProps) {
+export function InspectSap(props: NodeProps) {
   return (
     <Shape
       {...INSPECT_SAP}

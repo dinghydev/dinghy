@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SATELLITE_DISH = {
   _style: {
@@ -10,7 +10,7 @@ export const SATELLITE_DISH = {
   _height: 74,
 }
 
-export function SatelliteDish(props: DiagramNodeProps) {
+export function SatelliteDish(props: NodeProps) {
   return (
     <Shape
       {...SATELLITE_DISH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_CONNECTIVITY_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_CONNECTIVITY_SERVICE = {
   _original_height: 50,
 }
 
-export function SapConnectivityService(props: DiagramNodeProps) {
+export function SapConnectivityService(props: NodeProps) {
   return (
     <Shape
       {...SAP_CONNECTIVITY_SERVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GTM_GLOBAL_TRAFFIC_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const GTM_GLOBAL_TRAFFIC_MANAGER = {
   _original_height: 54.300000000000004,
 }
 
-export function GtmGlobalTrafficManager(props: DiagramNodeProps) {
+export function GtmGlobalTrafficManager(props: NodeProps) {
   return (
     <Shape
       {...GTM_GLOBAL_TRAFFIC_MANAGER}

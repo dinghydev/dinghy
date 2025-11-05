@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11480_SINGLE_ACTING_DIAPHRAGM = {
   _style: {
@@ -10,7 +10,7 @@ export const X11480_SINGLE_ACTING_DIAPHRAGM = {
   _height: 56.04,
 }
 
-export function X11480SingleActingDiaphragm(props: DiagramNodeProps) {
+export function X11480SingleActingDiaphragm(props: NodeProps) {
   return (
     <Shape
       {...X11480_SINGLE_ACTING_DIAPHRAGM}

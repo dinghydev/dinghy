@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_SYNCHRONIZATION = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_SYNCHRONIZATION = {
   _height: 50,
 }
 
-export function DatabaseSynchronization(props: DiagramNodeProps) {
+export function DatabaseSynchronization(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_SYNCHRONIZATION}

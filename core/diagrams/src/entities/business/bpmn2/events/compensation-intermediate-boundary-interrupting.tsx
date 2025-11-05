@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPENSATION_INTERMEDIATE_BOUNDARY_INTERRUPTING = {
   _style: {
@@ -10,9 +10,7 @@ export const COMPENSATION_INTERMEDIATE_BOUNDARY_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function CompensationIntermediateBoundaryInterrupting(
-  props: DiagramNodeProps,
-) {
+export function CompensationIntermediateBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
       {...COMPENSATION_INTERMEDIATE_BOUNDARY_INTERRUPTING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_MANAGED_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_MANAGED_SERVICES = {
   _height: 110,
 }
 
-export function AwsManagedServices(props: DiagramNodeProps) {
+export function AwsManagedServices(props: NodeProps) {
   return (
     <Shape
       {...AWS_MANAGED_SERVICES}

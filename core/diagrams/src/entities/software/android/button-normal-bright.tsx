@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTON_NORMAL_BRIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTON_NORMAL_BRIGHT = {
   _height: 16.88,
 }
 
-export function ButtonNormalBright(props: DiagramNodeProps) {
+export function ButtonNormalBright(props: NodeProps) {
   return (
     <Shape
       {...BUTTON_NORMAL_BRIGHT}

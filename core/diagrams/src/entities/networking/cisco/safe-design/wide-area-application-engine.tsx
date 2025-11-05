@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIDE_AREA_APPLICATION_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const WIDE_AREA_APPLICATION_ENGINE = {
   _original_height: 45,
 }
 
-export function WideAreaApplicationEngine(props: DiagramNodeProps) {
+export function WideAreaApplicationEngine(props: NodeProps) {
   return (
     <Shape
       {...WIDE_AREA_APPLICATION_ENGINE}

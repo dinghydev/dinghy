@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsVpc } from './AwsVpc.tsx'
 
@@ -12,7 +12,7 @@ export const DataAwsVpcOutputSchema = z.object({
 
 export type DataAwsVpcInputProps =
   & z.input<typeof DataAwsVpcInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type DataAwsVpcOutputProps =
   & z.output<typeof DataAwsVpcOutputSchema>

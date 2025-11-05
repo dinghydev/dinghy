@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11890_ELECTRICAL_FLUID_LEVEL = {
   _style: {
@@ -10,7 +10,7 @@ export const X11890_ELECTRICAL_FLUID_LEVEL = {
   _original_height: 65.24,
 }
 
-export function X11890ElectricalFluidLevel(props: DiagramNodeProps) {
+export function X11890ElectricalFluidLevel(props: NodeProps) {
   return (
     <Shape
       {...X11890_ELECTRICAL_FLUID_LEVEL}

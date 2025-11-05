@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VSHIELD = {
   _style: {
@@ -10,6 +10,6 @@ export const VSHIELD = {
   _original_height: 50,
 }
 
-export function Vshield(props: DiagramNodeProps) {
+export function Vshield(props: NodeProps) {
   return <Shape {...VSHIELD} {...props} _style={extendStyle(VSHIELD, props)} />
 }

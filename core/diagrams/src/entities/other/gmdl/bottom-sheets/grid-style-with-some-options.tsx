@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GRID_STYLE_WITH_SOME_OPTIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const GRID_STYLE_WITH_SOME_OPTIONS = {
   _height: 642,
 }
 
-export function GridStyleWithSomeOptions(props: DiagramNodeProps) {
+export function GridStyleWithSomeOptions(props: NodeProps) {
   return (
     <Shape
       {...GRID_STYLE_WITH_SOME_OPTIONS}

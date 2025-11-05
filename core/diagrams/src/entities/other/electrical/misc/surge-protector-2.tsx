@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SURGE_PROTECTOR_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const SURGE_PROTECTOR_2 = {
   _height: 24,
 }
 
-export function SurgeProtector2(props: DiagramNodeProps) {
+export function SurgeProtector2(props: NodeProps) {
   return (
     <Shape
       {...SURGE_PROTECTOR_2}

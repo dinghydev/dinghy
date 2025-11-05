@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TLS_APPLIANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const TLS_APPLIANCE = {
   _original_height: 45,
 }
 
-export function TlsAppliance(props: DiagramNodeProps) {
+export function TlsAppliance(props: NodeProps) {
   return (
     <Shape
       {...TLS_APPLIANCE}

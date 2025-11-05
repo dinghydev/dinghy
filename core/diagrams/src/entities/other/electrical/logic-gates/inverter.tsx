@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INVERTER = {
   _style: {
@@ -10,7 +10,7 @@ export const INVERTER = {
   _height: 60,
 }
 
-export function Inverter(props: DiagramNodeProps) {
+export function Inverter(props: NodeProps) {
   return (
     <Shape {...INVERTER} {...props} _style={extendStyle(INVERTER, props)} />
   )

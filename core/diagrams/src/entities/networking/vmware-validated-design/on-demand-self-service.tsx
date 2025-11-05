@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_DEMAND_SELF_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const ON_DEMAND_SELF_SERVICE = {
   _original_height: 42.5,
 }
 
-export function OnDemandSelfService(props: DiagramNodeProps) {
+export function OnDemandSelfService(props: NodeProps) {
   return (
     <Shape
       {...ON_DEMAND_SELF_SERVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUBLISH_SUBSCRIBE_CHANNEL = {
   _style: {
@@ -9,7 +9,7 @@ export const PUBLISH_SUBSCRIBE_CHANNEL = {
   _height: 160,
 }
 
-export function PublishSubscribeChannel(props: DiagramNodeProps) {
+export function PublishSubscribeChannel(props: NodeProps) {
   return (
     <Shape
       {...PUBLISH_SUBSCRIBE_CHANNEL}

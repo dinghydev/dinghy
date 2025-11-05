@@ -1,5 +1,5 @@
 import {
-  type IacNodeProps,
+  type NodeProps,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
@@ -27,7 +27,7 @@ export const AwsS3BucketOutputSchema = z.object({
 
 export type AwsS3BucketInputProps =
   & z.input<typeof AwsS3BucketInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type AwsS3BucketOutputProps =
   & z.output<typeof AwsS3BucketOutputSchema>

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HEAT_SCALINGPOLICY = {
   _style: {
@@ -10,7 +10,7 @@ export const HEAT_SCALINGPOLICY = {
   _original_height: 50,
 }
 
-export function HeatScalingpolicy(props: DiagramNodeProps) {
+export function HeatScalingpolicy(props: NodeProps) {
   return (
     <Shape
       {...HEAT_SCALINGPOLICY}

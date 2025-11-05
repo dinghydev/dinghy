@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT = {
   _original_height: 68,
 }
 
-export function EntraPrivilegedIdentityManagement(props: DiagramNodeProps) {
+export function EntraPrivilegedIdentityManagement(props: NodeProps) {
   return (
     <Shape
       {...ENTRA_PRIVILEGED_IDENTITY_MANAGEMENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARAMETRIC_DIAGRAM = {
   _style: {
@@ -10,7 +10,7 @@ export const PARAMETRIC_DIAGRAM = {
   _height: 170,
 }
 
-export function ParametricDiagram(props: DiagramNodeProps) {
+export function ParametricDiagram(props: NodeProps) {
   return (
     <Shape
       {...PARAMETRIC_DIAGRAM}

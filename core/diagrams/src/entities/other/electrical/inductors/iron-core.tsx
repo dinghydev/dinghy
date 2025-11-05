@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IRON_CORE = {
   _style: {
@@ -10,7 +10,7 @@ export const IRON_CORE = {
   _height: 4,
 }
 
-export function IronCore(props: DiagramNodeProps) {
+export function IronCore(props: NodeProps) {
   return (
     <Shape {...IRON_CORE} {...props} _style={extendStyle(IRON_CORE, props)} />
   )

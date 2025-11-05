@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APACHE_MXNET_ON_AWS = {
   _style: {
@@ -10,7 +10,7 @@ export const APACHE_MXNET_ON_AWS = {
   _original_height: 78,
 }
 
-export function ApacheMxnetOnAws(props: DiagramNodeProps) {
+export function ApacheMxnetOnAws(props: NodeProps) {
   return (
     <Shape
       {...APACHE_MXNET_ON_AWS}

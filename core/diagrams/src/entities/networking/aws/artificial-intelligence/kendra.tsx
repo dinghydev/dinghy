@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KENDRA = {
   _style: {
@@ -10,6 +10,6 @@ export const KENDRA = {
   _original_height: 78,
 }
 
-export function Kendra(props: DiagramNodeProps) {
+export function Kendra(props: NodeProps) {
   return <Shape {...KENDRA} {...props} _style={extendStyle(KENDRA, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_BAR = {
   _style: {
@@ -10,7 +10,7 @@ export const MESSAGE_BAR = {
   _height: 28.000000000000004,
 }
 
-export function MessageBar(props: DiagramNodeProps) {
+export function MessageBar(props: NodeProps) {
   return (
     <Shape
       {...MESSAGE_BAR}

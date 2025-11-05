@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORK_NODE_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const FORK_NODE_2 = {
   _height: 80,
 }
 
-export function ForkNode2(props: DiagramNodeProps) {
+export function ForkNode2(props: NodeProps) {
   return (
     <Shape
       {...FORK_NODE_2}

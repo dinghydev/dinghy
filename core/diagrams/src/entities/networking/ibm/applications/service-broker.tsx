@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVICE_BROKER = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVICE_BROKER = {
   _original_height: 60,
 }
 
-export function ServiceBroker(props: DiagramNodeProps) {
+export function ServiceBroker(props: NodeProps) {
   return (
     <Shape
       {...SERVICE_BROKER}

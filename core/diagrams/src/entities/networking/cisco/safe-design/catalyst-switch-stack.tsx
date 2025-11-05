@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CATALYST_SWITCH_STACK = {
   _style: {
@@ -10,7 +10,7 @@ export const CATALYST_SWITCH_STACK = {
   _original_height: 45,
 }
 
-export function CatalystSwitchStack(props: DiagramNodeProps) {
+export function CatalystSwitchStack(props: NodeProps) {
   return (
     <Shape
       {...CATALYST_SWITCH_STACK}

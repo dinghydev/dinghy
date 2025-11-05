@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISCOVERY_AGENT = {
   _style: {
@@ -10,7 +10,7 @@ export const DISCOVERY_AGENT = {
   _original_height: 63,
 }
 
-export function DiscoveryAgent(props: DiagramNodeProps) {
+export function DiscoveryAgent(props: NodeProps) {
   return (
     <Shape
       {...DISCOVERY_AGENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UIS_ULTIMATE_INTERNET_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const UIS_ULTIMATE_INTERNET_SERVICE = {
   _original_height: 54,
 }
 
-export function UisUltimateInternetService(props: DiagramNodeProps) {
+export function UisUltimateInternetService(props: NodeProps) {
   return (
     <Shape
       {...UIS_ULTIMATE_INTERNET_SERVICE}

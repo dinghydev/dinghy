@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_SNOWBALL_EDGE = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_SNOWBALL_EDGE = {
   _height: 110,
 }
 
-export function AwsSnowballEdge(props: DiagramNodeProps) {
+export function AwsSnowballEdge(props: NodeProps) {
   return (
     <Shape
       {...AWS_SNOWBALL_EDGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXTERNAL_SAAS_PROVIDERS = {
   _style: {
@@ -10,7 +10,7 @@ export const EXTERNAL_SAAS_PROVIDERS = {
   _height: 70,
 }
 
-export function ExternalSaasProviders(props: DiagramNodeProps) {
+export function ExternalSaasProviders(props: NodeProps) {
   return (
     <Shape
       {...EXTERNAL_SAAS_PROVIDERS}

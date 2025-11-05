@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISK_POOL = {
   _style: {
@@ -10,7 +10,7 @@ export const DISK_POOL = {
   _original_height: 66,
 }
 
-export function DiskPool(props: DiagramNodeProps) {
+export function DiskPool(props: NodeProps) {
   return (
     <Shape {...DISK_POOL} {...props} _style={extendStyle(DISK_POOL, props)} />
   )

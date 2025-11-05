@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESISTOR_TRIMMER_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const RESISTOR_TRIMMER_2 = {
   _height: 65.5,
 }
 
-export function ResistorTrimmer2(props: DiagramNodeProps) {
+export function ResistorTrimmer2(props: NodeProps) {
   return (
     <Shape
       {...RESISTOR_TRIMMER_2}

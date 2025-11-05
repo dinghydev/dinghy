@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAYER_2_REMOTE_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const LAYER_2_REMOTE_SWITCH = {
   _height: 50,
 }
 
-export function Layer2RemoteSwitch(props: DiagramNodeProps) {
+export function Layer2RemoteSwitch(props: NodeProps) {
   return (
     <Shape
       {...LAYER_2_REMOTE_SWITCH}

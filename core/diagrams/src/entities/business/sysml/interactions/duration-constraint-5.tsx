@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DURATION_CONSTRAINT_5 = {
   _style: {
@@ -10,7 +10,7 @@ export const DURATION_CONSTRAINT_5 = {
   _height: 250,
 }
 
-export function DurationConstraint5(props: DiagramNodeProps) {
+export function DurationConstraint5(props: NodeProps) {
   return (
     <Shape
       {...DURATION_CONSTRAINT_5}

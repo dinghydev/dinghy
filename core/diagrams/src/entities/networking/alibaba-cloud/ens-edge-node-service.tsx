@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENS_EDGE_NODE_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const ENS_EDGE_NODE_SERVICE = {
   _original_height: 54.900000000000006,
 }
 
-export function EnsEdgeNodeService(props: DiagramNodeProps) {
+export function EnsEdgeNodeService(props: NodeProps) {
   return (
     <Shape
       {...ENS_EDGE_NODE_SERVICE}

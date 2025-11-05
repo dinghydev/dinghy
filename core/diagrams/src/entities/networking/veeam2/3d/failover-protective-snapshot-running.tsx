@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FAILOVER_PROTECTIVE_SNAPSHOT_RUNNING = {
   _style: {
@@ -10,7 +10,7 @@ export const FAILOVER_PROTECTIVE_SNAPSHOT_RUNNING = {
   _original_height: 46,
 }
 
-export function FailoverProtectiveSnapshotRunning(props: DiagramNodeProps) {
+export function FailoverProtectiveSnapshotRunning(props: NodeProps) {
   return (
     <Shape
       {...FAILOVER_PROTECTIVE_SNAPSHOT_RUNNING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RDS_MULTI_AZ = {
   _style: {
@@ -10,7 +10,7 @@ export const RDS_MULTI_AZ = {
   _height: 58,
 }
 
-export function RdsMultiAz(props: DiagramNodeProps) {
+export function RdsMultiAz(props: NodeProps) {
   return (
     <Shape
       {...RDS_MULTI_AZ}

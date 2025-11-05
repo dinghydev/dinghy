@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMPHITEATER = {
   _style: {
@@ -10,7 +10,7 @@ export const AMPHITEATER = {
   _original_height: 99,
 }
 
-export function Amphiteater(props: DiagramNodeProps) {
+export function Amphiteater(props: NodeProps) {
   return (
     <Shape
       {...AMPHITEATER}

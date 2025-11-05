@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_SUBSCRIPTION = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_SUBSCRIPTION = {
   _height: 35,
 }
 
-export function AzureSubscription(props: DiagramNodeProps) {
+export function AzureSubscription(props: NodeProps) {
   return (
     <Shape
       {...AZURE_SUBSCRIPTION}

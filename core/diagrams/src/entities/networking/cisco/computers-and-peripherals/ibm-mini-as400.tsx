@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IBM_MINI_AS400 = {
   _style: {
@@ -10,7 +10,7 @@ export const IBM_MINI_AS400 = {
   _original_height: 62,
 }
 
-export function IbmMiniAs400(props: DiagramNodeProps) {
+export function IbmMiniAs400(props: NodeProps) {
   return (
     <Shape
       {...IBM_MINI_AS400}

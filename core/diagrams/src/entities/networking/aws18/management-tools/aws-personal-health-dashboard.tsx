@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_PERSONAL_HEALTH_DASHBOARD = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_PERSONAL_HEALTH_DASHBOARD = {
   _height: 120,
 }
 
-export function AwsPersonalHealthDashboard(props: DiagramNodeProps) {
+export function AwsPersonalHealthDashboard(props: NodeProps) {
   return (
     <Shape
       {...AWS_PERSONAL_HEALTH_DASHBOARD}

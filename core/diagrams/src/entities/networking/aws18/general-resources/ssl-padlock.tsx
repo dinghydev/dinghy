@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SSL_PADLOCK = {
   _style: {
@@ -10,7 +10,7 @@ export const SSL_PADLOCK = {
   _original_height: 60,
 }
 
-export function SslPadlock(props: DiagramNodeProps) {
+export function SslPadlock(props: NodeProps) {
   return (
     <Shape
       {...SSL_PADLOCK}

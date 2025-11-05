@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOW_AWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const TOW_AWAY = {
   _height: 31,
 }
 
-export function TowAway(props: DiagramNodeProps) {
+export function TowAway(props: NodeProps) {
   return (
     <Shape {...TOW_AWAY} {...props} _style={extendStyle(TOW_AWAY, props)} />
   )

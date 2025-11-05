@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTHENTICATION_SELECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTHENTICATION_SELECTION = {
   _original_height: 50,
 }
 
-export function AuthenticationSelection(props: DiagramNodeProps) {
+export function AuthenticationSelection(props: NodeProps) {
   return (
     <Shape
       {...AUTHENTICATION_SELECTION}

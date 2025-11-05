@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TSUNAMI = {
   _style: {
@@ -10,6 +10,6 @@ export const TSUNAMI = {
   _original_height: 88,
 }
 
-export function Tsunami(props: DiagramNodeProps) {
+export function Tsunami(props: NodeProps) {
   return <Shape {...TSUNAMI} {...props} _style={extendStyle(TSUNAMI, props)} />
 }

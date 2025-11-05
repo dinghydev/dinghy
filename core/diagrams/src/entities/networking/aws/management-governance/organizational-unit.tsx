@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORGANIZATIONAL_UNIT = {
   _style: {
@@ -10,7 +10,7 @@ export const ORGANIZATIONAL_UNIT = {
   _original_height: 78,
 }
 
-export function OrganizationalUnit(props: DiagramNodeProps) {
+export function OrganizationalUnit(props: NodeProps) {
   return (
     <Shape
       {...ORGANIZATIONAL_UNIT}

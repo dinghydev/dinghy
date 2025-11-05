@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESPONSE_GROUP_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const RESPONSE_GROUP_SERVICE = {
   _original_height: 54,
 }
 
-export function ResponseGroupService(props: DiagramNodeProps) {
+export function ResponseGroupService(props: NodeProps) {
   return (
     <Shape
       {...RESPONSE_GROUP_SERVICE}

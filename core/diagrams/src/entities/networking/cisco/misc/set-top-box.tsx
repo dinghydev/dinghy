@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SET_TOP_BOX = {
   _style: {
@@ -10,7 +10,7 @@ export const SET_TOP_BOX = {
   _height: 42,
 }
 
-export function SetTopBox(props: DiagramNodeProps) {
+export function SetTopBox(props: NodeProps) {
   return (
     <Shape
       {...SET_TOP_BOX}

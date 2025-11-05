@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JET_SKI = {
   _style: {
@@ -10,6 +10,6 @@ export const JET_SKI = {
   _original_height: 86,
 }
 
-export function JetSki(props: DiagramNodeProps) {
+export function JetSki(props: NodeProps) {
   return <Shape {...JET_SKI} {...props} _style={extendStyle(JET_SKI, props)} />
 }

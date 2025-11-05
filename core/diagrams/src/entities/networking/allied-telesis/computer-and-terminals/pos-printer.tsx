@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POS_PRINTER = {
   _style: {
@@ -10,7 +10,7 @@ export const POS_PRINTER = {
   _height: 32.400000000000006,
 }
 
-export function PosPrinter(props: DiagramNodeProps) {
+export function PosPrinter(props: NodeProps) {
   return (
     <Shape
       {...POS_PRINTER}

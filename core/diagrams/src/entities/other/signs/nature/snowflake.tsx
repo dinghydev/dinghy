@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SNOWFLAKE = {
   _style: {
@@ -10,7 +10,7 @@ export const SNOWFLAKE = {
   _original_height: 98,
 }
 
-export function Snowflake(props: DiagramNodeProps) {
+export function Snowflake(props: NodeProps) {
   return (
     <Shape {...SNOWFLAKE} {...props} _style={extendStyle(SNOWFLAKE, props)} />
   )

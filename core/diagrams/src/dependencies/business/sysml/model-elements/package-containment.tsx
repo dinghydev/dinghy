@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PACKAGE_CONTAINMENT = {
   _style: {
@@ -8,7 +8,7 @@ export const PACKAGE_CONTAINMENT = {
   },
 }
 
-export function PackageContainment(props: DiagramNodeProps) {
+export function PackageContainment(props: NodeProps) {
   return (
     <Dependency
       {...PACKAGE_CONTAINMENT}

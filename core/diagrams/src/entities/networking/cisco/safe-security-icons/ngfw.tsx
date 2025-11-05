@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NGFW = {
   _style: {
@@ -10,6 +10,6 @@ export const NGFW = {
   _original_height: 46,
 }
 
-export function Ngfw(props: DiagramNodeProps) {
+export function Ngfw(props: NodeProps) {
   return <Shape {...NGFW} {...props} _style={extendStyle(NGFW, props)} />
 }

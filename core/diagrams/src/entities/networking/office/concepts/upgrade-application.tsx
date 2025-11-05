@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UPGRADE_APPLICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const UPGRADE_APPLICATION = {
   _original_height: 42,
 }
 
-export function UpgradeApplication(props: DiagramNodeProps) {
+export function UpgradeApplication(props: NodeProps) {
   return (
     <Shape
       {...UPGRADE_APPLICATION}

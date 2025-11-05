@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_AGENT_FOR_ORACLE_SOLARIS = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_AGENT_FOR_ORACLE_SOLARIS = {
   _original_height: 34,
 }
 
-export function VeeamAgentForOracleSolaris(props: DiagramNodeProps) {
+export function VeeamAgentForOracleSolaris(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_AGENT_FOR_ORACLE_SOLARIS}

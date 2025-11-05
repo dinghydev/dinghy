@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MERCURY_SWITCH_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const MERCURY_SWITCH_2 = {
   _height: 90,
 }
 
-export function MercurySwitch2(props: DiagramNodeProps) {
+export function MercurySwitch2(props: NodeProps) {
   return (
     <Shape
       {...MERCURY_SWITCH_2}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EMAIL_REJECTED = {
   _style: {
@@ -10,7 +10,7 @@ export const EMAIL_REJECTED = {
   _original_height: 45,
 }
 
-export function EmailRejected(props: DiagramNodeProps) {
+export function EmailRejected(props: NodeProps) {
   return (
     <Shape
       {...EMAIL_REJECTED}

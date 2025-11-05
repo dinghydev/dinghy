@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ONE_ZONE_IA = {
   _style: {
@@ -10,7 +10,7 @@ export const ONE_ZONE_IA = {
   _original_height: 78,
 }
 
-export function OneZoneIa(props: DiagramNodeProps) {
+export function OneZoneIa(props: NodeProps) {
   return (
     <Shape
       {...ONE_ZONE_IA}

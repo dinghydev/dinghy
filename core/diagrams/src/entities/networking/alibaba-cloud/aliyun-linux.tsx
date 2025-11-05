@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALIYUN_LINUX = {
   _style: {
@@ -10,7 +10,7 @@ export const ALIYUN_LINUX = {
   _original_height: 52.5,
 }
 
-export function AliyunLinux(props: DiagramNodeProps) {
+export function AliyunLinux(props: NodeProps) {
   return (
     <Shape
       {...ALIYUN_LINUX}

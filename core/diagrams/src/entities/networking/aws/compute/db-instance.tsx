@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DB_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const DB_INSTANCE = {
   _original_height: 48,
 }
 
-export function DbInstance(props: DiagramNodeProps) {
+export function DbInstance(props: NodeProps) {
   return (
     <Shape
       {...DB_INSTANCE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INSTANCE_POOLS = {
   _style: {
@@ -10,7 +10,7 @@ export const INSTANCE_POOLS = {
   _original_height: 64,
 }
 
-export function InstancePools(props: DiagramNodeProps) {
+export function InstancePools(props: NodeProps) {
   return (
     <Shape
       {...INSTANCE_POOLS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_CACHE_FOR_REDIS = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_CACHE_FOR_REDIS = {
   _original_height: 50,
 }
 
-export function AzureCacheForRedis(props: DiagramNodeProps) {
+export function AzureCacheForRedis(props: NodeProps) {
   return (
     <Shape
       {...AZURE_CACHE_FOR_REDIS}

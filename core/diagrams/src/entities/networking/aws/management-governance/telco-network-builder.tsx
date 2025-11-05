@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TELCO_NETWORK_BUILDER = {
   _style: {
@@ -10,7 +10,7 @@ export const TELCO_NETWORK_BUILDER = {
   _original_height: 78,
 }
 
-export function TelcoNetworkBuilder(props: DiagramNodeProps) {
+export function TelcoNetworkBuilder(props: NodeProps) {
   return (
     <Shape
       {...TELCO_NETWORK_BUILDER}

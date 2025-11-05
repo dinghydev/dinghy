@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIMIT_SWITCH_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const LIMIT_SWITCH_OFF = {
   _height: 19,
 }
 
-export function LimitSwitchOff(props: DiagramNodeProps) {
+export function LimitSwitchOff(props: NodeProps) {
   return (
     <Shape
       {...LIMIT_SWITCH_OFF}

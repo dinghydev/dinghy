@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_COLLECTION_RULES = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_COLLECTION_RULES = {
   _original_height: 68,
 }
 
-export function DataCollectionRules(props: DiagramNodeProps) {
+export function DataCollectionRules(props: NodeProps) {
   return (
     <Shape
       {...DATA_COLLECTION_RULES}

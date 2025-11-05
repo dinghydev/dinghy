@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IVISION = {
   _style: {
@@ -10,6 +10,6 @@ export const IVISION = {
   _original_height: 54.900000000000006,
 }
 
-export function Ivision(props: DiagramNodeProps) {
+export function Ivision(props: NodeProps) {
   return <Shape {...IVISION} {...props} _style={extendStyle(IVISION, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SATURATING_TRANSFORMER = {
   _style: {
@@ -10,7 +10,7 @@ export const SATURATING_TRANSFORMER = {
   _height: 150,
 }
 
-export function SaturatingTransformer(props: DiagramNodeProps) {
+export function SaturatingTransformer(props: NodeProps) {
   return (
     <Shape
       {...SATURATING_TRANSFORMER}

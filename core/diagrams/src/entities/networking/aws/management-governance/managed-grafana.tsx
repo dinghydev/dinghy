@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_GRAFANA = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_GRAFANA = {
   _original_height: 78,
 }
 
-export function ManagedGrafana(props: DiagramNodeProps) {
+export function ManagedGrafana(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_GRAFANA}

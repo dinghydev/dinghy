@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STARTUP_TASK = {
   _style: {
@@ -10,7 +10,7 @@ export const STARTUP_TASK = {
   _original_height: 50,
 }
 
-export function StartupTask(props: DiagramNodeProps) {
+export function StartupTask(props: NodeProps) {
   return (
     <Shape
       {...STARTUP_TASK}

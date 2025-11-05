@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCREENING_DEVICE_SIEVE_STRAINER_COARSE_AND_FINE_SCREENS = {
   _style: {
@@ -11,7 +11,7 @@ export const SCREENING_DEVICE_SIEVE_STRAINER_COARSE_AND_FINE_SCREENS = {
 }
 
 export function ScreeningDeviceSieveStrainerCoarseAndFineScreens(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

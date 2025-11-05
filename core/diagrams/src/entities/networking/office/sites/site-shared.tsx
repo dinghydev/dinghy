@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITE_SHARED = {
   _style: {
@@ -10,7 +10,7 @@ export const SITE_SHARED = {
   _original_height: 50,
 }
 
-export function SiteShared(props: DiagramNodeProps) {
+export function SiteShared(props: NodeProps) {
   return (
     <Shape
       {...SITE_SHARED}

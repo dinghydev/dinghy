@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARUBA_9004_DUAL_RACKMOUNT = {
   _style: {
@@ -10,7 +10,7 @@ export const ARUBA_9004_DUAL_RACKMOUNT = {
   _height: 15,
 }
 
-export function Aruba9004DualRackmount(props: DiagramNodeProps) {
+export function Aruba9004DualRackmount(props: NodeProps) {
   return (
     <Shape
       {...ARUBA_9004_DUAL_RACKMOUNT}

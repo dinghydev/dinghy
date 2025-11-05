@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIGQUERY_DATA_TRANSFER_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const BIGQUERY_DATA_TRANSFER_SERVICE = {
   _original_height: 42,
 }
 
-export function BigqueryDataTransferService(props: DiagramNodeProps) {
+export function BigqueryDataTransferService(props: NodeProps) {
   return (
     <Shape
       {...BIGQUERY_DATA_TRANSFER_SERVICE}

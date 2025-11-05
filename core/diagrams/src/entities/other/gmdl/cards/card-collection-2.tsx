@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CARD_COLLECTION_2 = {
   _style: {
@@ -9,7 +9,7 @@ export const CARD_COLLECTION_2 = {
   _height: 642,
 }
 
-export function CardCollection2(props: DiagramNodeProps) {
+export function CardCollection2(props: NodeProps) {
   return (
     <Shape
       {...CARD_COLLECTION_2}

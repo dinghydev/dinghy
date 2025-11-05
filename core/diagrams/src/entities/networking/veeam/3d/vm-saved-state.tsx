@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VM_SAVED_STATE = {
   _style: {
@@ -10,7 +10,7 @@ export const VM_SAVED_STATE = {
   _original_height: 48,
 }
 
-export function VmSavedState(props: DiagramNodeProps) {
+export function VmSavedState(props: NodeProps) {
   return (
     <Shape
       {...VM_SAVED_STATE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASSISTED_FAILOVER_AND_FAILBACK = {
   _style: {
@@ -10,7 +10,7 @@ export const ASSISTED_FAILOVER_AND_FAILBACK = {
   _original_height: 44.8,
 }
 
-export function AssistedFailoverAndFailback(props: DiagramNodeProps) {
+export function AssistedFailoverAndFailback(props: NodeProps) {
   return (
     <Shape
       {...ASSISTED_FAILOVER_AND_FAILBACK}

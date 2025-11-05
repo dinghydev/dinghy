@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CAMERA = {
   _style: {
@@ -10,6 +10,6 @@ export const CAMERA = {
   _height: 50,
 }
 
-export function Camera(props: DiagramNodeProps) {
+export function Camera(props: NodeProps) {
   return <Shape {...CAMERA} {...props} _style={extendStyle(CAMERA, props)} />
 }

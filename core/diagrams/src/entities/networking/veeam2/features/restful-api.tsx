@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESTFUL_API = {
   _style: {
@@ -10,7 +10,7 @@ export const RESTFUL_API = {
   _original_height: 34,
 }
 
-export function RestfulApi(props: DiagramNodeProps) {
+export function RestfulApi(props: NodeProps) {
   return (
     <Shape
       {...RESTFUL_API}

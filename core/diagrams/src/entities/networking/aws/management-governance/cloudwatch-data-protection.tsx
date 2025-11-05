@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDWATCH_DATA_PROTECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDWATCH_DATA_PROTECTION = {
   _original_height: 69,
 }
 
-export function CloudwatchDataProtection(props: DiagramNodeProps) {
+export function CloudwatchDataProtection(props: NodeProps) {
   return (
     <Shape
       {...CLOUDWATCH_DATA_PROTECTION}

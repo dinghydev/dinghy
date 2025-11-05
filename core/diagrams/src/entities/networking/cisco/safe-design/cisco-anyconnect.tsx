@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_ANYCONNECT = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_ANYCONNECT = {
   _original_height: 45,
 }
 
-export function CiscoAnyconnect(props: DiagramNodeProps) {
+export function CiscoAnyconnect(props: NodeProps) {
   return (
     <Shape
       {...CISCO_ANYCONNECT}

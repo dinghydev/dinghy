@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUANTUM_LEDGER_DATABASE = {
   _style: {
@@ -10,7 +10,7 @@ export const QUANTUM_LEDGER_DATABASE = {
   _original_height: 78,
 }
 
-export function QuantumLedgerDatabase(props: DiagramNodeProps) {
+export function QuantumLedgerDatabase(props: NodeProps) {
   return (
     <Shape
       {...QUANTUM_LEDGER_DATABASE}

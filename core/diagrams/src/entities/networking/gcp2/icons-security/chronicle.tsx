@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHRONICLE = {
   _style: {
@@ -10,7 +10,7 @@ export const CHRONICLE = {
   _height: 42,
 }
 
-export function Chronicle(props: DiagramNodeProps) {
+export function Chronicle(props: NodeProps) {
   return (
     <Shape {...CHRONICLE} {...props} _style={extendStyle(CHRONICLE, props)} />
   )

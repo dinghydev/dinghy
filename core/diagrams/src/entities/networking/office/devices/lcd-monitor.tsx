@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LCD_MONITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const LCD_MONITOR = {
   _original_height: 48,
 }
 
-export function LcdMonitor(props: DiagramNodeProps) {
+export function LcdMonitor(props: NodeProps) {
   return (
     <Shape
       {...LCD_MONITOR}

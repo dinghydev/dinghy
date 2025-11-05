@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_JOB_AGENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_JOB_AGENTS = {
   _original_height: 50,
 }
 
-export function ElasticJobAgents(props: DiagramNodeProps) {
+export function ElasticJobAgents(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_JOB_AGENTS}

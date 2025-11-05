@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLOBAL_ADDRESS_LIST = {
   _style: {
@@ -10,7 +10,7 @@ export const GLOBAL_ADDRESS_LIST = {
   _original_height: 53,
 }
 
-export function GlobalAddressList(props: DiagramNodeProps) {
+export function GlobalAddressList(props: NodeProps) {
   return (
     <Shape
       {...GLOBAL_ADDRESS_LIST}

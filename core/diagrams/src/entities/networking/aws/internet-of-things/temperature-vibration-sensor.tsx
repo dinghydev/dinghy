@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEMPERATURE_VIBRATION_SENSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const TEMPERATURE_VIBRATION_SENSOR = {
   _original_height: 78,
 }
 
-export function TemperatureVibrationSensor(props: DiagramNodeProps) {
+export function TemperatureVibrationSensor(props: NodeProps) {
   return (
     <Shape
       {...TEMPERATURE_VIBRATION_SENSOR}

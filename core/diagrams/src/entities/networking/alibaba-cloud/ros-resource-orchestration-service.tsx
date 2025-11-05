@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROS_RESOURCE_ORCHESTRATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const ROS_RESOURCE_ORCHESTRATION_SERVICE = {
   _original_height: 43.5,
 }
 
-export function RosResourceOrchestrationService(props: DiagramNodeProps) {
+export function RosResourceOrchestrationService(props: NodeProps) {
   return (
     <Shape
       {...ROS_RESOURCE_ORCHESTRATION_SERVICE}

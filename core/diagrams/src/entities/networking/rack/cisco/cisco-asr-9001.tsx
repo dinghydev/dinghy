@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_ASR_9001 = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_ASR_9001 = {
   _height: 30,
 }
 
-export function CiscoAsr9001(props: DiagramNodeProps) {
+export function CiscoAsr9001(props: NodeProps) {
   return (
     <Shape
       {...CISCO_ASR_9001}

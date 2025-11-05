@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPOT_FLEET_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const SPOT_FLEET_2 = {
   _height: 230,
 }
 
-export function SpotFleet2(props: DiagramNodeProps) {
+export function SpotFleet2(props: NodeProps) {
   return (
     <Shape
       {...SPOT_FLEET_2}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRODUCTION_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const PRODUCTION_CONTROL = {
   _height: 70,
 }
 
-export function ProductionControl(props: DiagramNodeProps) {
+export function ProductionControl(props: NodeProps) {
   return (
     <Shape
       {...PRODUCTION_CONTROL}

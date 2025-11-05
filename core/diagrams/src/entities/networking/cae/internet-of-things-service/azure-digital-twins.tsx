@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_DIGITAL_TWINS = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_DIGITAL_TWINS = {
   _original_height: 50,
 }
 
-export function AzureDigitalTwins(props: DiagramNodeProps) {
+export function AzureDigitalTwins(props: NodeProps) {
   return (
     <Shape
       {...AZURE_DIGITAL_TWINS}

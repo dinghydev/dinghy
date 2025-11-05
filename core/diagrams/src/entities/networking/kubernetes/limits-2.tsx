@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIMITS_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const LIMITS_2 = {
   _original_height: 48,
 }
 
-export function Limits2(props: DiagramNodeProps) {
+export function Limits2(props: NodeProps) {
   return (
     <Shape {...LIMITS_2} {...props} _style={extendStyle(LIMITS_2, props)} />
   )

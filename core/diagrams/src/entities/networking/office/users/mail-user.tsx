@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAIL_USER = {
   _style: {
@@ -10,7 +10,7 @@ export const MAIL_USER = {
   _original_height: 59,
 }
 
-export function MailUser(props: DiagramNodeProps) {
+export function MailUser(props: NodeProps) {
   return (
     <Shape {...MAIL_USER} {...props} _style={extendStyle(MAIL_USER, props)} />
   )

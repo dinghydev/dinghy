@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEAL = {
   _style: {
@@ -10,6 +10,6 @@ export const SEAL = {
   _original_height: 92,
 }
 
-export function Seal(props: DiagramNodeProps) {
+export function Seal(props: NodeProps) {
   return <Shape {...SEAL} {...props} _style={extendStyle(SEAL, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PERSONALIZED_RECOMMENDATION = {
   _style: {
@@ -10,7 +10,7 @@ export const PERSONALIZED_RECOMMENDATION = {
   _original_height: 50,
 }
 
-export function PersonalizedRecommendation(props: DiagramNodeProps) {
+export function PersonalizedRecommendation(props: NodeProps) {
   return (
     <Shape
       {...PERSONALIZED_RECOMMENDATION}

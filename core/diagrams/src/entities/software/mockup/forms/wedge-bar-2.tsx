@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEDGE_BAR_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const WEDGE_BAR_2 = {
   _height: 30,
 }
 
-export function WedgeBar2(props: DiagramNodeProps) {
+export function WedgeBar2(props: NodeProps) {
   return (
     <Shape
       {...WEDGE_BAR_2}

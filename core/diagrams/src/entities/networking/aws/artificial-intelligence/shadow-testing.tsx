@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHADOW_TESTING = {
   _style: {
@@ -10,7 +10,7 @@ export const SHADOW_TESTING = {
   _original_height: 78,
 }
 
-export function ShadowTesting(props: DiagramNodeProps) {
+export function ShadowTesting(props: NodeProps) {
   return (
     <Shape
       {...SHADOW_TESTING}

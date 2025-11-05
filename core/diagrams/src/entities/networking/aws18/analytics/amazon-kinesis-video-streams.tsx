@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_KINESIS_VIDEO_STREAMS = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_KINESIS_VIDEO_STREAMS = {
   _height: 120,
 }
 
-export function AmazonKinesisVideoStreams(props: DiagramNodeProps) {
+export function AmazonKinesisVideoStreams(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_KINESIS_VIDEO_STREAMS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MDU = {
   _style: {
@@ -10,6 +10,6 @@ export const MDU = {
   _original_height: 80,
 }
 
-export function Mdu(props: DiagramNodeProps) {
+export function Mdu(props: NodeProps) {
   return <Shape {...MDU} {...props} _style={extendStyle(MDU, props)} />
 }

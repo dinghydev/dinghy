@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IPTV_CONTENT_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const IPTV_CONTENT_MANAGER = {
   _height: 51,
 }
 
-export function IptvContentManager(props: DiagramNodeProps) {
+export function IptvContentManager(props: NodeProps) {
   return (
     <Shape
       {...IPTV_CONTENT_MANAGER}

@@ -1,10 +1,10 @@
-import type { IacNodeProps, NodeTree } from '../types/index.ts'
+import type { NodeProps, NodeTree } from '../types/index.ts'
 import { Shape } from './Shape.tsx'
 import { useTypedNode } from '../contexts/useTypedNode.tsx'
 import { useRenderOptions } from '../contexts/useRenderOptions.tsx'
 import { camelCaseToWords } from '../utils/stringUtils.ts'
 
-export function Stack(props: IacNodeProps) {
+export function Stack(props: NodeProps) {
   const { renderOptions } = useRenderOptions()
   if ((props as any).onRender) {
     ;(props as any).onRender(renderOptions)
@@ -37,4 +37,4 @@ export function Stack(props: IacNodeProps) {
   return <Shape {...(stackProps as any)} />
 }
 
-export const useStack = () => useTypedNode<IacNodeProps>(Stack)
+export const useStack = () => useTypedNode<NodeProps>(Stack)

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_GPU = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_GPU = {
   _original_height: 20,
 }
 
-export function CloudGpu(props: DiagramNodeProps) {
+export function CloudGpu(props: NodeProps) {
   return (
     <Shape {...CLOUD_GPU} {...props} _style={extendStyle(CLOUD_GPU, props)} />
   )

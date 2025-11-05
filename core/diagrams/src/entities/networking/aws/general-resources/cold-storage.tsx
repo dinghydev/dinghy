@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLD_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const COLD_STORAGE = {
   _original_height: 78,
 }
 
-export function ColdStorage(props: DiagramNodeProps) {
+export function ColdStorage(props: NodeProps) {
   return (
     <Shape
       {...COLD_STORAGE}

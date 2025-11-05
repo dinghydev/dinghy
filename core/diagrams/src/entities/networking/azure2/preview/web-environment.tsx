@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_ENVIRONMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_ENVIRONMENT = {
   _original_height: 66,
 }
 
-export function WebEnvironment(props: DiagramNodeProps) {
+export function WebEnvironment(props: NodeProps) {
   return (
     <Shape
       {...WEB_ENVIRONMENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_PERSONAL_DATA_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_PERSONAL_DATA_MANAGER = {
   _original_height: 50,
 }
 
-export function SapPersonalDataManager(props: DiagramNodeProps) {
+export function SapPersonalDataManager(props: NodeProps) {
   return (
     <Shape
       {...SAP_PERSONAL_DATA_MANAGER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACCORDION = {
   _style: {
@@ -10,7 +10,7 @@ export const ACCORDION = {
   _height: 220,
 }
 
-export function Accordion(props: DiagramNodeProps) {
+export function Accordion(props: NodeProps) {
   return (
     <Shape {...ACCORDION} {...props} _style={extendStyle(ACCORDION, props)} />
   )

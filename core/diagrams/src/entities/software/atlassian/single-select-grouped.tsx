@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SINGLE_SELECT_GROUPED = {
   _style: {
@@ -10,7 +10,7 @@ export const SINGLE_SELECT_GROUPED = {
   _height: 260,
 }
 
-export function SingleSelectGrouped(props: DiagramNodeProps) {
+export function SingleSelectGrouped(props: NodeProps) {
   return (
     <Shape
       {...SINGLE_SELECT_GROUPED}

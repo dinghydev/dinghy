@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TETRATION_AGENT = {
   _style: {
@@ -10,7 +10,7 @@ export const TETRATION_AGENT = {
   _original_height: 45,
 }
 
-export function TetrationAgent(props: DiagramNodeProps) {
+export function TetrationAgent(props: NodeProps) {
   return (
     <Shape
       {...TETRATION_AGENT}

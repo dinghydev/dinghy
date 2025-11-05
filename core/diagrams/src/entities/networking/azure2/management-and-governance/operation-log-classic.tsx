@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPERATION_LOG_CLASSIC = {
   _style: {
@@ -10,7 +10,7 @@ export const OPERATION_LOG_CLASSIC = {
   _original_height: 67,
 }
 
-export function OperationLogClassic(props: DiagramNodeProps) {
+export function OperationLogClassic(props: NodeProps) {
   return (
     <Shape
       {...OPERATION_LOG_CLASSIC}

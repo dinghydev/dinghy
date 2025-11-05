@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SONIC_DASH = {
   _style: {
@@ -10,7 +10,7 @@ export const SONIC_DASH = {
   _original_height: 68,
 }
 
-export function SonicDash(props: DiagramNodeProps) {
+export function SonicDash(props: NodeProps) {
   return (
     <Shape {...SONIC_DASH} {...props} _style={extendStyle(SONIC_DASH, props)} />
   )

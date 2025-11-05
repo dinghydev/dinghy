@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELEMENTAL_APPLIANCES_SOFTWARE = {
   _style: {
@@ -10,7 +10,7 @@ export const ELEMENTAL_APPLIANCES_SOFTWARE = {
   _original_height: 78,
 }
 
-export function ElementalAppliancesSoftware(props: DiagramNodeProps) {
+export function ElementalAppliancesSoftware(props: NodeProps) {
   return (
     <Shape
       {...ELEMENTAL_APPLIANCES_SOFTWARE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BASKET_STRAINER = {
   _style: {
@@ -10,7 +10,7 @@ export const BASKET_STRAINER = {
   _original_height: 45,
 }
 
-export function BasketStrainer(props: DiagramNodeProps) {
+export function BasketStrainer(props: NodeProps) {
   return (
     <Shape
       {...BASKET_STRAINER}

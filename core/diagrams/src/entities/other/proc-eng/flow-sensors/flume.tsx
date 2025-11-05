@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLUME = {
   _style: {
@@ -10,6 +10,6 @@ export const FLUME = {
   _original_height: 50,
 }
 
-export function Flume(props: DiagramNodeProps) {
+export function Flume(props: NodeProps) {
   return <Shape {...FLUME} {...props} _style={extendStyle(FLUME, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VESSEL_DISHED_BOTTOM_SURFACE_INDICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const VESSEL_DISHED_BOTTOM_SURFACE_INDICATION = {
   _height: 87,
 }
 
-export function VesselDishedBottomSurfaceIndication(props: DiagramNodeProps) {
+export function VesselDishedBottomSurfaceIndication(props: NodeProps) {
   return (
     <Shape
       {...VESSEL_DISHED_BOTTOM_SURFACE_INDICATION}

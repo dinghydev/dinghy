@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONSUMPTION_PLANE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONSUMPTION_PLANE = {
   _original_height: 50,
 }
 
-export function ConsumptionPlane(props: DiagramNodeProps) {
+export function ConsumptionPlane(props: NodeProps) {
   return (
     <Shape
       {...CONSUMPTION_PLANE}

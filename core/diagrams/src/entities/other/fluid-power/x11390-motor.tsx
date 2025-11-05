@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11390_MOTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X11390_MOTOR = {
   _original_height: 92.9,
 }
 
-export function X11390Motor(props: DiagramNodeProps) {
+export function X11390Motor(props: NodeProps) {
   return (
     <Shape
       {...X11390_MOTOR}

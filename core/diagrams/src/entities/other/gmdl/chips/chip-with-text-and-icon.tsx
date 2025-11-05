@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHIP_WITH_TEXT_AND_ICON = {
   _style: {
@@ -10,7 +10,7 @@ export const CHIP_WITH_TEXT_AND_ICON = {
   _height: 32,
 }
 
-export function ChipWithTextAndIcon(props: DiagramNodeProps) {
+export function ChipWithTextAndIcon(props: NodeProps) {
   return (
     <Shape
       {...CHIP_WITH_TEXT_AND_ICON}

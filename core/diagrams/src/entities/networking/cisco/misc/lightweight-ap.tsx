@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIGHTWEIGHT_AP = {
   _style: {
@@ -10,7 +10,7 @@ export const LIGHTWEIGHT_AP = {
   _height: 56,
 }
 
-export function LightweightAp(props: DiagramNodeProps) {
+export function LightweightAp(props: NodeProps) {
   return (
     <Shape
       {...LIGHTWEIGHT_AP}

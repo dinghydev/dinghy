@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPRAY_NOZZLE = {
   _style: {
@@ -10,7 +10,7 @@ export const SPRAY_NOZZLE = {
   _height: 50,
 }
 
-export function SprayNozzle(props: DiagramNodeProps) {
+export function SprayNozzle(props: NodeProps) {
   return (
     <Shape
       {...SPRAY_NOZZLE}

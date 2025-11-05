@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AC_AIR_COMPRESSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const AC_AIR_COMPRESSOR = {
   _height: 65,
 }
 
-export function AcAirCompressor(props: DiagramNodeProps) {
+export function AcAirCompressor(props: NodeProps) {
   return (
     <Shape
       {...AC_AIR_COMPRESSOR}

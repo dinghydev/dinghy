@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BANNER_SINGLE_FOLD = {
   _style: {
@@ -10,7 +10,7 @@ export const BANNER_SINGLE_FOLD = {
   _height: 70,
 }
 
-export function BannerSingleFold(props: DiagramNodeProps) {
+export function BannerSingleFold(props: NodeProps) {
   return (
     <Shape
       {...BANNER_SINGLE_FOLD}

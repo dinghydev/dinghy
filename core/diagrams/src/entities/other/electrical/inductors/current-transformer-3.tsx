@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CURRENT_TRANSFORMER_3 = {
   _style: {
@@ -10,7 +10,7 @@ export const CURRENT_TRANSFORMER_3 = {
   _height: 10,
 }
 
-export function CurrentTransformer3(props: DiagramNodeProps) {
+export function CurrentTransformer3(props: NodeProps) {
   return (
     <Shape
       {...CURRENT_TRANSFORMER_3}

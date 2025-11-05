@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VAPP_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const VAPP_NETWORK = {
   _original_height: 42.5,
 }
 
-export function VappNetwork(props: DiagramNodeProps) {
+export function VappNetwork(props: NodeProps) {
   return (
     <Shape
       {...VAPP_NETWORK}

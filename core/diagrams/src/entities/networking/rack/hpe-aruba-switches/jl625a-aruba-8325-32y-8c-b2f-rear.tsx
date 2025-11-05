@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL625A_ARUBA_8325_32Y_8C_B2F_REAR = {
   _style: {
@@ -10,7 +10,7 @@ export const JL625A_ARUBA_8325_32Y_8C_B2F_REAR = {
   _height: 15,
 }
 
-export function Jl625aAruba832532y8cB2fRear(props: DiagramNodeProps) {
+export function Jl625aAruba832532y8cB2fRear(props: NodeProps) {
   return (
     <Shape
       {...JL625A_ARUBA_8325_32Y_8C_B2F_REAR}

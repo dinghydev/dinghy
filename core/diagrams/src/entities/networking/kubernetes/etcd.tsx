@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ETCD = {
   _style: {
@@ -10,6 +10,6 @@ export const ETCD = {
   _original_height: 48,
 }
 
-export function Etcd(props: DiagramNodeProps) {
+export function Etcd(props: NodeProps) {
   return <Shape {...ETCD} {...props} _style={extendStyle(ETCD, props)} />
 }

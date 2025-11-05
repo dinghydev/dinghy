@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHARED_CONTROL_DISPLAY_IN_DCS_LOCAL_PANEL = {
   _style: {
@@ -10,7 +10,7 @@ export const SHARED_CONTROL_DISPLAY_IN_DCS_LOCAL_PANEL = {
   _original_height: 50,
 }
 
-export function SharedControlDisplayInDcsLocalPanel(props: DiagramNodeProps) {
+export function SharedControlDisplayInDcsLocalPanel(props: NodeProps) {
   return (
     <Shape
       {...SHARED_CONTROL_DISPLAY_IN_DCS_LOCAL_PANEL}

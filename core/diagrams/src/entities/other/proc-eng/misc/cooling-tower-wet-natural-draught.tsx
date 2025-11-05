@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COOLING_TOWER_WET_NATURAL_DRAUGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const COOLING_TOWER_WET_NATURAL_DRAUGHT = {
   _height: 120,
 }
 
-export function CoolingTowerWetNaturalDraught(props: DiagramNodeProps) {
+export function CoolingTowerWetNaturalDraught(props: NodeProps) {
   return (
     <Shape
       {...COOLING_TOWER_WET_NATURAL_DRAUGHT}

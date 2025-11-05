@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IPHONE_LANDSCAPE = {
   _style: {
@@ -10,7 +10,7 @@ export const IPHONE_LANDSCAPE = {
   _height: 200,
 }
 
-export function IphoneLandscape(props: DiagramNodeProps) {
+export function IphoneLandscape(props: NodeProps) {
   return (
     <Shape
       {...IPHONE_LANDSCAPE}

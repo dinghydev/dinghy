@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TABLE_WITH_TITLE_1 = {
   _style: {
@@ -8,7 +8,7 @@ export const TABLE_WITH_TITLE_1 = {
   },
 }
 
-export function TableWithTitle1(props: DiagramNodeProps) {
+export function TableWithTitle1(props: NodeProps) {
   return (
     <Shape
       {...TABLE_WITH_TITLE_1}

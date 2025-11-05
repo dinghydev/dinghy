@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLACIER_INSTANT_RETRIEVAL = {
   _style: {
@@ -10,7 +10,7 @@ export const GLACIER_INSTANT_RETRIEVAL = {
   _original_height: 78,
 }
 
-export function GlacierInstantRetrieval(props: DiagramNodeProps) {
+export function GlacierInstantRetrieval(props: NodeProps) {
   return (
     <Shape
       {...GLACIER_INSTANT_RETRIEVAL}

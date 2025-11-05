@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURITY_CONTROL_TABLE = {
   _style: {
@@ -13,7 +13,7 @@ export const SECURITY_CONTROL_TABLE = {
   },
 }
 
-export function SecurityControlTable(props: DiagramNodeProps) {
+export function SecurityControlTable(props: NodeProps) {
   return (
     <Shape
       {...SECURITY_CONTROL_TABLE}

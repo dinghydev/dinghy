@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9995A_8P_SMART_RATE_POE_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const J9995A_8P_SMART_RATE_POE_MODULE = {
   _height: 15,
 }
 
-export function J9995a8pSmartRatePoeModule(props: DiagramNodeProps) {
+export function J9995a8pSmartRatePoeModule(props: NodeProps) {
   return (
     <Shape
       {...J9995A_8P_SMART_RATE_POE_MODULE}

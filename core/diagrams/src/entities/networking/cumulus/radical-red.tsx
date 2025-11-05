@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RADICAL_RED = {
   _style: {
@@ -9,7 +9,7 @@ export const RADICAL_RED = {
   _original_height: 50,
 }
 
-export function RadicalRed(props: DiagramNodeProps) {
+export function RadicalRed(props: NodeProps) {
   return (
     <Shape
       {...RADICAL_RED}

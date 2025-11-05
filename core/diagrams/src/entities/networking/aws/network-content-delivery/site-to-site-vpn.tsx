@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITE_TO_SITE_VPN = {
   _style: {
@@ -10,7 +10,7 @@ export const SITE_TO_SITE_VPN = {
   _original_height: 78,
 }
 
-export function SiteToSiteVpn(props: DiagramNodeProps) {
+export function SiteToSiteVpn(props: NodeProps) {
   return (
     <Shape
       {...SITE_TO_SITE_VPN}

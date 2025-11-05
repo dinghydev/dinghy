@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAB_LANDSCAPE = {
   _style: {
@@ -10,7 +10,7 @@ export const TAB_LANDSCAPE = {
   _height: 472,
 }
 
-export function TabLandscape(props: DiagramNodeProps) {
+export function TabLandscape(props: NodeProps) {
   return (
     <Shape
       {...TAB_LANDSCAPE}

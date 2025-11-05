@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPIRAL_HEAT_EXCHANGER = {
   _style: {
@@ -10,7 +10,7 @@ export const SPIRAL_HEAT_EXCHANGER = {
   _original_height: 95,
 }
 
-export function SpiralHeatExchanger(props: DiagramNodeProps) {
+export function SpiralHeatExchanger(props: NodeProps) {
   return (
     <Shape
       {...SPIRAL_HEAT_EXCHANGER}

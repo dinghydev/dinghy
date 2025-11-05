@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORRST = {
   _style: {
@@ -10,6 +10,6 @@ export const FORRST = {
   _height: 73.2,
 }
 
-export function Forrst(props: DiagramNodeProps) {
+export function Forrst(props: NodeProps) {
   return <Shape {...FORRST} {...props} _style={extendStyle(FORRST, props)} />
 }

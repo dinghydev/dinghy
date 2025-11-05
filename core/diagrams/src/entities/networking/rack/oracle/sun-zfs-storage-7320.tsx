@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUN_ZFS_STORAGE_7320 = {
   _style: {
@@ -10,7 +10,7 @@ export const SUN_ZFS_STORAGE_7320 = {
   _height: 60,
 }
 
-export function SunZfsStorage7320(props: DiagramNodeProps) {
+export function SunZfsStorage7320(props: NodeProps) {
   return (
     <Shape
       {...SUN_ZFS_STORAGE_7320}

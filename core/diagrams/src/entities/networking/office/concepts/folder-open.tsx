@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FOLDER_OPEN = {
   _style: {
@@ -10,7 +10,7 @@ export const FOLDER_OPEN = {
   _original_height: 43,
 }
 
-export function FolderOpen(props: DiagramNodeProps) {
+export function FolderOpen(props: NodeProps) {
   return (
     <Shape
       {...FOLDER_OPEN}

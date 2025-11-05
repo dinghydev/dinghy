@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TERMS_AND_CONDITIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const TERMS_AND_CONDITIONS = {
   _height: 50,
 }
 
-export function TermsAndConditions(props: DiagramNodeProps) {
+export function TermsAndConditions(props: NodeProps) {
   return (
     <Shape
       {...TERMS_AND_CONDITIONS}

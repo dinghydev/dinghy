@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END_SHARED_ASSOCIATION =
   {
@@ -10,7 +10,7 @@ export const ASSOCIATION_CONNECTOR_INSTANCE_SPECIFICATION_PROPERTY_CONNECTOR_END
   }
 
 export function AssociationConnectorInstanceSpecificationPropertyConnectorEndSharedAssociation(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Dependency

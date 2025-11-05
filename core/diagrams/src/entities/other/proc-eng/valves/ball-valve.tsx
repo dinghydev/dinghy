@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BALL_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const BALL_VALVE = {
   _height: 60,
 }
 
-export function BallValve(props: DiagramNodeProps) {
+export function BallValve(props: NodeProps) {
   return (
     <Shape {...BALL_VALVE} {...props} _style={extendStyle(BALL_VALVE, props)} />
   )

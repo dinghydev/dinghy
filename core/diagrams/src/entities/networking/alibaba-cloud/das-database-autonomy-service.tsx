@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DAS_DATABASE_AUTONOMY_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const DAS_DATABASE_AUTONOMY_SERVICE = {
   _original_height: 47.400000000000006,
 }
 
-export function DasDatabaseAutonomyService(props: DiagramNodeProps) {
+export function DasDatabaseAutonomyService(props: NodeProps) {
   return (
     <Shape
       {...DAS_DATABASE_AUTONOMY_SERVICE}

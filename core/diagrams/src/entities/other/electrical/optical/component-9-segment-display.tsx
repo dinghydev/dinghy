@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_9_SEGMENT_DISPLAY = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_9_SEGMENT_DISPLAY = {
   _height: 96.1,
 }
 
-export function Component9SegmentDisplay(props: DiagramNodeProps) {
+export function Component9SegmentDisplay(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_9_SEGMENT_DISPLAY}

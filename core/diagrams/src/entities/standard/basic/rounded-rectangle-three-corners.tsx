@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUNDED_RECTANGLE_THREE_CORNERS = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUNDED_RECTANGLE_THREE_CORNERS = {
   _height: 60,
 }
 
-export function RoundedRectangleThreeCorners(props: DiagramNodeProps) {
+export function RoundedRectangleThreeCorners(props: NodeProps) {
   return (
     <Shape
       {...ROUNDED_RECTANGLE_THREE_CORNERS}

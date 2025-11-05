@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const Z1D_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const Z1D_INSTANCE = {
   _original_height: 48,
 }
 
-export function Z1dInstance(props: DiagramNodeProps) {
+export function Z1dInstance(props: NodeProps) {
   return (
     <Shape
       {...Z1D_INSTANCE}

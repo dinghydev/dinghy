@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPEN_THIN_DOUBLE = {
   _style: {
@@ -8,7 +8,7 @@ export const OPEN_THIN_DOUBLE = {
   },
 }
 
-export function OpenThinDouble(props: DiagramNodeProps) {
+export function OpenThinDouble(props: NodeProps) {
   return (
     <Dependency
       {...OPEN_THIN_DOUBLE}

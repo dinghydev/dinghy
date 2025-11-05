@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKGROUND_LIGHT = {
   _style: {
@@ -9,7 +9,7 @@ export const BACKGROUND_LIGHT = {
   _height: 642,
 }
 
-export function BackgroundLight(props: DiagramNodeProps) {
+export function BackgroundLight(props: NodeProps) {
   return (
     <Shape
       {...BACKGROUND_LIGHT}

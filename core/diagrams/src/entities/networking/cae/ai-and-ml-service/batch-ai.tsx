@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BATCH_AI = {
   _style: {
@@ -10,7 +10,7 @@ export const BATCH_AI = {
   _height: 50,
 }
 
-export function BatchAi(props: DiagramNodeProps) {
+export function BatchAi(props: NodeProps) {
   return (
     <Shape {...BATCH_AI} {...props} _style={extendStyle(BATCH_AI, props)} />
   )

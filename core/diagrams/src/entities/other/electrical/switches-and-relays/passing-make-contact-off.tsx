@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PASSING_MAKE_CONTACT_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const PASSING_MAKE_CONTACT_OFF = {
   _height: 23,
 }
 
-export function PassingMakeContactOff(props: DiagramNodeProps) {
+export function PassingMakeContactOff(props: NodeProps) {
   return (
     <Shape
       {...PASSING_MAKE_CONTACT_OFF}

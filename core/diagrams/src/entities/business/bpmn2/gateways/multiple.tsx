@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTIPLE = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTIPLE = {
   _original_height: 50,
 }
 
-export function Multiple(props: DiagramNodeProps) {
+export function Multiple(props: NodeProps) {
   return (
     <Shape {...MULTIPLE} {...props} _style={extendStyle(MULTIPLE, props)} />
   )

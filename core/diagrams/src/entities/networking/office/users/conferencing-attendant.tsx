@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONFERENCING_ATTENDANT = {
   _style: {
@@ -10,7 +10,7 @@ export const CONFERENCING_ATTENDANT = {
   _original_height: 59,
 }
 
-export function ConferencingAttendant(props: DiagramNodeProps) {
+export function ConferencingAttendant(props: NodeProps) {
   return (
     <Shape
       {...CONFERENCING_ATTENDANT}

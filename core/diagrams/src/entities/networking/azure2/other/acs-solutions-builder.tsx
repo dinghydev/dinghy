@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACS_SOLUTIONS_BUILDER = {
   _style: {
@@ -10,7 +10,7 @@ export const ACS_SOLUTIONS_BUILDER = {
   _original_height: 52,
 }
 
-export function AcsSolutionsBuilder(props: DiagramNodeProps) {
+export function AcsSolutionsBuilder(props: NodeProps) {
   return (
     <Shape
       {...ACS_SOLUTIONS_BUILDER}

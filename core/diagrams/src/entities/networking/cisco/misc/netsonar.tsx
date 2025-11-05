@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETSONAR = {
   _style: {
@@ -10,7 +10,7 @@ export const NETSONAR = {
   _height: 45,
 }
 
-export function Netsonar(props: DiagramNodeProps) {
+export function Netsonar(props: NodeProps) {
   return (
     <Shape {...NETSONAR} {...props} _style={extendStyle(NETSONAR, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEARCH_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const SEARCH_ENGINE = {
   _height: 192,
 }
 
-export function SearchEngine(props: DiagramNodeProps) {
+export function SearchEngine(props: NodeProps) {
   return (
     <Shape
       {...SEARCH_ENGINE}

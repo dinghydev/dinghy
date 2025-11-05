@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXCESS_FLOW_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const EXCESS_FLOW_VALVE = {
   _height: 25,
 }
 
-export function ExcessFlowValve(props: DiagramNodeProps) {
+export function ExcessFlowValve(props: NodeProps) {
   return (
     <Shape
       {...EXCESS_FLOW_VALVE}

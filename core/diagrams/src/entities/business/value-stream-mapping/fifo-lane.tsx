@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIFO_LANE = {
   _style: {
@@ -10,7 +10,7 @@ export const FIFO_LANE = {
   _height: 50,
 }
 
-export function FifoLane(props: DiagramNodeProps) {
+export function FifoLane(props: NodeProps) {
   return (
     <Shape {...FIFO_LANE} {...props} _style={extendStyle(FIFO_LANE, props)} />
   )

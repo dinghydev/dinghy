@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PCDN_P2P_CDN = {
   _style: {
@@ -10,7 +10,7 @@ export const PCDN_P2P_CDN = {
   _height: 46.5,
 }
 
-export function PcdnP2pCdn(props: DiagramNodeProps) {
+export function PcdnP2pCdn(props: NodeProps) {
   return (
     <Shape
       {...PCDN_P2P_CDN}

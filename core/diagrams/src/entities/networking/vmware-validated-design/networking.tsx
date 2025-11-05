@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETWORKING = {
   _style: {
@@ -10,7 +10,7 @@ export const NETWORKING = {
   _original_height: 50,
 }
 
-export function Networking(props: DiagramNodeProps) {
+export function Networking(props: NodeProps) {
   return (
     <Shape {...NETWORKING} {...props} _style={extendStyle(NETWORKING, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION = {
   _style: {
@@ -10,9 +10,7 @@ export const AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION = {
   _original_height: 60,
 }
 
-export function AirecArtificialIntelligenceRecommendation(
-  props: DiagramNodeProps,
-) {
+export function AirecArtificialIntelligenceRecommendation(props: NodeProps) {
   return (
     <Shape
       {...AIREC_ARTIFICIAL_INTELLIGENCE_RECOMMENDATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CANCEL_BOUNDARY_INTERRUPTING = {
   _style: {
@@ -10,7 +10,7 @@ export const CANCEL_BOUNDARY_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function CancelBoundaryInterrupting(props: DiagramNodeProps) {
+export function CancelBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
       {...CANCEL_BOUNDARY_INTERRUPTING}

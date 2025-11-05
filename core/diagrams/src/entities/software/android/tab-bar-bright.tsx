@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAB_BAR_BRIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const TAB_BAR_BRIGHT = {
   _height: 30,
 }
 
-export function TabBarBright(props: DiagramNodeProps) {
+export function TabBarBright(props: NodeProps) {
   return (
     <Shape
       {...TAB_BAR_BRIGHT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRESSURE_ACTUATED_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const PRESSURE_ACTUATED_ON = {
   _height: 31,
 }
 
-export function PressureActuatedOn(props: DiagramNodeProps) {
+export function PressureActuatedOn(props: NodeProps) {
   return (
     <Shape
       {...PRESSURE_ACTUATED_ON}

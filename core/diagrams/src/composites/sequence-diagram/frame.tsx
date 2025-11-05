@@ -1,4 +1,4 @@
-import { DiagramNodeProps, Shape } from '@dinghy/base-components'
+import { NodeProps, Shape } from '@dinghy/base-components'
 
 export type FrameProps = {
   _width: number
@@ -10,7 +10,7 @@ export type FrameProps = {
 }
 
 export function Frame(
-  { title, _padding, ...props }: FrameProps & DiagramNodeProps,
+  { title, _padding, ...props }: FrameProps & NodeProps,
 ) {
   const titleWidth = (title?.length || 5) * 6 + _padding
   return (

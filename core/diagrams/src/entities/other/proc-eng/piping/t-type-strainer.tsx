@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const T_TYPE_STRAINER = {
   _style: {
@@ -10,7 +10,7 @@ export const T_TYPE_STRAINER = {
   _height: 35,
 }
 
-export function TTypeStrainer(props: DiagramNodeProps) {
+export function TTypeStrainer(props: NodeProps) {
   return (
     <Shape
       {...T_TYPE_STRAINER}

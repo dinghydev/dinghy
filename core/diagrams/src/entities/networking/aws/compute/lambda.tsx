@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAMBDA = {
   _style: {
@@ -10,6 +10,6 @@ export const LAMBDA = {
   _original_height: 78,
 }
 
-export function Lambda(props: DiagramNodeProps) {
+export function Lambda(props: NodeProps) {
   return <Shape {...LAMBDA} {...props} _style={extendStyle(LAMBDA, props)} />
 }

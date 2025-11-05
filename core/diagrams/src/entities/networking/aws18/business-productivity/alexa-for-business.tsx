@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALEXA_FOR_BUSINESS = {
   _style: {
@@ -10,7 +10,7 @@ export const ALEXA_FOR_BUSINESS = {
   _height: 110,
 }
 
-export function AlexaForBusiness(props: DiagramNodeProps) {
+export function AlexaForBusiness(props: NodeProps) {
   return (
     <Shape
       {...ALEXA_FOR_BUSINESS}

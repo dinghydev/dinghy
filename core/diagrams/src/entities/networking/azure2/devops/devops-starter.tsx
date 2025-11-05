@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEVOPS_STARTER = {
   _style: {
@@ -10,7 +10,7 @@ export const DEVOPS_STARTER = {
   _original_height: 63.75999999999999,
 }
 
-export function DevopsStarter(props: DiagramNodeProps) {
+export function DevopsStarter(props: NodeProps) {
   return (
     <Shape
       {...DEVOPS_STARTER}

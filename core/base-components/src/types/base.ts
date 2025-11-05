@@ -1,13 +1,12 @@
-import type { ReactNode } from 'react'
-import z, { type ZodType, type ZodTypeAny } from 'zod'
+import z, { type ZodType } from 'zod'
 
-export const resolvable = <T extends ZodTypeAny>(_schema: T): ZodType<T> =>
+export const resolvable = <T extends ZodType>(_schema: T): ZodType<T> =>
   z.function({
     input: [z.any()],
     output: z.any(),
   }) as unknown as ZodType<T>
 
-export const resolvableValue = <T extends z.ZodTypeAny>(schema: T) =>
+export const resolvableValue = <T extends z.ZodType>(schema: T) =>
   z.union([
     schema,
     resolvable(schema),
@@ -43,35 +42,6 @@ export const RecordSchema = z.record(z.string(), z.unknown())
 export const ResolvableRecordSchema = resolvableValue(
   z.record(z.string(), z.unknown()),
 )
-
-export type ReactNodeTree = {
-  children?: ReactNode
-  _node?: NodeTree
-  _dependsOn?: string | string[]
-  _dependsBy?: string | string[]
-  // [Object.keys(DependsSchema.enum)]?: string | string[]
-} // & ReactNode
-//& Props
-
-export type Renderer = (node: ReactNodeTree) => ReactNode
-
-export const DependsSchema = z.enum(['_dependsOn', '_dependsBy'])
-export type DependsType = z.input<typeof DependsSchema>
-
-export type NodeTree = {
-  _parent?: NodeTree
-  _children: NodeTree[]
-  _props: NodeProps
-
-  _dependsOn?: NodeTree[]
-  _dependsBy?: NodeTree[]
-}
-
-export const ReactPropsSchema = z.object({
-  key: z.any().optional(),
-  ref: z.any().optional(),
-  _importId: ResolvableStringSchema.optional(), // TODO: move to tf module
-})
 
 /**
 
@@ -164,10 +134,12 @@ export const LifecycleSchema = z.object({
   }),
 }).meta({ hideRequired: true, hideDefault: true })
 
-export type NodeType =
+export const ReactPropsSchema = z.object({
+  key: z.any().optional(),
+  ref: z.any().optional(),
+})
+export type BaseNodeType =
   & z.input<typeof ReactPropsSchema>
   & z.input<typeof BaseAttributesSchema>
   & z.input<typeof FiltersSchema>
   & z.input<typeof LifecycleSchema>
-
-export type NodeProps = NodeType & ReactNodeTree

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVER_WITH_VEEAM_AGENT = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVER_WITH_VEEAM_AGENT = {
   _original_height: 52,
 }
 
-export function ServerWithVeeamAgent(props: DiagramNodeProps) {
+export function ServerWithVeeamAgent(props: NodeProps) {
   return (
     <Shape
       {...SERVER_WITH_VEEAM_AGENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11260_FIXED_DISPLACEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const X11260_FIXED_DISPLACEMENT = {
   _original_height: 93.94,
 }
 
-export function X11260FixedDisplacement(props: DiagramNodeProps) {
+export function X11260FixedDisplacement(props: NodeProps) {
   return (
     <Shape
       {...X11260_FIXED_DISPLACEMENT}

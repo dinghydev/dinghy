@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER = {
   _style: {
@@ -10,7 +10,7 @@ export const TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER = {
   _height: 140,
 }
 
-export function TurboDrierDiscDrierMovingShelfDrier(props: DiagramNodeProps) {
+export function TurboDrierDiscDrierMovingShelfDrier(props: NodeProps) {
   return (
     <Shape
       {...TURBO_DRIER_DISC_DRIER_MOVING_SHELF_DRIER}

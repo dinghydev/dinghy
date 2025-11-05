@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PERISTALTIC = {
   _style: {
@@ -10,7 +10,7 @@ export const PERISTALTIC = {
   _original_height: 69,
 }
 
-export function Peristaltic(props: DiagramNodeProps) {
+export function Peristaltic(props: NodeProps) {
   return (
     <Shape
       {...PERISTALTIC}

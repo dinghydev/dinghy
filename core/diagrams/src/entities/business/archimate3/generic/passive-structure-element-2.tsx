@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PASSIVE_STRUCTURE_ELEMENT_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const PASSIVE_STRUCTURE_ELEMENT_2 = {
   _height: 35,
 }
 
-export function PassiveStructureElement2(props: DiagramNodeProps) {
+export function PassiveStructureElement2(props: NodeProps) {
   return (
     <Shape
       {...PASSIVE_STRUCTURE_ELEMENT_2}

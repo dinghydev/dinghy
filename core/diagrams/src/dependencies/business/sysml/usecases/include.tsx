@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INCLUDE = {
   _style: {
@@ -8,7 +8,7 @@ export const INCLUDE = {
   },
 }
 
-export function Include(props: DiagramNodeProps) {
+export function Include(props: NodeProps) {
   return (
     <Dependency {...INCLUDE} {...props} _style={extendStyle(INCLUDE, props)} />
   )

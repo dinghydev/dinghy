@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PYRAMID_GRAPH_5 = {
   _style: {
@@ -10,7 +10,7 @@ export const PYRAMID_GRAPH_5 = {
   _height: 140,
 }
 
-export function PyramidGraph5(props: DiagramNodeProps) {
+export function PyramidGraph5(props: NodeProps) {
   return (
     <Shape
       {...PYRAMID_GRAPH_5}

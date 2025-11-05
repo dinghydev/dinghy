@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETWORK_SECURITY_GROUPS_CLASSIC = {
   _style: {
@@ -10,7 +10,7 @@ export const NETWORK_SECURITY_GROUPS_CLASSIC = {
   _height: 50,
 }
 
-export function NetworkSecurityGroupsClassic(props: DiagramNodeProps) {
+export function NetworkSecurityGroupsClassic(props: NodeProps) {
   return (
     <Shape
       {...NETWORK_SECURITY_GROUPS_CLASSIC}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APIGEE_SENSE = {
   _style: {
@@ -10,7 +10,7 @@ export const APIGEE_SENSE = {
   _original_height: 40,
 }
 
-export function ApigeeSense(props: DiagramNodeProps) {
+export function ApigeeSense(props: NodeProps) {
   return (
     <Shape
       {...APIGEE_SENSE}

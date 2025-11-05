@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PXF = {
   _style: {
@@ -10,6 +10,6 @@ export const PXF = {
   _original_height: 82,
 }
 
-export function Pxf(props: DiagramNodeProps) {
+export function Pxf(props: NodeProps) {
   return <Shape {...PXF} {...props} _style={extendStyle(PXF, props)} />
 }

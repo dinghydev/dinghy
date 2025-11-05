@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDSIMPLE_VIRTUAL_MACHINES = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDSIMPLE_VIRTUAL_MACHINES = {
   _height: 32,
 }
 
-export function CloudsimpleVirtualMachines(props: DiagramNodeProps) {
+export function CloudsimpleVirtualMachines(props: NodeProps) {
   return (
     <Shape
       {...CLOUDSIMPLE_VIRTUAL_MACHINES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SANITARY_DISPOSAL_STATION = {
   _style: {
@@ -10,7 +10,7 @@ export const SANITARY_DISPOSAL_STATION = {
   _original_height: 87,
 }
 
-export function SanitaryDisposalStation(props: DiagramNodeProps) {
+export function SanitaryDisposalStation(props: NodeProps) {
   return (
     <Shape
       {...SANITARY_DISPOSAL_STATION}

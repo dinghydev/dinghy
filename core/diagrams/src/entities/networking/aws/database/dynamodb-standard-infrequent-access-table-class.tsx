@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DYNAMODB_STANDARD_INFREQUENT_ACCESS_TABLE_CLASS = {
   _style: {
@@ -10,9 +10,7 @@ export const DYNAMODB_STANDARD_INFREQUENT_ACCESS_TABLE_CLASS = {
   _original_height: 78,
 }
 
-export function DynamodbStandardInfrequentAccessTableClass(
-  props: DiagramNodeProps,
-) {
+export function DynamodbStandardInfrequentAccessTableClass(props: NodeProps) {
   return (
     <Shape
       {...DYNAMODB_STANDARD_INFREQUENT_ACCESS_TABLE_CLASS}

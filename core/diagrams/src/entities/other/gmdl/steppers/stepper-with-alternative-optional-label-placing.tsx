@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STEPPER_WITH_ALTERNATIVE_OPTIONAL_LABEL_PLACING = {
   _style: {
@@ -10,9 +10,7 @@ export const STEPPER_WITH_ALTERNATIVE_OPTIONAL_LABEL_PLACING = {
   _height: 50,
 }
 
-export function StepperWithAlternativeOptionalLabelPlacing(
-  props: DiagramNodeProps,
-) {
+export function StepperWithAlternativeOptionalLabelPlacing(props: NodeProps) {
   return (
     <Shape
       {...STEPPER_WITH_ALTERNATIVE_OPTIONAL_LABEL_PLACING}

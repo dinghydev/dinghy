@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THERMOSTAT_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const THERMOSTAT_ON = {
   _height: 21,
 }
 
-export function ThermostatOn(props: DiagramNodeProps) {
+export function ThermostatOn(props: NodeProps) {
   return (
     <Shape
       {...THERMOSTAT_ON}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ICE_FISHING = {
   _style: {
@@ -10,7 +10,7 @@ export const ICE_FISHING = {
   _original_height: 99,
 }
 
-export function IceFishing(props: DiagramNodeProps) {
+export function IceFishing(props: NodeProps) {
   return (
     <Shape
       {...ICE_FISHING}

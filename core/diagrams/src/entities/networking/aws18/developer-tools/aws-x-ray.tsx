@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_X_RAY = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_X_RAY = {
   _height: 100,
 }
 
-export function AwsXRay(props: DiagramNodeProps) {
+export function AwsXRay(props: NodeProps) {
   return (
     <Shape {...AWS_X_RAY} {...props} _style={extendStyle(AWS_X_RAY, props)} />
   )

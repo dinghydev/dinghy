@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUMERIAN = {
   _style: {
@@ -10,7 +10,7 @@ export const SUMERIAN = {
   _original_height: 78,
 }
 
-export function Sumerian(props: DiagramNodeProps) {
+export function Sumerian(props: NodeProps) {
   return (
     <Shape {...SUMERIAN} {...props} _style={extendStyle(SUMERIAN, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HEAT_EXCHANGER_FINNED_TUBES_FAN = {
   _style: {
@@ -10,7 +10,7 @@ export const HEAT_EXCHANGER_FINNED_TUBES_FAN = {
   _original_height: 100,
 }
 
-export function HeatExchangerFinnedTubesFan(props: DiagramNodeProps) {
+export function HeatExchangerFinnedTubesFan(props: NodeProps) {
   return (
     <Shape
       {...HEAT_EXCHANGER_FINNED_TUBES_FAN}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_FIREWALL = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_FIREWALL = {
   _original_height: 50,
 }
 
-export function AzureFirewall(props: DiagramNodeProps) {
+export function AzureFirewall(props: NodeProps) {
   return (
     <Shape
       {...AZURE_FIREWALL}

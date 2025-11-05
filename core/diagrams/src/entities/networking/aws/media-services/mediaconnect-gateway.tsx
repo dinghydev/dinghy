@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEDIACONNECT_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const MEDIACONNECT_GATEWAY = {
   _original_height: 78,
 }
 
-export function MediaconnectGateway(props: DiagramNodeProps) {
+export function MediaconnectGateway(props: NodeProps) {
   return (
     <Shape
       {...MEDIACONNECT_GATEWAY}

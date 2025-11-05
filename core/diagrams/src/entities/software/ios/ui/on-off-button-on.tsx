@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_OFF_BUTTON_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const ON_OFF_BUTTON_ON = {
   _height: 15,
 }
 
-export function OnOffButtonOn(props: DiagramNodeProps) {
+export function OnOffButtonOn(props: NodeProps) {
   return (
     <Shape
       {...ON_OFF_BUTTON_ON}

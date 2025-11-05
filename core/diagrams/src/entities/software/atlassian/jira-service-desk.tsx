@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JIRA_SERVICE_DESK = {
   _style: {
@@ -10,7 +10,7 @@ export const JIRA_SERVICE_DESK = {
   _original_height: 76,
 }
 
-export function JiraServiceDesk(props: DiagramNodeProps) {
+export function JiraServiceDesk(props: NodeProps) {
   return (
     <Shape
       {...JIRA_SERVICE_DESK}

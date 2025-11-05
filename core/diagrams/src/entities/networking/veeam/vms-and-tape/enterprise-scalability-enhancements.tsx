@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTERPRISE_SCALABILITY_ENHANCEMENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTERPRISE_SCALABILITY_ENHANCEMENTS = {
   _original_height: 44.8,
 }
 
-export function EnterpriseScalabilityEnhancements(props: DiagramNodeProps) {
+export function EnterpriseScalabilityEnhancements(props: NodeProps) {
   return (
     <Shape
       {...ENTERPRISE_SCALABILITY_ENHANCEMENTS}

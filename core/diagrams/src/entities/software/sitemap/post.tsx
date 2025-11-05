@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POST = {
   _style: {
@@ -10,6 +10,6 @@ export const POST = {
   _height: 70,
 }
 
-export function Post(props: DiagramNodeProps) {
+export function Post(props: NodeProps) {
   return <Shape {...POST} {...props} _style={extendStyle(POST, props)} />
 }

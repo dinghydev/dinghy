@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PULSE = {
   _style: {
@@ -10,6 +10,6 @@ export const PULSE = {
   _original_height: 90,
 }
 
-export function Pulse(props: DiagramNodeProps) {
+export function Pulse(props: NodeProps) {
   return <Shape {...PULSE} {...props} _style={extendStyle(PULSE, props)} />
 }

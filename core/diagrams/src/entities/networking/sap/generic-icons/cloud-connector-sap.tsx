@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_CONNECTOR_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_CONNECTOR_SAP = {
   _original_height: 28,
 }
 
-export function CloudConnectorSap(props: DiagramNodeProps) {
+export function CloudConnectorSap(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_CONNECTOR_SAP}

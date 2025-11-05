@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WHEELCHAIR_ACCESSIBLE_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const WHEELCHAIR_ACCESSIBLE_1 = {
   _original_height: 99,
 }
 
-export function WheelchairAccessible1(props: DiagramNodeProps) {
+export function WheelchairAccessible1(props: NodeProps) {
   return (
     <Shape
       {...WHEELCHAIR_ACCESSIBLE_1}

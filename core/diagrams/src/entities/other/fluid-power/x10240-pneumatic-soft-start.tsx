@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10240_PNEUMATIC_SOFT_START = {
   _style: {
@@ -10,7 +10,7 @@ export const X10240_PNEUMATIC_SOFT_START = {
   _height: 74.66,
 }
 
-export function X10240PneumaticSoftStart(props: DiagramNodeProps) {
+export function X10240PneumaticSoftStart(props: NodeProps) {
   return (
     <Shape
       {...X10240_PNEUMATIC_SOFT_START}

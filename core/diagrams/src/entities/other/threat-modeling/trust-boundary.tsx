@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRUST_BOUNDARY = {
   _style: {
@@ -10,7 +10,7 @@ export const TRUST_BOUNDARY = {
   _height: 140,
 }
 
-export function TrustBoundary(props: DiagramNodeProps) {
+export function TrustBoundary(props: NodeProps) {
   return (
     <Shape
       {...TRUST_BOUNDARY}

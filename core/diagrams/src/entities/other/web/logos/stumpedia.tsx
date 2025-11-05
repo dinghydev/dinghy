@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STUMPEDIA = {
   _style: {
@@ -10,7 +10,7 @@ export const STUMPEDIA = {
   _original_height: 67.60000000000001,
 }
 
-export function Stumpedia(props: DiagramNodeProps) {
+export function Stumpedia(props: NodeProps) {
   return (
     <Shape {...STUMPEDIA} {...props} _style={extendStyle(STUMPEDIA, props)} />
   )

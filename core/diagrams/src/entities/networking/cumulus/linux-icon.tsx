@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINUX_ICON = {
   _style: {
@@ -10,7 +10,7 @@ export const LINUX_ICON = {
   _original_height: 96,
 }
 
-export function LinuxIcon(props: DiagramNodeProps) {
+export function LinuxIcon(props: NodeProps) {
   return (
     <Shape {...LINUX_ICON} {...props} _style={extendStyle(LINUX_ICON, props)} />
   )

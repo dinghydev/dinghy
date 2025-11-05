@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUBLIC_CONNECTOR_CIRCLE_CIRCLE = {
   _style: {
@@ -8,7 +8,7 @@ export const PUBLIC_CONNECTOR_CIRCLE_CIRCLE = {
   },
 }
 
-export function PublicConnectorCircleCircle(props: DiagramNodeProps) {
+export function PublicConnectorCircleCircle(props: NodeProps) {
   return (
     <Dependency
       {...PUBLIC_CONNECTOR_CIRCLE_CIRCLE}

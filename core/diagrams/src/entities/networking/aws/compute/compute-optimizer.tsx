@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPUTE_OPTIMIZER = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPUTE_OPTIMIZER = {
   _original_height: 78,
 }
 
-export function ComputeOptimizer(props: DiagramNodeProps) {
+export function ComputeOptimizer(props: NodeProps) {
   return (
     <Shape
       {...COMPUTE_OPTIMIZER}

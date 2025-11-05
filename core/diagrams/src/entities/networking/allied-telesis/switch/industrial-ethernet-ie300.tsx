@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDUSTRIAL_ETHERNET_IE300 = {
   _style: {
@@ -10,7 +10,7 @@ export const INDUSTRIAL_ETHERNET_IE300 = {
   _original_height: 77.4,
 }
 
-export function IndustrialEthernetIe300(props: DiagramNodeProps) {
+export function IndustrialEthernetIe300(props: NodeProps) {
   return (
     <Shape
       {...INDUSTRIAL_ETHERNET_IE300}

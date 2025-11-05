@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAZONE_BUSINESS_DATA_CATALOG = {
   _style: {
@@ -10,7 +10,7 @@ export const DATAZONE_BUSINESS_DATA_CATALOG = {
   _original_height: 78,
 }
 
-export function DatazoneBusinessDataCatalog(props: DiagramNodeProps) {
+export function DatazoneBusinessDataCatalog(props: NodeProps) {
   return (
     <Shape
       {...DATAZONE_BUSINESS_DATA_CATALOG}

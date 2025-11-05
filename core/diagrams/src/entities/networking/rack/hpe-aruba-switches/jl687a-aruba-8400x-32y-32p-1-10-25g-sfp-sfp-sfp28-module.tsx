@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL687A_ARUBA_8400X_32Y_32P_1_10_25G_SFP_SFP_SFP28_MODULE = {
   _style: {
@@ -11,7 +11,7 @@ export const JL687A_ARUBA_8400X_32Y_32P_1_10_25G_SFP_SFP_SFP28_MODULE = {
 }
 
 export function Jl687aAruba8400x32y32p11025gSfpSfpSfp28Module(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ERROR_INTERMEDIATE_BOUNDARY_INTERRUPTING = {
   _style: {
@@ -10,7 +10,7 @@ export const ERROR_INTERMEDIATE_BOUNDARY_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function ErrorIntermediateBoundaryInterrupting(props: DiagramNodeProps) {
+export function ErrorIntermediateBoundaryInterrupting(props: NodeProps) {
   return (
     <Shape
       {...ERROR_INTERMEDIATE_BOUNDARY_INTERRUPTING}

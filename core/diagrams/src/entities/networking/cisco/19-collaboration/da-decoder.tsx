@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DA_DECODER = {
   _style: {
@@ -10,7 +10,7 @@ export const DA_DECODER = {
   _original_height: 50,
 }
 
-export function DaDecoder(props: DiagramNodeProps) {
+export function DaDecoder(props: NodeProps) {
   return (
     <Shape {...DA_DECODER} {...props} _style={extendStyle(DA_DECODER, props)} />
   )

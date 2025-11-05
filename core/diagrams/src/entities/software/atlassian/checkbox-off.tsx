@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECKBOX_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const CHECKBOX_OFF = {
   _original_height: 12,
 }
 
-export function CheckboxOff(props: DiagramNodeProps) {
+export function CheckboxOff(props: NodeProps) {
   return (
     <Shape
       {...CHECKBOX_OFF}

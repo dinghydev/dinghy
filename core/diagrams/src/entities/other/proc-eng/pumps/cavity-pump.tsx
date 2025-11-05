@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CAVITY_PUMP = {
   _style: {
@@ -10,7 +10,7 @@ export const CAVITY_PUMP = {
   _height: 35,
 }
 
-export function CavityPump(props: DiagramNodeProps) {
+export function CavityPump(props: NodeProps) {
   return (
     <Shape
       {...CAVITY_PUMP}

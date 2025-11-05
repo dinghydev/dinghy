@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_APPLICATION_DISCOVERY_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_APPLICATION_DISCOVERY_SERVICE = {
   _height: 135,
 }
 
-export function AwsApplicationDiscoveryService(props: DiagramNodeProps) {
+export function AwsApplicationDiscoveryService(props: NodeProps) {
   return (
     <Shape
       {...AWS_APPLICATION_DISCOVERY_SERVICE}

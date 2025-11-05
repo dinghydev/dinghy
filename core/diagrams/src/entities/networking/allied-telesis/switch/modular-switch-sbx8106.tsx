@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MODULAR_SWITCH_SBX8106 = {
   _style: {
@@ -10,7 +10,7 @@ export const MODULAR_SWITCH_SBX8106 = {
   _original_height: 73.8,
 }
 
-export function ModularSwitchSbx8106(props: DiagramNodeProps) {
+export function ModularSwitchSbx8106(props: NodeProps) {
   return (
     <Shape
       {...MODULAR_SWITCH_SBX8106}

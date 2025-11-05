@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IOT_INTERNET_OF_THINGS_PLATFORM = {
   _style: {
@@ -10,7 +10,7 @@ export const IOT_INTERNET_OF_THINGS_PLATFORM = {
   _original_height: 55.5,
 }
 
-export function IotInternetOfThingsPlatform(props: DiagramNodeProps) {
+export function IotInternetOfThingsPlatform(props: NodeProps) {
   return (
     <Shape
       {...IOT_INTERNET_OF_THINGS_PLATFORM}

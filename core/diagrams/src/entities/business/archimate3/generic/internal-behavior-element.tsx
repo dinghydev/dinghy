@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERNAL_BEHAVIOR_ELEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERNAL_BEHAVIOR_ELEMENT = {
   _height: 75,
 }
 
-export function InternalBehaviorElement(props: DiagramNodeProps) {
+export function InternalBehaviorElement(props: NodeProps) {
   return (
     <Shape
       {...INTERNAL_BEHAVIOR_ELEMENT}

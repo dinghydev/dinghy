@@ -482,25 +482,25 @@ export function App() {
   RdsPostgresqlInstance,
   Waf,
 } from 'dinghy-components-generated-drawio'
-import { type DiagramNodeProps, Shape } from 'dinghy-core'
+import { type NodeProps, Shape } from 'dinghy-core'
 
-function Stack(props: DiagramNodeProps) {
+function Stack(props: NodeProps) {
   return <Shape {...props} />
 }
 
-function Cloud(props: DiagramNodeProps) {
+function Cloud(props: NodeProps) {
   return <GroupAwsCloudAlt {...props} />
 }
 
-function Region(props: DiagramNodeProps) {
+function Region(props: NodeProps) {
   return <GroupRegion {...props} />
 }
 
-function VPC(props: DiagramNodeProps) {
+function VPC(props: NodeProps) {
   return <GroupVpc2 {...props} />
 }
 
-function PublicSubnet(props: DiagramNodeProps) {
+function PublicSubnet(props: NodeProps) {
   return (
     <GroupSecurityGroup
       _color='#7AA116'
@@ -510,7 +510,7 @@ function PublicSubnet(props: DiagramNodeProps) {
   )
 }
 
-function PrivateSubnet(props: DiagramNodeProps) {
+function PrivateSubnet(props: NodeProps) {
   return (
     <GroupSecurityGroup
       _color='#00A4A6'
@@ -520,15 +520,15 @@ function PrivateSubnet(props: DiagramNodeProps) {
   )
 }
 
-function LoadBalancer(props: DiagramNodeProps) {
+function LoadBalancer(props: NodeProps) {
   return <ApplicationLoadBalancer {...props} />
 }
 
-function ECSCluster(props: DiagramNodeProps) {
+function ECSCluster(props: NodeProps) {
   return <Shape _dashed={false} {...props} />
 }
 
-function ECSService(props: DiagramNodeProps) {
+function ECSService(props: NodeProps) {
   return (
     <GroupEc2InstanceContents {...props}>
       <ECSContainer>{props.children}</ECSContainer>
@@ -536,19 +536,19 @@ function ECSService(props: DiagramNodeProps) {
   )
 }
 
-function ECSContainer(props: DiagramNodeProps) {
+function ECSContainer(props: NodeProps) {
   return <Android {...props} />
 }
 
-function Postgres(props: DiagramNodeProps) {
+function Postgres(props: NodeProps) {
   return <RdsPostgresqlInstance {...props} />
 }
 
-function Redis(props: DiagramNodeProps) {
+function Redis(props: NodeProps) {
   return <ElasticacheForRedis {...props} />
 }
 
-function StorageLayer(props: DiagramNodeProps) {
+function StorageLayer(props: NodeProps) {
   return (
     <Shape
       _display={'invisible'}
@@ -598,23 +598,23 @@ export function App() {
     order: 1000,
     code: `import {
   Dependency,
-  type DiagramNodeProps,
+  type NodeProps,
   Shape,
 } from 'dinghy-core'
 import { DrawioNodeTree, Point } from 'dinghy-provider-drawio'
 
-const Mindmap = (props: DiagramNodeProps) => (
+const Mindmap = (props: NodeProps) => (
   <Shape _direction={'vertical'} {...props} />
 )
-const Row = (props: DiagramNodeProps) => (
+const Row = (props: NodeProps) => (
   <Shape _display={'invisible'} {...props} />
 )
 
-const Column = (props: DiagramNodeProps) => (
+const Column = (props: NodeProps) => (
   <Row _direction={'vertical'} {...props} />
 )
 
-const CenterMiddle = (props: DiagramNodeProps) => (
+const CenterMiddle = (props: NodeProps) => (
   <Shape
     _width={400}
     _height={600}
@@ -624,7 +624,7 @@ const CenterMiddle = (props: DiagramNodeProps) => (
   />
 )
 
-const Dependencies = (props: DiagramNodeProps) => (
+const Dependencies = (props: NodeProps) => (
   <Dependency
     _dependsOn={[
       'T1',
@@ -726,22 +726,22 @@ export function App() {
     order: 1000,
     code: `import {
   Dependency,
-  type DiagramNodeProps,
+  type NodeProps,
   Shape,
 } from 'dinghy-core'
 
-const Modules = (props: DiagramNodeProps) => (
+const Modules = (props: NodeProps) => (
   <Shape
     _title='Module / Package relationships'
     _direction={'vertical'}
     {...props}
   />
 )
-const Row = (props: DiagramNodeProps) => (
+const Row = (props: NodeProps) => (
   <Shape _display={'invisible'} {...props} />
 )
 
-const Group = (props: DiagramNodeProps) => (
+const Group = (props: NodeProps) => (
   <Shape
     _width={520}
     _distribution={'horizontal'}
@@ -749,14 +749,14 @@ const Group = (props: DiagramNodeProps) => (
   />
 )
 
-const VerticalGroup = (props: DiagramNodeProps) => (
+const VerticalGroup = (props: NodeProps) => (
   <Group
     _direction='vertical'
     {...props}
   />
 )
 
-const Renderers = (props: DiagramNodeProps) => (
+const Renderers = (props: NodeProps) => (
   <Group
     _dependsOn={['BaseRenderer']}
     _dependsBy={['Clients']}
@@ -764,21 +764,21 @@ const Renderers = (props: DiagramNodeProps) => (
   />
 )
 
-const ProjectManagers = (props: DiagramNodeProps) => <Group {...props} />
-const Clients = (props: DiagramNodeProps) => <Group {...props} />
+const ProjectManagers = (props: NodeProps) => <Group {...props} />
+const Clients = (props: NodeProps) => <Group {...props} />
 
-const BaseComponents = (props: DiagramNodeProps) => <Group {...props} />
-const BaseRenderer = (props: DiagramNodeProps) => <Group {...props} />
+const BaseComponents = (props: NodeProps) => <Group {...props} />
+const BaseRenderer = (props: NodeProps) => <Group {...props} />
 
-const StandardComponents = (props: DiagramNodeProps) => (
+const StandardComponents = (props: NodeProps) => (
   <VerticalGroup
     _dependsOn={'BaseComponents'}
     {...props}
   />
 )
-const Examples = (props: DiagramNodeProps) => <VerticalGroup {...props} />
+const Examples = (props: NodeProps) => <VerticalGroup {...props} />
 
-const Module = (props: DiagramNodeProps) => (
+const Module = (props: NodeProps) => (
   <Shape
     _width={100}
     _height={30}
@@ -943,7 +943,7 @@ export function App() {
     packagePath: "iac/ecs",
     outputPath: "./packages/examples/iac/ecs/output",
     order: 1000,
-    code: `import { type DiagramNodeProps, Shape, Stack } from 'dinghy-core'
+    code: `import { type NodeProps, Shape, Stack } from 'dinghy-core'
 import {
   AwsCloud,
   AwsECSCluster,
@@ -970,7 +970,7 @@ function Redis(props: AwsElasticacheClusterProps) {
   return <AwsElasticacheCluster engine='redis' {...props} />
 }
 
-function StorageLayer(props: DiagramNodeProps) {
+function StorageLayer(props: NodeProps) {
   return (
     <Shape
       _border={0}
@@ -980,7 +980,7 @@ function StorageLayer(props: DiagramNodeProps) {
   )
 }
 
-function ECSApp(props: DiagramNodeProps) {
+function ECSApp(props: NodeProps) {
   return <Stack {...props} />
 }
 

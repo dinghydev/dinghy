@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_1_MANDATORY_TO_MANY_MANDATORY = {
   _style: {
@@ -8,7 +8,7 @@ export const COMPONENT_1_MANDATORY_TO_MANY_MANDATORY = {
   },
 }
 
-export function Component1MandatoryToManyMandatory(props: DiagramNodeProps) {
+export function Component1MandatoryToManyMandatory(props: NodeProps) {
   return (
     <Dependency
       {...COMPONENT_1_MANDATORY_TO_MANY_MANDATORY}

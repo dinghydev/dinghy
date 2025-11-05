@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTOML_TRANSLATION = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTOML_TRANSLATION = {
   _height: 32,
 }
 
-export function AutomlTranslation(props: DiagramNodeProps) {
+export function AutomlTranslation(props: NodeProps) {
   return (
     <Shape
       {...AUTOML_TRANSLATION}

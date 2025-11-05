@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXT_TO_SPEECH = {
   _style: {
@@ -10,7 +10,7 @@ export const TEXT_TO_SPEECH = {
   _height: 34,
 }
 
-export function TextToSpeech(props: DiagramNodeProps) {
+export function TextToSpeech(props: NodeProps) {
   return (
     <Shape
       {...TEXT_TO_SPEECH}

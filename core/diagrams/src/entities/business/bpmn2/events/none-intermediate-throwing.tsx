@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NONE_INTERMEDIATE_THROWING = {
   _style: {
@@ -10,7 +10,7 @@ export const NONE_INTERMEDIATE_THROWING = {
   _original_height: 50,
 }
 
-export function NoneIntermediateThrowing(props: DiagramNodeProps) {
+export function NoneIntermediateThrowing(props: NodeProps) {
   return (
     <Shape
       {...NONE_INTERMEDIATE_THROWING}

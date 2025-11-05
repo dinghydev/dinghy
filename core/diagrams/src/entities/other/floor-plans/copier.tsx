@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COPIER = {
   _style: {
@@ -10,6 +10,6 @@ export const COPIER = {
   _height: 60,
 }
 
-export function Copier(props: DiagramNodeProps) {
+export function Copier(props: NodeProps) {
   return <Shape {...COPIER} {...props} _style={extendStyle(COPIER, props)} />
 }

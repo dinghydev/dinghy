@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_UCS_C460_M2_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_UCS_C460_M2_SERVER = {
   _height: 60,
 }
 
-export function CiscoUcsC460M2Server(props: DiagramNodeProps) {
+export function CiscoUcsC460M2Server(props: NodeProps) {
   return (
     <Shape
       {...CISCO_UCS_C460_M2_SERVER}

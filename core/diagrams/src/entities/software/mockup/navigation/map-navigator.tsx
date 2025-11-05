@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAP_NAVIGATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const MAP_NAVIGATOR = {
   _height: 100,
 }
 
-export function MapNavigator(props: DiagramNodeProps) {
+export function MapNavigator(props: NodeProps) {
   return (
     <Shape
       {...MAP_NAVIGATOR}

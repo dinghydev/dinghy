@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEQUENCED_PULL_BALL = {
   _style: {
@@ -10,7 +10,7 @@ export const SEQUENCED_PULL_BALL = {
   _original_height: 60,
 }
 
-export function SequencedPullBall(props: DiagramNodeProps) {
+export function SequencedPullBall(props: NodeProps) {
   return (
     <Shape
       {...SEQUENCED_PULL_BALL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED = {
   _style: {
@@ -8,9 +8,7 @@ export const MESSAGE_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED = {
   },
 }
 
-export function MessageEventSubProcessInterruptingCollapsed(
-  props: DiagramNodeProps,
-) {
+export function MessageEventSubProcessInterruptingCollapsed(props: NodeProps) {
   return (
     <Shape
       {...MESSAGE_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED}

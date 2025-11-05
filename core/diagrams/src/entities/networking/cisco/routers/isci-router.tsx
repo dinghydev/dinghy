@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ISCI_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const ISCI_ROUTER = {
   _height: 75,
 }
 
-export function IsciRouter(props: DiagramNodeProps) {
+export function IsciRouter(props: NodeProps) {
   return (
     <Shape
       {...ISCI_ROUTER}

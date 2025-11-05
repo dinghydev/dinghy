@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const USER_CALL_ACTIVITY = {
   _style: {
@@ -8,7 +8,7 @@ export const USER_CALL_ACTIVITY = {
   },
 }
 
-export function UserCallActivity(props: DiagramNodeProps) {
+export function UserCallActivity(props: NodeProps) {
   return (
     <Shape
       {...USER_CALL_ACTIVITY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FSX_FOR_LUSTRE = {
   _style: {
@@ -10,7 +10,7 @@ export const FSX_FOR_LUSTRE = {
   _original_height: 78,
 }
 
-export function FsxForLustre(props: DiagramNodeProps) {
+export function FsxForLustre(props: NodeProps) {
   return (
     <Shape
       {...FSX_FOR_LUSTRE}

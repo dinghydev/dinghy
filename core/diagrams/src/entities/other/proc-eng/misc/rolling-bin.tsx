@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROLLING_BIN = {
   _style: {
@@ -10,7 +10,7 @@ export const ROLLING_BIN = {
   _height: 65,
 }
 
-export function RollingBin(props: DiagramNodeProps) {
+export function RollingBin(props: NodeProps) {
   return (
     <Shape
       {...ROLLING_BIN}

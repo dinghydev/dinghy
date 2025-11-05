@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMAC = {
   _style: {
@@ -10,6 +10,6 @@ export const IMAC = {
   _original_height: 80,
 }
 
-export function Imac(props: DiagramNodeProps) {
+export function Imac(props: NodeProps) {
   return <Shape {...IMAC} {...props} _style={extendStyle(IMAC, props)} />
 }

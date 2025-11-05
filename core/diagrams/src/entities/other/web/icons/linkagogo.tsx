@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINKAGOGO = {
   _style: {
@@ -10,7 +10,7 @@ export const LINKAGOGO = {
   _original_height: 102.4,
 }
 
-export function Linkagogo(props: DiagramNodeProps) {
+export function Linkagogo(props: NodeProps) {
   return (
     <Shape {...LINKAGOGO} {...props} _style={extendStyle(LINKAGOGO, props)} />
   )

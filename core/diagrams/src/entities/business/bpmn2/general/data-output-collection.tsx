@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_OUTPUT_COLLECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_OUTPUT_COLLECTION = {
   _height: 60,
 }
 
-export function DataOutputCollection(props: DiagramNodeProps) {
+export function DataOutputCollection(props: NodeProps) {
   return (
     <Shape
       {...DATA_OUTPUT_COLLECTION}

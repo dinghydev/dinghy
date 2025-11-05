@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9850A_540R_ZL2_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const J9850A_540R_ZL2_SWITCH = {
   _height: 55,
 }
 
-export function J9850a540rZl2Switch(props: DiagramNodeProps) {
+export function J9850a540rZl2Switch(props: NodeProps) {
   return (
     <Shape
       {...J9850A_540R_ZL2_SWITCH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVER_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVER_STORAGE = {
   _original_height: 105,
 }
 
-export function ServerStorage(props: DiagramNodeProps) {
+export function ServerStorage(props: NodeProps) {
   return (
     <Shape
       {...SERVER_STORAGE}

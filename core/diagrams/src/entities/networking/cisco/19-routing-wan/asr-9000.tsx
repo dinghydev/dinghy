@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASR_9000 = {
   _style: {
@@ -10,7 +10,7 @@ export const ASR_9000 = {
   _original_height: 50,
 }
 
-export function Asr9000(props: DiagramNodeProps) {
+export function Asr9000(props: NodeProps) {
   return (
     <Shape {...ASR_9000} {...props} _style={extendStyle(ASR_9000, props)} />
   )

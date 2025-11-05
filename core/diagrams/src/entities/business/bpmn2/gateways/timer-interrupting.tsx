@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIMER_INTERRUPTING = {
   _style: {
@@ -10,7 +10,7 @@ export const TIMER_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function TimerInterrupting(props: DiagramNodeProps) {
+export function TimerInterrupting(props: NodeProps) {
   return (
     <Shape
       {...TIMER_INTERRUPTING}

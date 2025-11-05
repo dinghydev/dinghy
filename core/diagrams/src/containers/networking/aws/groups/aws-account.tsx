@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_ACCOUNT = {
   _style: {
@@ -12,7 +12,7 @@ export const AWS_ACCOUNT = {
   },
 }
 
-export function AwsAccount(props: DiagramNodeProps) {
+export function AwsAccount(props: NodeProps) {
   return (
     <Shape
       {...AWS_ACCOUNT}

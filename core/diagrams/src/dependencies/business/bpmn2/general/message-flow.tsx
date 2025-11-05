@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_FLOW = {
   _style: {
@@ -8,7 +8,7 @@ export const MESSAGE_FLOW = {
   },
 }
 
-export function MessageFlow(props: DiagramNodeProps) {
+export function MessageFlow(props: NodeProps) {
   return (
     <Dependency
       {...MESSAGE_FLOW}

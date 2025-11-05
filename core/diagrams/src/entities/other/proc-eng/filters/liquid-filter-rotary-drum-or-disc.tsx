@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIQUID_FILTER_ROTARY_DRUM_OR_DISC = {
   _style: {
@@ -10,7 +10,7 @@ export const LIQUID_FILTER_ROTARY_DRUM_OR_DISC = {
   _height: 100,
 }
 
-export function LiquidFilterRotaryDrumOrDisc(props: DiagramNodeProps) {
+export function LiquidFilterRotaryDrumOrDisc(props: NodeProps) {
   return (
     <Shape
       {...LIQUID_FILTER_ROTARY_DRUM_OR_DISC}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const API_POLYGLOT_RUNTIMES = {
   _style: {
@@ -10,7 +10,7 @@ export const API_POLYGLOT_RUNTIMES = {
   _original_height: 60,
 }
 
-export function ApiPolyglotRuntimes(props: DiagramNodeProps) {
+export function ApiPolyglotRuntimes(props: NodeProps) {
   return (
     <Shape
       {...API_POLYGLOT_RUNTIMES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROTOCOL_TRANSLATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const PROTOCOL_TRANSLATOR = {
   _height: 75,
 }
 
-export function ProtocolTranslator(props: DiagramNodeProps) {
+export function ProtocolTranslator(props: NodeProps) {
   return (
     <Shape
       {...PROTOCOL_TRANSLATOR}

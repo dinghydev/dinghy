@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_CONTINUOUS_INTEGRATION_AND_DELIVERY = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_CONTINUOUS_INTEGRATION_AND_DELIVERY = {
   _original_height: 50,
 }
 
-export function SapContinuousIntegrationAndDelivery(props: DiagramNodeProps) {
+export function SapContinuousIntegrationAndDelivery(props: NodeProps) {
   return (
     <Shape
       {...SAP_CONTINUOUS_INTEGRATION_AND_DELIVERY}

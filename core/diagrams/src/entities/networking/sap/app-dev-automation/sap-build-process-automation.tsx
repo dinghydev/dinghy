@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_BUILD_PROCESS_AUTOMATION = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_BUILD_PROCESS_AUTOMATION = {
   _original_height: 50,
 }
 
-export function SapBuildProcessAutomation(props: DiagramNodeProps) {
+export function SapBuildProcessAutomation(props: NodeProps) {
   return (
     <Shape
       {...SAP_BUILD_PROCESS_AUTOMATION}

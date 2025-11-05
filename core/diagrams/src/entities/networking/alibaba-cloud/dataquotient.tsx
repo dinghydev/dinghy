@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAQUOTIENT = {
   _style: {
@@ -10,7 +10,7 @@ export const DATAQUOTIENT = {
   _original_height: 48.300000000000004,
 }
 
-export function Dataquotient(props: DiagramNodeProps) {
+export function Dataquotient(props: NodeProps) {
   return (
     <Shape
       {...DATAQUOTIENT}

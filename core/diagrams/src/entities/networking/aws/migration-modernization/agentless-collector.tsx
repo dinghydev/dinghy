@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AGENTLESS_COLLECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const AGENTLESS_COLLECTOR = {
   _original_height: 78,
 }
 
-export function AgentlessCollector(props: DiagramNodeProps) {
+export function AgentlessCollector(props: NodeProps) {
   return (
     <Shape
       {...AGENTLESS_COLLECTOR}

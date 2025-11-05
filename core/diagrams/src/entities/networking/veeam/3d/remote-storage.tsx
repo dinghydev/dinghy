@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REMOTE_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const REMOTE_STORAGE = {
   _original_height: 62,
 }
 
-export function RemoteStorage(props: DiagramNodeProps) {
+export function RemoteStorage(props: NodeProps) {
   return (
     <Shape
       {...REMOTE_STORAGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_SERVICE_BUS = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_SERVICE_BUS = {
   _original_height: 50,
 }
 
-export function AzureServiceBus(props: DiagramNodeProps) {
+export function AzureServiceBus(props: NodeProps) {
   return (
     <Shape
       {...AZURE_SERVICE_BUS}

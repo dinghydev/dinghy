@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const T_TYPE_FLIP_FLOP = {
   _style: {
@@ -10,7 +10,7 @@ export const T_TYPE_FLIP_FLOP = {
   _height: 80,
 }
 
-export function TTypeFlipFlop(props: DiagramNodeProps) {
+export function TTypeFlipFlop(props: NodeProps) {
   return (
     <Shape
       {...T_TYPE_FLIP_FLOP}

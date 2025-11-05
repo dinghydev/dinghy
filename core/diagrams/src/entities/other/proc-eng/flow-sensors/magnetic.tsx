@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAGNETIC = {
   _style: {
@@ -10,7 +10,7 @@ export const MAGNETIC = {
   _original_height: 50,
 }
 
-export function Magnetic(props: DiagramNodeProps) {
+export function Magnetic(props: NodeProps) {
   return (
     <Shape {...MAGNETIC} {...props} _style={extendStyle(MAGNETIC, props)} />
   )

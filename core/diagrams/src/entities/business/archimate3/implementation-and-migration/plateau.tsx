@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLATEAU = {
   _style: {
@@ -10,6 +10,6 @@ export const PLATEAU = {
   _height: 75,
 }
 
-export function Plateau(props: DiagramNodeProps) {
+export function Plateau(props: NodeProps) {
   return <Shape {...PLATEAU} {...props} _style={extendStyle(PLATEAU, props)} />
 }

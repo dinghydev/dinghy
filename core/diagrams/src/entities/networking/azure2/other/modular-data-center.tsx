@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MODULAR_DATA_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const MODULAR_DATA_CENTER = {
   _original_height: 68,
 }
 
-export function ModularDataCenter(props: DiagramNodeProps) {
+export function ModularDataCenter(props: NodeProps) {
   return (
     <Shape
       {...MODULAR_DATA_CENTER}

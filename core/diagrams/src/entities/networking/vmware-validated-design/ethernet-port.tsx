@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ETHERNET_PORT = {
   _style: {
@@ -10,7 +10,7 @@ export const ETHERNET_PORT = {
   _original_height: 50,
 }
 
-export function EthernetPort(props: DiagramNodeProps) {
+export function EthernetPort(props: NodeProps) {
   return (
     <Shape
       {...ETHERNET_PORT}

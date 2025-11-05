@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_INFERENCE_API = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_INFERENCE_API = {
   _original_height: 42,
 }
 
-export function CloudInferenceApi(props: DiagramNodeProps) {
+export function CloudInferenceApi(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_INFERENCE_API}

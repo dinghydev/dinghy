@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILE_CABINET = {
   _style: {
@@ -10,7 +10,7 @@ export const FILE_CABINET = {
   _original_height: 62,
 }
 
-export function FileCabinet(props: DiagramNodeProps) {
+export function FileCabinet(props: NodeProps) {
   return (
     <Shape
       {...FILE_CABINET}

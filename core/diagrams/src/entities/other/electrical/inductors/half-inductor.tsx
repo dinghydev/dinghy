@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HALF_INDUCTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const HALF_INDUCTOR = {
   _height: 23,
 }
 
-export function HalfInductor(props: DiagramNodeProps) {
+export function HalfInductor(props: NodeProps) {
   return (
     <Shape
       {...HALF_INDUCTOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_S_4HANA_CLOUD_FOR_INTELLIGENT_INTERCOMPANY_RECONCILIATION = {
   _style: {
@@ -11,7 +11,7 @@ export const SAP_S_4HANA_CLOUD_FOR_INTELLIGENT_INTERCOMPANY_RECONCILIATION = {
 }
 
 export function SapS4hanaCloudForIntelligentIntercompanyReconciliation(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

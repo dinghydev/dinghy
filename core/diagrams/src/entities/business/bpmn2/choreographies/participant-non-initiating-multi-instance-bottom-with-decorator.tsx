@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_BOTTOM_WITH_DECORATOR = {
   _style: {
@@ -11,7 +11,7 @@ export const PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_BOTTOM_WITH_DECORATOR = {
 }
 
 export function ParticipantNonInitiatingMultiInstanceBottomWithDecorator(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

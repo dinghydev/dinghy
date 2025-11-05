@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FSX = {
   _style: {
@@ -10,6 +10,6 @@ export const FSX = {
   _original_height: 78,
 }
 
-export function Fsx(props: DiagramNodeProps) {
+export function Fsx(props: NodeProps) {
   return <Shape {...FSX} {...props} _style={extendStyle(FSX, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MARKETPLACE_SHOPPING_BAG = {
   _style: {
@@ -10,7 +10,7 @@ export const MARKETPLACE_SHOPPING_BAG = {
   _height: 46,
 }
 
-export function MarketplaceShoppingBag(props: DiagramNodeProps) {
+export function MarketplaceShoppingBag(props: NodeProps) {
   return (
     <Shape
       {...MARKETPLACE_SHOPPING_BAG}

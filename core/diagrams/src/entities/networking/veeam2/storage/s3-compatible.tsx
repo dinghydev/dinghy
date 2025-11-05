@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const S3_COMPATIBLE = {
   _style: {
@@ -10,7 +10,7 @@ export const S3_COMPATIBLE = {
   _original_height: 28.000000000000004,
 }
 
-export function S3Compatible(props: DiagramNodeProps) {
+export function S3Compatible(props: NodeProps) {
   return (
     <Shape
       {...S3_COMPATIBLE}

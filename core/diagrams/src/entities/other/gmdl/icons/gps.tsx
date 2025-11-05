@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GPS = {
   _style: {
@@ -10,6 +10,6 @@ export const GPS = {
   _original_height: 20,
 }
 
-export function Gps(props: DiagramNodeProps) {
+export function Gps(props: NodeProps) {
   return <Shape {...GPS} {...props} _style={extendStyle(GPS, props)} />
 }

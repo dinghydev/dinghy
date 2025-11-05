@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11510_TELESCOPIC_CYLINDER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11510_TELESCOPIC_CYLINDER = {
   _height: 65.34,
 }
 
-export function X11510TelescopicCylinder(props: DiagramNodeProps) {
+export function X11510TelescopicCylinder(props: NodeProps) {
   return (
     <Shape
       {...X11510_TELESCOPIC_CYLINDER}

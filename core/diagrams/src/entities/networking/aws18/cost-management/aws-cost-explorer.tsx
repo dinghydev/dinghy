@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_COST_EXPLORER = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_COST_EXPLORER = {
   _height: 110,
 }
 
-export function AwsCostExplorer(props: DiagramNodeProps) {
+export function AwsCostExplorer(props: NodeProps) {
   return (
     <Shape
       {...AWS_COST_EXPLORER}

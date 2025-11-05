@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STEREOTYPE_NOTE = {
   _style: {
@@ -10,7 +10,7 @@ export const STEREOTYPE_NOTE = {
   _height: 150,
 }
 
-export function StereotypeNote(props: DiagramNodeProps) {
+export function StereotypeNote(props: NodeProps) {
   return (
     <Shape
       {...STEREOTYPE_NOTE}

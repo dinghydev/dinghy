@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION = {
   _height: 101,
 }
 
-export function Component3rdPartyCallCenterSolution(props: DiagramNodeProps) {
+export function Component3rdPartyCallCenterSolution(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_3RD_PARTY_CALL_CENTER_SOLUTION}

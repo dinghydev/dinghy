@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_SWIMLANE = {
   _style: {
@@ -9,7 +9,7 @@ export const VERTICAL_SWIMLANE = {
   _height: 320,
 }
 
-export function VerticalSwimlane(props: DiagramNodeProps) {
+export function VerticalSwimlane(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_SWIMLANE}

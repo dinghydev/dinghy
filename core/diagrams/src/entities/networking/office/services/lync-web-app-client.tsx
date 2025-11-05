@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LYNC_WEB_APP_CLIENT = {
   _style: {
@@ -10,7 +10,7 @@ export const LYNC_WEB_APP_CLIENT = {
   _height: 51,
 }
 
-export function LyncWebAppClient(props: DiagramNodeProps) {
+export function LyncWebAppClient(props: NodeProps) {
   return (
     <Shape
       {...LYNC_WEB_APP_CLIENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECOVERY_SERVICES_VAULTS = {
   _style: {
@@ -10,7 +10,7 @@ export const RECOVERY_SERVICES_VAULTS = {
   _original_height: 60,
 }
 
-export function RecoveryServicesVaults(props: DiagramNodeProps) {
+export function RecoveryServicesVaults(props: NodeProps) {
   return (
     <Shape
       {...RECOVERY_SERVICES_VAULTS}

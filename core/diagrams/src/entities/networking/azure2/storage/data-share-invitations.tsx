@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_SHARE_INVITATIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_SHARE_INVITATIONS = {
   _height: 44.800000000000004,
 }
 
-export function DataShareInvitations(props: DiagramNodeProps) {
+export function DataShareInvitations(props: NodeProps) {
   return (
     <Shape
       {...DATA_SHARE_INVITATIONS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEXUS_DATA_CENTER_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const NEXUS_DATA_CENTER_SWITCH = {
   _original_height: 50,
 }
 
-export function NexusDataCenterSwitch(props: DiagramNodeProps) {
+export function NexusDataCenterSwitch(props: NodeProps) {
   return (
     <Shape
       {...NEXUS_DATA_CENTER_SWITCH}

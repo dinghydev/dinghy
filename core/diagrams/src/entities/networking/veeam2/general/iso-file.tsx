@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ISO_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const ISO_FILE = {
   _height: 39,
 }
 
-export function IsoFile(props: DiagramNodeProps) {
+export function IsoFile(props: NodeProps) {
   return (
     <Shape {...ISO_FILE} {...props} _style={extendStyle(ISO_FILE, props)} />
   )

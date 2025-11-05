@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIVE_COLLABORATION = {
   _style: {
@@ -10,7 +10,7 @@ export const LIVE_COLLABORATION = {
   _original_height: 60,
 }
 
-export function LiveCollaboration(props: DiagramNodeProps) {
+export function LiveCollaboration(props: NodeProps) {
   return (
     <Shape
       {...LIVE_COLLABORATION}

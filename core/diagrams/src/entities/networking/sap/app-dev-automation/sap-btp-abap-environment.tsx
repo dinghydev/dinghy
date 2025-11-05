@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_BTP_ABAP_ENVIRONMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_BTP_ABAP_ENVIRONMENT = {
   _original_height: 50,
 }
 
-export function SapBtpAbapEnvironment(props: DiagramNodeProps) {
+export function SapBtpAbapEnvironment(props: NodeProps) {
   return (
     <Shape
       {...SAP_BTP_ABAP_ENVIRONMENT}

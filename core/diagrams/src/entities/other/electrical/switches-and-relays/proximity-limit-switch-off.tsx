@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROXIMITY_LIMIT_SWITCH_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const PROXIMITY_LIMIT_SWITCH_OFF = {
   _height: 55,
 }
 
-export function ProximityLimitSwitchOff(props: DiagramNodeProps) {
+export function ProximityLimitSwitchOff(props: NodeProps) {
   return (
     <Shape
       {...PROXIMITY_LIMIT_SWITCH_OFF}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIEWING_GLASS_LIGHTING = {
   _style: {
@@ -10,7 +10,7 @@ export const VIEWING_GLASS_LIGHTING = {
   _original_height: 100,
 }
 
-export function ViewingGlassLighting(props: DiagramNodeProps) {
+export function ViewingGlassLighting(props: NodeProps) {
   return (
     <Shape
       {...VIEWING_GLASS_LIGHTING}

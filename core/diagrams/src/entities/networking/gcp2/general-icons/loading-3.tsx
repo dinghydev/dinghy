@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOADING_3 = {
   _style: {
@@ -10,7 +10,7 @@ export const LOADING_3 = {
   _original_height: 100,
 }
 
-export function Loading3(props: DiagramNodeProps) {
+export function Loading3(props: NodeProps) {
   return (
     <Shape {...LOADING_3} {...props} _style={extendStyle(LOADING_3, props)} />
   )

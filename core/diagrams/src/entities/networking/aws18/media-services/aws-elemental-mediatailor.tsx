@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_ELEMENTAL_MEDIATAILOR = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_ELEMENTAL_MEDIATAILOR = {
   _height: 110,
 }
 
-export function AwsElementalMediatailor(props: DiagramNodeProps) {
+export function AwsElementalMediatailor(props: NodeProps) {
   return (
     <Shape
       {...AWS_ELEMENTAL_MEDIATAILOR}

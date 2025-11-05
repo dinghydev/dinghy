@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLUE_DATABREW = {
   _style: {
@@ -10,7 +10,7 @@ export const GLUE_DATABREW = {
   _original_height: 78,
 }
 
-export function GlueDatabrew(props: DiagramNodeProps) {
+export function GlueDatabrew(props: NodeProps) {
   return (
     <Shape
       {...GLUE_DATABREW}

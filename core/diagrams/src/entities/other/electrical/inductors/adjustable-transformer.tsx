@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADJUSTABLE_TRANSFORMER = {
   _style: {
@@ -10,7 +10,7 @@ export const ADJUSTABLE_TRANSFORMER = {
   _original_height: 60,
 }
 
-export function AdjustableTransformer(props: DiagramNodeProps) {
+export function AdjustableTransformer(props: NodeProps) {
   return (
     <Shape
       {...ADJUSTABLE_TRANSFORMER}

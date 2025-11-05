@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_DIGITAL_INTERFACE = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_DIGITAL_INTERFACE = {
   _original_height: 78,
 }
 
-export function CloudDigitalInterface(props: DiagramNodeProps) {
+export function CloudDigitalInterface(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_DIGITAL_INTERFACE}

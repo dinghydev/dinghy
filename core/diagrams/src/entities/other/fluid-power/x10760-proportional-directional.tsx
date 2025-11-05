@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10760_PROPORTIONAL_DIRECTIONAL = {
   _style: {
@@ -10,7 +10,7 @@ export const X10760_PROPORTIONAL_DIRECTIONAL = {
   _height: 75.02,
 }
 
-export function X10760ProportionalDirectional(props: DiagramNodeProps) {
+export function X10760ProportionalDirectional(props: NodeProps) {
   return (
     <Shape
       {...X10760_PROPORTIONAL_DIRECTIONAL}

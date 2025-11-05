@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IBM_UPS10000 = {
   _style: {
@@ -10,7 +10,7 @@ export const IBM_UPS10000 = {
   _height: 89,
 }
 
-export function IbmUps10000(props: DiagramNodeProps) {
+export function IbmUps10000(props: NodeProps) {
   return (
     <Shape
       {...IBM_UPS10000}

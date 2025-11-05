@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANTHOS_SERVICE_MESH = {
   _style: {
@@ -10,7 +10,7 @@ export const ANTHOS_SERVICE_MESH = {
   _original_height: 42,
 }
 
-export function AnthosServiceMesh(props: DiagramNodeProps) {
+export function AnthosServiceMesh(props: NodeProps) {
   return (
     <Shape
       {...ANTHOS_SERVICE_MESH}

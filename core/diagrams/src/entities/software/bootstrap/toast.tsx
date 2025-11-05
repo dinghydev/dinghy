@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOAST = {
   _style: {
@@ -10,6 +10,6 @@ export const TOAST = {
   _height: 80,
 }
 
-export function Toast(props: DiagramNodeProps) {
+export function Toast(props: NodeProps) {
   return <Shape {...TOAST} {...props} _style={extendStyle(TOAST, props)} />
 }

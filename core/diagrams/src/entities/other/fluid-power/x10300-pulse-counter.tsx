@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10300_PULSE_COUNTER = {
   _style: {
@@ -10,7 +10,7 @@ export const X10300_PULSE_COUNTER = {
   _height: 74.48,
 }
 
-export function X10300PulseCounter(props: DiagramNodeProps) {
+export function X10300PulseCounter(props: NodeProps) {
   return (
     <Shape
       {...X10300_PULSE_COUNTER}

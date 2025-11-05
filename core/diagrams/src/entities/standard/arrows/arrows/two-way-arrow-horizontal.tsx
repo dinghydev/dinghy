@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TWO_WAY_ARROW_HORIZONTAL = {
   _style: {
@@ -10,7 +10,7 @@ export const TWO_WAY_ARROW_HORIZONTAL = {
   _height: 60,
 }
 
-export function TwoWayArrowHorizontal(props: DiagramNodeProps) {
+export function TwoWayArrowHorizontal(props: NodeProps) {
   return (
     <Shape
       {...TWO_WAY_ARROW_HORIZONTAL}

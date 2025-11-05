@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GOOGLE_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const GOOGLE_NETWORK = {
   _original_height: 100,
 }
 
-export function GoogleNetwork(props: DiagramNodeProps) {
+export function GoogleNetwork(props: NodeProps) {
   return (
     <Shape
       {...GOOGLE_NETWORK}

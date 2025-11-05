@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMM_INTELLIGENT_MEDIA_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const IMM_INTELLIGENT_MEDIA_MANAGEMENT = {
   _original_height: 54.6,
 }
 
-export function ImmIntelligentMediaManagement(props: DiagramNodeProps) {
+export function ImmIntelligentMediaManagement(props: NodeProps) {
   return (
     <Shape
       {...IMM_INTELLIGENT_MEDIA_MANAGEMENT}

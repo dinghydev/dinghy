@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_PINPOINT = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_PINPOINT = {
   _height: 110,
 }
 
-export function AmazonPinpoint(props: DiagramNodeProps) {
+export function AmazonPinpoint(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_PINPOINT}

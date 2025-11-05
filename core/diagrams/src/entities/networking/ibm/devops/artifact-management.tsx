@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARTIFACT_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const ARTIFACT_MANAGEMENT = {
   _original_height: 60,
 }
 
-export function ArtifactManagement(props: DiagramNodeProps) {
+export function ArtifactManagement(props: NodeProps) {
   return (
     <Shape
       {...ARTIFACT_MANAGEMENT}

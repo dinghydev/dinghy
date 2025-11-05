@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RACK_OUT_OF_BAND = {
   _style: {
@@ -10,7 +10,7 @@ export const RACK_OUT_OF_BAND = {
   _height: 114,
 }
 
-export function RackOutOfBand(props: DiagramNodeProps) {
+export function RackOutOfBand(props: NodeProps) {
   return (
     <Shape
       {...RACK_OUT_OF_BAND}

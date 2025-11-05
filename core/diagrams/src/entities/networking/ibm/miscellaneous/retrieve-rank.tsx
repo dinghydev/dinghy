@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RETRIEVE_RANK = {
   _style: {
@@ -10,7 +10,7 @@ export const RETRIEVE_RANK = {
   _original_height: 60,
 }
 
-export function RetrieveRank(props: DiagramNodeProps) {
+export function RetrieveRank(props: NodeProps) {
   return (
     <Shape
       {...RETRIEVE_RANK}

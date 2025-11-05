@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCROLLABLE_TAB = {
   _style: {
@@ -10,7 +10,7 @@ export const SCROLLABLE_TAB = {
   _height: 15,
 }
 
-export function ScrollableTab(props: DiagramNodeProps) {
+export function ScrollableTab(props: NodeProps) {
   return (
     <Shape
       {...SCROLLABLE_TAB}

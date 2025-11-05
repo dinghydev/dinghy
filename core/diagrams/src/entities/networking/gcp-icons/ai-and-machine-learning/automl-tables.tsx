@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTOML_TABLES = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTOML_TABLES = {
   _height: 32,
 }
 
-export function AutomlTables(props: DiagramNodeProps) {
+export function AutomlTables(props: NodeProps) {
   return (
     <Shape
       {...AUTOML_TABLES}

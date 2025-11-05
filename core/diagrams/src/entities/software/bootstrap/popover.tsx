@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POPOVER = {
   _style: {
@@ -10,6 +10,6 @@ export const POPOVER = {
   _height: 60,
 }
 
-export function Popover(props: DiagramNodeProps) {
+export function Popover(props: NodeProps) {
   return <Shape {...POPOVER} {...props} _style={extendStyle(POPOVER, props)} />
 }

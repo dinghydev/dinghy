@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const YAMMER = {
   _style: {
@@ -10,6 +10,6 @@ export const YAMMER = {
   _original_height: 102.4,
 }
 
-export function Yammer(props: DiagramNodeProps) {
+export function Yammer(props: NodeProps) {
   return <Shape {...YAMMER} {...props} _style={extendStyle(YAMMER, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKWARD = {
   _style: {
@@ -10,7 +10,7 @@ export const BACKWARD = {
   _height: 16.8,
 }
 
-export function Backward(props: DiagramNodeProps) {
+export function Backward(props: NodeProps) {
   return (
     <Shape {...BACKWARD} {...props} _style={extendStyle(BACKWARD, props)} />
   )

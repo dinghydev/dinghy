@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEDIA_CONVERTER_STANDALONE_POE = {
   _style: {
@@ -10,7 +10,7 @@ export const MEDIA_CONVERTER_STANDALONE_POE = {
   _height: 37.2,
 }
 
-export function MediaConverterStandalonePoe(props: DiagramNodeProps) {
+export function MediaConverterStandalonePoe(props: NodeProps) {
   return (
     <Shape
       {...MEDIA_CONVERTER_STANDALONE_POE}

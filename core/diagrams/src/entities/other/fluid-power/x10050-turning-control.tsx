@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10050_TURNING_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const X10050_TURNING_CONTROL = {
   _height: 39.22,
 }
 
-export function X10050TurningControl(props: DiagramNodeProps) {
+export function X10050TurningControl(props: NodeProps) {
   return (
     <Shape
       {...X10050_TURNING_CONTROL}

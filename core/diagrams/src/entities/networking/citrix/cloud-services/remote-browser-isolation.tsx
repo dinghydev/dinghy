@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REMOTE_BROWSER_ISOLATION = {
   _style: {
@@ -10,7 +10,7 @@ export const REMOTE_BROWSER_ISOLATION = {
   _height: 35.949999999999996,
 }
 
-export function RemoteBrowserIsolation(props: DiagramNodeProps) {
+export function RemoteBrowserIsolation(props: NodeProps) {
   return (
     <Shape
       {...REMOTE_BROWSER_ISOLATION}

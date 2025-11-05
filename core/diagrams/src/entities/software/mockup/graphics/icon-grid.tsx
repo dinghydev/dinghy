@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ICON_GRID = {
   _style: {
@@ -10,7 +10,7 @@ export const ICON_GRID = {
   _original_height: 200,
 }
 
-export function IconGrid(props: DiagramNodeProps) {
+export function IconGrid(props: NodeProps) {
   return (
     <Shape {...ICON_GRID} {...props} _style={extendStyle(ICON_GRID, props)} />
   )

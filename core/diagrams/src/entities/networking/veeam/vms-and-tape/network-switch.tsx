@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETWORK_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const NETWORK_SWITCH = {
   _height: 10.8,
 }
 
-export function NetworkSwitch(props: DiagramNodeProps) {
+export function NetworkSwitch(props: NodeProps) {
   return (
     <Shape
       {...NETWORK_SWITCH}

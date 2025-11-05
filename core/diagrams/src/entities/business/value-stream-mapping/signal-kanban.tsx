@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIGNAL_KANBAN = {
   _style: {
@@ -10,7 +10,7 @@ export const SIGNAL_KANBAN = {
   _original_height: 90,
 }
 
-export function SignalKanban(props: DiagramNodeProps) {
+export function SignalKanban(props: NodeProps) {
   return (
     <Shape
       {...SIGNAL_KANBAN}

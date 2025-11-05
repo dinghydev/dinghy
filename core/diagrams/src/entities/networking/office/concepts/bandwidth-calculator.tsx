@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BANDWIDTH_CALCULATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const BANDWIDTH_CALCULATOR = {
   _original_height: 53,
 }
 
-export function BandwidthCalculator(props: DiagramNodeProps) {
+export function BandwidthCalculator(props: NodeProps) {
   return (
     <Shape
       {...BANDWIDTH_CALCULATOR}

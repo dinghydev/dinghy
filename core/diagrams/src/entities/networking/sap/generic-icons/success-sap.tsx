@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUCCESS_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const SUCCESS_SAP = {
   _original_height: 28,
 }
 
-export function SuccessSap(props: DiagramNodeProps) {
+export function SuccessSap(props: NodeProps) {
   return (
     <Shape
       {...SUCCESS_SAP}

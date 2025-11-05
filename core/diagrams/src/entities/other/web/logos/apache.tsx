@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APACHE = {
   _style: {
@@ -10,6 +10,6 @@ export const APACHE = {
   _height: 85.2,
 }
 
-export function Apache(props: DiagramNodeProps) {
+export function Apache(props: NodeProps) {
   return <Shape {...APACHE} {...props} _style={extendStyle(APACHE, props)} />
 }

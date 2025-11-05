@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VM_NO_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const VM_NO_NETWORK = {
   _original_height: 46,
 }
 
-export function VmNoNetwork(props: DiagramNodeProps) {
+export function VmNoNetwork(props: NodeProps) {
   return (
     <Shape
       {...VM_NO_NETWORK}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOVER = {
   _style: {
@@ -10,6 +10,6 @@ export const CLOVER = {
   _original_height: 71,
 }
 
-export function Clover(props: DiagramNodeProps) {
+export function Clover(props: NodeProps) {
   return <Shape {...CLOVER} {...props} _style={extendStyle(CLOVER, props)} />
 }

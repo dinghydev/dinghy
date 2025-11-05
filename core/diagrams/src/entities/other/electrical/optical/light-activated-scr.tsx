@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIGHT_ACTIVATED_SCR = {
   _style: {
@@ -10,7 +10,7 @@ export const LIGHT_ACTIVATED_SCR = {
   _height: 70,
 }
 
-export function LightActivatedScr(props: DiagramNodeProps) {
+export function LightActivatedScr(props: NodeProps) {
   return (
     <Shape
       {...LIGHT_ACTIVATED_SCR}

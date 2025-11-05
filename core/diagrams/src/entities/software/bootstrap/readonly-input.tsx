@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const READONLY_INPUT = {
   _style: {
@@ -10,7 +10,7 @@ export const READONLY_INPUT = {
   _height: 40,
 }
 
-export function ReadonlyInput(props: DiagramNodeProps) {
+export function ReadonlyInput(props: NodeProps) {
   return (
     <Shape
       {...READONLY_INPUT}

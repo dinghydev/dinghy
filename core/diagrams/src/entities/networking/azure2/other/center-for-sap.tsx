@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CENTER_FOR_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const CENTER_FOR_SAP = {
   _original_height: 68,
 }
 
-export function CenterForSap(props: DiagramNodeProps) {
+export function CenterForSap(props: NodeProps) {
   return (
     <Shape
       {...CENTER_FOR_SAP}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STYLISED_NOTCHED_ARROW = {
   _style: {
@@ -10,7 +10,7 @@ export const STYLISED_NOTCHED_ARROW = {
   _height: 60,
 }
 
-export function StylisedNotchedArrow(props: DiagramNodeProps) {
+export function StylisedNotchedArrow(props: NodeProps) {
   return (
     <Shape
       {...STYLISED_NOTCHED_ARROW}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FEED_THROUGH_CAPACITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const FEED_THROUGH_CAPACITOR = {
   _original_height: 90,
 }
 
-export function FeedThroughCapacitor(props: DiagramNodeProps) {
+export function FeedThroughCapacitor(props: NodeProps) {
   return (
     <Shape
       {...FEED_THROUGH_CAPACITOR}

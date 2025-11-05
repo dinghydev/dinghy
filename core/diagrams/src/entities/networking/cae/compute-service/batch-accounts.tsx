@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BATCH_ACCOUNTS = {
   _style: {
@@ -10,7 +10,7 @@ export const BATCH_ACCOUNTS = {
   _original_height: 48,
 }
 
-export function BatchAccounts(props: DiagramNodeProps) {
+export function BatchAccounts(props: NodeProps) {
   return (
     <Shape
       {...BATCH_ACCOUNTS}

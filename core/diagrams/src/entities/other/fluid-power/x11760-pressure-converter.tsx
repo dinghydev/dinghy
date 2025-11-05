@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11760_PRESSURE_CONVERTER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11760_PRESSURE_CONVERTER = {
   _original_height: 47.12,
 }
 
-export function X11760PressureConverter(props: DiagramNodeProps) {
+export function X11760PressureConverter(props: NodeProps) {
   return (
     <Shape
       {...X11760_PRESSURE_CONVERTER}

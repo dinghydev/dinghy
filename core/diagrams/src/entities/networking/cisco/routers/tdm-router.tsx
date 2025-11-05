@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TDM_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const TDM_ROUTER = {
   _height: 53,
 }
 
-export function TdmRouter(props: DiagramNodeProps) {
+export function TdmRouter(props: NodeProps) {
   return (
     <Shape {...TDM_ROUTER} {...props} _style={extendStyle(TDM_ROUTER, props)} />
   )

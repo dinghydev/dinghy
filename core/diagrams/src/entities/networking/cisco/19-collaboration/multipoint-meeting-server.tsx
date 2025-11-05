@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTIPOINT_MEETING_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTIPOINT_MEETING_SERVER = {
   _original_height: 50,
 }
 
-export function MultipointMeetingServer(props: DiagramNodeProps) {
+export function MultipointMeetingServer(props: NodeProps) {
   return (
     <Shape
       {...MULTIPOINT_MEETING_SERVER}

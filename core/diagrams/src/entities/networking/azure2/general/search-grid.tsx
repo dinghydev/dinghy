@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEARCH_GRID = {
   _style: {
@@ -10,7 +10,7 @@ export const SEARCH_GRID = {
   _original_height: 67,
 }
 
-export function SearchGrid(props: DiagramNodeProps) {
+export function SearchGrid(props: NodeProps) {
   return (
     <Shape
       {...SEARCH_GRID}

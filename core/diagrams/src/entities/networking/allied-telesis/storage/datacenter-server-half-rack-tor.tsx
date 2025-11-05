@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATACENTER_SERVER_HALF_RACK_TOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DATACENTER_SERVER_HALF_RACK_TOR = {
   _height: 114.6,
 }
 
-export function DatacenterServerHalfRackTor(props: DiagramNodeProps) {
+export function DatacenterServerHalfRackTor(props: NodeProps) {
   return (
     <Shape
       {...DATACENTER_SERVER_HALF_RACK_TOR}

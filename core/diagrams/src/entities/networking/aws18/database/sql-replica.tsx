@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQL_REPLICA = {
   _style: {
@@ -10,7 +10,7 @@ export const SQL_REPLICA = {
   _original_height: 60,
 }
 
-export function SqlReplica(props: DiagramNodeProps) {
+export function SqlReplica(props: NodeProps) {
   return (
     <Shape
       {...SQL_REPLICA}

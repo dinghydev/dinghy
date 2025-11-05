@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ESCALATION_INTERMEDIATE_BOUNDARY_THROWING = {
   _style: {
@@ -10,9 +10,7 @@ export const ESCALATION_INTERMEDIATE_BOUNDARY_THROWING = {
   _original_height: 50,
 }
 
-export function EscalationIntermediateBoundaryThrowing(
-  props: DiagramNodeProps,
-) {
+export function EscalationIntermediateBoundaryThrowing(props: NodeProps) {
   return (
     <Shape
       {...ESCALATION_INTERMEDIATE_BOUNDARY_THROWING}

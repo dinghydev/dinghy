@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ISOC_IOT_SECURITY_OPERATIONS_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const ISOC_IOT_SECURITY_OPERATIONS_CENTER = {
   _original_height: 54.900000000000006,
 }
 
-export function IsocIotSecurityOperationsCenter(props: DiagramNodeProps) {
+export function IsocIotSecurityOperationsCenter(props: NodeProps) {
   return (
     <Shape
       {...ISOC_IOT_SECURITY_OPERATIONS_CENTER}

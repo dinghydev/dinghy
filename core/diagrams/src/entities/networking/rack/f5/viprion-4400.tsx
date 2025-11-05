@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIPRION_4400 = {
   _style: {
@@ -10,7 +10,7 @@ export const VIPRION_4400 = {
   _height: 120,
 }
 
-export function Viprion4400(props: DiagramNodeProps) {
+export function Viprion4400(props: NodeProps) {
   return (
     <Shape
       {...VIPRION_4400}

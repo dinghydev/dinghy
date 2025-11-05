@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_BACKEND = {
   _style: {
@@ -10,7 +10,7 @@ export const MOBILE_BACKEND = {
   _original_height: 60,
 }
 
-export function MobileBackend(props: DiagramNodeProps) {
+export function MobileBackend(props: NodeProps) {
   return (
     <Shape
       {...MOBILE_BACKEND}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUGMENTED_AI = {
   _style: {
@@ -10,7 +10,7 @@ export const AUGMENTED_AI = {
   _original_height: 78,
 }
 
-export function AugmentedAi(props: DiagramNodeProps) {
+export function AugmentedAi(props: NodeProps) {
   return (
     <Shape
       {...AUGMENTED_AI}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQUARE_WAVE = {
   _style: {
@@ -10,7 +10,7 @@ export const SQUARE_WAVE = {
   _original_height: 80,
 }
 
-export function SquareWave(props: DiagramNodeProps) {
+export function SquareWave(props: NodeProps) {
   return (
     <Shape
       {...SQUARE_WAVE}

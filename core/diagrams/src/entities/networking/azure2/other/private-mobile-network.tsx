@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIVATE_MOBILE_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const PRIVATE_MOBILE_NETWORK = {
   _height: 48,
 }
 
-export function PrivateMobileNetwork(props: DiagramNodeProps) {
+export function PrivateMobileNetwork(props: NodeProps) {
   return (
     <Shape
       {...PRIVATE_MOBILE_NETWORK}

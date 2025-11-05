@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE = {
   _style: {
@@ -10,9 +10,7 @@ export const JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE = {
   _height: 15,
 }
 
-export function Jl081a3810m2930m4125510GbeHpeSmartRateModule(
-  props: DiagramNodeProps,
-) {
+export function Jl081a3810m2930m4125510GbeHpeSmartRateModule(props: NodeProps) {
   return (
     <Shape
       {...JL081A_3810M_2930M_4_1_2_5_5_10_GBE_HPE_SMART_RATE_MODULE}

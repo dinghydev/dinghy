@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOGICAL_CONNECTOR_ARROW = {
   _style: {
@@ -8,7 +8,7 @@ export const LOGICAL_CONNECTOR_ARROW = {
   },
 }
 
-export function LogicalConnectorArrow(props: DiagramNodeProps) {
+export function LogicalConnectorArrow(props: NodeProps) {
   return (
     <Dependency
       {...LOGICAL_CONNECTOR_ARROW}

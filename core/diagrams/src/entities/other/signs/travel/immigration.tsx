@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMMIGRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const IMMIGRATION = {
   _original_height: 99,
 }
 
-export function Immigration(props: DiagramNodeProps) {
+export function Immigration(props: NodeProps) {
   return (
     <Shape
       {...IMMIGRATION}

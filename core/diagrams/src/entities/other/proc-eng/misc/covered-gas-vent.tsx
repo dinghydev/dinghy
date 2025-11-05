@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COVERED_GAS_VENT = {
   _style: {
@@ -10,7 +10,7 @@ export const COVERED_GAS_VENT = {
   _height: 100,
 }
 
-export function CoveredGasVent(props: DiagramNodeProps) {
+export function CoveredGasVent(props: NodeProps) {
   return (
     <Shape
       {...COVERED_GAS_VENT}

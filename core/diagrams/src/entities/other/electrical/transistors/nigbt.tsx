@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NIGBT = {
   _style: {
@@ -10,6 +10,6 @@ export const NIGBT = {
   _height: 100,
 }
 
-export function Nigbt(props: DiagramNodeProps) {
+export function Nigbt(props: NodeProps) {
   return <Shape {...NIGBT} {...props} _style={extendStyle(NIGBT, props)} />
 }

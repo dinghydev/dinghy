@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERACTIVE_VIDEO_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERACTIVE_VIDEO_SERVICE = {
   _original_height: 78,
 }
 
-export function InteractiveVideoService(props: DiagramNodeProps) {
+export function InteractiveVideoService(props: NodeProps) {
   return (
     <Shape
       {...INTERACTIVE_VIDEO_SERVICE}

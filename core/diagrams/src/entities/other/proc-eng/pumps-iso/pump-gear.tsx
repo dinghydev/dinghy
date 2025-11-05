@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUMP_GEAR = {
   _style: {
@@ -10,7 +10,7 @@ export const PUMP_GEAR = {
   _original_height: 100,
 }
 
-export function PumpGear(props: DiagramNodeProps) {
+export function PumpGear(props: NodeProps) {
   return (
     <Shape {...PUMP_GEAR} {...props} _style={extendStyle(PUMP_GEAR, props)} />
   )

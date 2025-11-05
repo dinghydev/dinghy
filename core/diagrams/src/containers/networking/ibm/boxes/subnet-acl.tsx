@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUBNET_ACL = {
   _style: {
@@ -12,7 +12,7 @@ export const SUBNET_ACL = {
   },
 }
 
-export function SubnetAcl(props: DiagramNodeProps) {
+export function SubnetAcl(props: NodeProps) {
   return (
     <Shape {...SUBNET_ACL} {...props} _style={extendStyle(SUBNET_ACL, props)} />
   )

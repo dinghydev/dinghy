@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LICENSE_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const LICENSE_SERVER = {
   _height: 85,
 }
 
-export function LicenseServer(props: DiagramNodeProps) {
+export function LicenseServer(props: NodeProps) {
   return (
     <Shape
       {...LICENSE_SERVER}

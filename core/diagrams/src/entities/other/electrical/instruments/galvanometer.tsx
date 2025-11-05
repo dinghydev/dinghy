@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GALVANOMETER = {
   _style: {
@@ -10,7 +10,7 @@ export const GALVANOMETER = {
   _original_height: 90,
 }
 
-export function Galvanometer(props: DiagramNodeProps) {
+export function Galvanometer(props: NodeProps) {
   return (
     <Shape
       {...GALVANOMETER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTOMATIC_RETURN = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTOMATIC_RETURN = {
   _height: 12,
 }
 
-export function AutomaticReturn(props: DiagramNodeProps) {
+export function AutomaticReturn(props: NodeProps) {
   return (
     <Shape
       {...AUTOMATIC_RETURN}

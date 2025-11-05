@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_TRANSFER_TERMINAL = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_TRANSFER_TERMINAL = {
   _original_height: 78,
 }
 
-export function DataTransferTerminal(props: DiagramNodeProps) {
+export function DataTransferTerminal(props: NodeProps) {
   return (
     <Shape
       {...DATA_TRANSFER_TERMINAL}

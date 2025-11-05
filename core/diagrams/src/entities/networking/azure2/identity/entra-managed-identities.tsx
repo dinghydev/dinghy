@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTRA_MANAGED_IDENTITIES = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTRA_MANAGED_IDENTITIES = {
   _original_height: 60.440000000000005,
 }
 
-export function EntraManagedIdentities(props: DiagramNodeProps) {
+export function EntraManagedIdentities(props: NodeProps) {
   return (
     <Shape
       {...ENTRA_MANAGED_IDENTITIES}

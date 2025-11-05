@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUICKSIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const QUICKSIGHT = {
   _original_height: 60,
 }
 
-export function Quicksight(props: DiagramNodeProps) {
+export function Quicksight(props: NodeProps) {
   return (
     <Shape {...QUICKSIGHT} {...props} _style={extendStyle(QUICKSIGHT, props)} />
   )

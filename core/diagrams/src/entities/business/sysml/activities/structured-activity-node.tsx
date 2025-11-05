@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STRUCTURED_ACTIVITY_NODE = {
   _style: {
@@ -10,7 +10,7 @@ export const STRUCTURED_ACTIVITY_NODE = {
   _height: 60,
 }
 
-export function StructuredActivityNode(props: DiagramNodeProps) {
+export function StructuredActivityNode(props: NodeProps) {
   return (
     <Shape
       {...STRUCTURED_ACTIVITY_NODE}

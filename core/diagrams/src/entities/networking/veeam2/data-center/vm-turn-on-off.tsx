@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VM_TURN_ON_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const VM_TURN_ON_OFF = {
   _original_height: 36,
 }
 
-export function VmTurnOnOff(props: DiagramNodeProps) {
+export function VmTurnOnOff(props: NodeProps) {
   return (
     <Shape
       {...VM_TURN_ON_OFF}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASR_1000_SERIES = {
   _style: {
@@ -10,7 +10,7 @@ export const ASR_1000_SERIES = {
   _original_height: 86,
 }
 
-export function Asr1000Series(props: DiagramNodeProps) {
+export function Asr1000Series(props: NodeProps) {
   return (
     <Shape
       {...ASR_1000_SERIES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AD_DECODER = {
   _style: {
@@ -10,7 +10,7 @@ export const AD_DECODER = {
   _original_height: 50,
 }
 
-export function AdDecoder(props: DiagramNodeProps) {
+export function AdDecoder(props: NodeProps) {
   return (
     <Shape {...AD_DECODER} {...props} _style={extendStyle(AD_DECODER, props)} />
   )

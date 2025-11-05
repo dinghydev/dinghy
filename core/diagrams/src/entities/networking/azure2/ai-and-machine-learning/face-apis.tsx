@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FACE_APIS = {
   _style: {
@@ -10,7 +10,7 @@ export const FACE_APIS = {
   _original_height: 68,
 }
 
-export function FaceApis(props: DiagramNodeProps) {
+export function FaceApis(props: NodeProps) {
   return (
     <Shape {...FACE_APIS} {...props} _style={extendStyle(FACE_APIS, props)} />
   )

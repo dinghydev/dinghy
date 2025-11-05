@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONFIDENTIAL_LEDGER = {
   _style: {
@@ -10,7 +10,7 @@ export const CONFIDENTIAL_LEDGER = {
   _original_height: 68,
 }
 
-export function ConfidentialLedger(props: DiagramNodeProps) {
+export function ConfidentialLedger(props: NodeProps) {
   return (
     <Shape
       {...CONFIDENTIAL_LEDGER}

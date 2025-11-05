@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TECHNICAL_DIAGRAM = {
   _style: {
@@ -10,7 +10,7 @@ export const TECHNICAL_DIAGRAM = {
   _original_height: 56,
 }
 
-export function TechnicalDiagram(props: DiagramNodeProps) {
+export function TechnicalDiagram(props: NodeProps) {
   return (
     <Shape
       {...TECHNICAL_DIAGRAM}

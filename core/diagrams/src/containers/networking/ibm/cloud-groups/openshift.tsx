@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPENSHIFT = {
   _style: {
@@ -11,7 +11,7 @@ export const OPENSHIFT = {
   },
 }
 
-export function Openshift(props: DiagramNodeProps) {
+export function Openshift(props: NodeProps) {
   return (
     <Shape {...OPENSHIFT} {...props} _style={extendStyle(OPENSHIFT, props)} />
   )

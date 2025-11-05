@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PAGINATION = {
   _style: {
@@ -10,7 +10,7 @@ export const PAGINATION = {
   _height: 30,
 }
 
-export function Pagination(props: DiagramNodeProps) {
+export function Pagination(props: NodeProps) {
   return (
     <Shape {...PAGINATION} {...props} _style={extendStyle(PAGINATION, props)} />
   )

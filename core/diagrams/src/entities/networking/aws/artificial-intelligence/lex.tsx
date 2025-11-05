@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LEX = {
   _style: {
@@ -10,6 +10,6 @@ export const LEX = {
   _original_height: 78,
 }
 
-export function Lex(props: DiagramNodeProps) {
+export function Lex(props: NodeProps) {
   return <Shape {...LEX} {...props} _style={extendStyle(LEX, props)} />
 }

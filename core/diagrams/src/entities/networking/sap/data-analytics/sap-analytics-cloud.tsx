@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_ANALYTICS_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_ANALYTICS_CLOUD = {
   _original_height: 50,
 }
 
-export function SapAnalyticsCloud(props: DiagramNodeProps) {
+export function SapAnalyticsCloud(props: NodeProps) {
   return (
     <Shape
       {...SAP_ANALYTICS_CLOUD}

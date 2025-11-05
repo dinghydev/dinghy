@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AI_PLATFORM = {
   _style: {
@@ -10,7 +10,7 @@ export const AI_PLATFORM = {
   _height: 60,
 }
 
-export function AiPlatform(props: DiagramNodeProps) {
+export function AiPlatform(props: NodeProps) {
   return (
     <Shape
       {...AI_PLATFORM}

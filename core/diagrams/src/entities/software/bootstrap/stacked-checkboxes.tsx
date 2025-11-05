@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STACKED_CHECKBOXES = {
   _style: {
@@ -10,7 +10,7 @@ export const STACKED_CHECKBOXES = {
   _height: 30,
 }
 
-export function StackedCheckboxes(props: DiagramNodeProps) {
+export function StackedCheckboxes(props: NodeProps) {
   return (
     <Shape
       {...STACKED_CHECKBOXES}

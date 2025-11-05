@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EVENT_NON_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const EVENT_NON_SAP = {
   _original_height: 28,
 }
 
-export function EventNonSap(props: DiagramNodeProps) {
+export function EventNonSap(props: NodeProps) {
   return (
     <Shape
       {...EVENT_NON_SAP}

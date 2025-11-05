@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROGRAMMABLE_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const PROGRAMMABLE_SWITCH = {
   _original_height: 56,
 }
 
-export function ProgrammableSwitch(props: DiagramNodeProps) {
+export function ProgrammableSwitch(props: NodeProps) {
   return (
     <Shape
       {...PROGRAMMABLE_SWITCH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINE_CABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const LINE_CABLE = {
   _height: 60,
 }
 
-export function LineCable(props: DiagramNodeProps) {
+export function LineCable(props: NodeProps) {
   return (
     <Shape {...LINE_CABLE} {...props} _style={extendStyle(LINE_CABLE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TFS_VC_REPOSITORY = {
   _style: {
@@ -10,7 +10,7 @@ export const TFS_VC_REPOSITORY = {
   _original_height: 68,
 }
 
-export function TfsVcRepository(props: DiagramNodeProps) {
+export function TfsVcRepository(props: NodeProps) {
   return (
     <Shape
       {...TFS_VC_REPOSITORY}

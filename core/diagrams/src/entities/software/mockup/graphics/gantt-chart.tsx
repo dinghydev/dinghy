@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GANTT_CHART = {
   _style: {
@@ -10,7 +10,7 @@ export const GANTT_CHART = {
   _height: 300,
 }
 
-export function GanttChart(props: DiagramNodeProps) {
+export function GanttChart(props: NodeProps) {
   return (
     <Shape
       {...GANTT_CHART}

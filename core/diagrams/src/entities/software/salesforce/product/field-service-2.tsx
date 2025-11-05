@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIELD_SERVICE_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const FIELD_SERVICE_2 = {
   _original_height: 60,
 }
 
-export function FieldService2(props: DiagramNodeProps) {
+export function FieldService2(props: NodeProps) {
   return (
     <Shape
       {...FIELD_SERVICE_2}

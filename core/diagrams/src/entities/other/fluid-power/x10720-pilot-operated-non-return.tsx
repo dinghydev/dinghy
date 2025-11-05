@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10720_PILOT_OPERATED_NON_RETURN = {
   _style: {
@@ -10,7 +10,7 @@ export const X10720_PILOT_OPERATED_NON_RETURN = {
   _height: 93.58,
 }
 
-export function X10720PilotOperatedNonReturn(props: DiagramNodeProps) {
+export function X10720PilotOperatedNonReturn(props: NodeProps) {
   return (
     <Shape
       {...X10720_PILOT_OPERATED_NON_RETURN}

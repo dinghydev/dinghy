@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LANDSCAPE_PORTAL_FOR_SAP_S_4HANA_CLOUD_ABAP_ENVIRONMENT = {
   _style: {
@@ -11,7 +11,7 @@ export const LANDSCAPE_PORTAL_FOR_SAP_S_4HANA_CLOUD_ABAP_ENVIRONMENT = {
 }
 
 export function LandscapePortalForSapS4hanaCloudAbapEnvironment(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

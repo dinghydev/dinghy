@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DNS_PRIVATE_RESOLVER = {
   _style: {
@@ -10,7 +10,7 @@ export const DNS_PRIVATE_RESOLVER = {
   _original_height: 60,
 }
 
-export function DnsPrivateResolver(props: DiagramNodeProps) {
+export function DnsPrivateResolver(props: NodeProps) {
   return (
     <Shape
       {...DNS_PRIVATE_RESOLVER}

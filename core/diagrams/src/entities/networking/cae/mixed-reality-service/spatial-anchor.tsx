@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPATIAL_ANCHOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SPATIAL_ANCHOR = {
   _original_height: 50,
 }
 
-export function SpatialAnchor(props: DiagramNodeProps) {
+export function SpatialAnchor(props: NodeProps) {
   return (
     <Shape
       {...SPATIAL_ANCHOR}

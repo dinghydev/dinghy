@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10840_PROPORTIONAL_PRESSURE_RELIEF = {
   _style: {
@@ -10,7 +10,7 @@ export const X10840_PROPORTIONAL_PRESSURE_RELIEF = {
   _height: 74.82,
 }
 
-export function X10840ProportionalPressureRelief(props: DiagramNodeProps) {
+export function X10840ProportionalPressureRelief(props: NodeProps) {
   return (
     <Shape
       {...X10840_PROPORTIONAL_PRESSURE_RELIEF}

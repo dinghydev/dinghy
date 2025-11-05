@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DAAS_MONITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DAAS_MONITOR = {
   _height: 39.22,
 }
 
-export function DaasMonitor(props: DiagramNodeProps) {
+export function DaasMonitor(props: NodeProps) {
   return (
     <Shape
       {...DAAS_MONITOR}

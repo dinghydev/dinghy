@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KAIZEN_LIGHTENING_BURST = {
   _style: {
@@ -10,7 +10,7 @@ export const KAIZEN_LIGHTENING_BURST = {
   _height: 40,
 }
 
-export function KaizenLighteningBurst(props: DiagramNodeProps) {
+export function KaizenLighteningBurst(props: NodeProps) {
   return (
     <Shape
       {...KAIZEN_LIGHTENING_BURST}

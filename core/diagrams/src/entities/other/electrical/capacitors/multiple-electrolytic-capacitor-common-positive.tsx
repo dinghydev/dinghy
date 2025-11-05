@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_POSITIVE = {
   _style: {
@@ -10,9 +10,7 @@ export const MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_POSITIVE = {
   _height: 130,
 }
 
-export function MultipleElectrolyticCapacitorCommonPositive(
-  props: DiagramNodeProps,
-) {
+export function MultipleElectrolyticCapacitorCommonPositive(props: NodeProps) {
   return (
     <Shape
       {...MULTIPLE_ELECTROLYTIC_CAPACITOR_COMMON_POSITIVE}

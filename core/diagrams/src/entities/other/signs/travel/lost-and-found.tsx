@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOST_AND_FOUND = {
   _style: {
@@ -10,7 +10,7 @@ export const LOST_AND_FOUND = {
   _original_height: 95,
 }
 
-export function LostAndFound(props: DiagramNodeProps) {
+export function LostAndFound(props: NodeProps) {
   return (
     <Shape
       {...LOST_AND_FOUND}

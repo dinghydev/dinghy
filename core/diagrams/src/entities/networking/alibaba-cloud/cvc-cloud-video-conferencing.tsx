@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CVC_CLOUD_VIDEO_CONFERENCING = {
   _style: {
@@ -10,7 +10,7 @@ export const CVC_CLOUD_VIDEO_CONFERENCING = {
   _height: 54.6,
 }
 
-export function CvcCloudVideoConferencing(props: DiagramNodeProps) {
+export function CvcCloudVideoConferencing(props: NodeProps) {
   return (
     <Shape
       {...CVC_CLOUD_VIDEO_CONFERENCING}

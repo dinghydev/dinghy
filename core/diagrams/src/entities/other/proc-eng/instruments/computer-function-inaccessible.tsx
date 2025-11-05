@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPUTER_FUNCTION_INACCESSIBLE = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPUTER_FUNCTION_INACCESSIBLE = {
   _original_height: 50,
 }
 
-export function ComputerFunctionInaccessible(props: DiagramNodeProps) {
+export function ComputerFunctionInaccessible(props: NodeProps) {
   return (
     <Shape
       {...COMPUTER_FUNCTION_INACCESSIBLE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOCUMENT_INFORMATION_EXTRACTION = {
   _style: {
@@ -10,7 +10,7 @@ export const DOCUMENT_INFORMATION_EXTRACTION = {
   _original_height: 50,
 }
 
-export function DocumentInformationExtraction(props: DiagramNodeProps) {
+export function DocumentInformationExtraction(props: NodeProps) {
   return (
     <Shape
       {...DOCUMENT_INFORMATION_EXTRACTION}

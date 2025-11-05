@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HALF_PIPE_MIXING_VESSEL = {
   _style: {
@@ -10,7 +10,7 @@ export const HALF_PIPE_MIXING_VESSEL = {
   _height: 173,
 }
 
-export function HalfPipeMixingVessel(props: DiagramNodeProps) {
+export function HalfPipeMixingVessel(props: NodeProps) {
   return (
     <Shape
       {...HALF_PIPE_MIXING_VESSEL}

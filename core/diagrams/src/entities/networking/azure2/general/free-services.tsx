@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FREE_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const FREE_SERVICES = {
   _original_height: 63,
 }
 
-export function FreeServices(props: DiagramNodeProps) {
+export function FreeServices(props: NodeProps) {
   return (
     <Shape
       {...FREE_SERVICES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MONGODB = {
   _style: {
@@ -10,6 +10,6 @@ export const MONGODB = {
   _height: 86.2,
 }
 
-export function Mongodb(props: DiagramNodeProps) {
+export function Mongodb(props: NodeProps) {
   return <Shape {...MONGODB} {...props} _style={extendStyle(MONGODB, props)} />
 }

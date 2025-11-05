@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_PUBLIC_FOLDER = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_PUBLIC_FOLDER = {
   _original_height: 54,
 }
 
-export function DatabasePublicFolder(props: DiagramNodeProps) {
+export function DatabasePublicFolder(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_PUBLIC_FOLDER}

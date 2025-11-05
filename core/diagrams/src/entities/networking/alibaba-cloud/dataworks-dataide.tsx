@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAWORKS_DATAIDE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATAWORKS_DATAIDE = {
   _original_height: 52.5,
 }
 
-export function DataworksDataide(props: DiagramNodeProps) {
+export function DataworksDataide(props: NodeProps) {
   return (
     <Shape
       {...DATAWORKS_DATAIDE}

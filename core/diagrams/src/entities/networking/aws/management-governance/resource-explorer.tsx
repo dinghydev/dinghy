@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESOURCE_EXPLORER = {
   _style: {
@@ -10,7 +10,7 @@ export const RESOURCE_EXPLORER = {
   _original_height: 78,
 }
 
-export function ResourceExplorer(props: DiagramNodeProps) {
+export function ResourceExplorer(props: NodeProps) {
   return (
     <Shape
       {...RESOURCE_EXPLORER}

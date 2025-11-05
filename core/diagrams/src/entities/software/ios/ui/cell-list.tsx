@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CELL_LIST = {
   _style: {
@@ -10,7 +10,7 @@ export const CELL_LIST = {
   _height: 120,
 }
 
-export function CellList(props: DiagramNodeProps) {
+export function CellList(props: NodeProps) {
   return (
     <Shape {...CELL_LIST} {...props} _style={extendStyle(CELL_LIST, props)} />
   )

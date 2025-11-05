@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LYNC_STORAGE_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const LYNC_STORAGE_SERVICE = {
   _original_height: 58,
 }
 
-export function LyncStorageService(props: DiagramNodeProps) {
+export function LyncStorageService(props: NodeProps) {
   return (
     <Shape
       {...LYNC_STORAGE_SERVICE}

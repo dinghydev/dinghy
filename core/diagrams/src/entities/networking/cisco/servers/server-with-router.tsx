@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVER_WITH_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVER_WITH_ROUTER = {
   _height: 64,
 }
 
-export function ServerWithRouter(props: DiagramNodeProps) {
+export function ServerWithRouter(props: NodeProps) {
   return (
     <Shape
       {...SERVER_WITH_ROUTER}

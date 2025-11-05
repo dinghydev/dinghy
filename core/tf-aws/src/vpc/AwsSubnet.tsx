@@ -1,5 +1,5 @@
 import {
-  IacNodeProps,
+  NodeProps,
   ResolvableStringSchema,
   StringSchema,
 } from '@dinghy/base-components'
@@ -20,7 +20,7 @@ export const AwsSubnetOutputSchema = z.object({
 
 export type AwsSubnetInputProps =
   & z.input<typeof AwsSubnetInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type AwsSubnetOutputProps =
   & z.output<typeof AwsSubnetOutputSchema>

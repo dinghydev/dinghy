@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_MS_AD = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_MS_AD = {
   _height: 42,
 }
 
-export function ManagedMsAd(props: DiagramNodeProps) {
+export function ManagedMsAd(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_MS_AD}

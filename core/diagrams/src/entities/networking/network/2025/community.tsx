@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMMUNITY = {
   _style: {
@@ -10,7 +10,7 @@ export const COMMUNITY = {
   _original_height: 50.144999999999996,
 }
 
-export function Community(props: DiagramNodeProps) {
+export function Community(props: NodeProps) {
   return (
     <Shape {...COMMUNITY} {...props} _style={extendStyle(COMMUNITY, props)} />
   )

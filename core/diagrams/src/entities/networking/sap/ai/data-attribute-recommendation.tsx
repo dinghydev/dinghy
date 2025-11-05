@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_ATTRIBUTE_RECOMMENDATION = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_ATTRIBUTE_RECOMMENDATION = {
   _original_height: 50,
 }
 
-export function DataAttributeRecommendation(props: DiagramNodeProps) {
+export function DataAttributeRecommendation(props: NodeProps) {
   return (
     <Shape
       {...DATA_ATTRIBUTE_RECOMMENDATION}

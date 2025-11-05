@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAVERSE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATAVERSE = {
   _original_height: 52.400000000000006,
 }
 
-export function Dataverse(props: DiagramNodeProps) {
+export function Dataverse(props: NodeProps) {
   return (
     <Shape {...DATAVERSE} {...props} _style={extendStyle(DATAVERSE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTINUOUS_TESTING = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTINUOUS_TESTING = {
   _original_height: 60,
 }
 
-export function ContinuousTesting(props: DiagramNodeProps) {
+export function ContinuousTesting(props: NodeProps) {
   return (
     <Shape
       {...CONTINUOUS_TESTING}

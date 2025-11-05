@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STANDARD_HOST = {
   _style: {
@@ -10,7 +10,7 @@ export const STANDARD_HOST = {
   _original_height: 62,
 }
 
-export function StandardHost(props: DiagramNodeProps) {
+export function StandardHost(props: NodeProps) {
   return (
     <Shape
       {...STANDARD_HOST}

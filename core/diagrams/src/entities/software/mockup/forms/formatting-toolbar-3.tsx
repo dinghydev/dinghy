@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORMATTING_TOOLBAR_3 = {
   _style: {
@@ -10,7 +10,7 @@ export const FORMATTING_TOOLBAR_3 = {
   _height: 38,
 }
 
-export function FormattingToolbar3(props: DiagramNodeProps) {
+export function FormattingToolbar3(props: NodeProps) {
   return (
     <Shape
       {...FORMATTING_TOOLBAR_3}

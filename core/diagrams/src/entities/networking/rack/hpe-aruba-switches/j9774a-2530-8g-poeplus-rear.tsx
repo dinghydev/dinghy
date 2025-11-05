@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9774A_2530_8G_POEPLUS_REAR = {
   _style: {
@@ -10,7 +10,7 @@ export const J9774A_2530_8G_POEPLUS_REAR = {
   _height: 15,
 }
 
-export function J9774a25308gPoeplusRear(props: DiagramNodeProps) {
+export function J9774a25308gPoeplusRear(props: NodeProps) {
   return (
     <Shape
       {...J9774A_2530_8G_POEPLUS_REAR}

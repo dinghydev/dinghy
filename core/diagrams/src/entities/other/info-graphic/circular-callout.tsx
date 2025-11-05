@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CIRCULAR_CALLOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const CIRCULAR_CALLOUT = {
   _original_height: 100,
 }
 
-export function CircularCallout(props: DiagramNodeProps) {
+export function CircularCallout(props: NodeProps) {
   return (
     <Shape
       {...CIRCULAR_CALLOUT}

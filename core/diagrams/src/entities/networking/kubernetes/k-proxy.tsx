@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const K_PROXY = {
   _style: {
@@ -10,6 +10,6 @@ export const K_PROXY = {
   _original_height: 48,
 }
 
-export function KProxy(props: DiagramNodeProps) {
+export function KProxy(props: NodeProps) {
   return <Shape {...K_PROXY} {...props} _style={extendStyle(K_PROXY, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THERMOPILE = {
   _style: {
@@ -10,7 +10,7 @@ export const THERMOPILE = {
   _original_height: 82,
 }
 
-export function Thermopile(props: DiagramNodeProps) {
+export function Thermopile(props: NodeProps) {
   return (
     <Shape {...THERMOPILE} {...props} _style={extendStyle(THERMOPILE, props)} />
   )

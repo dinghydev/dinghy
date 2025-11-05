@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PHYSICAL_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const PHYSICAL_SECURITY = {
   _original_height: 60,
 }
 
-export function PhysicalSecurity(props: DiagramNodeProps) {
+export function PhysicalSecurity(props: NodeProps) {
   return (
     <Shape
       {...PHYSICAL_SECURITY}

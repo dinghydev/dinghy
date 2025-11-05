@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_SELECT = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTI_SELECT = {
   _height: 390,
 }
 
-export function MultiSelect(props: DiagramNodeProps) {
+export function MultiSelect(props: NodeProps) {
   return (
     <Shape
       {...MULTI_SELECT}

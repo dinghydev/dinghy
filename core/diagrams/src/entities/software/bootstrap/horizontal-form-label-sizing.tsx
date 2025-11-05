@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HORIZONTAL_FORM_LABEL_SIZING = {
   _style: {
@@ -10,7 +10,7 @@ export const HORIZONTAL_FORM_LABEL_SIZING = {
   _height: 110,
 }
 
-export function HorizontalFormLabelSizing(props: DiagramNodeProps) {
+export function HorizontalFormLabelSizing(props: NodeProps) {
   return (
     <Shape
       {...HORIZONTAL_FORM_LABEL_SIZING}

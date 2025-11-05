@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_ROLE = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_ROLE = {
   _original_height: 40,
 }
 
-export function WebRole(props: DiagramNodeProps) {
+export function WebRole(props: NodeProps) {
   return (
     <Shape {...WEB_ROLE} {...props} _style={extendStyle(WEB_ROLE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOOLTIP_ON_RIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const TOOLTIP_ON_RIGHT = {
   _height: 30,
 }
 
-export function TooltipOnRight(props: DiagramNodeProps) {
+export function TooltipOnRight(props: NodeProps) {
   return (
     <Shape
       {...TOOLTIP_ON_RIGHT}

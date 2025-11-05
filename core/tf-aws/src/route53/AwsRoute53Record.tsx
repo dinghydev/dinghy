@@ -1,6 +1,6 @@
 import {
   deepResolve,
-  IacNodeProps,
+  NodeProps,
   ResolvableNumberSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
@@ -33,7 +33,7 @@ export type AwsRoute53RecordInputProps =
   & z.output<
     typeof AwsRoute53RecordInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type AwsRoute53RecordOutputProps =
   & z.output<

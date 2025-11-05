@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TUMBLR = {
   _style: {
@@ -10,6 +10,6 @@ export const TUMBLR = {
   _height: 65.2,
 }
 
-export function Tumblr(props: DiagramNodeProps) {
+export function Tumblr(props: NodeProps) {
   return <Shape {...TUMBLR} {...props} _style={extendStyle(TUMBLR, props)} />
 }

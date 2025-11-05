@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERIC_DATABASE = {
   _style: {
@@ -10,7 +10,7 @@ export const GENERIC_DATABASE = {
   _original_height: 60,
 }
 
-export function GenericDatabase(props: DiagramNodeProps) {
+export function GenericDatabase(props: NodeProps) {
   return (
     <Shape
       {...GENERIC_DATABASE}

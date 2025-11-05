@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESTART_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const RESTART_SAP = {
   _height: 28,
 }
 
-export function RestartSap(props: DiagramNodeProps) {
+export function RestartSap(props: NodeProps) {
   return (
     <Shape
       {...RESTART_SAP}

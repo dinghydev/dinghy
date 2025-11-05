@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIALOG_WITH_SCROLLABLE_LIST = {
   _style: {
@@ -10,7 +10,7 @@ export const DIALOG_WITH_SCROLLABLE_LIST = {
   _height: 270,
 }
 
-export function DialogWithScrollableList(props: DiagramNodeProps) {
+export function DialogWithScrollableList(props: NodeProps) {
   return (
     <Shape
       {...DIALOG_WITH_SCROLLABLE_LIST}

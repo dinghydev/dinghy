@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STORAGE_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const STORAGE_GATEWAY = {
   _original_height: 93,
 }
 
-export function StorageGateway(props: DiagramNodeProps) {
+export function StorageGateway(props: NodeProps) {
   return (
     <Shape
       {...STORAGE_GATEWAY}

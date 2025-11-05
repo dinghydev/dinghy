@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NO_SYMBOL = {
   _style: {
@@ -10,7 +10,7 @@ export const NO_SYMBOL = {
   _original_height: 100,
 }
 
-export function NoSymbol(props: DiagramNodeProps) {
+export function NoSymbol(props: NodeProps) {
   return (
     <Shape {...NO_SYMBOL} {...props} _style={extendStyle(NO_SYMBOL, props)} />
   )

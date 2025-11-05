@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIVATE_5G = {
   _style: {
@@ -10,7 +10,7 @@ export const PRIVATE_5G = {
   _original_height: 78,
 }
 
-export function Private5g(props: DiagramNodeProps) {
+export function Private5g(props: NodeProps) {
   return (
     <Shape {...PRIVATE_5G} {...props} _style={extendStyle(PRIVATE_5G, props)} />
   )

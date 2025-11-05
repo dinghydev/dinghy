@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VORTEX = {
   _style: {
@@ -10,6 +10,6 @@ export const VORTEX = {
   _original_height: 50,
 }
 
-export function Vortex(props: DiagramNodeProps) {
+export function Vortex(props: NodeProps) {
   return <Shape {...VORTEX} {...props} _style={extendStyle(VORTEX, props)} />
 }

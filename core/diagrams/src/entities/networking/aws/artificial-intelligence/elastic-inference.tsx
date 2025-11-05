@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_INFERENCE = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_INFERENCE = {
   _original_height: 78,
 }
 
-export function ElasticInference(props: DiagramNodeProps) {
+export function ElasticInference(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_INFERENCE}

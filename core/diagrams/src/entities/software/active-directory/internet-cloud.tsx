@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERNET_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERNET_CLOUD = {
   _height: 31.5,
 }
 
-export function InternetCloud(props: DiagramNodeProps) {
+export function InternetCloud(props: NodeProps) {
   return (
     <Shape
       {...INTERNET_CLOUD}

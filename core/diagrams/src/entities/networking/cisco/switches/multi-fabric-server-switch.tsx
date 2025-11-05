@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_FABRIC_SERVER_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTI_FABRIC_SERVER_SWITCH = {
   _original_height: 75,
 }
 
-export function MultiFabricServerSwitch(props: DiagramNodeProps) {
+export function MultiFabricServerSwitch(props: NodeProps) {
   return (
     <Shape
       {...MULTI_FABRIC_SERVER_SWITCH}

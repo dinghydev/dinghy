@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASSET_TABLE = {
   _style: {
@@ -13,7 +13,7 @@ export const ASSET_TABLE = {
   },
 }
 
-export function AssetTable(props: DiagramNodeProps) {
+export function AssetTable(props: NodeProps) {
   return (
     <Shape
       {...ASSET_TABLE}

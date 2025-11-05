@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASSETTECH = {
   _style: {
@@ -10,7 +10,7 @@ export const ASSETTECH = {
   _original_height: 41.699999999999996,
 }
 
-export function Assettech(props: DiagramNodeProps) {
+export function Assettech(props: NodeProps) {
   return (
     <Shape {...ASSETTECH} {...props} _style={extendStyle(ASSETTECH, props)} />
   )

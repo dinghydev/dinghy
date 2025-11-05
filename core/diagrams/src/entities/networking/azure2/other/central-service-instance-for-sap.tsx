@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CENTRAL_SERVICE_INSTANCE_FOR_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const CENTRAL_SERVICE_INSTANCE_FOR_SAP = {
   _height: 35.6,
 }
 
-export function CentralServiceInstanceForSap(props: DiagramNodeProps) {
+export function CentralServiceInstanceForSap(props: NodeProps) {
   return (
     <Shape
       {...CENTRAL_SERVICE_INSTANCE_FOR_SAP}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTITY_LIFELINE = {
   _style: {
@@ -8,7 +8,7 @@ export const ENTITY_LIFELINE = {
   },
 }
 
-export function EntityLifeline(props: DiagramNodeProps) {
+export function EntityLifeline(props: NodeProps) {
   return (
     <Shape
       {...ENTITY_LIFELINE}

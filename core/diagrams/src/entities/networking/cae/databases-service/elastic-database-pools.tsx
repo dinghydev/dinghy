@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_DATABASE_POOLS = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_DATABASE_POOLS = {
   _original_height: 50,
 }
 
-export function ElasticDatabasePools(props: DiagramNodeProps) {
+export function ElasticDatabasePools(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_DATABASE_POOLS}

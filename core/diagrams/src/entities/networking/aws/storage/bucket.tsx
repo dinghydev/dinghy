@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUCKET = {
   _style: {
@@ -10,6 +10,6 @@ export const BUCKET = {
   _original_height: 78,
 }
 
-export function Bucket(props: DiagramNodeProps) {
+export function Bucket(props: NodeProps) {
   return <Shape {...BUCKET} {...props} _style={extendStyle(BUCKET, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MODAL_DIALOG_SMALL = {
   _style: {
@@ -10,7 +10,7 @@ export const MODAL_DIALOG_SMALL = {
   _original_height: 410,
 }
 
-export function ModalDialogSmall(props: DiagramNodeProps) {
+export function ModalDialogSmall(props: NodeProps) {
   return (
     <Shape
       {...MODAL_DIALOG_SMALL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAGEMAKER_CANVAS = {
   _style: {
@@ -10,7 +10,7 @@ export const SAGEMAKER_CANVAS = {
   _original_height: 78,
 }
 
-export function SagemakerCanvas(props: DiagramNodeProps) {
+export function SagemakerCanvas(props: NodeProps) {
   return (
     <Shape
       {...SAGEMAKER_CANVAS}

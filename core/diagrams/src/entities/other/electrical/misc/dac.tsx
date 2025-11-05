@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DAC = {
   _style: {
@@ -10,6 +10,6 @@ export const DAC = {
   _height: 46,
 }
 
-export function Dac(props: DiagramNodeProps) {
+export function Dac(props: NodeProps) {
   return <Shape {...DAC} {...props} _style={extendStyle(DAC, props)} />
 }

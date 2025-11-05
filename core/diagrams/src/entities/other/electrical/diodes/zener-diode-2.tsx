@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ZENER_DIODE_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const ZENER_DIODE_2 = {
   _height: 60,
 }
 
-export function ZenerDiode2(props: DiagramNodeProps) {
+export function ZenerDiode2(props: NodeProps) {
   return (
     <Shape
       {...ZENER_DIODE_2}

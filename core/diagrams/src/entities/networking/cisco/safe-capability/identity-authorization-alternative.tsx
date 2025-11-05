@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IDENTITY_AUTHORIZATION_ALTERNATIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const IDENTITY_AUTHORIZATION_ALTERNATIVE = {
   _original_height: 43,
 }
 
-export function IdentityAuthorizationAlternative(props: DiagramNodeProps) {
+export function IdentityAuthorizationAlternative(props: NodeProps) {
   return (
     <Shape
       {...IDENTITY_AUTHORIZATION_ALTERNATIVE}

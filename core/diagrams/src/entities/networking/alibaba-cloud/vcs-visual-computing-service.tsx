@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VCS_VISUAL_COMPUTING_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const VCS_VISUAL_COMPUTING_SERVICE = {
   _original_height: 52.5,
 }
 
-export function VcsVisualComputingService(props: DiagramNodeProps) {
+export function VcsVisualComputingService(props: NodeProps) {
   return (
     <Shape
       {...VCS_VISUAL_COMPUTING_SERVICE}

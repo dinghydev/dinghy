@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SATISFY_CALLOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const SATISFY_CALLOUT = {
   _height: 60,
 }
 
-export function SatisfyCallout(props: DiagramNodeProps) {
+export function SatisfyCallout(props: NodeProps) {
   return (
     <Shape
       {...SATISFY_CALLOUT}

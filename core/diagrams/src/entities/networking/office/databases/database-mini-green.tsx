@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_MINI_GREEN = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_MINI_GREEN = {
   _height: 27,
 }
 
-export function DatabaseMiniGreen(props: DiagramNodeProps) {
+export function DatabaseMiniGreen(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_MINI_GREEN}

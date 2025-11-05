@@ -1,5 +1,5 @@
 import {
-  IacNodeProps,
+  NodeProps,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
@@ -21,7 +21,7 @@ export type AwsAcmCertificateInputProps =
   & z.input<
     typeof AwsAcmCertificateInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type AwsAcmCertificateOutputProps =
   & z.input<

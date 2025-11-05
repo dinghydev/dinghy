@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROXY_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const PROXY_SERVER = {
   _original_height: 52,
 }
 
-export function ProxyServer(props: DiagramNodeProps) {
+export function ProxyServer(props: NodeProps) {
   return (
     <Shape
       {...PROXY_SERVER}

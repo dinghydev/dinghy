@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12140_ELECTROSTATIC_SEPARATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X12140_ELECTROSTATIC_SEPARATOR = {
   _height: 52.4,
 }
 
-export function X12140ElectrostaticSeparator(props: DiagramNodeProps) {
+export function X12140ElectrostaticSeparator(props: NodeProps) {
   return (
     <Shape
       {...X12140_ELECTROSTATIC_SEPARATOR}

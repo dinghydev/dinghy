@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_INSTANCE = {
   _original_height: 50,
 }
 
-export function AzureInstance(props: DiagramNodeProps) {
+export function AzureInstance(props: NodeProps) {
   return (
     <Shape
       {...AZURE_INSTANCE}

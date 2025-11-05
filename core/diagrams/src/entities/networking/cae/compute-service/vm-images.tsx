@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VM_IMAGES = {
   _style: {
@@ -10,7 +10,7 @@ export const VM_IMAGES = {
   _original_height: 46,
 }
 
-export function VmImages(props: DiagramNodeProps) {
+export function VmImages(props: NodeProps) {
   return (
     <Shape {...VM_IMAGES} {...props} _style={extendStyle(VM_IMAGES, props)} />
   )

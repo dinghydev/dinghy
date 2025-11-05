@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOCALDIRECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const LOCALDIRECTOR = {
   _height: 51,
 }
 
-export function Localdirector(props: DiagramNodeProps) {
+export function Localdirector(props: NodeProps) {
   return (
     <Shape
       {...LOCALDIRECTOR}

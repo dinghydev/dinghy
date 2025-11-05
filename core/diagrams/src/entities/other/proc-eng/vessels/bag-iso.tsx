@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BAG_ISO = {
   _style: {
@@ -10,6 +10,6 @@ export const BAG_ISO = {
   _height: 95,
 }
 
-export function BagIso(props: DiagramNodeProps) {
+export function BagIso(props: NodeProps) {
   return <Shape {...BAG_ISO} {...props} _style={extendStyle(BAG_ISO, props)} />
 }

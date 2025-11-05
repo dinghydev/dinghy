@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CROSS_FUNCTIONAL_FLOWCHART = {
   _style: {
@@ -10,7 +10,7 @@ export const CROSS_FUNCTIONAL_FLOWCHART = {
   _original_height: 400,
 }
 
-export function CrossFunctionalFlowchart(props: DiagramNodeProps) {
+export function CrossFunctionalFlowchart(props: NodeProps) {
   return (
     <Shape
       {...CROSS_FUNCTIONAL_FLOWCHART}

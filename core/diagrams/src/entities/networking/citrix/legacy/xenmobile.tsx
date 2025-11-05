@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XENMOBILE = {
   _style: {
@@ -10,7 +10,7 @@ export const XENMOBILE = {
   _original_height: 89,
 }
 
-export function Xenmobile(props: DiagramNodeProps) {
+export function Xenmobile(props: NodeProps) {
   return (
     <Shape {...XENMOBILE} {...props} _style={extendStyle(XENMOBILE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MICROSERVICE_CONTAINER = {
   _style: {
@@ -10,7 +10,7 @@ export const MICROSERVICE_CONTAINER = {
   _height: 170,
 }
 
-export function MicroserviceContainer(props: DiagramNodeProps) {
+export function MicroserviceContainer(props: NodeProps) {
   return (
     <Shape
       {...MICROSERVICE_CONTAINER}

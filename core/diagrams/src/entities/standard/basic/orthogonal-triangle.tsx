@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORTHOGONAL_TRIANGLE = {
   _style: {
@@ -10,7 +10,7 @@ export const ORTHOGONAL_TRIANGLE = {
   _height: 70,
 }
 
-export function OrthogonalTriangle(props: DiagramNodeProps) {
+export function OrthogonalTriangle(props: NodeProps) {
   return (
     <Shape
       {...ORTHOGONAL_TRIANGLE}

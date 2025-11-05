@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEETINGPLACE = {
   _style: {
@@ -10,7 +10,7 @@ export const MEETINGPLACE = {
   _height: 64,
 }
 
-export function Meetingplace(props: DiagramNodeProps) {
+export function Meetingplace(props: NodeProps) {
   return (
     <Shape
       {...MEETINGPLACE}

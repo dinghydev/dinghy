@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROCESS_EXPLORER = {
   _style: {
@@ -10,7 +10,7 @@ export const PROCESS_EXPLORER = {
   _original_height: 68,
 }
 
-export function ProcessExplorer(props: DiagramNodeProps) {
+export function ProcessExplorer(props: NodeProps) {
   return (
     <Shape
       {...PROCESS_EXPLORER}

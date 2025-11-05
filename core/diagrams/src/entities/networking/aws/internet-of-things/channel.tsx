@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHANNEL = {
   _style: {
@@ -10,6 +10,6 @@ export const CHANNEL = {
   _original_height: 78,
 }
 
-export function Channel(props: DiagramNodeProps) {
+export function Channel(props: NodeProps) {
   return <Shape {...CHANNEL} {...props} _style={extendStyle(CHANNEL, props)} />
 }

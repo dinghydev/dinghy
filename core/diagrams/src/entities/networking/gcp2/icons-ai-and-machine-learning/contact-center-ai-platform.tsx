@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTACT_CENTER_AI_PLATFORM = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTACT_CENTER_AI_PLATFORM = {
   _height: 42,
 }
 
-export function ContactCenterAiPlatform(props: DiagramNodeProps) {
+export function ContactCenterAiPlatform(props: NodeProps) {
   return (
     <Shape
       {...CONTACT_CENTER_AI_PLATFORM}

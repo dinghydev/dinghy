@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAB = {
   _style: {
@@ -10,6 +10,6 @@ export const TAB = {
   _height: 686,
 }
 
-export function Tab(props: DiagramNodeProps) {
+export function Tab(props: NodeProps) {
   return <Shape {...TAB} {...props} _style={extendStyle(TAB, props)} />
 }

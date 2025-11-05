@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEDICATED_EVENT_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const DEDICATED_EVENT_HUB = {
   _original_height: 48,
 }
 
-export function DedicatedEventHub(props: DiagramNodeProps) {
+export function DedicatedEventHub(props: NodeProps) {
   return (
     <Shape
       {...DEDICATED_EVENT_HUB}

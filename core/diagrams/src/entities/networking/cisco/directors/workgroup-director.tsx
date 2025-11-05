@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORKGROUP_DIRECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const WORKGROUP_DIRECTOR = {
   _original_height: 67,
 }
 
-export function WorkgroupDirector(props: DiagramNodeProps) {
+export function WorkgroupDirector(props: NodeProps) {
   return (
     <Shape
       {...WORKGROUP_DIRECTOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POE_DVS_CAMERA = {
   _style: {
@@ -10,7 +10,7 @@ export const POE_DVS_CAMERA = {
   _original_height: 40.2,
 }
 
-export function PoeDvsCamera(props: DiagramNodeProps) {
+export function PoeDvsCamera(props: NodeProps) {
   return (
     <Shape
       {...POE_DVS_CAMERA}

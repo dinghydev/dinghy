@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_MAP = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_MAP = {
   _original_height: 78,
 }
 
-export function CloudMap(props: DiagramNodeProps) {
+export function CloudMap(props: NodeProps) {
   return (
     <Shape {...CLOUD_MAP} {...props} _style={extendStyle(CLOUD_MAP, props)} />
   )

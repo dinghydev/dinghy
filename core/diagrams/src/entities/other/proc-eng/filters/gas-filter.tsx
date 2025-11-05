@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GAS_FILTER = {
   _style: {
@@ -10,7 +10,7 @@ export const GAS_FILTER = {
   _height: 100,
 }
 
-export function GasFilter(props: DiagramNodeProps) {
+export function GasFilter(props: NodeProps) {
   return (
     <Shape {...GAS_FILTER} {...props} _style={extendStyle(GAS_FILTER, props)} />
   )

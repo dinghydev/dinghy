@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDUCTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const INDUCTOR = {
   _height: 42,
 }
 
-export function Inductor(props: DiagramNodeProps) {
+export function Inductor(props: NodeProps) {
   return (
     <Shape {...INDUCTOR} {...props} _style={extendStyle(INDUCTOR, props)} />
   )

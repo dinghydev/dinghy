@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HORIZONTAL_SPLITTER = {
   _style: {
@@ -10,7 +10,7 @@ export const HORIZONTAL_SPLITTER = {
   _height: 10,
 }
 
-export function HorizontalSplitter(props: DiagramNodeProps) {
+export function HorizontalSplitter(props: NodeProps) {
   return (
     <Shape
       {...HORIZONTAL_SPLITTER}

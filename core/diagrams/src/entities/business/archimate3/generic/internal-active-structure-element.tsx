@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERNAL_ACTIVE_STRUCTURE_ELEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERNAL_ACTIVE_STRUCTURE_ELEMENT = {
   _height: 75,
 }
 
-export function InternalActiveStructureElement(props: DiagramNodeProps) {
+export function InternalActiveStructureElement(props: NodeProps) {
   return (
     <Shape
       {...INTERNAL_ACTIVE_STRUCTURE_ELEMENT}

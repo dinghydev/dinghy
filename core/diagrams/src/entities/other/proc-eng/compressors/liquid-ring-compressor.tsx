@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIQUID_RING_COMPRESSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const LIQUID_RING_COMPRESSOR = {
   _original_height: 90,
 }
 
-export function LiquidRingCompressor(props: DiagramNodeProps) {
+export function LiquidRingCompressor(props: NodeProps) {
   return (
     <Shape
       {...LIQUID_RING_COMPRESSOR}

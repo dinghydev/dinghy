@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHAOS_STUDIO = {
   _style: {
@@ -10,7 +10,7 @@ export const CHAOS_STUDIO = {
   _original_height: 68,
 }
 
-export function ChaosStudio(props: DiagramNodeProps) {
+export function ChaosStudio(props: NodeProps) {
   return (
     <Shape
       {...CHAOS_STUDIO}

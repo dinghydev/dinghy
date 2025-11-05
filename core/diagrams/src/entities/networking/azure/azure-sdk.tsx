@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_SDK = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_SDK = {
   _original_height: 47.5,
 }
 
-export function AzureSdk(props: DiagramNodeProps) {
+export function AzureSdk(props: NodeProps) {
   return (
     <Shape {...AZURE_SDK} {...props} _style={extendStyle(AZURE_SDK, props)} />
   )

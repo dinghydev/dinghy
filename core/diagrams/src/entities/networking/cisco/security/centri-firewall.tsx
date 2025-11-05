@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CENTRI_FIREWALL = {
   _style: {
@@ -10,7 +10,7 @@ export const CENTRI_FIREWALL = {
   _original_height: 62,
 }
 
-export function CentriFirewall(props: DiagramNodeProps) {
+export function CentriFirewall(props: NodeProps) {
   return (
     <Shape
       {...CENTRI_FIREWALL}

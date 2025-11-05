@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERACTION = {
   _style: {
@@ -8,7 +8,7 @@ export const INTERACTION = {
   },
 }
 
-export function Interaction(props: DiagramNodeProps) {
+export function Interaction(props: NodeProps) {
   return (
     <Shape
       {...INTERACTION}

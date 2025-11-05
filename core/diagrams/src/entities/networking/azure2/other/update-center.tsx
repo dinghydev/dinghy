@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UPDATE_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const UPDATE_CENTER = {
   _original_height: 68,
 }
 
-export function UpdateCenter(props: DiagramNodeProps) {
+export function UpdateCenter(props: NodeProps) {
   return (
     <Shape
       {...UPDATE_CENTER}

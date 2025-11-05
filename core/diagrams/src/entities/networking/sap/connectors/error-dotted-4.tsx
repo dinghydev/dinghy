@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ERROR_DOTTED_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const ERROR_DOTTED_4 = {
   _height: 20,
 }
 
-export function ErrorDotted4(props: DiagramNodeProps) {
+export function ErrorDotted4(props: NodeProps) {
   return (
     <Shape
       {...ERROR_DOTTED_4}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TELEPRESENCE_EXCHANGE = {
   _style: {
@@ -10,7 +10,7 @@ export const TELEPRESENCE_EXCHANGE = {
   _original_height: 50,
 }
 
-export function TelepresenceExchange(props: DiagramNodeProps) {
+export function TelepresenceExchange(props: NodeProps) {
   return (
     <Shape
       {...TELEPRESENCE_EXCHANGE}

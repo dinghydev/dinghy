@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const U_TURN_ARROW = {
   _style: {
@@ -10,7 +10,7 @@ export const U_TURN_ARROW = {
   _original_height: 100,
 }
 
-export function UTurnArrow(props: DiagramNodeProps) {
+export function UTurnArrow(props: NodeProps) {
   return (
     <Shape
       {...U_TURN_ARROW}

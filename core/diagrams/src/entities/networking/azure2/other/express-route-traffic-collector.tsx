@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXPRESS_ROUTE_TRAFFIC_COLLECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const EXPRESS_ROUTE_TRAFFIC_COLLECTOR = {
   _original_height: 68,
 }
 
-export function ExpressRouteTrafficCollector(props: DiagramNodeProps) {
+export function ExpressRouteTrafficCollector(props: NodeProps) {
   return (
     <Shape
       {...EXPRESS_ROUTE_TRAFFIC_COLLECTOR}

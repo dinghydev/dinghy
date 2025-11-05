@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHIELD_ADVANCED = {
   _style: {
@@ -10,7 +10,7 @@ export const SHIELD_ADVANCED = {
   _original_height: 78,
 }
 
-export function ShieldAdvanced(props: DiagramNodeProps) {
+export function ShieldAdvanced(props: NodeProps) {
   return (
     <Shape
       {...SHIELD_ADVANCED}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_UCS_6296UP_FABRIC_INTERCONNECT = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_UCS_6296UP_FABRIC_INTERCONNECT = {
   _height: 30,
 }
 
-export function CiscoUcs6296upFabricInterconnect(props: DiagramNodeProps) {
+export function CiscoUcs6296upFabricInterconnect(props: NodeProps) {
   return (
     <Shape
       {...CISCO_UCS_6296UP_FABRIC_INTERCONNECT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_VIRTUAL_DESKTOPS_ESSENTIALS = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_VIRTUAL_DESKTOPS_ESSENTIALS = {
   _original_height: 50,
 }
 
-export function CitrixVirtualDesktopsEssentials(props: DiagramNodeProps) {
+export function CitrixVirtualDesktopsEssentials(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_VIRTUAL_DESKTOPS_ESSENTIALS}

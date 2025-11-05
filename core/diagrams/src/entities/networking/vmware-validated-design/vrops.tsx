@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VROPS = {
   _style: {
@@ -10,6 +10,6 @@ export const VROPS = {
   _original_height: 50,
 }
 
-export function Vrops(props: DiagramNodeProps) {
+export function Vrops(props: NodeProps) {
   return <Shape {...VROPS} {...props} _style={extendStyle(VROPS, props)} />
 }

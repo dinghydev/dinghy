@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIVACY = {
   _style: {
@@ -10,6 +10,6 @@ export const PRIVACY = {
   _height: 28.5,
 }
 
-export function Privacy(props: DiagramNodeProps) {
+export function Privacy(props: NodeProps) {
   return <Shape {...PRIVACY} {...props} _style={extendStyle(PRIVACY, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARALLEL_MULTIPLE_INTERMEDIATE_BOUNDARY_INTERRUPTING = {
   _style: {
@@ -11,7 +11,7 @@ export const PARALLEL_MULTIPLE_INTERMEDIATE_BOUNDARY_INTERRUPTING = {
 }
 
 export function ParallelMultipleIntermediateBoundaryInterrupting(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

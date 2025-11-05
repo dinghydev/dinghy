@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PATCH_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const PATCH_MANAGER = {
   _original_height: 90,
 }
 
-export function PatchManager(props: DiagramNodeProps) {
+export function PatchManager(props: NodeProps) {
   return (
     <Shape
       {...PATCH_MANAGER}

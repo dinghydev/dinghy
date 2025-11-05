@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VPC_NAT_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const VPC_NAT_GATEWAY = {
   _original_height: 72,
 }
 
-export function VpcNatGateway(props: DiagramNodeProps) {
+export function VpcNatGateway(props: NodeProps) {
   return (
     <Shape
       {...VPC_NAT_GATEWAY}

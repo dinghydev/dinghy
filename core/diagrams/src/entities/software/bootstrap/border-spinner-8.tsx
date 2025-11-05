@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BORDER_SPINNER_8 = {
   _style: {
@@ -10,7 +10,7 @@ export const BORDER_SPINNER_8 = {
   _original_height: 30,
 }
 
-export function BorderSpinner8(props: DiagramNodeProps) {
+export function BorderSpinner8(props: NodeProps) {
   return (
     <Shape
       {...BORDER_SPINNER_8}

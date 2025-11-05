@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTUNE_CONNECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const INTUNE_CONNECTOR = {
   _height: 59,
 }
 
-export function IntuneConnector(props: DiagramNodeProps) {
+export function IntuneConnector(props: NodeProps) {
   return (
     <Shape
       {...INTUNE_CONNECTOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MIGRATE_FOR_COMPUTE_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const MIGRATE_FOR_COMPUTE_ENGINE = {
   _original_height: 42,
 }
 
-export function MigrateForComputeEngine(props: DiagramNodeProps) {
+export function MigrateForComputeEngine(props: NodeProps) {
   return (
     <Shape
       {...MIGRATE_FOR_COMPUTE_ENGINE}

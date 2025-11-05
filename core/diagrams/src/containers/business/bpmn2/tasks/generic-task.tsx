@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERIC_TASK = {
   _style: {
@@ -8,7 +8,7 @@ export const GENERIC_TASK = {
   },
 }
 
-export function GenericTask(props: DiagramNodeProps) {
+export function GenericTask(props: NodeProps) {
   return (
     <Shape
       {...GENERIC_TASK}

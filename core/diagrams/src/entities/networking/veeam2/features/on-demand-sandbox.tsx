@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_DEMAND_SANDBOX = {
   _style: {
@@ -10,7 +10,7 @@ export const ON_DEMAND_SANDBOX = {
   _original_height: 34,
 }
 
-export function OnDemandSandbox(props: DiagramNodeProps) {
+export function OnDemandSandbox(props: NodeProps) {
   return (
     <Shape
       {...ON_DEMAND_SANDBOX}

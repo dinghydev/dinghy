@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTUNE_FOR_EDUCATION = {
   _style: {
@@ -10,7 +10,7 @@ export const INTUNE_FOR_EDUCATION = {
   _original_height: 62,
 }
 
-export function IntuneForEducation(props: DiagramNodeProps) {
+export function IntuneForEducation(props: NodeProps) {
   return (
     <Shape
       {...INTUNE_FOR_EDUCATION}

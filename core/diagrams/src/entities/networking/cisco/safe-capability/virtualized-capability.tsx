@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUALIZED_CAPABILITY = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUALIZED_CAPABILITY = {
   _original_height: 43,
 }
 
-export function VirtualizedCapability(props: DiagramNodeProps) {
+export function VirtualizedCapability(props: NodeProps) {
   return (
     <Shape
       {...VIRTUALIZED_CAPABILITY}

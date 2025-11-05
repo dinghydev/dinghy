@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OR_IEC = {
   _style: {
@@ -10,6 +10,6 @@ export const OR_IEC = {
   _height: 80,
 }
 
-export function OrIec(props: DiagramNodeProps) {
+export function OrIec(props: NodeProps) {
   return <Shape {...OR_IEC} {...props} _style={extendStyle(OR_IEC, props)} />
 }

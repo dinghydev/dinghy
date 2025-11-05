@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERIC_FIREWALL = {
   _style: {
@@ -10,7 +10,7 @@ export const GENERIC_FIREWALL = {
   _original_height: 66,
 }
 
-export function GenericFirewall(props: DiagramNodeProps) {
+export function GenericFirewall(props: NodeProps) {
   return (
     <Shape
       {...GENERIC_FIREWALL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENDPOINT_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const ENDPOINT_MANAGEMENT = {
   _height: 38.295,
 }
 
-export function EndpointManagement(props: DiagramNodeProps) {
+export function EndpointManagement(props: NodeProps) {
   return (
     <Shape
       {...ENDPOINT_MANAGEMENT}

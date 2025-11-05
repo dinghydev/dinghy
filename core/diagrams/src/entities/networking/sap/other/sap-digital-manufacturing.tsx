@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_DIGITAL_MANUFACTURING = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_DIGITAL_MANUFACTURING = {
   _original_height: 50,
 }
 
-export function SapDigitalManufacturing(props: DiagramNodeProps) {
+export function SapDigitalManufacturing(props: NodeProps) {
   return (
     <Shape
       {...SAP_DIGITAL_MANUFACTURING}

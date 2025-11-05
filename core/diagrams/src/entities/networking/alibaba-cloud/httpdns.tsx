@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HTTPDNS = {
   _style: {
@@ -10,6 +10,6 @@ export const HTTPDNS = {
   _height: 36.3,
 }
 
-export function Httpdns(props: DiagramNodeProps) {
+export function Httpdns(props: NodeProps) {
   return <Shape {...HTTPDNS} {...props} _style={extendStyle(HTTPDNS, props)} />
 }

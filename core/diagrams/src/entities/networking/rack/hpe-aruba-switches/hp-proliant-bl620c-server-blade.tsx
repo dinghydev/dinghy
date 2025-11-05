@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HP_PROLIANT_BL620C_SERVER_BLADE = {
   _style: {
@@ -10,7 +10,7 @@ export const HP_PROLIANT_BL620C_SERVER_BLADE = {
   _height: 121,
 }
 
-export function HpProliantBl620cServerBlade(props: DiagramNodeProps) {
+export function HpProliantBl620cServerBlade(props: NodeProps) {
   return (
     <Shape
       {...HP_PROLIANT_BL620C_SERVER_BLADE}

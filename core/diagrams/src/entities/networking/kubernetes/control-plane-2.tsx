@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTROL_PLANE_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTROL_PLANE_2 = {
   _original_height: 48,
 }
 
-export function ControlPlane2(props: DiagramNodeProps) {
+export function ControlPlane2(props: NodeProps) {
   return (
     <Shape
       {...CONTROL_PLANE_2}

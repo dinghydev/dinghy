@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIALOG = {
   _style: {
@@ -10,6 +10,6 @@ export const DIALOG = {
   _height: 70,
 }
 
-export function Dialog(props: DiagramNodeProps) {
+export function Dialog(props: NodeProps) {
   return <Shape {...DIALOG} {...props} _style={extendStyle(DIALOG, props)} />
 }

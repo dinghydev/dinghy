@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTAINER_INSTANCES = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTAINER_INSTANCES = {
   _original_height: 68,
 }
 
-export function ContainerInstances(props: DiagramNodeProps) {
+export function ContainerInstances(props: NodeProps) {
   return (
     <Shape
       {...CONTAINER_INSTANCES}

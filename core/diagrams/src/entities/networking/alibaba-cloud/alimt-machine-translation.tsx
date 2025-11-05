@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALIMT_MACHINE_TRANSLATION = {
   _style: {
@@ -10,7 +10,7 @@ export const ALIMT_MACHINE_TRANSLATION = {
   _original_height: 47.7,
 }
 
-export function AlimtMachineTranslation(props: DiagramNodeProps) {
+export function AlimtMachineTranslation(props: NodeProps) {
   return (
     <Shape
       {...ALIMT_MACHINE_TRANSLATION}

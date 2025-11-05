@@ -1,6 +1,6 @@
 import {
-  type IacNodeProps,
   type Item,
+  type NodeProps,
   type NodeTree,
   type Props,
 } from '@dinghy/base-components'
@@ -22,7 +22,7 @@ const isStageMatch = (stage: Item, currentStage?: any): boolean => {
 const collectTfElements = (
   renderOptions: TfRenderOptions,
   tfRoot: Props,
-  _props: IacNodeProps,
+  _props: NodeProps,
 ) => {
   if (
     _props._inputSchema &&

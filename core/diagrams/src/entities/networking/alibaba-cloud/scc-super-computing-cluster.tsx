@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCC_SUPER_COMPUTING_CLUSTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SCC_SUPER_COMPUTING_CLUSTER = {
   _original_height: 53.4,
 }
 
-export function SccSuperComputingCluster(props: DiagramNodeProps) {
+export function SccSuperComputingCluster(props: NodeProps) {
   return (
     <Shape
       {...SCC_SUPER_COMPUTING_CLUSTER}

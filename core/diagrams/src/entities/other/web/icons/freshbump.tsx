@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FRESHBUMP = {
   _style: {
@@ -10,7 +10,7 @@ export const FRESHBUMP = {
   _original_height: 102.4,
 }
 
-export function Freshbump(props: DiagramNodeProps) {
+export function Freshbump(props: NodeProps) {
   return (
     <Shape {...FRESHBUMP} {...props} _style={extendStyle(FRESHBUMP, props)} />
   )

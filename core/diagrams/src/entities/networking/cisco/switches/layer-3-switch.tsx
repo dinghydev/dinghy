@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAYER_3_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const LAYER_3_SWITCH = {
   _original_height: 64,
 }
 
-export function Layer3Switch(props: DiagramNodeProps) {
+export function Layer3Switch(props: NodeProps) {
   return (
     <Shape
       {...LAYER_3_SWITCH}

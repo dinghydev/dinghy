@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HEAT_CONSUMER = {
   _style: {
@@ -10,7 +10,7 @@ export const HEAT_CONSUMER = {
   _original_height: 100,
 }
 
-export function HeatConsumer(props: DiagramNodeProps) {
+export function HeatConsumer(props: NodeProps) {
   return (
     <Shape
       {...HEAT_CONSUMER}

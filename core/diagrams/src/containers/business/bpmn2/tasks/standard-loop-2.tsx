@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STANDARD_LOOP_2 = {
   _style: {
@@ -8,7 +8,7 @@ export const STANDARD_LOOP_2 = {
   },
 }
 
-export function StandardLoop2(props: DiagramNodeProps) {
+export function StandardLoop2(props: NodeProps) {
   return (
     <Shape
       {...STANDARD_LOOP_2}

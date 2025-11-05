@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIAGONAL_STRIPE = {
   _style: {
@@ -10,7 +10,7 @@ export const DIAGONAL_STRIPE = {
   _height: 60,
 }
 
-export function DiagonalStripe(props: DiagramNodeProps) {
+export function DiagonalStripe(props: NodeProps) {
   return (
     <Shape
       {...DIAGONAL_STRIPE}

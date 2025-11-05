@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UMG_SERIES = {
   _style: {
@@ -10,7 +10,7 @@ export const UMG_SERIES = {
   _height: 50,
 }
 
-export function UmgSeries(props: DiagramNodeProps) {
+export function UmgSeries(props: NodeProps) {
   return (
     <Shape {...UMG_SERIES} {...props} _style={extendStyle(UMG_SERIES, props)} />
   )

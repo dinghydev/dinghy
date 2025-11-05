@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIME_DELAY_BREAK = {
   _style: {
@@ -10,7 +10,7 @@ export const TIME_DELAY_BREAK = {
   _height: 32,
 }
 
-export function TimeDelayBreak(props: DiagramNodeProps) {
+export function TimeDelayBreak(props: NodeProps) {
   return (
     <Shape
       {...TIME_DELAY_BREAK}

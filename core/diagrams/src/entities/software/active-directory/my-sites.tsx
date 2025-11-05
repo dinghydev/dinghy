@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MY_SITES = {
   _style: {
@@ -10,7 +10,7 @@ export const MY_SITES = {
   _original_height: 45,
 }
 
-export function MySites(props: DiagramNodeProps) {
+export function MySites(props: NodeProps) {
   return (
     <Shape {...MY_SITES} {...props} _style={extendStyle(MY_SITES, props)} />
   )

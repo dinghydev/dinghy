@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADOBE_PDF = {
   _style: {
@@ -10,7 +10,7 @@ export const ADOBE_PDF = {
   _original_height: 102.4,
 }
 
-export function AdobePdf(props: DiagramNodeProps) {
+export function AdobePdf(props: NodeProps) {
   return (
     <Shape {...ADOBE_PDF} {...props} _style={extendStyle(ADOBE_PDF, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TABLET_WINDOWS_8 = {
   _style: {
@@ -10,7 +10,7 @@ export const TABLET_WINDOWS_8 = {
   _height: 35,
 }
 
-export function TabletWindows8(props: DiagramNodeProps) {
+export function TabletWindows8(props: NodeProps) {
   return (
     <Shape
       {...TABLET_WINDOWS_8}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CAPTCHA = {
   _style: {
@@ -10,6 +10,6 @@ export const CAPTCHA = {
   _height: 50,
 }
 
-export function Captcha(props: DiagramNodeProps) {
+export function Captcha(props: NodeProps) {
   return <Shape {...CAPTCHA} {...props} _style={extendStyle(CAPTCHA, props)} />
 }

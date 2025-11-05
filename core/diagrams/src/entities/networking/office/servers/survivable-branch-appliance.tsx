@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SURVIVABLE_BRANCH_APPLIANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const SURVIVABLE_BRANCH_APPLIANCE = {
   _height: 59,
 }
 
-export function SurvivableBranchAppliance(props: DiagramNodeProps) {
+export function SurvivableBranchAppliance(props: NodeProps) {
   return (
     <Shape
       {...SURVIVABLE_BRANCH_APPLIANCE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const API_ANALYTICS = {
   _style: {
@@ -10,7 +10,7 @@ export const API_ANALYTICS = {
   _height: 60,
 }
 
-export function ApiAnalytics(props: DiagramNodeProps) {
+export function ApiAnalytics(props: NodeProps) {
   return (
     <Shape
       {...API_ANALYTICS}

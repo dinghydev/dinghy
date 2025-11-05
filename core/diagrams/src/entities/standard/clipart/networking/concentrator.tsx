@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONCENTRATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const CONCENTRATOR = {
   _original_height: 80,
 }
 
-export function Concentrator(props: DiagramNodeProps) {
+export function Concentrator(props: NodeProps) {
   return (
     <Shape
       {...CONCENTRATOR}

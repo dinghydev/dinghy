@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEY_MANAGEMENT_SERVICE_EXTERNAL_KEY_STORE = {
   _style: {
@@ -10,7 +10,7 @@ export const KEY_MANAGEMENT_SERVICE_EXTERNAL_KEY_STORE = {
   _original_height: 78,
 }
 
-export function KeyManagementServiceExternalKeyStore(props: DiagramNodeProps) {
+export function KeyManagementServiceExternalKeyStore(props: NodeProps) {
   return (
     <Shape
       {...KEY_MANAGEMENT_SERVICE_EXTERNAL_KEY_STORE}

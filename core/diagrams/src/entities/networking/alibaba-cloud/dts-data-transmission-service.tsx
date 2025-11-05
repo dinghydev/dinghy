@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DTS_DATA_TRANSMISSION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const DTS_DATA_TRANSMISSION_SERVICE = {
   _original_height: 47.400000000000006,
 }
 
-export function DtsDataTransmissionService(props: DiagramNodeProps) {
+export function DtsDataTransmissionService(props: NodeProps) {
   return (
     <Shape
       {...DTS_DATA_TRANSMISSION_SERVICE}

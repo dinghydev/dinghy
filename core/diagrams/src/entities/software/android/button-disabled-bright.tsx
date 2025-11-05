@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTON_DISABLED_BRIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTON_DISABLED_BRIGHT = {
   _height: 16.88,
 }
 
-export function ButtonDisabledBright(props: DiagramNodeProps) {
+export function ButtonDisabledBright(props: NodeProps) {
   return (
     <Shape
       {...BUTTON_DISABLED_BRIGHT}

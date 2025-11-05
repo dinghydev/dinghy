@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIMPLEDB_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const SIMPLEDB_2 = {
   _height: 192.6,
 }
 
-export function Simpledb2(props: DiagramNodeProps) {
+export function Simpledb2(props: NodeProps) {
   return (
     <Shape {...SIMPLEDB_2} {...props} _style={extendStyle(SIMPLEDB_2, props)} />
   )

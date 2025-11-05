@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JUMP_IN_ARROW_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const JUMP_IN_ARROW_2 = {
   _original_height: 99,
 }
 
-export function JumpInArrow2(props: DiagramNodeProps) {
+export function JumpInArrow2(props: NodeProps) {
   return (
     <Shape
       {...JUMP_IN_ARROW_2}

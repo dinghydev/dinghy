@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTIALLY_SUBMERGED_WRECK = {
   _style: {
@@ -10,7 +10,7 @@ export const PARTIALLY_SUBMERGED_WRECK = {
   _height: 76,
 }
 
-export function PartiallySubmergedWreck(props: DiagramNodeProps) {
+export function PartiallySubmergedWreck(props: NodeProps) {
   return (
     <Shape
       {...PARTIALLY_SUBMERGED_WRECK}

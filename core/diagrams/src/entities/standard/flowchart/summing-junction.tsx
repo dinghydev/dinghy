@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUMMING_JUNCTION = {
   _style: {
@@ -10,7 +10,7 @@ export const SUMMING_JUNCTION = {
   _original_height: 70,
 }
 
-export function SummingJunction(props: DiagramNodeProps) {
+export function SummingJunction(props: NodeProps) {
   return (
     <Shape
       {...SUMMING_JUNCTION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const API_FOR_FHIR = {
   _style: {
@@ -10,7 +10,7 @@ export const API_FOR_FHIR = {
   _original_height: 65.2,
 }
 
-export function ApiForFhir(props: DiagramNodeProps) {
+export function ApiForFhir(props: NodeProps) {
   return (
     <Shape
       {...API_FOR_FHIR}

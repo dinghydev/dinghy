@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZUREATTESTATION = {
   _style: {
@@ -10,7 +10,7 @@ export const AZUREATTESTATION = {
   _original_height: 68,
 }
 
-export function Azureattestation(props: DiagramNodeProps) {
+export function Azureattestation(props: NodeProps) {
   return (
     <Shape
       {...AZUREATTESTATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_GATEWAY_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_GATEWAY_SERVICE = {
   _height: 35.855,
 }
 
-export function CitrixGatewayService(props: DiagramNodeProps) {
+export function CitrixGatewayService(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_GATEWAY_SERVICE}

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANY_OPTIONAL_TO_MANY_MANDATORY = {
   _style: {
@@ -8,7 +8,7 @@ export const MANY_OPTIONAL_TO_MANY_MANDATORY = {
   },
 }
 
-export function ManyOptionalToManyMandatory(props: DiagramNodeProps) {
+export function ManyOptionalToManyMandatory(props: NodeProps) {
   return (
     <Dependency
       {...MANY_OPTIONAL_TO_MANY_MANDATORY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTRA_INTERNET_ACCESS = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTRA_INTERNET_ACCESS = {
   _original_height: 68,
 }
 
-export function EntraInternetAccess(props: DiagramNodeProps) {
+export function EntraInternetAccess(props: NodeProps) {
   return (
     <Shape
       {...ENTRA_INTERNET_ACCESS}

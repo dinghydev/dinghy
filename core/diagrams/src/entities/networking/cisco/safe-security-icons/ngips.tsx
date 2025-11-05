@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NGIPS = {
   _style: {
@@ -10,6 +10,6 @@ export const NGIPS = {
   _height: 42.5,
 }
 
-export function Ngips(props: DiagramNodeProps) {
+export function Ngips(props: NodeProps) {
   return <Shape {...NGIPS} {...props} _style={extendStyle(NGIPS, props)} />
 }

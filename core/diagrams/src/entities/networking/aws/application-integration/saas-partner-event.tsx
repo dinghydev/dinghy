@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAAS_PARTNER_EVENT = {
   _style: {
@@ -10,7 +10,7 @@ export const SAAS_PARTNER_EVENT = {
   _original_height: 78,
 }
 
-export function SaasPartnerEvent(props: DiagramNodeProps) {
+export function SaasPartnerEvent(props: NodeProps) {
   return (
     <Shape
       {...SAAS_PARTNER_EVENT}

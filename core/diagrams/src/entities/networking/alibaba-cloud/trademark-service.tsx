@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRADEMARK_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const TRADEMARK_SERVICE = {
   _original_height: 53.1,
 }
 
-export function TrademarkService(props: DiagramNodeProps) {
+export function TrademarkService(props: NodeProps) {
   return (
     <Shape
       {...TRADEMARK_SERVICE}

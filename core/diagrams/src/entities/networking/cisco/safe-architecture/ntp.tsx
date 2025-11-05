@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NTP = {
   _style: {
@@ -10,6 +10,6 @@ export const NTP = {
   _original_height: 50,
 }
 
-export function Ntp(props: DiagramNodeProps) {
+export function Ntp(props: NodeProps) {
   return <Shape {...NTP} {...props} _style={extendStyle(NTP, props)} />
 }

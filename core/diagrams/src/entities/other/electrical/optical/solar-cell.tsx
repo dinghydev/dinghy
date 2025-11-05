@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOLAR_CELL = {
   _style: {
@@ -10,7 +10,7 @@ export const SOLAR_CELL = {
   _height: 70,
 }
 
-export function SolarCell(props: DiagramNodeProps) {
+export function SolarCell(props: NodeProps) {
   return (
     <Shape {...SOLAR_CELL} {...props} _style={extendStyle(SOLAR_CELL, props)} />
   )

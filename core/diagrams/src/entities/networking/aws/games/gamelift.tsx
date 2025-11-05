@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GAMELIFT = {
   _style: {
@@ -10,7 +10,7 @@ export const GAMELIFT = {
   _original_height: 78,
 }
 
-export function Gamelift(props: DiagramNodeProps) {
+export function Gamelift(props: NodeProps) {
   return (
     <Shape {...GAMELIFT} {...props} _style={extendStyle(GAMELIFT, props)} />
   )

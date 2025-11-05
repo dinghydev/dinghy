@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHUFFLE = {
   _style: {
@@ -10,6 +10,6 @@ export const SHUFFLE = {
   _height: 21,
 }
 
-export function Shuffle(props: DiagramNodeProps) {
+export function Shuffle(props: NodeProps) {
   return <Shape {...SHUFFLE} {...props} _style={extendStyle(SHUFFLE, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECIPROCATING_COMPRESSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const RECIPROCATING_COMPRESSOR = {
   _height: 40,
 }
 
-export function ReciprocatingCompressor(props: DiagramNodeProps) {
+export function ReciprocatingCompressor(props: NodeProps) {
   return (
     <Shape
       {...RECIPROCATING_COMPRESSOR}

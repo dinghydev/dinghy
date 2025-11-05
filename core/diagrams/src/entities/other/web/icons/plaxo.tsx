@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLAXO = {
   _style: {
@@ -10,6 +10,6 @@ export const PLAXO = {
   _original_height: 102.4,
 }
 
-export function Plaxo(props: DiagramNodeProps) {
+export function Plaxo(props: NodeProps) {
   return <Shape {...PLAXO} {...props} _style={extendStyle(PLAXO, props)} />
 }

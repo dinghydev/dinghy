@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const MOBILE_HUB = {
   _original_height: 81,
 }
 
-export function MobileHub(props: DiagramNodeProps) {
+export function MobileHub(props: NodeProps) {
   return (
     <Shape {...MOBILE_HUB} {...props} _style={extendStyle(MOBILE_HUB, props)} />
   )

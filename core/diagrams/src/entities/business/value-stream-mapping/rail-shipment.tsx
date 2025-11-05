@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RAIL_SHIPMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const RAIL_SHIPMENT = {
   _height: 30,
 }
 
-export function RailShipment(props: DiagramNodeProps) {
+export function RailShipment(props: NodeProps) {
   return (
     <Shape
       {...RAIL_SHIPMENT}

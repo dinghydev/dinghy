@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NSX_DASHBOARD = {
   _style: {
@@ -10,7 +10,7 @@ export const NSX_DASHBOARD = {
   _original_height: 46.5,
 }
 
-export function NsxDashboard(props: DiagramNodeProps) {
+export function NsxDashboard(props: NodeProps) {
   return (
     <Shape
       {...NSX_DASHBOARD}

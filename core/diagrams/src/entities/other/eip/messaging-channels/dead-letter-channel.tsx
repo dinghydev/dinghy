@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEAD_LETTER_CHANNEL = {
   _style: {
@@ -10,7 +10,7 @@ export const DEAD_LETTER_CHANNEL = {
   _height: 20,
 }
 
-export function DeadLetterChannel(props: DiagramNodeProps) {
+export function DeadLetterChannel(props: NodeProps) {
   return (
     <Shape
       {...DEAD_LETTER_CHANNEL}

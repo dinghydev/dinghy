@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NON_CACHED_VOLUME = {
   _style: {
@@ -10,7 +10,7 @@ export const NON_CACHED_VOLUME = {
   _original_height: 60,
 }
 
-export function NonCachedVolume(props: DiagramNodeProps) {
+export function NonCachedVolume(props: NodeProps) {
   return (
     <Shape
       {...NON_CACHED_VOLUME}

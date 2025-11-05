@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_STS_ALTERNATE = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_STS_ALTERNATE = {
   _original_height: 60,
 }
 
-export function AwsStsAlternate(props: DiagramNodeProps) {
+export function AwsStsAlternate(props: NodeProps) {
   return (
     <Shape
       {...AWS_STS_ALTERNATE}

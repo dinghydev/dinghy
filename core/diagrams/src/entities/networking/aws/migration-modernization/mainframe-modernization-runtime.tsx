@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAINFRAME_MODERNIZATION_RUNTIME = {
   _style: {
@@ -10,7 +10,7 @@ export const MAINFRAME_MODERNIZATION_RUNTIME = {
   _height: 45,
 }
 
-export function MainframeModernizationRuntime(props: DiagramNodeProps) {
+export function MainframeModernizationRuntime(props: NodeProps) {
   return (
     <Shape
       {...MAINFRAME_MODERNIZATION_RUNTIME}

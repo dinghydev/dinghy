@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDOWS_APPS = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDOWS_APPS = {
   _original_height: 42.285000000000004,
 }
 
-export function WindowsApps(props: DiagramNodeProps) {
+export function WindowsApps(props: NodeProps) {
   return (
     <Shape
       {...WINDOWS_APPS}

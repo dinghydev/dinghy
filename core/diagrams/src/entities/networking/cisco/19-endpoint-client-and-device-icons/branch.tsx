@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRANCH = {
   _style: {
@@ -10,6 +10,6 @@ export const BRANCH = {
   _original_height: 50,
 }
 
-export function Branch(props: DiagramNodeProps) {
+export function Branch(props: NodeProps) {
   return <Shape {...BRANCH} {...props} _style={extendStyle(BRANCH, props)} />
 }

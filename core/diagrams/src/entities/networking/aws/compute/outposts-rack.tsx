@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OUTPOSTS_RACK = {
   _style: {
@@ -10,7 +10,7 @@ export const OUTPOSTS_RACK = {
   _original_height: 78,
 }
 
-export function OutpostsRack(props: DiagramNodeProps) {
+export function OutpostsRack(props: NodeProps) {
   return (
     <Shape
       {...OUTPOSTS_RACK}

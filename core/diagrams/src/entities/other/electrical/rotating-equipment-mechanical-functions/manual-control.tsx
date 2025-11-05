@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANUAL_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const MANUAL_CONTROL = {
   _original_height: 50,
 }
 
-export function ManualControl(props: DiagramNodeProps) {
+export function ManualControl(props: NodeProps) {
   return (
     <Shape
       {...MANUAL_CONTROL}

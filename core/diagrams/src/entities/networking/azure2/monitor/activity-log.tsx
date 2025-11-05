@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIVITY_LOG = {
   _style: {
@@ -10,7 +10,7 @@ export const ACTIVITY_LOG = {
   _original_height: 67,
 }
 
-export function ActivityLog(props: DiagramNodeProps) {
+export function ActivityLog(props: NodeProps) {
   return (
     <Shape
       {...ACTIVITY_LOG}

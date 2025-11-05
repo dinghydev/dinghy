@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PANEL_WIRING_SYSTEM_25X40MM_VERTICAL = {
   _style: {
@@ -10,7 +10,7 @@ export const PANEL_WIRING_SYSTEM_25X40MM_VERTICAL = {
   _height: 350,
 }
 
-export function PanelWiringSystem25x40mmVertical(props: DiagramNodeProps) {
+export function PanelWiringSystem25x40mmVertical(props: NodeProps) {
   return (
     <Shape
       {...PANEL_WIRING_SYSTEM_25X40MM_VERTICAL}

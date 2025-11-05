@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INFREQUENT_ACCESS_STORAGE_CLASS = {
   _style: {
@@ -10,7 +10,7 @@ export const INFREQUENT_ACCESS_STORAGE_CLASS = {
   _original_height: 78,
 }
 
-export function InfrequentAccessStorageClass(props: DiagramNodeProps) {
+export function InfrequentAccessStorageClass(props: NodeProps) {
   return (
     <Shape
       {...INFREQUENT_ACCESS_STORAGE_CLASS}

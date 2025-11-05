@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PERSONAL_COMPUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const PERSONAL_COMPUTER = {
   _original_height: 61.800000000000004,
 }
 
-export function PersonalComputer(props: DiagramNodeProps) {
+export function PersonalComputer(props: NodeProps) {
   return (
     <Shape
       {...PERSONAL_COMPUTER}

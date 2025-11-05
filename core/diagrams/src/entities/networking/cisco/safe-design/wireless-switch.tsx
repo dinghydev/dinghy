@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIRELESS_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const WIRELESS_SWITCH = {
   _original_height: 45,
 }
 
-export function WirelessSwitch(props: DiagramNodeProps) {
+export function WirelessSwitch(props: NodeProps) {
   return (
     <Shape
       {...WIRELESS_SWITCH}

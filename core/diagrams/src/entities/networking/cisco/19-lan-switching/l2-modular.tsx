@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const L2_MODULAR = {
   _style: {
@@ -10,7 +10,7 @@ export const L2_MODULAR = {
   _height: 73,
 }
 
-export function L2Modular(props: DiagramNodeProps) {
+export function L2Modular(props: NodeProps) {
   return (
     <Shape {...L2_MODULAR} {...props} _style={extendStyle(L2_MODULAR, props)} />
   )

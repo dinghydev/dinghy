@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_WEB_GUIDING_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_WEB_GUIDING_SYSTEM = {
   _height: 23.76,
 }
 
-export function DefenderWebGuidingSystem(props: DiagramNodeProps) {
+export function DefenderWebGuidingSystem(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_WEB_GUIDING_SYSTEM}

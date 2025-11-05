@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCRATCH_OUT = {
   _style: {
@@ -10,7 +10,7 @@ export const SCRATCH_OUT = {
   _height: 100,
 }
 
-export function ScratchOut(props: DiagramNodeProps) {
+export function ScratchOut(props: NodeProps) {
   return (
     <Shape
       {...SCRATCH_OUT}

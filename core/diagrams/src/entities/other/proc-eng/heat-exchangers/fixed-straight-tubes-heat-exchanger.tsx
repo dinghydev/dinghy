@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIXED_STRAIGHT_TUBES_HEAT_EXCHANGER = {
   _style: {
@@ -10,7 +10,7 @@ export const FIXED_STRAIGHT_TUBES_HEAT_EXCHANGER = {
   _height: 40,
 }
 
-export function FixedStraightTubesHeatExchanger(props: DiagramNodeProps) {
+export function FixedStraightTubesHeatExchanger(props: NodeProps) {
   return (
     <Shape
       {...FIXED_STRAIGHT_TUBES_HEAT_EXCHANGER}

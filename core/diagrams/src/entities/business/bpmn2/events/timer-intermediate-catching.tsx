@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIMER_INTERMEDIATE_CATCHING = {
   _style: {
@@ -10,7 +10,7 @@ export const TIMER_INTERMEDIATE_CATCHING = {
   _original_height: 50,
 }
 
-export function TimerIntermediateCatching(props: DiagramNodeProps) {
+export function TimerIntermediateCatching(props: NodeProps) {
   return (
     <Shape
       {...TIMER_INTERMEDIATE_CATCHING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_IOT_DEVICE_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_IOT_DEVICE_MANAGEMENT = {
   _height: 120,
 }
 
-export function AwsIotDeviceManagement(props: DiagramNodeProps) {
+export function AwsIotDeviceManagement(props: NodeProps) {
   return (
     <Shape
       {...AWS_IOT_DEVICE_MANAGEMENT}

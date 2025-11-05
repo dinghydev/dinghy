@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DB_INSTANCE_READ_REPLICA = {
   _style: {
@@ -10,7 +10,7 @@ export const DB_INSTANCE_READ_REPLICA = {
   _original_height: 60,
 }
 
-export function DbInstanceReadReplica(props: DiagramNodeProps) {
+export function DbInstanceReadReplica(props: NodeProps) {
   return (
     <Shape
       {...DB_INSTANCE_READ_REPLICA}

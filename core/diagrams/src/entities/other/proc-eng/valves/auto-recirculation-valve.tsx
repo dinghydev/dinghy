@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTO_RECIRCULATION_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTO_RECIRCULATION_VALVE = {
   _height: 60,
 }
 
-export function AutoRecirculationValve(props: DiagramNodeProps) {
+export function AutoRecirculationValve(props: NodeProps) {
   return (
     <Shape
       {...AUTO_RECIRCULATION_VALVE}

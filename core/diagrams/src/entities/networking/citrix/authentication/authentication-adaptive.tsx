@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTHENTICATION_ADAPTIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTHENTICATION_ADAPTIVE = {
   _original_height: 50,
 }
 
-export function AuthenticationAdaptive(props: DiagramNodeProps) {
+export function AuthenticationAdaptive(props: NodeProps) {
   return (
     <Shape
       {...AUTHENTICATION_ADAPTIVE}

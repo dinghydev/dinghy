@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIOHAZARD = {
   _style: {
@@ -10,7 +10,7 @@ export const BIOHAZARD = {
   _original_height: 46.5,
 }
 
-export function Biohazard(props: DiagramNodeProps) {
+export function Biohazard(props: NodeProps) {
   return (
     <Shape {...BIOHAZARD} {...props} _style={extendStyle(BIOHAZARD, props)} />
   )

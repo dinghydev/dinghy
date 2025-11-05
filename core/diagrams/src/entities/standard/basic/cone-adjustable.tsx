@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONE_ADJUSTABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONE_ADJUSTABLE = {
   _original_height: 100,
 }
 
-export function ConeAdjustable(props: DiagramNodeProps) {
+export function ConeAdjustable(props: NodeProps) {
   return (
     <Shape
       {...CONE_ADJUSTABLE}

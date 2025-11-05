@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LONG_TERM_SECURITY_CREDENTIAL = {
   _style: {
@@ -10,7 +10,7 @@ export const LONG_TERM_SECURITY_CREDENTIAL = {
   _original_height: 60,
 }
 
-export function LongTermSecurityCredential(props: DiagramNodeProps) {
+export function LongTermSecurityCredential(props: NodeProps) {
   return (
     <Shape
       {...LONG_TERM_SECURITY_CREDENTIAL}

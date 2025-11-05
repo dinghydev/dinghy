@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_PREMISE_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const ON_PREMISE_HIGHLIGHT = {
   _height: 28,
 }
 
-export function OnPremiseHighlight(props: DiagramNodeProps) {
+export function OnPremiseHighlight(props: NodeProps) {
   return (
     <Shape
       {...ON_PREMISE_HIGHLIGHT}

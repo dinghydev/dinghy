@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EVENTARC = {
   _style: {
@@ -10,7 +10,7 @@ export const EVENTARC = {
   _original_height: 42,
 }
 
-export function Eventarc(props: DiagramNodeProps) {
+export function Eventarc(props: NodeProps) {
   return (
     <Shape {...EVENTARC} {...props} _style={extendStyle(EVENTARC, props)} />
   )

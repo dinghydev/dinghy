@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWEREDGE_R740XD = {
   _style: {
@@ -10,7 +10,7 @@ export const POWEREDGE_R740XD = {
   _height: 30,
 }
 
-export function PoweredgeR740xd(props: DiagramNodeProps) {
+export function PoweredgeR740xd(props: NodeProps) {
   return (
     <Shape
       {...POWEREDGE_R740XD}

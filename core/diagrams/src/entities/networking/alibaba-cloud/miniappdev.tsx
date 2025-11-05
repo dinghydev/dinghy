@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MINIAPPDEV = {
   _style: {
@@ -10,7 +10,7 @@ export const MINIAPPDEV = {
   _height: 35.699999999999996,
 }
 
-export function Miniappdev(props: DiagramNodeProps) {
+export function Miniappdev(props: NodeProps) {
   return (
     <Shape {...MINIAPPDEV} {...props} _style={extendStyle(MINIAPPDEV, props)} />
   )

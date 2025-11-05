@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INFORMATION_DATA_CARRIER_SOP_STOP_STATE = {
   _style: {
@@ -9,7 +9,7 @@ export const INFORMATION_DATA_CARRIER_SOP_STOP_STATE = {
   _original_height: 60,
 }
 
-export function InformationDataCarrierSopStopState(props: DiagramNodeProps) {
+export function InformationDataCarrierSopStopState(props: NodeProps) {
   return (
     <Shape
       {...INFORMATION_DATA_CARRIER_SOP_STOP_STATE}

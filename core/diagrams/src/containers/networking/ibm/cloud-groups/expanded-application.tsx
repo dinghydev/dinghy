@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXPANDED_APPLICATION = {
   _style: {
@@ -11,7 +11,7 @@ export const EXPANDED_APPLICATION = {
   },
 }
 
-export function ExpandedApplication(props: DiagramNodeProps) {
+export function ExpandedApplication(props: NodeProps) {
   return (
     <Shape
       {...EXPANDED_APPLICATION}

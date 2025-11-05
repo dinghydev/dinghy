@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUTE_FILTERS = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUTE_FILTERS = {
   _original_height: 42,
 }
 
-export function RouteFilters(props: DiagramNodeProps) {
+export function RouteFilters(props: NodeProps) {
   return (
     <Shape
       {...ROUTE_FILTERS}

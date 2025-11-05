@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALLOCATED_STEREOTYPE = {
   _style: {
@@ -10,7 +10,7 @@ export const ALLOCATED_STEREOTYPE = {
   _height: 60,
 }
 
-export function AllocatedStereotype(props: DiagramNodeProps) {
+export function AllocatedStereotype(props: NodeProps) {
   return (
     <Shape
       {...ALLOCATED_STEREOTYPE}

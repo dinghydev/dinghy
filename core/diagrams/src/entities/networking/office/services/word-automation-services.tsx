@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORD_AUTOMATION_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const WORD_AUTOMATION_SERVICES = {
   _original_height: 49,
 }
 
-export function WordAutomationServices(props: DiagramNodeProps) {
+export function WordAutomationServices(props: NodeProps) {
   return (
     <Shape
       {...WORD_AUTOMATION_SERVICES}

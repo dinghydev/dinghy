@@ -4,7 +4,7 @@ import {
   Region,
   Vpc,
 } from "@dinghy/diagrams/containersAwsGroups";
-import { type DiagramNodeProps, Shape } from "@dinghy/base-components";
+import { type NodeProps, Shape } from "@dinghy/base-components";
 import { ApplicationLoadBalancer } from "@dinghy/diagrams/entitiesAwsNetworkContentDelivery";
 import { Client } from "@dinghy/diagrams/entitiesAwsGeneralResources";
 import { Android } from "@dinghy/diagrams/entitiesAws17Sdk";
@@ -43,15 +43,15 @@ export default function App() {
   );
 }
 
-function Stack(props: DiagramNodeProps) {
+function Stack(props: NodeProps) {
   return <Shape {...props} />;
 }
 
-function Cloud(props: DiagramNodeProps) {
+function Cloud(props: NodeProps) {
   return <AwsCloud {...props} />;
 }
 
-function PublicSubnet(props: DiagramNodeProps) {
+function PublicSubnet(props: NodeProps) {
   return (
     <Shape
       _direction="vertical"
@@ -62,7 +62,7 @@ function PublicSubnet(props: DiagramNodeProps) {
   );
 }
 
-function PrivateSubnet(props: DiagramNodeProps) {
+function PrivateSubnet(props: NodeProps) {
   return (
     <Shape
       _direction="vertical"
@@ -73,7 +73,7 @@ function PrivateSubnet(props: DiagramNodeProps) {
   );
 }
 
-function LoadBalancer(props: DiagramNodeProps) {
+function LoadBalancer(props: NodeProps) {
   return (
     <ApplicationLoadBalancer
       _width={60}
@@ -90,7 +90,7 @@ function LoadBalancer(props: DiagramNodeProps) {
   );
 }
 
-function ECSCluster(props: DiagramNodeProps) {
+function ECSCluster(props: NodeProps) {
   return (
     <Shape
       _dashed
@@ -106,7 +106,7 @@ function ECSCluster(props: DiagramNodeProps) {
   );
 }
 
-function ECSService(props: DiagramNodeProps) {
+function ECSService(props: NodeProps) {
   return (
     <Ec2InstanceContents {...props}>
       <ECSContainer>{props.children}</ECSContainer>
@@ -114,26 +114,26 @@ function ECSService(props: DiagramNodeProps) {
   );
 }
 
-function ECSContainer(props: DiagramNodeProps) {
+function ECSContainer(props: NodeProps) {
   return <Android _width={60} _height={60} {...props} />;
 }
 
-function Postgres(props: DiagramNodeProps) {
+function Postgres(props: NodeProps) {
   return <PostgreSqlInstance _width={60} _height={60} {...props} />;
 }
 
-function Redis(props: DiagramNodeProps) {
+function Redis(props: NodeProps) {
   return <ElasticacheForRedis _width={60} _height={60} {...props} />;
 }
 
-function User(props: DiagramNodeProps) {
+function User(props: NodeProps) {
   return <Client _width={60} _height={60} {...props} />;
 }
 
-function WAF(props: DiagramNodeProps) {
+function WAF(props: NodeProps) {
   return <Waf _width={60} _height={60} {...props} />;
 }
 
-function StorageLayer(props: DiagramNodeProps) {
+function StorageLayer(props: NodeProps) {
   return <Shape _display={"invisible"} {...props} />;
 }

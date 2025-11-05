@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARALLEL_CLUSTER = {
   _style: {
@@ -10,7 +10,7 @@ export const PARALLEL_CLUSTER = {
   _original_height: 78,
 }
 
-export function ParallelCluster(props: DiagramNodeProps) {
+export function ParallelCluster(props: NodeProps) {
   return (
     <Shape
       {...PARALLEL_CLUSTER}

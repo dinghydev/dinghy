@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEETS_REQUIREMENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const MEETS_REQUIREMENTS = {
   _original_height: 53,
 }
 
-export function MeetsRequirements(props: DiagramNodeProps) {
+export function MeetsRequirements(props: NodeProps) {
   return (
     <Shape
       {...MEETS_REQUIREMENTS}

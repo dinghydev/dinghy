@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FOUND_MESSAGE_1 = {
   _style: {
@@ -8,7 +8,7 @@ export const FOUND_MESSAGE_1 = {
   },
 }
 
-export function FoundMessage1(props: DiagramNodeProps) {
+export function FoundMessage1(props: NodeProps) {
   return (
     <Dependency
       {...FOUND_MESSAGE_1}

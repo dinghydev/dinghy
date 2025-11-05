@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDPHOTO = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDPHOTO = {
   _original_height: 45,
 }
 
-export function Cloudphoto(props: DiagramNodeProps) {
+export function Cloudphoto(props: NodeProps) {
   return (
     <Shape {...CLOUDPHOTO} {...props} _style={extendStyle(CLOUDPHOTO, props)} />
   )

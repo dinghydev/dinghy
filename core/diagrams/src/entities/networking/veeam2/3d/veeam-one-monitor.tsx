@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_ONE_MONITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_ONE_MONITOR = {
   _original_height: 46,
 }
 
-export function VeeamOneMonitor(props: DiagramNodeProps) {
+export function VeeamOneMonitor(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_ONE_MONITOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_100BASET_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_100BASET_HUB = {
   _height: 45,
 }
 
-export function Component100basetHub(props: DiagramNodeProps) {
+export function Component100basetHub(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_100BASET_HUB}

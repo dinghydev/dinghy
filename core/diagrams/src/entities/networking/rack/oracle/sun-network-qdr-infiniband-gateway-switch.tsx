@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH = {
   _height: 15,
 }
 
-export function SunNetworkQdrInfinibandGatewaySwitch(props: DiagramNodeProps) {
+export function SunNetworkQdrInfinibandGatewaySwitch(props: NodeProps) {
   return (
     <Shape
       {...SUN_NETWORK_QDR_INFINIBAND_GATEWAY_SWITCH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SSIS_LIFT_AND_SHIFT_IR = {
   _style: {
@@ -10,7 +10,7 @@ export const SSIS_LIFT_AND_SHIFT_IR = {
   _original_height: 68,
 }
 
-export function SsisLiftAndShiftIr(props: DiagramNodeProps) {
+export function SsisLiftAndShiftIr(props: NodeProps) {
   return (
     <Shape
       {...SSIS_LIFT_AND_SHIFT_IR}

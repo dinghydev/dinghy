@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CABLE_GROUP = {
   _style: {
@@ -10,7 +10,7 @@ export const CABLE_GROUP = {
   _original_height: 130,
 }
 
-export function CableGroup(props: DiagramNodeProps) {
+export function CableGroup(props: NodeProps) {
   return (
     <Shape
       {...CABLE_GROUP}

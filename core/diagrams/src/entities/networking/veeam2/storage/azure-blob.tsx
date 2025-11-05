@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_BLOB = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_BLOB = {
   _original_height: 34,
 }
 
-export function AzureBlob(props: DiagramNodeProps) {
+export function AzureBlob(props: NodeProps) {
   return (
     <Shape {...AZURE_BLOB} {...props} _style={extendStyle(AZURE_BLOB, props)} />
   )

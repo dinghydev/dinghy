@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GSLB = {
   _style: {
@@ -10,6 +10,6 @@ export const GSLB = {
   _height: 50,
 }
 
-export function Gslb(props: DiagramNodeProps) {
+export function Gslb(props: NodeProps) {
   return <Shape {...GSLB} {...props} _style={extendStyle(GSLB, props)} />
 }

@@ -1,5 +1,5 @@
 import {
-  type IacNodeProps,
+  type NodeProps,
   type Props,
   ResolvableBooleanSchema,
   ResolvableNumberSchema,
@@ -49,7 +49,7 @@ export type CloudfrontSiteInputProps =
   & z.input<
     typeof CloudfrontSiteInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 const ARecord = (props: Props) => {
   const { distribution } = useAwsCloudfrontDistribution()

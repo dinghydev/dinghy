@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_INSTANCE_SEQUENTIAL = {
   _style: {
@@ -8,7 +8,7 @@ export const MULTI_INSTANCE_SEQUENTIAL = {
   },
 }
 
-export function MultiInstanceSequential(props: DiagramNodeProps) {
+export function MultiInstanceSequential(props: NodeProps) {
   return (
     <Shape
       {...MULTI_INSTANCE_SEQUENTIAL}

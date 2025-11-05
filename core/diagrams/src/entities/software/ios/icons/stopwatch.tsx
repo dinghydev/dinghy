@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STOPWATCH = {
   _style: {
@@ -10,7 +10,7 @@ export const STOPWATCH = {
   _height: 28.2,
 }
 
-export function Stopwatch(props: DiagramNodeProps) {
+export function Stopwatch(props: NodeProps) {
   return (
     <Shape {...STOPWATCH} {...props} _style={extendStyle(STOPWATCH, props)} />
   )

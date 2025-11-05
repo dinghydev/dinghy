@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_EXPLORER_FOR_ACTIVE_DIRECTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_EXPLORER_FOR_ACTIVE_DIRECTORY = {
   _original_height: 34,
 }
 
-export function VeeamExplorerForActiveDirectory(props: DiagramNodeProps) {
+export function VeeamExplorerForActiveDirectory(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_EXPLORER_FOR_ACTIVE_DIRECTORY}

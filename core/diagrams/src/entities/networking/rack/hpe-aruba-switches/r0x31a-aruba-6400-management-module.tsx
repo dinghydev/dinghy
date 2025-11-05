@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const R0X31A_ARUBA_6400_MANAGEMENT_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const R0X31A_ARUBA_6400_MANAGEMENT_MODULE = {
   _height: 15,
 }
 
-export function R0x31aAruba6400ManagementModule(props: DiagramNodeProps) {
+export function R0x31aAruba6400ManagementModule(props: NodeProps) {
   return (
     <Shape
       {...R0X31A_ARUBA_6400_MANAGEMENT_MODULE}

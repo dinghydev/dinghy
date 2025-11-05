@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INSTANCE_SPECIFICATION_3 = {
   _style: {
@@ -10,7 +10,7 @@ export const INSTANCE_SPECIFICATION_3 = {
   _height: 180,
 }
 
-export function InstanceSpecification3(props: DiagramNodeProps) {
+export function InstanceSpecification3(props: NodeProps) {
   return (
     <Shape
       {...INSTANCE_SPECIFICATION_3}

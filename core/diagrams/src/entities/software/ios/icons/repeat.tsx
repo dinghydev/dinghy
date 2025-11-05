@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REPEAT = {
   _style: {
@@ -10,6 +10,6 @@ export const REPEAT = {
   _height: 24,
 }
 
-export function Repeat(props: DiagramNodeProps) {
+export function Repeat(props: NodeProps) {
   return <Shape {...REPEAT} {...props} _style={extendStyle(REPEAT, props)} />
 }

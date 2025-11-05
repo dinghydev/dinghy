@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CIRCLE = {
   _style: {
@@ -10,6 +10,6 @@ export const CIRCLE = {
   _original_height: 12,
 }
 
-export function Circle(props: DiagramNodeProps) {
+export function Circle(props: NodeProps) {
   return <Shape {...CIRCLE} {...props} _style={extendStyle(CIRCLE, props)} />
 }

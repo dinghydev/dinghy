@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ONEDRIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const ONEDRIVE = {
   _height: 43.2,
 }
 
-export function Onedrive(props: DiagramNodeProps) {
+export function Onedrive(props: NodeProps) {
   return (
     <Shape {...ONEDRIVE} {...props} _style={extendStyle(ONEDRIVE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const API_PROTECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const API_PROTECTION = {
   _original_height: 45.885,
 }
 
-export function ApiProtection(props: DiagramNodeProps) {
+export function ApiProtection(props: NodeProps) {
   return (
     <Shape
       {...API_PROTECTION}

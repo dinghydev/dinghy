@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORKLIFT_TRUCK = {
   _style: {
@@ -10,7 +10,7 @@ export const FORKLIFT_TRUCK = {
   _height: 100,
 }
 
-export function ForkliftTruck(props: DiagramNodeProps) {
+export function ForkliftTruck(props: NodeProps) {
   return (
     <Shape
       {...FORKLIFT_TRUCK}

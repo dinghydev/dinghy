@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL365A_8P_QSFP_ADV = {
   _style: {
@@ -10,7 +10,7 @@ export const JL365A_8P_QSFP_ADV = {
   _height: 107,
 }
 
-export function Jl365a8pQsfpAdv(props: DiagramNodeProps) {
+export function Jl365a8pQsfpAdv(props: NodeProps) {
   return (
     <Shape
       {...JL365A_8P_QSFP_ADV}

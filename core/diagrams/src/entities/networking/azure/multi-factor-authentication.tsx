@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_FACTOR_AUTHENTICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTI_FACTOR_AUTHENTICATION = {
   _height: 50,
 }
 
-export function MultiFactorAuthentication(props: DiagramNodeProps) {
+export function MultiFactorAuthentication(props: NodeProps) {
   return (
     <Shape
       {...MULTI_FACTOR_AUTHENTICATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARTIFACT = {
   _style: {
@@ -10,7 +10,7 @@ export const ARTIFACT = {
   _height: 75,
 }
 
-export function Artifact(props: DiagramNodeProps) {
+export function Artifact(props: NodeProps) {
   return (
     <Shape {...ARTIFACT} {...props} _style={extendStyle(ARTIFACT, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_CUBE_GHOSTED = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_CUBE_GHOSTED = {
   _original_height: 52,
 }
 
-export function DatabaseCubeGhosted(props: DiagramNodeProps) {
+export function DatabaseCubeGhosted(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_CUBE_GHOSTED}

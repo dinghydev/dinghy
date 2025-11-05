@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SORT = {
   _style: {
@@ -10,6 +10,6 @@ export const SORT = {
   _original_height: 100,
 }
 
-export function Sort(props: DiagramNodeProps) {
+export function Sort(props: NodeProps) {
   return <Shape {...SORT} {...props} _style={extendStyle(SORT, props)} />
 }

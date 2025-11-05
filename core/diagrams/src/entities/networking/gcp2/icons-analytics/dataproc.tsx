@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAPROC = {
   _style: {
@@ -10,7 +10,7 @@ export const DATAPROC = {
   _original_height: 40,
 }
 
-export function Dataproc(props: DiagramNodeProps) {
+export function Dataproc(props: NodeProps) {
   return (
     <Shape {...DATAPROC} {...props} _style={extendStyle(DATAPROC, props)} />
   )

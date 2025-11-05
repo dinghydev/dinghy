@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EFS_STANDARD = {
   _style: {
@@ -10,7 +10,7 @@ export const EFS_STANDARD = {
   _original_height: 78,
 }
 
-export function EfsStandard(props: DiagramNodeProps) {
+export function EfsStandard(props: NodeProps) {
   return (
     <Shape
       {...EFS_STANDARD}

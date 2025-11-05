@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NLP_NATURAL_LANGUAGE_PROCESSING = {
   _style: {
@@ -10,7 +10,7 @@ export const NLP_NATURAL_LANGUAGE_PROCESSING = {
   _original_height: 55.2,
 }
 
-export function NlpNaturalLanguageProcessing(props: DiagramNodeProps) {
+export function NlpNaturalLanguageProcessing(props: NodeProps) {
   return (
     <Shape
       {...NLP_NATURAL_LANGUAGE_PROCESSING}

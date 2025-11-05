@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BULLETED_LIST = {
   _style: {
@@ -10,7 +10,7 @@ export const BULLETED_LIST = {
   _height: 135,
 }
 
-export function BulletedList(props: DiagramNodeProps) {
+export function BulletedList(props: NodeProps) {
   return (
     <Shape
       {...BULLETED_LIST}

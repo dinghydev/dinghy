@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOCK_UNPROTECTED_ORANGE = {
   _style: {
@@ -10,7 +10,7 @@ export const LOCK_UNPROTECTED_ORANGE = {
   _height: 55,
 }
 
-export function LockUnprotectedOrange(props: DiagramNodeProps) {
+export function LockUnprotectedOrange(props: NodeProps) {
   return (
     <Shape
       {...LOCK_UNPROTECTED_ORANGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANGLED_ENTRY = {
   _style: {
@@ -10,7 +10,7 @@ export const ANGLED_ENTRY = {
   _height: 30,
 }
 
-export function AngledEntry(props: DiagramNodeProps) {
+export function AngledEntry(props: NodeProps) {
   return (
     <Shape
       {...ANGLED_ENTRY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JADE = {
   _style: {
@@ -9,6 +9,6 @@ export const JADE = {
   _original_height: 50,
 }
 
-export function Jade(props: DiagramNodeProps) {
+export function Jade(props: NodeProps) {
   return <Shape {...JADE} {...props} _style={extendStyle(JADE, props)} />
 }

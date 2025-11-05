@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY = {
   _style: {
@@ -10,7 +10,7 @@ export const FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY = {
   _original_height: 45.3,
 }
 
-export function FpgaFieldProgrammableGateArray(props: DiagramNodeProps) {
+export function FpgaFieldProgrammableGateArray(props: NodeProps) {
   return (
     <Shape
       {...FPGA_FIELD_PROGRAMMABLE_GATE_ARRAY}

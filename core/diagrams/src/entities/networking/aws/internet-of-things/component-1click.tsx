@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_1CLICK = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_1CLICK = {
   _original_height: 78,
 }
 
-export function Component1click(props: DiagramNodeProps) {
+export function Component1click(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_1CLICK}

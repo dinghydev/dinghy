@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MONITORING_STORE = {
   _style: {
@@ -10,7 +10,7 @@ export const MONITORING_STORE = {
   _original_height: 58,
 }
 
-export function MonitoringStore(props: DiagramNodeProps) {
+export function MonitoringStore(props: NodeProps) {
   return (
     <Shape
       {...MONITORING_STORE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLOW_ANALYTICS = {
   _style: {
@@ -10,7 +10,7 @@ export const FLOW_ANALYTICS = {
   _original_height: 50,
 }
 
-export function FlowAnalytics(props: DiagramNodeProps) {
+export function FlowAnalytics(props: NodeProps) {
   return (
     <Shape
       {...FLOW_ANALYTICS}

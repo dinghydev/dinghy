@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PINTEREST = {
   _style: {
@@ -10,7 +10,7 @@ export const PINTEREST = {
   _original_height: 102.4,
 }
 
-export function Pinterest(props: DiagramNodeProps) {
+export function Pinterest(props: NodeProps) {
   return (
     <Shape {...PINTEREST} {...props} _style={extendStyle(PINTEREST, props)} />
   )

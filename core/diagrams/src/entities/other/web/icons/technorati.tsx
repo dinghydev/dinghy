@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TECHNORATI = {
   _style: {
@@ -10,7 +10,7 @@ export const TECHNORATI = {
   _original_height: 102.4,
 }
 
-export function Technorati(props: DiagramNodeProps) {
+export function Technorati(props: NodeProps) {
   return (
     <Shape {...TECHNORATI} {...props} _style={extendStyle(TECHNORATI, props)} />
   )

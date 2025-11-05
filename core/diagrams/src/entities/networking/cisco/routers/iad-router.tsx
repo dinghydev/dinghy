@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IAD_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const IAD_ROUTER = {
   _height: 53,
 }
 
-export function IadRouter(props: DiagramNodeProps) {
+export function IadRouter(props: NodeProps) {
   return (
     <Shape {...IAD_ROUTER} {...props} _style={extendStyle(IAD_ROUTER, props)} />
   )

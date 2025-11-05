@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XENDESKTOP_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const XENDESKTOP_SERVER = {
   _original_height: 91,
 }
 
-export function XendesktopServer(props: DiagramNodeProps) {
+export function XendesktopServer(props: NodeProps) {
   return (
     <Shape
       {...XENDESKTOP_SERVER}

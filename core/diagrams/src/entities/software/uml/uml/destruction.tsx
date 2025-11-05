@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DESTRUCTION = {
   _style: {
@@ -10,7 +10,7 @@ export const DESTRUCTION = {
   _original_height: 30,
 }
 
-export function Destruction(props: DiagramNodeProps) {
+export function Destruction(props: NodeProps) {
   return (
     <Shape
       {...DESTRUCTION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOOR_ACCORDION = {
   _style: {
@@ -10,7 +10,7 @@ export const DOOR_ACCORDION = {
   _height: 30,
 }
 
-export function DoorAccordion(props: DiagramNodeProps) {
+export function DoorAccordion(props: NodeProps) {
   return (
     <Shape
       {...DOOR_ACCORDION}

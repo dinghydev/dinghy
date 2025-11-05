@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CD_DVD = {
   _style: {
@@ -10,6 +10,6 @@ export const CD_DVD = {
   _original_height: 49,
 }
 
-export function CdDvd(props: DiagramNodeProps) {
+export function CdDvd(props: NodeProps) {
   return <Shape {...CD_DVD} {...props} _style={extendStyle(CD_DVD, props)} />
 }

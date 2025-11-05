@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_STUDIO = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_STUDIO = {
   _height: 36,
 }
 
-export function DataStudio(props: DiagramNodeProps) {
+export function DataStudio(props: NodeProps) {
   return (
     <Shape
       {...DATA_STUDIO}

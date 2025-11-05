@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VPC_PEERING = {
   _style: {
@@ -10,7 +10,7 @@ export const VPC_PEERING = {
   _original_height: 72,
 }
 
-export function VpcPeering(props: DiagramNodeProps) {
+export function VpcPeering(props: NodeProps) {
   return (
     <Shape
       {...VPC_PEERING}

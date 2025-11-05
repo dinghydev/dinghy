@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JK_FLIP_FLOP_WITH_CLEAR = {
   _style: {
@@ -10,7 +10,7 @@ export const JK_FLIP_FLOP_WITH_CLEAR = {
   _original_height: 90,
 }
 
-export function JkFlipFlopWithClear(props: DiagramNodeProps) {
+export function JkFlipFlopWithClear(props: NodeProps) {
   return (
     <Shape
       {...JK_FLIP_FLOP_WITH_CLEAR}

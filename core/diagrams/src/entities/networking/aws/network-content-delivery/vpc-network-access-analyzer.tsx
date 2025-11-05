@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VPC_NETWORK_ACCESS_ANALYZER = {
   _style: {
@@ -10,7 +10,7 @@ export const VPC_NETWORK_ACCESS_ANALYZER = {
   _original_height: 78,
 }
 
-export function VpcNetworkAccessAnalyzer(props: DiagramNodeProps) {
+export function VpcNetworkAccessAnalyzer(props: NodeProps) {
   return (
     <Shape
       {...VPC_NETWORK_ACCESS_ANALYZER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DWDM_FILTER = {
   _style: {
@@ -10,7 +10,7 @@ export const DWDM_FILTER = {
   _original_height: 70,
 }
 
-export function DwdmFilter(props: DiagramNodeProps) {
+export function DwdmFilter(props: NodeProps) {
   return (
     <Shape
       {...DWDM_FILTER}

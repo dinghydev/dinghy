@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACCEPT_EVENT_ACTION = {
   _style: {
@@ -10,7 +10,7 @@ export const ACCEPT_EVENT_ACTION = {
   _height: 60,
 }
 
-export function AcceptEventAction(props: DiagramNodeProps) {
+export function AcceptEventAction(props: NodeProps) {
   return (
     <Shape
       {...ACCEPT_EVENT_ACTION}

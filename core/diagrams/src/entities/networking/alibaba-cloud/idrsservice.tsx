@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IDRSSERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const IDRSSERVICE = {
   _original_height: 56.1,
 }
 
-export function Idrsservice(props: DiagramNodeProps) {
+export function Idrsservice(props: NodeProps) {
   return (
     <Shape
       {...IDRSSERVICE}

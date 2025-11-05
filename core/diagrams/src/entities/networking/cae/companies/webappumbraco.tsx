@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEBAPPUMBRACO = {
   _style: {
@@ -10,7 +10,7 @@ export const WEBAPPUMBRACO = {
   _original_height: 50,
 }
 
-export function Webappumbraco(props: DiagramNodeProps) {
+export function Webappumbraco(props: NodeProps) {
   return (
     <Shape
       {...WEBAPPUMBRACO}

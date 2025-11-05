@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GREENGRASS_COMPONENT = {
   _style: {
@@ -10,7 +10,7 @@ export const GREENGRASS_COMPONENT = {
   _original_height: 78,
 }
 
-export function GreengrassComponent(props: DiagramNodeProps) {
+export function GreengrassComponent(props: NodeProps) {
   return (
     <Shape
       {...GREENGRASS_COMPONENT}

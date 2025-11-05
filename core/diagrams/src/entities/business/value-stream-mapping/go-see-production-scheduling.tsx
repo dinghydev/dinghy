@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GO_SEE_PRODUCTION_SCHEDULING = {
   _style: {
@@ -10,7 +10,7 @@ export const GO_SEE_PRODUCTION_SCHEDULING = {
   _height: 60,
 }
 
-export function GoSeeProductionScheduling(props: DiagramNodeProps) {
+export function GoSeeProductionScheduling(props: NodeProps) {
   return (
     <Shape
       {...GO_SEE_PRODUCTION_SCHEDULING}

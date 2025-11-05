@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AI_HUB = {
   _style: {
@@ -10,6 +10,6 @@ export const AI_HUB = {
   _height: 40,
 }
 
-export function AiHub(props: DiagramNodeProps) {
+export function AiHub(props: NodeProps) {
   return <Shape {...AI_HUB} {...props} _style={extendStyle(AI_HUB, props)} />
 }

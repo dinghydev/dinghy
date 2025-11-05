@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOWNLOAD = {
   _style: {
@@ -10,7 +10,7 @@ export const DOWNLOAD = {
   _original_height: 67,
 }
 
-export function Download(props: DiagramNodeProps) {
+export function Download(props: NodeProps) {
   return (
     <Shape {...DOWNLOAD} {...props} _style={extendStyle(DOWNLOAD, props)} />
   )

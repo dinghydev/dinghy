@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TICK = {
   _style: {
@@ -10,6 +10,6 @@ export const TICK = {
   _original_height: 100,
 }
 
-export function Tick(props: DiagramNodeProps) {
+export function Tick(props: NodeProps) {
   return <Shape {...TICK} {...props} _style={extendStyle(TICK, props)} />
 }

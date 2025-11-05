@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INFO_CARD = {
   _style: {
@@ -10,7 +10,7 @@ export const INFO_CARD = {
   _height: 180,
 }
 
-export function InfoCard(props: DiagramNodeProps) {
+export function InfoCard(props: NodeProps) {
   return (
     <Shape {...INFO_CARD} {...props} _style={extendStyle(INFO_CARD, props)} />
   )

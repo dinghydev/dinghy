@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_HOME = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_HOME = {
   _original_height: 40,
 }
 
-export function AzureHome(props: DiagramNodeProps) {
+export function AzureHome(props: NodeProps) {
   return (
     <Shape {...AZURE_HOME} {...props} _style={extendStyle(AZURE_HOME, props)} />
   )

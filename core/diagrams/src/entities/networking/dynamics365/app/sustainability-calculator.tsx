@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUSTAINABILITY_CALCULATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SUSTAINABILITY_CALCULATOR = {
   _original_height: 68,
 }
 
-export function SustainabilityCalculator(props: DiagramNodeProps) {
+export function SustainabilityCalculator(props: NodeProps) {
   return (
     <Shape
       {...SUSTAINABILITY_CALCULATOR}

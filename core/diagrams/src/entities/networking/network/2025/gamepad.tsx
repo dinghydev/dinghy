@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GAMEPAD = {
   _style: {
@@ -10,6 +10,6 @@ export const GAMEPAD = {
   _height: 36.79,
 }
 
-export function Gamepad(props: DiagramNodeProps) {
+export function Gamepad(props: NodeProps) {
   return <Shape {...GAMEPAD} {...props} _style={extendStyle(GAMEPAD, props)} />
 }

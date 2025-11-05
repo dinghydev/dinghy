@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JUPITER = {
   _style: {
@@ -10,6 +10,6 @@ export const JUPITER = {
   _original_height: 99,
 }
 
-export function Jupiter(props: DiagramNodeProps) {
+export function Jupiter(props: NodeProps) {
   return <Shape {...JUPITER} {...props} _style={extendStyle(JUPITER, props)} />
 }

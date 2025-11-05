@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ABS_MEMBER = {
   _style: {
@@ -10,7 +10,7 @@ export const ABS_MEMBER = {
   _original_height: 65,
 }
 
-export function AbsMember(props: DiagramNodeProps) {
+export function AbsMember(props: NodeProps) {
   return (
     <Shape {...ABS_MEMBER} {...props} _style={extendStyle(ABS_MEMBER, props)} />
   )

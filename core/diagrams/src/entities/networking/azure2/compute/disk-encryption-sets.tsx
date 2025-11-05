@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISK_ENCRYPTION_SETS = {
   _style: {
@@ -10,7 +10,7 @@ export const DISK_ENCRYPTION_SETS = {
   _original_height: 68,
 }
 
-export function DiskEncryptionSets(props: DiagramNodeProps) {
+export function DiskEncryptionSets(props: NodeProps) {
   return (
     <Shape
       {...DISK_ENCRYPTION_SETS}

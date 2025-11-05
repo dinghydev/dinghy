@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HOME_PAGE_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const HOME_PAGE_CONTROL = {
   _height: 5,
 }
 
-export function HomePageControl(props: DiagramNodeProps) {
+export function HomePageControl(props: NodeProps) {
   return (
     <Shape
       {...HOME_PAGE_CONTROL}

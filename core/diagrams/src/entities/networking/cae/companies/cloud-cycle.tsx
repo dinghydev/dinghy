@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_CYCLE = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_CYCLE = {
   _original_height: 46,
 }
 
-export function CloudCycle(props: DiagramNodeProps) {
+export function CloudCycle(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_CYCLE}

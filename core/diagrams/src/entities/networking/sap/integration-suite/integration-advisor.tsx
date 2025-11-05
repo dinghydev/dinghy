@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTEGRATION_ADVISOR = {
   _style: {
@@ -10,7 +10,7 @@ export const INTEGRATION_ADVISOR = {
   _original_height: 50,
 }
 
-export function IntegrationAdvisor(props: DiagramNodeProps) {
+export function IntegrationAdvisor(props: NodeProps) {
   return (
     <Shape
       {...INTEGRATION_ADVISOR}

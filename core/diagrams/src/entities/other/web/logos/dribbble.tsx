@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRIBBBLE = {
   _style: {
@@ -10,7 +10,7 @@ export const DRIBBBLE = {
   _original_height: 67.2,
 }
 
-export function Dribbble(props: DiagramNodeProps) {
+export function Dribbble(props: NodeProps) {
   return (
     <Shape {...DRIBBBLE} {...props} _style={extendStyle(DRIBBBLE, props)} />
   )

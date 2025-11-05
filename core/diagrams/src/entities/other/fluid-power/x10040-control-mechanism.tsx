@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10040_CONTROL_MECHANISM = {
   _style: {
@@ -10,7 +10,7 @@ export const X10040_CONTROL_MECHANISM = {
   _height: 26.36,
 }
 
-export function X10040ControlMechanism(props: DiagramNodeProps) {
+export function X10040ControlMechanism(props: NodeProps) {
   return (
     <Shape
       {...X10040_CONTROL_MECHANISM}

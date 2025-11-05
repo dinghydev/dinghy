@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_FILE_SYSTEM_INTELLIGENT_TIERING = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_FILE_SYSTEM_INTELLIGENT_TIERING = {
   _original_height: 77,
 }
 
-export function ElasticFileSystemIntelligentTiering(props: DiagramNodeProps) {
+export function ElasticFileSystemIntelligentTiering(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_FILE_SYSTEM_INTELLIGENT_TIERING}

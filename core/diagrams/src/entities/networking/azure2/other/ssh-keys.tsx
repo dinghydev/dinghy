@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SSH_KEYS = {
   _style: {
@@ -10,7 +10,7 @@ export const SSH_KEYS = {
   _original_height: 60,
 }
 
-export function SshKeys(props: DiagramNodeProps) {
+export function SshKeys(props: NodeProps) {
   return (
     <Shape {...SSH_KEYS} {...props} _style={extendStyle(SSH_KEYS, props)} />
   )

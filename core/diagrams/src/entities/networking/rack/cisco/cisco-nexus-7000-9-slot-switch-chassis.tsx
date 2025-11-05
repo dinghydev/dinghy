@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_NEXUS_7000_9_SLOT_SWITCH_CHASSIS = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_NEXUS_7000_9_SLOT_SWITCH_CHASSIS = {
   _height: 208,
 }
 
-export function CiscoNexus70009SlotSwitchChassis(props: DiagramNodeProps) {
+export function CiscoNexus70009SlotSwitchChassis(props: NodeProps) {
   return (
     <Shape
       {...CISCO_NEXUS_7000_9_SLOT_SWITCH_CHASSIS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_CLOUD_ALM = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_CLOUD_ALM = {
   _original_height: 50,
 }
 
-export function SapCloudAlm(props: DiagramNodeProps) {
+export function SapCloudAlm(props: NodeProps) {
   return (
     <Shape
       {...SAP_CLOUD_ALM}

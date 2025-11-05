@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PERSONALIZATION_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const PERSONALIZATION_2 = {
   _original_height: 60,
 }
 
-export function Personalization2(props: DiagramNodeProps) {
+export function Personalization2(props: NodeProps) {
   return (
     <Shape
       {...PERSONALIZATION_2}

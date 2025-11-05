@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_CLOUD_MANAGEMENT_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_CLOUD_MANAGEMENT_SERVICE = {
   _original_height: 50,
 }
 
-export function SapCloudManagementService(props: DiagramNodeProps) {
+export function SapCloudManagementService(props: NodeProps) {
   return (
     <Shape
       {...SAP_CLOUD_MANAGEMENT_SERVICE}

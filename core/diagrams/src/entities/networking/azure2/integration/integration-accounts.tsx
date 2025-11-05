@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTEGRATION_ACCOUNTS = {
   _style: {
@@ -10,7 +10,7 @@ export const INTEGRATION_ACCOUNTS = {
   _original_height: 64,
 }
 
-export function IntegrationAccounts(props: DiagramNodeProps) {
+export function IntegrationAccounts(props: NodeProps) {
   return (
     <Shape
       {...INTEGRATION_ACCOUNTS}

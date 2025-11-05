@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERRUPTIBLE_ACTIVITY_REGION_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERRUPTIBLE_ACTIVITY_REGION_2 = {
   _height: 60,
 }
 
-export function InterruptibleActivityRegion2(props: DiagramNodeProps) {
+export function InterruptibleActivityRegion2(props: NodeProps) {
   return (
     <Shape
       {...INTERRUPTIBLE_ACTIVITY_REGION_2}

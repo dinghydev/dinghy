@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTAINER_REGISTRY = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTAINER_REGISTRY = {
   _height: 36,
 }
 
-export function ContainerRegistry(props: DiagramNodeProps) {
+export function ContainerRegistry(props: NodeProps) {
   return (
     <Shape
       {...CONTAINER_REGISTRY}

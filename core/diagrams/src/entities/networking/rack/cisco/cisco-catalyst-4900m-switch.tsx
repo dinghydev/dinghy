@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_CATALYST_4900M_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_CATALYST_4900M_SWITCH = {
   _height: 30,
 }
 
-export function CiscoCatalyst4900mSwitch(props: DiagramNodeProps) {
+export function CiscoCatalyst4900mSwitch(props: NodeProps) {
   return (
     <Shape
       {...CISCO_CATALYST_4900M_SWITCH}

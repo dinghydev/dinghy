@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTOR_LIFELINE = {
   _style: {
@@ -8,7 +8,7 @@ export const ACTOR_LIFELINE = {
   },
 }
 
-export function ActorLifeline(props: DiagramNodeProps) {
+export function ActorLifeline(props: NodeProps) {
   return (
     <Shape
       {...ACTOR_LIFELINE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRIMMER_VARIABLE_CAPACITOR_US = {
   _style: {
@@ -10,7 +10,7 @@ export const TRIMMER_VARIABLE_CAPACITOR_US = {
   _height: 60,
 }
 
-export function TrimmerVariableCapacitorUs(props: DiagramNodeProps) {
+export function TrimmerVariableCapacitorUs(props: NodeProps) {
   return (
     <Shape
       {...TRIMMER_VARIABLE_CAPACITOR_US}

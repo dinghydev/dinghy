@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SELF_OPERATING_RELEASE_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const SELF_OPERATING_RELEASE_VALVE = {
   _original_height: 105,
 }
 
-export function SelfOperatingReleaseValve(props: DiagramNodeProps) {
+export function SelfOperatingReleaseValve(props: NodeProps) {
   return (
     <Shape
       {...SELF_OPERATING_RELEASE_VALVE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUBBLE_CHART = {
   _style: {
@@ -10,7 +10,7 @@ export const BUBBLE_CHART = {
   _height: 200,
 }
 
-export function BubbleChart(props: DiagramNodeProps) {
+export function BubbleChart(props: NodeProps) {
   return (
     <Shape
       {...BUBBLE_CHART}

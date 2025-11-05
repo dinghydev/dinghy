@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MSK_CONNECT = {
   _style: {
@@ -10,7 +10,7 @@ export const MSK_CONNECT = {
   _original_height: 77,
 }
 
-export function MskConnect(props: DiagramNodeProps) {
+export function MskConnect(props: NodeProps) {
   return (
     <Shape
       {...MSK_CONNECT}

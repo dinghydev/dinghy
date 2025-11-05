@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILESTORE = {
   _style: {
@@ -10,7 +10,7 @@ export const FILESTORE = {
   _height: 34,
 }
 
-export function Filestore(props: DiagramNodeProps) {
+export function Filestore(props: NodeProps) {
   return (
     <Shape {...FILESTORE} {...props} _style={extendStyle(FILESTORE, props)} />
   )

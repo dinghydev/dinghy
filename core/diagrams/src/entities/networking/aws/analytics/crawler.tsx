@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CRAWLER = {
   _style: {
@@ -10,6 +10,6 @@ export const CRAWLER = {
   _original_height: 78,
 }
 
-export function Crawler(props: DiagramNodeProps) {
+export function Crawler(props: NodeProps) {
   return <Shape {...CRAWLER} {...props} _style={extendStyle(CRAWLER, props)} />
 }

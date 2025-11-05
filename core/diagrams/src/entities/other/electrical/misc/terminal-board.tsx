@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TERMINAL_BOARD = {
   _style: {
@@ -10,7 +10,7 @@ export const TERMINAL_BOARD = {
   _height: 150,
 }
 
-export function TerminalBoard(props: DiagramNodeProps) {
+export function TerminalBoard(props: NodeProps) {
   return (
     <Shape
       {...TERMINAL_BOARD}

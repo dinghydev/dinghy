@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDWATCH_CROSS_ACCOUNT_OBSERVABILITY = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDWATCH_CROSS_ACCOUNT_OBSERVABILITY = {
   _original_height: 78,
 }
 
-export function CloudwatchCrossAccountObservability(props: DiagramNodeProps) {
+export function CloudwatchCrossAccountObservability(props: NodeProps) {
   return (
     <Shape
       {...CLOUDWATCH_CROSS_ACCOUNT_OBSERVABILITY}

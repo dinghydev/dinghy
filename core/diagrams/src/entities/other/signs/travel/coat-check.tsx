@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COAT_CHECK = {
   _style: {
@@ -10,7 +10,7 @@ export const COAT_CHECK = {
   _height: 71,
 }
 
-export function CoatCheck(props: DiagramNodeProps) {
+export function CoatCheck(props: NodeProps) {
   return (
     <Shape {...COAT_CHECK} {...props} _style={extendStyle(COAT_CHECK, props)} />
   )

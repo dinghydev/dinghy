@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_APP_SERVICE_MOBILE = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_APP_SERVICE_MOBILE = {
   _height: 50,
 }
 
-export function AzureAppServiceMobile(props: DiagramNodeProps) {
+export function AzureAppServiceMobile(props: NodeProps) {
   return (
     <Shape
       {...AZURE_APP_SERVICE_MOBILE}

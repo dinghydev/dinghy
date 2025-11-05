@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GATE_VALVE_SINGLE_ACTING_CYLINDER = {
   _style: {
@@ -10,7 +10,7 @@ export const GATE_VALVE_SINGLE_ACTING_CYLINDER = {
   _original_height: 100,
 }
 
-export function GateValveSingleActingCylinder(props: DiagramNodeProps) {
+export function GateValveSingleActingCylinder(props: NodeProps) {
   return (
     <Shape
       {...GATE_VALVE_SINGLE_ACTING_CYLINDER}

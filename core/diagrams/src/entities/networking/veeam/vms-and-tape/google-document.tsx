@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GOOGLE_DOCUMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const GOOGLE_DOCUMENT = {
   _height: 50.8,
 }
 
-export function GoogleDocument(props: DiagramNodeProps) {
+export function GoogleDocument(props: NodeProps) {
   return (
     <Shape
       {...GOOGLE_DOCUMENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FINSPACE = {
   _style: {
@@ -10,7 +10,7 @@ export const FINSPACE = {
   _original_height: 78,
 }
 
-export function Finspace(props: DiagramNodeProps) {
+export function Finspace(props: NodeProps) {
   return (
     <Shape {...FINSPACE} {...props} _style={extendStyle(FINSPACE, props)} />
   )

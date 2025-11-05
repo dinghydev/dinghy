@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PERCENTAGE_LIST_13 = {
   _style: {
@@ -10,7 +10,7 @@ export const PERCENTAGE_LIST_13 = {
   _height: 250,
 }
 
-export function PercentageList13(props: DiagramNodeProps) {
+export function PercentageList13(props: NodeProps) {
   return (
     <Shape
       {...PERCENTAGE_LIST_13}

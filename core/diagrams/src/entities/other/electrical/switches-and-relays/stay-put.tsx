@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STAY_PUT = {
   _style: {
@@ -10,7 +10,7 @@ export const STAY_PUT = {
   _height: 7,
 }
 
-export function StayPut(props: DiagramNodeProps) {
+export function StayPut(props: NodeProps) {
   return (
     <Shape {...STAY_PUT} {...props} _style={extendStyle(STAY_PUT, props)} />
   )

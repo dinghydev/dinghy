@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEV_CONSOLE = {
   _style: {
@@ -10,7 +10,7 @@ export const DEV_CONSOLE = {
   _original_height: 52,
 }
 
-export function DevConsole(props: DiagramNodeProps) {
+export function DevConsole(props: NodeProps) {
   return (
     <Shape
       {...DEV_CONSOLE}

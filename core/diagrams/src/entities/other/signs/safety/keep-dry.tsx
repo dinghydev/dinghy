@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEEP_DRY = {
   _style: {
@@ -10,7 +10,7 @@ export const KEEP_DRY = {
   _original_height: 99,
 }
 
-export function KeepDry(props: DiagramNodeProps) {
+export function KeepDry(props: NodeProps) {
   return (
     <Shape {...KEEP_DRY} {...props} _style={extendStyle(KEEP_DRY, props)} />
   )

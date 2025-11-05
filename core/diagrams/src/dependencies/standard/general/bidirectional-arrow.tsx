@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIDIRECTIONAL_ARROW = {
   _style: {
@@ -7,7 +7,7 @@ export const BIDIRECTIONAL_ARROW = {
   },
 }
 
-export function BidirectionalArrow(props: DiagramNodeProps) {
+export function BidirectionalArrow(props: NodeProps) {
   return (
     <Dependency
       {...BIDIRECTIONAL_ARROW}

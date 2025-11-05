@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED = {
   _style: {
@@ -10,9 +10,7 @@ export const CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED = {
   _original_height: 50,
 }
 
-export function CiscoUnifiedContactCenterEnterpriseAndHosted(
-  props: DiagramNodeProps,
-) {
+export function CiscoUnifiedContactCenterEnterpriseAndHosted(props: NodeProps) {
   return (
     <Shape
       {...CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE_AND_HOSTED}

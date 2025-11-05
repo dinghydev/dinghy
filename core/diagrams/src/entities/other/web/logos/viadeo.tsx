@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIADEO = {
   _style: {
@@ -10,6 +10,6 @@ export const VIADEO = {
   _original_height: 84,
 }
 
-export function Viadeo(props: DiagramNodeProps) {
+export function Viadeo(props: NodeProps) {
   return <Shape {...VIADEO} {...props} _style={extendStyle(VIADEO, props)} />
 }

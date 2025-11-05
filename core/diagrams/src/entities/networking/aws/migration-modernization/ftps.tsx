@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FTPS = {
   _style: {
@@ -10,6 +10,6 @@ export const FTPS = {
   _original_height: 78,
 }
 
-export function Ftps(props: DiagramNodeProps) {
+export function Ftps(props: NodeProps) {
   return <Shape {...FTPS} {...props} _style={extendStyle(FTPS, props)} />
 }

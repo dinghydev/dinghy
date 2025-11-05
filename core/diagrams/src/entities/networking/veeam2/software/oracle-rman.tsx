@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORACLE_RMAN = {
   _style: {
@@ -10,7 +10,7 @@ export const ORACLE_RMAN = {
   _original_height: 34,
 }
 
-export function OracleRman(props: DiagramNodeProps) {
+export function OracleRman(props: NodeProps) {
   return (
     <Shape
       {...ORACLE_RMAN}

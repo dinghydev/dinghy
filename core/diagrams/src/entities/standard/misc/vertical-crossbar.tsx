@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_CROSSBAR = {
   _style: {
@@ -9,7 +9,7 @@ export const VERTICAL_CROSSBAR = {
   _height: 120,
 }
 
-export function VerticalCrossbar(props: DiagramNodeProps) {
+export function VerticalCrossbar(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_CROSSBAR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACUTE_TRIANGLE = {
   _style: {
@@ -10,7 +10,7 @@ export const ACUTE_TRIANGLE = {
   _height: 70,
 }
 
-export function AcuteTriangle(props: DiagramNodeProps) {
+export function AcuteTriangle(props: NodeProps) {
   return (
     <Shape
       {...ACUTE_TRIANGLE}

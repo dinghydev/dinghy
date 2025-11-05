@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIVINGLINK = {
   _style: {
@@ -10,7 +10,7 @@ export const LIVINGLINK = {
   _original_height: 50.699999999999996,
 }
 
-export function Livinglink(props: DiagramNodeProps) {
+export function Livinglink(props: NodeProps) {
   return (
     <Shape {...LIVINGLINK} {...props} _style={extendStyle(LIVINGLINK, props)} />
   )

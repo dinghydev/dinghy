@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIMER_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED = {
   _style: {
@@ -8,9 +8,7 @@ export const TIMER_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED = {
   },
 }
 
-export function TimerEventSubProcessNonInterruptingCollapsed(
-  props: DiagramNodeProps,
-) {
+export function TimerEventSubProcessNonInterruptingCollapsed(props: NodeProps) {
   return (
     <Shape
       {...TIMER_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED}

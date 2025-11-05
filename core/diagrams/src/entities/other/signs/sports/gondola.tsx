@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GONDOLA = {
   _style: {
@@ -10,6 +10,6 @@ export const GONDOLA = {
   _original_height: 89,
 }
 
-export function Gondola(props: DiagramNodeProps) {
+export function Gondola(props: NodeProps) {
   return <Shape {...GONDOLA} {...props} _style={extendStyle(GONDOLA, props)} />
 }

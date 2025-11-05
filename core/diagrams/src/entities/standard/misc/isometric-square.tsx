@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ISOMETRIC_SQUARE = {
   _style: {
@@ -9,7 +9,7 @@ export const ISOMETRIC_SQUARE = {
   _height: 90,
 }
 
-export function IsometricSquare(props: DiagramNodeProps) {
+export function IsometricSquare(props: NodeProps) {
   return (
     <Shape
       {...ISOMETRIC_SQUARE}

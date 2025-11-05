@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LETTER = {
   _style: {
@@ -10,6 +10,6 @@ export const LETTER = {
   _height: 34.8,
 }
 
-export function Letter(props: DiagramNodeProps) {
+export function Letter(props: NodeProps) {
   return <Shape {...LETTER} {...props} _style={extendStyle(LETTER, props)} />
 }

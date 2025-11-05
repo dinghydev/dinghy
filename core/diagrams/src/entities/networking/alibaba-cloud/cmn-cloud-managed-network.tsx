@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CMN_CLOUD_MANAGED_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const CMN_CLOUD_MANAGED_NETWORK = {
   _height: 37.8,
 }
 
-export function CmnCloudManagedNetwork(props: DiagramNodeProps) {
+export function CmnCloudManagedNetwork(props: NodeProps) {
   return (
     <Shape
       {...CMN_CLOUD_MANAGED_NETWORK}

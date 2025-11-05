@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURITY_CONTROL_LABEL = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURITY_CONTROL_LABEL = {
   _height: 20,
 }
 
-export function SecurityControlLabel(props: DiagramNodeProps) {
+export function SecurityControlLabel(props: NodeProps) {
   return (
     <Shape
       {...SECURITY_CONTROL_LABEL}

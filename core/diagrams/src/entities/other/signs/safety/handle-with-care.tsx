@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HANDLE_WITH_CARE = {
   _style: {
@@ -10,7 +10,7 @@ export const HANDLE_WITH_CARE = {
   _original_height: 99,
 }
 
-export function HandleWithCare(props: DiagramNodeProps) {
+export function HandleWithCare(props: NodeProps) {
   return (
     <Shape
       {...HANDLE_WITH_CARE}

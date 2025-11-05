@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECTION_HEADER_ACTIVATED = {
   _style: {
@@ -10,7 +10,7 @@ export const SECTION_HEADER_ACTIVATED = {
   _height: 16.88,
 }
 
-export function SectionHeaderActivated(props: DiagramNodeProps) {
+export function SectionHeaderActivated(props: NodeProps) {
   return (
     <Shape
       {...SECTION_HEADER_ACTIVATED}

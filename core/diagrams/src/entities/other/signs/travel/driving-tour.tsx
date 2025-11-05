@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRIVING_TOUR = {
   _style: {
@@ -10,7 +10,7 @@ export const DRIVING_TOUR = {
   _original_height: 99,
 }
 
-export function DrivingTour(props: DiagramNodeProps) {
+export function DrivingTour(props: NodeProps) {
   return (
     <Shape
       {...DRIVING_TOUR}

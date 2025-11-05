@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BELL = {
   _style: {
@@ -10,6 +10,6 @@ export const BELL = {
   _original_height: 60,
 }
 
-export function Bell(props: DiagramNodeProps) {
+export function Bell(props: NodeProps) {
   return <Shape {...BELL} {...props} _style={extendStyle(BELL, props)} />
 }

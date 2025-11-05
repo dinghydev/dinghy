@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADDITIONAL_PARTICIPANT_NON_INITIATING = {
   _style: {
@@ -10,7 +10,7 @@ export const ADDITIONAL_PARTICIPANT_NON_INITIATING = {
   _height: 20,
 }
 
-export function AdditionalParticipantNonInitiating(props: DiagramNodeProps) {
+export function AdditionalParticipantNonInitiating(props: NodeProps) {
   return (
     <Shape
       {...ADDITIONAL_PARTICIPANT_NON_INITIATING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COPYRIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const COPYRIGHT = {
   _original_height: 25,
 }
 
-export function Copyright(props: DiagramNodeProps) {
+export function Copyright(props: NodeProps) {
   return (
     <Shape {...COPYRIGHT} {...props} _style={extendStyle(COPYRIGHT, props)} />
   )

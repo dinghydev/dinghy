@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_CONNECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_CONNECTOR = {
   _height: 38.934999999999995,
 }
 
-export function CloudConnector(props: DiagramNodeProps) {
+export function CloudConnector(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_CONNECTOR}

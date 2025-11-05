@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOWPASS_FILTER = {
   _style: {
@@ -10,7 +10,7 @@ export const LOWPASS_FILTER = {
   _original_height: 46,
 }
 
-export function LowpassFilter(props: DiagramNodeProps) {
+export function LowpassFilter(props: NodeProps) {
   return (
     <Shape
       {...LOWPASS_FILTER}

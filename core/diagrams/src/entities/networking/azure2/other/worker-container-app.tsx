@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORKER_CONTAINER_APP = {
   _style: {
@@ -10,7 +10,7 @@ export const WORKER_CONTAINER_APP = {
   _original_height: 66,
 }
 
-export function WorkerContainerApp(props: DiagramNodeProps) {
+export function WorkerContainerApp(props: NodeProps) {
   return (
     <Shape
       {...WORKER_CONTAINER_APP}

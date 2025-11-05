@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSENGER_3 = {
   _style: {
@@ -10,7 +10,7 @@ export const MESSENGER_3 = {
   _original_height: 102.4,
 }
 
-export function Messenger3(props: DiagramNodeProps) {
+export function Messenger3(props: NodeProps) {
   return (
     <Shape
       {...MESSENGER_3}

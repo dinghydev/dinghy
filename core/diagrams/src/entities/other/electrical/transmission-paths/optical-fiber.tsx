@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPTICAL_FIBER = {
   _style: {
@@ -10,7 +10,7 @@ export const OPTICAL_FIBER = {
   _height: 80,
 }
 
-export function OpticalFiber(props: DiagramNodeProps) {
+export function OpticalFiber(props: NodeProps) {
   return (
     <Shape
       {...OPTICAL_FIBER}

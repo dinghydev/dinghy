@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_IOT_HUB_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_IOT_HUB_SECURITY = {
   _height: 50,
 }
 
-export function AzureIotHubSecurity(props: DiagramNodeProps) {
+export function AzureIotHubSecurity(props: NodeProps) {
   return (
     <Shape
       {...AZURE_IOT_HUB_SECURITY}

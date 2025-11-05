@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HARBOR = {
   _style: {
@@ -10,6 +10,6 @@ export const HARBOR = {
   _original_height: 90,
 }
 
-export function Harbor(props: DiagramNodeProps) {
+export function Harbor(props: NodeProps) {
   return <Shape {...HARBOR} {...props} _style={extendStyle(HARBOR, props)} />
 }

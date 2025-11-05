@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PTS_PERFORMANCE_TEST_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const PTS_PERFORMANCE_TEST_SERVICE = {
   _original_height: 41.1,
 }
 
-export function PtsPerformanceTestService(props: DiagramNodeProps) {
+export function PtsPerformanceTestService(props: NodeProps) {
   return (
     <Shape
       {...PTS_PERFORMANCE_TEST_SERVICE}

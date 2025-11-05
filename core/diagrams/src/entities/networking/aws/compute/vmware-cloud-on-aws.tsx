@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VMWARE_CLOUD_ON_AWS = {
   _style: {
@@ -10,7 +10,7 @@ export const VMWARE_CLOUD_ON_AWS = {
   _original_height: 78,
 }
 
-export function VmwareCloudOnAws(props: DiagramNodeProps) {
+export function VmwareCloudOnAws(props: NodeProps) {
   return (
     <Shape
       {...VMWARE_CLOUD_ON_AWS}

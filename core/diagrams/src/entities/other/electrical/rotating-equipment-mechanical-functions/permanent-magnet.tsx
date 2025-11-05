@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PERMANENT_MAGNET = {
   _style: {
@@ -10,7 +10,7 @@ export const PERMANENT_MAGNET = {
   _height: 70,
 }
 
-export function PermanentMagnet(props: DiagramNodeProps) {
+export function PermanentMagnet(props: NodeProps) {
   return (
     <Shape
       {...PERMANENT_MAGNET}

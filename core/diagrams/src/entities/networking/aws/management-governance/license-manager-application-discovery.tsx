@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LICENSE_MANAGER_APPLICATION_DISCOVERY = {
   _style: {
@@ -10,7 +10,7 @@ export const LICENSE_MANAGER_APPLICATION_DISCOVERY = {
   _original_height: 78,
 }
 
-export function LicenseManagerApplicationDiscovery(props: DiagramNodeProps) {
+export function LicenseManagerApplicationDiscovery(props: NodeProps) {
   return (
     <Shape
       {...LICENSE_MANAGER_APPLICATION_DISCOVERY}

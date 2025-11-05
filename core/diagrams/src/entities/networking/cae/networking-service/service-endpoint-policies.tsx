@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVICE_ENDPOINT_POLICIES = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVICE_ENDPOINT_POLICIES = {
   _original_height: 50,
 }
 
-export function ServiceEndpointPolicies(props: DiagramNodeProps) {
+export function ServiceEndpointPolicies(props: NodeProps) {
   return (
     <Shape
       {...SERVICE_ENDPOINT_POLICIES}

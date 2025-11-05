@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDENT_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const INDENT_HIGHLIGHT = {
   _original_height: 28,
 }
 
-export function IndentHighlight(props: DiagramNodeProps) {
+export function IndentHighlight(props: NodeProps) {
   return (
     <Shape
       {...INDENT_HIGHLIGHT}

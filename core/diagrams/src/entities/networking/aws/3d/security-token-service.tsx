@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURITY_TOKEN_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURITY_TOKEN_SERVICE = {
   _height: 192,
 }
 
-export function SecurityTokenService(props: DiagramNodeProps) {
+export function SecurityTokenService(props: NodeProps) {
   return (
     <Shape
       {...SECURITY_TOKEN_SERVICE}

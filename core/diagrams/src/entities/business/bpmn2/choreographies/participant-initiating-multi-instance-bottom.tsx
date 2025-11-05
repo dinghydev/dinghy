@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM = {
   _style: {
@@ -10,9 +10,7 @@ export const PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM = {
   _height: 40,
 }
 
-export function ParticipantInitiatingMultiInstanceBottom(
-  props: DiagramNodeProps,
-) {
+export function ParticipantInitiatingMultiInstanceBottom(props: NodeProps) {
   return (
     <Shape
       {...PARTICIPANT_INITIATING_MULTI_INSTANCE_BOTTOM}

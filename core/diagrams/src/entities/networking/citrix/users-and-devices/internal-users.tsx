@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERNAL_USERS = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERNAL_USERS = {
   _original_height: 48.095,
 }
 
-export function InternalUsers(props: DiagramNodeProps) {
+export function InternalUsers(props: NodeProps) {
   return (
     <Shape
       {...INTERNAL_USERS}

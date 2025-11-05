@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DETAIL_VIEW_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const DETAIL_VIEW_HIGHLIGHT = {
   _height: 28,
 }
 
-export function DetailViewHighlight(props: DiagramNodeProps) {
+export function DetailViewHighlight(props: NodeProps) {
   return (
     <Shape
       {...DETAIL_VIEW_HIGHLIGHT}

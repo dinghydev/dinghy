@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UCMA_APPLICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const UCMA_APPLICATION = {
   _original_height: 40,
 }
 
-export function UcmaApplication(props: DiagramNodeProps) {
+export function UcmaApplication(props: NodeProps) {
   return (
     <Shape
       {...UCMA_APPLICATION}

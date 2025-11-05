@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IOT_WIRELESS_CONNECTION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const IOT_WIRELESS_CONNECTION_SERVICE = {
   _original_height: 49.8,
 }
 
-export function IotWirelessConnectionService(props: DiagramNodeProps) {
+export function IotWirelessConnectionService(props: NodeProps) {
   return (
     <Shape
       {...IOT_WIRELESS_CONNECTION_SERVICE}

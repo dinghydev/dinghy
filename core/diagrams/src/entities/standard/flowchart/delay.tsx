@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DELAY = {
   _style: {
@@ -10,6 +10,6 @@ export const DELAY = {
   _height: 60,
 }
 
-export function Delay(props: DiagramNodeProps) {
+export function Delay(props: NodeProps) {
   return <Shape {...DELAY} {...props} _style={extendStyle(DELAY, props)} />
 }

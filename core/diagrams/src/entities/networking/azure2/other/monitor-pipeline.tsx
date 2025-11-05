@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MONITOR_PIPELINE = {
   _style: {
@@ -10,7 +10,7 @@ export const MONITOR_PIPELINE = {
   _original_height: 49.120000000000005,
 }
 
-export function MonitorPipeline(props: DiagramNodeProps) {
+export function MonitorPipeline(props: NodeProps) {
   return (
     <Shape
       {...MONITOR_PIPELINE}

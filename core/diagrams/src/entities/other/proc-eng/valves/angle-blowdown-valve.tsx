@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANGLE_BLOWDOWN_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const ANGLE_BLOWDOWN_VALVE = {
   _original_height: 100,
 }
 
-export function AngleBlowdownValve(props: DiagramNodeProps) {
+export function AngleBlowdownValve(props: NodeProps) {
   return (
     <Shape
       {...ANGLE_BLOWDOWN_VALVE}

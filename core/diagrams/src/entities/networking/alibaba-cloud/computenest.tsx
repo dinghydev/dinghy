@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPUTENEST = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPUTENEST = {
   _original_height: 44.4,
 }
 
-export function Computenest(props: DiagramNodeProps) {
+export function Computenest(props: NodeProps) {
   return (
     <Shape
       {...COMPUTENEST}

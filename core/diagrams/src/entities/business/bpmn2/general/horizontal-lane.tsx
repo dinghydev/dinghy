@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HORIZONTAL_LANE = {
   _style: {
@@ -10,7 +10,7 @@ export const HORIZONTAL_LANE = {
   _height: 100,
 }
 
-export function HorizontalLane(props: DiagramNodeProps) {
+export function HorizontalLane(props: NodeProps) {
   return (
     <Shape
       {...HORIZONTAL_LANE}

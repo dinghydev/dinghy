@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPLIT_ACTION_BAR = {
   _style: {
@@ -10,7 +10,7 @@ export const SPLIT_ACTION_BAR = {
   _height: 70,
 }
 
-export function SplitActionBar(props: DiagramNodeProps) {
+export function SplitActionBar(props: NodeProps) {
   return (
     <Shape
       {...SPLIT_ACTION_BAR}

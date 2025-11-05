@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IRM_PROTECTED_MESSAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const IRM_PROTECTED_MESSAGE = {
   _original_height: 50,
 }
 
-export function IrmProtectedMessage(props: DiagramNodeProps) {
+export function IrmProtectedMessage(props: NodeProps) {
   return (
     <Shape
       {...IRM_PROTECTED_MESSAGE}

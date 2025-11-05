@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROLLERBLADING = {
   _style: {
@@ -10,7 +10,7 @@ export const ROLLERBLADING = {
   _original_height: 99,
 }
 
-export function Rollerblading(props: DiagramNodeProps) {
+export function Rollerblading(props: NodeProps) {
   return (
     <Shape
       {...ROLLERBLADING}

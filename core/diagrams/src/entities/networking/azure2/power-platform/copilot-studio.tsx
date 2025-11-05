@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COPILOT_STUDIO = {
   _style: {
@@ -10,7 +10,7 @@ export const COPILOT_STUDIO = {
   _original_height: 62.32,
 }
 
-export function CopilotStudio(props: DiagramNodeProps) {
+export function CopilotStudio(props: NodeProps) {
   return (
     <Shape
       {...COPILOT_STUDIO}

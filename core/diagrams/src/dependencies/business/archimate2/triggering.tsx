@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRIGGERING = {
   _style: {
@@ -8,7 +8,7 @@ export const TRIGGERING = {
   },
 }
 
-export function Triggering(props: DiagramNodeProps) {
+export function Triggering(props: NodeProps) {
   return (
     <Dependency
       {...TRIGGERING}

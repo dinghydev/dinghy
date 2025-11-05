@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_SHIELD = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_SHIELD = {
   _height: 100,
 }
 
-export function AwsShield(props: DiagramNodeProps) {
+export function AwsShield(props: NodeProps) {
   return (
     <Shape {...AWS_SHIELD} {...props} _style={extendStyle(AWS_SHIELD, props)} />
   )

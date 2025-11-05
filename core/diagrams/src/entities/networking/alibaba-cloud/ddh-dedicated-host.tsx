@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DDH_DEDICATED_HOST = {
   _style: {
@@ -10,7 +10,7 @@ export const DDH_DEDICATED_HOST = {
   _original_height: 47.400000000000006,
 }
 
-export function DdhDedicatedHost(props: DiagramNodeProps) {
+export function DdhDedicatedHost(props: NodeProps) {
   return (
     <Shape
       {...DDH_DEDICATED_HOST}

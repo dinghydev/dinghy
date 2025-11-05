@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RDS_OPTIMIZED_WRITES = {
   _style: {
@@ -10,7 +10,7 @@ export const RDS_OPTIMIZED_WRITES = {
   _original_height: 78,
 }
 
-export function RdsOptimizedWrites(props: DiagramNodeProps) {
+export function RdsOptimizedWrites(props: NodeProps) {
   return (
     <Shape
       {...RDS_OPTIMIZED_WRITES}

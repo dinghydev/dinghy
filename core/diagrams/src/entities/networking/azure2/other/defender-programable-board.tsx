@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_PROGRAMABLE_BOARD = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_PROGRAMABLE_BOARD = {
   _original_height: 68,
 }
 
-export function DefenderProgramableBoard(props: DiagramNodeProps) {
+export function DefenderProgramableBoard(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_PROGRAMABLE_BOARD}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTUNE_MOBILE_APPLICATION_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const INTUNE_MOBILE_APPLICATION_MANAGEMENT = {
   _original_height: 50,
 }
 
-export function IntuneMobileApplicationManagement(props: DiagramNodeProps) {
+export function IntuneMobileApplicationManagement(props: NodeProps) {
   return (
     <Shape
       {...INTUNE_MOBILE_APPLICATION_MANAGEMENT}

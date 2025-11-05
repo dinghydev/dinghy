@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISCRETE_SLIDER_CLICK = {
   _style: {
@@ -10,7 +10,7 @@ export const DISCRETE_SLIDER_CLICK = {
   _height: 45,
 }
 
-export function DiscreteSliderClick(props: DiagramNodeProps) {
+export function DiscreteSliderClick(props: NodeProps) {
   return (
     <Shape
       {...DISCRETE_SLIDER_CLICK}

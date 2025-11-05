@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPEN_SUPPLY_CHAIN_PLATFORM = {
   _style: {
@@ -10,7 +10,7 @@ export const OPEN_SUPPLY_CHAIN_PLATFORM = {
   _original_height: 68,
 }
 
-export function OpenSupplyChainPlatform(props: DiagramNodeProps) {
+export function OpenSupplyChainPlatform(props: NodeProps) {
   return (
     <Shape
       {...OPEN_SUPPLY_CHAIN_PLATFORM}

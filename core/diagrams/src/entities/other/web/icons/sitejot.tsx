@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITEJOT = {
   _style: {
@@ -10,6 +10,6 @@ export const SITEJOT = {
   _original_height: 102.4,
 }
 
-export function Sitejot(props: DiagramNodeProps) {
+export function Sitejot(props: NodeProps) {
   return <Shape {...SITEJOT} {...props} _style={extendStyle(SITEJOT, props)} />
 }

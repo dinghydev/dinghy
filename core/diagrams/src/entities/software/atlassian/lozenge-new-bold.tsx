@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOZENGE_NEW_BOLD = {
   _style: {
@@ -10,7 +10,7 @@ export const LOZENGE_NEW_BOLD = {
   _height: 20,
 }
 
-export function LozengeNewBold(props: DiagramNodeProps) {
+export function LozengeNewBold(props: NodeProps) {
   return (
     <Shape
       {...LOZENGE_NEW_BOLD}

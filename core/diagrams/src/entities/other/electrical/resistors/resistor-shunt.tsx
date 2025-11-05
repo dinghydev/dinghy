@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESISTOR_SHUNT = {
   _style: {
@@ -10,7 +10,7 @@ export const RESISTOR_SHUNT = {
   _height: 45,
 }
 
-export function ResistorShunt(props: DiagramNodeProps) {
+export function ResistorShunt(props: NodeProps) {
   return (
     <Shape
       {...RESISTOR_SHUNT}

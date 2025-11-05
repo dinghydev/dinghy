@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAF_LABELS = {
   _style: {
@@ -10,7 +10,7 @@ export const WAF_LABELS = {
   _original_height: 78,
 }
 
-export function WafLabels(props: DiagramNodeProps) {
+export function WafLabels(props: NodeProps) {
   return (
     <Shape {...WAF_LABELS} {...props} _style={extendStyle(WAF_LABELS, props)} />
   )

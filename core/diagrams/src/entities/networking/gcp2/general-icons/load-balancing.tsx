@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOAD_BALANCING = {
   _style: {
@@ -10,7 +10,7 @@ export const LOAD_BALANCING = {
   _height: 26,
 }
 
-export function LoadBalancing(props: DiagramNodeProps) {
+export function LoadBalancing(props: NodeProps) {
   return (
     <Shape
       {...LOAD_BALANCING}

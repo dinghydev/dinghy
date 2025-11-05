@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINK_CATCHING = {
   _style: {
@@ -10,7 +10,7 @@ export const LINK_CATCHING = {
   _original_height: 50,
 }
 
-export function LinkCatching(props: DiagramNodeProps) {
+export function LinkCatching(props: NodeProps) {
   return (
     <Shape
       {...LINK_CATCHING}

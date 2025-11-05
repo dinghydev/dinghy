@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORKLIFT_MANUAL = {
   _style: {
@@ -10,7 +10,7 @@ export const FORKLIFT_MANUAL = {
   _height: 100,
 }
 
-export function ForkliftManual(props: DiagramNodeProps) {
+export function ForkliftManual(props: NodeProps) {
   return (
     <Shape
       {...FORKLIFT_MANUAL}

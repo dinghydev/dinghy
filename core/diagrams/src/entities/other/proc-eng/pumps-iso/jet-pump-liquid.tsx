@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JET_PUMP_LIQUID = {
   _style: {
@@ -10,7 +10,7 @@ export const JET_PUMP_LIQUID = {
   _original_height: 100,
 }
 
-export function JetPumpLiquid(props: DiagramNodeProps) {
+export function JetPumpLiquid(props: NodeProps) {
   return (
     <Shape
       {...JET_PUMP_LIQUID}

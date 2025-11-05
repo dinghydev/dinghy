@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PHP = {
   _style: {
@@ -10,6 +10,6 @@ export const PHP = {
   _original_height: 84,
 }
 
-export function Php(props: DiagramNodeProps) {
+export function Php(props: NodeProps) {
   return <Shape {...PHP} {...props} _style={extendStyle(PHP, props)} />
 }

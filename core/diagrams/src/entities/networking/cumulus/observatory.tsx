@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OBSERVATORY = {
   _style: {
@@ -9,7 +9,7 @@ export const OBSERVATORY = {
   _original_height: 50,
 }
 
-export function Observatory(props: DiagramNodeProps) {
+export function Observatory(props: NodeProps) {
   return (
     <Shape
       {...OBSERVATORY}

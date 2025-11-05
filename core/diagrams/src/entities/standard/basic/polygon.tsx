@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POLYGON = {
   _style: {
@@ -10,6 +10,6 @@ export const POLYGON = {
   _original_height: 100,
 }
 
-export function Polygon(props: DiagramNodeProps) {
+export function Polygon(props: NodeProps) {
   return <Shape {...POLYGON} {...props} _style={extendStyle(POLYGON, props)} />
 }

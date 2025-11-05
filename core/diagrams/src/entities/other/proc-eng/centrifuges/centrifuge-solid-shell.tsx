@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CENTRIFUGE_SOLID_SHELL = {
   _style: {
@@ -10,7 +10,7 @@ export const CENTRIFUGE_SOLID_SHELL = {
   _height: 110,
 }
 
-export function CentrifugeSolidShell(props: DiagramNodeProps) {
+export function CentrifugeSolidShell(props: NodeProps) {
   return (
     <Shape
       {...CENTRIFUGE_SOLID_SHELL}

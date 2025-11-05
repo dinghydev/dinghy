@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POT_TRANS_3_WINDINGS = {
   _style: {
@@ -10,7 +10,7 @@ export const POT_TRANS_3_WINDINGS = {
   _height: 96,
 }
 
-export function PotTrans3Windings(props: DiagramNodeProps) {
+export function PotTrans3Windings(props: NodeProps) {
   return (
     <Shape
       {...POT_TRANS_3_WINDINGS}

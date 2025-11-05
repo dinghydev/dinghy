@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J993A_8_PORT_1G_10GBE_SFP_WITH_MACSEC_V3_ZL2_MODULE = {
   _style: {
@@ -10,9 +10,7 @@ export const J993A_8_PORT_1G_10GBE_SFP_WITH_MACSEC_V3_ZL2_MODULE = {
   _height: 15,
 }
 
-export function J993a8Port1g10gbeSfpWithMacsecV3Zl2Module(
-  props: DiagramNodeProps,
-) {
+export function J993a8Port1g10gbeSfpWithMacsecV3Zl2Module(props: NodeProps) {
   return (
     <Shape
       {...J993A_8_PORT_1G_10GBE_SFP_WITH_MACSEC_V3_ZL2_MODULE}

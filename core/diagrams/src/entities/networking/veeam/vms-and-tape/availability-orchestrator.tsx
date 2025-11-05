@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AVAILABILITY_ORCHESTRATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const AVAILABILITY_ORCHESTRATOR = {
   _original_height: 44.8,
 }
 
-export function AvailabilityOrchestrator(props: DiagramNodeProps) {
+export function AvailabilityOrchestrator(props: NodeProps) {
   return (
     <Shape
       {...AVAILABILITY_ORCHESTRATOR}

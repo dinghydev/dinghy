@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONVEYOR_CHAIN_CLOSED = {
   _style: {
@@ -10,7 +10,7 @@ export const CONVEYOR_CHAIN_CLOSED = {
   _height: 80,
 }
 
-export function ConveyorChainClosed(props: DiagramNodeProps) {
+export function ConveyorChainClosed(props: NodeProps) {
   return (
     <Shape
       {...CONVEYOR_CHAIN_CLOSED}

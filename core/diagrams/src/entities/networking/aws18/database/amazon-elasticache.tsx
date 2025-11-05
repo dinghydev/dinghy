@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_ELASTICACHE = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_ELASTICACHE = {
   _height: 110,
 }
 
-export function AmazonElasticache(props: DiagramNodeProps) {
+export function AmazonElasticache(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_ELASTICACHE}

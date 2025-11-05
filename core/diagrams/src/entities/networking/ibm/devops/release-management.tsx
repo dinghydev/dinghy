@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RELEASE_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const RELEASE_MANAGEMENT = {
   _original_height: 60,
 }
 
-export function ReleaseManagement(props: DiagramNodeProps) {
+export function ReleaseManagement(props: NodeProps) {
   return (
     <Shape
       {...RELEASE_MANAGEMENT}

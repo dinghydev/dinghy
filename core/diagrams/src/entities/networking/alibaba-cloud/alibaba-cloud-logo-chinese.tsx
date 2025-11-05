@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALIBABA_CLOUD_LOGO_CHINESE = {
   _style: {
@@ -10,7 +10,7 @@ export const ALIBABA_CLOUD_LOGO_CHINESE = {
   _height: 34.199999999999996,
 }
 
-export function AlibabaCloudLogoChinese(props: DiagramNodeProps) {
+export function AlibabaCloudLogoChinese(props: NodeProps) {
   return (
     <Shape
       {...ALIBABA_CLOUD_LOGO_CHINESE}

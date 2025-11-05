@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OR_GATE = {
   _style: {
@@ -10,6 +10,6 @@ export const OR_GATE = {
   _height: 80,
 }
 
-export function OrGate(props: DiagramNodeProps) {
+export function OrGate(props: NodeProps) {
   return <Shape {...OR_GATE} {...props} _style={extendStyle(OR_GATE, props)} />
 }

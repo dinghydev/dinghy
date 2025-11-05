@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LEGACY_CLOUD_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const LEGACY_CLOUD_2 = {
   _height: 69,
 }
 
-export function LegacyCloud2(props: DiagramNodeProps) {
+export function LegacyCloud2(props: NodeProps) {
   return (
     <Shape
       {...LEGACY_CLOUD_2}

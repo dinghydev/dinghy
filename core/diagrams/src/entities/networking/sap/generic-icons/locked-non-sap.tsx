@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOCKED_NON_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const LOCKED_NON_SAP = {
   _height: 28,
 }
 
-export function LockedNonSap(props: DiagramNodeProps) {
+export function LockedNonSap(props: NodeProps) {
   return (
     <Shape
       {...LOCKED_NON_SAP}

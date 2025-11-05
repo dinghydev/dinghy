@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAYER_3_NEXUS_5K_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const LAYER_3_NEXUS_5K_SWITCH = {
   _original_height: 50,
 }
 
-export function Layer3Nexus5kSwitch(props: DiagramNodeProps) {
+export function Layer3Nexus5kSwitch(props: NodeProps) {
   return (
     <Shape
       {...LAYER_3_NEXUS_5K_SWITCH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIME_SERIES_DATA_SETS = {
   _style: {
@@ -10,7 +10,7 @@ export const TIME_SERIES_DATA_SETS = {
   _original_height: 68,
 }
 
-export function TimeSeriesDataSets(props: DiagramNodeProps) {
+export function TimeSeriesDataSets(props: NodeProps) {
   return (
     <Shape
       {...TIME_SERIES_DATA_SETS}

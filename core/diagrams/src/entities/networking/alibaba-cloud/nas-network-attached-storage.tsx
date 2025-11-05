@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAS_NETWORK_ATTACHED_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const NAS_NETWORK_ATTACHED_STORAGE = {
   _original_height: 30,
 }
 
-export function NasNetworkAttachedStorage(props: DiagramNodeProps) {
+export function NasNetworkAttachedStorage(props: NodeProps) {
   return (
     <Shape
       {...NAS_NETWORK_ATTACHED_STORAGE}

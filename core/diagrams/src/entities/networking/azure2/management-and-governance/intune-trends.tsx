@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTUNE_TRENDS = {
   _style: {
@@ -10,7 +10,7 @@ export const INTUNE_TRENDS = {
   _original_height: 68,
 }
 
-export function IntuneTrends(props: DiagramNodeProps) {
+export function IntuneTrends(props: NodeProps) {
   return (
     <Shape
       {...INTUNE_TRENDS}

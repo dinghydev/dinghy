@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REACTOR = {
   _style: {
@@ -10,6 +10,6 @@ export const REACTOR = {
   _height: 95,
 }
 
-export function Reactor(props: DiagramNodeProps) {
+export function Reactor(props: NodeProps) {
   return <Shape {...REACTOR} {...props} _style={extendStyle(REACTOR, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_1_PHASE_INDUCTION_VOLTAGE_REGULATOR = {
   _style: {
@@ -10,9 +10,7 @@ export const COMPONENT_1_PHASE_INDUCTION_VOLTAGE_REGULATOR = {
   _original_height: 100,
 }
 
-export function Component1PhaseInductionVoltageRegulator(
-  props: DiagramNodeProps,
-) {
+export function Component1PhaseInductionVoltageRegulator(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_1_PHASE_INDUCTION_VOLTAGE_REGULATOR}

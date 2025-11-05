@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTO_SCALING_GROUP = {
   _style: {
@@ -12,7 +12,7 @@ export const AUTO_SCALING_GROUP = {
   },
 }
 
-export function AutoScalingGroup(props: DiagramNodeProps) {
+export function AutoScalingGroup(props: NodeProps) {
   return (
     <Shape
       {...AUTO_SCALING_GROUP}

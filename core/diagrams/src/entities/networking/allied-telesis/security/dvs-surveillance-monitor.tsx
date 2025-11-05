@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DVS_SURVEILLANCE_MONITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DVS_SURVEILLANCE_MONITOR = {
   _original_height: 60,
 }
 
-export function DvsSurveillanceMonitor(props: DiagramNodeProps) {
+export function DvsSurveillanceMonitor(props: NodeProps) {
   return (
     <Shape
       {...DVS_SURVEILLANCE_MONITOR}

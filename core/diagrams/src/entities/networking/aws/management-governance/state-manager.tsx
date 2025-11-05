@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STATE_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const STATE_MANAGER = {
   _original_height: 78,
 }
 
-export function StateManager(props: DiagramNodeProps) {
+export function StateManager(props: NodeProps) {
   return (
     <Shape
       {...STATE_MANAGER}

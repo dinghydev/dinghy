@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXTRUDER_PISTON = {
   _style: {
@@ -10,7 +10,7 @@ export const EXTRUDER_PISTON = {
   _height: 60,
 }
 
-export function ExtruderPiston(props: DiagramNodeProps) {
+export function ExtruderPiston(props: NodeProps) {
   return (
     <Shape
       {...EXTRUDER_PISTON}

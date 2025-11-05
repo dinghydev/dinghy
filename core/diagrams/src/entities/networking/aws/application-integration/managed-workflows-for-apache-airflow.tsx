@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_WORKFLOWS_FOR_APACHE_AIRFLOW = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_WORKFLOWS_FOR_APACHE_AIRFLOW = {
   _original_height: 78,
 }
 
-export function ManagedWorkflowsForApacheAirflow(props: DiagramNodeProps) {
+export function ManagedWorkflowsForApacheAirflow(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_WORKFLOWS_FOR_APACHE_AIRFLOW}

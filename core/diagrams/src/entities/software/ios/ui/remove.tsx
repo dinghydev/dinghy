@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REMOVE = {
   _style: {
@@ -10,6 +10,6 @@ export const REMOVE = {
   _height: 12,
 }
 
-export function Remove(props: DiagramNodeProps) {
+export function Remove(props: NodeProps) {
   return <Shape {...REMOVE} {...props} _style={extendStyle(REMOVE, props)} />
 }

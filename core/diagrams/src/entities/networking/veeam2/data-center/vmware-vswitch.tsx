@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VMWARE_VSWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const VMWARE_VSWITCH = {
   _height: 11,
 }
 
-export function VmwareVswitch(props: DiagramNodeProps) {
+export function VmwareVswitch(props: NodeProps) {
   return (
     <Shape
       {...VMWARE_VSWITCH}

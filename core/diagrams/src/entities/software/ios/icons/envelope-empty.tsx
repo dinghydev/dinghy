@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENVELOPE_EMPTY = {
   _style: {
@@ -10,7 +10,7 @@ export const ENVELOPE_EMPTY = {
   _original_height: 30,
 }
 
-export function EnvelopeEmpty(props: DiagramNodeProps) {
+export function EnvelopeEmpty(props: NodeProps) {
   return (
     <Shape
       {...ENVELOPE_EMPTY}

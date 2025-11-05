@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOTTED_LINE_TOPAZ = {
   _style: {
@@ -8,7 +8,7 @@ export const DOTTED_LINE_TOPAZ = {
   },
 }
 
-export function DottedLineTopaz(props: DiagramNodeProps) {
+export function DottedLineTopaz(props: NodeProps) {
   return (
     <Dependency
       {...DOTTED_LINE_TOPAZ}

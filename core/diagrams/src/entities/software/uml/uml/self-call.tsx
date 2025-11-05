@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SELF_CALL = {
   _style: {
@@ -10,7 +10,7 @@ export const SELF_CALL = {
   _height: 60,
 }
 
-export function SelfCall(props: DiagramNodeProps) {
+export function SelfCall(props: NodeProps) {
   return (
     <Shape {...SELF_CALL} {...props} _style={extendStyle(SELF_CALL, props)} />
   )

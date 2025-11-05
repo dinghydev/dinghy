@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CRD_2 = {
   _style: {
@@ -10,6 +10,6 @@ export const CRD_2 = {
   _original_height: 48,
 }
 
-export function Crd2(props: DiagramNodeProps) {
+export function Crd2(props: NodeProps) {
   return <Shape {...CRD_2} {...props} _style={extendStyle(CRD_2, props)} />
 }

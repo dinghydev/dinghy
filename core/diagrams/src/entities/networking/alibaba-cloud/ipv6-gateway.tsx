@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IPV6_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const IPV6_GATEWAY = {
   _original_height: 60,
 }
 
-export function Ipv6Gateway(props: DiagramNodeProps) {
+export function Ipv6Gateway(props: NodeProps) {
   return (
     <Shape
       {...IPV6_GATEWAY}

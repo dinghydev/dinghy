@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUALITY_OF_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const QUALITY_OF_SERVICE = {
   _original_height: 43,
 }
 
-export function QualityOfService(props: DiagramNodeProps) {
+export function QualityOfService(props: NodeProps) {
   return (
     <Shape
       {...QUALITY_OF_SERVICE}

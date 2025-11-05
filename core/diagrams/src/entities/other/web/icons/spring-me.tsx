@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPRING_ME = {
   _style: {
@@ -10,7 +10,7 @@ export const SPRING_ME = {
   _original_height: 102.4,
 }
 
-export function SpringMe(props: DiagramNodeProps) {
+export function SpringMe(props: NodeProps) {
   return (
     <Shape {...SPRING_ME} {...props} _style={extendStyle(SPRING_ME, props)} />
   )

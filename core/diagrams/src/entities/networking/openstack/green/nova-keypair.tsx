@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NOVA_KEYPAIR = {
   _style: {
@@ -10,7 +10,7 @@ export const NOVA_KEYPAIR = {
   _original_height: 50,
 }
 
-export function NovaKeypair(props: DiagramNodeProps) {
+export function NovaKeypair(props: NodeProps) {
   return (
     <Shape
       {...NOVA_KEYPAIR}

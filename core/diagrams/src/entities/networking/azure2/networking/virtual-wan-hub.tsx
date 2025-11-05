@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_WAN_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_WAN_HUB = {
   _original_height: 64,
 }
 
-export function VirtualWanHub(props: DiagramNodeProps) {
+export function VirtualWanHub(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_WAN_HUB}

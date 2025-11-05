@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVICE_PROVIDER_CLOUD_ENVIRONMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVICE_PROVIDER_CLOUD_ENVIRONMENT = {
   _original_height: 44,
 }
 
-export function ServiceProviderCloudEnvironment(props: DiagramNodeProps) {
+export function ServiceProviderCloudEnvironment(props: NodeProps) {
   return (
     <Shape
       {...SERVICE_PROVIDER_CLOUD_ENVIRONMENT}

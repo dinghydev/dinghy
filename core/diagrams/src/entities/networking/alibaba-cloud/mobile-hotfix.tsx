@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_HOTFIX = {
   _style: {
@@ -10,7 +10,7 @@ export const MOBILE_HOTFIX = {
   _original_height: 50.099999999999994,
 }
 
-export function MobileHotfix(props: DiagramNodeProps) {
+export function MobileHotfix(props: NodeProps) {
   return (
     <Shape
       {...MOBILE_HOTFIX}

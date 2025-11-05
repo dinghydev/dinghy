@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FDDI_RING = {
   _style: {
@@ -10,7 +10,7 @@ export const FDDI_RING = {
   _height: 48,
 }
 
-export function FddiRing(props: DiagramNodeProps) {
+export function FddiRing(props: NodeProps) {
   return (
     <Shape {...FDDI_RING} {...props} _style={extendStyle(FDDI_RING, props)} />
   )

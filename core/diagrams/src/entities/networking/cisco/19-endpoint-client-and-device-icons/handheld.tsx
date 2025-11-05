@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HANDHELD = {
   _style: {
@@ -10,7 +10,7 @@ export const HANDHELD = {
   _height: 50,
 }
 
-export function Handheld(props: DiagramNodeProps) {
+export function Handheld(props: NodeProps) {
   return (
     <Shape {...HANDHELD} {...props} _style={extendStyle(HANDHELD, props)} />
   )

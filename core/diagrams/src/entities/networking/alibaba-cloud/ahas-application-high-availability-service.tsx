@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE = {
   _style: {
@@ -10,9 +10,7 @@ export const AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE = {
   _original_height: 53.7,
 }
 
-export function AhasApplicationHighAvailabilityService(
-  props: DiagramNodeProps,
-) {
+export function AhasApplicationHighAvailabilityService(props: NodeProps) {
   return (
     <Shape
       {...AHAS_APPLICATION_HIGH_AVAILABILITY_SERVICE}

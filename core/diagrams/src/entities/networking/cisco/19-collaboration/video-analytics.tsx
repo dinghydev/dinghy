@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIDEO_ANALYTICS = {
   _style: {
@@ -10,7 +10,7 @@ export const VIDEO_ANALYTICS = {
   _original_height: 50,
 }
 
-export function VideoAnalytics(props: DiagramNodeProps) {
+export function VideoAnalytics(props: NodeProps) {
   return (
     <Shape
       {...VIDEO_ANALYTICS}

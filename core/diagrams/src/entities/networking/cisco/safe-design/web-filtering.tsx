@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_FILTERING = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_FILTERING = {
   _original_height: 45,
 }
 
-export function WebFiltering(props: DiagramNodeProps) {
+export function WebFiltering(props: NodeProps) {
   return (
     <Shape
       {...WEB_FILTERING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AGW_ALIGATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const AGW_ALIGATEWAY = {
   _height: 39.6,
 }
 
-export function AgwAligateway(props: DiagramNodeProps) {
+export function AgwAligateway(props: NodeProps) {
   return (
     <Shape
       {...AGW_ALIGATEWAY}

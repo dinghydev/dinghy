@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYBRID_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const HYBRID_CLOUD = {
   _height: 28.09,
 }
 
-export function HybridCloud(props: DiagramNodeProps) {
+export function HybridCloud(props: NodeProps) {
   return (
     <Shape
       {...HYBRID_CLOUD}

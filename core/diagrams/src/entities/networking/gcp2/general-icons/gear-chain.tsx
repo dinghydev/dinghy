@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GEAR_CHAIN = {
   _style: {
@@ -10,7 +10,7 @@ export const GEAR_CHAIN = {
   _original_height: 100,
 }
 
-export function GearChain(props: DiagramNodeProps) {
+export function GearChain(props: NodeProps) {
   return (
     <Shape {...GEAR_CHAIN} {...props} _style={extendStyle(GEAR_CHAIN, props)} />
   )

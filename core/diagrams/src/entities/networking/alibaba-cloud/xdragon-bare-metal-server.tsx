@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XDRAGON_BARE_METAL_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const XDRAGON_BARE_METAL_SERVER = {
   _original_height: 47.7,
 }
 
-export function XdragonBareMetalServer(props: DiagramNodeProps) {
+export function XdragonBareMetalServer(props: NodeProps) {
   return (
     <Shape
       {...XDRAGON_BARE_METAL_SERVER}

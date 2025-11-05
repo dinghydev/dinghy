@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MIGRATION_HUB_REFACTOR_SPACES_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const MIGRATION_HUB_REFACTOR_SPACES_SERVICES = {
   _original_height: 78,
 }
 
-export function MigrationHubRefactorSpacesServices(props: DiagramNodeProps) {
+export function MigrationHubRefactorSpacesServices(props: NodeProps) {
   return (
     <Shape
       {...MIGRATION_HUB_REFACTOR_SPACES_SERVICES}

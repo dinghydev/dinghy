@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KINESIS_ANALYTICS = {
   _style: {
@@ -10,7 +10,7 @@ export const KINESIS_ANALYTICS = {
   _original_height: 75,
 }
 
-export function KinesisAnalytics(props: DiagramNodeProps) {
+export function KinesisAnalytics(props: NodeProps) {
   return (
     <Shape
       {...KINESIS_ANALYTICS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DROPDOWN_BUTTON_SELECTED_EDITABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const DROPDOWN_BUTTON_SELECTED_EDITABLE = {
   _height: 150,
 }
 
-export function DropdownButtonSelectedEditable(props: DiagramNodeProps) {
+export function DropdownButtonSelectedEditable(props: NodeProps) {
   return (
     <Shape
       {...DROPDOWN_BUTTON_SELECTED_EDITABLE}

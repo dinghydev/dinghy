@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JAMESPOT = {
   _style: {
@@ -10,7 +10,7 @@ export const JAMESPOT = {
   _original_height: 102.4,
 }
 
-export function Jamespot(props: DiagramNodeProps) {
+export function Jamespot(props: NodeProps) {
   return (
     <Shape {...JAMESPOT} {...props} _style={extendStyle(JAMESPOT, props)} />
   )

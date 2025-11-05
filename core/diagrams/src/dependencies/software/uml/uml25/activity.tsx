@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIVITY = {
   _style: {
@@ -7,7 +7,7 @@ export const ACTIVITY = {
   },
 }
 
-export function Activity(props: DiagramNodeProps) {
+export function Activity(props: NodeProps) {
   return (
     <Dependency
       {...ACTIVITY}

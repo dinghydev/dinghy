@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_VDA_FOR_MACOS = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_VDA_FOR_MACOS = {
   _height: 50,
 }
 
-export function CitrixVdaForMacos(props: DiagramNodeProps) {
+export function CitrixVdaForMacos(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_VDA_FOR_MACOS}

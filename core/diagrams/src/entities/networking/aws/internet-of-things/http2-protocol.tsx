@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HTTP2_PROTOCOL = {
   _style: {
@@ -10,7 +10,7 @@ export const HTTP2_PROTOCOL = {
   _original_height: 78,
 }
 
-export function Http2Protocol(props: DiagramNodeProps) {
+export function Http2Protocol(props: NodeProps) {
   return (
     <Shape
       {...HTTP2_PROTOCOL}

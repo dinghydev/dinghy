@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XENCENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const XENCENTER = {
   _original_height: 89,
 }
 
-export function Xencenter(props: DiagramNodeProps) {
+export function Xencenter(props: NodeProps) {
   return (
     <Shape {...XENCENTER} {...props} _style={extendStyle(XENCENTER, props)} />
   )

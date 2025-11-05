@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPLIT_ACTION_BAR_LANDSCAPE_BRIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const SPLIT_ACTION_BAR_LANDSCAPE_BRIGHT = {
   _height: 70,
 }
 
-export function SplitActionBarLandscapeBright(props: DiagramNodeProps) {
+export function SplitActionBarLandscapeBright(props: NodeProps) {
   return (
     <Shape
       {...SPLIT_ACTION_BAR_LANDSCAPE_BRIGHT}

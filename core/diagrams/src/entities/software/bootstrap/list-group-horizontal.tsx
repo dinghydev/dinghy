@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIST_GROUP_HORIZONTAL = {
   _style: {
@@ -10,7 +10,7 @@ export const LIST_GROUP_HORIZONTAL = {
   _height: 30,
 }
 
-export function ListGroupHorizontal(props: DiagramNodeProps) {
+export function ListGroupHorizontal(props: NodeProps) {
   return (
     <Shape
       {...LIST_GROUP_HORIZONTAL}

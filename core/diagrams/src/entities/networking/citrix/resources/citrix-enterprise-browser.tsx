@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_ENTERPRISE_BROWSER = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_ENTERPRISE_BROWSER = {
   _original_height: 42.955,
 }
 
-export function CitrixEnterpriseBrowser(props: DiagramNodeProps) {
+export function CitrixEnterpriseBrowser(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_ENTERPRISE_BROWSER}

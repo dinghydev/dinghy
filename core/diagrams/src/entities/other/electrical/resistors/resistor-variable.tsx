@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESISTOR_VARIABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const RESISTOR_VARIABLE = {
   _height: 60,
 }
 
-export function ResistorVariable(props: DiagramNodeProps) {
+export function ResistorVariable(props: NodeProps) {
   return (
     <Shape
       {...RESISTOR_VARIABLE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDETERMINATE_PROGRESS_BAR = {
   _style: {
@@ -10,7 +10,7 @@ export const INDETERMINATE_PROGRESS_BAR = {
   _height: 5,
 }
 
-export function IndeterminateProgressBar(props: DiagramNodeProps) {
+export function IndeterminateProgressBar(props: NodeProps) {
   return (
     <Shape
       {...INDETERMINATE_PROGRESS_BAR}

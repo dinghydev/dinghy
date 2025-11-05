@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AGITATOR_FLATE_BLADE_PADDLE = {
   _style: {
@@ -10,7 +10,7 @@ export const AGITATOR_FLATE_BLADE_PADDLE = {
   _height: 140,
 }
 
-export function AgitatorFlateBladePaddle(props: DiagramNodeProps) {
+export function AgitatorFlateBladePaddle(props: NodeProps) {
   return (
     <Shape
       {...AGITATOR_FLATE_BLADE_PADDLE}

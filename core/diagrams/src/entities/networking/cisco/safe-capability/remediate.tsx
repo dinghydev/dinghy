@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REMEDIATE = {
   _style: {
@@ -10,7 +10,7 @@ export const REMEDIATE = {
   _original_height: 43,
 }
 
-export function Remediate(props: DiagramNodeProps) {
+export function Remediate(props: NodeProps) {
   return (
     <Shape {...REMEDIATE} {...props} _style={extendStyle(REMEDIATE, props)} />
   )

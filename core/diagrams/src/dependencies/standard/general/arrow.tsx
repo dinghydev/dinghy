@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARROW = {
   _style: {
@@ -7,6 +7,6 @@ export const ARROW = {
   },
 }
 
-export function Arrow(props: DiagramNodeProps) {
+export function Arrow(props: NodeProps) {
   return <Dependency {...ARROW} {...props} _style={extendStyle(ARROW, props)} />
 }

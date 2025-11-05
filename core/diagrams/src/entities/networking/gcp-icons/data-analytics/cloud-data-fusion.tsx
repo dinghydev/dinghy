@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_DATA_FUSION = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_DATA_FUSION = {
   _original_height: 40,
 }
 
-export function CloudDataFusion(props: DiagramNodeProps) {
+export function CloudDataFusion(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_DATA_FUSION}

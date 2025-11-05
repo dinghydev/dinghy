@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERIFIABLE_CREDENTIALS = {
   _style: {
@@ -10,7 +10,7 @@ export const VERIFIABLE_CREDENTIALS = {
   _original_height: 68,
 }
 
-export function VerifiableCredentials(props: DiagramNodeProps) {
+export function VerifiableCredentials(props: NodeProps) {
   return (
     <Shape
       {...VERIFIABLE_CREDENTIALS}

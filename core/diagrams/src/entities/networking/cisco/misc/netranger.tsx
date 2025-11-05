@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETRANGER = {
   _style: {
@@ -10,7 +10,7 @@ export const NETRANGER = {
   _height: 51,
 }
 
-export function Netranger(props: DiagramNodeProps) {
+export function Netranger(props: NodeProps) {
   return (
     <Shape {...NETRANGER} {...props} _style={extendStyle(NETRANGER, props)} />
   )

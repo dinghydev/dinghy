@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTENT_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTENT_MANAGEMENT = {
   _original_height: 60,
 }
 
-export function ContentManagement(props: DiagramNodeProps) {
+export function ContentManagement(props: NodeProps) {
   return (
     <Shape
       {...CONTENT_MANAGEMENT}

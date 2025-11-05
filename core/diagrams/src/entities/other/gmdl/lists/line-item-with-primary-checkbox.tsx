@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINE_ITEM_WITH_PRIMARY_CHECKBOX = {
   _style: {
@@ -10,7 +10,7 @@ export const LINE_ITEM_WITH_PRIMARY_CHECKBOX = {
   _height: 56,
 }
 
-export function LineItemWithPrimaryCheckbox(props: DiagramNodeProps) {
+export function LineItemWithPrimaryCheckbox(props: NodeProps) {
   return (
     <Shape
       {...LINE_ITEM_WITH_PRIMARY_CHECKBOX}

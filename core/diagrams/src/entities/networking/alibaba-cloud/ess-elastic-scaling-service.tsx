@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ESS_ELASTIC_SCALING_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const ESS_ELASTIC_SCALING_SERVICE = {
   _height: 30.3,
 }
 
-export function EssElasticScalingService(props: DiagramNodeProps) {
+export function EssElasticScalingService(props: NodeProps) {
   return (
     <Shape
       {...ESS_ELASTIC_SCALING_SERVICE}

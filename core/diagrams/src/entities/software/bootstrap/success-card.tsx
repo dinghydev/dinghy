@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUCCESS_CARD = {
   _style: {
@@ -10,7 +10,7 @@ export const SUCCESS_CARD = {
   _height: 180,
 }
 
-export function SuccessCard(props: DiagramNodeProps) {
+export function SuccessCard(props: NodeProps) {
   return (
     <Shape
       {...SUCCESS_CARD}

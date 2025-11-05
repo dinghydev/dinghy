@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KENNEL = {
   _style: {
@@ -10,6 +10,6 @@ export const KENNEL = {
   _original_height: 94,
 }
 
-export function Kennel(props: DiagramNodeProps) {
+export function Kennel(props: NodeProps) {
   return <Shape {...KENNEL} {...props} _style={extendStyle(KENNEL, props)} />
 }

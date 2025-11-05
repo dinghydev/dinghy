@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPLIT_DOMAIN_USER = {
   _style: {
@@ -10,7 +10,7 @@ export const SPLIT_DOMAIN_USER = {
   _original_height: 55,
 }
 
-export function SplitDomainUser(props: DiagramNodeProps) {
+export function SplitDomainUser(props: NodeProps) {
   return (
     <Shape
       {...SPLIT_DOMAIN_USER}

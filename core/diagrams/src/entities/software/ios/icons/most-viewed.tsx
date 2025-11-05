@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOST_VIEWED = {
   _style: {
@@ -10,7 +10,7 @@ export const MOST_VIEWED = {
   _height: 22.8,
 }
 
-export function MostViewed(props: DiagramNodeProps) {
+export function MostViewed(props: NodeProps) {
   return (
     <Shape
       {...MOST_VIEWED}

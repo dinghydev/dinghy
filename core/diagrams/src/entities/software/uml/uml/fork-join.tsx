@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORK_JOIN = {
   _style: {
@@ -9,7 +9,7 @@ export const FORK_JOIN = {
   _height: 80,
 }
 
-export function ForkJoin(props: DiagramNodeProps) {
+export function ForkJoin(props: NodeProps) {
   return (
     <Shape {...FORK_JOIN} {...props} _style={extendStyle(FORK_JOIN, props)} />
   )

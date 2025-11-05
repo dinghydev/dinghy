@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PIGBT = {
   _style: {
@@ -10,6 +10,6 @@ export const PIGBT = {
   _height: 100,
 }
 
-export function Pigbt(props: DiagramNodeProps) {
+export function Pigbt(props: NodeProps) {
   return <Shape {...PIGBT} {...props} _style={extendStyle(PIGBT, props)} />
 }

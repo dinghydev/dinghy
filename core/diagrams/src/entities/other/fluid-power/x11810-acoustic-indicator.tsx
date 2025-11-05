@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11810_ACOUSTIC_INDICATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X11810_ACOUSTIC_INDICATOR = {
   _height: 27.74,
 }
 
-export function X11810AcousticIndicator(props: DiagramNodeProps) {
+export function X11810AcousticIndicator(props: NodeProps) {
   return (
     <Shape
       {...X11810_ACOUSTIC_INDICATOR}

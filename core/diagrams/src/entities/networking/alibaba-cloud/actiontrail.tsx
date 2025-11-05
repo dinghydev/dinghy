@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIONTRAIL = {
   _style: {
@@ -10,7 +10,7 @@ export const ACTIONTRAIL = {
   _original_height: 50.099999999999994,
 }
 
-export function Actiontrail(props: DiagramNodeProps) {
+export function Actiontrail(props: NodeProps) {
   return (
     <Shape
       {...ACTIONTRAIL}

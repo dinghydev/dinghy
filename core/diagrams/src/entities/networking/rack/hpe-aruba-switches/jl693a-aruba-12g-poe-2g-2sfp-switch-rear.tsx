@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH_REAR = {
   _style: {
@@ -10,7 +10,7 @@ export const JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH_REAR = {
   _height: 15,
 }
 
-export function Jl693aAruba12gPoe2g2sfpSwitchRear(props: DiagramNodeProps) {
+export function Jl693aAruba12gPoe2g2sfpSwitchRear(props: NodeProps) {
   return (
     <Shape
       {...JL693A_ARUBA_12G_POE_2G_2SFP_SWITCH_REAR}

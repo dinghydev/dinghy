@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_CLUSTERS = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_CLUSTERS = {
   _original_height: 48,
 }
 
-export function VirtualClusters(props: DiagramNodeProps) {
+export function VirtualClusters(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_CLUSTERS}

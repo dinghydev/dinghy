@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JIRA_CORE = {
   _style: {
@@ -10,7 +10,7 @@ export const JIRA_CORE = {
   _original_height: 66,
 }
 
-export function JiraCore(props: DiagramNodeProps) {
+export function JiraCore(props: NodeProps) {
   return (
     <Shape {...JIRA_CORE} {...props} _style={extendStyle(JIRA_CORE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLOBAL_SECONDARY_INDEX = {
   _style: {
@@ -10,7 +10,7 @@ export const GLOBAL_SECONDARY_INDEX = {
   _original_height: 78,
 }
 
-export function GlobalSecondaryIndex(props: DiagramNodeProps) {
+export function GlobalSecondaryIndex(props: NodeProps) {
   return (
     <Shape
       {...GLOBAL_SECONDARY_INDEX}

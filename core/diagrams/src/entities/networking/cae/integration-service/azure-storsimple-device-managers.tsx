@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_STORSIMPLE_DEVICE_MANAGERS = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_STORSIMPLE_DEVICE_MANAGERS = {
   _original_height: 45,
 }
 
-export function AzureStorsimpleDeviceManagers(props: DiagramNodeProps) {
+export function AzureStorsimpleDeviceManagers(props: NodeProps) {
   return (
     <Shape
       {...AZURE_STORSIMPLE_DEVICE_MANAGERS}

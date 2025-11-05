@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OCTAGON = {
   _style: {
@@ -10,6 +10,6 @@ export const OCTAGON = {
   _original_height: 100,
 }
 
-export function Octagon(props: DiagramNodeProps) {
+export function Octagon(props: NodeProps) {
   return <Shape {...OCTAGON} {...props} _style={extendStyle(OCTAGON, props)} />
 }

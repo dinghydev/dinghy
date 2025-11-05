@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CABLE_TERMINATION = {
   _style: {
@@ -10,7 +10,7 @@ export const CABLE_TERMINATION = {
   _height: 50,
 }
 
-export function CableTermination(props: DiagramNodeProps) {
+export function CableTermination(props: NodeProps) {
   return (
     <Shape
       {...CABLE_TERMINATION}

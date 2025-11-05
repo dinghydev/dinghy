@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUEUE_GENERIC = {
   _style: {
@@ -10,7 +10,7 @@ export const QUEUE_GENERIC = {
   _height: 15,
 }
 
-export function QueueGeneric(props: DiagramNodeProps) {
+export function QueueGeneric(props: NodeProps) {
   return (
     <Shape
       {...QUEUE_GENERIC}

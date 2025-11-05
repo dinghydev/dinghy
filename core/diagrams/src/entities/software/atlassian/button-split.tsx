@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTON_SPLIT = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTON_SPLIT = {
   _height: 33,
 }
 
-export function ButtonSplit(props: DiagramNodeProps) {
+export function ButtonSplit(props: NodeProps) {
   return (
     <Shape
       {...BUTTON_SPLIT}

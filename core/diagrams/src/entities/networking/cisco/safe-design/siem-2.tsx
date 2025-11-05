@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIEM_2 = {
   _style: {
@@ -10,6 +10,6 @@ export const SIEM_2 = {
   _original_height: 45,
 }
 
-export function Siem2(props: DiagramNodeProps) {
+export function Siem2(props: NodeProps) {
   return <Shape {...SIEM_2} {...props} _style={extendStyle(SIEM_2, props)} />
 }

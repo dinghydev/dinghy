@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEVICE_SECURITY_WINDOWS = {
   _style: {
@@ -10,7 +10,7 @@ export const DEVICE_SECURITY_WINDOWS = {
   _original_height: 68,
 }
 
-export function DeviceSecurityWindows(props: DiagramNodeProps) {
+export function DeviceSecurityWindows(props: NodeProps) {
   return (
     <Shape
       {...DEVICE_SECURITY_WINDOWS}

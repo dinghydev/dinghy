@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISK_PARTITION = {
   _style: {
@@ -10,7 +10,7 @@ export const DISK_PARTITION = {
   _original_height: 57.2,
 }
 
-export function DiskPartition(props: DiagramNodeProps) {
+export function DiskPartition(props: NodeProps) {
   return (
     <Shape
       {...DISK_PARTITION}

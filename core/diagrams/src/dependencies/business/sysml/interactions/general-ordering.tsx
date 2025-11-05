@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERAL_ORDERING = {
   _style: {
@@ -8,7 +8,7 @@ export const GENERAL_ORDERING = {
   },
 }
 
-export function GeneralOrdering(props: DiagramNodeProps) {
+export function GeneralOrdering(props: NodeProps) {
   return (
     <Dependency
       {...GENERAL_ORDERING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SMS_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const SMS_GATEWAY = {
   _height: 37,
 }
 
-export function SmsGateway(props: DiagramNodeProps) {
+export function SmsGateway(props: NodeProps) {
   return (
     <Shape
       {...SMS_GATEWAY}

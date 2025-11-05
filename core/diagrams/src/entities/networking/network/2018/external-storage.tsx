@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXTERNAL_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const EXTERNAL_STORAGE = {
   _original_height: 100,
 }
 
-export function ExternalStorage(props: DiagramNodeProps) {
+export function ExternalStorage(props: NodeProps) {
   return (
     <Shape
       {...EXTERNAL_STORAGE}

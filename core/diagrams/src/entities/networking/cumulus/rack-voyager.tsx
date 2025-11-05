@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RACK_VOYAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const RACK_VOYAGER = {
   _height: 114,
 }
 
-export function RackVoyager(props: DiagramNodeProps) {
+export function RackVoyager(props: NodeProps) {
   return (
     <Shape
       {...RACK_VOYAGER}

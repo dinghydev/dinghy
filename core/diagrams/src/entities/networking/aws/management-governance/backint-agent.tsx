@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKINT_AGENT = {
   _style: {
@@ -10,7 +10,7 @@ export const BACKINT_AGENT = {
   _original_height: 78,
 }
 
-export function BackintAgent(props: DiagramNodeProps) {
+export function BackintAgent(props: NodeProps) {
   return (
     <Shape
       {...BACKINT_AGENT}

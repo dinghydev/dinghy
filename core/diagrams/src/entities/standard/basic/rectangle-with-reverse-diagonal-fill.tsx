@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECTANGLE_WITH_REVERSE_DIAGONAL_FILL = {
   _style: {
@@ -10,7 +10,7 @@ export const RECTANGLE_WITH_REVERSE_DIAGONAL_FILL = {
   _height: 60,
 }
 
-export function RectangleWithReverseDiagonalFill(props: DiagramNodeProps) {
+export function RectangleWithReverseDiagonalFill(props: NodeProps) {
   return (
     <Shape
       {...RECTANGLE_WITH_REVERSE_DIAGONAL_FILL}

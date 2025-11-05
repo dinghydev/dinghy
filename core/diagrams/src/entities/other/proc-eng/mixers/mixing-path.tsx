@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MIXING_PATH = {
   _style: {
@@ -10,7 +10,7 @@ export const MIXING_PATH = {
   _height: 100,
 }
 
-export function MixingPath(props: DiagramNodeProps) {
+export function MixingPath(props: NodeProps) {
   return (
     <Shape
       {...MIXING_PATH}

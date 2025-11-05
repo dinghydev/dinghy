@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HOSE_CONNECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const HOSE_CONNECTION = {
   _original_height: 20,
 }
 
-export function HoseConnection(props: DiagramNodeProps) {
+export function HoseConnection(props: NodeProps) {
   return (
     <Shape
       {...HOSE_CONNECTION}

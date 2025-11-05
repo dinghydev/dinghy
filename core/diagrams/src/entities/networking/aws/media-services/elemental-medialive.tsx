@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELEMENTAL_MEDIALIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const ELEMENTAL_MEDIALIVE = {
   _original_height: 78,
 }
 
-export function ElementalMedialive(props: DiagramNodeProps) {
+export function ElementalMedialive(props: NodeProps) {
   return (
     <Shape
       {...ELEMENTAL_MEDIALIVE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXPRESSLINK = {
   _style: {
@@ -10,7 +10,7 @@ export const EXPRESSLINK = {
   _original_height: 78,
 }
 
-export function Expresslink(props: DiagramNodeProps) {
+export function Expresslink(props: NodeProps) {
   return (
     <Shape
       {...EXPRESSLINK}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ULTRASONIC = {
   _style: {
@@ -10,7 +10,7 @@ export const ULTRASONIC = {
   _original_height: 50,
 }
 
-export function Ultrasonic(props: DiagramNodeProps) {
+export function Ultrasonic(props: NodeProps) {
   return (
     <Shape {...ULTRASONIC} {...props} _style={extendStyle(ULTRASONIC, props)} />
   )

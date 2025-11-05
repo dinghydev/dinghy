@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10750_QUICK_EXHAUST_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const X10750_QUICK_EXHAUST_VALVE = {
   _height: 74.66,
 }
 
-export function X10750QuickExhaustValve(props: DiagramNodeProps) {
+export function X10750QuickExhaustValve(props: NodeProps) {
   return (
     <Shape
       {...X10750_QUICK_EXHAUST_VALVE}

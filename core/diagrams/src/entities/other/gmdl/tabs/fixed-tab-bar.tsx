@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIXED_TAB_BAR = {
   _style: {
@@ -9,7 +9,7 @@ export const FIXED_TAB_BAR = {
   _height: 642,
 }
 
-export function FixedTabBar(props: DiagramNodeProps) {
+export function FixedTabBar(props: NodeProps) {
   return (
     <Shape
       {...FIXED_TAB_BAR}

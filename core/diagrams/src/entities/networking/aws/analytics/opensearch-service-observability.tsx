@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPENSEARCH_SERVICE_OBSERVABILITY = {
   _style: {
@@ -10,7 +10,7 @@ export const OPENSEARCH_SERVICE_OBSERVABILITY = {
   _original_height: 78,
 }
 
-export function OpensearchServiceObservability(props: DiagramNodeProps) {
+export function OpensearchServiceObservability(props: NodeProps) {
   return (
     <Shape
       {...OPENSEARCH_SERVICE_OBSERVABILITY}

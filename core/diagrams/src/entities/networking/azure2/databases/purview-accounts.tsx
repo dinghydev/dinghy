@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PURVIEW_ACCOUNTS = {
   _style: {
@@ -10,7 +10,7 @@ export const PURVIEW_ACCOUNTS = {
   _height: 42,
 }
 
-export function PurviewAccounts(props: DiagramNodeProps) {
+export function PurviewAccounts(props: NodeProps) {
   return (
     <Shape
       {...PURVIEW_ACCOUNTS}

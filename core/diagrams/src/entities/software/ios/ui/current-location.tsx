@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CURRENT_LOCATION = {
   _style: {
@@ -10,7 +10,7 @@ export const CURRENT_LOCATION = {
   _original_height: 60,
 }
 
-export function CurrentLocation(props: DiagramNodeProps) {
+export function CurrentLocation(props: NodeProps) {
   return (
     <Shape
       {...CURRENT_LOCATION}

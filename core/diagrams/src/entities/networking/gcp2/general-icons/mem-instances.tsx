@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEM_INSTANCES = {
   _style: {
@@ -10,7 +10,7 @@ export const MEM_INSTANCES = {
   _original_height: 87,
 }
 
-export function MemInstances(props: DiagramNodeProps) {
+export function MemInstances(props: NodeProps) {
   return (
     <Shape
       {...MEM_INSTANCES}

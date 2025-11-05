@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IVPD_INTELLIGENT_VISUAL_PRODUCTION = {
   _style: {
@@ -10,7 +10,7 @@ export const IVPD_INTELLIGENT_VISUAL_PRODUCTION = {
   _original_height: 46.5,
 }
 
-export function IvpdIntelligentVisualProduction(props: DiagramNodeProps) {
+export function IvpdIntelligentVisualProduction(props: NodeProps) {
   return (
     <Shape
       {...IVPD_INTELLIGENT_VISUAL_PRODUCTION}

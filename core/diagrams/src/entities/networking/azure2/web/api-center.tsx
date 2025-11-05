@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const API_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const API_CENTER = {
   _original_height: 68,
 }
 
-export function ApiCenter(props: DiagramNodeProps) {
+export function ApiCenter(props: NodeProps) {
   return (
     <Shape {...API_CENTER} {...props} _style={extendStyle(API_CENTER, props)} />
   )

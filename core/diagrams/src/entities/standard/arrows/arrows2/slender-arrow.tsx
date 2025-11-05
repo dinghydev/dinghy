@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SLENDER_ARROW = {
   _style: {
@@ -10,7 +10,7 @@ export const SLENDER_ARROW = {
   _height: 60,
 }
 
-export function SlenderArrow(props: DiagramNodeProps) {
+export function SlenderArrow(props: NodeProps) {
   return (
     <Shape
       {...SLENDER_ARROW}

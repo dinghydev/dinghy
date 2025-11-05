@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESERVED_CAPACITY = {
   _style: {
@@ -10,7 +10,7 @@ export const RESERVED_CAPACITY = {
   _original_height: 68,
 }
 
-export function ReservedCapacity(props: DiagramNodeProps) {
+export function ReservedCapacity(props: NodeProps) {
   return (
     <Shape
       {...RESERVED_CAPACITY}

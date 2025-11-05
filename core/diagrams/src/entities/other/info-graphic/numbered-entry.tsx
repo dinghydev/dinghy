@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NUMBERED_ENTRY = {
   _style: {
@@ -10,7 +10,7 @@ export const NUMBERED_ENTRY = {
   _height: 60,
 }
 
-export function NumberedEntry(props: DiagramNodeProps) {
+export function NumberedEntry(props: NodeProps) {
   return (
     <Shape
       {...NUMBERED_ENTRY}

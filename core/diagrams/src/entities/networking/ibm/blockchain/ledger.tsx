@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LEDGER = {
   _style: {
@@ -10,6 +10,6 @@ export const LEDGER = {
   _original_height: 60,
 }
 
-export function Ledger(props: DiagramNodeProps) {
+export function Ledger(props: NodeProps) {
   return <Shape {...LEDGER} {...props} _style={extendStyle(LEDGER, props)} />
 }

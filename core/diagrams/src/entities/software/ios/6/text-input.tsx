@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXT_INPUT = {
   _style: {
@@ -10,7 +10,7 @@ export const TEXT_INPUT = {
   _height: 15,
 }
 
-export function TextInput(props: DiagramNodeProps) {
+export function TextInput(props: NodeProps) {
   return (
     <Shape {...TEXT_INPUT} {...props} _style={extendStyle(TEXT_INPUT, props)} />
   )

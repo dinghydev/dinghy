@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOTTOM_NAVIGATION = {
   _style: {
@@ -10,7 +10,7 @@ export const BOTTOM_NAVIGATION = {
   _height: 48,
 }
 
-export function BottomNavigation(props: DiagramNodeProps) {
+export function BottomNavigation(props: NodeProps) {
   return (
     <Shape
       {...BOTTOM_NAVIGATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOGIC_CONTROL_ROOM = {
   _style: {
@@ -10,7 +10,7 @@ export const LOGIC_CONTROL_ROOM = {
   _original_height: 50,
 }
 
-export function LogicControlRoom(props: DiagramNodeProps) {
+export function LogicControlRoom(props: NodeProps) {
   return (
     <Shape
       {...LOGIC_CONTROL_ROOM}

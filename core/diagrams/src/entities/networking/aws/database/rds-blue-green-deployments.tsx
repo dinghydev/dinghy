@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RDS_BLUE_GREEN_DEPLOYMENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const RDS_BLUE_GREEN_DEPLOYMENTS = {
   _original_height: 59,
 }
 
-export function RdsBlueGreenDeployments(props: DiagramNodeProps) {
+export function RdsBlueGreenDeployments(props: NodeProps) {
   return (
     <Shape
       {...RDS_BLUE_GREEN_DEPLOYMENTS}

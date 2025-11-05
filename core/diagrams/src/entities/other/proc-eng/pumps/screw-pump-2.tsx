@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCREW_PUMP_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const SCREW_PUMP_2 = {
   _height: 40,
 }
 
-export function ScrewPump2(props: DiagramNodeProps) {
+export function ScrewPump2(props: NodeProps) {
   return (
     <Shape
       {...SCREW_PUMP_2}

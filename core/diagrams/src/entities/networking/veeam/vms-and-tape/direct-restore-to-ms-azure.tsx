@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECT_RESTORE_TO_MS_AZURE = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRECT_RESTORE_TO_MS_AZURE = {
   _original_height: 44.8,
 }
 
-export function DirectRestoreToMsAzure(props: DiagramNodeProps) {
+export function DirectRestoreToMsAzure(props: NodeProps) {
   return (
     <Shape
       {...DIRECT_RESTORE_TO_MS_AZURE}

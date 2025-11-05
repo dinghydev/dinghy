@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTACT_ACQUIRER = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTACT_ACQUIRER = {
   _height: 64,
 }
 
-export function ContactAcquirer(props: DiagramNodeProps) {
+export function ContactAcquirer(props: NodeProps) {
   return (
     <Shape
       {...CONTACT_ACQUIRER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESH_AP = {
   _style: {
@@ -10,6 +10,6 @@ export const MESH_AP = {
   _height: 56,
 }
 
-export function MeshAp(props: DiagramNodeProps) {
+export function MeshAp(props: NodeProps) {
   return <Shape {...MESH_AP} {...props} _style={extendStyle(MESH_AP, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AVAILABILITY_SETS = {
   _style: {
@@ -10,7 +10,7 @@ export const AVAILABILITY_SETS = {
   _original_height: 68,
 }
 
-export function AvailabilitySets(props: DiagramNodeProps) {
+export function AvailabilitySets(props: NodeProps) {
   return (
     <Shape
       {...AVAILABILITY_SETS}

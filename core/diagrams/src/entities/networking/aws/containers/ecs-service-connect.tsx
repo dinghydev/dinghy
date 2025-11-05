@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ECS_SERVICE_CONNECT = {
   _style: {
@@ -10,7 +10,7 @@ export const ECS_SERVICE_CONNECT = {
   _original_height: 44,
 }
 
-export function EcsServiceConnect(props: DiagramNodeProps) {
+export function EcsServiceConnect(props: NodeProps) {
   return (
     <Shape
       {...ECS_SERVICE_CONNECT}

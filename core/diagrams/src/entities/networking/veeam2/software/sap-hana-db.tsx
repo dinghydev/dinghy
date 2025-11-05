@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_HANA_DB = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_HANA_DB = {
   _original_height: 34,
 }
 
-export function SapHanaDb(props: DiagramNodeProps) {
+export function SapHanaDb(props: NodeProps) {
   return (
     <Shape
       {...SAP_HANA_DB}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESISTOR_TAPPED = {
   _style: {
@@ -10,7 +10,7 @@ export const RESISTOR_TAPPED = {
   _height: 40,
 }
 
-export function ResistorTapped(props: DiagramNodeProps) {
+export function ResistorTapped(props: NodeProps) {
   return (
     <Shape
       {...RESISTOR_TAPPED}

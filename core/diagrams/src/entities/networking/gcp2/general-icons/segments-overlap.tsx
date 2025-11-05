@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEGMENTS_OVERLAP = {
   _style: {
@@ -10,7 +10,7 @@ export const SEGMENTS_OVERLAP = {
   _original_height: 100,
 }
 
-export function SegmentsOverlap(props: DiagramNodeProps) {
+export function SegmentsOverlap(props: NodeProps) {
   return (
     <Shape
       {...SEGMENTS_OVERLAP}

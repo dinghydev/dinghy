@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRAKET_SIMULATOR_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const BRAKET_SIMULATOR_4 = {
   _original_height: 78,
 }
 
-export function BraketSimulator4(props: DiagramNodeProps) {
+export function BraketSimulator4(props: NodeProps) {
   return (
     <Shape
       {...BRAKET_SIMULATOR_4}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAS_FILER = {
   _style: {
@@ -10,7 +10,7 @@ export const NAS_FILER = {
   _height: 35,
 }
 
-export function NasFiler(props: DiagramNodeProps) {
+export function NasFiler(props: NodeProps) {
   return (
     <Shape {...NAS_FILER} {...props} _style={extendStyle(NAS_FILER, props)} />
   )

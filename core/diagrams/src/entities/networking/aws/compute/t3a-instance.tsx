@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const T3A_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const T3A_INSTANCE = {
   _original_height: 48,
 }
 
-export function T3aInstance(props: DiagramNodeProps) {
+export function T3aInstance(props: NodeProps) {
   return (
     <Shape
       {...T3A_INSTANCE}

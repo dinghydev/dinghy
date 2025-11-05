@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLUG_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const PLUG_VALVE = {
   _height: 60,
 }
 
-export function PlugValve(props: DiagramNodeProps) {
+export function PlugValve(props: NodeProps) {
   return (
     <Shape {...PLUG_VALVE} {...props} _style={extendStyle(PLUG_VALVE, props)} />
   )

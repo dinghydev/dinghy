@@ -1,4 +1,4 @@
-import { IacNodeProps } from '@dinghy/base-components'
+import { NodeProps } from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
@@ -17,7 +17,7 @@ export type DataAwsIamPolicyDocumentInputProps =
   & z.output<
     typeof DataAwsIamPolicyDocumentInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type DataAwsIamPolicyDocumentOutputProps =
   & z.output<

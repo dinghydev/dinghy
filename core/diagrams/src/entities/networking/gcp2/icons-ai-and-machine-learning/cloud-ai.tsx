@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_AI = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_AI = {
   _height: 38,
 }
 
-export function CloudAi(props: DiagramNodeProps) {
+export function CloudAi(props: NodeProps) {
   return (
     <Shape {...CLOUD_AI} {...props} _style={extendStyle(CLOUD_AI, props)} />
   )

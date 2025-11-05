@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CPNS_CELL_PHONE_NUMBER_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const CPNS_CELL_PHONE_NUMBER_SERVICE = {
   _height: 54.900000000000006,
 }
 
-export function CpnsCellPhoneNumberService(props: DiagramNodeProps) {
+export function CpnsCellPhoneNumberService(props: NodeProps) {
   return (
     <Shape
       {...CPNS_CELL_PHONE_NUMBER_SERVICE}

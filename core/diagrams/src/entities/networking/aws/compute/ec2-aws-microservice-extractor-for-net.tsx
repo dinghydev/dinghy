@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EC2_AWS_MICROSERVICE_EXTRACTOR_FOR_NET = {
   _style: {
@@ -10,7 +10,7 @@ export const EC2_AWS_MICROSERVICE_EXTRACTOR_FOR_NET = {
   _original_height: 48,
 }
 
-export function Ec2AwsMicroserviceExtractorForNet(props: DiagramNodeProps) {
+export function Ec2AwsMicroserviceExtractorForNet(props: NodeProps) {
   return (
     <Shape
       {...EC2_AWS_MICROSERVICE_EXTRACTOR_FOR_NET}

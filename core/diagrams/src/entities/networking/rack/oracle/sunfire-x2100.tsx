@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUNFIRE_X2100 = {
   _style: {
@@ -10,7 +10,7 @@ export const SUNFIRE_X2100 = {
   _height: 15,
 }
 
-export function SunfireX2100(props: DiagramNodeProps) {
+export function SunfireX2100(props: NodeProps) {
   return (
     <Shape
       {...SUNFIRE_X2100}

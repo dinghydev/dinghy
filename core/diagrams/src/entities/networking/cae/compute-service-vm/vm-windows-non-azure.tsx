@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VM_WINDOWS_NON_AZURE = {
   _style: {
@@ -10,7 +10,7 @@ export const VM_WINDOWS_NON_AZURE = {
   _original_height: 46,
 }
 
-export function VmWindowsNonAzure(props: DiagramNodeProps) {
+export function VmWindowsNonAzure(props: NodeProps) {
   return (
     <Shape
       {...VM_WINDOWS_NON_AZURE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIIGO = {
   _style: {
@@ -10,6 +10,6 @@ export const DIIGO = {
   _original_height: 102.4,
 }
 
-export function Diigo(props: DiagramNodeProps) {
+export function Diigo(props: NodeProps) {
   return <Shape {...DIIGO} {...props} _style={extendStyle(DIIGO, props)} />
 }

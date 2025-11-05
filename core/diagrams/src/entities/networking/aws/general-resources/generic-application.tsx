@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERIC_APPLICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const GENERIC_APPLICATION = {
   _original_height: 78,
 }
 
-export function GenericApplication(props: DiagramNodeProps) {
+export function GenericApplication(props: NodeProps) {
   return (
     <Shape
       {...GENERIC_APPLICATION}

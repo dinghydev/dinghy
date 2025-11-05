@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALIMAIL = {
   _style: {
@@ -10,6 +10,6 @@ export const ALIMAIL = {
   _height: 39,
 }
 
-export function Alimail(props: DiagramNodeProps) {
+export function Alimail(props: NodeProps) {
   return <Shape {...ALIMAIL} {...props} _style={extendStyle(ALIMAIL, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELECTROLYTIC_CAPACITOR_US = {
   _style: {
@@ -10,7 +10,7 @@ export const ELECTROLYTIC_CAPACITOR_US = {
   _height: 60,
 }
 
-export function ElectrolyticCapacitorUs(props: DiagramNodeProps) {
+export function ElectrolyticCapacitorUs(props: NodeProps) {
   return (
     <Shape
       {...ELECTROLYTIC_CAPACITOR_US}

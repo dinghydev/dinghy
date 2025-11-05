@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UM_IP_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const UM_IP_GATEWAY = {
   _height: 38,
 }
 
-export function UmIpGateway(props: DiagramNodeProps) {
+export function UmIpGateway(props: NodeProps) {
   return (
     <Shape
       {...UM_IP_GATEWAY}

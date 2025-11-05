@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESEQUENCER = {
   _style: {
@@ -10,7 +10,7 @@ export const RESEQUENCER = {
   _height: 90,
 }
 
-export function Resequencer(props: DiagramNodeProps) {
+export function Resequencer(props: NodeProps) {
   return (
     <Shape
       {...RESEQUENCER}

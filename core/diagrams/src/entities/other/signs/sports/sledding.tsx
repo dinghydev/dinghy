@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SLEDDING = {
   _style: {
@@ -10,7 +10,7 @@ export const SLEDDING = {
   _original_height: 86,
 }
 
-export function Sledding(props: DiagramNodeProps) {
+export function Sledding(props: NodeProps) {
   return (
     <Shape {...SLEDDING} {...props} _style={extendStyle(SLEDDING, props)} />
   )

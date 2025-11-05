@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPTICAL_SERVICES_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const OPTICAL_SERVICES_ROUTER = {
   _original_height: 64,
 }
 
-export function OpticalServicesRouter(props: DiagramNodeProps) {
+export function OpticalServicesRouter(props: NodeProps) {
   return (
     <Shape
       {...OPTICAL_SERVICES_ROUTER}

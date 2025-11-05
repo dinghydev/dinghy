@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONDITIONAL = {
   _style: {
@@ -10,7 +10,7 @@ export const CONDITIONAL = {
   _original_height: 50,
 }
 
-export function Conditional(props: DiagramNodeProps) {
+export function Conditional(props: NodeProps) {
   return (
     <Shape
       {...CONDITIONAL}

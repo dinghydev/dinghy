@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAN_ACCELERATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const WAN_ACCELERATOR = {
   _original_height: 21,
 }
 
-export function WanAccelerator(props: DiagramNodeProps) {
+export function WanAccelerator(props: NodeProps) {
   return (
     <Shape
       {...WAN_ACCELERATOR}

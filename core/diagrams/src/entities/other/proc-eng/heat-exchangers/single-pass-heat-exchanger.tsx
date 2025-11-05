@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SINGLE_PASS_HEAT_EXCHANGER = {
   _style: {
@@ -10,7 +10,7 @@ export const SINGLE_PASS_HEAT_EXCHANGER = {
   _height: 30,
 }
 
-export function SinglePassHeatExchanger(props: DiagramNodeProps) {
+export function SinglePassHeatExchanger(props: NodeProps) {
   return (
     <Shape
       {...SINGLE_PASS_HEAT_EXCHANGER}

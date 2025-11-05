@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VPC_CARRIER_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const VPC_CARRIER_GATEWAY = {
   _original_height: 78,
 }
 
-export function VpcCarrierGateway(props: DiagramNodeProps) {
+export function VpcCarrierGateway(props: NodeProps) {
   return (
     <Shape
       {...VPC_CARRIER_GATEWAY}

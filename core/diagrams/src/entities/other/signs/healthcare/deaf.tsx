@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEAF = {
   _style: {
@@ -10,6 +10,6 @@ export const DEAF = {
   _original_height: 98,
 }
 
-export function Deaf(props: DiagramNodeProps) {
+export function Deaf(props: NodeProps) {
   return <Shape {...DEAF} {...props} _style={extendStyle(DEAF, props)} />
 }

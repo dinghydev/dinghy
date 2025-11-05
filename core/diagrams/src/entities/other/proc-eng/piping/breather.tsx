@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BREATHER = {
   _style: {
@@ -10,7 +10,7 @@ export const BREATHER = {
   _height: 30,
 }
 
-export function Breather(props: DiagramNodeProps) {
+export function Breather(props: NodeProps) {
   return (
     <Shape {...BREATHER} {...props} _style={extendStyle(BREATHER, props)} />
   )

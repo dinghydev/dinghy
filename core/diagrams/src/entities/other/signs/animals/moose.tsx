@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOOSE = {
   _style: {
@@ -10,6 +10,6 @@ export const MOOSE = {
   _height: 65,
 }
 
-export function Moose(props: DiagramNodeProps) {
+export function Moose(props: NodeProps) {
   return <Shape {...MOOSE} {...props} _style={extendStyle(MOOSE, props)} />
 }

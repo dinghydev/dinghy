@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OBTUSE_TRIANGLE = {
   _style: {
@@ -10,7 +10,7 @@ export const OBTUSE_TRIANGLE = {
   _height: 70,
 }
 
-export function ObtuseTriangle(props: DiagramNodeProps) {
+export function ObtuseTriangle(props: NodeProps) {
   return (
     <Shape
       {...OBTUSE_TRIANGLE}

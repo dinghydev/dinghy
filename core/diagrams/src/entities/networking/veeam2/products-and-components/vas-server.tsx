@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VAS_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const VAS_SERVER = {
   _original_height: 52,
 }
 
-export function VasServer(props: DiagramNodeProps) {
+export function VasServer(props: NodeProps) {
   return (
     <Shape {...VAS_SERVER} {...props} _style={extendStyle(VAS_SERVER, props)} />
   )

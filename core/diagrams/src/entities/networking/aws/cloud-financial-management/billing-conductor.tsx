@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BILLING_CONDUCTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const BILLING_CONDUCTOR = {
   _original_height: 78,
 }
 
-export function BillingConductor(props: DiagramNodeProps) {
+export function BillingConductor(props: NodeProps) {
   return (
     <Shape
       {...BILLING_CONDUCTOR}

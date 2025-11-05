@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MERCHANDISING_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const MERCHANDISING_SERVER = {
   _original_height: 90,
 }
 
-export function MerchandisingServer(props: DiagramNodeProps) {
+export function MerchandisingServer(props: NodeProps) {
   return (
     <Shape
       {...MERCHANDISING_SERVER}

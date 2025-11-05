@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOOR_BY_PASS = {
   _style: {
@@ -10,7 +10,7 @@ export const DOOR_BY_PASS = {
   _height: 10,
 }
 
-export function DoorByPass(props: DiagramNodeProps) {
+export function DoorByPass(props: NodeProps) {
   return (
     <Shape
       {...DOOR_BY_PASS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const API_MONETIZATION = {
   _style: {
@@ -10,7 +10,7 @@ export const API_MONETIZATION = {
   _original_height: 40,
 }
 
-export function ApiMonetization(props: DiagramNodeProps) {
+export function ApiMonetization(props: NodeProps) {
   return (
     <Shape
       {...API_MONETIZATION}

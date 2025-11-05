@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HORIZON = {
   _style: {
@@ -10,6 +10,6 @@ export const HORIZON = {
   _original_height: 43.5,
 }
 
-export function Horizon(props: DiagramNodeProps) {
+export function Horizon(props: NodeProps) {
   return <Shape {...HORIZON} {...props} _style={extendStyle(HORIZON, props)} />
 }

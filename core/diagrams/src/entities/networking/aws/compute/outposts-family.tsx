@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OUTPOSTS_FAMILY = {
   _style: {
@@ -10,7 +10,7 @@ export const OUTPOSTS_FAMILY = {
   _original_height: 78,
 }
 
-export function OutpostsFamily(props: DiagramNodeProps) {
+export function OutpostsFamily(props: NodeProps) {
   return (
     <Shape
       {...OUTPOSTS_FAMILY}

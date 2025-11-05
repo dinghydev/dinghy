@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EC2_COMPUTE_CONTAINER_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const EC2_COMPUTE_CONTAINER_2 = {
   _height: 34.5,
 }
 
-export function Ec2ComputeContainer2(props: DiagramNodeProps) {
+export function Ec2ComputeContainer2(props: NodeProps) {
   return (
     <Shape
       {...EC2_COMPUTE_CONTAINER_2}

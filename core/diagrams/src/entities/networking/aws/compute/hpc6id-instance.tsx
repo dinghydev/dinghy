@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HPC6ID_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const HPC6ID_INSTANCE = {
   _original_height: 48,
 }
 
-export function Hpc6idInstance(props: DiagramNodeProps) {
+export function Hpc6idInstance(props: NodeProps) {
   return (
     <Shape
       {...HPC6ID_INSTANCE}

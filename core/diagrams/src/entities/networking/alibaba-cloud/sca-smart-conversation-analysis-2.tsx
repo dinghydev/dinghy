@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCA_SMART_CONVERSATION_ANALYSIS_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const SCA_SMART_CONVERSATION_ANALYSIS_2 = {
   _original_height: 56.1,
 }
 
-export function ScaSmartConversationAnalysis2(props: DiagramNodeProps) {
+export function ScaSmartConversationAnalysis2(props: NodeProps) {
   return (
     <Shape
       {...SCA_SMART_CONVERSATION_ANALYSIS_2}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_EXCHANGE_FOR_APIS = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_EXCHANGE_FOR_APIS = {
   _original_height: 78,
 }
 
-export function DataExchangeForApis(props: DiagramNodeProps) {
+export function DataExchangeForApis(props: NodeProps) {
   return (
     <Shape
       {...DATA_EXCHANGE_FOR_APIS}

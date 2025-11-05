@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_APP_LAYERING = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_APP_LAYERING = {
   _original_height: 45.835,
 }
 
-export function CitrixAppLayering(props: DiagramNodeProps) {
+export function CitrixAppLayering(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_APP_LAYERING}

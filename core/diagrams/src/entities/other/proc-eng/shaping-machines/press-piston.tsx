@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRESS_PISTON = {
   _style: {
@@ -10,7 +10,7 @@ export const PRESS_PISTON = {
   _height: 60,
 }
 
-export function PressPiston(props: DiagramNodeProps) {
+export function PressPiston(props: NodeProps) {
   return (
     <Shape
       {...PRESS_PISTON}

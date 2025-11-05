@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TUNING_VARIABLE_CAPACITOR_US_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const TUNING_VARIABLE_CAPACITOR_US_2 = {
   _height: 65.5,
 }
 
-export function TuningVariableCapacitorUs2(props: DiagramNodeProps) {
+export function TuningVariableCapacitorUs2(props: NodeProps) {
   return (
     <Shape
       {...TUNING_VARIABLE_CAPACITOR_US_2}

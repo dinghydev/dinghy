@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DNS_SECURITY_POLICY = {
   _style: {
@@ -10,7 +10,7 @@ export const DNS_SECURITY_POLICY = {
   _original_height: 68,
 }
 
-export function DnsSecurityPolicy(props: DiagramNodeProps) {
+export function DnsSecurityPolicy(props: NodeProps) {
   return (
     <Shape
       {...DNS_SECURITY_POLICY}

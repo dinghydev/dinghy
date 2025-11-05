@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDWATCH_SYNTHETICS = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDWATCH_SYNTHETICS = {
   _original_height: 77,
 }
 
-export function CloudwatchSynthetics(props: DiagramNodeProps) {
+export function CloudwatchSynthetics(props: NodeProps) {
   return (
     <Shape
       {...CLOUDWATCH_SYNTHETICS}

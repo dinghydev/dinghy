@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOGIC_COMPOSER = {
   _style: {
@@ -10,7 +10,7 @@ export const LOGIC_COMPOSER = {
   _original_height: 53.4,
 }
 
-export function LogicComposer(props: DiagramNodeProps) {
+export function LogicComposer(props: NodeProps) {
   return (
     <Shape
       {...LOGIC_COMPOSER}

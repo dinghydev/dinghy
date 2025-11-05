@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PORT_DOUBLE_FLOW_HORIZONTAL = {
   _style: {
@@ -9,7 +9,7 @@ export const PORT_DOUBLE_FLOW_HORIZONTAL = {
   _original_height: 20,
 }
 
-export function PortDoubleFlowHorizontal(props: DiagramNodeProps) {
+export function PortDoubleFlowHorizontal(props: NodeProps) {
   return (
     <Shape
       {...PORT_DOUBLE_FLOW_HORIZONTAL}

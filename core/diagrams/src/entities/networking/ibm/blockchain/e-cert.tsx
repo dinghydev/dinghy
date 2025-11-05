@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const E_CERT = {
   _style: {
@@ -10,6 +10,6 @@ export const E_CERT = {
   _original_height: 60,
 }
 
-export function ECert(props: DiagramNodeProps) {
+export function ECert(props: NodeProps) {
   return <Shape {...E_CERT} {...props} _style={extendStyle(E_CERT, props)} />
 }

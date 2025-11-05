@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TURN_ON_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const TURN_ON_OFF = {
   _original_height: 21,
 }
 
-export function TurnOnOff(props: DiagramNodeProps) {
+export function TurnOnOff(props: NodeProps) {
   return (
     <Shape
       {...TURN_ON_OFF}

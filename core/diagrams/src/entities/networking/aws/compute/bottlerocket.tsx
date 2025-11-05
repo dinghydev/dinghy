@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOTTLEROCKET = {
   _style: {
@@ -10,7 +10,7 @@ export const BOTTLEROCKET = {
   _original_height: 78,
 }
 
-export function Bottlerocket(props: DiagramNodeProps) {
+export function Bottlerocket(props: NodeProps) {
   return (
     <Shape
       {...BOTTLEROCKET}

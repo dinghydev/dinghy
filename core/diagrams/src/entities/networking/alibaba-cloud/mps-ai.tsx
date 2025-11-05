@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MPS_AI = {
   _style: {
@@ -10,6 +10,6 @@ export const MPS_AI = {
   _original_height: 52.5,
 }
 
-export function MpsAi(props: DiagramNodeProps) {
+export function MpsAi(props: NodeProps) {
   return <Shape {...MPS_AI} {...props} _style={extendStyle(MPS_AI, props)} />
 }

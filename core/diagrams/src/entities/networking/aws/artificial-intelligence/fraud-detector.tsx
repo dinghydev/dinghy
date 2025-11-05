@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FRAUD_DETECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const FRAUD_DETECTOR = {
   _original_height: 78,
 }
 
-export function FraudDetector(props: DiagramNodeProps) {
+export function FraudDetector(props: NodeProps) {
   return (
     <Shape
       {...FRAUD_DETECTOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CODEWHISPERER = {
   _style: {
@@ -10,7 +10,7 @@ export const CODEWHISPERER = {
   _original_height: 78,
 }
 
-export function Codewhisperer(props: DiagramNodeProps) {
+export function Codewhisperer(props: NodeProps) {
   return (
     <Shape
       {...CODEWHISPERER}

@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
@@ -20,7 +20,7 @@ export type DataAwsSecretsmanagerSecretInputProps =
   & z.output<
     typeof DataAwsSecretsmanagerSecretInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type DataAwsSecretsmanagerSecretOutputProps =
   & z.output<

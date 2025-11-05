@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COUPLING = {
   _style: {
@@ -10,7 +10,7 @@ export const COUPLING = {
   _height: 100,
 }
 
-export function Coupling(props: DiagramNodeProps) {
+export function Coupling(props: NodeProps) {
   return (
     <Shape {...COUPLING} {...props} _style={extendStyle(COUPLING, props)} />
   )

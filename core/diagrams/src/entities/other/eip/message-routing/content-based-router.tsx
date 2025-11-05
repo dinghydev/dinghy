@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTENT_BASED_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTENT_BASED_ROUTER = {
   _height: 90,
 }
 
-export function ContentBasedRouter(props: DiagramNodeProps) {
+export function ContentBasedRouter(props: NodeProps) {
   return (
     <Shape
       {...CONTENT_BASED_ROUTER}

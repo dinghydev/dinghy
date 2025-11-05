@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NODE = {
   _style: {
@@ -10,6 +10,6 @@ export const NODE = {
   _height: 100,
 }
 
-export function Node(props: DiagramNodeProps) {
+export function Node(props: NodeProps) {
   return <Shape {...NODE} {...props} _style={extendStyle(NODE, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CDN_CONTENT_DISTRIBUTION_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const CDN_CONTENT_DISTRIBUTION_NETWORK = {
   _original_height: 42.3,
 }
 
-export function CdnContentDistributionNetwork(props: DiagramNodeProps) {
+export function CdnContentDistributionNetwork(props: NodeProps) {
   return (
     <Shape
       {...CDN_CONTENT_DISTRIBUTION_NETWORK}

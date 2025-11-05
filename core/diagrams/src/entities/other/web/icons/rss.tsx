@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RSS = {
   _style: {
@@ -10,6 +10,6 @@ export const RSS = {
   _original_height: 102.4,
 }
 
-export function Rss(props: DiagramNodeProps) {
+export function Rss(props: NodeProps) {
   return <Shape {...RSS} {...props} _style={extendStyle(RSS, props)} />
 }

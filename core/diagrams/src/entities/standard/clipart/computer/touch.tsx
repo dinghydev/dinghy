@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOUCH = {
   _style: {
@@ -10,6 +10,6 @@ export const TOUCH = {
   _original_height: 80,
 }
 
-export function Touch(props: DiagramNodeProps) {
+export function Touch(props: NodeProps) {
   return <Shape {...TOUCH} {...props} _style={extendStyle(TOUCH, props)} />
 }

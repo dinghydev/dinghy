@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SMART_CONTRACT = {
   _style: {
@@ -10,7 +10,7 @@ export const SMART_CONTRACT = {
   _original_height: 60,
 }
 
-export function SmartContract(props: DiagramNodeProps) {
+export function SmartContract(props: NodeProps) {
   return (
     <Shape
       {...SMART_CONTRACT}

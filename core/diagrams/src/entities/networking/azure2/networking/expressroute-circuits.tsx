@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXPRESSROUTE_CIRCUITS = {
   _style: {
@@ -10,7 +10,7 @@ export const EXPRESSROUTE_CIRCUITS = {
   _original_height: 64,
 }
 
-export function ExpressrouteCircuits(props: DiagramNodeProps) {
+export function ExpressrouteCircuits(props: NodeProps) {
   return (
     <Shape
       {...EXPRESSROUTE_CIRCUITS}

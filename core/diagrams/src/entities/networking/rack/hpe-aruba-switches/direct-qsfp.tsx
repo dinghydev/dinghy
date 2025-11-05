@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECT_QSFP = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRECT_QSFP = {
   _height: 5.7,
 }
 
-export function DirectQsfp(props: DiagramNodeProps) {
+export function DirectQsfp(props: NodeProps) {
   return (
     <Shape
       {...DIRECT_QSFP}

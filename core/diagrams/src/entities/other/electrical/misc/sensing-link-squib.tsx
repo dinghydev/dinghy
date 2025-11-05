@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SENSING_LINK_SQUIB = {
   _style: {
@@ -10,7 +10,7 @@ export const SENSING_LINK_SQUIB = {
   _height: 40,
 }
 
-export function SensingLinkSquib(props: DiagramNodeProps) {
+export function SensingLinkSquib(props: NodeProps) {
   return (
     <Shape
       {...SENSING_LINK_SQUIB}

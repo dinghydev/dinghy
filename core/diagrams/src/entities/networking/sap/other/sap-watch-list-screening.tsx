@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_WATCH_LIST_SCREENING = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_WATCH_LIST_SCREENING = {
   _original_height: 50,
 }
 
-export function SapWatchListScreening(props: DiagramNodeProps) {
+export function SapWatchListScreening(props: NodeProps) {
   return (
     <Shape
       {...SAP_WATCH_LIST_SCREENING}

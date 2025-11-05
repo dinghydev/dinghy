@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISCOVERY_SEARCH_MAILBOX = {
   _style: {
@@ -10,7 +10,7 @@ export const DISCOVERY_SEARCH_MAILBOX = {
   _original_height: 49,
 }
 
-export function DiscoverySearchMailbox(props: DiagramNodeProps) {
+export function DiscoverySearchMailbox(props: NodeProps) {
   return (
     <Shape
       {...DISCOVERY_SEARCH_MAILBOX}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PC_ADAPTER_CARD = {
   _style: {
@@ -10,7 +10,7 @@ export const PC_ADAPTER_CARD = {
   _height: 86,
 }
 
-export function PcAdapterCard(props: DiagramNodeProps) {
+export function PcAdapterCard(props: NodeProps) {
   return (
     <Shape
       {...PC_ADAPTER_CARD}

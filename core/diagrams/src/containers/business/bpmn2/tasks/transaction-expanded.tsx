@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSACTION_EXPANDED = {
   _style: {
@@ -8,7 +8,7 @@ export const TRANSACTION_EXPANDED = {
   },
 }
 
-export function TransactionExpanded(props: DiagramNodeProps) {
+export function TransactionExpanded(props: NodeProps) {
   return (
     <Shape
       {...TRANSACTION_EXPANDED}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UTM = {
   _style: {
@@ -10,6 +10,6 @@ export const UTM = {
   _height: 11.5,
 }
 
-export function Utm(props: DiagramNodeProps) {
+export function Utm(props: NodeProps) {
   return <Shape {...UTM} {...props} _style={extendStyle(UTM, props)} />
 }

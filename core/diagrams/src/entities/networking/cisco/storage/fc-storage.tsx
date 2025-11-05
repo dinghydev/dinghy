@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FC_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const FC_STORAGE = {
   _height: 43,
 }
 
-export function FcStorage(props: DiagramNodeProps) {
+export function FcStorage(props: NodeProps) {
   return (
     <Shape {...FC_STORAGE} {...props} _style={extendStyle(FC_STORAGE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const YOUMOB = {
   _style: {
@@ -10,6 +10,6 @@ export const YOUMOB = {
   _original_height: 76.2,
 }
 
-export function Youmob(props: DiagramNodeProps) {
+export function Youmob(props: NodeProps) {
   return <Shape {...YOUMOB} {...props} _style={extendStyle(YOUMOB, props)} />
 }

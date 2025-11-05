@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12400_THREE_STAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const X12400_THREE_STAGE = {
   _height: 93.58,
 }
 
-export function X12400ThreeStage(props: DiagramNodeProps) {
+export function X12400ThreeStage(props: NodeProps) {
   return (
     <Shape
       {...X12400_THREE_STAGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DSLAM = {
   _style: {
@@ -10,6 +10,6 @@ export const DSLAM = {
   _original_height: 51,
 }
 
-export function Dslam(props: DiagramNodeProps) {
+export function Dslam(props: NodeProps) {
   return <Shape {...DSLAM} {...props} _style={extendStyle(DSLAM, props)} />
 }

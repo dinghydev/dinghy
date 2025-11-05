@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IS_STREAM = {
   _style: {
@@ -9,7 +9,7 @@ export const IS_STREAM = {
   _height: 60,
 }
 
-export function IsStream(props: DiagramNodeProps) {
+export function IsStream(props: NodeProps) {
   return (
     <Shape {...IS_STREAM} {...props} _style={extendStyle(IS_STREAM, props)} />
   )

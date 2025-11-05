@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPLICATION_BLANK = {
   _style: {
@@ -10,7 +10,7 @@ export const APPLICATION_BLANK = {
   _original_height: 43,
 }
 
-export function ApplicationBlank(props: DiagramNodeProps) {
+export function ApplicationBlank(props: NodeProps) {
   return (
     <Shape
       {...APPLICATION_BLANK}

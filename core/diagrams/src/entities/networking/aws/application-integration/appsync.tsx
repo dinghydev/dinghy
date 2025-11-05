@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPSYNC = {
   _style: {
@@ -10,6 +10,6 @@ export const APPSYNC = {
   _original_height: 78,
 }
 
-export function Appsync(props: DiagramNodeProps) {
+export function Appsync(props: NodeProps) {
   return <Shape {...APPSYNC} {...props} _style={extendStyle(APPSYNC, props)} />
 }

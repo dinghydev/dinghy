@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CCC_CLOUD_CALL_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const CCC_CLOUD_CALL_CENTER = {
   _original_height: 52.2,
 }
 
-export function CccCloudCallCenter(props: DiagramNodeProps) {
+export function CccCloudCallCenter(props: NodeProps) {
   return (
     <Shape
       {...CCC_CLOUD_CALL_CENTER}

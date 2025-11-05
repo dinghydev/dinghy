@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROLE_LOAD_TESTING_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const ROLE_LOAD_TESTING_CONTROLLER = {
   _original_height: 24,
 }
 
-export function RoleLoadTestingController(props: DiagramNodeProps) {
+export function RoleLoadTestingController(props: NodeProps) {
   return (
     <Shape
       {...ROLE_LOAD_TESTING_CONTROLLER}

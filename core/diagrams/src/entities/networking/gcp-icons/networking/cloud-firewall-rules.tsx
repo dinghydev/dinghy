@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_FIREWALL_RULES = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_FIREWALL_RULES = {
   _original_height: 40,
 }
 
-export function CloudFirewallRules(props: DiagramNodeProps) {
+export function CloudFirewallRules(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_FIREWALL_RULES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DROPLEFT_BUTTON = {
   _style: {
@@ -10,7 +10,7 @@ export const DROPLEFT_BUTTON = {
   _height: 40,
 }
 
-export function DropleftButton(props: DiagramNodeProps) {
+export function DropleftButton(props: NodeProps) {
   return (
     <Shape
       {...DROPLEFT_BUTTON}

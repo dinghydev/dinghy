@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIVATELINK = {
   _style: {
@@ -10,7 +10,7 @@ export const PRIVATELINK = {
   _original_height: 56.699999999999996,
 }
 
-export function Privatelink(props: DiagramNodeProps) {
+export function Privatelink(props: NodeProps) {
   return (
     <Shape
       {...PRIVATELINK}

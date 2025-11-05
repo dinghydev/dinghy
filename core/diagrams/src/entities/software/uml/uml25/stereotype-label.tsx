@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STEREOTYPE_LABEL = {
   _style: {
@@ -9,7 +9,7 @@ export const STEREOTYPE_LABEL = {
   _height: 25,
 }
 
-export function StereotypeLabel(props: DiagramNodeProps) {
+export function StereotypeLabel(props: NodeProps) {
   return (
     <Shape
       {...STEREOTYPE_LABEL}

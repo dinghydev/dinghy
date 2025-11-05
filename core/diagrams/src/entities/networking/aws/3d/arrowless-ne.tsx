@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARROWLESS_NE = {
   _style: {
@@ -10,7 +10,7 @@ export const ARROWLESS_NE = {
   _height: 18,
 }
 
-export function ArrowlessNe(props: DiagramNodeProps) {
+export function ArrowlessNe(props: NodeProps) {
   return (
     <Shape
       {...ARROWLESS_NE}

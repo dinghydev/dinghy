@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISCRETE_SLIDER_FOCUSED_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const DISCRETE_SLIDER_FOCUSED_2 = {
   _height: 45,
 }
 
-export function DiscreteSliderFocused2(props: DiagramNodeProps) {
+export function DiscreteSliderFocused2(props: NodeProps) {
   return (
     <Shape
       {...DISCRETE_SLIDER_FOCUSED_2}

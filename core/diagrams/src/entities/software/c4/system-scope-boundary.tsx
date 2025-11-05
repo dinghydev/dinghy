@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SYSTEM_SCOPE_BOUNDARY = {
   _style: {
@@ -10,7 +10,7 @@ export const SYSTEM_SCOPE_BOUNDARY = {
   _height: 210,
 }
 
-export function SystemScopeBoundary(props: DiagramNodeProps) {
+export function SystemScopeBoundary(props: NodeProps) {
   return (
     <Shape
       {...SYSTEM_SCOPE_BOUNDARY}

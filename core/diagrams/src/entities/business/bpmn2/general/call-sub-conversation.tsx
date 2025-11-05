@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALL_SUB_CONVERSATION = {
   _style: {
@@ -10,7 +10,7 @@ export const CALL_SUB_CONVERSATION = {
   _original_height: 60,
 }
 
-export function CallSubConversation(props: DiagramNodeProps) {
+export function CallSubConversation(props: NodeProps) {
   return (
     <Shape
       {...CALL_SUB_CONVERSATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELLIPSE_WITH_VERTICAL_DIVIDER = {
   _style: {
@@ -10,7 +10,7 @@ export const ELLIPSE_WITH_VERTICAL_DIVIDER = {
   _original_height: 80,
 }
 
-export function EllipseWithVerticalDivider(props: DiagramNodeProps) {
+export function EllipseWithVerticalDivider(props: NodeProps) {
   return (
     <Shape
       {...ELLIPSE_WITH_VERTICAL_DIVIDER}

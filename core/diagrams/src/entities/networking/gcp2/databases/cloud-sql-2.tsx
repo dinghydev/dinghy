@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_SQL_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_SQL_2 = {
   _height: 68,
 }
 
-export function CloudSql2(props: DiagramNodeProps) {
+export function CloudSql2(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_SQL_2}

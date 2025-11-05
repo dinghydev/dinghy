@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIDEO_INDEXER = {
   _style: {
@@ -10,7 +10,7 @@ export const VIDEO_INDEXER = {
   _original_height: 68,
 }
 
-export function VideoIndexer(props: DiagramNodeProps) {
+export function VideoIndexer(props: NodeProps) {
   return (
     <Shape
       {...VIDEO_INDEXER}

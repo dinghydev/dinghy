@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KUBERNETES_FLEET_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const KUBERNETES_FLEET_MANAGER = {
   _original_height: 68,
 }
 
-export function KubernetesFleetManager(props: DiagramNodeProps) {
+export function KubernetesFleetManager(props: NodeProps) {
   return (
     <Shape
       {...KUBERNETES_FLEET_MANAGER}

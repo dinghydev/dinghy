@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLO_DC_ON_PREMISES = {
   _style: {
@@ -10,7 +10,7 @@ export const COLO_DC_ON_PREMISES = {
   _height: 200,
 }
 
-export function ColoDcOnPremises(props: DiagramNodeProps) {
+export function ColoDcOnPremises(props: NodeProps) {
   return (
     <Shape
       {...COLO_DC_ON_PREMISES}

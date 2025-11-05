@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISK_SNAPSHOTS = {
   _style: {
@@ -10,7 +10,7 @@ export const DISK_SNAPSHOTS = {
   _original_height: 42,
 }
 
-export function DiskSnapshots(props: DiagramNodeProps) {
+export function DiskSnapshots(props: NodeProps) {
   return (
     <Shape
       {...DISK_SNAPSHOTS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPATIAL_ANCHOR_ACCOUNTS = {
   _style: {
@@ -10,7 +10,7 @@ export const SPATIAL_ANCHOR_ACCOUNTS = {
   _original_height: 68,
 }
 
-export function SpatialAnchorAccounts(props: DiagramNodeProps) {
+export function SpatialAnchorAccounts(props: NodeProps) {
   return (
     <Shape
       {...SPATIAL_ANCHOR_ACCOUNTS}

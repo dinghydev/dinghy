@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_S_4HANA_FOR_MS_TEAMS = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_S_4HANA_FOR_MS_TEAMS = {
   _original_height: 50,
 }
 
-export function SapS4hanaForMsTeams(props: DiagramNodeProps) {
+export function SapS4hanaForMsTeams(props: NodeProps) {
   return (
     <Shape
       {...SAP_S_4HANA_FOR_MS_TEAMS}

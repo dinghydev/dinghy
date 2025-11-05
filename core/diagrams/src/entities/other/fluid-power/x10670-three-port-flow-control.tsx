@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10670_THREE_PORT_FLOW_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const X10670_THREE_PORT_FLOW_CONTROL = {
   _height: 120.8,
 }
 
-export function X10670ThreePortFlowControl(props: DiagramNodeProps) {
+export function X10670ThreePortFlowControl(props: NodeProps) {
   return (
     <Shape
       {...X10670_THREE_PORT_FLOW_CONTROL}

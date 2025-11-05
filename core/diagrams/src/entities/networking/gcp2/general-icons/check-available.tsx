@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECK_AVAILABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const CHECK_AVAILABLE = {
   _original_height: 87,
 }
 
-export function CheckAvailable(props: DiagramNodeProps) {
+export function CheckAvailable(props: NodeProps) {
   return (
     <Shape
       {...CHECK_AVAILABLE}

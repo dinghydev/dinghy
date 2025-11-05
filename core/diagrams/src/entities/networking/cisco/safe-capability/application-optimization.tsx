@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPLICATION_OPTIMIZATION = {
   _style: {
@@ -10,7 +10,7 @@ export const APPLICATION_OPTIMIZATION = {
   _original_height: 43,
 }
 
-export function ApplicationOptimization(props: DiagramNodeProps) {
+export function ApplicationOptimization(props: NodeProps) {
   return (
     <Shape
       {...APPLICATION_OPTIMIZATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PASSWORD_FIELD = {
   _style: {
@@ -10,7 +10,7 @@ export const PASSWORD_FIELD = {
   _height: 30,
 }
 
-export function PasswordField(props: DiagramNodeProps) {
+export function PasswordField(props: NodeProps) {
   return (
     <Shape
       {...PASSWORD_FIELD}

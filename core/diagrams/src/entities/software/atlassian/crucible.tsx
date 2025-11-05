@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CRUCIBLE = {
   _style: {
@@ -10,7 +10,7 @@ export const CRUCIBLE = {
   _original_height: 61,
 }
 
-export function Crucible(props: DiagramNodeProps) {
+export function Crucible(props: NodeProps) {
   return (
     <Shape {...CRUCIBLE} {...props} _style={extendStyle(CRUCIBLE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVER_DIRECTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVER_DIRECTORY = {
   _height: 50,
 }
 
-export function ServerDirectory(props: DiagramNodeProps) {
+export function ServerDirectory(props: NodeProps) {
   return (
     <Shape
       {...SERVER_DIRECTORY}

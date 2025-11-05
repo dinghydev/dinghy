@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RADIO_BUTTON_ON_DISABLED_DARK = {
   _style: {
@@ -10,7 +10,7 @@ export const RADIO_BUTTON_ON_DISABLED_DARK = {
   _height: 16,
 }
 
-export function RadioButtonOnDisabledDark(props: DiagramNodeProps) {
+export function RadioButtonOnDisabledDark(props: NodeProps) {
   return (
     <Shape
       {...RADIO_BUTTON_ON_DISABLED_DARK}

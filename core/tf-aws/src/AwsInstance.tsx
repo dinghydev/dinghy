@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import { Android } from '@dinghy/diagrams/entitiesAws17Sdk'
 import { awsProps } from './index.ts'
 import z from 'zod'
@@ -14,7 +14,7 @@ export const AwsInstanceOutputSchema = z.object({
 
 export type AwsInstanceInputProps =
   & z.output<typeof AwsInstanceInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export default function AwsInstance(props: AwsInstanceInputProps) {
   return (

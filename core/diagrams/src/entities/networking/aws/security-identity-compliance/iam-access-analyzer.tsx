@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IAM_ACCESS_ANALYZER = {
   _style: {
@@ -10,7 +10,7 @@ export const IAM_ACCESS_ANALYZER = {
   _original_height: 77,
 }
 
-export function IamAccessAnalyzer(props: DiagramNodeProps) {
+export function IamAccessAnalyzer(props: NodeProps) {
   return (
     <Shape
       {...IAM_ACCESS_ANALYZER}

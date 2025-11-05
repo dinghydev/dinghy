@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GATE_VALVE_SOLENOID_WITH_MANUAL_RESET = {
   _style: {
@@ -10,7 +10,7 @@ export const GATE_VALVE_SOLENOID_WITH_MANUAL_RESET = {
   _original_height: 100,
 }
 
-export function GateValveSolenoidWithManualReset(props: DiagramNodeProps) {
+export function GateValveSolenoidWithManualReset(props: NodeProps) {
   return (
     <Shape
       {...GATE_VALVE_SOLENOID_WITH_MANUAL_RESET}

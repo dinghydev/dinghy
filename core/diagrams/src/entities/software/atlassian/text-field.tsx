@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXT_FIELD = {
   _style: {
@@ -10,7 +10,7 @@ export const TEXT_FIELD = {
   _height: 58,
 }
 
-export function TextField(props: DiagramNodeProps) {
+export function TextField(props: NodeProps) {
   return (
     <Shape {...TEXT_FIELD} {...props} _style={extendStyle(TEXT_FIELD, props)} />
   )

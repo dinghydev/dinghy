@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALL_CHOREOGRAPHY_CALLING_GLOBAL = {
   _style: {
@@ -8,7 +8,7 @@ export const CALL_CHOREOGRAPHY_CALLING_GLOBAL = {
   },
 }
 
-export function CallChoreographyCallingGlobal(props: DiagramNodeProps) {
+export function CallChoreographyCallingGlobal(props: NodeProps) {
   return (
     <Shape
       {...CALL_CHOREOGRAPHY_CALLING_GLOBAL}

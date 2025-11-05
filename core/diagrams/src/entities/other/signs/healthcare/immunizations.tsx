@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMMUNIZATIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const IMMUNIZATIONS = {
   _original_height: 98,
 }
 
-export function Immunizations(props: DiagramNodeProps) {
+export function Immunizations(props: NodeProps) {
   return (
     <Shape
       {...IMMUNIZATIONS}

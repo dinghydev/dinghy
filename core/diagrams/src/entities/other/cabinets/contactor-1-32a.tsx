@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTACTOR_1_32A = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTACTOR_1_32A = {
   _height: 43,
 }
 
-export function Contactor132a(props: DiagramNodeProps) {
+export function Contactor132a(props: NodeProps) {
   return (
     <Shape
       {...CONTACTOR_1_32A}

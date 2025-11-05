@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MODIFIERS_SHARED_CORE_MACHINE_F1 = {
   _style: {
@@ -10,7 +10,7 @@ export const MODIFIERS_SHARED_CORE_MACHINE_F1 = {
   _original_height: 36,
 }
 
-export function ModifiersSharedCoreMachineF1(props: DiagramNodeProps) {
+export function ModifiersSharedCoreMachineF1(props: NodeProps) {
   return (
     <Shape
       {...MODIFIERS_SHARED_CORE_MACHINE_F1}

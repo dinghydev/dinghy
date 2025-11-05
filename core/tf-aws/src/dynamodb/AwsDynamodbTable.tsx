@@ -1,5 +1,5 @@
 import {
-  type IacNodeProps,
+  type NodeProps,
   ResolvableNumberSchema,
   ResolvableRecordSchema,
   ResolvableStringSchema,
@@ -27,7 +27,7 @@ export const AwsDynamodbTableOutputSchema = z.object({
 
 export type AwsDynamodbTableInputProps =
   & z.input<typeof AwsDynamodbTableInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type AwsDynamodbTableOutputProps =
   & z.output<typeof AwsDynamodbTableOutputSchema>

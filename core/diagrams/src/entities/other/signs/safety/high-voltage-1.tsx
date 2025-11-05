@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HIGH_VOLTAGE_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const HIGH_VOLTAGE_1 = {
   _height: 98,
 }
 
-export function HighVoltage1(props: DiagramNodeProps) {
+export function HighVoltage1(props: NodeProps) {
   return (
     <Shape
       {...HIGH_VOLTAGE_1}

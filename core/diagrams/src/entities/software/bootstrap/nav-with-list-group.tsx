@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAV_WITH_LIST_GROUP = {
   _style: {
@@ -10,7 +10,7 @@ export const NAV_WITH_LIST_GROUP = {
   _height: 160,
 }
 
-export function NavWithListGroup(props: DiagramNodeProps) {
+export function NavWithListGroup(props: NodeProps) {
   return (
     <Shape
       {...NAV_WITH_LIST_GROUP}

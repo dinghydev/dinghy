@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFAULT_SIZE_DROPDOWN_BUTTON = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFAULT_SIZE_DROPDOWN_BUTTON = {
   _height: 40,
 }
 
-export function DefaultSizeDropdownButton(props: DiagramNodeProps) {
+export function DefaultSizeDropdownButton(props: NodeProps) {
   return (
     <Shape
       {...DEFAULT_SIZE_DROPDOWN_BUTTON}

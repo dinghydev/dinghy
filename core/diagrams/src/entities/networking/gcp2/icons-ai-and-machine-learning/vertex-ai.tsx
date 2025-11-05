@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTEX_AI = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTEX_AI = {
   _height: 42,
 }
 
-export function VertexAi(props: DiagramNodeProps) {
+export function VertexAi(props: NodeProps) {
   return (
     <Shape {...VERTEX_AI} {...props} _style={extendStyle(VERTEX_AI, props)} />
   )

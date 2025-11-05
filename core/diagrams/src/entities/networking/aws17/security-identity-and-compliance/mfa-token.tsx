@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MFA_TOKEN = {
   _style: {
@@ -10,7 +10,7 @@ export const MFA_TOKEN = {
   _original_height: 61.5,
 }
 
-export function MfaToken(props: DiagramNodeProps) {
+export function MfaToken(props: NodeProps) {
   return (
     <Shape {...MFA_TOKEN} {...props} _style={extendStyle(MFA_TOKEN, props)} />
   )

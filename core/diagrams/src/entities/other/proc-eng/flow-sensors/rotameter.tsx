@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROTAMETER = {
   _style: {
@@ -10,7 +10,7 @@ export const ROTAMETER = {
   _height: 50,
 }
 
-export function Rotameter(props: DiagramNodeProps) {
+export function Rotameter(props: NodeProps) {
   return (
     <Shape {...ROTAMETER} {...props} _style={extendStyle(ROTAMETER, props)} />
   )

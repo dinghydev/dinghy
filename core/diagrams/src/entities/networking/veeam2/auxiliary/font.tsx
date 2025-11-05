@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FONT = {
   _style: {
@@ -10,6 +10,6 @@ export const FONT = {
   _height: 110.00000000000001,
 }
 
-export function Font(props: DiagramNodeProps) {
+export function Font(props: NodeProps) {
   return <Shape {...FONT} {...props} _style={extendStyle(FONT, props)} />
 }

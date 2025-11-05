@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILE_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const FILE_GATEWAY = {
   _original_height: 78,
 }
 
-export function FileGateway(props: DiagramNodeProps) {
+export function FileGateway(props: NodeProps) {
   return (
     <Shape
       {...FILE_GATEWAY}

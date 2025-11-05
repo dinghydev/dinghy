@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HAIRPIN_EXCHANGER = {
   _style: {
@@ -10,7 +10,7 @@ export const HAIRPIN_EXCHANGER = {
   _height: 30,
 }
 
-export function HairpinExchanger(props: DiagramNodeProps) {
+export function HairpinExchanger(props: NodeProps) {
   return (
     <Shape
       {...HAIRPIN_EXCHANGER}

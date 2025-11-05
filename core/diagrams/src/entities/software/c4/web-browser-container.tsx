@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_BROWSER_CONTAINER = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_BROWSER_CONTAINER = {
   _height: 160,
 }
 
-export function WebBrowserContainer(props: DiagramNodeProps) {
+export function WebBrowserContainer(props: NodeProps) {
   return (
     <Shape
       {...WEB_BROWSER_CONTAINER}

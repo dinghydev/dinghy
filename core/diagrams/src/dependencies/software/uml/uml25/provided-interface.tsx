@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROVIDED_INTERFACE = {
   _style: {
@@ -8,7 +8,7 @@ export const PROVIDED_INTERFACE = {
   },
 }
 
-export function ProvidedInterface(props: DiagramNodeProps) {
+export function ProvidedInterface(props: NodeProps) {
   return (
     <Dependency
       {...PROVIDED_INTERFACE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BARREL_DRUM_ISO = {
   _style: {
@@ -10,7 +10,7 @@ export const BARREL_DRUM_ISO = {
   _height: 100,
 }
 
-export function BarrelDrumIso(props: DiagramNodeProps) {
+export function BarrelDrumIso(props: NodeProps) {
   return (
     <Shape
       {...BARREL_DRUM_ISO}

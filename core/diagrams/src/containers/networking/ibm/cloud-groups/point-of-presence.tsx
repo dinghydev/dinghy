@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POINT_OF_PRESENCE = {
   _style: {
@@ -11,7 +11,7 @@ export const POINT_OF_PRESENCE = {
   },
 }
 
-export function PointOfPresence(props: DiagramNodeProps) {
+export function PointOfPresence(props: NodeProps) {
   return (
     <Shape
       {...POINT_OF_PRESENCE}

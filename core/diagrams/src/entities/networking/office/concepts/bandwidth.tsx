@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BANDWIDTH = {
   _style: {
@@ -10,7 +10,7 @@ export const BANDWIDTH = {
   _original_height: 45,
 }
 
-export function Bandwidth(props: DiagramNodeProps) {
+export function Bandwidth(props: NodeProps) {
   return (
     <Shape {...BANDWIDTH} {...props} _style={extendStyle(BANDWIDTH, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_SECRETS_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_SECRETS_MANAGER = {
   _height: 110,
 }
 
-export function AwsSecretsManager(props: DiagramNodeProps) {
+export function AwsSecretsManager(props: NodeProps) {
   return (
     <Shape
       {...AWS_SECRETS_MANAGER}

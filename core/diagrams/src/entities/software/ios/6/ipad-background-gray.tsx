@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IPAD_BACKGROUND_GRAY = {
   _style: {
@@ -10,7 +10,7 @@ export const IPAD_BACKGROUND_GRAY = {
   _height: 280,
 }
 
-export function IpadBackgroundGray(props: DiagramNodeProps) {
+export function IpadBackgroundGray(props: NodeProps) {
   return (
     <Shape
       {...IPAD_BACKGROUND_GRAY}

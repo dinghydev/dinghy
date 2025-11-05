@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAFETY_INTERLOCK_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const SAFETY_INTERLOCK_OFF = {
   _height: 45,
 }
 
-export function SafetyInterlockOff(props: DiagramNodeProps) {
+export function SafetyInterlockOff(props: NodeProps) {
   return (
     <Shape
       {...SAFETY_INTERLOCK_OFF}

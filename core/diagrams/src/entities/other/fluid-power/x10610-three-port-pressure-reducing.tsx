@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10610_THREE_PORT_PRESSURE_REDUCING = {
   _style: {
@@ -10,7 +10,7 @@ export const X10610_THREE_PORT_PRESSURE_REDUCING = {
   _original_height: 74.7,
 }
 
-export function X10610ThreePortPressureReducing(props: DiagramNodeProps) {
+export function X10610ThreePortPressureReducing(props: NodeProps) {
   return (
     <Shape
       {...X10610_THREE_PORT_PRESSURE_REDUCING}

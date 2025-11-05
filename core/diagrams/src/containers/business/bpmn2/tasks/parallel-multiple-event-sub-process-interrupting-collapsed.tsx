@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARALLEL_MULTIPLE_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED = {
   _style: {
@@ -9,7 +9,7 @@ export const PARALLEL_MULTIPLE_EVENT_SUB_PROCESS_INTERRUPTING_COLLAPSED = {
 }
 
 export function ParallelMultipleEventSubProcessInterruptingCollapsed(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

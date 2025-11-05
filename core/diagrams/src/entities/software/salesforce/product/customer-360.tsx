@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CUSTOMER_360 = {
   _style: {
@@ -10,7 +10,7 @@ export const CUSTOMER_360 = {
   _original_height: 54.6,
 }
 
-export function Customer360(props: DiagramNodeProps) {
+export function Customer360(props: NodeProps) {
   return (
     <Shape
       {...CUSTOMER_360}

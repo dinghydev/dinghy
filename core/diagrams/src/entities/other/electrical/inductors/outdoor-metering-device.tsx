@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OUTDOOR_METERING_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const OUTDOOR_METERING_DEVICE = {
   _original_height: 100,
 }
 
-export function OutdoorMeteringDevice(props: DiagramNodeProps) {
+export function OutdoorMeteringDevice(props: NodeProps) {
   return (
     <Shape
       {...OUTDOOR_METERING_DEVICE}

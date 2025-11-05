@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CEN_CLOUD_ENTERPRISE_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const CEN_CLOUD_ENTERPRISE_NETWORK = {
   _original_height: 54.900000000000006,
 }
 
-export function CenCloudEnterpriseNetwork(props: DiagramNodeProps) {
+export function CenCloudEnterpriseNetwork(props: NodeProps) {
   return (
     <Shape
       {...CEN_CLOUD_ENTERPRISE_NETWORK}

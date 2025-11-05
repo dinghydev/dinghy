@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PSP = {
   _style: {
@@ -10,6 +10,6 @@ export const PSP = {
   _original_height: 48,
 }
 
-export function Psp(props: DiagramNodeProps) {
+export function Psp(props: NodeProps) {
   return <Shape {...PSP} {...props} _style={extendStyle(PSP, props)} />
 }

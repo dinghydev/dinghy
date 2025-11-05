@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIAGONAL_SNIP_RECTANGLE = {
   _style: {
@@ -10,7 +10,7 @@ export const DIAGONAL_SNIP_RECTANGLE = {
   _height: 60,
 }
 
-export function DiagonalSnipRectangle(props: DiagramNodeProps) {
+export function DiagonalSnipRectangle(props: NodeProps) {
   return (
     <Shape
       {...DIAGONAL_SNIP_RECTANGLE}

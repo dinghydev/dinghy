@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VENTURI = {
   _style: {
@@ -10,6 +10,6 @@ export const VENTURI = {
   _original_height: 40,
 }
 
-export function Venturi(props: DiagramNodeProps) {
+export function Venturi(props: NodeProps) {
   return <Shape {...VENTURI} {...props} _style={extendStyle(VENTURI, props)} />
 }

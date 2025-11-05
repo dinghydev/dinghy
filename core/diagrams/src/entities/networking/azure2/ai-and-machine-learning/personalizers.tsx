@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PERSONALIZERS = {
   _style: {
@@ -10,7 +10,7 @@ export const PERSONALIZERS = {
   _original_height: 55.2,
 }
 
-export function Personalizers(props: DiagramNodeProps) {
+export function Personalizers(props: NodeProps) {
   return (
     <Shape
       {...PERSONALIZERS}

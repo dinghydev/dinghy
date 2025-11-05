@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IBM_MAINFRAME = {
   _style: {
@@ -10,7 +10,7 @@ export const IBM_MAINFRAME = {
   _height: 70,
 }
 
-export function IbmMainframe(props: DiagramNodeProps) {
+export function IbmMainframe(props: NodeProps) {
   return (
     <Shape
       {...IBM_MAINFRAME}

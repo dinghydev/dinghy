@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMMUNICATIONS_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const COMMUNICATIONS_SERVER = {
   _original_height: 56,
 }
 
-export function CommunicationsServer(props: DiagramNodeProps) {
+export function CommunicationsServer(props: NodeProps) {
   return (
     <Shape
       {...COMMUNICATIONS_SERVER}

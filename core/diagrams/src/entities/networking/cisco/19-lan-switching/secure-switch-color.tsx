@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURE_SWITCH_COLOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURE_SWITCH_COLOR = {
   _original_height: 50,
 }
 
-export function SecureSwitchColor(props: DiagramNodeProps) {
+export function SecureSwitchColor(props: NodeProps) {
   return (
     <Shape
       {...SECURE_SWITCH_COLOR}

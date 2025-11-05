@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIRE_TAP = {
   _style: {
@@ -10,7 +10,7 @@ export const WIRE_TAP = {
   _height: 90,
 }
 
-export function WireTap(props: DiagramNodeProps) {
+export function WireTap(props: NodeProps) {
   return (
     <Shape {...WIRE_TAP} {...props} _style={extendStyle(WIRE_TAP, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_UNITY_EXPRESS = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_UNITY_EXPRESS = {
   _original_height: 67,
 }
 
-export function CiscoUnityExpress(props: DiagramNodeProps) {
+export function CiscoUnityExpress(props: NodeProps) {
   return (
     <Shape
       {...CISCO_UNITY_EXPRESS}

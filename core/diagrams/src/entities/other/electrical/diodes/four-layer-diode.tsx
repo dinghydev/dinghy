@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FOUR_LAYER_DIODE = {
   _style: {
@@ -10,7 +10,7 @@ export const FOUR_LAYER_DIODE = {
   _height: 80,
 }
 
-export function FourLayerDiode(props: DiagramNodeProps) {
+export function FourLayerDiode(props: NodeProps) {
   return (
     <Shape
       {...FOUR_LAYER_DIODE}

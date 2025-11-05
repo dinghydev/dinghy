@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11440_SINGLE_ACTING_SINGLE_ROD = {
   _style: {
@@ -10,7 +10,7 @@ export const X11440_SINGLE_ACTING_SINGLE_ROD = {
   _height: 56.04,
 }
 
-export function X11440SingleActingSingleRod(props: DiagramNodeProps) {
+export function X11440SingleActingSingleRod(props: NodeProps) {
   return (
     <Shape
       {...X11440_SINGLE_ACTING_SINGLE_ROD}

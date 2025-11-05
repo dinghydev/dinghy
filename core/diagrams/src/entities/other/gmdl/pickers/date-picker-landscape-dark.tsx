@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATE_PICKER_LANDSCAPE_DARK = {
   _style: {
@@ -10,7 +10,7 @@ export const DATE_PICKER_LANDSCAPE_DARK = {
   _height: 304,
 }
 
-export function DatePickerLandscapeDark(props: DiagramNodeProps) {
+export function DatePickerLandscapeDark(props: NodeProps) {
   return (
     <Shape
       {...DATE_PICKER_LANDSCAPE_DARK}

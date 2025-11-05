@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOLUME_SHADOW_COPY = {
   _style: {
@@ -10,7 +10,7 @@ export const VOLUME_SHADOW_COPY = {
   _original_height: 57.2,
 }
 
-export function VolumeShadowCopy(props: DiagramNodeProps) {
+export function VolumeShadowCopy(props: NodeProps) {
   return (
     <Shape
       {...VOLUME_SHADOW_COPY}

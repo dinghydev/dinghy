@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRIDGE = {
   _style: {
@@ -10,6 +10,6 @@ export const BRIDGE = {
   _original_height: 56,
 }
 
-export function Bridge(props: DiagramNodeProps) {
+export function Bridge(props: NodeProps) {
   return <Shape {...BRIDGE} {...props} _style={extendStyle(BRIDGE, props)} />
 }

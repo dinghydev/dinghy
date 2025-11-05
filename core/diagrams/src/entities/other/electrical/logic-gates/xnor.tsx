@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XNOR = {
   _style: {
@@ -10,6 +10,6 @@ export const XNOR = {
   _height: 60,
 }
 
-export function Xnor(props: DiagramNodeProps) {
+export function Xnor(props: NodeProps) {
   return <Shape {...XNOR} {...props} _style={extendStyle(XNOR, props)} />
 }

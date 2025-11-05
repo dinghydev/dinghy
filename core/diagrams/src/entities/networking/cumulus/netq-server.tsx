@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETQ_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const NETQ_SERVER = {
   _height: 20,
 }
 
-export function NetqServer(props: DiagramNodeProps) {
+export function NetqServer(props: NodeProps) {
   return (
     <Shape
       {...NETQ_SERVER}

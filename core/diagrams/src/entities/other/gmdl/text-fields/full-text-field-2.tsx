@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FULL_TEXT_FIELD_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const FULL_TEXT_FIELD_2 = {
   _height: 298,
 }
 
-export function FullTextField2(props: DiagramNodeProps) {
+export function FullTextField2(props: NodeProps) {
   return (
     <Shape
       {...FULL_TEXT_FIELD_2}

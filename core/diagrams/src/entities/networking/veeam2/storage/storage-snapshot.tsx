@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STORAGE_SNAPSHOT = {
   _style: {
@@ -10,7 +10,7 @@ export const STORAGE_SNAPSHOT = {
   _height: 11,
 }
 
-export function StorageSnapshot(props: DiagramNodeProps) {
+export function StorageSnapshot(props: NodeProps) {
   return (
     <Shape
       {...STORAGE_SNAPSHOT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_TRANSLATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const MESSAGE_TRANSLATOR = {
   _height: 90,
 }
 
-export function MessageTranslator(props: DiagramNodeProps) {
+export function MessageTranslator(props: NodeProps) {
   return (
     <Shape
       {...MESSAGE_TRANSLATOR}

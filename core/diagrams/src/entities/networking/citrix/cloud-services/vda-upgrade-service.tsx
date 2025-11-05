@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VDA_UPGRADE_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const VDA_UPGRADE_SERVICE = {
   _height: 39.395,
 }
 
-export function VdaUpgradeService(props: DiagramNodeProps) {
+export function VdaUpgradeService(props: NodeProps) {
   return (
     <Shape
       {...VDA_UPGRADE_SERVICE}

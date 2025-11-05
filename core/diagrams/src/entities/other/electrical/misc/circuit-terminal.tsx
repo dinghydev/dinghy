@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CIRCUIT_TERMINAL = {
   _style: {
@@ -10,7 +10,7 @@ export const CIRCUIT_TERMINAL = {
   _original_height: 15,
 }
 
-export function CircuitTerminal(props: DiagramNodeProps) {
+export function CircuitTerminal(props: NodeProps) {
   return (
     <Shape
       {...CIRCUIT_TERMINAL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MS_INTUNE = {
   _style: {
@@ -10,7 +10,7 @@ export const MS_INTUNE = {
   _original_height: 40,
 }
 
-export function MsIntune(props: DiagramNodeProps) {
+export function MsIntune(props: NodeProps) {
   return (
     <Shape {...MS_INTUNE} {...props} _style={extendStyle(MS_INTUNE, props)} />
   )

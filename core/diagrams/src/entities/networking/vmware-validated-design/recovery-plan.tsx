@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECOVERY_PLAN = {
   _style: {
@@ -10,7 +10,7 @@ export const RECOVERY_PLAN = {
   _height: 50,
 }
 
-export function RecoveryPlan(props: DiagramNodeProps) {
+export function RecoveryPlan(props: NodeProps) {
   return (
     <Shape
       {...RECOVERY_PLAN}

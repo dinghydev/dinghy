@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMAGE_FIXED_ASPECT = {
   _style: {
@@ -10,7 +10,7 @@ export const IMAGE_FIXED_ASPECT = {
   _original_height: 61,
 }
 
-export function ImageFixedAspect(props: DiagramNodeProps) {
+export function ImageFixedAspect(props: NodeProps) {
   return (
     <Shape
       {...IMAGE_FIXED_ASPECT}

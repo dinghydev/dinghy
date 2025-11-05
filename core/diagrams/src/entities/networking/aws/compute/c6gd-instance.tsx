@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const C6GD_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const C6GD_INSTANCE = {
   _original_height: 48,
 }
 
-export function C6gdInstance(props: DiagramNodeProps) {
+export function C6gdInstance(props: NodeProps) {
   return (
     <Shape
       {...C6GD_INSTANCE}

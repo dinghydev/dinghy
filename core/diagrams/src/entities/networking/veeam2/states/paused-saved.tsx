@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PAUSED_SAVED = {
   _style: {
@@ -10,7 +10,7 @@ export const PAUSED_SAVED = {
   _original_height: 21,
 }
 
-export function PausedSaved(props: DiagramNodeProps) {
+export function PausedSaved(props: NodeProps) {
   return (
     <Shape
       {...PAUSED_SAVED}

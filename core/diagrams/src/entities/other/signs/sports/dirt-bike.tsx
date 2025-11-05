@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRT_BIKE = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRT_BIKE = {
   _original_height: 94,
 }
 
-export function DirtBike(props: DiagramNodeProps) {
+export function DirtBike(props: NodeProps) {
   return (
     <Shape {...DIRT_BIKE} {...props} _style={extendStyle(DIRT_BIKE, props)} />
   )

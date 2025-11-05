@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SONICO = {
   _style: {
@@ -10,6 +10,6 @@ export const SONICO = {
   _original_height: 102.4,
 }
 
-export function Sonico(props: DiagramNodeProps) {
+export function Sonico(props: NodeProps) {
   return <Shape {...SONICO} {...props} _style={extendStyle(SONICO, props)} />
 }

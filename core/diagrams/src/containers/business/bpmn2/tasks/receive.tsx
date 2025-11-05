@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECEIVE = {
   _style: {
@@ -8,6 +8,6 @@ export const RECEIVE = {
   },
 }
 
-export function Receive(props: DiagramNodeProps) {
+export function Receive(props: NodeProps) {
   return <Shape {...RECEIVE} {...props} _style={extendStyle(RECEIVE, props)} />
 }

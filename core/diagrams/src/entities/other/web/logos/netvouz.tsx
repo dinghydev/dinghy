@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETVOUZ = {
   _style: {
@@ -10,6 +10,6 @@ export const NETVOUZ = {
   _original_height: 57.400000000000006,
 }
 
-export function Netvouz(props: DiagramNodeProps) {
+export function Netvouz(props: NodeProps) {
   return <Shape {...NETVOUZ} {...props} _style={extendStyle(NETVOUZ, props)} />
 }

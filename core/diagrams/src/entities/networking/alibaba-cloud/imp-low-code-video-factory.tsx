@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMP_LOW_CODE_VIDEO_FACTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const IMP_LOW_CODE_VIDEO_FACTORY = {
   _original_height: 48.6,
 }
 
-export function ImpLowCodeVideoFactory(props: DiagramNodeProps) {
+export function ImpLowCodeVideoFactory(props: NodeProps) {
   return (
     <Shape
       {...IMP_LOW_CODE_VIDEO_FACTORY}

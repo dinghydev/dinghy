@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOH_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const MOH_SERVER = {
   _original_height: 62,
 }
 
-export function MohServer(props: DiagramNodeProps) {
+export function MohServer(props: NodeProps) {
   return (
     <Shape {...MOH_SERVER} {...props} _style={extendStyle(MOH_SERVER, props)} />
   )

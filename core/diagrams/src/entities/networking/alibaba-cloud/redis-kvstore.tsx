@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REDIS_KVSTORE = {
   _style: {
@@ -10,7 +10,7 @@ export const REDIS_KVSTORE = {
   _original_height: 41.4,
 }
 
-export function RedisKvstore(props: DiagramNodeProps) {
+export function RedisKvstore(props: NodeProps) {
   return (
     <Shape
       {...REDIS_KVSTORE}

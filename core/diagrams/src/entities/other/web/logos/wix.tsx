@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIX = {
   _style: {
@@ -10,6 +10,6 @@ export const WIX = {
   _original_height: 61.6,
 }
 
-export function Wix(props: DiagramNodeProps) {
+export function Wix(props: NodeProps) {
   return <Shape {...WIX} {...props} _style={extendStyle(WIX, props)} />
 }

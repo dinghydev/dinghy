@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GRAFANA = {
   _style: {
@@ -10,6 +10,6 @@ export const GRAFANA = {
   _original_height: 52.800000000000004,
 }
 
-export function Grafana(props: DiagramNodeProps) {
+export function Grafana(props: NodeProps) {
   return <Shape {...GRAFANA} {...props} _style={extendStyle(GRAFANA, props)} />
 }

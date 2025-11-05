@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CRT_TV = {
   _style: {
@@ -10,6 +10,6 @@ export const CRT_TV = {
   _height: 40,
 }
 
-export function CrtTv(props: DiagramNodeProps) {
+export function CrtTv(props: NodeProps) {
   return <Shape {...CRT_TV} {...props} _style={extendStyle(CRT_TV, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHOPPING_BASKET = {
   _style: {
@@ -10,7 +10,7 @@ export const SHOPPING_BASKET = {
   _original_height: 80,
 }
 
-export function ShoppingBasket(props: DiagramNodeProps) {
+export function ShoppingBasket(props: NodeProps) {
   return (
     <Shape
       {...SHOPPING_BASKET}

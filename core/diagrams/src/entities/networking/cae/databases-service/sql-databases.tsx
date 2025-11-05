@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQL_DATABASES = {
   _style: {
@@ -10,7 +10,7 @@ export const SQL_DATABASES = {
   _height: 50,
 }
 
-export function SqlDatabases(props: DiagramNodeProps) {
+export function SqlDatabases(props: NodeProps) {
   return (
     <Shape
       {...SQL_DATABASES}

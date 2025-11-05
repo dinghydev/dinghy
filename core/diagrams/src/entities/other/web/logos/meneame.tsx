@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MENEAME = {
   _style: {
@@ -10,6 +10,6 @@ export const MENEAME = {
   _original_height: 67.60000000000001,
 }
 
-export function Meneame(props: DiagramNodeProps) {
+export function Meneame(props: NodeProps) {
   return <Shape {...MENEAME} {...props} _style={extendStyle(MENEAME, props)} />
 }

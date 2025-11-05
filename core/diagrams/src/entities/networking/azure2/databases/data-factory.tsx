@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_FACTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_FACTORY = {
   _original_height: 68,
 }
 
-export function DataFactory(props: DiagramNodeProps) {
+export function DataFactory(props: NodeProps) {
   return (
     <Shape
       {...DATA_FACTORY}

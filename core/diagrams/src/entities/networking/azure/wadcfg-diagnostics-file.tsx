@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WADCFG_DIAGNOSTICS_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const WADCFG_DIAGNOSTICS_FILE = {
   _original_height: 50,
 }
 
-export function WadcfgDiagnosticsFile(props: DiagramNodeProps) {
+export function WadcfgDiagnosticsFile(props: NodeProps) {
   return (
     <Shape
       {...WADCFG_DIAGNOSTICS_FILE}

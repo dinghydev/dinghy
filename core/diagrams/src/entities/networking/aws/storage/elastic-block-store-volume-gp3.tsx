@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_BLOCK_STORE_VOLUME_GP3 = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_BLOCK_STORE_VOLUME_GP3 = {
   _original_height: 78,
 }
 
-export function ElasticBlockStoreVolumeGp3(props: DiagramNodeProps) {
+export function ElasticBlockStoreVolumeGp3(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_BLOCK_STORE_VOLUME_GP3}

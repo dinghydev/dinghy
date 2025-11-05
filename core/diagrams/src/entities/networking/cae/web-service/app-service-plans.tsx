@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APP_SERVICE_PLANS = {
   _style: {
@@ -10,7 +10,7 @@ export const APP_SERVICE_PLANS = {
   _original_height: 50,
 }
 
-export function AppServicePlans(props: DiagramNodeProps) {
+export function AppServicePlans(props: NodeProps) {
   return (
     <Shape
       {...APP_SERVICE_PLANS}

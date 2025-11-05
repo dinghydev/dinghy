@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UM_ENABLED_MAILBOX = {
   _style: {
@@ -10,7 +10,7 @@ export const UM_ENABLED_MAILBOX = {
   _original_height: 57,
 }
 
-export function UmEnabledMailbox(props: DiagramNodeProps) {
+export function UmEnabledMailbox(props: NodeProps) {
   return (
     <Shape
       {...UM_ENABLED_MAILBOX}

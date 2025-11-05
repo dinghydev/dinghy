@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUPPORT_LEG = {
   _style: {
@@ -10,7 +10,7 @@ export const SUPPORT_LEG = {
   _height: 100,
 }
 
-export function SupportLeg(props: DiagramNodeProps) {
+export function SupportLeg(props: NodeProps) {
   return (
     <Shape
       {...SUPPORT_LEG}

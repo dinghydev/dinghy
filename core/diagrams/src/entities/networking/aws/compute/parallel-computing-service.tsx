@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARALLEL_COMPUTING_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const PARALLEL_COMPUTING_SERVICE = {
   _original_height: 78,
 }
 
-export function ParallelComputingService(props: DiagramNodeProps) {
+export function ParallelComputingService(props: NodeProps) {
   return (
     <Shape
       {...PARALLEL_COMPUTING_SERVICE}

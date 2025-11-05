@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HEAT_AUTOSCALINGGROUP = {
   _style: {
@@ -10,7 +10,7 @@ export const HEAT_AUTOSCALINGGROUP = {
   _original_height: 50,
 }
 
-export function HeatAutoscalinggroup(props: DiagramNodeProps) {
+export function HeatAutoscalinggroup(props: NodeProps) {
   return (
     <Shape
       {...HEAT_AUTOSCALINGGROUP}

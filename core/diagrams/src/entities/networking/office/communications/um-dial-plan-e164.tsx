@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UM_DIAL_PLAN_E164 = {
   _style: {
@@ -10,7 +10,7 @@ export const UM_DIAL_PLAN_E164 = {
   _original_height: 56,
 }
 
-export function UmDialPlanE164(props: DiagramNodeProps) {
+export function UmDialPlanE164(props: NodeProps) {
   return (
     <Shape
       {...UM_DIAL_PLAN_E164}

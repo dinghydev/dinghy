@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLACIER = {
   _style: {
@@ -10,6 +10,6 @@ export const GLACIER = {
   _height: 192,
 }
 
-export function Glacier(props: DiagramNodeProps) {
+export function Glacier(props: NodeProps) {
   return <Shape {...GLACIER} {...props} _style={extendStyle(GLACIER, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHAPE_GROUP = {
   _style: {
@@ -8,7 +8,7 @@ export const SHAPE_GROUP = {
   },
 }
 
-export function ShapeGroup(props: DiagramNodeProps) {
+export function ShapeGroup(props: NodeProps) {
   return (
     <Shape
       {...SHAPE_GROUP}

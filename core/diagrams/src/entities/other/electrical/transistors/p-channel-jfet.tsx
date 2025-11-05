@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const P_CHANNEL_JFET = {
   _style: {
@@ -10,7 +10,7 @@ export const P_CHANNEL_JFET = {
   _original_height: 100,
 }
 
-export function PChannelJfet(props: DiagramNodeProps) {
+export function PChannelJfet(props: NodeProps) {
   return (
     <Shape
       {...P_CHANNEL_JFET}

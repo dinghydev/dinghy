@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SINGLE_EXECUTION = {
   _style: {
@@ -10,7 +10,7 @@ export const SINGLE_EXECUTION = {
   _height: 160,
 }
 
-export function SingleExecution(props: DiagramNodeProps) {
+export function SingleExecution(props: NodeProps) {
   return (
     <Shape
       {...SINGLE_EXECUTION}

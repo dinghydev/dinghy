@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOCKET_CONNECTION_NOZZLE = {
   _style: {
@@ -10,7 +10,7 @@ export const SOCKET_CONNECTION_NOZZLE = {
   _height: 40,
 }
 
-export function SocketConnectionNozzle(props: DiagramNodeProps) {
+export function SocketConnectionNozzle(props: NodeProps) {
   return (
     <Shape
       {...SOCKET_CONNECTION_NOZZLE}

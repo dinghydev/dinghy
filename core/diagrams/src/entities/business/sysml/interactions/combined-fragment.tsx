@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMBINED_FRAGMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const COMBINED_FRAGMENT = {
   _height: 320,
 }
 
-export function CombinedFragment(props: DiagramNodeProps) {
+export function CombinedFragment(props: NodeProps) {
   return (
     <Shape
       {...COMBINED_FRAGMENT}

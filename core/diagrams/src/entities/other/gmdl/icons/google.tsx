@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GOOGLE = {
   _style: {
@@ -10,6 +10,6 @@ export const GOOGLE = {
   _height: 24,
 }
 
-export function Google(props: DiagramNodeProps) {
+export function Google(props: NodeProps) {
   return <Shape {...GOOGLE} {...props} _style={extendStyle(GOOGLE, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_MIGRATION_WORKFLOW_JOB = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_MIGRATION_WORKFLOW_JOB = {
   _height: 87,
 }
 
-export function DatabaseMigrationWorkflowJob(props: DiagramNodeProps) {
+export function DatabaseMigrationWorkflowJob(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_MIGRATION_WORKFLOW_JOB}

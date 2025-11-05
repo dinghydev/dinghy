@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ERROR_MESSAGE_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const ERROR_MESSAGE_2 = {
   _height: 150,
 }
 
-export function ErrorMessage2(props: DiagramNodeProps) {
+export function ErrorMessage2(props: NodeProps) {
   return (
     <Shape
       {...ERROR_MESSAGE_2}

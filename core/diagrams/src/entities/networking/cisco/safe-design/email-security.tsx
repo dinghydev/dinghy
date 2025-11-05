@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EMAIL_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const EMAIL_SECURITY = {
   _original_height: 45,
 }
 
-export function EmailSecurity(props: DiagramNodeProps) {
+export function EmailSecurity(props: NodeProps) {
   return (
     <Shape
       {...EMAIL_SECURITY}

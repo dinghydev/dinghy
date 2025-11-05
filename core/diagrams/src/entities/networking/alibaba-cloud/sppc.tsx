@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPPC = {
   _style: {
@@ -10,6 +10,6 @@ export const SPPC = {
   _original_height: 44.1,
 }
 
-export function Sppc(props: DiagramNodeProps) {
+export function Sppc(props: NodeProps) {
   return <Shape {...SPPC} {...props} _style={extendStyle(SPPC, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SYSTEM_TOPIC = {
   _style: {
@@ -10,7 +10,7 @@ export const SYSTEM_TOPIC = {
   _original_height: 60,
 }
 
-export function SystemTopic(props: DiagramNodeProps) {
+export function SystemTopic(props: NodeProps) {
   return (
     <Shape
       {...SYSTEM_TOPIC}

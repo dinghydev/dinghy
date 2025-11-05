@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_APPLICATION_FIREWALL_POLICIES_WAF = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_APPLICATION_FIREWALL_POLICIES_WAF = {
   _original_height: 68,
 }
 
-export function WebApplicationFirewallPoliciesWaf(props: DiagramNodeProps) {
+export function WebApplicationFirewallPoliciesWaf(props: NodeProps) {
   return (
     <Shape
       {...WEB_APPLICATION_FIREWALL_POLICIES_WAF}

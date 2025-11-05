@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATM_FAST_GIGABIT_ETHERSWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const ATM_FAST_GIGABIT_ETHERSWITCH = {
   _original_height: 64,
 }
 
-export function AtmFastGigabitEtherswitch(props: DiagramNodeProps) {
+export function AtmFastGigabitEtherswitch(props: NodeProps) {
   return (
     <Shape
       {...ATM_FAST_GIGABIT_ETHERSWITCH}

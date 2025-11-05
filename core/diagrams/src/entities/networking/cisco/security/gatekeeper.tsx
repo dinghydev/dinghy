@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GATEKEEPER = {
   _style: {
@@ -10,7 +10,7 @@ export const GATEKEEPER = {
   _height: 59,
 }
 
-export function Gatekeeper(props: DiagramNodeProps) {
+export function Gatekeeper(props: NodeProps) {
   return (
     <Shape {...GATEKEEPER} {...props} _style={extendStyle(GATEKEEPER, props)} />
   )

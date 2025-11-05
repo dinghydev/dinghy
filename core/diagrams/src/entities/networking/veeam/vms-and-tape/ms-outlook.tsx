@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MS_OUTLOOK = {
   _style: {
@@ -10,7 +10,7 @@ export const MS_OUTLOOK = {
   _original_height: 44.8,
 }
 
-export function MsOutlook(props: DiagramNodeProps) {
+export function MsOutlook(props: NodeProps) {
   return (
     <Shape {...MS_OUTLOOK} {...props} _style={extendStyle(MS_OUTLOOK, props)} />
   )

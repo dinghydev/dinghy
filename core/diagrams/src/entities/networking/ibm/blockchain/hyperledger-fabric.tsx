@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYPERLEDGER_FABRIC = {
   _style: {
@@ -10,7 +10,7 @@ export const HYPERLEDGER_FABRIC = {
   _original_height: 60,
 }
 
-export function HyperledgerFabric(props: DiagramNodeProps) {
+export function HyperledgerFabric(props: NodeProps) {
   return (
     <Shape
       {...HYPERLEDGER_FABRIC}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REKOGNITION_VIDEO = {
   _style: {
@@ -10,7 +10,7 @@ export const REKOGNITION_VIDEO = {
   _original_height: 78,
 }
 
-export function RekognitionVideo(props: DiagramNodeProps) {
+export function RekognitionVideo(props: NodeProps) {
   return (
     <Shape
       {...REKOGNITION_VIDEO}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSFER_FAMILY = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSFER_FAMILY = {
   _original_height: 78,
 }
 
-export function TransferFamily(props: DiagramNodeProps) {
+export function TransferFamily(props: NodeProps) {
   return (
     <Shape
       {...TRANSFER_FAMILY}

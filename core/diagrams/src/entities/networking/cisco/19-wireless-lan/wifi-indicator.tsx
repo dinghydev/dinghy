@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIFI_INDICATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const WIFI_INDICATOR = {
   _original_height: 50,
 }
 
-export function WifiIndicator(props: DiagramNodeProps) {
+export function WifiIndicator(props: NodeProps) {
   return (
     <Shape
       {...WIFI_INDICATOR}

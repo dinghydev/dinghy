@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONVERSATION_TRAINED_DEPLOYED = {
   _style: {
@@ -10,7 +10,7 @@ export const CONVERSATION_TRAINED_DEPLOYED = {
   _original_height: 60,
 }
 
-export function ConversationTrainedDeployed(props: DiagramNodeProps) {
+export function ConversationTrainedDeployed(props: NodeProps) {
   return (
     <Shape
       {...CONVERSATION_TRAINED_DEPLOYED}

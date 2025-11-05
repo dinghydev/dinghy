@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WARNING_DASHED = {
   _style: {
@@ -10,7 +10,7 @@ export const WARNING_DASHED = {
   _height: 0,
 }
 
-export function WarningDashed(props: DiagramNodeProps) {
+export function WarningDashed(props: NodeProps) {
   return (
     <Shape
       {...WARNING_DASHED}

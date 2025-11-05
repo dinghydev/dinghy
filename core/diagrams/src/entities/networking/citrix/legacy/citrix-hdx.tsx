@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_HDX = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_HDX = {
   _height: 41,
 }
 
-export function CitrixHdx(props: DiagramNodeProps) {
+export function CitrixHdx(props: NodeProps) {
   return (
     <Shape {...CITRIX_HDX} {...props} _style={extendStyle(CITRIX_HDX, props)} />
   )

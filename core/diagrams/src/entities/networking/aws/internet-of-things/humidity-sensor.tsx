@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HUMIDITY_SENSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const HUMIDITY_SENSOR = {
   _original_height: 78,
 }
 
-export function HumiditySensor(props: DiagramNodeProps) {
+export function HumiditySensor(props: NodeProps) {
   return (
     <Shape
       {...HUMIDITY_SENSOR}

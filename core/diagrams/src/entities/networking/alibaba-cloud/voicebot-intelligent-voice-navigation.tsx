@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOICEBOT_INTELLIGENT_VOICE_NAVIGATION = {
   _style: {
@@ -10,7 +10,7 @@ export const VOICEBOT_INTELLIGENT_VOICE_NAVIGATION = {
   _original_height: 57,
 }
 
-export function VoicebotIntelligentVoiceNavigation(props: DiagramNodeProps) {
+export function VoicebotIntelligentVoiceNavigation(props: NodeProps) {
   return (
     <Shape
       {...VOICEBOT_INTELLIGENT_VOICE_NAVIGATION}

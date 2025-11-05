@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTNER_TOPIC = {
   _style: {
@@ -10,7 +10,7 @@ export const PARTNER_TOPIC = {
   _original_height: 61,
 }
 
-export function PartnerTopic(props: DiagramNodeProps) {
+export function PartnerTopic(props: NodeProps) {
   return (
     <Shape
       {...PARTNER_TOPIC}

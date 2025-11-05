@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMPLEMENTATION_EVENT = {
   _style: {
@@ -10,7 +10,7 @@ export const IMPLEMENTATION_EVENT = {
   _height: 75,
 }
 
-export function ImplementationEvent(props: DiagramNodeProps) {
+export function ImplementationEvent(props: NodeProps) {
   return (
     <Shape
       {...IMPLEMENTATION_EVENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPRESSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPRESSOR = {
   _original_height: 100,
 }
 
-export function Compressor(props: DiagramNodeProps) {
+export function Compressor(props: NodeProps) {
   return (
     <Shape {...COMPRESSOR} {...props} _style={extendStyle(COMPRESSOR, props)} />
   )

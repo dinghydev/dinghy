@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTICIPANT_NON_INITIATING_TOP_WITH_DECORATOR = {
   _style: {
@@ -9,9 +9,7 @@ export const PARTICIPANT_NON_INITIATING_TOP_WITH_DECORATOR = {
   _height: 80,
 }
 
-export function ParticipantNonInitiatingTopWithDecorator(
-  props: DiagramNodeProps,
-) {
+export function ParticipantNonInitiatingTopWithDecorator(props: NodeProps) {
   return (
     <Shape
       {...PARTICIPANT_NON_INITIATING_TOP_WITH_DECORATOR}

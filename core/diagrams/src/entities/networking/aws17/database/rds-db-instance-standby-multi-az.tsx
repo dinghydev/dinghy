@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RDS_DB_INSTANCE_STANDBY_MULTI_AZ = {
   _style: {
@@ -10,7 +10,7 @@ export const RDS_DB_INSTANCE_STANDBY_MULTI_AZ = {
   _original_height: 66,
 }
 
-export function RdsDbInstanceStandbyMultiAz(props: DiagramNodeProps) {
+export function RdsDbInstanceStandbyMultiAz(props: NodeProps) {
   return (
     <Shape
       {...RDS_DB_INSTANCE_STANDBY_MULTI_AZ}

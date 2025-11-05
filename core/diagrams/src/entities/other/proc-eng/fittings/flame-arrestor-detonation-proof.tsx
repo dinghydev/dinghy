@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLAME_ARRESTOR_DETONATION_PROOF = {
   _style: {
@@ -10,7 +10,7 @@ export const FLAME_ARRESTOR_DETONATION_PROOF = {
   _original_height: 100,
 }
 
-export function FlameArrestorDetonationProof(props: DiagramNodeProps) {
+export function FlameArrestorDetonationProof(props: NodeProps) {
   return (
     <Shape
       {...FLAME_ARRESTOR_DETONATION_PROOF}

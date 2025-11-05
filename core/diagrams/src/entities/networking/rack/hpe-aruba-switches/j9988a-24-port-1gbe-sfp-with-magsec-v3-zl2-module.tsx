@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE = {
   _style: {
@@ -10,9 +10,7 @@ export const J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE = {
   _height: 15,
 }
 
-export function J9988a24Port1gbeSfpWithMagsecV3Zl2Module(
-  props: DiagramNodeProps,
-) {
+export function J9988a24Port1gbeSfpWithMagsecV3Zl2Module(props: NodeProps) {
   return (
     <Shape
       {...J9988A_24_PORT_1GBE_SFP_WITH_MAGSEC_V3_ZL2_MODULE}

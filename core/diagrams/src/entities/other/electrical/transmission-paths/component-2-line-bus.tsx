@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_2_LINE_BUS = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_2_LINE_BUS = {
   _height: 25,
 }
 
-export function Component2LineBus(props: DiagramNodeProps) {
+export function Component2LineBus(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_2_LINE_BUS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9778A_2530_48_POE_FRONT = {
   _style: {
@@ -10,7 +10,7 @@ export const J9778A_2530_48_POE_FRONT = {
   _height: 15,
 }
 
-export function J9778a253048PoeFront(props: DiagramNodeProps) {
+export function J9778a253048PoeFront(props: NodeProps) {
   return (
     <Shape
       {...J9778A_2530_48_POE_FRONT}

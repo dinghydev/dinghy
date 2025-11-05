@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GREENGRASS_INTERPROCESS_COMMUNICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const GREENGRASS_INTERPROCESS_COMMUNICATION = {
   _original_height: 78,
 }
 
-export function GreengrassInterprocessCommunication(props: DiagramNodeProps) {
+export function GreengrassInterprocessCommunication(props: NodeProps) {
   return (
     <Shape
       {...GREENGRASS_INTERPROCESS_COMMUNICATION}

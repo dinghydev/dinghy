@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTOMATED_TESTING = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTOMATED_TESTING = {
   _original_height: 44.8,
 }
 
-export function AutomatedTesting(props: DiagramNodeProps) {
+export function AutomatedTesting(props: NodeProps) {
   return (
     <Shape
       {...AUTOMATED_TESTING}

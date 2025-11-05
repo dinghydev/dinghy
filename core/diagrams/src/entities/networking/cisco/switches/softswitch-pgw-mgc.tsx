@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOFTSWITCH_PGW_MGC = {
   _style: {
@@ -10,7 +10,7 @@ export const SOFTSWITCH_PGW_MGC = {
   _original_height: 64,
 }
 
-export function SoftswitchPgwMgc(props: DiagramNodeProps) {
+export function SoftswitchPgwMgc(props: NodeProps) {
   return (
     <Shape
       {...SOFTSWITCH_PGW_MGC}

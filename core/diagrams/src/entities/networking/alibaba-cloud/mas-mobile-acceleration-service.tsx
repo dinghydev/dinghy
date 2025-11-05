@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAS_MOBILE_ACCELERATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const MAS_MOBILE_ACCELERATION_SERVICE = {
   _height: 37.8,
 }
 
-export function MasMobileAccelerationService(props: DiagramNodeProps) {
+export function MasMobileAccelerationService(props: NodeProps) {
   return (
     <Shape
       {...MAS_MOBILE_ACCELERATION_SERVICE}

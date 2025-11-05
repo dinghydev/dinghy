@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TASK_QUEUES = {
   _style: {
@@ -10,7 +10,7 @@ export const TASK_QUEUES = {
   _height: 61,
 }
 
-export function TaskQueues(props: DiagramNodeProps) {
+export function TaskQueues(props: NodeProps) {
   return (
     <Shape
       {...TASK_QUEUES}

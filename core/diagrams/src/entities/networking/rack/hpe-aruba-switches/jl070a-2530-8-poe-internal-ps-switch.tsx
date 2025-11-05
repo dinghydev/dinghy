@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL070A_2530_8_POE_INTERNAL_PS_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const JL070A_2530_8_POE_INTERNAL_PS_SWITCH = {
   _height: 15,
 }
 
-export function Jl070a25308PoeInternalPsSwitch(props: DiagramNodeProps) {
+export function Jl070a25308PoeInternalPsSwitch(props: NodeProps) {
   return (
     <Shape
       {...JL070A_2530_8_POE_INTERNAL_PS_SWITCH}

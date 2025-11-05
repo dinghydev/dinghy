@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_ANALYTICS_CLOUD_EMBEDDED_EDITION = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_ANALYTICS_CLOUD_EMBEDDED_EDITION = {
   _original_height: 50,
 }
 
-export function SapAnalyticsCloudEmbeddedEdition(props: DiagramNodeProps) {
+export function SapAnalyticsCloudEmbeddedEdition(props: NodeProps) {
   return (
     <Shape
       {...SAP_ANALYTICS_CLOUD_EMBEDDED_EDITION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_SOFTWARE_AS_A_SERVICE_PROVISIONING_SERVICE = {
   _style: {
@@ -10,9 +10,7 @@ export const SAP_SOFTWARE_AS_A_SERVICE_PROVISIONING_SERVICE = {
   _original_height: 50,
 }
 
-export function SapSoftwareAsAServiceProvisioningService(
-  props: DiagramNodeProps,
-) {
+export function SapSoftwareAsAServiceProvisioningService(props: NodeProps) {
   return (
     <Shape
       {...SAP_SOFTWARE_AS_A_SERVICE_PROVISIONING_SERVICE}

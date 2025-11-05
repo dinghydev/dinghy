@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TROUBLESHOOT = {
   _style: {
@@ -10,7 +10,7 @@ export const TROUBLESHOOT = {
   _original_height: 68,
 }
 
-export function Troubleshoot(props: DiagramNodeProps) {
+export function Troubleshoot(props: NodeProps) {
   return (
     <Shape
       {...TROUBLESHOOT}

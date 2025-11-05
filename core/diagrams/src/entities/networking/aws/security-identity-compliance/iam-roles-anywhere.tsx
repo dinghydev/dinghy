@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IAM_ROLES_ANYWHERE = {
   _style: {
@@ -10,7 +10,7 @@ export const IAM_ROLES_ANYWHERE = {
   _original_height: 78,
 }
 
-export function IamRolesAnywhere(props: DiagramNodeProps) {
+export function IamRolesAnywhere(props: NodeProps) {
   return (
     <Shape
       {...IAM_ROLES_ANYWHERE}

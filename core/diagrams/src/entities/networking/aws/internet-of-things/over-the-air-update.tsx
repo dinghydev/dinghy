@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OVER_THE_AIR_UPDATE = {
   _style: {
@@ -10,7 +10,7 @@ export const OVER_THE_AIR_UPDATE = {
   _original_height: 63,
 }
 
-export function OverTheAirUpdate(props: DiagramNodeProps) {
+export function OverTheAirUpdate(props: NodeProps) {
   return (
     <Shape
       {...OVER_THE_AIR_UPDATE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NORMALLED_JACKS = {
   _style: {
@@ -10,7 +10,7 @@ export const NORMALLED_JACKS = {
   _height: 65,
 }
 
-export function NormalledJacks(props: DiagramNodeProps) {
+export function NormalledJacks(props: NodeProps) {
   return (
     <Shape
       {...NORMALLED_JACKS}

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POINT_TO_POINT_CHANNEL = {
   _style: {
@@ -8,7 +8,7 @@ export const POINT_TO_POINT_CHANNEL = {
   },
 }
 
-export function PointToPointChannel(props: DiagramNodeProps) {
+export function PointToPointChannel(props: NodeProps) {
   return (
     <Dependency
       {...POINT_TO_POINT_CHANNEL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEDUPLICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const DEDUPLICATION = {
   _original_height: 28.000000000000004,
 }
 
-export function Deduplication(props: DiagramNodeProps) {
+export function Deduplication(props: NodeProps) {
   return (
     <Shape
       {...DEDUPLICATION}

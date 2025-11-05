@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VBOND = {
   _style: {
@@ -10,6 +10,6 @@ export const VBOND = {
   _original_height: 50,
 }
 
-export function Vbond(props: DiagramNodeProps) {
+export function Vbond(props: NodeProps) {
   return <Shape {...VBOND} {...props} _style={extendStyle(VBOND, props)} />
 }

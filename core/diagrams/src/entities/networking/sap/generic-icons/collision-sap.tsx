@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLLISION_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const COLLISION_SAP = {
   _height: 26.83,
 }
 
-export function CollisionSap(props: DiagramNodeProps) {
+export function CollisionSap(props: NodeProps) {
   return (
     <Shape
       {...COLLISION_SAP}

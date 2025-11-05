@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MARKETPLACE = {
   _style: {
@@ -10,7 +10,7 @@ export const MARKETPLACE = {
   _original_height: 64,
 }
 
-export function Marketplace(props: DiagramNodeProps) {
+export function Marketplace(props: NodeProps) {
   return (
     <Shape
       {...MARKETPLACE}

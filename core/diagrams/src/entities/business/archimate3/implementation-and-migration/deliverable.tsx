@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DELIVERABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const DELIVERABLE = {
   _height: 75,
 }
 
-export function Deliverable(props: DiagramNodeProps) {
+export function Deliverable(props: NodeProps) {
   return (
     <Shape
       {...DELIVERABLE}

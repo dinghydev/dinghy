@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONSTRAINT_BLOCK = {
   _style: {
@@ -10,7 +10,7 @@ export const CONSTRAINT_BLOCK = {
   _height: 70,
 }
 
-export function ConstraintBlock(props: DiagramNodeProps) {
+export function ConstraintBlock(props: NodeProps) {
   return (
     <Shape
       {...CONSTRAINT_BLOCK}

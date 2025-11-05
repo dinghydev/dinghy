@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11570_PRESSURE_MEDIUM_CONVERTER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11570_PRESSURE_MEDIUM_CONVERTER = {
   _height: 104.24,
 }
 
-export function X11570PressureMediumConverter(props: DiagramNodeProps) {
+export function X11570PressureMediumConverter(props: NodeProps) {
   return (
     <Shape
       {...X11570_PRESSURE_MEDIUM_CONVERTER}

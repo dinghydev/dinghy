@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDANT = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDANT = {
   _original_height: 60,
 }
 
-export function Cloudant(props: DiagramNodeProps) {
+export function Cloudant(props: NodeProps) {
   return (
     <Shape {...CLOUDANT} {...props} _style={extendStyle(CLOUDANT, props)} />
   )

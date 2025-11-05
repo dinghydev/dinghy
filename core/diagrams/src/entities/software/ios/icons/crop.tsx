@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CROP = {
   _style: {
@@ -10,6 +10,6 @@ export const CROP = {
   _original_height: 30,
 }
 
-export function Crop(props: DiagramNodeProps) {
+export function Crop(props: NodeProps) {
   return <Shape {...CROP} {...props} _style={extendStyle(CROP, props)} />
 }

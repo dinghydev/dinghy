@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FRONT_END_PROCESSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const FRONT_END_PROCESSOR = {
   _original_height: 51,
 }
 
-export function FrontEndProcessor(props: DiagramNodeProps) {
+export function FrontEndProcessor(props: NodeProps) {
   return (
     <Shape
       {...FRONT_END_PROCESSOR}

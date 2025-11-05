@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTAINER_APP_ENVIRONMENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTAINER_APP_ENVIRONMENTS = {
   _original_height: 68,
 }
 
-export function ContainerAppEnvironments(props: DiagramNodeProps) {
+export function ContainerAppEnvironments(props: NodeProps) {
   return (
     <Shape
       {...CONTAINER_APP_ENVIRONMENTS}

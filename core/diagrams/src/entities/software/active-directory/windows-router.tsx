@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDOWS_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDOWS_ROUTER = {
   _original_height: 50,
 }
 
-export function WindowsRouter(props: DiagramNodeProps) {
+export function WindowsRouter(props: NodeProps) {
   return (
     <Shape
       {...WINDOWS_ROUTER}

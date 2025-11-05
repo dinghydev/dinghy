@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INFRASTRUCTURE_COMPOSER = {
   _style: {
@@ -10,7 +10,7 @@ export const INFRASTRUCTURE_COMPOSER = {
   _original_height: 78,
 }
 
-export function InfrastructureComposer(props: DiagramNodeProps) {
+export function InfrastructureComposer(props: NodeProps) {
   return (
     <Shape
       {...INFRASTRUCTURE_COMPOSER}

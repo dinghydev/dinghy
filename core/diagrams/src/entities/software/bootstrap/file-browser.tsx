@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILE_BROWSER = {
   _style: {
@@ -10,7 +10,7 @@ export const FILE_BROWSER = {
   _height: 30,
 }
 
-export function FileBrowser(props: DiagramNodeProps) {
+export function FileBrowser(props: NodeProps) {
   return (
     <Shape
       {...FILE_BROWSER}

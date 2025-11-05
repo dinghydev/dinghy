@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CD = {
   _style: {
@@ -10,6 +10,6 @@ export const CD = {
   _height: 26,
 }
 
-export function Cd(props: DiagramNodeProps) {
+export function Cd(props: NodeProps) {
   return <Shape {...CD} {...props} _style={extendStyle(CD, props)} />
 }

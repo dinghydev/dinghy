@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_DATABASE_FOR_MYSQL_SERVERS = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_DATABASE_FOR_MYSQL_SERVERS = {
   _height: 50,
 }
 
-export function AzureDatabaseForMysqlServers(props: DiagramNodeProps) {
+export function AzureDatabaseForMysqlServers(props: NodeProps) {
   return (
     <Shape
       {...AZURE_DATABASE_FOR_MYSQL_SERVERS}

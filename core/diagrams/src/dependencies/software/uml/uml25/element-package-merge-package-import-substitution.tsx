@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION = {
   _style: {
@@ -8,9 +8,7 @@ export const ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION = {
   },
 }
 
-export function ElementPackageMergePackageImportSubstitution(
-  props: DiagramNodeProps,
-) {
+export function ElementPackageMergePackageImportSubstitution(props: NodeProps) {
   return (
     <Dependency
       {...ELEMENT_PACKAGE_MERGE_PACKAGE_IMPORT_SUBSTITUTION}

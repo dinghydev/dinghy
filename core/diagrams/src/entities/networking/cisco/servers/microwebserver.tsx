@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MICROWEBSERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const MICROWEBSERVER = {
   _height: 51,
 }
 
-export function Microwebserver(props: DiagramNodeProps) {
+export function Microwebserver(props: NodeProps) {
   return (
     <Shape
       {...MICROWEBSERVER}

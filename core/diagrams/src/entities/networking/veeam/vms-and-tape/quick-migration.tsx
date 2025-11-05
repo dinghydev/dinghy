@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUICK_MIGRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const QUICK_MIGRATION = {
   _original_height: 44.8,
 }
 
-export function QuickMigration(props: DiagramNodeProps) {
+export function QuickMigration(props: NodeProps) {
   return (
     <Shape
       {...QUICK_MIGRATION}

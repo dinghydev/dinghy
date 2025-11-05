@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LYNC_PHONE_EDITION = {
   _style: {
@@ -10,7 +10,7 @@ export const LYNC_PHONE_EDITION = {
   _height: 45,
 }
 
-export function LyncPhoneEdition(props: DiagramNodeProps) {
+export function LyncPhoneEdition(props: NodeProps) {
   return (
     <Shape
       {...LYNC_PHONE_EDITION}

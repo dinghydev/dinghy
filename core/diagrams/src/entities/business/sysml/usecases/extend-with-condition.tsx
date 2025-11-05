@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXTEND_WITH_CONDITION = {
   _style: {
@@ -9,7 +9,7 @@ export const EXTEND_WITH_CONDITION = {
   _height: 80,
 }
 
-export function ExtendWithCondition(props: DiagramNodeProps) {
+export function ExtendWithCondition(props: NodeProps) {
   return (
     <Shape
       {...EXTEND_WITH_CONDITION}

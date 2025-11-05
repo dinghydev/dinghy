@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BEACON = {
   _style: {
@@ -10,6 +10,6 @@ export const BEACON = {
   _height: 50,
 }
 
-export function Beacon(props: DiagramNodeProps) {
+export function Beacon(props: NodeProps) {
   return <Shape {...BEACON} {...props} _style={extendStyle(BEACON, props)} />
 }

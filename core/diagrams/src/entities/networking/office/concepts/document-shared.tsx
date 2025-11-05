@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOCUMENT_SHARED = {
   _style: {
@@ -10,7 +10,7 @@ export const DOCUMENT_SHARED = {
   _original_height: 53,
 }
 
-export function DocumentShared(props: DiagramNodeProps) {
+export function DocumentShared(props: NodeProps) {
   return (
     <Shape
       {...DOCUMENT_SHARED}

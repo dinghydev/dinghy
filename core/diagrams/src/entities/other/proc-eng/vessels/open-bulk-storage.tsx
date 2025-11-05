@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPEN_BULK_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const OPEN_BULK_STORAGE = {
   _height: 50,
 }
 
-export function OpenBulkStorage(props: DiagramNodeProps) {
+export function OpenBulkStorage(props: NodeProps) {
   return (
     <Shape
       {...OPEN_BULK_STORAGE}

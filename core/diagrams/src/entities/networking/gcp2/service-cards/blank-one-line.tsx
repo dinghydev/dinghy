@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLANK_ONE_LINE = {
   _style: {
@@ -10,7 +10,7 @@ export const BLANK_ONE_LINE = {
   _height: 44,
 }
 
-export function BlankOneLine(props: DiagramNodeProps) {
+export function BlankOneLine(props: NodeProps) {
   return (
     <Shape
       {...BLANK_ONE_LINE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PENTAGON = {
   _style: {
@@ -9,7 +9,7 @@ export const PENTAGON = {
   _original_height: 90,
 }
 
-export function Pentagon(props: DiagramNodeProps) {
+export function Pentagon(props: NodeProps) {
   return (
     <Shape {...PENTAGON} {...props} _style={extendStyle(PENTAGON, props)} />
   )

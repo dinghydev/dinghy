@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROTARY_COMPRESSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const ROTARY_COMPRESSOR = {
   _height: 91,
 }
 
-export function RotaryCompressor(props: DiagramNodeProps) {
+export function RotaryCompressor(props: NodeProps) {
   return (
     <Shape
       {...ROTARY_COMPRESSOR}

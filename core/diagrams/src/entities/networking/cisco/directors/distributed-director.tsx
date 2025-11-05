@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISTRIBUTED_DIRECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DISTRIBUTED_DIRECTOR = {
   _height: 64,
 }
 
-export function DistributedDirector(props: DiagramNodeProps) {
+export function DistributedDirector(props: NodeProps) {
   return (
     <Shape
       {...DISTRIBUTED_DIRECTOR}

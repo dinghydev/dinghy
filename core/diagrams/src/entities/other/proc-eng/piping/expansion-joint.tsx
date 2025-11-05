@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXPANSION_JOINT = {
   _style: {
@@ -10,7 +10,7 @@ export const EXPANSION_JOINT = {
   _height: 20,
 }
 
-export function ExpansionJoint(props: DiagramNodeProps) {
+export function ExpansionJoint(props: NodeProps) {
   return (
     <Shape
       {...EXPANSION_JOINT}

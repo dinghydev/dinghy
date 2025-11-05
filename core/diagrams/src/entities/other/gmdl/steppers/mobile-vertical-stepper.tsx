@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_VERTICAL_STEPPER = {
   _style: {
@@ -9,7 +9,7 @@ export const MOBILE_VERTICAL_STEPPER = {
   _height: 642,
 }
 
-export function MobileVerticalStepper(props: DiagramNodeProps) {
+export function MobileVerticalStepper(props: NodeProps) {
   return (
     <Shape
       {...MOBILE_VERTICAL_STEPPER}

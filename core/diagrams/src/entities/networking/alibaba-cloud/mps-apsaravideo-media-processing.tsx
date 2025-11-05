@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MPS_APSARAVIDEO_MEDIA_PROCESSING = {
   _style: {
@@ -10,7 +10,7 @@ export const MPS_APSARAVIDEO_MEDIA_PROCESSING = {
   _original_height: 51.9,
 }
 
-export function MpsApsaravideoMediaProcessing(props: DiagramNodeProps) {
+export function MpsApsaravideoMediaProcessing(props: NodeProps) {
   return (
     <Shape
       {...MPS_APSARAVIDEO_MEDIA_PROCESSING}

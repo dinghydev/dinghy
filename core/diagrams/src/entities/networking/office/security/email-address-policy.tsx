@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EMAIL_ADDRESS_POLICY = {
   _style: {
@@ -10,7 +10,7 @@ export const EMAIL_ADDRESS_POLICY = {
   _original_height: 53,
 }
 
-export function EmailAddressPolicy(props: DiagramNodeProps) {
+export function EmailAddressPolicy(props: NodeProps) {
   return (
     <Shape
       {...EMAIL_ADDRESS_POLICY}

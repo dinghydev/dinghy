@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONSTRAINT_TEXTUAL_NOTE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONSTRAINT_TEXTUAL_NOTE = {
   _height: 60,
 }
 
-export function ConstraintTextualNote(props: DiagramNodeProps) {
+export function ConstraintTextualNote(props: NodeProps) {
   return (
     <Shape
       {...CONSTRAINT_TEXTUAL_NOTE}

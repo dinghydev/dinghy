@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QNA_MAKERS = {
   _style: {
@@ -10,7 +10,7 @@ export const QNA_MAKERS = {
   _original_height: 68,
 }
 
-export function QnaMakers(props: DiagramNodeProps) {
+export function QnaMakers(props: NodeProps) {
   return (
     <Shape {...QNA_MAKERS} {...props} _style={extendStyle(QNA_MAKERS, props)} />
   )

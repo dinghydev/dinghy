@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_REPOS = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_REPOS = {
   _original_height: 50,
 }
 
-export function AzureRepos(props: DiagramNodeProps) {
+export function AzureRepos(props: NodeProps) {
   return (
     <Shape
       {...AZURE_REPOS}

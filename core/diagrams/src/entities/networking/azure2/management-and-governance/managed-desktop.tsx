@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_DESKTOP = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_DESKTOP = {
   _original_height: 63.2,
 }
 
-export function ManagedDesktop(props: DiagramNodeProps) {
+export function ManagedDesktop(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_DESKTOP}

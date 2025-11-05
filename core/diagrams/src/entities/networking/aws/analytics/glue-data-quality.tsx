@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLUE_DATA_QUALITY = {
   _style: {
@@ -10,7 +10,7 @@ export const GLUE_DATA_QUALITY = {
   _original_height: 78,
 }
 
-export function GlueDataQuality(props: DiagramNodeProps) {
+export function GlueDataQuality(props: NodeProps) {
   return (
     <Shape
       {...GLUE_DATA_QUALITY}

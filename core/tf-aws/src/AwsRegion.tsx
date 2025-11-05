@@ -1,4 +1,4 @@
-import { IacNodeProps } from '@dinghy/base-components'
+import { NodeProps } from '@dinghy/base-components'
 
 import { awsProps } from './index.ts'
 import z from 'zod'
@@ -13,7 +13,7 @@ export const AwsRegionInputSchema = z.object({
 
 export type AwsRegionInputProps =
   & z.input<typeof AwsRegionInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export function AwsRegion(props: AwsRegionInputProps) {
   const { stack } = useStack()

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VESSEL_FULL_TUBE_HEATING_COOLING_COIL = {
   _style: {
@@ -10,7 +10,7 @@ export const VESSEL_FULL_TUBE_HEATING_COOLING_COIL = {
   _height: 70,
 }
 
-export function VesselFullTubeHeatingCoolingCoil(props: DiagramNodeProps) {
+export function VesselFullTubeHeatingCoolingCoil(props: NodeProps) {
   return (
     <Shape
       {...VESSEL_FULL_TUBE_HEATING_COOLING_COIL}

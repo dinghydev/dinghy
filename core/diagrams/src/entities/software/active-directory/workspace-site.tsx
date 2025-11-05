@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORKSPACE_SITE = {
   _style: {
@@ -10,7 +10,7 @@ export const WORKSPACE_SITE = {
   _original_height: 48.5,
 }
 
-export function WorkspaceSite(props: DiagramNodeProps) {
+export function WorkspaceSite(props: NodeProps) {
   return (
     <Shape
       {...WORKSPACE_SITE}

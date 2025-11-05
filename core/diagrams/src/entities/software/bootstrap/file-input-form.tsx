@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILE_INPUT_FORM = {
   _style: {
@@ -10,7 +10,7 @@ export const FILE_INPUT_FORM = {
   _height: 70,
 }
 
-export function FileInputForm(props: DiagramNodeProps) {
+export function FileInputForm(props: NodeProps) {
   return (
     <Shape
       {...FILE_INPUT_FORM}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11690_QUICK_ACTION_COUPLING = {
   _style: {
@@ -10,7 +10,7 @@ export const X11690_QUICK_ACTION_COUPLING = {
   _height: 102.78,
 }
 
-export function X11690QuickActionCoupling(props: DiagramNodeProps) {
+export function X11690QuickActionCoupling(props: NodeProps) {
   return (
     <Shape
       {...X11690_QUICK_ACTION_COUPLING}

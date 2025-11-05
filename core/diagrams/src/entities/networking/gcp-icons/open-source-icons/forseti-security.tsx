@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORSETI_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const FORSETI_SECURITY = {
   _height: 40,
 }
 
-export function ForsetiSecurity(props: DiagramNodeProps) {
+export function ForsetiSecurity(props: NodeProps) {
   return (
     <Shape
       {...FORSETI_SECURITY}

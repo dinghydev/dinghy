@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REDUCER = {
   _style: {
@@ -10,6 +10,6 @@ export const REDUCER = {
   _height: 50,
 }
 
-export function Reducer(props: DiagramNodeProps) {
+export function Reducer(props: NodeProps) {
   return <Shape {...REDUCER} {...props} _style={extendStyle(REDUCER, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTIBRANCH_SHARED_ASSOCIATION = {
   _style: {
@@ -9,7 +9,7 @@ export const MULTIBRANCH_SHARED_ASSOCIATION = {
   _height: 50,
 }
 
-export function MultibranchSharedAssociation(props: DiagramNodeProps) {
+export function MultibranchSharedAssociation(props: NodeProps) {
   return (
     <Shape
       {...MULTIBRANCH_SHARED_ASSOCIATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10060_ROLLER_LEVER = {
   _style: {
@@ -10,7 +10,7 @@ export const X10060_ROLLER_LEVER = {
   _height: 35.38,
 }
 
-export function X10060RollerLever(props: DiagramNodeProps) {
+export function X10060RollerLever(props: NodeProps) {
   return (
     <Shape
       {...X10060_ROLLER_LEVER}

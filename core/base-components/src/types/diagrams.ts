@@ -1,8 +1,6 @@
 import z from 'zod'
 import {
   CallableSchema,
-  NodeProps,
-  NodeTree,
   RecordSchema,
   resolvable,
   ResolvableBooleanSchema,
@@ -92,9 +90,3 @@ export const DiagramNodeSchema = z.object({
 })
 
 export type DiagramNodeType = z.input<typeof DiagramNodeSchema>
-export type DiagramNodeProps = DiagramNodeType & NodeProps
-
-export type DependencyProps = {
-  _source: NodeTree
-  _target: NodeTree
-} & DiagramNodeProps

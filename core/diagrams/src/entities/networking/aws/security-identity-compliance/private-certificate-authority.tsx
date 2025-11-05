@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIVATE_CERTIFICATE_AUTHORITY = {
   _style: {
@@ -10,7 +10,7 @@ export const PRIVATE_CERTIFICATE_AUTHORITY = {
   _original_height: 78,
 }
 
-export function PrivateCertificateAuthority(props: DiagramNodeProps) {
+export function PrivateCertificateAuthority(props: NodeProps) {
   return (
     <Shape
       {...PRIVATE_CERTIFICATE_AUTHORITY}

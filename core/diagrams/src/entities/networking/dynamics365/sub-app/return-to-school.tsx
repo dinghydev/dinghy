@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RETURN_TO_SCHOOL = {
   _style: {
@@ -10,7 +10,7 @@ export const RETURN_TO_SCHOOL = {
   _original_height: 66.60000000000001,
 }
 
-export function ReturnToSchool(props: DiagramNodeProps) {
+export function ReturnToSchool(props: NodeProps) {
   return (
     <Shape
       {...RETURN_TO_SCHOOL}

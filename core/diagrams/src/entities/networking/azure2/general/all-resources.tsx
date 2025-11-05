@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALL_RESOURCES = {
   _style: {
@@ -10,7 +10,7 @@ export const ALL_RESOURCES = {
   _original_height: 64,
 }
 
-export function AllResources(props: DiagramNodeProps) {
+export function AllResources(props: NodeProps) {
   return (
     <Shape
       {...ALL_RESOURCES}

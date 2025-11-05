@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRDS_DISTRIBUTE_RELATIONAL_DATABASE_SERVICE = {
   _style: {
@@ -10,9 +10,7 @@ export const DRDS_DISTRIBUTE_RELATIONAL_DATABASE_SERVICE = {
   _original_height: 47.400000000000006,
 }
 
-export function DrdsDistributeRelationalDatabaseService(
-  props: DiagramNodeProps,
-) {
+export function DrdsDistributeRelationalDatabaseService(props: NodeProps) {
   return (
     <Shape
       {...DRDS_DISTRIBUTE_RELATIONAL_DATABASE_SERVICE}

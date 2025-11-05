@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_DOCUMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTI_DOCUMENT = {
   _height: 60,
 }
 
-export function MultiDocument(props: DiagramNodeProps) {
+export function MultiDocument(props: NodeProps) {
   return (
     <Shape
       {...MULTI_DOCUMENT}

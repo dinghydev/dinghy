@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FAILURE_STATUS = {
   _style: {
@@ -8,7 +8,7 @@ export const FAILURE_STATUS = {
   },
 }
 
-export function FailureStatus(props: DiagramNodeProps) {
+export function FailureStatus(props: NodeProps) {
   return (
     <Dependency
       {...FAILURE_STATUS}

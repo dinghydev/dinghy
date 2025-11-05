@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THIRD_PARTY_NON_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const THIRD_PARTY_NON_SAP = {
   _original_height: 28,
 }
 
-export function ThirdPartyNonSap(props: DiagramNodeProps) {
+export function ThirdPartyNonSap(props: NodeProps) {
   return (
     <Shape
       {...THIRD_PARTY_NON_SAP}

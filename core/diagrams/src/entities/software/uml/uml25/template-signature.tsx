@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEMPLATE_SIGNATURE = {
   _style: {
@@ -9,7 +9,7 @@ export const TEMPLATE_SIGNATURE = {
   _height: 20,
 }
 
-export function TemplateSignature(props: DiagramNodeProps) {
+export function TemplateSignature(props: NodeProps) {
   return (
     <Shape
       {...TEMPLATE_SIGNATURE}

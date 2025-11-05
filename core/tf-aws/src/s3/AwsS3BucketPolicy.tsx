@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
@@ -15,7 +15,7 @@ export type AwsS3BucketPolicyInputProps =
   & z.output<
     typeof AwsS3BucketPolicyInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type AwsS3BucketPolicyOutputProps =
   & z.output<

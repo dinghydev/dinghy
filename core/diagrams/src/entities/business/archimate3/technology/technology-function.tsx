@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TECHNOLOGY_FUNCTION = {
   _style: {
@@ -10,7 +10,7 @@ export const TECHNOLOGY_FUNCTION = {
   _height: 75,
 }
 
-export function TechnologyFunction(props: DiagramNodeProps) {
+export function TechnologyFunction(props: NodeProps) {
   return (
     <Shape
       {...TECHNOLOGY_FUNCTION}

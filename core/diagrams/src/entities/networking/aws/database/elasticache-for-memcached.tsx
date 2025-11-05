@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTICACHE_FOR_MEMCACHED = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTICACHE_FOR_MEMCACHED = {
   _original_height: 69,
 }
 
-export function ElasticacheForMemcached(props: DiagramNodeProps) {
+export function ElasticacheForMemcached(props: NodeProps) {
   return (
     <Shape
       {...ELASTICACHE_FOR_MEMCACHED}

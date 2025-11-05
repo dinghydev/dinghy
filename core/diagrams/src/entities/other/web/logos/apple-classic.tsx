@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPLE_CLASSIC = {
   _style: {
@@ -10,7 +10,7 @@ export const APPLE_CLASSIC = {
   _original_height: 76.2,
 }
 
-export function AppleClassic(props: DiagramNodeProps) {
+export function AppleClassic(props: NodeProps) {
   return (
     <Shape
       {...APPLE_CLASSIC}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASSOCIATIVE_ENTITY = {
   _style: {
@@ -9,7 +9,7 @@ export const ASSOCIATIVE_ENTITY = {
   _height: 60,
 }
 
-export function AssociativeEntity(props: DiagramNodeProps) {
+export function AssociativeEntity(props: NodeProps) {
   return (
     <Shape
       {...ASSOCIATIVE_ENTITY}

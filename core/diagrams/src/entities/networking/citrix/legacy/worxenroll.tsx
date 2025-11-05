@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORXENROLL = {
   _style: {
@@ -10,7 +10,7 @@ export const WORXENROLL = {
   _original_height: 38,
 }
 
-export function Worxenroll(props: DiagramNodeProps) {
+export function Worxenroll(props: NodeProps) {
   return (
     <Shape {...WORXENROLL} {...props} _style={extendStyle(WORXENROLL, props)} />
   )

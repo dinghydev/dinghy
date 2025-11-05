@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAVBAR = {
   _style: {
@@ -10,6 +10,6 @@ export const NAVBAR = {
   _height: 60,
 }
 
-export function Navbar(props: DiagramNodeProps) {
+export function Navbar(props: NodeProps) {
   return <Shape {...NAVBAR} {...props} _style={extendStyle(NAVBAR, props)} />
 }

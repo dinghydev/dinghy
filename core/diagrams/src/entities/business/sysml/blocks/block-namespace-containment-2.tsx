@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLOCK_NAMESPACE_CONTAINMENT_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const BLOCK_NAMESPACE_CONTAINMENT_2 = {
   _height: 70,
 }
 
-export function BlockNamespaceContainment2(props: DiagramNodeProps) {
+export function BlockNamespaceContainment2(props: NodeProps) {
   return (
     <Shape
       {...BLOCK_NAMESPACE_CONTAINMENT_2}

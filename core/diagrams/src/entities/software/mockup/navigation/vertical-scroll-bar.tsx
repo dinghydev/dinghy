@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_SCROLL_BAR = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTICAL_SCROLL_BAR = {
   _height: 200,
 }
 
-export function VerticalScrollBar(props: DiagramNodeProps) {
+export function VerticalScrollBar(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_SCROLL_BAR}

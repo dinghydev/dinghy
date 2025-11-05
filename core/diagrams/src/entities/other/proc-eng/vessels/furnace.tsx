@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FURNACE = {
   _style: {
@@ -10,6 +10,6 @@ export const FURNACE = {
   _original_height: 99,
 }
 
-export function Furnace(props: DiagramNodeProps) {
+export function Furnace(props: NodeProps) {
   return <Shape {...FURNACE} {...props} _style={extendStyle(FURNACE, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UM_AUTO_ATTENDANT = {
   _style: {
@@ -10,7 +10,7 @@ export const UM_AUTO_ATTENDANT = {
   _original_height: 57,
 }
 
-export function UmAutoAttendant(props: DiagramNodeProps) {
+export function UmAutoAttendant(props: NodeProps) {
   return (
     <Shape
       {...UM_AUTO_ATTENDANT}

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROFILE_APPLICATION = {
   _style: {
@@ -8,7 +8,7 @@ export const PROFILE_APPLICATION = {
   },
 }
 
-export function ProfileApplication(props: DiagramNodeProps) {
+export function ProfileApplication(props: NodeProps) {
   return (
     <Dependency
       {...PROFILE_APPLICATION}

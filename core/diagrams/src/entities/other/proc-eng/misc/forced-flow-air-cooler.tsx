@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORCED_FLOW_AIR_COOLER = {
   _style: {
@@ -10,7 +10,7 @@ export const FORCED_FLOW_AIR_COOLER = {
   _height: 30,
 }
 
-export function ForcedFlowAirCooler(props: DiagramNodeProps) {
+export function ForcedFlowAirCooler(props: NodeProps) {
   return (
     <Shape
       {...FORCED_FLOW_AIR_COOLER}

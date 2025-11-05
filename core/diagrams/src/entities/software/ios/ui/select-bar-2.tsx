@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SELECT_BAR_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const SELECT_BAR_2 = {
   _height: 27,
 }
 
-export function SelectBar2(props: DiagramNodeProps) {
+export function SelectBar2(props: NodeProps) {
   return (
     <Shape
       {...SELECT_BAR_2}

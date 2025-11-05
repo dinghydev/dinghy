@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_UI = {
   _style: {
@@ -10,6 +10,6 @@ export const WEB_UI = {
   _original_height: 44.8,
 }
 
-export function WebUi(props: DiagramNodeProps) {
+export function WebUi(props: NodeProps) {
   return <Shape {...WEB_UI} {...props} _style={extendStyle(WEB_UI, props)} />
 }

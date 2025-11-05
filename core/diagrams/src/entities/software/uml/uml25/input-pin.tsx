@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INPUT_PIN = {
   _style: {
@@ -9,7 +9,7 @@ export const INPUT_PIN = {
   _original_height: 30,
 }
 
-export function InputPin(props: DiagramNodeProps) {
+export function InputPin(props: NodeProps) {
   return (
     <Shape {...INPUT_PIN} {...props} _style={extendStyle(INPUT_PIN, props)} />
   )

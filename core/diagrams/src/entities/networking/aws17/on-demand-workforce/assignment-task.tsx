@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASSIGNMENT_TASK = {
   _style: {
@@ -10,7 +10,7 @@ export const ASSIGNMENT_TASK = {
   _original_height: 63,
 }
 
-export function AssignmentTask(props: DiagramNodeProps) {
+export function AssignmentTask(props: NodeProps) {
   return (
     <Shape
       {...ASSIGNMENT_TASK}

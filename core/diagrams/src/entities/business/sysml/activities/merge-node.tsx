@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MERGE_NODE = {
   _style: {
@@ -10,7 +10,7 @@ export const MERGE_NODE = {
   _height: 80,
 }
 
-export function MergeNode(props: DiagramNodeProps) {
+export function MergeNode(props: NodeProps) {
   return (
     <Shape {...MERGE_NODE} {...props} _style={extendStyle(MERGE_NODE, props)} />
   )

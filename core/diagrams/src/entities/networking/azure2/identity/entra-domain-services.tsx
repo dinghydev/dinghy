@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTRA_DOMAIN_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTRA_DOMAIN_SERVICES = {
   _original_height: 68,
 }
 
-export function EntraDomainServices(props: DiagramNodeProps) {
+export function EntraDomainServices(props: NodeProps) {
   return (
     <Shape
       {...ENTRA_DOMAIN_SERVICES}

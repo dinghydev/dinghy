@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRAAS_ENHANCEMENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const DRAAS_ENHANCEMENTS = {
   _original_height: 44.8,
 }
 
-export function DraasEnhancements(props: DiagramNodeProps) {
+export function DraasEnhancements(props: NodeProps) {
   return (
     <Shape
       {...DRAAS_ENHANCEMENTS}

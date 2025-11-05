@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NESTED_NAV_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const NESTED_NAV_2 = {
   _height: 330,
 }
 
-export function NestedNav2(props: DiagramNodeProps) {
+export function NestedNav2(props: NodeProps) {
   return (
     <Shape
       {...NESTED_NAV_2}

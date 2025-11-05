@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_CLOUD_WEB_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_CLOUD_WEB_SECURITY = {
   _original_height: 45,
 }
 
-export function CiscoCloudWebSecurity(props: DiagramNodeProps) {
+export function CiscoCloudWebSecurity(props: NodeProps) {
   return (
     <Shape
       {...CISCO_CLOUD_WEB_SECURITY}

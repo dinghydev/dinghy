@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLUMN_VALVE_TRAYS = {
   _style: {
@@ -10,7 +10,7 @@ export const COLUMN_VALVE_TRAYS = {
   _height: 120,
 }
 
-export function ColumnValveTrays(props: DiagramNodeProps) {
+export function ColumnValveTrays(props: NodeProps) {
   return (
     <Shape
       {...COLUMN_VALVE_TRAYS}

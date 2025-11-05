@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_AI_LAUNCHPAD = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_AI_LAUNCHPAD = {
   _original_height: 50,
 }
 
-export function SapAiLaunchpad(props: DiagramNodeProps) {
+export function SapAiLaunchpad(props: NodeProps) {
   return (
     <Shape
       {...SAP_AI_LAUNCHPAD}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_PROGRAMMABLE_CONNECTIVITY = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_PROGRAMMABLE_CONNECTIVITY = {
   _original_height: 68,
 }
 
-export function AzureProgrammableConnectivity(props: DiagramNodeProps) {
+export function AzureProgrammableConnectivity(props: NodeProps) {
   return (
     <Shape
       {...AZURE_PROGRAMMABLE_CONNECTIVITY}

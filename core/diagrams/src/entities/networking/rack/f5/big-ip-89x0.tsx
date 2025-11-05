@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIG_IP_89X0 = {
   _style: {
@@ -10,7 +10,7 @@ export const BIG_IP_89X0 = {
   _height: 40,
 }
 
-export function BigIp89x0(props: DiagramNodeProps) {
+export function BigIp89x0(props: NodeProps) {
   return (
     <Shape
       {...BIG_IP_89X0}

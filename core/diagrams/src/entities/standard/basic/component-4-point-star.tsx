@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_4_POINT_STAR = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_4_POINT_STAR = {
   _original_height: 100,
 }
 
-export function Component4PointStar(props: DiagramNodeProps) {
+export function Component4PointStar(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_4_POINT_STAR}

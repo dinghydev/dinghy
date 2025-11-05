@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FEDERATION_TRUST = {
   _style: {
@@ -10,7 +10,7 @@ export const FEDERATION_TRUST = {
   _original_height: 59,
 }
 
-export function FederationTrust(props: DiagramNodeProps) {
+export function FederationTrust(props: NodeProps) {
   return (
     <Shape
       {...FEDERATION_TRUST}

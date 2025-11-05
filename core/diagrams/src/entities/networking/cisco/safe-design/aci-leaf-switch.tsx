@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACI_LEAF_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const ACI_LEAF_SWITCH = {
   _original_height: 45,
 }
 
-export function AciLeafSwitch(props: DiagramNodeProps) {
+export function AciLeafSwitch(props: NodeProps) {
   return (
     <Shape
       {...ACI_LEAF_SWITCH}

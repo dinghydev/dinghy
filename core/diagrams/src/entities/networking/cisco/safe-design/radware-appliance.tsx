@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RADWARE_APPLIANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const RADWARE_APPLIANCE = {
   _original_height: 45,
 }
 
-export function RadwareAppliance(props: DiagramNodeProps) {
+export function RadwareAppliance(props: NodeProps) {
   return (
     <Shape
       {...RADWARE_APPLIANCE}

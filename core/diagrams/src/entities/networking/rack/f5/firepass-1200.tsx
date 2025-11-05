@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIREPASS_1200 = {
   _style: {
@@ -10,7 +10,7 @@ export const FIREPASS_1200 = {
   _height: 20,
 }
 
-export function Firepass1200(props: DiagramNodeProps) {
+export function Firepass1200(props: NodeProps) {
   return (
     <Shape
       {...FIREPASS_1200}

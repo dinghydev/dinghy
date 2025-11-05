@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PAYMENT_CRYPTOGRAPHY = {
   _style: {
@@ -10,7 +10,7 @@ export const PAYMENT_CRYPTOGRAPHY = {
   _original_height: 78,
 }
 
-export function PaymentCryptography(props: DiagramNodeProps) {
+export function PaymentCryptography(props: NodeProps) {
   return (
     <Shape
       {...PAYMENT_CRYPTOGRAPHY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AVS_VM = {
   _style: {
@@ -10,6 +10,6 @@ export const AVS_VM = {
   _original_height: 62.8,
 }
 
-export function AvsVm(props: DiagramNodeProps) {
+export function AvsVm(props: NodeProps) {
   return <Shape {...AVS_VM} {...props} _style={extendStyle(AVS_VM, props)} />
 }

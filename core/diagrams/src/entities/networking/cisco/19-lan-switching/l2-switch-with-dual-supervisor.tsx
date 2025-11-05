@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const L2_SWITCH_WITH_DUAL_SUPERVISOR = {
   _style: {
@@ -10,7 +10,7 @@ export const L2_SWITCH_WITH_DUAL_SUPERVISOR = {
   _height: 95,
 }
 
-export function L2SwitchWithDualSupervisor(props: DiagramNodeProps) {
+export function L2SwitchWithDualSupervisor(props: NodeProps) {
   return (
     <Shape
       {...L2_SWITCH_WITH_DUAL_SUPERVISOR}

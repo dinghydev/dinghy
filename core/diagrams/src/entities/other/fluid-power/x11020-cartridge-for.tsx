@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11020_CARTRIDGE_FOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X11020_CARTRIDGE_FOR = {
   _height: 93.2,
 }
 
-export function X11020CartridgeFor(props: DiagramNodeProps) {
+export function X11020CartridgeFor(props: NodeProps) {
   return (
     <Shape
       {...X11020_CARTRIDGE_FOR}

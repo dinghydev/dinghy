@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_BRTOOLS = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_BRTOOLS = {
   _original_height: 34,
 }
 
-export function SapBrtools(props: DiagramNodeProps) {
+export function SapBrtools(props: NodeProps) {
   return (
     <Shape
       {...SAP_BRTOOLS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DUAL_GATE_MOSFET_N = {
   _style: {
@@ -10,7 +10,7 @@ export const DUAL_GATE_MOSFET_N = {
   _original_height: 100,
 }
 
-export function DualGateMosfetN(props: DiagramNodeProps) {
+export function DualGateMosfetN(props: NodeProps) {
   return (
     <Shape
       {...DUAL_GATE_MOSFET_N}

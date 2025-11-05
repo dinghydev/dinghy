@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CRITICAL = {
   _style: {
@@ -10,7 +10,7 @@ export const CRITICAL = {
   _original_height: 21,
 }
 
-export function Critical(props: DiagramNodeProps) {
+export function Critical(props: NodeProps) {
   return (
     <Shape {...CRITICAL} {...props} _style={extendStyle(CRITICAL, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RTC_REAL_TIME_COMMUNICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const RTC_REAL_TIME_COMMUNICATION = {
   _original_height: 52.8,
 }
 
-export function RtcRealTimeCommunication(props: DiagramNodeProps) {
+export function RtcRealTimeCommunication(props: NodeProps) {
   return (
     <Shape
       {...RTC_REAL_TIME_COMMUNICATION}

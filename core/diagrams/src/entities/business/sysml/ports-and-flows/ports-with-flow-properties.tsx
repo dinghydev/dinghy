@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PORTS_WITH_FLOW_PROPERTIES = {
   _style: {
@@ -10,7 +10,7 @@ export const PORTS_WITH_FLOW_PROPERTIES = {
   _height: 80,
 }
 
-export function PortsWithFlowProperties(props: DiagramNodeProps) {
+export function PortsWithFlowProperties(props: NodeProps) {
   return (
     <Shape
       {...PORTS_WITH_FLOW_PROPERTIES}

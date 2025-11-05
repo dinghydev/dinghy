@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BAMBOO = {
   _style: {
@@ -10,6 +10,6 @@ export const BAMBOO = {
   _original_height: 74,
 }
 
-export function Bamboo(props: DiagramNodeProps) {
+export function Bamboo(props: NodeProps) {
   return <Shape {...BAMBOO} {...props} _style={extendStyle(BAMBOO, props)} />
 }

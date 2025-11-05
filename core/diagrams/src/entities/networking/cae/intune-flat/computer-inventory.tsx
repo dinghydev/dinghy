@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPUTER_INVENTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPUTER_INVENTORY = {
   _original_height: 45,
 }
 
-export function ComputerInventory(props: DiagramNodeProps) {
+export function ComputerInventory(props: NodeProps) {
   return (
     <Shape
       {...COMPUTER_INVENTORY}

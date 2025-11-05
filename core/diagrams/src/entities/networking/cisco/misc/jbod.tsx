@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JBOD = {
   _style: {
@@ -10,6 +10,6 @@ export const JBOD = {
   _height: 62,
 }
 
-export function Jbod(props: DiagramNodeProps) {
+export function Jbod(props: NodeProps) {
   return <Shape {...JBOD} {...props} _style={extendStyle(JBOD, props)} />
 }

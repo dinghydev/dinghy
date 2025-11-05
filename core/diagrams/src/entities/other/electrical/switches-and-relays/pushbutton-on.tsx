@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUSHBUTTON_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const PUSHBUTTON_ON = {
   _height: 20,
 }
 
-export function PushbuttonOn(props: DiagramNodeProps) {
+export function PushbuttonOn(props: NodeProps) {
   return (
     <Shape
       {...PUSHBUTTON_ON}

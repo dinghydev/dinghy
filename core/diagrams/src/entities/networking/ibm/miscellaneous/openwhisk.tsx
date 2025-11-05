@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPENWHISK = {
   _style: {
@@ -10,7 +10,7 @@ export const OPENWHISK = {
   _original_height: 60,
 }
 
-export function Openwhisk(props: DiagramNodeProps) {
+export function Openwhisk(props: NodeProps) {
   return (
     <Shape {...OPENWHISK} {...props} _style={extendStyle(OPENWHISK, props)} />
   )

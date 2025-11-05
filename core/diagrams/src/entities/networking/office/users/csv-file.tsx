@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CSV_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const CSV_FILE = {
   _original_height: 43,
 }
 
-export function CsvFile(props: DiagramNodeProps) {
+export function CsvFile(props: NodeProps) {
   return (
     <Shape {...CSV_FILE} {...props} _style={extendStyle(CSV_FILE, props)} />
   )

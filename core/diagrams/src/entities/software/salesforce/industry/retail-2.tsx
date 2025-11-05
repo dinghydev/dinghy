@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RETAIL_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const RETAIL_2 = {
   _original_height: 60,
 }
 
-export function Retail2(props: DiagramNodeProps) {
+export function Retail2(props: NodeProps) {
   return (
     <Shape {...RETAIL_2} {...props} _style={extendStyle(RETAIL_2, props)} />
   )

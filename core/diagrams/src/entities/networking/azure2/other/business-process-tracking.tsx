@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUSINESS_PROCESS_TRACKING = {
   _style: {
@@ -10,7 +10,7 @@ export const BUSINESS_PROCESS_TRACKING = {
   _original_height: 68,
 }
 
-export function BusinessProcessTracking(props: DiagramNodeProps) {
+export function BusinessProcessTracking(props: NodeProps) {
   return (
     <Shape
       {...BUSINESS_PROCESS_TRACKING}

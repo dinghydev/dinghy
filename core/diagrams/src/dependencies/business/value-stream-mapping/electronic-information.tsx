@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELECTRONIC_INFORMATION = {
   _style: {
@@ -7,7 +7,7 @@ export const ELECTRONIC_INFORMATION = {
   },
 }
 
-export function ElectronicInformation(props: DiagramNodeProps) {
+export function ElectronicInformation(props: NodeProps) {
   return (
     <Dependency
       {...ELECTRONIC_INFORMATION}

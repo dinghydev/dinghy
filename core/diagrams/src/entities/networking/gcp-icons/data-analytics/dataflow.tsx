@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAFLOW = {
   _style: {
@@ -10,7 +10,7 @@ export const DATAFLOW = {
   _height: 40,
 }
 
-export function Dataflow(props: DiagramNodeProps) {
+export function Dataflow(props: NodeProps) {
   return (
     <Shape {...DATAFLOW} {...props} _style={extendStyle(DATAFLOW, props)} />
   )

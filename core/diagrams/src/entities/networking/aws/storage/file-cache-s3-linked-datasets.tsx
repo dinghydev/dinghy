@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILE_CACHE_S3_LINKED_DATASETS = {
   _style: {
@@ -10,7 +10,7 @@ export const FILE_CACHE_S3_LINKED_DATASETS = {
   _original_height: 78,
 }
 
-export function FileCacheS3LinkedDatasets(props: DiagramNodeProps) {
+export function FileCacheS3LinkedDatasets(props: NodeProps) {
   return (
     <Shape
       {...FILE_CACHE_S3_LINKED_DATASETS}

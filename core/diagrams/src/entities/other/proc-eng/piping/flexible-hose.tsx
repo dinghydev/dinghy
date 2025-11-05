@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLEXIBLE_HOSE = {
   _style: {
@@ -10,7 +10,7 @@ export const FLEXIBLE_HOSE = {
   _height: 25,
 }
 
-export function FlexibleHose(props: DiagramNodeProps) {
+export function FlexibleHose(props: NodeProps) {
   return (
     <Shape
       {...FLEXIBLE_HOSE}

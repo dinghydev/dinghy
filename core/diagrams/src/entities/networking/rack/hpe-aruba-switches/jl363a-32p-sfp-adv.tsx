@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL363A_32P_SFP_ADV = {
   _style: {
@@ -10,7 +10,7 @@ export const JL363A_32P_SFP_ADV = {
   _height: 107,
 }
 
-export function Jl363a32pSfpAdv(props: DiagramNodeProps) {
+export function Jl363a32pSfpAdv(props: NodeProps) {
   return (
     <Shape
       {...JL363A_32P_SFP_ADV}

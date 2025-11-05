@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRUM_OR_CONDENSER = {
   _style: {
@@ -10,7 +10,7 @@ export const DRUM_OR_CONDENSER = {
   _height: 30,
 }
 
-export function DrumOrCondenser(props: DiagramNodeProps) {
+export function DrumOrCondenser(props: NodeProps) {
   return (
     <Shape
       {...DRUM_OR_CONDENSER}

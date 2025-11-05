@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SINGLE_LINE_TEXT_FIELD_FOCUS_DARK = {
   _style: {
@@ -10,7 +10,7 @@ export const SINGLE_LINE_TEXT_FIELD_FOCUS_DARK = {
   _height: 35,
 }
 
-export function SingleLineTextFieldFocusDark(props: DiagramNodeProps) {
+export function SingleLineTextFieldFocusDark(props: NodeProps) {
   return (
     <Shape
       {...SINGLE_LINE_TEXT_FIELD_FOCUS_DARK}

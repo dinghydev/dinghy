@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INSTANT_VM_RECOVERY = {
   _style: {
@@ -10,7 +10,7 @@ export const INSTANT_VM_RECOVERY = {
   _original_height: 34,
 }
 
-export function InstantVmRecovery(props: DiagramNodeProps) {
+export function InstantVmRecovery(props: NodeProps) {
   return (
     <Shape
       {...INSTANT_VM_RECOVERY}

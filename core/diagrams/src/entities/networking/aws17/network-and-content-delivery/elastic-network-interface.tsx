@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_NETWORK_INTERFACE = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_NETWORK_INTERFACE = {
   _original_height: 72,
 }
 
-export function ElasticNetworkInterface(props: DiagramNodeProps) {
+export function ElasticNetworkInterface(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_NETWORK_INTERFACE}

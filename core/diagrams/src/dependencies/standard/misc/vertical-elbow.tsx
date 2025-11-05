@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_ELBOW = {
   _style: {
@@ -8,7 +8,7 @@ export const VERTICAL_ELBOW = {
   },
 }
 
-export function VerticalElbow(props: DiagramNodeProps) {
+export function VerticalElbow(props: NodeProps) {
   return (
     <Dependency
       {...VERTICAL_ELBOW}

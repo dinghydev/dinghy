@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESILIENCE_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const RESILIENCE_HUB = {
   _original_height: 78,
 }
 
-export function ResilienceHub(props: DiagramNodeProps) {
+export function ResilienceHub(props: NodeProps) {
   return (
     <Shape
       {...RESILIENCE_HUB}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CODE_EDITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const CODE_EDITOR = {
   _original_height: 60,
 }
 
-export function CodeEditor(props: DiagramNodeProps) {
+export function CodeEditor(props: NodeProps) {
   return (
     <Shape
       {...CODE_EDITOR}

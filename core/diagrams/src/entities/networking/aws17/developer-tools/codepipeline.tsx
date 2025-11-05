@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CODEPIPELINE = {
   _style: {
@@ -10,7 +10,7 @@ export const CODEPIPELINE = {
   _original_height: 81,
 }
 
-export function Codepipeline(props: DiagramNodeProps) {
+export function Codepipeline(props: NodeProps) {
   return (
     <Shape
       {...CODEPIPELINE}

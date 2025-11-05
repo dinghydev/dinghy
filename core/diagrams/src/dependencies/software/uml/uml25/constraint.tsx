@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONSTRAINT = {
   _style: {
@@ -8,7 +8,7 @@ export const CONSTRAINT = {
   },
 }
 
-export function Constraint(props: DiagramNodeProps) {
+export function Constraint(props: NodeProps) {
   return (
     <Dependency
       {...CONSTRAINT}

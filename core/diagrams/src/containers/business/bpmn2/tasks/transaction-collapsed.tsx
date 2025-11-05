@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSACTION_COLLAPSED = {
   _style: {
@@ -8,7 +8,7 @@ export const TRANSACTION_COLLAPSED = {
   },
 }
 
-export function TransactionCollapsed(props: DiagramNodeProps) {
+export function TransactionCollapsed(props: NodeProps) {
   return (
     <Shape
       {...TRANSACTION_COLLAPSED}

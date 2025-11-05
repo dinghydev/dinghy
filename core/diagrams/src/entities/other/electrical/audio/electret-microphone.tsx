@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELECTRET_MICROPHONE = {
   _style: {
@@ -10,7 +10,7 @@ export const ELECTRET_MICROPHONE = {
   _original_height: 70,
 }
 
-export function ElectretMicrophone(props: DiagramNodeProps) {
+export function ElectretMicrophone(props: NodeProps) {
   return (
     <Shape
       {...ELECTRET_MICROPHONE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHARED_DASHBOARD = {
   _style: {
@@ -10,7 +10,7 @@ export const SHARED_DASHBOARD = {
   _original_height: 41,
 }
 
-export function SharedDashboard(props: DiagramNodeProps) {
+export function SharedDashboard(props: NodeProps) {
   return (
     <Shape
       {...SHARED_DASHBOARD}

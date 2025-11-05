@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXT_ANNOTATION = {
   _style: {
@@ -10,7 +10,7 @@ export const TEXT_ANNOTATION = {
   _height: 30,
 }
 
-export function TextAnnotation(props: DiagramNodeProps) {
+export function TextAnnotation(props: NodeProps) {
   return (
     <Shape
       {...TEXT_ANNOTATION}

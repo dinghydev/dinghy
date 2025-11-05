@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MPS_COVER = {
   _style: {
@@ -10,7 +10,7 @@ export const MPS_COVER = {
   _original_height: 54.900000000000006,
 }
 
-export function MpsCover(props: DiagramNodeProps) {
+export function MpsCover(props: NodeProps) {
   return (
     <Shape {...MPS_COVER} {...props} _style={extendStyle(MPS_COVER, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IDENTITY_ACCESS_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const IDENTITY_ACCESS_MANAGEMENT = {
   _original_height: 60,
 }
 
-export function IdentityAccessManagement(props: DiagramNodeProps) {
+export function IdentityAccessManagement(props: NodeProps) {
   return (
     <Shape
       {...IDENTITY_ACCESS_MANAGEMENT}

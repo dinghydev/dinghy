@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIME_SERIES_INSIGHTS_ACCESS_POLICIES = {
   _style: {
@@ -10,7 +10,7 @@ export const TIME_SERIES_INSIGHTS_ACCESS_POLICIES = {
   _height: 68,
 }
 
-export function TimeSeriesInsightsAccessPolicies(props: DiagramNodeProps) {
+export function TimeSeriesInsightsAccessPolicies(props: NodeProps) {
   return (
     <Shape
       {...TIME_SERIES_INSIGHTS_ACCESS_POLICIES}

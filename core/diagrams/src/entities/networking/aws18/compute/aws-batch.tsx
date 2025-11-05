@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_BATCH = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_BATCH = {
   _height: 100,
 }
 
-export function AwsBatch(props: DiagramNodeProps) {
+export function AwsBatch(props: NodeProps) {
   return (
     <Shape {...AWS_BATCH} {...props} _style={extendStyle(AWS_BATCH, props)} />
   )

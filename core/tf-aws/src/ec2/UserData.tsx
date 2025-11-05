@@ -1,7 +1,4 @@
-import {
-  type IacNodeProps,
-  ResolvableStringSchema,
-} from '@dinghy/base-components'
+import { type NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
 import z from 'zod'
 import { useTypedNode } from '@dinghy/base-components'
@@ -20,7 +17,7 @@ export const UserDataOutputSchema = z.object({
 
 export type UserDataInputProps =
   & z.input<typeof UserDataInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type UserDataOutputProps =
   & z.output<typeof UserDataOutputSchema>

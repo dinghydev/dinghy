@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HP_INFINIBAND_FDR_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const HP_INFINIBAND_FDR_SWITCH = {
   _height: 241,
 }
 
-export function HpInfinibandFdrSwitch(props: DiagramNodeProps) {
+export function HpInfinibandFdrSwitch(props: NodeProps) {
   return (
     <Shape
       {...HP_INFINIBAND_FDR_SWITCH}

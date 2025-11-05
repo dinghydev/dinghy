@@ -1,5 +1,5 @@
 import {
-  IacNodeProps,
+  NodeProps,
   ResolvableNumberSchema,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
@@ -27,7 +27,7 @@ export type AwsElasticacheClusterProps =
   & z.output<
     typeof AwsElasticacheClusterSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export default function AwsElasticacheCluster(
   props: AwsElasticacheClusterProps,

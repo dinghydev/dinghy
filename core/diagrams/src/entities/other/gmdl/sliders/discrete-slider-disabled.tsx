@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISCRETE_SLIDER_DISABLED = {
   _style: {
@@ -10,7 +10,7 @@ export const DISCRETE_SLIDER_DISABLED = {
   _height: 20,
 }
 
-export function DiscreteSliderDisabled(props: DiagramNodeProps) {
+export function DiscreteSliderDisabled(props: NodeProps) {
   return (
     <Shape
       {...DISCRETE_SLIDER_DISABLED}

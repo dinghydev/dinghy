@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_IP_ADDRESS = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_IP_ADDRESS = {
   _height: 20,
 }
 
-export function ElasticIpAddress(props: DiagramNodeProps) {
+export function ElasticIpAddress(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_IP_ADDRESS}

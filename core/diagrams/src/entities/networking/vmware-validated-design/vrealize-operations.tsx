@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VREALIZE_OPERATIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const VREALIZE_OPERATIONS = {
   _original_height: 50,
 }
 
-export function VrealizeOperations(props: DiagramNodeProps) {
+export function VrealizeOperations(props: NodeProps) {
   return (
     <Shape
       {...VREALIZE_OPERATIONS}

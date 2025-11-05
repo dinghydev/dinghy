@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIGHT_BULB = {
   _style: {
@@ -10,7 +10,7 @@ export const LIGHT_BULB = {
   _original_height: 50,
 }
 
-export function LightBulb(props: DiagramNodeProps) {
+export function LightBulb(props: NodeProps) {
   return (
     <Shape {...LIGHT_BULB} {...props} _style={extendStyle(LIGHT_BULB, props)} />
   )

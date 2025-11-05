@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTOMATION = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTOMATION = {
   _original_height: 78,
 }
 
-export function Automation(props: DiagramNodeProps) {
+export function Automation(props: NodeProps) {
   return (
     <Shape {...AUTOMATION} {...props} _style={extendStyle(AUTOMATION, props)} />
   )

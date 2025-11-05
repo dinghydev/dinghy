@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_INSTANCE_APACHE_CASSANDRA = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_INSTANCE_APACHE_CASSANDRA = {
   _original_height: 68,
 }
 
-export function ManagedInstanceApacheCassandra(props: DiagramNodeProps) {
+export function ManagedInstanceApacheCassandra(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_INSTANCE_APACHE_CASSANDRA}

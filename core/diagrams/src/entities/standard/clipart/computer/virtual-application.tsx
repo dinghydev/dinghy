@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_APPLICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_APPLICATION = {
   _original_height: 80,
 }
 
-export function VirtualApplication(props: DiagramNodeProps) {
+export function VirtualApplication(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_APPLICATION}

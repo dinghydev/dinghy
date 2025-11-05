@@ -1,5 +1,5 @@
 import {
-  type IacNodeProps,
+  type NodeProps,
   ResolvableRecordSchema,
   ResolvableStringSchema,
   Shape,
@@ -28,7 +28,7 @@ const OutputSchema = z.object({
 export type Props =
   & z.output<typeof InputSchema>
   & z.output<typeof OutputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export function AwsEcsCluster(props: Props) {
   const _importId = (node: any) => node._props.name

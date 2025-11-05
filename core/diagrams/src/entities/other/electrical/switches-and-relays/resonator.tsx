@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESONATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const RESONATOR = {
   _height: 50,
 }
 
-export function Resonator(props: DiagramNodeProps) {
+export function Resonator(props: NodeProps) {
   return (
     <Shape {...RESONATOR} {...props} _style={extendStyle(RESONATOR, props)} />
   )

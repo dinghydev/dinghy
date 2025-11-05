@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEON_CARROT = {
   _style: {
@@ -9,7 +9,7 @@ export const NEON_CARROT = {
   _original_height: 50,
 }
 
-export function NeonCarrot(props: DiagramNodeProps) {
+export function NeonCarrot(props: NodeProps) {
   return (
     <Shape
       {...NEON_CARROT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILTERING_RULE = {
   _style: {
@@ -10,7 +10,7 @@ export const FILTERING_RULE = {
   _original_height: 72,
 }
 
-export function FilteringRule(props: DiagramNodeProps) {
+export function FilteringRule(props: NodeProps) {
   return (
     <Shape
       {...FILTERING_RULE}

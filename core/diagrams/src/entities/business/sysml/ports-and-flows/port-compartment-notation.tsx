@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PORT_COMPARTMENT_NOTATION = {
   _style: {
@@ -10,7 +10,7 @@ export const PORT_COMPARTMENT_NOTATION = {
   _height: 70,
 }
 
-export function PortCompartmentNotation(props: DiagramNodeProps) {
+export function PortCompartmentNotation(props: NodeProps) {
   return (
     <Shape
       {...PORT_COMPARTMENT_NOTATION}

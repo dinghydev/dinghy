@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SINGLE_LINE_TEXT_FIELD = {
   _style: {
@@ -10,7 +10,7 @@ export const SINGLE_LINE_TEXT_FIELD = {
   _height: 360,
 }
 
-export function SingleLineTextField(props: DiagramNodeProps) {
+export function SingleLineTextField(props: NodeProps) {
   return (
     <Shape
       {...SINGLE_LINE_TEXT_FIELD}

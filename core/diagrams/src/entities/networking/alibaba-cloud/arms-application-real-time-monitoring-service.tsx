@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE = {
   _style: {
@@ -10,9 +10,7 @@ export const ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE = {
   _height: 26.4,
 }
 
-export function ArmsApplicationRealTimeMonitoringService(
-  props: DiagramNodeProps,
-) {
+export function ArmsApplicationRealTimeMonitoringService(props: NodeProps) {
   return (
     <Shape
       {...ARMS_APPLICATION_REAL_TIME_MONITORING_SERVICE}

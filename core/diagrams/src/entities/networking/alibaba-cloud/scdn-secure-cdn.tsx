@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCDN_SECURE_CDN = {
   _style: {
@@ -10,7 +10,7 @@ export const SCDN_SECURE_CDN = {
   _original_height: 59.4,
 }
 
-export function ScdnSecureCdn(props: DiagramNodeProps) {
+export function ScdnSecureCdn(props: NodeProps) {
   return (
     <Shape
       {...SCDN_SECURE_CDN}

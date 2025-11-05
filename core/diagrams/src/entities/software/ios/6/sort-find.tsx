@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SORT_FIND = {
   _style: {
@@ -10,7 +10,7 @@ export const SORT_FIND = {
   _original_height: 15,
 }
 
-export function SortFind(props: DiagramNodeProps) {
+export function SortFind(props: NodeProps) {
   return (
     <Shape {...SORT_FIND} {...props} _style={extendStyle(SORT_FIND, props)} />
   )

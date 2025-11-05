@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHILLER = {
   _style: {
@@ -10,6 +10,6 @@ export const CHILLER = {
   _height: 115,
 }
 
-export function Chiller(props: DiagramNodeProps) {
+export function Chiller(props: NodeProps) {
   return <Shape {...CHILLER} {...props} _style={extendStyle(CHILLER, props)} />
 }

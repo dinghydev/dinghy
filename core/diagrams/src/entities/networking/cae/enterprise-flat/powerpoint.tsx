@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWERPOINT = {
   _style: {
@@ -10,7 +10,7 @@ export const POWERPOINT = {
   _original_height: 50,
 }
 
-export function Powerpoint(props: DiagramNodeProps) {
+export function Powerpoint(props: NodeProps) {
   return (
     <Shape {...POWERPOINT} {...props} _style={extendStyle(POWERPOINT, props)} />
   )

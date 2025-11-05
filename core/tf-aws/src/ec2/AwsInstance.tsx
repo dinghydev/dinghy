@@ -1,5 +1,5 @@
 import {
-  type IacNodeProps,
+  type NodeProps,
   ResolvableBooleanSchema,
   ResolvableRecordSchema,
   ResolvableStringArraySchema,
@@ -37,7 +37,7 @@ export const AwsInstanceOutputSchema = z.object({
 
 export type AwsInstanceInputProps =
   & z.input<typeof AwsInstanceInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type AwsInstanceOutputProps =
   & z.output<typeof AwsInstanceOutputSchema>

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JUNCTION = {
   _style: {
@@ -10,7 +10,7 @@ export const JUNCTION = {
   _original_height: 10,
 }
 
-export function Junction(props: DiagramNodeProps) {
+export function Junction(props: NodeProps) {
   return (
     <Shape {...JUNCTION} {...props} _style={extendStyle(JUNCTION, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JK_FLIP_FLOP_WITH_SR = {
   _style: {
@@ -10,7 +10,7 @@ export const JK_FLIP_FLOP_WITH_SR = {
   _original_height: 100,
 }
 
-export function JkFlipFlopWithSr(props: DiagramNodeProps) {
+export function JkFlipFlopWithSr(props: NodeProps) {
   return (
     <Shape
       {...JK_FLIP_FLOP_WITH_SR}

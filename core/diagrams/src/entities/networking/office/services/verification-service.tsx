@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERIFICATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const VERIFICATION_SERVICE = {
   _original_height: 59,
 }
 
-export function VerificationService(props: DiagramNodeProps) {
+export function VerificationService(props: NodeProps) {
   return (
     <Shape
       {...VERIFICATION_SERVICE}

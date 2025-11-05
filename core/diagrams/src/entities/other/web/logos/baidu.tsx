@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BAIDU = {
   _style: {
@@ -10,6 +10,6 @@ export const BAIDU = {
   _original_height: 77,
 }
 
-export function Baidu(props: DiagramNodeProps) {
+export function Baidu(props: NodeProps) {
   return <Shape {...BAIDU} {...props} _style={extendStyle(BAIDU, props)} />
 }

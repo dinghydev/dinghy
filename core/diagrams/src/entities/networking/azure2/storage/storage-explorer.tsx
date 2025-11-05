@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STORAGE_EXPLORER = {
   _style: {
@@ -10,7 +10,7 @@ export const STORAGE_EXPLORER = {
   _original_height: 68,
 }
 
-export function StorageExplorer(props: DiagramNodeProps) {
+export function StorageExplorer(props: NodeProps) {
   return (
     <Shape
       {...STORAGE_EXPLORER}

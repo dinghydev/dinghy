@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECKLIST_FAULT_TOLERANT = {
   _style: {
@@ -10,7 +10,7 @@ export const CHECKLIST_FAULT_TOLERANT = {
   _original_height: 60,
 }
 
-export function ChecklistFaultTolerant(props: DiagramNodeProps) {
+export function ChecklistFaultTolerant(props: NodeProps) {
   return (
     <Shape
       {...CHECKLIST_FAULT_TOLERANT}

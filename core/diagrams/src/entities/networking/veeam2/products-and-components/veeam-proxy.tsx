@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_PROXY = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_PROXY = {
   _original_height: 21,
 }
 
-export function VeeamProxy(props: DiagramNodeProps) {
+export function VeeamProxy(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_PROXY}

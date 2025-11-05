@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROTARY_DRUM_DRIER_TUMBLING_DRIER = {
   _style: {
@@ -10,7 +10,7 @@ export const ROTARY_DRUM_DRIER_TUMBLING_DRIER = {
   _height: 140,
 }
 
-export function RotaryDrumDrierTumblingDrier(props: DiagramNodeProps) {
+export function RotaryDrumDrierTumblingDrier(props: NodeProps) {
   return (
     <Shape
       {...ROTARY_DRUM_DRIER_TUMBLING_DRIER}

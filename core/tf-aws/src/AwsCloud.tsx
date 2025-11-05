@@ -1,6 +1,6 @@
 import {
-  IacNodeProps,
   IacNodeSchema,
+  NodeProps,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
 
@@ -16,7 +16,7 @@ export const AwsCloudInputSchema = IacNodeSchema.extend({
 
 export type AwsCloudInputProps =
   & z.input<typeof AwsCloudInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export default function AwsCloud(props: AwsCloudInputProps) {
   return (

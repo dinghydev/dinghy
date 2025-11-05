@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUPPORT_SKIRT = {
   _style: {
@@ -10,7 +10,7 @@ export const SUPPORT_SKIRT = {
   _original_height: 100,
 }
 
-export function SupportSkirt(props: DiagramNodeProps) {
+export function SupportSkirt(props: NodeProps) {
   return (
     <Shape
       {...SUPPORT_SKIRT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10110_SOLENOID_COIL = {
   _style: {
@@ -10,7 +10,7 @@ export const X10110_SOLENOID_COIL = {
   _height: 18.66,
 }
 
-export function X10110SolenoidCoil(props: DiagramNodeProps) {
+export function X10110SolenoidCoil(props: NodeProps) {
   return (
     <Shape
       {...X10110_SOLENOID_COIL}

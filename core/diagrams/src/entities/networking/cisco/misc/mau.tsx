@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAU = {
   _style: {
@@ -10,6 +10,6 @@ export const MAU = {
   _height: 26,
 }
 
-export function Mau(props: DiagramNodeProps) {
+export function Mau(props: NodeProps) {
   return <Shape {...MAU} {...props} _style={extendStyle(MAU, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VISUAL_STUDIO_ONLINE = {
   _style: {
@@ -10,7 +10,7 @@ export const VISUAL_STUDIO_ONLINE = {
   _height: 37.5,
 }
 
-export function VisualStudioOnline(props: DiagramNodeProps) {
+export function VisualStudioOnline(props: NodeProps) {
   return (
     <Shape
       {...VISUAL_STUDIO_ONLINE}

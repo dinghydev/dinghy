@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VENT_COVER = {
   _style: {
@@ -10,7 +10,7 @@ export const VENT_COVER = {
   _height: 20,
 }
 
-export function VentCover(props: DiagramNodeProps) {
+export function VentCover(props: NodeProps) {
   return (
     <Shape {...VENT_COVER} {...props} _style={extendStyle(VENT_COVER, props)} />
   )

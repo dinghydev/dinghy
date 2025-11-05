@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IOTID_IDENTITY = {
   _style: {
@@ -10,7 +10,7 @@ export const IOTID_IDENTITY = {
   _original_height: 47.7,
 }
 
-export function IotidIdentity(props: DiagramNodeProps) {
+export function IotidIdentity(props: NodeProps) {
   return (
     <Shape
       {...IOTID_IDENTITY}

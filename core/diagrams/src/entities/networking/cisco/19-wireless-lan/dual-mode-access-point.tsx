@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DUAL_MODE_ACCESS_POINT = {
   _style: {
@@ -10,7 +10,7 @@ export const DUAL_MODE_ACCESS_POINT = {
   _original_height: 50,
 }
 
-export function DualModeAccessPoint(props: DiagramNodeProps) {
+export function DualModeAccessPoint(props: NodeProps) {
   return (
     <Shape
       {...DUAL_MODE_ACCESS_POINT}

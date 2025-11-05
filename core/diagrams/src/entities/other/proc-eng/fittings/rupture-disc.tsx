@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RUPTURE_DISC = {
   _style: {
@@ -10,7 +10,7 @@ export const RUPTURE_DISC = {
   _height: 100,
 }
 
-export function RuptureDisc(props: DiagramNodeProps) {
+export function RuptureDisc(props: NodeProps) {
   return (
     <Shape
       {...RUPTURE_DISC}

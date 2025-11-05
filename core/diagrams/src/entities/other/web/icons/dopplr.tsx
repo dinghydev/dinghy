@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOPPLR = {
   _style: {
@@ -10,6 +10,6 @@ export const DOPPLR = {
   _original_height: 102.4,
 }
 
-export function Dopplr(props: DiagramNodeProps) {
+export function Dopplr(props: NodeProps) {
   return <Shape {...DOPPLR} {...props} _style={extendStyle(DOPPLR, props)} />
 }

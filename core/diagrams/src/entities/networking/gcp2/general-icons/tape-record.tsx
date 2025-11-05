@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAPE_RECORD = {
   _style: {
@@ -10,7 +10,7 @@ export const TAPE_RECORD = {
   _height: 71,
 }
 
-export function TapeRecord(props: DiagramNodeProps) {
+export function TapeRecord(props: NodeProps) {
   return (
     <Shape
       {...TAPE_RECORD}

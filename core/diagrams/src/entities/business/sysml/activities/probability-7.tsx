@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROBABILITY_7 = {
   _style: {
@@ -9,7 +9,7 @@ export const PROBABILITY_7 = {
   _height: 60,
 }
 
-export function Probability7(props: DiagramNodeProps) {
+export function Probability7(props: NodeProps) {
   return (
     <Shape
       {...PROBABILITY_7}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CORRETTO = {
   _style: {
@@ -10,7 +10,7 @@ export const CORRETTO = {
   _original_height: 78,
 }
 
-export function Corretto(props: DiagramNodeProps) {
+export function Corretto(props: NodeProps) {
   return (
     <Shape {...CORRETTO} {...props} _style={extendStyle(CORRETTO, props)} />
   )

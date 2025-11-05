@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TENSORFLOW_ON_AWS = {
   _style: {
@@ -10,7 +10,7 @@ export const TENSORFLOW_ON_AWS = {
   _original_height: 78,
 }
 
-export function TensorflowOnAws(props: DiagramNodeProps) {
+export function TensorflowOnAws(props: NodeProps) {
   return (
     <Shape
       {...TENSORFLOW_ON_AWS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESOURCE_ACCESS_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const RESOURCE_ACCESS_MANAGER = {
   _original_height: 78,
 }
 
-export function ResourceAccessManager(props: DiagramNodeProps) {
+export function ResourceAccessManager(props: NodeProps) {
   return (
     <Shape
       {...RESOURCE_ACCESS_MANAGER}

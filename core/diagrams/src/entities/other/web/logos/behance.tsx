@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BEHANCE = {
   _style: {
@@ -10,6 +10,6 @@ export const BEHANCE = {
   _height: 45.6,
 }
 
-export function Behance(props: DiagramNodeProps) {
+export function Behance(props: NodeProps) {
   return <Shape {...BEHANCE} {...props} _style={extendStyle(BEHANCE, props)} />
 }

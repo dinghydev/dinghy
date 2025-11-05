@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIVERTER_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const DIVERTER_VALVE = {
   _height: 35,
 }
 
-export function DiverterValve(props: DiagramNodeProps) {
+export function DiverterValve(props: NodeProps) {
   return (
     <Shape
       {...DIVERTER_VALVE}

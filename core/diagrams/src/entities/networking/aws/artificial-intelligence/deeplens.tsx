@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEEPLENS = {
   _style: {
@@ -10,7 +10,7 @@ export const DEEPLENS = {
   _original_height: 78,
 }
 
-export function Deeplens(props: DiagramNodeProps) {
+export function Deeplens(props: NodeProps) {
   return (
     <Shape {...DEEPLENS} {...props} _style={extendStyle(DEEPLENS, props)} />
   )

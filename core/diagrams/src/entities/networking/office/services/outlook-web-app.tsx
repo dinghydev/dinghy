@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OUTLOOK_WEB_APP = {
   _style: {
@@ -10,7 +10,7 @@ export const OUTLOOK_WEB_APP = {
   _height: 51,
 }
 
-export function OutlookWebApp(props: DiagramNodeProps) {
+export function OutlookWebApp(props: NodeProps) {
   return (
     <Shape
       {...OUTLOOK_WEB_APP}

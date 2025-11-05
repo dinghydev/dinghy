@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPROVER = {
   _style: {
@@ -10,7 +10,7 @@ export const APPROVER = {
   _original_height: 55,
 }
 
-export function Approver(props: DiagramNodeProps) {
+export function Approver(props: NodeProps) {
   return (
     <Shape {...APPROVER} {...props} _style={extendStyle(APPROVER, props)} />
   )

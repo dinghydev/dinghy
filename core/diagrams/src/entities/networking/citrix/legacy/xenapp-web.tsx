@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XENAPP_WEB = {
   _style: {
@@ -10,7 +10,7 @@ export const XENAPP_WEB = {
   _original_height: 90,
 }
 
-export function XenappWeb(props: DiagramNodeProps) {
+export function XenappWeb(props: NodeProps) {
   return (
     <Shape {...XENAPP_WEB} {...props} _style={extendStyle(XENAPP_WEB, props)} />
   )

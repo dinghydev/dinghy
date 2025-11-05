@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHALLOW_HISTORY = {
   _style: {
@@ -9,7 +9,7 @@ export const SHALLOW_HISTORY = {
   _original_height: 30,
 }
 
-export function ShallowHistory(props: DiagramNodeProps) {
+export function ShallowHistory(props: NodeProps) {
   return (
     <Shape
       {...SHALLOW_HISTORY}

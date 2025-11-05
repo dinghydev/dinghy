@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CAT5E_ENHANCED_PATCH_PANEL_48_PORTS = {
   _style: {
@@ -10,7 +10,7 @@ export const CAT5E_ENHANCED_PATCH_PANEL_48_PORTS = {
   _height: 30,
 }
 
-export function Cat5eEnhancedPatchPanel48Ports(props: DiagramNodeProps) {
+export function Cat5eEnhancedPatchPanel48Ports(props: NodeProps) {
   return (
     <Shape
       {...CAT5E_ENHANCED_PATCH_PANEL_48_PORTS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECRET_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const SECRET_MANAGER = {
   _height: 25,
 }
 
-export function SecretManager(props: DiagramNodeProps) {
+export function SecretManager(props: NodeProps) {
   return (
     <Shape
       {...SECRET_MANAGER}

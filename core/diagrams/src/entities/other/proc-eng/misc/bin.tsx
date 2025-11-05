@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIN = {
   _style: {
@@ -10,6 +10,6 @@ export const BIN = {
   _height: 65,
 }
 
-export function Bin(props: DiagramNodeProps) {
+export function Bin(props: NodeProps) {
   return <Shape {...BIN} {...props} _style={extendStyle(BIN, props)} />
 }

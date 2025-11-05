@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCSI_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const SCSI_CONTROLLER = {
   _height: 22.5,
 }
 
-export function ScsiController(props: DiagramNodeProps) {
+export function ScsiController(props: NodeProps) {
   return (
     <Shape
       {...SCSI_CONTROLLER}

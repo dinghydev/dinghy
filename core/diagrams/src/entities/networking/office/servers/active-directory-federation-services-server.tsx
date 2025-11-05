@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER = {
   _style: {
@@ -10,9 +10,7 @@ export const ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER = {
   _original_height: 56,
 }
 
-export function ActiveDirectoryFederationServicesServer(
-  props: DiagramNodeProps,
-) {
+export function ActiveDirectoryFederationServicesServer(props: NodeProps) {
   return (
     <Shape
       {...ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER}

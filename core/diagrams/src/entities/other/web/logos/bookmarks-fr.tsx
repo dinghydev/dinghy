@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOOKMARKS_FR = {
   _style: {
@@ -10,7 +10,7 @@ export const BOOKMARKS_FR = {
   _original_height: 62.800000000000004,
 }
 
-export function BookmarksFr(props: DiagramNodeProps) {
+export function BookmarksFr(props: NodeProps) {
   return (
     <Shape
       {...BOOKMARKS_FR}

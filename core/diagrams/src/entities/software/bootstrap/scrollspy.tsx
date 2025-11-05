@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCROLLSPY = {
   _style: {
@@ -10,7 +10,7 @@ export const SCROLLSPY = {
   _height: 300,
 }
 
-export function Scrollspy(props: DiagramNodeProps) {
+export function Scrollspy(props: NodeProps) {
   return (
     <Shape {...SCROLLSPY} {...props} _style={extendStyle(SCROLLSPY, props)} />
   )

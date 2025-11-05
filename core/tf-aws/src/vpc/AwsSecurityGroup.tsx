@@ -1,5 +1,5 @@
 import {
-  IacNodeProps,
+  NodeProps,
   ResolvableStringSchema,
   useTypedNodes,
 } from '@dinghy/base-components'
@@ -21,7 +21,7 @@ export const AwsSecurityGroupOutputSchema = z.object({
 
 export type AwsSecurityGroupInputProps =
   & z.output<typeof AwsSecurityGroupInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type AwsSecurityGroupOutputProps =
   & z.output<typeof AwsSecurityGroupOutputSchema>

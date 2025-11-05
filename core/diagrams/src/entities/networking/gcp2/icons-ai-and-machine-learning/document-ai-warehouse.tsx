@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOCUMENT_AI_WAREHOUSE = {
   _style: {
@@ -10,7 +10,7 @@ export const DOCUMENT_AI_WAREHOUSE = {
   _height: 32,
 }
 
-export function DocumentAiWarehouse(props: DiagramNodeProps) {
+export function DocumentAiWarehouse(props: NodeProps) {
   return (
     <Shape
       {...DOCUMENT_AI_WAREHOUSE}

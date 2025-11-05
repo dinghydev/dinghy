@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERACTION_USE = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERACTION_USE = {
   _height: 60,
 }
 
-export function InteractionUse(props: DiagramNodeProps) {
+export function InteractionUse(props: NodeProps) {
   return (
     <Shape
       {...INTERACTION_USE}

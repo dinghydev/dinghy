@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OFF_PAGE_CONNECTOR = {
   _style: {
@@ -9,7 +9,7 @@ export const OFF_PAGE_CONNECTOR = {
   _original_height: 80,
 }
 
-export function OffPageConnector(props: DiagramNodeProps) {
+export function OffPageConnector(props: NodeProps) {
   return (
     <Shape
       {...OFF_PAGE_CONNECTOR}

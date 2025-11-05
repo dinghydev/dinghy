@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARALLEL = {
   _style: {
@@ -10,7 +10,7 @@ export const PARALLEL = {
   _original_height: 50,
 }
 
-export function Parallel(props: DiagramNodeProps) {
+export function Parallel(props: NodeProps) {
   return (
     <Shape {...PARALLEL} {...props} _style={extendStyle(PARALLEL, props)} />
   )

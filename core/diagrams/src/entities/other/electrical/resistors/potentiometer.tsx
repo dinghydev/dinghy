@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POTENTIOMETER = {
   _style: {
@@ -10,7 +10,7 @@ export const POTENTIOMETER = {
   _height: 40,
 }
 
-export function Potentiometer(props: DiagramNodeProps) {
+export function Potentiometer(props: NodeProps) {
   return (
     <Shape
       {...POTENTIOMETER}

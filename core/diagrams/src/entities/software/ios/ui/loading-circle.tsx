@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOADING_CIRCLE = {
   _style: {
@@ -10,7 +10,7 @@ export const LOADING_CIRCLE = {
   _original_height: 40,
 }
 
-export function LoadingCircle(props: DiagramNodeProps) {
+export function LoadingCircle(props: NodeProps) {
   return (
     <Shape
       {...LOADING_CIRCLE}

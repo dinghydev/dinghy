@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSIT_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSIT_GATEWAY = {
   _original_height: 78,
 }
 
-export function TransitGateway(props: DiagramNodeProps) {
+export function TransitGateway(props: NodeProps) {
   return (
     <Shape
       {...TRANSIT_GATEWAY}

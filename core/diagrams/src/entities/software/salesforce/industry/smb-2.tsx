@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SMB_2 = {
   _style: {
@@ -10,6 +10,6 @@ export const SMB_2 = {
   _original_height: 60,
 }
 
-export function Smb2(props: DiagramNodeProps) {
+export function Smb2(props: NodeProps) {
   return <Shape {...SMB_2} {...props} _style={extendStyle(SMB_2, props)} />
 }

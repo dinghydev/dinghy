@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BARE_METAL_INFRASTRUCTURE = {
   _style: {
@@ -10,7 +10,7 @@ export const BARE_METAL_INFRASTRUCTURE = {
   _original_height: 64,
 }
 
-export function BareMetalInfrastructure(props: DiagramNodeProps) {
+export function BareMetalInfrastructure(props: NodeProps) {
   return (
     <Shape
       {...BARE_METAL_INFRASTRUCTURE}

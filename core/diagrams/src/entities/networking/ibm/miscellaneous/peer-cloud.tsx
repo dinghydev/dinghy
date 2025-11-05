@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PEER_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const PEER_CLOUD = {
   _original_height: 46.2,
 }
 
-export function PeerCloud(props: DiagramNodeProps) {
+export function PeerCloud(props: NodeProps) {
   return (
     <Shape {...PEER_CLOUD} {...props} _style={extendStyle(PEER_CLOUD, props)} />
   )

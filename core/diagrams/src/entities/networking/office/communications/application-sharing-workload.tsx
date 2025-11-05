@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPLICATION_SHARING_WORKLOAD = {
   _style: {
@@ -10,7 +10,7 @@ export const APPLICATION_SHARING_WORKLOAD = {
   _original_height: 49,
 }
 
-export function ApplicationSharingWorkload(props: DiagramNodeProps) {
+export function ApplicationSharingWorkload(props: NodeProps) {
   return (
     <Shape
       {...APPLICATION_SHARING_WORKLOAD}

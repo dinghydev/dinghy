@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAXCOMPUTE = {
   _style: {
@@ -10,7 +10,7 @@ export const MAXCOMPUTE = {
   _original_height: 50.099999999999994,
 }
 
-export function Maxcompute(props: DiagramNodeProps) {
+export function Maxcompute(props: NodeProps) {
   return (
     <Shape {...MAXCOMPUTE} {...props} _style={extendStyle(MAXCOMPUTE, props)} />
   )

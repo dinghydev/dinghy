@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_3RD_PARTY_INTEGRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_3RD_PARTY_INTEGRATION = {
   _original_height: 55,
 }
 
-export function Component3rdPartyIntegration(props: DiagramNodeProps) {
+export function Component3rdPartyIntegration(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_3RD_PARTY_INTEGRATION}

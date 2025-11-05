@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING = {
   _style: {
@@ -10,7 +10,7 @@ export const EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING = {
   _original_height: 47.7,
 }
 
-export function EhpcElasticHighPerformanceComputing(props: DiagramNodeProps) {
+export function EhpcElasticHighPerformanceComputing(props: NodeProps) {
   return (
     <Shape
       {...EHPC_ELASTIC_HIGH_PERFORMANCE_COMPUTING}

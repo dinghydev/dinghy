@@ -1,6 +1,6 @@
 import {
   deepResolve,
-  type IacNodeProps,
+  type NodeProps,
   ResolvableStringSchema,
 } from '@dinghy/base-components'
 
@@ -26,7 +26,7 @@ export const AwsS3ObjectOutputSchema = z.object({
 
 export type AwsS3ObjectInputProps =
   & z.input<typeof AwsS3ObjectInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type AwsS3ObjectOutputProps =
   & z.output<typeof AwsS3ObjectOutputSchema>

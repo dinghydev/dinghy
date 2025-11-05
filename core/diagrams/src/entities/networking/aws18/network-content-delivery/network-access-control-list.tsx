@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETWORK_ACCESS_CONTROL_LIST = {
   _style: {
@@ -10,7 +10,7 @@ export const NETWORK_ACCESS_CONTROL_LIST = {
   _original_height: 60,
 }
 
-export function NetworkAccessControlList(props: DiagramNodeProps) {
+export function NetworkAccessControlList(props: NodeProps) {
   return (
     <Shape
       {...NETWORK_ACCESS_CONTROL_LIST}

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPTIONAL_SECONDARY_PATH = {
   _style: {
@@ -8,7 +8,7 @@ export const OPTIONAL_SECONDARY_PATH = {
   },
 }
 
-export function OptionalSecondaryPath(props: DiagramNodeProps) {
+export function OptionalSecondaryPath(props: NodeProps) {
   return (
     <Dependency
       {...OPTIONAL_SECONDARY_PATH}

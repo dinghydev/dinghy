@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_ELASTICACHE_FOR_MEMCACHED = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_ELASTICACHE_FOR_MEMCACHED = {
   _height: 120,
 }
 
-export function AmazonElasticacheForMemcached(props: DiagramNodeProps) {
+export function AmazonElasticacheForMemcached(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_ELASTICACHE_FOR_MEMCACHED}

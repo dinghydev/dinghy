@@ -1,4 +1,4 @@
-import { type DiagramNodeProps, Shape } from '@dinghy/base-components'
+import { type NodeProps, Shape } from '@dinghy/base-components'
 
 export type ActivationProps = {
   _x: number
@@ -9,7 +9,7 @@ export type ActivationProps = {
   closed?: boolean
 }
 
-export function Activation(props: ActivationProps & DiagramNodeProps) {
+export function Activation(props: ActivationProps & NodeProps) {
   return (
     <Shape
       title=' '

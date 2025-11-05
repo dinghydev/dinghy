@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VSMART = {
   _style: {
@@ -10,6 +10,6 @@ export const VSMART = {
   _original_height: 50,
 }
 
-export function Vsmart(props: DiagramNodeProps) {
+export function Vsmart(props: NodeProps) {
   return <Shape {...VSMART} {...props} _style={extendStyle(VSMART, props)} />
 }

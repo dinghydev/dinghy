@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATM_MULTISTACK = {
   _style: {
@@ -10,7 +10,7 @@ export const ATM_MULTISTACK = {
   _original_height: 68,
 }
 
-export function AtmMultistack(props: DiagramNodeProps) {
+export function AtmMultistack(props: NodeProps) {
   return (
     <Shape
       {...ATM_MULTISTACK}

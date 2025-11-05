@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECTION_HEADER_DISABLED_FOCUSED_BRIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const SECTION_HEADER_DISABLED_FOCUSED_BRIGHT = {
   _height: 16.88,
 }
 
-export function SectionHeaderDisabledFocusedBright(props: DiagramNodeProps) {
+export function SectionHeaderDisabledFocusedBright(props: NodeProps) {
   return (
     <Shape
       {...SECTION_HEADER_DISABLED_FOCUSED_BRIGHT}

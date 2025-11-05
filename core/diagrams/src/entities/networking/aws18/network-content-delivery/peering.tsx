@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PEERING = {
   _style: {
@@ -10,6 +10,6 @@ export const PEERING = {
   _original_height: 60,
 }
 
-export function Peering(props: DiagramNodeProps) {
+export function Peering(props: NodeProps) {
   return <Shape {...PEERING} {...props} _style={extendStyle(PEERING, props)} />
 }

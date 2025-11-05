@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REQUIRED_INTERFACE = {
   _style: {
@@ -8,7 +8,7 @@ export const REQUIRED_INTERFACE = {
   },
 }
 
-export function RequiredInterface(props: DiagramNodeProps) {
+export function RequiredInterface(props: NodeProps) {
   return (
     <Dependency
       {...REQUIRED_INTERFACE}

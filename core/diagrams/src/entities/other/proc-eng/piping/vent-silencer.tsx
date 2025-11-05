@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VENT_SILENCER = {
   _style: {
@@ -10,7 +10,7 @@ export const VENT_SILENCER = {
   _height: 80,
 }
 
-export function VentSilencer(props: DiagramNodeProps) {
+export function VentSilencer(props: NodeProps) {
   return (
     <Shape
       {...VENT_SILENCER}

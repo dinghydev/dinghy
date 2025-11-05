@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ONTOLOGY = {
   _style: {
@@ -10,7 +10,7 @@ export const ONTOLOGY = {
   _original_height: 60,
 }
 
-export function Ontology(props: DiagramNodeProps) {
+export function Ontology(props: NodeProps) {
   return (
     <Shape {...ONTOLOGY} {...props} _style={extendStyle(ONTOLOGY, props)} />
   )

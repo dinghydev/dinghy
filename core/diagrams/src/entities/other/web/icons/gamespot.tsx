@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GAMESPOT = {
   _style: {
@@ -10,7 +10,7 @@ export const GAMESPOT = {
   _original_height: 102.4,
 }
 
-export function Gamespot(props: DiagramNodeProps) {
+export function Gamespot(props: NodeProps) {
   return (
     <Shape {...GAMESPOT} {...props} _style={extendStyle(GAMESPOT, props)} />
   )

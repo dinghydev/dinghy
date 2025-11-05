@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_SENSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_SENSOR = {
   _original_height: 50.28,
 }
 
-export function DefenderSensor(props: DiagramNodeProps) {
+export function DefenderSensor(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_SENSOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AGITATOR_ANCHOR = {
   _style: {
@@ -10,7 +10,7 @@ export const AGITATOR_ANCHOR = {
   _height: 120,
 }
 
-export function AgitatorAnchor(props: DiagramNodeProps) {
+export function AgitatorAnchor(props: NodeProps) {
   return (
     <Shape
       {...AGITATOR_ANCHOR}

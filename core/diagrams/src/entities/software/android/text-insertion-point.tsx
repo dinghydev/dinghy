@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXT_INSERTION_POINT = {
   _style: {
@@ -10,7 +10,7 @@ export const TEXT_INSERTION_POINT = {
   _height: 30,
 }
 
-export function TextInsertionPoint(props: DiagramNodeProps) {
+export function TextInsertionPoint(props: NodeProps) {
   return (
     <Shape
       {...TEXT_INSERTION_POINT}

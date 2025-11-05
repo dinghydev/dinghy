@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIAMOND = {
   _style: {
@@ -9,6 +9,6 @@ export const DIAMOND = {
   _original_height: 80,
 }
 
-export function Diamond(props: DiagramNodeProps) {
+export function Diamond(props: NodeProps) {
   return <Shape {...DIAMOND} {...props} _style={extendStyle(DIAMOND, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITE_RECOVERY_FUNCTIONAL_ICON = {
   _style: {
@@ -10,7 +10,7 @@ export const SITE_RECOVERY_FUNCTIONAL_ICON = {
   _original_height: 50,
 }
 
-export function SiteRecoveryFunctionalIcon(props: DiagramNodeProps) {
+export function SiteRecoveryFunctionalIcon(props: NodeProps) {
   return (
     <Shape
       {...SITE_RECOVERY_FUNCTIONAL_ICON}

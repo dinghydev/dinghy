@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SELF_GUIDING_TRAIL = {
   _style: {
@@ -10,7 +10,7 @@ export const SELF_GUIDING_TRAIL = {
   _original_height: 99,
 }
 
-export function SelfGuidingTrail(props: DiagramNodeProps) {
+export function SelfGuidingTrail(props: NodeProps) {
   return (
     <Shape
       {...SELF_GUIDING_TRAIL}

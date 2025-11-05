@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADDRESS_BOOK_POLICIES = {
   _style: {
@@ -10,7 +10,7 @@ export const ADDRESS_BOOK_POLICIES = {
   _original_height: 53,
 }
 
-export function AddressBookPolicies(props: DiagramNodeProps) {
+export function AddressBookPolicies(props: NodeProps) {
   return (
     <Shape
       {...ADDRESS_BOOK_POLICIES}

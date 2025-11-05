@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYPER_V_HOST = {
   _style: {
@@ -10,7 +10,7 @@ export const HYPER_V_HOST = {
   _height: 104,
 }
 
-export function HyperVHost(props: DiagramNodeProps) {
+export function HyperVHost(props: NodeProps) {
   return (
     <Shape
       {...HYPER_V_HOST}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRODUCTION_READY_DATABASE = {
   _style: {
@@ -10,7 +10,7 @@ export const PRODUCTION_READY_DATABASE = {
   _original_height: 64,
 }
 
-export function ProductionReadyDatabase(props: DiagramNodeProps) {
+export function ProductionReadyDatabase(props: NodeProps) {
   return (
     <Shape
       {...PRODUCTION_READY_DATABASE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10710_NON_RETURN_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const X10710_NON_RETURN_VALVE = {
   _height: 74.8,
 }
 
-export function X10710NonReturnValve(props: DiagramNodeProps) {
+export function X10710NonReturnValve(props: NodeProps) {
   return (
     <Shape
       {...X10710_NON_RETURN_VALVE}

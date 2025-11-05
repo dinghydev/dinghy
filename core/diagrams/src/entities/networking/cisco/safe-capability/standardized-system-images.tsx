@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STANDARDIZED_SYSTEM_IMAGES = {
   _style: {
@@ -10,7 +10,7 @@ export const STANDARDIZED_SYSTEM_IMAGES = {
   _original_height: 43,
 }
 
-export function StandardizedSystemImages(props: DiagramNodeProps) {
+export function StandardizedSystemImages(props: NodeProps) {
   return (
     <Shape
       {...STANDARDIZED_SYSTEM_IMAGES}

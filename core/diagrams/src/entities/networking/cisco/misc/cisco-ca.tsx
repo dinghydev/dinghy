@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_CA = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_CA = {
   _original_height: 67,
 }
 
-export function CiscoCa(props: DiagramNodeProps) {
+export function CiscoCa(props: NodeProps) {
   return (
     <Shape {...CISCO_CA} {...props} _style={extendStyle(CISCO_CA, props)} />
   )

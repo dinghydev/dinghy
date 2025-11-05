@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HALF_CIRCLE = {
   _style: {
@@ -10,7 +10,7 @@ export const HALF_CIRCLE = {
   _height: 50,
 }
 
-export function HalfCircle(props: DiagramNodeProps) {
+export function HalfCircle(props: NodeProps) {
   return (
     <Shape
       {...HALF_CIRCLE}

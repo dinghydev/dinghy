@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTRY_POINT = {
   _style: {
@@ -9,7 +9,7 @@ export const ENTRY_POINT = {
   _original_height: 30,
 }
 
-export function EntryPoint(props: DiagramNodeProps) {
+export function EntryPoint(props: NodeProps) {
   return (
     <Shape
       {...ENTRY_POINT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMAGE_VERSION = {
   _style: {
@@ -10,7 +10,7 @@ export const IMAGE_VERSION = {
   _original_height: 68,
 }
 
-export function ImageVersion(props: DiagramNodeProps) {
+export function ImageVersion(props: NodeProps) {
   return (
     <Shape
       {...IMAGE_VERSION}

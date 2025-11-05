@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXTBOX = {
   _style: {
@@ -9,6 +9,6 @@ export const TEXTBOX = {
   _height: 120,
 }
 
-export function Textbox(props: DiagramNodeProps) {
+export function Textbox(props: NodeProps) {
   return <Shape {...TEXTBOX} {...props} _style={extendStyle(TEXTBOX, props)} />
 }

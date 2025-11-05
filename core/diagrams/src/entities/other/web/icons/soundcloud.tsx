@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOUNDCLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const SOUNDCLOUD = {
   _original_height: 102.4,
 }
 
-export function Soundcloud(props: DiagramNodeProps) {
+export function Soundcloud(props: NodeProps) {
   return (
     <Shape {...SOUNDCLOUD} {...props} _style={extendStyle(SOUNDCLOUD, props)} />
   )

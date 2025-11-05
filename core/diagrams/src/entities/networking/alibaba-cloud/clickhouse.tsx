@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLICKHOUSE = {
   _style: {
@@ -10,7 +10,7 @@ export const CLICKHOUSE = {
   _original_height: 54.900000000000006,
 }
 
-export function Clickhouse(props: DiagramNodeProps) {
+export function Clickhouse(props: NodeProps) {
   return (
     <Shape {...CLICKHOUSE} {...props} _style={extendStyle(CLICKHOUSE, props)} />
   )

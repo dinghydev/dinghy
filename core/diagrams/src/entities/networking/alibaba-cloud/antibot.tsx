@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANTIBOT = {
   _style: {
@@ -10,6 +10,6 @@ export const ANTIBOT = {
   _original_height: 49.5,
 }
 
-export function Antibot(props: DiagramNodeProps) {
+export function Antibot(props: NodeProps) {
   return <Shape {...ANTIBOT} {...props} _style={extendStyle(ANTIBOT, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHANGE_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const CHANGE_MANAGER = {
   _original_height: 72,
 }
 
-export function ChangeManager(props: DiagramNodeProps) {
+export function ChangeManager(props: NodeProps) {
   return (
     <Shape
       {...CHANGE_MANAGER}

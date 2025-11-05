@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JOIN_NODE = {
   _style: {
@@ -10,7 +10,7 @@ export const JOIN_NODE = {
   _height: 80,
 }
 
-export function JoinNode(props: DiagramNodeProps) {
+export function JoinNode(props: NodeProps) {
   return (
     <Shape {...JOIN_NODE} {...props} _style={extendStyle(JOIN_NODE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_ENCRYPTION_KEY = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_ENCRYPTION_KEY = {
   _original_height: 60,
 }
 
-export function DataEncryptionKey(props: DiagramNodeProps) {
+export function DataEncryptionKey(props: NodeProps) {
   return (
     <Shape
       {...DATA_ENCRYPTION_KEY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REGION = {
   _style: {
@@ -10,6 +10,6 @@ export const REGION = {
   _height: 100,
 }
 
-export function Region(props: DiagramNodeProps) {
+export function Region(props: NodeProps) {
   return <Shape {...REGION} {...props} _style={extendStyle(REGION, props)} />
 }

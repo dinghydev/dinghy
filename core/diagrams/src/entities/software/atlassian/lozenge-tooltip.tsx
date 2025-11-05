@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOZENGE_TOOLTIP = {
   _style: {
@@ -10,7 +10,7 @@ export const LOZENGE_TOOLTIP = {
   _height: 50,
 }
 
-export function LozengeTooltip(props: DiagramNodeProps) {
+export function LozengeTooltip(props: NodeProps) {
   return (
     <Shape
       {...LOZENGE_TOOLTIP}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_DATABASES = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_DATABASES = {
   _original_height: 50,
 }
 
-export function ManagedDatabases(props: DiagramNodeProps) {
+export function ManagedDatabases(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_DATABASES}

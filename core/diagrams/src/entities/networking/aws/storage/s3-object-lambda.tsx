@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const S3_OBJECT_LAMBDA = {
   _style: {
@@ -10,7 +10,7 @@ export const S3_OBJECT_LAMBDA = {
   _height: 78,
 }
 
-export function S3ObjectLambda(props: DiagramNodeProps) {
+export function S3ObjectLambda(props: NodeProps) {
   return (
     <Shape
       {...S3_OBJECT_LAMBDA}

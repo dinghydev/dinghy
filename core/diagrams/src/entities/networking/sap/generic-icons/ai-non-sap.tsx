@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AI_NON_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const AI_NON_SAP = {
   _original_height: 28,
 }
 
-export function AiNonSap(props: DiagramNodeProps) {
+export function AiNonSap(props: NodeProps) {
   return (
     <Shape {...AI_NON_SAP} {...props} _style={extendStyle(AI_NON_SAP, props)} />
   )

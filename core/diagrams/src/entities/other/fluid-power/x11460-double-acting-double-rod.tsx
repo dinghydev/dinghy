@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11460_DOUBLE_ACTING_DOUBLE_ROD = {
   _style: {
@@ -10,7 +10,7 @@ export const X11460_DOUBLE_ACTING_DOUBLE_ROD = {
   _height: 73.56,
 }
 
-export function X11460DoubleActingDoubleRod(props: DiagramNodeProps) {
+export function X11460DoubleActingDoubleRod(props: NodeProps) {
   return (
     <Shape
       {...X11460_DOUBLE_ACTING_DOUBLE_ROD}

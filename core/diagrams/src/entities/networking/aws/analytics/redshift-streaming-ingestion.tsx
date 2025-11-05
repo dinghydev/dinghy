@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REDSHIFT_STREAMING_INGESTION = {
   _style: {
@@ -10,7 +10,7 @@ export const REDSHIFT_STREAMING_INGESTION = {
   _original_height: 78,
 }
 
-export function RedshiftStreamingIngestion(props: DiagramNodeProps) {
+export function RedshiftStreamingIngestion(props: NodeProps) {
   return (
     <Shape
       {...REDSHIFT_STREAMING_INGESTION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_SIMPLE_EMAIL_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_SIMPLE_EMAIL_SERVICE = {
   _height: 110,
 }
 
-export function AmazonSimpleEmailService(props: DiagramNodeProps) {
+export function AmazonSimpleEmailService(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_SIMPLE_EMAIL_SERVICE}

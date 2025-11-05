@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VBR_VIRTUAL_BORDER_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const VBR_VIRTUAL_BORDER_ROUTER = {
   _original_height: 57.599999999999994,
 }
 
-export function VbrVirtualBorderRouter(props: DiagramNodeProps) {
+export function VbrVirtualBorderRouter(props: NodeProps) {
   return (
     <Shape
       {...VBR_VIRTUAL_BORDER_ROUTER}

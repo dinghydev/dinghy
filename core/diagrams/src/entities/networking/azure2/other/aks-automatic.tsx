@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AKS_AUTOMATIC = {
   _style: {
@@ -10,7 +10,7 @@ export const AKS_AUTOMATIC = {
   _original_height: 68,
 }
 
-export function AksAutomatic(props: DiagramNodeProps) {
+export function AksAutomatic(props: NodeProps) {
   return (
     <Shape
       {...AKS_AUTOMATIC}

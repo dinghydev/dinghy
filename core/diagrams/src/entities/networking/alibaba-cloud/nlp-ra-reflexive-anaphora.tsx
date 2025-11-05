@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NLP_RA_REFLEXIVE_ANAPHORA = {
   _style: {
@@ -10,7 +10,7 @@ export const NLP_RA_REFLEXIVE_ANAPHORA = {
   _original_height: 47.400000000000006,
 }
 
-export function NlpRaReflexiveAnaphora(props: DiagramNodeProps) {
+export function NlpRaReflexiveAnaphora(props: NodeProps) {
   return (
     <Shape
       {...NLP_RA_REFLEXIVE_ANAPHORA}

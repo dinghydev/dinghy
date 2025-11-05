@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COAXIAL_CENTER_CONDUCTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const COAXIAL_CENTER_CONDUCTOR = {
   _height: 150,
 }
 
-export function CoaxialCenterConductor(props: DiagramNodeProps) {
+export function CoaxialCenterConductor(props: NodeProps) {
   return (
     <Shape
       {...COAXIAL_CENTER_CONDUCTOR}

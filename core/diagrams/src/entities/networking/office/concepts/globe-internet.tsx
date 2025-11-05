@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLOBE_INTERNET = {
   _style: {
@@ -10,7 +10,7 @@ export const GLOBE_INTERNET = {
   _original_height: 49,
 }
 
-export function GlobeInternet(props: DiagramNodeProps) {
+export function GlobeInternet(props: NodeProps) {
   return (
     <Shape
       {...GLOBE_INTERNET}

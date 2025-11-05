@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MRP_ERP = {
   _style: {
@@ -10,6 +10,6 @@ export const MRP_ERP = {
   _height: 100,
 }
 
-export function MrpErp(props: DiagramNodeProps) {
+export function MrpErp(props: NodeProps) {
   return <Shape {...MRP_ERP} {...props} _style={extendStyle(MRP_ERP, props)} />
 }

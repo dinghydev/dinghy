@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLEETWISE = {
   _style: {
@@ -10,7 +10,7 @@ export const FLEETWISE = {
   _original_height: 78,
 }
 
-export function Fleetwise(props: DiagramNodeProps) {
+export function Fleetwise(props: NodeProps) {
   return (
     <Shape {...FLEETWISE} {...props} _style={extendStyle(FLEETWISE, props)} />
   )

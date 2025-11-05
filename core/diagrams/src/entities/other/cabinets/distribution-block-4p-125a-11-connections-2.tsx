@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS_2 = {
   _height: 50,
 }
 
-export function DistributionBlock4p125a11Connections2(props: DiagramNodeProps) {
+export function DistributionBlock4p125a11Connections2(props: NodeProps) {
   return (
     <Shape
       {...DISTRIBUTION_BLOCK_4P_125A_11_CONNECTIONS_2}

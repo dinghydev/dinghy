@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROBOMAKER = {
   _style: {
@@ -10,7 +10,7 @@ export const ROBOMAKER = {
   _original_height: 78,
 }
 
-export function Robomaker(props: DiagramNodeProps) {
+export function Robomaker(props: NodeProps) {
   return (
     <Shape {...ROBOMAKER} {...props} _style={extendStyle(ROBOMAKER, props)} />
   )

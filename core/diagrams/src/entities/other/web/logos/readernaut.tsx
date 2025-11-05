@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const READERNAUT = {
   _style: {
@@ -10,7 +10,7 @@ export const READERNAUT = {
   _original_height: 72,
 }
 
-export function Readernaut(props: DiagramNodeProps) {
+export function Readernaut(props: NodeProps) {
   return (
     <Shape {...READERNAUT} {...props} _style={extendStyle(READERNAUT, props)} />
   )

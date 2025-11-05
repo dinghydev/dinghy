@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INFORMATION_DATA_CARRIER_SOP = {
   _style: {
@@ -10,7 +10,7 @@ export const INFORMATION_DATA_CARRIER_SOP = {
   _height: 70,
 }
 
-export function InformationDataCarrierSop(props: DiagramNodeProps) {
+export function InformationDataCarrierSop(props: NodeProps) {
   return (
     <Shape
       {...INFORMATION_DATA_CARRIER_SOP}

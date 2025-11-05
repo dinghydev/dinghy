@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FARK = {
   _style: {
@@ -10,6 +10,6 @@ export const FARK = {
   _height: 70.2,
 }
 
-export function Fark(props: DiagramNodeProps) {
+export function Fark(props: NodeProps) {
   return <Shape {...FARK} {...props} _style={extendStyle(FARK, props)} />
 }

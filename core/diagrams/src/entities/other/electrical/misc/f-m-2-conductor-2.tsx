@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const F_M_2_CONDUCTOR_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const F_M_2_CONDUCTOR_2 = {
   _original_height: 100,
 }
 
-export function FM2Conductor2(props: DiagramNodeProps) {
+export function FM2Conductor2(props: NodeProps) {
   return (
     <Shape
       {...F_M_2_CONDUCTOR_2}

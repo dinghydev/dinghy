@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CDDI_FDDI = {
   _style: {
@@ -10,7 +10,7 @@ export const CDDI_FDDI = {
   _height: 50,
 }
 
-export function CddiFddi(props: DiagramNodeProps) {
+export function CddiFddi(props: NodeProps) {
   return (
     <Shape {...CDDI_FDDI} {...props} _style={extendStyle(CDDI_FDDI, props)} />
   )

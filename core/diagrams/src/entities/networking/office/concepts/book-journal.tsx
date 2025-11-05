@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOOK_JOURNAL = {
   _style: {
@@ -10,7 +10,7 @@ export const BOOK_JOURNAL = {
   _original_height: 49,
 }
 
-export function BookJournal(props: DiagramNodeProps) {
+export function BookJournal(props: NodeProps) {
   return (
     <Shape
       {...BOOK_JOURNAL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPENSATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPENSATOR = {
   _height: 80,
 }
 
-export function Compensator(props: DiagramNodeProps) {
+export function Compensator(props: NodeProps) {
   return (
     <Shape
       {...COMPENSATOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANALYSIS_CORRELATION = {
   _style: {
@@ -10,7 +10,7 @@ export const ANALYSIS_CORRELATION = {
   _original_height: 43,
 }
 
-export function AnalysisCorrelation(props: DiagramNodeProps) {
+export function AnalysisCorrelation(props: NodeProps) {
   return (
     <Shape
       {...ANALYSIS_CORRELATION}

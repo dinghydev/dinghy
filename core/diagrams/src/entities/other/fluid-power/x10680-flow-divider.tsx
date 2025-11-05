@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10680_FLOW_DIVIDER = {
   _style: {
@@ -10,7 +10,7 @@ export const X10680_FLOW_DIVIDER = {
   _height: 112.16,
 }
 
-export function X10680FlowDivider(props: DiagramNodeProps) {
+export function X10680FlowDivider(props: NodeProps) {
   return (
     <Shape
       {...X10680_FLOW_DIVIDER}

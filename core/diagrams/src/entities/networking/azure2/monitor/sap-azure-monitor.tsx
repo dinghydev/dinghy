@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_AZURE_MONITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_AZURE_MONITOR = {
   _original_height: 56.00000000000001,
 }
 
-export function SapAzureMonitor(props: DiagramNodeProps) {
+export function SapAzureMonitor(props: NodeProps) {
   return (
     <Shape
       {...SAP_AZURE_MONITOR}

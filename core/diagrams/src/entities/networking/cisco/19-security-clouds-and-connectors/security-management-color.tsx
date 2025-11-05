@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURITY_MANAGEMENT_COLOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURITY_MANAGEMENT_COLOR = {
   _original_height: 50,
 }
 
-export function SecurityManagementColor(props: DiagramNodeProps) {
+export function SecurityManagementColor(props: NodeProps) {
   return (
     <Shape
       {...SECURITY_MANAGEMENT_COLOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAPREP_BY_TRIFACTA = {
   _style: {
@@ -10,7 +10,7 @@ export const DATAPREP_BY_TRIFACTA = {
   _height: 42,
 }
 
-export function DataprepByTrifacta(props: DiagramNodeProps) {
+export function DataprepByTrifacta(props: NodeProps) {
   return (
     <Shape
       {...DATAPREP_BY_TRIFACTA}

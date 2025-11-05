@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDENT_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const INDENT_SAP = {
   _original_height: 28,
 }
 
-export function IndentSap(props: DiagramNodeProps) {
+export function IndentSap(props: NodeProps) {
   return (
     <Shape {...INDENT_SAP} {...props} _style={extendStyle(INDENT_SAP, props)} />
   )

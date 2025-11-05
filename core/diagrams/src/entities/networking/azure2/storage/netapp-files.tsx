@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETAPP_FILES = {
   _style: {
@@ -10,7 +10,7 @@ export const NETAPP_FILES = {
   _original_height: 52,
 }
 
-export function NetappFiles(props: DiagramNodeProps) {
+export function NetappFiles(props: NodeProps) {
   return (
     <Shape
       {...NETAPP_FILES}

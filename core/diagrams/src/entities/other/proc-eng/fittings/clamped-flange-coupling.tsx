@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLAMPED_FLANGE_COUPLING = {
   _style: {
@@ -10,7 +10,7 @@ export const CLAMPED_FLANGE_COUPLING = {
   _height: 100,
 }
 
-export function ClampedFlangeCoupling(props: DiagramNodeProps) {
+export function ClampedFlangeCoupling(props: NodeProps) {
   return (
     <Shape
       {...CLAMPED_FLANGE_COUPLING}

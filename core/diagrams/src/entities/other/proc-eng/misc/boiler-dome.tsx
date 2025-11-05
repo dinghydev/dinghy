@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOILER_DOME = {
   _style: {
@@ -10,7 +10,7 @@ export const BOILER_DOME = {
   _height: 120,
 }
 
-export function BoilerDome(props: DiagramNodeProps) {
+export function BoilerDome(props: NodeProps) {
   return (
     <Shape
       {...BOILER_DOME}

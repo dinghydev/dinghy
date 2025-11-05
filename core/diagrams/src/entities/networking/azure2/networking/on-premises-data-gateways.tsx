@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_PREMISES_DATA_GATEWAYS = {
   _style: {
@@ -10,7 +10,7 @@ export const ON_PREMISES_DATA_GATEWAYS = {
   _original_height: 65.2,
 }
 
-export function OnPremisesDataGateways(props: DiagramNodeProps) {
+export function OnPremisesDataGateways(props: NodeProps) {
   return (
     <Shape
       {...ON_PREMISES_DATA_GATEWAYS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_DEPLOYMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_DEPLOYMENT = {
   _original_height: 44.5,
 }
 
-export function VirtualDeployment(props: DiagramNodeProps) {
+export function VirtualDeployment(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_DEPLOYMENT}

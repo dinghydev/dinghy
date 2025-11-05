@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PREV_NEXT_BUTTON = {
   _style: {
@@ -10,7 +10,7 @@ export const PREV_NEXT_BUTTON = {
   _height: 15,
 }
 
-export function PrevNextButton(props: DiagramNodeProps) {
+export function PrevNextButton(props: NodeProps) {
   return (
     <Shape
       {...PREV_NEXT_BUTTON}

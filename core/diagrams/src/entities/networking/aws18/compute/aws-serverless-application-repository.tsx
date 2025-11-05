@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_SERVERLESS_APPLICATION_REPOSITORY = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_SERVERLESS_APPLICATION_REPOSITORY = {
   _height: 135,
 }
 
-export function AwsServerlessApplicationRepository(props: DiagramNodeProps) {
+export function AwsServerlessApplicationRepository(props: NodeProps) {
   return (
     <Shape
       {...AWS_SERVERLESS_APPLICATION_REPOSITORY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAML_OIDC_3 = {
   _style: {
@@ -10,7 +10,7 @@ export const SAML_OIDC_3 = {
   _height: 100,
 }
 
-export function SamlOidc3(props: DiagramNodeProps) {
+export function SamlOidc3(props: NodeProps) {
   return (
     <Shape
       {...SAML_OIDC_3}

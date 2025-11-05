@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_HMI = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_HMI = {
   _original_height: 52.88,
 }
 
-export function DefenderHmi(props: DiagramNodeProps) {
+export function DefenderHmi(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_HMI}

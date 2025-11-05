@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIBRE_CHANNEL_DISK_SUBSYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const FIBRE_CHANNEL_DISK_SUBSYSTEM = {
   _original_height: 62,
 }
 
-export function FibreChannelDiskSubsystem(props: DiagramNodeProps) {
+export function FibreChannelDiskSubsystem(props: NodeProps) {
   return (
     <Shape
       {...FIBRE_CHANNEL_DISK_SUBSYSTEM}

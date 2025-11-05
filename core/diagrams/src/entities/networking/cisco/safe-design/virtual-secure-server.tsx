@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_SECURE_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_SECURE_SERVER = {
   _original_height: 45,
 }
 
-export function VirtualSecureServer(props: DiagramNodeProps) {
+export function VirtualSecureServer(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_SECURE_SERVER}

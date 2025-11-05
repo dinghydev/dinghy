@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_BUTTON_BAR = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTICAL_BUTTON_BAR = {
   _height: 200,
 }
 
-export function VerticalButtonBar(props: DiagramNodeProps) {
+export function VerticalButtonBar(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_BUTTON_BAR}

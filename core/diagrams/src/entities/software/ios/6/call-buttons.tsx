@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALL_BUTTONS = {
   _style: {
@@ -10,7 +10,7 @@ export const CALL_BUTTONS = {
   _height: 229.99999999999997,
 }
 
-export function CallButtons(props: DiagramNodeProps) {
+export function CallButtons(props: NodeProps) {
   return (
     <Shape
       {...CALL_BUTTONS}

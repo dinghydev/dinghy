@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_IDENTITY_SERVICES_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_IDENTITY_SERVICES_ENGINE = {
   _height: 15,
 }
 
-export function CiscoIdentityServicesEngine(props: DiagramNodeProps) {
+export function CiscoIdentityServicesEngine(props: NodeProps) {
   return (
     <Shape
       {...CISCO_IDENTITY_SERVICES_ENGINE}

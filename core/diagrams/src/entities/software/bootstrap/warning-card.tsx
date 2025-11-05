@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WARNING_CARD = {
   _style: {
@@ -10,7 +10,7 @@ export const WARNING_CARD = {
   _height: 180,
 }
 
-export function WarningCard(props: DiagramNodeProps) {
+export function WarningCard(props: NodeProps) {
   return (
     <Shape
       {...WARNING_CARD}

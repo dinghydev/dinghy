@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_DNS = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_DNS = {
   _original_height: 40,
 }
 
-export function CloudDns(props: DiagramNodeProps) {
+export function CloudDns(props: NodeProps) {
   return (
     <Shape {...CLOUD_DNS} {...props} _style={extendStyle(CLOUD_DNS, props)} />
   )

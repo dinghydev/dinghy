@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BENDING_ARCH = {
   _style: {
@@ -10,7 +10,7 @@ export const BENDING_ARCH = {
   _original_height: 100,
 }
 
-export function BendingArch(props: DiagramNodeProps) {
+export function BendingArch(props: NodeProps) {
   return (
     <Shape
       {...BENDING_ARCH}

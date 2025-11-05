@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERNET_HOLLOW = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERNET_HOLLOW = {
   _height: 31,
 }
 
-export function InternetHollow(props: DiagramNodeProps) {
+export function InternetHollow(props: NodeProps) {
   return (
     <Shape
       {...INTERNET_HOLLOW}

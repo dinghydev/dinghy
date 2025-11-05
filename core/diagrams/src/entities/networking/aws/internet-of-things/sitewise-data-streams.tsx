@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITEWISE_DATA_STREAMS = {
   _style: {
@@ -10,7 +10,7 @@ export const SITEWISE_DATA_STREAMS = {
   _original_height: 78,
 }
 
-export function SitewiseDataStreams(props: DiagramNodeProps) {
+export function SitewiseDataStreams(props: NodeProps) {
   return (
     <Shape
       {...SITEWISE_DATA_STREAMS}

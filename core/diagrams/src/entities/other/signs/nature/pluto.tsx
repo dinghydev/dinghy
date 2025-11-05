@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLUTO = {
   _style: {
@@ -10,6 +10,6 @@ export const PLUTO = {
   _height: 98,
 }
 
-export function Pluto(props: DiagramNodeProps) {
+export function Pluto(props: NodeProps) {
   return <Shape {...PLUTO} {...props} _style={extendStyle(PLUTO, props)} />
 }

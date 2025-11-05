@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROJECT_ZONE_CLOUD_SERVICE_PROVIDER = {
   _style: {
@@ -10,7 +10,7 @@ export const PROJECT_ZONE_CLOUD_SERVICE_PROVIDER = {
   _height: 490,
 }
 
-export function ProjectZoneCloudServiceProvider(props: DiagramNodeProps) {
+export function ProjectZoneCloudServiceProvider(props: NodeProps) {
   return (
     <Shape
       {...PROJECT_ZONE_CLOUD_SERVICE_PROVIDER}

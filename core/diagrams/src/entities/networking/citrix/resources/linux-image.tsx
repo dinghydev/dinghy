@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LINUX_IMAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const LINUX_IMAGE = {
   _height: 50,
 }
 
-export function LinuxImage(props: DiagramNodeProps) {
+export function LinuxImage(props: NodeProps) {
   return (
     <Shape
       {...LINUX_IMAGE}

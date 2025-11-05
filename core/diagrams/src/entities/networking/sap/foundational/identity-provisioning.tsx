@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IDENTITY_PROVISIONING = {
   _style: {
@@ -10,7 +10,7 @@ export const IDENTITY_PROVISIONING = {
   _original_height: 50,
 }
 
-export function IdentityProvisioning(props: DiagramNodeProps) {
+export function IdentityProvisioning(props: NodeProps) {
   return (
     <Shape
       {...IDENTITY_PROVISIONING}

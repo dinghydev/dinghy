@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_DISASTER_RECOVERY = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_DISASTER_RECOVERY = {
   _original_height: 78,
 }
 
-export function ElasticDisasterRecovery(props: DiagramNodeProps) {
+export function ElasticDisasterRecovery(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_DISASTER_RECOVERY}

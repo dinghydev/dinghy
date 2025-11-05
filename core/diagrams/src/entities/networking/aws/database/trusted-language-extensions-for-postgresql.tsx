@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL = {
   _style: {
@@ -10,9 +10,7 @@ export const TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL = {
   _original_height: 78,
 }
 
-export function TrustedLanguageExtensionsForPostgresql(
-  props: DiagramNodeProps,
-) {
+export function TrustedLanguageExtensionsForPostgresql(props: NodeProps) {
   return (
     <Shape
       {...TRUSTED_LANGUAGE_EXTENSIONS_FOR_POSTGRESQL}

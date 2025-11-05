@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OBJECT_STORE_ON_SAP_BTP = {
   _style: {
@@ -10,7 +10,7 @@ export const OBJECT_STORE_ON_SAP_BTP = {
   _original_height: 50,
 }
 
-export function ObjectStoreOnSapBtp(props: DiagramNodeProps) {
+export function ObjectStoreOnSapBtp(props: NodeProps) {
   return (
     <Shape
       {...OBJECT_STORE_ON_SAP_BTP}

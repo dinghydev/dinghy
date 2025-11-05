@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_BOX = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_BOX = {
   _original_height: 68,
 }
 
-export function DataBox(props: DiagramNodeProps) {
+export function DataBox(props: NodeProps) {
   return (
     <Shape {...DATA_BOX} {...props} _style={extendStyle(DATA_BOX, props)} />
   )

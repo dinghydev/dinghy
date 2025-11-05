@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUN_BLADE_6000_ENCLOSURE = {
   _style: {
@@ -10,7 +10,7 @@ export const SUN_BLADE_6000_ENCLOSURE = {
   _height: 149,
 }
 
-export function SunBlade6000Enclosure(props: DiagramNodeProps) {
+export function SunBlade6000Enclosure(props: NodeProps) {
   return (
     <Shape
       {...SUN_BLADE_6000_ENCLOSURE}

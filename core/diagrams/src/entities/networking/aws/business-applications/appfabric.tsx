@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPFABRIC = {
   _style: {
@@ -10,7 +10,7 @@ export const APPFABRIC = {
   _original_height: 78,
 }
 
-export function Appfabric(props: DiagramNodeProps) {
+export function Appfabric(props: NodeProps) {
   return (
     <Shape {...APPFABRIC} {...props} _style={extendStyle(APPFABRIC, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STORAGE_SYNC_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const STORAGE_SYNC_SERVICES = {
   _original_height: 50,
 }
 
-export function StorageSyncServices(props: DiagramNodeProps) {
+export function StorageSyncServices(props: NodeProps) {
   return (
     <Shape
       {...STORAGE_SYNC_SERVICES}

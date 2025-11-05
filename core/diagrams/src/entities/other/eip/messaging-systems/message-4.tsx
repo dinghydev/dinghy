@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const MESSAGE_4 = {
   _height: 48,
 }
 
-export function Message4(props: DiagramNodeProps) {
+export function Message4(props: NodeProps) {
   return (
     <Shape {...MESSAGE_4} {...props} _style={extendStyle(MESSAGE_4, props)} />
   )

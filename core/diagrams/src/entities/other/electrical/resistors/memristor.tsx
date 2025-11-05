@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEMRISTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const MEMRISTOR = {
   _height: 20,
 }
 
-export function Memristor(props: DiagramNodeProps) {
+export function Memristor(props: NodeProps) {
   return (
     <Shape {...MEMRISTOR} {...props} _style={extendStyle(MEMRISTOR, props)} />
   )

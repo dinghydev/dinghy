@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WITHDRAWAL_KANBAN = {
   _style: {
@@ -10,7 +10,7 @@ export const WITHDRAWAL_KANBAN = {
   _original_height: 100,
 }
 
-export function WithdrawalKanban(props: DiagramNodeProps) {
+export function WithdrawalKanban(props: NodeProps) {
   return (
     <Shape
       {...WITHDRAWAL_KANBAN}

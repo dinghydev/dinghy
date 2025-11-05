@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_DIMENSION_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTICAL_DIMENSION_2 = {
   _height: 100,
 }
 
-export function VerticalDimension2(props: DiagramNodeProps) {
+export function VerticalDimension2(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_DIMENSION_2}

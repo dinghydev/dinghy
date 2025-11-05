@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_SQL_DATAWAREHOUSE = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_SQL_DATAWAREHOUSE = {
   _original_height: 48,
 }
 
-export function AzureSqlDatawarehouse(props: DiagramNodeProps) {
+export function AzureSqlDatawarehouse(props: NodeProps) {
   return (
     <Shape
       {...AZURE_SQL_DATAWAREHOUSE}

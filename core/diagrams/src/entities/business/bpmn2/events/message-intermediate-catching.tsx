@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_INTERMEDIATE_CATCHING = {
   _style: {
@@ -10,7 +10,7 @@ export const MESSAGE_INTERMEDIATE_CATCHING = {
   _original_height: 50,
 }
 
-export function MessageIntermediateCatching(props: DiagramNodeProps) {
+export function MessageIntermediateCatching(props: NodeProps) {
   return (
     <Shape
       {...MESSAGE_INTERMEDIATE_CATCHING}

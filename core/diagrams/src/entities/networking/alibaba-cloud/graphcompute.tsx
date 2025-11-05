@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GRAPHCOMPUTE = {
   _style: {
@@ -10,7 +10,7 @@ export const GRAPHCOMPUTE = {
   _original_height: 50.099999999999994,
 }
 
-export function Graphcompute(props: DiagramNodeProps) {
+export function Graphcompute(props: NodeProps) {
   return (
     <Shape
       {...GRAPHCOMPUTE}

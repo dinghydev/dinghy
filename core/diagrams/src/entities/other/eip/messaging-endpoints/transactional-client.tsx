@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSACTIONAL_CLIENT = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSACTIONAL_CLIENT = {
   _height: 90,
 }
 
-export function TransactionalClient(props: DiagramNodeProps) {
+export function TransactionalClient(props: NodeProps) {
   return (
     <Shape
       {...TRANSACTIONAL_CLIENT}

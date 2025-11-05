@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RIBBON_LIST_5 = {
   _style: {
@@ -10,7 +10,7 @@ export const RIBBON_LIST_5 = {
   _height: 590,
 }
 
-export function RibbonList5(props: DiagramNodeProps) {
+export function RibbonList5(props: NodeProps) {
   return (
     <Shape
       {...RIBBON_LIST_5}

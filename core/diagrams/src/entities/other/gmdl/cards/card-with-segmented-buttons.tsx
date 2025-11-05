@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CARD_WITH_SEGMENTED_BUTTONS = {
   _style: {
@@ -9,7 +9,7 @@ export const CARD_WITH_SEGMENTED_BUTTONS = {
   _height: 522,
 }
 
-export function CardWithSegmentedButtons(props: DiagramNodeProps) {
+export function CardWithSegmentedButtons(props: NodeProps) {
   return (
     <Shape
       {...CARD_WITH_SEGMENTED_BUTTONS}

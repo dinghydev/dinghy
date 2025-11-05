@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIG_QUERY = {
   _style: {
@@ -10,7 +10,7 @@ export const BIG_QUERY = {
   _original_height: 100,
 }
 
-export function BigQuery(props: DiagramNodeProps) {
+export function BigQuery(props: NodeProps) {
   return (
     <Shape {...BIG_QUERY} {...props} _style={extendStyle(BIG_QUERY, props)} />
   )

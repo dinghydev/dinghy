@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTIPLE_PROCESS_START_STATE_MULTI_STATE = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTIPLE_PROCESS_START_STATE_MULTI_STATE = {
   _original_height: 60,
 }
 
-export function MultipleProcessStartStateMultiState(props: DiagramNodeProps) {
+export function MultipleProcessStartStateMultiState(props: NodeProps) {
   return (
     <Shape
       {...MULTIPLE_PROCESS_START_STATE_MULTI_STATE}

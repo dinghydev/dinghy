@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPEN_THIN_LEFT = {
   _style: {
@@ -8,7 +8,7 @@ export const OPEN_THIN_LEFT = {
   },
 }
 
-export function OpenThinLeft(props: DiagramNodeProps) {
+export function OpenThinLeft(props: NodeProps) {
   return (
     <Dependency
       {...OPEN_THIN_LEFT}

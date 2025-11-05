@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORDPRESS_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const WORDPRESS_2 = {
   _original_height: 68.8,
 }
 
-export function Wordpress2(props: DiagramNodeProps) {
+export function Wordpress2(props: NodeProps) {
   return (
     <Shape
       {...WORDPRESS_2}

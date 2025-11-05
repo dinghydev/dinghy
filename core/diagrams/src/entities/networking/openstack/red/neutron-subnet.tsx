@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEUTRON_SUBNET = {
   _style: {
@@ -10,7 +10,7 @@ export const NEUTRON_SUBNET = {
   _original_height: 50,
 }
 
-export function NeutronSubnet(props: DiagramNodeProps) {
+export function NeutronSubnet(props: NodeProps) {
   return (
     <Shape
       {...NEUTRON_SUBNET}

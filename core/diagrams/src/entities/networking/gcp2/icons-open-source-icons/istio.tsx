@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ISTIO = {
   _style: {
@@ -10,6 +10,6 @@ export const ISTIO = {
   _height: 42,
 }
 
-export function Istio(props: DiagramNodeProps) {
+export function Istio(props: NodeProps) {
   return <Shape {...ISTIO} {...props} _style={extendStyle(ISTIO, props)} />
 }

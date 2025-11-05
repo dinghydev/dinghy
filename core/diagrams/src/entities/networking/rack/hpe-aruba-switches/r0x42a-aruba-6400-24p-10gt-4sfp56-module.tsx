@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const R0X42A_ARUBA_6400_24P_10GT_4SFP56_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const R0X42A_ARUBA_6400_24P_10GT_4SFP56_MODULE = {
   _height: 15,
 }
 
-export function R0x42aAruba640024p10gt4sfp56Module(props: DiagramNodeProps) {
+export function R0x42aAruba640024p10gt4sfp56Module(props: NodeProps) {
   return (
     <Shape
       {...R0X42A_ARUBA_6400_24P_10GT_4SFP56_MODULE}

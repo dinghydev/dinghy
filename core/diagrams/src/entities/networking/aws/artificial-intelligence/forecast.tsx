@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORECAST = {
   _style: {
@@ -10,7 +10,7 @@ export const FORECAST = {
   _original_height: 78,
 }
 
-export function Forecast(props: DiagramNodeProps) {
+export function Forecast(props: NodeProps) {
   return (
     <Shape {...FORECAST} {...props} _style={extendStyle(FORECAST, props)} />
   )

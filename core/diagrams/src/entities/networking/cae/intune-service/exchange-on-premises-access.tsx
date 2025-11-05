@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXCHANGE_ON_PREMISES_ACCESS = {
   _style: {
@@ -10,7 +10,7 @@ export const EXCHANGE_ON_PREMISES_ACCESS = {
   _height: 50,
 }
 
-export function ExchangeOnPremisesAccess(props: DiagramNodeProps) {
+export function ExchangeOnPremisesAccess(props: NodeProps) {
   return (
     <Shape
       {...EXCHANGE_ON_PREMISES_ACCESS}

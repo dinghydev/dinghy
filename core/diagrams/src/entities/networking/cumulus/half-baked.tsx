@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HALF_BAKED = {
   _style: {
@@ -9,7 +9,7 @@ export const HALF_BAKED = {
   _original_height: 50,
 }
 
-export function HalfBaked(props: DiagramNodeProps) {
+export function HalfBaked(props: NodeProps) {
   return (
     <Shape {...HALF_BAKED} {...props} _style={extendStyle(HALF_BAKED, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FOLDED_BANNERS = {
   _style: {
@@ -10,7 +10,7 @@ export const FOLDED_BANNERS = {
   _height: 360,
 }
 
-export function FoldedBanners(props: DiagramNodeProps) {
+export function FoldedBanners(props: NodeProps) {
   return (
     <Shape
       {...FOLDED_BANNERS}

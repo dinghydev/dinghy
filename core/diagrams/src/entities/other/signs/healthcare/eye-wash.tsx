@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EYE_WASH = {
   _style: {
@@ -10,7 +10,7 @@ export const EYE_WASH = {
   _original_height: 99,
 }
 
-export function EyeWash(props: DiagramNodeProps) {
+export function EyeWash(props: NodeProps) {
   return (
     <Shape {...EYE_WASH} {...props} _style={extendStyle(EYE_WASH, props)} />
   )

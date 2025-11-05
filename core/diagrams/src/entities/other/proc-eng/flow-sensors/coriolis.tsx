@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CORIOLIS = {
   _style: {
@@ -10,7 +10,7 @@ export const CORIOLIS = {
   _original_height: 50,
 }
 
-export function Coriolis(props: DiagramNodeProps) {
+export function Coriolis(props: NodeProps) {
   return (
     <Shape {...CORIOLIS} {...props} _style={extendStyle(CORIOLIS, props)} />
   )

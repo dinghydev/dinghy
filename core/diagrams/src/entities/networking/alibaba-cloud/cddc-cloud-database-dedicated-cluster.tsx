@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER = {
   _style: {
@@ -10,7 +10,7 @@ export const CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER = {
   _original_height: 45.6,
 }
 
-export function CddcCloudDatabaseDedicatedCluster(props: DiagramNodeProps) {
+export function CddcCloudDatabaseDedicatedCluster(props: NodeProps) {
   return (
     <Shape
       {...CDDC_CLOUD_DATABASE_DEDICATED_CLUSTER}

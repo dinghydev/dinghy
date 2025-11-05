@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9828A_5400R_700W_POE_ZL2_POWER_SUPPLY = {
   _style: {
@@ -10,7 +10,7 @@ export const J9828A_5400R_700W_POE_ZL2_POWER_SUPPLY = {
   _height: 43,
 }
 
-export function J9828a5400r700wPoeZl2PowerSupply(props: DiagramNodeProps) {
+export function J9828a5400r700wPoeZl2PowerSupply(props: NodeProps) {
   return (
     <Shape
       {...J9828A_5400R_700W_POE_ZL2_POWER_SUPPLY}

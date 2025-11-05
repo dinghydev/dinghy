@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MATHOVERFLOW = {
   _style: {
@@ -10,7 +10,7 @@ export const MATHOVERFLOW = {
   _original_height: 48.2,
 }
 
-export function Mathoverflow(props: DiagramNodeProps) {
+export function Mathoverflow(props: NodeProps) {
   return (
     <Shape
       {...MATHOVERFLOW}

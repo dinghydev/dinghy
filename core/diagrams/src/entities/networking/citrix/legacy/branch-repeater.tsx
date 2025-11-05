@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRANCH_REPEATER = {
   _style: {
@@ -10,7 +10,7 @@ export const BRANCH_REPEATER = {
   _height: 39,
 }
 
-export function BranchRepeater(props: DiagramNodeProps) {
+export function BranchRepeater(props: NodeProps) {
   return (
     <Shape
       {...BRANCH_REPEATER}

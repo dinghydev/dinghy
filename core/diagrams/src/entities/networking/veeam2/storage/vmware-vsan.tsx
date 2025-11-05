@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VMWARE_VSAN = {
   _style: {
@@ -10,7 +10,7 @@ export const VMWARE_VSAN = {
   _original_height: 34,
 }
 
-export function VmwareVsan(props: DiagramNodeProps) {
+export function VmwareVsan(props: NodeProps) {
   return (
     <Shape
       {...VMWARE_VSAN}

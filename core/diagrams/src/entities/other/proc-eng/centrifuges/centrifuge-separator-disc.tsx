@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CENTRIFUGE_SEPARATOR_DISC = {
   _style: {
@@ -10,7 +10,7 @@ export const CENTRIFUGE_SEPARATOR_DISC = {
   _height: 110,
 }
 
-export function CentrifugeSeparatorDisc(props: DiagramNodeProps) {
+export function CentrifugeSeparatorDisc(props: NodeProps) {
   return (
     <Shape
       {...CENTRIFUGE_SEPARATOR_DISC}

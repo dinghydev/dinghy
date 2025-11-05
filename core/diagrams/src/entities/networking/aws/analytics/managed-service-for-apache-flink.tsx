@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_SERVICE_FOR_APACHE_FLINK = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_SERVICE_FOR_APACHE_FLINK = {
   _original_height: 78,
 }
 
-export function ManagedServiceForApacheFlink(props: DiagramNodeProps) {
+export function ManagedServiceForApacheFlink(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_SERVICE_FOR_APACHE_FLINK}

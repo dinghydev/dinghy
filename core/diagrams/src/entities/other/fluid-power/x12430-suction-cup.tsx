@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12430_SUCTION_CUP = {
   _style: {
@@ -10,7 +10,7 @@ export const X12430_SUCTION_CUP = {
   _height: 56.78,
 }
 
-export function X12430SuctionCup(props: DiagramNodeProps) {
+export function X12430SuctionCup(props: NodeProps) {
   return (
     <Shape
       {...X12430_SUCTION_CUP}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JSON_SCRIPT = {
   _style: {
@@ -10,7 +10,7 @@ export const JSON_SCRIPT = {
   _height: 78,
 }
 
-export function JsonScript(props: DiagramNodeProps) {
+export function JsonScript(props: NodeProps) {
   return (
     <Shape
       {...JSON_SCRIPT}

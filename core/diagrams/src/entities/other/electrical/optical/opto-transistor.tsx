@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPTO_TRANSISTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const OPTO_TRANSISTOR = {
   _height: 110,
 }
 
-export function OptoTransistor(props: DiagramNodeProps) {
+export function OptoTransistor(props: NodeProps) {
   return (
     <Shape
       {...OPTO_TRANSISTOR}

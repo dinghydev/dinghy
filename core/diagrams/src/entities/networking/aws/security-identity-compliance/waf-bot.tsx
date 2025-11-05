@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAF_BOT = {
   _style: {
@@ -10,6 +10,6 @@ export const WAF_BOT = {
   _original_height: 78,
 }
 
-export function WafBot(props: DiagramNodeProps) {
+export function WafBot(props: NodeProps) {
   return <Shape {...WAF_BOT} {...props} _style={extendStyle(WAF_BOT, props)} />
 }

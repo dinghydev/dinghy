@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RACK_CABINET = {
   _style: {
@@ -11,7 +11,7 @@ export const RACK_CABINET = {
   },
 }
 
-export function RackCabinet(props: DiagramNodeProps) {
+export function RackCabinet(props: NodeProps) {
   return (
     <Shape
       {...RACK_CABINET}

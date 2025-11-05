@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXT_SELECTION_HANDLES = {
   _style: {
@@ -10,7 +10,7 @@ export const TEXT_SELECTION_HANDLES = {
   _height: 42.2,
 }
 
-export function TextSelectionHandles(props: DiagramNodeProps) {
+export function TextSelectionHandles(props: NodeProps) {
   return (
     <Shape
       {...TEXT_SELECTION_HANDLES}

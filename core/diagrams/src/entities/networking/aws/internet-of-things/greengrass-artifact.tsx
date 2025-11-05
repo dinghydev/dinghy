@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GREENGRASS_ARTIFACT = {
   _style: {
@@ -10,7 +10,7 @@ export const GREENGRASS_ARTIFACT = {
   _original_height: 78,
 }
 
-export function GreengrassArtifact(props: DiagramNodeProps) {
+export function GreengrassArtifact(props: NodeProps) {
   return (
     <Shape
       {...GREENGRASS_ARTIFACT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TABLE_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const TABLE_STORAGE = {
   _original_height: 48,
 }
 
-export function TableStorage(props: DiagramNodeProps) {
+export function TableStorage(props: NodeProps) {
   return (
     <Shape
       {...TABLE_STORAGE}

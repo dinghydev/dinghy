@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABOX_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABOX_GATEWAY = {
   _height: 48,
 }
 
-export function DataboxGateway(props: DiagramNodeProps) {
+export function DataboxGateway(props: NodeProps) {
   return (
     <Shape
       {...DATABOX_GATEWAY}

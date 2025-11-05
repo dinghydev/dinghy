@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUCTION_FILTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SUCTION_FILTER = {
   _height: 100,
 }
 
-export function SuctionFilter(props: DiagramNodeProps) {
+export function SuctionFilter(props: NodeProps) {
   return (
     <Shape
       {...SUCTION_FILTER}

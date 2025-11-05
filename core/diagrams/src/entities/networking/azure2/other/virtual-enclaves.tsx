@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_ENCLAVES = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_ENCLAVES = {
   _original_height: 68,
 }
 
-export function VirtualEnclaves(props: DiagramNodeProps) {
+export function VirtualEnclaves(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_ENCLAVES}

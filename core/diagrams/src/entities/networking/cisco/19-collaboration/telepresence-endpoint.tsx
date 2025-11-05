@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TELEPRESENCE_ENDPOINT = {
   _style: {
@@ -10,7 +10,7 @@ export const TELEPRESENCE_ENDPOINT = {
   _original_height: 50,
 }
 
-export function TelepresenceEndpoint(props: DiagramNodeProps) {
+export function TelepresenceEndpoint(props: NodeProps) {
   return (
     <Shape
       {...TELEPRESENCE_ENDPOINT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACCUMULATOR_MONOCELL_BATTERY = {
   _style: {
@@ -10,7 +10,7 @@ export const ACCUMULATOR_MONOCELL_BATTERY = {
   _height: 60,
 }
 
-export function AccumulatorMonocellBattery(props: DiagramNodeProps) {
+export function AccumulatorMonocellBattery(props: NodeProps) {
   return (
     <Shape
       {...ACCUMULATOR_MONOCELL_BATTERY}

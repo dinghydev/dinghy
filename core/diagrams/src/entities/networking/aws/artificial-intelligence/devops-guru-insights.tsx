@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEVOPS_GURU_INSIGHTS = {
   _style: {
@@ -10,7 +10,7 @@ export const DEVOPS_GURU_INSIGHTS = {
   _original_height: 78,
 }
 
-export function DevopsGuruInsights(props: DiagramNodeProps) {
+export function DevopsGuruInsights(props: NodeProps) {
   return (
     <Shape
       {...DEVOPS_GURU_INSIGHTS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SYSTEMS_CHECK = {
   _style: {
@@ -10,7 +10,7 @@ export const SYSTEMS_CHECK = {
   _original_height: 100,
 }
 
-export function SystemsCheck(props: DiagramNodeProps) {
+export function SystemsCheck(props: NodeProps) {
   return (
     <Shape
       {...SYSTEMS_CHECK}

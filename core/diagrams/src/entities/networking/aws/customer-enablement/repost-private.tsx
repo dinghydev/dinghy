@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REPOST_PRIVATE = {
   _style: {
@@ -10,7 +10,7 @@ export const REPOST_PRIVATE = {
   _original_height: 78,
 }
 
-export function RepostPrivate(props: DiagramNodeProps) {
+export function RepostPrivate(props: NodeProps) {
   return (
     <Shape
       {...REPOST_PRIVATE}

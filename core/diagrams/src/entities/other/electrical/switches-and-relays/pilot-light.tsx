@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PILOT_LIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const PILOT_LIGHT = {
   _original_height: 100,
 }
 
-export function PilotLight(props: DiagramNodeProps) {
+export function PilotLight(props: NodeProps) {
   return (
     <Shape
       {...PILOT_LIGHT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOTOR_CIRCUIT_BREAKER_1_32A_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const MOTOR_CIRCUIT_BREAKER_1_32A_2 = {
   _height: 43,
 }
 
-export function MotorCircuitBreaker132a2(props: DiagramNodeProps) {
+export function MotorCircuitBreaker132a2(props: NodeProps) {
   return (
     <Shape
       {...MOTOR_CIRCUIT_BREAKER_1_32A_2}

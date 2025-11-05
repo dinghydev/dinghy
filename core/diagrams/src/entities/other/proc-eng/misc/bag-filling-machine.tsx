@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BAG_FILLING_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const BAG_FILLING_MACHINE = {
   _height: 100,
 }
 
-export function BagFillingMachine(props: DiagramNodeProps) {
+export function BagFillingMachine(props: NodeProps) {
   return (
     <Shape
       {...BAG_FILLING_MACHINE}

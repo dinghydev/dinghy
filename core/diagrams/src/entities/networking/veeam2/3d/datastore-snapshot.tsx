@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATASTORE_SNAPSHOT = {
   _style: {
@@ -10,7 +10,7 @@ export const DATASTORE_SNAPSHOT = {
   _height: 34,
 }
 
-export function DatastoreSnapshot(props: DiagramNodeProps) {
+export function DatastoreSnapshot(props: NodeProps) {
   return (
     <Shape
       {...DATASTORE_SNAPSHOT}

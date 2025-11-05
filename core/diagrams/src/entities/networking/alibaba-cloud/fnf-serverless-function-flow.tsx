@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FNF_SERVERLESS_FUNCTION_FLOW = {
   _style: {
@@ -10,7 +10,7 @@ export const FNF_SERVERLESS_FUNCTION_FLOW = {
   _original_height: 55.5,
 }
 
-export function FnfServerlessFunctionFlow(props: DiagramNodeProps) {
+export function FnfServerlessFunctionFlow(props: NodeProps) {
   return (
     <Shape
       {...FNF_SERVERLESS_FUNCTION_FLOW}

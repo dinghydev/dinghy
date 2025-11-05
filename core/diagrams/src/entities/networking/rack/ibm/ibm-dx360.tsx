@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IBM_DX360 = {
   _style: {
@@ -10,7 +10,7 @@ export const IBM_DX360 = {
   _height: 30,
 }
 
-export function IbmDx360(props: DiagramNodeProps) {
+export function IbmDx360(props: NodeProps) {
   return (
     <Shape {...IBM_DX360} {...props} _style={extendStyle(IBM_DX360, props)} />
   )

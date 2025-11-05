@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_IDENTITIES = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_IDENTITIES = {
   _original_height: 66,
 }
 
-export function ManagedIdentities(props: DiagramNodeProps) {
+export function ManagedIdentities(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_IDENTITIES}

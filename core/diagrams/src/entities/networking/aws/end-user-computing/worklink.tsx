@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORKLINK = {
   _style: {
@@ -10,7 +10,7 @@ export const WORKLINK = {
   _original_height: 78,
 }
 
-export function Worklink(props: DiagramNodeProps) {
+export function Worklink(props: NodeProps) {
   return (
     <Shape {...WORKLINK} {...props} _style={extendStyle(WORKLINK, props)} />
   )

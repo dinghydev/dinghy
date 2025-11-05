@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11930_TACHOMETER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11930_TACHOMETER = {
   _height: 37.42,
 }
 
-export function X11930Tachometer(props: DiagramNodeProps) {
+export function X11930Tachometer(props: NodeProps) {
   return (
     <Shape
       {...X11930_TACHOMETER}

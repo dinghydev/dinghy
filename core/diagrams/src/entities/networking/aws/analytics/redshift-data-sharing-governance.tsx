@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REDSHIFT_DATA_SHARING_GOVERNANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const REDSHIFT_DATA_SHARING_GOVERNANCE = {
   _original_height: 78,
 }
 
-export function RedshiftDataSharingGovernance(props: DiagramNodeProps) {
+export function RedshiftDataSharingGovernance(props: NodeProps) {
   return (
     <Shape
       {...REDSHIFT_DATA_SHARING_GOVERNANCE}

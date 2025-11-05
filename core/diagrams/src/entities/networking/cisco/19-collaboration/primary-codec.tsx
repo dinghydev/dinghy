@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIMARY_CODEC = {
   _style: {
@@ -10,7 +10,7 @@ export const PRIMARY_CODEC = {
   _original_height: 50,
 }
 
-export function PrimaryCodec(props: DiagramNodeProps) {
+export function PrimaryCodec(props: NodeProps) {
   return (
     <Shape
       {...PRIMARY_CODEC}

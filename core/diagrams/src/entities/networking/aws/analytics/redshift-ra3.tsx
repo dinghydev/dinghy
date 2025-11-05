@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REDSHIFT_RA3 = {
   _style: {
@@ -10,7 +10,7 @@ export const REDSHIFT_RA3 = {
   _original_height: 78,
 }
 
-export function RedshiftRa3(props: DiagramNodeProps) {
+export function RedshiftRa3(props: NodeProps) {
   return (
     <Shape
       {...REDSHIFT_RA3}

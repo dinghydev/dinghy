@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11000_ACTIVE_CONTROL_DIRECTIONAL = {
   _style: {
@@ -10,7 +10,7 @@ export const X11000_ACTIVE_CONTROL_DIRECTIONAL = {
   _height: 107.38,
 }
 
-export function X11000ActiveControlDirectional(props: DiagramNodeProps) {
+export function X11000ActiveControlDirectional(props: NodeProps) {
   return (
     <Shape
       {...X11000_ACTIVE_CONTROL_DIRECTIONAL}

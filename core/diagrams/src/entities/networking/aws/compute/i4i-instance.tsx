@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const I4I_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const I4I_INSTANCE = {
   _original_height: 48,
 }
 
-export function I4iInstance(props: DiagramNodeProps) {
+export function I4iInstance(props: NodeProps) {
   return (
     <Shape
       {...I4I_INSTANCE}

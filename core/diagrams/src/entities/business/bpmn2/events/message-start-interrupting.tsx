@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_START_INTERRUPTING = {
   _style: {
@@ -10,7 +10,7 @@ export const MESSAGE_START_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function MessageStartInterrupting(props: DiagramNodeProps) {
+export function MessageStartInterrupting(props: NodeProps) {
   return (
     <Shape
       {...MESSAGE_START_INTERRUPTING}

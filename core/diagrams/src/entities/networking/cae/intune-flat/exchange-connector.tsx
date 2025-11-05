@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXCHANGE_CONNECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const EXCHANGE_CONNECTOR = {
   _original_height: 49,
 }
 
-export function ExchangeConnector(props: DiagramNodeProps) {
+export function ExchangeConnector(props: NodeProps) {
   return (
     <Shape
       {...EXCHANGE_CONNECTOR}

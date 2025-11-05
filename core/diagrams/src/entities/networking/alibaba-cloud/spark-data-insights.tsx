@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPARK_DATA_INSIGHTS = {
   _style: {
@@ -10,7 +10,7 @@ export const SPARK_DATA_INSIGHTS = {
   _original_height: 50.099999999999994,
 }
 
-export function SparkDataInsights(props: DiagramNodeProps) {
+export function SparkDataInsights(props: NodeProps) {
   return (
     <Shape
       {...SPARK_DATA_INSIGHTS}

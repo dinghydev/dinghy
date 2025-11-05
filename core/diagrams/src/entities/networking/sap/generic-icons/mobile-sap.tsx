@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const MOBILE_SAP = {
   _height: 28,
 }
 
-export function MobileSap(props: DiagramNodeProps) {
+export function MobileSap(props: NodeProps) {
   return (
     <Shape {...MOBILE_SAP} {...props} _style={extendStyle(MOBILE_SAP, props)} />
   )

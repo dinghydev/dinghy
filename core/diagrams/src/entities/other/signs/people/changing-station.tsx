@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHANGING_STATION = {
   _style: {
@@ -10,7 +10,7 @@ export const CHANGING_STATION = {
   _original_height: 98,
 }
 
-export function ChangingStation(props: DiagramNodeProps) {
+export function ChangingStation(props: NodeProps) {
   return (
     <Shape
       {...CHANGING_STATION}

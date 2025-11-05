@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VBO_REPOSITORY = {
   _style: {
@@ -10,7 +10,7 @@ export const VBO_REPOSITORY = {
   _height: 38,
 }
 
-export function VboRepository(props: DiagramNodeProps) {
+export function VboRepository(props: NodeProps) {
   return (
     <Shape
       {...VBO_REPOSITORY}

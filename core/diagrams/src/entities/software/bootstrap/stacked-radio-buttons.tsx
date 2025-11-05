@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STACKED_RADIO_BUTTONS = {
   _style: {
@@ -10,7 +10,7 @@ export const STACKED_RADIO_BUTTONS = {
   _height: 50,
 }
 
-export function StackedRadioButtons(props: DiagramNodeProps) {
+export function StackedRadioButtons(props: NodeProps) {
   return (
     <Shape
       {...STACKED_RADIO_BUTTONS}

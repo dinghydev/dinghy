@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_BUSINESS_ACCELERATOR_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_BUSINESS_ACCELERATOR_HUB = {
   _original_height: 50,
 }
 
-export function SapBusinessAcceleratorHub(props: DiagramNodeProps) {
+export function SapBusinessAcceleratorHub(props: NodeProps) {
   return (
     <Shape
       {...SAP_BUSINESS_ACCELERATOR_HUB}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDOW_GLIDER = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDOW_GLIDER = {
   _height: 10,
 }
 
-export function WindowGlider(props: DiagramNodeProps) {
+export function WindowGlider(props: NodeProps) {
   return (
     <Shape
       {...WINDOW_GLIDER}

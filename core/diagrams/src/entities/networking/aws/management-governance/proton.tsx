@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROTON = {
   _style: {
@@ -10,6 +10,6 @@ export const PROTON = {
   _original_height: 78,
 }
 
-export function Proton(props: DiagramNodeProps) {
+export function Proton(props: NodeProps) {
   return <Shape {...PROTON} {...props} _style={extendStyle(PROTON, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITEULIKE = {
   _style: {
@@ -10,7 +10,7 @@ export const CITEULIKE = {
   _original_height: 102.4,
 }
 
-export function Citeulike(props: DiagramNodeProps) {
+export function Citeulike(props: NodeProps) {
   return (
     <Shape {...CITEULIKE} {...props} _style={extendStyle(CITEULIKE, props)} />
   )

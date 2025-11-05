@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_REPUTATION_FILTERING = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_REPUTATION_FILTERING = {
   _original_height: 50,
 }
 
-export function WebReputationFiltering(props: DiagramNodeProps) {
+export function WebReputationFiltering(props: NodeProps) {
   return (
     <Shape
       {...WEB_REPUTATION_FILTERING}

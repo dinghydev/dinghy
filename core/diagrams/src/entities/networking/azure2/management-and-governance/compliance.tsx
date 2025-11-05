@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPLIANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPLIANCE = {
   _original_height: 64,
 }
 
-export function Compliance(props: DiagramNodeProps) {
+export function Compliance(props: NodeProps) {
   return (
     <Shape {...COMPLIANCE} {...props} _style={extendStyle(COMPLIANCE, props)} />
   )

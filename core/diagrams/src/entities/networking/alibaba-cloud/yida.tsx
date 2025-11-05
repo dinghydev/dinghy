@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const YIDA = {
   _style: {
@@ -10,6 +10,6 @@ export const YIDA = {
   _original_height: 47.400000000000006,
 }
 
-export function Yida(props: DiagramNodeProps) {
+export function Yida(props: NodeProps) {
   return <Shape {...YIDA} {...props} _style={extendStyle(YIDA, props)} />
 }

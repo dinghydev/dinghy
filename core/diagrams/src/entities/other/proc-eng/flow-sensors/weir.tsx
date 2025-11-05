@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEIR = {
   _style: {
@@ -10,6 +10,6 @@ export const WEIR = {
   _original_height: 50,
 }
 
-export function Weir(props: DiagramNodeProps) {
+export function Weir(props: NodeProps) {
   return <Shape {...WEIR} {...props} _style={extendStyle(WEIR, props)} />
 }

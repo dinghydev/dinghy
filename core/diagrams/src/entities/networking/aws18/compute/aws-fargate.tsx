@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_FARGATE = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_FARGATE = {
   _height: 100,
 }
 
-export function AwsFargate(props: DiagramNodeProps) {
+export function AwsFargate(props: NodeProps) {
   return (
     <Shape
       {...AWS_FARGATE}

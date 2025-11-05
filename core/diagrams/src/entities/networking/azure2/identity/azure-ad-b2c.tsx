@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_AD_B2C = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_AD_B2C = {
   _original_height: 60.440000000000005,
 }
 
-export function AzureAdB2c(props: DiagramNodeProps) {
+export function AzureAdB2c(props: NodeProps) {
   return (
     <Shape
       {...AZURE_AD_B2C}

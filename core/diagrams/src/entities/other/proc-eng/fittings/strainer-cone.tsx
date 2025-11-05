@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STRAINER_CONE = {
   _style: {
@@ -10,7 +10,7 @@ export const STRAINER_CONE = {
   _height: 80,
 }
 
-export function StrainerCone(props: DiagramNodeProps) {
+export function StrainerCone(props: NodeProps) {
   return (
     <Shape
       {...STRAINER_CONE}

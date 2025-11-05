@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ICM_TROUBLESHOOTING = {
   _style: {
@@ -10,7 +10,7 @@ export const ICM_TROUBLESHOOTING = {
   _original_height: 68,
 }
 
-export function IcmTroubleshooting(props: DiagramNodeProps) {
+export function IcmTroubleshooting(props: NodeProps) {
   return (
     <Shape
       {...ICM_TROUBLESHOOTING}

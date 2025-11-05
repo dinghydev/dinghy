@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BEEBOT = {
   _style: {
@@ -10,6 +10,6 @@ export const BEEBOT = {
   _original_height: 54.900000000000006,
 }
 
-export function Beebot(props: DiagramNodeProps) {
+export function Beebot(props: NodeProps) {
   return <Shape {...BEEBOT} {...props} _style={extendStyle(BEEBOT, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_UBER_AGENT = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_UBER_AGENT = {
   _height: 26.419999999999998,
 }
 
-export function CitrixUberAgent(props: DiagramNodeProps) {
+export function CitrixUberAgent(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_UBER_AGENT}

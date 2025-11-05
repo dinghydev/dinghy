@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIGHTSAIL = {
   _style: {
@@ -10,7 +10,7 @@ export const LIGHTSAIL = {
   _original_height: 78,
 }
 
-export function Lightsail(props: DiagramNodeProps) {
+export function Lightsail(props: NodeProps) {
   return (
     <Shape {...LIGHTSAIL} {...props} _style={extendStyle(LIGHTSAIL, props)} />
   )

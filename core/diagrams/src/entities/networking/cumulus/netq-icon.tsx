@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETQ_ICON = {
   _style: {
@@ -10,7 +10,7 @@ export const NETQ_ICON = {
   _original_height: 96,
 }
 
-export function NetqIcon(props: DiagramNodeProps) {
+export function NetqIcon(props: NodeProps) {
   return (
     <Shape {...NETQ_ICON} {...props} _style={extendStyle(NETQ_ICON, props)} />
   )

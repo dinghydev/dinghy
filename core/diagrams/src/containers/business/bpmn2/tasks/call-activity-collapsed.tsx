@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALL_ACTIVITY_COLLAPSED = {
   _style: {
@@ -8,7 +8,7 @@ export const CALL_ACTIVITY_COLLAPSED = {
   },
 }
 
-export function CallActivityCollapsed(props: DiagramNodeProps) {
+export function CallActivityCollapsed(props: NodeProps) {
   return (
     <Shape
       {...CALL_ACTIVITY_COLLAPSED}

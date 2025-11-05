@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_FLOW_LAYOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTICAL_FLOW_LAYOUT = {
   _height: 280,
 }
 
-export function VerticalFlowLayout(props: DiagramNodeProps) {
+export function VerticalFlowLayout(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_FLOW_LAYOUT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CUSTOM_AZURE_AD_ROLES = {
   _style: {
@@ -10,7 +10,7 @@ export const CUSTOM_AZURE_AD_ROLES = {
   _original_height: 68,
 }
 
-export function CustomAzureAdRoles(props: DiagramNodeProps) {
+export function CustomAzureAdRoles(props: NodeProps) {
   return (
     <Shape
       {...CUSTOM_AZURE_AD_ROLES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CACHE_REDIS = {
   _style: {
@@ -10,7 +10,7 @@ export const CACHE_REDIS = {
   _original_height: 52,
 }
 
-export function CacheRedis(props: DiagramNodeProps) {
+export function CacheRedis(props: NodeProps) {
   return (
     <Shape
       {...CACHE_REDIS}

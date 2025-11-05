@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_FIREWALL = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_FIREWALL = {
   _original_height: 43,
 }
 
-export function VirtualFirewall(props: DiagramNodeProps) {
+export function VirtualFirewall(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_FIREWALL}

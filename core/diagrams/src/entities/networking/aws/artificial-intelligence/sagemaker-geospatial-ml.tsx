@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAGEMAKER_GEOSPATIAL_ML = {
   _style: {
@@ -10,7 +10,7 @@ export const SAGEMAKER_GEOSPATIAL_ML = {
   _original_height: 78,
 }
 
-export function SagemakerGeospatialMl(props: DiagramNodeProps) {
+export function SagemakerGeospatialMl(props: NodeProps) {
   return (
     <Shape
       {...SAGEMAKER_GEOSPATIAL_ML}

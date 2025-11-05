@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BJT_PNP = {
   _style: {
@@ -10,6 +10,6 @@ export const BJT_PNP = {
   _original_height: 100,
 }
 
-export function BjtPnp(props: DiagramNodeProps) {
+export function BjtPnp(props: NodeProps) {
   return <Shape {...BJT_PNP} {...props} _style={extendStyle(BJT_PNP, props)} />
 }

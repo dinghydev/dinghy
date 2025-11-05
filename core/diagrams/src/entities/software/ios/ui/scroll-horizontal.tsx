@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCROLL_HORIZONTAL = {
   _style: {
@@ -10,7 +10,7 @@ export const SCROLL_HORIZONTAL = {
   _height: 6,
 }
 
-export function ScrollHorizontal(props: DiagramNodeProps) {
+export function ScrollHorizontal(props: NodeProps) {
   return (
     <Shape
       {...SCROLL_HORIZONTAL}

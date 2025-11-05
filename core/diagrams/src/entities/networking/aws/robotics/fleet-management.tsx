@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLEET_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const FLEET_MANAGEMENT = {
   _original_height: 78,
 }
 
-export function FleetManagement(props: DiagramNodeProps) {
+export function FleetManagement(props: NodeProps) {
   return (
     <Shape
       {...FLEET_MANAGEMENT}

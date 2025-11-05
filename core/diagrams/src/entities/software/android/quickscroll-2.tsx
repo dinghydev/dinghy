@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUICKSCROLL_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const QUICKSCROLL_2 = {
   _height: 320,
 }
 
-export function Quickscroll2(props: DiagramNodeProps) {
+export function Quickscroll2(props: NodeProps) {
   return (
     <Shape
       {...QUICKSCROLL_2}

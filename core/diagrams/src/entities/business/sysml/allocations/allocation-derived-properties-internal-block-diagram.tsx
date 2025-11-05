@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALLOCATION_DERIVED_PROPERTIES_INTERNAL_BLOCK_DIAGRAM = {
   _style: {
@@ -11,7 +11,7 @@ export const ALLOCATION_DERIVED_PROPERTIES_INTERNAL_BLOCK_DIAGRAM = {
 }
 
 export function AllocationDerivedPropertiesInternalBlockDiagram(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

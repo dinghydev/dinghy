@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUZZER = {
   _style: {
@@ -10,6 +10,6 @@ export const BUZZER = {
   _height: 50,
 }
 
-export function Buzzer(props: DiagramNodeProps) {
+export function Buzzer(props: NodeProps) {
   return <Shape {...BUZZER} {...props} _style={extendStyle(BUZZER, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SSL_TLS_OFFLOADING = {
   _style: {
@@ -10,7 +10,7 @@ export const SSL_TLS_OFFLOADING = {
   _original_height: 50,
 }
 
-export function SslTlsOffloading(props: DiagramNodeProps) {
+export function SslTlsOffloading(props: NodeProps) {
   return (
     <Shape
       {...SSL_TLS_OFFLOADING}

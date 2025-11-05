@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAPTOP_VIDEO_CLIENT = {
   _style: {
@@ -10,7 +10,7 @@ export const LAPTOP_VIDEO_CLIENT = {
   _original_height: 42.5,
 }
 
-export function LaptopVideoClient(props: DiagramNodeProps) {
+export function LaptopVideoClient(props: NodeProps) {
   return (
     <Shape
       {...LAPTOP_VIDEO_CLIENT}

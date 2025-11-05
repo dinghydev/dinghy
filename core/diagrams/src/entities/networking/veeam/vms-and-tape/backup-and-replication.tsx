@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKUP_AND_REPLICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const BACKUP_AND_REPLICATION = {
   _original_height: 44.8,
 }
 
-export function BackupAndReplication(props: DiagramNodeProps) {
+export function BackupAndReplication(props: NodeProps) {
   return (
     <Shape
       {...BACKUP_AND_REPLICATION}

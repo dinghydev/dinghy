@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIGNAL_GENERATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SIGNAL_GENERATOR = {
   _original_height: 90,
 }
 
-export function SignalGenerator(props: DiagramNodeProps) {
+export function SignalGenerator(props: NodeProps) {
   return (
     <Shape
       {...SIGNAL_GENERATOR}

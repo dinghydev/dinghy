@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DUAL_MODE = {
   _style: {
@@ -10,7 +10,7 @@ export const DUAL_MODE = {
   _height: 54,
 }
 
-export function DualMode(props: DiagramNodeProps) {
+export function DualMode(props: NodeProps) {
   return (
     <Shape {...DUAL_MODE} {...props} _style={extendStyle(DUAL_MODE, props)} />
   )

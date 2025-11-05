@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIQUID_FILTER_BELT_ROLL = {
   _style: {
@@ -10,7 +10,7 @@ export const LIQUID_FILTER_BELT_ROLL = {
   _height: 100,
 }
 
-export function LiquidFilterBeltRoll(props: DiagramNodeProps) {
+export function LiquidFilterBeltRoll(props: NodeProps) {
   return (
     <Shape
       {...LIQUID_FILTER_BELT_ROLL}

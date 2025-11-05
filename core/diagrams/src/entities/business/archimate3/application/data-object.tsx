@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_OBJECT = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_OBJECT = {
   _height: 75,
 }
 
-export function DataObject(props: DiagramNodeProps) {
+export function DataObject(props: NodeProps) {
   return (
     <Shape
       {...DATA_OBJECT}

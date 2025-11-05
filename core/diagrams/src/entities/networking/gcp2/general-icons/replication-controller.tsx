@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REPLICATION_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const REPLICATION_CONTROLLER = {
   _original_height: 91,
 }
 
-export function ReplicationController(props: DiagramNodeProps) {
+export function ReplicationController(props: NodeProps) {
   return (
     <Shape
       {...REPLICATION_CONTROLLER}

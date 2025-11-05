@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VWEB_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const VWEB_SECURITY = {
   _original_height: 45,
 }
 
-export function VwebSecurity(props: DiagramNodeProps) {
+export function VwebSecurity(props: NodeProps) {
   return (
     <Shape
       {...VWEB_SECURITY}

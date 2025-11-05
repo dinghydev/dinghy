@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VPC_LATTICE = {
   _style: {
@@ -10,7 +10,7 @@ export const VPC_LATTICE = {
   _original_height: 78,
 }
 
-export function VpcLattice(props: DiagramNodeProps) {
+export function VpcLattice(props: NodeProps) {
   return (
     <Shape
       {...VPC_LATTICE}

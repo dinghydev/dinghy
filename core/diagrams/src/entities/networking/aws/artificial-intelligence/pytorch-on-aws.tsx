@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PYTORCH_ON_AWS = {
   _style: {
@@ -10,7 +10,7 @@ export const PYTORCH_ON_AWS = {
   _original_height: 78,
 }
 
-export function PytorchOnAws(props: DiagramNodeProps) {
+export function PytorchOnAws(props: NodeProps) {
   return (
     <Shape
       {...PYTORCH_ON_AWS}

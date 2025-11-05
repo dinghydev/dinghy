@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DRIER_ROLLER_CONVEYOR_BELT = {
   _style: {
@@ -10,7 +10,7 @@ export const DRIER_ROLLER_CONVEYOR_BELT = {
   _height: 140,
 }
 
-export function DrierRollerConveyorBelt(props: DiagramNodeProps) {
+export function DrierRollerConveyorBelt(props: NodeProps) {
   return (
     <Shape
       {...DRIER_ROLLER_CONVEYOR_BELT}

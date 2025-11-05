@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEAT_BELT = {
   _style: {
@@ -10,7 +10,7 @@ export const SEAT_BELT = {
   _original_height: 98,
 }
 
-export function SeatBelt(props: DiagramNodeProps) {
+export function SeatBelt(props: NodeProps) {
   return (
     <Shape {...SEAT_BELT} {...props} _style={extendStyle(SEAT_BELT, props)} />
   )

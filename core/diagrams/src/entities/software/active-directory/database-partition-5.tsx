@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_PARTITION_5 = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_PARTITION_5 = {
   _height: 37,
 }
 
-export function DatabasePartition5(props: DiagramNodeProps) {
+export function DatabasePartition5(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_PARTITION_5}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WATSONX = {
   _style: {
@@ -11,6 +11,6 @@ export const WATSONX = {
   },
 }
 
-export function Watsonx(props: DiagramNodeProps) {
+export function Watsonx(props: NodeProps) {
   return <Shape {...WATSONX} {...props} _style={extendStyle(WATSONX, props)} />
 }

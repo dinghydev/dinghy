@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EC2_INSTANCE_CONTAINER = {
   _style: {
@@ -11,7 +11,7 @@ export const EC2_INSTANCE_CONTAINER = {
   },
 }
 
-export function Ec2InstanceContainer(props: DiagramNodeProps) {
+export function Ec2InstanceContainer(props: NodeProps) {
   return (
     <Shape
       {...EC2_INSTANCE_CONTAINER}

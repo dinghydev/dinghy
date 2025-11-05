@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDWATCH_EVIDENTLY = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDWATCH_EVIDENTLY = {
   _original_height: 78,
 }
 
-export function CloudwatchEvidently(props: DiagramNodeProps) {
+export function CloudwatchEvidently(props: NodeProps) {
   return (
     <Shape
       {...CLOUDWATCH_EVIDENTLY}

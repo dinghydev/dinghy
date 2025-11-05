@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHANGEOVER_CONTACT = {
   _style: {
@@ -10,7 +10,7 @@ export const CHANGEOVER_CONTACT = {
   _height: 20,
 }
 
-export function ChangeoverContact(props: DiagramNodeProps) {
+export function ChangeoverContact(props: NodeProps) {
   return (
     <Shape
       {...CHANGEOVER_CONTACT}

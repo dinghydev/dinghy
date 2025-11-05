@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEQUENCE_FLOW = {
   _style: {
@@ -8,7 +8,7 @@ export const SEQUENCE_FLOW = {
   },
 }
 
-export function SequenceFlow(props: DiagramNodeProps) {
+export function SequenceFlow(props: NodeProps) {
   return (
     <Dependency
       {...SEQUENCE_FLOW}

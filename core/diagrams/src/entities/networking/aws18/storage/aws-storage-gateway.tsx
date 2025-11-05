@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_STORAGE_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_STORAGE_GATEWAY = {
   _height: 110,
 }
 
-export function AwsStorageGateway(props: DiagramNodeProps) {
+export function AwsStorageGateway(props: NodeProps) {
   return (
     <Shape
       {...AWS_STORAGE_GATEWAY}

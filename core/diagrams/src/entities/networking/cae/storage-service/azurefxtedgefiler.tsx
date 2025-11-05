@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZUREFXTEDGEFILER = {
   _style: {
@@ -10,7 +10,7 @@ export const AZUREFXTEDGEFILER = {
   _original_height: 50,
 }
 
-export function Azurefxtedgefiler(props: DiagramNodeProps) {
+export function Azurefxtedgefiler(props: NodeProps) {
   return (
     <Shape
       {...AZUREFXTEDGEFILER}

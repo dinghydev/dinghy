@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETFLOW_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const NETFLOW_ROUTER = {
   _original_height: 50,
 }
 
-export function NetflowRouter(props: DiagramNodeProps) {
+export function NetflowRouter(props: NodeProps) {
   return (
     <Shape
       {...NETFLOW_ROUTER}

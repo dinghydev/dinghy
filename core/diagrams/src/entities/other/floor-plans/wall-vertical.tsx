@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WALL_VERTICAL = {
   _style: {
@@ -10,7 +10,7 @@ export const WALL_VERTICAL = {
   _height: 100,
 }
 
-export function WallVertical(props: DiagramNodeProps) {
+export function WallVertical(props: NodeProps) {
   return (
     <Shape
       {...WALL_VERTICAL}

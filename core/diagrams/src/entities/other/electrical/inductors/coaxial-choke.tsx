@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COAXIAL_CHOKE = {
   _style: {
@@ -10,7 +10,7 @@ export const COAXIAL_CHOKE = {
   _height: 50,
 }
 
-export function CoaxialChoke(props: DiagramNodeProps) {
+export function CoaxialChoke(props: NodeProps) {
   return (
     <Shape
       {...COAXIAL_CHOKE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRIODE = {
   _style: {
@@ -10,6 +10,6 @@ export const TRIODE = {
   _original_height: 77,
 }
 
-export function Triode(props: DiagramNodeProps) {
+export function Triode(props: NodeProps) {
   return <Shape {...TRIODE} {...props} _style={extendStyle(TRIODE, props)} />
 }

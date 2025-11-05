@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AGITATOR_CROSS_BEAM = {
   _style: {
@@ -10,7 +10,7 @@ export const AGITATOR_CROSS_BEAM = {
   _height: 120,
 }
 
-export function AgitatorCrossBeam(props: DiagramNodeProps) {
+export function AgitatorCrossBeam(props: NodeProps) {
   return (
     <Shape
       {...AGITATOR_CROSS_BEAM}

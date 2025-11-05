@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERMEDIATE = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERMEDIATE = {
   _original_height: 50,
 }
 
-export function Intermediate(props: DiagramNodeProps) {
+export function Intermediate(props: NodeProps) {
   return (
     <Shape
       {...INTERMEDIATE}

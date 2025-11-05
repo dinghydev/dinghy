@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VLOAD_BALANCER = {
   _style: {
@@ -10,7 +10,7 @@ export const VLOAD_BALANCER = {
   _original_height: 45,
 }
 
-export function VloadBalancer(props: DiagramNodeProps) {
+export function VloadBalancer(props: NodeProps) {
   return (
     <Shape
       {...VLOAD_BALANCER}

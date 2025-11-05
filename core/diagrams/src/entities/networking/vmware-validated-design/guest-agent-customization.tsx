@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GUEST_AGENT_CUSTOMIZATION = {
   _style: {
@@ -10,7 +10,7 @@ export const GUEST_AGENT_CUSTOMIZATION = {
   _original_height: 46,
 }
 
-export function GuestAgentCustomization(props: DiagramNodeProps) {
+export function GuestAgentCustomization(props: NodeProps) {
   return (
     <Shape
       {...GUEST_AGENT_CUSTOMIZATION}

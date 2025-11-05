@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MINI_VAX = {
   _style: {
@@ -10,7 +10,7 @@ export const MINI_VAX = {
   _original_height: 45,
 }
 
-export function MiniVax(props: DiagramNodeProps) {
+export function MiniVax(props: NodeProps) {
   return (
     <Shape {...MINI_VAX} {...props} _style={extendStyle(MINI_VAX, props)} />
   )

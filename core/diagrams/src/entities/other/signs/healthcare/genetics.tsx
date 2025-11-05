@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENETICS = {
   _style: {
@@ -10,7 +10,7 @@ export const GENETICS = {
   _original_height: 99,
 }
 
-export function Genetics(props: DiagramNodeProps) {
+export function Genetics(props: NodeProps) {
   return (
     <Shape {...GENETICS} {...props} _style={extendStyle(GENETICS, props)} />
   )

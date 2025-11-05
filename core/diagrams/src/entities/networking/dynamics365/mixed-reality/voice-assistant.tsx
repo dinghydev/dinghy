@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOICE_ASSISTANT = {
   _style: {
@@ -10,7 +10,7 @@ export const VOICE_ASSISTANT = {
   _original_height: 68,
 }
 
-export function VoiceAssistant(props: DiagramNodeProps) {
+export function VoiceAssistant(props: NodeProps) {
   return (
     <Shape
       {...VOICE_ASSISTANT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANUAL_INPUT = {
   _style: {
@@ -9,7 +9,7 @@ export const MANUAL_INPUT = {
   _original_height: 80,
 }
 
-export function ManualInput(props: DiagramNodeProps) {
+export function ManualInput(props: NodeProps) {
   return (
     <Shape
       {...MANUAL_INPUT}

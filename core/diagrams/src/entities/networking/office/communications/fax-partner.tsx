@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FAX_PARTNER = {
   _style: {
@@ -10,7 +10,7 @@ export const FAX_PARTNER = {
   _original_height: 56,
 }
 
-export function FaxPartner(props: DiagramNodeProps) {
+export function FaxPartner(props: NodeProps) {
   return (
     <Shape
       {...FAX_PARTNER}

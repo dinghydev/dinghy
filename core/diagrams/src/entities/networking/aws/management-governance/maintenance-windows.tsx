@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAINTENANCE_WINDOWS = {
   _style: {
@@ -10,7 +10,7 @@ export const MAINTENANCE_WINDOWS = {
   _original_height: 78,
 }
 
-export function MaintenanceWindows(props: DiagramNodeProps) {
+export function MaintenanceWindows(props: NodeProps) {
   return (
     <Shape
       {...MAINTENANCE_WINDOWS}

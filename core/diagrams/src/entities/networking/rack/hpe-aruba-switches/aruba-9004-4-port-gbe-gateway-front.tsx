@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARUBA_9004_4_PORT_GBE_GATEWAY_FRONT = {
   _style: {
@@ -10,7 +10,7 @@ export const ARUBA_9004_4_PORT_GBE_GATEWAY_FRONT = {
   _height: 15,
 }
 
-export function Aruba90044PortGbeGatewayFront(props: DiagramNodeProps) {
+export function Aruba90044PortGbeGatewayFront(props: NodeProps) {
   return (
     <Shape
       {...ARUBA_9004_4_PORT_GBE_GATEWAY_FRONT}

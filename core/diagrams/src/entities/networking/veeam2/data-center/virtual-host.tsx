@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_HOST = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_HOST = {
   _original_height: 79,
 }
 
-export function VirtualHost(props: DiagramNodeProps) {
+export function VirtualHost(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_HOST}

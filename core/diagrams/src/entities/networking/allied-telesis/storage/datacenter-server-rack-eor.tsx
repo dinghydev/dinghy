@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATACENTER_SERVER_RACK_EOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DATACENTER_SERVER_RACK_EOR = {
   _height: 173.4,
 }
 
-export function DatacenterServerRackEor(props: DiagramNodeProps) {
+export function DatacenterServerRackEor(props: NodeProps) {
   return (
     <Shape
       {...DATACENTER_SERVER_RACK_EOR}

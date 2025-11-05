@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AD_ROLES_AND_ADMINISTRATORS = {
   _style: {
@@ -10,7 +10,7 @@ export const AD_ROLES_AND_ADMINISTRATORS = {
   _original_height: 68,
 }
 
-export function AdRolesAndAdministrators(props: DiagramNodeProps) {
+export function AdRolesAndAdministrators(props: NodeProps) {
   return (
     <Shape
       {...AD_ROLES_AND_ADMINISTRATORS}

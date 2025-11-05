@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KANBAN_POST = {
   _style: {
@@ -10,7 +10,7 @@ export const KANBAN_POST = {
   _height: 100,
 }
 
-export function KanbanPost(props: DiagramNodeProps) {
+export function KanbanPost(props: NodeProps) {
   return (
     <Shape
       {...KANBAN_POST}

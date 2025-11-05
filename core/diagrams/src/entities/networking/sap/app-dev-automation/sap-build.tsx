@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_BUILD = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_BUILD = {
   _original_height: 50,
 }
 
-export function SapBuild(props: DiagramNodeProps) {
+export function SapBuild(props: NodeProps) {
   return (
     <Shape {...SAP_BUILD} {...props} _style={extendStyle(SAP_BUILD, props)} />
   )

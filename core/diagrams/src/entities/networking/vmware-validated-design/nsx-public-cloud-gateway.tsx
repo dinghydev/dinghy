@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NSX_PUBLIC_CLOUD_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const NSX_PUBLIC_CLOUD_GATEWAY = {
   _original_height: 47.5,
 }
 
-export function NsxPublicCloudGateway(props: DiagramNodeProps) {
+export function NsxPublicCloudGateway(props: NodeProps) {
   return (
     <Shape
       {...NSX_PUBLIC_CLOUD_GATEWAY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12360_PISTON_TYPE_ACCUMULATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X12360_PISTON_TYPE_ACCUMULATOR = {
   _height: 111.84,
 }
 
-export function X12360PistonTypeAccumulator(props: DiagramNodeProps) {
+export function X12360PistonTypeAccumulator(props: NodeProps) {
   return (
     <Shape
       {...X12360_PISTON_TYPE_ACCUMULATOR}

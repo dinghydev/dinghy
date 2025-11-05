@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACMS_APPLICATION_CONFIGURATION_MANANGEMENT = {
   _style: {
@@ -10,9 +10,7 @@ export const ACMS_APPLICATION_CONFIGURATION_MANANGEMENT = {
   _original_height: 47.400000000000006,
 }
 
-export function AcmsApplicationConfigurationManangement(
-  props: DiagramNodeProps,
-) {
+export function AcmsApplicationConfigurationManangement(props: NodeProps) {
   return (
     <Shape
       {...ACMS_APPLICATION_CONFIGURATION_MANANGEMENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DSI_DATA_SECURITY_INSURANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const DSI_DATA_SECURITY_INSURANCE = {
   _original_height: 51.3,
 }
 
-export function DsiDataSecurityInsurance(props: DiagramNodeProps) {
+export function DsiDataSecurityInsurance(props: NodeProps) {
   return (
     <Shape
       {...DSI_DATA_SECURITY_INSURANCE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MODIFIERS_STANDARD_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const MODIFIERS_STANDARD_MACHINE = {
   _original_height: 36,
 }
 
-export function ModifiersStandardMachine(props: DiagramNodeProps) {
+export function ModifiersStandardMachine(props: NodeProps) {
   return (
     <Shape
       {...MODIFIERS_STANDARD_MACHINE}

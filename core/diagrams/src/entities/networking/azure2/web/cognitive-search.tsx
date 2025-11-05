@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COGNITIVE_SEARCH = {
   _style: {
@@ -10,7 +10,7 @@ export const COGNITIVE_SEARCH = {
   _original_height: 49.120000000000005,
 }
 
-export function CognitiveSearch(props: DiagramNodeProps) {
+export function CognitiveSearch(props: NodeProps) {
   return (
     <Shape
       {...COGNITIVE_SEARCH}

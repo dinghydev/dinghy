@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HTML5 = {
   _style: {
@@ -10,6 +10,6 @@ export const HTML5 = {
   _height: 74,
 }
 
-export function Html5(props: DiagramNodeProps) {
+export function Html5(props: NodeProps) {
   return <Shape {...HTML5} {...props} _style={extendStyle(HTML5, props)} />
 }

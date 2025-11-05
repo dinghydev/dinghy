@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WRITABLE_VOLUME = {
   _style: {
@@ -10,7 +10,7 @@ export const WRITABLE_VOLUME = {
   _original_height: 40.5,
 }
 
-export function WritableVolume(props: DiagramNodeProps) {
+export function WritableVolume(props: NodeProps) {
   return (
     <Shape
       {...WRITABLE_VOLUME}

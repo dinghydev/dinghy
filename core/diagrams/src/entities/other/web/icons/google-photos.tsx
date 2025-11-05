@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GOOGLE_PHOTOS = {
   _style: {
@@ -10,7 +10,7 @@ export const GOOGLE_PHOTOS = {
   _original_height: 102.4,
 }
 
-export function GooglePhotos(props: DiagramNodeProps) {
+export function GooglePhotos(props: NodeProps) {
   return (
     <Shape
       {...GOOGLE_PHOTOS}

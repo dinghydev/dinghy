@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KINESIS_VIDEO_STREAMS = {
   _style: {
@@ -10,7 +10,7 @@ export const KINESIS_VIDEO_STREAMS = {
   _original_height: 78,
 }
 
-export function KinesisVideoStreams(props: DiagramNodeProps) {
+export function KinesisVideoStreams(props: NodeProps) {
   return (
     <Shape
       {...KINESIS_VIDEO_STREAMS}

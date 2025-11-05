@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTELLIGENT_SITUATION_AUTOMATION = {
   _style: {
@@ -10,7 +10,7 @@ export const INTELLIGENT_SITUATION_AUTOMATION = {
   _original_height: 50,
 }
 
-export function IntelligentSituationAutomation(props: DiagramNodeProps) {
+export function IntelligentSituationAutomation(props: NodeProps) {
   return (
     <Shape
       {...INTELLIGENT_SITUATION_AUTOMATION}

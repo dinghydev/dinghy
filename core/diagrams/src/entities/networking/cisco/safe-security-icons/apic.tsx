@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APIC = {
   _style: {
@@ -10,6 +10,6 @@ export const APIC = {
   _original_height: 40.5,
 }
 
-export function Apic(props: DiagramNodeProps) {
+export function Apic(props: NodeProps) {
   return <Shape {...APIC} {...props} _style={extendStyle(APIC, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECT_CONNECT = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRECT_CONNECT = {
   _original_height: 81,
 }
 
-export function DirectConnect(props: DiagramNodeProps) {
+export function DirectConnect(props: NodeProps) {
   return (
     <Shape
       {...DIRECT_CONNECT}

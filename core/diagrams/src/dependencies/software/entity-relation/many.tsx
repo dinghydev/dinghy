@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANY = {
   _style: {
@@ -8,6 +8,6 @@ export const MANY = {
   },
 }
 
-export function Many(props: DiagramNodeProps) {
+export function Many(props: NodeProps) {
   return <Dependency {...MANY} {...props} _style={extendStyle(MANY, props)} />
 }

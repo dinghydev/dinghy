@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MODAL_DIALOG_ERROR = {
   _style: {
@@ -10,7 +10,7 @@ export const MODAL_DIALOG_ERROR = {
   _height: 190,
 }
 
-export function ModalDialogError(props: DiagramNodeProps) {
+export function ModalDialogError(props: NodeProps) {
   return (
     <Shape
       {...MODAL_DIALOG_ERROR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HARD_DRIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const HARD_DRIVE = {
   _original_height: 48,
 }
 
-export function HardDrive(props: DiagramNodeProps) {
+export function HardDrive(props: NodeProps) {
   return (
     <Shape {...HARD_DRIVE} {...props} _style={extendStyle(HARD_DRIVE, props)} />
   )

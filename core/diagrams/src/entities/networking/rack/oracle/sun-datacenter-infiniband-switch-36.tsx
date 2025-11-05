@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUN_DATACENTER_INFINIBAND_SWITCH_36 = {
   _style: {
@@ -10,7 +10,7 @@ export const SUN_DATACENTER_INFINIBAND_SWITCH_36 = {
   _height: 15,
 }
 
-export function SunDatacenterInfinibandSwitch36(props: DiagramNodeProps) {
+export function SunDatacenterInfinibandSwitch36(props: NodeProps) {
   return (
     <Shape
       {...SUN_DATACENTER_INFINIBAND_SWITCH_36}

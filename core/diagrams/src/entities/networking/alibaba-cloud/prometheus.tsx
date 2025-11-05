@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROMETHEUS = {
   _style: {
@@ -10,7 +10,7 @@ export const PROMETHEUS = {
   _original_height: 48.9,
 }
 
-export function Prometheus(props: DiagramNodeProps) {
+export function Prometheus(props: NodeProps) {
   return (
     <Shape {...PROMETHEUS} {...props} _style={extendStyle(PROMETHEUS, props)} />
   )

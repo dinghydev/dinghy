@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOCIALVIBE = {
   _style: {
@@ -10,7 +10,7 @@ export const SOCIALVIBE = {
   _original_height: 102.4,
 }
 
-export function Socialvibe(props: DiagramNodeProps) {
+export function Socialvibe(props: NodeProps) {
   return (
     <Shape {...SOCIALVIBE} {...props} _style={extendStyle(SOCIALVIBE, props)} />
   )

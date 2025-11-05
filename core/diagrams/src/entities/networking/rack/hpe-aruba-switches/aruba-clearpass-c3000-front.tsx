@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARUBA_CLEARPASS_C3000_FRONT = {
   _style: {
@@ -10,7 +10,7 @@ export const ARUBA_CLEARPASS_C3000_FRONT = {
   _height: 15,
 }
 
-export function ArubaClearpassC3000Front(props: DiagramNodeProps) {
+export function ArubaClearpassC3000Front(props: NodeProps) {
   return (
     <Shape
       {...ARUBA_CLEARPASS_C3000_FRONT}

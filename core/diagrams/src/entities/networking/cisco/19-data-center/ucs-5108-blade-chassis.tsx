@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UCS_5108_BLADE_CHASSIS = {
   _style: {
@@ -10,7 +10,7 @@ export const UCS_5108_BLADE_CHASSIS = {
   _original_height: 50,
 }
 
-export function Ucs5108BladeChassis(props: DiagramNodeProps) {
+export function Ucs5108BladeChassis(props: NodeProps) {
   return (
     <Shape
       {...UCS_5108_BLADE_CHASSIS}

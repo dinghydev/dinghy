@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAINFRAME_MODERNIZATION_ANALYZER = {
   _style: {
@@ -10,7 +10,7 @@ export const MAINFRAME_MODERNIZATION_ANALYZER = {
   _original_height: 78,
 }
 
-export function MainframeModernizationAnalyzer(props: DiagramNodeProps) {
+export function MainframeModernizationAnalyzer(props: NodeProps) {
   return (
     <Shape
       {...MAINFRAME_MODERNIZATION_ANALYZER}

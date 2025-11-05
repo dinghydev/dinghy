@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROFESSIONAL_GRAPHICS_DESKTOP = {
   _style: {
@@ -10,7 +10,7 @@ export const PROFESSIONAL_GRAPHICS_DESKTOP = {
   _original_height: 49.97,
 }
 
-export function ProfessionalGraphicsDesktop(props: DiagramNodeProps) {
+export function ProfessionalGraphicsDesktop(props: NodeProps) {
   return (
     <Shape
       {...PROFESSIONAL_GRAPHICS_DESKTOP}

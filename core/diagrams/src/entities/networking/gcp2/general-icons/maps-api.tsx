@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAPS_API = {
   _style: {
@@ -10,7 +10,7 @@ export const MAPS_API = {
   _height: 100,
 }
 
-export function MapsApi(props: DiagramNodeProps) {
+export function MapsApi(props: NodeProps) {
   return (
     <Shape {...MAPS_API} {...props} _style={extendStyle(MAPS_API, props)} />
   )

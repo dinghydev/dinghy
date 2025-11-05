@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RETRY = {
   _style: {
@@ -10,6 +10,6 @@ export const RETRY = {
   _height: 14.399999999999999,
 }
 
-export function Retry(props: DiagramNodeProps) {
+export function Retry(props: NodeProps) {
   return <Shape {...RETRY} {...props} _style={extendStyle(RETRY, props)} />
 }

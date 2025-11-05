@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILE_CACHE_ON_PREMISES_NFS_LINKED_DATASETS = {
   _style: {
@@ -10,7 +10,7 @@ export const FILE_CACHE_ON_PREMISES_NFS_LINKED_DATASETS = {
   _original_height: 78,
 }
 
-export function FileCacheOnPremisesNfsLinkedDatasets(props: DiagramNodeProps) {
+export function FileCacheOnPremisesNfsLinkedDatasets(props: NodeProps) {
   return (
     <Shape
       {...FILE_CACHE_ON_PREMISES_NFS_LINKED_DATASETS}

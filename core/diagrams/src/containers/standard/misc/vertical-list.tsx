@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_LIST = {
   _style: {
@@ -8,7 +8,7 @@ export const VERTICAL_LIST = {
   },
 }
 
-export function VerticalList(props: DiagramNodeProps) {
+export function VerticalList(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_LIST}

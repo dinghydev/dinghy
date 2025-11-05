@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMAGE_VARIABLE_ASPECT = {
   _style: {
@@ -10,7 +10,7 @@ export const IMAGE_VARIABLE_ASPECT = {
   _original_height: 60,
 }
 
-export function ImageVariableAspect(props: DiagramNodeProps) {
+export function ImageVariableAspect(props: NodeProps) {
   return (
     <Shape
       {...IMAGE_VARIABLE_ASPECT}

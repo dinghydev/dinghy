@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARC = {
   _style: {
@@ -10,6 +10,6 @@ export const ARC = {
   _original_height: 52,
 }
 
-export function Arc(props: DiagramNodeProps) {
+export function Arc(props: NodeProps) {
   return <Shape {...ARC} {...props} _style={extendStyle(ARC, props)} />
 }

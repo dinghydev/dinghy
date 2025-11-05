@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EPROFILE = {
   _style: {
@@ -10,7 +10,7 @@ export const EPROFILE = {
   _original_height: 43.199999999999996,
 }
 
-export function Eprofile(props: DiagramNodeProps) {
+export function Eprofile(props: NodeProps) {
   return (
     <Shape {...EPROFILE} {...props} _style={extendStyle(EPROFILE, props)} />
   )

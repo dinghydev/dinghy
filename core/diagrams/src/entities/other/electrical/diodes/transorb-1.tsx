@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSORB_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSORB_1 = {
   _height: 60,
 }
 
-export function Transorb1(props: DiagramNodeProps) {
+export function Transorb1(props: NodeProps) {
   return (
     <Shape {...TRANSORB_1} {...props} _style={extendStyle(TRANSORB_1, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_MOVE_STACK = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_MOVE_STACK = {
   _original_height: 80,
 }
 
-export function DatabaseMoveStack(props: DiagramNodeProps) {
+export function DatabaseMoveStack(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_MOVE_STACK}

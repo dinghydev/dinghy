@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EDGE_SUBSCRIPTION = {
   _style: {
@@ -10,7 +10,7 @@ export const EDGE_SUBSCRIPTION = {
   _original_height: 59,
 }
 
-export function EdgeSubscription(props: DiagramNodeProps) {
+export function EdgeSubscription(props: NodeProps) {
   return (
     <Shape
       {...EDGE_SUBSCRIPTION}

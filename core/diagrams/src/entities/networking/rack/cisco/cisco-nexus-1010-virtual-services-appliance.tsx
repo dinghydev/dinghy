@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE = {
   _style: {
@@ -10,9 +10,7 @@ export const CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE = {
   _height: 15,
 }
 
-export function CiscoNexus1010VirtualServicesAppliance(
-  props: DiagramNodeProps,
-) {
+export function CiscoNexus1010VirtualServicesAppliance(props: NodeProps) {
   return (
     <Shape
       {...CISCO_NEXUS_1010_VIRTUAL_SERVICES_APPLIANCE}

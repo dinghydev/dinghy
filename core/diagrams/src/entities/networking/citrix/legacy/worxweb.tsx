@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORXWEB = {
   _style: {
@@ -10,6 +10,6 @@ export const WORXWEB = {
   _original_height: 38,
 }
 
-export function Worxweb(props: DiagramNodeProps) {
+export function Worxweb(props: NodeProps) {
   return <Shape {...WORXWEB} {...props} _style={extendStyle(WORXWEB, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DESKTOP_WEB = {
   _style: {
@@ -10,7 +10,7 @@ export const DESKTOP_WEB = {
   _original_height: 90,
 }
 
-export function DesktopWeb(props: DiagramNodeProps) {
+export function DesktopWeb(props: NodeProps) {
   return (
     <Shape
       {...DESKTOP_WEB}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIFFERENTIAL_CAPACITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DIFFERENTIAL_CAPACITOR = {
   _height: 80,
 }
 
-export function DifferentialCapacitor(props: DiagramNodeProps) {
+export function DifferentialCapacitor(props: NodeProps) {
   return (
     <Shape
       {...DIFFERENTIAL_CAPACITOR}

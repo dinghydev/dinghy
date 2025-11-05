@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTON_LINK_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTON_LINK_2 = {
   _height: 33,
 }
 
-export function ButtonLink2(props: DiagramNodeProps) {
+export function ButtonLink2(props: NodeProps) {
   return (
     <Shape
       {...BUTTON_LINK_2}

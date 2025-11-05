@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOLLIPOP_NOTATION = {
   _style: {
@@ -10,7 +10,7 @@ export const LOLLIPOP_NOTATION = {
   _height: 10,
 }
 
-export function LollipopNotation(props: DiagramNodeProps) {
+export function LollipopNotation(props: NodeProps) {
   return (
     <Shape
       {...LOLLIPOP_NOTATION}

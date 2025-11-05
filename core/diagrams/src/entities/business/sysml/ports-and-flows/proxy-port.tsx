@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROXY_PORT = {
   _style: {
@@ -10,7 +10,7 @@ export const PROXY_PORT = {
   _height: 60,
 }
 
-export function ProxyPort(props: DiagramNodeProps) {
+export function ProxyPort(props: NodeProps) {
   return (
     <Shape {...PROXY_PORT} {...props} _style={extendStyle(PROXY_PORT, props)} />
   )

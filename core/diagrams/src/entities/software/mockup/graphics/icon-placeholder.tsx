@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ICON_PLACEHOLDER = {
   _style: {
@@ -10,7 +10,7 @@ export const ICON_PLACEHOLDER = {
   _original_height: 50,
 }
 
-export function IconPlaceholder(props: DiagramNodeProps) {
+export function IconPlaceholder(props: NodeProps) {
   return (
     <Shape
       {...ICON_PLACEHOLDER}

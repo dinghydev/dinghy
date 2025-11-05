@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURITY_LAKE = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURITY_LAKE = {
   _original_height: 78,
 }
 
-export function SecurityLake(props: DiagramNodeProps) {
+export function SecurityLake(props: NodeProps) {
   return (
     <Shape
       {...SECURITY_LAKE}

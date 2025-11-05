@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKUP_LEGAL_HOLD = {
   _style: {
@@ -10,7 +10,7 @@ export const BACKUP_LEGAL_HOLD = {
   _original_height: 78,
 }
 
-export function BackupLegalHold(props: DiagramNodeProps) {
+export function BackupLegalHold(props: NodeProps) {
   return (
     <Shape
       {...BACKUP_LEGAL_HOLD}

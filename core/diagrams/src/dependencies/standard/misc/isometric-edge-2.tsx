@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ISOMETRIC_EDGE_2 = {
   _style: {
@@ -8,7 +8,7 @@ export const ISOMETRIC_EDGE_2 = {
   },
 }
 
-export function IsometricEdge2(props: DiagramNodeProps) {
+export function IsometricEdge2(props: NodeProps) {
   return (
     <Dependency
       {...ISOMETRIC_EDGE_2}

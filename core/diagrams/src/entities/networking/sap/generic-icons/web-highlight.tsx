@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_HIGHLIGHT = {
   _height: 27,
 }
 
-export function WebHighlight(props: DiagramNodeProps) {
+export function WebHighlight(props: NodeProps) {
   return (
     <Shape
       {...WEB_HIGHLIGHT}

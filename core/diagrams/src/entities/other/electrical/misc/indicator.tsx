@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDICATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const INDICATOR = {
   _original_height: 60,
 }
 
-export function Indicator(props: DiagramNodeProps) {
+export function Indicator(props: NodeProps) {
   return (
     <Shape {...INDICATOR} {...props} _style={extendStyle(INDICATOR, props)} />
   )

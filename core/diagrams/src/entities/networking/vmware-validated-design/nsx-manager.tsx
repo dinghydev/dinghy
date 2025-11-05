@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NSX_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const NSX_MANAGER = {
   _original_height: 50,
 }
 
-export function NsxManager(props: DiagramNodeProps) {
+export function NsxManager(props: NodeProps) {
   return (
     <Shape
       {...NSX_MANAGER}

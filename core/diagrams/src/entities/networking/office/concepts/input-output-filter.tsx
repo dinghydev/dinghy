@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INPUT_OUTPUT_FILTER = {
   _style: {
@@ -10,7 +10,7 @@ export const INPUT_OUTPUT_FILTER = {
   _original_height: 46,
 }
 
-export function InputOutputFilter(props: DiagramNodeProps) {
+export function InputOutputFilter(props: NodeProps) {
   return (
     <Shape
       {...INPUT_OUTPUT_FILTER}

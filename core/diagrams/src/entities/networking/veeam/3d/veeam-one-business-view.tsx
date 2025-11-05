@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_ONE_BUSINESS_VIEW = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_ONE_BUSINESS_VIEW = {
   _original_height: 46,
 }
 
-export function VeeamOneBusinessView(props: DiagramNodeProps) {
+export function VeeamOneBusinessView(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_ONE_BUSINESS_VIEW}

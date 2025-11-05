@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMMERSIVE_READERS = {
   _style: {
@@ -10,7 +10,7 @@ export const IMMERSIVE_READERS = {
   _original_height: 68,
 }
 
-export function ImmersiveReaders(props: DiagramNodeProps) {
+export function ImmersiveReaders(props: NodeProps) {
   return (
     <Shape
       {...IMMERSIVE_READERS}

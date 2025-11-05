@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SKYPE_FOR_BUSINESS_ROOM_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const SKYPE_FOR_BUSINESS_ROOM_SYSTEM = {
   _height: 41,
 }
 
-export function SkypeForBusinessRoomSystem(props: DiagramNodeProps) {
+export function SkypeForBusinessRoomSystem(props: NodeProps) {
   return (
     <Shape
       {...SKYPE_FOR_BUSINESS_ROOM_SYSTEM}

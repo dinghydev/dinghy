@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DNS_PRIVATEZONE = {
   _style: {
@@ -10,7 +10,7 @@ export const DNS_PRIVATEZONE = {
   _original_height: 54.900000000000006,
 }
 
-export function DnsPrivatezone(props: DiagramNodeProps) {
+export function DnsPrivatezone(props: NodeProps) {
   return (
     <Shape
       {...DNS_PRIVATEZONE}

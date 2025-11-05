@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEND_SIGNAL_ACTION = {
   _style: {
@@ -10,7 +10,7 @@ export const SEND_SIGNAL_ACTION = {
   _height: 40,
 }
 
-export function SendSignalAction(props: DiagramNodeProps) {
+export function SendSignalAction(props: NodeProps) {
   return (
     <Shape
       {...SEND_SIGNAL_ACTION}

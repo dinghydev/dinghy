@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEVICE_POSTURE_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const DEVICE_POSTURE_SERVICE = {
   _original_height: 42.015,
 }
 
-export function DevicePostureService(props: DiagramNodeProps) {
+export function DevicePostureService(props: NodeProps) {
   return (
     <Shape
       {...DEVICE_POSTURE_SERVICE}

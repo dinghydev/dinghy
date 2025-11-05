@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUBLISH = {
   _style: {
@@ -10,6 +10,6 @@ export const PUBLISH = {
   _original_height: 48,
 }
 
-export function Publish(props: DiagramNodeProps) {
+export function Publish(props: NodeProps) {
   return <Shape {...PUBLISH} {...props} _style={extendStyle(PUBLISH, props)} />
 }

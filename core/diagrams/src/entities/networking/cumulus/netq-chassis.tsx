@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETQ_CHASSIS = {
   _style: {
@@ -10,7 +10,7 @@ export const NETQ_CHASSIS = {
   _height: 72,
 }
 
-export function NetqChassis(props: DiagramNodeProps) {
+export function NetqChassis(props: NodeProps) {
   return (
     <Shape
       {...NETQ_CHASSIS}

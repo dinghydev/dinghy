@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKUP_VIRTUAL_MACHINE_MONITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const BACKUP_VIRTUAL_MACHINE_MONITOR = {
   _original_height: 78,
 }
 
-export function BackupVirtualMachineMonitor(props: DiagramNodeProps) {
+export function BackupVirtualMachineMonitor(props: NodeProps) {
   return (
     <Shape
       {...BACKUP_VIRTUAL_MACHINE_MONITOR}

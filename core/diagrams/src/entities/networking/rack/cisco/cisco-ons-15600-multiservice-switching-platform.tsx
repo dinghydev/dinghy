@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM = {
   _style: {
@@ -10,9 +10,7 @@ export const CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM = {
   _height: 212,
 }
 
-export function CiscoOns15600MultiserviceSwitchingPlatform(
-  props: DiagramNodeProps,
-) {
+export function CiscoOns15600MultiserviceSwitchingPlatform(props: NodeProps) {
   return (
     <Shape
       {...CISCO_ONS_15600_MULTISERVICE_SWITCHING_PLATFORM}

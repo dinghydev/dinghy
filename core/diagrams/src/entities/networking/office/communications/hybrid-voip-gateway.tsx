@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYBRID_VOIP_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const HYBRID_VOIP_GATEWAY = {
   _height: 38,
 }
 
-export function HybridVoipGateway(props: DiagramNodeProps) {
+export function HybridVoipGateway(props: NodeProps) {
   return (
     <Shape
       {...HYBRID_VOIP_GATEWAY}

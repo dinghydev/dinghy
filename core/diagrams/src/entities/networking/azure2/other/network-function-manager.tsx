@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETWORK_FUNCTION_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const NETWORK_FUNCTION_MANAGER = {
   _original_height: 68,
 }
 
-export function NetworkFunctionManager(props: DiagramNodeProps) {
+export function NetworkFunctionManager(props: NodeProps) {
   return (
     <Shape
       {...NETWORK_FUNCTION_MANAGER}

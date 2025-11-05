@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_DNA_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_DNA_CENTER = {
   _original_height: 50,
 }
 
-export function CiscoDnaCenter(props: DiagramNodeProps) {
+export function CiscoDnaCenter(props: NodeProps) {
   return (
     <Shape
       {...CISCO_DNA_CENTER}

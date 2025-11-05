@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEY_ACCESS_JUSTIFICATIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const KEY_ACCESS_JUSTIFICATIONS = {
   _height: 40,
 }
 
-export function KeyAccessJustifications(props: DiagramNodeProps) {
+export function KeyAccessJustifications(props: NodeProps) {
   return (
     <Shape
       {...KEY_ACCESS_JUSTIFICATIONS}

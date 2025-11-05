@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLIPBOARD = {
   _style: {
@@ -10,7 +10,7 @@ export const CLIPBOARD = {
   _original_height: 52,
 }
 
-export function Clipboard(props: DiagramNodeProps) {
+export function Clipboard(props: NodeProps) {
   return (
     <Shape {...CLIPBOARD} {...props} _style={extendStyle(CLIPBOARD, props)} />
   )

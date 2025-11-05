@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS = {
   _style: {
@@ -10,9 +10,7 @@ export const SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS = {
   _original_height: 50,
 }
 
-export function SingleAndMultiSessionWindowsAndLinuxDesktops(
-  props: DiagramNodeProps,
-) {
+export function SingleAndMultiSessionWindowsAndLinuxDesktops(props: NodeProps) {
   return (
     <Shape
       {...SINGLE_AND_MULTI_SESSION_WINDOWS_AND_LINUX_DESKTOPS}

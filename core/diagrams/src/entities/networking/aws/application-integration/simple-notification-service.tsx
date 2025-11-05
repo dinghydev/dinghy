@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIMPLE_NOTIFICATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const SIMPLE_NOTIFICATION_SERVICE = {
   _original_height: 78,
 }
 
-export function SimpleNotificationService(props: DiagramNodeProps) {
+export function SimpleNotificationService(props: NodeProps) {
   return (
     <Shape
       {...SIMPLE_NOTIFICATION_SERVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SMC_SERVER_MIGRATION_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SMC_SERVER_MIGRATION_CENTER = {
   _original_height: 54.900000000000006,
 }
 
-export function SmcServerMigrationCenter(props: DiagramNodeProps) {
+export function SmcServerMigrationCenter(props: NodeProps) {
   return (
     <Shape
       {...SMC_SERVER_MIGRATION_CENTER}

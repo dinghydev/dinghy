@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIMPLE_AD = {
   _style: {
@@ -10,7 +10,7 @@ export const SIMPLE_AD = {
   _original_height: 77,
 }
 
-export function SimpleAd(props: DiagramNodeProps) {
+export function SimpleAd(props: NodeProps) {
   return (
     <Shape {...SIMPLE_AD} {...props} _style={extendStyle(SIMPLE_AD, props)} />
   )

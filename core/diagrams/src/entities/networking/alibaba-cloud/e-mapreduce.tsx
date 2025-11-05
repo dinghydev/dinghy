@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const E_MAPREDUCE = {
   _style: {
@@ -10,7 +10,7 @@ export const E_MAPREDUCE = {
   _original_height: 60,
 }
 
-export function EMapreduce(props: DiagramNodeProps) {
+export function EMapreduce(props: NodeProps) {
   return (
     <Shape
       {...E_MAPREDUCE}

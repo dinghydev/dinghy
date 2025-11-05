@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLUMN_FIXED_BED = {
   _style: {
@@ -10,7 +10,7 @@ export const COLUMN_FIXED_BED = {
   _height: 180,
 }
 
-export function ColumnFixedBed(props: DiagramNodeProps) {
+export function ColumnFixedBed(props: NodeProps) {
   return (
     <Shape
       {...COLUMN_FIXED_BED}

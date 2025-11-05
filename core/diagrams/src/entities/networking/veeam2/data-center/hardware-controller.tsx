@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HARDWARE_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const HARDWARE_CONTROLLER = {
   _height: 28.000000000000004,
 }
 
-export function HardwareController(props: DiagramNodeProps) {
+export function HardwareController(props: NodeProps) {
   return (
     <Shape
       {...HARDWARE_CONTROLLER}

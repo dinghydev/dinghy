@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEDUPLICATING_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const DEDUPLICATING_STORAGE = {
   _height: 11,
 }
 
-export function DeduplicatingStorage(props: DiagramNodeProps) {
+export function DeduplicatingStorage(props: NodeProps) {
   return (
     <Shape
       {...DEDUPLICATING_STORAGE}

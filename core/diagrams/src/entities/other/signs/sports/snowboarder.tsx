@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SNOWBOARDER = {
   _style: {
@@ -10,7 +10,7 @@ export const SNOWBOARDER = {
   _original_height: 99,
 }
 
-export function Snowboarder(props: DiagramNodeProps) {
+export function Snowboarder(props: NodeProps) {
   return (
     <Shape
       {...SNOWBOARDER}

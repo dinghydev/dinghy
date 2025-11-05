@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AVC_APPLICATION_VISIBILITY_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const AVC_APPLICATION_VISIBILITY_CONTROL = {
   _original_height: 50,
 }
 
-export function AvcApplicationVisibilityControl(props: DiagramNodeProps) {
+export function AvcApplicationVisibilityControl(props: NodeProps) {
   return (
     <Shape
       {...AVC_APPLICATION_VISIBILITY_CONTROL}

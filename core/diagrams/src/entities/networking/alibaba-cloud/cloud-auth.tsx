@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_AUTH = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_AUTH = {
   _original_height: 54.6,
 }
 
-export function CloudAuth(props: DiagramNodeProps) {
+export function CloudAuth(props: NodeProps) {
   return (
     <Shape {...CLOUD_AUTH} {...props} _style={extendStyle(CLOUD_AUTH, props)} />
   )

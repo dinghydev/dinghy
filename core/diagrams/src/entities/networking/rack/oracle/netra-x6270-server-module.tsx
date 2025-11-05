@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETRA_X6270_SERVER_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const NETRA_X6270_SERVER_MODULE = {
   _height: 121,
 }
 
-export function NetraX6270ServerModule(props: DiagramNodeProps) {
+export function NetraX6270ServerModule(props: NodeProps) {
   return (
     <Shape
       {...NETRA_X6270_SERVER_MODULE}

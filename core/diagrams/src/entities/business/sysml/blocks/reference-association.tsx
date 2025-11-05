@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REFERENCE_ASSOCIATION = {
   _style: {
@@ -10,7 +10,7 @@ export const REFERENCE_ASSOCIATION = {
   _height: 0,
 }
 
-export function ReferenceAssociation(props: DiagramNodeProps) {
+export function ReferenceAssociation(props: NodeProps) {
   return (
     <Shape
       {...REFERENCE_ASSOCIATION}

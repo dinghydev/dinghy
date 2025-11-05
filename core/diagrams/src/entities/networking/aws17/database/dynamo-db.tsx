@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DYNAMO_DB = {
   _style: {
@@ -10,7 +10,7 @@ export const DYNAMO_DB = {
   _original_height: 81,
 }
 
-export function DynamoDb(props: DiagramNodeProps) {
+export function DynamoDb(props: NodeProps) {
   return (
     <Shape {...DYNAMO_DB} {...props} _style={extendStyle(DYNAMO_DB, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FALLING_ROCKS = {
   _style: {
@@ -10,7 +10,7 @@ export const FALLING_ROCKS = {
   _original_height: 99,
 }
 
-export function FallingRocks(props: DiagramNodeProps) {
+export function FallingRocks(props: NodeProps) {
   return (
     <Shape
       {...FALLING_ROCKS}

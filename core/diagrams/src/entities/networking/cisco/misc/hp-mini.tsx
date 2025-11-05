@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HP_MINI = {
   _style: {
@@ -10,6 +10,6 @@ export const HP_MINI = {
   _original_height: 54,
 }
 
-export function HpMini(props: DiagramNodeProps) {
+export function HpMini(props: NodeProps) {
   return <Shape {...HP_MINI} {...props} _style={extendStyle(HP_MINI, props)} />
 }

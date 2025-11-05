@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DURABLE_SUBSCRIBER = {
   _style: {
@@ -10,7 +10,7 @@ export const DURABLE_SUBSCRIBER = {
   _height: 35,
 }
 
-export function DurableSubscriber(props: DiagramNodeProps) {
+export function DurableSubscriber(props: NodeProps) {
   return (
     <Shape
       {...DURABLE_SUBSCRIBER}

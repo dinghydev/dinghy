@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL = {
   _style: {
@@ -10,7 +10,7 @@ export const INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL = {
   _height: 170,
 }
 
-export function IntegratedBlockAndBleedValveManual(props: DiagramNodeProps) {
+export function IntegratedBlockAndBleedValveManual(props: NodeProps) {
   return (
     <Shape
       {...INTEGRATED_BLOCK_AND_BLEED_VALVE_MANUAL}

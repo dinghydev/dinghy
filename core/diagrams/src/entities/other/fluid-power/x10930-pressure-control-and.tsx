@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10930_PRESSURE_CONTROL_AND = {
   _style: {
@@ -10,7 +10,7 @@ export const X10930_PRESSURE_CONTROL_AND = {
   _height: 93.28,
 }
 
-export function X10930PressureControlAnd(props: DiagramNodeProps) {
+export function X10930PressureControlAnd(props: NodeProps) {
   return (
     <Shape
       {...X10930_PRESSURE_CONTROL_AND}

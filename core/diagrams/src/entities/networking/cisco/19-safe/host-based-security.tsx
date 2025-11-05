@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HOST_BASED_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const HOST_BASED_SECURITY = {
   _original_height: 50,
 }
 
-export function HostBasedSecurity(props: DiagramNodeProps) {
+export function HostBasedSecurity(props: NodeProps) {
   return (
     <Shape
       {...HOST_BASED_SECURITY}

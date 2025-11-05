@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUZZFEED = {
   _style: {
@@ -10,7 +10,7 @@ export const BUZZFEED = {
   _original_height: 102.4,
 }
 
-export function Buzzfeed(props: DiagramNodeProps) {
+export function Buzzfeed(props: NodeProps) {
   return (
     <Shape {...BUZZFEED} {...props} _style={extendStyle(BUZZFEED, props)} />
   )

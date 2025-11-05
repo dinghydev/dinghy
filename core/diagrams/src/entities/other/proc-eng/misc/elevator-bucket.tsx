@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELEVATOR_BUCKET = {
   _style: {
@@ -10,7 +10,7 @@ export const ELEVATOR_BUCKET = {
   _height: 250,
 }
 
-export function ElevatorBucket(props: DiagramNodeProps) {
+export function ElevatorBucket(props: NodeProps) {
   return (
     <Shape
       {...ELEVATOR_BUCKET}

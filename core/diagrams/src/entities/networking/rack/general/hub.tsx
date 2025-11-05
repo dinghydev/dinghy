@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HUB = {
   _style: {
@@ -10,6 +10,6 @@ export const HUB = {
   _height: 30,
 }
 
-export function Hub(props: DiagramNodeProps) {
+export function Hub(props: NodeProps) {
   return <Shape {...HUB} {...props} _style={extendStyle(HUB, props)} />
 }

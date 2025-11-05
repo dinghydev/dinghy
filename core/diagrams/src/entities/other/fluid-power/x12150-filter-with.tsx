@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12150_FILTER_WITH = {
   _style: {
@@ -10,7 +10,7 @@ export const X12150_FILTER_WITH = {
   _height: 128.7,
 }
 
-export function X12150FilterWith(props: DiagramNodeProps) {
+export function X12150FilterWith(props: NodeProps) {
   return (
     <Shape
       {...X12150_FILTER_WITH}

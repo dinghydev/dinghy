@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RS_LATCH_SYNCHRONOUS = {
   _style: {
@@ -10,7 +10,7 @@ export const RS_LATCH_SYNCHRONOUS = {
   _height: 80,
 }
 
-export function RsLatchSynchronous(props: DiagramNodeProps) {
+export function RsLatchSynchronous(props: NodeProps) {
   return (
     <Shape
       {...RS_LATCH_SYNCHRONOUS}

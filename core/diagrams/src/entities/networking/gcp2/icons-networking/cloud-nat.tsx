@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_NAT = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_NAT = {
   _original_height: 42,
 }
 
-export function CloudNat(props: DiagramNodeProps) {
+export function CloudNat(props: NodeProps) {
   return (
     <Shape {...CLOUD_NAT} {...props} _style={extendStyle(CLOUD_NAT, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTOML = {
   _style: {
@@ -10,6 +10,6 @@ export const AUTOML = {
   _height: 38,
 }
 
-export function Automl(props: DiagramNodeProps) {
+export function Automl(props: NodeProps) {
   return <Shape {...AUTOML} {...props} _style={extendStyle(AUTOML, props)} />
 }

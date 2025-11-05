@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UI5_FLEXIBILITY_FOR_KEY_USERS = {
   _style: {
@@ -10,7 +10,7 @@ export const UI5_FLEXIBILITY_FOR_KEY_USERS = {
   _original_height: 50,
 }
 
-export function Ui5FlexibilityForKeyUsers(props: DiagramNodeProps) {
+export function Ui5FlexibilityForKeyUsers(props: NodeProps) {
   return (
     <Shape
       {...UI5_FLEXIBILITY_FOR_KEY_USERS}

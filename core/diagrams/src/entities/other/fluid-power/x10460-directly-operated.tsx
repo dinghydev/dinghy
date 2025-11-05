@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10460_DIRECTLY_OPERATED = {
   _style: {
@@ -10,7 +10,7 @@ export const X10460_DIRECTLY_OPERATED = {
   _height: 75.08,
 }
 
-export function X10460DirectlyOperated(props: DiagramNodeProps) {
+export function X10460DirectlyOperated(props: NodeProps) {
   return (
     <Shape
       {...X10460_DIRECTLY_OPERATED}

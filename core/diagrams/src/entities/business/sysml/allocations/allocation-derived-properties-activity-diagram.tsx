@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM = {
   _style: {
@@ -10,9 +10,7 @@ export const ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM = {
   _height: 100,
 }
 
-export function AllocationDerivedPropertiesActivityDiagram(
-  props: DiagramNodeProps,
-) {
+export function AllocationDerivedPropertiesActivityDiagram(props: NodeProps) {
   return (
     <Shape
       {...ALLOCATION_DERIVED_PROPERTIES_ACTIVITY_DIAGRAM}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYPERVISOR = {
   _style: {
@@ -10,7 +10,7 @@ export const HYPERVISOR = {
   _original_height: 65,
 }
 
-export function Hypervisor(props: DiagramNodeProps) {
+export function Hypervisor(props: NodeProps) {
   return (
     <Shape {...HYPERVISOR} {...props} _style={extendStyle(HYPERVISOR, props)} />
   )

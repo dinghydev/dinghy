@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONFIG_ASSESSMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const CONFIG_ASSESSMENT = {
   _original_height: 45,
 }
 
-export function ConfigAssessment(props: DiagramNodeProps) {
+export function ConfigAssessment(props: NodeProps) {
   return (
     <Shape
       {...CONFIG_ASSESSMENT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VAO_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const VAO_SERVER = {
   _original_height: 52,
 }
 
-export function VaoServer(props: DiagramNodeProps) {
+export function VaoServer(props: NodeProps) {
   return (
     <Shape {...VAO_SERVER} {...props} _style={extendStyle(VAO_SERVER, props)} />
   )

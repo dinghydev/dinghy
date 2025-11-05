@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLOB_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const BLOB_STORAGE = {
   _original_height: 42,
 }
 
-export function BlobStorage(props: DiagramNodeProps) {
+export function BlobStorage(props: NodeProps) {
   return (
     <Shape
       {...BLOB_STORAGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VM_GROUP = {
   _style: {
@@ -10,7 +10,7 @@ export const VM_GROUP = {
   _original_height: 50,
 }
 
-export function VmGroup(props: DiagramNodeProps) {
+export function VmGroup(props: NodeProps) {
   return (
     <Shape {...VM_GROUP} {...props} _style={extendStyle(VM_GROUP, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETQ_TELEMETRY_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const NETQ_TELEMETRY_SERVER = {
   _height: 24,
 }
 
-export function NetqTelemetryServer(props: DiagramNodeProps) {
+export function NetqTelemetryServer(props: NodeProps) {
   return (
     <Shape
       {...NETQ_TELEMETRY_SERVER}

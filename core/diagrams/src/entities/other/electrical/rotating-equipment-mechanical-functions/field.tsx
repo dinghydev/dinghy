@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIELD = {
   _style: {
@@ -10,6 +10,6 @@ export const FIELD = {
   _height: 15,
 }
 
-export function Field(props: DiagramNodeProps) {
+export function Field(props: NodeProps) {
   return <Shape {...FIELD} {...props} _style={extendStyle(FIELD, props)} />
 }

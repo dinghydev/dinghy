@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RDP_REMOTING_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const RDP_REMOTING_FILE = {
   _original_height: 50,
 }
 
-export function RdpRemotingFile(props: DiagramNodeProps) {
+export function RdpRemotingFile(props: NodeProps) {
   return (
     <Shape
       {...RDP_REMOTING_FILE}

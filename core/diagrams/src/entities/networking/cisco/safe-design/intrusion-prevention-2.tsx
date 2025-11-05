@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTRUSION_PREVENTION_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const INTRUSION_PREVENTION_2 = {
   _original_height: 45,
 }
 
-export function IntrusionPrevention2(props: DiagramNodeProps) {
+export function IntrusionPrevention2(props: NodeProps) {
   return (
     <Shape
       {...INTRUSION_PREVENTION_2}

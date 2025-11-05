@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NODE_JS_PERFORMANCE_PLATFORM = {
   _style: {
@@ -10,7 +10,7 @@ export const NODE_JS_PERFORMANCE_PLATFORM = {
   _original_height: 47.400000000000006,
 }
 
-export function NodeJsPerformancePlatform(props: DiagramNodeProps) {
+export function NodeJsPerformancePlatform(props: NodeProps) {
   return (
     <Shape
       {...NODE_JS_PERFORMANCE_PLATFORM}

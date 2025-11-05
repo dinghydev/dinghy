@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_COST_AND_USAGE_REPORT = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_COST_AND_USAGE_REPORT = {
   _height: 110,
 }
 
-export function AwsCostAndUsageReport(props: DiagramNodeProps) {
+export function AwsCostAndUsageReport(props: NodeProps) {
   return (
     <Shape
       {...AWS_COST_AND_USAGE_REPORT}

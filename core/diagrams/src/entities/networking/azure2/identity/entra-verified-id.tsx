@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTRA_VERIFIED_ID = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTRA_VERIFIED_ID = {
   _original_height: 60.440000000000005,
 }
 
-export function EntraVerifiedId(props: DiagramNodeProps) {
+export function EntraVerifiedId(props: NodeProps) {
   return (
     <Shape
       {...ENTRA_VERIFIED_ID}

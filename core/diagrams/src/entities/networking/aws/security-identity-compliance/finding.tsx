@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FINDING = {
   _style: {
@@ -10,6 +10,6 @@ export const FINDING = {
   _original_height: 78,
 }
 
-export function Finding(props: DiagramNodeProps) {
+export function Finding(props: NodeProps) {
   return <Shape {...FINDING} {...props} _style={extendStyle(FINDING, props)} />
 }

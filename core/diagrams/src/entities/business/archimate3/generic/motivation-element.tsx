@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOTIVATION_ELEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const MOTIVATION_ELEMENT = {
   _height: 75,
 }
 
-export function MotivationElement(props: DiagramNodeProps) {
+export function MotivationElement(props: NodeProps) {
   return (
     <Shape
       {...MOTIVATION_ELEMENT}

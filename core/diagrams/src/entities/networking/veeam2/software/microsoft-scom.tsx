@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MICROSOFT_SCOM = {
   _style: {
@@ -10,7 +10,7 @@ export const MICROSOFT_SCOM = {
   _original_height: 34,
 }
 
-export function MicrosoftScom(props: DiagramNodeProps) {
+export function MicrosoftScom(props: NodeProps) {
   return (
     <Shape
       {...MICROSOFT_SCOM}

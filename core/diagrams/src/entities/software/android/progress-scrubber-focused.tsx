@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROGRESS_SCRUBBER_FOCUSED = {
   _style: {
@@ -10,7 +10,7 @@ export const PROGRESS_SCRUBBER_FOCUSED = {
   _height: 16,
 }
 
-export function ProgressScrubberFocused(props: DiagramNodeProps) {
+export function ProgressScrubberFocused(props: NodeProps) {
   return (
     <Shape
       {...PROGRESS_SCRUBBER_FOCUSED}

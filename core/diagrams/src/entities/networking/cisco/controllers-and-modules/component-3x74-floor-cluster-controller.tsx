@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER = {
   _original_height: 66,
 }
 
-export function Component3x74FloorClusterController(props: DiagramNodeProps) {
+export function Component3x74FloorClusterController(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_3X74_FLOOR_CLUSTER_CONTROLLER}

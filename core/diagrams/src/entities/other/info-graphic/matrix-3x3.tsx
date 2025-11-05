@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MATRIX_3X3 = {
   _style: {
@@ -10,7 +10,7 @@ export const MATRIX_3X3 = {
   _height: 345,
 }
 
-export function Matrix3x3(props: DiagramNodeProps) {
+export function Matrix3x3(props: NodeProps) {
   return (
     <Shape {...MATRIX_3X3} {...props} _style={extendStyle(MATRIX_3X3, props)} />
   )

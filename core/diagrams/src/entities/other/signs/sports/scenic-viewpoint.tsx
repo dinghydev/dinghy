@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCENIC_VIEWPOINT = {
   _style: {
@@ -10,7 +10,7 @@ export const SCENIC_VIEWPOINT = {
   _original_height: 99,
 }
 
-export function ScenicViewpoint(props: DiagramNodeProps) {
+export function ScenicViewpoint(props: NodeProps) {
   return (
     <Shape
       {...SCENIC_VIEWPOINT}

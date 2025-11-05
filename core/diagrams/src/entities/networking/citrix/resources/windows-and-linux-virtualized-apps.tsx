@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDOWS_AND_LINUX_VIRTUALIZED_APPS = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDOWS_AND_LINUX_VIRTUALIZED_APPS = {
   _height: 39.519999999999996,
 }
 
-export function WindowsAndLinuxVirtualizedApps(props: DiagramNodeProps) {
+export function WindowsAndLinuxVirtualizedApps(props: NodeProps) {
   return (
     <Shape
       {...WINDOWS_AND_LINUX_VIRTUALIZED_APPS}

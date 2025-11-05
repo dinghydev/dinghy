@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRIGGER = {
   _style: {
@@ -10,6 +10,6 @@ export const TRIGGER = {
   _height: 40,
 }
 
-export function Trigger(props: DiagramNodeProps) {
+export function Trigger(props: NodeProps) {
   return <Shape {...TRIGGER} {...props} _style={extendStyle(TRIGGER, props)} />
 }

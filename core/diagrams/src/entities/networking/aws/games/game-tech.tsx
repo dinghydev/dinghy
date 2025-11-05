@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GAME_TECH = {
   _style: {
@@ -10,7 +10,7 @@ export const GAME_TECH = {
   _original_height: 78,
 }
 
-export function GameTech(props: DiagramNodeProps) {
+export function GameTech(props: NodeProps) {
   return (
     <Shape {...GAME_TECH} {...props} _style={extendStyle(GAME_TECH, props)} />
   )

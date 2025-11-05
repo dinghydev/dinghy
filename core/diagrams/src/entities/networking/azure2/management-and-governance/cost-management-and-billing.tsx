@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COST_MANAGEMENT_AND_BILLING = {
   _style: {
@@ -10,7 +10,7 @@ export const COST_MANAGEMENT_AND_BILLING = {
   _original_height: 68,
 }
 
-export function CostManagementAndBilling(props: DiagramNodeProps) {
+export function CostManagementAndBilling(props: NodeProps) {
   return (
     <Shape
       {...COST_MANAGEMENT_AND_BILLING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BAR_GRAPH_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const BAR_GRAPH_4 = {
   _height: 100,
 }
 
-export function BarGraph4(props: DiagramNodeProps) {
+export function BarGraph4(props: NodeProps) {
   return (
     <Shape
       {...BAR_GRAPH_4}

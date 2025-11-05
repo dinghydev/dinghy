@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NONE_START = {
   _style: {
@@ -10,7 +10,7 @@ export const NONE_START = {
   _original_height: 50,
 }
 
-export function NoneStart(props: DiagramNodeProps) {
+export function NoneStart(props: NodeProps) {
   return (
     <Shape {...NONE_START} {...props} _style={extendStyle(NONE_START, props)} />
   )

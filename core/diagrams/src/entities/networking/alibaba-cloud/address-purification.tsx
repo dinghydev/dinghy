@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADDRESS_PURIFICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const ADDRESS_PURIFICATION = {
   _original_height: 53.7,
 }
 
-export function AddressPurification(props: DiagramNodeProps) {
+export function AddressPurification(props: NodeProps) {
   return (
     <Shape
       {...ADDRESS_PURIFICATION}

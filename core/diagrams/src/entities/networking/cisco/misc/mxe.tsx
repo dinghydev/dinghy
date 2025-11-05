@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MXE = {
   _style: {
@@ -10,6 +10,6 @@ export const MXE = {
   _original_height: 61,
 }
 
-export function Mxe(props: DiagramNodeProps) {
+export function Mxe(props: NodeProps) {
   return <Shape {...MXE} {...props} _style={extendStyle(MXE, props)} />
 }

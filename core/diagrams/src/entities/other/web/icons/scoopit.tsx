@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCOOPIT = {
   _style: {
@@ -10,6 +10,6 @@ export const SCOOPIT = {
   _original_height: 102.4,
 }
 
-export function Scoopit(props: DiagramNodeProps) {
+export function Scoopit(props: NodeProps) {
   return <Shape {...SCOOPIT} {...props} _style={extendStyle(SCOOPIT, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AD_AUTHENTICATION_METHODS = {
   _style: {
@@ -10,7 +10,7 @@ export const AD_AUTHENTICATION_METHODS = {
   _original_height: 66,
 }
 
-export function AdAuthenticationMethods(props: DiagramNodeProps) {
+export function AdAuthenticationMethods(props: NodeProps) {
   return (
     <Shape
       {...AD_AUTHENTICATION_METHODS}

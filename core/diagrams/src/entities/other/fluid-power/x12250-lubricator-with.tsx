@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12250_LUBRICATOR_WITH = {
   _style: {
@@ -10,7 +10,7 @@ export const X12250_LUBRICATOR_WITH = {
   _original_height: 78.68,
 }
 
-export function X12250LubricatorWith(props: DiagramNodeProps) {
+export function X12250LubricatorWith(props: NodeProps) {
   return (
     <Shape
       {...X12250_LUBRICATOR_WITH}

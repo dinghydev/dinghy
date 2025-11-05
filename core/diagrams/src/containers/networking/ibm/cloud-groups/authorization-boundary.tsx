@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTHORIZATION_BOUNDARY = {
   _style: {
@@ -11,7 +11,7 @@ export const AUTHORIZATION_BOUNDARY = {
   },
 }
 
-export function AuthorizationBoundary(props: DiagramNodeProps) {
+export function AuthorizationBoundary(props: NodeProps) {
   return (
     <Shape
       {...AUTHORIZATION_BOUNDARY}

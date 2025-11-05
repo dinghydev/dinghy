@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const END_OFFICE = {
   _style: {
@@ -10,7 +10,7 @@ export const END_OFFICE = {
   _original_height: 56,
 }
 
-export function EndOffice(props: DiagramNodeProps) {
+export function EndOffice(props: NodeProps) {
   return (
     <Shape {...END_OFFICE} {...props} _style={extendStyle(END_OFFICE, props)} />
   )

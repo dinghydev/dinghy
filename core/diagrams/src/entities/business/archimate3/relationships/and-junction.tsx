@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AND_JUNCTION = {
   _style: {
@@ -10,7 +10,7 @@ export const AND_JUNCTION = {
   _original_height: 10,
 }
 
-export function AndJunction(props: DiagramNodeProps) {
+export function AndJunction(props: NodeProps) {
   return (
     <Shape
       {...AND_JUNCTION}

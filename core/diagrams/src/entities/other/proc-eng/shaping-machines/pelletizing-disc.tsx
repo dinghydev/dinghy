@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PELLETIZING_DISC = {
   _style: {
@@ -10,7 +10,7 @@ export const PELLETIZING_DISC = {
   _height: 60,
 }
 
-export function PelletizingDisc(props: DiagramNodeProps) {
+export function PelletizingDisc(props: NodeProps) {
   return (
     <Shape
       {...PELLETIZING_DISC}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETSCALER_CONSOLE = {
   _style: {
@@ -10,7 +10,7 @@ export const NETSCALER_CONSOLE = {
   _height: 35.935,
 }
 
-export function NetscalerConsole(props: DiagramNodeProps) {
+export function NetscalerConsole(props: NodeProps) {
   return (
     <Shape
       {...NETSCALER_CONSOLE}

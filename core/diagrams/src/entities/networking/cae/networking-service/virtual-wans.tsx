@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_WANS = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_WANS = {
   _original_height: 50,
 }
 
-export function VirtualWans(props: DiagramNodeProps) {
+export function VirtualWans(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_WANS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STAKEHOLDER_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const STAKEHOLDER_2 = {
   _height: 35,
 }
 
-export function Stakeholder2(props: DiagramNodeProps) {
+export function Stakeholder2(props: NodeProps) {
   return (
     <Shape
       {...STAKEHOLDER_2}

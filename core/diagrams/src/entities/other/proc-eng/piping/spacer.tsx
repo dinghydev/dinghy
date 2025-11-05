@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPACER = {
   _style: {
@@ -10,6 +10,6 @@ export const SPACER = {
   _height: 60,
 }
 
-export function Spacer(props: DiagramNodeProps) {
+export function Spacer(props: NodeProps) {
   return <Shape {...SPACER} {...props} _style={extendStyle(SPACER, props)} />
 }

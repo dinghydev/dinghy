@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_NEXUS_2248PQ_10GE_FABRIC_EXTENDER = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_NEXUS_2248PQ_10GE_FABRIC_EXTENDER = {
   _height: 15,
 }
 
-export function CiscoNexus2248pq10geFabricExtender(props: DiagramNodeProps) {
+export function CiscoNexus2248pq10geFabricExtender(props: NodeProps) {
   return (
     <Shape
       {...CISCO_NEXUS_2248PQ_10GE_FABRIC_EXTENDER}

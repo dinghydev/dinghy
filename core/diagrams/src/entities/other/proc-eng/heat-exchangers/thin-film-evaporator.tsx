@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THIN_FILM_EVAPORATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const THIN_FILM_EVAPORATOR = {
   _height: 120,
 }
 
-export function ThinFilmEvaporator(props: DiagramNodeProps) {
+export function ThinFilmEvaporator(props: NodeProps) {
   return (
     <Shape
       {...THIN_FILM_EVAPORATOR}

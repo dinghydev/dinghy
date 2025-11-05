@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_ASSET_PERFORMANCE_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_ASSET_PERFORMANCE_MANAGEMENT = {
   _original_height: 50,
 }
 
-export function SapAssetPerformanceManagement(props: DiagramNodeProps) {
+export function SapAssetPerformanceManagement(props: NodeProps) {
   return (
     <Shape
       {...SAP_ASSET_PERFORMANCE_MANAGEMENT}

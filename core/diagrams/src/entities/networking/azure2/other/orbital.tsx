@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORBITAL = {
   _style: {
@@ -10,6 +10,6 @@ export const ORBITAL = {
   _original_height: 68,
 }
 
-export function Orbital(props: DiagramNodeProps) {
+export function Orbital(props: NodeProps) {
   return <Shape {...ORBITAL} {...props} _style={extendStyle(ORBITAL, props)} />
 }

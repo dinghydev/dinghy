@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWERSHELL_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const POWERSHELL_FILE = {
   _original_height: 50,
 }
 
-export function PowershellFile(props: DiagramNodeProps) {
+export function PowershellFile(props: NodeProps) {
   return (
     <Shape
       {...POWERSHELL_FILE}

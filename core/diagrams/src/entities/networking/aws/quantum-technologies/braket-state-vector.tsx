@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRAKET_STATE_VECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const BRAKET_STATE_VECTOR = {
   _original_height: 78,
 }
 
-export function BraketStateVector(props: DiagramNodeProps) {
+export function BraketStateVector(props: NodeProps) {
   return (
     <Shape
       {...BRAKET_STATE_VECTOR}

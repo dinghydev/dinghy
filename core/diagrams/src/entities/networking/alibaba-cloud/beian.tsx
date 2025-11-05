@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BEIAN = {
   _style: {
@@ -10,6 +10,6 @@ export const BEIAN = {
   _original_height: 48.300000000000004,
 }
 
-export function Beian(props: DiagramNodeProps) {
+export function Beian(props: NodeProps) {
   return <Shape {...BEIAN} {...props} _style={extendStyle(BEIAN, props)} />
 }

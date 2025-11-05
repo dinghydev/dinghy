@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUTE_SWITCH_PROCESSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUTE_SWITCH_PROCESSOR = {
   _height: 86,
 }
 
-export function RouteSwitchProcessor(props: DiagramNodeProps) {
+export function RouteSwitchProcessor(props: NodeProps) {
   return (
     <Shape
       {...ROUTE_SWITCH_PROCESSOR}

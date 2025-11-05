@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_TOOLS_AND_SDKS = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_TOOLS_AND_SDKS = {
   _height: 110,
 }
 
-export function AwsToolsAndSdks(props: DiagramNodeProps) {
+export function AwsToolsAndSdks(props: NodeProps) {
   return (
     <Shape
       {...AWS_TOOLS_AND_SDKS}

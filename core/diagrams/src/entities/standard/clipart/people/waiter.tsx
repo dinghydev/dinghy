@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAITER = {
   _style: {
@@ -10,6 +10,6 @@ export const WAITER = {
   _original_height: 80,
 }
 
-export function Waiter(props: DiagramNodeProps) {
+export function Waiter(props: NodeProps) {
   return <Shape {...WAITER} {...props} _style={extendStyle(WAITER, props)} />
 }

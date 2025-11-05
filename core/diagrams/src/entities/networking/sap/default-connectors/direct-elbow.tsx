@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECT_ELBOW = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRECT_ELBOW = {
   _height: 20,
 }
 
-export function DirectElbow(props: DiagramNodeProps) {
+export function DirectElbow(props: NodeProps) {
   return (
     <Shape
       {...DIRECT_ELBOW}

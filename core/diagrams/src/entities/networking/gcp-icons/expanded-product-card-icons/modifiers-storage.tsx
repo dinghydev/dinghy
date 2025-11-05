@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MODIFIERS_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const MODIFIERS_STORAGE = {
   _height: 32,
 }
 
-export function ModifiersStorage(props: DiagramNodeProps) {
+export function ModifiersStorage(props: NodeProps) {
   return (
     <Shape
       {...MODIFIERS_STORAGE}

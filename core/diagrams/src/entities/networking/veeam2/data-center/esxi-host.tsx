@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ESXI_HOST = {
   _style: {
@@ -10,7 +10,7 @@ export const ESXI_HOST = {
   _original_height: 79,
 }
 
-export function EsxiHost(props: DiagramNodeProps) {
+export function EsxiHost(props: NodeProps) {
   return (
     <Shape {...ESXI_HOST} {...props} _style={extendStyle(ESXI_HOST, props)} />
   )

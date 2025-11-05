@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_BOX_EDGE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_BOX_EDGE = {
   _original_height: 48,
 }
 
-export function DataBoxEdge(props: DiagramNodeProps) {
+export function DataBoxEdge(props: NodeProps) {
   return (
     <Shape
       {...DATA_BOX_EDGE}

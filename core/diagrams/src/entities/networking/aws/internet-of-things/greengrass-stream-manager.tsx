@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GREENGRASS_STREAM_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const GREENGRASS_STREAM_MANAGER = {
   _original_height: 60,
 }
 
-export function GreengrassStreamManager(props: DiagramNodeProps) {
+export function GreengrassStreamManager(props: NodeProps) {
   return (
     <Shape
       {...GREENGRASS_STREAM_MANAGER}

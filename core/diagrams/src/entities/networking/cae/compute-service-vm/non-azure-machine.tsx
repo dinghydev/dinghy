@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NON_AZURE_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const NON_AZURE_MACHINE = {
   _height: 50,
 }
 
-export function NonAzureMachine(props: DiagramNodeProps) {
+export function NonAzureMachine(props: NodeProps) {
   return (
     <Shape
       {...NON_AZURE_MACHINE}

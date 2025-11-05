@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const USER_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const USER_CONTROL = {
   _height: 84,
 }
 
-export function UserControl(props: DiagramNodeProps) {
+export function UserControl(props: NodeProps) {
   return (
     <Shape
       {...USER_CONTROL}

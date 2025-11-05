@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORSETI_LOCKUP = {
   _style: {
@@ -10,7 +10,7 @@ export const FORSETI_LOCKUP = {
   _height: 88,
 }
 
-export function ForsetiLockup(props: DiagramNodeProps) {
+export function ForsetiLockup(props: NodeProps) {
   return (
     <Shape
       {...FORSETI_LOCKUP}

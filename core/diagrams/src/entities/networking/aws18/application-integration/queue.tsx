@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUEUE = {
   _style: {
@@ -10,6 +10,6 @@ export const QUEUE = {
   _original_height: 60,
 }
 
-export function Queue(props: DiagramNodeProps) {
+export function Queue(props: NodeProps) {
   return <Shape {...QUEUE} {...props} _style={extendStyle(QUEUE, props)} />
 }

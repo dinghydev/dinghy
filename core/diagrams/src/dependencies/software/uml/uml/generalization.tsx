@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERALIZATION = {
   _style: {
@@ -7,7 +7,7 @@ export const GENERALIZATION = {
   },
 }
 
-export function Generalization(props: DiagramNodeProps) {
+export function Generalization(props: NodeProps) {
   return (
     <Dependency
       {...GENERALIZATION}

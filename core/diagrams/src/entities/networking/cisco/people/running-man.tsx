@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RUNNING_MAN = {
   _style: {
@@ -10,7 +10,7 @@ export const RUNNING_MAN = {
   _original_height: 93,
 }
 
-export function RunningMan(props: DiagramNodeProps) {
+export function RunningMan(props: NodeProps) {
   return (
     <Shape
       {...RUNNING_MAN}

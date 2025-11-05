@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTENT_TYPE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTENT_TYPE = {
   _original_height: 40,
 }
 
-export function ContentType(props: DiagramNodeProps) {
+export function ContentType(props: NodeProps) {
   return (
     <Shape
       {...CONTENT_TYPE}

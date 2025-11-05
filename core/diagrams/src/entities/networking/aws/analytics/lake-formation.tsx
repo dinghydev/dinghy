@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAKE_FORMATION = {
   _style: {
@@ -10,7 +10,7 @@ export const LAKE_FORMATION = {
   _original_height: 78,
 }
 
-export function LakeFormation(props: DiagramNodeProps) {
+export function LakeFormation(props: NodeProps) {
   return (
     <Shape
       {...LAKE_FORMATION}

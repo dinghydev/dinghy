@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POINTED_OVAL = {
   _style: {
@@ -9,7 +9,7 @@ export const POINTED_OVAL = {
   _height: 100,
 }
 
-export function PointedOval(props: DiagramNodeProps) {
+export function PointedOval(props: NodeProps) {
   return (
     <Shape
       {...POINTED_OVAL}

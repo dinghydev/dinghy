@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MIXING_REACTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const MIXING_REACTOR = {
   _height: 96,
 }
 
-export function MixingReactor(props: DiagramNodeProps) {
+export function MixingReactor(props: NodeProps) {
   return (
     <Shape
       {...MIXING_REACTOR}

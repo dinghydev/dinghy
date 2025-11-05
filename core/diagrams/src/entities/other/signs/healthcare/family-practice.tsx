@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FAMILY_PRACTICE = {
   _style: {
@@ -10,7 +10,7 @@ export const FAMILY_PRACTICE = {
   _original_height: 98,
 }
 
-export function FamilyPractice(props: DiagramNodeProps) {
+export function FamilyPractice(props: NodeProps) {
   return (
     <Shape
       {...FAMILY_PRACTICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AVATAR_AWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const AVATAR_AWAY = {
   _height: 32,
 }
 
-export function AvatarAway(props: DiagramNodeProps) {
+export function AvatarAway(props: NodeProps) {
   return (
     <Shape
       {...AVATAR_AWAY}

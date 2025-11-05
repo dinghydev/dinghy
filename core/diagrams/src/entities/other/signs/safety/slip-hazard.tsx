@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SLIP_HAZARD = {
   _style: {
@@ -10,7 +10,7 @@ export const SLIP_HAZARD = {
   _height: 100,
 }
 
-export function SlipHazard(props: DiagramNodeProps) {
+export function SlipHazard(props: NodeProps) {
   return (
     <Shape
       {...SLIP_HAZARD}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WELDED_CONNECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const WELDED_CONNECTION = {
   _height: 20,
 }
 
-export function WeldedConnection(props: DiagramNodeProps) {
+export function WeldedConnection(props: NodeProps) {
   return (
     <Shape
       {...WELDED_CONNECTION}

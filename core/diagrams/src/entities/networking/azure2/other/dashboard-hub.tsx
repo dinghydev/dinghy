@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DASHBOARD_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const DASHBOARD_HUB = {
   _original_height: 52,
 }
 
-export function DashboardHub(props: DiagramNodeProps) {
+export function DashboardHub(props: NodeProps) {
   return (
     <Shape
       {...DASHBOARD_HUB}

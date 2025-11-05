@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SLIDER = {
   _style: {
@@ -10,6 +10,6 @@ export const SLIDER = {
   _height: 15,
 }
 
-export function Slider(props: DiagramNodeProps) {
+export function Slider(props: NodeProps) {
   return <Shape {...SLIDER} {...props} _style={extendStyle(SLIDER, props)} />
 }

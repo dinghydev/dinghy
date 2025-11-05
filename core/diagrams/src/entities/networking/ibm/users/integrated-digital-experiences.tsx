@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTEGRATED_DIGITAL_EXPERIENCES = {
   _style: {
@@ -10,7 +10,7 @@ export const INTEGRATED_DIGITAL_EXPERIENCES = {
   _original_height: 60,
 }
 
-export function IntegratedDigitalExperiences(props: DiagramNodeProps) {
+export function IntegratedDigitalExperiences(props: NodeProps) {
   return (
     <Shape
       {...INTEGRATED_DIGITAL_EXPERIENCES}

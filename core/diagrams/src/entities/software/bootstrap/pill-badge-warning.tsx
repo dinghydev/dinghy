@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PILL_BADGE_WARNING = {
   _style: {
@@ -10,7 +10,7 @@ export const PILL_BADGE_WARNING = {
   _height: 20,
 }
 
-export function PillBadgeWarning(props: DiagramNodeProps) {
+export function PillBadgeWarning(props: NodeProps) {
   return (
     <Shape
       {...PILL_BADGE_WARNING}

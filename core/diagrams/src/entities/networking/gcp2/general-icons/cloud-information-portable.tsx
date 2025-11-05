@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_INFORMATION_PORTABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_INFORMATION_PORTABLE = {
   _height: 79,
 }
 
-export function CloudInformationPortable(props: DiagramNodeProps) {
+export function CloudInformationPortable(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_INFORMATION_PORTABLE}

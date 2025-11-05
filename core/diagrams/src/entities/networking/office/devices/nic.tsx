@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NIC = {
   _style: {
@@ -10,6 +10,6 @@ export const NIC = {
   _height: 38,
 }
 
-export function Nic(props: DiagramNodeProps) {
+export function Nic(props: NodeProps) {
   return <Shape {...NIC} {...props} _style={extendStyle(NIC, props)} />
 }

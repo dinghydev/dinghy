@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHARED_PROCESS = {
   _style: {
@@ -10,7 +10,7 @@ export const SHARED_PROCESS = {
   _height: 70,
 }
 
-export function SharedProcess(props: DiagramNodeProps) {
+export function SharedProcess(props: NodeProps) {
   return (
     <Shape
       {...SHARED_PROCESS}

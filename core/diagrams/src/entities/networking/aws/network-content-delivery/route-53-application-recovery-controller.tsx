@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUTE_53_APPLICATION_RECOVERY_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUTE_53_APPLICATION_RECOVERY_CONTROLLER = {
   _original_height: 78,
 }
 
-export function Route53ApplicationRecoveryController(props: DiagramNodeProps) {
+export function Route53ApplicationRecoveryController(props: NodeProps) {
   return (
     <Shape
       {...ROUTE_53_APPLICATION_RECOVERY_CONTROLLER}

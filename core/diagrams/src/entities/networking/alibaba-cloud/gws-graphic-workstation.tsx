@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GWS_GRAPHIC_WORKSTATION = {
   _style: {
@@ -10,7 +10,7 @@ export const GWS_GRAPHIC_WORKSTATION = {
   _original_height: 47.400000000000006,
 }
 
-export function GwsGraphicWorkstation(props: DiagramNodeProps) {
+export function GwsGraphicWorkstation(props: NodeProps) {
   return (
     <Shape
       {...GWS_GRAPHIC_WORKSTATION}

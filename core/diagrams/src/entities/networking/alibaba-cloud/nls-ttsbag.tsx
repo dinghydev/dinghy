@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NLS_TTSBAG = {
   _style: {
@@ -10,7 +10,7 @@ export const NLS_TTSBAG = {
   _original_height: 47.400000000000006,
 }
 
-export function NlsTtsbag(props: DiagramNodeProps) {
+export function NlsTtsbag(props: NodeProps) {
   return (
     <Shape {...NLS_TTSBAG} {...props} _style={extendStyle(NLS_TTSBAG, props)} />
   )

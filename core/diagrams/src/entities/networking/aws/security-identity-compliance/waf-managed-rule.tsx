@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAF_MANAGED_RULE = {
   _style: {
@@ -10,7 +10,7 @@ export const WAF_MANAGED_RULE = {
   _original_height: 78,
 }
 
-export function WafManagedRule(props: DiagramNodeProps) {
+export function WafManagedRule(props: NodeProps) {
   return (
     <Shape
       {...WAF_MANAGED_RULE}

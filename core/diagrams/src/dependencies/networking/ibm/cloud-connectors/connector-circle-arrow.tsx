@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONNECTOR_CIRCLE_ARROW = {
   _style: {
@@ -8,7 +8,7 @@ export const CONNECTOR_CIRCLE_ARROW = {
   },
 }
 
-export function ConnectorCircleArrow(props: DiagramNodeProps) {
+export function ConnectorCircleArrow(props: NodeProps) {
   return (
     <Dependency
       {...CONNECTOR_CIRCLE_ARROW}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_UCS_5100_CHASSIS = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_UCS_5100_CHASSIS = {
   _height: 89,
 }
 
-export function CiscoUcs5100Chassis(props: DiagramNodeProps) {
+export function CiscoUcs5100Chassis(props: NodeProps) {
   return (
     <Shape
       {...CISCO_UCS_5100_CHASSIS}

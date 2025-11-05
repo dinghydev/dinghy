@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BANNER_HALF_FOLD = {
   _style: {
@@ -10,7 +10,7 @@ export const BANNER_HALF_FOLD = {
   _original_height: 200,
 }
 
-export function BannerHalfFold(props: DiagramNodeProps) {
+export function BannerHalfFold(props: NodeProps) {
   return (
     <Shape
       {...BANNER_HALF_FOLD}

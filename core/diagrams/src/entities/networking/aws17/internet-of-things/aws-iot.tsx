@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_IOT = {
   _style: {
@@ -10,6 +10,6 @@ export const AWS_IOT = {
   _original_height: 81,
 }
 
-export function AwsIot(props: DiagramNodeProps) {
+export function AwsIot(props: NodeProps) {
   return <Shape {...AWS_IOT} {...props} _style={extendStyle(AWS_IOT, props)} />
 }

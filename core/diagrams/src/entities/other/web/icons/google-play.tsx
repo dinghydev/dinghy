@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GOOGLE_PLAY = {
   _style: {
@@ -10,7 +10,7 @@ export const GOOGLE_PLAY = {
   _height: 20.6,
 }
 
-export function GooglePlay(props: DiagramNodeProps) {
+export function GooglePlay(props: NodeProps) {
   return (
     <Shape
       {...GOOGLE_PLAY}

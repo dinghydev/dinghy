@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HDI_AKS_CLUSTER = {
   _style: {
@@ -10,7 +10,7 @@ export const HDI_AKS_CLUSTER = {
   _original_height: 68,
 }
 
-export function HdiAksCluster(props: DiagramNodeProps) {
+export function HdiAksCluster(props: NodeProps) {
   return (
     <Shape
       {...HDI_AKS_CLUSTER}

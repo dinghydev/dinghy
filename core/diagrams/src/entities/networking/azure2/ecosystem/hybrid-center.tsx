@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYBRID_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const HYBRID_CENTER = {
   _height: 48,
 }
 
-export function HybridCenter(props: DiagramNodeProps) {
+export function HybridCenter(props: NodeProps) {
   return (
     <Shape
       {...HYBRID_CENTER}

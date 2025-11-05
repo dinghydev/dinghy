@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GHOSTED = {
   _style: {
@@ -11,7 +11,7 @@ export const ACTIVE_DIRECTORY_FEDERATION_SERVICES_SERVER_GHOSTED = {
 }
 
 export function ActiveDirectoryFederationServicesServerGhosted(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

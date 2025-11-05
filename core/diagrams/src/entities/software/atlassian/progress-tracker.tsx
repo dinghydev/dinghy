@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROGRESS_TRACKER = {
   _style: {
@@ -10,7 +10,7 @@ export const PROGRESS_TRACKER = {
   _height: 30,
 }
 
-export function ProgressTracker(props: DiagramNodeProps) {
+export function ProgressTracker(props: NodeProps) {
   return (
     <Shape
       {...PROGRESS_TRACKER}

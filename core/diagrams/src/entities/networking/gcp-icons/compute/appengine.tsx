@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const APPENGINE = {
   _height: 16,
 }
 
-export function Appengine(props: DiagramNodeProps) {
+export function Appengine(props: NodeProps) {
   return (
     <Shape {...APPENGINE} {...props} _style={extendStyle(APPENGINE, props)} />
   )

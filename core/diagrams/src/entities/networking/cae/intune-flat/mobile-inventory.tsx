@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_INVENTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const MOBILE_INVENTORY = {
   _original_height: 50,
 }
 
-export function MobileInventory(props: DiagramNodeProps) {
+export function MobileInventory(props: NodeProps) {
   return (
     <Shape
       {...MOBILE_INVENTORY}

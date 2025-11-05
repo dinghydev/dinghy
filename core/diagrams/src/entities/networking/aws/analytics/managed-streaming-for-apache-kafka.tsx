@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGED_STREAMING_FOR_APACHE_KAFKA = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGED_STREAMING_FOR_APACHE_KAFKA = {
   _original_height: 78,
 }
 
-export function ManagedStreamingForApacheKafka(props: DiagramNodeProps) {
+export function ManagedStreamingForApacheKafka(props: NodeProps) {
   return (
     <Shape
       {...MANAGED_STREAMING_FOR_APACHE_KAFKA}

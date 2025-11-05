@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONE_STRAINER = {
   _style: {
@@ -10,7 +10,7 @@ export const CONE_STRAINER = {
   _original_height: 30,
 }
 
-export function ConeStrainer(props: DiagramNodeProps) {
+export function ConeStrainer(props: NodeProps) {
   return (
     <Shape
       {...CONE_STRAINER}

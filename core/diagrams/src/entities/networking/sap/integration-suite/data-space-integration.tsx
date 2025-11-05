@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_SPACE_INTEGRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_SPACE_INTEGRATION = {
   _original_height: 50,
 }
 
-export function DataSpaceIntegration(props: DiagramNodeProps) {
+export function DataSpaceIntegration(props: NodeProps) {
   return (
     <Shape
       {...DATA_SPACE_INTEGRATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HP_BLADESYSTEM_S6500_ENCLOSURE = {
   _style: {
@@ -10,7 +10,7 @@ export const HP_BLADESYSTEM_S6500_ENCLOSURE = {
   _height: 60,
 }
 
-export function HpBladesystemS6500Enclosure(props: DiagramNodeProps) {
+export function HpBladesystemS6500Enclosure(props: NodeProps) {
   return (
     <Shape
       {...HP_BLADESYSTEM_S6500_ENCLOSURE}

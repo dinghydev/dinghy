@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRODUCTION_SITE = {
   _style: {
@@ -10,7 +10,7 @@ export const PRODUCTION_SITE = {
   _original_height: 44.8,
 }
 
-export function ProductionSite(props: DiagramNodeProps) {
+export function ProductionSite(props: NodeProps) {
   return (
     <Shape
       {...PRODUCTION_SITE}

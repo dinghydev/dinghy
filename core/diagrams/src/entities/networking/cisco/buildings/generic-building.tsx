@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERIC_BUILDING = {
   _style: {
@@ -10,7 +10,7 @@ export const GENERIC_BUILDING = {
   _height: 136,
 }
 
-export function GenericBuilding(props: DiagramNodeProps) {
+export function GenericBuilding(props: NodeProps) {
   return (
     <Shape
       {...GENERIC_BUILDING}

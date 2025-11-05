@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AQUILA = {
   _style: {
@@ -10,6 +10,6 @@ export const AQUILA = {
   _original_height: 66.8,
 }
 
-export function Aquila(props: DiagramNodeProps) {
+export function Aquila(props: NodeProps) {
   return <Shape {...AQUILA} {...props} _style={extendStyle(AQUILA, props)} />
 }

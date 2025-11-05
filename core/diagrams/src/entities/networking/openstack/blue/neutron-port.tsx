@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEUTRON_PORT = {
   _style: {
@@ -10,7 +10,7 @@ export const NEUTRON_PORT = {
   _original_height: 50,
 }
 
-export function NeutronPort(props: DiagramNodeProps) {
+export function NeutronPort(props: NodeProps) {
   return (
     <Shape
       {...NEUTRON_PORT}

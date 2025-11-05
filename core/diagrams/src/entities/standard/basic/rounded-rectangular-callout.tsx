@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUNDED_RECTANGULAR_CALLOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUNDED_RECTANGULAR_CALLOUT = {
   _height: 60,
 }
 
-export function RoundedRectangularCallout(props: DiagramNodeProps) {
+export function RoundedRectangularCallout(props: NodeProps) {
   return (
     <Shape
       {...ROUNDED_RECTANGULAR_CALLOUT}

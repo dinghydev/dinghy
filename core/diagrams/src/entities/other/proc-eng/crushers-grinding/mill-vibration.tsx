@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MILL_VIBRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const MILL_VIBRATION = {
   _height: 60,
 }
 
-export function MillVibration(props: DiagramNodeProps) {
+export function MillVibration(props: NodeProps) {
   return (
     <Shape
       {...MILL_VIBRATION}

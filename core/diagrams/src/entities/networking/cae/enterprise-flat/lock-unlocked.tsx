@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOCK_UNLOCKED = {
   _style: {
@@ -10,7 +10,7 @@ export const LOCK_UNLOCKED = {
   _height: 50,
 }
 
-export function LockUnlocked(props: DiagramNodeProps) {
+export function LockUnlocked(props: NodeProps) {
   return (
     <Shape
       {...LOCK_UNLOCKED}

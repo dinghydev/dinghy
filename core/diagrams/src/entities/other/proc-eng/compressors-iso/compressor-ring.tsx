@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPRESSOR_RING = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPRESSOR_RING = {
   _original_height: 100,
 }
 
-export function CompressorRing(props: DiagramNodeProps) {
+export function CompressorRing(props: NodeProps) {
   return (
     <Shape
       {...COMPRESSOR_RING}

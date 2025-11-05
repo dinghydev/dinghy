@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XTRACE = {
   _style: {
@@ -10,6 +10,6 @@ export const XTRACE = {
   _original_height: 50.099999999999994,
 }
 
-export function Xtrace(props: DiagramNodeProps) {
+export function Xtrace(props: NodeProps) {
   return <Shape {...XTRACE} {...props} _style={extendStyle(XTRACE, props)} />
 }

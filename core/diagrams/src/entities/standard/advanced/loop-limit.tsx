@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOOP_LIMIT = {
   _style: {
@@ -9,7 +9,7 @@ export const LOOP_LIMIT = {
   _height: 80,
 }
 
-export function LoopLimit(props: DiagramNodeProps) {
+export function LoopLimit(props: NodeProps) {
   return (
     <Shape {...LOOP_LIMIT} {...props} _style={extendStyle(LOOP_LIMIT, props)} />
   )

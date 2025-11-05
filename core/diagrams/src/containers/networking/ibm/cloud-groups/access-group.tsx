@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACCESS_GROUP = {
   _style: {
@@ -11,7 +11,7 @@ export const ACCESS_GROUP = {
   },
 }
 
-export function AccessGroup(props: DiagramNodeProps) {
+export function AccessGroup(props: NodeProps) {
   return (
     <Shape
       {...ACCESS_GROUP}

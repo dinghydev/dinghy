@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAPREP = {
   _style: {
@@ -10,7 +10,7 @@ export const DATAPREP = {
   _height: 40,
 }
 
-export function Dataprep(props: DiagramNodeProps) {
+export function Dataprep(props: NodeProps) {
   return (
     <Shape {...DATAPREP} {...props} _style={extendStyle(DATAPREP, props)} />
   )

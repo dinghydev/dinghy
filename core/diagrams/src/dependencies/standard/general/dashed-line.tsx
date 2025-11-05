@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DASHED_LINE = {
   _style: {
@@ -7,7 +7,7 @@ export const DASHED_LINE = {
   },
 }
 
-export function DashedLine(props: DiagramNodeProps) {
+export function DashedLine(props: NodeProps) {
   return (
     <Dependency
       {...DASHED_LINE}

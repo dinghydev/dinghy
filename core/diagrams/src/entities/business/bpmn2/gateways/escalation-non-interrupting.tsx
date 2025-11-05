@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ESCALATION_NON_INTERRUPTING = {
   _style: {
@@ -10,7 +10,7 @@ export const ESCALATION_NON_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function EscalationNonInterrupting(props: DiagramNodeProps) {
+export function EscalationNonInterrupting(props: NodeProps) {
   return (
     <Shape
       {...ESCALATION_NON_INTERRUPTING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OCTEL = {
   _style: {
@@ -10,6 +10,6 @@ export const OCTEL = {
   _original_height: 61,
 }
 
-export function Octel(props: DiagramNodeProps) {
+export function Octel(props: NodeProps) {
   return <Shape {...OCTEL} {...props} _style={extendStyle(OCTEL, props)} />
 }

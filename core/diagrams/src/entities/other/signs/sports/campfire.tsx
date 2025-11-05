@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CAMPFIRE = {
   _style: {
@@ -10,7 +10,7 @@ export const CAMPFIRE = {
   _original_height: 98,
 }
 
-export function Campfire(props: DiagramNodeProps) {
+export function Campfire(props: NodeProps) {
   return (
     <Shape {...CAMPFIRE} {...props} _style={extendStyle(CAMPFIRE, props)} />
   )

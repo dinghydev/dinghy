@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCREENING_DEVICE_SIEVE_STRAINER_BASKET_REEL = {
   _style: {
@@ -10,9 +10,7 @@ export const SCREENING_DEVICE_SIEVE_STRAINER_BASKET_REEL = {
   _height: 180,
 }
 
-export function ScreeningDeviceSieveStrainerBasketReel(
-  props: DiagramNodeProps,
-) {
+export function ScreeningDeviceSieveStrainerBasketReel(props: NodeProps) {
   return (
     <Shape
       {...SCREENING_DEVICE_SIEVE_STRAINER_BASKET_REEL}

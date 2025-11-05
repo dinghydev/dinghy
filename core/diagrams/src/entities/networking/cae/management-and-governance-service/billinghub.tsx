@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BILLINGHUB = {
   _style: {
@@ -10,7 +10,7 @@ export const BILLINGHUB = {
   _original_height: 50,
 }
 
-export function Billinghub(props: DiagramNodeProps) {
+export function Billinghub(props: NodeProps) {
   return (
     <Shape {...BILLINGHUB} {...props} _style={extendStyle(BILLINGHUB, props)} />
   )

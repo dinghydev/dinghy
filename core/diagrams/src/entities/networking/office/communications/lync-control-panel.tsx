@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LYNC_CONTROL_PANEL = {
   _style: {
@@ -10,7 +10,7 @@ export const LYNC_CONTROL_PANEL = {
   _original_height: 58,
 }
 
-export function LyncControlPanel(props: DiagramNodeProps) {
+export function LyncControlPanel(props: NodeProps) {
   return (
     <Shape
       {...LYNC_CONTROL_PANEL}

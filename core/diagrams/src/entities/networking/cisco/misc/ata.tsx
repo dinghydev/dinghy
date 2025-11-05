@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATA = {
   _style: {
@@ -10,6 +10,6 @@ export const ATA = {
   _height: 50,
 }
 
-export function Ata(props: DiagramNodeProps) {
+export function Ata(props: NodeProps) {
   return <Shape {...ATA} {...props} _style={extendStyle(ATA, props)} />
 }

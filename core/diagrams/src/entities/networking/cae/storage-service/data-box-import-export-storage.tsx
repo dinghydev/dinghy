@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_BOX_IMPORT_EXPORT_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_BOX_IMPORT_EXPORT_STORAGE = {
   _original_height: 47,
 }
 
-export function DataBoxImportExportStorage(props: DiagramNodeProps) {
+export function DataBoxImportExportStorage(props: NodeProps) {
   return (
     <Shape
       {...DATA_BOX_IMPORT_EXPORT_STORAGE}

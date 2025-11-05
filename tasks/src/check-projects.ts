@@ -83,7 +83,7 @@ if (import.meta.main) {
   if (results.some((r) => r.result.exitCode)) {
     console.log(
       chalk.red(
-        'Some projects failed to check, fmt, or lint. Please fix them and try again.',
+        'Some projects failed to check, fmt, lint, or git diff. Please fix them and try again.',
       ),
     )
     Deno.exit(1)

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEXUS_7K = {
   _style: {
@@ -10,7 +10,7 @@ export const NEXUS_7K = {
   _height: 73,
 }
 
-export function Nexus7k(props: DiagramNodeProps) {
+export function Nexus7k(props: NodeProps) {
   return (
     <Shape {...NEXUS_7K} {...props} _style={extendStyle(NEXUS_7K, props)} />
   )

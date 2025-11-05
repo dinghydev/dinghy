@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARCHIVE_TIER = {
   _style: {
@@ -10,7 +10,7 @@ export const ARCHIVE_TIER = {
   _original_height: 44.8,
 }
 
-export function ArchiveTier(props: DiagramNodeProps) {
+export function ArchiveTier(props: NodeProps) {
   return (
     <Shape
       {...ARCHIVE_TIER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMPACT_SEPARATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const IMPACT_SEPARATOR = {
   _height: 120,
 }
 
-export function ImpactSeparator(props: DiagramNodeProps) {
+export function ImpactSeparator(props: NodeProps) {
   return (
     <Shape
       {...IMPACT_SEPARATOR}

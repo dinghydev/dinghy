@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQL_ELASTIC_POOLS = {
   _style: {
@@ -10,7 +10,7 @@ export const SQL_ELASTIC_POOLS = {
   _original_height: 68,
 }
 
-export function SqlElasticPools(props: DiagramNodeProps) {
+export function SqlElasticPools(props: NodeProps) {
   return (
     <Shape
       {...SQL_ELASTIC_POOLS}

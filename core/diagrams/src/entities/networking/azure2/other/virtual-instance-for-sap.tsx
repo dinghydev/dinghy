@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_INSTANCE_FOR_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_INSTANCE_FOR_SAP = {
   _original_height: 62.839999999999996,
 }
 
-export function VirtualInstanceForSap(props: DiagramNodeProps) {
+export function VirtualInstanceForSap(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_INSTANCE_FOR_SAP}

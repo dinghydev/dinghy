@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXCHANGE_EDGE_TRANSPORT_SERVER_ROLE = {
   _style: {
@@ -10,7 +10,7 @@ export const EXCHANGE_EDGE_TRANSPORT_SERVER_ROLE = {
   _original_height: 55,
 }
 
-export function ExchangeEdgeTransportServerRole(props: DiagramNodeProps) {
+export function ExchangeEdgeTransportServerRole(props: NodeProps) {
   return (
     <Shape
       {...EXCHANGE_EDGE_TRANSPORT_SERVER_ROLE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_MAPREDUCE = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_MAPREDUCE = {
   _height: 133,
 }
 
-export function ElasticMapreduce(props: DiagramNodeProps) {
+export function ElasticMapreduce(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_MAPREDUCE}

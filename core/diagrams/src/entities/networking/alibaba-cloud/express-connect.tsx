@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXPRESS_CONNECT = {
   _style: {
@@ -10,7 +10,7 @@ export const EXPRESS_CONNECT = {
   _original_height: 47.400000000000006,
 }
 
-export function ExpressConnect(props: DiagramNodeProps) {
+export function ExpressConnect(props: NodeProps) {
   return (
     <Shape
       {...EXPRESS_CONNECT}

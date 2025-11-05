@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PICNIC_TABLE_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const PICNIC_TABLE_1 = {
   _height: 68,
 }
 
-export function PicnicTable1(props: DiagramNodeProps) {
+export function PicnicTable1(props: NodeProps) {
   return (
     <Shape
       {...PICNIC_TABLE_1}

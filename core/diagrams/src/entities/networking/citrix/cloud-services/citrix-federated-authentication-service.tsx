@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_FEDERATED_AUTHENTICATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_FEDERATED_AUTHENTICATION_SERVICE = {
   _height: 35.275,
 }
 
-export function CitrixFederatedAuthenticationService(props: DiagramNodeProps) {
+export function CitrixFederatedAuthenticationService(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_FEDERATED_AUTHENTICATION_SERVICE}

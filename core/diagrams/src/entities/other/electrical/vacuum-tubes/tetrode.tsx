@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TETRODE = {
   _style: {
@@ -10,6 +10,6 @@ export const TETRODE = {
   _original_height: 77,
 }
 
-export function Tetrode(props: DiagramNodeProps) {
+export function Tetrode(props: NodeProps) {
   return <Shape {...TETRODE} {...props} _style={extendStyle(TETRODE, props)} />
 }

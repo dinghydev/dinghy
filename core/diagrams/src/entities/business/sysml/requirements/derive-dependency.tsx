@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DERIVE_DEPENDENCY = {
   _style: {
@@ -9,7 +9,7 @@ export const DERIVE_DEPENDENCY = {
   _height: 60,
 }
 
-export function DeriveDependency(props: DiagramNodeProps) {
+export function DeriveDependency(props: NodeProps) {
   return (
     <Shape
       {...DERIVE_DEPENDENCY}

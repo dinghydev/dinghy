@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OCEANBASE = {
   _style: {
@@ -10,7 +10,7 @@ export const OCEANBASE = {
   _original_height: 44.1,
 }
 
-export function Oceanbase(props: DiagramNodeProps) {
+export function Oceanbase(props: NodeProps) {
   return (
     <Shape {...OCEANBASE} {...props} _style={extendStyle(OCEANBASE, props)} />
   )

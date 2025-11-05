@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DETOUR = {
   _style: {
@@ -10,6 +10,6 @@ export const DETOUR = {
   _height: 90,
 }
 
-export function Detour(props: DiagramNodeProps) {
+export function Detour(props: NodeProps) {
   return <Shape {...DETOUR} {...props} _style={extendStyle(DETOUR, props)} />
 }

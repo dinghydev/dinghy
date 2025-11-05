@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTELLISWITCH_STACK = {
   _style: {
@@ -10,7 +10,7 @@ export const INTELLISWITCH_STACK = {
   _original_height: 69,
 }
 
-export function IntelliswitchStack(props: DiagramNodeProps) {
+export function IntelliswitchStack(props: NodeProps) {
   return (
     <Shape
       {...INTELLISWITCH_STACK}

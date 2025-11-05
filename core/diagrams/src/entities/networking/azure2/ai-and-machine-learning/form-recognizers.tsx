@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORM_RECOGNIZERS = {
   _style: {
@@ -10,7 +10,7 @@ export const FORM_RECOGNIZERS = {
   _original_height: 68,
 }
 
-export function FormRecognizers(props: DiagramNodeProps) {
+export function FormRecognizers(props: NodeProps) {
   return (
     <Shape
       {...FORM_RECOGNIZERS}

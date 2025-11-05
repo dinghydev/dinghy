@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_PROFILER = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_PROFILER = {
   _height: 42,
 }
 
-export function CloudProfiler(props: DiagramNodeProps) {
+export function CloudProfiler(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_PROFILER}

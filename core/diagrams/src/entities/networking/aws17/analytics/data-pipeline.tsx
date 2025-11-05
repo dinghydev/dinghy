@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_PIPELINE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_PIPELINE = {
   _original_height: 81,
 }
 
-export function DataPipeline(props: DiagramNodeProps) {
+export function DataPipeline(props: NodeProps) {
   return (
     <Shape
       {...DATA_PIPELINE}

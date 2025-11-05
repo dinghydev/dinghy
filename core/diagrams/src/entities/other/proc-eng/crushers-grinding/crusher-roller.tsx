@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CRUSHER_ROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const CRUSHER_ROLLER = {
   _height: 60,
 }
 
-export function CrusherRoller(props: DiagramNodeProps) {
+export function CrusherRoller(props: NodeProps) {
   return (
     <Shape
       {...CRUSHER_ROLLER}

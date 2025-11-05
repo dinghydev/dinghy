@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_PLC = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_PLC = {
   _original_height: 68,
 }
 
-export function DefenderPlc(props: DiagramNodeProps) {
+export function DefenderPlc(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_PLC}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KINESIS_DATA_STREAMS = {
   _style: {
@@ -10,7 +10,7 @@ export const KINESIS_DATA_STREAMS = {
   _original_height: 78,
 }
 
-export function KinesisDataStreams(props: DiagramNodeProps) {
+export function KinesisDataStreams(props: NodeProps) {
   return (
     <Shape
       {...KINESIS_DATA_STREAMS}

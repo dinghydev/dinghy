@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const P4DE_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const P4DE_INSTANCE = {
   _original_height: 48,
 }
 
-export function P4deInstance(props: DiagramNodeProps) {
+export function P4deInstance(props: NodeProps) {
   return (
     <Shape
       {...P4DE_INSTANCE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUB_PROCESS_COLLAPSED = {
   _style: {
@@ -8,7 +8,7 @@ export const SUB_PROCESS_COLLAPSED = {
   },
 }
 
-export function SubProcessCollapsed(props: DiagramNodeProps) {
+export function SubProcessCollapsed(props: NodeProps) {
   return (
     <Shape
       {...SUB_PROCESS_COLLAPSED}

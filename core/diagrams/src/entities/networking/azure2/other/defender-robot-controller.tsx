@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_ROBOT_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_ROBOT_CONTROLLER = {
   _original_height: 68,
 }
 
-export function DefenderRobotController(props: DiagramNodeProps) {
+export function DefenderRobotController(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_ROBOT_CONTROLLER}

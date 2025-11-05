@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDIRECT_ONE_DIRECTIONAL = {
   _style: {
@@ -10,7 +10,7 @@ export const INDIRECT_ONE_DIRECTIONAL = {
   _height: 0,
 }
 
-export function IndirectOneDirectional(props: DiagramNodeProps) {
+export function IndirectOneDirectional(props: NodeProps) {
   return (
     <Shape
       {...INDIRECT_ONE_DIRECTIONAL}

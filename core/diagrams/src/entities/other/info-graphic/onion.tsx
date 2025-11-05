@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ONION = {
   _style: {
@@ -10,6 +10,6 @@ export const ONION = {
   _height: 350,
 }
 
-export function Onion(props: DiagramNodeProps) {
+export function Onion(props: NodeProps) {
   return <Shape {...ONION} {...props} _style={extendStyle(ONION, props)} />
 }

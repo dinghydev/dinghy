@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAVIGATION = {
   _style: {
@@ -10,7 +10,7 @@ export const NAVIGATION = {
   _original_height: 40,
 }
 
-export function Navigation(props: DiagramNodeProps) {
+export function Navigation(props: NodeProps) {
   return (
     <Shape {...NAVIGATION} {...props} _style={extendStyle(NAVIGATION, props)} />
   )

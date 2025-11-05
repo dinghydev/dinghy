@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPRING_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const SPRING_CLOUD = {
   _original_height: 68,
 }
 
-export function SpringCloud(props: DiagramNodeProps) {
+export function SpringCloud(props: NodeProps) {
   return (
     <Shape
       {...SPRING_CLOUD}

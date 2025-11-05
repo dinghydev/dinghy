@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXTERNAL_PERSON = {
   _style: {
@@ -10,7 +10,7 @@ export const EXTERNAL_PERSON = {
   _height: 180,
 }
 
-export function ExternalPerson(props: DiagramNodeProps) {
+export function ExternalPerson(props: NodeProps) {
   return (
     <Shape
       {...EXTERNAL_PERSON}

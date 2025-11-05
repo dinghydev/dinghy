@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALLOCATION_GENERAL = {
   _style: {
@@ -9,7 +9,7 @@ export const ALLOCATION_GENERAL = {
   _height: 60,
 }
 
-export function AllocationGeneral(props: DiagramNodeProps) {
+export function AllocationGeneral(props: NodeProps) {
   return (
     <Shape
       {...ALLOCATION_GENERAL}

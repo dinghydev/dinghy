@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APP_STORE_IPHONE = {
   _style: {
@@ -10,7 +10,7 @@ export const APP_STORE_IPHONE = {
   _height: 20,
 }
 
-export function AppStoreIphone(props: DiagramNodeProps) {
+export function AppStoreIphone(props: NodeProps) {
   return (
     <Shape
       {...APP_STORE_IPHONE}

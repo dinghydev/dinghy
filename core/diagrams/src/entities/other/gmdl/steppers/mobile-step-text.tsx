@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_STEP_TEXT = {
   _style: {
@@ -9,7 +9,7 @@ export const MOBILE_STEP_TEXT = {
   _height: 642,
 }
 
-export function MobileStepText(props: DiagramNodeProps) {
+export function MobileStepText(props: NodeProps) {
   return (
     <Shape
       {...MOBILE_STEP_TEXT}

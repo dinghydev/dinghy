@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FACTORY_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const FACTORY_SAP = {
   _original_height: 28,
 }
 
-export function FactorySap(props: DiagramNodeProps) {
+export function FactorySap(props: NodeProps) {
   return (
     <Shape
       {...FACTORY_SAP}

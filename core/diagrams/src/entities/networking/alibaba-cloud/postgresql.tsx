@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POSTGRESQL = {
   _style: {
@@ -10,7 +10,7 @@ export const POSTGRESQL = {
   _original_height: 47.7,
 }
 
-export function Postgresql(props: DiagramNodeProps) {
+export function Postgresql(props: NodeProps) {
   return (
     <Shape {...POSTGRESQL} {...props} _style={extendStyle(POSTGRESQL, props)} />
   )

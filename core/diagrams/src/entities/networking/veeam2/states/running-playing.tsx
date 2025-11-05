@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RUNNING_PLAYING = {
   _style: {
@@ -10,7 +10,7 @@ export const RUNNING_PLAYING = {
   _original_height: 21,
 }
 
-export function RunningPlaying(props: DiagramNodeProps) {
+export function RunningPlaying(props: NodeProps) {
   return (
     <Shape
       {...RUNNING_PLAYING}

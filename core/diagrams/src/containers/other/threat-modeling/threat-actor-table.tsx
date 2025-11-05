@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THREAT_ACTOR_TABLE = {
   _style: {
@@ -13,7 +13,7 @@ export const THREAT_ACTOR_TABLE = {
   },
 }
 
-export function ThreatActorTable(props: DiagramNodeProps) {
+export function ThreatActorTable(props: NodeProps) {
   return (
     <Shape
       {...THREAT_ACTOR_TABLE}

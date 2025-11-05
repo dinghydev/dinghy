@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONNECTOR_SINGLE_ARROW = {
   _style: {
@@ -8,7 +8,7 @@ export const CONNECTOR_SINGLE_ARROW = {
   },
 }
 
-export function ConnectorSingleArrow(props: DiagramNodeProps) {
+export function ConnectorSingleArrow(props: NodeProps) {
   return (
     <Dependency
       {...CONNECTOR_SINGLE_ARROW}

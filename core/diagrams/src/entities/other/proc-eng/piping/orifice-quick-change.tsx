@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORIFICE_QUICK_CHANGE = {
   _style: {
@@ -10,7 +10,7 @@ export const ORIFICE_QUICK_CHANGE = {
   _height: 50,
 }
 
-export function OrificeQuickChange(props: DiagramNodeProps) {
+export function OrificeQuickChange(props: NodeProps) {
   return (
     <Shape
       {...ORIFICE_QUICK_CHANGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12100_COALESCING_FILTER = {
   _style: {
@@ -10,7 +10,7 @@ export const X12100_COALESCING_FILTER = {
   _original_height: 71.26,
 }
 
-export function X12100CoalescingFilter(props: DiagramNodeProps) {
+export function X12100CoalescingFilter(props: NodeProps) {
   return (
     <Shape
       {...X12100_COALESCING_FILTER}

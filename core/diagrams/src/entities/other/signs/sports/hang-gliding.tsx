@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HANG_GLIDING = {
   _style: {
@@ -10,7 +10,7 @@ export const HANG_GLIDING = {
   _height: 66,
 }
 
-export function HangGliding(props: DiagramNodeProps) {
+export function HangGliding(props: NodeProps) {
   return (
     <Shape
       {...HANG_GLIDING}

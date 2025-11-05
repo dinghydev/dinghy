@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOLUMES_AGENT = {
   _style: {
@@ -10,7 +10,7 @@ export const VOLUMES_AGENT = {
   _original_height: 50,
 }
 
-export function VolumesAgent(props: DiagramNodeProps) {
+export function VolumesAgent(props: NodeProps) {
   return (
     <Shape
       {...VOLUMES_AGENT}

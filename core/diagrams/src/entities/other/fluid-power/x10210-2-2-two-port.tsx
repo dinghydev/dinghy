@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10210_2_2_TWO_PORT = {
   _style: {
@@ -10,7 +10,7 @@ export const X10210_2_2_TWO_PORT = {
   _height: 75.22,
 }
 
-export function X1021022TwoPort(props: DiagramNodeProps) {
+export function X1021022TwoPort(props: NodeProps) {
   return (
     <Shape
       {...X10210_2_2_TWO_PORT}

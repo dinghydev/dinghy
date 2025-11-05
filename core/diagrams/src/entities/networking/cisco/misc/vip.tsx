@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIP = {
   _style: {
@@ -10,6 +10,6 @@ export const VIP = {
   _height: 86,
 }
 
-export function Vip(props: DiagramNodeProps) {
+export function Vip(props: NodeProps) {
   return <Shape {...VIP} {...props} _style={extendStyle(VIP, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CIRCUIT_BREAKER = {
   _style: {
@@ -10,7 +10,7 @@ export const CIRCUIT_BREAKER = {
   _height: 13,
 }
 
-export function CircuitBreaker(props: DiagramNodeProps) {
+export function CircuitBreaker(props: NodeProps) {
   return (
     <Shape
       {...CIRCUIT_BREAKER}

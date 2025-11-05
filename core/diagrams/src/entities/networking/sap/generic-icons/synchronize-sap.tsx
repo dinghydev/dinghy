@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SYNCHRONIZE_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const SYNCHRONIZE_SAP = {
   _original_height: 28,
 }
 
-export function SynchronizeSap(props: DiagramNodeProps) {
+export function SynchronizeSap(props: NodeProps) {
   return (
     <Shape
       {...SYNCHRONIZE_SAP}

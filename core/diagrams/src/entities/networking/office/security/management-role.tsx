@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANAGEMENT_ROLE = {
   _style: {
@@ -10,7 +10,7 @@ export const MANAGEMENT_ROLE = {
   _original_height: 45,
 }
 
-export function ManagementRole(props: DiagramNodeProps) {
+export function ManagementRole(props: NodeProps) {
   return (
     <Shape
       {...MANAGEMENT_ROLE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERCHANGEABLE_DISC_BLIND_DISC = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERCHANGEABLE_DISC_BLIND_DISC = {
   _height: 140,
 }
 
-export function InterchangeableDiscBlindDisc(props: DiagramNodeProps) {
+export function InterchangeableDiscBlindDisc(props: NodeProps) {
   return (
     <Shape
       {...INTERCHANGEABLE_DISC_BLIND_DISC}

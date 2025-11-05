@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIVATE_SUBNET = {
   _style: {
@@ -13,7 +13,7 @@ export const PRIVATE_SUBNET = {
   },
 }
 
-export function PrivateSubnet(props: DiagramNodeProps) {
+export function PrivateSubnet(props: NodeProps) {
   return (
     <Shape
       {...PRIVATE_SUBNET}

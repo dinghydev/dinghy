@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIREPOWER_APPLIANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const FIREPOWER_APPLIANCE = {
   _original_height: 45,
 }
 
-export function FirepowerAppliance(props: DiagramNodeProps) {
+export function FirepowerAppliance(props: NodeProps) {
   return (
     <Shape
       {...FIREPOWER_APPLIANCE}

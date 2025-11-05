@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIMELINE = {
   _style: {
@@ -10,7 +10,7 @@ export const TIMELINE = {
   _height: 40,
 }
 
-export function Timeline(props: DiagramNodeProps) {
+export function Timeline(props: NodeProps) {
   return (
     <Shape {...TIMELINE} {...props} _style={extendStyle(TIMELINE, props)} />
   )

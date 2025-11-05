@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HONEYCODE = {
   _style: {
@@ -10,7 +10,7 @@ export const HONEYCODE = {
   _original_height: 78,
 }
 
-export function Honeycode(props: DiagramNodeProps) {
+export function Honeycode(props: NodeProps) {
   return (
     <Shape {...HONEYCODE} {...props} _style={extendStyle(HONEYCODE, props)} />
   )

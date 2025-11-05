@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EDGE_INTEGRATION_CELL = {
   _style: {
@@ -10,7 +10,7 @@ export const EDGE_INTEGRATION_CELL = {
   _original_height: 50,
 }
 
-export function EdgeIntegrationCell(props: DiagramNodeProps) {
+export function EdgeIntegrationCell(props: NodeProps) {
   return (
     <Shape
       {...EDGE_INTEGRATION_CELL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RUBY = {
   _style: {
@@ -10,6 +10,6 @@ export const RUBY = {
   _original_height: 84,
 }
 
-export function Ruby(props: DiagramNodeProps) {
+export function Ruby(props: NodeProps) {
   return <Shape {...RUBY} {...props} _style={extendStyle(RUBY, props)} />
 }

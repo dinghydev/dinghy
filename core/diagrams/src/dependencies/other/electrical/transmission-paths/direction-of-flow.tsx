@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECTION_OF_FLOW = {
   _style: {
@@ -7,7 +7,7 @@ export const DIRECTION_OF_FLOW = {
   },
 }
 
-export function DirectionOfFlow(props: DiagramNodeProps) {
+export function DirectionOfFlow(props: NodeProps) {
   return (
     <Dependency
       {...DIRECTION_OF_FLOW}

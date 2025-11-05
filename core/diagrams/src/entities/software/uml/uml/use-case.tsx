@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const USE_CASE = {
   _style: {
@@ -9,7 +9,7 @@ export const USE_CASE = {
   _height: 70,
 }
 
-export function UseCase(props: DiagramNodeProps) {
+export function UseCase(props: NodeProps) {
   return (
     <Shape {...USE_CASE} {...props} _style={extendStyle(USE_CASE, props)} />
   )

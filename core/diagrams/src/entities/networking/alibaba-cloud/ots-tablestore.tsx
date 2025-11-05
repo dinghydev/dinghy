@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OTS_TABLESTORE = {
   _style: {
@@ -10,7 +10,7 @@ export const OTS_TABLESTORE = {
   _original_height: 42.599999999999994,
 }
 
-export function OtsTablestore(props: DiagramNodeProps) {
+export function OtsTablestore(props: NodeProps) {
   return (
     <Shape
       {...OTS_TABLESTORE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPREHEND = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPREHEND = {
   _original_height: 78,
 }
 
-export function Comprehend(props: DiagramNodeProps) {
+export function Comprehend(props: NodeProps) {
   return (
     <Shape {...COMPREHEND} {...props} _style={extendStyle(COMPREHEND, props)} />
   )

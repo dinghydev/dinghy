@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11540_DOUBLE_ACTING_MAGNETIC_TYPE = {
   _style: {
@@ -10,7 +10,7 @@ export const X11540_DOUBLE_ACTING_MAGNETIC_TYPE = {
   _height: 84.14,
 }
 
-export function X11540DoubleActingMagneticType(props: DiagramNodeProps) {
+export function X11540DoubleActingMagneticType(props: NodeProps) {
   return (
     <Shape
       {...X11540_DOUBLE_ACTING_MAGNETIC_TYPE}

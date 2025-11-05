@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORWARD = {
   _style: {
@@ -10,6 +10,6 @@ export const FORWARD = {
   _height: 16.8,
 }
 
-export function Forward(props: DiagramNodeProps) {
+export function Forward(props: NodeProps) {
   return <Shape {...FORWARD} {...props} _style={extendStyle(FORWARD, props)} />
 }

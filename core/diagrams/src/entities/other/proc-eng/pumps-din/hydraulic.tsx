@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYDRAULIC = {
   _style: {
@@ -10,7 +10,7 @@ export const HYDRAULIC = {
   _original_height: 100,
 }
 
-export function Hydraulic(props: DiagramNodeProps) {
+export function Hydraulic(props: NodeProps) {
   return (
     <Shape {...HYDRAULIC} {...props} _style={extendStyle(HYDRAULIC, props)} />
   )

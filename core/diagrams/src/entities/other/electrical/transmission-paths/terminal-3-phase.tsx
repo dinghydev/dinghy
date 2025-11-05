@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TERMINAL_3_PHASE = {
   _style: {
@@ -10,7 +10,7 @@ export const TERMINAL_3_PHASE = {
   _height: 10,
 }
 
-export function Terminal3Phase(props: DiagramNodeProps) {
+export function Terminal3Phase(props: NodeProps) {
   return (
     <Shape
       {...TERMINAL_3_PHASE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IN_LINE_SILENCER = {
   _style: {
@@ -10,7 +10,7 @@ export const IN_LINE_SILENCER = {
   _height: 20,
 }
 
-export function InLineSilencer(props: DiagramNodeProps) {
+export function InLineSilencer(props: NodeProps) {
   return (
     <Shape
       {...IN_LINE_SILENCER}

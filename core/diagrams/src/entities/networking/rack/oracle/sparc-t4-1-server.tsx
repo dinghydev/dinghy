@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPARC_T4_1_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const SPARC_T4_1_SERVER = {
   _height: 30,
 }
 
-export function SparcT41Server(props: DiagramNodeProps) {
+export function SparcT41Server(props: NodeProps) {
   return (
     <Shape
       {...SPARC_T4_1_SERVER}

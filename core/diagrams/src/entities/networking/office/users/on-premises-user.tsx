@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_PREMISES_USER = {
   _style: {
@@ -10,7 +10,7 @@ export const ON_PREMISES_USER = {
   _original_height: 59,
 }
 
-export function OnPremisesUser(props: DiagramNodeProps) {
+export function OnPremisesUser(props: NodeProps) {
   return (
     <Shape
       {...ON_PREMISES_USER}

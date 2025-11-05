@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRIANGULAR_DIAGRAM_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const TRIANGULAR_DIAGRAM_2 = {
   _height: 360,
 }
 
-export function TriangularDiagram2(props: DiagramNodeProps) {
+export function TriangularDiagram2(props: NodeProps) {
   return (
     <Shape
       {...TRIANGULAR_DIAGRAM_2}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_WAE_512 = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_WAE_512 = {
   _height: 15,
 }
 
-export function CiscoWae512(props: DiagramNodeProps) {
+export function CiscoWae512(props: NodeProps) {
   return (
     <Shape
       {...CISCO_WAE_512}

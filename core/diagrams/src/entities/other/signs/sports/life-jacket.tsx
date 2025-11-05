@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIFE_JACKET = {
   _style: {
@@ -10,7 +10,7 @@ export const LIFE_JACKET = {
   _original_height: 99,
 }
 
-export function LifeJacket(props: DiagramNodeProps) {
+export function LifeJacket(props: NodeProps) {
   return (
     <Shape
       {...LIFE_JACKET}

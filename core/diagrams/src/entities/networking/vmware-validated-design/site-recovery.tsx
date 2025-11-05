@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITE_RECOVERY = {
   _style: {
@@ -10,7 +10,7 @@ export const SITE_RECOVERY = {
   _original_height: 50,
 }
 
-export function SiteRecovery(props: DiagramNodeProps) {
+export function SiteRecovery(props: NodeProps) {
   return (
     <Shape
       {...SITE_RECOVERY}

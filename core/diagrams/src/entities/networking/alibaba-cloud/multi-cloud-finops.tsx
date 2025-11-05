@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_CLOUD_FINOPS = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTI_CLOUD_FINOPS = {
   _height: 37.5,
 }
 
-export function MultiCloudFinops(props: DiagramNodeProps) {
+export function MultiCloudFinops(props: NodeProps) {
   return (
     <Shape
       {...MULTI_CLOUD_FINOPS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEPLOYMENT_ENVIRONMENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const DEPLOYMENT_ENVIRONMENTS = {
   _original_height: 65.28,
 }
 
-export function DeploymentEnvironments(props: DiagramNodeProps) {
+export function DeploymentEnvironments(props: NodeProps) {
   return (
     <Shape
       {...DEPLOYMENT_ENVIRONMENTS}

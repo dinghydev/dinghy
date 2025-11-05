@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10870_THREE_PORT_PROPORTIONAL = {
   _style: {
@@ -10,7 +10,7 @@ export const X10870_THREE_PORT_PROPORTIONAL = {
   _height: 74.92,
 }
 
-export function X10870ThreePortProportional(props: DiagramNodeProps) {
+export function X10870ThreePortProportional(props: NodeProps) {
   return (
     <Shape
       {...X10870_THREE_PORT_PROPORTIONAL}

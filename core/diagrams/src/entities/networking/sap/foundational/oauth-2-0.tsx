@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OAUTH_2_0 = {
   _style: {
@@ -10,7 +10,7 @@ export const OAUTH_2_0 = {
   _original_height: 50,
 }
 
-export function Oauth20(props: DiagramNodeProps) {
+export function Oauth20(props: NodeProps) {
   return (
     <Shape {...OAUTH_2_0} {...props} _style={extendStyle(OAUTH_2_0, props)} />
   )

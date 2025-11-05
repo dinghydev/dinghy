@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RUNTIME_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const RUNTIME_SERVICES = {
   _original_height: 60,
 }
 
-export function RuntimeServices(props: DiagramNodeProps) {
+export function RuntimeServices(props: NodeProps) {
   return (
     <Shape
       {...RUNTIME_SERVICES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INSTAPAPER = {
   _style: {
@@ -10,7 +10,7 @@ export const INSTAPAPER = {
   _original_height: 102.4,
 }
 
-export function Instapaper(props: DiagramNodeProps) {
+export function Instapaper(props: NodeProps) {
   return (
     <Shape {...INSTAPAPER} {...props} _style={extendStyle(INSTAPAPER, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECTANGLE_SKETCH = {
   _style: {
@@ -10,7 +10,7 @@ export const RECTANGLE_SKETCH = {
   _height: 60,
 }
 
-export function RectangleSketch(props: DiagramNodeProps) {
+export function RectangleSketch(props: NodeProps) {
   return (
     <Shape
       {...RECTANGLE_SKETCH}

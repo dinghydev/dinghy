@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISKETTE = {
   _style: {
@@ -10,7 +10,7 @@ export const DISKETTE = {
   _original_height: 50,
 }
 
-export function Diskette(props: DiagramNodeProps) {
+export function Diskette(props: NodeProps) {
   return (
     <Shape {...DISKETTE} {...props} _style={extendStyle(DISKETTE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHADOW = {
   _style: {
@@ -10,6 +10,6 @@ export const SHADOW = {
   _original_height: 91.5,
 }
 
-export function Shadow(props: DiagramNodeProps) {
+export function Shadow(props: NodeProps) {
   return <Shape {...SHADOW} {...props} _style={extendStyle(SHADOW, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UI_THEME_DESIGNER = {
   _style: {
@@ -10,7 +10,7 @@ export const UI_THEME_DESIGNER = {
   _original_height: 50,
 }
 
-export function UiThemeDesigner(props: DiagramNodeProps) {
+export function UiThemeDesigner(props: NodeProps) {
   return (
     <Shape
       {...UI_THEME_DESIGNER}

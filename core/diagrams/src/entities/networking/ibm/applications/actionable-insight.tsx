@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIONABLE_INSIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const ACTIONABLE_INSIGHT = {
   _original_height: 60,
 }
 
-export function ActionableInsight(props: DiagramNodeProps) {
+export function ActionableInsight(props: NodeProps) {
   return (
     <Shape
       {...ACTIONABLE_INSIGHT}

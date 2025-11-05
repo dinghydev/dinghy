@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SINGLE_LINE_TEXT_FIELD_ERROR_LIGHT_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const SINGLE_LINE_TEXT_FIELD_ERROR_LIGHT_2 = {
   _height: 55,
 }
 
-export function SingleLineTextFieldErrorLight2(props: DiagramNodeProps) {
+export function SingleLineTextFieldErrorLight2(props: NodeProps) {
   return (
     <Shape
       {...SINGLE_LINE_TEXT_FIELD_ERROR_LIGHT_2}

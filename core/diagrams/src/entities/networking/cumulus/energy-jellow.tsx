@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENERGY_JELLOW = {
   _style: {
@@ -9,7 +9,7 @@ export const ENERGY_JELLOW = {
   _original_height: 50,
 }
 
-export function EnergyJellow(props: DiagramNodeProps) {
+export function EnergyJellow(props: NodeProps) {
   return (
     <Shape
       {...ENERGY_JELLOW}

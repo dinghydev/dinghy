@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STACK_CHIMNEY = {
   _style: {
@@ -10,7 +10,7 @@ export const STACK_CHIMNEY = {
   _height: 100,
 }
 
-export function StackChimney(props: DiagramNodeProps) {
+export function StackChimney(props: NodeProps) {
   return (
     <Shape
       {...STACK_CHIMNEY}

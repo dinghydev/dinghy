@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11620_SEMI_ROTARY_LINEAR = {
   _style: {
@@ -10,7 +10,7 @@ export const X11620_SEMI_ROTARY_LINEAR = {
   _height: 93.28,
 }
 
-export function X11620SemiRotaryLinear(props: DiagramNodeProps) {
+export function X11620SemiRotaryLinear(props: NodeProps) {
   return (
     <Shape
       {...X11620_SEMI_ROTARY_LINEAR}

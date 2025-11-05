@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EMAIL_EXPIRED = {
   _style: {
@@ -10,7 +10,7 @@ export const EMAIL_EXPIRED = {
   _original_height: 46,
 }
 
-export function EmailExpired(props: DiagramNodeProps) {
+export function EmailExpired(props: NodeProps) {
   return (
     <Shape
       {...EMAIL_EXPIRED}

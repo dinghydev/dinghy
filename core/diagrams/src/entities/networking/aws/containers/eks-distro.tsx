@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EKS_DISTRO = {
   _style: {
@@ -10,7 +10,7 @@ export const EKS_DISTRO = {
   _original_height: 78,
 }
 
-export function EksDistro(props: DiagramNodeProps) {
+export function EksDistro(props: NodeProps) {
   return (
     <Shape {...EKS_DISTRO} {...props} _style={extendStyle(EKS_DISTRO, props)} />
   )

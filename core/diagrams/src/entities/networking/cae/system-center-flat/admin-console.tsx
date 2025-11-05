@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADMIN_CONSOLE = {
   _style: {
@@ -10,7 +10,7 @@ export const ADMIN_CONSOLE = {
   _height: 36,
 }
 
-export function AdminConsole(props: DiagramNodeProps) {
+export function AdminConsole(props: NodeProps) {
   return (
     <Shape
       {...ADMIN_CONSOLE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWEREDGE_4U = {
   _style: {
@@ -10,7 +10,7 @@ export const POWEREDGE_4U = {
   _height: 60,
 }
 
-export function Poweredge4u(props: DiagramNodeProps) {
+export function Poweredge4u(props: NodeProps) {
   return (
     <Shape
       {...POWEREDGE_4U}

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNIDIRECTIONAL_ASSOCIATION = {
   _style: {
@@ -8,7 +8,7 @@ export const UNIDIRECTIONAL_ASSOCIATION = {
   },
 }
 
-export function UnidirectionalAssociation(props: DiagramNodeProps) {
+export function UnidirectionalAssociation(props: NodeProps) {
   return (
     <Dependency
       {...UNIDIRECTIONAL_ASSOCIATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_REPOSITORY = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_REPOSITORY = {
   _height: 38,
 }
 
-export function VeeamRepository(props: DiagramNodeProps) {
+export function VeeamRepository(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_REPOSITORY}

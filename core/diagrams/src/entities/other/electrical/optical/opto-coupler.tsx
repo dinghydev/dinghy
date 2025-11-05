@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPTO_COUPLER = {
   _style: {
@@ -10,7 +10,7 @@ export const OPTO_COUPLER = {
   _height: 60,
 }
 
-export function OptoCoupler(props: DiagramNodeProps) {
+export function OptoCoupler(props: NodeProps) {
   return (
     <Shape
       {...OPTO_COUPLER}

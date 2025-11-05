@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAIL_ENABLED_PUBLIC_FOLDER = {
   _style: {
@@ -10,7 +10,7 @@ export const MAIL_ENABLED_PUBLIC_FOLDER = {
   _original_height: 52,
 }
 
-export function MailEnabledPublicFolder(props: DiagramNodeProps) {
+export function MailEnabledPublicFolder(props: NodeProps) {
   return (
     <Shape
       {...MAIL_ENABLED_PUBLIC_FOLDER}

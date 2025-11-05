@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATLASSIAN = {
   _style: {
@@ -10,7 +10,7 @@ export const ATLASSIAN = {
   _original_height: 66,
 }
 
-export function Atlassian(props: DiagramNodeProps) {
+export function Atlassian(props: NodeProps) {
   return (
     <Shape {...ATLASSIAN} {...props} _style={extendStyle(ATLASSIAN, props)} />
   )

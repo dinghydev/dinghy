@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOICE_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const VOICE_ROUTER = {
   _height: 53,
 }
 
-export function VoiceRouter(props: DiagramNodeProps) {
+export function VoiceRouter(props: NodeProps) {
   return (
     <Shape
       {...VOICE_ROUTER}

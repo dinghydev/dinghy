@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RE_RECOMMENDATION_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const RE_RECOMMENDATION_ENGINE = {
   _original_height: 48.300000000000004,
 }
 
-export function ReRecommendationEngine(props: DiagramNodeProps) {
+export function ReRecommendationEngine(props: NodeProps) {
   return (
     <Shape
       {...RE_RECOMMENDATION_ENGINE}

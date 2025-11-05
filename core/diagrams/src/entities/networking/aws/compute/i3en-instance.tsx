@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const I3EN_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const I3EN_INSTANCE = {
   _original_height: 48,
 }
 
-export function I3enInstance(props: DiagramNodeProps) {
+export function I3enInstance(props: NodeProps) {
   return (
     <Shape
       {...I3EN_INSTANCE}

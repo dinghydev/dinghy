@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_PERSISTENCE_SERVICE_ASE = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_PERSISTENCE_SERVICE_ASE = {
   _original_height: 50,
 }
 
-export function SapPersistenceServiceAse(props: DiagramNodeProps) {
+export function SapPersistenceServiceAse(props: NodeProps) {
   return (
     <Shape
       {...SAP_PERSISTENCE_SERVICE_ASE}

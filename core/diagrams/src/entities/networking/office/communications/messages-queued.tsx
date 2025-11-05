@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGES_QUEUED = {
   _style: {
@@ -10,7 +10,7 @@ export const MESSAGES_QUEUED = {
   _original_height: 57,
 }
 
-export function MessagesQueued(props: DiagramNodeProps) {
+export function MessagesQueued(props: NodeProps) {
   return (
     <Shape
       {...MESSAGES_QUEUED}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAITING_ROOM_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const WAITING_ROOM_1 = {
   _height: 100,
 }
 
-export function WaitingRoom1(props: DiagramNodeProps) {
+export function WaitingRoom1(props: NodeProps) {
   return (
     <Shape
       {...WAITING_ROOM_1}

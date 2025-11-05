@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const R0X35A_ARUBA_6400_1800W_PS_W_C16 = {
   _style: {
@@ -10,7 +10,7 @@ export const R0X35A_ARUBA_6400_1800W_PS_W_C16 = {
   _height: 20,
 }
 
-export function R0x35aAruba64001800wPsWC16(props: DiagramNodeProps) {
+export function R0x35aAruba64001800wPsWC16(props: NodeProps) {
   return (
     <Shape
       {...R0X35A_ARUBA_6400_1800W_PS_W_C16}

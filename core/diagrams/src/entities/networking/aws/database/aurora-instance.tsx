@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AURORA_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const AURORA_INSTANCE = {
   _original_height: 78,
 }
 
-export function AuroraInstance(props: DiagramNodeProps) {
+export function AuroraInstance(props: NodeProps) {
   return (
     <Shape
       {...AURORA_INSTANCE}

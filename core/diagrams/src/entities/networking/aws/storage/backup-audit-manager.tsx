@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKUP_AUDIT_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const BACKUP_AUDIT_MANAGER = {
   _original_height: 78,
 }
 
-export function BackupAuditManager(props: DiagramNodeProps) {
+export function BackupAuditManager(props: NodeProps) {
   return (
     <Shape
       {...BACKUP_AUDIT_MANAGER}

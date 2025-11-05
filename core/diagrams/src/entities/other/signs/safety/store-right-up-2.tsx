@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STORE_RIGHT_UP_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const STORE_RIGHT_UP_2 = {
   _original_height: 98,
 }
 
-export function StoreRightUp2(props: DiagramNodeProps) {
+export function StoreRightUp2(props: NodeProps) {
   return (
     <Shape
       {...STORE_RIGHT_UP_2}

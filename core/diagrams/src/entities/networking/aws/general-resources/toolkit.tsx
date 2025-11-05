@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOOLKIT = {
   _style: {
@@ -10,6 +10,6 @@ export const TOOLKIT = {
   _original_height: 78,
 }
 
-export function Toolkit(props: DiagramNodeProps) {
+export function Toolkit(props: NodeProps) {
   return <Shape {...TOOLKIT} {...props} _style={extendStyle(TOOLKIT, props)} />
 }

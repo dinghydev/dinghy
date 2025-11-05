@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_BEANSTALK = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_BEANSTALK = {
   _height: 93,
 }
 
-export function ElasticBeanstalk(props: DiagramNodeProps) {
+export function ElasticBeanstalk(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_BEANSTALK}

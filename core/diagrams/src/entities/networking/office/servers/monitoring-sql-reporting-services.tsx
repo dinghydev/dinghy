@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MONITORING_SQL_REPORTING_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const MONITORING_SQL_REPORTING_SERVICES = {
   _original_height: 59,
 }
 
-export function MonitoringSqlReportingServices(props: DiagramNodeProps) {
+export function MonitoringSqlReportingServices(props: NodeProps) {
   return (
     <Shape
       {...MONITORING_SQL_REPORTING_SERVICES}

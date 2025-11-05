@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STREAMER = {
   _style: {
@@ -10,7 +10,7 @@ export const STREAMER = {
   _height: 64,
 }
 
-export function Streamer(props: DiagramNodeProps) {
+export function Streamer(props: NodeProps) {
   return (
     <Shape {...STREAMER} {...props} _style={extendStyle(STREAMER, props)} />
   )

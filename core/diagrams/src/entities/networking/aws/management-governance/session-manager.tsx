@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SESSION_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const SESSION_MANAGER = {
   _original_height: 78,
 }
 
-export function SessionManager(props: DiagramNodeProps) {
+export function SessionManager(props: NodeProps) {
   return (
     <Shape
       {...SESSION_MANAGER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_SEARCH = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_SEARCH = {
   _original_height: 50,
 }
 
-export function AzureSearch(props: DiagramNodeProps) {
+export function AzureSearch(props: NodeProps) {
   return (
     <Shape
       {...AZURE_SEARCH}

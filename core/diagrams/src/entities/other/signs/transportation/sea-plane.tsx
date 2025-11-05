@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEA_PLANE = {
   _style: {
@@ -10,7 +10,7 @@ export const SEA_PLANE = {
   _height: 68,
 }
 
-export function SeaPlane(props: DiagramNodeProps) {
+export function SeaPlane(props: NodeProps) {
   return (
     <Shape {...SEA_PLANE} {...props} _style={extendStyle(SEA_PLANE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11180_TWO_PORT_CARTRIDGE = {
   _style: {
@@ -10,7 +10,7 @@ export const X11180_TWO_PORT_CARTRIDGE = {
   _height: 223.22,
 }
 
-export function X11180TwoPortCartridge(props: DiagramNodeProps) {
+export function X11180TwoPortCartridge(props: NodeProps) {
   return (
     <Shape
       {...X11180_TWO_PORT_CARTRIDGE}

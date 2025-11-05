@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY = {
   _height: 39.900000000000006,
 }
 
-export function HcsSgwHybridCloudStorageGateway(props: DiagramNodeProps) {
+export function HcsSgwHybridCloudStorageGateway(props: NodeProps) {
   return (
     <Shape
       {...HCS_SGW_HYBRID_CLOUD_STORAGE_GATEWAY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION = {
   _original_height: 44.8,
 }
 
-export function Component1ClickFailoverOrchestration(props: DiagramNodeProps) {
+export function Component1ClickFailoverOrchestration(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_1_CLICK_FAILOVER_ORCHESTRATION}

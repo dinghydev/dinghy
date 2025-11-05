@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLUMN_CHART = {
   _style: {
@@ -10,7 +10,7 @@ export const COLUMN_CHART = {
   _height: 200,
 }
 
-export function ColumnChart(props: DiagramNodeProps) {
+export function ColumnChart(props: NodeProps) {
   return (
     <Shape
       {...COLUMN_CHART}

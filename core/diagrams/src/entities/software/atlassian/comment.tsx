@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMMENT = {
   _style: {
@@ -10,6 +10,6 @@ export const COMMENT = {
   _height: 125,
 }
 
-export function Comment(props: DiagramNodeProps) {
+export function Comment(props: NodeProps) {
   return <Shape {...COMMENT} {...props} _style={extendStyle(COMMENT, props)} />
 }

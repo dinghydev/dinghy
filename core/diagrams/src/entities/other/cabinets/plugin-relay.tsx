@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLUGIN_RELAY = {
   _style: {
@@ -10,7 +10,7 @@ export const PLUGIN_RELAY = {
   _height: 40,
 }
 
-export function PluginRelay(props: DiagramNodeProps) {
+export function PluginRelay(props: NodeProps) {
   return (
     <Shape
       {...PLUGIN_RELAY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MPS_CENSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const MPS_CENSOR = {
   _original_height: 54.900000000000006,
 }
 
-export function MpsCensor(props: DiagramNodeProps) {
+export function MpsCensor(props: NodeProps) {
   return (
     <Shape {...MPS_CENSOR} {...props} _style={extendStyle(MPS_CENSOR, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INVALID_MESSAGE_CHANNEL = {
   _style: {
@@ -10,7 +10,7 @@ export const INVALID_MESSAGE_CHANNEL = {
   _height: 20,
 }
 
-export function InvalidMessageChannel(props: DiagramNodeProps) {
+export function InvalidMessageChannel(props: NodeProps) {
   return (
     <Shape
       {...INVALID_MESSAGE_CHANNEL}

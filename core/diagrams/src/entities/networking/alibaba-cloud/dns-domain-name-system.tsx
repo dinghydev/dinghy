@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DNS_DOMAIN_NAME_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const DNS_DOMAIN_NAME_SYSTEM = {
   _original_height: 54.900000000000006,
 }
 
-export function DnsDomainNameSystem(props: DiagramNodeProps) {
+export function DnsDomainNameSystem(props: NodeProps) {
   return (
     <Shape
       {...DNS_DOMAIN_NAME_SYSTEM}

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const METAMODEL_REFERENCE = {
   _style: {
@@ -8,7 +8,7 @@ export const METAMODEL_REFERENCE = {
   },
 }
 
-export function MetamodelReference(props: DiagramNodeProps) {
+export function MetamodelReference(props: NodeProps) {
   return (
     <Dependency
       {...METAMODEL_REFERENCE}

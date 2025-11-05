@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_STORAGE_COST = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_STORAGE_COST = {
   _height: 100,
 }
 
-export function DataStorageCost(props: DiagramNodeProps) {
+export function DataStorageCost(props: NodeProps) {
   return (
     <Shape
       {...DATA_STORAGE_COST}

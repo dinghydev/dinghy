@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EDGE_LOCATION = {
   _style: {
@@ -10,7 +10,7 @@ export const EDGE_LOCATION = {
   _original_height: 60,
 }
 
-export function EdgeLocation(props: DiagramNodeProps) {
+export function EdgeLocation(props: NodeProps) {
   return (
     <Shape
       {...EDGE_LOCATION}

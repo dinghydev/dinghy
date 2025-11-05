@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLUEPRINT = {
   _style: {
@@ -10,7 +10,7 @@ export const BLUEPRINT = {
   _original_height: 47.5,
 }
 
-export function Blueprint(props: DiagramNodeProps) {
+export function Blueprint(props: NodeProps) {
   return (
     <Shape {...BLUEPRINT} {...props} _style={extendStyle(BLUEPRINT, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HALF_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const HALF_CLOUD = {
   _height: 50,
 }
 
-export function HalfCloud(props: DiagramNodeProps) {
+export function HalfCloud(props: NodeProps) {
   return (
     <Shape {...HALF_CLOUD} {...props} _style={extendStyle(HALF_CLOUD, props)} />
   )

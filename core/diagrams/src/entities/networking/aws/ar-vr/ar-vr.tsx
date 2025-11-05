@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AR_VR = {
   _style: {
@@ -10,6 +10,6 @@ export const AR_VR = {
   _original_height: 78,
 }
 
-export function ArVr(props: DiagramNodeProps) {
+export function ArVr(props: NodeProps) {
   return <Shape {...AR_VR} {...props} _style={extendStyle(AR_VR, props)} />
 }

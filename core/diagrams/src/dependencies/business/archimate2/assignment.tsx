@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASSIGNMENT = {
   _style: {
@@ -8,7 +8,7 @@ export const ASSIGNMENT = {
   },
 }
 
-export function Assignment(props: DiagramNodeProps) {
+export function Assignment(props: NodeProps) {
   return (
     <Dependency
       {...ASSIGNMENT}

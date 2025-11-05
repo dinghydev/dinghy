@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const M6IN_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const M6IN_INSTANCE = {
   _original_height: 48,
 }
 
-export function M6inInstance(props: DiagramNodeProps) {
+export function M6inInstance(props: NodeProps) {
   return (
     <Shape
       {...M6IN_INSTANCE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SINGLE_LINE_TEXT_FIELD_WITH_ICON_NORMAL_LIGHT = {
   _style: {
@@ -9,9 +9,7 @@ export const SINGLE_LINE_TEXT_FIELD_WITH_ICON_NORMAL_LIGHT = {
   _height: 35,
 }
 
-export function SingleLineTextFieldWithIconNormalLight(
-  props: DiagramNodeProps,
-) {
+export function SingleLineTextFieldWithIconNormalLight(props: NodeProps) {
   return (
     <Shape
       {...SINGLE_LINE_TEXT_FIELD_WITH_ICON_NORMAL_LIGHT}

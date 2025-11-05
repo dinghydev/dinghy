@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATHENA_DATA_SOURCE_CONNECTORS = {
   _style: {
@@ -10,7 +10,7 @@ export const ATHENA_DATA_SOURCE_CONNECTORS = {
   _original_height: 78,
 }
 
-export function AthenaDataSourceConnectors(props: DiagramNodeProps) {
+export function AthenaDataSourceConnectors(props: NodeProps) {
   return (
     <Shape
       {...ATHENA_DATA_SOURCE_CONNECTORS}

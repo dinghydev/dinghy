@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RING_BUS_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const RING_BUS_2 = {
   _height: 100,
 }
 
-export function RingBus2(props: DiagramNodeProps) {
+export function RingBus2(props: NodeProps) {
   return (
     <Shape {...RING_BUS_2} {...props} _style={extendStyle(RING_BUS_2, props)} />
   )

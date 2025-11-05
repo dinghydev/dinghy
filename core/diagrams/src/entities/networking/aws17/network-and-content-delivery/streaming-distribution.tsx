@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STREAMING_DISTRIBUTION = {
   _style: {
@@ -10,7 +10,7 @@ export const STREAMING_DISTRIBUTION = {
   _original_height: 72,
 }
 
-export function StreamingDistribution(props: DiagramNodeProps) {
+export function StreamingDistribution(props: NodeProps) {
   return (
     <Shape
       {...STREAMING_DISTRIBUTION}

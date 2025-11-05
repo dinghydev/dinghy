@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNIDENTIFIED_CODE_OBJECT = {
   _style: {
@@ -10,7 +10,7 @@ export const UNIDENTIFIED_CODE_OBJECT = {
   _original_height: 42.5,
 }
 
-export function UnidentifiedCodeObject(props: DiagramNodeProps) {
+export function UnidentifiedCodeObject(props: NodeProps) {
   return (
     <Shape
       {...UNIDENTIFIED_CODE_OBJECT}

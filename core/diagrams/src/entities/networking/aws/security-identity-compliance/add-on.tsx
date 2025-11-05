@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADD_ON = {
   _style: {
@@ -10,6 +10,6 @@ export const ADD_ON = {
   _height: 40,
 }
 
-export function AddOn(props: DiagramNodeProps) {
+export function AddOn(props: NodeProps) {
   return <Shape {...ADD_ON} {...props} _style={extendStyle(ADD_ON, props)} />
 }

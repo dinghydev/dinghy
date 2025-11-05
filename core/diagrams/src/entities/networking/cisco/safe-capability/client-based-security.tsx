@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLIENT_BASED_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const CLIENT_BASED_SECURITY = {
   _original_height: 43,
 }
 
-export function ClientBasedSecurity(props: DiagramNodeProps) {
+export function ClientBasedSecurity(props: NodeProps) {
   return (
     <Shape
       {...CLIENT_BASED_SECURITY}

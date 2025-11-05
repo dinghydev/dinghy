@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLASS_4_5_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const CLASS_4_5_SWITCH = {
   _height: 90,
 }
 
-export function Class45Switch(props: DiagramNodeProps) {
+export function Class45Switch(props: NodeProps) {
   return (
     <Shape
       {...CLASS_4_5_SWITCH}

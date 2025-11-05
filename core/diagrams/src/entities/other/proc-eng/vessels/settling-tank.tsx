@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SETTLING_TANK = {
   _style: {
@@ -10,7 +10,7 @@ export const SETTLING_TANK = {
   _height: 80,
 }
 
-export function SettlingTank(props: DiagramNodeProps) {
+export function SettlingTank(props: NodeProps) {
   return (
     <Shape
       {...SETTLING_TANK}

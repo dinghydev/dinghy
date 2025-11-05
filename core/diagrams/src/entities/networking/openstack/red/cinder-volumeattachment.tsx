@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CINDER_VOLUMEATTACHMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const CINDER_VOLUMEATTACHMENT = {
   _original_height: 50,
 }
 
-export function CinderVolumeattachment(props: DiagramNodeProps) {
+export function CinderVolumeattachment(props: NodeProps) {
   return (
     <Shape
       {...CINDER_VOLUMEATTACHMENT}

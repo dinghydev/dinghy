@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_MARQUEE = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_MARQUEE = {
   _height: 40.8,
 }
 
-export function DefenderMarquee(props: DiagramNodeProps) {
+export function DefenderMarquee(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_MARQUEE}

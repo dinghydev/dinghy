@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_SERVICE_READY_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_SERVICE_READY_ENGINE = {
   _original_height: 50,
 }
 
-export function CiscoServiceReadyEngine(props: DiagramNodeProps) {
+export function CiscoServiceReadyEngine(props: NodeProps) {
   return (
     <Shape
       {...CISCO_SERVICE_READY_ENGINE}

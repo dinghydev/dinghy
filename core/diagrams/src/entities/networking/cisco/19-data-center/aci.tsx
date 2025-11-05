@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACI = {
   _style: {
@@ -10,6 +10,6 @@ export const ACI = {
   _original_height: 50,
 }
 
-export function Aci(props: DiagramNodeProps) {
+export function Aci(props: NodeProps) {
   return <Shape {...ACI} {...props} _style={extendStyle(ACI, props)} />
 }

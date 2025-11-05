@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PAGE_ICON = {
   _style: {
@@ -10,7 +10,7 @@ export const PAGE_ICON = {
   _height: 69,
 }
 
-export function PageIcon(props: DiagramNodeProps) {
+export function PageIcon(props: NodeProps) {
   return (
     <Shape {...PAGE_ICON} {...props} _style={extendStyle(PAGE_ICON, props)} />
   )

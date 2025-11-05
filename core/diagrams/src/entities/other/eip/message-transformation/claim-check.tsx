@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLAIM_CHECK = {
   _style: {
@@ -10,7 +10,7 @@ export const CLAIM_CHECK = {
   _height: 90,
 }
 
-export function ClaimCheck(props: DiagramNodeProps) {
+export function ClaimCheck(props: NodeProps) {
   return (
     <Shape
       {...CLAIM_CHECK}

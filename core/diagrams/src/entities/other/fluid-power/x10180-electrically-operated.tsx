@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10180_ELECTRICALLY_OPERATED = {
   _style: {
@@ -10,7 +10,7 @@ export const X10180_ELECTRICALLY_OPERATED = {
   _height: 37.22,
 }
 
-export function X10180ElectricallyOperated(props: DiagramNodeProps) {
+export function X10180ElectricallyOperated(props: NodeProps) {
   return (
     <Shape
       {...X10180_ELECTRICALLY_OPERATED}

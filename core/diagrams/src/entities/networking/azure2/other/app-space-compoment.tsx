@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APP_SPACE_COMPOMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const APP_SPACE_COMPOMENT = {
   _original_height: 68,
 }
 
-export function AppSpaceCompoment(props: DiagramNodeProps) {
+export function AppSpaceCompoment(props: NodeProps) {
   return (
     <Shape
       {...APP_SPACE_COMPOMENT}

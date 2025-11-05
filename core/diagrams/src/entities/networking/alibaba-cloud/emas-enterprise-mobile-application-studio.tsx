@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EMAS_ENTERPRISE_MOBILE_APPLICATION_STUDIO = {
   _style: {
@@ -10,7 +10,7 @@ export const EMAS_ENTERPRISE_MOBILE_APPLICATION_STUDIO = {
   _original_height: 41.699999999999996,
 }
 
-export function EmasEnterpriseMobileApplicationStudio(props: DiagramNodeProps) {
+export function EmasEnterpriseMobileApplicationStudio(props: NodeProps) {
   return (
     <Shape
       {...EMAS_ENTERPRISE_MOBILE_APPLICATION_STUDIO}

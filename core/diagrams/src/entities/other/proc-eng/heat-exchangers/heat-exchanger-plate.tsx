@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HEAT_EXCHANGER_PLATE = {
   _style: {
@@ -10,7 +10,7 @@ export const HEAT_EXCHANGER_PLATE = {
   _height: 30,
 }
 
-export function HeatExchangerPlate(props: DiagramNodeProps) {
+export function HeatExchangerPlate(props: NodeProps) {
   return (
     <Shape
       {...HEAT_EXCHANGER_PLATE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EQUIPOTENTIAL = {
   _style: {
@@ -10,7 +10,7 @@ export const EQUIPOTENTIAL = {
   _original_height: 90,
 }
 
-export function Equipotential(props: DiagramNodeProps) {
+export function Equipotential(props: NodeProps) {
   return (
     <Shape
       {...EQUIPOTENTIAL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HCP_CACHE = {
   _style: {
@@ -10,7 +10,7 @@ export const HCP_CACHE = {
   _original_height: 63,
 }
 
-export function HcpCache(props: DiagramNodeProps) {
+export function HcpCache(props: NodeProps) {
   return (
     <Shape {...HCP_CACHE} {...props} _style={extendStyle(HCP_CACHE, props)} />
   )

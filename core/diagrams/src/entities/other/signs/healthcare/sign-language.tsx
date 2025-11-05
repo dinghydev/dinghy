@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIGN_LANGUAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const SIGN_LANGUAGE = {
   _height: 84,
 }
 
-export function SignLanguage(props: DiagramNodeProps) {
+export function SignLanguage(props: NodeProps) {
   return (
     <Shape
       {...SIGN_LANGUAGE}

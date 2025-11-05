@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_CONSOLE = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_CONSOLE = {
   _original_height: 42,
 }
 
-export function CloudConsole(props: DiagramNodeProps) {
+export function CloudConsole(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_CONSOLE}

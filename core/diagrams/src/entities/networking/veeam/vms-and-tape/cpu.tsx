@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CPU = {
   _style: {
@@ -10,6 +10,6 @@ export const CPU = {
   _original_height: 44.8,
 }
 
-export function Cpu(props: DiagramNodeProps) {
+export function Cpu(props: NodeProps) {
   return <Shape {...CPU} {...props} _style={extendStyle(CPU, props)} />
 }

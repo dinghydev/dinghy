@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEEPRACER = {
   _style: {
@@ -10,7 +10,7 @@ export const DEEPRACER = {
   _original_height: 78,
 }
 
-export function Deepracer(props: DiagramNodeProps) {
+export function Deepracer(props: NodeProps) {
   return (
     <Shape {...DEEPRACER} {...props} _style={extendStyle(DEEPRACER, props)} />
   )

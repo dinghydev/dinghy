@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONNECTED_VEHICLE_PLATFORM = {
   _style: {
@@ -10,7 +10,7 @@ export const CONNECTED_VEHICLE_PLATFORM = {
   _original_height: 52,
 }
 
-export function ConnectedVehiclePlatform(props: DiagramNodeProps) {
+export function ConnectedVehiclePlatform(props: NodeProps) {
   return (
     <Shape
       {...CONNECTED_VEHICLE_PLATFORM}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BENT_UP_ARROW = {
   _style: {
@@ -10,7 +10,7 @@ export const BENT_UP_ARROW = {
   _original_height: 83,
 }
 
-export function BentUpArrow(props: DiagramNodeProps) {
+export function BentUpArrow(props: NodeProps) {
   return (
     <Shape
       {...BENT_UP_ARROW}

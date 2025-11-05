@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THIN_CLIENT = {
   _style: {
@@ -10,7 +10,7 @@ export const THIN_CLIENT = {
   _original_height: 71,
 }
 
-export function ThinClient(props: DiagramNodeProps) {
+export function ThinClient(props: NodeProps) {
   return (
     <Shape
       {...THIN_CLIENT}

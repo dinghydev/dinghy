@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SELECTOR_SWITCH_4_POSITIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const SELECTOR_SWITCH_4_POSITIONS = {
   _original_height: 66,
 }
 
-export function SelectorSwitch4Positions(props: DiagramNodeProps) {
+export function SelectorSwitch4Positions(props: NodeProps) {
   return (
     <Shape
       {...SELECTOR_SWITCH_4_POSITIONS}

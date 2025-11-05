@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10480_3_2_SOLENOID_ACTUATED = {
   _style: {
@@ -10,7 +10,7 @@ export const X10480_3_2_SOLENOID_ACTUATED = {
   _height: 75.54,
 }
 
-export function X1048032SolenoidActuated(props: DiagramNodeProps) {
+export function X1048032SolenoidActuated(props: NodeProps) {
   return (
     <Shape
       {...X10480_3_2_SOLENOID_ACTUATED}

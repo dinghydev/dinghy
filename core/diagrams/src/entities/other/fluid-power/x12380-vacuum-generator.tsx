@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12380_VACUUM_GENERATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X12380_VACUUM_GENERATOR = {
   _height: 55.92,
 }
 
-export function X12380VacuumGenerator(props: DiagramNodeProps) {
+export function X12380VacuumGenerator(props: NodeProps) {
   return (
     <Shape
       {...X12380_VACUUM_GENERATOR}

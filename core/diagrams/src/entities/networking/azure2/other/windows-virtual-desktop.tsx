@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDOWS_VIRTUAL_DESKTOP = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDOWS_VIRTUAL_DESKTOP = {
   _original_height: 68,
 }
 
-export function WindowsVirtualDesktop(props: DiagramNodeProps) {
+export function WindowsVirtualDesktop(props: NodeProps) {
   return (
     <Shape
       {...WINDOWS_VIRTUAL_DESKTOP}

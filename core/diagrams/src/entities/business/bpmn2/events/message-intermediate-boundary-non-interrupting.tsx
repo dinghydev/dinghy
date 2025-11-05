@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING = {
   _style: {
@@ -10,9 +10,7 @@ export const MESSAGE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function MessageIntermediateBoundaryNonInterrupting(
-  props: DiagramNodeProps,
-) {
+export function MessageIntermediateBoundaryNonInterrupting(props: NodeProps) {
   return (
     <Shape
       {...MESSAGE_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING}

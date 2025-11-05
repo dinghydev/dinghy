@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AVAILABILITY_ZONE = {
   _style: {
@@ -11,7 +11,7 @@ export const AVAILABILITY_ZONE = {
   },
 }
 
-export function AvailabilityZone(props: DiagramNodeProps) {
+export function AvailabilityZone(props: NodeProps) {
   return (
     <Shape
       {...AVAILABILITY_ZONE}

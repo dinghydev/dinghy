@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GOOGLE_DATA_STUDIO = {
   _style: {
@@ -10,7 +10,7 @@ export const GOOGLE_DATA_STUDIO = {
   _height: 38,
 }
 
-export function GoogleDataStudio(props: DiagramNodeProps) {
+export function GoogleDataStudio(props: NodeProps) {
   return (
     <Shape
       {...GOOGLE_DATA_STUDIO}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9854A_2530_24G_POE_2SFP_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const J9854A_2530_24G_POE_2SFP_SWITCH = {
   _height: 15,
 }
 
-export function J9854a253024gPoe2sfpSwitch(props: DiagramNodeProps) {
+export function J9854a253024gPoe2sfpSwitch(props: NodeProps) {
   return (
     <Shape
       {...J9854A_2530_24G_POE_2SFP_SWITCH}

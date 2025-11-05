@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_DEBUGGER = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_DEBUGGER = {
   _original_height: 42,
 }
 
-export function CloudDebugger(props: DiagramNodeProps) {
+export function CloudDebugger(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_DEBUGGER}

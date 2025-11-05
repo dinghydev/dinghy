@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_SERVER_MIGRATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_SERVER_MIGRATION_SERVICE = {
   _height: 120,
 }
 
-export function AwsServerMigrationService(props: DiagramNodeProps) {
+export function AwsServerMigrationService(props: NodeProps) {
   return (
     <Shape
       {...AWS_SERVER_MIGRATION_SERVICE}

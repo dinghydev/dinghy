@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HDFS_CLUSTER = {
   _style: {
@@ -10,7 +10,7 @@ export const HDFS_CLUSTER = {
   _original_height: 60,
 }
 
-export function HdfsCluster(props: DiagramNodeProps) {
+export function HdfsCluster(props: NodeProps) {
   return (
     <Shape
       {...HDFS_CLUSTER}

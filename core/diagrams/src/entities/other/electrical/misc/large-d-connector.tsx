@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LARGE_D_CONNECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const LARGE_D_CONNECTOR = {
   _height: 75,
 }
 
-export function LargeDConnector(props: DiagramNodeProps) {
+export function LargeDConnector(props: NodeProps) {
   return (
     <Shape
       {...LARGE_D_CONNECTOR}

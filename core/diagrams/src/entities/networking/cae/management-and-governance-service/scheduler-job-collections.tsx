@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCHEDULER_JOB_COLLECTIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const SCHEDULER_JOB_COLLECTIONS = {
   _original_height: 43,
 }
 
-export function SchedulerJobCollections(props: DiagramNodeProps) {
+export function SchedulerJobCollections(props: NodeProps) {
   return (
     <Shape
       {...SCHEDULER_JOB_COLLECTIONS}

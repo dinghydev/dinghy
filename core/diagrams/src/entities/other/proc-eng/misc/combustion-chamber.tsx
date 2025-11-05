@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMBUSTION_CHAMBER = {
   _style: {
@@ -10,7 +10,7 @@ export const COMBUSTION_CHAMBER = {
   _height: 100,
 }
 
-export function CombustionChamber(props: DiagramNodeProps) {
+export function CombustionChamber(props: NodeProps) {
   return (
     <Shape
       {...COMBUSTION_CHAMBER}

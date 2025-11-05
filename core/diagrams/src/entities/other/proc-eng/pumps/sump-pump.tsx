@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUMP_PUMP = {
   _style: {
@@ -10,7 +10,7 @@ export const SUMP_PUMP = {
   _height: 186,
 }
 
-export function SumpPump(props: DiagramNodeProps) {
+export function SumpPump(props: NodeProps) {
   return (
     <Shape {...SUMP_PUMP} {...props} _style={extendStyle(SUMP_PUMP, props)} />
   )

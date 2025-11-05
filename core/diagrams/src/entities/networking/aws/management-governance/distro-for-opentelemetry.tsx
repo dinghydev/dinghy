@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISTRO_FOR_OPENTELEMETRY = {
   _style: {
@@ -10,7 +10,7 @@ export const DISTRO_FOR_OPENTELEMETRY = {
   _original_height: 78,
 }
 
-export function DistroForOpentelemetry(props: DiagramNodeProps) {
+export function DistroForOpentelemetry(props: NodeProps) {
   return (
     <Shape
       {...DISTRO_FOR_OPENTELEMETRY}

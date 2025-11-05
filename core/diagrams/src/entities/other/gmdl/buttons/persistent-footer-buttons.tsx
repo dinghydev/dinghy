@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PERSISTENT_FOOTER_BUTTONS = {
   _style: {
@@ -10,7 +10,7 @@ export const PERSISTENT_FOOTER_BUTTONS = {
   _height: 40,
 }
 
-export function PersistentFooterButtons(props: DiagramNodeProps) {
+export function PersistentFooterButtons(props: NodeProps) {
   return (
     <Shape
       {...PERSISTENT_FOOTER_BUTTONS}

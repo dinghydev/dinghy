@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MERGE_OR_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const MERGE_OR_STORAGE = {
   _height: 60,
 }
 
-export function MergeOrStorage(props: DiagramNodeProps) {
+export function MergeOrStorage(props: NodeProps) {
   return (
     <Shape
       {...MERGE_OR_STORAGE}

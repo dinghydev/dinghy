@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const STROLLER = {
   _original_height: 85,
 }
 
-export function Stroller(props: DiagramNodeProps) {
+export function Stroller(props: NodeProps) {
   return (
     <Shape {...STROLLER} {...props} _style={extendStyle(STROLLER, props)} />
   )

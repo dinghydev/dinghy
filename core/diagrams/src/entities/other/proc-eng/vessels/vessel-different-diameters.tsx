@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VESSEL_DIFFERENT_DIAMETERS = {
   _style: {
@@ -10,7 +10,7 @@ export const VESSEL_DIFFERENT_DIAMETERS = {
   _height: 97,
 }
 
-export function VesselDifferentDiameters(props: DiagramNodeProps) {
+export function VesselDifferentDiameters(props: NodeProps) {
   return (
     <Shape
       {...VESSEL_DIFFERENT_DIAMETERS}

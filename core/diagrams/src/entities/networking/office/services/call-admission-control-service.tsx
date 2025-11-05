@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALL_ADMISSION_CONTROL_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const CALL_ADMISSION_CONTROL_SERVICE = {
   _original_height: 59,
 }
 
-export function CallAdmissionControlService(props: DiagramNodeProps) {
+export function CallAdmissionControlService(props: NodeProps) {
   return (
     <Shape
       {...CALL_ADMISSION_CONTROL_SERVICE}

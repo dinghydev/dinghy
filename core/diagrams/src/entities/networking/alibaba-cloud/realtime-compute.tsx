@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REALTIME_COMPUTE = {
   _style: {
@@ -10,7 +10,7 @@ export const REALTIME_COMPUTE = {
   _original_height: 60,
 }
 
-export function RealtimeCompute(props: DiagramNodeProps) {
+export function RealtimeCompute(props: NodeProps) {
   return (
     <Shape
       {...REALTIME_COMPUTE}

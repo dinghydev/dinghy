@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FISH_HATCHERY = {
   _style: {
@@ -10,7 +10,7 @@ export const FISH_HATCHERY = {
   _original_height: 85,
 }
 
-export function FishHatchery(props: DiagramNodeProps) {
+export function FishHatchery(props: NodeProps) {
   return (
     <Shape
       {...FISH_HATCHERY}

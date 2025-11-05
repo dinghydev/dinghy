@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ECS_COPILOT_CLI = {
   _style: {
@@ -10,7 +10,7 @@ export const ECS_COPILOT_CLI = {
   _original_height: 44,
 }
 
-export function EcsCopilotCli(props: DiagramNodeProps) {
+export function EcsCopilotCli(props: NodeProps) {
   return (
     <Shape
       {...ECS_COPILOT_CLI}

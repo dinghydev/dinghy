@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VM_WITH_A_SNAPSHOT = {
   _style: {
@@ -10,7 +10,7 @@ export const VM_WITH_A_SNAPSHOT = {
   _original_height: 42,
 }
 
-export function VmWithASnapshot(props: DiagramNodeProps) {
+export function VmWithASnapshot(props: NodeProps) {
   return (
     <Shape
       {...VM_WITH_A_SNAPSHOT}

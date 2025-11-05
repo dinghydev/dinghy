@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECKBOX_WITHOUT_LABEL = {
   _style: {
@@ -10,7 +10,7 @@ export const CHECKBOX_WITHOUT_LABEL = {
   _original_height: 10,
 }
 
-export function CheckboxWithoutLabel(props: DiagramNodeProps) {
+export function CheckboxWithoutLabel(props: NodeProps) {
   return (
     <Shape
       {...CHECKBOX_WITHOUT_LABEL}

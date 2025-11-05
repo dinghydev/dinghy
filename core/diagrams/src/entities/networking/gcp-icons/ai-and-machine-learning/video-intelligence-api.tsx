@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIDEO_INTELLIGENCE_API = {
   _style: {
@@ -10,7 +10,7 @@ export const VIDEO_INTELLIGENCE_API = {
   _height: 28.000000000000004,
 }
 
-export function VideoIntelligenceApi(props: DiagramNodeProps) {
+export function VideoIntelligenceApi(props: NodeProps) {
   return (
     <Shape
       {...VIDEO_INTELLIGENCE_API}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECTANGLE_WITH_DIAGONAL_GRID_FILL = {
   _style: {
@@ -10,7 +10,7 @@ export const RECTANGLE_WITH_DIAGONAL_GRID_FILL = {
   _height: 60,
 }
 
-export function RectangleWithDiagonalGridFill(props: DiagramNodeProps) {
+export function RectangleWithDiagonalGridFill(props: NodeProps) {
   return (
     <Shape
       {...RECTANGLE_WITH_DIAGONAL_GRID_FILL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEDIUM_DATASTORE = {
   _style: {
@@ -10,7 +10,7 @@ export const MEDIUM_DATASTORE = {
   _original_height: 44.4,
 }
 
-export function MediumDatastore(props: DiagramNodeProps) {
+export function MediumDatastore(props: NodeProps) {
   return (
     <Shape
       {...MEDIUM_DATASTORE}

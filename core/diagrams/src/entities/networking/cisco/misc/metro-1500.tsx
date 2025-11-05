@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const METRO_1500 = {
   _style: {
@@ -10,7 +10,7 @@ export const METRO_1500 = {
   _original_height: 58,
 }
 
-export function Metro1500(props: DiagramNodeProps) {
+export function Metro1500(props: NodeProps) {
   return (
     <Shape {...METRO_1500} {...props} _style={extendStyle(METRO_1500, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EDUKIT = {
   _style: {
@@ -10,6 +10,6 @@ export const EDUKIT = {
   _original_height: 78,
 }
 
-export function Edukit(props: DiagramNodeProps) {
+export function Edukit(props: NodeProps) {
   return <Shape {...EDUKIT} {...props} _style={extendStyle(EDUKIT, props)} />
 }

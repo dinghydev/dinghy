@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_TRANSLATION_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_TRANSLATION_HUB = {
   _original_height: 50,
 }
 
-export function SapTranslationHub(props: DiagramNodeProps) {
+export function SapTranslationHub(props: NodeProps) {
   return (
     <Shape
       {...SAP_TRANSLATION_HUB}

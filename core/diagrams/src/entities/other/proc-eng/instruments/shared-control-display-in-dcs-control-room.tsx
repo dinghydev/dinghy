@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHARED_CONTROL_DISPLAY_IN_DCS_CONTROL_ROOM = {
   _style: {
@@ -10,7 +10,7 @@ export const SHARED_CONTROL_DISPLAY_IN_DCS_CONTROL_ROOM = {
   _original_height: 50,
 }
 
-export function SharedControlDisplayInDcsControlRoom(props: DiagramNodeProps) {
+export function SharedControlDisplayInDcsControlRoom(props: NodeProps) {
   return (
     <Shape
       {...SHARED_CONTROL_DISPLAY_IN_DCS_CONTROL_ROOM}

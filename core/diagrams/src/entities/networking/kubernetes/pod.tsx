@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POD = {
   _style: {
@@ -10,6 +10,6 @@ export const POD = {
   _original_height: 48,
 }
 
-export function Pod(props: DiagramNodeProps) {
+export function Pod(props: NodeProps) {
   return <Shape {...POD} {...props} _style={extendStyle(POD, props)} />
 }

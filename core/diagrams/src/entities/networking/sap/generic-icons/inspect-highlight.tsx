@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INSPECT_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const INSPECT_HIGHLIGHT = {
   _original_height: 28,
 }
 
-export function InspectHighlight(props: DiagramNodeProps) {
+export function InspectHighlight(props: NodeProps) {
   return (
     <Shape
       {...INSPECT_HIGHLIGHT}

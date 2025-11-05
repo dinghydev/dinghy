@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOCAL_PRE_AND_POSTCONDITIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const LOCAL_PRE_AND_POSTCONDITIONS = {
   _height: 180,
 }
 
-export function LocalPreAndPostconditions(props: DiagramNodeProps) {
+export function LocalPreAndPostconditions(props: NodeProps) {
   return (
     <Shape
       {...LOCAL_PRE_AND_POSTCONDITIONS}

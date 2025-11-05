@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DAMPER = {
   _style: {
@@ -10,6 +10,6 @@ export const DAMPER = {
   _height: 20,
 }
 
-export function Damper(props: DiagramNodeProps) {
+export function Damper(props: NodeProps) {
   return <Shape {...DAMPER} {...props} _style={extendStyle(DAMPER, props)} />
 }

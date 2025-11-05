@@ -1,4 +1,4 @@
-import { Dependency, DiagramNodeProps } from '@dinghy/base-components'
+import { Dependency, NodeProps } from '@dinghy/base-components'
 
 type Point = {
   x: number
@@ -13,7 +13,7 @@ export type MessageProps = {
   dashed?: boolean
   isToRight?: boolean
   message?: string
-} & DiagramNodeProps
+} & NodeProps
 
 export function Message(
   { source, target, dashed, paddingX, ...props }: MessageProps,

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLATFORM_OPTIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const PLATFORM_OPTIONS = {
   _original_height: 52,
 }
 
-export function PlatformOptions(props: DiagramNodeProps) {
+export function PlatformOptions(props: NodeProps) {
   return (
     <Shape
       {...PLATFORM_OPTIONS}

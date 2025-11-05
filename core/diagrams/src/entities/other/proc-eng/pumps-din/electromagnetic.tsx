@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELECTROMAGNETIC = {
   _style: {
@@ -10,7 +10,7 @@ export const ELECTROMAGNETIC = {
   _original_height: 100,
 }
 
-export function Electromagnetic(props: DiagramNodeProps) {
+export function Electromagnetic(props: NodeProps) {
   return (
     <Shape
       {...ELECTROMAGNETIC}

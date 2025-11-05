@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDOWS_REPOSITORY = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDOWS_REPOSITORY = {
   _original_height: 49.2,
 }
 
-export function WindowsRepository(props: DiagramNodeProps) {
+export function WindowsRepository(props: NodeProps) {
   return (
     <Shape
       {...WINDOWS_REPOSITORY}

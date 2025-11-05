@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CCN_CLOUD_CONNECT_NETWORK = {
   _style: {
@@ -10,7 +10,7 @@ export const CCN_CLOUD_CONNECT_NETWORK = {
   _original_height: 45.9,
 }
 
-export function CcnCloudConnectNetwork(props: DiagramNodeProps) {
+export function CcnCloudConnectNetwork(props: NodeProps) {
   return (
     <Shape
       {...CCN_CLOUD_CONNECT_NETWORK}

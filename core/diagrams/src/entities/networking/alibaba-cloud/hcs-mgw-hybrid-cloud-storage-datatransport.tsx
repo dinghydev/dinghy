@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HCS_MGW_HYBRID_CLOUD_STORAGE_DATATRANSPORT = {
   _style: {
@@ -10,7 +10,7 @@ export const HCS_MGW_HYBRID_CLOUD_STORAGE_DATATRANSPORT = {
   _original_height: 40.5,
 }
 
-export function HcsMgwHybridCloudStorageDatatransport(props: DiagramNodeProps) {
+export function HcsMgwHybridCloudStorageDatatransport(props: NodeProps) {
   return (
     <Shape
       {...HCS_MGW_HYBRID_CLOUD_STORAGE_DATATRANSPORT}

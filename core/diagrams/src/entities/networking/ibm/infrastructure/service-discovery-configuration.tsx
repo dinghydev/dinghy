@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVICE_DISCOVERY_CONFIGURATION = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVICE_DISCOVERY_CONFIGURATION = {
   _original_height: 60,
 }
 
-export function ServiceDiscoveryConfiguration(props: DiagramNodeProps) {
+export function ServiceDiscoveryConfiguration(props: NodeProps) {
   return (
     <Shape
       {...SERVICE_DISCOVERY_CONFIGURATION}

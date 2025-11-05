@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GTS_GLOBAL_TRANSACTION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const GTS_GLOBAL_TRANSACTION_SERVICE = {
   _original_height: 48,
 }
 
-export function GtsGlobalTransactionService(props: DiagramNodeProps) {
+export function GtsGlobalTransactionService(props: NodeProps) {
   return (
     <Shape
       {...GTS_GLOBAL_TRANSACTION_SERVICE}

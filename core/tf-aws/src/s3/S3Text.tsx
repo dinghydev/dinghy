@@ -1,6 +1,6 @@
 import z from 'zod'
 import {
-  type IacNodeProps,
+  type NodeProps,
   ResolvableStringSchema,
   Shape,
   useTypedNode,
@@ -18,7 +18,7 @@ export const S3TextOutputSchema = z.object({
 
 export type S3TextInputProps =
   & z.input<typeof S3TextInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type S3TextOutputProps =
   & z.output<typeof S3TextOutputSchema>

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_SUSTAINABILITY_DATA_EXCHANGE = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_SUSTAINABILITY_DATA_EXCHANGE = {
   _original_height: 50,
 }
 
-export function SapSustainabilityDataExchange(props: DiagramNodeProps) {
+export function SapSustainabilityDataExchange(props: NodeProps) {
   return (
     <Shape
       {...SAP_SUSTAINABILITY_DATA_EXCHANGE}

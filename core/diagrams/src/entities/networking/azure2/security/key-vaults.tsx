@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEY_VAULTS = {
   _style: {
@@ -10,7 +10,7 @@ export const KEY_VAULTS = {
   _original_height: 68,
 }
 
-export function KeyVaults(props: DiagramNodeProps) {
+export function KeyVaults(props: NodeProps) {
   return (
     <Shape {...KEY_VAULTS} {...props} _style={extendStyle(KEY_VAULTS, props)} />
   )

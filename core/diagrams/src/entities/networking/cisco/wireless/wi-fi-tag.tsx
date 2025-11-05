@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WI_FI_TAG = {
   _style: {
@@ -10,7 +10,7 @@ export const WI_FI_TAG = {
   _original_height: 64,
 }
 
-export function WiFiTag(props: DiagramNodeProps) {
+export function WiFiTag(props: NodeProps) {
   return (
     <Shape {...WI_FI_TAG} {...props} _style={extendStyle(WI_FI_TAG, props)} />
   )

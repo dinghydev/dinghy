@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STACKEXCHANGE = {
   _style: {
@@ -10,7 +10,7 @@ export const STACKEXCHANGE = {
   _original_height: 79,
 }
 
-export function Stackexchange(props: DiagramNodeProps) {
+export function Stackexchange(props: NodeProps) {
   return (
     <Shape
       {...STACKEXCHANGE}

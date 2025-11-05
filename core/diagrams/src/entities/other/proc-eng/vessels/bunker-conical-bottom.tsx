@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUNKER_CONICAL_BOTTOM = {
   _style: {
@@ -10,7 +10,7 @@ export const BUNKER_CONICAL_BOTTOM = {
   _original_height: 100,
 }
 
-export function BunkerConicalBottom(props: DiagramNodeProps) {
+export function BunkerConicalBottom(props: NodeProps) {
   return (
     <Shape
       {...BUNKER_CONICAL_BOTTOM}

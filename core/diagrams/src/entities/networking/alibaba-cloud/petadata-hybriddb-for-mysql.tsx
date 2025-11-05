@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PETADATA_HYBRIDDB_FOR_MYSQL = {
   _style: {
@@ -10,7 +10,7 @@ export const PETADATA_HYBRIDDB_FOR_MYSQL = {
   _original_height: 56.1,
 }
 
-export function PetadataHybriddbForMysql(props: DiagramNodeProps) {
+export function PetadataHybriddbForMysql(props: NodeProps) {
   return (
     <Shape
       {...PETADATA_HYBRIDDB_FOR_MYSQL}

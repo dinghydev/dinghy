@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_NETWORK_ACCESS_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_NETWORK_ACCESS_CONTROL = {
   _height: 15,
 }
 
-export function CiscoNetworkAccessControl(props: DiagramNodeProps) {
+export function CiscoNetworkAccessControl(props: NodeProps) {
   return (
     <Shape
       {...CISCO_NETWORK_ACCESS_CONTROL}

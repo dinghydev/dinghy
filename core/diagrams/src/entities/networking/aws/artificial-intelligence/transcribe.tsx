@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSCRIBE = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSCRIBE = {
   _original_height: 78,
 }
 
-export function Transcribe(props: DiagramNodeProps) {
+export function Transcribe(props: NodeProps) {
   return (
     <Shape {...TRANSCRIBE} {...props} _style={extendStyle(TRANSCRIBE, props)} />
   )

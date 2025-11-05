@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GOOGLE_KUBERNETES_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const GOOGLE_KUBERNETES_ENGINE = {
   _height: 42,
 }
 
-export function GoogleKubernetesEngine(props: DiagramNodeProps) {
+export function GoogleKubernetesEngine(props: NodeProps) {
   return (
     <Shape
       {...GOOGLE_KUBERNETES_ENGINE}

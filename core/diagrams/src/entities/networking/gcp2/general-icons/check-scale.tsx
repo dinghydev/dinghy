@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECK_SCALE = {
   _style: {
@@ -10,7 +10,7 @@ export const CHECK_SCALE = {
   _height: 75,
 }
 
-export function CheckScale(props: DiagramNodeProps) {
+export function CheckScale(props: NodeProps) {
   return (
     <Shape
       {...CHECK_SCALE}

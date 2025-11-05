@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SMART_PROXY = {
   _style: {
@@ -10,7 +10,7 @@ export const SMART_PROXY = {
   _height: 90,
 }
 
-export function SmartProxy(props: DiagramNodeProps) {
+export function SmartProxy(props: NodeProps) {
   return (
     <Shape
       {...SMART_PROXY}

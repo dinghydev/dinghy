@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSecurityGroup } from './AwsSecurityGroup.tsx'
 
@@ -20,7 +20,7 @@ export const DataAwsSecurityGroupOutputSchema = z.object({
 
 export type DataAwsSecurityGroupInputProps =
   & z.input<typeof DataAwsSecurityGroupInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type DataAwsSecurityGroupOutputProps =
   & z.output<typeof DataAwsSecurityGroupOutputSchema>

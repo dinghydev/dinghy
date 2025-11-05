@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PAGE_NAVIGATION = {
   _style: {
@@ -10,7 +10,7 @@ export const PAGE_NAVIGATION = {
   _height: 4.8,
 }
 
-export function PageNavigation(props: DiagramNodeProps) {
+export function PageNavigation(props: NodeProps) {
   return (
     <Shape
       {...PAGE_NAVIGATION}

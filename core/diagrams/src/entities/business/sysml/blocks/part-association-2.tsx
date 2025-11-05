@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PART_ASSOCIATION_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const PART_ASSOCIATION_2 = {
   _height: 0,
 }
 
-export function PartAssociation2(props: DiagramNodeProps) {
+export function PartAssociation2(props: NodeProps) {
   return (
     <Shape
       {...PART_ASSOCIATION_2}

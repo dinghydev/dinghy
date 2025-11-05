@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FREERTOS_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const FREERTOS_DEVICE = {
   _original_height: 78,
 }
 
-export function FreertosDevice(props: DiagramNodeProps) {
+export function FreertosDevice(props: NodeProps) {
   return (
     <Shape
       {...FREERTOS_DEVICE}

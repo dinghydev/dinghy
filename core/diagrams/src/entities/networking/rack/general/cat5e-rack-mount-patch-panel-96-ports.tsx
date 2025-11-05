@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CAT5E_RACK_MOUNT_PATCH_PANEL_96_PORTS = {
   _style: {
@@ -10,7 +10,7 @@ export const CAT5E_RACK_MOUNT_PATCH_PANEL_96_PORTS = {
   _height: 60,
 }
 
-export function Cat5eRackMountPatchPanel96Ports(props: DiagramNodeProps) {
+export function Cat5eRackMountPatchPanel96Ports(props: NodeProps) {
   return (
     <Shape
       {...CAT5E_RACK_MOUNT_PATCH_PANEL_96_PORTS}

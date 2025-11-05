@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUICKBI = {
   _style: {
@@ -10,6 +10,6 @@ export const QUICKBI = {
   _original_height: 48,
 }
 
-export function Quickbi(props: DiagramNodeProps) {
+export function Quickbi(props: NodeProps) {
   return <Shape {...QUICKBI} {...props} _style={extendStyle(QUICKBI, props)} />
 }

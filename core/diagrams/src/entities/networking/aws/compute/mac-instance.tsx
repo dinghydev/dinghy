@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAC_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const MAC_INSTANCE = {
   _original_height: 48,
 }
 
-export function MacInstance(props: DiagramNodeProps) {
+export function MacInstance(props: NodeProps) {
   return (
     <Shape
       {...MAC_INSTANCE}

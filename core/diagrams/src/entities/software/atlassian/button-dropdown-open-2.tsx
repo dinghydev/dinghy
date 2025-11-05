@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTON_DROPDOWN_OPEN_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTON_DROPDOWN_OPEN_2 = {
   _height: 200,
 }
 
-export function ButtonDropdownOpen2(props: DiagramNodeProps) {
+export function ButtonDropdownOpen2(props: NodeProps) {
   return (
     <Shape
       {...BUTTON_DROPDOWN_OPEN_2}

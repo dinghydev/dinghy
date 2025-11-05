@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROCK_COLLECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const ROCK_COLLECTION = {
   _original_height: 98,
 }
 
-export function RockCollection(props: DiagramNodeProps) {
+export function RockCollection(props: NodeProps) {
   return (
     <Shape
       {...ROCK_COLLECTION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL072A_HPE_ARUBA_3810M_48_PORT_GT_1_SLOT_SWITCH_REAR = {
   _style: {
@@ -10,9 +10,7 @@ export const JL072A_HPE_ARUBA_3810M_48_PORT_GT_1_SLOT_SWITCH_REAR = {
   _height: 15,
 }
 
-export function Jl072aHpeAruba3810m48PortGt1SlotSwitchRear(
-  props: DiagramNodeProps,
-) {
+export function Jl072aHpeAruba3810m48PortGt1SlotSwitchRear(props: NodeProps) {
   return (
     <Shape
       {...JL072A_HPE_ARUBA_3810M_48_PORT_GT_1_SLOT_SWITCH_REAR}

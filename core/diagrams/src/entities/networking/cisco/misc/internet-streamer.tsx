@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERNET_STREAMER = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERNET_STREAMER = {
   _height: 74,
 }
 
-export function InternetStreamer(props: DiagramNodeProps) {
+export function InternetStreamer(props: NodeProps) {
   return (
     <Shape
       {...INTERNET_STREAMER}

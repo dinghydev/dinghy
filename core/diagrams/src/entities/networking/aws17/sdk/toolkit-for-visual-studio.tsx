@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOOLKIT_FOR_VISUAL_STUDIO = {
   _style: {
@@ -10,7 +10,7 @@ export const TOOLKIT_FOR_VISUAL_STUDIO = {
   _original_height: 78,
 }
 
-export function ToolkitForVisualStudio(props: DiagramNodeProps) {
+export function ToolkitForVisualStudio(props: NodeProps) {
   return (
     <Shape
       {...TOOLKIT_FOR_VISUAL_STUDIO}

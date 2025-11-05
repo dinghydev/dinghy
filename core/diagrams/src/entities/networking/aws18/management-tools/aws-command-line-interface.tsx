@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_COMMAND_LINE_INTERFACE = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_COMMAND_LINE_INTERFACE = {
   _height: 120,
 }
 
-export function AwsCommandLineInterface(props: DiagramNodeProps) {
+export function AwsCommandLineInterface(props: NodeProps) {
   return (
     <Shape
       {...AWS_COMMAND_LINE_INTERFACE}

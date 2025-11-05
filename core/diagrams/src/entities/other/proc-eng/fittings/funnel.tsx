@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FUNNEL = {
   _style: {
@@ -10,6 +10,6 @@ export const FUNNEL = {
   _height: 140,
 }
 
-export function Funnel(props: DiagramNodeProps) {
+export function Funnel(props: NodeProps) {
   return <Shape {...FUNNEL} {...props} _style={extendStyle(FUNNEL, props)} />
 }

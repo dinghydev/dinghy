@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OR = {
   _style: {
@@ -9,6 +9,6 @@ export const OR = {
   _height: 80,
 }
 
-export function Or(props: DiagramNodeProps) {
+export function Or(props: NodeProps) {
   return <Shape {...OR} {...props} _style={extendStyle(OR, props)} />
 }

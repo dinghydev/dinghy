@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORACLE_DATABASE_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const ORACLE_DATABASE_SERVER = {
   _height: 133,
 }
 
-export function OracleDatabaseServer(props: DiagramNodeProps) {
+export function OracleDatabaseServer(props: NodeProps) {
   return (
     <Shape
       {...ORACLE_DATABASE_SERVER}

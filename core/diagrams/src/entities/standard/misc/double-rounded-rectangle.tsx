@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOUBLE_ROUNDED_RECTANGLE = {
   _style: {
@@ -9,7 +9,7 @@ export const DOUBLE_ROUNDED_RECTANGLE = {
   _height: 80,
 }
 
-export function DoubleRoundedRectangle(props: DiagramNodeProps) {
+export function DoubleRoundedRectangle(props: NodeProps) {
   return (
     <Shape
       {...DOUBLE_ROUNDED_RECTANGLE}

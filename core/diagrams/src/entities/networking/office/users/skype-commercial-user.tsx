@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SKYPE_COMMERCIAL_USER = {
   _style: {
@@ -10,7 +10,7 @@ export const SKYPE_COMMERCIAL_USER = {
   _original_height: 56,
 }
 
-export function SkypeCommercialUser(props: DiagramNodeProps) {
+export function SkypeCommercialUser(props: NodeProps) {
   return (
     <Shape
       {...SKYPE_COMMERCIAL_USER}

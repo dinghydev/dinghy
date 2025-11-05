@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYPER_V_RECOVERY_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const HYPER_V_RECOVERY_MANAGER = {
   _original_height: 45,
 }
 
-export function HyperVRecoveryManager(props: DiagramNodeProps) {
+export function HyperVRecoveryManager(props: NodeProps) {
   return (
     <Shape
       {...HYPER_V_RECOVERY_MANAGER}

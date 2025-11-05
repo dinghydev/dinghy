@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROJECT_SERVICE_AUTOMATION = {
   _style: {
@@ -10,7 +10,7 @@ export const PROJECT_SERVICE_AUTOMATION = {
   _original_height: 63.480000000000004,
 }
 
-export function ProjectServiceAutomation(props: DiagramNodeProps) {
+export function ProjectServiceAutomation(props: NodeProps) {
   return (
     <Shape
       {...PROJECT_SERVICE_AUTOMATION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_CONFERENCING = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_CONFERENCING = {
   _original_height: 56,
 }
 
-export function WebConferencing(props: DiagramNodeProps) {
+export function WebConferencing(props: NodeProps) {
   return (
     <Shape
       {...WEB_CONFERENCING}

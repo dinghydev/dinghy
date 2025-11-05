@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUBTLE_BADGE = {
   _style: {
@@ -10,7 +10,7 @@ export const SUBTLE_BADGE = {
   _height: 25,
 }
 
-export function SubtleBadge(props: DiagramNodeProps) {
+export function SubtleBadge(props: NodeProps) {
   return (
     <Shape
       {...SUBTLE_BADGE}

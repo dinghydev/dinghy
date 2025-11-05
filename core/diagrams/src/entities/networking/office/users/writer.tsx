@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WRITER = {
   _style: {
@@ -10,6 +10,6 @@ export const WRITER = {
   _original_height: 59,
 }
 
-export function Writer(props: DiagramNodeProps) {
+export function Writer(props: NodeProps) {
   return <Shape {...WRITER} {...props} _style={extendStyle(WRITER, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCREW = {
   _style: {
@@ -10,6 +10,6 @@ export const SCREW = {
   _original_height: 100,
 }
 
-export function Screw(props: DiagramNodeProps) {
+export function Screw(props: NodeProps) {
   return <Shape {...SCREW} {...props} _style={extendStyle(SCREW, props)} />
 }

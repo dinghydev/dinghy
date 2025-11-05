@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_2FTVM = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_2FTVM = {
   _original_height: 62,
 }
 
-export function Component2ftvm(props: DiagramNodeProps) {
+export function Component2ftvm(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_2FTVM}

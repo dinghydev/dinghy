@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTAINER_AVATAR_MEDIUM = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTAINER_AVATAR_MEDIUM = {
   _original_height: 32,
 }
 
-export function ContainerAvatarMedium(props: DiagramNodeProps) {
+export function ContainerAvatarMedium(props: NodeProps) {
   return (
     <Shape
       {...CONTAINER_AVATAR_MEDIUM}

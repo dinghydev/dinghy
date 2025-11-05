@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOUNDARY_OBJECT = {
   _style: {
@@ -9,7 +9,7 @@ export const BOUNDARY_OBJECT = {
   _height: 80,
 }
 
-export function BoundaryObject(props: DiagramNodeProps) {
+export function BoundaryObject(props: NodeProps) {
   return (
     <Shape
       {...BOUNDARY_OBJECT}

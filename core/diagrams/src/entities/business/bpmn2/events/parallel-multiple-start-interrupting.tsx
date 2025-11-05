@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARALLEL_MULTIPLE_START_INTERRUPTING = {
   _style: {
@@ -10,7 +10,7 @@ export const PARALLEL_MULTIPLE_START_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function ParallelMultipleStartInterrupting(props: DiagramNodeProps) {
+export function ParallelMultipleStartInterrupting(props: NodeProps) {
   return (
     <Shape
       {...PARALLEL_MULTIPLE_START_INTERRUPTING}

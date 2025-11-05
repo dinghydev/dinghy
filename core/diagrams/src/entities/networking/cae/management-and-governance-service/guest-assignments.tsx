@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GUEST_ASSIGNMENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const GUEST_ASSIGNMENTS = {
   _original_height: 50,
 }
 
-export function GuestAssignments(props: DiagramNodeProps) {
+export function GuestAssignments(props: NodeProps) {
   return (
     <Shape
       {...GUEST_ASSIGNMENTS}

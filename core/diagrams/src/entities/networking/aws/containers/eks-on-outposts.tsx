@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EKS_ON_OUTPOSTS = {
   _style: {
@@ -10,7 +10,7 @@ export const EKS_ON_OUTPOSTS = {
   _original_height: 48,
 }
 
-export function EksOnOutposts(props: DiagramNodeProps) {
+export function EksOnOutposts(props: NodeProps) {
   return (
     <Shape
       {...EKS_ON_OUTPOSTS}

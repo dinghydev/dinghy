@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANTIS = {
   _style: {
@@ -9,6 +9,6 @@ export const MANTIS = {
   _original_height: 50,
 }
 
-export function Mantis(props: DiagramNodeProps) {
+export function Mantis(props: NodeProps) {
   return <Shape {...MANTIS} {...props} _style={extendStyle(MANTIS, props)} />
 }

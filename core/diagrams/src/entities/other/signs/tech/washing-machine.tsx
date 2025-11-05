@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WASHING_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const WASHING_MACHINE = {
   _height: 98,
 }
 
-export function WashingMachine(props: DiagramNodeProps) {
+export function WashingMachine(props: NodeProps) {
   return (
     <Shape
       {...WASHING_MACHINE}

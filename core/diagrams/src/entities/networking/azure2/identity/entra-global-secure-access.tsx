@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTRA_GLOBAL_SECURE_ACCESS = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTRA_GLOBAL_SECURE_ACCESS = {
   _original_height: 68,
 }
 
-export function EntraGlobalSecureAccess(props: DiagramNodeProps) {
+export function EntraGlobalSecureAccess(props: NodeProps) {
   return (
     <Shape
       {...ENTRA_GLOBAL_SECURE_ACCESS}

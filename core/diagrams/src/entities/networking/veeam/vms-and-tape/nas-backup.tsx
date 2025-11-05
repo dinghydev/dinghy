@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAS_BACKUP = {
   _style: {
@@ -10,7 +10,7 @@ export const NAS_BACKUP = {
   _original_height: 44.8,
 }
 
-export function NasBackup(props: DiagramNodeProps) {
+export function NasBackup(props: NodeProps) {
   return (
     <Shape {...NAS_BACKUP} {...props} _style={extendStyle(NAS_BACKUP, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWIRL_19 = {
   _style: {
@@ -10,7 +10,7 @@ export const SWIRL_19 = {
   _height: 215,
 }
 
-export function Swirl19(props: DiagramNodeProps) {
+export function Swirl19(props: NodeProps) {
   return (
     <Shape {...SWIRL_19} {...props} _style={extendStyle(SWIRL_19, props)} />
   )

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const M_F_CONTACT = {
   _style: {
@@ -7,7 +7,7 @@ export const M_F_CONTACT = {
   },
 }
 
-export function MFContact(props: DiagramNodeProps) {
+export function MFContact(props: NodeProps) {
   return (
     <Dependency
       {...M_F_CONTACT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RETENTION_POLICY_TAG = {
   _style: {
@@ -10,7 +10,7 @@ export const RETENTION_POLICY_TAG = {
   _original_height: 58,
 }
 
-export function RetentionPolicyTag(props: DiagramNodeProps) {
+export function RetentionPolicyTag(props: NodeProps) {
   return (
     <Shape
       {...RETENTION_POLICY_TAG}

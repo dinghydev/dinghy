@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIMARY_PATH = {
   _style: {
@@ -8,7 +8,7 @@ export const PRIMARY_PATH = {
   },
 }
 
-export function PrimaryPath(props: DiagramNodeProps) {
+export function PrimaryPath(props: NodeProps) {
   return (
     <Dependency
       {...PRIMARY_PATH}

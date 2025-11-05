@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRODUCTION_KANBAN = {
   _style: {
@@ -10,7 +10,7 @@ export const PRODUCTION_KANBAN = {
   _original_height: 100,
 }
 
-export function ProductionKanban(props: DiagramNodeProps) {
+export function ProductionKanban(props: NodeProps) {
   return (
     <Shape
       {...PRODUCTION_KANBAN}

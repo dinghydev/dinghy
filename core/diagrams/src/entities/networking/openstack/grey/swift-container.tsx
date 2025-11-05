@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWIFT_CONTAINER = {
   _style: {
@@ -10,7 +10,7 @@ export const SWIFT_CONTAINER = {
   _original_height: 50,
 }
 
-export function SwiftContainer(props: DiagramNodeProps) {
+export function SwiftContainer(props: NodeProps) {
   return (
     <Shape
       {...SWIFT_CONTAINER}

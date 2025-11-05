@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXIT_POINT_FLOW_FINAL_NODE = {
   _style: {
@@ -10,7 +10,7 @@ export const EXIT_POINT_FLOW_FINAL_NODE = {
   _original_height: 30,
 }
 
-export function ExitPointFlowFinalNode(props: DiagramNodeProps) {
+export function ExitPointFlowFinalNode(props: NodeProps) {
   return (
     <Shape
       {...EXIT_POINT_FLOW_FINAL_NODE}

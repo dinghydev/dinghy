@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TMS_DATA_INTERFACE = {
   _style: {
@@ -10,7 +10,7 @@ export const TMS_DATA_INTERFACE = {
   _original_height: 60,
 }
 
-export function TmsDataInterface(props: DiagramNodeProps) {
+export function TmsDataInterface(props: NodeProps) {
   return (
     <Shape
       {...TMS_DATA_INTERFACE}

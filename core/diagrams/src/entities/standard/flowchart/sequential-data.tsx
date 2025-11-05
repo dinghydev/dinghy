@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEQUENTIAL_DATA = {
   _style: {
@@ -10,7 +10,7 @@ export const SEQUENTIAL_DATA = {
   _original_height: 100,
 }
 
-export function SequentialData(props: DiagramNodeProps) {
+export function SequentialData(props: NodeProps) {
   return (
     <Shape
       {...SEQUENTIAL_DATA}

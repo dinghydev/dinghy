@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAM_VIRTUAL_SERVICE_BLADE = {
   _style: {
@@ -10,7 +10,7 @@ export const NAM_VIRTUAL_SERVICE_BLADE = {
   _original_height: 50,
 }
 
-export function NamVirtualServiceBlade(props: DiagramNodeProps) {
+export function NamVirtualServiceBlade(props: NodeProps) {
   return (
     <Shape
       {...NAM_VIRTUAL_SERVICE_BLADE}

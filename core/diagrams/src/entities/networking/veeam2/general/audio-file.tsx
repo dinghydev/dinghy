@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUDIO_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const AUDIO_FILE = {
   _height: 39,
 }
 
-export function AudioFile(props: DiagramNodeProps) {
+export function AudioFile(props: NodeProps) {
   return (
     <Shape {...AUDIO_FILE} {...props} _style={extendStyle(AUDIO_FILE, props)} />
   )

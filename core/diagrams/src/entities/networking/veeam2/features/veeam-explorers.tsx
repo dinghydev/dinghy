@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_EXPLORERS = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_EXPLORERS = {
   _original_height: 34,
 }
 
-export function VeeamExplorers(props: DiagramNodeProps) {
+export function VeeamExplorers(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_EXPLORERS}

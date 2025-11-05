@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPOT_VMSS = {
   _style: {
@@ -10,7 +10,7 @@ export const SPOT_VMSS = {
   _original_height: 64,
 }
 
-export function SpotVmss(props: DiagramNodeProps) {
+export function SpotVmss(props: NodeProps) {
   return (
     <Shape {...SPOT_VMSS} {...props} _style={extendStyle(SPOT_VMSS, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEANING = {
   _style: {
@@ -9,6 +9,6 @@ export const MEANING = {
   _height: 75,
 }
 
-export function Meaning(props: DiagramNodeProps) {
+export function Meaning(props: NodeProps) {
   return <Shape {...MEANING} {...props} _style={extendStyle(MEANING, props)} />
 }

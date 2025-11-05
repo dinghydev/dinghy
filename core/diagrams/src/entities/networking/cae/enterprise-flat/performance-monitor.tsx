@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PERFORMANCE_MONITOR = {
   _style: {
@@ -10,7 +10,7 @@ export const PERFORMANCE_MONITOR = {
   _height: 36,
 }
 
-export function PerformanceMonitor(props: DiagramNodeProps) {
+export function PerformanceMonitor(props: NodeProps) {
   return (
     <Shape
       {...PERFORMANCE_MONITOR}

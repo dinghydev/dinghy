@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RATEMUX = {
   _style: {
@@ -10,6 +10,6 @@ export const RATEMUX = {
   _original_height: 56,
 }
 
-export function Ratemux(props: DiagramNodeProps) {
+export function Ratemux(props: NodeProps) {
   return <Shape {...RATEMUX} {...props} _style={extendStyle(RATEMUX, props)} />
 }

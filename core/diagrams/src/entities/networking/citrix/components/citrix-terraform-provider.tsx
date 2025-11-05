@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_TERRAFORM_PROVIDER = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_TERRAFORM_PROVIDER = {
   _original_height: 50,
 }
 
-export function CitrixTerraformProvider(props: DiagramNodeProps) {
+export function CitrixTerraformProvider(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_TERRAFORM_PROVIDER}

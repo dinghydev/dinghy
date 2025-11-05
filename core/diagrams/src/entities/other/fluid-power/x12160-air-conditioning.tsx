@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12160_AIR_CONDITIONING = {
   _style: {
@@ -10,7 +10,7 @@ export const X12160_AIR_CONDITIONING = {
   _height: 147.46,
 }
 
-export function X12160AirConditioning(props: DiagramNodeProps) {
+export function X12160AirConditioning(props: NodeProps) {
   return (
     <Shape
       {...X12160_AIR_CONDITIONING}

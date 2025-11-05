@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAPE_WRITING_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const TAPE_WRITING_DEVICE = {
   _height: 14.000000000000002,
 }
 
-export function TapeWritingDevice(props: DiagramNodeProps) {
+export function TapeWritingDevice(props: NodeProps) {
   return (
     <Shape
       {...TAPE_WRITING_DEVICE}

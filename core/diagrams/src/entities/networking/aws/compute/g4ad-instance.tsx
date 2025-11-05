@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const G4AD_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const G4AD_INSTANCE = {
   _original_height: 48,
 }
 
-export function G4adInstance(props: DiagramNodeProps) {
+export function G4adInstance(props: NodeProps) {
   return (
     <Shape
       {...G4AD_INSTANCE}

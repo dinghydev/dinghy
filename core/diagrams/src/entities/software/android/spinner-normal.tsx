@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPINNER_NORMAL = {
   _style: {
@@ -10,7 +10,7 @@ export const SPINNER_NORMAL = {
   _height: 10,
 }
 
-export function SpinnerNormal(props: DiagramNodeProps) {
+export function SpinnerNormal(props: NodeProps) {
   return (
     <Shape
       {...SPINNER_NORMAL}

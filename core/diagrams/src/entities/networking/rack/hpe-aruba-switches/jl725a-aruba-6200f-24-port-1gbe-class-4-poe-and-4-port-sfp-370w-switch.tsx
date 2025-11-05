@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL725A_ARUBA_6200F_24_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP_370W_SWITCH =
   {
@@ -12,7 +12,7 @@ export const JL725A_ARUBA_6200F_24_PORT_1GBE_CLASS_4_POE_AND_4_PORT_SFP_370W_SWI
   }
 
 export function Jl725aAruba6200f24Port1gbeClass4PoeAnd4PortSfp370wSwitch(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

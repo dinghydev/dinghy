@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIREWALL_BLUE = {
   _style: {
@@ -10,7 +10,7 @@ export const FIREWALL_BLUE = {
   _original_height: 43,
 }
 
-export function FirewallBlue(props: DiagramNodeProps) {
+export function FirewallBlue(props: NodeProps) {
   return (
     <Shape
       {...FIREWALL_BLUE}

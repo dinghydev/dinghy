@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROADMAP_HORIZONTAL = {
   _style: {
@@ -10,7 +10,7 @@ export const ROADMAP_HORIZONTAL = {
   _height: 300,
 }
 
-export function RoadmapHorizontal(props: DiagramNodeProps) {
+export function RoadmapHorizontal(props: NodeProps) {
   return (
     <Shape
       {...ROADMAP_HORIZONTAL}

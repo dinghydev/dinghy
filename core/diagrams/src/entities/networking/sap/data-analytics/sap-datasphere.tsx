@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_DATASPHERE = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_DATASPHERE = {
   _original_height: 50,
 }
 
-export function SapDatasphere(props: DiagramNodeProps) {
+export function SapDatasphere(props: NodeProps) {
   return (
     <Shape
       {...SAP_DATASPHERE}

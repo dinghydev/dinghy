@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_FIREHOSE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_FIREHOSE = {
   _original_height: 78,
 }
 
-export function DataFirehose(props: DiagramNodeProps) {
+export function DataFirehose(props: NodeProps) {
   return (
     <Shape
       {...DATA_FIREHOSE}

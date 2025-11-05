@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10660_TWO_PORT_FLOW_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const X10660_TWO_PORT_FLOW_CONTROL = {
   _height: 149.34,
 }
 
-export function X10660TwoPortFlowControl(props: DiagramNodeProps) {
+export function X10660TwoPortFlowControl(props: NodeProps) {
   return (
     <Shape
       {...X10660_TWO_PORT_FLOW_CONTROL}

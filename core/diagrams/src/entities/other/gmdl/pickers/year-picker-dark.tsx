@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const YEAR_PICKER_DARK = {
   _style: {
@@ -9,7 +9,7 @@ export const YEAR_PICKER_DARK = {
   _height: 484,
 }
 
-export function YearPickerDark(props: DiagramNodeProps) {
+export function YearPickerDark(props: NodeProps) {
   return (
     <Shape
       {...YEAR_PICKER_DARK}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_IOT_1_CLICK = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_IOT_1_CLICK = {
   _height: 110,
 }
 
-export function AwsIot1Click(props: DiagramNodeProps) {
+export function AwsIot1Click(props: NodeProps) {
   return (
     <Shape
       {...AWS_IOT_1_CLICK}

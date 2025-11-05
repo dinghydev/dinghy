@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REQUIREMENT_CONTAINMENT_RELATIONSHIP = {
   _style: {
@@ -9,7 +9,7 @@ export const REQUIREMENT_CONTAINMENT_RELATIONSHIP = {
   _height: 180,
 }
 
-export function RequirementContainmentRelationship(props: DiagramNodeProps) {
+export function RequirementContainmentRelationship(props: NodeProps) {
   return (
     <Shape
       {...REQUIREMENT_CONTAINMENT_RELATIONSHIP}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GROUND_TRUTH = {
   _style: {
@@ -10,7 +10,7 @@ export const GROUND_TRUTH = {
   _original_height: 60,
 }
 
-export function GroundTruth(props: DiagramNodeProps) {
+export function GroundTruth(props: NodeProps) {
   return (
     <Shape
       {...GROUND_TRUTH}

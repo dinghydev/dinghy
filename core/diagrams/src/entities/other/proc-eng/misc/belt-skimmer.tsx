@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BELT_SKIMMER = {
   _style: {
@@ -10,7 +10,7 @@ export const BELT_SKIMMER = {
   _height: 98,
 }
 
-export function BeltSkimmer(props: DiagramNodeProps) {
+export function BeltSkimmer(props: NodeProps) {
   return (
     <Shape
       {...BELT_SKIMMER}

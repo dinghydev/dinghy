@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PIGGY_BANK = {
   _style: {
@@ -10,7 +10,7 @@ export const PIGGY_BANK = {
   _original_height: 80,
 }
 
-export function PiggyBank(props: DiagramNodeProps) {
+export function PiggyBank(props: NodeProps) {
   return (
     <Shape {...PIGGY_BANK} {...props} _style={extendStyle(PIGGY_BANK, props)} />
   )

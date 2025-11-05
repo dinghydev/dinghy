@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIDEO_PROJECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const VIDEO_PROJECTOR = {
   _height: 35,
 }
 
-export function VideoProjector(props: DiagramNodeProps) {
+export function VideoProjector(props: NodeProps) {
   return (
     <Shape
       {...VIDEO_PROJECTOR}

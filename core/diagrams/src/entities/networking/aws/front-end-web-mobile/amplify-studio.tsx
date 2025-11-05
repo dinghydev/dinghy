@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMPLIFY_STUDIO = {
   _style: {
@@ -10,7 +10,7 @@ export const AMPLIFY_STUDIO = {
   _original_height: 44,
 }
 
-export function AmplifyStudio(props: DiagramNodeProps) {
+export function AmplifyStudio(props: NodeProps) {
   return (
     <Shape
       {...AMPLIFY_STUDIO}

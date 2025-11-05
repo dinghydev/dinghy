@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEPARATOR_PERMANENT_MAGNET = {
   _style: {
@@ -10,7 +10,7 @@ export const SEPARATOR_PERMANENT_MAGNET = {
   _height: 120,
 }
 
-export function SeparatorPermanentMagnet(props: DiagramNodeProps) {
+export function SeparatorPermanentMagnet(props: NodeProps) {
   return (
     <Shape
       {...SEPARATOR_PERMANENT_MAGNET}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDAP = {
   _style: {
@@ -10,6 +10,6 @@ export const CLOUDAP = {
   _original_height: 55.2,
 }
 
-export function Cloudap(props: DiagramNodeProps) {
+export function Cloudap(props: NodeProps) {
   return <Shape {...CLOUDAP} {...props} _style={extendStyle(CLOUDAP, props)} />
 }

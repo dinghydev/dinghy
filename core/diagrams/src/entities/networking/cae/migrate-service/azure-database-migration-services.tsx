@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_DATABASE_MIGRATION_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_DATABASE_MIGRATION_SERVICES = {
   _original_height: 50,
 }
 
-export function AzureDatabaseMigrationServices(props: DiagramNodeProps) {
+export function AzureDatabaseMigrationServices(props: NodeProps) {
   return (
     <Shape
       {...AZURE_DATABASE_MIGRATION_SERVICES}

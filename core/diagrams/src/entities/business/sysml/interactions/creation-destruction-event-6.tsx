@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CREATION_DESTRUCTION_EVENT_6 = {
   _style: {
@@ -10,7 +10,7 @@ export const CREATION_DESTRUCTION_EVENT_6 = {
   _height: 220,
 }
 
-export function CreationDestructionEvent6(props: DiagramNodeProps) {
+export function CreationDestructionEvent6(props: NodeProps) {
   return (
     <Shape
       {...CREATION_DESTRUCTION_EVENT_6}

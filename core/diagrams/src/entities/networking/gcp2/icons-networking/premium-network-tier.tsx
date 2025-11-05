@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PREMIUM_NETWORK_TIER = {
   _style: {
@@ -10,7 +10,7 @@ export const PREMIUM_NETWORK_TIER = {
   _height: 21,
 }
 
-export function PremiumNetworkTier(props: DiagramNodeProps) {
+export function PremiumNetworkTier(props: NodeProps) {
   return (
     <Shape
       {...PREMIUM_NETWORK_TIER}

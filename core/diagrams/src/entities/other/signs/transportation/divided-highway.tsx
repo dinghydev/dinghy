@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIVIDED_HIGHWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const DIVIDED_HIGHWAY = {
   _original_height: 98,
 }
 
-export function DividedHighway(props: DiagramNodeProps) {
+export function DividedHighway(props: NodeProps) {
   return (
     <Shape
       {...DIVIDED_HIGHWAY}

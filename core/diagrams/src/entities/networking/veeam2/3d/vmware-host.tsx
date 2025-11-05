@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VMWARE_HOST = {
   _style: {
@@ -10,7 +10,7 @@ export const VMWARE_HOST = {
   _height: 98,
 }
 
-export function VmwareHost(props: DiagramNodeProps) {
+export function VmwareHost(props: NodeProps) {
   return (
     <Shape
       {...VMWARE_HOST}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_TREE_LAYOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTICAL_TREE_LAYOUT = {
   _height: 190,
 }
 
-export function VerticalTreeLayout(props: DiagramNodeProps) {
+export function VerticalTreeLayout(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_TREE_LAYOUT}

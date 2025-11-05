@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BREAKOUT_BOX = {
   _style: {
@@ -10,7 +10,7 @@ export const BREAKOUT_BOX = {
   _height: 75,
 }
 
-export function BreakoutBox(props: DiagramNodeProps) {
+export function BreakoutBox(props: NodeProps) {
   return (
     <Shape
       {...BREAKOUT_BOX}

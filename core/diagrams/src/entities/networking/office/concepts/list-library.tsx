@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIST_LIBRARY = {
   _style: {
@@ -10,7 +10,7 @@ export const LIST_LIBRARY = {
   _original_height: 48,
 }
 
-export function ListLibrary(props: DiagramNodeProps) {
+export function ListLibrary(props: NodeProps) {
   return (
     <Shape
       {...LIST_LIBRARY}

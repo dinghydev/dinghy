@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TURBINE = {
   _style: {
@@ -10,6 +10,6 @@ export const TURBINE = {
   _height: 60,
 }
 
-export function Turbine(props: DiagramNodeProps) {
+export function Turbine(props: NodeProps) {
   return <Shape {...TURBINE} {...props} _style={extendStyle(TURBINE, props)} />
 }

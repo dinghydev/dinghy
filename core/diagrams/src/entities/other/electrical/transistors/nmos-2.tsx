@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NMOS_2 = {
   _style: {
@@ -10,6 +10,6 @@ export const NMOS_2 = {
   _height: 100,
 }
 
-export function Nmos2(props: DiagramNodeProps) {
+export function Nmos2(props: NodeProps) {
   return <Shape {...NMOS_2} {...props} _style={extendStyle(NMOS_2, props)} />
 }

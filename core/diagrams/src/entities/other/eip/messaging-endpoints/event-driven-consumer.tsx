@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EVENT_DRIVEN_CONSUMER = {
   _style: {
@@ -10,7 +10,7 @@ export const EVENT_DRIVEN_CONSUMER = {
   _height: 90,
 }
 
-export function EventDrivenConsumer(props: DiagramNodeProps) {
+export function EventDrivenConsumer(props: NodeProps) {
   return (
     <Shape
       {...EVENT_DRIVEN_CONSUMER}

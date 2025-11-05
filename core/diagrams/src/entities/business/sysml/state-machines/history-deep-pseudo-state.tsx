@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HISTORY_DEEP_PSEUDO_STATE = {
   _style: {
@@ -9,7 +9,7 @@ export const HISTORY_DEEP_PSEUDO_STATE = {
   _original_height: 40,
 }
 
-export function HistoryDeepPseudoState(props: DiagramNodeProps) {
+export function HistoryDeepPseudoState(props: NodeProps) {
   return (
     <Shape
       {...HISTORY_DEEP_PSEUDO_STATE}

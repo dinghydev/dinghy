@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLUEMIX = {
   _style: {
@@ -10,6 +10,6 @@ export const BLUEMIX = {
   _original_height: 60,
 }
 
-export function Bluemix(props: DiagramNodeProps) {
+export function Bluemix(props: NodeProps) {
   return <Shape {...BLUEMIX} {...props} _style={extendStyle(BLUEMIX, props)} />
 }

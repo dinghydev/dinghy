@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HOME_PAGE_GREEN = {
   _style: {
@@ -10,7 +10,7 @@ export const HOME_PAGE_GREEN = {
   _original_height: 43,
 }
 
-export function HomePageGreen(props: DiagramNodeProps) {
+export function HomePageGreen(props: NodeProps) {
   return (
     <Shape
       {...HOME_PAGE_GREEN}

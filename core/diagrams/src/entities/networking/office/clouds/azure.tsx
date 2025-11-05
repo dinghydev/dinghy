@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE = {
   _style: {
@@ -10,6 +10,6 @@ export const AZURE = {
   _height: 66,
 }
 
-export function Azure(props: DiagramNodeProps) {
+export function Azure(props: NodeProps) {
   return <Shape {...AZURE} {...props} _style={extendStyle(AZURE, props)} />
 }

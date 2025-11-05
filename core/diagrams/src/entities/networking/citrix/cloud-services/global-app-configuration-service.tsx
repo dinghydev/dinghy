@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLOBAL_APP_CONFIGURATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const GLOBAL_APP_CONFIGURATION_SERVICE = {
   _height: 37.705,
 }
 
-export function GlobalAppConfigurationService(props: DiagramNodeProps) {
+export function GlobalAppConfigurationService(props: NodeProps) {
   return (
     <Shape
       {...GLOBAL_APP_CONFIGURATION_SERVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UCS_C_SERIES_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const UCS_C_SERIES_SERVER = {
   _height: 25,
 }
 
-export function UcsCSeriesServer(props: DiagramNodeProps) {
+export function UcsCSeriesServer(props: NodeProps) {
   return (
     <Shape
       {...UCS_C_SERIES_SERVER}

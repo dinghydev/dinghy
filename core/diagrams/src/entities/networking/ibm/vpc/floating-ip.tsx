@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLOATING_IP = {
   _style: {
@@ -10,7 +10,7 @@ export const FLOATING_IP = {
   _original_height: 60,
 }
 
-export function FloatingIp(props: DiagramNodeProps) {
+export function FloatingIp(props: NodeProps) {
   return (
     <Shape
       {...FLOATING_IP}

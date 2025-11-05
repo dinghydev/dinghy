@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TENSORFLOW_LOGO = {
   _style: {
@@ -10,7 +10,7 @@ export const TENSORFLOW_LOGO = {
   _height: 40,
 }
 
-export function TensorflowLogo(props: DiagramNodeProps) {
+export function TensorflowLogo(props: NodeProps) {
   return (
     <Shape
       {...TENSORFLOW_LOGO}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ONE_REPORTER = {
   _style: {
@@ -10,7 +10,7 @@ export const ONE_REPORTER = {
   _original_height: 44.8,
 }
 
-export function OneReporter(props: DiagramNodeProps) {
+export function OneReporter(props: NodeProps) {
   return (
     <Shape
       {...ONE_REPORTER}

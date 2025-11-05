@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_EVENT_BROKER_FOR_SAP_CLOUD_APPLICATIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_EVENT_BROKER_FOR_SAP_CLOUD_APPLICATIONS = {
   _original_height: 50,
 }
 
-export function SapEventBrokerForSapCloudApplications(props: DiagramNodeProps) {
+export function SapEventBrokerForSapCloudApplications(props: NodeProps) {
   return (
     <Shape
       {...SAP_EVENT_BROKER_FOR_SAP_CLOUD_APPLICATIONS}

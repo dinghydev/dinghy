@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROPHET = {
   _style: {
@@ -10,6 +10,6 @@ export const PROPHET = {
   _original_height: 47.7,
 }
 
-export function Prophet(props: DiagramNodeProps) {
+export function Prophet(props: NodeProps) {
   return <Shape {...PROPHET} {...props} _style={extendStyle(PROPHET, props)} />
 }

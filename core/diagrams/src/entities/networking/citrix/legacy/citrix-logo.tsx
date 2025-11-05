@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_LOGO = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_LOGO = {
   _height: 62.5,
 }
 
-export function CitrixLogo(props: DiagramNodeProps) {
+export function CitrixLogo(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_LOGO}

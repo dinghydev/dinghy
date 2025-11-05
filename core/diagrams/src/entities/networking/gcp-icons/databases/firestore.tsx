@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIRESTORE = {
   _style: {
@@ -10,7 +10,7 @@ export const FIRESTORE = {
   _height: 40,
 }
 
-export function Firestore(props: DiagramNodeProps) {
+export function Firestore(props: NodeProps) {
   return (
     <Shape {...FIRESTORE} {...props} _style={extendStyle(FIRESTORE, props)} />
   )

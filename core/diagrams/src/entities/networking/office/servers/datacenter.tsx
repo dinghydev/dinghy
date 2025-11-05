@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATACENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const DATACENTER = {
   _original_height: 53,
 }
 
-export function Datacenter(props: DiagramNodeProps) {
+export function Datacenter(props: NodeProps) {
   return (
     <Shape {...DATACENTER} {...props} _style={extendStyle(DATACENTER, props)} />
   )

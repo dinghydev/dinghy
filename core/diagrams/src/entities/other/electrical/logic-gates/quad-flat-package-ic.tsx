@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUAD_FLAT_PACKAGE_IC = {
   _style: {
@@ -10,7 +10,7 @@ export const QUAD_FLAT_PACKAGE_IC = {
   _original_height: 200,
 }
 
-export function QuadFlatPackageIc(props: DiagramNodeProps) {
+export function QuadFlatPackageIc(props: NodeProps) {
   return (
     <Shape
       {...QUAD_FLAT_PACKAGE_IC}

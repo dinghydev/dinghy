@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FC_FUNCTION_COMPUTE = {
   _style: {
@@ -10,7 +10,7 @@ export const FC_FUNCTION_COMPUTE = {
   _original_height: 51.3,
 }
 
-export function FcFunctionCompute(props: DiagramNodeProps) {
+export function FcFunctionCompute(props: NodeProps) {
   return (
     <Shape
       {...FC_FUNCTION_COMPUTE}

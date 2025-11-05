@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_SWITCH_CONTROLLER_VSC3000 = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_SWITCH_CONTROLLER_VSC3000 = {
   _height: 93,
 }
 
-export function VirtualSwitchControllerVsc3000(props: DiagramNodeProps) {
+export function VirtualSwitchControllerVsc3000(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_SWITCH_CONTROLLER_VSC3000}

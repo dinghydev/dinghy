@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const MOBILE_HIGHLIGHT = {
   _height: 28,
 }
 
-export function MobileHighlight(props: DiagramNodeProps) {
+export function MobileHighlight(props: NodeProps) {
   return (
     <Shape
       {...MOBILE_HIGHLIGHT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INCREASE_COST_ARROWS = {
   _style: {
@@ -10,7 +10,7 @@ export const INCREASE_COST_ARROWS = {
   _original_height: 92,
 }
 
-export function IncreaseCostArrows(props: DiagramNodeProps) {
+export function IncreaseCostArrows(props: NodeProps) {
   return (
     <Shape
       {...INCREASE_COST_ARROWS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTOML_NATURAL_LANGUAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTOML_NATURAL_LANGUAGE = {
   _height: 34,
 }
 
-export function AutomlNaturalLanguage(props: DiagramNodeProps) {
+export function AutomlNaturalLanguage(props: NodeProps) {
   return (
     <Shape
       {...AUTOML_NATURAL_LANGUAGE}

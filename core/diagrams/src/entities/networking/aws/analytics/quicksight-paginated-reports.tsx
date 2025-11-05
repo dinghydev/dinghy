@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUICKSIGHT_PAGINATED_REPORTS = {
   _style: {
@@ -10,7 +10,7 @@ export const QUICKSIGHT_PAGINATED_REPORTS = {
   _original_height: 78,
 }
 
-export function QuicksightPaginatedReports(props: DiagramNodeProps) {
+export function QuicksightPaginatedReports(props: NodeProps) {
   return (
     <Shape
       {...QUICKSIGHT_PAGINATED_REPORTS}

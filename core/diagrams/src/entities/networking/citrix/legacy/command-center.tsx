@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMMAND_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const COMMAND_CENTER = {
   _height: 96,
 }
 
-export function CommandCenter(props: DiagramNodeProps) {
+export function CommandCenter(props: NodeProps) {
   return (
     <Shape
       {...COMMAND_CENTER}

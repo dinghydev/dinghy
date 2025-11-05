@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MENU = {
   _style: {
@@ -10,6 +10,6 @@ export const MENU = {
   _height: 168,
 }
 
-export function Menu(props: DiagramNodeProps) {
+export function Menu(props: NodeProps) {
   return <Shape {...MENU} {...props} _style={extendStyle(MENU, props)} />
 }

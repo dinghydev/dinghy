@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONNECTOR_TOPAZ = {
   _style: {
@@ -8,7 +8,7 @@ export const CONNECTOR_TOPAZ = {
   },
 }
 
-export function ConnectorTopaz(props: DiagramNodeProps) {
+export function ConnectorTopaz(props: NodeProps) {
   return (
     <Dependency
       {...CONNECTOR_TOPAZ}

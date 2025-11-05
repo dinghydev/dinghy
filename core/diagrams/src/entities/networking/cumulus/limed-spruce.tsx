@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIMED_SPRUCE = {
   _style: {
@@ -10,7 +10,7 @@ export const LIMED_SPRUCE = {
   _height: 68,
 }
 
-export function LimedSpruce(props: DiagramNodeProps) {
+export function LimedSpruce(props: NodeProps) {
   return (
     <Shape
       {...LIMED_SPRUCE}

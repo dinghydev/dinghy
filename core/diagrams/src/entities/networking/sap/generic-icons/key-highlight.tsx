@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEY_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const KEY_HIGHLIGHT = {
   _original_height: 28,
 }
 
-export function KeyHighlight(props: DiagramNodeProps) {
+export function KeyHighlight(props: NodeProps) {
   return (
     <Shape
       {...KEY_HIGHLIGHT}

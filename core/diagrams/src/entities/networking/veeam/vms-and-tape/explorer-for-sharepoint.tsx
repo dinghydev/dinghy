@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXPLORER_FOR_SHAREPOINT = {
   _style: {
@@ -10,7 +10,7 @@ export const EXPLORER_FOR_SHAREPOINT = {
   _original_height: 44.8,
 }
 
-export function ExplorerForSharepoint(props: DiagramNodeProps) {
+export function ExplorerForSharepoint(props: NodeProps) {
   return (
     <Shape
       {...EXPLORER_FOR_SHAREPOINT}

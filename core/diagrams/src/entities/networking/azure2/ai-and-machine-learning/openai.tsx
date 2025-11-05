@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPENAI = {
   _style: {
@@ -10,6 +10,6 @@ export const OPENAI = {
   _original_height: 68,
 }
 
-export function Openai(props: DiagramNodeProps) {
+export function Openai(props: NodeProps) {
   return <Shape {...OPENAI} {...props} _style={extendStyle(OPENAI, props)} />
 }

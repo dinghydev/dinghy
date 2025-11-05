@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOURCETREE = {
   _style: {
@@ -10,7 +10,7 @@ export const SOURCETREE = {
   _original_height: 71,
 }
 
-export function Sourcetree(props: DiagramNodeProps) {
+export function Sourcetree(props: NodeProps) {
   return (
     <Shape {...SOURCETREE} {...props} _style={extendStyle(SOURCETREE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTRACT = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTRACT = {
   _height: 75,
 }
 
-export function Contract(props: DiagramNodeProps) {
+export function Contract(props: NodeProps) {
   return (
     <Shape {...CONTRACT} {...props} _style={extendStyle(CONTRACT, props)} />
   )

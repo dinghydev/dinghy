@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REMOTE_RENDERING = {
   _style: {
@@ -10,7 +10,7 @@ export const REMOTE_RENDERING = {
   _height: 48,
 }
 
-export function RemoteRendering(props: DiagramNodeProps) {
+export function RemoteRendering(props: NodeProps) {
   return (
     <Shape
       {...REMOTE_RENDERING}

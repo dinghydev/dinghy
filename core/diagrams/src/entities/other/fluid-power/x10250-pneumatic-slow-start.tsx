@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10250_PNEUMATIC_SLOW_START = {
   _style: {
@@ -10,7 +10,7 @@ export const X10250_PNEUMATIC_SLOW_START = {
   _height: 143.78,
 }
 
-export function X10250PneumaticSlowStart(props: DiagramNodeProps) {
+export function X10250PneumaticSlowStart(props: NodeProps) {
   return (
     <Shape
       {...X10250_PNEUMATIC_SLOW_START}

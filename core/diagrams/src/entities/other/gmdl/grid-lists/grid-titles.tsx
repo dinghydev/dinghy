@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GRID_TITLES = {
   _style: {
@@ -9,7 +9,7 @@ export const GRID_TITLES = {
   _height: 642,
 }
 
-export function GridTitles(props: DiagramNodeProps) {
+export function GridTitles(props: NodeProps) {
   return (
     <Shape
       {...GRID_TITLES}

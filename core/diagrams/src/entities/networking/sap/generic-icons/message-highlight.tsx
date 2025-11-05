@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MESSAGE_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const MESSAGE_HIGHLIGHT = {
   _height: 21,
 }
 
-export function MessageHighlight(props: DiagramNodeProps) {
+export function MessageHighlight(props: NodeProps) {
   return (
     <Shape
       {...MESSAGE_HIGHLIGHT}

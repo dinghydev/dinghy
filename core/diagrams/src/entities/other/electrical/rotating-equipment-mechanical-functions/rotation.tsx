@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROTATION = {
   _style: {
@@ -10,7 +10,7 @@ export const ROTATION = {
   _original_height: 54,
 }
 
-export function Rotation(props: DiagramNodeProps) {
+export function Rotation(props: NodeProps) {
   return (
     <Shape {...ROTATION} {...props} _style={extendStyle(ROTATION, props)} />
   )

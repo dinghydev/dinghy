@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SMILEY = {
   _style: {
@@ -10,6 +10,6 @@ export const SMILEY = {
   _original_height: 100,
 }
 
-export function Smiley(props: DiagramNodeProps) {
+export function Smiley(props: NodeProps) {
   return <Shape {...SMILEY} {...props} _style={extendStyle(SMILEY, props)} />
 }

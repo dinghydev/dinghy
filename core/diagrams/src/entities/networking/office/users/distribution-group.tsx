@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISTRIBUTION_GROUP = {
   _style: {
@@ -10,7 +10,7 @@ export const DISTRIBUTION_GROUP = {
   _original_height: 59,
 }
 
-export function DistributionGroup(props: DiagramNodeProps) {
+export function DistributionGroup(props: NodeProps) {
   return (
     <Shape
       {...DISTRIBUTION_GROUP}

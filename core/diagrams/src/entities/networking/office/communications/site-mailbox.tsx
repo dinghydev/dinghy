@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITE_MAILBOX = {
   _style: {
@@ -10,7 +10,7 @@ export const SITE_MAILBOX = {
   _original_height: 54,
 }
 
-export function SiteMailbox(props: DiagramNodeProps) {
+export function SiteMailbox(props: NodeProps) {
   return (
     <Shape
       {...SITE_MAILBOX}

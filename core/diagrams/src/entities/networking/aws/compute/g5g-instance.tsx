@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const G5G_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const G5G_INSTANCE = {
   _original_height: 48,
 }
 
-export function G5gInstance(props: DiagramNodeProps) {
+export function G5gInstance(props: NodeProps) {
   return (
     <Shape
       {...G5G_INSTANCE}

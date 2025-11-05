@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PALLETIZER = {
   _style: {
@@ -10,7 +10,7 @@ export const PALLETIZER = {
   _height: 100,
 }
 
-export function Palletizer(props: DiagramNodeProps) {
+export function Palletizer(props: NodeProps) {
   return (
     <Shape {...PALLETIZER} {...props} _style={extendStyle(PALLETIZER, props)} />
   )

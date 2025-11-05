@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MICROSOFT_SCVMM = {
   _style: {
@@ -10,7 +10,7 @@ export const MICROSOFT_SCVMM = {
   _original_height: 34,
 }
 
-export function MicrosoftScvmm(props: DiagramNodeProps) {
+export function MicrosoftScvmm(props: NodeProps) {
   return (
     <Shape
       {...MICROSOFT_SCVMM}

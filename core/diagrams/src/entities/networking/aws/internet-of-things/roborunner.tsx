@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROBORUNNER = {
   _style: {
@@ -10,7 +10,7 @@ export const ROBORUNNER = {
   _original_height: 78,
 }
 
-export function Roborunner(props: DiagramNodeProps) {
+export function Roborunner(props: NodeProps) {
   return (
     <Shape {...ROBORUNNER} {...props} _style={extendStyle(ROBORUNNER, props)} />
   )

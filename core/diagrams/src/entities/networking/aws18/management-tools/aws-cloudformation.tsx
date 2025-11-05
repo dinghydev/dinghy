@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_CLOUDFORMATION = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_CLOUDFORMATION = {
   _height: 110,
 }
 
-export function AwsCloudformation(props: DiagramNodeProps) {
+export function AwsCloudformation(props: NodeProps) {
   return (
     <Shape
       {...AWS_CLOUDFORMATION}

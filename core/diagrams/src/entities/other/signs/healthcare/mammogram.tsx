@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MAMMOGRAM = {
   _style: {
@@ -10,7 +10,7 @@ export const MAMMOGRAM = {
   _original_height: 98,
 }
 
-export function Mammogram(props: DiagramNodeProps) {
+export function Mammogram(props: NodeProps) {
   return (
     <Shape {...MAMMOGRAM} {...props} _style={extendStyle(MAMMOGRAM, props)} />
   )

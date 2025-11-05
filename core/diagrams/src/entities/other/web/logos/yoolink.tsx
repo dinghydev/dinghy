@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const YOOLINK = {
   _style: {
@@ -10,6 +10,6 @@ export const YOOLINK = {
   _original_height: 79.2,
 }
 
-export function Yoolink(props: DiagramNodeProps) {
+export function Yoolink(props: NodeProps) {
   return <Shape {...YOOLINK} {...props} _style={extendStyle(YOOLINK, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PENTODE = {
   _style: {
@@ -10,6 +10,6 @@ export const PENTODE = {
   _original_height: 77,
 }
 
-export function Pentode(props: DiagramNodeProps) {
+export function Pentode(props: NodeProps) {
   return <Shape {...PENTODE} {...props} _style={extendStyle(PENTODE, props)} />
 }

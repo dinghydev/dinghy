@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOT_MITIGATION = {
   _style: {
@@ -10,7 +10,7 @@ export const BOT_MITIGATION = {
   _original_height: 45.885,
 }
 
-export function BotMitigation(props: DiagramNodeProps) {
+export function BotMitigation(props: NodeProps) {
   return (
     <Shape
       {...BOT_MITIGATION}

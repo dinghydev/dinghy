@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SDDP_SENSITIVE_DATA_PROTECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const SDDP_SENSITIVE_DATA_PROTECTION = {
   _original_height: 57.9,
 }
 
-export function SddpSensitiveDataProtection(props: DiagramNodeProps) {
+export function SddpSensitiveDataProtection(props: NodeProps) {
   return (
     <Shape
       {...SDDP_SENSITIVE_DATA_PROTECTION}

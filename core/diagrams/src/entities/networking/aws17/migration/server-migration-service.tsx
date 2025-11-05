@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVER_MIGRATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVER_MIGRATION_SERVICE = {
   _original_height: 93,
 }
 
-export function ServerMigrationService(props: DiagramNodeProps) {
+export function ServerMigrationService(props: NodeProps) {
   return (
     <Shape
       {...SERVER_MIGRATION_SERVICE}

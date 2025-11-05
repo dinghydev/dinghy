@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NFVO = {
   _style: {
@@ -10,6 +10,6 @@ export const NFVO = {
   _original_height: 50,
 }
 
-export function Nfvo(props: DiagramNodeProps) {
+export function Nfvo(props: NodeProps) {
   return <Shape {...NFVO} {...props} _style={extendStyle(NFVO, props)} />
 }

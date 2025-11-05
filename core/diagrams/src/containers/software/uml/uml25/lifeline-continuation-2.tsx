@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIFELINE_CONTINUATION_2 = {
   _style: {
@@ -8,7 +8,7 @@ export const LIFELINE_CONTINUATION_2 = {
   },
 }
 
-export function LifelineContinuation2(props: DiagramNodeProps) {
+export function LifelineContinuation2(props: NodeProps) {
   return (
     <Shape
       {...LIFELINE_CONTINUATION_2}

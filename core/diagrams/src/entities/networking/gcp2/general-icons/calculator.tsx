@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALCULATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const CALCULATOR = {
   _height: 74,
 }
 
-export function Calculator(props: DiagramNodeProps) {
+export function Calculator(props: NodeProps) {
   return (
     <Shape {...CALCULATOR} {...props} _style={extendStyle(CALCULATOR, props)} />
   )

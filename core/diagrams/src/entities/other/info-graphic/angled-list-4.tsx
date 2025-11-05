@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANGLED_LIST_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const ANGLED_LIST_4 = {
   _height: 170,
 }
 
-export function AngledList4(props: DiagramNodeProps) {
+export function AngledList4(props: NodeProps) {
   return (
     <Shape
       {...ANGLED_LIST_4}

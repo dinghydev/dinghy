@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONDITIONAL_ACCESS_SHAREPOINT = {
   _style: {
@@ -10,7 +10,7 @@ export const CONDITIONAL_ACCESS_SHAREPOINT = {
   _original_height: 50,
 }
 
-export function ConditionalAccessSharepoint(props: DiagramNodeProps) {
+export function ConditionalAccessSharepoint(props: NodeProps) {
   return (
     <Shape
       {...CONDITIONAL_ACCESS_SHAREPOINT}

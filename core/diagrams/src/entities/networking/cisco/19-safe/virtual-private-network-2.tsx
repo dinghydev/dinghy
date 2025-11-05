@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_PRIVATE_NETWORK_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_PRIVATE_NETWORK_2 = {
   _original_height: 50,
 }
 
-export function VirtualPrivateNetwork2(props: DiagramNodeProps) {
+export function VirtualPrivateNetwork2(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_PRIVATE_NETWORK_2}

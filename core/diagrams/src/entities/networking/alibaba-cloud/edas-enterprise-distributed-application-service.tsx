@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE = {
   _style: {
@@ -10,9 +10,7 @@ export const EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE = {
   _original_height: 47.400000000000006,
 }
 
-export function EdasEnterpriseDistributedApplicationService(
-  props: DiagramNodeProps,
-) {
+export function EdasEnterpriseDistributedApplicationService(props: NodeProps) {
   return (
     <Shape
       {...EDAS_ENTERPRISE_DISTRIBUTED_APPLICATION_SERVICE}

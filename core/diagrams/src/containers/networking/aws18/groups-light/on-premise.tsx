@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_PREMISE = {
   _style: {
@@ -12,7 +12,7 @@ export const ON_PREMISE = {
   },
 }
 
-export function OnPremise(props: DiagramNodeProps) {
+export function OnPremise(props: NodeProps) {
   return (
     <Shape {...ON_PREMISE} {...props} _style={extendStyle(ON_PREMISE, props)} />
   )

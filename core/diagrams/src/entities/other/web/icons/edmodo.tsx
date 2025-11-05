@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EDMODO = {
   _style: {
@@ -10,6 +10,6 @@ export const EDMODO = {
   _original_height: 102.4,
 }
 
-export function Edmodo(props: DiagramNodeProps) {
+export function Edmodo(props: NodeProps) {
   return <Shape {...EDMODO} {...props} _style={extendStyle(EDMODO, props)} />
 }

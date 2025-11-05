@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOOKOUT_FOR_VISION = {
   _style: {
@@ -10,7 +10,7 @@ export const LOOKOUT_FOR_VISION = {
   _original_height: 78,
 }
 
-export function LookoutForVision(props: DiagramNodeProps) {
+export function LookoutForVision(props: NodeProps) {
   return (
     <Shape
       {...LOOKOUT_FOR_VISION}

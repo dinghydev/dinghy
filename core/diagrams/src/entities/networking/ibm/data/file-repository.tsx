@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FILE_REPOSITORY = {
   _style: {
@@ -10,7 +10,7 @@ export const FILE_REPOSITORY = {
   _original_height: 60,
 }
 
-export function FileRepository(props: DiagramNodeProps) {
+export function FileRepository(props: NodeProps) {
   return (
     <Shape
       {...FILE_REPOSITORY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPRING_RETURN_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const SPRING_RETURN_OFF = {
   _height: 26,
 }
 
-export function SpringReturnOff(props: DiagramNodeProps) {
+export function SpringReturnOff(props: NodeProps) {
   return (
     <Shape
       {...SPRING_RETURN_OFF}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACK = {
   _style: {
@@ -10,6 +10,6 @@ export const BACK = {
   _height: 25.5,
 }
 
-export function Back(props: DiagramNodeProps) {
+export function Back(props: NodeProps) {
   return <Shape {...BACK} {...props} _style={extendStyle(BACK, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISTRIBUTION_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const DISTRIBUTION_SWITCH = {
   _original_height: 45,
 }
 
-export function DistributionSwitch(props: DiagramNodeProps) {
+export function DistributionSwitch(props: NodeProps) {
   return (
     <Shape
       {...DISTRIBUTION_SWITCH}

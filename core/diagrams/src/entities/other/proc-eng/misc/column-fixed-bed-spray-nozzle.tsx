@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLUMN_FIXED_BED_SPRAY_NOZZLE = {
   _style: {
@@ -10,7 +10,7 @@ export const COLUMN_FIXED_BED_SPRAY_NOZZLE = {
   _height: 180,
 }
 
-export function ColumnFixedBedSprayNozzle(props: DiagramNodeProps) {
+export function ColumnFixedBedSprayNozzle(props: NodeProps) {
   return (
     <Shape
       {...COLUMN_FIXED_BED_SPRAY_NOZZLE}

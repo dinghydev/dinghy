@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FISH_CLEANING = {
   _style: {
@@ -10,7 +10,7 @@ export const FISH_CLEANING = {
   _height: 63,
 }
 
-export function FishCleaning(props: DiagramNodeProps) {
+export function FishCleaning(props: NodeProps) {
   return (
     <Shape
       {...FISH_CLEANING}

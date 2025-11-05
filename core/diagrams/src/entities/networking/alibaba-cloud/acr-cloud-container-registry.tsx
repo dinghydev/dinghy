@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACR_CLOUD_CONTAINER_REGISTRY = {
   _style: {
@@ -10,7 +10,7 @@ export const ACR_CLOUD_CONTAINER_REGISTRY = {
   _original_height: 56.4,
 }
 
-export function AcrCloudContainerRegistry(props: DiagramNodeProps) {
+export function AcrCloudContainerRegistry(props: NodeProps) {
   return (
     <Shape
       {...ACR_CLOUD_CONTAINER_REGISTRY}

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECTIONAL_DIRECTED_DATA_ASSOCIATION = {
   _style: {
@@ -8,7 +8,7 @@ export const DIRECTIONAL_DIRECTED_DATA_ASSOCIATION = {
   },
 }
 
-export function DirectionalDirectedDataAssociation(props: DiagramNodeProps) {
+export function DirectionalDirectedDataAssociation(props: NodeProps) {
   return (
     <Dependency
       {...DIRECTIONAL_DIRECTED_DATA_ASSOCIATION}

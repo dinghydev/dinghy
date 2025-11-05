@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11550_DOUBLE_ACTING_CYLINDER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11550_DOUBLE_ACTING_CYLINDER = {
   _height: 56.12,
 }
 
-export function X11550DoubleActingCylinder(props: DiagramNodeProps) {
+export function X11550DoubleActingCylinder(props: NodeProps) {
   return (
     <Shape
       {...X11550_DOUBLE_ACTING_CYLINDER}

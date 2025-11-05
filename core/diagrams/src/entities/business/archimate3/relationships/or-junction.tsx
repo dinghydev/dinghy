@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OR_JUNCTION = {
   _style: {
@@ -10,7 +10,7 @@ export const OR_JUNCTION = {
   _original_height: 10,
 }
 
-export function OrJunction(props: DiagramNodeProps) {
+export function OrJunction(props: NodeProps) {
   return (
     <Shape
       {...OR_JUNCTION}

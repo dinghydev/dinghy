@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WOOD_GATHERING = {
   _style: {
@@ -10,7 +10,7 @@ export const WOOD_GATHERING = {
   _original_height: 98,
 }
 
-export function WoodGathering(props: DiagramNodeProps) {
+export function WoodGathering(props: NodeProps) {
   return (
     <Shape
       {...WOOD_GATHERING}

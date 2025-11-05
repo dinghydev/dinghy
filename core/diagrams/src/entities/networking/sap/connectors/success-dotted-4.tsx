@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUCCESS_DOTTED_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const SUCCESS_DOTTED_4 = {
   _height: 20,
 }
 
-export function SuccessDotted4(props: DiagramNodeProps) {
+export function SuccessDotted4(props: NodeProps) {
   return (
     <Shape
       {...SUCCESS_DOTTED_4}

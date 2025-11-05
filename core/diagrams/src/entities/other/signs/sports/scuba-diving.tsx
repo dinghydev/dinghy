@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCUBA_DIVING = {
   _style: {
@@ -10,7 +10,7 @@ export const SCUBA_DIVING = {
   _original_height: 83,
 }
 
-export function ScubaDiving(props: DiagramNodeProps) {
+export function ScubaDiving(props: NodeProps) {
   return (
     <Shape
       {...SCUBA_DIVING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FUSE_OBSOLETE = {
   _style: {
@@ -10,7 +10,7 @@ export const FUSE_OBSOLETE = {
   _height: 12,
 }
 
-export function FuseObsolete(props: DiagramNodeProps) {
+export function FuseObsolete(props: NodeProps) {
   return (
     <Shape
       {...FUSE_OBSOLETE}

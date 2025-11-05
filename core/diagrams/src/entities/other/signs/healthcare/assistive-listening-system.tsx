@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASSISTIVE_LISTENING_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const ASSISTIVE_LISTENING_SYSTEM = {
   _original_height: 98,
 }
 
-export function AssistiveListeningSystem(props: DiagramNodeProps) {
+export function AssistiveListeningSystem(props: NodeProps) {
   return (
     <Shape
       {...ASSISTIVE_LISTENING_SYSTEM}

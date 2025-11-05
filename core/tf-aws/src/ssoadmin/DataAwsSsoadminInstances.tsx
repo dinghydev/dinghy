@@ -10,7 +10,7 @@ const OutputSchema = z.object({
   identity_store_ids: base.ResolvableStringSchema.array().optional(),
 })
 
-type InputProps = z.output<typeof InputSchema> & base.IacNodeProps
+type InputProps = z.output<typeof InputSchema> & base.NodeProps
 
 type OutputProps =
   & z.output<typeof OutputSchema>

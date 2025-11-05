@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10200_HYDRAULIC_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const X10200_HYDRAULIC_CONTROL = {
   _original_height: 53.86,
 }
 
-export function X10200HydraulicControl(props: DiagramNodeProps) {
+export function X10200HydraulicControl(props: NodeProps) {
   return (
     <Shape
       {...X10200_HYDRAULIC_CONTROL}

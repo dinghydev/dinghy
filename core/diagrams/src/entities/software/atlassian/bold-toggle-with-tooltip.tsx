@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOLD_TOGGLE_WITH_TOOLTIP = {
   _style: {
@@ -10,7 +10,7 @@ export const BOLD_TOGGLE_WITH_TOOLTIP = {
   _height: 112,
 }
 
-export function BoldToggleWithTooltip(props: DiagramNodeProps) {
+export function BoldToggleWithTooltip(props: NodeProps) {
   return (
     <Shape
       {...BOLD_TOGGLE_WITH_TOOLTIP}

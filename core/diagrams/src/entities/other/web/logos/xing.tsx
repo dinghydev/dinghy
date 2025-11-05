@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XING = {
   _style: {
@@ -10,6 +10,6 @@ export const XING = {
   _original_height: 73.8,
 }
 
-export function Xing(props: DiagramNodeProps) {
+export function Xing(props: NodeProps) {
   return <Shape {...XING} {...props} _style={extendStyle(XING, props)} />
 }

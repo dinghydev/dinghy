@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CIRCULAR_DIAL_LIST_HORIZONTAL_14 = {
   _style: {
@@ -10,7 +10,7 @@ export const CIRCULAR_DIAL_LIST_HORIZONTAL_14 = {
   _height: 260,
 }
 
-export function CircularDialListHorizontal14(props: DiagramNodeProps) {
+export function CircularDialListHorizontal14(props: NodeProps) {
   return (
     <Shape
       {...CIRCULAR_DIAL_LIST_HORIZONTAL_14}

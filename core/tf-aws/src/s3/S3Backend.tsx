@@ -1,5 +1,5 @@
 import {
-  type IacNodeProps,
+  type NodeProps,
   type Props,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
@@ -45,7 +45,7 @@ export const S3BackendOutputSchema = z.object({
 
 export type S3BackendInputProps =
   & z.input<typeof S3BackendInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type AwsS3BucketOutputProps =
   & z.input<typeof S3BackendOutputSchema>

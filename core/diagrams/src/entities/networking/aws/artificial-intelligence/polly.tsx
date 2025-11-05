@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POLLY = {
   _style: {
@@ -10,6 +10,6 @@ export const POLLY = {
   _original_height: 78,
 }
 
-export function Polly(props: DiagramNodeProps) {
+export function Polly(props: NodeProps) {
   return <Shape {...POLLY} {...props} _style={extendStyle(POLLY, props)} />
 }

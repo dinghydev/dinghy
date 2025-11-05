@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11330_VARIABLE_DISPLACEMENT_HYDRAULIC = {
   _style: {
@@ -10,7 +10,7 @@ export const X11330_VARIABLE_DISPLACEMENT_HYDRAULIC = {
   _height: 205.22,
 }
 
-export function X11330VariableDisplacementHydraulic(props: DiagramNodeProps) {
+export function X11330VariableDisplacementHydraulic(props: NodeProps) {
   return (
     <Shape
       {...X11330_VARIABLE_DISPLACEMENT_HYDRAULIC}

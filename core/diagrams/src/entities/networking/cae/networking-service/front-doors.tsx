@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FRONT_DOORS = {
   _style: {
@@ -10,7 +10,7 @@ export const FRONT_DOORS = {
   _original_height: 44,
 }
 
-export function FrontDoors(props: DiagramNodeProps) {
+export function FrontDoors(props: NodeProps) {
   return (
     <Shape
       {...FRONT_DOORS}

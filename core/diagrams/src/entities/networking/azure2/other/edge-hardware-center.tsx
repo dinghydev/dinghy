@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EDGE_HARDWARE_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const EDGE_HARDWARE_CENTER = {
   _original_height: 68,
 }
 
-export function EdgeHardwareCenter(props: DiagramNodeProps) {
+export function EdgeHardwareCenter(props: NodeProps) {
   return (
     <Shape
       {...EDGE_HARDWARE_CENTER}

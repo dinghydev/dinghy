@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AD_RISKY_USERS = {
   _style: {
@@ -10,7 +10,7 @@ export const AD_RISKY_USERS = {
   _original_height: 68,
 }
 
-export function AdRiskyUsers(props: DiagramNodeProps) {
+export function AdRiskyUsers(props: NodeProps) {
   return (
     <Shape
       {...AD_RISKY_USERS}

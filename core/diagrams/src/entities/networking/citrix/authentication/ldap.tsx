@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LDAP = {
   _style: {
@@ -10,6 +10,6 @@ export const LDAP = {
   _original_height: 50,
 }
 
-export function Ldap(props: DiagramNodeProps) {
+export function Ldap(props: NodeProps) {
   return <Shape {...LDAP} {...props} _style={extendStyle(LDAP, props)} />
 }

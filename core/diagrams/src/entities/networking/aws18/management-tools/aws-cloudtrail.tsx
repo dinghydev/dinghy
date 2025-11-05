@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_CLOUDTRAIL = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_CLOUDTRAIL = {
   _height: 110,
 }
 
-export function AwsCloudtrail(props: DiagramNodeProps) {
+export function AwsCloudtrail(props: NodeProps) {
   return (
     <Shape
       {...AWS_CLOUDTRAIL}

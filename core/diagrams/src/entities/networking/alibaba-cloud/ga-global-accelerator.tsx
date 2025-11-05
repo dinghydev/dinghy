@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GA_GLOBAL_ACCELERATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const GA_GLOBAL_ACCELERATOR = {
   _original_height: 54.900000000000006,
 }
 
-export function GaGlobalAccelerator(props: DiagramNodeProps) {
+export function GaGlobalAccelerator(props: NodeProps) {
   return (
     <Shape
       {...GA_GLOBAL_ACCELERATOR}

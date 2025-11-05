@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWAS_SIMPLE_APPLICATION_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const SWAS_SIMPLE_APPLICATION_SERVER = {
   _original_height: 60,
 }
 
-export function SwasSimpleApplicationServer(props: DiagramNodeProps) {
+export function SwasSimpleApplicationServer(props: NodeProps) {
   return (
     <Shape
       {...SWAS_SIMPLE_APPLICATION_SERVER}

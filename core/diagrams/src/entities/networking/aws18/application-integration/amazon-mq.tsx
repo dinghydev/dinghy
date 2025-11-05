@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_MQ = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_MQ = {
   _height: 100,
 }
 
-export function AmazonMq(props: DiagramNodeProps) {
+export function AmazonMq(props: NodeProps) {
   return (
     <Shape {...AMAZON_MQ} {...props} _style={extendStyle(AMAZON_MQ, props)} />
   )

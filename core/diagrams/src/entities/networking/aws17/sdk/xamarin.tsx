@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XAMARIN = {
   _style: {
@@ -10,6 +10,6 @@ export const XAMARIN = {
   _original_height: 84,
 }
 
-export function Xamarin(props: DiagramNodeProps) {
+export function Xamarin(props: NodeProps) {
   return <Shape {...XAMARIN} {...props} _style={extendStyle(XAMARIN, props)} />
 }

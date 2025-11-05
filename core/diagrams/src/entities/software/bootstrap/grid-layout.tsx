@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GRID_LAYOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const GRID_LAYOUT = {
   _height: 360,
 }
 
-export function GridLayout(props: DiagramNodeProps) {
+export function GridLayout(props: NodeProps) {
   return (
     <Shape
       {...GRID_LAYOUT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEBEX = {
   _style: {
@@ -10,6 +10,6 @@ export const WEBEX = {
   _original_height: 50,
 }
 
-export function Webex(props: DiagramNodeProps) {
+export function Webex(props: NodeProps) {
   return <Shape {...WEBEX} {...props} _style={extendStyle(WEBEX, props)} />
 }

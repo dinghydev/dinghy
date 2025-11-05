@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VARISTOR_SYMMETRICAL = {
   _style: {
@@ -10,7 +10,7 @@ export const VARISTOR_SYMMETRICAL = {
   _height: 60,
 }
 
-export function VaristorSymmetrical(props: DiagramNodeProps) {
+export function VaristorSymmetrical(props: NodeProps) {
   return (
     <Shape
       {...VARISTOR_SYMMETRICAL}

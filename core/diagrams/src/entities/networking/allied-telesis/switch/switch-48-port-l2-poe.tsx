@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWITCH_48_PORT_L2_POE = {
   _style: {
@@ -10,7 +10,7 @@ export const SWITCH_48_PORT_L2_POE = {
   _height: 52.8,
 }
 
-export function Switch48PortL2Poe(props: DiagramNodeProps) {
+export function Switch48PortL2Poe(props: NodeProps) {
   return (
     <Shape
       {...SWITCH_48_PORT_L2_POE}

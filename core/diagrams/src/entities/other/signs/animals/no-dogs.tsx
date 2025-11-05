@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NO_DOGS = {
   _style: {
@@ -10,6 +10,6 @@ export const NO_DOGS = {
   _original_height: 98,
 }
 
-export function NoDogs(props: DiagramNodeProps) {
+export function NoDogs(props: NodeProps) {
   return <Shape {...NO_DOGS} {...props} _style={extendStyle(NO_DOGS, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAMZIP = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAMZIP = {
   _original_height: 44.8,
 }
 
-export function Veeamzip(props: DiagramNodeProps) {
+export function Veeamzip(props: NodeProps) {
   return (
     <Shape {...VEEAMZIP} {...props} _style={extendStyle(VEEAMZIP, props)} />
   )

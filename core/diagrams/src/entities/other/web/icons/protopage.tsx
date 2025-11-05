@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROTOPAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const PROTOPAGE = {
   _original_height: 102.4,
 }
 
-export function Protopage(props: DiagramNodeProps) {
+export function Protopage(props: NodeProps) {
   return (
     <Shape {...PROTOPAGE} {...props} _style={extendStyle(PROTOPAGE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THREAT_ACTOR_LABEL = {
   _style: {
@@ -10,7 +10,7 @@ export const THREAT_ACTOR_LABEL = {
   _height: 20,
 }
 
-export function ThreatActorLabel(props: DiagramNodeProps) {
+export function ThreatActorLabel(props: NodeProps) {
   return (
     <Shape
       {...THREAT_ACTOR_LABEL}

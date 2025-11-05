@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASSOCIATION = {
   _style: {
@@ -7,7 +7,7 @@ export const ASSOCIATION = {
   },
 }
 
-export function Association(props: DiagramNodeProps) {
+export function Association(props: NodeProps) {
   return (
     <Dependency
       {...ASSOCIATION}

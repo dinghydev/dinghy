@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALB_APPLICATION_LOAD_BALANCER = {
   _style: {
@@ -10,7 +10,7 @@ export const ALB_APPLICATION_LOAD_BALANCER = {
   _original_height: 40.2,
 }
 
-export function AlbApplicationLoadBalancer(props: DiagramNodeProps) {
+export function AlbApplicationLoadBalancer(props: NodeProps) {
   return (
     <Shape
       {...ALB_APPLICATION_LOAD_BALANCER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEPARATOR_VENTURI_SCRUBBER = {
   _style: {
@@ -10,7 +10,7 @@ export const SEPARATOR_VENTURI_SCRUBBER = {
   _height: 120,
 }
 
-export function SeparatorVenturiScrubber(props: DiagramNodeProps) {
+export function SeparatorVenturiScrubber(props: NodeProps) {
   return (
     <Shape
       {...SEPARATOR_VENTURI_SCRUBBER}

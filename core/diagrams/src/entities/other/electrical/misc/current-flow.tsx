@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CURRENT_FLOW = {
   _style: {
@@ -10,7 +10,7 @@ export const CURRENT_FLOW = {
   _height: 10,
 }
 
-export function CurrentFlow(props: DiagramNodeProps) {
+export function CurrentFlow(props: NodeProps) {
   return (
     <Shape
       {...CURRENT_FLOW}

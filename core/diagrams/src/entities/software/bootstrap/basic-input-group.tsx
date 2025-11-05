@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BASIC_INPUT_GROUP = {
   _style: {
@@ -10,7 +10,7 @@ export const BASIC_INPUT_GROUP = {
   _height: 330,
 }
 
-export function BasicInputGroup(props: DiagramNodeProps) {
+export function BasicInputGroup(props: NodeProps) {
   return (
     <Shape
       {...BASIC_INPUT_GROUP}

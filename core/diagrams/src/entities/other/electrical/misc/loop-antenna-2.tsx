@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOOP_ANTENNA_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const LOOP_ANTENNA_2 = {
   _original_height: 100,
 }
 
-export function LoopAntenna2(props: DiagramNodeProps) {
+export function LoopAntenna2(props: NodeProps) {
   return (
     <Shape
       {...LOOP_ANTENNA_2}

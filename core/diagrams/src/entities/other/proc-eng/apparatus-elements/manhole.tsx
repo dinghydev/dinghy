@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANHOLE = {
   _style: {
@@ -10,6 +10,6 @@ export const MANHOLE = {
   _original_height: 100,
 }
 
-export function Manhole(props: DiagramNodeProps) {
+export function Manhole(props: NodeProps) {
   return <Shape {...MANHOLE} {...props} _style={extendStyle(MANHOLE, props)} />
 }

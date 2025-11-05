@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GITHUB_CODE = {
   _style: {
@@ -10,7 +10,7 @@ export const GITHUB_CODE = {
   _original_height: 50,
 }
 
-export function GithubCode(props: DiagramNodeProps) {
+export function GithubCode(props: NodeProps) {
   return (
     <Shape
       {...GITHUB_CODE}

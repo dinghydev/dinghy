@@ -13,7 +13,7 @@ const OutputSchema = z.object({
   arn: base.ResolvableStringSchema.optional(),
 })
 
-type InputProps = z.output<typeof InputSchema> & base.IacNodeProps
+type InputProps = z.output<typeof InputSchema> & base.NodeProps
 
 type OutputProps =
   & z.output<typeof OutputSchema>

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11800_INDICATOR_WITH = {
   _style: {
@@ -10,7 +10,7 @@ export const X11800_INDICATOR_WITH = {
   _height: 27.74,
 }
 
-export function X11800IndicatorWith(props: DiagramNodeProps) {
+export function X11800IndicatorWith(props: NodeProps) {
   return (
     <Shape
       {...X11800_INDICATOR_WITH}

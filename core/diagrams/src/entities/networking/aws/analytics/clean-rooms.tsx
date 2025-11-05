@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLEAN_ROOMS = {
   _style: {
@@ -10,7 +10,7 @@ export const CLEAN_ROOMS = {
   _original_height: 78,
 }
 
-export function CleanRooms(props: DiagramNodeProps) {
+export function CleanRooms(props: NodeProps) {
   return (
     <Shape
       {...CLEAN_ROOMS}

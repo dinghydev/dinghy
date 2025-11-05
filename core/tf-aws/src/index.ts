@@ -1,10 +1,5 @@
 import { ZodObject, ZodRawShape } from 'zod'
-import {
-  camelCaseToWords,
-  DiagramNodeProps,
-  IacNodeProps,
-  NodeTree,
-} from '@dinghy/base-components'
+import { camelCaseToWords, NodeProps, NodeTree } from '@dinghy/base-components'
 
 export * as ssoadmin from './ssoadmin/index.ts'
 export * as cloudwatch from './cloudwatch/index.ts'
@@ -92,7 +87,7 @@ function _category({ _props: { _tags } }: NodeTree) {
 }
 
 export function awsProps(
-  props: IacNodeProps,
+  props: NodeProps,
   _inputSchema: ZodObject<ZodRawShape>,
   _outputSchema?: ZodObject<ZodRawShape>,
 ) {
@@ -103,5 +98,5 @@ export function awsProps(
     _inputSchema,
     _outputSchema,
     ...props,
-  } as DiagramNodeProps
+  } as NodeProps
 }

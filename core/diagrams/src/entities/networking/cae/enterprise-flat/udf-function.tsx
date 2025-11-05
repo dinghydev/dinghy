@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UDF_FUNCTION = {
   _style: {
@@ -10,7 +10,7 @@ export const UDF_FUNCTION = {
   _original_height: 50,
 }
 
-export function UdfFunction(props: DiagramNodeProps) {
+export function UdfFunction(props: NodeProps) {
   return (
     <Shape
       {...UDF_FUNCTION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDSEARCH = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDSEARCH = {
   _original_height: 78,
 }
 
-export function Cloudsearch(props: DiagramNodeProps) {
+export function Cloudsearch(props: NodeProps) {
   return (
     <Shape
       {...CLOUDSEARCH}

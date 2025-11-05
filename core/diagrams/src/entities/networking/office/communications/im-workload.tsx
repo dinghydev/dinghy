@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IM_WORKLOAD = {
   _style: {
@@ -10,7 +10,7 @@ export const IM_WORKLOAD = {
   _original_height: 54,
 }
 
-export function ImWorkload(props: DiagramNodeProps) {
+export function ImWorkload(props: NodeProps) {
   return (
     <Shape
       {...IM_WORKLOAD}

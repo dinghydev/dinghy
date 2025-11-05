@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_2 = {
   _height: 100,
 }
 
-export function Component3rdPartyIdpAndProtocols2(props: DiagramNodeProps) {
+export function Component3rdPartyIdpAndProtocols2(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_3RD_PARTY_IDP_AND_PROTOCOLS_2}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUPPORT_RING = {
   _style: {
@@ -10,7 +10,7 @@ export const SUPPORT_RING = {
   _height: 25,
 }
 
-export function SupportRing(props: DiagramNodeProps) {
+export function SupportRing(props: NodeProps) {
   return (
     <Shape
       {...SUPPORT_RING}

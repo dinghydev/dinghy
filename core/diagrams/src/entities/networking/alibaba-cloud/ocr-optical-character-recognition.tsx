@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OCR_OPTICAL_CHARACTER_RECOGNITION = {
   _style: {
@@ -10,7 +10,7 @@ export const OCR_OPTICAL_CHARACTER_RECOGNITION = {
   _original_height: 60.6,
 }
 
-export function OcrOpticalCharacterRecognition(props: DiagramNodeProps) {
+export function OcrOpticalCharacterRecognition(props: NodeProps) {
   return (
     <Shape
       {...OCR_OPTICAL_CHARACTER_RECOGNITION}

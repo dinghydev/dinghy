@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MS_EXCHANGE = {
   _style: {
@@ -10,7 +10,7 @@ export const MS_EXCHANGE = {
   _original_height: 44.8,
 }
 
-export function MsExchange(props: DiagramNodeProps) {
+export function MsExchange(props: NodeProps) {
   return (
     <Shape
       {...MS_EXCHANGE}

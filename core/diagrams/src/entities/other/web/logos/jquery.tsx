@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JQUERY = {
   _style: {
@@ -10,6 +10,6 @@ export const JQUERY = {
   _original_height: 67,
 }
 
-export function Jquery(props: DiagramNodeProps) {
+export function Jquery(props: NodeProps) {
   return <Shape {...JQUERY} {...props} _style={extendStyle(JQUERY, props)} />
 }

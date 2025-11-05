@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLUMN_STAGGERED_BAFFLE_TRAYS = {
   _style: {
@@ -10,7 +10,7 @@ export const COLUMN_STAGGERED_BAFFLE_TRAYS = {
   _height: 120,
 }
 
-export function ColumnStaggeredBaffleTrays(props: DiagramNodeProps) {
+export function ColumnStaggeredBaffleTrays(props: NodeProps) {
   return (
     <Shape
       {...COLUMN_STAGGERED_BAFFLE_TRAYS}

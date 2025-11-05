@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUTER_FIREWALL = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUTER_FIREWALL = {
   _original_height: 62,
 }
 
-export function RouterFirewall(props: DiagramNodeProps) {
+export function RouterFirewall(props: NodeProps) {
   return (
     <Shape
       {...ROUTER_FIREWALL}

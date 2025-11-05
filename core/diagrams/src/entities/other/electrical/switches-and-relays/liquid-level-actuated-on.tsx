@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIQUID_LEVEL_ACTUATED_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const LIQUID_LEVEL_ACTUATED_ON = {
   _height: 30,
 }
 
-export function LiquidLevelActuatedOn(props: DiagramNodeProps) {
+export function LiquidLevelActuatedOn(props: NodeProps) {
   return (
     <Shape
       {...LIQUID_LEVEL_ACTUATED_ON}

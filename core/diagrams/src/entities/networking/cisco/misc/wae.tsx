@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAE = {
   _style: {
@@ -10,6 +10,6 @@ export const WAE = {
   _height: 64,
 }
 
-export function Wae(props: DiagramNodeProps) {
+export function Wae(props: NodeProps) {
   return <Shape {...WAE} {...props} _style={extendStyle(WAE, props)} />
 }

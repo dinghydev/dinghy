@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DESK_CORNER = {
   _style: {
@@ -10,7 +10,7 @@ export const DESK_CORNER = {
   _original_height: 150,
 }
 
-export function DeskCorner(props: DiagramNodeProps) {
+export function DeskCorner(props: NodeProps) {
   return (
     <Shape
       {...DESK_CORNER}

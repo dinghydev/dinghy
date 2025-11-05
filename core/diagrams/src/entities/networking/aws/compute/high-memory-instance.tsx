@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HIGH_MEMORY_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const HIGH_MEMORY_INSTANCE = {
   _original_height: 48,
 }
 
-export function HighMemoryInstance(props: DiagramNodeProps) {
+export function HighMemoryInstance(props: NodeProps) {
   return (
     <Shape
       {...HIGH_MEMORY_INSTANCE}

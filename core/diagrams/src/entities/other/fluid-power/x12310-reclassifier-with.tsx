@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12310_RECLASSIFIER_WITH = {
   _style: {
@@ -10,7 +10,7 @@ export const X12310_RECLASSIFIER_WITH = {
   _height: 71.36,
 }
 
-export function X12310ReclassifierWith(props: DiagramNodeProps) {
+export function X12310ReclassifierWith(props: NodeProps) {
   return (
     <Shape
       {...X12310_RECLASSIFIER_WITH}

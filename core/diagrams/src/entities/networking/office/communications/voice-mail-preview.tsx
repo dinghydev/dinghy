@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOICE_MAIL_PREVIEW = {
   _style: {
@@ -10,7 +10,7 @@ export const VOICE_MAIL_PREVIEW = {
   _original_height: 56,
 }
 
-export function VoiceMailPreview(props: DiagramNodeProps) {
+export function VoiceMailPreview(props: NodeProps) {
   return (
     <Shape
       {...VOICE_MAIL_PREVIEW}

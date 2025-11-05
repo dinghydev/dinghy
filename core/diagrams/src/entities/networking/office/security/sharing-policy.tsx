@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHARING_POLICY = {
   _style: {
@@ -10,7 +10,7 @@ export const SHARING_POLICY = {
   _original_height: 53,
 }
 
-export function SharingPolicy(props: DiagramNodeProps) {
+export function SharingPolicy(props: NodeProps) {
   return (
     <Shape
       {...SHARING_POLICY}

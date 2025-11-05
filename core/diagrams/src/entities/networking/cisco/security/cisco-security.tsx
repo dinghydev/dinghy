@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_SECURITY = {
   _original_height: 70,
 }
 
-export function CiscoSecurity(props: DiagramNodeProps) {
+export function CiscoSecurity(props: NodeProps) {
   return (
     <Shape
       {...CISCO_SECURITY}

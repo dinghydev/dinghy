@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_ONE_REPORTER = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_ONE_REPORTER = {
   _original_height: 34,
 }
 
-export function VeeamOneReporter(props: DiagramNodeProps) {
+export function VeeamOneReporter(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_ONE_REPORTER}

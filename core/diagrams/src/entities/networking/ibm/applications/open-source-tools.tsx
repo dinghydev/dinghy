@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPEN_SOURCE_TOOLS = {
   _style: {
@@ -10,7 +10,7 @@ export const OPEN_SOURCE_TOOLS = {
   _original_height: 60,
 }
 
-export function OpenSourceTools(props: DiagramNodeProps) {
+export function OpenSourceTools(props: NodeProps) {
   return (
     <Shape
       {...OPEN_SOURCE_TOOLS}

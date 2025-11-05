@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AVATAR_LARGE = {
   _style: {
@@ -10,7 +10,7 @@ export const AVATAR_LARGE = {
   _original_height: 96,
 }
 
-export function AvatarLarge(props: DiagramNodeProps) {
+export function AvatarLarge(props: NodeProps) {
   return (
     <Shape
       {...AVATAR_LARGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORDER_COMMAND = {
   _style: {
@@ -9,7 +9,7 @@ export const ORDER_COMMAND = {
   _height: 50,
 }
 
-export function OrderCommand(props: DiagramNodeProps) {
+export function OrderCommand(props: NodeProps) {
   return (
     <Shape
       {...ORDER_COMMAND}

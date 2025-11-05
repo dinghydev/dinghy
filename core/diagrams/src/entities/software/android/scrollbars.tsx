@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCROLLBARS = {
   _style: {
@@ -10,7 +10,7 @@ export const SCROLLBARS = {
   _original_height: 56,
 }
 
-export function Scrollbars(props: DiagramNodeProps) {
+export function Scrollbars(props: NodeProps) {
   return (
     <Shape {...SCROLLBARS} {...props} _style={extendStyle(SCROLLBARS, props)} />
   )

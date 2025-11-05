@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_FILE_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_FILE_ENGINE = {
   _height: 64,
 }
 
-export function CiscoFileEngine(props: DiagramNodeProps) {
+export function CiscoFileEngine(props: NodeProps) {
   return (
     <Shape
       {...CISCO_FILE_ENGINE}

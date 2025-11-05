@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION = {
   _style: {
@@ -10,9 +10,7 @@ export const IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION = {
   _height: 250,
 }
 
-export function InBlockDefinitionDiagramsActivityAssociation(
-  props: DiagramNodeProps,
-) {
+export function InBlockDefinitionDiagramsActivityAssociation(props: NodeProps) {
   return (
     <Shape
       {...IN_BLOCK_DEFINITION_DIAGRAMS_ACTIVITY_ASSOCIATION}

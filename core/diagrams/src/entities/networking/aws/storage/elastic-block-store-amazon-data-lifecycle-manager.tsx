@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER = {
   _style: {
@@ -10,9 +10,7 @@ export const ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER = {
   _original_height: 78,
 }
 
-export function ElasticBlockStoreAmazonDataLifecycleManager(
-  props: DiagramNodeProps,
-) {
+export function ElasticBlockStoreAmazonDataLifecycleManager(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_BLOCK_STORE_AMAZON_DATA_LIFECYCLE_MANAGER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOZENGE_CURRENT_SUBTLE = {
   _style: {
@@ -10,7 +10,7 @@ export const LOZENGE_CURRENT_SUBTLE = {
   _height: 20,
 }
 
-export function LozengeCurrentSubtle(props: DiagramNodeProps) {
+export function LozengeCurrentSubtle(props: NodeProps) {
   return (
     <Shape
       {...LOZENGE_CURRENT_SUBTLE}

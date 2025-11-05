@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARAMETER_SET = {
   _style: {
@@ -9,7 +9,7 @@ export const PARAMETER_SET = {
   _height: 100,
 }
 
-export function ParameterSet(props: DiagramNodeProps) {
+export function ParameterSet(props: NodeProps) {
   return (
     <Shape
       {...PARAMETER_SET}

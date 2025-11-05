@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9832A_5412R_ZL2_SWITCH_FAN_TRAY = {
   _style: {
@@ -10,7 +10,7 @@ export const J9832A_5412R_ZL2_SWITCH_FAN_TRAY = {
   _height: 96,
 }
 
-export function J9832a5412rZl2SwitchFanTray(props: DiagramNodeProps) {
+export function J9832a5412rZl2SwitchFanTray(props: NodeProps) {
   return (
     <Shape
       {...J9832A_5412R_ZL2_SWITCH_FAN_TRAY}

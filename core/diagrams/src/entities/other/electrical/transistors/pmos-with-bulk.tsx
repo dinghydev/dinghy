@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PMOS_WITH_BULK = {
   _style: {
@@ -10,7 +10,7 @@ export const PMOS_WITH_BULK = {
   _height: 100,
 }
 
-export function PmosWithBulk(props: DiagramNodeProps) {
+export function PmosWithBulk(props: NodeProps) {
   return (
     <Shape
       {...PMOS_WITH_BULK}

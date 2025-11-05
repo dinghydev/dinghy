@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOP_BAR_LOCKED = {
   _style: {
@@ -10,7 +10,7 @@ export const TOP_BAR_LOCKED = {
   _height: 15,
 }
 
-export function TopBarLocked(props: DiagramNodeProps) {
+export function TopBarLocked(props: NodeProps) {
   return (
     <Shape
       {...TOP_BAR_LOCKED}

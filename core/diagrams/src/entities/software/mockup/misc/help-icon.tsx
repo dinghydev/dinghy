@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HELP_ICON = {
   _style: {
@@ -10,7 +10,7 @@ export const HELP_ICON = {
   _original_height: 32,
 }
 
-export function HelpIcon(props: DiagramNodeProps) {
+export function HelpIcon(props: NodeProps) {
   return (
     <Shape {...HELP_ICON} {...props} _style={extendStyle(HELP_ICON, props)} />
   )

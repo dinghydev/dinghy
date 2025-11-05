@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROTARY_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const ROTARY_VALVE = {
   _height: 20,
 }
 
-export function RotaryValve(props: DiagramNodeProps) {
+export function RotaryValve(props: NodeProps) {
   return (
     <Shape
       {...ROTARY_VALVE}

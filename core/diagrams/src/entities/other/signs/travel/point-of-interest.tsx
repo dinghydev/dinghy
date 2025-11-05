@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POINT_OF_INTEREST = {
   _style: {
@@ -10,7 +10,7 @@ export const POINT_OF_INTEREST = {
   _original_height: 99,
 }
 
-export function PointOfInterest(props: DiagramNodeProps) {
+export function PointOfInterest(props: NodeProps) {
   return (
     <Shape
       {...POINT_OF_INTEREST}

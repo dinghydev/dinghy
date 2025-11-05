@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEMPORARY_STRAINER = {
   _style: {
@@ -10,7 +10,7 @@ export const TEMPORARY_STRAINER = {
   _original_height: 30,
 }
 
-export function TemporaryStrainer(props: DiagramNodeProps) {
+export function TemporaryStrainer(props: NodeProps) {
   return (
     <Shape
       {...TEMPORARY_STRAINER}

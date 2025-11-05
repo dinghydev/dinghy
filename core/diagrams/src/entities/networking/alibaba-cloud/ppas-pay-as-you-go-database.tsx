@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PPAS_PAY_AS_YOU_GO_DATABASE = {
   _style: {
@@ -10,7 +10,7 @@ export const PPAS_PAY_AS_YOU_GO_DATABASE = {
   _height: 54.6,
 }
 
-export function PpasPayAsYouGoDatabase(props: DiagramNodeProps) {
+export function PpasPayAsYouGoDatabase(props: NodeProps) {
   return (
     <Shape
       {...PPAS_PAY_AS_YOU_GO_DATABASE}

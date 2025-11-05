@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_API_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_API_GATEWAY = {
   _height: 110,
 }
 
-export function AmazonApiGateway(props: DiagramNodeProps) {
+export function AmazonApiGateway(props: NodeProps) {
   return (
     <Shape
       {...AMAZON_API_GATEWAY}

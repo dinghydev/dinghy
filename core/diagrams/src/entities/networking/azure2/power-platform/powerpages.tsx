@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWERPAGES = {
   _style: {
@@ -10,7 +10,7 @@ export const POWERPAGES = {
   _original_height: 68,
 }
 
-export function Powerpages(props: DiagramNodeProps) {
+export function Powerpages(props: NodeProps) {
   return (
     <Shape {...POWERPAGES} {...props} _style={extendStyle(POWERPAGES, props)} />
   )

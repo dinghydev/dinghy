@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISTRIBUTED_DENIAL_OF_SERVICE_PROTECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const DISTRIBUTED_DENIAL_OF_SERVICE_PROTECTION = {
   _original_height: 43,
 }
 
-export function DistributedDenialOfServiceProtection(props: DiagramNodeProps) {
+export function DistributedDenialOfServiceProtection(props: NodeProps) {
   return (
     <Shape
       {...DISTRIBUTED_DENIAL_OF_SERVICE_PROTECTION}

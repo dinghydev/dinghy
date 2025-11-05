@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLICKR = {
   _style: {
@@ -10,6 +10,6 @@ export const FLICKR = {
   _height: 31.200000000000003,
 }
 
-export function Flickr(props: DiagramNodeProps) {
+export function Flickr(props: NodeProps) {
   return <Shape {...FLICKR} {...props} _style={extendStyle(FLICKR, props)} />
 }

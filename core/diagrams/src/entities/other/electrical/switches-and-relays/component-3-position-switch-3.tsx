@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_3_POSITION_SWITCH_3 = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_3_POSITION_SWITCH_3 = {
   _original_height: 60,
 }
 
-export function Component3PositionSwitch3(props: DiagramNodeProps) {
+export function Component3PositionSwitch3(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_3_POSITION_SWITCH_3}

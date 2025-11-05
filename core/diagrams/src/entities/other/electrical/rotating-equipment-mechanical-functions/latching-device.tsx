@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LATCHING_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const LATCHING_DEVICE = {
   _height: 22,
 }
 
-export function LatchingDevice(props: DiagramNodeProps) {
+export function LatchingDevice(props: NodeProps) {
   return (
     <Shape
       {...LATCHING_DEVICE}

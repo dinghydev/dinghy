@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFAULT_FIREWALL = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFAULT_FIREWALL = {
   _height: 0,
 }
 
-export function DefaultFirewall(props: DiagramNodeProps) {
+export function DefaultFirewall(props: NodeProps) {
   return (
     <Shape
       {...DEFAULT_FIREWALL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHOKE = {
   _style: {
@@ -10,6 +10,6 @@ export const CHOKE = {
   _height: 200,
 }
 
-export function Choke(props: DiagramNodeProps) {
+export function Choke(props: NodeProps) {
   return <Shape {...CHOKE} {...props} _style={extendStyle(CHOKE, props)} />
 }

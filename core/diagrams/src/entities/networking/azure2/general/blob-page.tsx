@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLOB_PAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const BLOB_PAGE = {
   _original_height: 52,
 }
 
-export function BlobPage(props: DiagramNodeProps) {
+export function BlobPage(props: NodeProps) {
   return (
     <Shape {...BLOB_PAGE} {...props} _style={extendStyle(BLOB_PAGE, props)} />
   )

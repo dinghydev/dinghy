@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_CLOUD = {
   _style: {
@@ -11,7 +11,7 @@ export const AWS_CLOUD = {
   },
 }
 
-export function AwsCloud(props: DiagramNodeProps) {
+export function AwsCloud(props: NodeProps) {
   return (
     <Shape {...AWS_CLOUD} {...props} _style={extendStyle(AWS_CLOUD, props)} />
   )

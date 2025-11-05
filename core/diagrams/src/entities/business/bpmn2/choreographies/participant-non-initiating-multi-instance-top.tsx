@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_TOP = {
   _style: {
@@ -10,9 +10,7 @@ export const PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_TOP = {
   _height: 40,
 }
 
-export function ParticipantNonInitiatingMultiInstanceTop(
-  props: DiagramNodeProps,
-) {
+export function ParticipantNonInitiatingMultiInstanceTop(props: NodeProps) {
   return (
     <Shape
       {...PARTICIPANT_NON_INITIATING_MULTI_INSTANCE_TOP}

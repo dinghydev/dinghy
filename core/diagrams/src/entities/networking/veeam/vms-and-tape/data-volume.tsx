@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_VOLUME = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_VOLUME = {
   _height: 16.8,
 }
 
-export function DataVolume(props: DiagramNodeProps) {
+export function DataVolume(props: NodeProps) {
   return (
     <Shape
       {...DATA_VOLUME}

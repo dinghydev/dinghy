@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UM_HUNT_GROUP = {
   _style: {
@@ -10,7 +10,7 @@ export const UM_HUNT_GROUP = {
   _original_height: 48,
 }
 
-export function UmHuntGroup(props: DiagramNodeProps) {
+export function UmHuntGroup(props: NodeProps) {
   return (
     <Shape
       {...UM_HUNT_GROUP}

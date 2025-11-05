@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL579A_ARUBA_8320_32P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE_REAR = {
   _style: {
@@ -11,7 +11,7 @@ export const JL579A_ARUBA_8320_32P_40G_QSFP_5_FANS_2_PS_SWITCH_BUNDLE_REAR = {
 }
 
 export function Jl579aAruba832032p40gQsfp5Fans2PsSwitchBundleRear(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

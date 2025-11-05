@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLOW_ACTUATED_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const FLOW_ACTUATED_OFF = {
   _height: 31,
 }
 
-export function FlowActuatedOff(props: DiagramNodeProps) {
+export function FlowActuatedOff(props: NodeProps) {
   return (
     <Shape
       {...FLOW_ACTUATED_OFF}

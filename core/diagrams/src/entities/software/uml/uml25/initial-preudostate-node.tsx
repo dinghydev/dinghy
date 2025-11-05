@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INITIAL_PREUDOSTATE_NODE = {
   _style: {
@@ -9,7 +9,7 @@ export const INITIAL_PREUDOSTATE_NODE = {
   _original_height: 30,
 }
 
-export function InitialPreudostateNode(props: DiagramNodeProps) {
+export function InitialPreudostateNode(props: NodeProps) {
   return (
     <Shape
       {...INITIAL_PREUDOSTATE_NODE}

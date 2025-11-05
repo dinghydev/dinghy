@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ASIC_PROCESSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const ASIC_PROCESSOR = {
   _height: 83,
 }
 
-export function AsicProcessor(props: DiagramNodeProps) {
+export function AsicProcessor(props: NodeProps) {
   return (
     <Shape
       {...ASIC_PROCESSOR}

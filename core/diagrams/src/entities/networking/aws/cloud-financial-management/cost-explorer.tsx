@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COST_EXPLORER = {
   _style: {
@@ -10,7 +10,7 @@ export const COST_EXPLORER = {
   _original_height: 78,
 }
 
-export function CostExplorer(props: DiagramNodeProps) {
+export function CostExplorer(props: NodeProps) {
   return (
     <Shape
       {...COST_EXPLORER}

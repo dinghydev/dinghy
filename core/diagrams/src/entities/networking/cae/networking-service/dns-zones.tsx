@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DNS_ZONES = {
   _style: {
@@ -10,7 +10,7 @@ export const DNS_ZONES = {
   _original_height: 50,
 }
 
-export function DnsZones(props: DiagramNodeProps) {
+export function DnsZones(props: NodeProps) {
   return (
     <Shape {...DNS_ZONES} {...props} _style={extendStyle(DNS_ZONES, props)} />
   )

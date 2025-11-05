@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHADOWED_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SHADOWED_ROUTER = {
   _original_height: 59,
 }
 
-export function ShadowedRouter(props: DiagramNodeProps) {
+export function ShadowedRouter(props: NodeProps) {
   return (
     <Shape
       {...SHADOWED_ROUTER}

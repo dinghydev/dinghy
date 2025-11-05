@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOICE_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const VOICE_SWITCH = {
   _height: 50,
 }
 
-export function VoiceSwitch(props: DiagramNodeProps) {
+export function VoiceSwitch(props: NodeProps) {
   return (
     <Shape
       {...VOICE_SWITCH}

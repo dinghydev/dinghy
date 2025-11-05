@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PALM_TREO = {
   _style: {
@@ -10,7 +10,7 @@ export const PALM_TREO = {
   _original_height: 80,
 }
 
-export function PalmTreo(props: DiagramNodeProps) {
+export function PalmTreo(props: NodeProps) {
   return (
     <Shape {...PALM_TREO} {...props} _style={extendStyle(PALM_TREO, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUALITY_PROBLEM = {
   _style: {
@@ -10,7 +10,7 @@ export const QUALITY_PROBLEM = {
   _height: 100,
 }
 
-export function QualityProblem(props: DiagramNodeProps) {
+export function QualityProblem(props: NodeProps) {
   return (
     <Shape
       {...QUALITY_PROBLEM}

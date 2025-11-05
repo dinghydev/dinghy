@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAG_SMART_ACCESS_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const SAG_SMART_ACCESS_GATEWAY = {
   _height: 37.5,
 }
 
-export function SagSmartAccessGateway(props: DiagramNodeProps) {
+export function SagSmartAccessGateway(props: NodeProps) {
   return (
     <Shape
       {...SAG_SMART_ACCESS_GATEWAY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TARGETS_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const TARGETS_MANAGEMENT = {
   _original_height: 68,
 }
 
-export function TargetsManagement(props: DiagramNodeProps) {
+export function TargetsManagement(props: NodeProps) {
   return (
     <Shape
       {...TARGETS_MANAGEMENT}

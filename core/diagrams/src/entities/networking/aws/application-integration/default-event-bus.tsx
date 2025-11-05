@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFAULT_EVENT_BUS = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFAULT_EVENT_BUS = {
   _height: 53,
 }
 
-export function DefaultEventBus(props: DiagramNodeProps) {
+export function DefaultEventBus(props: NodeProps) {
   return (
     <Shape
       {...DEFAULT_EVENT_BUS}

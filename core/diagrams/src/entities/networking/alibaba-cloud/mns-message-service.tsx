@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MNS_MESSAGE_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const MNS_MESSAGE_SERVICE = {
   _original_height: 39.900000000000006,
 }
 
-export function MnsMessageService(props: DiagramNodeProps) {
+export function MnsMessageService(props: NodeProps) {
   return (
     <Shape
       {...MNS_MESSAGE_SERVICE}

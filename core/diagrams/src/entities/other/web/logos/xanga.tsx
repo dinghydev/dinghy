@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XANGA = {
   _style: {
@@ -10,6 +10,6 @@ export const XANGA = {
   _height: 38,
 }
 
-export function Xanga(props: DiagramNodeProps) {
+export function Xanga(props: NodeProps) {
   return <Shape {...XANGA} {...props} _style={extendStyle(XANGA, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PHOTO_RESISTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const PHOTO_RESISTOR = {
   _original_height: 90,
 }
 
-export function PhotoResistor(props: DiagramNodeProps) {
+export function PhotoResistor(props: NodeProps) {
   return (
     <Shape
       {...PHOTO_RESISTOR}

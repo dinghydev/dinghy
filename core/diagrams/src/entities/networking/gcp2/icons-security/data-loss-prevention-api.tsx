@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_LOSS_PREVENTION_API = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_LOSS_PREVENTION_API = {
   _height: 32,
 }
 
-export function DataLossPreventionApi(props: DiagramNodeProps) {
+export function DataLossPreventionApi(props: NodeProps) {
   return (
     <Shape
       {...DATA_LOSS_PREVENTION_API}

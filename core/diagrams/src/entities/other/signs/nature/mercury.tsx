@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MERCURY = {
   _style: {
@@ -10,6 +10,6 @@ export const MERCURY = {
   _height: 99,
 }
 
-export function Mercury(props: DiagramNodeProps) {
+export function Mercury(props: NodeProps) {
   return <Shape {...MERCURY} {...props} _style={extendStyle(MERCURY, props)} />
 }

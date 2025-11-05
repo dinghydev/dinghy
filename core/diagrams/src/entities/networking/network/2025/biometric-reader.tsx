@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIOMETRIC_READER = {
   _style: {
@@ -10,7 +10,7 @@ export const BIOMETRIC_READER = {
   _original_height: 49.855,
 }
 
-export function BiometricReader(props: DiagramNodeProps) {
+export function BiometricReader(props: NodeProps) {
   return (
     <Shape
       {...BIOMETRIC_READER}

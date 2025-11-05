@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CCTV = {
   _style: {
@@ -10,6 +10,6 @@ export const CCTV = {
   _height: 36.394999999999996,
 }
 
-export function Cctv(props: DiagramNodeProps) {
+export function Cctv(props: NodeProps) {
   return <Shape {...CCTV} {...props} _style={extendStyle(CCTV, props)} />
 }

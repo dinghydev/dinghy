@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAN_TO_LAN = {
   _style: {
@@ -10,7 +10,7 @@ export const LAN_TO_LAN = {
   _original_height: 61,
 }
 
-export function LanToLan(props: DiagramNodeProps) {
+export function LanToLan(props: NodeProps) {
   return (
     <Shape {...LAN_TO_LAN} {...props} _style={extendStyle(LAN_TO_LAN, props)} />
   )

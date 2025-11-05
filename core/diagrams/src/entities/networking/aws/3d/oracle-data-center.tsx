@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORACLE_DATA_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const ORACLE_DATA_CENTER = {
   _height: 142,
 }
 
-export function OracleDataCenter(props: DiagramNodeProps) {
+export function OracleDataCenter(props: NodeProps) {
   return (
     <Shape
       {...ORACLE_DATA_CENTER}

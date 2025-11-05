@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOCKER = {
   _style: {
@@ -10,6 +10,6 @@ export const DOCKER = {
   _original_height: 41,
 }
 
-export function Docker(props: DiagramNodeProps) {
+export function Docker(props: NodeProps) {
   return <Shape {...DOCKER} {...props} _style={extendStyle(DOCKER, props)} />
 }

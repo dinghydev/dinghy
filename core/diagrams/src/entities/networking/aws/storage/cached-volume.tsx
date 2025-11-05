@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CACHED_VOLUME = {
   _style: {
@@ -10,7 +10,7 @@ export const CACHED_VOLUME = {
   _original_height: 78,
 }
 
-export function CachedVolume(props: DiagramNodeProps) {
+export function CachedVolume(props: NodeProps) {
   return (
     <Shape
       {...CACHED_VOLUME}

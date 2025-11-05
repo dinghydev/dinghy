@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const READONLY_PLAIN_TEXT_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const READONLY_PLAIN_TEXT_4 = {
   _height: 40,
 }
 
-export function ReadonlyPlainText4(props: DiagramNodeProps) {
+export function ReadonlyPlainText4(props: NodeProps) {
   return (
     <Shape
       {...READONLY_PLAIN_TEXT_4}

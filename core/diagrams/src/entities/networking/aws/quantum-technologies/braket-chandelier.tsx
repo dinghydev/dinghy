@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRAKET_CHANDELIER = {
   _style: {
@@ -10,7 +10,7 @@ export const BRAKET_CHANDELIER = {
   _height: 78,
 }
 
-export function BraketChandelier(props: DiagramNodeProps) {
+export function BraketChandelier(props: NodeProps) {
   return (
     <Shape
       {...BRAKET_CHANDELIER}

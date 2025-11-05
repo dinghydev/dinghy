@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11880_FLUID_LEVEL_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const X11880_FLUID_LEVEL_SWITCH = {
   _original_height: 56.18,
 }
 
-export function X11880FluidLevelSwitch(props: DiagramNodeProps) {
+export function X11880FluidLevelSwitch(props: NodeProps) {
   return (
     <Shape
       {...X11880_FLUID_LEVEL_SWITCH}

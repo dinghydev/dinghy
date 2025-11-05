@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11920_FLOW_METER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11920_FLOW_METER = {
   _original_height: 75.04,
 }
 
-export function X11920FlowMeter(props: DiagramNodeProps) {
+export function X11920FlowMeter(props: NodeProps) {
   return (
     <Shape
       {...X11920_FLOW_METER}

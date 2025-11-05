@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MR_PORTAL = {
   _style: {
@@ -10,7 +10,7 @@ export const MR_PORTAL = {
   _original_height: 62.32,
 }
 
-export function MrPortal(props: DiagramNodeProps) {
+export function MrPortal(props: NodeProps) {
   return (
     <Shape {...MR_PORTAL} {...props} _style={extendStyle(MR_PORTAL, props)} />
   )

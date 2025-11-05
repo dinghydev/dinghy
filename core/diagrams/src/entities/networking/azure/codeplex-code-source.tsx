@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CODEPLEX_CODE_SOURCE = {
   _style: {
@@ -10,7 +10,7 @@ export const CODEPLEX_CODE_SOURCE = {
   _height: 37.5,
 }
 
-export function CodeplexCodeSource(props: DiagramNodeProps) {
+export function CodeplexCodeSource(props: NodeProps) {
   return (
     <Shape
       {...CODEPLEX_CODE_SOURCE}

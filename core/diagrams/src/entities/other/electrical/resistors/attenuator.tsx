@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATTENUATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const ATTENUATOR = {
   _height: 60,
 }
 
-export function Attenuator(props: DiagramNodeProps) {
+export function Attenuator(props: NodeProps) {
   return (
     <Shape {...ATTENUATOR} {...props} _style={extendStyle(ATTENUATOR, props)} />
   )

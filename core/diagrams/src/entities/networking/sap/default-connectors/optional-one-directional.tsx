@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPTIONAL_ONE_DIRECTIONAL = {
   _style: {
@@ -10,7 +10,7 @@ export const OPTIONAL_ONE_DIRECTIONAL = {
   _height: 0,
 }
 
-export function OptionalOneDirectional(props: DiagramNodeProps) {
+export function OptionalOneDirectional(props: NodeProps) {
   return (
     <Shape
       {...OPTIONAL_ONE_DIRECTIONAL}

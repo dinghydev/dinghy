@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NATIVE_TAPE_SUPPORT = {
   _style: {
@@ -10,7 +10,7 @@ export const NATIVE_TAPE_SUPPORT = {
   _original_height: 44.8,
 }
 
-export function NativeTapeSupport(props: DiagramNodeProps) {
+export function NativeTapeSupport(props: NodeProps) {
   return (
     <Shape
       {...NATIVE_TAPE_SUPPORT}

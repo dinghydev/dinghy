@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SNOWCONE = {
   _style: {
@@ -10,7 +10,7 @@ export const SNOWCONE = {
   _original_height: 78,
 }
 
-export function Snowcone(props: DiagramNodeProps) {
+export function Snowcone(props: NodeProps) {
   return (
     <Shape {...SNOWCONE} {...props} _style={extendStyle(SNOWCONE, props)} />
   )

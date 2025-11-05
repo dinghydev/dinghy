@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONFLUENCE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONFLUENCE = {
   _original_height: 57,
 }
 
-export function Confluence(props: DiagramNodeProps) {
+export function Confluence(props: NodeProps) {
   return (
     <Shape {...CONFLUENCE} {...props} _style={extendStyle(CONFLUENCE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EVENT_HUBS = {
   _style: {
@@ -10,7 +10,7 @@ export const EVENT_HUBS = {
   _original_height: 60,
 }
 
-export function EventHubs(props: DiagramNodeProps) {
+export function EventHubs(props: NodeProps) {
   return (
     <Shape {...EVENT_HUBS} {...props} _style={extendStyle(EVENT_HUBS, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_DATA_TRANSFER = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_DATA_TRANSFER = {
   _height: 35,
 }
 
-export function CloudDataTransfer(props: DiagramNodeProps) {
+export function CloudDataTransfer(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_DATA_TRANSFER}

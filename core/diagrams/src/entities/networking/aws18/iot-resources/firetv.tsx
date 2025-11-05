@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIRETV = {
   _style: {
@@ -10,6 +10,6 @@ export const FIRETV = {
   _original_height: 60,
 }
 
-export function Firetv(props: DiagramNodeProps) {
+export function Firetv(props: NodeProps) {
   return <Shape {...FIRETV} {...props} _style={extendStyle(FIRETV, props)} />
 }

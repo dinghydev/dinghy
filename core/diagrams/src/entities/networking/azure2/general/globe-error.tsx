@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLOBE_ERROR = {
   _style: {
@@ -10,7 +10,7 @@ export const GLOBE_ERROR = {
   _original_height: 66,
 }
 
-export function GlobeError(props: DiagramNodeProps) {
+export function GlobeError(props: NodeProps) {
   return (
     <Shape
       {...GLOBE_ERROR}

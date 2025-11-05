@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVERLESS = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVERLESS = {
   _original_height: 78,
 }
 
-export function Serverless(props: DiagramNodeProps) {
+export function Serverless(props: NodeProps) {
   return (
     <Shape {...SERVERLESS} {...props} _style={extendStyle(SERVERLESS, props)} />
   )

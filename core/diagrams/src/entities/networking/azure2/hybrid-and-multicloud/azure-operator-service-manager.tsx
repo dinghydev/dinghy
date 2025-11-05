@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_OPERATOR_SERVICE_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_OPERATOR_SERVICE_MANAGER = {
   _original_height: 68,
 }
 
-export function AzureOperatorServiceManager(props: DiagramNodeProps) {
+export function AzureOperatorServiceManager(props: NodeProps) {
   return (
     <Shape
       {...AZURE_OPERATOR_SERVICE_MANAGER}

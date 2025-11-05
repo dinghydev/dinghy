@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TOOLBAR = {
   _style: {
@@ -10,6 +10,6 @@ export const TOOLBAR = {
   _height: 64,
 }
 
-export function Toolbar(props: DiagramNodeProps) {
+export function Toolbar(props: NodeProps) {
   return <Shape {...TOOLBAR} {...props} _style={extendStyle(TOOLBAR, props)} />
 }

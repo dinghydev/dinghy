@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTENT_MODERATORS = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTENT_MODERATORS = {
   _original_height: 62.8,
 }
 
-export function ContentModerators(props: DiagramNodeProps) {
+export function ContentModerators(props: NodeProps) {
   return (
     <Shape
       {...CONTENT_MODERATORS}

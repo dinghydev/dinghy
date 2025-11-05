@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const YAHOO = {
   _style: {
@@ -10,6 +10,6 @@ export const YAHOO = {
   _original_height: 102.4,
 }
 
-export function Yahoo(props: DiagramNodeProps) {
+export function Yahoo(props: NodeProps) {
   return <Shape {...YAHOO} {...props} _style={extendStyle(YAHOO, props)} />
 }

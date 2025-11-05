@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_IDENTITY_AND_ACCESS_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_IDENTITY_AND_ACCESS_MANAGEMENT = {
   _height: 120,
 }
 
-export function AwsIdentityAndAccessManagement(props: DiagramNodeProps) {
+export function AwsIdentityAndAccessManagement(props: NodeProps) {
   return (
     <Shape
       {...AWS_IDENTITY_AND_ACCESS_MANAGEMENT}

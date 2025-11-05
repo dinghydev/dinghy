@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUICK_START_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const QUICK_START_CENTER = {
   _original_height: 50,
 }
 
-export function QuickStartCenter(props: DiagramNodeProps) {
+export function QuickStartCenter(props: NodeProps) {
   return (
     <Shape
       {...QUICK_START_CENTER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOCK_WITH_KEY_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const LOCK_WITH_KEY_SECURITY = {
   _original_height: 58,
 }
 
-export function LockWithKeySecurity(props: DiagramNodeProps) {
+export function LockWithKeySecurity(props: NodeProps) {
   return (
     <Shape
       {...LOCK_WITH_KEY_SECURITY}

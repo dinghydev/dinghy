@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKUP_AWS_BACKUP_SUPPORT_FOR_AMAZON_S3 = {
   _style: {
@@ -10,7 +10,7 @@ export const BACKUP_AWS_BACKUP_SUPPORT_FOR_AMAZON_S3 = {
   _original_height: 78,
 }
 
-export function BackupAwsBackupSupportForAmazonS3(props: DiagramNodeProps) {
+export function BackupAwsBackupSupportForAmazonS3(props: NodeProps) {
   return (
     <Shape
       {...BACKUP_AWS_BACKUP_SUPPORT_FOR_AMAZON_S3}

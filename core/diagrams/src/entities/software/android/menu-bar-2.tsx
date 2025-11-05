@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MENU_BAR_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const MENU_BAR_2 = {
   _height: 50,
 }
 
-export function MenuBar2(props: DiagramNodeProps) {
+export function MenuBar2(props: NodeProps) {
   return (
     <Shape {...MENU_BAR_2} {...props} _style={extendStyle(MENU_BAR_2, props)} />
   )

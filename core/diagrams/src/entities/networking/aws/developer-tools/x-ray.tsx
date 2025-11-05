@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X_RAY = {
   _style: {
@@ -10,6 +10,6 @@ export const X_RAY = {
   _original_height: 78,
 }
 
-export function XRay(props: DiagramNodeProps) {
+export function XRay(props: NodeProps) {
   return <Shape {...X_RAY} {...props} _style={extendStyle(X_RAY, props)} />
 }

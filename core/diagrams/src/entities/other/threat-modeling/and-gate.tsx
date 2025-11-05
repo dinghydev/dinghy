@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AND_GATE = {
   _style: {
@@ -10,7 +10,7 @@ export const AND_GATE = {
   _height: 80,
 }
 
-export function AndGate(props: DiagramNodeProps) {
+export function AndGate(props: NodeProps) {
   return (
     <Shape {...AND_GATE} {...props} _style={extendStyle(AND_GATE, props)} />
   )

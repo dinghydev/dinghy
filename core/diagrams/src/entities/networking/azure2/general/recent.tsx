@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RECENT = {
   _style: {
@@ -10,6 +10,6 @@ export const RECENT = {
   _original_height: 68,
 }
 
-export function Recent(props: DiagramNodeProps) {
+export function Recent(props: NodeProps) {
   return <Shape {...RECENT} {...props} _style={extendStyle(RECENT, props)} />
 }

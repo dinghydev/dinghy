@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDARMOR = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDARMOR = {
   _height: 40,
 }
 
-export function Cloudarmor(props: DiagramNodeProps) {
+export function Cloudarmor(props: NodeProps) {
   return (
     <Shape {...CLOUDARMOR} {...props} _style={extendStyle(CLOUDARMOR, props)} />
   )

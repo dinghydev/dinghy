@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REMOVABLE_TAG = {
   _style: {
@@ -10,7 +10,7 @@ export const REMOVABLE_TAG = {
   _height: 20,
 }
 
-export function RemovableTag(props: DiagramNodeProps) {
+export function RemovableTag(props: NodeProps) {
   return (
     <Shape
       {...REMOVABLE_TAG}

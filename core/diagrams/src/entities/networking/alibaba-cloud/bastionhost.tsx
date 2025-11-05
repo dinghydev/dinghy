@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BASTIONHOST = {
   _style: {
@@ -10,7 +10,7 @@ export const BASTIONHOST = {
   _height: 39.900000000000006,
 }
 
-export function Bastionhost(props: DiagramNodeProps) {
+export function Bastionhost(props: NodeProps) {
   return (
     <Shape
       {...BASTIONHOST}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NLP_NER_NAMED_ENTITY_RECOGNITION = {
   _style: {
@@ -10,7 +10,7 @@ export const NLP_NER_NAMED_ENTITY_RECOGNITION = {
   _original_height: 47.400000000000006,
 }
 
-export function NlpNerNamedEntityRecognition(props: DiagramNodeProps) {
+export function NlpNerNamedEntityRecognition(props: NodeProps) {
   return (
     <Shape
       {...NLP_NER_NAMED_ENTITY_RECOGNITION}

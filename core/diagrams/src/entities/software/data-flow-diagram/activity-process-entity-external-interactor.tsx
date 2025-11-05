@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIVITY_PROCESS_ENTITY_EXTERNAL_INTERACTOR = {
   _style: {
@@ -9,9 +9,7 @@ export const ACTIVITY_PROCESS_ENTITY_EXTERNAL_INTERACTOR = {
   _height: 50,
 }
 
-export function ActivityProcessEntityExternalInteractor(
-  props: DiagramNodeProps,
-) {
+export function ActivityProcessEntityExternalInteractor(props: NodeProps) {
   return (
     <Shape
       {...ACTIVITY_PROCESS_ENTITY_EXTERNAL_INTERACTOR}

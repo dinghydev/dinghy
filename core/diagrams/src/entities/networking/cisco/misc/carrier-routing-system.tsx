@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CARRIER_ROUTING_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const CARRIER_ROUTING_SYSTEM = {
   _original_height: 78,
 }
 
-export function CarrierRoutingSystem(props: DiagramNodeProps) {
+export function CarrierRoutingSystem(props: NodeProps) {
   return (
     <Shape
       {...CARRIER_ROUTING_SYSTEM}

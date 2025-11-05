@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMM_LINK = {
   _style: {
@@ -8,7 +8,7 @@ export const COMM_LINK = {
   },
 }
 
-export function CommLink(props: DiagramNodeProps) {
+export function CommLink(props: NodeProps) {
   return (
     <Dependency
       {...COMM_LINK}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EFS_SHARE = {
   _style: {
@@ -10,7 +10,7 @@ export const EFS_SHARE = {
   _original_height: 63,
 }
 
-export function EfsShare(props: DiagramNodeProps) {
+export function EfsShare(props: NodeProps) {
   return (
     <Shape {...EFS_SHARE} {...props} _style={extendStyle(EFS_SHARE, props)} />
   )

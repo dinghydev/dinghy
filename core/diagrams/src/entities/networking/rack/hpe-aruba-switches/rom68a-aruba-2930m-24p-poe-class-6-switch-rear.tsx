@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROM68A_ARUBA_2930M_24P_POE_CLASS_6_SWITCH_REAR = {
   _style: {
@@ -10,9 +10,7 @@ export const ROM68A_ARUBA_2930M_24P_POE_CLASS_6_SWITCH_REAR = {
   _height: 15,
 }
 
-export function Rom68aAruba2930m24pPoeClass6SwitchRear(
-  props: DiagramNodeProps,
-) {
+export function Rom68aAruba2930m24pPoeClass6SwitchRear(props: NodeProps) {
   return (
     <Shape
       {...ROM68A_ARUBA_2930M_24P_POE_CLASS_6_SWITCH_REAR}

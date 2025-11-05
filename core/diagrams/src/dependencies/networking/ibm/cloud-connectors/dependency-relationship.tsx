@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEPENDENCY_RELATIONSHIP = {
   _style: {
@@ -8,7 +8,7 @@ export const DEPENDENCY_RELATIONSHIP = {
   },
 }
 
-export function DependencyRelationship(props: DiagramNodeProps) {
+export function DependencyRelationship(props: NodeProps) {
   return (
     <Dependency
       {...DEPENDENCY_RELATIONSHIP}

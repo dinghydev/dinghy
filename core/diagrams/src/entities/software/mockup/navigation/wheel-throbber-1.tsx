@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WHEEL_THROBBER_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const WHEEL_THROBBER_1 = {
   _original_height: 90,
 }
 
-export function WheelThrobber1(props: DiagramNodeProps) {
+export function WheelThrobber1(props: NodeProps) {
   return (
     <Shape
       {...WHEEL_THROBBER_1}

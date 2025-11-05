@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import type { DiagramNodeProps, NodeTree, Props } from '@dinghy/base-components'
+import type { NodeProps, NodeTree, Props } from '@dinghy/base-components'
 import z from 'zod'
 
 export type DrawioRenderOptions = {
@@ -81,7 +81,7 @@ export type DrawioNodeProps = {
   _viewAttributes?: Record<string, any>
   _dependsOn?: DrawioNodeTree[]
   _dependsBy?: DrawioNodeTree[]
-} & DiagramNodeProps
+} & NodeProps
 
 export type DrawioNodeTree = {
   _parent: DrawioNodeTree

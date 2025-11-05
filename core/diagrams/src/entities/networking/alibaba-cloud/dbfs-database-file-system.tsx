@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DBFS_DATABASE_FILE_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const DBFS_DATABASE_FILE_SYSTEM = {
   _original_height: 48,
 }
 
-export function DbfsDatabaseFileSystem(props: DiagramNodeProps) {
+export function DbfsDatabaseFileSystem(props: NodeProps) {
   return (
     <Shape
       {...DBFS_DATABASE_FILE_SYSTEM}

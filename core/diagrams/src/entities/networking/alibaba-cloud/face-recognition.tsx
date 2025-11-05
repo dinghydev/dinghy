@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FACE_RECOGNITION = {
   _style: {
@@ -10,7 +10,7 @@ export const FACE_RECOGNITION = {
   _original_height: 46.800000000000004,
 }
 
-export function FaceRecognition(props: DiagramNodeProps) {
+export function FaceRecognition(props: NodeProps) {
   return (
     <Shape
       {...FACE_RECOGNITION}

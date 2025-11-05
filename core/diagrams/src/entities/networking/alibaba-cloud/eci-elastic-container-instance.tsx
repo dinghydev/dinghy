@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ECI_ELASTIC_CONTAINER_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const ECI_ELASTIC_CONTAINER_INSTANCE = {
   _height: 38.4,
 }
 
-export function EciElasticContainerInstance(props: DiagramNodeProps) {
+export function EciElasticContainerInstance(props: NodeProps) {
   return (
     <Shape
       {...ECI_ELASTIC_CONTAINER_INSTANCE}

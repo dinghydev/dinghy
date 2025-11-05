@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RJ45_SFP_ALT = {
   _style: {
@@ -10,7 +10,7 @@ export const RJ45_SFP_ALT = {
   _height: 4,
 }
 
-export function Rj45SfpAlt(props: DiagramNodeProps) {
+export function Rj45SfpAlt(props: NodeProps) {
   return (
     <Shape
       {...RJ45_SFP_ALT}

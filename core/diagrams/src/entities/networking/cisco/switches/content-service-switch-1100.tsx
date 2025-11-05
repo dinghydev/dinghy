@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTENT_SERVICE_SWITCH_1100 = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTENT_SERVICE_SWITCH_1100 = {
   _height: 64,
 }
 
-export function ContentServiceSwitch1100(props: DiagramNodeProps) {
+export function ContentServiceSwitch1100(props: NodeProps) {
   return (
     <Shape
       {...CONTENT_SERVICE_SWITCH_1100}

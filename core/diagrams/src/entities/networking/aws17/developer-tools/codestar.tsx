@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CODESTAR = {
   _style: {
@@ -10,7 +10,7 @@ export const CODESTAR = {
   _original_height: 81,
 }
 
-export function Codestar(props: DiagramNodeProps) {
+export function Codestar(props: NodeProps) {
   return (
     <Shape {...CODESTAR} {...props} _style={extendStyle(CODESTAR, props)} />
   )

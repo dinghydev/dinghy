@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIME_EVENT = {
   _style: {
@@ -10,7 +10,7 @@ export const TIME_EVENT = {
   _height: 40,
 }
 
-export function TimeEvent(props: DiagramNodeProps) {
+export function TimeEvent(props: NodeProps) {
   return (
     <Shape {...TIME_EVENT} {...props} _style={extendStyle(TIME_EVENT, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLASSIC_INFRASTRUCTURE = {
   _style: {
@@ -11,7 +11,7 @@ export const CLASSIC_INFRASTRUCTURE = {
   },
 }
 
-export function ClassicInfrastructure(props: DiagramNodeProps) {
+export function ClassicInfrastructure(props: NodeProps) {
   return (
     <Shape
       {...CLASSIC_INFRASTRUCTURE}

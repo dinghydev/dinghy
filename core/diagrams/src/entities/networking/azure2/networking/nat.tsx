@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAT = {
   _style: {
@@ -10,6 +10,6 @@ export const NAT = {
   _original_height: 68,
 }
 
-export function Nat(props: DiagramNodeProps) {
+export function Nat(props: NodeProps) {
   return <Shape {...NAT} {...props} _style={extendStyle(NAT, props)} />
 }

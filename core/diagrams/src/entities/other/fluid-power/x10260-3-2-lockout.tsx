@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10260_3_2_LOCKOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const X10260_3_2_LOCKOUT = {
   _height: 74.48,
 }
 
-export function X1026032Lockout(props: DiagramNodeProps) {
+export function X1026032Lockout(props: NodeProps) {
   return (
     <Shape
       {...X10260_3_2_LOCKOUT}

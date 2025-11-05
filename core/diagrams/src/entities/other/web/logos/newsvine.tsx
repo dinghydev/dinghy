@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEWSVINE = {
   _style: {
@@ -10,7 +10,7 @@ export const NEWSVINE = {
   _height: 77.2,
 }
 
-export function Newsvine(props: DiagramNodeProps) {
+export function Newsvine(props: NodeProps) {
   return (
     <Shape {...NEWSVINE} {...props} _style={extendStyle(NEWSVINE, props)} />
   )

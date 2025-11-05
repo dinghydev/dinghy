@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARUBA_MOBILITY_MASTER_10K_REAR = {
   _style: {
@@ -10,7 +10,7 @@ export const ARUBA_MOBILITY_MASTER_10K_REAR = {
   _height: 15,
 }
 
-export function ArubaMobilityMaster10kRear(props: DiagramNodeProps) {
+export function ArubaMobilityMaster10kRear(props: NodeProps) {
   return (
     <Shape
       {...ARUBA_MOBILITY_MASTER_10K_REAR}

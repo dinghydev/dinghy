@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NAND = {
   _style: {
@@ -10,6 +10,6 @@ export const NAND = {
   _height: 60,
 }
 
-export function Nand(props: DiagramNodeProps) {
+export function Nand(props: NodeProps) {
   return <Shape {...NAND} {...props} _style={extendStyle(NAND, props)} />
 }

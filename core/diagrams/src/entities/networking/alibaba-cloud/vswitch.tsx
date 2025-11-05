@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VSWITCH = {
   _style: {
@@ -10,6 +10,6 @@ export const VSWITCH = {
   _height: 37.5,
 }
 
-export function Vswitch(props: DiagramNodeProps) {
+export function Vswitch(props: NodeProps) {
   return <Shape {...VSWITCH} {...props} _style={extendStyle(VSWITCH, props)} />
 }

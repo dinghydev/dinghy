@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IP_GROUPS = {
   _style: {
@@ -10,7 +10,7 @@ export const IP_GROUPS = {
   _original_height: 52,
 }
 
-export function IpGroups(props: DiagramNodeProps) {
+export function IpGroups(props: NodeProps) {
   return (
     <Shape {...IP_GROUPS} {...props} _style={extendStyle(IP_GROUPS, props)} />
   )

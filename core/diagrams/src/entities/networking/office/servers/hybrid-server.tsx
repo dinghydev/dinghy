@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HYBRID_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const HYBRID_SERVER = {
   _original_height: 52,
 }
 
-export function HybridServer(props: DiagramNodeProps) {
+export function HybridServer(props: NodeProps) {
   return (
     <Shape
       {...HYBRID_SERVER}

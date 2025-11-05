@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10590_ACCUMULATOR_CHARGING_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const X10590_ACCUMULATOR_CHARGING_VALVE = {
   _height: 205.46,
 }
 
-export function X10590AccumulatorChargingValve(props: DiagramNodeProps) {
+export function X10590AccumulatorChargingValve(props: NodeProps) {
   return (
     <Shape
       {...X10590_ACCUMULATOR_CHARGING_VALVE}

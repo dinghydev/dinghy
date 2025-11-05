@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURE_CATALYST_SWITCH_SUBDUED = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURE_CATALYST_SWITCH_SUBDUED = {
   _original_height: 50,
 }
 
-export function SecureCatalystSwitchSubdued(props: DiagramNodeProps) {
+export function SecureCatalystSwitchSubdued(props: NodeProps) {
   return (
     <Shape
       {...SECURE_CATALYST_SWITCH_SUBDUED}

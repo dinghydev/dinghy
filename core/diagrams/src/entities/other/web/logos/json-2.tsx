@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JSON_2 = {
   _style: {
@@ -10,6 +10,6 @@ export const JSON_2 = {
   _height: 25.200000000000003,
 }
 
-export function Json2(props: DiagramNodeProps) {
+export function Json2(props: NodeProps) {
   return <Shape {...JSON_2} {...props} _style={extendStyle(JSON_2, props)} />
 }

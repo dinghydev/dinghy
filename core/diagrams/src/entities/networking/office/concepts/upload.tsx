@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UPLOAD = {
   _style: {
@@ -10,6 +10,6 @@ export const UPLOAD = {
   _original_height: 55,
 }
 
-export function Upload(props: DiagramNodeProps) {
+export function Upload(props: NodeProps) {
   return <Shape {...UPLOAD} {...props} _style={extendStyle(UPLOAD, props)} />
 }

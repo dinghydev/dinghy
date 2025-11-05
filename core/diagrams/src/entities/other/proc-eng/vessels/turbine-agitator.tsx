@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TURBINE_AGITATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const TURBINE_AGITATOR = {
   _height: 93,
 }
 
-export function TurbineAgitator(props: DiagramNodeProps) {
+export function TurbineAgitator(props: NodeProps) {
   return (
     <Shape
       {...TURBINE_AGITATOR}

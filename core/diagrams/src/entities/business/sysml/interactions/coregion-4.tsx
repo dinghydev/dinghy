@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COREGION_4 = {
   _style: {
@@ -10,7 +10,7 @@ export const COREGION_4 = {
   _height: 220,
 }
 
-export function Coregion4(props: DiagramNodeProps) {
+export function Coregion4(props: NodeProps) {
   return (
     <Shape {...COREGION_4} {...props} _style={extendStyle(COREGION_4, props)} />
   )

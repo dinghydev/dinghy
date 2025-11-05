@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_PROJECT_AND_RESOURCE_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_PROJECT_AND_RESOURCE_MANAGEMENT = {
   _original_height: 50,
 }
 
-export function SapProjectAndResourceManagement(props: DiagramNodeProps) {
+export function SapProjectAndResourceManagement(props: NodeProps) {
   return (
     <Shape
       {...SAP_PROJECT_AND_RESOURCE_MANAGEMENT}

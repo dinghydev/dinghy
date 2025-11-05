@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STEALTHWATCH_MANAGEMENT_CONSOLE_SMC = {
   _style: {
@@ -10,7 +10,7 @@ export const STEALTHWATCH_MANAGEMENT_CONSOLE_SMC = {
   _original_height: 40,
 }
 
-export function StealthwatchManagementConsoleSmc(props: DiagramNodeProps) {
+export function StealthwatchManagementConsoleSmc(props: NodeProps) {
   return (
     <Shape
       {...STEALTHWATCH_MANAGEMENT_CONSOLE_SMC}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERIC_GROUP_2 = {
   _style: {
@@ -12,7 +12,7 @@ export const GENERIC_GROUP_2 = {
   },
 }
 
-export function GenericGroup2(props: DiagramNodeProps) {
+export function GenericGroup2(props: NodeProps) {
   return (
     <Shape
       {...GENERIC_GROUP_2}

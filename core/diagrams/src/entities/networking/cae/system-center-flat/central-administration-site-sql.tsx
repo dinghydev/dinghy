@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CENTRAL_ADMINISTRATION_SITE_SQL = {
   _style: {
@@ -10,7 +10,7 @@ export const CENTRAL_ADMINISTRATION_SITE_SQL = {
   _height: 50,
 }
 
-export function CentralAdministrationSiteSql(props: DiagramNodeProps) {
+export function CentralAdministrationSiteSql(props: NodeProps) {
   return (
     <Shape
       {...CENTRAL_ADMINISTRATION_SITE_SQL}

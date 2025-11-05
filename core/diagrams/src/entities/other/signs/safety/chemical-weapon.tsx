@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHEMICAL_WEAPON = {
   _style: {
@@ -10,7 +10,7 @@ export const CHEMICAL_WEAPON = {
   _original_height: 98,
 }
 
-export function ChemicalWeapon(props: DiagramNodeProps) {
+export function ChemicalWeapon(props: NodeProps) {
   return (
     <Shape
       {...CHEMICAL_WEAPON}

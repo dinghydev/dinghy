@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSFORMATION_CONNECTIVITY = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSFORMATION_CONNECTIVITY = {
   _original_height: 60,
 }
 
-export function TransformationConnectivity(props: DiagramNodeProps) {
+export function TransformationConnectivity(props: NodeProps) {
   return (
     <Shape
       {...TRANSFORMATION_CONNECTIVITY}

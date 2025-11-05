@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10560_PITOT_OPERATED_TWO_PORT = {
   _style: {
@@ -10,7 +10,7 @@ export const X10560_PITOT_OPERATED_TWO_PORT = {
   _height: 75.54,
 }
 
-export function X10560PitotOperatedTwoPort(props: DiagramNodeProps) {
+export function X10560PitotOperatedTwoPort(props: NodeProps) {
   return (
     <Shape
       {...X10560_PITOT_OPERATED_TWO_PORT}

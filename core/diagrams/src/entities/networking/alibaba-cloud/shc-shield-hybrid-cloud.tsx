@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHC_SHIELD_HYBRID_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const SHC_SHIELD_HYBRID_CLOUD = {
   _original_height: 45.3,
 }
 
-export function ShcShieldHybridCloud(props: DiagramNodeProps) {
+export function ShcShieldHybridCloud(props: NodeProps) {
   return (
     <Shape
       {...SHC_SHIELD_HYBRID_CLOUD}

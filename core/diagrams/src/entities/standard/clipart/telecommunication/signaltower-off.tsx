@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIGNALTOWER_OFF = {
   _style: {
@@ -10,7 +10,7 @@ export const SIGNALTOWER_OFF = {
   _original_height: 80,
 }
 
-export function SignaltowerOff(props: DiagramNodeProps) {
+export function SignaltowerOff(props: NodeProps) {
   return (
     <Shape
       {...SIGNALTOWER_OFF}

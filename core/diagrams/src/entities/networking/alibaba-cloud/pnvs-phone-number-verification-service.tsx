@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PNVS_PHONE_NUMBER_VERIFICATION_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const PNVS_PHONE_NUMBER_VERIFICATION_SERVICE = {
   _height: 50.099999999999994,
 }
 
-export function PnvsPhoneNumberVerificationService(props: DiagramNodeProps) {
+export function PnvsPhoneNumberVerificationService(props: NodeProps) {
   return (
     <Shape
       {...PNVS_PHONE_NUMBER_VERIFICATION_SERVICE}

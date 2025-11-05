@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAS_SITUATIONAL_AWARENESS = {
   _style: {
@@ -10,7 +10,7 @@ export const SAS_SITUATIONAL_AWARENESS = {
   _original_height: 49.199999999999996,
 }
 
-export function SasSituationalAwareness(props: DiagramNodeProps) {
+export function SasSituationalAwareness(props: NodeProps) {
   return (
     <Shape
       {...SAS_SITUATIONAL_AWARENESS}

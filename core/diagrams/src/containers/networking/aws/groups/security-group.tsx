@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURITY_GROUP = {
   _style: {
@@ -12,7 +12,7 @@ export const SECURITY_GROUP = {
   },
 }
 
-export function SecurityGroup(props: DiagramNodeProps) {
+export function SecurityGroup(props: NodeProps) {
   return (
     <Shape
       {...SECURITY_GROUP}

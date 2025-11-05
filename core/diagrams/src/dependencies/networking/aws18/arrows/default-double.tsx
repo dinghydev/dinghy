@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFAULT_DOUBLE = {
   _style: {
@@ -8,7 +8,7 @@ export const DEFAULT_DOUBLE = {
   },
 }
 
-export function DefaultDouble(props: DiagramNodeProps) {
+export function DefaultDouble(props: NodeProps) {
   return (
     <Dependency
       {...DEFAULT_DOUBLE}

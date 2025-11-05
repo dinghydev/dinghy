@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POSITIVE_DISPLACEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const POSITIVE_DISPLACEMENT = {
   _height: 30,
 }
 
-export function PositiveDisplacement(props: DiagramNodeProps) {
+export function PositiveDisplacement(props: NodeProps) {
   return (
     <Shape
       {...POSITIVE_DISPLACEMENT}

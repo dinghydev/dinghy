@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCHOOL_BUILDING = {
   _style: {
@@ -10,7 +10,7 @@ export const SCHOOL_BUILDING = {
   _height: 166.79999999999998,
 }
 
-export function SchoolBuilding(props: DiagramNodeProps) {
+export function SchoolBuilding(props: NodeProps) {
   return (
     <Shape
       {...SCHOOL_BUILDING}

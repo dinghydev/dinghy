@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CROSS_COUNTRY_SKIING_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const CROSS_COUNTRY_SKIING_1 = {
   _original_height: 94,
 }
 
-export function CrossCountrySkiing1(props: DiagramNodeProps) {
+export function CrossCountrySkiing1(props: NodeProps) {
   return (
     <Shape
       {...CROSS_COUNTRY_SKIING_1}

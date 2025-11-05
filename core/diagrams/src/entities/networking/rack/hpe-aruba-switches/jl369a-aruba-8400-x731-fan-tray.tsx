@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL369A_ARUBA_8400_X731_FAN_TRAY = {
   _style: {
@@ -10,7 +10,7 @@ export const JL369A_ARUBA_8400_X731_FAN_TRAY = {
   _height: 27,
 }
 
-export function Jl369aAruba8400X731FanTray(props: DiagramNodeProps) {
+export function Jl369aAruba8400X731FanTray(props: NodeProps) {
   return (
     <Shape
       {...JL369A_ARUBA_8400_X731_FAN_TRAY}

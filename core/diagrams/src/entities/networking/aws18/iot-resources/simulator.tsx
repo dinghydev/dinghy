@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIMULATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SIMULATOR = {
   _original_height: 60,
 }
 
-export function Simulator(props: DiagramNodeProps) {
+export function Simulator(props: NodeProps) {
   return (
     <Shape {...SIMULATOR} {...props} _style={extendStyle(SIMULATOR, props)} />
   )

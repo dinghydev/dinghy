@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOLD_TOGGLE_DISABLED = {
   _style: {
@@ -10,7 +10,7 @@ export const BOLD_TOGGLE_DISABLED = {
   _height: 20,
 }
 
-export function BoldToggleDisabled(props: DiagramNodeProps) {
+export function BoldToggleDisabled(props: NodeProps) {
   return (
     <Shape
       {...BOLD_TOGGLE_DISABLED}

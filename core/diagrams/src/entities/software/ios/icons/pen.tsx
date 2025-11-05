@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PEN = {
   _style: {
@@ -10,6 +10,6 @@ export const PEN = {
   _height: 29.7,
 }
 
-export function Pen(props: DiagramNodeProps) {
+export function Pen(props: NodeProps) {
   return <Shape {...PEN} {...props} _style={extendStyle(PEN, props)} />
 }

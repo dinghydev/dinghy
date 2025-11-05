@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROTECTED_VOICE_MAIL = {
   _style: {
@@ -10,7 +10,7 @@ export const PROTECTED_VOICE_MAIL = {
   _original_height: 51,
 }
 
-export function ProtectedVoiceMail(props: DiagramNodeProps) {
+export function ProtectedVoiceMail(props: NodeProps) {
   return (
     <Shape
       {...PROTECTED_VOICE_MAIL}

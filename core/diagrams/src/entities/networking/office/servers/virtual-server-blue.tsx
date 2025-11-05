@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_SERVER_BLUE = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_SERVER_BLUE = {
   _height: 52,
 }
 
-export function VirtualServerBlue(props: DiagramNodeProps) {
+export function VirtualServerBlue(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_SERVER_BLUE}

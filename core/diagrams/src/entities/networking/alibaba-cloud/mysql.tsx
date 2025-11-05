@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MYSQL = {
   _style: {
@@ -10,6 +10,6 @@ export const MYSQL = {
   _original_height: 45,
 }
 
-export function Mysql(props: DiagramNodeProps) {
+export function Mysql(props: NodeProps) {
   return <Shape {...MYSQL} {...props} _style={extendStyle(MYSQL, props)} />
 }

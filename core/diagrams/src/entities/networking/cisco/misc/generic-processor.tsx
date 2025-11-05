@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERIC_PROCESSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const GENERIC_PROCESSOR = {
   _height: 83,
 }
 
-export function GenericProcessor(props: DiagramNodeProps) {
+export function GenericProcessor(props: NodeProps) {
   return (
     <Shape
       {...GENERIC_PROCESSOR}

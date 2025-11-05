@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLANGED_DUMMY_COVER = {
   _style: {
@@ -10,7 +10,7 @@ export const FLANGED_DUMMY_COVER = {
   _height: 50,
 }
 
-export function FlangedDummyCover(props: DiagramNodeProps) {
+export function FlangedDummyCover(props: NodeProps) {
   return (
     <Shape
       {...FLANGED_DUMMY_COVER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NOTCHED_SIGNAL_IN_ARROW = {
   _style: {
@@ -10,7 +10,7 @@ export const NOTCHED_SIGNAL_IN_ARROW = {
   _height: 30,
 }
 
-export function NotchedSignalInArrow(props: DiagramNodeProps) {
+export function NotchedSignalInArrow(props: NodeProps) {
   return (
     <Shape
       {...NOTCHED_SIGNAL_IN_ARROW}

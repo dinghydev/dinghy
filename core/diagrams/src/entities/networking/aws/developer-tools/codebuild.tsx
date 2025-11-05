@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CODEBUILD = {
   _style: {
@@ -10,7 +10,7 @@ export const CODEBUILD = {
   _original_height: 78,
 }
 
-export function Codebuild(props: DiagramNodeProps) {
+export function Codebuild(props: NodeProps) {
   return (
     <Shape {...CODEBUILD} {...props} _style={extendStyle(CODEBUILD, props)} />
   )

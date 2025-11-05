@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPETING_CONSUMERS = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPETING_CONSUMERS = {
   _height: 90,
 }
 
-export function CompetingConsumers(props: DiagramNodeProps) {
+export function CompetingConsumers(props: NodeProps) {
   return (
     <Shape
       {...COMPETING_CONSUMERS}

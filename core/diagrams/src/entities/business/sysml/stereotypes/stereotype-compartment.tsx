@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STEREOTYPE_COMPARTMENT = {
   _style: {
@@ -9,7 +9,7 @@ export const STEREOTYPE_COMPARTMENT = {
   _height: 100,
 }
 
-export function StereotypeCompartment(props: DiagramNodeProps) {
+export function StereotypeCompartment(props: NodeProps) {
   return (
     <Shape
       {...STEREOTYPE_COMPARTMENT}

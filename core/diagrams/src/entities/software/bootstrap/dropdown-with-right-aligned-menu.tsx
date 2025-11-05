@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DROPDOWN_WITH_RIGHT_ALIGNED_MENU = {
   _style: {
@@ -10,7 +10,7 @@ export const DROPDOWN_WITH_RIGHT_ALIGNED_MENU = {
   _height: 153,
 }
 
-export function DropdownWithRightAlignedMenu(props: DiagramNodeProps) {
+export function DropdownWithRightAlignedMenu(props: NodeProps) {
   return (
     <Shape
       {...DROPDOWN_WITH_RIGHT_ALIGNED_MENU}

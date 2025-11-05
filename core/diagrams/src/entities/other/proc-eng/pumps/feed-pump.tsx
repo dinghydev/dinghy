@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FEED_PUMP = {
   _style: {
@@ -10,7 +10,7 @@ export const FEED_PUMP = {
   _height: 40,
 }
 
-export function FeedPump(props: DiagramNodeProps) {
+export function FeedPump(props: NodeProps) {
   return (
     <Shape {...FEED_PUMP} {...props} _style={extendStyle(FEED_PUMP, props)} />
   )

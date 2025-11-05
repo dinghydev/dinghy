@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLANK_TWO_AND_THREE_LINE = {
   _style: {
@@ -10,7 +10,7 @@ export const BLANK_TWO_AND_THREE_LINE = {
   _height: 44,
 }
 
-export function BlankTwoAndThreeLine(props: DiagramNodeProps) {
+export function BlankTwoAndThreeLine(props: NodeProps) {
   return (
     <Shape
       {...BLANK_TWO_AND_THREE_LINE}

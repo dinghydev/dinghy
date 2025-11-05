@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACK_DRAFT_DAMPER = {
   _style: {
@@ -10,7 +10,7 @@ export const BACK_DRAFT_DAMPER = {
   _height: 32,
 }
 
-export function BackDraftDamper(props: DiagramNodeProps) {
+export function BackDraftDamper(props: NodeProps) {
   return (
     <Shape
       {...BACK_DRAFT_DAMPER}

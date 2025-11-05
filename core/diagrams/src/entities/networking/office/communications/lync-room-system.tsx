@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LYNC_ROOM_SYSTEM = {
   _style: {
@@ -10,7 +10,7 @@ export const LYNC_ROOM_SYSTEM = {
   _height: 42,
 }
 
-export function LyncRoomSystem(props: DiagramNodeProps) {
+export function LyncRoomSystem(props: NodeProps) {
   return (
     <Shape
       {...LYNC_ROOM_SYSTEM}

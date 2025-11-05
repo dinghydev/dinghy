@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XOR = {
   _style: {
@@ -10,6 +10,6 @@ export const XOR = {
   _height: 60,
 }
 
-export function Xor(props: DiagramNodeProps) {
+export function Xor(props: NodeProps) {
   return <Shape {...XOR} {...props} _style={extendStyle(XOR, props)} />
 }

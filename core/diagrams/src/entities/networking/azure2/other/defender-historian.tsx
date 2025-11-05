@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_HISTORIAN = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_HISTORIAN = {
   _original_height: 67.08,
 }
 
-export function DefenderHistorian(props: DiagramNodeProps) {
+export function DefenderHistorian(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_HISTORIAN}

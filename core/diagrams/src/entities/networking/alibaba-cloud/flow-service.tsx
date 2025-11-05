@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLOW_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const FLOW_SERVICE = {
   _height: 52.5,
 }
 
-export function FlowService(props: DiagramNodeProps) {
+export function FlowService(props: NodeProps) {
   return (
     <Shape
       {...FLOW_SERVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ZIPPED = {
   _style: {
@@ -10,6 +10,6 @@ export const ZIPPED = {
   _original_height: 21,
 }
 
-export function Zipped(props: DiagramNodeProps) {
+export function Zipped(props: NodeProps) {
   return <Shape {...ZIPPED} {...props} _style={extendStyle(ZIPPED, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PIOP = {
   _style: {
@@ -10,6 +10,6 @@ export const PIOP = {
   _original_height: 63,
 }
 
-export function Piop(props: DiagramNodeProps) {
+export function Piop(props: NodeProps) {
   return <Shape {...PIOP} {...props} _style={extendStyle(PIOP, props)} />
 }

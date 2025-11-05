@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GAS_BOTTLE = {
   _style: {
@@ -10,7 +10,7 @@ export const GAS_BOTTLE = {
   _height: 95,
 }
 
-export function GasBottle(props: DiagramNodeProps) {
+export function GasBottle(props: NodeProps) {
   return (
     <Shape {...GAS_BOTTLE} {...props} _style={extendStyle(GAS_BOTTLE, props)} />
   )

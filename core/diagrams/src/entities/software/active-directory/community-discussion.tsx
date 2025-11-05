@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMMUNITY_DISCUSSION = {
   _style: {
@@ -10,7 +10,7 @@ export const COMMUNITY_DISCUSSION = {
   _original_height: 45,
 }
 
-export function CommunityDiscussion(props: DiagramNodeProps) {
+export function CommunityDiscussion(props: NodeProps) {
   return (
     <Shape
       {...COMMUNITY_DISCUSSION}

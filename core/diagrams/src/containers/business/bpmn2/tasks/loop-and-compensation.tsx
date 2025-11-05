@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOOP_AND_COMPENSATION = {
   _style: {
@@ -8,7 +8,7 @@ export const LOOP_AND_COMPENSATION = {
   },
 }
 
-export function LoopAndCompensation(props: DiagramNodeProps) {
+export function LoopAndCompensation(props: NodeProps) {
   return (
     <Shape
       {...LOOP_AND_COMPENSATION}

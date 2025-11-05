@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROTARY_SCREEN = {
   _style: {
@@ -10,7 +10,7 @@ export const ROTARY_SCREEN = {
   _height: 65,
 }
 
-export function RotaryScreen(props: DiagramNodeProps) {
+export function RotaryScreen(props: NodeProps) {
   return (
     <Shape
       {...ROTARY_SCREEN}

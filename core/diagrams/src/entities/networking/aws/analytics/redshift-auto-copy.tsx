@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REDSHIFT_AUTO_COPY = {
   _style: {
@@ -10,7 +10,7 @@ export const REDSHIFT_AUTO_COPY = {
   _original_height: 78,
 }
 
-export function RedshiftAutoCopy(props: DiagramNodeProps) {
+export function RedshiftAutoCopy(props: NodeProps) {
   return (
     <Shape
       {...REDSHIFT_AUTO_COPY}

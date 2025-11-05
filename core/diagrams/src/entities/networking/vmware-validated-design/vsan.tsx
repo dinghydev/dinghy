@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VSAN = {
   _style: {
@@ -10,6 +10,6 @@ export const VSAN = {
   _original_height: 50,
 }
 
-export function Vsan(props: DiagramNodeProps) {
+export function Vsan(props: NodeProps) {
   return <Shape {...VSAN} {...props} _style={extendStyle(VSAN, props)} />
 }

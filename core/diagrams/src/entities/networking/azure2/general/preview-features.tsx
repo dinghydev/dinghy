@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PREVIEW_FEATURES = {
   _style: {
@@ -10,7 +10,7 @@ export const PREVIEW_FEATURES = {
   _original_height: 68,
 }
 
-export function PreviewFeatures(props: DiagramNodeProps) {
+export function PreviewFeatures(props: NodeProps) {
   return (
     <Shape
       {...PREVIEW_FEATURES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERALIZATION_SET_2 = {
   _style: {
@@ -9,7 +9,7 @@ export const GENERALIZATION_SET_2 = {
   _height: 80,
 }
 
-export function GeneralizationSet2(props: DiagramNodeProps) {
+export function GeneralizationSet2(props: NodeProps) {
   return (
     <Shape
       {...GENERALIZATION_SET_2}

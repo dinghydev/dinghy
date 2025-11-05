@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOOR_BI_FOLD = {
   _style: {
@@ -10,7 +10,7 @@ export const DOOR_BI_FOLD = {
   _height: 40,
 }
 
-export function DoorBiFold(props: DiagramNodeProps) {
+export function DoorBiFold(props: NodeProps) {
   return (
     <Shape
       {...DOOR_BI_FOLD}

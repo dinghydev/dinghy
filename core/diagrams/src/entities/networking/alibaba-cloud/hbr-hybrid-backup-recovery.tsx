@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HBR_HYBRID_BACKUP_RECOVERY = {
   _style: {
@@ -10,7 +10,7 @@ export const HBR_HYBRID_BACKUP_RECOVERY = {
   _original_height: 54.900000000000006,
 }
 
-export function HbrHybridBackupRecovery(props: DiagramNodeProps) {
+export function HbrHybridBackupRecovery(props: NodeProps) {
   return (
     <Shape
       {...HBR_HYBRID_BACKUP_RECOVERY}

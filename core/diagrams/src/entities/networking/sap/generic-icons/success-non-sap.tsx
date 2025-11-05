@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUCCESS_NON_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const SUCCESS_NON_SAP = {
   _original_height: 28,
 }
 
-export function SuccessNonSap(props: DiagramNodeProps) {
+export function SuccessNonSap(props: NodeProps) {
   return (
     <Shape
       {...SUCCESS_NON_SAP}

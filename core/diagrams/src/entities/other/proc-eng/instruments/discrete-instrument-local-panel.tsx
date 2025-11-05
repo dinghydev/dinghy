@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISCRETE_INSTRUMENT_LOCAL_PANEL = {
   _style: {
@@ -10,7 +10,7 @@ export const DISCRETE_INSTRUMENT_LOCAL_PANEL = {
   _original_height: 50,
 }
 
-export function DiscreteInstrumentLocalPanel(props: DiagramNodeProps) {
+export function DiscreteInstrumentLocalPanel(props: NodeProps) {
   return (
     <Shape
       {...DISCRETE_INSTRUMENT_LOCAL_PANEL}

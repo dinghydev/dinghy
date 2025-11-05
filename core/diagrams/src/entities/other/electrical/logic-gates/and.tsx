@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AND = {
   _style: {
@@ -10,6 +10,6 @@ export const AND = {
   _height: 60,
 }
 
-export function And(props: DiagramNodeProps) {
+export function And(props: NodeProps) {
   return <Shape {...AND} {...props} _style={extendStyle(AND, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PIM = {
   _style: {
@@ -10,6 +10,6 @@ export const PIM = {
   _original_height: 68,
 }
 
-export function Pim(props: DiagramNodeProps) {
+export function Pim(props: NodeProps) {
   return <Shape {...PIM} {...props} _style={extendStyle(PIM, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AAD_LICENSES = {
   _style: {
@@ -10,7 +10,7 @@ export const AAD_LICENSES = {
   _original_height: 68,
 }
 
-export function AadLicenses(props: DiagramNodeProps) {
+export function AadLicenses(props: NodeProps) {
   return (
     <Shape
       {...AAD_LICENSES}

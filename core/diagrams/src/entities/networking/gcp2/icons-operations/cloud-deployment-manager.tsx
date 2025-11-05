@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_DEPLOYMENT_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_DEPLOYMENT_MANAGER = {
   _original_height: 40,
 }
 
-export function CloudDeploymentManager(props: DiagramNodeProps) {
+export function CloudDeploymentManager(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_DEPLOYMENT_MANAGER}

@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import z from 'zod'
 import { AwsSubnet } from './AwsSubnet.tsx'
 
@@ -19,7 +19,7 @@ export const DataAwsSubnetOutputSchema = z.object({
 
 export type DataAwsSubnetInputProps =
   & z.input<typeof DataAwsSubnetInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type DataAwsSubnetOutputProps =
   & z.output<typeof DataAwsSubnetOutputSchema>

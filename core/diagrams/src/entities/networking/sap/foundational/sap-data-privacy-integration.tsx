@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_DATA_PRIVACY_INTEGRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_DATA_PRIVACY_INTEGRATION = {
   _original_height: 50,
 }
 
-export function SapDataPrivacyIntegration(props: DiagramNodeProps) {
+export function SapDataPrivacyIntegration(props: NodeProps) {
   return (
     <Shape
       {...SAP_DATA_PRIVACY_INTEGRATION}

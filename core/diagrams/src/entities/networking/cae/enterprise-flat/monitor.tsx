@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MONITOR = {
   _style: {
@@ -10,6 +10,6 @@ export const MONITOR = {
   _original_height: 45,
 }
 
-export function Monitor(props: DiagramNodeProps) {
+export function Monitor(props: NodeProps) {
   return <Shape {...MONITOR} {...props} _style={extendStyle(MONITOR, props)} />
 }

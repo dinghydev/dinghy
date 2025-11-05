@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SSL_TERMINATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SSL_TERMINATOR = {
   _original_height: 50,
 }
 
-export function SslTerminator(props: DiagramNodeProps) {
+export function SslTerminator(props: NodeProps) {
   return (
     <Shape
       {...SSL_TERMINATOR}

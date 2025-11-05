@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RDS_SLAVE = {
   _style: {
@@ -10,7 +10,7 @@ export const RDS_SLAVE = {
   _height: 133,
 }
 
-export function RdsSlave(props: DiagramNodeProps) {
+export function RdsSlave(props: NodeProps) {
   return (
     <Shape {...RDS_SLAVE} {...props} _style={extendStyle(RDS_SLAVE, props)} />
   )

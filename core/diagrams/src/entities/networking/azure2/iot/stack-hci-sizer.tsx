@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STACK_HCI_SIZER = {
   _style: {
@@ -10,7 +10,7 @@ export const STACK_HCI_SIZER = {
   _original_height: 68,
 }
 
-export function StackHciSizer(props: DiagramNodeProps) {
+export function StackHciSizer(props: NodeProps) {
   return (
     <Shape
       {...STACK_HCI_SIZER}

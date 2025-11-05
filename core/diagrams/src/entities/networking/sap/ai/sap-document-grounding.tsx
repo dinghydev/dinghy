@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_DOCUMENT_GROUNDING = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_DOCUMENT_GROUNDING = {
   _original_height: 50,
 }
 
-export function SapDocumentGrounding(props: DiagramNodeProps) {
+export function SapDocumentGrounding(props: NodeProps) {
   return (
     <Shape
       {...SAP_DOCUMENT_GROUNDING}

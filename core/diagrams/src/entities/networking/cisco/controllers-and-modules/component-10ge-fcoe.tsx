@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_10GE_FCOE = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_10GE_FCOE = {
   _height: 88,
 }
 
-export function Component10geFcoe(props: DiagramNodeProps) {
+export function Component10geFcoe(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_10GE_FCOE}

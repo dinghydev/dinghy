@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIGHTHOUSE = {
   _style: {
@@ -10,7 +10,7 @@ export const LIGHTHOUSE = {
   _original_height: 68,
 }
 
-export function Lighthouse(props: DiagramNodeProps) {
+export function Lighthouse(props: NodeProps) {
   return (
     <Shape {...LIGHTHOUSE} {...props} _style={extendStyle(LIGHTHOUSE, props)} />
   )

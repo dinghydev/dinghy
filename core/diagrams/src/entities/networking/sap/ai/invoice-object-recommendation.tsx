@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INVOICE_OBJECT_RECOMMENDATION = {
   _style: {
@@ -10,7 +10,7 @@ export const INVOICE_OBJECT_RECOMMENDATION = {
   _original_height: 50,
 }
 
-export function InvoiceObjectRecommendation(props: DiagramNodeProps) {
+export function InvoiceObjectRecommendation(props: NodeProps) {
   return (
     <Shape
       {...INVOICE_OBJECT_RECOMMENDATION}

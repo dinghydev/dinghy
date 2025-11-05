@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTEXTUAL_ACTION_BAR_LANDSCAPE_BRIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTEXTUAL_ACTION_BAR_LANDSCAPE_BRIGHT = {
   _height: 30,
 }
 
-export function ContextualActionBarLandscapeBright(props: DiagramNodeProps) {
+export function ContextualActionBarLandscapeBright(props: NodeProps) {
   return (
     <Shape
       {...CONTEXTUAL_ACTION_BAR_LANDSCAPE_BRIGHT}

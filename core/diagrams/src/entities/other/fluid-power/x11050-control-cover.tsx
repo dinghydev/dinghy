@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11050_CONTROL_COVER = {
   _style: {
@@ -10,7 +10,7 @@ export const X11050_CONTROL_COVER = {
   _height: 55.52,
 }
 
-export function X11050ControlCover(props: DiagramNodeProps) {
+export function X11050ControlCover(props: NodeProps) {
   return (
     <Shape
       {...X11050_CONTROL_COVER}

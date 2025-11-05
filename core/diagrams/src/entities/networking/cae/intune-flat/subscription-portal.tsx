@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUBSCRIPTION_PORTAL = {
   _style: {
@@ -10,7 +10,7 @@ export const SUBSCRIPTION_PORTAL = {
   _original_height: 50,
 }
 
-export function SubscriptionPortal(props: DiagramNodeProps) {
+export function SubscriptionPortal(props: NodeProps) {
   return (
     <Shape
       {...SUBSCRIPTION_PORTAL}

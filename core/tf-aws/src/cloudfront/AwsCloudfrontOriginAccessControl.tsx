@@ -1,7 +1,4 @@
-import {
-  type IacNodeProps,
-  ResolvableStringSchema,
-} from '@dinghy/base-components'
+import { type NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 
 import { awsProps } from '../index.ts'
 import z from 'zod'
@@ -26,7 +23,7 @@ export type AwsCloudfrontOriginAccessControlInputProps =
   & z.input<
     typeof AwsCloudfrontOriginAccessControlInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type AwsCloudfrontOriginAccessControlOutputProps =
   & z.input<

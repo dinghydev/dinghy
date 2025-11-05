@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11040_PRESSURE_REDUCING_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const X11040_PRESSURE_REDUCING_VALVE = {
   _height: 93.2,
 }
 
-export function X11040PressureReducingValve(props: DiagramNodeProps) {
+export function X11040PressureReducingValve(props: NodeProps) {
   return (
     <Shape
       {...X11040_PRESSURE_REDUCING_VALVE}

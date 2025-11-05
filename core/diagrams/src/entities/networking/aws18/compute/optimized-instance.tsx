@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPTIMIZED_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const OPTIMIZED_INSTANCE = {
   _original_height: 60,
 }
 
-export function OptimizedInstance(props: DiagramNodeProps) {
+export function OptimizedInstance(props: NodeProps) {
   return (
     <Shape
       {...OPTIMIZED_INSTANCE}

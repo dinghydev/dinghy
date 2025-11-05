@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NSX_EDGE_AND_LOAD_BALANCER = {
   _style: {
@@ -10,7 +10,7 @@ export const NSX_EDGE_AND_LOAD_BALANCER = {
   _original_height: 40.5,
 }
 
-export function NsxEdgeAndLoadBalancer(props: DiagramNodeProps) {
+export function NsxEdgeAndLoadBalancer(props: NodeProps) {
   return (
     <Shape
       {...NSX_EDGE_AND_LOAD_BALANCER}

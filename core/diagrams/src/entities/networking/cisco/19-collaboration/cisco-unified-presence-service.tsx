@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_UNIFIED_PRESENCE_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_UNIFIED_PRESENCE_SERVICE = {
   _original_height: 50,
 }
 
-export function CiscoUnifiedPresenceService(props: DiagramNodeProps) {
+export function CiscoUnifiedPresenceService(props: NodeProps) {
   return (
     <Shape
       {...CISCO_UNIFIED_PRESENCE_SERVICE}

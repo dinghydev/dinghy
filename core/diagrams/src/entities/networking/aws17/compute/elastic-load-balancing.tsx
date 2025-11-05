@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_LOAD_BALANCING = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_LOAD_BALANCING = {
   _original_height: 93,
 }
 
-export function ElasticLoadBalancing(props: DiagramNodeProps) {
+export function ElasticLoadBalancing(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_LOAD_BALANCING}

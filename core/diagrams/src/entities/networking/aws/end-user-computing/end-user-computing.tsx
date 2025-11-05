@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const END_USER_COMPUTING = {
   _style: {
@@ -10,7 +10,7 @@ export const END_USER_COMPUTING = {
   _original_height: 78,
 }
 
-export function EndUserComputing(props: DiagramNodeProps) {
+export function EndUserComputing(props: NodeProps) {
   return (
     <Shape
       {...END_USER_COMPUTING}

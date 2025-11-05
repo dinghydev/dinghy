@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTICACHE = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTICACHE = {
   _original_height: 81,
 }
 
-export function Elasticache(props: DiagramNodeProps) {
+export function Elasticache(props: NodeProps) {
   return (
     <Shape
       {...ELASTICACHE}

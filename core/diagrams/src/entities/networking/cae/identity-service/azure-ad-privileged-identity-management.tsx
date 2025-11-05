@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_AD_PRIVILEGED_IDENTITY_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_AD_PRIVILEGED_IDENTITY_MANAGEMENT = {
   _original_height: 50,
 }
 
-export function AzureAdPrivilegedIdentityManagement(props: DiagramNodeProps) {
+export function AzureAdPrivilegedIdentityManagement(props: NodeProps) {
   return (
     <Shape
       {...AZURE_AD_PRIVILEGED_IDENTITY_MANAGEMENT}

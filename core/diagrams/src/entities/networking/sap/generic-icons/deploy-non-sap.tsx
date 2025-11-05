@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEPLOY_NON_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const DEPLOY_NON_SAP = {
   _height: 28,
 }
 
-export function DeployNonSap(props: DiagramNodeProps) {
+export function DeployNonSap(props: NodeProps) {
   return (
     <Shape
       {...DEPLOY_NON_SAP}

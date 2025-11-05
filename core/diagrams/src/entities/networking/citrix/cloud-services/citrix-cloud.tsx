@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_CLOUD = {
   _height: 36.17,
 }
 
-export function CitrixCloud(props: DiagramNodeProps) {
+export function CitrixCloud(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_CLOUD}

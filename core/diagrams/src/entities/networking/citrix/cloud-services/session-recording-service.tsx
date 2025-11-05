@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SESSION_RECORDING_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const SESSION_RECORDING_SERVICE = {
   _height: 34.765,
 }
 
-export function SessionRecordingService(props: DiagramNodeProps) {
+export function SessionRecordingService(props: NodeProps) {
   return (
     <Shape
       {...SESSION_RECORDING_SERVICE}

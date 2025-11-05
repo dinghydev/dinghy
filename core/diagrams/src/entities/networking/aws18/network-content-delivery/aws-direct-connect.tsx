@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_DIRECT_CONNECT = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_DIRECT_CONNECT = {
   _height: 110,
 }
 
-export function AwsDirectConnect(props: DiagramNodeProps) {
+export function AwsDirectConnect(props: NodeProps) {
   return (
     <Shape
       {...AWS_DIRECT_CONNECT}

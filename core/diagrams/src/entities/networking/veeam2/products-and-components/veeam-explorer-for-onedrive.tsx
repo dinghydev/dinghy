@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_EXPLORER_FOR_ONEDRIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_EXPLORER_FOR_ONEDRIVE = {
   _original_height: 34,
 }
 
-export function VeeamExplorerForOnedrive(props: DiagramNodeProps) {
+export function VeeamExplorerForOnedrive(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_EXPLORER_FOR_ONEDRIVE}

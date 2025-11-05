@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXTERNAL_DATA_RESOURCE = {
   _style: {
@@ -10,7 +10,7 @@ export const EXTERNAL_DATA_RESOURCE = {
   _height: 100,
 }
 
-export function ExternalDataResource(props: DiagramNodeProps) {
+export function ExternalDataResource(props: NodeProps) {
   return (
     <Shape
       {...EXTERNAL_DATA_RESOURCE}

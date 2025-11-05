@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CODECOMMIT = {
   _style: {
@@ -10,7 +10,7 @@ export const CODECOMMIT = {
   _original_height: 93,
 }
 
-export function Codecommit(props: DiagramNodeProps) {
+export function Codecommit(props: NodeProps) {
   return (
     <Shape {...CODECOMMIT} {...props} _style={extendStyle(CODECOMMIT, props)} />
   )

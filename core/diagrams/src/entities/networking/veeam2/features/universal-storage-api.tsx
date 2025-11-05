@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNIVERSAL_STORAGE_API = {
   _style: {
@@ -10,7 +10,7 @@ export const UNIVERSAL_STORAGE_API = {
   _original_height: 34,
 }
 
-export function UniversalStorageApi(props: DiagramNodeProps) {
+export function UniversalStorageApi(props: NodeProps) {
   return (
     <Shape
       {...UNIVERSAL_STORAGE_API}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPERATIONAL_AMP = {
   _style: {
@@ -10,7 +10,7 @@ export const OPERATIONAL_AMP = {
   _original_height: 90,
 }
 
-export function OperationalAmp(props: DiagramNodeProps) {
+export function OperationalAmp(props: NodeProps) {
   return (
     <Shape
       {...OPERATIONAL_AMP}

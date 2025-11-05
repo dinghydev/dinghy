@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLANK_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const BLANK_DEVICE = {
   _original_height: 45,
 }
 
-export function BlankDevice(props: DiagramNodeProps) {
+export function BlankDevice(props: NodeProps) {
   return (
     <Shape
       {...BLANK_DEVICE}

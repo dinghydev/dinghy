@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VOICE_WORKLOAD = {
   _style: {
@@ -10,7 +10,7 @@ export const VOICE_WORKLOAD = {
   _original_height: 51,
 }
 
-export function VoiceWorkload(props: DiagramNodeProps) {
+export function VoiceWorkload(props: NodeProps) {
   return (
     <Shape
       {...VOICE_WORKLOAD}

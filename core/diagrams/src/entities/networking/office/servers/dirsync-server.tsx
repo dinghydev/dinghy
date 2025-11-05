@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRSYNC_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRSYNC_SERVER = {
   _original_height: 56,
 }
 
-export function DirsyncServer(props: DiagramNodeProps) {
+export function DirsyncServer(props: NodeProps) {
   return (
     <Shape
       {...DIRSYNC_SERVER}

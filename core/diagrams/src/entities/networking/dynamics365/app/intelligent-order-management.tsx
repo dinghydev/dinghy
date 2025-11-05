@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTELLIGENT_ORDER_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const INTELLIGENT_ORDER_MANAGEMENT = {
   _original_height: 68,
 }
 
-export function IntelligentOrderManagement(props: DiagramNodeProps) {
+export function IntelligentOrderManagement(props: NodeProps) {
   return (
     <Shape
       {...INTELLIGENT_ORDER_MANAGEMENT}

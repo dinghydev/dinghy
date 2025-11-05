@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10020_PLUNGER_WITH = {
   _style: {
@@ -10,7 +10,7 @@ export const X10020_PLUNGER_WITH = {
   _height: 42.84,
 }
 
-export function X10020PlungerWith(props: DiagramNodeProps) {
+export function X10020PlungerWith(props: NodeProps) {
   return (
     <Shape
       {...X10020_PLUNGER_WITH}

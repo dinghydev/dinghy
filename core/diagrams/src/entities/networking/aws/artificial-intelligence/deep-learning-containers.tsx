@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEEP_LEARNING_CONTAINERS = {
   _style: {
@@ -10,7 +10,7 @@ export const DEEP_LEARNING_CONTAINERS = {
   _original_height: 78,
 }
 
-export function DeepLearningContainers(props: DiagramNodeProps) {
+export function DeepLearningContainers(props: NodeProps) {
   return (
     <Shape
       {...DEEP_LEARNING_CONTAINERS}

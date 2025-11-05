@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DMS_DATA_MANAGEMENT_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const DMS_DATA_MANAGEMENT_SERVICE = {
   _original_height: 47.400000000000006,
 }
 
-export function DmsDataManagementService(props: DiagramNodeProps) {
+export function DmsDataManagementService(props: NodeProps) {
   return (
     <Shape
       {...DMS_DATA_MANAGEMENT_SERVICE}

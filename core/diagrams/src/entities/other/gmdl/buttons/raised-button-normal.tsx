@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RAISED_BUTTON_NORMAL = {
   _style: {
@@ -10,7 +10,7 @@ export const RAISED_BUTTON_NORMAL = {
   _height: 36,
 }
 
-export function RaisedButtonNormal(props: DiagramNodeProps) {
+export function RaisedButtonNormal(props: NodeProps) {
   return (
     <Shape
       {...RAISED_BUTTON_NORMAL}

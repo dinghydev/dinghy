@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIP_URI_UM_DIAL_PLAN = {
   _style: {
@@ -10,7 +10,7 @@ export const SIP_URI_UM_DIAL_PLAN = {
   _original_height: 56,
 }
 
-export function SipUriUmDialPlan(props: DiagramNodeProps) {
+export function SipUriUmDialPlan(props: NodeProps) {
   return (
     <Shape
       {...SIP_URI_UM_DIAL_PLAN}

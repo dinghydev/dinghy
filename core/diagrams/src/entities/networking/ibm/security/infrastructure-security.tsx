@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INFRASTRUCTURE_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const INFRASTRUCTURE_SECURITY = {
   _original_height: 60,
 }
 
-export function InfrastructureSecurity(props: DiagramNodeProps) {
+export function InfrastructureSecurity(props: NodeProps) {
   return (
     <Shape
       {...INFRASTRUCTURE_SECURITY}

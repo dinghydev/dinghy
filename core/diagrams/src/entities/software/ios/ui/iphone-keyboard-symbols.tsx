@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IPHONE_KEYBOARD_SYMBOLS = {
   _style: {
@@ -10,7 +10,7 @@ export const IPHONE_KEYBOARD_SYMBOLS = {
   _height: 100,
 }
 
-export function IphoneKeyboardSymbols(props: DiagramNodeProps) {
+export function IphoneKeyboardSymbols(props: NodeProps) {
   return (
     <Shape
       {...IPHONE_KEYBOARD_SYMBOLS}

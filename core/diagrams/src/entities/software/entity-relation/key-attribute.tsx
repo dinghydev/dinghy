@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEY_ATTRIBUTE = {
   _style: {
@@ -9,7 +9,7 @@ export const KEY_ATTRIBUTE = {
   _height: 40,
 }
 
-export function KeyAttribute(props: DiagramNodeProps) {
+export function KeyAttribute(props: NodeProps) {
   return (
     <Shape
       {...KEY_ATTRIBUTE}

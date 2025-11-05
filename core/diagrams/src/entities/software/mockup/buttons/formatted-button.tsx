@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORMATTED_BUTTON = {
   _style: {
@@ -10,7 +10,7 @@ export const FORMATTED_BUTTON = {
   _height: 50,
 }
 
-export function FormattedButton(props: DiagramNodeProps) {
+export function FormattedButton(props: NodeProps) {
   return (
     <Shape
       {...FORMATTED_BUTTON}

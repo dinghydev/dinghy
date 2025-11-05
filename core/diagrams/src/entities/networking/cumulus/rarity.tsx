@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RARITY = {
   _style: {
@@ -9,6 +9,6 @@ export const RARITY = {
   _original_height: 50,
 }
 
-export function Rarity(props: DiagramNodeProps) {
+export function Rarity(props: NodeProps) {
   return <Shape {...RARITY} {...props} _style={extendStyle(RARITY, props)} />
 }

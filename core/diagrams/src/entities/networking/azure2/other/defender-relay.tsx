@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEFENDER_RELAY = {
   _style: {
@@ -10,7 +10,7 @@ export const DEFENDER_RELAY = {
   _height: 27.200000000000003,
 }
 
-export function DefenderRelay(props: DiagramNodeProps) {
+export function DefenderRelay(props: NodeProps) {
   return (
     <Shape
       {...DEFENDER_RELAY}

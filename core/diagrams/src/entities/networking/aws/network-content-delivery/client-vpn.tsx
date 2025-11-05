@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLIENT_VPN = {
   _style: {
@@ -10,7 +10,7 @@ export const CLIENT_VPN = {
   _original_height: 78,
 }
 
-export function ClientVpn(props: DiagramNodeProps) {
+export function ClientVpn(props: NodeProps) {
   return (
     <Shape {...CLIENT_VPN} {...props} _style={extendStyle(CLIENT_VPN, props)} />
   )

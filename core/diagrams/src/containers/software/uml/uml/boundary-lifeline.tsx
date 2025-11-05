@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOUNDARY_LIFELINE = {
   _style: {
@@ -8,7 +8,7 @@ export const BOUNDARY_LIFELINE = {
   },
 }
 
-export function BoundaryLifeline(props: DiagramNodeProps) {
+export function BoundaryLifeline(props: NodeProps) {
   return (
     <Shape
       {...BOUNDARY_LIFELINE}

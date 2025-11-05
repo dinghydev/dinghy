@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMM_LINK_ICON = {
   _style: {
@@ -10,7 +10,7 @@ export const COMM_LINK_ICON = {
   _height: 100,
 }
 
-export function CommLinkIcon(props: DiagramNodeProps) {
+export function CommLinkIcon(props: NodeProps) {
   return (
     <Shape
       {...COMM_LINK_ICON}

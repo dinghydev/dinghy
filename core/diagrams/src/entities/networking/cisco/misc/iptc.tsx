@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IPTC = {
   _style: {
@@ -10,6 +10,6 @@ export const IPTC = {
   _height: 56,
 }
 
-export function Iptc(props: DiagramNodeProps) {
+export function Iptc(props: NodeProps) {
   return <Shape {...IPTC} {...props} _style={extendStyle(IPTC, props)} />
 }

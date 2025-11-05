@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GABBR = {
   _style: {
@@ -10,6 +10,6 @@ export const GABBR = {
   _original_height: 66,
 }
 
-export function Gabbr(props: DiagramNodeProps) {
+export function Gabbr(props: NodeProps) {
   return <Shape {...GABBR} {...props} _style={extendStyle(GABBR, props)} />
 }

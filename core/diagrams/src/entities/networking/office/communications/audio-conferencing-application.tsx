@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUDIO_CONFERENCING_APPLICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const AUDIO_CONFERENCING_APPLICATION = {
   _original_height: 46,
 }
 
-export function AudioConferencingApplication(props: DiagramNodeProps) {
+export function AudioConferencingApplication(props: NodeProps) {
   return (
     <Shape
       {...AUDIO_CONFERENCING_APPLICATION}

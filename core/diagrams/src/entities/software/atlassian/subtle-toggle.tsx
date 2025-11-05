@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUBTLE_TOGGLE = {
   _style: {
@@ -10,7 +10,7 @@ export const SUBTLE_TOGGLE = {
   _height: 16,
 }
 
-export function SubtleToggle(props: DiagramNodeProps) {
+export function SubtleToggle(props: NodeProps) {
   return (
     <Shape
       {...SUBTLE_TOGGLE}

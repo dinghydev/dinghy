@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_JOBS_API = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_JOBS_API = {
   _original_height: 40,
 }
 
-export function CloudJobsApi(props: DiagramNodeProps) {
+export function CloudJobsApi(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_JOBS_API}

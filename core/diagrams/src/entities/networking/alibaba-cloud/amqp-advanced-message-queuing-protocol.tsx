@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL = {
   _style: {
@@ -10,7 +10,7 @@ export const AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL = {
   _original_height: 48,
 }
 
-export function AmqpAdvancedMessageQueuingProtocol(props: DiagramNodeProps) {
+export function AmqpAdvancedMessageQueuingProtocol(props: NodeProps) {
   return (
     <Shape
       {...AMQP_ADVANCED_MESSAGE_QUEUING_PROTOCOL}

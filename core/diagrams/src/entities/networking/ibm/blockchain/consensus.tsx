@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONSENSUS = {
   _style: {
@@ -10,7 +10,7 @@ export const CONSENSUS = {
   _original_height: 60,
 }
 
-export function Consensus(props: DiagramNodeProps) {
+export function Consensus(props: NodeProps) {
   return (
     <Shape {...CONSENSUS} {...props} _style={extendStyle(CONSENSUS, props)} />
   )

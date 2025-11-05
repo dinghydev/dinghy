@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CYLINDER_GRAPH_10 = {
   _style: {
@@ -10,7 +10,7 @@ export const CYLINDER_GRAPH_10 = {
   _height: 430,
 }
 
-export function CylinderGraph10(props: DiagramNodeProps) {
+export function CylinderGraph10(props: NodeProps) {
   return (
     <Shape
       {...CYLINDER_GRAPH_10}

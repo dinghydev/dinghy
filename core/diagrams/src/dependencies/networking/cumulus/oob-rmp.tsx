@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OOB_RMP = {
   _style: {
@@ -8,7 +8,7 @@ export const OOB_RMP = {
   },
 }
 
-export function OobRmp(props: DiagramNodeProps) {
+export function OobRmp(props: NodeProps) {
   return (
     <Dependency {...OOB_RMP} {...props} _style={extendStyle(OOB_RMP, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JUMBOTRON = {
   _style: {
@@ -10,7 +10,7 @@ export const JUMBOTRON = {
   _height: 300,
 }
 
-export function Jumbotron(props: DiagramNodeProps) {
+export function Jumbotron(props: NodeProps) {
   return (
     <Shape {...JUMBOTRON} {...props} _style={extendStyle(JUMBOTRON, props)} />
   )

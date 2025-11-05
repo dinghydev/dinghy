@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BATCHCOMPUTE = {
   _style: {
@@ -10,7 +10,7 @@ export const BATCHCOMPUTE = {
   _original_height: 48,
 }
 
-export function Batchcompute(props: DiagramNodeProps) {
+export function Batchcompute(props: NodeProps) {
   return (
     <Shape
       {...BATCHCOMPUTE}

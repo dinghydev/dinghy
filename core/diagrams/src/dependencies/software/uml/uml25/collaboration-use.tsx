@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLLABORATION_USE = {
   _style: {
@@ -8,7 +8,7 @@ export const COLLABORATION_USE = {
   },
 }
 
-export function CollaborationUse(props: DiagramNodeProps) {
+export function CollaborationUse(props: NodeProps) {
   return (
     <Dependency
       {...COLLABORATION_USE}

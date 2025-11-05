@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUANTIZER = {
   _style: {
@@ -10,7 +10,7 @@ export const QUANTIZER = {
   _original_height: 46,
 }
 
-export function Quantizer(props: DiagramNodeProps) {
+export function Quantizer(props: NodeProps) {
   return (
     <Shape {...QUANTIZER} {...props} _style={extendStyle(QUANTIZER, props)} />
   )

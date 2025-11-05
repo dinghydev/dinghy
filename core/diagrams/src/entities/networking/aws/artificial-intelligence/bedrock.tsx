@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BEDROCK = {
   _style: {
@@ -10,6 +10,6 @@ export const BEDROCK = {
   _original_height: 78,
 }
 
-export function Bedrock(props: DiagramNodeProps) {
+export function Bedrock(props: NodeProps) {
   return <Shape {...BEDROCK} {...props} _style={extendStyle(BEDROCK, props)} />
 }

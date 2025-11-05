@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPTIONAL_ELBOW = {
   _style: {
@@ -10,7 +10,7 @@ export const OPTIONAL_ELBOW = {
   _height: 20,
 }
 
-export function OptionalElbow(props: DiagramNodeProps) {
+export function OptionalElbow(props: NodeProps) {
   return (
     <Shape
       {...OPTIONAL_ELBOW}

@@ -1,6 +1,6 @@
 import z from 'zod'
 import {
-  type IacNodeProps,
+  type NodeProps,
   ResolvableStringSchema,
   Shape,
   useTypedNode,
@@ -18,7 +18,7 @@ export const UserDataTextOutputSchema = z.object({
 
 export type UserDataTextInputProps =
   & z.input<typeof UserDataTextInputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export type UserDataTextOutputProps =
   & z.output<typeof UserDataTextOutputSchema>

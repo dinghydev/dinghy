@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDTRAIL = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDTRAIL = {
   _original_height: 78,
 }
 
-export function Cloudtrail(props: DiagramNodeProps) {
+export function Cloudtrail(props: NodeProps) {
   return (
     <Shape {...CLOUDTRAIL} {...props} _style={extendStyle(CLOUDTRAIL, props)} />
   )

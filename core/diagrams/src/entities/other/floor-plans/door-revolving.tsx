@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOOR_REVOLVING = {
   _style: {
@@ -10,7 +10,7 @@ export const DOOR_REVOLVING = {
   _original_height: 85,
 }
 
-export function DoorRevolving(props: DiagramNodeProps) {
+export function DoorRevolving(props: NodeProps) {
   return (
     <Shape
       {...DOOR_REVOLVING}

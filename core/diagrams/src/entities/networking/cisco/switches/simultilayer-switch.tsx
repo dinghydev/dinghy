@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIMULTILAYER_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const SIMULTILAYER_SWITCH = {
   _original_height: 58,
 }
 
-export function SimultilayerSwitch(props: DiagramNodeProps) {
+export function SimultilayerSwitch(props: NodeProps) {
   return (
     <Shape
       {...SIMULTILAYER_SWITCH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HUMAN_INTELLIGENCE_TASKS_HIT = {
   _style: {
@@ -10,7 +10,7 @@ export const HUMAN_INTELLIGENCE_TASKS_HIT = {
   _original_height: 55.5,
 }
 
-export function HumanIntelligenceTasksHit(props: DiagramNodeProps) {
+export function HumanIntelligenceTasksHit(props: NodeProps) {
   return (
     <Shape
       {...HUMAN_INTELLIGENCE_TASKS_HIT}

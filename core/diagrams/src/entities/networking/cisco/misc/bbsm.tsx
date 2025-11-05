@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BBSM = {
   _style: {
@@ -10,6 +10,6 @@ export const BBSM = {
   _height: 42,
 }
 
-export function Bbsm(props: DiagramNodeProps) {
+export function Bbsm(props: NodeProps) {
   return <Shape {...BBSM} {...props} _style={extendStyle(BBSM, props)} />
 }

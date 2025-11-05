@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION = {
   _height: 140,
 }
 
-export function InterchangeableDiscOpenDiscInFunction(props: DiagramNodeProps) {
+export function InterchangeableDiscOpenDiscInFunction(props: NodeProps) {
   return (
     <Shape
       {...INTERCHANGEABLE_DISC_OPEN_DISC_IN_FUNCTION}

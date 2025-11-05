@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEVADA = {
   _style: {
@@ -9,6 +9,6 @@ export const NEVADA = {
   _original_height: 50,
 }
 
-export function Nevada(props: DiagramNodeProps) {
+export function Nevada(props: NodeProps) {
   return <Shape {...NEVADA} {...props} _style={extendStyle(NEVADA, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STORSIMPLE_DATA_MANAGERS = {
   _style: {
@@ -10,7 +10,7 @@ export const STORSIMPLE_DATA_MANAGERS = {
   _height: 50,
 }
 
-export function StorsimpleDataManagers(props: DiagramNodeProps) {
+export function StorsimpleDataManagers(props: NodeProps) {
   return (
     <Shape
       {...STORSIMPLE_DATA_MANAGERS}

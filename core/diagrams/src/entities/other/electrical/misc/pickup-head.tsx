@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PICKUP_HEAD = {
   _style: {
@@ -10,7 +10,7 @@ export const PICKUP_HEAD = {
   _height: 30,
 }
 
-export function PickupHead(props: DiagramNodeProps) {
+export function PickupHead(props: NodeProps) {
   return (
     <Shape
       {...PICKUP_HEAD}

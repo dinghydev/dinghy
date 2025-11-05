@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SINK_DOUBLE = {
   _style: {
@@ -10,7 +10,7 @@ export const SINK_DOUBLE = {
   _height: 35,
 }
 
-export function SinkDouble(props: DiagramNodeProps) {
+export function SinkDouble(props: NodeProps) {
   return (
     <Shape
       {...SINK_DOUBLE}

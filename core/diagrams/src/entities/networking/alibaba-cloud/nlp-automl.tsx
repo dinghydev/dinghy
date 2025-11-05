@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NLP_AUTOML = {
   _style: {
@@ -10,7 +10,7 @@ export const NLP_AUTOML = {
   _original_height: 47.1,
 }
 
-export function NlpAutoml(props: DiagramNodeProps) {
+export function NlpAutoml(props: NodeProps) {
   return (
     <Shape {...NLP_AUTOML} {...props} _style={extendStyle(NLP_AUTOML, props)} />
   )

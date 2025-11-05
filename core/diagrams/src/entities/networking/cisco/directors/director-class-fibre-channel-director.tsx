@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR = {
   _original_height: 69,
 }
 
-export function DirectorClassFibreChannelDirector(props: DiagramNodeProps) {
+export function DirectorClassFibreChannelDirector(props: NodeProps) {
   return (
     <Shape
       {...DIRECTOR_CLASS_FIBRE_CHANNEL_DIRECTOR}

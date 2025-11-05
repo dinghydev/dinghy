@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIMITED_SPRUCE = {
   _style: {
@@ -9,7 +9,7 @@ export const LIMITED_SPRUCE = {
   _original_height: 50,
 }
 
-export function LimitedSpruce(props: DiagramNodeProps) {
+export function LimitedSpruce(props: NodeProps) {
   return (
     <Shape
       {...LIMITED_SPRUCE}

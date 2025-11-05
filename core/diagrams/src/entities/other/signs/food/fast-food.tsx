@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FAST_FOOD = {
   _style: {
@@ -10,7 +10,7 @@ export const FAST_FOOD = {
   _original_height: 87,
 }
 
-export function FastFood(props: DiagramNodeProps) {
+export function FastFood(props: NodeProps) {
   return (
     <Shape {...FAST_FOOD} {...props} _style={extendStyle(FAST_FOOD, props)} />
   )

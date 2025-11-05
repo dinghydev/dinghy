@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INITIAL_PSEUDO_STATE = {
   _style: {
@@ -10,7 +10,7 @@ export const INITIAL_PSEUDO_STATE = {
   _original_height: 40,
 }
 
-export function InitialPseudoState(props: DiagramNodeProps) {
+export function InitialPseudoState(props: NodeProps) {
   return (
     <Shape
       {...INITIAL_PSEUDO_STATE}

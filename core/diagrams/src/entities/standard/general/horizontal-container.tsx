@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HORIZONTAL_CONTAINER = {
   _style: {
@@ -9,7 +9,7 @@ export const HORIZONTAL_CONTAINER = {
   _original_height: 200,
 }
 
-export function HorizontalContainer(props: DiagramNodeProps) {
+export function HorizontalContainer(props: NodeProps) {
   return (
     <Shape
       {...HORIZONTAL_CONTAINER}

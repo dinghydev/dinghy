@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_CHECKMARK = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_CHECKMARK = {
   _height: 67,
 }
 
-export function CloudCheckmark(props: DiagramNodeProps) {
+export function CloudCheckmark(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_CHECKMARK}

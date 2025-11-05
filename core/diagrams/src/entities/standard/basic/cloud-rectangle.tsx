@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_RECTANGLE = {
   _style: {
@@ -9,7 +9,7 @@ export const CLOUD_RECTANGLE = {
   _height: 90,
 }
 
-export function CloudRectangle(props: DiagramNodeProps) {
+export function CloudRectangle(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_RECTANGLE}

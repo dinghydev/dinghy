@@ -1,5 +1,5 @@
 import {
-  type IacNodeProps,
+  type NodeProps,
   ResolvableStringSchema,
   Shape,
 } from '@dinghy/base-components'
@@ -24,7 +24,7 @@ export type InputProps =
   & z.output<
     typeof InputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type OutputProps =
   & z.output<

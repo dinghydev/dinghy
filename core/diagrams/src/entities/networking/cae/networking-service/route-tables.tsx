@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUTE_TABLES = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUTE_TABLES = {
   _original_height: 50,
 }
 
-export function RouteTables(props: DiagramNodeProps) {
+export function RouteTables(props: NodeProps) {
   return (
     <Shape
       {...ROUTE_TABLES}

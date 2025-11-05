@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALENDAR = {
   _style: {
@@ -10,7 +10,7 @@ export const CALENDAR = {
   _height: 70,
 }
 
-export function Calendar(props: DiagramNodeProps) {
+export function Calendar(props: NodeProps) {
   return (
     <Shape {...CALENDAR} {...props} _style={extendStyle(CALENDAR, props)} />
   )

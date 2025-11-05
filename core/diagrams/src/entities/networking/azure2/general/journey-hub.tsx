@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JOURNEY_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const JOURNEY_HUB = {
   _original_height: 63,
 }
 
-export function JourneyHub(props: DiagramNodeProps) {
+export function JourneyHub(props: NodeProps) {
   return (
     <Shape
       {...JOURNEY_HUB}

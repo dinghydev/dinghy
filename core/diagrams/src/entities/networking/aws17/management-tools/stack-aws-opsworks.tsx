@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STACK_AWS_OPSWORKS = {
   _style: {
@@ -10,7 +10,7 @@ export const STACK_AWS_OPSWORKS = {
   _original_height: 79.5,
 }
 
-export function StackAwsOpsworks(props: DiagramNodeProps) {
+export function StackAwsOpsworks(props: NodeProps) {
   return (
     <Shape
       {...STACK_AWS_OPSWORKS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLEXIBLE_PIPE = {
   _style: {
@@ -10,7 +10,7 @@ export const FLEXIBLE_PIPE = {
   _height: 16,
 }
 
-export function FlexiblePipe(props: DiagramNodeProps) {
+export function FlexiblePipe(props: NodeProps) {
   return (
     <Shape
       {...FLEXIBLE_PIPE}

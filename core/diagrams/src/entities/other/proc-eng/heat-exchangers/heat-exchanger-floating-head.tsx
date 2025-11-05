@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HEAT_EXCHANGER_FLOATING_HEAD = {
   _style: {
@@ -10,7 +10,7 @@ export const HEAT_EXCHANGER_FLOATING_HEAD = {
   _height: 30,
 }
 
-export function HeatExchangerFloatingHead(props: DiagramNodeProps) {
+export function HeatExchangerFloatingHead(props: NodeProps) {
   return (
     <Shape
       {...HEAT_EXCHANGER_FLOATING_HEAD}

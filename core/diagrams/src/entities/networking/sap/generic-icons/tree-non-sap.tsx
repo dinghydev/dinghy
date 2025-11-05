@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TREE_NON_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const TREE_NON_SAP = {
   _height: 24.5,
 }
 
-export function TreeNonSap(props: DiagramNodeProps) {
+export function TreeNonSap(props: NodeProps) {
   return (
     <Shape
       {...TREE_NON_SAP}

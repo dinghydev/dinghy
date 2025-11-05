@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWER_DISTRIBUTION_UNIT = {
   _style: {
@@ -10,7 +10,7 @@ export const POWER_DISTRIBUTION_UNIT = {
   _original_height: 80,
 }
 
-export function PowerDistributionUnit(props: DiagramNodeProps) {
+export function PowerDistributionUnit(props: NodeProps) {
   return (
     <Shape
       {...POWER_DISTRIBUTION_UNIT}

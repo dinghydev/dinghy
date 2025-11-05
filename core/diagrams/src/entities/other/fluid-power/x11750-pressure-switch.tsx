@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11750_PRESSURE_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const X11750_PRESSURE_SWITCH = {
   _height: 42.74,
 }
 
-export function X11750PressureSwitch(props: DiagramNodeProps) {
+export function X11750PressureSwitch(props: NodeProps) {
   return (
     <Shape
       {...X11750_PRESSURE_SWITCH}

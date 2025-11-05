@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11250_REVERSIBLE_PUMP_MOTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X11250_REVERSIBLE_PUMP_MOTOR = {
   _original_height: 93.94,
 }
 
-export function X11250ReversiblePumpMotor(props: DiagramNodeProps) {
+export function X11250ReversiblePumpMotor(props: NodeProps) {
   return (
     <Shape
       {...X11250_REVERSIBLE_PUMP_MOTOR}

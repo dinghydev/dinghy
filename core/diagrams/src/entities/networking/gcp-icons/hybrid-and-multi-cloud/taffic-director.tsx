@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TAFFIC_DIRECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const TAFFIC_DIRECTOR = {
   _original_height: 40,
 }
 
-export function TafficDirector(props: DiagramNodeProps) {
+export function TafficDirector(props: NodeProps) {
   return (
     <Shape
       {...TAFFIC_DIRECTOR}

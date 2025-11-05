@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIRECTMAIL = {
   _style: {
@@ -10,7 +10,7 @@ export const DIRECTMAIL = {
   _height: 34.8,
 }
 
-export function Directmail(props: DiagramNodeProps) {
+export function Directmail(props: NodeProps) {
   return (
     <Shape {...DIRECTMAIL} {...props} _style={extendStyle(DIRECTMAIL, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLADE_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const BLADE_SERVER = {
   _original_height: 45,
 }
 
-export function BladeServer(props: DiagramNodeProps) {
+export function BladeServer(props: NodeProps) {
   return (
     <Shape
       {...BLADE_SERVER}

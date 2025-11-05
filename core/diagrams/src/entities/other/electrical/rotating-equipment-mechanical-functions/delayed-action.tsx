@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DELAYED_ACTION = {
   _style: {
@@ -10,7 +10,7 @@ export const DELAYED_ACTION = {
   _height: 50,
 }
 
-export function DelayedAction(props: DiagramNodeProps) {
+export function DelayedAction(props: NodeProps) {
   return (
     <Shape
       {...DELAYED_ACTION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VARIOMETER = {
   _style: {
@@ -10,7 +10,7 @@ export const VARIOMETER = {
   _height: 88,
 }
 
-export function Variometer(props: DiagramNodeProps) {
+export function Variometer(props: NodeProps) {
   return (
     <Shape {...VARIOMETER} {...props} _style={extendStyle(VARIOMETER, props)} />
   )

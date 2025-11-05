@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AUTOMANAGED_VM = {
   _style: {
@@ -10,7 +10,7 @@ export const AUTOMANAGED_VM = {
   _original_height: 62,
 }
 
-export function AutomanagedVm(props: DiagramNodeProps) {
+export function AutomanagedVm(props: NodeProps) {
   return (
     <Shape
       {...AUTOMANAGED_VM}

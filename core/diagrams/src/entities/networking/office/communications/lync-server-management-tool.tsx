@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LYNC_SERVER_MANAGEMENT_TOOL = {
   _style: {
@@ -10,7 +10,7 @@ export const LYNC_SERVER_MANAGEMENT_TOOL = {
   _height: 47,
 }
 
-export function LyncServerManagementTool(props: DiagramNodeProps) {
+export function LyncServerManagementTool(props: NodeProps) {
   return (
     <Shape
       {...LYNC_SERVER_MANAGEMENT_TOOL}

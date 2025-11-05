@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11680_THREE_WAY_ROTARY = {
   _style: {
@@ -10,7 +10,7 @@ export const X11680_THREE_WAY_ROTARY = {
   _height: 50.86,
 }
 
-export function X11680ThreeWayRotary(props: DiagramNodeProps) {
+export function X11680ThreeWayRotary(props: NodeProps) {
   return (
     <Shape
       {...X11680_THREE_WAY_ROTARY}

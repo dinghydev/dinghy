@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INSTAGRAM = {
   _style: {
@@ -10,7 +10,7 @@ export const INSTAGRAM = {
   _original_height: 72.2,
 }
 
-export function Instagram(props: DiagramNodeProps) {
+export function Instagram(props: NodeProps) {
   return (
     <Shape {...INSTAGRAM} {...props} _style={extendStyle(INSTAGRAM, props)} />
   )

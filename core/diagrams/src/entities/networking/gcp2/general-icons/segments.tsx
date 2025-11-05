@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEGMENTS = {
   _style: {
@@ -10,7 +10,7 @@ export const SEGMENTS = {
   _original_height: 100,
 }
 
-export function Segments(props: DiagramNodeProps) {
+export function Segments(props: NodeProps) {
   return (
     <Shape {...SEGMENTS} {...props} _style={extendStyle(SEGMENTS, props)} />
   )

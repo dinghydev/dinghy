@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REGISTERED = {
   _style: {
@@ -10,7 +10,7 @@ export const REGISTERED = {
   _original_height: 25,
 }
 
-export function Registered(props: DiagramNodeProps) {
+export function Registered(props: NodeProps) {
   return (
     <Shape {...REGISTERED} {...props} _style={extendStyle(REGISTERED, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10810_ELECTRO_HYDRAULIC_LINEAR = {
   _style: {
@@ -10,7 +10,7 @@ export const X10810_ELECTRO_HYDRAULIC_LINEAR = {
   _height: 157.64,
 }
 
-export function X10810ElectroHydraulicLinear(props: DiagramNodeProps) {
+export function X10810ElectroHydraulicLinear(props: NodeProps) {
   return (
     <Shape
       {...X10810_ELECTRO_HYDRAULIC_LINEAR}

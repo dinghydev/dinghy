@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL = {
   _style: {
@@ -10,7 +10,7 @@ export const PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL = {
   _height: 40,
 }
 
-export function PhotoconductiveTransducerSymmetrical(props: DiagramNodeProps) {
+export function PhotoconductiveTransducerSymmetrical(props: NodeProps) {
   return (
     <Shape
       {...PHOTOCONDUCTIVE_TRANSDUCER_SYMMETRICAL}

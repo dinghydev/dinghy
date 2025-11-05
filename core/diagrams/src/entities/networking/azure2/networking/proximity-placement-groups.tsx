@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROXIMITY_PLACEMENT_GROUPS = {
   _style: {
@@ -10,7 +10,7 @@ export const PROXIMITY_PLACEMENT_GROUPS = {
   _original_height: 68,
 }
 
-export function ProximityPlacementGroups(props: DiagramNodeProps) {
+export function ProximityPlacementGroups(props: NodeProps) {
   return (
     <Shape
       {...PROXIMITY_PLACEMENT_GROUPS}

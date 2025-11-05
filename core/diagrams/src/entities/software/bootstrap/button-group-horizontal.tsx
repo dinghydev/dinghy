@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTON_GROUP_HORIZONTAL = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTON_GROUP_HORIZONTAL = {
   _height: 30,
 }
 
-export function ButtonGroupHorizontal(props: DiagramNodeProps) {
+export function ButtonGroupHorizontal(props: NodeProps) {
   return (
     <Shape
       {...BUTTON_GROUP_HORIZONTAL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UMBRELLA = {
   _style: {
@@ -10,7 +10,7 @@ export const UMBRELLA = {
   _original_height: 30,
 }
 
-export function Umbrella(props: DiagramNodeProps) {
+export function Umbrella(props: NodeProps) {
   return (
     <Shape {...UMBRELLA} {...props} _style={extendStyle(UMBRELLA, props)} />
   )

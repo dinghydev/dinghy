@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERNAL_BLOCK_DIAGRAM = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERNAL_BLOCK_DIAGRAM = {
   _height: 100,
 }
 
-export function InternalBlockDiagram(props: DiagramNodeProps) {
+export function InternalBlockDiagram(props: NodeProps) {
   return (
     <Shape
       {...INTERNAL_BLOCK_DIAGRAM}

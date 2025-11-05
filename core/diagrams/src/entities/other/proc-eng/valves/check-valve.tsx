@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECK_VALVE = {
   _style: {
@@ -10,7 +10,7 @@ export const CHECK_VALVE = {
   _height: 60,
 }
 
-export function CheckValve(props: DiagramNodeProps) {
+export function CheckValve(props: NodeProps) {
   return (
     <Shape
       {...CHECK_VALVE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIP_PROXY_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const SIP_PROXY_SERVER = {
   _height: 70,
 }
 
-export function SipProxyServer(props: DiagramNodeProps) {
+export function SipProxyServer(props: NodeProps) {
   return (
     <Shape
       {...SIP_PROXY_SERVER}

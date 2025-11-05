@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIVING = {
   _style: {
@@ -10,6 +10,6 @@ export const DIVING = {
   _original_height: 99,
 }
 
-export function Diving(props: DiagramNodeProps) {
+export function Diving(props: NodeProps) {
   return <Shape {...DIVING} {...props} _style={extendStyle(DIVING, props)} />
 }

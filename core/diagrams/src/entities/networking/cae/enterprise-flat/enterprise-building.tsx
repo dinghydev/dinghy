@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTERPRISE_BUILDING = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTERPRISE_BUILDING = {
   _height: 50,
 }
 
-export function EnterpriseBuilding(props: DiagramNodeProps) {
+export function EnterpriseBuilding(props: NodeProps) {
   return (
     <Shape
       {...ENTERPRISE_BUILDING}

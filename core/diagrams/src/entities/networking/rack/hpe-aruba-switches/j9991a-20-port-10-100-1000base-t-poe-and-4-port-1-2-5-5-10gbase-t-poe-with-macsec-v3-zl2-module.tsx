@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9991A_20_PORT_10_100_1000BASE_T_POE_AND_4_PORT_1_2_5_5_10GBASE_T_POE_WITH_MACSEC_V3_ZL2_MODULE =
   {
@@ -12,7 +12,7 @@ export const J9991A_20_PORT_10_100_1000BASE_T_POE_AND_4_PORT_1_2_5_5_10GBASE_T_P
   }
 
 export function J9991a20Port101001000baseTPoeAnd4Port125510gbaseTPoeWithMacsecV3Zl2Module(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

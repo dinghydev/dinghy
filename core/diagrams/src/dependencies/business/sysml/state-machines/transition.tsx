@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSITION = {
   _style: {
@@ -8,7 +8,7 @@ export const TRANSITION = {
   },
 }
 
-export function Transition(props: DiagramNodeProps) {
+export function Transition(props: NodeProps) {
   return (
     <Dependency
       {...TRANSITION}

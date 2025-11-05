@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOAD_TESTING_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const LOAD_TESTING_2 = {
   _original_height: 68,
 }
 
-export function LoadTesting2(props: DiagramNodeProps) {
+export function LoadTesting2(props: NodeProps) {
   return (
     <Shape
       {...LOAD_TESTING_2}

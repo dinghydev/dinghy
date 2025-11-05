@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCANNER = {
   _style: {
@@ -10,6 +10,6 @@ export const SCANNER = {
   _original_height: 75,
 }
 
-export function Scanner(props: DiagramNodeProps) {
+export function Scanner(props: NodeProps) {
   return <Shape {...SCANNER} {...props} _style={extendStyle(SCANNER, props)} />
 }

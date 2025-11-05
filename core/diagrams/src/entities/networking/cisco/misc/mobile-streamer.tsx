@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_STREAMER = {
   _style: {
@@ -10,7 +10,7 @@ export const MOBILE_STREAMER = {
   _height: 70,
 }
 
-export function MobileStreamer(props: DiagramNodeProps) {
+export function MobileStreamer(props: NodeProps) {
   return (
     <Shape
       {...MOBILE_STREAMER}

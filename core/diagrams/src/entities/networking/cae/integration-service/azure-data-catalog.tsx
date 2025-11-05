@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_DATA_CATALOG = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_DATA_CATALOG = {
   _original_height: 50,
 }
 
-export function AzureDataCatalog(props: DiagramNodeProps) {
+export function AzureDataCatalog(props: NodeProps) {
   return (
     <Shape
       {...AZURE_DATA_CATALOG}

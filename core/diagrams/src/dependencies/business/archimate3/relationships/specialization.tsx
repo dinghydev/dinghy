@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SPECIALIZATION = {
   _style: {
@@ -8,7 +8,7 @@ export const SPECIALIZATION = {
   },
 }
 
-export function Specialization(props: DiagramNodeProps) {
+export function Specialization(props: NodeProps) {
   return (
     <Dependency
       {...SPECIALIZATION}

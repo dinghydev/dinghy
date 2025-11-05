@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PHYSICAL_NETWORK_ADAPTER = {
   _style: {
@@ -10,7 +10,7 @@ export const PHYSICAL_NETWORK_ADAPTER = {
   _height: 28.999999999999996,
 }
 
-export function PhysicalNetworkAdapter(props: DiagramNodeProps) {
+export function PhysicalNetworkAdapter(props: NodeProps) {
   return (
     <Shape
       {...PHYSICAL_NETWORK_ADAPTER}

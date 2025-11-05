@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CENTRIFUGAL_PUMP_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const CENTRIFUGAL_PUMP_2 = {
   _original_height: 77,
 }
 
-export function CentrifugalPump2(props: DiagramNodeProps) {
+export function CentrifugalPump2(props: NodeProps) {
   return (
     <Shape
       {...CENTRIFUGAL_PUMP_2}

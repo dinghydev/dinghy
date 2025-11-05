@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RADIUS_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const RADIUS_SERVER = {
   _original_height: 91,
 }
 
-export function RadiusServer(props: DiagramNodeProps) {
+export function RadiusServer(props: NodeProps) {
   return (
     <Shape
       {...RADIUS_SERVER}

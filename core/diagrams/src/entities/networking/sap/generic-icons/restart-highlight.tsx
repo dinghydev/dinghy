@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESTART_HIGHLIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const RESTART_HIGHLIGHT = {
   _height: 28,
 }
 
-export function RestartHighlight(props: DiagramNodeProps) {
+export function RestartHighlight(props: NodeProps) {
   return (
     <Shape
       {...RESTART_HIGHLIGHT}

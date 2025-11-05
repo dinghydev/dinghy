@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RAID_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const RAID_CONTROLLER = {
   _height: 29.2,
 }
 
-export function RaidController(props: DiagramNodeProps) {
+export function RaidController(props: NodeProps) {
   return (
     <Shape
       {...RAID_CONTROLLER}

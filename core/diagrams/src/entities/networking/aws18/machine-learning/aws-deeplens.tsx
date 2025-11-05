@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_DEEPLENS = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_DEEPLENS = {
   _height: 100,
 }
 
-export function AwsDeeplens(props: DiagramNodeProps) {
+export function AwsDeeplens(props: NodeProps) {
   return (
     <Shape
       {...AWS_DEEPLENS}

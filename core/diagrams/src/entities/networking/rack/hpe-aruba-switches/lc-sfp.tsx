@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LC_SFP = {
   _style: {
@@ -10,6 +10,6 @@ export const LC_SFP = {
   _height: 6,
 }
 
-export function LcSfp(props: DiagramNodeProps) {
+export function LcSfp(props: NodeProps) {
   return <Shape {...LC_SFP} {...props} _style={extendStyle(LC_SFP, props)} />
 }

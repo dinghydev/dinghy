@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PEDESTRIAN_CROSSING = {
   _style: {
@@ -10,7 +10,7 @@ export const PEDESTRIAN_CROSSING = {
   _original_height: 98,
 }
 
-export function PedestrianCrossing(props: DiagramNodeProps) {
+export function PedestrianCrossing(props: NodeProps) {
   return (
     <Shape
       {...PEDESTRIAN_CROSSING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHORTING_SELECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const SHORTING_SELECTOR = {
   _original_height: 66,
 }
 
-export function ShortingSelector(props: DiagramNodeProps) {
+export function ShortingSelector(props: NodeProps) {
   return (
     <Shape
       {...SHORTING_SELECTOR}

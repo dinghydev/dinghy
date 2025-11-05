@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROJECTOR_CANVAS = {
   _style: {
@@ -10,7 +10,7 @@ export const PROJECTOR_CANVAS = {
   _original_height: 52,
 }
 
-export function ProjectorCanvas(props: DiagramNodeProps) {
+export function ProjectorCanvas(props: NodeProps) {
   return (
     <Shape
       {...PROJECTOR_CANVAS}

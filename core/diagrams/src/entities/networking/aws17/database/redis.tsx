@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REDIS = {
   _style: {
@@ -10,6 +10,6 @@ export const REDIS = {
   _original_height: 63,
 }
 
-export function Redis(props: DiagramNodeProps) {
+export function Redis(props: NodeProps) {
   return <Shape {...REDIS} {...props} _style={extendStyle(REDIS, props)} />
 }

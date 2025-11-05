@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_LAYER_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_LAYER_SWITCH = {
   _height: 86,
 }
 
-export function VirtualLayerSwitch(props: DiagramNodeProps) {
+export function VirtualLayerSwitch(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_LAYER_SWITCH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRUST = {
   _style: {
@@ -10,6 +10,6 @@ export const TRUST = {
   _height: 16,
 }
 
-export function Trust(props: DiagramNodeProps) {
+export function Trust(props: NodeProps) {
   return <Shape {...TRUST} {...props} _style={extendStyle(TRUST, props)} />
 }

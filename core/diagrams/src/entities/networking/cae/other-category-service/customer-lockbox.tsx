@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CUSTOMER_LOCKBOX = {
   _style: {
@@ -10,7 +10,7 @@ export const CUSTOMER_LOCKBOX = {
   _original_height: 50,
 }
 
-export function CustomerLockbox(props: DiagramNodeProps) {
+export function CustomerLockbox(props: NodeProps) {
   return (
     <Shape
       {...CUSTOMER_LOCKBOX}

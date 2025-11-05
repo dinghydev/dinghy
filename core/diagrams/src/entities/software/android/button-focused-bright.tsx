@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTON_FOCUSED_BRIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTON_FOCUSED_BRIGHT = {
   _height: 16.88,
 }
 
-export function ButtonFocusedBright(props: DiagramNodeProps) {
+export function ButtonFocusedBright(props: NodeProps) {
   return (
     <Shape
       {...BUTTON_FOCUSED_BRIGHT}

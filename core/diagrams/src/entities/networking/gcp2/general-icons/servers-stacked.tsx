@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVERS_STACKED = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVERS_STACKED = {
   _original_height: 100,
 }
 
-export function ServersStacked(props: DiagramNodeProps) {
+export function ServersStacked(props: NodeProps) {
   return (
     <Shape
       {...SERVERS_STACKED}

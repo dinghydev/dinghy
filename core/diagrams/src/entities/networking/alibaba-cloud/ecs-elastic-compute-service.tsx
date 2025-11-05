@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ECS_ELASTIC_COMPUTE_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const ECS_ELASTIC_COMPUTE_SERVICE = {
   _original_height: 45.3,
 }
 
-export function EcsElasticComputeService(props: DiagramNodeProps) {
+export function EcsElasticComputeService(props: NodeProps) {
   return (
     <Shape
       {...ECS_ELASTIC_COMPUTE_SERVICE}

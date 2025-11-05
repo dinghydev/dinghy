@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DROPBOX_CODE_SOURCE = {
   _style: {
@@ -10,7 +10,7 @@ export const DROPBOX_CODE_SOURCE = {
   _original_height: 47.5,
 }
 
-export function DropboxCodeSource(props: DiagramNodeProps) {
+export function DropboxCodeSource(props: NodeProps) {
   return (
     <Shape
       {...DROPBOX_CODE_SOURCE}

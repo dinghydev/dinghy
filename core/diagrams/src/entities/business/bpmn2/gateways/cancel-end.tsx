@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CANCEL_END = {
   _style: {
@@ -10,7 +10,7 @@ export const CANCEL_END = {
   _original_height: 50,
 }
 
-export function CancelEnd(props: DiagramNodeProps) {
+export function CancelEnd(props: NodeProps) {
   return (
     <Shape {...CANCEL_END} {...props} _style={extendStyle(CANCEL_END, props)} />
   )

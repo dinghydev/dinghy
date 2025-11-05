@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUSHBUTTON_BREAK_ON = {
   _style: {
@@ -10,7 +10,7 @@ export const PUSHBUTTON_BREAK_ON = {
   _height: 40,
 }
 
-export function PushbuttonBreakOn(props: DiagramNodeProps) {
+export function PushbuttonBreakOn(props: NodeProps) {
   return (
     <Shape
       {...PUSHBUTTON_BREAK_ON}

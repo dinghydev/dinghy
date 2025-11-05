@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDING_CONNECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDING_CONNECTION = {
   _original_height: 100,
 }
 
-export function WindingConnection(props: DiagramNodeProps) {
+export function WindingConnection(props: NodeProps) {
   return (
     <Shape
       {...WINDING_CONNECTION}

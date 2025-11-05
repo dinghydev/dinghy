@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FOLDER_SHARED = {
   _style: {
@@ -10,7 +10,7 @@ export const FOLDER_SHARED = {
   _original_height: 52,
 }
 
-export function FolderShared(props: DiagramNodeProps) {
+export function FolderShared(props: NodeProps) {
   return (
     <Shape
       {...FOLDER_SHARED}

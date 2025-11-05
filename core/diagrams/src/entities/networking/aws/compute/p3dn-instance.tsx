@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const P3DN_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const P3DN_INSTANCE = {
   _original_height: 48,
 }
 
-export function P3dnInstance(props: DiagramNodeProps) {
+export function P3dnInstance(props: NodeProps) {
   return (
     <Shape
       {...P3DN_INSTANCE}

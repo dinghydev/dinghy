@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VWAF_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const VWAF_SECURITY = {
   _original_height: 45,
 }
 
-export function VwafSecurity(props: DiagramNodeProps) {
+export function VwafSecurity(props: NodeProps) {
   return (
     <Shape
       {...VWAF_SECURITY}

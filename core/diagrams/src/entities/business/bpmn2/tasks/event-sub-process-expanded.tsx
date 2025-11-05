@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EVENT_SUB_PROCESS_EXPANDED = {
   _style: {
@@ -10,7 +10,7 @@ export const EVENT_SUB_PROCESS_EXPANDED = {
   _height: 100,
 }
 
-export function EventSubProcessExpanded(props: DiagramNodeProps) {
+export function EventSubProcessExpanded(props: NodeProps) {
   return (
     <Shape
       {...EVENT_SUB_PROCESS_EXPANDED}

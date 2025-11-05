@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ORIFICE_PLATE = {
   _style: {
@@ -10,7 +10,7 @@ export const ORIFICE_PLATE = {
   _height: 140,
 }
 
-export function OrificePlate(props: DiagramNodeProps) {
+export function OrificePlate(props: NodeProps) {
   return (
     <Shape
       {...ORIFICE_PLATE}

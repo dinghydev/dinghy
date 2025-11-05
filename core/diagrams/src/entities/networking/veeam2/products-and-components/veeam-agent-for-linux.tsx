@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VEEAM_AGENT_FOR_LINUX = {
   _style: {
@@ -10,7 +10,7 @@ export const VEEAM_AGENT_FOR_LINUX = {
   _original_height: 34,
 }
 
-export function VeeamAgentForLinux(props: DiagramNodeProps) {
+export function VeeamAgentForLinux(props: NodeProps) {
   return (
     <Shape
       {...VEEAM_AGENT_FOR_LINUX}

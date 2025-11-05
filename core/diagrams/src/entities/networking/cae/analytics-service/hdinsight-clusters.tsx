@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HDINSIGHT_CLUSTERS = {
   _style: {
@@ -10,7 +10,7 @@ export const HDINSIGHT_CLUSTERS = {
   _original_height: 49,
 }
 
-export function HdinsightClusters(props: DiagramNodeProps) {
+export function HdinsightClusters(props: NodeProps) {
   return (
     <Shape
       {...HDINSIGHT_CLUSTERS}

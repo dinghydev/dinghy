@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATM_3800 = {
   _style: {
@@ -10,7 +10,7 @@ export const ATM_3800 = {
   _original_height: 75,
 }
 
-export function Atm3800(props: DiagramNodeProps) {
+export function Atm3800(props: NodeProps) {
   return (
     <Shape {...ATM_3800} {...props} _style={extendStyle(ATM_3800, props)} />
   )

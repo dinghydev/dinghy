@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SITEMAP = {
   _style: {
@@ -10,6 +10,6 @@ export const SITEMAP = {
   _height: 70,
 }
 
-export function Sitemap(props: DiagramNodeProps) {
+export function Sitemap(props: NodeProps) {
   return <Shape {...SITEMAP} {...props} _style={extendStyle(SITEMAP, props)} />
 }

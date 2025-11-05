@@ -1,5 +1,5 @@
 import {
-  type IacNodeProps,
+  type NodeProps,
   ResolvableBooleanSchema,
   ResolvableStringArraySchema,
   ResolvableStringSchema,
@@ -45,7 +45,7 @@ export type AwsCloudfrontDistributionInputProps =
   & z.input<
     typeof AwsCloudfrontDistributionInputSchema
   >
-  & IacNodeProps
+  & NodeProps
 
 export type AwsCloudfrontDistributionOutputProps =
   & z.output<

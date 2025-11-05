@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONFERENCE_ANNOUNCEMENT_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONFERENCE_ANNOUNCEMENT_SERVICE = {
   _original_height: 60,
 }
 
-export function ConferenceAnnouncementService(props: DiagramNodeProps) {
+export function ConferenceAnnouncementService(props: NodeProps) {
   return (
     <Shape
       {...CONFERENCE_ANNOUNCEMENT_SERVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRAKET_QPU = {
   _style: {
@@ -10,7 +10,7 @@ export const BRAKET_QPU = {
   _original_height: 78,
 }
 
-export function BraketQpu(props: DiagramNodeProps) {
+export function BraketQpu(props: NodeProps) {
   return (
     <Shape {...BRAKET_QPU} {...props} _style={extendStyle(BRAKET_QPU, props)} />
   )

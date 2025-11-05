@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMPLIFIER = {
   _style: {
@@ -10,7 +10,7 @@ export const AMPLIFIER = {
   _original_height: 100,
 }
 
-export function Amplifier(props: DiagramNodeProps) {
+export function Amplifier(props: NodeProps) {
   return (
     <Shape {...AMPLIFIER} {...props} _style={extendStyle(AMPLIFIER, props)} />
   )

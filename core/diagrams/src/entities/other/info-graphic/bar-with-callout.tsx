@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BAR_WITH_CALLOUT = {
   _style: {
@@ -10,7 +10,7 @@ export const BAR_WITH_CALLOUT = {
   _height: 70,
 }
 
-export function BarWithCallout(props: DiagramNodeProps) {
+export function BarWithCallout(props: NodeProps) {
   return (
     <Shape
       {...BAR_WITH_CALLOUT}

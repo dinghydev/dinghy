@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOUBLE_DIODE = {
   _style: {
@@ -10,7 +10,7 @@ export const DOUBLE_DIODE = {
   _original_height: 77,
 }
 
-export function DoubleDiode(props: DiagramNodeProps) {
+export function DoubleDiode(props: NodeProps) {
   return (
     <Shape
       {...DOUBLE_DIODE}

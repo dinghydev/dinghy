@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_FILE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_FILE = {
   _original_height: 60.8,
 }
 
-export function DataFile(props: DiagramNodeProps) {
+export function DataFile(props: NodeProps) {
   return (
     <Shape {...DATA_FILE} {...props} _style={extendStyle(DATA_FILE, props)} />
   )

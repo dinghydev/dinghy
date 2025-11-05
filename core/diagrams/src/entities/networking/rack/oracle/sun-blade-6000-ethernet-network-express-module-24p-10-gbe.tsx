@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUN_BLADE_6000_ETHERNET_NETWORK_EXPRESS_MODULE_24P_10_GBE = {
   _style: {
@@ -11,7 +11,7 @@ export const SUN_BLADE_6000_ETHERNET_NETWORK_EXPRESS_MODULE_24P_10_GBE = {
 }
 
 export function SunBlade6000EthernetNetworkExpressModule24p10Gbe(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

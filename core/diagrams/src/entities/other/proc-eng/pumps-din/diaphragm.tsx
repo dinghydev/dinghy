@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIAPHRAGM = {
   _style: {
@@ -10,7 +10,7 @@ export const DIAPHRAGM = {
   _original_height: 100,
 }
 
-export function Diaphragm(props: DiagramNodeProps) {
+export function Diaphragm(props: NodeProps) {
   return (
     <Shape {...DIAPHRAGM} {...props} _style={extendStyle(DIAPHRAGM, props)} />
   )

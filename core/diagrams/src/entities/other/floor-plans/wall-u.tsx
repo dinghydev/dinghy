@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WALL_U = {
   _style: {
@@ -10,6 +10,6 @@ export const WALL_U = {
   _original_height: 100,
 }
 
-export function WallU(props: DiagramNodeProps) {
+export function WallU(props: NodeProps) {
   return <Shape {...WALL_U} {...props} _style={extendStyle(WALL_U, props)} />
 }

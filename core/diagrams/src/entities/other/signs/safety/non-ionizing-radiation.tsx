@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NON_IONIZING_RADIATION = {
   _style: {
@@ -10,7 +10,7 @@ export const NON_IONIZING_RADIATION = {
   _original_height: 83,
 }
 
-export function NonIonizingRadiation(props: DiagramNodeProps) {
+export function NonIonizingRadiation(props: NodeProps) {
   return (
     <Shape
       {...NON_IONIZING_RADIATION}

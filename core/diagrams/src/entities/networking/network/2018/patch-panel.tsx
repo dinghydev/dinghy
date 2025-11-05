@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PATCH_PANEL = {
   _style: {
@@ -10,7 +10,7 @@ export const PATCH_PANEL = {
   _height: 35,
 }
 
-export function PatchPanel(props: DiagramNodeProps) {
+export function PatchPanel(props: NodeProps) {
   return (
     <Shape
       {...PATCH_PANEL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BEBO = {
   _style: {
@@ -10,6 +10,6 @@ export const BEBO = {
   _original_height: 71.4,
 }
 
-export function Bebo(props: DiagramNodeProps) {
+export function Bebo(props: NodeProps) {
   return <Shape {...BEBO} {...props} _style={extendStyle(BEBO, props)} />
 }

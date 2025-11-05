@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM = {
   _style: {
@@ -10,9 +10,7 @@ export const CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM = {
   _original_height: 89,
 }
 
-export function CiscoOns15310MaSdhMultiservicePlatform(
-  props: DiagramNodeProps,
-) {
+export function CiscoOns15310MaSdhMultiservicePlatform(props: NodeProps) {
   return (
     <Shape
       {...CISCO_ONS_15310_MA_SDH_MULTISERVICE_PLATFORM}

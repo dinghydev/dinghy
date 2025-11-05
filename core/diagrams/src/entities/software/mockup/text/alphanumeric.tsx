@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALPHANUMERIC = {
   _style: {
@@ -10,7 +10,7 @@ export const ALPHANUMERIC = {
   _height: 50,
 }
 
-export function Alphanumeric(props: DiagramNodeProps) {
+export function Alphanumeric(props: NodeProps) {
   return (
     <Shape
       {...ALPHANUMERIC}

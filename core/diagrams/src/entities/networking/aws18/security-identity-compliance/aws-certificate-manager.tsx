@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_CERTIFICATE_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_CERTIFICATE_MANAGER = {
   _height: 110,
 }
 
-export function AwsCertificateManager(props: DiagramNodeProps) {
+export function AwsCertificateManager(props: NodeProps) {
   return (
     <Shape
       {...AWS_CERTIFICATE_MANAGER}

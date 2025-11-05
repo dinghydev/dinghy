@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const S3_SELECT = {
   _style: {
@@ -10,7 +10,7 @@ export const S3_SELECT = {
   _original_height: 78,
 }
 
-export function S3Select(props: DiagramNodeProps) {
+export function S3Select(props: NodeProps) {
   return (
     <Shape {...S3_SELECT} {...props} _style={extendStyle(S3_SELECT, props)} />
   )

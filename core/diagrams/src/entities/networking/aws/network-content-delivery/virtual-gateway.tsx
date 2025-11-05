@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_GATEWAY = {
   _original_height: 78,
 }
 
-export function VirtualGateway(props: DiagramNodeProps) {
+export function VirtualGateway(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_GATEWAY}

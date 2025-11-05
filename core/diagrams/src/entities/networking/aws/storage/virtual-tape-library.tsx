@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_TAPE_LIBRARY = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_TAPE_LIBRARY = {
   _original_height: 78,
 }
 
-export function VirtualTapeLibrary(props: DiagramNodeProps) {
+export function VirtualTapeLibrary(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_TAPE_LIBRARY}

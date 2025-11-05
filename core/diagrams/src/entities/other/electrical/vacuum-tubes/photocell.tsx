@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PHOTOCELL = {
   _style: {
@@ -10,7 +10,7 @@ export const PHOTOCELL = {
   _original_height: 87,
 }
 
-export function Photocell(props: DiagramNodeProps) {
+export function Photocell(props: NodeProps) {
   return (
     <Shape {...PHOTOCELL} {...props} _style={extendStyle(PHOTOCELL, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_MEDIA_PLAYER = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_MEDIA_PLAYER = {
   _original_height: 50,
 }
 
-export function AzureMediaPlayer(props: DiagramNodeProps) {
+export function AzureMediaPlayer(props: NodeProps) {
   return (
     <Shape
       {...AZURE_MEDIA_PLAYER}

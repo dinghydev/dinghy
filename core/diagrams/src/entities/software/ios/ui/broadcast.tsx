@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BROADCAST = {
   _style: {
@@ -10,7 +10,7 @@ export const BROADCAST = {
   _original_height: 15,
 }
 
-export function Broadcast(props: DiagramNodeProps) {
+export function Broadcast(props: NodeProps) {
   return (
     <Shape {...BROADCAST} {...props} _style={extendStyle(BROADCAST, props)} />
   )

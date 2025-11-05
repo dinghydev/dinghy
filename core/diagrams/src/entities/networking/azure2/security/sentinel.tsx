@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SENTINEL = {
   _style: {
@@ -10,7 +10,7 @@ export const SENTINEL = {
   _original_height: 68,
 }
 
-export function Sentinel(props: DiagramNodeProps) {
+export function Sentinel(props: NodeProps) {
   return (
     <Shape {...SENTINEL} {...props} _style={extendStyle(SENTINEL, props)} />
   )

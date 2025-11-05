@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEY_PERMISSIONS_GHOSTED = {
   _style: {
@@ -10,7 +10,7 @@ export const KEY_PERMISSIONS_GHOSTED = {
   _height: 53,
 }
 
-export function KeyPermissionsGhosted(props: DiagramNodeProps) {
+export function KeyPermissionsGhosted(props: NodeProps) {
   return (
     <Shape
       {...KEY_PERMISSIONS_GHOSTED}

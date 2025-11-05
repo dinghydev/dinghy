@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPUTE_ENGINE_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPUTE_ENGINE_2 = {
   _height: 68,
 }
 
-export function ComputeEngine2(props: DiagramNodeProps) {
+export function ComputeEngine2(props: NodeProps) {
   return (
     <Shape
       {...COMPUTE_ENGINE_2}

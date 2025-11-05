@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GLUE = {
   _style: {
@@ -10,6 +10,6 @@ export const GLUE = {
   _original_height: 99,
 }
 
-export function Glue(props: DiagramNodeProps) {
+export function Glue(props: NodeProps) {
   return <Shape {...GLUE} {...props} _style={extendStyle(GLUE, props)} />
 }

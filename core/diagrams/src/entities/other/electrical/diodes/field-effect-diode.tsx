@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIELD_EFFECT_DIODE = {
   _style: {
@@ -10,7 +10,7 @@ export const FIELD_EFFECT_DIODE = {
   _height: 60,
 }
 
-export function FieldEffectDiode(props: DiagramNodeProps) {
+export function FieldEffectDiode(props: NodeProps) {
   return (
     <Shape
       {...FIELD_EFFECT_DIODE}

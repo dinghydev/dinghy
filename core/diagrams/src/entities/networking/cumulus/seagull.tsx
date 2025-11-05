@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SEAGULL = {
   _style: {
@@ -9,6 +9,6 @@ export const SEAGULL = {
   _original_height: 50,
 }
 
-export function Seagull(props: DiagramNodeProps) {
+export function Seagull(props: NodeProps) {
   return <Shape {...SEAGULL} {...props} _style={extendStyle(SEAGULL, props)} />
 }

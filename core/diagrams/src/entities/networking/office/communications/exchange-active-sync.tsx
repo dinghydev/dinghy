@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXCHANGE_ACTIVE_SYNC = {
   _style: {
@@ -10,7 +10,7 @@ export const EXCHANGE_ACTIVE_SYNC = {
   _original_height: 49,
 }
 
-export function ExchangeActiveSync(props: DiagramNodeProps) {
+export function ExchangeActiveSync(props: NodeProps) {
   return (
     <Shape
       {...EXCHANGE_ACTIVE_SYNC}

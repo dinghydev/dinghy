@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APP_WITH_CHANGES = {
   _style: {
@@ -10,7 +10,7 @@ export const APP_WITH_CHANGES = {
   _height: 32,
 }
 
-export function AppWithChanges(props: DiagramNodeProps) {
+export function AppWithChanges(props: NodeProps) {
   return (
     <Shape
       {...APP_WITH_CHANGES}

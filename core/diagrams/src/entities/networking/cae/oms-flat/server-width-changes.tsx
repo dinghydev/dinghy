@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVER_WIDTH_CHANGES = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVER_WIDTH_CHANGES = {
   _original_height: 50,
 }
 
-export function ServerWidthChanges(props: DiagramNodeProps) {
+export function ServerWidthChanges(props: NodeProps) {
   return (
     <Shape
       {...SERVER_WIDTH_CHANGES}

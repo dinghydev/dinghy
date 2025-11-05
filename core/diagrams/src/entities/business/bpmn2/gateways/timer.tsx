@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIMER = {
   _style: {
@@ -10,6 +10,6 @@ export const TIMER = {
   _original_height: 50,
 }
 
-export function Timer(props: DiagramNodeProps) {
+export function Timer(props: NodeProps) {
   return <Shape {...TIMER} {...props} _style={extendStyle(TIMER, props)} />
 }

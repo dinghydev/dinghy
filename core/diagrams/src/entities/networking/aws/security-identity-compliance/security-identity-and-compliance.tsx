@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURITY_IDENTITY_AND_COMPLIANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURITY_IDENTITY_AND_COMPLIANCE = {
   _original_height: 78,
 }
 
-export function SecurityIdentityAndCompliance(props: DiagramNodeProps) {
+export function SecurityIdentityAndCompliance(props: NodeProps) {
   return (
     <Shape
       {...SECURITY_IDENTITY_AND_COMPLIANCE}

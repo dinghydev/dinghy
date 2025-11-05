@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOCAL_MOVE_REQUEST = {
   _style: {
@@ -10,7 +10,7 @@ export const LOCAL_MOVE_REQUEST = {
   _original_height: 57,
 }
 
-export function LocalMoveRequest(props: DiagramNodeProps) {
+export function LocalMoveRequest(props: NodeProps) {
   return (
     <Shape
       {...LOCAL_MOVE_REQUEST}

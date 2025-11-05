@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WRITING_PENCIL = {
   _style: {
@@ -10,7 +10,7 @@ export const WRITING_PENCIL = {
   _original_height: 50,
 }
 
-export function WritingPencil(props: DiagramNodeProps) {
+export function WritingPencil(props: NodeProps) {
   return (
     <Shape
       {...WRITING_PENCIL}

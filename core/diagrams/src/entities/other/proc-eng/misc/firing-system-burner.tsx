@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FIRING_SYSTEM_BURNER = {
   _style: {
@@ -10,7 +10,7 @@ export const FIRING_SYSTEM_BURNER = {
   _original_height: 100,
 }
 
-export function FiringSystemBurner(props: DiagramNodeProps) {
+export function FiringSystemBurner(props: NodeProps) {
   return (
     <Shape
       {...FIRING_SYSTEM_BURNER}

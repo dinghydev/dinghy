@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DYNAMIC_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const DYNAMIC_ROUTER = {
   _height: 90,
 }
 
-export function DynamicRouter(props: DiagramNodeProps) {
+export function DynamicRouter(props: NodeProps) {
   return (
     <Shape
       {...DYNAMIC_ROUTER}

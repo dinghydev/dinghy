@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_NON_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_NON_SAP = {
   _height: 27,
 }
 
-export function WebNonSap(props: DiagramNodeProps) {
+export function WebNonSap(props: NodeProps) {
   return (
     <Shape
       {...WEB_NON_SAP}

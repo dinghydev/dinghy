@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURED = {
   _style: {
@@ -10,6 +10,6 @@ export const SECURED = {
   _height: 100,
 }
 
-export function Secured(props: DiagramNodeProps) {
+export function Secured(props: NodeProps) {
   return <Shape {...SECURED} {...props} _style={extendStyle(SECURED, props)} />
 }

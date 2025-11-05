@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POUND = {
   _style: {
@@ -10,6 +10,6 @@ export const POUND = {
   _height: 98,
 }
 
-export function Pound(props: DiagramNodeProps) {
+export function Pound(props: NodeProps) {
   return <Shape {...POUND} {...props} _style={extendStyle(POUND, props)} />
 }

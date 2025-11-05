@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANY_TO_MANY = {
   _style: {
@@ -8,7 +8,7 @@ export const MANY_TO_MANY = {
   },
 }
 
-export function ManyToMany(props: DiagramNodeProps) {
+export function ManyToMany(props: NodeProps) {
   return (
     <Dependency
       {...MANY_TO_MANY}

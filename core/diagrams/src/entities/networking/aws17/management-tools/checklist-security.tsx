@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECKLIST_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const CHECKLIST_SECURITY = {
   _original_height: 69,
 }
 
-export function ChecklistSecurity(props: DiagramNodeProps) {
+export function ChecklistSecurity(props: NodeProps) {
   return (
     <Shape
       {...CHECKLIST_SECURITY}

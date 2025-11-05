@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETLOG = {
   _style: {
@@ -10,6 +10,6 @@ export const NETLOG = {
   _original_height: 68.8,
 }
 
-export function Netlog(props: DiagramNodeProps) {
+export function Netlog(props: NodeProps) {
   return <Shape {...NETLOG} {...props} _style={extendStyle(NETLOG, props)} />
 }

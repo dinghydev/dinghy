@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BLIND_DISC = {
   _style: {
@@ -10,7 +10,7 @@ export const BLIND_DISC = {
   _height: 140,
 }
 
-export function BlindDisc(props: DiagramNodeProps) {
+export function BlindDisc(props: NodeProps) {
   return (
     <Shape {...BLIND_DISC} {...props} _style={extendStyle(BLIND_DISC, props)} />
   )

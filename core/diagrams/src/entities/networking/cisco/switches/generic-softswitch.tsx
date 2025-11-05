@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GENERIC_SOFTSWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const GENERIC_SOFTSWITCH = {
   _height: 75,
 }
 
-export function GenericSoftswitch(props: DiagramNodeProps) {
+export function GenericSoftswitch(props: NodeProps) {
   return (
     <Shape
       {...GENERIC_SOFTSWITCH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RADIATOR_WATER = {
   _style: {
@@ -10,7 +10,7 @@ export const RADIATOR_WATER = {
   _original_height: 94,
 }
 
-export function RadiatorWater(props: DiagramNodeProps) {
+export function RadiatorWater(props: NodeProps) {
   return (
     <Shape
       {...RADIATOR_WATER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALLOYDB = {
   _style: {
@@ -10,6 +10,6 @@ export const ALLOYDB = {
   _height: 42,
 }
 
-export function Alloydb(props: DiagramNodeProps) {
+export function Alloydb(props: NodeProps) {
   return <Shape {...ALLOYDB} {...props} _style={extendStyle(ALLOYDB, props)} />
 }

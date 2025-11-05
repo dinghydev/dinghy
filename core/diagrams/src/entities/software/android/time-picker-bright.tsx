@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIME_PICKER_BRIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const TIME_PICKER_BRIGHT = {
   _height: 230,
 }
 
-export function TimePickerBright(props: DiagramNodeProps) {
+export function TimePickerBright(props: NodeProps) {
   return (
     <Shape
       {...TIME_PICKER_BRIGHT}

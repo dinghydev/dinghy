@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CRUSHING_GRINDING_MACHINE = {
   _style: {
@@ -10,7 +10,7 @@ export const CRUSHING_GRINDING_MACHINE = {
   _height: 60,
 }
 
-export function CrushingGrindingMachine(props: DiagramNodeProps) {
+export function CrushingGrindingMachine(props: NodeProps) {
   return (
     <Shape
       {...CRUSHING_GRINDING_MACHINE}

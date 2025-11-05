@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDUCED_DRAFT_COOLING_TOWER = {
   _style: {
@@ -10,7 +10,7 @@ export const INDUCED_DRAFT_COOLING_TOWER = {
   _height: 70,
 }
 
-export function InducedDraftCoolingTower(props: DiagramNodeProps) {
+export function InducedDraftCoolingTower(props: NodeProps) {
   return (
     <Shape
       {...INDUCED_DRAFT_COOLING_TOWER}

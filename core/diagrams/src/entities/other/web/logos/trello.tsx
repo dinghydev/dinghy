@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRELLO = {
   _style: {
@@ -10,6 +10,6 @@ export const TRELLO = {
   _original_height: 70,
 }
 
-export function Trello(props: DiagramNodeProps) {
+export function Trello(props: NodeProps) {
   return <Shape {...TRELLO} {...props} _style={extendStyle(TRELLO, props)} />
 }

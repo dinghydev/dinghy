@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOSFET_N = {
   _style: {
@@ -10,7 +10,7 @@ export const MOSFET_N = {
   _original_height: 100,
 }
 
-export function MosfetN(props: DiagramNodeProps) {
+export function MosfetN(props: NodeProps) {
   return (
     <Shape {...MOSFET_N} {...props} _style={extendStyle(MOSFET_N, props)} />
   )

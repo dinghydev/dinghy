@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL085A_ARUBA_6300M_PSU_MODULE = {
   _style: {
@@ -10,7 +10,7 @@ export const JL085A_ARUBA_6300M_PSU_MODULE = {
   _height: 13,
 }
 
-export function Jl085aAruba6300mPsuModule(props: DiagramNodeProps) {
+export function Jl085aAruba6300mPsuModule(props: NodeProps) {
   return (
     <Shape
       {...JL085A_ARUBA_6300M_PSU_MODULE}

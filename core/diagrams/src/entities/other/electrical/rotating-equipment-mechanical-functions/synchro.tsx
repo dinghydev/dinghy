@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SYNCHRO = {
   _style: {
@@ -10,6 +10,6 @@ export const SYNCHRO = {
   _height: 100,
 }
 
-export function Synchro(props: DiagramNodeProps) {
+export function Synchro(props: NodeProps) {
   return <Shape {...SYNCHRO} {...props} _style={extendStyle(SYNCHRO, props)} />
 }

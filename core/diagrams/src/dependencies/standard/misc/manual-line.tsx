@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MANUAL_LINE = {
   _style: {
@@ -8,7 +8,7 @@ export const MANUAL_LINE = {
   },
 }
 
-export function ManualLine(props: DiagramNodeProps) {
+export function ManualLine(props: NodeProps) {
   return (
     <Dependency
       {...MANUAL_LINE}

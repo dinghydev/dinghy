@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10410_5_2_PNEUMATIC = {
   _style: {
@@ -10,7 +10,7 @@ export const X10410_5_2_PNEUMATIC = {
   _height: 75.02,
 }
 
-export function X1041052Pneumatic(props: DiagramNodeProps) {
+export function X1041052Pneumatic(props: NodeProps) {
   return (
     <Shape
       {...X10410_5_2_PNEUMATIC}

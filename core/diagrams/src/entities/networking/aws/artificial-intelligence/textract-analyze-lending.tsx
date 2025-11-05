@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TEXTRACT_ANALYZE_LENDING = {
   _style: {
@@ -10,7 +10,7 @@ export const TEXTRACT_ANALYZE_LENDING = {
   _original_height: 78,
 }
 
-export function TextractAnalyzeLending(props: DiagramNodeProps) {
+export function TextractAnalyzeLending(props: NodeProps) {
   return (
     <Shape
       {...TEXTRACT_ANALYZE_LENDING}

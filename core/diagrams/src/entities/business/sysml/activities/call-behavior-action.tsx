@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALL_BEHAVIOR_ACTION = {
   _style: {
@@ -10,7 +10,7 @@ export const CALL_BEHAVIOR_ACTION = {
   _height: 80,
 }
 
-export function CallBehaviorAction(props: DiagramNodeProps) {
+export function CallBehaviorAction(props: NodeProps) {
   return (
     <Shape
       {...CALL_BEHAVIOR_ACTION}

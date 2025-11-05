@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ENTRA_CONNECT_HEALTH = {
   _style: {
@@ -10,7 +10,7 @@ export const ENTRA_CONNECT_HEALTH = {
   _original_height: 60.440000000000005,
 }
 
-export function EntraConnectHealth(props: DiagramNodeProps) {
+export function EntraConnectHealth(props: NodeProps) {
   return (
     <Shape
       {...ENTRA_CONNECT_HEALTH}

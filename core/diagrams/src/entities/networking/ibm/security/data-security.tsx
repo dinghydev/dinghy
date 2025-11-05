@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_SECURITY = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_SECURITY = {
   _original_height: 60,
 }
 
-export function DataSecurity(props: DiagramNodeProps) {
+export function DataSecurity(props: NodeProps) {
   return (
     <Shape
       {...DATA_SECURITY}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOZENGE_MOVED_SUBTLE = {
   _style: {
@@ -10,7 +10,7 @@ export const LOZENGE_MOVED_SUBTLE = {
   _height: 20,
 }
 
-export function LozengeMovedSubtle(props: DiagramNodeProps) {
+export function LozengeMovedSubtle(props: NodeProps) {
   return (
     <Shape
       {...LOZENGE_MOVED_SUBTLE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESOURCE_MANAGEMENT_PRIVATE_LINK = {
   _style: {
@@ -10,7 +10,7 @@ export const RESOURCE_MANAGEMENT_PRIVATE_LINK = {
   _original_height: 66,
 }
 
-export function ResourceManagementPrivateLink(props: DiagramNodeProps) {
+export function ResourceManagementPrivateLink(props: NodeProps) {
   return (
     <Shape
       {...RESOURCE_MANAGEMENT_PRIVATE_LINK}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REMOVABLE_SPOOL = {
   _style: {
@@ -10,7 +10,7 @@ export const REMOVABLE_SPOOL = {
   _height: 30,
 }
 
-export function RemovableSpool(props: DiagramNodeProps) {
+export function RemovableSpool(props: NodeProps) {
   return (
     <Shape
       {...REMOVABLE_SPOOL}

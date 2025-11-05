@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROP_AGITATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const PROP_AGITATOR = {
   _height: 88,
 }
 
-export function PropAgitator(props: DiagramNodeProps) {
+export function PropAgitator(props: NodeProps) {
   return (
     <Shape
       {...PROP_AGITATOR}

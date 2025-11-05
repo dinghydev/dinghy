@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THERMOCOUPLE = {
   _style: {
@@ -10,7 +10,7 @@ export const THERMOCOUPLE = {
   _original_height: 81,
 }
 
-export function Thermocouple(props: DiagramNodeProps) {
+export function Thermocouple(props: NodeProps) {
   return (
     <Shape
       {...THERMOCOUPLE}

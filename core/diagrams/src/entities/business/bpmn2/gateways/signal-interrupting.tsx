@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIGNAL_INTERRUPTING = {
   _style: {
@@ -10,7 +10,7 @@ export const SIGNAL_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function SignalInterrupting(props: DiagramNodeProps) {
+export function SignalInterrupting(props: NodeProps) {
   return (
     <Shape
       {...SIGNAL_INTERRUPTING}

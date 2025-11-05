@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const R0X41A_ARUBA_6400_48P_SMART_RATE_CSL6_POE_4SFP56_MODULE = {
   _style: {
@@ -11,7 +11,7 @@ export const R0X41A_ARUBA_6400_48P_SMART_RATE_CSL6_POE_4SFP56_MODULE = {
 }
 
 export function R0x41aAruba640048pSmartRateCsl6Poe4sfp56Module(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

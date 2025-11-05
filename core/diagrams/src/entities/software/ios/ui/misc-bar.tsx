@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MISC_BAR = {
   _style: {
@@ -10,7 +10,7 @@ export const MISC_BAR = {
   _height: 28.000000000000004,
 }
 
-export function MiscBar(props: DiagramNodeProps) {
+export function MiscBar(props: NodeProps) {
   return (
     <Shape {...MISC_BAR} {...props} _style={extendStyle(MISC_BAR, props)} />
   )

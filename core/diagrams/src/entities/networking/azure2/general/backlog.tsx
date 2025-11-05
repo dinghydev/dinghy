@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKLOG = {
   _style: {
@@ -10,6 +10,6 @@ export const BACKLOG = {
   _original_height: 60,
 }
 
-export function Backlog(props: DiagramNodeProps) {
+export function Backlog(props: NodeProps) {
   return <Shape {...BACKLOG} {...props} _style={extendStyle(BACKLOG, props)} />
 }

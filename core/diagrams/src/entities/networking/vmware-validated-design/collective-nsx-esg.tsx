@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COLLECTIVE_NSX_ESG = {
   _style: {
@@ -10,7 +10,7 @@ export const COLLECTIVE_NSX_ESG = {
   _original_height: 47.5,
 }
 
-export function CollectiveNsxEsg(props: DiagramNodeProps) {
+export function CollectiveNsxEsg(props: NodeProps) {
   return (
     <Shape
       {...COLLECTIVE_NSX_ESG}

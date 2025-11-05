@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTNER_INTERCONNECT = {
   _style: {
@@ -10,7 +10,7 @@ export const PARTNER_INTERCONNECT = {
   _height: 28.000000000000004,
 }
 
-export function PartnerInterconnect(props: DiagramNodeProps) {
+export function PartnerInterconnect(props: NodeProps) {
   return (
     <Shape
       {...PARTNER_INTERCONNECT}

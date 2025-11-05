@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ESCALATION_START_INTERRUPTING = {
   _style: {
@@ -10,7 +10,7 @@ export const ESCALATION_START_INTERRUPTING = {
   _original_height: 50,
 }
 
-export function EscalationStartInterrupting(props: DiagramNodeProps) {
+export function EscalationStartInterrupting(props: NodeProps) {
   return (
     <Shape
       {...ESCALATION_START_INTERRUPTING}

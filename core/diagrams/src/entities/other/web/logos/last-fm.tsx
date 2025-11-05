@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LAST_FM = {
   _style: {
@@ -10,6 +10,6 @@ export const LAST_FM = {
   _height: 50,
 }
 
-export function LastFm(props: DiagramNodeProps) {
+export function LastFm(props: NodeProps) {
   return <Shape {...LAST_FM} {...props} _style={extendStyle(LAST_FM, props)} />
 }

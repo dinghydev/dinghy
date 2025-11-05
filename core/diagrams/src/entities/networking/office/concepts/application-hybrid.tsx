@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APPLICATION_HYBRID = {
   _style: {
@@ -10,7 +10,7 @@ export const APPLICATION_HYBRID = {
   _original_height: 44,
 }
 
-export function ApplicationHybrid(props: DiagramNodeProps) {
+export function ApplicationHybrid(props: NodeProps) {
   return (
     <Shape
       {...APPLICATION_HYBRID}

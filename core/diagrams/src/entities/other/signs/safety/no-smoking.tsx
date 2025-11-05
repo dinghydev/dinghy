@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NO_SMOKING = {
   _style: {
@@ -10,7 +10,7 @@ export const NO_SMOKING = {
   _original_height: 98,
 }
 
-export function NoSmoking(props: DiagramNodeProps) {
+export function NoSmoking(props: NodeProps) {
   return (
     <Shape {...NO_SMOKING} {...props} _style={extendStyle(NO_SMOKING, props)} />
   )

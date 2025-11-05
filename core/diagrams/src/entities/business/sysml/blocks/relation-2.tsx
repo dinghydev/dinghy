@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RELATION_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const RELATION_2 = {
   _height: 0,
 }
 
-export function Relation2(props: DiagramNodeProps) {
+export function Relation2(props: NodeProps) {
   return (
     <Shape {...RELATION_2} {...props} _style={extendStyle(RELATION_2, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OVERCURRENT_RELAY_125_400A = {
   _style: {
@@ -10,7 +10,7 @@ export const OVERCURRENT_RELAY_125_400A = {
   _height: 30,
 }
 
-export function OvercurrentRelay125400a(props: DiagramNodeProps) {
+export function OvercurrentRelay125400a(props: NodeProps) {
   return (
     <Shape
       {...OVERCURRENT_RELAY_125_400A}

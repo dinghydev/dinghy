@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REPEATER = {
   _style: {
@@ -10,7 +10,7 @@ export const REPEATER = {
   _original_height: 80,
 }
 
-export function Repeater(props: DiagramNodeProps) {
+export function Repeater(props: NodeProps) {
   return (
     <Shape {...REPEATER} {...props} _style={extendStyle(REPEATER, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TUNNEL_ANGLED = {
   _style: {
@@ -10,7 +10,7 @@ export const TUNNEL_ANGLED = {
   _height: 35,
 }
 
-export function TunnelAngled(props: DiagramNodeProps) {
+export function TunnelAngled(props: NodeProps) {
   return (
     <Shape
       {...TUNNEL_ANGLED}

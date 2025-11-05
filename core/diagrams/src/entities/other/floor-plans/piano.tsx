@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PIANO = {
   _style: {
@@ -10,6 +10,6 @@ export const PIANO = {
   _height: 143,
 }
 
-export function Piano(props: DiagramNodeProps) {
+export function Piano(props: NodeProps) {
   return <Shape {...PIANO} {...props} _style={extendStyle(PIANO, props)} />
 }

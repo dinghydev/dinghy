@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTINUOUS_DEPLOY = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTINUOUS_DEPLOY = {
   _original_height: 60,
 }
 
-export function ContinuousDeploy(props: DiagramNodeProps) {
+export function ContinuousDeploy(props: NodeProps) {
   return (
     <Shape
       {...CONTINUOUS_DEPLOY}

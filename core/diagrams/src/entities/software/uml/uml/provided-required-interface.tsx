@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROVIDED_REQUIRED_INTERFACE = {
   _style: {
@@ -10,7 +10,7 @@ export const PROVIDED_REQUIRED_INTERFACE = {
   _original_height: 20,
 }
 
-export function ProvidedRequiredInterface(props: DiagramNodeProps) {
+export function ProvidedRequiredInterface(props: NodeProps) {
   return (
     <Shape
       {...PROVIDED_REQUIRED_INTERFACE}

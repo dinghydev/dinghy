@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MQC_MOBILE_QUALITY_CENTER = {
   _style: {
@@ -10,7 +10,7 @@ export const MQC_MOBILE_QUALITY_CENTER = {
   _original_height: 49.5,
 }
 
-export function MqcMobileQualityCenter(props: DiagramNodeProps) {
+export function MqcMobileQualityCenter(props: NodeProps) {
   return (
     <Shape
       {...MQC_MOBILE_QUALITY_CENTER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUN_BLADE_6000_VIRTUALIZED_40_GBE_NETWORK_EXPRESS_MODULE = {
   _style: {
@@ -11,7 +11,7 @@ export const SUN_BLADE_6000_VIRTUALIZED_40_GBE_NETWORK_EXPRESS_MODULE = {
 }
 
 export function SunBlade6000Virtualized40GbeNetworkExpressModule(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XOR_IEC = {
   _style: {
@@ -10,6 +10,6 @@ export const XOR_IEC = {
   _height: 80,
 }
 
-export function XorIec(props: DiagramNodeProps) {
+export function XorIec(props: NodeProps) {
   return <Shape {...XOR_IEC} {...props} _style={extendStyle(XOR_IEC, props)} />
 }

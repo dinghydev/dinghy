@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MARIADB_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const MARIADB_INSTANCE = {
   _original_height: 78,
 }
 
-export function MariadbInstance(props: DiagramNodeProps) {
+export function MariadbInstance(props: NodeProps) {
   return (
     <Shape
       {...MARIADB_INSTANCE}

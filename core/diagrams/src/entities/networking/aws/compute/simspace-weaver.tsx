@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SIMSPACE_WEAVER = {
   _style: {
@@ -10,7 +10,7 @@ export const SIMSPACE_WEAVER = {
   _original_height: 78,
 }
 
-export function SimspaceWeaver(props: DiagramNodeProps) {
+export function SimspaceWeaver(props: NodeProps) {
   return (
     <Shape
       {...SIMSPACE_WEAVER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FASHIOLISTA = {
   _style: {
@@ -10,7 +10,7 @@ export const FASHIOLISTA = {
   _original_height: 102.4,
 }
 
-export function Fashiolista(props: DiagramNodeProps) {
+export function Fashiolista(props: NodeProps) {
   return (
     <Shape
       {...FASHIOLISTA}

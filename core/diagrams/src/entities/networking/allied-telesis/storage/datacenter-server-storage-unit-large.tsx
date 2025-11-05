@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATACENTER_SERVER_STORAGE_UNIT_LARGE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATACENTER_SERVER_STORAGE_UNIT_LARGE = {
   _original_height: 79.2,
 }
 
-export function DatacenterServerStorageUnitLarge(props: DiagramNodeProps) {
+export function DatacenterServerStorageUnitLarge(props: NodeProps) {
   return (
     <Shape
       {...DATACENTER_SERVER_STORAGE_UNIT_LARGE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROVIDER_CLOUD_PORTAL_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const PROVIDER_CLOUD_PORTAL_SERVICE = {
   _original_height: 60,
 }
 
-export function ProviderCloudPortalService(props: DiagramNodeProps) {
+export function ProviderCloudPortalService(props: NodeProps) {
   return (
     <Shape
       {...PROVIDER_CLOUD_PORTAL_SERVICE}

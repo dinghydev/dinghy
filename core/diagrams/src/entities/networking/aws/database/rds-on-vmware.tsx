@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RDS_ON_VMWARE = {
   _style: {
@@ -10,7 +10,7 @@ export const RDS_ON_VMWARE = {
   _original_height: 78,
 }
 
-export function RdsOnVmware(props: DiagramNodeProps) {
+export function RdsOnVmware(props: NodeProps) {
   return (
     <Shape
       {...RDS_ON_VMWARE}

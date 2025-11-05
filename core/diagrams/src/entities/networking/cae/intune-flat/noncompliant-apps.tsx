@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NONCOMPLIANT_APPS = {
   _style: {
@@ -10,7 +10,7 @@ export const NONCOMPLIANT_APPS = {
   _original_height: 50,
 }
 
-export function NoncompliantApps(props: DiagramNodeProps) {
+export function NoncompliantApps(props: NodeProps) {
   return (
     <Shape
       {...NONCOMPLIANT_APPS}

@@ -1,8 +1,8 @@
 import {
   deepMerge,
   deepResolve,
-  type IacNodeProps,
   loadFilesData,
+  type NodeProps,
   ResolvableRecordSchema,
   ResolvableStringSchema,
   Shape,
@@ -20,7 +20,7 @@ export const InputSchema = z.object({
 
 export type InputProps =
   & z.input<typeof InputSchema>
-  & IacNodeProps
+  & NodeProps
 
 export function IamRolePolicies(
   { name, path, initialPolicies, ...props }: InputProps,

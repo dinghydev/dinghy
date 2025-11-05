@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EC2_AUTO_SCALING = {
   _style: {
@@ -10,7 +10,7 @@ export const EC2_AUTO_SCALING = {
   _original_height: 78,
 }
 
-export function Ec2AutoScaling(props: DiagramNodeProps) {
+export function Ec2AutoScaling(props: NodeProps) {
   return (
     <Shape
       {...EC2_AUTO_SCALING}

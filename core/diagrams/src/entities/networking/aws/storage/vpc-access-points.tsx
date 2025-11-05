@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VPC_ACCESS_POINTS = {
   _style: {
@@ -10,7 +10,7 @@ export const VPC_ACCESS_POINTS = {
   _height: 78,
 }
 
-export function VpcAccessPoints(props: DiagramNodeProps) {
+export function VpcAccessPoints(props: NodeProps) {
   return (
     <Shape
       {...VPC_ACCESS_POINTS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X10730_DOUBLE_NON_RETURN = {
   _style: {
@@ -10,7 +10,7 @@ export const X10730_DOUBLE_NON_RETURN = {
   _original_height: 93.46,
 }
 
-export function X10730DoubleNonReturn(props: DiagramNodeProps) {
+export function X10730DoubleNonReturn(props: NodeProps) {
   return (
     <Shape
       {...X10730_DOUBLE_NON_RETURN}

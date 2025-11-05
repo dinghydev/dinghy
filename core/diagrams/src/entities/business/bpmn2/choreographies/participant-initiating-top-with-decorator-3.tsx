@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTICIPANT_INITIATING_TOP_WITH_DECORATOR_3 = {
   _style: {
@@ -10,9 +10,7 @@ export const PARTICIPANT_INITIATING_TOP_WITH_DECORATOR_3 = {
   _height: 80,
 }
 
-export function ParticipantInitiatingTopWithDecorator3(
-  props: DiagramNodeProps,
-) {
+export function ParticipantInitiatingTopWithDecorator3(props: NodeProps) {
   return (
     <Shape
       {...PARTICIPANT_INITIATING_TOP_WITH_DECORATOR_3}

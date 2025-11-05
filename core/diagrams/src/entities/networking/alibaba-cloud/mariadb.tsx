@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MARIADB = {
   _style: {
@@ -10,6 +10,6 @@ export const MARIADB = {
   _height: 38.4,
 }
 
-export function Mariadb(props: DiagramNodeProps) {
+export function Mariadb(props: NodeProps) {
   return <Shape {...MARIADB} {...props} _style={extendStyle(MARIADB, props)} />
 }

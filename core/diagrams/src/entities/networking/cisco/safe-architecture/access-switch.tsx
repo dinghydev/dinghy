@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACCESS_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const ACCESS_SWITCH = {
   _original_height: 50,
 }
 
-export function AccessSwitch(props: DiagramNodeProps) {
+export function AccessSwitch(props: NodeProps) {
   return (
     <Shape
       {...ACCESS_SWITCH}

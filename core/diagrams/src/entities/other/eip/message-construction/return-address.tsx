@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RETURN_ADDRESS = {
   _style: {
@@ -10,7 +10,7 @@ export const RETURN_ADDRESS = {
   _height: 48,
 }
 
-export function ReturnAddress(props: DiagramNodeProps) {
+export function ReturnAddress(props: NodeProps) {
   return (
     <Shape
       {...RETURN_ADDRESS}

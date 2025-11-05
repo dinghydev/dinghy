@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PHYSICAL_UPSTREAM_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const PHYSICAL_UPSTREAM_ROUTER = {
   _original_height: 50,
 }
 
-export function PhysicalUpstreamRouter(props: DiagramNodeProps) {
+export function PhysicalUpstreamRouter(props: NodeProps) {
   return (
     <Shape
       {...PHYSICAL_UPSTREAM_ROUTER}

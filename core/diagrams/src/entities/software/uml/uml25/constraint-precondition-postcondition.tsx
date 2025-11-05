@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONSTRAINT_PRECONDITION_POSTCONDITION = {
   _style: {
@@ -10,7 +10,7 @@ export const CONSTRAINT_PRECONDITION_POSTCONDITION = {
   _height: 60,
 }
 
-export function ConstraintPreconditionPostcondition(props: DiagramNodeProps) {
+export function ConstraintPreconditionPostcondition(props: NodeProps) {
   return (
     <Shape
       {...CONSTRAINT_PRECONDITION_POSTCONDITION}

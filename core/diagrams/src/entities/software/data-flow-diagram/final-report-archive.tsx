@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FINAL_REPORT_ARCHIVE = {
   _style: {
@@ -9,7 +9,7 @@ export const FINAL_REPORT_ARCHIVE = {
   _original_height: 60,
 }
 
-export function FinalReportArchive(props: DiagramNodeProps) {
+export function FinalReportArchive(props: NodeProps) {
   return (
     <Shape
       {...FINAL_REPORT_ARCHIVE}

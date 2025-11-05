@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACK_BUTTON = {
   _style: {
@@ -10,7 +10,7 @@ export const BACK_BUTTON = {
   _height: 15,
 }
 
-export function BackButton(props: DiagramNodeProps) {
+export function BackButton(props: NodeProps) {
   return (
     <Shape
       {...BACK_BUTTON}

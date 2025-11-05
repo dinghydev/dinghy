@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TERMINATE_NODE = {
   _style: {
@@ -9,7 +9,7 @@ export const TERMINATE_NODE = {
   _original_height: 40,
 }
 
-export function TerminateNode(props: DiagramNodeProps) {
+export function TerminateNode(props: NodeProps) {
   return (
     <Shape
       {...TERMINATE_NODE}

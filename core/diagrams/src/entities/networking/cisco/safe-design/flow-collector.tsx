@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FLOW_COLLECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const FLOW_COLLECTOR = {
   _original_height: 45,
 }
 
-export function FlowCollector(props: DiagramNodeProps) {
+export function FlowCollector(props: NodeProps) {
   return (
     <Shape
       {...FLOW_COLLECTOR}

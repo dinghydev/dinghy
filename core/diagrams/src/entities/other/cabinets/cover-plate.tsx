@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COVER_PLATE = {
   _style: {
@@ -10,7 +10,7 @@ export const COVER_PLATE = {
   _height: 125,
 }
 
-export function CoverPlate(props: DiagramNodeProps) {
+export function CoverPlate(props: NodeProps) {
   return (
     <Shape
       {...COVER_PLATE}

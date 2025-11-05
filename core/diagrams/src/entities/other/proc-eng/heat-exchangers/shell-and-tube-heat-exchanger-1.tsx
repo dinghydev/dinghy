@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHELL_AND_TUBE_HEAT_EXCHANGER_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const SHELL_AND_TUBE_HEAT_EXCHANGER_1 = {
   _original_height: 60,
 }
 
-export function ShellAndTubeHeatExchanger1(props: DiagramNodeProps) {
+export function ShellAndTubeHeatExchanger1(props: NodeProps) {
   return (
     <Shape
       {...SHELL_AND_TUBE_HEAT_EXCHANGER_1}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONFIG_RULE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONFIG_RULE = {
   _original_height: 72,
 }
 
-export function ConfigRule(props: DiagramNodeProps) {
+export function ConfigRule(props: NodeProps) {
   return (
     <Shape
       {...CONFIG_RULE}

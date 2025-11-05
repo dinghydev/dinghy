@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const APSARA_FILE_STORAGE_FOR_HDFS = {
   _style: {
@@ -10,7 +10,7 @@ export const APSARA_FILE_STORAGE_FOR_HDFS = {
   _original_height: 47.400000000000006,
 }
 
-export function ApsaraFileStorageForHdfs(props: DiagramNodeProps) {
+export function ApsaraFileStorageForHdfs(props: NodeProps) {
   return (
     <Shape
       {...APSARA_FILE_STORAGE_FOR_HDFS}

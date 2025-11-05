@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POINTER = {
   _style: {
@@ -10,6 +10,6 @@ export const POINTER = {
   _original_height: 30,
 }
 
-export function Pointer(props: DiagramNodeProps) {
+export function Pointer(props: NodeProps) {
   return <Shape {...POINTER} {...props} _style={extendStyle(POINTER, props)} />
 }

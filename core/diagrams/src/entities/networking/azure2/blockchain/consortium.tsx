@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONSORTIUM = {
   _style: {
@@ -10,7 +10,7 @@ export const CONSORTIUM = {
   _original_height: 68,
 }
 
-export function Consortium(props: DiagramNodeProps) {
+export function Consortium(props: NodeProps) {
   return (
     <Shape {...CONSORTIUM} {...props} _style={extendStyle(CONSORTIUM, props)} />
   )

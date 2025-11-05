@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BASKET_CANCEL = {
   _style: {
@@ -10,7 +10,7 @@ export const BASKET_CANCEL = {
   _height: 12,
 }
 
-export function BasketCancel(props: DiagramNodeProps) {
+export function BasketCancel(props: NodeProps) {
   return (
     <Shape
       {...BASKET_CANCEL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REMOTE_SITE = {
   _style: {
@@ -10,7 +10,7 @@ export const REMOTE_SITE = {
   _original_height: 60,
 }
 
-export function RemoteSite(props: DiagramNodeProps) {
+export function RemoteSite(props: NodeProps) {
   return (
     <Shape
       {...REMOTE_SITE}

@@ -1,5 +1,5 @@
 import z from 'zod'
-import { DiagramNodeProps } from '@dinghy/base-components'
+import { NodeProps } from '@dinghy/base-components'
 import { ActivationProps } from './activation.tsx'
 import { MessageProps } from './message.tsx'
 import { FrameProps } from './frame.tsx'
@@ -104,7 +104,7 @@ export const SequenceDiagramSchema = z.object({
 
 export type SequenceDiagramProps =
   & z.output<typeof SequenceDiagramSchema>
-  & DiagramNodeProps
+  & NodeProps
 
 export type SequenceDiagramContext = {
   messages: z.output<typeof MessageSchema>[]

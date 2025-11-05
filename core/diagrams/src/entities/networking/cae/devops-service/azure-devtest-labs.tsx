@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_DEVTEST_LABS = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_DEVTEST_LABS = {
   _original_height: 50,
 }
 
-export function AzureDevtestLabs(props: DiagramNodeProps) {
+export function AzureDevtestLabs(props: NodeProps) {
   return (
     <Shape
       {...AZURE_DEVTEST_LABS}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ONE_BUSINESS_VIEW = {
   _style: {
@@ -10,7 +10,7 @@ export const ONE_BUSINESS_VIEW = {
   _original_height: 44.8,
 }
 
-export function OneBusinessView(props: DiagramNodeProps) {
+export function OneBusinessView(props: NodeProps) {
   return (
     <Shape
       {...ONE_BUSINESS_VIEW}

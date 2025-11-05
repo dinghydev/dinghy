@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUANTUM_TECHNOLOGIES = {
   _style: {
@@ -10,7 +10,7 @@ export const QUANTUM_TECHNOLOGIES = {
   _original_height: 78,
 }
 
-export function QuantumTechnologies(props: DiagramNodeProps) {
+export function QuantumTechnologies(props: NodeProps) {
   return (
     <Shape
       {...QUANTUM_TECHNOLOGIES}

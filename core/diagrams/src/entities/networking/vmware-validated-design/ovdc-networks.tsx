@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OVDC_NETWORKS = {
   _style: {
@@ -10,7 +10,7 @@ export const OVDC_NETWORKS = {
   _height: 30.5,
 }
 
-export function OvdcNetworks(props: DiagramNodeProps) {
+export function OvdcNetworks(props: NodeProps) {
   return (
     <Shape
       {...OVDC_NETWORKS}

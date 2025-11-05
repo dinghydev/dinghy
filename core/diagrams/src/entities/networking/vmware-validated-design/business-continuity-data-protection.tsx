@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUSINESS_CONTINUITY_DATA_PROTECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const BUSINESS_CONTINUITY_DATA_PROTECTION = {
   _original_height: 43,
 }
 
-export function BusinessContinuityDataProtection(props: DiagramNodeProps) {
+export function BusinessContinuityDataProtection(props: NodeProps) {
   return (
     <Shape
       {...BUSINESS_CONTINUITY_DATA_PROTECTION}

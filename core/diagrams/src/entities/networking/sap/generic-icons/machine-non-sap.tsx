@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MACHINE_NON_SAP = {
   _style: {
@@ -10,7 +10,7 @@ export const MACHINE_NON_SAP = {
   _height: 27,
 }
 
-export function MachineNonSap(props: DiagramNodeProps) {
+export function MachineNonSap(props: NodeProps) {
   return (
     <Shape
       {...MACHINE_NON_SAP}

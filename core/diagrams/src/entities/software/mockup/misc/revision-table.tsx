@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REVISION_TABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const REVISION_TABLE = {
   _height: 75,
 }
 
-export function RevisionTable(props: DiagramNodeProps) {
+export function RevisionTable(props: NodeProps) {
   return (
     <Shape
       {...REVISION_TABLE}

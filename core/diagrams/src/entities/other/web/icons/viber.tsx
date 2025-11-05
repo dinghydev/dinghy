@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIBER = {
   _style: {
@@ -10,6 +10,6 @@ export const VIBER = {
   _original_height: 102.4,
 }
 
-export function Viber(props: DiagramNodeProps) {
+export function Viber(props: NodeProps) {
   return <Shape {...VIBER} {...props} _style={extendStyle(VIBER, props)} />
 }

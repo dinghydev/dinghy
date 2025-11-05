@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOG_STREAMING = {
   _style: {
@@ -10,7 +10,7 @@ export const LOG_STREAMING = {
   _original_height: 45.3,
 }
 
-export function LogStreaming(props: DiagramNodeProps) {
+export function LogStreaming(props: NodeProps) {
   return (
     <Shape
       {...LOG_STREAMING}

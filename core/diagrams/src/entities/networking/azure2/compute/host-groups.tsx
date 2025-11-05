@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HOST_GROUPS = {
   _style: {
@@ -10,7 +10,7 @@ export const HOST_GROUPS = {
   _original_height: 68,
 }
 
-export function HostGroups(props: DiagramNodeProps) {
+export function HostGroups(props: NodeProps) {
   return (
     <Shape
       {...HOST_GROUPS}

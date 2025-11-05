@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUN_NETWORK_10GBE_SWITCH_72P = {
   _style: {
@@ -10,7 +10,7 @@ export const SUN_NETWORK_10GBE_SWITCH_72P = {
   _height: 15,
 }
 
-export function SunNetwork10gbeSwitch72p(props: DiagramNodeProps) {
+export function SunNetwork10gbeSwitch72p(props: NodeProps) {
   return (
     <Shape
       {...SUN_NETWORK_10GBE_SWITCH_72P}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BOTTOM_SHEET = {
   _style: {
@@ -10,7 +10,7 @@ export const BOTTOM_SHEET = {
   _height: 320,
 }
 
-export function BottomSheet(props: DiagramNodeProps) {
+export function BottomSheet(props: NodeProps) {
   return (
     <Shape
       {...BOTTOM_SHEET}

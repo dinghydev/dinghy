@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IBM_CLOUD = {
   _style: {
@@ -11,7 +11,7 @@ export const IBM_CLOUD = {
   },
 }
 
-export function IbmCloud(props: DiagramNodeProps) {
+export function IbmCloud(props: NodeProps) {
   return (
     <Shape {...IBM_CLOUD} {...props} _style={extendStyle(IBM_CLOUD, props)} />
   )

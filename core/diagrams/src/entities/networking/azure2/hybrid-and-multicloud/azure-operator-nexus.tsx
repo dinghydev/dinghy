@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_OPERATOR_NEXUS = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_OPERATOR_NEXUS = {
   _original_height: 68,
 }
 
-export function AzureOperatorNexus(props: DiagramNodeProps) {
+export function AzureOperatorNexus(props: NodeProps) {
   return (
     <Shape
       {...AZURE_OPERATOR_NEXUS}

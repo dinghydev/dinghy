@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHAPING_MACHINE_VERTICAL = {
   _style: {
@@ -10,7 +10,7 @@ export const SHAPING_MACHINE_VERTICAL = {
   _height: 60,
 }
 
-export function ShapingMachineVertical(props: DiagramNodeProps) {
+export function ShapingMachineVertical(props: NodeProps) {
   return (
     <Shape
       {...SHAPING_MACHINE_VERTICAL}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CERES = {
   _style: {
@@ -10,6 +10,6 @@ export const CERES = {
   _original_height: 68,
 }
 
-export function Ceres(props: DiagramNodeProps) {
+export function Ceres(props: NodeProps) {
   return <Shape {...CERES} {...props} _style={extendStyle(CERES, props)} />
 }

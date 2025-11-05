@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AGENT_ASSIST = {
   _style: {
@@ -10,7 +10,7 @@ export const AGENT_ASSIST = {
   _height: 42,
 }
 
-export function AgentAssist(props: DiagramNodeProps) {
+export function AgentAssist(props: NodeProps) {
   return (
     <Shape
       {...AGENT_ASSIST}

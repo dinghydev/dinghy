@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const XMPP_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const XMPP_SERVICE = {
   _original_height: 52,
 }
 
-export function XmppService(props: DiagramNodeProps) {
+export function XmppService(props: NodeProps) {
   return (
     <Shape
       {...XMPP_SERVICE}

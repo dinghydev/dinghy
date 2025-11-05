@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HP_6125G_ETHERNET_BLADE_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const HP_6125G_ETHERNET_BLADE_SWITCH = {
   _height: 121,
 }
 
-export function Hp6125gEthernetBladeSwitch(props: DiagramNodeProps) {
+export function Hp6125gEthernetBladeSwitch(props: NodeProps) {
   return (
     <Shape
       {...HP_6125G_ETHERNET_BLADE_SWITCH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FSX_FOR_NETAPP_ONTAP = {
   _style: {
@@ -10,7 +10,7 @@ export const FSX_FOR_NETAPP_ONTAP = {
   _original_height: 78,
 }
 
-export function FsxForNetappOntap(props: DiagramNodeProps) {
+export function FsxForNetappOntap(props: NodeProps) {
   return (
     <Shape
       {...FSX_FOR_NETAPP_ONTAP}

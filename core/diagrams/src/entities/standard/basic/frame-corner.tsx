@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FRAME_CORNER = {
   _style: {
@@ -10,7 +10,7 @@ export const FRAME_CORNER = {
   _height: 60,
 }
 
-export function FrameCorner(props: DiagramNodeProps) {
+export function FrameCorner(props: NodeProps) {
   return (
     <Shape
       {...FRAME_CORNER}

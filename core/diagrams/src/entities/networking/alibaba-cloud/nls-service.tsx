@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NLS_SERVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const NLS_SERVICE = {
   _original_height: 47.400000000000006,
 }
 
-export function NlsService(props: DiagramNodeProps) {
+export function NlsService(props: NodeProps) {
   return (
     <Shape
       {...NLS_SERVICE}

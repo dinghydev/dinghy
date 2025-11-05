@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURITY_KEY_ENFORCEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURITY_KEY_ENFORCEMENT = {
   _height: 42,
 }
 
-export function SecurityKeyEnforcement(props: DiagramNodeProps) {
+export function SecurityKeyEnforcement(props: NodeProps) {
   return (
     <Shape
       {...SECURITY_KEY_ENFORCEMENT}

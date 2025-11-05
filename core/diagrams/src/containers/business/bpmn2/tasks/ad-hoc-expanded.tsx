@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AD_HOC_EXPANDED = {
   _style: {
@@ -8,7 +8,7 @@ export const AD_HOC_EXPANDED = {
   },
 }
 
-export function AdHocExpanded(props: DiagramNodeProps) {
+export function AdHocExpanded(props: NodeProps) {
   return (
     <Shape
       {...AD_HOC_EXPANDED}

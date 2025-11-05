@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDFRONT_FUNCTIONS = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDFRONT_FUNCTIONS = {
   _original_height: 78,
 }
 
-export function CloudfrontFunctions(props: DiagramNodeProps) {
+export function CloudfrontFunctions(props: NodeProps) {
   return (
     <Shape
       {...CLOUDFRONT_FUNCTIONS}

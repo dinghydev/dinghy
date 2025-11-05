@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_3RD_PARTY_LAYER = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_3RD_PARTY_LAYER = {
   _height: 440,
 }
 
-export function Component3rdPartyLayer(props: DiagramNodeProps) {
+export function Component3rdPartyLayer(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_3RD_PARTY_LAYER}

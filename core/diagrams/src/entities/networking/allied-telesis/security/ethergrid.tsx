@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ETHERGRID = {
   _style: {
@@ -10,7 +10,7 @@ export const ETHERGRID = {
   _height: 64.80000000000001,
 }
 
-export function Ethergrid(props: DiagramNodeProps) {
+export function Ethergrid(props: NodeProps) {
   return (
     <Shape {...ETHERGRID} {...props} _style={extendStyle(ETHERGRID, props)} />
   )

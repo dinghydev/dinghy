@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MACHINE_LEARNING_STUDIO_WEB_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const MACHINE_LEARNING_STUDIO_WEB_SERVICES = {
   _original_height: 50,
 }
 
-export function MachineLearningStudioWebServices(props: DiagramNodeProps) {
+export function MachineLearningStudioWebServices(props: NodeProps) {
   return (
     <Shape
       {...MACHINE_LEARNING_STUDIO_WEB_SERVICES}

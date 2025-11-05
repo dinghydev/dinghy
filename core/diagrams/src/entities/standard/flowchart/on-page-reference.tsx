@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ON_PAGE_REFERENCE = {
   _style: {
@@ -10,7 +10,7 @@ export const ON_PAGE_REFERENCE = {
   _original_height: 60,
 }
 
-export function OnPageReference(props: DiagramNodeProps) {
+export function OnPageReference(props: NodeProps) {
   return (
     <Shape
       {...ON_PAGE_REFERENCE}

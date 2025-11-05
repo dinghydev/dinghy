@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATAPHIN = {
   _style: {
@@ -10,7 +10,7 @@ export const DATAPHIN = {
   _original_height: 54.6,
 }
 
-export function Dataphin(props: DiagramNodeProps) {
+export function Dataphin(props: NodeProps) {
   return (
     <Shape {...DATAPHIN} {...props} _style={extendStyle(DATAPHIN, props)} />
   )

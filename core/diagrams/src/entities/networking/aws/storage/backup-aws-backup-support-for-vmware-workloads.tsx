@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKUP_AWS_BACKUP_SUPPORT_FOR_VMWARE_WORKLOADS = {
   _style: {
@@ -10,9 +10,7 @@ export const BACKUP_AWS_BACKUP_SUPPORT_FOR_VMWARE_WORKLOADS = {
   _original_height: 78,
 }
 
-export function BackupAwsBackupSupportForVmwareWorkloads(
-  props: DiagramNodeProps,
-) {
+export function BackupAwsBackupSupportForVmwareWorkloads(props: NodeProps) {
   return (
     <Shape
       {...BACKUP_AWS_BACKUP_SUPPORT_FOR_VMWARE_WORKLOADS}

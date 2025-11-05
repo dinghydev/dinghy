@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNIVERSAL_SECURITY_GROUP = {
   _style: {
@@ -10,7 +10,7 @@ export const UNIVERSAL_SECURITY_GROUP = {
   _original_height: 58,
 }
 
-export function UniversalSecurityGroup(props: DiagramNodeProps) {
+export function UniversalSecurityGroup(props: NodeProps) {
   return (
     <Shape
       {...UNIVERSAL_SECURITY_GROUP}

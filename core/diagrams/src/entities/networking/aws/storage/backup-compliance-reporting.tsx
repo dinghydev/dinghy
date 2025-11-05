@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKUP_COMPLIANCE_REPORTING = {
   _style: {
@@ -10,7 +10,7 @@ export const BACKUP_COMPLIANCE_REPORTING = {
   _original_height: 78,
 }
 
-export function BackupComplianceReporting(props: DiagramNodeProps) {
+export function BackupComplianceReporting(props: NodeProps) {
   return (
     <Shape
       {...BACKUP_COMPLIANCE_REPORTING}

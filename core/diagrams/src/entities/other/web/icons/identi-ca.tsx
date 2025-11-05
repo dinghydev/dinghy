@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IDENTI_CA = {
   _style: {
@@ -10,7 +10,7 @@ export const IDENTI_CA = {
   _original_height: 102.4,
 }
 
-export function IdentiCa(props: DiagramNodeProps) {
+export function IdentiCa(props: NodeProps) {
   return (
     <Shape {...IDENTI_CA} {...props} _style={extendStyle(IDENTI_CA, props)} />
   )

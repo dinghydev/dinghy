@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTISWITCH_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTISWITCH_DEVICE = {
   _height: 64,
 }
 
-export function MultiswitchDevice(props: DiagramNodeProps) {
+export function MultiswitchDevice(props: NodeProps) {
   return (
     <Shape
       {...MULTISWITCH_DEVICE}

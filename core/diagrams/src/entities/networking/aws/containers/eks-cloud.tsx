@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EKS_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const EKS_CLOUD = {
   _original_height: 78,
 }
 
-export function EksCloud(props: DiagramNodeProps) {
+export function EksCloud(props: NodeProps) {
   return (
     <Shape {...EKS_CLOUD} {...props} _style={extendStyle(EKS_CLOUD, props)} />
   )

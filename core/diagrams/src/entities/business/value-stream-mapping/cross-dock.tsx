@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CROSS_DOCK = {
   _style: {
@@ -10,7 +10,7 @@ export const CROSS_DOCK = {
   _height: 80,
 }
 
-export function CrossDock(props: DiagramNodeProps) {
+export function CrossDock(props: NodeProps) {
   return (
     <Shape {...CROSS_DOCK} {...props} _style={extendStyle(CROSS_DOCK, props)} />
   )

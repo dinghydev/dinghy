@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const J9782A_2530_24_FRONT = {
   _style: {
@@ -10,7 +10,7 @@ export const J9782A_2530_24_FRONT = {
   _height: 15,
 }
 
-export function J9782a253024Front(props: DiagramNodeProps) {
+export function J9782a253024Front(props: NodeProps) {
   return (
     <Shape
       {...J9782A_2530_24_FRONT}

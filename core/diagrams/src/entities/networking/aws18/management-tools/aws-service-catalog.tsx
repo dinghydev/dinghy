@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_SERVICE_CATALOG = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_SERVICE_CATALOG = {
   _height: 110,
 }
 
-export function AwsServiceCatalog(props: DiagramNodeProps) {
+export function AwsServiceCatalog(props: NodeProps) {
   return (
     <Shape
       {...AWS_SERVICE_CATALOG}

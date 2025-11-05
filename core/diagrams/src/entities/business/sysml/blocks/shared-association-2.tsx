@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHARED_ASSOCIATION_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const SHARED_ASSOCIATION_2 = {
   _height: 0,
 }
 
-export function SharedAssociation2(props: DiagramNodeProps) {
+export function SharedAssociation2(props: NodeProps) {
   return (
     <Shape
       {...SHARED_ASSOCIATION_2}

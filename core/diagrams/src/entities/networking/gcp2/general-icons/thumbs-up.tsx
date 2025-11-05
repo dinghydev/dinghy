@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const THUMBS_UP = {
   _style: {
@@ -10,7 +10,7 @@ export const THUMBS_UP = {
   _original_height: 100,
 }
 
-export function ThumbsUp(props: DiagramNodeProps) {
+export function ThumbsUp(props: NodeProps) {
   return (
     <Shape {...THUMBS_UP} {...props} _style={extendStyle(THUMBS_UP, props)} />
   )

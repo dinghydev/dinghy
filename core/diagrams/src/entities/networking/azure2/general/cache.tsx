@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CACHE = {
   _style: {
@@ -10,6 +10,6 @@ export const CACHE = {
   _original_height: 64,
 }
 
-export function Cache(props: DiagramNodeProps) {
+export function Cache(props: NodeProps) {
   return <Shape {...CACHE} {...props} _style={extendStyle(CACHE, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL368A_ARUBA_8400_MGMT_MOD = {
   _style: {
@@ -10,7 +10,7 @@ export const JL368A_ARUBA_8400_MGMT_MOD = {
   _height: 122,
 }
 
-export function Jl368aAruba8400MgmtMod(props: DiagramNodeProps) {
+export function Jl368aAruba8400MgmtMod(props: NodeProps) {
   return (
     <Shape
       {...JL368A_ARUBA_8400_MGMT_MOD}

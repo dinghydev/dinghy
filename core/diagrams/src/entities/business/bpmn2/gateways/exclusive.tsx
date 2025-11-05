@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EXCLUSIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const EXCLUSIVE = {
   _original_height: 50,
 }
 
-export function Exclusive(props: DiagramNodeProps) {
+export function Exclusive(props: NodeProps) {
   return (
     <Shape {...EXCLUSIVE} {...props} _style={extendStyle(EXCLUSIVE, props)} />
   )

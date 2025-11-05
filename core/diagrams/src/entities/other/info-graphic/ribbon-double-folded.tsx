@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RIBBON_DOUBLE_FOLDED = {
   _style: {
@@ -10,7 +10,7 @@ export const RIBBON_DOUBLE_FOLDED = {
   _height: 70,
 }
 
-export function RibbonDoubleFolded(props: DiagramNodeProps) {
+export function RibbonDoubleFolded(props: NodeProps) {
   return (
     <Shape
       {...RIBBON_DOUBLE_FOLDED}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IDENTITY_SECURE_SCORE = {
   _style: {
@@ -10,7 +10,7 @@ export const IDENTITY_SECURE_SCORE = {
   _original_height: 68,
 }
 
-export function IdentitySecureScore(props: DiagramNodeProps) {
+export function IdentitySecureScore(props: NodeProps) {
   return (
     <Shape
       {...IDENTITY_SECURE_SCORE}

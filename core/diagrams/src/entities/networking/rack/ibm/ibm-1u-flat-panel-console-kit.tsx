@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IBM_1U_FLAT_PANEL_CONSOLE_KIT = {
   _style: {
@@ -10,7 +10,7 @@ export const IBM_1U_FLAT_PANEL_CONSOLE_KIT = {
   _height: 15,
 }
 
-export function Ibm1uFlatPanelConsoleKit(props: DiagramNodeProps) {
+export function Ibm1uFlatPanelConsoleKit(props: NodeProps) {
   return (
     <Shape
       {...IBM_1U_FLAT_PANEL_CONSOLE_KIT}

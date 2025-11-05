@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUN_SERVER_X2_8 = {
   _style: {
@@ -10,7 +10,7 @@ export const SUN_SERVER_X2_8 = {
   _height: 75,
 }
 
-export function SunServerX28(props: DiagramNodeProps) {
+export function SunServerX28(props: NodeProps) {
   return (
     <Shape
       {...SUN_SERVER_X2_8}

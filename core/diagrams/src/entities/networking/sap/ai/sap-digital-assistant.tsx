@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_DIGITAL_ASSISTANT = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_DIGITAL_ASSISTANT = {
   _original_height: 50,
 }
 
-export function SapDigitalAssistant(props: DiagramNodeProps) {
+export function SapDigitalAssistant(props: NodeProps) {
   return (
     <Shape
       {...SAP_DIGITAL_ASSISTANT}

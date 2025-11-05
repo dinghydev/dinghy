@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DECISION_ENTITY_RELATIONSHIP = {
   _style: {
@@ -10,7 +10,7 @@ export const DECISION_ENTITY_RELATIONSHIP = {
   _original_height: 50,
 }
 
-export function DecisionEntityRelationship(props: DiagramNodeProps) {
+export function DecisionEntityRelationship(props: NodeProps) {
   return (
     <Shape
       {...DECISION_ENTITY_RELATIONSHIP}

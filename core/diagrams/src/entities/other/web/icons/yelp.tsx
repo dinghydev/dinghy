@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const YELP = {
   _style: {
@@ -10,6 +10,6 @@ export const YELP = {
   _original_height: 102.4,
 }
 
-export function Yelp(props: DiagramNodeProps) {
+export function Yelp(props: NodeProps) {
   return <Shape {...YELP} {...props} _style={extendStyle(YELP, props)} />
 }

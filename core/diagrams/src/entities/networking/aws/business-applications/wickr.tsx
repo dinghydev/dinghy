@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WICKR = {
   _style: {
@@ -10,6 +10,6 @@ export const WICKR = {
   _original_height: 78,
 }
 
-export function Wickr(props: DiagramNodeProps) {
+export function Wickr(props: NodeProps) {
   return <Shape {...WICKR} {...props} _style={extendStyle(WICKR, props)} />
 }

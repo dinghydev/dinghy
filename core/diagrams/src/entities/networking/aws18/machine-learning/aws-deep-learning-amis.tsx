@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_DEEP_LEARNING_AMIS = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_DEEP_LEARNING_AMIS = {
   _height: 110,
 }
 
-export function AwsDeepLearningAmis(props: DiagramNodeProps) {
+export function AwsDeepLearningAmis(props: NodeProps) {
   return (
     <Shape
       {...AWS_DEEP_LEARNING_AMIS}

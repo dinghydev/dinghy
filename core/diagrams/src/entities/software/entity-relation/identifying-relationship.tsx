@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IDENTIFYING_RELATIONSHIP = {
   _style: {
@@ -10,7 +10,7 @@ export const IDENTIFYING_RELATIONSHIP = {
   _height: 60,
 }
 
-export function IdentifyingRelationship(props: DiagramNodeProps) {
+export function IdentifyingRelationship(props: NodeProps) {
   return (
     <Shape
       {...IDENTIFYING_RELATIONSHIP}

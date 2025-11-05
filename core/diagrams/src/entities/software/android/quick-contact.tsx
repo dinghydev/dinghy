@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUICK_CONTACT = {
   _style: {
@@ -10,7 +10,7 @@ export const QUICK_CONTACT = {
   _height: 165,
 }
 
-export function QuickContact(props: DiagramNodeProps) {
+export function QuickContact(props: NodeProps) {
   return (
     <Shape
       {...QUICK_CONTACT}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PARTIAL_CONCENTRIC_ELLIPSE = {
   _style: {
@@ -10,7 +10,7 @@ export const PARTIAL_CONCENTRIC_ELLIPSE = {
   _original_height: 100,
 }
 
-export function PartialConcentricEllipse(props: DiagramNodeProps) {
+export function PartialConcentricEllipse(props: NodeProps) {
   return (
     <Shape
       {...PARTIAL_CONCENTRIC_ELLIPSE}

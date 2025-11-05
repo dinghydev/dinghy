@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INNER_CLASS = {
   _style: {
@@ -8,7 +8,7 @@ export const INNER_CLASS = {
   },
 }
 
-export function InnerClass(props: DiagramNodeProps) {
+export function InnerClass(props: NodeProps) {
   return (
     <Dependency
       {...INNER_CLASS}

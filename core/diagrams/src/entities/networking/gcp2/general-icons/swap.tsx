@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SWAP = {
   _style: {
@@ -10,6 +10,6 @@ export const SWAP = {
   _height: 51,
 }
 
-export function Swap(props: DiagramNodeProps) {
+export function Swap(props: NodeProps) {
   return <Shape {...SWAP} {...props} _style={extendStyle(SWAP, props)} />
 }

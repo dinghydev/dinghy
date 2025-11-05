@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACCESS_POINT_INDOOR = {
   _style: {
@@ -10,7 +10,7 @@ export const ACCESS_POINT_INDOOR = {
   _height: 54.6,
 }
 
-export function AccessPointIndoor(props: DiagramNodeProps) {
+export function AccessPointIndoor(props: NodeProps) {
   return (
     <Shape
       {...ACCESS_POINT_INDOOR}

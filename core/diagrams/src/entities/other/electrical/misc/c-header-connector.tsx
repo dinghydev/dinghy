@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const C_HEADER_CONNECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const C_HEADER_CONNECTOR = {
   _height: 75,
 }
 
-export function CHeaderConnector(props: DiagramNodeProps) {
+export function CHeaderConnector(props: NodeProps) {
   return (
     <Shape
       {...C_HEADER_CONNECTOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOGIC_LOCAL_PANEL = {
   _style: {
@@ -10,7 +10,7 @@ export const LOGIC_LOCAL_PANEL = {
   _original_height: 50,
 }
 
-export function LogicLocalPanel(props: DiagramNodeProps) {
+export function LogicLocalPanel(props: NodeProps) {
   return (
     <Shape
       {...LOGIC_LOCAL_PANEL}

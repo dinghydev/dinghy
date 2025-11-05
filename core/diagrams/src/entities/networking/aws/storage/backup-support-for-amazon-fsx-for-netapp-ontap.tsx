@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP = {
   _style: {
@@ -10,9 +10,7 @@ export const BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP = {
   _original_height: 64,
 }
 
-export function BackupSupportForAmazonFsxForNetappOntap(
-  props: DiagramNodeProps,
-) {
+export function BackupSupportForAmazonFsxForNetappOntap(props: NodeProps) {
   return (
     <Shape
       {...BACKUP_SUPPORT_FOR_AMAZON_FSX_FOR_NETAPP_ONTAP}

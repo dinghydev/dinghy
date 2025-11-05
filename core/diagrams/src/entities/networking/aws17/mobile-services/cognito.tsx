@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COGNITO = {
   _style: {
@@ -10,6 +10,6 @@ export const COGNITO = {
   _original_height: 93,
 }
 
-export function Cognito(props: DiagramNodeProps) {
+export function Cognito(props: NodeProps) {
   return <Shape {...COGNITO} {...props} _style={extendStyle(COGNITO, props)} />
 }

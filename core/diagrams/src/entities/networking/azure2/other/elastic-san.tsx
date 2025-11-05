@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_SAN = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_SAN = {
   _original_height: 68,
 }
 
-export function ElasticSan(props: DiagramNodeProps) {
+export function ElasticSan(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_SAN}

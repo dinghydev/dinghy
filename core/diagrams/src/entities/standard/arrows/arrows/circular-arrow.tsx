@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CIRCULAR_ARROW = {
   _style: {
@@ -10,7 +10,7 @@ export const CIRCULAR_ARROW = {
   _height: 69,
 }
 
-export function CircularArrow(props: DiagramNodeProps) {
+export function CircularArrow(props: NodeProps) {
   return (
     <Shape
       {...CIRCULAR_ARROW}

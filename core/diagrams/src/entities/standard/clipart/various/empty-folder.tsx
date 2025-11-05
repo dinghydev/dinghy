@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EMPTY_FOLDER = {
   _style: {
@@ -10,7 +10,7 @@ export const EMPTY_FOLDER = {
   _original_height: 80,
 }
 
-export function EmptyFolder(props: DiagramNodeProps) {
+export function EmptyFolder(props: NodeProps) {
   return (
     <Shape
       {...EMPTY_FOLDER}

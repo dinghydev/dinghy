@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STICKY_NOTE = {
   _style: {
@@ -10,7 +10,7 @@ export const STICKY_NOTE = {
   _original_height: 200,
 }
 
-export function StickyNote(props: DiagramNodeProps) {
+export function StickyNote(props: NodeProps) {
   return (
     <Shape
       {...STICKY_NOTE}

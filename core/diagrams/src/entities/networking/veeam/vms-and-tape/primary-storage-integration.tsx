@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRIMARY_STORAGE_INTEGRATION = {
   _style: {
@@ -10,7 +10,7 @@ export const PRIMARY_STORAGE_INTEGRATION = {
   _original_height: 44.8,
 }
 
-export function PrimaryStorageIntegration(props: DiagramNodeProps) {
+export function PrimaryStorageIntegration(props: NodeProps) {
   return (
     <Shape
       {...PRIMARY_STORAGE_INTEGRATION}

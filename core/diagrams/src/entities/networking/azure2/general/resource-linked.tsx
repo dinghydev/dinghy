@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESOURCE_LINKED = {
   _style: {
@@ -10,7 +10,7 @@ export const RESOURCE_LINKED = {
   _original_height: 72,
 }
 
-export function ResourceLinked(props: DiagramNodeProps) {
+export function ResourceLinked(props: NodeProps) {
   return (
     <Shape
       {...RESOURCE_LINKED}

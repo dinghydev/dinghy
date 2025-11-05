@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const B2B_DATA_INTERCHANGE = {
   _style: {
@@ -10,7 +10,7 @@ export const B2B_DATA_INTERCHANGE = {
   _original_height: 78,
 }
 
-export function B2bDataInterchange(props: DiagramNodeProps) {
+export function B2bDataInterchange(props: NodeProps) {
   return (
     <Shape
       {...B2B_DATA_INTERCHANGE}

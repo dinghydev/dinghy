@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MICROSCOPE = {
   _style: {
@@ -10,7 +10,7 @@ export const MICROSCOPE = {
   _height: 99,
 }
 
-export function Microscope(props: DiagramNodeProps) {
+export function Microscope(props: NodeProps) {
   return (
     <Shape {...MICROSCOPE} {...props} _style={extendStyle(MICROSCOPE, props)} />
   )

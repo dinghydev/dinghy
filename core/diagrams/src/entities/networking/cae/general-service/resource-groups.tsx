@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RESOURCE_GROUPS = {
   _style: {
@@ -10,7 +10,7 @@ export const RESOURCE_GROUPS = {
   _original_height: 40,
 }
 
-export function ResourceGroups(props: DiagramNodeProps) {
+export function ResourceGroups(props: NodeProps) {
   return (
     <Shape
       {...RESOURCE_GROUPS}

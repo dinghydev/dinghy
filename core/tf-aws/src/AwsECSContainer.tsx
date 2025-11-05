@@ -1,4 +1,4 @@
-import { IacNodeProps, ResolvableStringSchema } from '@dinghy/base-components'
+import { NodeProps, ResolvableStringSchema } from '@dinghy/base-components'
 import { awsProps } from './index.ts'
 import z from 'zod'
 import { Android } from '@dinghy/diagrams/entitiesAws17Sdk'
@@ -9,7 +9,7 @@ export const AwsECSContainerSchema = z.object({
 
 export type AwsECSContainerProps =
   & z.output<typeof AwsECSContainerSchema>
-  & IacNodeProps
+  & NodeProps
 
 export default function AwsECSContainer(props: AwsECSContainerProps) {
   return <Android {...awsProps(props, AwsECSContainerSchema)} />

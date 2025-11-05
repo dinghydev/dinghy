@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUPERCOMPUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const SUPERCOMPUTER = {
   _original_height: 99,
 }
 
-export function Supercomputer(props: DiagramNodeProps) {
+export function Supercomputer(props: NodeProps) {
   return (
     <Shape
       {...SUPERCOMPUTER}

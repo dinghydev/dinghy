@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11870_FLUID_LEVEL_INDICATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X11870_FLUID_LEVEL_INDICATOR = {
   _height: 56.18,
 }
 
-export function X11870FluidLevelIndicator(props: DiagramNodeProps) {
+export function X11870FluidLevelIndicator(props: NodeProps) {
   return (
     <Shape
       {...X11870_FLUID_LEVEL_INDICATOR}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ESCALATOR_DOWN = {
   _style: {
@@ -10,7 +10,7 @@ export const ESCALATOR_DOWN = {
   _original_height: 89,
 }
 
-export function EscalatorDown(props: DiagramNodeProps) {
+export function EscalatorDown(props: NodeProps) {
   return (
     <Shape
       {...ESCALATOR_DOWN}

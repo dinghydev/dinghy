@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PUMP_RECIPROCATING_PISTON = {
   _style: {
@@ -10,7 +10,7 @@ export const PUMP_RECIPROCATING_PISTON = {
   _original_height: 100,
 }
 
-export function PumpReciprocatingPiston(props: DiagramNodeProps) {
+export function PumpReciprocatingPiston(props: NodeProps) {
   return (
     <Shape
       {...PUMP_RECIPROCATING_PISTON}

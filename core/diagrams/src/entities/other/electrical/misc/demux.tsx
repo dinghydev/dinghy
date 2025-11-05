@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DEMUX = {
   _style: {
@@ -10,6 +10,6 @@ export const DEMUX = {
   _height: 120,
 }
 
-export function Demux(props: DiagramNodeProps) {
+export function Demux(props: NodeProps) {
   return <Shape {...DEMUX} {...props} _style={extendStyle(DEMUX, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GEAR_ARROW = {
   _style: {
@@ -10,7 +10,7 @@ export const GEAR_ARROW = {
   _height: 61,
 }
 
-export function GearArrow(props: DiagramNodeProps) {
+export function GearArrow(props: NodeProps) {
   return (
     <Shape {...GEAR_ARROW} {...props} _style={extendStyle(GEAR_ARROW, props)} />
   )

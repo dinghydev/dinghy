@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARC_SQL_MANAGED_INSTANCE = {
   _style: {
@@ -10,7 +10,7 @@ export const ARC_SQL_MANAGED_INSTANCE = {
   _original_height: 68,
 }
 
-export function ArcSqlManagedInstance(props: DiagramNodeProps) {
+export function ArcSqlManagedInstance(props: NodeProps) {
   return (
     <Shape
       {...ARC_SQL_MANAGED_INSTANCE}

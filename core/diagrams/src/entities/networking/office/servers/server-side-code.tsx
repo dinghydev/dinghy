@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVER_SIDE_CODE = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVER_SIDE_CODE = {
   _original_height: 56,
 }
 
-export function ServerSideCode(props: DiagramNodeProps) {
+export function ServerSideCode(props: NodeProps) {
   return (
     <Shape
       {...SERVER_SIDE_CODE}

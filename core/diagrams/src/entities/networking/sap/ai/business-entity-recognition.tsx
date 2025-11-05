@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUSINESS_ENTITY_RECOGNITION = {
   _style: {
@@ -10,7 +10,7 @@ export const BUSINESS_ENTITY_RECOGNITION = {
   _original_height: 50,
 }
 
-export function BusinessEntityRecognition(props: DiagramNodeProps) {
+export function BusinessEntityRecognition(props: NodeProps) {
   return (
     <Shape
       {...BUSINESS_ENTITY_RECOGNITION}

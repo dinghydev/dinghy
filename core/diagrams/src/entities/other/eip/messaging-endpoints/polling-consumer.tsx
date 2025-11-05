@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POLLING_CONSUMER = {
   _style: {
@@ -10,7 +10,7 @@ export const POLLING_CONSUMER = {
   _height: 90,
 }
 
-export function PollingConsumer(props: DiagramNodeProps) {
+export function PollingConsumer(props: NodeProps) {
   return (
     <Shape
       {...POLLING_CONSUMER}

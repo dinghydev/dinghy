@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GREENGRASS_COMPONENT_MACHINE_LEARNING = {
   _style: {
@@ -10,7 +10,7 @@ export const GREENGRASS_COMPONENT_MACHINE_LEARNING = {
   _original_height: 78,
 }
 
-export function GreengrassComponentMachineLearning(props: DiagramNodeProps) {
+export function GreengrassComponentMachineLearning(props: NodeProps) {
   return (
     <Shape
       {...GREENGRASS_COMPONENT_MACHINE_LEARNING}

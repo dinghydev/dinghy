@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANTICREEPAGE_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const ANTICREEPAGE_DEVICE = {
   _height: 88,
 }
 
-export function AnticreepageDevice(props: DiagramNodeProps) {
+export function AnticreepageDevice(props: NodeProps) {
   return (
     <Shape
       {...ANTICREEPAGE_DEVICE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IP_TELEPHONY_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const IP_TELEPHONY_ROUTER = {
   _original_height: 69,
 }
 
-export function IpTelephonyRouter(props: DiagramNodeProps) {
+export function IpTelephonyRouter(props: NodeProps) {
   return (
     <Shape
       {...IP_TELEPHONY_ROUTER}

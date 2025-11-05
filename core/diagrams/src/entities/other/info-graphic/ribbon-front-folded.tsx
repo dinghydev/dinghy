@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RIBBON_FRONT_FOLDED = {
   _style: {
@@ -10,7 +10,7 @@ export const RIBBON_FRONT_FOLDED = {
   _height: 55.00000000000001,
 }
 
-export function RibbonFrontFolded(props: DiagramNodeProps) {
+export function RibbonFrontFolded(props: NodeProps) {
   return (
     <Shape
       {...RIBBON_FRONT_FOLDED}

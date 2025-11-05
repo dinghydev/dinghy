@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ADFTY = {
   _style: {
@@ -10,6 +10,6 @@ export const ADFTY = {
   _original_height: 102.4,
 }
 
-export function Adfty(props: DiagramNodeProps) {
+export function Adfty(props: NodeProps) {
   return <Shape {...ADFTY} {...props} _style={extendStyle(ADFTY, props)} />
 }

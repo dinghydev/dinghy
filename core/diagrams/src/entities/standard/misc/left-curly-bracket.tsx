@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LEFT_CURLY_BRACKET = {
   _style: {
@@ -10,7 +10,7 @@ export const LEFT_CURLY_BRACKET = {
   _height: 120,
 }
 
-export function LeftCurlyBracket(props: DiagramNodeProps) {
+export function LeftCurlyBracket(props: NodeProps) {
   return (
     <Shape
       {...LEFT_CURLY_BRACKET}

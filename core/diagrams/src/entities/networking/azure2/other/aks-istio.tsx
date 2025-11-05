@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AKS_ISTIO = {
   _style: {
@@ -10,7 +10,7 @@ export const AKS_ISTIO = {
   _original_height: 68,
 }
 
-export function AksIstio(props: DiagramNodeProps) {
+export function AksIstio(props: NodeProps) {
   return (
     <Shape {...AKS_ISTIO} {...props} _style={extendStyle(AKS_ISTIO, props)} />
   )

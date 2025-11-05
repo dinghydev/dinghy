@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACI_SPINE_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const ACI_SPINE_SWITCH = {
   _original_height: 45,
 }
 
-export function AciSpineSwitch(props: DiagramNodeProps) {
+export function AciSpineSwitch(props: NodeProps) {
   return (
     <Shape
       {...ACI_SPINE_SWITCH}

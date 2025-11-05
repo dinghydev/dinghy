@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUND_KITCHEN_TABLE = {
   _style: {
@@ -9,7 +9,7 @@ export const ROUND_KITCHEN_TABLE = {
   _height: 140,
 }
 
-export function RoundKitchenTable(props: DiagramNodeProps) {
+export function RoundKitchenTable(props: NodeProps) {
   return (
     <Shape
       {...ROUND_KITCHEN_TABLE}

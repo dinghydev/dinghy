@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PHYSICAL_CONNECTOR = {
   _style: {
@@ -8,7 +8,7 @@ export const PHYSICAL_CONNECTOR = {
   },
 }
 
-export function PhysicalConnector(props: DiagramNodeProps) {
+export function PhysicalConnector(props: NodeProps) {
   return (
     <Dependency
       {...PHYSICAL_CONNECTOR}

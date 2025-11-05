@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEMORYSTORE = {
   _style: {
@@ -10,7 +10,7 @@ export const MEMORYSTORE = {
   _original_height: 40,
 }
 
-export function Memorystore(props: DiagramNodeProps) {
+export function Memorystore(props: NodeProps) {
   return (
     <Shape
       {...MEMORYSTORE}

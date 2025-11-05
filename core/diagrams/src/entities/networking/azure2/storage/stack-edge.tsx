@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STACK_EDGE = {
   _style: {
@@ -10,7 +10,7 @@ export const STACK_EDGE = {
   _height: 48,
 }
 
-export function StackEdge(props: DiagramNodeProps) {
+export function StackEdge(props: NodeProps) {
   return (
     <Shape {...STACK_EDGE} {...props} _style={extendStyle(STACK_EDGE, props)} />
   )

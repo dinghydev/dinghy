@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VIRTUAL_PRIVATE_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const VIRTUAL_PRIVATE_CLOUD = {
   _height: 54,
 }
 
-export function VirtualPrivateCloud(props: DiagramNodeProps) {
+export function VirtualPrivateCloud(props: NodeProps) {
   return (
     <Shape
       {...VIRTUAL_PRIVATE_CLOUD}

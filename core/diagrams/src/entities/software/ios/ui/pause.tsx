@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PAUSE = {
   _style: {
@@ -10,6 +10,6 @@ export const PAUSE = {
   _original_height: 12,
 }
 
-export function Pause(props: DiagramNodeProps) {
+export function Pause(props: NodeProps) {
   return <Shape {...PAUSE} {...props} _style={extendStyle(PAUSE, props)} />
 }

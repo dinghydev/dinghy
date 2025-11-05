@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12370_AIR_RESERVOIR = {
   _style: {
@@ -10,7 +10,7 @@ export const X12370_AIR_RESERVOIR = {
   _height: 37.14,
 }
 
-export function X12370AirReservoir(props: DiagramNodeProps) {
+export function X12370AirReservoir(props: NodeProps) {
   return (
     <Shape
       {...X12370_AIR_RESERVOIR}

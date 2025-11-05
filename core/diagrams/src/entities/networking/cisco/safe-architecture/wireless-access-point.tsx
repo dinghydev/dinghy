@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIRELESS_ACCESS_POINT = {
   _style: {
@@ -10,7 +10,7 @@ export const WIRELESS_ACCESS_POINT = {
   _original_height: 50,
 }
 
-export function WirelessAccessPoint(props: DiagramNodeProps) {
+export function WirelessAccessPoint(props: NodeProps) {
   return (
     <Shape
       {...WIRELESS_ACCESS_POINT}

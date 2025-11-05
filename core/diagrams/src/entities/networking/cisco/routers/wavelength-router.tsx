@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WAVELENGTH_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const WAVELENGTH_ROUTER = {
   _height: 50,
 }
 
-export function WavelengthRouter(props: DiagramNodeProps) {
+export function WavelengthRouter(props: NodeProps) {
   return (
     <Shape
       {...WAVELENGTH_ROUTER}

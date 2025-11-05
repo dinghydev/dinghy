@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSACTION_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSACTION_MANAGER = {
   _original_height: 60,
 }
 
-export function TransactionManager(props: DiagramNodeProps) {
+export function TransactionManager(props: NodeProps) {
   return (
     <Shape
       {...TRANSACTION_MANAGER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FOLKD = {
   _style: {
@@ -10,6 +10,6 @@ export const FOLKD = {
   _height: 43.6,
 }
 
-export function Folkd(props: DiagramNodeProps) {
+export function Folkd(props: NodeProps) {
   return <Shape {...FOLKD} {...props} _style={extendStyle(FOLKD, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALEXA_ENABLED_DEVICE = {
   _style: {
@@ -10,7 +10,7 @@ export const ALEXA_ENABLED_DEVICE = {
   _original_height: 79.5,
 }
 
-export function AlexaEnabledDevice(props: DiagramNodeProps) {
+export function AlexaEnabledDevice(props: NodeProps) {
   return (
     <Shape
       {...ALEXA_ENABLED_DEVICE}

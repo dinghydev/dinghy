@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHECKBOX_OFF_FOCUSED_OR_PRESSED_LIGHT = {
   _style: {
@@ -10,7 +10,7 @@ export const CHECKBOX_OFF_FOCUSED_OR_PRESSED_LIGHT = {
   _height: 48,
 }
 
-export function CheckboxOffFocusedOrPressedLight(props: DiagramNodeProps) {
+export function CheckboxOffFocusedOrPressedLight(props: NodeProps) {
   return (
     <Shape
       {...CHECKBOX_OFF_FOCUSED_OR_PRESSED_LIGHT}

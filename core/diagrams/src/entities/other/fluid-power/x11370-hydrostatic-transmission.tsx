@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11370_HYDROSTATIC_TRANSMISSION = {
   _style: {
@@ -10,7 +10,7 @@ export const X11370_HYDROSTATIC_TRANSMISSION = {
   _height: 167.82,
 }
 
-export function X11370HydrostaticTransmission(props: DiagramNodeProps) {
+export function X11370HydrostaticTransmission(props: NodeProps) {
   return (
     <Shape
       {...X11370_HYDROSTATIC_TRANSMISSION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_STOREFRONT = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUD_STOREFRONT = {
   _height: 39.879999999999995,
 }
 
-export function CloudStorefront(props: DiagramNodeProps) {
+export function CloudStorefront(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_STOREFRONT}

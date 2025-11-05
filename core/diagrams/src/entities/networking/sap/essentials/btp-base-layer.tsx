@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BTP_BASE_LAYER = {
   _style: {
@@ -10,7 +10,7 @@ export const BTP_BASE_LAYER = {
   _height: 250,
 }
 
-export function BtpBaseLayer(props: DiagramNodeProps) {
+export function BtpBaseLayer(props: NodeProps) {
   return (
     <Shape
       {...BTP_BASE_LAYER}

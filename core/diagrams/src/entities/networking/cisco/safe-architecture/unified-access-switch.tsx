@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const UNIFIED_ACCESS_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const UNIFIED_ACCESS_SWITCH = {
   _original_height: 50,
 }
 
-export function UnifiedAccessSwitch(props: DiagramNodeProps) {
+export function UnifiedAccessSwitch(props: NodeProps) {
   return (
     <Shape
       {...UNIFIED_ACCESS_SWITCH}

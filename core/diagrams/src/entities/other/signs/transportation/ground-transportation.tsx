@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GROUND_TRANSPORTATION = {
   _style: {
@@ -10,7 +10,7 @@ export const GROUND_TRANSPORTATION = {
   _height: 62,
 }
 
-export function GroundTransportation(props: DiagramNodeProps) {
+export function GroundTransportation(props: NodeProps) {
   return (
     <Shape
       {...GROUND_TRANSPORTATION}

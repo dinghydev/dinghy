@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_3RD_PARTY_IDENTITY_PROVIDER_IDENTITY_MANAGEMENT = {
   _style: {
@@ -11,7 +11,7 @@ export const COMPONENT_3RD_PARTY_IDENTITY_PROVIDER_IDENTITY_MANAGEMENT = {
 }
 
 export function Component3rdPartyIdentityProviderIdentityManagement(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQL_SLAVE = {
   _style: {
@@ -10,7 +10,7 @@ export const SQL_SLAVE = {
   _original_height: 64.5,
 }
 
-export function SqlSlave(props: DiagramNodeProps) {
+export function SqlSlave(props: NodeProps) {
   return (
     <Shape {...SQL_SLAVE} {...props} _style={extendStyle(SQL_SLAVE, props)} />
   )

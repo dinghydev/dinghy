@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INFERENTIA = {
   _style: {
@@ -10,7 +10,7 @@ export const INFERENTIA = {
   _original_height: 48,
 }
 
-export function Inferentia(props: DiagramNodeProps) {
+export function Inferentia(props: NodeProps) {
   return (
     <Shape {...INFERENTIA} {...props} _style={extendStyle(INFERENTIA, props)} />
   )

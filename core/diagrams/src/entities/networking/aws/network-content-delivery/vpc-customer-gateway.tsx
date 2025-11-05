@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VPC_CUSTOMER_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const VPC_CUSTOMER_GATEWAY = {
   _original_height: 78,
 }
 
-export function VpcCustomerGateway(props: DiagramNodeProps) {
+export function VpcCustomerGateway(props: NodeProps) {
   return (
     <Shape
       {...VPC_CUSTOMER_GATEWAY}

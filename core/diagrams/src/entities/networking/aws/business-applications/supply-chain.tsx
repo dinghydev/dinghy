@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SUPPLY_CHAIN = {
   _style: {
@@ -10,7 +10,7 @@ export const SUPPLY_CHAIN = {
   _original_height: 78,
 }
 
-export function SupplyChain(props: DiagramNodeProps) {
+export function SupplyChain(props: NodeProps) {
   return (
     <Shape
       {...SUPPLY_CHAIN}

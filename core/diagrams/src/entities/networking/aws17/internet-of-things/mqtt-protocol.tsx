@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MQTT_PROTOCOL = {
   _style: {
@@ -10,7 +10,7 @@ export const MQTT_PROTOCOL = {
   _original_height: 66,
 }
 
-export function MqttProtocol(props: DiagramNodeProps) {
+export function MqttProtocol(props: NodeProps) {
   return (
     <Shape
       {...MQTT_PROTOCOL}

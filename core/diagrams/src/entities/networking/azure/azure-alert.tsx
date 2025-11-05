@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURE_ALERT = {
   _style: {
@@ -10,7 +10,7 @@ export const AZURE_ALERT = {
   _original_height: 42.5,
 }
 
-export function AzureAlert(props: DiagramNodeProps) {
+export function AzureAlert(props: NodeProps) {
   return (
     <Shape
       {...AZURE_ALERT}

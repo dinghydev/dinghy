@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BREADCRUMB_3 = {
   _style: {
@@ -10,7 +10,7 @@ export const BREADCRUMB_3 = {
   _height: 30,
 }
 
-export function Breadcrumb3(props: DiagramNodeProps) {
+export function Breadcrumb3(props: NodeProps) {
   return (
     <Shape
       {...BREADCRUMB_3}

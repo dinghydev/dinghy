@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AMAZON_ECS = {
   _style: {
@@ -10,7 +10,7 @@ export const AMAZON_ECS = {
   _height: 100,
 }
 
-export function AmazonEcs(props: DiagramNodeProps) {
+export function AmazonEcs(props: NodeProps) {
   return (
     <Shape {...AMAZON_ECS} {...props} _style={extendStyle(AMAZON_ECS, props)} />
   )

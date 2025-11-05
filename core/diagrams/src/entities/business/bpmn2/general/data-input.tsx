@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATA_INPUT = {
   _style: {
@@ -10,7 +10,7 @@ export const DATA_INPUT = {
   _height: 60,
 }
 
-export function DataInput(props: DiagramNodeProps) {
+export function DataInput(props: NodeProps) {
   return (
     <Shape {...DATA_INPUT} {...props} _style={extendStyle(DATA_INPUT, props)} />
   )

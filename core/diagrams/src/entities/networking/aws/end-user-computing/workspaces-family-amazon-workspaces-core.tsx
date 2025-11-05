@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE = {
   _style: {
@@ -10,7 +10,7 @@ export const WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE = {
   _original_height: 78,
 }
 
-export function WorkspacesFamilyAmazonWorkspacesCore(props: DiagramNodeProps) {
+export function WorkspacesFamilyAmazonWorkspacesCore(props: NodeProps) {
   return (
     <Shape
       {...WORKSPACES_FAMILY_AMAZON_WORKSPACES_CORE}

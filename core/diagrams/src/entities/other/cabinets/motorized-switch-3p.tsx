@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOTORIZED_SWITCH_3P = {
   _style: {
@@ -10,7 +10,7 @@ export const MOTORIZED_SWITCH_3P = {
   _original_height: 70,
 }
 
-export function MotorizedSwitch3p(props: DiagramNodeProps) {
+export function MotorizedSwitch3p(props: NodeProps) {
   return (
     <Shape
       {...MOTORIZED_SWITCH_3P}

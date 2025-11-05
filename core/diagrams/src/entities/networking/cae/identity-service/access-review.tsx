@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACCESS_REVIEW = {
   _style: {
@@ -10,7 +10,7 @@ export const ACCESS_REVIEW = {
   _original_height: 50,
 }
 
-export function AccessReview(props: DiagramNodeProps) {
+export function AccessReview(props: NodeProps) {
   return (
     <Shape
       {...ACCESS_REVIEW}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOBILE_ANALYTICS = {
   _style: {
@@ -10,7 +10,7 @@ export const MOBILE_ANALYTICS = {
   _original_height: 93,
 }
 
-export function MobileAnalytics(props: DiagramNodeProps) {
+export function MobileAnalytics(props: NodeProps) {
   return (
     <Shape
       {...MOBILE_ANALYTICS}

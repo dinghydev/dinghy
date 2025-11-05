@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INPUT_OUTPUT = {
   _style: {
@@ -10,7 +10,7 @@ export const INPUT_OUTPUT = {
   _original_height: 55.00000000000001,
 }
 
-export function InputOutput(props: DiagramNodeProps) {
+export function InputOutput(props: NodeProps) {
   return (
     <Shape
       {...INPUT_OUTPUT}

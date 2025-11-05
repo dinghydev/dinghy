@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IMPORT_TOOL = {
   _style: {
@@ -10,7 +10,7 @@ export const IMPORT_TOOL = {
   _original_height: 68,
 }
 
-export function ImportTool(props: DiagramNodeProps) {
+export function ImportTool(props: NodeProps) {
   return (
     <Shape
       {...IMPORT_TOOL}

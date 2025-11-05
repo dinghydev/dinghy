@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IDE_PLUGINS = {
   _style: {
@@ -10,7 +10,7 @@ export const IDE_PLUGINS = {
   _height: 22,
 }
 
-export function IdePlugins(props: DiagramNodeProps) {
+export function IdePlugins(props: NodeProps) {
   return (
     <Shape
       {...IDE_PLUGINS}

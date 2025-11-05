@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_OMNICHANNEL_PROMOTION_PRICING = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_OMNICHANNEL_PROMOTION_PRICING = {
   _original_height: 50,
 }
 
-export function SapOmnichannelPromotionPricing(props: DiagramNodeProps) {
+export function SapOmnichannelPromotionPricing(props: NodeProps) {
   return (
     <Shape
       {...SAP_OMNICHANNEL_PROMOTION_PRICING}

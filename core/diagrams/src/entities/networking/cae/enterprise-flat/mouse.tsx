@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MOUSE = {
   _style: {
@@ -10,6 +10,6 @@ export const MOUSE = {
   _height: 50,
 }
 
-export function Mouse(props: DiagramNodeProps) {
+export function Mouse(props: NodeProps) {
   return <Shape {...MOUSE} {...props} _style={extendStyle(MOUSE, props)} />
 }

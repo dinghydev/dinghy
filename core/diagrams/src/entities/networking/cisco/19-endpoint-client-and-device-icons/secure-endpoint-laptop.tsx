@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURE_ENDPOINT_LAPTOP = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURE_ENDPOINT_LAPTOP = {
   _height: 35,
 }
 
-export function SecureEndpointLaptop(props: DiagramNodeProps) {
+export function SecureEndpointLaptop(props: NodeProps) {
   return (
     <Shape
       {...SECURE_ENDPOINT_LAPTOP}

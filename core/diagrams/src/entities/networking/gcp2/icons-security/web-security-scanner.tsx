@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_SECURITY_SCANNER = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_SECURITY_SCANNER = {
   _height: 36,
 }
 
-export function WebSecurityScanner(props: DiagramNodeProps) {
+export function WebSecurityScanner(props: NodeProps) {
   return (
     <Shape
       {...WEB_SECURITY_SCANNER}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOOKOUT_FOR_EQUIPMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const LOOKOUT_FOR_EQUIPMENT = {
   _original_height: 78,
 }
 
-export function LookoutForEquipment(props: DiagramNodeProps) {
+export function LookoutForEquipment(props: NodeProps) {
   return (
     <Shape
       {...LOOKOUT_FOR_EQUIPMENT}

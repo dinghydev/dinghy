@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDFARM = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDFARM = {
   _original_height: 78,
 }
 
-export function Windfarm(props: DiagramNodeProps) {
+export function Windfarm(props: NodeProps) {
   return (
     <Shape {...WINDFARM} {...props} _style={extendStyle(WINDFARM, props)} />
   )

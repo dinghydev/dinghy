@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FULL_DATASTORE = {
   _style: {
@@ -10,7 +10,7 @@ export const FULL_DATASTORE = {
   _original_height: 44.4,
 }
 
-export function FullDatastore(props: DiagramNodeProps) {
+export function FullDatastore(props: NodeProps) {
   return (
     <Shape
       {...FULL_DATASTORE}

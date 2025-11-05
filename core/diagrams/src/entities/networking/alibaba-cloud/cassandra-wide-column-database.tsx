@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CASSANDRA_WIDE_COLUMN_DATABASE = {
   _style: {
@@ -10,7 +10,7 @@ export const CASSANDRA_WIDE_COLUMN_DATABASE = {
   _original_height: 46.800000000000004,
 }
 
-export function CassandraWideColumnDatabase(props: DiagramNodeProps) {
+export function CassandraWideColumnDatabase(props: NodeProps) {
   return (
     <Shape
       {...CASSANDRA_WIDE_COLUMN_DATABASE}

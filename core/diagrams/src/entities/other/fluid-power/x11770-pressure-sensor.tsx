@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11770_PRESSURE_SENSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X11770_PRESSURE_SENSOR = {
   _height: 27.96,
 }
 
-export function X11770PressureSensor(props: DiagramNodeProps) {
+export function X11770PressureSensor(props: NodeProps) {
   return (
     <Shape
       {...X11770_PRESSURE_SENSOR}

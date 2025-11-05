@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INDIRECT_BIDIRECTIONAL = {
   _style: {
@@ -10,7 +10,7 @@ export const INDIRECT_BIDIRECTIONAL = {
   _height: 0,
 }
 
-export function IndirectBidirectional(props: DiagramNodeProps) {
+export function IndirectBidirectional(props: NodeProps) {
   return (
     <Shape
       {...INDIRECT_BIDIRECTIONAL}

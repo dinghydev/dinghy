@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RMS_CONNECTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const RMS_CONNECTOR = {
   _height: 50,
 }
 
-export function RmsConnector(props: DiagramNodeProps) {
+export function RmsConnector(props: NodeProps) {
   return (
     <Shape
       {...RMS_CONNECTOR}

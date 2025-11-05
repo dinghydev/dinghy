@@ -1,4 +1,4 @@
-import { type DiagramNodeProps, Rows, Shape } from '@dinghy/base-components'
+import { type NodeProps, Rows, Shape } from '@dinghy/base-components'
 import { defaultDiagramOptions } from '@dinghy/renderer-drawio'
 
 type ParticipantProps = {
@@ -9,7 +9,7 @@ type ParticipantProps = {
   paddingY: number
   icon?: React.ComponentType<any>
   children?: React.ReactNode
-} & DiagramNodeProps
+} & NodeProps
 
 export function Participant(
   {

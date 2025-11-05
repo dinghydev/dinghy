@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OBJECT_STORAGE_SUPPORT = {
   _style: {
@@ -10,7 +10,7 @@ export const OBJECT_STORAGE_SUPPORT = {
   _original_height: 34,
 }
 
-export function ObjectStorageSupport(props: DiagramNodeProps) {
+export function ObjectStorageSupport(props: NodeProps) {
   return (
     <Shape
       {...OBJECT_STORAGE_SUPPORT}

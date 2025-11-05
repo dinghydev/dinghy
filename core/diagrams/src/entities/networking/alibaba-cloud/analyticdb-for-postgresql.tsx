@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ANALYTICDB_FOR_POSTGRESQL = {
   _style: {
@@ -10,7 +10,7 @@ export const ANALYTICDB_FOR_POSTGRESQL = {
   _original_height: 49.5,
 }
 
-export function AnalyticdbForPostgresql(props: DiagramNodeProps) {
+export function AnalyticdbForPostgresql(props: NodeProps) {
   return (
     <Shape
       {...ANALYTICDB_FOR_POSTGRESQL}

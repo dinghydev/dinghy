@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FRAGILE = {
   _style: {
@@ -10,6 +10,6 @@ export const FRAGILE = {
   _height: 99,
 }
 
-export function Fragile(props: DiagramNodeProps) {
+export function Fragile(props: NodeProps) {
   return <Shape {...FRAGILE} {...props} _style={extendStyle(FRAGILE, props)} />
 }

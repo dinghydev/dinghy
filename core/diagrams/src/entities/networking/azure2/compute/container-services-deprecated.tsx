@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTAINER_SERVICES_DEPRECATED = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTAINER_SERVICES_DEPRECATED = {
   _original_height: 60,
 }
 
-export function ContainerServicesDeprecated(props: DiagramNodeProps) {
+export function ContainerServicesDeprecated(props: NodeProps) {
   return (
     <Shape
       {...CONTAINER_SERVICES_DEPRECATED}

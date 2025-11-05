@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TIME_SYNCHRONIZATION = {
   _style: {
@@ -10,7 +10,7 @@ export const TIME_SYNCHRONIZATION = {
   _original_height: 43,
 }
 
-export function TimeSynchronization(props: DiagramNodeProps) {
+export function TimeSynchronization(props: NodeProps) {
   return (
     <Shape
       {...TIME_SYNCHRONIZATION}

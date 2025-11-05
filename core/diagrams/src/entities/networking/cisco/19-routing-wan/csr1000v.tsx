@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CSR1000V = {
   _style: {
@@ -10,7 +10,7 @@ export const CSR1000V = {
   _original_height: 50,
 }
 
-export function Csr1000v(props: DiagramNodeProps) {
+export function Csr1000v(props: NodeProps) {
   return (
     <Shape {...CSR1000V} {...props} _style={extendStyle(CSR1000V, props)} />
   )

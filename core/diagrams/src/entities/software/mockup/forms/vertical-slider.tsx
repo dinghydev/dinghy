@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_SLIDER = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTICAL_SLIDER = {
   _height: 150,
 }
 
-export function VerticalSlider(props: DiagramNodeProps) {
+export function VerticalSlider(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_SLIDER}

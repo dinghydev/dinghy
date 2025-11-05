@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRANSPATH = {
   _style: {
@@ -10,7 +10,7 @@ export const TRANSPATH = {
   _original_height: 64,
 }
 
-export function Transpath(props: DiagramNodeProps) {
+export function Transpath(props: NodeProps) {
   return (
     <Shape {...TRANSPATH} {...props} _style={extendStyle(TRANSPATH, props)} />
   )

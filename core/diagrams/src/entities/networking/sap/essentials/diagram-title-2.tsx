@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DIAGRAM_TITLE_2 = {
   _style: {
@@ -10,7 +10,7 @@ export const DIAGRAM_TITLE_2 = {
   _height: 50,
 }
 
-export function DiagramTitle2(props: DiagramNodeProps) {
+export function DiagramTitle2(props: NodeProps) {
   return (
     <Shape
       {...DIAGRAM_TITLE_2}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MEETING_SCHEDULING_AND_MANAGEMENT_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const MEETING_SCHEDULING_AND_MANAGEMENT_SERVER = {
   _original_height: 50,
 }
 
-export function MeetingSchedulingAndManagementServer(props: DiagramNodeProps) {
+export function MeetingSchedulingAndManagementServer(props: NodeProps) {
   return (
     <Shape
       {...MEETING_SCHEDULING_AND_MANAGEMENT_SERVER}

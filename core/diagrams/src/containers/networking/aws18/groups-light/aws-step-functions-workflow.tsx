@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_STEP_FUNCTIONS_WORKFLOW = {
   _style: {
@@ -12,7 +12,7 @@ export const AWS_STEP_FUNCTIONS_WORKFLOW = {
   },
 }
 
-export function AwsStepFunctionsWorkflow(props: DiagramNodeProps) {
+export function AwsStepFunctionsWorkflow(props: NodeProps) {
   return (
     <Shape
       {...AWS_STEP_FUNCTIONS_WORKFLOW}

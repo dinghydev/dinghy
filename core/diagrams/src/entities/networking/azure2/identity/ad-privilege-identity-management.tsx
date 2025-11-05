@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AD_PRIVILEGE_IDENTITY_MANAGEMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const AD_PRIVILEGE_IDENTITY_MANAGEMENT = {
   _original_height: 68,
 }
 
-export function AdPrivilegeIdentityManagement(props: DiagramNodeProps) {
+export function AdPrivilegeIdentityManagement(props: NodeProps) {
   return (
     <Shape
       {...AD_PRIVILEGE_IDENTITY_MANAGEMENT}

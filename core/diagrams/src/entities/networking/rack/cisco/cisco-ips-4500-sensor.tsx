@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_IPS_4500_SENSOR = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_IPS_4500_SENSOR = {
   _height: 30,
 }
 
-export function CiscoIps4500Sensor(props: DiagramNodeProps) {
+export function CiscoIps4500Sensor(props: NodeProps) {
   return (
     <Shape
       {...CISCO_IPS_4500_SENSOR}

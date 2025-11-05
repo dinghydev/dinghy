@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SCALABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const SCALABLE = {
   _original_height: 60,
 }
 
-export function Scalable(props: DiagramNodeProps) {
+export function Scalable(props: NodeProps) {
   return (
     <Shape {...SCALABLE} {...props} _style={extendStyle(SCALABLE, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTENT_PROTECTION = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTENT_PROTECTION = {
   _original_height: 50,
 }
 
-export function ContentProtection(props: DiagramNodeProps) {
+export function ContentProtection(props: NodeProps) {
   return (
     <Shape
       {...CONTENT_PROTECTION}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SQL_DATA_WAREHOUSES = {
   _style: {
@@ -10,7 +10,7 @@ export const SQL_DATA_WAREHOUSES = {
   _original_height: 65,
 }
 
-export function SqlDataWarehouses(props: DiagramNodeProps) {
+export function SqlDataWarehouses(props: NodeProps) {
   return (
     <Shape
       {...SQL_DATA_WAREHOUSES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BREAKTHROUGH = {
   _style: {
@@ -10,7 +10,7 @@ export const BREAKTHROUGH = {
   _height: 100,
 }
 
-export function Breakthrough(props: DiagramNodeProps) {
+export function Breakthrough(props: NodeProps) {
   return (
     <Shape
       {...BREAKTHROUGH}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLAQUE = {
   _style: {
@@ -10,6 +10,6 @@ export const PLAQUE = {
   _height: 60,
 }
 
-export function Plaque(props: DiagramNodeProps) {
+export function Plaque(props: NodeProps) {
   return <Shape {...PLAQUE} {...props} _style={extendStyle(PLAQUE, props)} />
 }

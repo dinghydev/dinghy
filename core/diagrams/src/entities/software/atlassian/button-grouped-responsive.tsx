@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUTTON_GROUPED_RESPONSIVE = {
   _style: {
@@ -10,7 +10,7 @@ export const BUTTON_GROUPED_RESPONSIVE = {
   _height: 104,
 }
 
-export function ButtonGroupedResponsive(props: DiagramNodeProps) {
+export function ButtonGroupedResponsive(props: NodeProps) {
   return (
     <Shape
       {...BUTTON_GROUPED_RESPONSIVE}

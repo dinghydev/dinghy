@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SOURCE_SQUARE = {
   _style: {
@@ -10,7 +10,7 @@ export const SOURCE_SQUARE = {
   _original_height: 60,
 }
 
-export function SourceSquare(props: DiagramNodeProps) {
+export function SourceSquare(props: NodeProps) {
   return (
     <Shape
       {...SOURCE_SQUARE}

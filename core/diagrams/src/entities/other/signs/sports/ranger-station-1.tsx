@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RANGER_STATION_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const RANGER_STATION_1 = {
   _original_height: 98,
 }
 
-export function RangerStation1(props: DiagramNodeProps) {
+export function RangerStation1(props: NodeProps) {
   return (
     <Shape
       {...RANGER_STATION_1}

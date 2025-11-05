@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONDITIONAL_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING = {
   _style: {
@@ -11,7 +11,7 @@ export const CONDITIONAL_INTERMEDIATE_BOUNDARY_NON_INTERRUPTING = {
 }
 
 export function ConditionalIntermediateBoundaryNonInterrupting(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

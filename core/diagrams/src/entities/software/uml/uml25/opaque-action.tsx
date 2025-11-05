@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OPAQUE_ACTION = {
   _style: {
@@ -9,7 +9,7 @@ export const OPAQUE_ACTION = {
   _height: 40,
 }
 
-export function OpaqueAction(props: DiagramNodeProps) {
+export function OpaqueAction(props: NodeProps) {
   return (
     <Shape
       {...OPAQUE_ACTION}

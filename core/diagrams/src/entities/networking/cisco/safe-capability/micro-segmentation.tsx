@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MICRO_SEGMENTATION = {
   _style: {
@@ -10,7 +10,7 @@ export const MICRO_SEGMENTATION = {
   _original_height: 43,
 }
 
-export function MicroSegmentation(props: DiagramNodeProps) {
+export function MicroSegmentation(props: NodeProps) {
   return (
     <Shape
       {...MICRO_SEGMENTATION}

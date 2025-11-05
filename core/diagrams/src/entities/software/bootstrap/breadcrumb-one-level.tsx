@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BREADCRUMB_ONE_LEVEL = {
   _style: {
@@ -10,7 +10,7 @@ export const BREADCRUMB_ONE_LEVEL = {
   _height: 40,
 }
 
-export function BreadcrumbOneLevel(props: DiagramNodeProps) {
+export function BreadcrumbOneLevel(props: NodeProps) {
   return (
     <Shape
       {...BREADCRUMB_ONE_LEVEL}

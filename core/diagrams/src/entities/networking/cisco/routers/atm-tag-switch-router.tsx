@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATM_TAG_SWITCH_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const ATM_TAG_SWITCH_ROUTER = {
   _original_height: 82,
 }
 
-export function AtmTagSwitchRouter(props: DiagramNodeProps) {
+export function AtmTagSwitchRouter(props: NodeProps) {
   return (
     <Shape
       {...ATM_TAG_SWITCH_ROUTER}

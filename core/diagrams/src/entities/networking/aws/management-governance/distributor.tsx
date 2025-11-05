@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISTRIBUTOR = {
   _style: {
@@ -10,7 +10,7 @@ export const DISTRIBUTOR = {
   _original_height: 78,
 }
 
-export function Distributor(props: DiagramNodeProps) {
+export function Distributor(props: NodeProps) {
   return (
     <Shape
       {...DISTRIBUTOR}

@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEDGE_ARROW_DASHED = {
   _style: {
@@ -8,7 +8,7 @@ export const WEDGE_ARROW_DASHED = {
   },
 }
 
-export function WedgeArrowDashed(props: DiagramNodeProps) {
+export function WedgeArrowDashed(props: NodeProps) {
   return (
     <Dependency
       {...WEDGE_ARROW_DASHED}

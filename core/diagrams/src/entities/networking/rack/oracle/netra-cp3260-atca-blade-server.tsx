@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NETRA_CP3260_ATCA_BLADE_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const NETRA_CP3260_ATCA_BLADE_SERVER = {
   _height: 114,
 }
 
-export function NetraCp3260AtcaBladeServer(props: DiagramNodeProps) {
+export function NetraCp3260AtcaBladeServer(props: NodeProps) {
   return (
     <Shape
       {...NETRA_CP3260_ATCA_BLADE_SERVER}

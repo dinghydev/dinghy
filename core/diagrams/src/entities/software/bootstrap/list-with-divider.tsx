@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LIST_WITH_DIVIDER = {
   _style: {
@@ -10,7 +10,7 @@ export const LIST_WITH_DIVIDER = {
   _height: 345,
 }
 
-export function ListWithDivider(props: DiagramNodeProps) {
+export function ListWithDivider(props: NodeProps) {
   return (
     <Shape
       {...LIST_WITH_DIVIDER}

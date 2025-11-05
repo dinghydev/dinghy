@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIVE_DIRECTORY_CONNECT_HEALTH = {
   _style: {
@@ -10,7 +10,7 @@ export const ACTIVE_DIRECTORY_CONNECT_HEALTH = {
   _original_height: 64,
 }
 
-export function ActiveDirectoryConnectHealth(props: DiagramNodeProps) {
+export function ActiveDirectoryConnectHealth(props: NodeProps) {
   return (
     <Shape
       {...ACTIVE_DIRECTORY_CONNECT_HEALTH}

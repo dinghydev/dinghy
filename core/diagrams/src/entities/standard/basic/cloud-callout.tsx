@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUD_CALLOUT = {
   _style: {
@@ -9,7 +9,7 @@ export const CLOUD_CALLOUT = {
   _height: 60,
 }
 
-export function CloudCallout(props: DiagramNodeProps) {
+export function CloudCallout(props: NodeProps) {
   return (
     <Shape
       {...CLOUD_CALLOUT}

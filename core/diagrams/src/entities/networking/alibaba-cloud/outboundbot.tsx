@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OUTBOUNDBOT = {
   _style: {
@@ -10,7 +10,7 @@ export const OUTBOUNDBOT = {
   _original_height: 58.5,
 }
 
-export function Outboundbot(props: DiagramNodeProps) {
+export function Outboundbot(props: NodeProps) {
   return (
     <Shape
       {...OUTBOUNDBOT}

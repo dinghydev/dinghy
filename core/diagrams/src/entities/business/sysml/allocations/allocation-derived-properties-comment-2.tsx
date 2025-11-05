@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALLOCATION_DERIVED_PROPERTIES_COMMENT_2 = {
   _style: {
@@ -9,7 +9,7 @@ export const ALLOCATION_DERIVED_PROPERTIES_COMMENT_2 = {
   _height: 140,
 }
 
-export function AllocationDerivedPropertiesComment2(props: DiagramNodeProps) {
+export function AllocationDerivedPropertiesComment2(props: NodeProps) {
   return (
     <Shape
       {...ALLOCATION_DERIVED_PROPERTIES_COMMENT_2}

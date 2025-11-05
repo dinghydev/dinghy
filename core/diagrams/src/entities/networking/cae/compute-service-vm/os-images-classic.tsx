@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OS_IMAGES_CLASSIC = {
   _style: {
@@ -10,7 +10,7 @@ export const OS_IMAGES_CLASSIC = {
   _original_height: 46,
 }
 
-export function OsImagesClassic(props: DiagramNodeProps) {
+export function OsImagesClassic(props: NodeProps) {
   return (
     <Shape
       {...OS_IMAGES_CLASSIC}

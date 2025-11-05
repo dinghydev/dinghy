@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_MIRROR_WITNESS_NODE = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_MIRROR_WITNESS_NODE = {
   _original_height: 59,
 }
 
-export function DatabaseMirrorWitnessNode(props: DiagramNodeProps) {
+export function DatabaseMirrorWitnessNode(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_MIRROR_WITNESS_NODE}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_7613_ROUTER = {
   _style: {
@@ -10,7 +10,7 @@ export const CISCO_7613_ROUTER = {
   _height: 267,
 }
 
-export function Cisco7613Router(props: DiagramNodeProps) {
+export function Cisco7613Router(props: NodeProps) {
   return (
     <Shape
       {...CISCO_7613_ROUTER}

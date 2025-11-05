@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X12270_COOLER_WITH = {
   _style: {
@@ -10,7 +10,7 @@ export const X12270_COOLER_WITH = {
   _original_height: 99.6,
 }
 
-export function X12270CoolerWith(props: DiagramNodeProps) {
+export function X12270CoolerWith(props: NodeProps) {
   return (
     <Shape
       {...X12270_COOLER_WITH}

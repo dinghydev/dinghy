@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IBM_OBJECT_STORAGE = {
   _style: {
@@ -10,7 +10,7 @@ export const IBM_OBJECT_STORAGE = {
   _original_height: 34,
 }
 
-export function IbmObjectStorage(props: DiagramNodeProps) {
+export function IbmObjectStorage(props: NodeProps) {
   return (
     <Shape
       {...IBM_OBJECT_STORAGE}

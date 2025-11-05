@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DATABASE_RELATIONAL = {
   _style: {
@@ -10,7 +10,7 @@ export const DATABASE_RELATIONAL = {
   _original_height: 50,
 }
 
-export function DatabaseRelational(props: DiagramNodeProps) {
+export function DatabaseRelational(props: NodeProps) {
   return (
     <Shape
       {...DATABASE_RELATIONAL}

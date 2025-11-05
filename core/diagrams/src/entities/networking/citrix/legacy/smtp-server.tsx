@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SMTP_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const SMTP_SERVER = {
   _original_height: 92,
 }
 
-export function SmtpServer(props: DiagramNodeProps) {
+export function SmtpServer(props: NodeProps) {
   return (
     <Shape
       {...SMTP_SERVER}

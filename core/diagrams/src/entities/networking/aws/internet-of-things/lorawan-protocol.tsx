@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LORAWAN_PROTOCOL = {
   _style: {
@@ -10,7 +10,7 @@ export const LORAWAN_PROTOCOL = {
   _original_height: 78,
 }
 
-export function LorawanProtocol(props: DiagramNodeProps) {
+export function LorawanProtocol(props: NodeProps) {
   return (
     <Shape
       {...LORAWAN_PROTOCOL}

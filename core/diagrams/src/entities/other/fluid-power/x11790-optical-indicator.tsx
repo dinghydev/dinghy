@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11790_OPTICAL_INDICATOR = {
   _style: {
@@ -10,7 +10,7 @@ export const X11790_OPTICAL_INDICATOR = {
   _height: 27.74,
 }
 
-export function X11790OpticalIndicator(props: DiagramNodeProps) {
+export function X11790OpticalIndicator(props: NodeProps) {
   return (
     <Shape
       {...X11790_OPTICAL_INDICATOR}

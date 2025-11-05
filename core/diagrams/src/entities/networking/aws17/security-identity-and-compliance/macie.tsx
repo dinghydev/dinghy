@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MACIE = {
   _style: {
@@ -10,6 +10,6 @@ export const MACIE = {
   _height: 54,
 }
 
-export function Macie(props: DiagramNodeProps) {
+export function Macie(props: NodeProps) {
   return <Shape {...MACIE} {...props} _style={extendStyle(MACIE, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U = {
   _style: {
@@ -10,9 +10,7 @@ export const CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U = {
   _height: 15,
 }
 
-export function CiscoPhysicalSecurityMultiservicePlatform1u(
-  props: DiagramNodeProps,
-) {
+export function CiscoPhysicalSecurityMultiservicePlatform1u(props: NodeProps) {
   return (
     <Shape
       {...CISCO_PHYSICAL_SECURITY_MULTISERVICE_PLATFORM_1U}

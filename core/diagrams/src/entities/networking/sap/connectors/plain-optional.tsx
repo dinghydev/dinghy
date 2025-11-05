@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PLAIN_OPTIONAL = {
   _style: {
@@ -10,7 +10,7 @@ export const PLAIN_OPTIONAL = {
   _height: 0,
 }
 
-export function PlainOptional(props: DiagramNodeProps) {
+export function PlainOptional(props: NodeProps) {
   return (
     <Shape
       {...PLAIN_OPTIONAL}

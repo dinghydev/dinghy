@@ -1,5 +1,5 @@
 import { Dependency, extendStyle } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BIDIRECTIONAL_DATA_FLOW = {
   _style: {
@@ -7,7 +7,7 @@ export const BIDIRECTIONAL_DATA_FLOW = {
   },
 }
 
-export function BidirectionalDataFlow(props: DiagramNodeProps) {
+export function BidirectionalDataFlow(props: NodeProps) {
   return (
     <Dependency
       {...BIDIRECTIONAL_DATA_FLOW}

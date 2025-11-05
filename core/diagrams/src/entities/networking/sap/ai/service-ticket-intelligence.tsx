@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SERVICE_TICKET_INTELLIGENCE = {
   _style: {
@@ -10,7 +10,7 @@ export const SERVICE_TICKET_INTELLIGENCE = {
   _original_height: 50,
 }
 
-export function ServiceTicketIntelligence(props: DiagramNodeProps) {
+export function ServiceTicketIntelligence(props: NodeProps) {
   return (
     <Shape
       {...SERVICE_TICKET_INTELLIGENCE}

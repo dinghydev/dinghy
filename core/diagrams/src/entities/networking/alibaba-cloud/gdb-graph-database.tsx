@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GDB_GRAPH_DATABASE = {
   _style: {
@@ -10,7 +10,7 @@ export const GDB_GRAPH_DATABASE = {
   _original_height: 47.400000000000006,
 }
 
-export function GdbGraphDatabase(props: DiagramNodeProps) {
+export function GdbGraphDatabase(props: NodeProps) {
   return (
     <Shape
       {...GDB_GRAPH_DATABASE}

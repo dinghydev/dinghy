@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const KEY_SAP = {
   _style: {
@@ -10,6 +10,6 @@ export const KEY_SAP = {
   _original_height: 28,
 }
 
-export function KeySap(props: DiagramNodeProps) {
+export function KeySap(props: NodeProps) {
   return <Shape {...KEY_SAP} {...props} _style={extendStyle(KEY_SAP, props)} />
 }

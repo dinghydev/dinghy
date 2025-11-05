@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELASTIC_NETWORK_ADAPTER = {
   _style: {
@@ -10,7 +10,7 @@ export const ELASTIC_NETWORK_ADAPTER = {
   _original_height: 60,
 }
 
-export function ElasticNetworkAdapter(props: DiagramNodeProps) {
+export function ElasticNetworkAdapter(props: NodeProps) {
   return (
     <Shape
       {...ELASTIC_NETWORK_ADAPTER}

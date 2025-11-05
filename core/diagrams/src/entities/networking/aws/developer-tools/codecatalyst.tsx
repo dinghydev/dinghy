@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CODECATALYST = {
   _style: {
@@ -10,7 +10,7 @@ export const CODECATALYST = {
   _original_height: 78,
 }
 
-export function Codecatalyst(props: DiagramNodeProps) {
+export function Codecatalyst(props: NodeProps) {
   return (
     <Shape
       {...CODECATALYST}

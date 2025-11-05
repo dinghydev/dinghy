@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUSINESS_RULE = {
   _style: {
@@ -8,7 +8,7 @@ export const BUSINESS_RULE = {
   },
 }
 
-export function BusinessRule(props: DiagramNodeProps) {
+export function BusinessRule(props: NodeProps) {
   return (
     <Shape
       {...BUSINESS_RULE}

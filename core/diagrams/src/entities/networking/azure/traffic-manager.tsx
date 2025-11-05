@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRAFFIC_MANAGER = {
   _style: {
@@ -10,7 +10,7 @@ export const TRAFFIC_MANAGER = {
   _original_height: 50,
 }
 
-export function TrafficManager(props: DiagramNodeProps) {
+export function TrafficManager(props: NodeProps) {
   return (
     <Shape
       {...TRAFFIC_MANAGER}

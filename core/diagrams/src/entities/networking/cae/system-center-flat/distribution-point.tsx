@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DISTRIBUTION_POINT = {
   _style: {
@@ -10,7 +10,7 @@ export const DISTRIBUTION_POINT = {
   _original_height: 50,
 }
 
-export function DistributionPoint(props: DiagramNodeProps) {
+export function DistributionPoint(props: NodeProps) {
   return (
     <Shape
       {...DISTRIBUTION_POINT}

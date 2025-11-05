@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const STATUS_BAR_PORTRAIT = {
   _style: {
@@ -10,7 +10,7 @@ export const STATUS_BAR_PORTRAIT = {
   _height: 15.825,
 }
 
-export function StatusBarPortrait(props: DiagramNodeProps) {
+export function StatusBarPortrait(props: NodeProps) {
   return (
     <Shape
       {...STATUS_BAR_PORTRAIT}

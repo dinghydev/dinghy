@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HTTP_NOTIFICATION = {
   _style: {
@@ -10,7 +10,7 @@ export const HTTP_NOTIFICATION = {
   _height: 63,
 }
 
-export function HttpNotification(props: DiagramNodeProps) {
+export function HttpNotification(props: NodeProps) {
   return (
     <Shape
       {...HTTP_NOTIFICATION}

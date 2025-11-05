@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOG_ON_LEASH = {
   _style: {
@@ -10,7 +10,7 @@ export const DOG_ON_LEASH = {
   _original_height: 91,
 }
 
-export function DogOnLeash(props: DiagramNodeProps) {
+export function DogOnLeash(props: NodeProps) {
   return (
     <Shape
       {...DOG_ON_LEASH}

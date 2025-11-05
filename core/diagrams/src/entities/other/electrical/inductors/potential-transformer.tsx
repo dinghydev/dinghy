@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POTENTIAL_TRANSFORMER = {
   _style: {
@@ -10,7 +10,7 @@ export const POTENTIAL_TRANSFORMER = {
   _height: 40,
 }
 
-export function PotentialTransformer(props: DiagramNodeProps) {
+export function PotentialTransformer(props: NodeProps) {
   return (
     <Shape
       {...POTENTIAL_TRANSFORMER}

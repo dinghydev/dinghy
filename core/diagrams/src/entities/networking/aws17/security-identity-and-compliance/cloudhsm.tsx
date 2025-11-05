@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDHSM = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDHSM = {
   _original_height: 84,
 }
 
-export function Cloudhsm(props: DiagramNodeProps) {
+export function Cloudhsm(props: NodeProps) {
   return (
     <Shape {...CLOUDHSM} {...props} _style={extendStyle(CLOUDHSM, props)} />
   )

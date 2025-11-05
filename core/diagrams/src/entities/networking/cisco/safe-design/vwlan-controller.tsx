@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VWLAN_CONTROLLER = {
   _style: {
@@ -10,7 +10,7 @@ export const VWLAN_CONTROLLER = {
   _original_height: 45,
 }
 
-export function VwlanController(props: DiagramNodeProps) {
+export function VwlanController(props: NodeProps) {
   return (
     <Shape
       {...VWLAN_CONTROLLER}

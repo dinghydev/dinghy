@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ACTIVE_DIRECTORY = {
   _style: {
@@ -10,7 +10,7 @@ export const ACTIVE_DIRECTORY = {
   _original_height: 46,
 }
 
-export function ActiveDirectory(props: DiagramNodeProps) {
+export function ActiveDirectory(props: NodeProps) {
   return (
     <Shape
       {...ACTIVE_DIRECTORY}

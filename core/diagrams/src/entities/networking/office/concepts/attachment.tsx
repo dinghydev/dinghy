@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ATTACHMENT = {
   _style: {
@@ -10,7 +10,7 @@ export const ATTACHMENT = {
   _height: 44,
 }
 
-export function Attachment(props: DiagramNodeProps) {
+export function Attachment(props: NodeProps) {
   return (
     <Shape {...ATTACHMENT} {...props} _style={extendStyle(ATTACHMENT, props)} />
   )

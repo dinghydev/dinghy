@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WINDOWS_10_IOT_CORE_SERVICES = {
   _style: {
@@ -10,7 +10,7 @@ export const WINDOWS_10_IOT_CORE_SERVICES = {
   _original_height: 50,
 }
 
-export function Windows10IotCoreServices(props: DiagramNodeProps) {
+export function Windows10IotCoreServices(props: NodeProps) {
   return (
     <Shape
       {...WINDOWS_10_IOT_CORE_SERVICES}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ALPHABET_LIST = {
   _style: {
@@ -10,7 +10,7 @@ export const ALPHABET_LIST = {
   _height: 225,
 }
 
-export function AlphabetList(props: DiagramNodeProps) {
+export function AlphabetList(props: NodeProps) {
   return (
     <Shape
       {...ALPHABET_LIST}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HEADER = {
   _style: {
@@ -9,6 +9,6 @@ export const HEADER = {
   _height: 160,
 }
 
-export function Header(props: DiagramNodeProps) {
+export function Header(props: NodeProps) {
   return <Shape {...HEADER} {...props} _style={extendStyle(HEADER, props)} />
 }

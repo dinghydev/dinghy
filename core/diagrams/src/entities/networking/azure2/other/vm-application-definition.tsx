@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VM_APPLICATION_DEFINITION = {
   _style: {
@@ -10,7 +10,7 @@ export const VM_APPLICATION_DEFINITION = {
   _original_height: 62.8,
 }
 
-export function VmApplicationDefinition(props: DiagramNodeProps) {
+export function VmApplicationDefinition(props: NodeProps) {
   return (
     <Shape
       {...VM_APPLICATION_DEFINITION}

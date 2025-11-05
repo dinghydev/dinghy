@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const VERTICAL_POOL_1 = {
   _style: {
@@ -10,7 +10,7 @@ export const VERTICAL_POOL_1 = {
   _height: 480,
 }
 
-export function VerticalPool1(props: DiagramNodeProps) {
+export function VerticalPool1(props: NodeProps) {
   return (
     <Shape
       {...VERTICAL_POOL_1}

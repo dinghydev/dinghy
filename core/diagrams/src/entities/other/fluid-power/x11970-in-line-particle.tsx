@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const X11970_IN_LINE_PARTICLE = {
   _style: {
@@ -10,7 +10,7 @@ export const X11970_IN_LINE_PARTICLE = {
   _height: 64.66,
 }
 
-export function X11970InLineParticle(props: DiagramNodeProps) {
+export function X11970InLineParticle(props: NodeProps) {
   return (
     <Shape
       {...X11970_IN_LINE_PARTICLE}

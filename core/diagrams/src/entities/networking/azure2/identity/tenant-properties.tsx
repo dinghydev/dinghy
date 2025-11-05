@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TENANT_PROPERTIES = {
   _style: {
@@ -10,7 +10,7 @@ export const TENANT_PROPERTIES = {
   _height: 48,
 }
 
-export function TenantProperties(props: DiagramNodeProps) {
+export function TenantProperties(props: NodeProps) {
   return (
     <Shape
       {...TENANT_PROPERTIES}

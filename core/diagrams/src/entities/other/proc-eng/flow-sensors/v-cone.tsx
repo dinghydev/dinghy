@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const V_CONE = {
   _style: {
@@ -10,6 +10,6 @@ export const V_CONE = {
   _original_height: 50,
 }
 
-export function VCone(props: DiagramNodeProps) {
+export function VCone(props: NodeProps) {
   return <Shape {...V_CONE} {...props} _style={extendStyle(V_CONE, props)} />
 }

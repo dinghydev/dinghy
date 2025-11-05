@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MULTI_SELECT_WITH_AVATARS = {
   _style: {
@@ -10,7 +10,7 @@ export const MULTI_SELECT_WITH_AVATARS = {
   _height: 320,
 }
 
-export function MultiSelectWithAvatars(props: DiagramNodeProps) {
+export function MultiSelectWithAvatars(props: NodeProps) {
   return (
     <Shape
       {...MULTI_SELECT_WITH_AVATARS}

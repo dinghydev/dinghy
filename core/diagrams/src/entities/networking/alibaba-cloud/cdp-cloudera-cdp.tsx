@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CDP_CLOUDERA_CDP = {
   _style: {
@@ -10,7 +10,7 @@ export const CDP_CLOUDERA_CDP = {
   _height: 34.199999999999996,
 }
 
-export function CdpClouderaCdp(props: DiagramNodeProps) {
+export function CdpClouderaCdp(props: NodeProps) {
   return (
     <Shape
       {...CDP_CLOUDERA_CDP}

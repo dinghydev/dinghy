@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AZURITE = {
   _style: {
@@ -10,6 +10,6 @@ export const AZURITE = {
   _original_height: 66,
 }
 
-export function Azurite(props: DiagramNodeProps) {
+export function Azurite(props: NodeProps) {
   return <Shape {...AZURITE} {...props} _style={extendStyle(AZURITE, props)} />
 }

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHELTER = {
   _style: {
@@ -10,6 +10,6 @@ export const SHELTER = {
   _original_height: 90,
 }
 
-export function Shelter(props: DiagramNodeProps) {
+export function Shelter(props: NodeProps) {
   return <Shape {...SHELTER} {...props} _style={extendStyle(SHELTER, props)} />
 }

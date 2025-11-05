@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CMP_CLOUD_MOBILE_PUSH = {
   _style: {
@@ -10,7 +10,7 @@ export const CMP_CLOUD_MOBILE_PUSH = {
   _height: 35.699999999999996,
 }
 
-export function CmpCloudMobilePush(props: DiagramNodeProps) {
+export function CmpCloudMobilePush(props: NodeProps) {
   return (
     <Shape
       {...CMP_CLOUD_MOBILE_PUSH}

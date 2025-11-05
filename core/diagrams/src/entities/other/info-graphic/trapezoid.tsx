@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRAPEZOID = {
   _style: {
@@ -10,7 +10,7 @@ export const TRAPEZOID = {
   _height: 70,
 }
 
-export function Trapezoid(props: DiagramNodeProps) {
+export function Trapezoid(props: NodeProps) {
   return (
     <Shape {...TRAPEZOID} {...props} _style={extendStyle(TRAPEZOID, props)} />
   )

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PROTECTION_GROUP = {
   _style: {
@@ -10,7 +10,7 @@ export const PROTECTION_GROUP = {
   _original_height: 50,
 }
 
-export function ProtectionGroup(props: DiagramNodeProps) {
+export function ProtectionGroup(props: NodeProps) {
   return (
     <Shape
       {...PROTECTION_GROUP}

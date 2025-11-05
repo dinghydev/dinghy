@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NITRO_ENCLAVES = {
   _style: {
@@ -10,7 +10,7 @@ export const NITRO_ENCLAVES = {
   _original_height: 78,
 }
 
-export function NitroEnclaves(props: DiagramNodeProps) {
+export function NitroEnclaves(props: NodeProps) {
   return (
     <Shape
       {...NITRO_ENCLAVES}

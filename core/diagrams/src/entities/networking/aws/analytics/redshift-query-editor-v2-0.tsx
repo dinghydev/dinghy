@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const REDSHIFT_QUERY_EDITOR_V2_0 = {
   _style: {
@@ -10,7 +10,7 @@ export const REDSHIFT_QUERY_EDITOR_V2_0 = {
   _original_height: 78,
 }
 
-export function RedshiftQueryEditorV20(props: DiagramNodeProps) {
+export function RedshiftQueryEditorV20(props: NodeProps) {
   return (
     <Shape
       {...REDSHIFT_QUERY_EDITOR_V2_0}

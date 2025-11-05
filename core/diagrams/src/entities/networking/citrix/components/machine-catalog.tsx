@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const MACHINE_CATALOG = {
   _style: {
@@ -10,7 +10,7 @@ export const MACHINE_CATALOG = {
   _original_height: 44.42,
 }
 
-export function MachineCatalog(props: DiagramNodeProps) {
+export function MachineCatalog(props: NodeProps) {
   return (
     <Shape
       {...MACHINE_CATALOG}

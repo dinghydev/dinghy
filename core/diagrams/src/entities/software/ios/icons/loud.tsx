@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOUD = {
   _style: {
@@ -10,6 +10,6 @@ export const LOUD = {
   _height: 32.4,
 }
 
-export function Loud(props: DiagramNodeProps) {
+export function Loud(props: NodeProps) {
   return <Shape {...LOUD} {...props} _style={extendStyle(LOUD, props)} />
 }

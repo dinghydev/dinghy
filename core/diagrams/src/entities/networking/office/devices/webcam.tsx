@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEBCAM = {
   _style: {
@@ -10,6 +10,6 @@ export const WEBCAM = {
   _original_height: 50,
 }
 
-export function Webcam(props: DiagramNodeProps) {
+export function Webcam(props: NodeProps) {
   return <Shape {...WEBCAM} {...props} _style={extendStyle(WEBCAM, props)} />
 }

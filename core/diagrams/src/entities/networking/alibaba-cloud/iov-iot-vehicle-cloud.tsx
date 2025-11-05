@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const IOV_IOT_VEHICLE_CLOUD = {
   _style: {
@@ -10,7 +10,7 @@ export const IOV_IOT_VEHICLE_CLOUD = {
   _height: 33,
 }
 
-export function IovIotVehicleCloud(props: DiagramNodeProps) {
+export function IovIotVehicleCloud(props: NodeProps) {
   return (
     <Shape
       {...IOV_IOT_VEHICLE_CLOUD}

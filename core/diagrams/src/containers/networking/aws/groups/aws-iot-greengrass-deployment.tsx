@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_IOT_GREENGRASS_DEPLOYMENT = {
   _style: {
@@ -12,7 +12,7 @@ export const AWS_IOT_GREENGRASS_DEPLOYMENT = {
   },
 }
 
-export function AwsIotGreengrassDeployment(props: DiagramNodeProps) {
+export function AwsIotGreengrassDeployment(props: NodeProps) {
   return (
     <Shape
       {...AWS_IOT_GREENGRASS_DEPLOYMENT}

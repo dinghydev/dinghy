@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DROPDOWN_BUTTON_6 = {
   _style: {
@@ -12,7 +12,7 @@ export const DROPDOWN_BUTTON_6 = {
   },
 }
 
-export function DropdownButton6(props: DiagramNodeProps) {
+export function DropdownButton6(props: NodeProps) {
   return (
     <Shape
       {...DROPDOWN_BUTTON_6}

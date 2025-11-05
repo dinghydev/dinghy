@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SAP_MONITORING_SERVICE_FOR_SAP_BTP = {
   _style: {
@@ -10,7 +10,7 @@ export const SAP_MONITORING_SERVICE_FOR_SAP_BTP = {
   _original_height: 50,
 }
 
-export function SapMonitoringServiceForSapBtp(props: DiagramNodeProps) {
+export function SapMonitoringServiceForSapBtp(props: NodeProps) {
   return (
     <Shape
       {...SAP_MONITORING_SERVICE_FOR_SAP_BTP}

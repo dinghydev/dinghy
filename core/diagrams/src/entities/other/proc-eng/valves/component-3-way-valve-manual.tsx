@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const COMPONENT_3_WAY_VALVE_MANUAL = {
   _style: {
@@ -10,7 +10,7 @@ export const COMPONENT_3_WAY_VALVE_MANUAL = {
   _height: 120,
 }
 
-export function Component3WayValveManual(props: DiagramNodeProps) {
+export function Component3WayValveManual(props: NodeProps) {
   return (
     <Shape
       {...COMPONENT_3_WAY_VALVE_MANUAL}

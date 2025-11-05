@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NEXUS_2000_FABRIC_EXTENDER = {
   _style: {
@@ -10,7 +10,7 @@ export const NEXUS_2000_FABRIC_EXTENDER = {
   _height: 50,
 }
 
-export function Nexus2000FabricExtender(props: DiagramNodeProps) {
+export function Nexus2000FabricExtender(props: NodeProps) {
   return (
     <Shape
       {...NEXUS_2000_FABRIC_EXTENDER}

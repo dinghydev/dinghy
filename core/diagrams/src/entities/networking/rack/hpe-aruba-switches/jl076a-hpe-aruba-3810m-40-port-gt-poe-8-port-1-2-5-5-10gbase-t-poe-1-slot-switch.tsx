@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const JL076A_HPE_ARUBA_3810M_40_PORT_GT_POE_8_PORT_1_2_5_5_10GBASE_T_POE_1_SLOT_SWITCH =
   {
@@ -12,7 +12,7 @@ export const JL076A_HPE_ARUBA_3810M_40_PORT_GT_POE_8_PORT_1_2_5_5_10GBASE_T_POE_
   }
 
 export function Jl076aHpeAruba3810m40PortGtPoe8Port125510gbaseTPoe1SlotSwitch(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

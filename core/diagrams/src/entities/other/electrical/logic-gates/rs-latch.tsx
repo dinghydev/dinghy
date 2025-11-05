@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const RS_LATCH = {
   _style: {
@@ -10,7 +10,7 @@ export const RS_LATCH = {
   _height: 80,
 }
 
-export function RsLatch(props: DiagramNodeProps) {
+export function RsLatch(props: NodeProps) {
   return (
     <Shape {...RS_LATCH} {...props} _style={extendStyle(RS_LATCH, props)} />
   )

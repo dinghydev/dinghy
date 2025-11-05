@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DOUBLE_ELLIPSE = {
   _style: {
@@ -9,7 +9,7 @@ export const DOUBLE_ELLIPSE = {
   _height: 60,
 }
 
-export function DoubleEllipse(props: DiagramNodeProps) {
+export function DoubleEllipse(props: NodeProps) {
   return (
     <Shape
       {...DOUBLE_ELLIPSE}

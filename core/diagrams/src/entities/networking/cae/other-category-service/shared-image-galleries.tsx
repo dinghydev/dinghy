@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SHARED_IMAGE_GALLERIES = {
   _style: {
@@ -10,7 +10,7 @@ export const SHARED_IMAGE_GALLERIES = {
   _original_height: 50,
 }
 
-export function SharedImageGalleries(props: DiagramNodeProps) {
+export function SharedImageGalleries(props: NodeProps) {
   return (
     <Shape
       {...SHARED_IMAGE_GALLERIES}

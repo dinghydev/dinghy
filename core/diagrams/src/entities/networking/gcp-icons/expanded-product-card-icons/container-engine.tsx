@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTAINER_ENGINE = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTAINER_ENGINE = {
   _height: 32,
 }
 
-export function ContainerEngine(props: DiagramNodeProps) {
+export function ContainerEngine(props: NodeProps) {
   return (
     <Shape
       {...CONTAINER_ENGINE}

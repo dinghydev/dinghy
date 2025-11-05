@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ARUBA_7030_MOBILITY_CONTROLLER_FRONT = {
   _style: {
@@ -10,7 +10,7 @@ export const ARUBA_7030_MOBILITY_CONTROLLER_FRONT = {
   _height: 15,
 }
 
-export function Aruba7030MobilityControllerFront(props: DiagramNodeProps) {
+export function Aruba7030MobilityControllerFront(props: NodeProps) {
   return (
     <Shape
       {...ARUBA_7030_MOBILITY_CONTROLLER_FRONT}

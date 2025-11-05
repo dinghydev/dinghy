@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const SECURITY_ACCESS_PORTAL = {
   _style: {
@@ -10,7 +10,7 @@ export const SECURITY_ACCESS_PORTAL = {
   _original_height: 55,
 }
 
-export function SecurityAccessPortal(props: DiagramNodeProps) {
+export function SecurityAccessPortal(props: NodeProps) {
   return (
     <Shape
       {...SECURITY_ACCESS_PORTAL}

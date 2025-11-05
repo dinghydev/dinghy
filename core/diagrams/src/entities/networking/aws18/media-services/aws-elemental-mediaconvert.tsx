@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const AWS_ELEMENTAL_MEDIACONVERT = {
   _style: {
@@ -10,7 +10,7 @@ export const AWS_ELEMENTAL_MEDIACONVERT = {
   _height: 110,
 }
 
-export function AwsElementalMediaconvert(props: DiagramNodeProps) {
+export function AwsElementalMediaconvert(props: NodeProps) {
   return (
     <Shape
       {...AWS_ELEMENTAL_MEDIACONVERT}

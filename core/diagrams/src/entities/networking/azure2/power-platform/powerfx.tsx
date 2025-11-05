@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const POWERFX = {
   _style: {
@@ -10,6 +10,6 @@ export const POWERFX = {
   _original_height: 64.92,
 }
 
-export function Powerfx(props: DiagramNodeProps) {
+export function Powerfx(props: NodeProps) {
   return <Shape {...POWERFX} {...props} _style={extendStyle(POWERFX, props)} />
 }

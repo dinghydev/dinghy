@@ -34,8 +34,8 @@ function parseExampleSpec(path: string) {
   example.code = Deno.readTextFileSync(appFile)
     .replace(/from \'.*\/core\/index.ts\'/g, `from 'dinghy-core'`)
     .replace(
-      /import.*DiagramNodeProps.*types.ts'/,
-      `import type { DiagramNodeProps } from 'dinghy-core'`,
+      /import.*NodeProps.*types.ts'/,
+      `import type { NodeProps } from 'dinghy-core'`,
     )
     .replace(
       /import.*IacNodeProps.*types.ts'/,

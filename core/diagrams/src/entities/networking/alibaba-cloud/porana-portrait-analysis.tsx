@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PORANA_PORTRAIT_ANALYSIS = {
   _style: {
@@ -10,7 +10,7 @@ export const PORANA_PORTRAIT_ANALYSIS = {
   _original_height: 45.3,
 }
 
-export function PoranaPortraitAnalysis(props: DiagramNodeProps) {
+export function PoranaPortraitAnalysis(props: NodeProps) {
   return (
     <Shape
       {...PORANA_PORTRAIT_ANALYSIS}

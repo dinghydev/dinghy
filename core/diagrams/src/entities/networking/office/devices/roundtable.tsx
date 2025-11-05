@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUNDTABLE = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUNDTABLE = {
   _original_height: 58,
 }
 
-export function Roundtable(props: DiagramNodeProps) {
+export function Roundtable(props: NodeProps) {
   return (
     <Shape {...ROUNDTABLE} {...props} _style={extendStyle(ROUNDTABLE, props)} />
   )

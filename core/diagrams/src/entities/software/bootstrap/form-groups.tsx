@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const FORM_GROUPS = {
   _style: {
@@ -10,7 +10,7 @@ export const FORM_GROUPS = {
   _height: 150,
 }
 
-export function FormGroups(props: DiagramNodeProps) {
+export function FormGroups(props: NodeProps) {
   return (
     <Shape
       {...FORM_GROUPS}

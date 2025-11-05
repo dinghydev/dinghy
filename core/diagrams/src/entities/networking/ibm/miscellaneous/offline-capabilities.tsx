@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const OFFLINE_CAPABILITIES = {
   _style: {
@@ -10,7 +10,7 @@ export const OFFLINE_CAPABILITIES = {
   _original_height: 60,
 }
 
-export function OfflineCapabilities(props: DiagramNodeProps) {
+export function OfflineCapabilities(props: NodeProps) {
   return (
     <Shape
       {...OFFLINE_CAPABILITIES}

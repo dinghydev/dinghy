@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WIRING_HUB = {
   _style: {
@@ -10,7 +10,7 @@ export const WIRING_HUB = {
   _height: 34,
 }
 
-export function WiringHub(props: DiagramNodeProps) {
+export function WiringHub(props: NodeProps) {
   return (
     <Shape {...WIRING_HUB} {...props} _style={extendStyle(WIRING_HUB, props)} />
   )

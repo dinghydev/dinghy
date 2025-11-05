@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CONTENT_RECORDING_STREAMING_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const CONTENT_RECORDING_STREAMING_SERVER = {
   _original_height: 50,
 }
 
-export function ContentRecordingStreamingServer(props: DiagramNodeProps) {
+export function ContentRecordingStreamingServer(props: NodeProps) {
   return (
     <Shape
       {...CONTENT_RECORDING_STREAMING_SERVER}

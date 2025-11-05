@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOCAL_ZONES = {
   _style: {
@@ -10,7 +10,7 @@ export const LOCAL_ZONES = {
   _original_height: 78,
 }
 
-export function LocalZones(props: DiagramNodeProps) {
+export function LocalZones(props: NodeProps) {
   return (
     <Shape
       {...LOCAL_ZONES}

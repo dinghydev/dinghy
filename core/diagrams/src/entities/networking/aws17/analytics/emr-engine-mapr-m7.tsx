@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const EMR_ENGINE_MAPR_M7 = {
   _style: {
@@ -10,7 +10,7 @@ export const EMR_ENGINE_MAPR_M7 = {
   _height: 60,
 }
 
-export function EmrEngineMaprM7(props: DiagramNodeProps) {
+export function EmrEngineMaprM7(props: NodeProps) {
   return (
     <Shape
       {...EMR_ENGINE_MAPR_M7}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BUSINESS_PROCESS_MODEL_CONNECTOR_FOR_SAP_SIGNAVIO_SOLUTIONS = {
   _style: {
@@ -11,7 +11,7 @@ export const BUSINESS_PROCESS_MODEL_CONNECTOR_FOR_SAP_SIGNAVIO_SOLUTIONS = {
 }
 
 export function BusinessProcessModelConnectorForSapSignavioSolutions(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

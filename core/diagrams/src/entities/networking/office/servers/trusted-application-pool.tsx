@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TRUSTED_APPLICATION_POOL = {
   _style: {
@@ -10,7 +10,7 @@ export const TRUSTED_APPLICATION_POOL = {
   _original_height: 59,
 }
 
-export function TrustedApplicationPool(props: DiagramNodeProps) {
+export function TrustedApplicationPool(props: NodeProps) {
   return (
     <Shape
       {...TRUSTED_APPLICATION_POOL}

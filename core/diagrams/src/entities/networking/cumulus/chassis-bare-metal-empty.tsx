@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CHASSIS_BARE_METAL_EMPTY = {
   _style: {
@@ -10,7 +10,7 @@ export const CHASSIS_BARE_METAL_EMPTY = {
   _height: 72,
 }
 
-export function ChassisBareMetalEmpty(props: DiagramNodeProps) {
+export function ChassisBareMetalEmpty(props: NodeProps) {
   return (
     <Shape
       {...CHASSIS_BARE_METAL_EMPTY}

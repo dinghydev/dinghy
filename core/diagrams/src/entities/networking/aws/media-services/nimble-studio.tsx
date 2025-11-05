@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NIMBLE_STUDIO = {
   _style: {
@@ -10,7 +10,7 @@ export const NIMBLE_STUDIO = {
   _original_height: 78,
 }
 
-export function NimbleStudio(props: DiagramNodeProps) {
+export function NimbleStudio(props: NodeProps) {
   return (
     <Shape
       {...NIMBLE_STUDIO}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOGICAL_DISTRIBUTION = {
   _style: {
@@ -10,7 +10,7 @@ export const LOGICAL_DISTRIBUTION = {
   _original_height: 50,
 }
 
-export function LogicalDistribution(props: DiagramNodeProps) {
+export function LogicalDistribution(props: NodeProps) {
   return (
     <Shape
       {...LOGICAL_DISTRIBUTION}

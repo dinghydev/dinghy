@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GKE_ON_PREM = {
   _style: {
@@ -10,7 +10,7 @@ export const GKE_ON_PREM = {
   _height: 20,
 }
 
-export function GkeOnPrem(props: DiagramNodeProps) {
+export function GkeOnPrem(props: NodeProps) {
   return (
     <Shape
       {...GKE_ON_PREM}

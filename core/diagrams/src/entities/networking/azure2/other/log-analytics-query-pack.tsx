@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const LOG_ANALYTICS_QUERY_PACK = {
   _style: {
@@ -10,7 +10,7 @@ export const LOG_ANALYTICS_QUERY_PACK = {
   _original_height: 68,
 }
 
-export function LogAnalyticsQueryPack(props: DiagramNodeProps) {
+export function LogAnalyticsQueryPack(props: NodeProps) {
   return (
     <Shape
       {...LOG_ANALYTICS_QUERY_PACK}

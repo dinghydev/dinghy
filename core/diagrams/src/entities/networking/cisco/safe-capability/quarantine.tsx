@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const QUARANTINE = {
   _style: {
@@ -10,7 +10,7 @@ export const QUARANTINE = {
   _original_height: 43,
 }
 
-export function Quarantine(props: DiagramNodeProps) {
+export function Quarantine(props: NodeProps) {
   return (
     <Shape {...QUARANTINE} {...props} _style={extendStyle(QUARANTINE, props)} />
   )

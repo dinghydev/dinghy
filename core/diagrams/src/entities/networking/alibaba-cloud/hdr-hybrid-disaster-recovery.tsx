@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const HDR_HYBRID_DISASTER_RECOVERY = {
   _style: {
@@ -10,7 +10,7 @@ export const HDR_HYBRID_DISASTER_RECOVERY = {
   _original_height: 47.400000000000006,
 }
 
-export function HdrHybridDisasterRecovery(props: DiagramNodeProps) {
+export function HdrHybridDisasterRecovery(props: NodeProps) {
   return (
     <Shape
       {...HDR_HYBRID_DISASTER_RECOVERY}

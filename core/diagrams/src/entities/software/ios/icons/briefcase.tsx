@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const BRIEFCASE = {
   _style: {
@@ -10,7 +10,7 @@ export const BRIEFCASE = {
   _height: 20.099999999999998,
 }
 
-export function Briefcase(props: DiagramNodeProps) {
+export function Briefcase(props: NodeProps) {
   return (
     <Shape {...BRIEFCASE} {...props} _style={extendStyle(BRIEFCASE, props)} />
   )

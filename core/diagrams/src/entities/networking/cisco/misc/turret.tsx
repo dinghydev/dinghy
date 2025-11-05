@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TURRET = {
   _style: {
@@ -10,6 +10,6 @@ export const TURRET = {
   _height: 66,
 }
 
-export function Turret(props: DiagramNodeProps) {
+export function Turret(props: NodeProps) {
   return <Shape {...TURRET} {...props} _style={extendStyle(TURRET, props)} />
 }

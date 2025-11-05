@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PRINT_SERVER_WIRELESS = {
   _style: {
@@ -10,7 +10,7 @@ export const PRINT_SERVER_WIRELESS = {
   _original_height: 80,
 }
 
-export function PrintServerWireless(props: DiagramNodeProps) {
+export function PrintServerWireless(props: NodeProps) {
   return (
     <Shape
       {...PRINT_SERVER_WIRELESS}

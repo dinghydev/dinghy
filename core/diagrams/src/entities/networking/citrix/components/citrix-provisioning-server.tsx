@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CITRIX_PROVISIONING_SERVER = {
   _style: {
@@ -10,7 +10,7 @@ export const CITRIX_PROVISIONING_SERVER = {
   _height: 32.235,
 }
 
-export function CitrixProvisioningServer(props: DiagramNodeProps) {
+export function CitrixProvisioningServer(props: NodeProps) {
   return (
     <Shape
       {...CITRIX_PROVISIONING_SERVER}

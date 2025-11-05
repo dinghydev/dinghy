@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CALLOUT_DOUBLE_ARROW = {
   _style: {
@@ -10,7 +10,7 @@ export const CALLOUT_DOUBLE_ARROW = {
   _height: 97,
 }
 
-export function CalloutDoubleArrow(props: DiagramNodeProps) {
+export function CalloutDoubleArrow(props: NodeProps) {
   return (
     <Shape
       {...CALLOUT_DOUBLE_ARROW}

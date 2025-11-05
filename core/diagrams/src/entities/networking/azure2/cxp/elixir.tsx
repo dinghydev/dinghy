@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ELIXIR = {
   _style: {
@@ -10,6 +10,6 @@ export const ELIXIR = {
   _original_height: 68,
 }
 
-export function Elixir(props: DiagramNodeProps) {
+export function Elixir(props: NodeProps) {
   return <Shape {...ELIXIR} {...props} _style={extendStyle(ELIXIR, props)} />
 }

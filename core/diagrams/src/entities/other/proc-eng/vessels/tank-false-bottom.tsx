@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const TANK_FALSE_BOTTOM = {
   _style: {
@@ -10,7 +10,7 @@ export const TANK_FALSE_BOTTOM = {
   _height: 112,
 }
 
-export function TankFalseBottom(props: DiagramNodeProps) {
+export function TankFalseBottom(props: NodeProps) {
   return (
     <Shape
       {...TANK_FALSE_BOTTOM}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const DYNAMICS_365 = {
   _style: {
@@ -10,7 +10,7 @@ export const DYNAMICS_365 = {
   _original_height: 68,
 }
 
-export function Dynamics365(props: DiagramNodeProps) {
+export function Dynamics365(props: NodeProps) {
   return (
     <Shape
       {...DYNAMICS_365}

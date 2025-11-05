@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const INTERNET_GATEWAY = {
   _style: {
@@ -10,7 +10,7 @@ export const INTERNET_GATEWAY = {
   _original_height: 78,
 }
 
-export function InternetGateway(props: DiagramNodeProps) {
+export function InternetGateway(props: NodeProps) {
   return (
     <Shape
       {...INTERNET_GATEWAY}

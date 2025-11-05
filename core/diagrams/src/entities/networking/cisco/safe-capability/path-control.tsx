@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const PATH_CONTROL = {
   _style: {
@@ -10,7 +10,7 @@ export const PATH_CONTROL = {
   _original_height: 43,
 }
 
-export function PathControl(props: DiagramNodeProps) {
+export function PathControl(props: NodeProps) {
   return (
     <Shape
       {...PATH_CONTROL}

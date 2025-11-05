@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NUMBERED_LIST = {
   _style: {
@@ -10,7 +10,7 @@ export const NUMBERED_LIST = {
   _height: 320,
 }
 
-export function NumberedList(props: DiagramNodeProps) {
+export function NumberedList(props: NodeProps) {
   return (
     <Shape
       {...NUMBERED_LIST}

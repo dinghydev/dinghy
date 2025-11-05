@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const WEB_HOSTING = {
   _style: {
@@ -10,7 +10,7 @@ export const WEB_HOSTING = {
   _original_height: 45.625,
 }
 
-export function WebHosting(props: DiagramNodeProps) {
+export function WebHosting(props: NodeProps) {
   return (
     <Shape
       {...WEB_HOSTING}

@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ESCALATION_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED = {
   _style: {
@@ -9,7 +9,7 @@ export const ESCALATION_EVENT_SUB_PROCESS_NON_INTERRUPTING_COLLAPSED = {
 }
 
 export function EscalationEventSubProcessNonInterruptingCollapsed(
-  props: DiagramNodeProps,
+  props: NodeProps,
 ) {
   return (
     <Shape

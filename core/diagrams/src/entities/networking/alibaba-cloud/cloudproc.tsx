@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const CLOUDPROC = {
   _style: {
@@ -10,7 +10,7 @@ export const CLOUDPROC = {
   _original_height: 41.699999999999996,
 }
 
-export function Cloudproc(props: DiagramNodeProps) {
+export function Cloudproc(props: NodeProps) {
   return (
     <Shape {...CLOUDPROC} {...props} _style={extendStyle(CLOUDPROC, props)} />
   )

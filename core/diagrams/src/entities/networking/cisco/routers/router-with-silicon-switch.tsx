@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ROUTER_WITH_SILICON_SWITCH = {
   _style: {
@@ -10,7 +10,7 @@ export const ROUTER_WITH_SILICON_SWITCH = {
   _height: 48,
 }
 
-export function RouterWithSiliconSwitch(props: DiagramNodeProps) {
+export function RouterWithSiliconSwitch(props: NodeProps) {
   return (
     <Shape
       {...ROUTER_WITH_SILICON_SWITCH}

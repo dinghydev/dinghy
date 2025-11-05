@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const NLS_ASRCUSTOMMODEL = {
   _style: {
@@ -10,7 +10,7 @@ export const NLS_ASRCUSTOMMODEL = {
   _original_height: 54.900000000000006,
 }
 
-export function NlsAsrcustommodel(props: DiagramNodeProps) {
+export function NlsAsrcustommodel(props: NodeProps) {
   return (
     <Shape
       {...NLS_ASRCUSTOMMODEL}

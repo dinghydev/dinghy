@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const ONLINE_BACKUP = {
   _style: {
@@ -10,7 +10,7 @@ export const ONLINE_BACKUP = {
   _height: 101,
 }
 
-export function OnlineBackup(props: DiagramNodeProps) {
+export function OnlineBackup(props: NodeProps) {
   return (
     <Shape
       {...ONLINE_BACKUP}

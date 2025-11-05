@@ -1,5 +1,5 @@
 import { extendStyle, Shape } from '@dinghy/base-components'
-import type { DiagramNodeProps } from '@dinghy/base-components'
+import type { NodeProps } from '@dinghy/base-components'
 
 export const GRAY_CHATEAU = {
   _style: {
@@ -9,7 +9,7 @@ export const GRAY_CHATEAU = {
   _original_height: 50,
 }
 
-export function GrayChateau(props: DiagramNodeProps) {
+export function GrayChateau(props: NodeProps) {
   return (
     <Shape
       {...GRAY_CHATEAU}
