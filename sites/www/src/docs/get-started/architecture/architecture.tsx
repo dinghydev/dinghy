@@ -9,7 +9,7 @@ export default function App() {
           <Module>diagrams</Module>
           <Module>tf-aws</Module>
         </StandardComponents>
-        <Base>
+        <Base _distributed>
           <Module _dependsBy={["StandardComponents", "base-renderer"]}>
             base-components
           </Module>
@@ -21,7 +21,7 @@ export default function App() {
           <Module>renderer-tf</Module>
         </Renderers>
       </CoreModules>
-      <Projects _distribution="even">
+      <Projects _distributed>
         <Project _dependsBy="cli" _dependsOn="StandardComponents">
           project / examples
         </Project>

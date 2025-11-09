@@ -60,10 +60,14 @@ const renderDenoDoc = async (input: string, output: string) => {
   const shapes = {} as any
   schemas.map((schema) => {
     const definition = definitions[schema] as any
-    shapes[Object.keys(definition.shape || {}).join(',')] = schema
+    shapes[Object.keys(definition.shape || definition.enum || {}).join(',')] =
+      schema
   })
 
   const resolveObjectType = (obj: any): string => {
+    if (obj.anyOf) {
+      obj = obj.anyOf[0]
+    }
     if (obj.typeText) {
       return obj.typeText
     }
@@ -71,6 +75,12 @@ const renderDenoDoc = async (input: string, output: string) => {
       return `[ ${resolveObjectType(obj.items)} ]`
     } else if (obj.properties) {
       const key = Object.keys(obj.properties).join(',')
+      const refSchema = shapes[key]
+      if (refSchema) {
+        return `[${refSchema}](#${refSchema.toLowerCase()})`
+      }
+    } else if (obj.enum) {
+      const key = obj.enum.join(',')
       const refSchema = shapes[key]
       if (refSchema) {
         return `[${refSchema}](#${refSchema.toLowerCase()})`
@@ -89,11 +99,29 @@ const renderDenoDoc = async (input: string, output: string) => {
     const attributes = [] as string[]
 
     const definition = definitions[schema] as z.ZodSchema
-    const { properties, required, hideRequired, hideDefault } = z
+    const {
+      properties,
+      required,
+      hideRequired,
+      hideDefault,
+      enum: enumValues,
+    } = z
       .toJSONSchema(definition, { unrepresentable: 'any' })
+    if (definition.description) {
+      attributes.push(`${definition.description}.`)
+    }
+    if (enumValues) {
+      attributes.push('\n**ENUM VALUES**')
+      const enumDescription = definition.meta()?.enumDescription || {}
+      enumValues.forEach((v: any) => {
+        attributes.push(`- \`${v}\` ${enumDescription[v] || ''}`)
+      })
+      return attributes.join('\n')
+    }
     if (!properties) {
       return
     }
+
     attributes.push(`<table>
 <thead>
 <tr>
@@ -121,13 +149,15 @@ ${JSON.stringify(prop.default, null, 2)}
             : `\`${prop.default}\``
           : ''
       }
+      const propDescription = prop.description ||
+        (prop.anyOf ? (prop.anyOf[0].description || '') : '')
       attributes.push(`<tr>
 <td>\`${name}\`</td>
 <td>
 ${typeValue}
 </td>
 <td style={{"min-width":"200px"}}>
-${prop.description || ''}
+${propDescription}
 </td>
 ${
         hideRequired
@@ -181,16 +211,23 @@ ${defaultValue}
   console.log(`Generated ${outputFile}`)
 }
 
+await renderDenoDoc(
+  'core/base-components/src/types/diagrams.ts',
+  'sites/www/src/docs/references/attributes/diagrams/README.mdx',
+)
+
 const jsDocs = {
   'core/diagrams/src/composites/sequence-diagram/types.tsx':
     'sites/www/src/docs/references/diagrams/composites/sequence-diagram/README.mdx',
   'core/base-components/src/types/base.ts':
-    'sites/www/src/docs/references/diagrams/attributes/base/README.mdx',
+    'sites/www/src/docs/references/attributes/base/README.mdx',
   'core/base-components/src/types/diagrams.ts':
-    'sites/www/src/docs/references/diagrams/attributes/diagrams/README.mdx',
+    'sites/www/src/docs/references/attributes/diagrams/README.mdx',
+  'core/base-components/src/types/iac.ts':
+    'sites/www/src/docs/references/attributes/iac/README.mdx',
 }
-Object.entries(jsDocs).forEach(([input, output]) => {
-  renderDenoDoc(input, output)
+Object.entries(jsDocs).forEach(async ([input, output]) => {
+  await renderDenoDoc(input, output)
 })
 
 renderCommand({

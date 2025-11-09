@@ -210,7 +210,7 @@
             />
           </mxCell>
         <mxCell
-          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;textDirection=vertical-rl;dashed=1;" 
+          style="rounded=1;whiteSpace=wrap;verticalAlign=middle;align=center;dashed=1;textDirection=vertical-rl;" 
           id="activation_3" 
           parent="rows_2" 
           value=" " 

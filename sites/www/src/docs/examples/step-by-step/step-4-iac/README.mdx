@@ -2,18 +2,17 @@
 description: Use IaC component to generate terraform code
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock'; import AppTsx from
-'!!raw-loader!./app.tsx'; import AppTfJson from
-'!!raw-loader!./output/app/app.tf.json';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import AppTsx from "!!raw-loader!./app.tsx";
+import AppTfJson from "!!raw-loader!./output/app/app.tf.json";
 
 # Step 4: Infrastructure as Code
 
 This example use IaC backed component from `@dinghy/tf-aws`
 to not only generate same diagramm as
-[Step 3: draw.io](../step-3-draw-io/README.mdx), but also
-[terraform code](#terraform-code).
+[Step 3: draw.io](../step-3-draw-io/README.mdx), but also terraform code below:
 
 <Tabs>
   <TabItem value="Source">    
@@ -26,5 +25,6 @@ to not only generate same diagramm as
     The terraform code snippet is for illustration only.
 
     <CodeBlock language="json" title="output/app/app.tf.json">{AppTfJson}</CodeBlock>
+
   </TabItem>
 </Tabs>

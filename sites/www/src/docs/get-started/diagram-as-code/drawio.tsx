@@ -8,7 +8,7 @@ export default function App() {
     return (
         <Shape _title="draw.io example">
             <Client>
-                <Activity _dependsOn="Database" />
+                <Activity _target="Database" />
             </Client>
             <AwsCloud>
                 <Database />

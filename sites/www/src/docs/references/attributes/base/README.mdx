@@ -23,7 +23,7 @@ The base attributes are resolved in following sequence from the table below. All
 <tr>
 <td>`_tags`</td>
 <td>
-[string]
+[ string ]
 </td>
 <td style={{"min-width":"200px"}}>
 Names of the shape's React component. It will be used to construct other attributes if those are not provided explicitly.
@@ -93,7 +93,7 @@ An unique identifier for the component.  `IaC`
 ### Base Attributes Example
 
 import CodeBlock from "@theme/CodeBlock";
-import TagsTsx from "!!raw-loader!./../../../../get-started/diagram-as-code/tags.tsx";
+import TagsTsx from "!!raw-loader!../../../get-started/diagram-as-code/tags.tsx";
 
 Given example below,
 
@@ -113,45 +113,6 @@ The `TagLevel2` component has
 `_title`, `_name`, and `_id` will fallback to their respective `title`, `name`, and `id` attributes if they are not provided explicitly.
 
 The same resolution logic applies reversely as well e.g. `name` will fallback to `_name` if not provided explicitly.
-## FiltersSchema
-
-Special attributes to filter the nodes visibility. Parent value are passed down to children automatically.
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-
-
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>`_view`</td>
-<td>
-string|[string]
-</td>
-<td style={{"min-width":"200px"}}>
-Nodes visibility will be decided by the activated view(s). See [Multiple Views](/examples/diagrams/basic/multiple-views) example for usage.
-</td>
-
-
-</tr>
-<tr>
-<td>`_stage`</td>
-<td>
-string|[string]
-</td>
-<td style={{"min-width":"200px"}}>
-Only selected stage will be rendered.
-</td>
-
-
-</tr>
-</tbody>
-</table>
-
 ## LifecycleSchema
 
 Events been invoked during lifecycle of the node
@@ -167,12 +128,23 @@ Events been invoked during lifecycle of the node
 </thead>
 <tbody>
 <tr>
-<td>`onDataBind`</td>
+<td>`_afterDataBind`</td>
 <td>
 function(node)
 </td>
 <td style={{"min-width":"200px"}}>
 Invoked after all attributes resolved to the node tree
+</td>
+
+
+</tr>
+<tr>
+<td>`_beforeGenerate`</td>
+<td>
+function(node)
+</td>
+<td style={{"min-width":"200px"}}>
+Invoked before the node is generated to target format
 </td>
 
 

@@ -1,92 +1,128 @@
 import z from 'zod'
 import {
-  CallableSchema,
   RecordSchema,
   resolvable,
   ResolvableBooleanSchema,
   ResolvableNumberSchema,
   ResolvableStringSchema,
+  StringOrArraySchema,
 } from './base.ts'
+
+const DisplayValues = {
+  invisible:
+    `The shape itself is invisible but it's children are rendered as normal`,
+  none: `The shape and it's children are not displayed`,
+  inactive: 'Border or edge is rendered as dashed lines',
+  entity:
+    'Force the shape to be treated as an entity, all children will be hidden',
+}
 
 /**
 # Diagrams
 
 Diagram specific attributes
 
-## DisplayStringSchema
+## DisplaySchema
 
  */
-export const DisplayStringSchema = z.enum([
-  'invisible',
-  'none',
-  'inactive',
-  'entity',
-])
-export type DisplayStringType = z.input<typeof DisplayStringSchema>
+export const DisplaySchema = z
+  .enum(Object.keys(DisplayValues))
+  .meta({
+    description:
+      'Control on how shape to be displayed. See [example](/examples/diagrams/basic/display)',
+    enumDescription: DisplayValues,
+  })
+export type DisplayType = z.input<typeof DisplaySchema>
 
-export const ArrowStringSchema = z.enum(['end', 'start', 'both', 'none'])
-export type ArrowStringType = z.input<typeof ArrowStringSchema>
+/**
+## ArrowSchema
+ */
+export const ArrowSchema = z
+  .enum(['end', 'start', 'both', 'none'])
+  .meta({
+    description:
+      'Dependency arrow styles. See [example](/examples/diagrams/basic/arrow)',
+  })
+export type ArrowType = z.input<typeof ArrowSchema>
 
-export const DistributionStringSchema = z.enum([
-  'even',
-  'horizontal',
-  'vertical',
-])
-export type DistributionStringType = z.input<typeof DistributionStringSchema>
-
+/**
+## AlignSchema
+ */
 export const AlignSchema = z.enum(['left', 'center', 'right'])
+  .meta({
+    description:
+      'Horizontal alignment control. See [example](/examples/diagrams/basic/align)',
+  })
 export type AlignType = z.input<typeof AlignSchema>
 
+/**
+## VerticalAlignSchema
+ */
 export const VerticalAlignSchema = z.enum(['top', 'middle', 'bottom'])
+  .meta({
+    description:
+      'Vertical alignment control. See [example](/examples/diagrams/basic/align)',
+  })
 export type VerticalAlignType = z.input<typeof VerticalAlignSchema>
 
+/**
+## DirectionSchema
+ */
+export const DirectionSchema = z.enum(['vertical', 'horizontal'])
+  .meta({
+    description:
+      'Direction of children layout. Default is horizontal for container shapes. See [example](/examples/diagrams/basic/direction)',
+  })
+export type DirectionType = z.input<typeof DirectionSchema>
+
+/**
+## DiagramNodeSchema
+
+Diagram attributes to control the visual.
+
+ */
 export const DiagramNodeSchema = z.object({
-  _diagram: RecordSchema.optional(),
-  _style: z.any().optional(),
-  _color: z.union([
-    ResolvableStringSchema.optional(),
-    z.object({
-      color: z.string().optional(),
-      fill: z.boolean().default(false).optional(),
-    }),
-  ]),
-  _width: ResolvableNumberSchema.optional(),
-  _height: ResolvableNumberSchema.optional(),
-  _x: ResolvableNumberSchema.optional(),
-  _y: ResolvableNumberSchema.optional(),
-  _display: z.union([DisplayStringSchema, resolvable(z.string())]).optional(),
-  _arrow: z.union([ArrowStringSchema, resolvable(z.string())]).optional(),
-  _distribution: z
-    .union([DistributionStringSchema, resolvable(z.string())])
-    .optional(),
+  _color: ResolvableStringSchema.optional().describe(
+    'Set shape strokeColor and fontColor all together. See [example](/examples/diagrams/basic/color)',
+  ),
+  _background: ResolvableStringSchema.optional().describe(
+    'Background fillColor for the shape. See [example](/examples/diagrams/basic/color)',
+  ),
+  _width: ResolvableNumberSchema.optional().describe('Width of the shape'),
+  _height: ResolvableNumberSchema.optional().describe('Height of the shape'),
+  _x: ResolvableNumberSchema.optional().describe(
+    'X position of the shape for absolute layout',
+  ),
+  _y: ResolvableNumberSchema.optional().describe(
+    'Y position of the shape for absolute layout',
+  ),
+  _display: DisplaySchema.optional(),
+  _distributed: ResolvableBooleanSchema.optional().describe(
+    'Children are distributed evenly within a container when there is extra space by default. However dependency layout algorithms may change this behavior. This attribute will prevent shape to be moved by dependency layout algorithms.',
+  ),
   _direction: z
-    .union([z.enum(['vertical', 'horizontal']), resolvable(z.string())])
+    .union([DirectionSchema, resolvable(z.string())])
     .optional(),
   _align: z.union([AlignSchema, resolvable(z.string())]).optional(),
   _verticalAlign: z
     .union([VerticalAlignSchema, resolvable(z.string())])
     .optional(),
-  _image: ResolvableStringSchema.optional(),
-  _mxGraphModel: ResolvableStringSchema.optional(),
-  _beforeGenerate: CallableSchema.optional(),
-  // rest are deprecated
-  _background: ResolvableStringSchema.optional(),
-  _border: ResolvableNumberSchema.optional(),
-  _dashed: ResolvableBooleanSchema.optional(),
-  _shape: z.union([
-    ResolvableStringSchema.optional(),
-    z.object({
-      entity: z.string().optional(),
-      container: z.string().optional(),
-    }),
-  ]),
-  _icon: z.union([
-    ResolvableStringSchema.optional(),
-    z.object({
-      entity: z.string().optional(),
-      container: z.string().optional(),
-    }),
-  ]),
-})
+  _arrow: z.union([ArrowSchema, resolvable(z.string())]).optional(),
+  _image: ResolvableStringSchema.optional().describe(
+    'Image URL or base64 encoded string for the entitiy. See [example](/examples/diagrams/basic/image)',
+  ),
+  _mxGraphModel: ResolvableStringSchema.optional().describe(
+    'To extract the style from mxGraphModel XML string which you can copy from drawio diagram for easy customization. See [example](/examples/diagrams/advanced/mx-graph-model)',
+  ),
+  _view: StringOrArraySchema.optional().describe(
+    `Nodes visibility will be decided by the activated view(s). Parent value are passed down to children automatically. See [example](/examples/diagrams/basic/view)`,
+  ),
+  _style: z.any().optional().describe(
+    'Flexible style attribute to customize the shape as drawio mxCell style attriburte. See [example](/examples/diagrams/basic/style)',
+  ),
+  _diagram: RecordSchema.optional().describe(
+    'Base for all other diagram configuration to be builded upon. Not recommended to use for general purpose, only use it programmatically.',
+  ).meta({ hidden: true }),
+}).meta({ hideRequired: true, hideDefault: true })
 
 export type DiagramNodeType = z.input<typeof DiagramNodeSchema>

@@ -10,5 +10,5 @@ export const ECSClusterSchema = z.object({
 export type ECSClusterProps = z.input<typeof ECSClusterSchema> & NodeProps
 
 export default function AwsECSCluster(props: ECSClusterProps) {
-  return <Shape _dashed={false} {...awsProps(props, ECSClusterSchema)} />
+  return <Shape {...awsProps(props, ECSClusterSchema)} />
 }

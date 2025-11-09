@@ -1,4 +1,4 @@
-import type { DisplayStringType } from '@dinghy/base-components'
+import type { DisplayType } from '@dinghy/base-components'
 import type { DrawioRenderOptions } from '../types.ts'
 
 const DISPLAYS = {
@@ -33,7 +33,7 @@ const DISPLAYS = {
     },
   },
   inactive: {
-    container: {
+    element: {
       style: {
         dashed: 1,
       },
@@ -52,7 +52,7 @@ const DISPLAYS = {
 }
 
 export const _display = (
-  display: DisplayStringType,
+  display: DisplayType,
   options: DrawioRenderOptions,
 ) => {
   if ((options as any).view?.name !== 'all') {

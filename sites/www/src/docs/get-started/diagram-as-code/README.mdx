@@ -45,43 +45,12 @@ othereise it's a container.
 
 ![Simple App](./output/shape.png#drawio)
 
-## Attributes
+## [Attributes](/references/attributes)
 
 You might noticed all attribute so far are all start with `_` (underscore).
 That's right, the attribute name convention is that all dinghy internal attributes are
 prefixed with underscore. None underscore attribute are reserved for
 Infrastructure as Code data model.
-
-For full list of supported diagram attributes, references to:
-1. [Base Attributes](./../../references/diagrams/attributes/base/README.mdx)
-1. [Diagrams Attributes](./../../references/diagrams/attributes/diagrams/README.mdx)
-
-
-#### Function attribute
-
-All attribute could be a function as well. If passed as function, it will be resolved at various stages automatically. The first parameter of function is the React `node` object which you can navigate the React fiber tree.
-
-Given example below, the `TagLevel2` component has `_title` = `Tag Level1` .
-
-<CodeBlock language="tsx" title="title.tsx">
-  {TitleTsx}
-</CodeBlock>
-
-![](./output/title.png#drawio)
-
-#### Text as title
-
-You may also put text inside component which will resolved as `_title` for the component.
-
-Given example above, the last `Shape` component has `_title` = `Title as text` .
-
-### Attributes output
-
-The json output format contains all those core attributes you may inspect.
-
-```sh
-dinghy render --format json
-```
 
 ## Dependency component
 
@@ -102,7 +71,6 @@ The string target will be match following attributes in order:
 </CodeBlock>
 
 ![Simple App](./output/dependency.png#drawio)
-
 
 ## draw.io elements
 

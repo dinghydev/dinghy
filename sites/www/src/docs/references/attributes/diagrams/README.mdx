@@ -1,0 +1,235 @@
+---
+edit_url: https://github.com/dinghydev/dinghy/blob/main/core/base-components/src/types/diagrams.ts
+---
+# Diagrams
+
+Diagram specific attributes
+
+## DisplaySchema
+Control on how shape to be displayed. See [example](/examples/diagrams/basic/display).
+
+**ENUM VALUES**
+- `invisible` The shape itself is invisible but it's children are rendered as normal
+- `none` The shape and it's children are not displayed
+- `inactive` Border or edge is rendered as dashed lines
+- `entity` Force the shape to be treated as an entity, all children will be hidden
+## ArrowSchema
+Dependency arrow styles. See [example](/examples/diagrams/basic/arrow).
+
+**ENUM VALUES**
+- `end` 
+- `start` 
+- `both` 
+- `none` 
+## AlignSchema
+Horizontal alignment control. See [example](/examples/diagrams/basic/align).
+
+**ENUM VALUES**
+- `left` 
+- `center` 
+- `right` 
+## VerticalAlignSchema
+Vertical alignment control. See [example](/examples/diagrams/basic/align).
+
+**ENUM VALUES**
+- `top` 
+- `middle` 
+- `bottom` 
+## DirectionSchema
+Direction of children layout. Default is horizontal for container shapes. See [example](/examples/diagrams/basic/direction).
+
+**ENUM VALUES**
+- `vertical` 
+- `horizontal` 
+## DiagramNodeSchema
+
+Diagram attributes to control the visual.
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`_color`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+Set shape strokeColor and fontColor all together. See [example](/examples/diagrams/basic/color)
+</td>
+
+
+</tr>
+<tr>
+<td>`_background`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+Background fillColor for the shape. See [example](/examples/diagrams/basic/color)
+</td>
+
+
+</tr>
+<tr>
+<td>`_width`</td>
+<td>
+number
+</td>
+<td style={{"min-width":"200px"}}>
+Width of the shape
+</td>
+
+
+</tr>
+<tr>
+<td>`_height`</td>
+<td>
+number
+</td>
+<td style={{"min-width":"200px"}}>
+Height of the shape
+</td>
+
+
+</tr>
+<tr>
+<td>`_x`</td>
+<td>
+number
+</td>
+<td style={{"min-width":"200px"}}>
+X position of the shape for absolute layout
+</td>
+
+
+</tr>
+<tr>
+<td>`_y`</td>
+<td>
+number
+</td>
+<td style={{"min-width":"200px"}}>
+Y position of the shape for absolute layout
+</td>
+
+
+</tr>
+<tr>
+<td>`_display`</td>
+<td>
+[DisplaySchema](#displayschema)
+</td>
+<td style={{"min-width":"200px"}}>
+Control on how shape to be displayed. See [example](/examples/diagrams/basic/display)
+</td>
+
+
+</tr>
+<tr>
+<td>`_distributed`</td>
+<td>
+boolean
+</td>
+<td style={{"min-width":"200px"}}>
+Children are distributed evenly within a container when there is extra space by default. However dependency layout algorithms may change this behavior. This attribute will prevent shape to be moved by dependency layout algorithms.
+</td>
+
+
+</tr>
+<tr>
+<td>`_direction`</td>
+<td>
+[DirectionSchema](#directionschema)
+</td>
+<td style={{"min-width":"200px"}}>
+Direction of children layout. Default is horizontal for container shapes. See [example](/examples/diagrams/basic/direction)
+</td>
+
+
+</tr>
+<tr>
+<td>`_align`</td>
+<td>
+[AlignSchema](#alignschema)
+</td>
+<td style={{"min-width":"200px"}}>
+Horizontal alignment control. See [example](/examples/diagrams/basic/align)
+</td>
+
+
+</tr>
+<tr>
+<td>`_verticalAlign`</td>
+<td>
+[VerticalAlignSchema](#verticalalignschema)
+</td>
+<td style={{"min-width":"200px"}}>
+Vertical alignment control. See [example](/examples/diagrams/basic/align)
+</td>
+
+
+</tr>
+<tr>
+<td>`_arrow`</td>
+<td>
+[ArrowSchema](#arrowschema)
+</td>
+<td style={{"min-width":"200px"}}>
+Dependency arrow styles. See [example](/examples/diagrams/basic/arrow)
+</td>
+
+
+</tr>
+<tr>
+<td>`_image`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+Image URL or base64 encoded string for the entitiy. See [example](/examples/diagrams/basic/image)
+</td>
+
+
+</tr>
+<tr>
+<td>`_mxGraphModel`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+To extract the style from mxGraphModel XML string which you can copy from drawio diagram for easy customization. See [example](/examples/diagrams/advanced/mx-graph-model)
+</td>
+
+
+</tr>
+<tr>
+<td>`_view`</td>
+<td>
+string
+</td>
+<td style={{"min-width":"200px"}}>
+Nodes visibility will be decided by the activated view(s). Parent value are passed down to children automatically. See [example](/examples/diagrams/basic/view)
+</td>
+
+
+</tr>
+<tr>
+<td>`_style`</td>
+<td>
+
+</td>
+<td style={{"min-width":"200px"}}>
+Flexible style attribute to customize the shape as drawio mxCell style attriburte. See [example](/examples/diagrams/basic/style)
+</td>
+
+
+</tr>
+</tbody>
+</table>

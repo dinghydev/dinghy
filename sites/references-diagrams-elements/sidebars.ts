@@ -16,6 +16,11 @@ export default {
                     id: "rewrite-url",
                 },
                 {
+                    type: "doc",
+                    label: "/References/Attributes",
+                    id: "rewrite-url",
+                },
+                {
                     type: "category",
                     label: "/References/Diagrams",
                     collapsible: false,
@@ -24,11 +29,6 @@ export default {
                         id: "rewrite-url",
                     },
                     items: [
-                        {
-                            type: "doc",
-                            label: "/References/Diagrams/Attributes",
-                            id: "rewrite-url",
-                        },
                         {
                             type: "doc",
                             label: "/References/Diagrams/Composites",

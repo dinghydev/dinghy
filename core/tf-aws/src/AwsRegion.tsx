@@ -19,7 +19,7 @@ export function AwsRegion(props: AwsRegionInputProps) {
   const { stack } = useStack()
   const region = (node: any) => node._props.region
   const _title = (node: any) => props._title || `Region: ${node._props.region}`
-  const onDataBind = (node: any) => {
+  const _afterDataBind = (node: any) => {
     if (!props._title) {
       node._props._title = _title(node)
     }
@@ -45,7 +45,7 @@ export function AwsRegion(props: AwsRegionInputProps) {
           },
           _stackResource: true,
           _title,
-          onDataBind,
+          _afterDataBind,
           ...props,
         },
         AwsRegionInputSchema,

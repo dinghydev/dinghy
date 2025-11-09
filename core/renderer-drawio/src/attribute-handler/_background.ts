@@ -1,5 +1,5 @@
 export const _background = (color: string) => ({
-  container: {
+  element: {
     style: {
       fillColor: color,
     },

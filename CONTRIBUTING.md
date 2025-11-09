@@ -1,4 +1,4 @@
 # Contributing
 
-Please refer to [Contribute](https://dinghy.dev/contribute) section on
-dinghy.dev
+Please refer to [Community](https://dinghy.dev/community) section on
+dinghy.dev to get involved.

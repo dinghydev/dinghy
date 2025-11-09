@@ -105,7 +105,7 @@
             />
           </mxCell>
         <mxCell
-          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;fillColor=#F2F6E8;strokeColor=#7AA116;fontColor=#7AA116;" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=#7AA116;fontColor=#7AA116;fillColor=#F2F6E8;" 
           id="publicsubnet" 
           parent="vpc" 
           value="Public Subnet" 
@@ -150,7 +150,7 @@
             />
           </mxCell>
         <mxCell
-          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;fillColor=#E6F6F7;strokeColor=#00A4A6;fontColor=#00A4A6;" 
+          style="verticalAlign=top;aspect=fixed;align=center;spacingLeft=5;spacingRight=5;spacingBottom=5;strokeColor=#00A4A6;fontColor=#00A4A6;fillColor=#E6F6F7;" 
           id="privatesubnet" 
           parent="vpc" 
           value="Private Subnet" 
@@ -398,7 +398,7 @@
           target="postgres" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;"
+          style="dashed=1;edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 
@@ -424,7 +424,7 @@
           target="redis" 
           parent="root" 
           edge="1" 
-          style="edgeStyle=orthogonalEdgeStyle;"
+          style="dashed=1;edgeStyle=orthogonalEdgeStyle;"
           >
           <mxGeometry
             relative="1" 

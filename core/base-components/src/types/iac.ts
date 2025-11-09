@@ -4,9 +4,19 @@ import {
   resolvable,
   ResolvableBooleanSchema,
   ResolvableStringSchema,
+  StringOrArraySchema,
 } from './base.ts'
 
-// Terraform / OpenTofu types
+/**
+# IaC
+
+Infrastructure as Code specific attributes
+
+## IacCategorySchema
+
+Type of category for the IaC node
+
+ */
 export const IacCategorySchema = z.enum([
   'resource',
   'data',
@@ -16,6 +26,9 @@ export const IacCategorySchema = z.enum([
 ])
 
 export const IacNodeSchema = z.object({
+  _stage: StringOrArraySchema.optional().describe(
+    `Only selected stage will be rendered.`,
+  ),
   _importId: ResolvableStringSchema.optional(),
   _inputSchema: z.instanceof(z.ZodType).optional(),
   _outputSchema: z.instanceof(z.ZodType).optional(),

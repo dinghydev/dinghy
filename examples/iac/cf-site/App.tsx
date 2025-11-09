@@ -24,7 +24,7 @@ const GlobalRegion = (props: NodeProps) => (
   <AwsRegion _direction="vertical" region="us-east-1" {...props} />
 );
 
-const Shared = (props: NodeProps) => <Shape _distribution="even" {...props} />;
+const Shared = (props: NodeProps) => <Shape _distributed {...props} />;
 
 const Sites = (props: NodeProps) => (
   <Shape _dependsBy={"Client"} {...props}>

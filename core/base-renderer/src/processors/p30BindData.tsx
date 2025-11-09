@@ -19,8 +19,8 @@ export const p30BindData = (
           Object.assign(_props, bindings[key])
         }
       }
-      if (_props.onDataBind) {
-        _props.onDataBind(_node)
+      if (_props._afterDataBind) {
+        _props._afterDataBind(_node)
       }
     }
 

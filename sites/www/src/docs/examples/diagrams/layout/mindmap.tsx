@@ -49,7 +49,7 @@ const CenterMiddle = (props: any) => (
   <Shape
     _width={400}
     _height={600}
-    _distribution={"even"}
+    _distributed
     _display={"invisible"}
     {...props}
   />

@@ -37,7 +37,9 @@ export const CallableSchema = z.function({
 })
 export type CallableType = z.input<typeof CallableSchema>
 
-export const RecordSchema = z.record(z.string(), z.unknown())
+export const RecordSchema = z.record(z.string(), z.unknown()).meta({
+  typeText: '&lt;string:any&gt;',
+})
 
 export const ResolvableRecordSchema = resolvableValue(
   z.record(z.string(), z.unknown()),
@@ -58,7 +60,7 @@ SCHEMA_ATTIBUTES
 ### Base Attributes Example
 
 import CodeBlock from "@theme/CodeBlock";
-import TagsTsx from "!!raw-loader!./../../../../get-started/diagram-as-code/tags.tsx";
+import TagsTsx from "!!raw-loader!../../../get-started/diagram-as-code/tags.tsx";
 
 Given example below,
 
@@ -109,27 +111,17 @@ export const BaseAttributesSchema = z.object({
 }).meta({ hideRequired: true, hideDefault: true })
 
 /**
-## FiltersSchema
-
-Special attributes to filter the nodes visibility. Parent value are passed down to children automatically.
-*/
-export const FiltersSchema = z.object({
-  _view: StringOrArraySchema.optional().describe(
-    `Nodes visibility will be decided by the activated view(s). See [Multiple Views](/examples/diagrams/basic/multiple-views) example for usage.`,
-  ),
-  _stage: StringOrArraySchema.optional().describe(
-    `Only selected stage will be rendered.`,
-  ),
-}).meta({ hideRequired: true, hideDefault: true })
-
-/**
 ## LifecycleSchema
 
 Events been invoked during lifecycle of the node
 */
 export const LifecycleSchema = z.object({
-  onDataBind: CallableSchema.optional().meta({
+  _afterDataBind: CallableSchema.optional().meta({
     description: 'Invoked after all attributes resolved to the node tree',
+    typeText: 'function(node)',
+  }),
+  _beforeGenerate: CallableSchema.optional().meta({
+    description: 'Invoked before the node is generated to target format',
     typeText: 'function(node)',
   }),
 }).meta({ hideRequired: true, hideDefault: true })
@@ -141,5 +133,4 @@ export const ReactPropsSchema = z.object({
 export type BaseNodeType =
   & z.input<typeof ReactPropsSchema>
   & z.input<typeof BaseAttributesSchema>
-  & z.input<typeof FiltersSchema>
   & z.input<typeof LifecycleSchema>

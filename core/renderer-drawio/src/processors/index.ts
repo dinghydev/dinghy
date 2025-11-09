@@ -22,6 +22,7 @@ import { p68AdjustRelationships } from './p68AdjustRelationships.ts'
 import { p61ConsolidateDependencies } from './p61ConsolidateDependencies.ts'
 import { p80ApplyBeforeGenerate } from './p80ApplyBeforeGenerate.tsx'
 import type { HostContainer } from '@dinghy/base-renderer'
+import { p63CollectDependencyAttributes } from './p63CollectDepdencyAttributes.ts'
 const processors: Processor[] = [
   p10ApplyViewAttributes,
   p15ResolveAttrDiagram,
@@ -33,6 +34,7 @@ const processors: Processor[] = [
   p31ResolveDimension,
   p32ApplyDistribution,
   p61ConsolidateDependencies,
+  p63CollectDependencyAttributes,
   p65AlignDependencies,
   p68AdjustRelationships,
   p80ApplyBeforeGenerate,

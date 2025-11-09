@@ -29,7 +29,7 @@ export default function App() {
               <ECSCluster _dependsOn={["Postgres", "Redis"]}>
                 <ECSService>web</ECSService>
                 <ECSService>job</ECSService>
-                <ECSService _dashed>migration</ECSService>
+                <ECSService _display="inactive">migration</ECSService>
               </ECSCluster>
               <StorageLayer>
                 <Postgres />
@@ -93,7 +93,7 @@ function LoadBalancer(props: NodeProps) {
 function ECSCluster(props: NodeProps) {
   return (
     <Shape
-      _dashed
+      _display="inactive"
       {...props}
       _diagram={{
         dimension: {

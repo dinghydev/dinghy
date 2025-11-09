@@ -79,7 +79,7 @@ export default function App() {
                     _y={110}
                     _height={80}
                     _width={14}
-                    _dashed
+                    _display="inactive"
                 />
                 <Message
                     title="M2"
