@@ -6,6 +6,8 @@ import { IacNodeType } from './iac.ts'
 
 export type ReactNodeTree = {
   children?: ReactNode
+  key?: any
+  ref?: any
   _node?: NodeTree
   _dependsOn?: string | string[]
   _dependsBy?: string | string[]
@@ -14,13 +16,14 @@ export type Renderer = (node: ReactNodeTree) => ReactNode
 
 //TODO: convert to schema instead of enum in base
 export const DependsSchema = z.enum(['_dependsOn', '_dependsBy'])
-export type DependsType = z.input<typeof DependsSchema>
+export type DependsType = z.output<typeof DependsSchema>
 
 export type NodeProps =
   & BaseNodeType
   & IacNodeType
   & DiagramNodeType
   & ReactNodeTree
+  & Record<string, unknown>
 
 export type NodeTree = {
   _parent?: NodeTree

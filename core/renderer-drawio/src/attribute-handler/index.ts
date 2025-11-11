@@ -13,6 +13,7 @@ import { _distributed } from './_distributed.ts'
 import { _image } from './_image.ts'
 import { _mxGraphModel } from './_mxGraphModel.ts'
 import { simpleStyleAttribute } from './simpleStyleAttribute.ts'
+import { space } from './space.ts'
 import { DrawioRenderOptions } from '../types.ts'
 
 const noOp = () => {
@@ -27,6 +28,8 @@ const attributesHandlers: Props = {
   _display,
   _width,
   _height,
+  _margin: space('margin'),
+  _padding: space('padding'),
   _arrow,
   _distributed,
   _image,

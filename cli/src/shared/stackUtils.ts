@@ -6,6 +6,7 @@ import {
   Item,
   Props,
   Stacks,
+  StackSchema,
   StacksSchema,
   StackType,
 } from './types.ts'
@@ -16,11 +17,11 @@ const parseStackFromId = (stackId: string): StackType => {
   const segments = stackId.split('-')
   const split = Math.floor(segments.length / 2)
   const name = segments.slice(0, split).join('-')
-  return {
+  return StackSchema.parse({
     id: stackId,
     name: name || undefined,
     env: stackId === DEFAULT_APP ? undefined : segments.slice(split).join('-'),
-  }
+  })
 }
 
 const populateNamedItems = (

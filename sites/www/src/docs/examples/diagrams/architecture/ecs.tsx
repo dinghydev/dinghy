@@ -76,14 +76,8 @@ function PrivateSubnet(props: NodeProps) {
 function LoadBalancer(props: NodeProps) {
   return (
     <ApplicationLoadBalancer
-      _width={60}
-      _height={60}
-      _diagram={{
-        dimension: {
-          margin: {
-            bottom: 60,
-          },
-        },
+      _margin={{
+        bottom: 120,
       }}
       {...props}
     />
@@ -95,12 +89,8 @@ function ECSCluster(props: NodeProps) {
     <Shape
       _display="inactive"
       {...props}
-      _diagram={{
-        dimension: {
-          margin: {
-            bottom: 60,
-          },
-        },
+      _margin={{
+        bottom: 60,
       }}
     />
   );

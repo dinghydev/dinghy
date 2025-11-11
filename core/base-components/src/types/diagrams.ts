@@ -26,13 +26,13 @@ Diagram specific attributes
 
  */
 export const DisplaySchema = z
-  .enum(Object.keys(DisplayValues))
+  .enum(Object.keys(DisplayValues) as [keyof typeof DisplayValues])
   .meta({
     description:
       'Control on how shape to be displayed. See [example](/examples/diagrams/basic/display)',
     enumDescription: DisplayValues,
   })
-export type DisplayType = z.input<typeof DisplaySchema>
+export type DisplayType = z.output<typeof DisplaySchema>
 
 /**
 ## ArrowSchema
@@ -43,7 +43,7 @@ export const ArrowSchema = z
     description:
       'Dependency arrow styles. See [example](/examples/diagrams/basic/arrow)',
   })
-export type ArrowType = z.input<typeof ArrowSchema>
+export type ArrowType = z.output<typeof ArrowSchema>
 
 /**
 ## AlignSchema
@@ -53,7 +53,7 @@ export const AlignSchema = z.enum(['left', 'center', 'right'])
     description:
       'Horizontal alignment control. See [example](/examples/diagrams/basic/align)',
   })
-export type AlignType = z.input<typeof AlignSchema>
+export type AlignType = z.output<typeof AlignSchema>
 
 /**
 ## VerticalAlignSchema
@@ -63,7 +63,7 @@ export const VerticalAlignSchema = z.enum(['top', 'middle', 'bottom'])
     description:
       'Vertical alignment control. See [example](/examples/diagrams/basic/align)',
   })
-export type VerticalAlignType = z.input<typeof VerticalAlignSchema>
+export type VerticalAlignType = z.output<typeof VerticalAlignSchema>
 
 /**
 ## DirectionSchema
@@ -73,7 +73,18 @@ export const DirectionSchema = z.enum(['vertical', 'horizontal'])
     description:
       'Direction of children layout. Default is horizontal for container shapes. See [example](/examples/diagrams/basic/direction)',
   })
-export type DirectionType = z.input<typeof DirectionSchema>
+export type DirectionType = z.output<typeof DirectionSchema>
+
+/**
+## SpaceSchema
+
+*/
+export const SpaceSchema = z.object({
+  top: z.number().default(15).describe('Top space in pixels'),
+  bottom: z.number().default(15).describe('Bottom space in pixels'),
+  left: z.number().default(15).describe('Left space in pixels'),
+  right: z.number().default(15).describe('Right space in pixels'),
+}).meta({ hideRequired: true, description: 'Margin/padding for the shape' })
 
 /**
 ## DiagramNodeSchema
@@ -96,6 +107,8 @@ export const DiagramNodeSchema = z.object({
   _y: ResolvableNumberSchema.optional().describe(
     'Y position of the shape for absolute layout',
   ),
+  _margin: SpaceSchema.optional(),
+  _padding: SpaceSchema.optional(),
   _display: DisplaySchema.optional(),
   _distributed: ResolvableBooleanSchema.optional().describe(
     'Children are distributed evenly within a container when there is extra space by default. However dependency layout algorithms may change this behavior. This attribute will prevent shape to be moved by dependency layout algorithms.',
@@ -125,4 +138,4 @@ export const DiagramNodeSchema = z.object({
   ).meta({ hidden: true }),
 }).meta({ hideRequired: true, hideDefault: true })
 
-export type DiagramNodeType = z.input<typeof DiagramNodeSchema>
+export type DiagramNodeType = z.output<typeof DiagramNodeSchema>

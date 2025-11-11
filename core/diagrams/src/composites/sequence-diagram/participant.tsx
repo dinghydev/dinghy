@@ -29,26 +29,18 @@ export function Participant(
   return (
     <Rows>
       <Icon
-        _diagram={{
-          dimension: {
-            margin: {
-              left: paddingX / 2,
-              right: paddingX / 2,
-              bottom: hasIcon ? paddingY / 2 : 0,
-            },
-          },
+        _margin={{
+          left: paddingX / 2,
+          right: paddingX / 2,
+          bottom: hasIcon ? paddingY / 2 : 0,
         }}
         {...props}
       />
       <Shape
         _style='line;strokeWidth=1;direction=south;html=1;dashed=1;'
         _height={dashedLineHeight}
-        _diagram={{
-          dimension: {
-            margin: {
-              top: 0,
-            },
-          },
+        _margin={{
+          top: 0,
         }}
         title=' '
       />

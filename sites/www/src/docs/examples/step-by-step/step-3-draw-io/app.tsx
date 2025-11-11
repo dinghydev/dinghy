@@ -6,6 +6,8 @@ import { PostgreSqlInstance } from "@dinghy/diagrams/entitiesAwsDatabase";
 import { ApplicationLoadBalancer } from "@dinghy/diagrams/entitiesAwsNetworkContentDelivery";
 import { Waf } from "@dinghy/diagrams/entitiesAwsSecurityIdentityCompliance";
 
+import type { NodeProps } from '@dinghy/base-components'
+
 export default function App() {
     return (
         <WebApp>
@@ -38,7 +40,7 @@ const PrivateSubnet = (props: any) => (
     <awsGroups.PrivateSubnet _direction="vertical" {...props} />
 );
 
-const LoadBalancer = (props: any) => (
+const LoadBalancer = (props: NodeProps) => (
     <ApplicationLoadBalancer
         _dependsOn={["Firewall", "Application"]}
         {...props}

@@ -40,4 +40,4 @@ export const IacNodeSchema = z.object({
   _category: z.union([IacCategorySchema, resolvable(z.string())]).optional(),
 })
 
-export type IacNodeType = z.input<typeof IacNodeSchema>
+export type IacNodeType = z.output<typeof IacNodeSchema>

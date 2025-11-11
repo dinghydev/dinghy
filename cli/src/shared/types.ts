@@ -9,7 +9,7 @@ export const ItemSchema = z.object({
   title: z.string().optional(),
   disabled: z.boolean().optional(),
 })
-export type Item = z.input<typeof ItemSchema>
+export type Item = z.output<typeof ItemSchema>
 
 export const StackSchema = z.object({
   id: z.string(),
@@ -27,11 +27,11 @@ export const StackSchema = z.object({
   mainAutoDeploy: z.boolean().default(false),
 })
 
-export type StackType = z.input<typeof StackSchema>
+export type StackType = z.output<typeof StackSchema>
 
 export const StacksSchema = z.record(z.string(), StackSchema.passthrough())
 
-export type Stacks = z.input<typeof StacksSchema>
+export type Stacks = z.output<typeof StacksSchema>
 
 export const DEFAULT_APP = 'app'
 export const DEFAULT_STAGE = 'main'

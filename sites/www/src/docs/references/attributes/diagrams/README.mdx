@@ -41,6 +41,74 @@ Direction of children layout. Default is horizontal for container shapes. See [e
 **ENUM VALUES**
 - `vertical` 
 - `horizontal` 
+## SpaceSchema
+Margin/padding for the shape.
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`top`</td>
+<td>
+number
+</td>
+<td style={{"min-width":"200px"}}>
+Top space in pixels
+</td>
+
+<td>
+`15`
+</td>
+</tr>
+<tr>
+<td>`bottom`</td>
+<td>
+number
+</td>
+<td style={{"min-width":"200px"}}>
+Bottom space in pixels
+</td>
+
+<td>
+`15`
+</td>
+</tr>
+<tr>
+<td>`left`</td>
+<td>
+number
+</td>
+<td style={{"min-width":"200px"}}>
+Left space in pixels
+</td>
+
+<td>
+`15`
+</td>
+</tr>
+<tr>
+<td>`right`</td>
+<td>
+number
+</td>
+<td style={{"min-width":"200px"}}>
+Right space in pixels
+</td>
+
+<td>
+`15`
+</td>
+</tr>
+</tbody>
+</table>
+
 ## DiagramNodeSchema
 
 Diagram attributes to control the visual.
@@ -117,6 +185,28 @@ number
 </td>
 <td style={{"min-width":"200px"}}>
 Y position of the shape for absolute layout
+</td>
+
+
+</tr>
+<tr>
+<td>`_margin`</td>
+<td>
+[SpaceSchema](#spaceschema)
+</td>
+<td style={{"min-width":"200px"}}>
+Margin/padding for the shape
+</td>
+
+
+</tr>
+<tr>
+<td>`_padding`</td>
+<td>
+[SpaceSchema](#spaceschema)
+</td>
+<td style={{"min-width":"200px"}}>
+Margin/padding for the shape
 </td>
 
 

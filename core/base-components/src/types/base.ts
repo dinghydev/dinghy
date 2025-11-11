@@ -1,5 +1,11 @@
 import z, { type ZodType } from 'zod'
 
+export const CallableSchema = z.function({
+  input: z.tuple([]).rest(z.any()),
+  output: z.any(),
+})
+export type CallableType = z.output<typeof CallableSchema>
+
 export const resolvable = <T extends ZodType>(_schema: T): ZodType<T> =>
   z.function({
     input: [z.any()],
@@ -9,11 +15,8 @@ export const resolvable = <T extends ZodType>(_schema: T): ZodType<T> =>
 export const resolvableValue = <T extends z.ZodType>(schema: T) =>
   z.union([
     schema,
-    resolvable(schema),
-    z.function({
-      input: [z.any()],
-      output: z.any(),
-    }),
+    // resolvable(schema),
+    CallableSchema,
   ])
 export const StringSchema = z.string()
 export const ResolvableStringSchema = resolvableValue(z.string()).meta({
@@ -29,13 +32,15 @@ export const StringOrArraySchema = z.union([z.string(), z.string().array()])
 
 export const ResolvableNumberSchema = resolvableValue(z.number())
 
-export const ResolvableBooleanSchema = resolvableValue(z.boolean())
+// export const ResolvableNumberSchema = z.union([
+//     z.number(),
+//     z.function({/''
+//       input: [z.any()],
+//       output: z.any(),
+//     }),
+//   ])
 
-export const CallableSchema = z.function({
-  input: [z.any()],
-  output: z.any(),
-})
-export type CallableType = z.input<typeof CallableSchema>
+export const ResolvableBooleanSchema = resolvableValue(z.boolean())
 
 export const RecordSchema = z.record(z.string(), z.unknown()).meta({
   typeText: '&lt;string:any&gt;',
@@ -126,11 +131,6 @@ export const LifecycleSchema = z.object({
   }),
 }).meta({ hideRequired: true, hideDefault: true })
 
-export const ReactPropsSchema = z.object({
-  key: z.any().optional(),
-  ref: z.any().optional(),
-})
 export type BaseNodeType =
-  & z.input<typeof ReactPropsSchema>
-  & z.input<typeof BaseAttributesSchema>
-  & z.input<typeof LifecycleSchema>
+  & z.output<typeof BaseAttributesSchema>
+  & z.output<typeof LifecycleSchema>
