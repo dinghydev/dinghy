@@ -3,7 +3,7 @@
     "required_providers": {
       "aws": {
         "source": "aws",
-        "version": "5.94.1"
+        "version": "6.20.0"
       }
     }
   },

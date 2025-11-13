@@ -1,4 +1,4 @@
 {
-  "terraform": "1.11.3-1",
-  "awsProvider": "5.94.1"
+  "terraform": "1.13.5-1",
+  "awsProvider": "6.20.0"
 }
