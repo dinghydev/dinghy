@@ -99,13 +99,17 @@ export const DiagramNodeSchema = z.object({
   _background: ResolvableStringSchema.optional().describe(
     'Background fillColor for the shape. See [example](/examples/diagrams/basic/color)',
   ),
-  _width: ResolvableNumberSchema.optional().describe('Width of the shape'),
-  _height: ResolvableNumberSchema.optional().describe('Height of the shape'),
+  _width: ResolvableNumberSchema.optional().describe(
+    'Width of the shape. See [example](/examples/diagrams/basic/legend)',
+  ),
+  _height: ResolvableNumberSchema.optional().describe(
+    'Height of the shape. See [example](/examples/diagrams/basic/legend)',
+  ),
   _x: ResolvableNumberSchema.optional().describe(
-    'X position of the shape for absolute layout',
+    'X position of the shape for absolute layout. See [example](/examples/diagrams/basic/legend)',
   ),
   _y: ResolvableNumberSchema.optional().describe(
-    'Y position of the shape for absolute layout',
+    'Y position of the shape for absolute layout. See [example](/examples/diagrams/basic/legend)',
   ),
   _margin: SpaceSchema.optional(),
   _padding: SpaceSchema.optional(),

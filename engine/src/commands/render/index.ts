@@ -9,6 +9,7 @@ import chalk from 'chalk'
 import { renderOptions, requireStacksConfig } from '@dinghy/cli'
 import { execa } from 'execa'
 import Debug from 'debug'
+import { existsSync } from 'node:fs'
 const debug = Debug('render')
 
 const WATCH_FILE_TYPES = ['ts', 'tsx', 'yaml']
@@ -19,12 +20,15 @@ const renderAndWatch = async (context: CommandContext, _args: CommandArgs) => {
       const noneWatchArgs = context.originalArgs.filter((arg) =>
         arg !== '--watch'
       )
+      const engineDir = '/dinghy/engine'
+      const cwd = existsSync(engineDir) ? engineDir : Deno.cwd()
       await execa('deno', [
         'run',
         '-A',
         'src/index.ts',
         ...noneWatchArgs,
       ], {
+        cwd,
         stdio: 'inherit',
         shell: true,
       })
